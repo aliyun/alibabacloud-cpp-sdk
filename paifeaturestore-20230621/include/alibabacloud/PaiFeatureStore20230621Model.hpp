@@ -148,6 +148,9 @@
 #include <alibabacloud/models/UpdateDatasourceRequest.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateDatasourceResponse.hpp>
+#include <alibabacloud/models/UpdateFeatureViewRequest.hpp>
+#include <alibabacloud/models/UpdateFeatureViewResponseBody.hpp>
+#include <alibabacloud/models/UpdateFeatureViewResponse.hpp>
 #include <alibabacloud/models/UpdateLLMConfigRequest.hpp>
 #include <alibabacloud/models/UpdateLLMConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateLLMConfigResponse.hpp>

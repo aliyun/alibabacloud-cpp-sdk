@@ -55,7 +55,7 @@ namespace PaiFeatureStore20230621
       Models::CheckModelFeatureFGFeatureResponse checkModelFeatureFGFeature(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary 创建数据源。
+       * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
        *
        * @param request CreateDatasourceRequest
        * @param headers map
@@ -65,7 +65,7 @@ namespace PaiFeatureStore20230621
       Models::CreateDatasourceResponse createDatasourceWithOptions(const string &InstanceId, const Models::CreateDatasourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建数据源。
+       * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
        *
        * @param request CreateDatasourceRequest
        * @return CreateDatasourceResponse
@@ -181,7 +181,7 @@ namespace PaiFeatureStore20230621
       Models::CreateModelFeatureResponse createModelFeature(const string &InstanceId, const Models::CreateModelFeatureRequest &request);
 
       /**
-       * @summary 创建FeatureStore项目
+       * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
        *
        * @param request CreateProjectRequest
        * @param headers map
@@ -191,7 +191,7 @@ namespace PaiFeatureStore20230621
       Models::CreateProjectResponse createProjectWithOptions(const string &InstanceId, const Models::CreateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建FeatureStore项目
+       * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -217,7 +217,7 @@ namespace PaiFeatureStore20230621
       Models::CreateServiceIdentityRoleResponse createServiceIdentityRole(const Models::CreateServiceIdentityRoleRequest &request);
 
       /**
-       * @summary 删除指定数据源。
+       * @summary Delete a datasource from a FeatureStore Instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -226,7 +226,7 @@ namespace PaiFeatureStore20230621
       Models::DeleteDatasourceResponse deleteDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定数据源。
+       * @summary Delete a datasource from a FeatureStore Instance.
        *
        * @return DeleteDatasourceResponse
        */
@@ -347,7 +347,7 @@ namespace PaiFeatureStore20230621
       Models::ExportModelFeatureTrainingSetTableResponse exportModelFeatureTrainingSetTable(const string &InstanceId, const string &ModelFeatureId, const Models::ExportModelFeatureTrainingSetTableRequest &request);
 
       /**
-       * @summary 获取数据源详细信息。
+       * @summary Get the details of a datasource, including its type, connection info, and Config.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -356,7 +356,7 @@ namespace PaiFeatureStore20230621
       Models::GetDatasourceResponse getDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源详细信息。
+       * @summary Get the details of a datasource, including its type, connection info, and Config.
        *
        * @return GetDatasourceResponse
        */
@@ -607,7 +607,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourceTablesResponse listDatasourceTables(const string &InstanceId, const string &DatasourceId, const Models::ListDatasourceTablesRequest &request);
 
       /**
-       * @summary 获取数据源列表。
+       * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
        *
        * @param request ListDatasourcesRequest
        * @param headers map
@@ -617,7 +617,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourcesResponse listDatasourcesWithOptions(const string &InstanceId, const Models::ListDatasourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源列表。
+       * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
        *
        * @param request ListDatasourcesRequest
        * @return ListDatasourcesResponse
@@ -923,7 +923,7 @@ namespace PaiFeatureStore20230621
       Models::StopTaskResponse stopTask(const string &InstanceId, const string &TaskId);
 
       /**
-       * @summary 更新数据源信息。
+       * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
        *
        * @param request UpdateDatasourceRequest
        * @param headers map
@@ -933,12 +933,30 @@ namespace PaiFeatureStore20230621
       Models::UpdateDatasourceResponse updateDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const Models::UpdateDatasourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新数据源信息。
+       * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
        *
        * @param request UpdateDatasourceRequest
        * @return UpdateDatasourceResponse
        */
       Models::UpdateDatasourceResponse updateDatasource(const string &InstanceId, const string &DatasourceId, const Models::UpdateDatasourceRequest &request);
+
+      /**
+       * @summary 更新特征视图。
+       *
+       * @param request UpdateFeatureViewRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFeatureViewResponse
+       */
+      Models::UpdateFeatureViewResponse updateFeatureViewWithOptions(const string &InstanceId, const string &FeatureViewId, const Models::UpdateFeatureViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新特征视图。
+       *
+       * @param request UpdateFeatureViewRequest
+       * @return UpdateFeatureViewResponse
+       */
+      Models::UpdateFeatureViewResponse updateFeatureView(const string &InstanceId, const string &FeatureViewId, const Models::UpdateFeatureViewRequest &request);
 
       /**
        * @summary 更新大模型调用信息配置

@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BaseUrl, baseUrl_);
       DARABONBA_PTR_TO_JSON(BatchSize, batchSize_);
       DARABONBA_PTR_TO_JSON(EmbeddingDimension, embeddingDimension_);
+      DARABONBA_PTR_TO_JSON(EnableFusion, enableFusion_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(LLMConfigId, LLMConfigId_);
       DARABONBA_PTR_TO_JSON(MaxTokens, maxTokens_);
       DARABONBA_PTR_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(ModelType, modelType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Rps, rps_);
@@ -32,11 +34,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BaseUrl, baseUrl_);
       DARABONBA_PTR_FROM_JSON(BatchSize, batchSize_);
       DARABONBA_PTR_FROM_JSON(EmbeddingDimension, embeddingDimension_);
+      DARABONBA_PTR_FROM_JSON(EnableFusion, enableFusion_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(LLMConfigId, LLMConfigId_);
       DARABONBA_PTR_FROM_JSON(MaxTokens, maxTokens_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Rps, rps_);
@@ -54,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->baseUrl_ == nullptr && this->batchSize_ == nullptr && this->embeddingDimension_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->LLMConfigId_ == nullptr && this->maxTokens_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->requestId_ == nullptr
-        && this->rps_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->baseUrl_ == nullptr && this->batchSize_ == nullptr && this->embeddingDimension_ == nullptr && this->enableFusion_ == nullptr && this->gmtCreateTime_ == nullptr
+        && this->gmtModifiedTime_ == nullptr && this->LLMConfigId_ == nullptr && this->maxTokens_ == nullptr && this->model_ == nullptr && this->modelType_ == nullptr
+        && this->name_ == nullptr && this->requestId_ == nullptr && this->rps_ == nullptr && this->workspaceId_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -83,6 +87,13 @@ namespace Models
     void deleteEmbeddingDimension() { this->embeddingDimension_ = nullptr;};
     inline int32_t getEmbeddingDimension() const { DARABONBA_PTR_GET_DEFAULT(embeddingDimension_, 0) };
     inline GetLLMConfigResponseBody& setEmbeddingDimension(int32_t embeddingDimension) { DARABONBA_PTR_SET_VALUE(embeddingDimension_, embeddingDimension) };
+
+
+    // enableFusion Field Functions 
+    bool hasEnableFusion() const { return this->enableFusion_ != nullptr;};
+    void deleteEnableFusion() { this->enableFusion_ = nullptr;};
+    inline bool getEnableFusion() const { DARABONBA_PTR_GET_DEFAULT(enableFusion_, false) };
+    inline GetLLMConfigResponseBody& setEnableFusion(bool enableFusion) { DARABONBA_PTR_SET_VALUE(enableFusion_, enableFusion) };
 
 
     // gmtCreateTime Field Functions 
@@ -120,6 +131,13 @@ namespace Models
     inline GetLLMConfigResponseBody& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
 
 
+    // modelType Field Functions 
+    bool hasModelType() const { return this->modelType_ != nullptr;};
+    void deleteModelType() { this->modelType_ = nullptr;};
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline GetLLMConfigResponseBody& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
+
+
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
@@ -153,11 +171,13 @@ namespace Models
     shared_ptr<string> baseUrl_ {};
     shared_ptr<int32_t> batchSize_ {};
     shared_ptr<int32_t> embeddingDimension_ {};
+    shared_ptr<bool> enableFusion_ {};
     shared_ptr<string> gmtCreateTime_ {};
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<string> LLMConfigId_ {};
     shared_ptr<int32_t> maxTokens_ {};
     shared_ptr<string> model_ {};
+    shared_ptr<string> modelType_ {};
     shared_ptr<string> name_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

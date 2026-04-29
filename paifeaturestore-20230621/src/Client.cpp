@@ -126,7 +126,7 @@ CheckModelFeatureFGFeatureResponse Client::checkModelFeatureFGFeature(const stri
 }
 
 /**
- * @summary 创建数据源。
+ * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
  *
  * @param request CreateDatasourceRequest
  * @param headers map
@@ -175,7 +175,7 @@ CreateDatasourceResponse Client::createDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary 创建数据源。
+ * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
  *
  * @param request CreateDatasourceRequest
  * @return CreateDatasourceResponse
@@ -408,12 +408,20 @@ CreateLLMConfigResponse Client::createLLMConfigWithOptions(const string &Instanc
     body["EmbeddingDimension"] = request.getEmbeddingDimension();
   }
 
+  if (!!request.hasEnableFusion()) {
+    body["EnableFusion"] = request.getEnableFusion();
+  }
+
   if (!!request.hasMaxTokens()) {
     body["MaxTokens"] = request.getMaxTokens();
   }
 
   if (!!request.hasModel()) {
     body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasModelType()) {
+    body["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasName()) {
@@ -581,7 +589,7 @@ CreateModelFeatureResponse Client::createModelFeature(const string &InstanceId, 
 }
 
 /**
- * @summary 创建FeatureStore项目
+ * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -634,7 +642,7 @@ CreateProjectResponse Client::createProjectWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary 创建FeatureStore项目
+ * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -691,7 +699,7 @@ CreateServiceIdentityRoleResponse Client::createServiceIdentityRole(const Create
 }
 
 /**
- * @summary 删除指定数据源。
+ * @summary Delete a datasource from a FeatureStore Instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -716,7 +724,7 @@ DeleteDatasourceResponse Client::deleteDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary 删除指定数据源。
+ * @summary Delete a datasource from a FeatureStore Instance.
  *
  * @return DeleteDatasourceResponse
  */
@@ -1004,7 +1012,7 @@ ExportModelFeatureTrainingSetTableResponse Client::exportModelFeatureTrainingSet
 }
 
 /**
- * @summary 获取数据源详细信息。
+ * @summary Get the details of a datasource, including its type, connection info, and Config.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1029,7 +1037,7 @@ GetDatasourceResponse Client::getDatasourceWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary 获取数据源详细信息。
+ * @summary Get the details of a datasource, including its type, connection info, and Config.
  *
  * @return GetDatasourceResponse
  */
@@ -1650,7 +1658,7 @@ ListDatasourceTablesResponse Client::listDatasourceTables(const string &Instance
 }
 
 /**
- * @summary 获取数据源列表。
+ * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
  *
  * @param request ListDatasourcesRequest
  * @param headers map
@@ -1707,7 +1715,7 @@ ListDatasourcesResponse Client::listDatasourcesWithOptions(const string &Instanc
 }
 
 /**
- * @summary 获取数据源列表。
+ * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
  *
  * @param request ListDatasourcesRequest
  * @return ListDatasourcesResponse
@@ -2762,7 +2770,7 @@ StopTaskResponse Client::stopTask(const string &InstanceId, const string &TaskId
 }
 
 /**
- * @summary 更新数据源信息。
+ * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
  *
  * @param request UpdateDatasourceRequest
  * @param headers map
@@ -2803,7 +2811,7 @@ UpdateDatasourceResponse Client::updateDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary 更新数据源信息。
+ * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
  *
  * @param request UpdateDatasourceRequest
  * @return UpdateDatasourceResponse
@@ -2812,6 +2820,51 @@ UpdateDatasourceResponse Client::updateDatasource(const string &InstanceId, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateDatasourceWithOptions(InstanceId, DatasourceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新特征视图。
+ *
+ * @param request UpdateFeatureViewRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFeatureViewResponse
+ */
+UpdateFeatureViewResponse Client::updateFeatureViewWithOptions(const string &InstanceId, const string &FeatureViewId, const UpdateFeatureViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFields()) {
+    body["Fields"] = request.getFields();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateFeatureView"},
+    {"version" , "2023-06-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(InstanceId) , "/featureviews/" , Darabonba::Encode::Encoder::percentEncode(FeatureViewId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFeatureViewResponse>();
+}
+
+/**
+ * @summary 更新特征视图。
+ *
+ * @param request UpdateFeatureViewRequest
+ * @return UpdateFeatureViewResponse
+ */
+UpdateFeatureViewResponse Client::updateFeatureView(const string &InstanceId, const string &FeatureViewId, const UpdateFeatureViewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateFeatureViewWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
 }
 
 /**
@@ -2841,12 +2894,20 @@ UpdateLLMConfigResponse Client::updateLLMConfigWithOptions(const string &Instanc
     body["EmbeddingDimension"] = request.getEmbeddingDimension();
   }
 
+  if (!!request.hasEnableFusion()) {
+    body["EnableFusion"] = request.getEnableFusion();
+  }
+
   if (!!request.hasMaxTokens()) {
     body["MaxTokens"] = request.getMaxTokens();
   }
 
   if (!!request.hasModel()) {
     body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasModelType()) {
+    body["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasName()) {
