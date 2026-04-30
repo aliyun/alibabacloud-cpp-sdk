@@ -1687,6 +1687,23 @@ namespace DataphinPublic20230630
       Models::GetBizUnitInfoResponse getBizUnitInfo(const Models::GetBizUnitInfoRequest &request);
 
       /**
+       * @summary 查询数据目录资产详情。
+       *
+       * @param tmpReq GetCatalogAssetDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCatalogAssetDetailsResponse
+       */
+      Models::GetCatalogAssetDetailsResponse getCatalogAssetDetailsWithOptions(const Models::GetCatalogAssetDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据目录资产详情。
+       *
+       * @param request GetCatalogAssetDetailsRequest
+       * @return GetCatalogAssetDetailsResponse
+       */
+      Models::GetCatalogAssetDetailsResponse getCatalogAssetDetails(const Models::GetCatalogAssetDetailsRequest &request);
+
+      /**
        * @summary 查询数据源连通性检查任务。
        *
        * @param request GetCheckConnectivityJobsRequest
@@ -3232,6 +3249,23 @@ namespace DataphinPublic20230630
        * @return ListBizUnitsResponse
        */
       Models::ListBizUnitsResponse listBizUnits(const Models::ListBizUnitsRequest &request);
+
+      /**
+       * @summary 查询数据目录资产列表。
+       *
+       * @param tmpReq ListCatalogAssetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCatalogAssetsResponse
+       */
+      Models::ListCatalogAssetsResponse listCatalogAssetsWithOptions(const Models::ListCatalogAssetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据目录资产列表。
+       *
+       * @param request ListCatalogAssetsRequest
+       * @return ListCatalogAssetsResponse
+       */
+      Models::ListCatalogAssetsResponse listCatalogAssets(const Models::ListCatalogAssetsRequest &request);
 
       /**
        * @summary 查询计算源列表。

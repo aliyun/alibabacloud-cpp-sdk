@@ -365,6 +365,10 @@
 #include <alibabacloud/models/GetBizUnitInfoRequest.hpp>
 #include <alibabacloud/models/GetBizUnitInfoResponseBody.hpp>
 #include <alibabacloud/models/GetBizUnitInfoResponse.hpp>
+#include <alibabacloud/models/GetCatalogAssetDetailsRequest.hpp>
+#include <alibabacloud/models/GetCatalogAssetDetailsShrinkRequest.hpp>
+#include <alibabacloud/models/GetCatalogAssetDetailsResponseBody.hpp>
+#include <alibabacloud/models/GetCatalogAssetDetailsResponse.hpp>
 #include <alibabacloud/models/GetCheckConnectivityJobsRequest.hpp>
 #include <alibabacloud/models/GetCheckConnectivityJobsResponseBody.hpp>
 #include <alibabacloud/models/GetCheckConnectivityJobsResponse.hpp>
@@ -662,6 +666,10 @@
 #include <alibabacloud/models/ListBizUnitsRequest.hpp>
 #include <alibabacloud/models/ListBizUnitsResponseBody.hpp>
 #include <alibabacloud/models/ListBizUnitsResponse.hpp>
+#include <alibabacloud/models/ListCatalogAssetsRequest.hpp>
+#include <alibabacloud/models/ListCatalogAssetsShrinkRequest.hpp>
+#include <alibabacloud/models/ListCatalogAssetsResponseBody.hpp>
+#include <alibabacloud/models/ListCatalogAssetsResponse.hpp>
 #include <alibabacloud/models/ListComputeSourcesRequest.hpp>
 #include <alibabacloud/models/ListComputeSourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListComputeSourcesResponseBody.hpp>

@@ -5248,6 +5248,60 @@ GetBizUnitInfoResponse Client::getBizUnitInfo(const GetBizUnitInfoRequest &reque
 }
 
 /**
+ * @summary 查询数据目录资产详情。
+ *
+ * @param tmpReq GetCatalogAssetDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCatalogAssetDetailsResponse
+ */
+GetCatalogAssetDetailsResponse Client::getCatalogAssetDetailsWithOptions(const GetCatalogAssetDetailsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetCatalogAssetDetailsShrinkRequest request = GetCatalogAssetDetailsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasGetCatalogAssetDetailsQuery()) {
+    request.setGetCatalogAssetDetailsQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGetCatalogAssetDetailsQuery(), "GetCatalogAssetDetailsQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGetCatalogAssetDetailsQueryShrink()) {
+    body["GetCatalogAssetDetailsQuery"] = request.getGetCatalogAssetDetailsQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetCatalogAssetDetails"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCatalogAssetDetailsResponse>();
+}
+
+/**
+ * @summary 查询数据目录资产详情。
+ *
+ * @param request GetCatalogAssetDetailsRequest
+ * @return GetCatalogAssetDetailsResponse
+ */
+GetCatalogAssetDetailsResponse Client::getCatalogAssetDetails(const GetCatalogAssetDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCatalogAssetDetailsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询数据源连通性检查任务。
  *
  * @param request GetCheckConnectivityJobsRequest
@@ -9867,6 +9921,60 @@ ListBizUnitsResponse Client::listBizUnitsWithOptions(const ListBizUnitsRequest &
 ListBizUnitsResponse Client::listBizUnits(const ListBizUnitsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listBizUnitsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询数据目录资产列表。
+ *
+ * @param tmpReq ListCatalogAssetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCatalogAssetsResponse
+ */
+ListCatalogAssetsResponse Client::listCatalogAssetsWithOptions(const ListCatalogAssetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCatalogAssetsShrinkRequest request = ListCatalogAssetsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListCatalogAssetsQuery()) {
+    request.setListCatalogAssetsQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListCatalogAssetsQuery(), "ListCatalogAssetsQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasListCatalogAssetsQueryShrink()) {
+    body["ListCatalogAssetsQuery"] = request.getListCatalogAssetsQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListCatalogAssets"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCatalogAssetsResponse>();
+}
+
+/**
+ * @summary 查询数据目录资产列表。
+ *
+ * @param request ListCatalogAssetsRequest
+ * @return ListCatalogAssetsResponse
+ */
+ListCatalogAssetsResponse Client::listCatalogAssets(const ListCatalogAssetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCatalogAssetsWithOptions(request, runtime);
 }
 
 /**
