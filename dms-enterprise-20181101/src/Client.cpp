@@ -9665,6 +9665,56 @@ GetStructSyncOrderDetailResponse Client::getStructSyncOrderDetail(const GetStruc
 }
 
 /**
+ * @summary 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+ *
+ * @description 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+ *
+ * @param request GetTableColumnListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableColumnListResponse
+ */
+GetTableColumnListResponse Client::getTableColumnListWithOptions(const GetTableColumnListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.getDbId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableColumnList"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableColumnListResponse>();
+}
+
+/**
+ * @summary 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+ *
+ * @description 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+ *
+ * @param request GetTableColumnListRequest
+ * @return GetTableColumnListResponse
+ */
+GetTableColumnListResponse Client::getTableColumnList(const GetTableColumnListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableColumnListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the topology of a data table.
  *
  * @param request GetTableDBTopologyRequest
@@ -9800,6 +9850,56 @@ GetTableDesignProjectInfoResponse Client::getTableDesignProjectInfoWithOptions(c
 GetTableDesignProjectInfoResponse Client::getTableDesignProjectInfo(const GetTableDesignProjectInfoRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getTableDesignProjectInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+ *
+ * @description 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+ *
+ * @param request GetTableInstructionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableInstructionsResponse
+ */
+GetTableInstructionsResponse Client::getTableInstructionsWithOptions(const GetTableInstructionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.getDbId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableInstructions"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableInstructionsResponse>();
+}
+
+/**
+ * @summary 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+ *
+ * @description 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+ *
+ * @param request GetTableInstructionsRequest
+ * @return GetTableInstructionsResponse
+ */
+GetTableInstructionsResponse Client::getTableInstructions(const GetTableInstructionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableInstructionsWithOptions(request, runtime);
 }
 
 /**
@@ -16954,6 +17054,72 @@ SearchTableResponse Client::searchTableWithOptions(const SearchTableRequest &req
 SearchTableResponse Client::searchTable(const SearchTableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+ *
+ * @description 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+ *
+ * @param request SearchTableAssetKnowledgeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchTableAssetKnowledgeResponse
+ */
+SearchTableAssetKnowledgeResponse Client::searchTableAssetKnowledgeWithOptions(const SearchTableAssetKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.getDbId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasSearchKey()) {
+    query["SearchKey"] = request.getSearchKey();
+  }
+
+  if (!!request.hasShowType()) {
+    query["ShowType"] = request.getShowType();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchTableAssetKnowledge"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchTableAssetKnowledgeResponse>();
+}
+
+/**
+ * @summary 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+ *
+ * @description 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+ *
+ * @param request SearchTableAssetKnowledgeRequest
+ * @return SearchTableAssetKnowledgeResponse
+ */
+SearchTableAssetKnowledgeResponse Client::searchTableAssetKnowledge(const SearchTableAssetKnowledgeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchTableAssetKnowledgeWithOptions(request, runtime);
 }
 
 /**

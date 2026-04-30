@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AsyncTaskVO.hpp>
 #include <alibabacloud/models/ColumnKnowledgeInfo.hpp>
+#include <alibabacloud/models/ColumnKnowledgeVO.hpp>
 #include <alibabacloud/models/DLCatalog.hpp>
 #include <alibabacloud/models/DLColumn.hpp>
 #include <alibabacloud/models/DLDatabase.hpp>
@@ -32,7 +33,9 @@
 #include <alibabacloud/models/SkillInfoDO.hpp>
 #include <alibabacloud/models/StsApplyVO.hpp>
 #include <alibabacloud/models/StsTokenVO.hpp>
+#include <alibabacloud/models/TableInstructionsVO.hpp>
 #include <alibabacloud/models/TableKnowledgeInfo.hpp>
+#include <alibabacloud/models/TableKnowledgeVO.hpp>
 #include <alibabacloud/models/TeeEvidenceVO.hpp>
 #include <alibabacloud/models/UsersDetailsVO.hpp>
 #include <alibabacloud/models/OpenStructDLTableInput.hpp>
@@ -531,6 +534,9 @@
 #include <alibabacloud/models/GetStructSyncOrderDetailRequest.hpp>
 #include <alibabacloud/models/GetStructSyncOrderDetailResponseBody.hpp>
 #include <alibabacloud/models/GetStructSyncOrderDetailResponse.hpp>
+#include <alibabacloud/models/GetTableColumnListRequest.hpp>
+#include <alibabacloud/models/GetTableColumnListResponseBody.hpp>
+#include <alibabacloud/models/GetTableColumnListResponse.hpp>
 #include <alibabacloud/models/GetTableDBTopologyRequest.hpp>
 #include <alibabacloud/models/GetTableDBTopologyResponseBody.hpp>
 #include <alibabacloud/models/GetTableDBTopologyResponse.hpp>
@@ -540,6 +546,9 @@
 #include <alibabacloud/models/GetTableDesignProjectInfoRequest.hpp>
 #include <alibabacloud/models/GetTableDesignProjectInfoResponseBody.hpp>
 #include <alibabacloud/models/GetTableDesignProjectInfoResponse.hpp>
+#include <alibabacloud/models/GetTableInstructionsRequest.hpp>
+#include <alibabacloud/models/GetTableInstructionsResponseBody.hpp>
+#include <alibabacloud/models/GetTableInstructionsResponse.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoRequest.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoResponseBody.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoResponse.hpp>
@@ -904,6 +913,9 @@
 #include <alibabacloud/models/SearchTableRequest.hpp>
 #include <alibabacloud/models/SearchTableResponseBody.hpp>
 #include <alibabacloud/models/SearchTableResponse.hpp>
+#include <alibabacloud/models/SearchTableAssetKnowledgeRequest.hpp>
+#include <alibabacloud/models/SearchTableAssetKnowledgeResponseBody.hpp>
+#include <alibabacloud/models/SearchTableAssetKnowledgeResponse.hpp>
 #include <alibabacloud/models/SearchTableKnowledgeRequest.hpp>
 #include <alibabacloud/models/SearchTableKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/SearchTableKnowledgeResponse.hpp>

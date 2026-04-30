@@ -3016,6 +3016,27 @@ namespace DmsEnterprise20181101
       Models::GetStructSyncOrderDetailResponse getStructSyncOrderDetail(const Models::GetStructSyncOrderDetailRequest &request);
 
       /**
+       * @summary 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+       *
+       * @description 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+       *
+       * @param request GetTableColumnListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableColumnListResponse
+       */
+      Models::GetTableColumnListResponse getTableColumnListWithOptions(const Models::GetTableColumnListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+       *
+       * @description 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+       *
+       * @param request GetTableColumnListRequest
+       * @return GetTableColumnListResponse
+       */
+      Models::GetTableColumnListResponse getTableColumnList(const Models::GetTableColumnListRequest &request);
+
+      /**
        * @summary Queries the topology of a data table.
        *
        * @param request GetTableDBTopologyRequest
@@ -3065,6 +3086,27 @@ namespace DmsEnterprise20181101
        * @return GetTableDesignProjectInfoResponse
        */
       Models::GetTableDesignProjectInfoResponse getTableDesignProjectInfo(const Models::GetTableDesignProjectInfoRequest &request);
+
+      /**
+       * @summary 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+       *
+       * @description 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+       *
+       * @param request GetTableInstructionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableInstructionsResponse
+       */
+      Models::GetTableInstructionsResponse getTableInstructionsWithOptions(const Models::GetTableInstructionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+       *
+       * @description 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+       *
+       * @param request GetTableInstructionsRequest
+       * @return GetTableInstructionsResponse
+       */
+      Models::GetTableInstructionsResponse getTableInstructions(const Models::GetTableInstructionsRequest &request);
 
       /**
        * @summary Gets metadata knowledge for a specified GUID.
@@ -5219,6 +5261,27 @@ namespace DmsEnterprise20181101
        * @return SearchTableResponse
        */
       Models::SearchTableResponse searchTable(const Models::SearchTableRequest &request);
+
+      /**
+       * @summary 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+       *
+       * @description 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+       *
+       * @param request SearchTableAssetKnowledgeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchTableAssetKnowledgeResponse
+       */
+      Models::SearchTableAssetKnowledgeResponse searchTableAssetKnowledgeWithOptions(const Models::SearchTableAssetKnowledgeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+       *
+       * @description 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+       *
+       * @param request SearchTableAssetKnowledgeRequest
+       * @return SearchTableAssetKnowledgeResponse
+       */
+      Models::SearchTableAssetKnowledgeResponse searchTableAssetKnowledge(const Models::SearchTableAssetKnowledgeRequest &request);
 
       /**
        * @summary 根据用户提供的问题，智能搜索获取表知识
