@@ -2585,6 +2585,59 @@ ModelRouterChatCompletionsResponse Client::modelRouterChatCompletions(const Mode
 }
 
 /**
+ * @summary 客户管理/启用部门余额限流
+ *
+ * @param request ModelRouterConfigureClientBalanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterConfigureClientBalanceResponse
+ */
+ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBalanceWithOptions(const string &id, const ModelRouterConfigureClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBalanceType()) {
+    body["balanceType"] = request.getBalanceType();
+  }
+
+  if (!!request.hasEnableBalance()) {
+    body["enableBalance"] = request.getEnableBalance();
+  }
+
+  if (!!request.hasInitialBalance()) {
+    body["initialBalance"] = request.getInitialBalance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterConfigureClientBalance"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterConfigureClientBalanceResponse>();
+}
+
+/**
+ * @summary 客户管理/启用部门余额限流
+ *
+ * @param request ModelRouterConfigureClientBalanceRequest
+ * @return ModelRouterConfigureClientBalanceResponse
+ */
+ModelRouterConfigureClientBalanceResponse Client::modelRouterConfigureClientBalance(const string &id, const ModelRouterConfigureClientBalanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterConfigureClientBalanceWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary API密钥管理/复制API密钥
  *
  * @param headers map
@@ -2663,6 +2716,59 @@ ModelRouterCreateApiKeyResponse Client::modelRouterCreateApiKey(const ModelRoute
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterCreateApiKeyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 客户管理/创建余额交易
+ *
+ * @param request ModelRouterCreateBalanceTransactionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterCreateBalanceTransactionResponse
+ */
+ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTransactionWithOptions(const string &id, const ModelRouterCreateBalanceTransactionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAmount()) {
+    body["amount"] = request.getAmount();
+  }
+
+  if (!!request.hasRemark()) {
+    body["remark"] = request.getRemark();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterCreateBalanceTransaction"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/transactions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterCreateBalanceTransactionResponse>();
+}
+
+/**
+ * @summary 客户管理/创建余额交易
+ *
+ * @param request ModelRouterCreateBalanceTransactionRequest
+ * @return ModelRouterCreateBalanceTransactionResponse
+ */
+ModelRouterCreateBalanceTransactionResponse Client::modelRouterCreateBalanceTransaction(const string &id, const ModelRouterCreateBalanceTransactionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterCreateBalanceTransactionWithOptions(id, request, headers, runtime);
 }
 
 /**
@@ -3083,6 +3189,106 @@ ModelRouterDeleteModelResponse Client::modelRouterDeleteModel(const string &id) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterDeleteModelWithOptions(id, headers, runtime);
+}
+
+/**
+ * @summary 客户管理/获取部门余额
+ *
+ * @param request ModelRouterGetClientBalanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetClientBalanceResponse
+ */
+ModelRouterGetClientBalanceResponse Client::modelRouterGetClientBalanceWithOptions(const string &id, const ModelRouterGetClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetClientBalance"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetClientBalanceResponse>();
+}
+
+/**
+ * @summary 客户管理/获取部门余额
+ *
+ * @param request ModelRouterGetClientBalanceRequest
+ * @return ModelRouterGetClientBalanceResponse
+ */
+ModelRouterGetClientBalanceResponse Client::modelRouterGetClientBalance(const string &id, const ModelRouterGetClientBalanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetClientBalanceWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 客户管理/获取部门余额变更日志
+ *
+ * @param request ModelRouterGetClientBalanceLogsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterGetClientBalanceLogsResponse
+ */
+ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogsWithOptions(const string &id, const ModelRouterGetClientBalanceLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChangeType()) {
+    query["changeType"] = request.getChangeType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPage()) {
+    query["page"] = request.getPage();
+  }
+
+  if (!!request.hasSize()) {
+    query["size"] = request.getSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModelRouterGetClientBalanceLogs"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/clients/" , Darabonba::Encode::Encoder::percentEncode(id) , "/balance/logs")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterGetClientBalanceLogsResponse>();
+}
+
+/**
+ * @summary 客户管理/获取部门余额变更日志
+ *
+ * @param request ModelRouterGetClientBalanceLogsRequest
+ * @return ModelRouterGetClientBalanceLogsResponse
+ */
+ModelRouterGetClientBalanceLogsResponse Client::modelRouterGetClientBalanceLogs(const string &id, const ModelRouterGetClientBalanceLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterGetClientBalanceLogsWithOptions(id, request, headers, runtime);
 }
 
 /**
@@ -4533,6 +4739,63 @@ ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdown(co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return modelRouterQueryUsageBreakdownWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 流控管理/写入流控配置
+ *
+ * @param request ModelRouterSaveFlowConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModelRouterSaveFlowConfigResponse
+ */
+ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfigWithOptions(const ModelRouterSaveFlowConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelId()) {
+    body["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasRpm()) {
+    body["rpm"] = request.getRpm();
+  }
+
+  if (!!request.hasSmoothFlowEnabled()) {
+    body["smoothFlowEnabled"] = request.getSmoothFlowEnabled();
+  }
+
+  if (!!request.hasTpm()) {
+    body["tpm"] = request.getTpm();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ModelRouterSaveFlowConfig"},
+    {"version" , "20240611"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/modelRouter/open/flow-config")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModelRouterSaveFlowConfigResponse>();
+}
+
+/**
+ * @summary 流控管理/写入流控配置
+ *
+ * @param request ModelRouterSaveFlowConfigRequest
+ * @return ModelRouterSaveFlowConfigResponse
+ */
+ModelRouterSaveFlowConfigResponse Client::modelRouterSaveFlowConfig(const ModelRouterSaveFlowConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return modelRouterSaveFlowConfigWithOptions(request, headers, runtime);
 }
 
 /**

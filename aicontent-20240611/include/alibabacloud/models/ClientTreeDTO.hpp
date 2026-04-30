@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CLIENTTREEDTO_HPP_
 #define ALIBABACLOUD_MODELS_CLIENTTREEDTO_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ClientBalanceDTO.hpp>
 #include <vector>
 #include <alibabacloud/models/ClientTreeDTO.hpp>
 using namespace std;
@@ -17,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ClientTreeDTO& obj) { 
       DARABONBA_PTR_TO_JSON(address, address_);
       DARABONBA_PTR_TO_JSON(allowedModels, allowedModels_);
+      DARABONBA_PTR_TO_JSON(balance, balance_);
       DARABONBA_PTR_TO_JSON(children, children_);
       DARABONBA_PTR_TO_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_TO_JSON(contact, contact_);
@@ -34,6 +36,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ClientTreeDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(address, address_);
       DARABONBA_PTR_FROM_JSON(allowedModels, allowedModels_);
+      DARABONBA_PTR_FROM_JSON(balance, balance_);
       DARABONBA_PTR_FROM_JSON(children, children_);
       DARABONBA_PTR_FROM_JSON(clientUuid, clientUuid_);
       DARABONBA_PTR_FROM_JSON(contact, contact_);
@@ -60,9 +63,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
-        && this->allowedModels_ == nullptr && this->children_ == nullptr && this->clientUuid_ == nullptr && this->contact_ == nullptr && this->deleteTag_ == nullptr
-        && this->discount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr && this->level_ == nullptr
-        && this->main_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr && this->remark_ == nullptr; };
+        && this->allowedModels_ == nullptr && this->balance_ == nullptr && this->children_ == nullptr && this->clientUuid_ == nullptr && this->contact_ == nullptr
+        && this->deleteTag_ == nullptr && this->discount_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->id_ == nullptr
+        && this->level_ == nullptr && this->main_ == nullptr && this->name_ == nullptr && this->parentId_ == nullptr && this->remark_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -75,6 +78,15 @@ namespace Models
     void deleteAllowedModels() { this->allowedModels_ = nullptr;};
     inline string getAllowedModels() const { DARABONBA_PTR_GET_DEFAULT(allowedModels_, "") };
     inline ClientTreeDTO& setAllowedModels(string allowedModels) { DARABONBA_PTR_SET_VALUE(allowedModels_, allowedModels) };
+
+
+    // balance Field Functions 
+    bool hasBalance() const { return this->balance_ != nullptr;};
+    void deleteBalance() { this->balance_ = nullptr;};
+    inline const ClientBalanceDTO & getBalance() const { DARABONBA_PTR_GET_CONST(balance_, ClientBalanceDTO) };
+    inline ClientBalanceDTO getBalance() { DARABONBA_PTR_GET(balance_, ClientBalanceDTO) };
+    inline ClientTreeDTO& setBalance(const ClientBalanceDTO & balance) { DARABONBA_PTR_SET_VALUE(balance_, balance) };
+    inline ClientTreeDTO& setBalance(ClientBalanceDTO && balance) { DARABONBA_PTR_SET_RVALUE(balance_, balance) };
 
 
     // children Field Functions 
@@ -173,6 +185,7 @@ namespace Models
   protected:
     shared_ptr<string> address_ {};
     shared_ptr<string> allowedModels_ {};
+    shared_ptr<ClientBalanceDTO> balance_ {};
     shared_ptr<vector<ClientTreeDTO>> children_ {};
     shared_ptr<string> clientUuid_ {};
     shared_ptr<string> contact_ {};

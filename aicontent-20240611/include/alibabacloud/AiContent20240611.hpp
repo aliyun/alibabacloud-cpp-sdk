@@ -769,6 +769,24 @@ namespace AiContent20240611
       Models::ModelRouterChatCompletionsResponse modelRouterChatCompletions(const Models::ModelRouterChatCompletionsRequest &request);
 
       /**
+       * @summary 客户管理/启用部门余额限流
+       *
+       * @param request ModelRouterConfigureClientBalanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterConfigureClientBalanceResponse
+       */
+      Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalanceWithOptions(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/启用部门余额限流
+       *
+       * @param request ModelRouterConfigureClientBalanceRequest
+       * @return ModelRouterConfigureClientBalanceResponse
+       */
+      Models::ModelRouterConfigureClientBalanceResponse modelRouterConfigureClientBalance(const string &id, const Models::ModelRouterConfigureClientBalanceRequest &request);
+
+      /**
        * @summary API密钥管理/复制API密钥
        *
        * @param headers map
@@ -801,6 +819,24 @@ namespace AiContent20240611
        * @return ModelRouterCreateApiKeyResponse
        */
       Models::ModelRouterCreateApiKeyResponse modelRouterCreateApiKey(const Models::ModelRouterCreateApiKeyRequest &request);
+
+      /**
+       * @summary 客户管理/创建余额交易
+       *
+       * @param request ModelRouterCreateBalanceTransactionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterCreateBalanceTransactionResponse
+       */
+      Models::ModelRouterCreateBalanceTransactionResponse modelRouterCreateBalanceTransactionWithOptions(const string &id, const Models::ModelRouterCreateBalanceTransactionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/创建余额交易
+       *
+       * @param request ModelRouterCreateBalanceTransactionRequest
+       * @return ModelRouterCreateBalanceTransactionResponse
+       */
+      Models::ModelRouterCreateBalanceTransactionResponse modelRouterCreateBalanceTransaction(const string &id, const Models::ModelRouterCreateBalanceTransactionRequest &request);
 
       /**
        * @summary 计费管理/创建计费规则
@@ -937,6 +973,42 @@ namespace AiContent20240611
        * @return ModelRouterDeleteModelResponse
        */
       Models::ModelRouterDeleteModelResponse modelRouterDeleteModel(const string &id);
+
+      /**
+       * @summary 客户管理/获取部门余额
+       *
+       * @param request ModelRouterGetClientBalanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetClientBalanceResponse
+       */
+      Models::ModelRouterGetClientBalanceResponse modelRouterGetClientBalanceWithOptions(const string &id, const Models::ModelRouterGetClientBalanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/获取部门余额
+       *
+       * @param request ModelRouterGetClientBalanceRequest
+       * @return ModelRouterGetClientBalanceResponse
+       */
+      Models::ModelRouterGetClientBalanceResponse modelRouterGetClientBalance(const string &id, const Models::ModelRouterGetClientBalanceRequest &request);
+
+      /**
+       * @summary 客户管理/获取部门余额变更日志
+       *
+       * @param request ModelRouterGetClientBalanceLogsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterGetClientBalanceLogsResponse
+       */
+      Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogsWithOptions(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 客户管理/获取部门余额变更日志
+       *
+       * @param request ModelRouterGetClientBalanceLogsRequest
+       * @return ModelRouterGetClientBalanceLogsResponse
+       */
+      Models::ModelRouterGetClientBalanceLogsResponse modelRouterGetClientBalanceLogs(const string &id, const Models::ModelRouterGetClientBalanceLogsRequest &request);
 
       /**
        * @summary API密钥管理/获取API密钥详情
@@ -1309,6 +1381,24 @@ namespace AiContent20240611
        * @return ModelRouterQueryUsageBreakdownResponse
        */
       Models::ModelRouterQueryUsageBreakdownResponse modelRouterQueryUsageBreakdown(const Models::ModelRouterQueryUsageBreakdownRequest &request);
+
+      /**
+       * @summary 流控管理/写入流控配置
+       *
+       * @param request ModelRouterSaveFlowConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModelRouterSaveFlowConfigResponse
+       */
+      Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfigWithOptions(const Models::ModelRouterSaveFlowConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 流控管理/写入流控配置
+       *
+       * @param request ModelRouterSaveFlowConfigRequest
+       * @return ModelRouterSaveFlowConfigResponse
+       */
+      Models::ModelRouterSaveFlowConfigResponse modelRouterSaveFlowConfig(const Models::ModelRouterSaveFlowConfigRequest &request);
 
       /**
        * @summary 计费管理/更新计费规则
