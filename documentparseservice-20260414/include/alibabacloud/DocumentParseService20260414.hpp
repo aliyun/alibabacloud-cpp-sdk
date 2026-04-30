@@ -36,23 +36,6 @@ namespace DocumentParseService20260414
        * @return DocumentParseOnlineApiResponse
        */
       Models::DocumentParseOnlineApiResponse documentParseOnlineApi(const Models::DocumentParseOnlineApiRequest &request);
-
-      /**
-       * @summary 文档解析测试接口
-       *
-       * @param request DocumentParseTestApiRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DocumentParseTestApiResponse
-       */
-      Models::DocumentParseTestApiResponse documentParseTestApiWithOptions(const Models::DocumentParseTestApiRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 文档解析测试接口
-       *
-       * @param request DocumentParseTestApiRequest
-       * @return DocumentParseTestApiResponse
-       */
-      Models::DocumentParseTestApiResponse documentParseTestApi(const Models::DocumentParseTestApiRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace DocumentParseService20260414

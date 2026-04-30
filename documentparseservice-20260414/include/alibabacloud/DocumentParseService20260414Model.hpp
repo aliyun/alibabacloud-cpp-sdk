@@ -5,8 +5,5 @@
 #include <alibabacloud/models/DocumentParseOnlineApiRequest.hpp>
 #include <alibabacloud/models/DocumentParseOnlineApiResponseBody.hpp>
 #include <alibabacloud/models/DocumentParseOnlineApiResponse.hpp>
-#include <alibabacloud/models/DocumentParseTestApiRequest.hpp>
-#include <alibabacloud/models/DocumentParseTestApiResponseBody.hpp>
-#include <alibabacloud/models/DocumentParseTestApiResponse.hpp>
 
 #endif

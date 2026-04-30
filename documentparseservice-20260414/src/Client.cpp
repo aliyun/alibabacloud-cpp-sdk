@@ -80,51 +80,5 @@ DocumentParseOnlineApiResponse Client::documentParseOnlineApi(const DocumentPars
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return documentParseOnlineApiWithOptions(request, runtime);
 }
-
-/**
- * @summary 文档解析测试接口
- *
- * @param request DocumentParseTestApiRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DocumentParseTestApiResponse
- */
-DocumentParseTestApiResponse Client::documentParseTestApiWithOptions(const DocumentParseTestApiRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json body = {};
-  if (!!request.hasImageUrl()) {
-    body["ImageUrl"] = request.getImageUrl();
-  }
-
-  if (!!request.hasType()) {
-    body["Type"] = request.getType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "DocumentParseTestApi"},
-    {"version" , "2026-04-14"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DocumentParseTestApiResponse>();
-}
-
-/**
- * @summary 文档解析测试接口
- *
- * @param request DocumentParseTestApiRequest
- * @return DocumentParseTestApiResponse
- */
-DocumentParseTestApiResponse Client::documentParseTestApi(const DocumentParseTestApiRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return documentParseTestApiWithOptions(request, runtime);
-}
 } // namespace AlibabaCloud
 } // namespace DocumentParseService20260414
