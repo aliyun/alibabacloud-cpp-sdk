@@ -45,11 +45,15 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const TenantAliasInfo& obj) { 
         DARABONBA_PTR_TO_JSON(AccessType, accessType_);
+        DARABONBA_PTR_TO_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_TO_JSON(TenantAlias, tenantAlias_);
+        DARABONBA_PTR_TO_JSON(VpcAccessAddress, vpcAccessAddress_);
       };
       friend void from_json(const Darabonba::Json& j, TenantAliasInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
+        DARABONBA_PTR_FROM_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_FROM_JSON(TenantAlias, tenantAlias_);
+        DARABONBA_PTR_FROM_JSON(VpcAccessAddress, vpcAccessAddress_);
       };
       TenantAliasInfo() = default ;
       TenantAliasInfo(const TenantAliasInfo &) = default ;
@@ -63,12 +67,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->tenantAlias_ == nullptr; };
+        && this->preferVpcAccess_ == nullptr && this->tenantAlias_ == nullptr && this->vpcAccessAddress_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
       inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
       inline TenantAliasInfo& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
+      // preferVpcAccess Field Functions 
+      bool hasPreferVpcAccess() const { return this->preferVpcAccess_ != nullptr;};
+      void deletePreferVpcAccess() { this->preferVpcAccess_ = nullptr;};
+      inline bool getPreferVpcAccess() const { DARABONBA_PTR_GET_DEFAULT(preferVpcAccess_, false) };
+      inline TenantAliasInfo& setPreferVpcAccess(bool preferVpcAccess) { DARABONBA_PTR_SET_VALUE(preferVpcAccess_, preferVpcAccess) };
 
 
       // tenantAlias Field Functions 
@@ -78,9 +89,18 @@ namespace Models
       inline TenantAliasInfo& setTenantAlias(string tenantAlias) { DARABONBA_PTR_SET_VALUE(tenantAlias_, tenantAlias) };
 
 
+      // vpcAccessAddress Field Functions 
+      bool hasVpcAccessAddress() const { return this->vpcAccessAddress_ != nullptr;};
+      void deleteVpcAccessAddress() { this->vpcAccessAddress_ = nullptr;};
+      inline string getVpcAccessAddress() const { DARABONBA_PTR_GET_DEFAULT(vpcAccessAddress_, "") };
+      inline TenantAliasInfo& setVpcAccessAddress(string vpcAccessAddress) { DARABONBA_PTR_SET_VALUE(vpcAccessAddress_, vpcAccessAddress) };
+
+
     protected:
       shared_ptr<string> accessType_ {};
+      shared_ptr<bool> preferVpcAccess_ {};
       shared_ptr<string> tenantAlias_ {};
+      shared_ptr<string> vpcAccessAddress_ {};
     };
 
     class OfficeSiteInfo : public Darabonba::Model {
@@ -88,16 +108,20 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const OfficeSiteInfo& obj) { 
         DARABONBA_PTR_TO_JSON(AccessType, accessType_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_TO_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_TO_JSON(ProviderId, providerId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(SsoServiceUrl, ssoServiceUrl_);
+        DARABONBA_PTR_TO_JSON(VpcAccessAddress, vpcAccessAddress_);
       };
       friend void from_json(const Darabonba::Json& j, OfficeSiteInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+        DARABONBA_PTR_FROM_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_FROM_JSON(ProviderId, providerId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(SsoServiceUrl, ssoServiceUrl_);
+        DARABONBA_PTR_FROM_JSON(VpcAccessAddress, vpcAccessAddress_);
       };
       OfficeSiteInfo() = default ;
       OfficeSiteInfo(const OfficeSiteInfo &) = default ;
@@ -111,7 +135,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->officeSiteId_ == nullptr && this->providerId_ == nullptr && this->regionId_ == nullptr && this->ssoServiceUrl_ == nullptr; };
+        && this->officeSiteId_ == nullptr && this->preferVpcAccess_ == nullptr && this->providerId_ == nullptr && this->regionId_ == nullptr && this->ssoServiceUrl_ == nullptr
+        && this->vpcAccessAddress_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
@@ -124,6 +149,13 @@ namespace Models
       void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
       inline string getOfficeSiteId() const { DARABONBA_PTR_GET_DEFAULT(officeSiteId_, "") };
       inline OfficeSiteInfo& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
+
+
+      // preferVpcAccess Field Functions 
+      bool hasPreferVpcAccess() const { return this->preferVpcAccess_ != nullptr;};
+      void deletePreferVpcAccess() { this->preferVpcAccess_ = nullptr;};
+      inline bool getPreferVpcAccess() const { DARABONBA_PTR_GET_DEFAULT(preferVpcAccess_, false) };
+      inline OfficeSiteInfo& setPreferVpcAccess(bool preferVpcAccess) { DARABONBA_PTR_SET_VALUE(preferVpcAccess_, preferVpcAccess) };
 
 
       // providerId Field Functions 
@@ -147,12 +179,21 @@ namespace Models
       inline OfficeSiteInfo& setSsoServiceUrl(string ssoServiceUrl) { DARABONBA_PTR_SET_VALUE(ssoServiceUrl_, ssoServiceUrl) };
 
 
+      // vpcAccessAddress Field Functions 
+      bool hasVpcAccessAddress() const { return this->vpcAccessAddress_ != nullptr;};
+      void deleteVpcAccessAddress() { this->vpcAccessAddress_ = nullptr;};
+      inline string getVpcAccessAddress() const { DARABONBA_PTR_GET_DEFAULT(vpcAccessAddress_, "") };
+      inline OfficeSiteInfo& setVpcAccessAddress(string vpcAccessAddress) { DARABONBA_PTR_SET_VALUE(vpcAccessAddress_, vpcAccessAddress) };
+
+
     protected:
       shared_ptr<string> accessType_ {};
       shared_ptr<string> officeSiteId_ {};
+      shared_ptr<bool> preferVpcAccess_ {};
       shared_ptr<string> providerId_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<string> ssoServiceUrl_ {};
+      shared_ptr<string> vpcAccessAddress_ {};
     };
 
     class IdpInfos : public Darabonba::Model {
