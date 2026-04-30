@@ -81,6 +81,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DomainResolveRuleType, domainResolveRuleType_);
         DARABONBA_PTR_TO_JSON(EdsCount, edsCount_);
         DARABONBA_PTR_TO_JSON(EndUserApplyAdminCoordinate, endUserApplyAdminCoordinate_);
+        DARABONBA_PTR_TO_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_TO_JSON(EndUserGroupCoordinate, endUserGroupCoordinate_);
         DARABONBA_PTR_TO_JSON(ExternalDrive, externalDrive_);
         DARABONBA_PTR_TO_JSON(FileMigrate, fileMigrate_);
@@ -117,6 +118,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
+        DARABONBA_PTR_TO_JSON(NetworkPrinter, networkPrinter_);
+        DARABONBA_PTR_TO_JSON(OrganizationCount, organizationCount_);
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_TO_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_TO_JSON(PolicyStatus, policyStatus_);
@@ -223,6 +226,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DomainResolveRuleType, domainResolveRuleType_);
         DARABONBA_PTR_FROM_JSON(EdsCount, edsCount_);
         DARABONBA_PTR_FROM_JSON(EndUserApplyAdminCoordinate, endUserApplyAdminCoordinate_);
+        DARABONBA_PTR_FROM_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_FROM_JSON(EndUserGroupCoordinate, endUserGroupCoordinate_);
         DARABONBA_PTR_FROM_JSON(ExternalDrive, externalDrive_);
         DARABONBA_PTR_FROM_JSON(FileMigrate, fileMigrate_);
@@ -259,6 +263,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
+        DARABONBA_PTR_FROM_JSON(NetworkPrinter, networkPrinter_);
+        DARABONBA_PTR_FROM_JSON(OrganizationCount, organizationCount_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_FROM_JSON(PolicyStatus, policyStatus_);
@@ -1016,27 +1022,28 @@ namespace Models
         && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->description_ == nullptr
         && this->desktopCount_ == nullptr && this->desktopGroupCount_ == nullptr && this->deviceConnectHint_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr
         && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainList_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
-        && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileMigrate_ == nullptr
-        && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr
-        && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr
-        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr && this->localDrive_ == nullptr
-        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
-        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
-        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
-        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
-        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr
-        && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr
-        && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
-        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
-        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr
-        && this->safeMenu_ == nullptr && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr
-        && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
-        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
-        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
-        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
-        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr
-        && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->edsCount_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserCount_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr
+        && this->fileMigrate_ == nullptr && this->fileTransfer_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr
+        && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr
+        && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr
+        && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr
+        && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr
+        && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr
+        && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->networkPrinter_ == nullptr
+        && this->organizationCount_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr && this->portProxy_ == nullptr
+        && this->preemptLogin_ == nullptr && this->preemptLoginUsers_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr
+        && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFileExts_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventLevels_ == nullptr
+        && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr
+        && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr
+        && this->remoteCoordinate_ == nullptr && this->resetDesktop_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr
+        && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->resourceRegionId_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr
+        && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr
+        && this->targetFps_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr
+        && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr
+        && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr
+        && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr
+        && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparency_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr
+        && this->wuyingKeeper_ == nullptr && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -1317,6 +1324,13 @@ namespace Models
       inline DescribePolicyGroups& setEndUserApplyAdminCoordinate(string endUserApplyAdminCoordinate) { DARABONBA_PTR_SET_VALUE(endUserApplyAdminCoordinate_, endUserApplyAdminCoordinate) };
 
 
+      // endUserCount Field Functions 
+      bool hasEndUserCount() const { return this->endUserCount_ != nullptr;};
+      void deleteEndUserCount() { this->endUserCount_ = nullptr;};
+      inline string getEndUserCount() const { DARABONBA_PTR_GET_DEFAULT(endUserCount_, "") };
+      inline DescribePolicyGroups& setEndUserCount(string endUserCount) { DARABONBA_PTR_SET_VALUE(endUserCount_, endUserCount) };
+
+
       // endUserGroupCoordinate Field Functions 
       bool hasEndUserGroupCoordinate() const { return this->endUserGroupCoordinate_ != nullptr;};
       void deleteEndUserGroupCoordinate() { this->endUserGroupCoordinate_ = nullptr;};
@@ -1571,6 +1585,20 @@ namespace Models
       inline vector<DescribePolicyGroups::NetRedirectRule> getNetRedirectRule() { DARABONBA_PTR_GET(netRedirectRule_, vector<DescribePolicyGroups::NetRedirectRule>) };
       inline DescribePolicyGroups& setNetRedirectRule(const vector<DescribePolicyGroups::NetRedirectRule> & netRedirectRule) { DARABONBA_PTR_SET_VALUE(netRedirectRule_, netRedirectRule) };
       inline DescribePolicyGroups& setNetRedirectRule(vector<DescribePolicyGroups::NetRedirectRule> && netRedirectRule) { DARABONBA_PTR_SET_RVALUE(netRedirectRule_, netRedirectRule) };
+
+
+      // networkPrinter Field Functions 
+      bool hasNetworkPrinter() const { return this->networkPrinter_ != nullptr;};
+      void deleteNetworkPrinter() { this->networkPrinter_ = nullptr;};
+      inline string getNetworkPrinter() const { DARABONBA_PTR_GET_DEFAULT(networkPrinter_, "") };
+      inline DescribePolicyGroups& setNetworkPrinter(string networkPrinter) { DARABONBA_PTR_SET_VALUE(networkPrinter_, networkPrinter) };
+
+
+      // organizationCount Field Functions 
+      bool hasOrganizationCount() const { return this->organizationCount_ != nullptr;};
+      void deleteOrganizationCount() { this->organizationCount_ = nullptr;};
+      inline string getOrganizationCount() const { DARABONBA_PTR_GET_DEFAULT(organizationCount_, "") };
+      inline DescribePolicyGroups& setOrganizationCount(string organizationCount) { DARABONBA_PTR_SET_VALUE(organizationCount_, organizationCount) };
 
 
       // policyGroupId Field Functions 
@@ -2164,6 +2192,7 @@ namespace Models
       // *   off
       // *   on
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
+      shared_ptr<string> endUserCount_ {};
       // Indicates whether the User Stream Collaboration switch is turned on.
       // 
       // Valid values:
@@ -2283,6 +2312,8 @@ namespace Models
       // 
       // >  This parameter is in invitational preview for specific users and not available to the public.
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
+      shared_ptr<string> networkPrinter_ {};
+      shared_ptr<string> organizationCount_ {};
       // The ID of the cloud computer policy.
       shared_ptr<string> policyGroupId_ {};
       // The type of the cloud computer policy.

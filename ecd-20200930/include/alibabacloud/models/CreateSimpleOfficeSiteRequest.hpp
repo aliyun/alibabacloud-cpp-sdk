@@ -14,6 +14,7 @@ namespace Models
   class CreateSimpleOfficeSiteRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateSimpleOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessAttribute, accessAttribute_);
       DARABONBA_PTR_TO_JSON(AccountType, accountType_);
       DARABONBA_PTR_TO_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VpcType, vpcType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSimpleOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessAttribute, accessAttribute_);
       DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
       DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
       DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
@@ -70,11 +72,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->accountType_ == nullptr
-        && this->authorityHost_ == nullptr && this->bandwidth_ == nullptr && this->cenId_ == nullptr && this->cenOwnerId_ == nullptr && this->cidrBlock_ == nullptr
-        && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->desktopAccessType_ == nullptr && this->domainName_ == nullptr
-        && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->officeSiteName_ == nullptr
-        && this->regionId_ == nullptr && this->tenantId_ == nullptr && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr && this->vpcType_ == nullptr; };
+    virtual bool empty() const override { return this->accessAttribute_ == nullptr
+        && this->accountType_ == nullptr && this->authorityHost_ == nullptr && this->bandwidth_ == nullptr && this->cenId_ == nullptr && this->cenOwnerId_ == nullptr
+        && this->cidrBlock_ == nullptr && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->desktopAccessType_ == nullptr
+        && this->domainName_ == nullptr && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->needVerifyZeroDevice_ == nullptr
+        && this->officeSiteName_ == nullptr && this->regionId_ == nullptr && this->tenantId_ == nullptr && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr
+        && this->vpcType_ == nullptr; };
+    // accessAttribute Field Functions 
+    bool hasAccessAttribute() const { return this->accessAttribute_ != nullptr;};
+    void deleteAccessAttribute() { this->accessAttribute_ = nullptr;};
+    inline string getAccessAttribute() const { DARABONBA_PTR_GET_DEFAULT(accessAttribute_, "") };
+    inline CreateSimpleOfficeSiteRequest& setAccessAttribute(string accessAttribute) { DARABONBA_PTR_SET_VALUE(accessAttribute_, accessAttribute) };
+
+
     // accountType Field Functions 
     bool hasAccountType() const { return this->accountType_ != nullptr;};
     void deleteAccountType() { this->accountType_ = nullptr;};
@@ -225,6 +235,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessAttribute_ {};
     shared_ptr<string> accountType_ {};
     shared_ptr<string> authorityHost_ {};
     // The maximum public bandwidth. Value range: 10 to 200. Unit: Mbit/s. This parameter is available if you set `EnableInternetAccess` to `true`.

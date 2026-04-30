@@ -54,9 +54,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_TO_JSON(OfficeSites, officeSites_);
+        DARABONBA_PTR_TO_JSON(ProductType, productType_);
         DARABONBA_PTR_TO_JSON(ProfileCompatible, profileCompatible_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(Scene, scene_);
+        DARABONBA_PTR_TO_JSON(SizeQuota, sizeQuota_);
         DARABONBA_PTR_TO_JSON(StorageType, storageType_);
         DARABONBA_PTR_TO_JSON(SupportAcl, supportAcl_);
         DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
@@ -79,9 +81,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_FROM_JSON(OfficeSites, officeSites_);
+        DARABONBA_PTR_FROM_JSON(ProductType, productType_);
         DARABONBA_PTR_FROM_JSON(ProfileCompatible, profileCompatible_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(Scene, scene_);
+        DARABONBA_PTR_FROM_JSON(SizeQuota, sizeQuota_);
         DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
         DARABONBA_PTR_FROM_JSON(SupportAcl, supportAcl_);
         DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
@@ -233,8 +237,8 @@ namespace Models
         && this->appInstanceGroups_ == nullptr && this->capacity_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->desktopGroups_ == nullptr
         && this->encryptionEnabled_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemName_ == nullptr && this->fileSystemStatus_ == nullptr && this->fileSystemType_ == nullptr
         && this->meteredSize_ == nullptr && this->mountTargetDomain_ == nullptr && this->mountTargetStatus_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSites_ == nullptr && this->profileCompatible_ == nullptr && this->regionId_ == nullptr && this->scene_ == nullptr && this->storageType_ == nullptr
-        && this->supportAcl_ == nullptr && this->zoneId_ == nullptr; };
+        && this->officeSites_ == nullptr && this->productType_ == nullptr && this->profileCompatible_ == nullptr && this->regionId_ == nullptr && this->scene_ == nullptr
+        && this->sizeQuota_ == nullptr && this->storageType_ == nullptr && this->supportAcl_ == nullptr && this->zoneId_ == nullptr; };
       // allowOperateUserDrive Field Functions 
       bool hasAllowOperateUserDrive() const { return this->allowOperateUserDrive_ != nullptr;};
       void deleteAllowOperateUserDrive() { this->allowOperateUserDrive_ = nullptr;};
@@ -360,6 +364,13 @@ namespace Models
       inline FileSystems& setOfficeSites(vector<FileSystems::OfficeSites> && officeSites) { DARABONBA_PTR_SET_RVALUE(officeSites_, officeSites) };
 
 
+      // productType Field Functions 
+      bool hasProductType() const { return this->productType_ != nullptr;};
+      void deleteProductType() { this->productType_ = nullptr;};
+      inline string getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, "") };
+      inline FileSystems& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
+
+
       // profileCompatible Field Functions 
       bool hasProfileCompatible() const { return this->profileCompatible_ != nullptr;};
       void deleteProfileCompatible() { this->profileCompatible_ = nullptr;};
@@ -379,6 +390,13 @@ namespace Models
       void deleteScene() { this->scene_ = nullptr;};
       inline string getScene() const { DARABONBA_PTR_GET_DEFAULT(scene_, "") };
       inline FileSystems& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
+
+
+      // sizeQuota Field Functions 
+      bool hasSizeQuota() const { return this->sizeQuota_ != nullptr;};
+      void deleteSizeQuota() { this->sizeQuota_ = nullptr;};
+      inline int64_t getSizeQuota() const { DARABONBA_PTR_GET_DEFAULT(sizeQuota_, 0L) };
+      inline FileSystems& setSizeQuota(int64_t sizeQuota) { DARABONBA_PTR_SET_VALUE(sizeQuota_, sizeQuota) };
 
 
       // storageType Field Functions 
@@ -453,6 +471,7 @@ namespace Models
       shared_ptr<string> officeSiteName_ {};
       // The office networks.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
+      shared_ptr<string> productType_ {};
       // Indicates whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
       // The ID of the region.
@@ -464,6 +483,7 @@ namespace Models
       // *   Upm: the UPM-supported NAS file system.
       // *   ShareNas: the shared NAS file system.
       shared_ptr<string> scene_ {};
+      shared_ptr<int64_t> sizeQuota_ {};
       // The storage type of the NAS file system. Valid values:
       // 
       // *   Capacity

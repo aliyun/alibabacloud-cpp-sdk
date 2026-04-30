@@ -1819,6 +1819,10 @@ CreateADConnectorDirectoryResponse Client::createADConnectorDirectory(const Crea
 CreateADConnectorOfficeSiteResponse Client::createADConnectorOfficeSiteWithOptions(const CreateADConnectorOfficeSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessAttribute()) {
+    query["AccessAttribute"] = request.getAccessAttribute();
+  }
+
   if (!!request.hasAdHostname()) {
     query["AdHostname"] = request.getAdHostname();
   }
@@ -5031,6 +5035,10 @@ CreateRouteTableResponse Client::createRouteTable(const CreateRouteTableRequest 
 CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const CreateSimpleOfficeSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAccessAttribute()) {
+    query["AccessAttribute"] = request.getAccessAttribute();
+  }
+
   if (!!request.hasAccountType()) {
     query["AccountType"] = request.getAccountType();
   }

@@ -14,6 +14,7 @@ namespace Models
   class CreateADConnectorOfficeSiteRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateADConnectorOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccessAttribute, accessAttribute_);
       DARABONBA_PTR_TO_JSON(AdHostname, adHostname_);
       DARABONBA_PTR_TO_JSON(BackupDCHostname, backupDCHostname_);
       DARABONBA_PTR_TO_JSON(BackupDns, backupDns_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VerifyCode, verifyCode_);
     };
     friend void from_json(const Darabonba::Json& j, CreateADConnectorOfficeSiteRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccessAttribute, accessAttribute_);
       DARABONBA_PTR_FROM_JSON(AdHostname, adHostname_);
       DARABONBA_PTR_FROM_JSON(BackupDCHostname, backupDCHostname_);
       DARABONBA_PTR_FROM_JSON(BackupDns, backupDns_);
@@ -74,12 +76,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->adHostname_ == nullptr
-        && this->backupDCHostname_ == nullptr && this->backupDns_ == nullptr && this->bandwidth_ == nullptr && this->cenId_ == nullptr && this->cenOwnerId_ == nullptr
-        && this->cidrBlock_ == nullptr && this->desktopAccessType_ == nullptr && this->dnsAddress_ == nullptr && this->domainName_ == nullptr && this->domainPassword_ == nullptr
-        && this->domainUserName_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->mfaEnabled_ == nullptr && this->officeSiteName_ == nullptr
-        && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->specification_ == nullptr && this->subDomainDnsAddress_ == nullptr && this->subDomainName_ == nullptr
-        && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr; };
+    virtual bool empty() const override { return this->accessAttribute_ == nullptr
+        && this->adHostname_ == nullptr && this->backupDCHostname_ == nullptr && this->backupDns_ == nullptr && this->bandwidth_ == nullptr && this->cenId_ == nullptr
+        && this->cenOwnerId_ == nullptr && this->cidrBlock_ == nullptr && this->desktopAccessType_ == nullptr && this->dnsAddress_ == nullptr && this->domainName_ == nullptr
+        && this->domainPassword_ == nullptr && this->domainUserName_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->mfaEnabled_ == nullptr
+        && this->officeSiteName_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->specification_ == nullptr && this->subDomainDnsAddress_ == nullptr
+        && this->subDomainName_ == nullptr && this->vSwitchId_ == nullptr && this->verifyCode_ == nullptr; };
+    // accessAttribute Field Functions 
+    bool hasAccessAttribute() const { return this->accessAttribute_ != nullptr;};
+    void deleteAccessAttribute() { this->accessAttribute_ = nullptr;};
+    inline string getAccessAttribute() const { DARABONBA_PTR_GET_DEFAULT(accessAttribute_, "") };
+    inline CreateADConnectorOfficeSiteRequest& setAccessAttribute(string accessAttribute) { DARABONBA_PTR_SET_VALUE(accessAttribute_, accessAttribute) };
+
+
     // adHostname Field Functions 
     bool hasAdHostname() const { return this->adHostname_ != nullptr;};
     void deleteAdHostname() { this->adHostname_ = nullptr;};
@@ -248,6 +257,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> accessAttribute_ {};
     // The hostname of the domain controller. The hostname must comply with the naming conventions for Windows hosts.
     shared_ptr<string> adHostname_ {};
     // The hostname of the backup domain controller.

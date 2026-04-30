@@ -41,6 +41,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const OfficeSites& obj) { 
         DARABONBA_PTR_TO_JSON(ADConnectors, ADConnectors_);
         DARABONBA_PTR_TO_JSON(AcceleratorId, acceleratorId_);
+        DARABONBA_PTR_TO_JSON(AccessAttribute, accessAttribute_);
         DARABONBA_PTR_TO_JSON(AccountType, accountType_);
         DARABONBA_PTR_TO_JSON(AdHostname, adHostname_);
         DARABONBA_PTR_TO_JSON(AuthorityHost, authorityHost_);
@@ -109,6 +110,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, OfficeSites& obj) { 
         DARABONBA_PTR_FROM_JSON(ADConnectors, ADConnectors_);
         DARABONBA_PTR_FROM_JSON(AcceleratorId, acceleratorId_);
+        DARABONBA_PTR_FROM_JSON(AccessAttribute, accessAttribute_);
         DARABONBA_PTR_FROM_JSON(AccountType, accountType_);
         DARABONBA_PTR_FROM_JSON(AdHostname, adHostname_);
         DARABONBA_PTR_FROM_JSON(AuthorityHost, authorityHost_);
@@ -408,19 +410,20 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->ADConnectors_ == nullptr
-        && this->acceleratorId_ == nullptr && this->accountType_ == nullptr && this->adHostname_ == nullptr && this->authorityHost_ == nullptr && this->backupDCHostname_ == nullptr
-        && this->backupDns_ == nullptr && this->bandwidth_ == nullptr && this->cenAttachStatus_ == nullptr && this->cenId_ == nullptr && this->cidrBlock_ == nullptr
-        && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->creationTime_ == nullptr && this->customAccessPoint_ == nullptr
-        && this->customDnsAddress_ == nullptr && this->customSecurityGroupId_ == nullptr && this->desktopAccessType_ == nullptr && this->desktopCount_ == nullptr && this->desktopVpcEndpoint_ == nullptr
-        && this->dnsAddress_ == nullptr && this->dnsUserName_ == nullptr && this->domainName_ == nullptr && this->domainPassword_ == nullptr && this->domainUserName_ == nullptr
-        && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableCrossDesktopAccess_ == nullptr && this->enableInternetAccess_ == nullptr && this->enableServiceRoute_ == nullptr
-        && this->envType_ == nullptr && this->fileSystemIds_ == nullptr && this->isLdap_ == nullptr && this->ldapUrl_ == nullptr && this->logs_ == nullptr
-        && this->mfaEnabled_ == nullptr && this->name_ == nullptr && this->needVerifyLoginRisk_ == nullptr && this->needVerifyZeroDevice_ == nullptr && this->networkPackageId_ == nullptr
-        && this->nmVersion_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteType_ == nullptr && this->ouName_ == nullptr && this->protocolType_ == nullptr
-        && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr && this->rdsLicenseStatus_ == nullptr && this->resourceAmounts_ == nullptr && this->securityProtection_ == nullptr
-        && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr && this->subDnsAddress_ == nullptr && this->subDomainName_ == nullptr
-        && this->subnetMode_ == nullptr && this->tenantId_ == nullptr && this->totalEdsCount_ == nullptr && this->totalEdsCountForGroup_ == nullptr && this->totalResourceAmount_ == nullptr
-        && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr && this->vplVersion_ == nullptr; };
+        && this->acceleratorId_ == nullptr && this->accessAttribute_ == nullptr && this->accountType_ == nullptr && this->adHostname_ == nullptr && this->authorityHost_ == nullptr
+        && this->backupDCHostname_ == nullptr && this->backupDns_ == nullptr && this->bandwidth_ == nullptr && this->cenAttachStatus_ == nullptr && this->cenId_ == nullptr
+        && this->cidrBlock_ == nullptr && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->cloudBoxOfficeSite_ == nullptr && this->creationTime_ == nullptr
+        && this->customAccessPoint_ == nullptr && this->customDnsAddress_ == nullptr && this->customSecurityGroupId_ == nullptr && this->desktopAccessType_ == nullptr && this->desktopCount_ == nullptr
+        && this->desktopVpcEndpoint_ == nullptr && this->dnsAddress_ == nullptr && this->dnsUserName_ == nullptr && this->domainName_ == nullptr && this->domainPassword_ == nullptr
+        && this->domainUserName_ == nullptr && this->eid_ == nullptr && this->enableAdminAccess_ == nullptr && this->enableCrossDesktopAccess_ == nullptr && this->enableInternetAccess_ == nullptr
+        && this->enableServiceRoute_ == nullptr && this->envType_ == nullptr && this->fileSystemIds_ == nullptr && this->isLdap_ == nullptr && this->ldapUrl_ == nullptr
+        && this->logs_ == nullptr && this->mfaEnabled_ == nullptr && this->name_ == nullptr && this->needVerifyLoginRisk_ == nullptr && this->needVerifyZeroDevice_ == nullptr
+        && this->networkPackageId_ == nullptr && this->nmVersion_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteType_ == nullptr && this->ouName_ == nullptr
+        && this->protocolType_ == nullptr && this->rdsLicenseAddress_ == nullptr && this->rdsLicenseDomainName_ == nullptr && this->rdsLicenseStatus_ == nullptr && this->resourceAmounts_ == nullptr
+        && this->securityProtection_ == nullptr && this->ssoEnabled_ == nullptr && this->ssoType_ == nullptr && this->status_ == nullptr && this->subDnsAddress_ == nullptr
+        && this->subDomainName_ == nullptr && this->subnetMode_ == nullptr && this->tenantId_ == nullptr && this->totalEdsCount_ == nullptr && this->totalEdsCountForGroup_ == nullptr
+        && this->totalResourceAmount_ == nullptr && this->trustPassword_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->vpcType_ == nullptr
+        && this->vplVersion_ == nullptr; };
       // ADConnectors Field Functions 
       bool hasADConnectors() const { return this->ADConnectors_ != nullptr;};
       void deleteADConnectors() { this->ADConnectors_ = nullptr;};
@@ -435,6 +438,13 @@ namespace Models
       void deleteAcceleratorId() { this->acceleratorId_ = nullptr;};
       inline string getAcceleratorId() const { DARABONBA_PTR_GET_DEFAULT(acceleratorId_, "") };
       inline OfficeSites& setAcceleratorId(string acceleratorId) { DARABONBA_PTR_SET_VALUE(acceleratorId_, acceleratorId) };
+
+
+      // accessAttribute Field Functions 
+      bool hasAccessAttribute() const { return this->accessAttribute_ != nullptr;};
+      void deleteAccessAttribute() { this->accessAttribute_ = nullptr;};
+      inline string getAccessAttribute() const { DARABONBA_PTR_GET_DEFAULT(accessAttribute_, "") };
+      inline OfficeSites& setAccessAttribute(string accessAttribute) { DARABONBA_PTR_SET_VALUE(accessAttribute_, accessAttribute) };
 
 
       // accountType Field Functions 
@@ -904,6 +914,7 @@ namespace Models
       shared_ptr<vector<OfficeSites::ADConnectors>> ADConnectors_ {};
       // The ID of the GA instance.
       shared_ptr<string> acceleratorId_ {};
+      shared_ptr<string> accessAttribute_ {};
       shared_ptr<string> accountType_ {};
       // The hostname of the domain controller. The hostname must comply with the hostname naming convention of Windows.
       shared_ptr<string> adHostname_ {};
