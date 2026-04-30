@@ -162,6 +162,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ClipboardPolicy, clipboardPolicy_);
         DARABONBA_PTR_TO_JSON(DisconnectKeepSession, disconnectKeepSession_);
         DARABONBA_PTR_TO_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
+        DARABONBA_PTR_TO_JSON(FileManager, fileManager_);
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
@@ -174,6 +175,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ClipboardPolicy, clipboardPolicy_);
         DARABONBA_PTR_FROM_JSON(DisconnectKeepSession, disconnectKeepSession_);
         DARABONBA_PTR_FROM_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
+        DARABONBA_PTR_FROM_JSON(FileManager, fileManager_);
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
@@ -287,8 +289,16 @@ namespace Models
           DARABONBA_PTR_TO_JSON(FileClipboard, fileClipboard_);
           DARABONBA_PTR_TO_JSON(RichTextClipboard, richTextClipboard_);
           DARABONBA_PTR_TO_JSON(RichTextClipboardLimit, richTextClipboardLimit_);
+          DARABONBA_PTR_TO_JSON(RichTextClipboardReadLimit, richTextClipboardReadLimit_);
+          DARABONBA_PTR_TO_JSON(RichTextClipboardReadSizeUnit, richTextClipboardReadSizeUnit_);
           DARABONBA_PTR_TO_JSON(RichTextClipboardSizeUnit, richTextClipboardSizeUnit_);
+          DARABONBA_PTR_TO_JSON(RichTextClipboardWriteLimit, richTextClipboardWriteLimit_);
+          DARABONBA_PTR_TO_JSON(RichTextClipboardWriteSizeUnit, richTextClipboardWriteSizeUnit_);
           DARABONBA_PTR_TO_JSON(TextClipboard, textClipboard_);
+          DARABONBA_PTR_TO_JSON(TextClipboardReadLimit, textClipboardReadLimit_);
+          DARABONBA_PTR_TO_JSON(TextClipboardReadSizeUnit, textClipboardReadSizeUnit_);
+          DARABONBA_PTR_TO_JSON(TextClipboardWriteLimit, textClipboardWriteLimit_);
+          DARABONBA_PTR_TO_JSON(TextClipboardWriteSizeUnit, textClipboardWriteSizeUnit_);
         };
         friend void from_json(const Darabonba::Json& j, ClipboardPolicy& obj) { 
           DARABONBA_PTR_FROM_JSON(Clipboard, clipboard_);
@@ -299,8 +309,16 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(FileClipboard, fileClipboard_);
           DARABONBA_PTR_FROM_JSON(RichTextClipboard, richTextClipboard_);
           DARABONBA_PTR_FROM_JSON(RichTextClipboardLimit, richTextClipboardLimit_);
+          DARABONBA_PTR_FROM_JSON(RichTextClipboardReadLimit, richTextClipboardReadLimit_);
+          DARABONBA_PTR_FROM_JSON(RichTextClipboardReadSizeUnit, richTextClipboardReadSizeUnit_);
           DARABONBA_PTR_FROM_JSON(RichTextClipboardSizeUnit, richTextClipboardSizeUnit_);
+          DARABONBA_PTR_FROM_JSON(RichTextClipboardWriteLimit, richTextClipboardWriteLimit_);
+          DARABONBA_PTR_FROM_JSON(RichTextClipboardWriteSizeUnit, richTextClipboardWriteSizeUnit_);
           DARABONBA_PTR_FROM_JSON(TextClipboard, textClipboard_);
+          DARABONBA_PTR_FROM_JSON(TextClipboardReadLimit, textClipboardReadLimit_);
+          DARABONBA_PTR_FROM_JSON(TextClipboardReadSizeUnit, textClipboardReadSizeUnit_);
+          DARABONBA_PTR_FROM_JSON(TextClipboardWriteLimit, textClipboardWriteLimit_);
+          DARABONBA_PTR_FROM_JSON(TextClipboardWriteSizeUnit, textClipboardWriteSizeUnit_);
         };
         ClipboardPolicy() = default ;
         ClipboardPolicy(const ClipboardPolicy &) = default ;
@@ -315,7 +333,9 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->clipboard_ == nullptr
         && this->clipboardReadLimit_ == nullptr && this->clipboardScope_ == nullptr && this->clipboardSizeUnit_ == nullptr && this->clipboardWriteLimit_ == nullptr && this->fileClipboard_ == nullptr
-        && this->richTextClipboard_ == nullptr && this->richTextClipboardLimit_ == nullptr && this->richTextClipboardSizeUnit_ == nullptr && this->textClipboard_ == nullptr; };
+        && this->richTextClipboard_ == nullptr && this->richTextClipboardLimit_ == nullptr && this->richTextClipboardReadLimit_ == nullptr && this->richTextClipboardReadSizeUnit_ == nullptr && this->richTextClipboardSizeUnit_ == nullptr
+        && this->richTextClipboardWriteLimit_ == nullptr && this->richTextClipboardWriteSizeUnit_ == nullptr && this->textClipboard_ == nullptr && this->textClipboardReadLimit_ == nullptr && this->textClipboardReadSizeUnit_ == nullptr
+        && this->textClipboardWriteLimit_ == nullptr && this->textClipboardWriteSizeUnit_ == nullptr; };
         // clipboard Field Functions 
         bool hasClipboard() const { return this->clipboard_ != nullptr;};
         void deleteClipboard() { this->clipboard_ = nullptr;};
@@ -372,6 +392,20 @@ namespace Models
         inline ClipboardPolicy& setRichTextClipboardLimit(int32_t richTextClipboardLimit) { DARABONBA_PTR_SET_VALUE(richTextClipboardLimit_, richTextClipboardLimit) };
 
 
+        // richTextClipboardReadLimit Field Functions 
+        bool hasRichTextClipboardReadLimit() const { return this->richTextClipboardReadLimit_ != nullptr;};
+        void deleteRichTextClipboardReadLimit() { this->richTextClipboardReadLimit_ = nullptr;};
+        inline int32_t getRichTextClipboardReadLimit() const { DARABONBA_PTR_GET_DEFAULT(richTextClipboardReadLimit_, 0) };
+        inline ClipboardPolicy& setRichTextClipboardReadLimit(int32_t richTextClipboardReadLimit) { DARABONBA_PTR_SET_VALUE(richTextClipboardReadLimit_, richTextClipboardReadLimit) };
+
+
+        // richTextClipboardReadSizeUnit Field Functions 
+        bool hasRichTextClipboardReadSizeUnit() const { return this->richTextClipboardReadSizeUnit_ != nullptr;};
+        void deleteRichTextClipboardReadSizeUnit() { this->richTextClipboardReadSizeUnit_ = nullptr;};
+        inline string getRichTextClipboardReadSizeUnit() const { DARABONBA_PTR_GET_DEFAULT(richTextClipboardReadSizeUnit_, "") };
+        inline ClipboardPolicy& setRichTextClipboardReadSizeUnit(string richTextClipboardReadSizeUnit) { DARABONBA_PTR_SET_VALUE(richTextClipboardReadSizeUnit_, richTextClipboardReadSizeUnit) };
+
+
         // richTextClipboardSizeUnit Field Functions 
         bool hasRichTextClipboardSizeUnit() const { return this->richTextClipboardSizeUnit_ != nullptr;};
         void deleteRichTextClipboardSizeUnit() { this->richTextClipboardSizeUnit_ = nullptr;};
@@ -379,11 +413,53 @@ namespace Models
         inline ClipboardPolicy& setRichTextClipboardSizeUnit(string richTextClipboardSizeUnit) { DARABONBA_PTR_SET_VALUE(richTextClipboardSizeUnit_, richTextClipboardSizeUnit) };
 
 
+        // richTextClipboardWriteLimit Field Functions 
+        bool hasRichTextClipboardWriteLimit() const { return this->richTextClipboardWriteLimit_ != nullptr;};
+        void deleteRichTextClipboardWriteLimit() { this->richTextClipboardWriteLimit_ = nullptr;};
+        inline int32_t getRichTextClipboardWriteLimit() const { DARABONBA_PTR_GET_DEFAULT(richTextClipboardWriteLimit_, 0) };
+        inline ClipboardPolicy& setRichTextClipboardWriteLimit(int32_t richTextClipboardWriteLimit) { DARABONBA_PTR_SET_VALUE(richTextClipboardWriteLimit_, richTextClipboardWriteLimit) };
+
+
+        // richTextClipboardWriteSizeUnit Field Functions 
+        bool hasRichTextClipboardWriteSizeUnit() const { return this->richTextClipboardWriteSizeUnit_ != nullptr;};
+        void deleteRichTextClipboardWriteSizeUnit() { this->richTextClipboardWriteSizeUnit_ = nullptr;};
+        inline string getRichTextClipboardWriteSizeUnit() const { DARABONBA_PTR_GET_DEFAULT(richTextClipboardWriteSizeUnit_, "") };
+        inline ClipboardPolicy& setRichTextClipboardWriteSizeUnit(string richTextClipboardWriteSizeUnit) { DARABONBA_PTR_SET_VALUE(richTextClipboardWriteSizeUnit_, richTextClipboardWriteSizeUnit) };
+
+
         // textClipboard Field Functions 
         bool hasTextClipboard() const { return this->textClipboard_ != nullptr;};
         void deleteTextClipboard() { this->textClipboard_ = nullptr;};
         inline string getTextClipboard() const { DARABONBA_PTR_GET_DEFAULT(textClipboard_, "") };
         inline ClipboardPolicy& setTextClipboard(string textClipboard) { DARABONBA_PTR_SET_VALUE(textClipboard_, textClipboard) };
+
+
+        // textClipboardReadLimit Field Functions 
+        bool hasTextClipboardReadLimit() const { return this->textClipboardReadLimit_ != nullptr;};
+        void deleteTextClipboardReadLimit() { this->textClipboardReadLimit_ = nullptr;};
+        inline int32_t getTextClipboardReadLimit() const { DARABONBA_PTR_GET_DEFAULT(textClipboardReadLimit_, 0) };
+        inline ClipboardPolicy& setTextClipboardReadLimit(int32_t textClipboardReadLimit) { DARABONBA_PTR_SET_VALUE(textClipboardReadLimit_, textClipboardReadLimit) };
+
+
+        // textClipboardReadSizeUnit Field Functions 
+        bool hasTextClipboardReadSizeUnit() const { return this->textClipboardReadSizeUnit_ != nullptr;};
+        void deleteTextClipboardReadSizeUnit() { this->textClipboardReadSizeUnit_ = nullptr;};
+        inline string getTextClipboardReadSizeUnit() const { DARABONBA_PTR_GET_DEFAULT(textClipboardReadSizeUnit_, "") };
+        inline ClipboardPolicy& setTextClipboardReadSizeUnit(string textClipboardReadSizeUnit) { DARABONBA_PTR_SET_VALUE(textClipboardReadSizeUnit_, textClipboardReadSizeUnit) };
+
+
+        // textClipboardWriteLimit Field Functions 
+        bool hasTextClipboardWriteLimit() const { return this->textClipboardWriteLimit_ != nullptr;};
+        void deleteTextClipboardWriteLimit() { this->textClipboardWriteLimit_ = nullptr;};
+        inline int32_t getTextClipboardWriteLimit() const { DARABONBA_PTR_GET_DEFAULT(textClipboardWriteLimit_, 0) };
+        inline ClipboardPolicy& setTextClipboardWriteLimit(int32_t textClipboardWriteLimit) { DARABONBA_PTR_SET_VALUE(textClipboardWriteLimit_, textClipboardWriteLimit) };
+
+
+        // textClipboardWriteSizeUnit Field Functions 
+        bool hasTextClipboardWriteSizeUnit() const { return this->textClipboardWriteSizeUnit_ != nullptr;};
+        void deleteTextClipboardWriteSizeUnit() { this->textClipboardWriteSizeUnit_ = nullptr;};
+        inline string getTextClipboardWriteSizeUnit() const { DARABONBA_PTR_GET_DEFAULT(textClipboardWriteSizeUnit_, "") };
+        inline ClipboardPolicy& setTextClipboardWriteSizeUnit(string textClipboardWriteSizeUnit) { DARABONBA_PTR_SET_VALUE(textClipboardWriteSizeUnit_, textClipboardWriteSizeUnit) };
 
 
       protected:
@@ -427,7 +503,11 @@ namespace Models
         // *   off: Blocks copying in both directions.
         shared_ptr<string> richTextClipboard_ {};
         shared_ptr<int32_t> richTextClipboardLimit_ {};
+        shared_ptr<int32_t> richTextClipboardReadLimit_ {};
+        shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         shared_ptr<string> richTextClipboardSizeUnit_ {};
+        shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
+        shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         // 
         // Valid values:
@@ -437,11 +517,15 @@ namespace Models
         // *   write: Allows copying from the cloud browser to the local device.
         // *   off: Blocks copying in both directions.
         shared_ptr<string> textClipboard_ {};
+        shared_ptr<int32_t> textClipboardReadLimit_ {};
+        shared_ptr<string> textClipboardReadSizeUnit_ {};
+        shared_ptr<int32_t> textClipboardWriteLimit_ {};
+        shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
       virtual bool empty() const override { return this->clipboardPolicy_ == nullptr
-        && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr && this->html5FileTransfer_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr
-        && this->policyId_ == nullptr && this->policyVersion_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
+        && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr && this->fileManager_ == nullptr && this->html5FileTransfer_ == nullptr && this->noOperationDisconnect_ == nullptr
+        && this->noOperationDisconnectTime_ == nullptr && this->policyId_ == nullptr && this->policyVersion_ == nullptr && this->videoPolicy_ == nullptr && this->watermarkPolicy_ == nullptr; };
       // clipboardPolicy Field Functions 
       bool hasClipboardPolicy() const { return this->clipboardPolicy_ != nullptr;};
       void deleteClipboardPolicy() { this->clipboardPolicy_ = nullptr;};
@@ -463,6 +547,13 @@ namespace Models
       void deleteDisconnectKeepSessionTime() { this->disconnectKeepSessionTime_ = nullptr;};
       inline int32_t getDisconnectKeepSessionTime() const { DARABONBA_PTR_GET_DEFAULT(disconnectKeepSessionTime_, 0) };
       inline Policy& setDisconnectKeepSessionTime(int32_t disconnectKeepSessionTime) { DARABONBA_PTR_SET_VALUE(disconnectKeepSessionTime_, disconnectKeepSessionTime) };
+
+
+      // fileManager Field Functions 
+      bool hasFileManager() const { return this->fileManager_ != nullptr;};
+      void deleteFileManager() { this->fileManager_ = nullptr;};
+      inline string getFileManager() const { DARABONBA_PTR_GET_DEFAULT(fileManager_, "") };
+      inline Policy& setFileManager(string fileManager) { DARABONBA_PTR_SET_VALUE(fileManager_, fileManager) };
 
 
       // html5FileTransfer Field Functions 
@@ -530,6 +621,7 @@ namespace Models
       shared_ptr<string> disconnectKeepSession_ {};
       // The session persistence duration.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
+      shared_ptr<string> fileManager_ {};
       // The file transfer policy on the web client.
       shared_ptr<string> html5FileTransfer_ {};
       shared_ptr<string> noOperationDisconnect_ {};
