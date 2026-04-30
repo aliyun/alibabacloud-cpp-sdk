@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(entityFields, entityFields_);
       DARABONBA_PTR_TO_JSON(entityFilters, entityFilters_);
       DARABONBA_PTR_TO_JSON(entityType, entityType_);
+      DARABONBA_PTR_TO_JSON(expr, expr_);
       DARABONBA_PTR_TO_JSON(filterList, filterList_);
       DARABONBA_PTR_TO_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_TO_JSON(measureList, measureList_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(entityFields, entityFields_);
       DARABONBA_PTR_FROM_JSON(entityFilters, entityFilters_);
       DARABONBA_PTR_FROM_JSON(entityType, entityType_);
+      DARABONBA_PTR_FROM_JSON(expr, expr_);
       DARABONBA_PTR_FROM_JSON(filterList, filterList_);
       DARABONBA_PTR_FROM_JSON(labelFilters, labelFilters_);
       DARABONBA_PTR_FROM_JSON(measureList, measureList_);
@@ -60,9 +62,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enableDataCompleteCheck_ == nullptr
-        && this->entityDomain_ == nullptr && this->entityFields_ == nullptr && this->entityFilters_ == nullptr && this->entityType_ == nullptr && this->filterList_ == nullptr
-        && this->labelFilters_ == nullptr && this->measureList_ == nullptr && this->metric_ == nullptr && this->metricSet_ == nullptr && this->promQl_ == nullptr
-        && this->serviceIdList_ == nullptr && this->type_ == nullptr; };
+        && this->entityDomain_ == nullptr && this->entityFields_ == nullptr && this->entityFilters_ == nullptr && this->entityType_ == nullptr && this->expr_ == nullptr
+        && this->filterList_ == nullptr && this->labelFilters_ == nullptr && this->measureList_ == nullptr && this->metric_ == nullptr && this->metricSet_ == nullptr
+        && this->promQl_ == nullptr && this->serviceIdList_ == nullptr && this->type_ == nullptr; };
     // enableDataCompleteCheck Field Functions 
     bool hasEnableDataCompleteCheck() const { return this->enableDataCompleteCheck_ != nullptr;};
     void deleteEnableDataCompleteCheck() { this->enableDataCompleteCheck_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
     void deleteEntityType() { this->entityType_ = nullptr;};
     inline string getEntityType() const { DARABONBA_PTR_GET_DEFAULT(entityType_, "") };
     inline QueryConfigUnified& setEntityType(string entityType) { DARABONBA_PTR_SET_VALUE(entityType_, entityType) };
+
+
+    // expr Field Functions 
+    bool hasExpr() const { return this->expr_ != nullptr;};
+    void deleteExpr() { this->expr_ = nullptr;};
+    inline string getExpr() const { DARABONBA_PTR_GET_DEFAULT(expr_, "") };
+    inline QueryConfigUnified& setExpr(string expr) { DARABONBA_PTR_SET_VALUE(expr_, expr) };
 
 
     // filterList Field Functions 
@@ -177,6 +186,7 @@ namespace Models
     shared_ptr<vector<UmodelEntityFilter>> entityFilters_ {};
     // 实体类型
     shared_ptr<string> entityType_ {};
+    shared_ptr<string> expr_ {};
     // APM 过滤条件列表
     shared_ptr<vector<ApmFilterConfig>> filterList_ {};
     // 标签过滤条件
