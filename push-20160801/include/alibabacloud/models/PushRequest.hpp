@@ -61,6 +61,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidRemind, androidRemind_);
       DARABONBA_PTR_TO_JSON(AndroidRenderStyle, androidRenderStyle_);
       DARABONBA_PTR_TO_JSON(AndroidTargetUserType, androidTargetUserType_);
+      DARABONBA_PTR_TO_JSON(AndroidVivoLiveMessage, androidVivoLiveMessage_);
       DARABONBA_PTR_TO_JSON(AndroidVivoPushMode, androidVivoPushMode_);
       DARABONBA_PTR_TO_JSON(AndroidVivoReceiptId, androidVivoReceiptId_);
       DARABONBA_PTR_TO_JSON(AndroidXiaoMiActivity, androidXiaoMiActivity_);
@@ -179,6 +180,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidRemind, androidRemind_);
       DARABONBA_PTR_FROM_JSON(AndroidRenderStyle, androidRenderStyle_);
       DARABONBA_PTR_FROM_JSON(AndroidTargetUserType, androidTargetUserType_);
+      DARABONBA_PTR_FROM_JSON(AndroidVivoLiveMessage, androidVivoLiveMessage_);
       DARABONBA_PTR_FROM_JSON(AndroidVivoPushMode, androidVivoPushMode_);
       DARABONBA_PTR_FROM_JSON(AndroidVivoReceiptId, androidVivoReceiptId_);
       DARABONBA_PTR_FROM_JSON(AndroidXiaoMiActivity, androidXiaoMiActivity_);
@@ -270,20 +272,21 @@ namespace Models
         && this->androidNotificationXiaomiChannel_ == nullptr && this->androidNotifyType_ == nullptr && this->androidOpenType_ == nullptr && this->androidOpenUrl_ == nullptr && this->androidOppoDeleteIntentData_ == nullptr
         && this->androidOppoIntelligentIntent_ == nullptr && this->androidOppoIntentEnv_ == nullptr && this->androidOppoPrivateContentParameters_ == nullptr && this->androidOppoPrivateMsgTemplateId_ == nullptr && this->androidOppoPrivateTitleParameters_ == nullptr
         && this->androidPopupActivity_ == nullptr && this->androidPopupBody_ == nullptr && this->androidPopupTitle_ == nullptr && this->androidRemind_ == nullptr && this->androidRenderStyle_ == nullptr
-        && this->androidTargetUserType_ == nullptr && this->androidVivoPushMode_ == nullptr && this->androidVivoReceiptId_ == nullptr && this->androidXiaoMiActivity_ == nullptr && this->androidXiaoMiNotifyBody_ == nullptr
-        && this->androidXiaoMiNotifyTitle_ == nullptr && this->androidXiaomiBigPictureUrl_ == nullptr && this->androidXiaomiImageUrl_ == nullptr && this->appKey_ == nullptr && this->body_ == nullptr
-        && this->deviceType_ == nullptr && this->expireTime_ == nullptr && this->harmonyAction_ == nullptr && this->harmonyActionType_ == nullptr && this->harmonyBadgeAddNum_ == nullptr
-        && this->harmonyBadgeSetNum_ == nullptr && this->harmonyCategory_ == nullptr && this->harmonyExtParameters_ == nullptr && this->harmonyExtensionExtraData_ == nullptr && this->harmonyExtensionPush_ == nullptr
-        && this->harmonyImageUrl_ == nullptr && this->harmonyInboxContent_ == nullptr && this->harmonyLiveViewPayload_ == nullptr && this->harmonyNotificationSlotType_ == nullptr && this->harmonyNotifyId_ == nullptr
-        && this->harmonyReceiptId_ == nullptr && this->harmonyRemind_ == nullptr && this->harmonyRemindBody_ == nullptr && this->harmonyRemindTitle_ == nullptr && this->harmonyRenderStyle_ == nullptr
-        && this->harmonyTestMessage_ == nullptr && this->harmonyUri_ == nullptr && this->idempotentToken_ == nullptr && this->jobKey_ == nullptr && this->pushTime_ == nullptr
-        && this->pushType_ == nullptr && this->sendChannels_ == nullptr && this->sendSpeed_ == nullptr && this->smsDelaySecs_ == nullptr && this->smsParams_ == nullptr
-        && this->smsSendPolicy_ == nullptr && this->smsSignName_ == nullptr && this->smsTemplateName_ == nullptr && this->storeOffline_ == nullptr && this->target_ == nullptr
-        && this->targetValue_ == nullptr && this->title_ == nullptr && this->trim_ == nullptr && this->iOSApnsEnv_ == nullptr && this->iOSBadge_ == nullptr
-        && this->iOSBadgeAutoIncrement_ == nullptr && this->iOSExtParameters_ == nullptr && this->iOSInterruptionLevel_ == nullptr && this->iOSLiveActivityAttributes_ == nullptr && this->iOSLiveActivityAttributesType_ == nullptr
-        && this->iOSLiveActivityContentState_ == nullptr && this->iOSLiveActivityDismissalDate_ == nullptr && this->iOSLiveActivityEvent_ == nullptr && this->iOSLiveActivityId_ == nullptr && this->iOSLiveActivityStaleDate_ == nullptr
-        && this->iOSMusic_ == nullptr && this->iOSMutableContent_ == nullptr && this->iOSNotificationCategory_ == nullptr && this->iOSNotificationCollapseId_ == nullptr && this->iOSNotificationThreadId_ == nullptr
-        && this->iOSRelevanceScore_ == nullptr && this->iOSRemind_ == nullptr && this->iOSRemindBody_ == nullptr && this->iOSSilentNotification_ == nullptr && this->iOSSubtitle_ == nullptr; };
+        && this->androidTargetUserType_ == nullptr && this->androidVivoLiveMessage_ == nullptr && this->androidVivoPushMode_ == nullptr && this->androidVivoReceiptId_ == nullptr && this->androidXiaoMiActivity_ == nullptr
+        && this->androidXiaoMiNotifyBody_ == nullptr && this->androidXiaoMiNotifyTitle_ == nullptr && this->androidXiaomiBigPictureUrl_ == nullptr && this->androidXiaomiImageUrl_ == nullptr && this->appKey_ == nullptr
+        && this->body_ == nullptr && this->deviceType_ == nullptr && this->expireTime_ == nullptr && this->harmonyAction_ == nullptr && this->harmonyActionType_ == nullptr
+        && this->harmonyBadgeAddNum_ == nullptr && this->harmonyBadgeSetNum_ == nullptr && this->harmonyCategory_ == nullptr && this->harmonyExtParameters_ == nullptr && this->harmonyExtensionExtraData_ == nullptr
+        && this->harmonyExtensionPush_ == nullptr && this->harmonyImageUrl_ == nullptr && this->harmonyInboxContent_ == nullptr && this->harmonyLiveViewPayload_ == nullptr && this->harmonyNotificationSlotType_ == nullptr
+        && this->harmonyNotifyId_ == nullptr && this->harmonyReceiptId_ == nullptr && this->harmonyRemind_ == nullptr && this->harmonyRemindBody_ == nullptr && this->harmonyRemindTitle_ == nullptr
+        && this->harmonyRenderStyle_ == nullptr && this->harmonyTestMessage_ == nullptr && this->harmonyUri_ == nullptr && this->idempotentToken_ == nullptr && this->jobKey_ == nullptr
+        && this->pushTime_ == nullptr && this->pushType_ == nullptr && this->sendChannels_ == nullptr && this->sendSpeed_ == nullptr && this->smsDelaySecs_ == nullptr
+        && this->smsParams_ == nullptr && this->smsSendPolicy_ == nullptr && this->smsSignName_ == nullptr && this->smsTemplateName_ == nullptr && this->storeOffline_ == nullptr
+        && this->target_ == nullptr && this->targetValue_ == nullptr && this->title_ == nullptr && this->trim_ == nullptr && this->iOSApnsEnv_ == nullptr
+        && this->iOSBadge_ == nullptr && this->iOSBadgeAutoIncrement_ == nullptr && this->iOSExtParameters_ == nullptr && this->iOSInterruptionLevel_ == nullptr && this->iOSLiveActivityAttributes_ == nullptr
+        && this->iOSLiveActivityAttributesType_ == nullptr && this->iOSLiveActivityContentState_ == nullptr && this->iOSLiveActivityDismissalDate_ == nullptr && this->iOSLiveActivityEvent_ == nullptr && this->iOSLiveActivityId_ == nullptr
+        && this->iOSLiveActivityStaleDate_ == nullptr && this->iOSMusic_ == nullptr && this->iOSMutableContent_ == nullptr && this->iOSNotificationCategory_ == nullptr && this->iOSNotificationCollapseId_ == nullptr
+        && this->iOSNotificationThreadId_ == nullptr && this->iOSRelevanceScore_ == nullptr && this->iOSRemind_ == nullptr && this->iOSRemindBody_ == nullptr && this->iOSSilentNotification_ == nullptr
+        && this->iOSSubtitle_ == nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};
@@ -615,6 +618,13 @@ namespace Models
     void deleteAndroidTargetUserType() { this->androidTargetUserType_ = nullptr;};
     inline int32_t getAndroidTargetUserType() const { DARABONBA_PTR_GET_DEFAULT(androidTargetUserType_, 0) };
     inline PushRequest& setAndroidTargetUserType(int32_t androidTargetUserType) { DARABONBA_PTR_SET_VALUE(androidTargetUserType_, androidTargetUserType) };
+
+
+    // androidVivoLiveMessage Field Functions 
+    bool hasAndroidVivoLiveMessage() const { return this->androidVivoLiveMessage_ != nullptr;};
+    void deleteAndroidVivoLiveMessage() { this->androidVivoLiveMessage_ = nullptr;};
+    inline string getAndroidVivoLiveMessage() const { DARABONBA_PTR_GET_DEFAULT(androidVivoLiveMessage_, "") };
+    inline PushRequest& setAndroidVivoLiveMessage(string androidVivoLiveMessage) { DARABONBA_PTR_SET_VALUE(androidVivoLiveMessage_, androidVivoLiveMessage) };
 
 
     // androidVivoPushMode Field Functions 
@@ -1148,6 +1158,7 @@ namespace Models
     shared_ptr<bool> androidRemind_ {};
     shared_ptr<int32_t> androidRenderStyle_ {};
     shared_ptr<int32_t> androidTargetUserType_ {};
+    shared_ptr<string> androidVivoLiveMessage_ {};
     shared_ptr<int32_t> androidVivoPushMode_ {};
     shared_ptr<string> androidVivoReceiptId_ {};
     shared_ptr<string> androidXiaoMiActivity_ {};

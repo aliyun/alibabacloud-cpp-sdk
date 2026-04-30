@@ -530,7 +530,6 @@ ContinuouslyPushResponse Client::continuouslyPush(const ContinuouslyPushRequest 
  *
  * @summary 【废弃】查询用户已创建的app列表
  *
- * @param request ListSummaryAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSummaryAppsResponse
  */
@@ -918,6 +917,10 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 
   if (!!request.hasAndroidTargetUserType()) {
     query["AndroidTargetUserType"] = request.getAndroidTargetUserType();
+  }
+
+  if (!!request.hasAndroidVivoLiveMessage()) {
+    query["AndroidVivoLiveMessage"] = request.getAndroidVivoLiveMessage();
   }
 
   if (!!request.hasAndroidVivoPushMode()) {

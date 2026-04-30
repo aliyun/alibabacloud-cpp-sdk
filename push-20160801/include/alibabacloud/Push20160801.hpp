@@ -178,7 +178,6 @@ namespace Push20160801
        *
        * @summary 【废弃】查询用户已创建的app列表
        *
-       * @param request ListSummaryAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListSummaryAppsResponse
        */

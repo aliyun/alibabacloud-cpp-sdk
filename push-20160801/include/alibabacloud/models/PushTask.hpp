@@ -864,11 +864,13 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const Vivo& obj) { 
               DARABONBA_PTR_TO_JSON(Category, category_);
               DARABONBA_PTR_TO_JSON(Importance, importance_);
+              DARABONBA_PTR_TO_JSON(LiveMessage, liveMessage_);
               DARABONBA_PTR_TO_JSON(ReceiptId, receiptId_);
             };
             friend void from_json(const Darabonba::Json& j, Vivo& obj) { 
               DARABONBA_PTR_FROM_JSON(Category, category_);
               DARABONBA_PTR_FROM_JSON(Importance, importance_);
+              DARABONBA_PTR_FROM_JSON(LiveMessage, liveMessage_);
               DARABONBA_PTR_FROM_JSON(ReceiptId, receiptId_);
             };
             Vivo() = default ;
@@ -883,7 +885,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->category_ == nullptr
-        && this->importance_ == nullptr && this->receiptId_ == nullptr; };
+        && this->importance_ == nullptr && this->liveMessage_ == nullptr && this->receiptId_ == nullptr; };
             // category Field Functions 
             bool hasCategory() const { return this->category_ != nullptr;};
             void deleteCategory() { this->category_ = nullptr;};
@@ -898,6 +900,13 @@ namespace Models
             inline Vivo& setImportance(int32_t importance) { DARABONBA_PTR_SET_VALUE(importance_, importance) };
 
 
+            // liveMessage Field Functions 
+            bool hasLiveMessage() const { return this->liveMessage_ != nullptr;};
+            void deleteLiveMessage() { this->liveMessage_ = nullptr;};
+            inline string getLiveMessage() const { DARABONBA_PTR_GET_DEFAULT(liveMessage_, "") };
+            inline Vivo& setLiveMessage(string liveMessage) { DARABONBA_PTR_SET_VALUE(liveMessage_, liveMessage) };
+
+
             // receiptId Field Functions 
             bool hasReceiptId() const { return this->receiptId_ != nullptr;};
             void deleteReceiptId() { this->receiptId_ = nullptr;};
@@ -908,6 +917,7 @@ namespace Models
           protected:
             shared_ptr<string> category_ {};
             shared_ptr<int32_t> importance_ {};
+            shared_ptr<string> liveMessage_ {};
             shared_ptr<string> receiptId_ {};
           };
 
