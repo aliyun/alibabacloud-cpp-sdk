@@ -82,6 +82,9 @@
 #include <alibabacloud/models/ContinueDBClusterMigrationRequest.hpp>
 #include <alibabacloud/models/ContinueDBClusterMigrationResponseBody.hpp>
 #include <alibabacloud/models/ContinueDBClusterMigrationResponse.hpp>
+#include <alibabacloud/models/CreateAIDBClusterRequest.hpp>
+#include <alibabacloud/models/CreateAIDBClusterResponseBody.hpp>
+#include <alibabacloud/models/CreateAIDBClusterResponse.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetRequest.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetResponseBody.hpp>
 #include <alibabacloud/models/CreateAIDBClusterDatasetResponse.hpp>

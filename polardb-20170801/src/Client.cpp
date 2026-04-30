@@ -1670,6 +1670,172 @@ ContinueDBClusterMigrationResponse Client::continueDBClusterMigration(const Cont
 }
 
 /**
+ * @summary 创建AI集群
+ *
+ * @param request CreateAIDBClusterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIDBClusterResponse
+ */
+CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAckAdmin()) {
+    query["AckAdmin"] = request.getAckAdmin();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasAutoUseCoupon()) {
+    query["AutoUseCoupon"] = request.getAutoUseCoupon();
+  }
+
+  if (!!request.hasDBClusterDescription()) {
+    query["DBClusterDescription"] = request.getDBClusterDescription();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBNodeClass()) {
+    query["DBNodeClass"] = request.getDBNodeClass();
+  }
+
+  if (!!request.hasExtension()) {
+    query["Extension"] = request.getExtension();
+  }
+
+  if (!!request.hasInferenceEngine()) {
+    query["InferenceEngine"] = request.getInferenceEngine();
+  }
+
+  if (!!request.hasKubeClusterId()) {
+    query["KubeClusterId"] = request.getKubeClusterId();
+  }
+
+  if (!!request.hasKubeConfig()) {
+    query["KubeConfig"] = request.getKubeConfig();
+  }
+
+  if (!!request.hasKubeManagement()) {
+    query["KubeManagement"] = request.getKubeManagement();
+  }
+
+  if (!!request.hasKubeType()) {
+    query["KubeType"] = request.getKubeType();
+  }
+
+  if (!!request.hasKubernetesConfig()) {
+    query["KubernetesConfig"] = request.getKubernetesConfig();
+  }
+
+  if (!!request.hasManagementMode()) {
+    query["ManagementMode"] = request.getManagementMode();
+  }
+
+  if (!!request.hasModeName()) {
+    query["ModeName"] = request.getModeName();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPromotionCode()) {
+    query["PromotionCode"] = request.getPromotionCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
+  if (!!request.hasStorageSpace()) {
+    query["StorageSpace"] = request.getStorageSpace();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTimeSlices()) {
+    query["TimeSlices"] = request.getTimeSlices();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAIDBCluster"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIDBClusterResponse>();
+}
+
+/**
+ * @summary 创建AI集群
+ *
+ * @param request CreateAIDBClusterRequest
+ * @return CreateAIDBClusterResponse
+ */
+CreateAIDBClusterResponse Client::createAIDBCluster(const CreateAIDBClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIDBClusterWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建数据集
  *
  * @param request CreateAIDBClusterDatasetRequest

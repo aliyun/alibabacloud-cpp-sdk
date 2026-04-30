@@ -479,6 +479,23 @@ namespace Polardb20170801
       Models::ContinueDBClusterMigrationResponse continueDBClusterMigration(const Models::ContinueDBClusterMigrationRequest &request);
 
       /**
+       * @summary 创建AI集群
+       *
+       * @param request CreateAIDBClusterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIDBClusterResponse
+       */
+      Models::CreateAIDBClusterResponse createAIDBClusterWithOptions(const Models::CreateAIDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建AI集群
+       *
+       * @param request CreateAIDBClusterRequest
+       * @return CreateAIDBClusterResponse
+       */
+      Models::CreateAIDBClusterResponse createAIDBCluster(const Models::CreateAIDBClusterRequest &request);
+
+      /**
        * @summary 创建数据集
        *
        * @param request CreateAIDBClusterDatasetRequest
