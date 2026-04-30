@@ -2440,6 +2440,56 @@ DescribeInvocationsResponse Client::describeInvocations(const DescribeInvocation
 }
 
 /**
+ * @summary 查询JVS实例信息
+ *
+ * @param request DescribeJVSInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeJVSInstanceResponse
+ */
+DescribeJVSInstanceResponse Client::describeJVSInstanceWithOptions(const DescribeJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeJVSInstance"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeJVSInstanceResponse>();
+}
+
+/**
+ * @summary 查询JVS实例信息
+ *
+ * @param request DescribeJVSInstanceRequest
+ * @return DescribeJVSInstanceResponse
+ */
+DescribeJVSInstanceResponse Client::describeJVSInstance(const DescribeJVSInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeJVSInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries one or more key pairs.
  *
  * @param request DescribeKeyPairsRequest
@@ -4331,6 +4381,60 @@ ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeTypeWithOptions(con
 ModifyInstanceChargeTypeResponse Client::modifyInstanceChargeType(const ModifyInstanceChargeTypeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstanceChargeTypeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改JVS信息
+ *
+ * @param request ModifyJVSInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyJVSInstanceResponse
+ */
+ModifyJVSInstanceResponse Client::modifyJVSInstanceWithOptions(const ModifyJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplyToAll()) {
+    query["ApplyToAll"] = request.getApplyToAll();
+  }
+
+  if (!!request.hasCreditConfig()) {
+    query["CreditConfig"] = request.getCreditConfig();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyJVSInstance"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyJVSInstanceResponse>();
+}
+
+/**
+ * @summary 修改JVS信息
+ *
+ * @param request ModifyJVSInstanceRequest
+ * @return ModifyJVSInstanceResponse
+ */
+ModifyJVSInstanceResponse Client::modifyJVSInstance(const ModifyJVSInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyJVSInstanceWithOptions(request, runtime);
 }
 
 /**

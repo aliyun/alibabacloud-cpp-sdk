@@ -114,6 +114,9 @@
 #include <alibabacloud/models/DescribeInvocationsRequest.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponseBody.hpp>
 #include <alibabacloud/models/DescribeInvocationsResponse.hpp>
+#include <alibabacloud/models/DescribeJVSInstanceRequest.hpp>
+#include <alibabacloud/models/DescribeJVSInstanceResponseBody.hpp>
+#include <alibabacloud/models/DescribeJVSInstanceResponse.hpp>
 #include <alibabacloud/models/DescribeKeyPairsRequest.hpp>
 #include <alibabacloud/models/DescribeKeyPairsResponseBody.hpp>
 #include <alibabacloud/models/DescribeKeyPairsResponse.hpp>
@@ -214,6 +217,9 @@
 #include <alibabacloud/models/ModifyInstanceChargeTypeRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponseBody.hpp>
 #include <alibabacloud/models/ModifyInstanceChargeTypeResponse.hpp>
+#include <alibabacloud/models/ModifyJVSInstanceRequest.hpp>
+#include <alibabacloud/models/ModifyJVSInstanceResponseBody.hpp>
+#include <alibabacloud/models/ModifyJVSInstanceResponse.hpp>
 #include <alibabacloud/models/ModifyKeyPairNameRequest.hpp>
 #include <alibabacloud/models/ModifyKeyPairNameResponseBody.hpp>
 #include <alibabacloud/models/ModifyKeyPairNameResponse.hpp>

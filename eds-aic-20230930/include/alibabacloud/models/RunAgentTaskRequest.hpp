@@ -78,7 +78,6 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
     // This parameter is required.
     shared_ptr<vector<string>> instanceIds_ {};

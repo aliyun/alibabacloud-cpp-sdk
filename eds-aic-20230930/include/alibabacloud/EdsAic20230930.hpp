@@ -698,6 +698,23 @@ namespace EdsAic20230930
       Models::DescribeInvocationsResponse describeInvocations(const Models::DescribeInvocationsRequest &request);
 
       /**
+       * @summary 查询JVS实例信息
+       *
+       * @param request DescribeJVSInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeJVSInstanceResponse
+       */
+      Models::DescribeJVSInstanceResponse describeJVSInstanceWithOptions(const Models::DescribeJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询JVS实例信息
+       *
+       * @param request DescribeJVSInstanceRequest
+       * @return DescribeJVSInstanceResponse
+       */
+      Models::DescribeJVSInstanceResponse describeJVSInstance(const Models::DescribeJVSInstanceRequest &request);
+
+      /**
        * @summary Queries one or more key pairs.
        *
        * @param request DescribeKeyPairsRequest
@@ -1297,6 +1314,23 @@ namespace EdsAic20230930
        * @return ModifyInstanceChargeTypeResponse
        */
       Models::ModifyInstanceChargeTypeResponse modifyInstanceChargeType(const Models::ModifyInstanceChargeTypeRequest &request);
+
+      /**
+       * @summary 修改JVS信息
+       *
+       * @param request ModifyJVSInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyJVSInstanceResponse
+       */
+      Models::ModifyJVSInstanceResponse modifyJVSInstanceWithOptions(const Models::ModifyJVSInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改JVS信息
+       *
+       * @param request ModifyJVSInstanceRequest
+       * @return ModifyJVSInstanceResponse
+       */
+      Models::ModifyJVSInstanceResponse modifyJVSInstance(const Models::ModifyJVSInstanceRequest &request);
 
       /**
        * @summary Modifies Android Debug Bridge (ADB) key pairs.
