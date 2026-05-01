@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_TO_JSON(Param, param_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
+      DARABONBA_PTR_TO_JSON(RequireUuidValidation, requireUuidValidation_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LoginToken, loginToken_);
       DARABONBA_PTR_FROM_JSON(Param, param_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
+      DARABONBA_PTR_FROM_JSON(RequireUuidValidation, requireUuidValidation_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -81,8 +83,8 @@ namespace Models
         && this->appId_ == nullptr && this->appInstanceGroupId_ == nullptr && this->appInstanceId_ == nullptr && this->appPolicyId_ == nullptr && this->appVersion_ == nullptr
         && this->autoConnectInQueue_ == nullptr && this->bizRegionId_ == nullptr && this->clientId_ == nullptr && this->clientIp_ == nullptr && this->clientOS_ == nullptr
         && this->clientType_ == nullptr && this->clientVersion_ == nullptr && this->connectionProperties_ == nullptr && this->endUserId_ == nullptr && this->environmentConfig_ == nullptr
-        && this->loginRegionId_ == nullptr && this->loginToken_ == nullptr && this->param_ == nullptr && this->productType_ == nullptr && this->resourceId_ == nullptr
-        && this->sessionId_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->uuid_ == nullptr; };
+        && this->loginRegionId_ == nullptr && this->loginToken_ == nullptr && this->param_ == nullptr && this->productType_ == nullptr && this->requireUuidValidation_ == nullptr
+        && this->resourceId_ == nullptr && this->sessionId_ == nullptr && this->taskId_ == nullptr && this->tenantId_ == nullptr && this->uuid_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -223,6 +225,13 @@ namespace Models
     inline GetConnectionTicketRequest& setProductType(string productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
 
 
+    // requireUuidValidation Field Functions 
+    bool hasRequireUuidValidation() const { return this->requireUuidValidation_ != nullptr;};
+    void deleteRequireUuidValidation() { this->requireUuidValidation_ = nullptr;};
+    inline bool getRequireUuidValidation() const { DARABONBA_PTR_GET_DEFAULT(requireUuidValidation_, false) };
+    inline GetConnectionTicketRequest& setRequireUuidValidation(bool requireUuidValidation) { DARABONBA_PTR_SET_VALUE(requireUuidValidation_, requireUuidValidation) };
+
+
     // resourceId Field Functions 
     bool hasResourceId() const { return this->resourceId_ != nullptr;};
     void deleteResourceId() { this->resourceId_ = nullptr;};
@@ -280,6 +289,7 @@ namespace Models
     shared_ptr<string> param_ {};
     // This parameter is required.
     shared_ptr<string> productType_ {};
+    shared_ptr<bool> requireUuidValidation_ {};
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> sessionId_ {};
     shared_ptr<string> taskId_ {};

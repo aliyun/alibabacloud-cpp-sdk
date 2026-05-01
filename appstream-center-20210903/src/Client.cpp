@@ -125,6 +125,10 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
     body["ProductType"] = request.getProductType();
   }
 
+  if (!!request.hasRequireUuidValidation()) {
+    body["RequireUuidValidation"] = request.getRequireUuidValidation();
+  }
+
   if (!!request.hasResourceId()) {
     body["ResourceId"] = request.getResourceId();
   }
