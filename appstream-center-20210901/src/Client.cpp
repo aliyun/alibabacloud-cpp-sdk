@@ -178,6 +178,170 @@ AuthorizeInstanceGroupResponse Client::authorizeInstanceGroup(const AuthorizeIns
 }
 
 /**
+ * @summary 配置资源组模型模板
+ *
+ * @param request ConfigResourceGroupModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigResourceGroupModelTemplateResponse
+ */
+ConfigResourceGroupModelTemplateResponse Client::configResourceGroupModelTemplateWithOptions(const ConfigResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelTemplateId()) {
+    body["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ConfigResourceGroupModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigResourceGroupModelTemplateResponse>();
+}
+
+/**
+ * @summary 配置资源组模型模板
+ *
+ * @param request ConfigResourceGroupModelTemplateRequest
+ * @return ConfigResourceGroupModelTemplateResponse
+ */
+ConfigResourceGroupModelTemplateResponse Client::configResourceGroupModelTemplate(const ConfigResourceGroupModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configResourceGroupModelTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 配置Runtime通道
+ *
+ * @param request ConfigRuntimeChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigRuntimeChannelResponse
+ */
+ConfigRuntimeChannelResponse Client::configRuntimeChannelWithOptions(const ConfigRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  json body = {};
+  if (!!request.hasAgentProvider()) {
+    body["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasCode()) {
+    body["Code"] = request.getCode();
+  }
+
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasRuntimeIds()) {
+    body["RuntimeIds"] = request.getRuntimeIds();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    body["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ConfigRuntimeChannel"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigRuntimeChannelResponse>();
+}
+
+/**
+ * @summary 配置Runtime通道
+ *
+ * @param request ConfigRuntimeChannelRequest
+ * @return ConfigRuntimeChannelResponse
+ */
+ConfigRuntimeChannelResponse Client::configRuntimeChannel(const ConfigRuntimeChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configRuntimeChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过RuntimeIds配置模型模板
+ *
+ * @param request ConfigRuntimeModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigRuntimeModelTemplateResponse
+ */
+ConfigRuntimeModelTemplateResponse Client::configRuntimeModelTemplateWithOptions(const ConfigRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelTemplateId()) {
+    body["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasRuntimeIds()) {
+    body["RuntimeIds"] = request.getRuntimeIds();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    body["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ConfigRuntimeModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigRuntimeModelTemplateResponse>();
+}
+
+/**
+ * @summary 通过RuntimeIds配置模型模板
+ *
+ * @param request ConfigRuntimeModelTemplateRequest
+ * @return ConfigRuntimeModelTemplateResponse
+ */
+ConfigRuntimeModelTemplateResponse Client::configRuntimeModelTemplate(const ConfigRuntimeModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configRuntimeModelTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a delivery group.
  *
  * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
@@ -497,6 +661,64 @@ CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroupW
 CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroup(const CreateImageFromAppInstanceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createImageFromAppInstanceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建模型模板
+ *
+ * @param request CreateModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelTemplateResponse
+ */
+CreateModelTemplateResponse Client::createModelTemplateWithOptions(const CreateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelTemplateResponse>();
+}
+
+/**
+ * @summary 创建模型模板
+ *
+ * @param request CreateModelTemplateRequest
+ * @return CreateModelTemplateResponse
+ */
+CreateModelTemplateResponse Client::createModelTemplate(const CreateModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -1268,6 +1490,122 @@ GetResourceRenewPriceResponse Client::getResourceRenewPrice(const GetResourceRen
 }
 
 /**
+ * @summary 查询Runtime通道配置
+ *
+ * @param request GetRuntimeChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRuntimeChannelResponse
+ */
+GetRuntimeChannelResponse Client::getRuntimeChannelWithOptions(const GetRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasIncludeRiskInfo()) {
+    query["IncludeRiskInfo"] = request.getIncludeRiskInfo();
+  }
+
+  if (!!request.hasRuntimeId()) {
+    query["RuntimeId"] = request.getRuntimeId();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    query["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRuntimeChannel"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRuntimeChannelResponse>();
+}
+
+/**
+ * @summary 查询Runtime通道配置
+ *
+ * @param request GetRuntimeChannelRequest
+ * @return GetRuntimeChannelResponse
+ */
+GetRuntimeChannelResponse Client::getRuntimeChannel(const GetRuntimeChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRuntimeChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询云电脑模型配置详情
+ *
+ * @param request GetRuntimeModelConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRuntimeModelConfigResponse
+ */
+GetRuntimeModelConfigResponse Client::getRuntimeModelConfigWithOptions(const GetRuntimeModelConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasIncludeRiskInfo()) {
+    query["IncludeRiskInfo"] = request.getIncludeRiskInfo();
+  }
+
+  if (!!request.hasRuntimeId()) {
+    query["RuntimeId"] = request.getRuntimeId();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    query["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRuntimeModelConfig"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRuntimeModelConfigResponse>();
+}
+
+/**
+ * @summary 查询云电脑模型配置详情
+ *
+ * @param request GetRuntimeModelConfigRequest
+ * @return GetRuntimeModelConfigResponse
+ */
+GetRuntimeModelConfigResponse Client::getRuntimeModelConfig(const GetRuntimeModelConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRuntimeModelConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of multiple delivery groups that meet the query conditions.
  *
  * @param request ListAppInstanceGroupRequest
@@ -1564,6 +1902,120 @@ ListBindInfoResponse Client::listBindInfo(const ListBindInfoRequest &request) {
 }
 
 /**
+ * @summary 查询桌面Agent运行时列表
+ *
+ * @param request ListDesktopAgentRuntimeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDesktopAgentRuntimeResponse
+ */
+ListDesktopAgentRuntimeResponse Client::listDesktopAgentRuntimeWithOptions(const ListDesktopAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentInstanceStatuses()) {
+    query["AgentInstanceStatuses"] = request.getAgentInstanceStatuses();
+  }
+
+  if (!!request.hasAgentInstanceVersions()) {
+    query["AgentInstanceVersions"] = request.getAgentInstanceVersions();
+  }
+
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasAuthUsers()) {
+    query["AuthUsers"] = request.getAuthUsers();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasChannelConfigure()) {
+    query["ChannelConfigure"] = request.getChannelConfigure();
+  }
+
+  if (!!request.hasDeploymentSource()) {
+    query["DeploymentSource"] = request.getDeploymentSource();
+  }
+
+  if (!!request.hasDesktopIds()) {
+    query["DesktopIds"] = request.getDesktopIds();
+  }
+
+  if (!!request.hasDesktopNames()) {
+    query["DesktopNames"] = request.getDesktopNames();
+  }
+
+  if (!!request.hasDesktopStatuses()) {
+    query["DesktopStatuses"] = request.getDesktopStatuses();
+  }
+
+  if (!!request.hasHasAuthUser()) {
+    query["HasAuthUser"] = request.getHasAuthUser();
+  }
+
+  if (!!request.hasHasRisk()) {
+    query["HasRisk"] = request.getHasRisk();
+  }
+
+  if (!!request.hasIncludeRiskInfo()) {
+    query["IncludeRiskInfo"] = request.getIncludeRiskInfo();
+  }
+
+  if (!!request.hasModelConfigure()) {
+    query["ModelConfigure"] = request.getModelConfigure();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDesktopAgentRuntime"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDesktopAgentRuntimeResponse>();
+}
+
+/**
+ * @summary 查询桌面Agent运行时列表
+ *
+ * @param request ListDesktopAgentRuntimeRequest
+ * @return ListDesktopAgentRuntimeResponse
+ */
+ListDesktopAgentRuntimeResponse Client::listDesktopAgentRuntime(const ListDesktopAgentRuntimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDesktopAgentRuntimeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the image information about an ECS instance.
  *
  * @param request ListImageRequest
@@ -1685,6 +2137,60 @@ ListImageResponse Client::listImageWithOptions(const ListImageRequest &request, 
 ListImageResponse Client::listImage(const ListImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型分组绑定的资源组列表
+ *
+ * @param request ListModelTemplateResourceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelTemplateResourceGroupResponse
+ */
+ListModelTemplateResourceGroupResponse Client::listModelTemplateResourceGroupWithOptions(const ListModelTemplateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceGroupIds()) {
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelTemplateResourceGroup"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelTemplateResourceGroupResponse>();
+}
+
+/**
+ * @summary 查询模型分组绑定的资源组列表
+ *
+ * @param request ListModelTemplateResourceGroupRequest
+ * @return ListModelTemplateResourceGroupResponse
+ */
+ListModelTemplateResourceGroupResponse Client::listModelTemplateResourceGroup(const ListModelTemplateResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelTemplateResourceGroupWithOptions(request, runtime);
 }
 
 /**
@@ -2783,6 +3289,160 @@ PageListAppInstanceGroupUserResponse Client::pageListAppInstanceGroupUserWithOpt
 PageListAppInstanceGroupUserResponse Client::pageListAppInstanceGroupUser(const PageListAppInstanceGroupUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return pageListAppInstanceGroupUserWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除资源组模型模板配置
+ *
+ * @param request RemoveResourceGroupModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveResourceGroupModelTemplateResponse
+ */
+RemoveResourceGroupModelTemplateResponse Client::removeResourceGroupModelTemplateWithOptions(const RemoveResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelTemplateId()) {
+    body["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasResourceGroupIds()) {
+    body["ResourceGroupIds"] = request.getResourceGroupIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveResourceGroupModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveResourceGroupModelTemplateResponse>();
+}
+
+/**
+ * @summary 移除资源组模型模板配置
+ *
+ * @param request RemoveResourceGroupModelTemplateRequest
+ * @return RemoveResourceGroupModelTemplateResponse
+ */
+RemoveResourceGroupModelTemplateResponse Client::removeResourceGroupModelTemplate(const RemoveResourceGroupModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeResourceGroupModelTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除Runtime通道
+ *
+ * @param request RemoveRuntimeChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveRuntimeChannelResponse
+ */
+RemoveRuntimeChannelResponse Client::removeRuntimeChannelWithOptions(const RemoveRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAgentPlatform()) {
+    body["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    body["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasCode()) {
+    body["Code"] = request.getCode();
+  }
+
+  if (!!request.hasRuntimeIds()) {
+    body["RuntimeIds"] = request.getRuntimeIds();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    body["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveRuntimeChannel"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveRuntimeChannelResponse>();
+}
+
+/**
+ * @summary 移除Runtime通道
+ *
+ * @param request RemoveRuntimeChannelRequest
+ * @return RemoveRuntimeChannelResponse
+ */
+RemoveRuntimeChannelResponse Client::removeRuntimeChannel(const RemoveRuntimeChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeRuntimeChannelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 通过RuntimeIds移除模型模板配置
+ *
+ * @param request RemoveRuntimeModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveRuntimeModelTemplateResponse
+ */
+RemoveRuntimeModelTemplateResponse Client::removeRuntimeModelTemplateWithOptions(const RemoveRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasModelTemplateId()) {
+    body["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasRuntimeIds()) {
+    body["RuntimeIds"] = request.getRuntimeIds();
+  }
+
+  if (!!request.hasRuntimeType()) {
+    body["RuntimeType"] = request.getRuntimeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RemoveRuntimeModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveRuntimeModelTemplateResponse>();
+}
+
+/**
+ * @summary 通过RuntimeIds移除模型模板配置
+ *
+ * @param request RemoveRuntimeModelTemplateRequest
+ * @return RemoveRuntimeModelTemplateResponse
+ */
+RemoveRuntimeModelTemplateResponse Client::removeRuntimeModelTemplate(const RemoveRuntimeModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeRuntimeModelTemplateWithOptions(request, runtime);
 }
 
 /**

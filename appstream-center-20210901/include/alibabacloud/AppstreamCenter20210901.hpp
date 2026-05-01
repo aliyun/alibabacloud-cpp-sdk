@@ -55,6 +55,57 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroup(const Models::AuthorizeInstanceGroupRequest &request);
 
       /**
+       * @summary 配置资源组模型模板
+       *
+       * @param request ConfigResourceGroupModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigResourceGroupModelTemplateResponse
+       */
+      Models::ConfigResourceGroupModelTemplateResponse configResourceGroupModelTemplateWithOptions(const Models::ConfigResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置资源组模型模板
+       *
+       * @param request ConfigResourceGroupModelTemplateRequest
+       * @return ConfigResourceGroupModelTemplateResponse
+       */
+      Models::ConfigResourceGroupModelTemplateResponse configResourceGroupModelTemplate(const Models::ConfigResourceGroupModelTemplateRequest &request);
+
+      /**
+       * @summary 配置Runtime通道
+       *
+       * @param request ConfigRuntimeChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigRuntimeChannelResponse
+       */
+      Models::ConfigRuntimeChannelResponse configRuntimeChannelWithOptions(const Models::ConfigRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置Runtime通道
+       *
+       * @param request ConfigRuntimeChannelRequest
+       * @return ConfigRuntimeChannelResponse
+       */
+      Models::ConfigRuntimeChannelResponse configRuntimeChannel(const Models::ConfigRuntimeChannelRequest &request);
+
+      /**
+       * @summary 通过RuntimeIds配置模型模板
+       *
+       * @param request ConfigRuntimeModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigRuntimeModelTemplateResponse
+       */
+      Models::ConfigRuntimeModelTemplateResponse configRuntimeModelTemplateWithOptions(const Models::ConfigRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过RuntimeIds配置模型模板
+       *
+       * @param request ConfigRuntimeModelTemplateRequest
+       * @return ConfigRuntimeModelTemplateResponse
+       */
+      Models::ConfigRuntimeModelTemplateResponse configRuntimeModelTemplate(const Models::ConfigRuntimeModelTemplateRequest &request);
+
+      /**
        * @summary Creates a delivery group.
        *
        * @description Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
@@ -110,6 +161,23 @@ namespace AppstreamCenter20210901
        * @return CreateImageFromAppInstanceGroupResponse
        */
       Models::CreateImageFromAppInstanceGroupResponse createImageFromAppInstanceGroup(const Models::CreateImageFromAppInstanceGroupRequest &request);
+
+      /**
+       * @summary 创建模型模板
+       *
+       * @param request CreateModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelTemplateResponse
+       */
+      Models::CreateModelTemplateResponse createModelTemplateWithOptions(const Models::CreateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型模板
+       *
+       * @param request CreateModelTemplateRequest
+       * @return CreateModelTemplateResponse
+       */
+      Models::CreateModelTemplateResponse createModelTemplate(const Models::CreateModelTemplateRequest &request);
 
       /**
        * @summary Create one or more workstations.
@@ -360,6 +428,40 @@ namespace AppstreamCenter20210901
       Models::GetResourceRenewPriceResponse getResourceRenewPrice(const Models::GetResourceRenewPriceRequest &request);
 
       /**
+       * @summary 查询Runtime通道配置
+       *
+       * @param request GetRuntimeChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRuntimeChannelResponse
+       */
+      Models::GetRuntimeChannelResponse getRuntimeChannelWithOptions(const Models::GetRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Runtime通道配置
+       *
+       * @param request GetRuntimeChannelRequest
+       * @return GetRuntimeChannelResponse
+       */
+      Models::GetRuntimeChannelResponse getRuntimeChannel(const Models::GetRuntimeChannelRequest &request);
+
+      /**
+       * @summary 查询云电脑模型配置详情
+       *
+       * @param request GetRuntimeModelConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRuntimeModelConfigResponse
+       */
+      Models::GetRuntimeModelConfigResponse getRuntimeModelConfigWithOptions(const Models::GetRuntimeModelConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询云电脑模型配置详情
+       *
+       * @param request GetRuntimeModelConfigRequest
+       * @return GetRuntimeModelConfigResponse
+       */
+      Models::GetRuntimeModelConfigResponse getRuntimeModelConfig(const Models::GetRuntimeModelConfigRequest &request);
+
+      /**
        * @summary Queries the details of multiple delivery groups that meet the query conditions.
        *
        * @param request ListAppInstanceGroupRequest
@@ -428,6 +530,23 @@ namespace AppstreamCenter20210901
       Models::ListBindInfoResponse listBindInfo(const Models::ListBindInfoRequest &request);
 
       /**
+       * @summary 查询桌面Agent运行时列表
+       *
+       * @param request ListDesktopAgentRuntimeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDesktopAgentRuntimeResponse
+       */
+      Models::ListDesktopAgentRuntimeResponse listDesktopAgentRuntimeWithOptions(const Models::ListDesktopAgentRuntimeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面Agent运行时列表
+       *
+       * @param request ListDesktopAgentRuntimeRequest
+       * @return ListDesktopAgentRuntimeResponse
+       */
+      Models::ListDesktopAgentRuntimeResponse listDesktopAgentRuntime(const Models::ListDesktopAgentRuntimeRequest &request);
+
+      /**
        * @summary Queries the image information about an ECS instance.
        *
        * @param request ListImageRequest
@@ -443,6 +562,23 @@ namespace AppstreamCenter20210901
        * @return ListImageResponse
        */
       Models::ListImageResponse listImage(const Models::ListImageRequest &request);
+
+      /**
+       * @summary 查询模型分组绑定的资源组列表
+       *
+       * @param request ListModelTemplateResourceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelTemplateResourceGroupResponse
+       */
+      Models::ListModelTemplateResourceGroupResponse listModelTemplateResourceGroupWithOptions(const Models::ListModelTemplateResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型分组绑定的资源组列表
+       *
+       * @param request ListModelTemplateResourceGroupRequest
+       * @return ListModelTemplateResourceGroupResponse
+       */
+      Models::ListModelTemplateResourceGroupResponse listModelTemplateResourceGroup(const Models::ListModelTemplateResourceGroupRequest &request);
 
       /**
        * @summary Queries the resource types that are available for purchase when you create a delivery group.
@@ -754,6 +890,57 @@ namespace AppstreamCenter20210901
        * @return PageListAppInstanceGroupUserResponse
        */
       Models::PageListAppInstanceGroupUserResponse pageListAppInstanceGroupUser(const Models::PageListAppInstanceGroupUserRequest &request);
+
+      /**
+       * @summary 移除资源组模型模板配置
+       *
+       * @param request RemoveResourceGroupModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveResourceGroupModelTemplateResponse
+       */
+      Models::RemoveResourceGroupModelTemplateResponse removeResourceGroupModelTemplateWithOptions(const Models::RemoveResourceGroupModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除资源组模型模板配置
+       *
+       * @param request RemoveResourceGroupModelTemplateRequest
+       * @return RemoveResourceGroupModelTemplateResponse
+       */
+      Models::RemoveResourceGroupModelTemplateResponse removeResourceGroupModelTemplate(const Models::RemoveResourceGroupModelTemplateRequest &request);
+
+      /**
+       * @summary 移除Runtime通道
+       *
+       * @param request RemoveRuntimeChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveRuntimeChannelResponse
+       */
+      Models::RemoveRuntimeChannelResponse removeRuntimeChannelWithOptions(const Models::RemoveRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除Runtime通道
+       *
+       * @param request RemoveRuntimeChannelRequest
+       * @return RemoveRuntimeChannelResponse
+       */
+      Models::RemoveRuntimeChannelResponse removeRuntimeChannel(const Models::RemoveRuntimeChannelRequest &request);
+
+      /**
+       * @summary 通过RuntimeIds移除模型模板配置
+       *
+       * @param request RemoveRuntimeModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveRuntimeModelTemplateResponse
+       */
+      Models::RemoveRuntimeModelTemplateResponse removeRuntimeModelTemplateWithOptions(const Models::RemoveRuntimeModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通过RuntimeIds移除模型模板配置
+       *
+       * @param request RemoveRuntimeModelTemplateRequest
+       * @return RemoveRuntimeModelTemplateResponse
+       */
+      Models::RemoveRuntimeModelTemplateResponse removeRuntimeModelTemplate(const Models::RemoveRuntimeModelTemplateRequest &request);
 
       /**
        * @summary Renews a delivery group.
