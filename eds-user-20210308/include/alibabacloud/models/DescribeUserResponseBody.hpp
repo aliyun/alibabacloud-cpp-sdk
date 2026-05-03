@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExternalInfo, externalInfo_);
         DARABONBA_PTR_TO_JSON(Extras, extras_);
         DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_TO_JSON(NickName, nickName_);
         DARABONBA_PTR_TO_JSON(OrgIds, orgIds_);
         DARABONBA_PTR_TO_JSON(OrgPaths, orgPaths_);
         DARABONBA_PTR_TO_JSON(Phone, phone_);
@@ -55,6 +56,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExternalInfo, externalInfo_);
         DARABONBA_PTR_FROM_JSON(Extras, extras_);
         DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
+        DARABONBA_PTR_FROM_JSON(NickName, nickName_);
         DARABONBA_PTR_FROM_JSON(OrgIds, orgIds_);
         DARABONBA_PTR_FROM_JSON(OrgPaths, orgPaths_);
         DARABONBA_PTR_FROM_JSON(Phone, phone_);
@@ -179,9 +181,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->email_ == nullptr
-        && this->endUserId_ == nullptr && this->externalInfo_ == nullptr && this->extras_ == nullptr && this->gmtCreate_ == nullptr && this->orgIds_ == nullptr
-        && this->orgPaths_ == nullptr && this->phone_ == nullptr && this->properties_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr
-        && this->wyId_ == nullptr; };
+        && this->endUserId_ == nullptr && this->externalInfo_ == nullptr && this->extras_ == nullptr && this->gmtCreate_ == nullptr && this->nickName_ == nullptr
+        && this->orgIds_ == nullptr && this->orgPaths_ == nullptr && this->phone_ == nullptr && this->properties_ == nullptr && this->remark_ == nullptr
+        && this->status_ == nullptr && this->wyId_ == nullptr; };
       // email Field Functions 
       bool hasEmail() const { return this->email_ != nullptr;};
       void deleteEmail() { this->email_ = nullptr;};
@@ -219,6 +221,13 @@ namespace Models
       void deleteGmtCreate() { this->gmtCreate_ = nullptr;};
       inline int64_t getGmtCreate() const { DARABONBA_PTR_GET_DEFAULT(gmtCreate_, 0L) };
       inline User& setGmtCreate(int64_t gmtCreate) { DARABONBA_PTR_SET_VALUE(gmtCreate_, gmtCreate) };
+
+
+      // nickName Field Functions 
+      bool hasNickName() const { return this->nickName_ != nullptr;};
+      void deleteNickName() { this->nickName_ = nullptr;};
+      inline string getNickName() const { DARABONBA_PTR_GET_DEFAULT(nickName_, "") };
+      inline User& setNickName(string nickName) { DARABONBA_PTR_SET_VALUE(nickName_, nickName) };
 
 
       // orgIds Field Functions 
@@ -282,6 +291,7 @@ namespace Models
       shared_ptr<User::ExternalInfo> externalInfo_ {};
       shared_ptr<map<string, string>> extras_ {};
       shared_ptr<int64_t> gmtCreate_ {};
+      shared_ptr<string> nickName_ {};
       shared_ptr<vector<string>> orgIds_ {};
       shared_ptr<vector<string>> orgPaths_ {};
       shared_ptr<string> phone_ {};
