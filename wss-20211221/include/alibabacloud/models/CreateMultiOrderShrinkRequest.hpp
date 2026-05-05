@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
         DARABONBA_PTR_TO_JSON(BuyChange, buyChange_);
         DARABONBA_PTR_TO_JSON(Components, components_);
+        DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
         DARABONBA_PTR_TO_JSON(Period, period_);
         DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
         DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
         DARABONBA_PTR_FROM_JSON(BuyChange, buyChange_);
         DARABONBA_PTR_FROM_JSON(Components, components_);
+        DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
         DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
         DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
@@ -116,8 +118,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->amount_ == nullptr
-        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->buyChange_ == nullptr && this->components_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->resourceIds_ == nullptr && this->resourceType_ == nullptr; };
+        && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->buyChange_ == nullptr && this->components_ == nullptr && this->instanceIds_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->resourceIds_ == nullptr && this->resourceType_ == nullptr; };
       // amount Field Functions 
       bool hasAmount() const { return this->amount_ != nullptr;};
       void deleteAmount() { this->amount_ = nullptr;};
@@ -153,6 +155,15 @@ namespace Models
       inline vector<OrderItems::Components> getComponents() { DARABONBA_PTR_GET(components_, vector<OrderItems::Components>) };
       inline OrderItems& setComponents(const vector<OrderItems::Components> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
       inline OrderItems& setComponents(vector<OrderItems::Components> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
+
+
+      // instanceIds Field Functions 
+      bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
+      void deleteInstanceIds() { this->instanceIds_ = nullptr;};
+      inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+      inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+      inline OrderItems& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+      inline OrderItems& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
 
       // period Field Functions 
@@ -198,6 +209,7 @@ namespace Models
       shared_ptr<bool> autoRenew_ {};
       shared_ptr<bool> buyChange_ {};
       shared_ptr<vector<OrderItems::Components>> components_ {};
+      shared_ptr<vector<string>> instanceIds_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
       shared_ptr<string> promotionId_ {};

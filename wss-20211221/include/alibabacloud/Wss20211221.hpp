@@ -38,6 +38,57 @@ namespace Wss20211221
       Models::CreateMultiOrderResponse createMultiOrder(const Models::CreateMultiOrderRequest &request);
 
       /**
+       * @summary 查询积分包Agent列表
+       *
+       * @param request DescribeCreditPackageAgentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCreditPackageAgentsResponse
+       */
+      Models::DescribeCreditPackageAgentsResponse describeCreditPackageAgentsWithOptions(const Models::DescribeCreditPackageAgentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询积分包Agent列表
+       *
+       * @param request DescribeCreditPackageAgentsRequest
+       * @return DescribeCreditPackageAgentsResponse
+       */
+      Models::DescribeCreditPackageAgentsResponse describeCreditPackageAgents(const Models::DescribeCreditPackageAgentsRequest &request);
+
+      /**
+       * @summary 查询积分包用量信息
+       *
+       * @param request DescribeCreditUsageInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCreditUsageInfoResponse
+       */
+      Models::DescribeCreditUsageInfoResponse describeCreditUsageInfoWithOptions(const Models::DescribeCreditUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询积分包用量信息
+       *
+       * @param request DescribeCreditUsageInfoRequest
+       * @return DescribeCreditUsageInfoResponse
+       */
+      Models::DescribeCreditUsageInfoResponse describeCreditUsageInfo(const Models::DescribeCreditUsageInfoRequest &request);
+
+      /**
+       * @summary 查询计量消耗信息
+       *
+       * @param request DescribeDeductionStatisticRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDeductionStatisticResponse
+       */
+      Models::DescribeDeductionStatisticResponse describeDeductionStatisticWithOptions(const Models::DescribeDeductionStatisticRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询计量消耗信息
+       *
+       * @param request DescribeDeductionStatisticRequest
+       * @return DescribeDeductionStatisticResponse
+       */
+      Models::DescribeDeductionStatisticResponse describeDeductionStatistic(const Models::DescribeDeductionStatisticRequest &request);
+
+      /**
        * @summary 查询物流地址
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,6 +153,23 @@ namespace Wss20211221
        * @return ModifyInstancePropertiesResponse
        */
       Models::ModifyInstancePropertiesResponse modifyInstanceProperties(const Models::ModifyInstancePropertiesRequest &request);
+
+      /**
+       * @summary 批量设置Agent积分配额
+       *
+       * @param request SetAgentCreditQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAgentCreditQuotaResponse
+       */
+      Models::SetAgentCreditQuotaResponse setAgentCreditQuotaWithOptions(const Models::SetAgentCreditQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量设置Agent积分配额
+       *
+       * @param request SetAgentCreditQuotaRequest
+       * @return SetAgentCreditQuotaResponse
+       */
+      Models::SetAgentCreditQuotaResponse setAgentCreditQuota(const Models::SetAgentCreditQuotaRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Wss20211221

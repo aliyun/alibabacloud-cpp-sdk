@@ -96,6 +96,172 @@ CreateMultiOrderResponse Client::createMultiOrder(const CreateMultiOrderRequest 
 }
 
 /**
+ * @summary 查询积分包Agent列表
+ *
+ * @param request DescribeCreditPackageAgentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCreditPackageAgentsResponse
+ */
+DescribeCreditPackageAgentsResponse Client::describeCreditPackageAgentsWithOptions(const DescribeCreditPackageAgentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentIds()) {
+    query["AgentIds"] = request.getAgentIds();
+  }
+
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCreditPackageAgents"},
+    {"version" , "2021-12-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCreditPackageAgentsResponse>();
+}
+
+/**
+ * @summary 查询积分包Agent列表
+ *
+ * @param request DescribeCreditPackageAgentsRequest
+ * @return DescribeCreditPackageAgentsResponse
+ */
+DescribeCreditPackageAgentsResponse Client::describeCreditPackageAgents(const DescribeCreditPackageAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCreditPackageAgentsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询积分包用量信息
+ *
+ * @param request DescribeCreditUsageInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCreditUsageInfoResponse
+ */
+DescribeCreditUsageInfoResponse Client::describeCreditUsageInfoWithOptions(const DescribeCreditUsageInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasUsageType()) {
+    query["UsageType"] = request.getUsageType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCreditUsageInfo"},
+    {"version" , "2021-12-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCreditUsageInfoResponse>();
+}
+
+/**
+ * @summary 查询积分包用量信息
+ *
+ * @param request DescribeCreditUsageInfoRequest
+ * @return DescribeCreditUsageInfoResponse
+ */
+DescribeCreditUsageInfoResponse Client::describeCreditUsageInfo(const DescribeCreditUsageInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCreditUsageInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询计量消耗信息
+ *
+ * @param request DescribeDeductionStatisticRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDeductionStatisticResponse
+ */
+DescribeDeductionStatisticResponse Client::describeDeductionStatisticWithOptions(const DescribeDeductionStatisticRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasPeriods()) {
+    query["Periods"] = request.getPeriods();
+  }
+
+  if (!!request.hasResourceTypes()) {
+    query["ResourceTypes"] = request.getResourceTypes();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDeductionStatistic"},
+    {"version" , "2021-12-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDeductionStatisticResponse>();
+}
+
+/**
+ * @summary 查询计量消耗信息
+ *
+ * @param request DescribeDeductionStatisticRequest
+ * @return DescribeDeductionStatisticResponse
+ */
+DescribeDeductionStatisticResponse Client::describeDeductionStatistic(const DescribeDeductionStatisticRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDeductionStatisticWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询物流地址
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,6 +473,60 @@ ModifyInstancePropertiesResponse Client::modifyInstancePropertiesWithOptions(con
 ModifyInstancePropertiesResponse Client::modifyInstanceProperties(const ModifyInstancePropertiesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifyInstancePropertiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量设置Agent积分配额
+ *
+ * @param request SetAgentCreditQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAgentCreditQuotaResponse
+ */
+SetAgentCreditQuotaResponse Client::setAgentCreditQuotaWithOptions(const SetAgentCreditQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentIds()) {
+    query["AgentIds"] = request.getAgentIds();
+  }
+
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasCreditQuota()) {
+    query["CreditQuota"] = request.getCreditQuota();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAgentCreditQuota"},
+    {"version" , "2021-12-21"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAgentCreditQuotaResponse>();
+}
+
+/**
+ * @summary 批量设置Agent积分配额
+ *
+ * @param request SetAgentCreditQuotaRequest
+ * @return SetAgentCreditQuotaResponse
+ */
+SetAgentCreditQuotaResponse Client::setAgentCreditQuota(const SetAgentCreditQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAgentCreditQuotaWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Wss20211221
