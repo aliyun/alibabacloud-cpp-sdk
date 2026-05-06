@@ -1,0 +1,98 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPLOADSAMPLEFILEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_UPLOADSAMPLEFILEREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Xtee20210910
+{
+namespace Models
+{
+  class UploadSampleFileRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UploadSampleFileRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(FileName, fileName_);
+      DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(RegId, regId_);
+      DARABONBA_PTR_TO_JSON(Tab, tab_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
+    };
+    friend void from_json(const Darabonba::Json& j, UploadSampleFileRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(FileName, fileName_);
+      DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(RegId, regId_);
+      DARABONBA_PTR_FROM_JSON(Tab, tab_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
+    };
+    UploadSampleFileRequest() = default ;
+    UploadSampleFileRequest(const UploadSampleFileRequest &) = default ;
+    UploadSampleFileRequest(UploadSampleFileRequest &&) = default ;
+    UploadSampleFileRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UploadSampleFileRequest() = default ;
+    UploadSampleFileRequest& operator=(const UploadSampleFileRequest &) = default ;
+    UploadSampleFileRequest& operator=(UploadSampleFileRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->fileName_ == nullptr
+        && this->fileUrl_ == nullptr && this->lang_ == nullptr && this->regId_ == nullptr && this->tab_ == nullptr && this->type_ == nullptr; };
+    // fileName Field Functions 
+    bool hasFileName() const { return this->fileName_ != nullptr;};
+    void deleteFileName() { this->fileName_ = nullptr;};
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline UploadSampleFileRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
+
+
+    // fileUrl Field Functions 
+    bool hasFileUrl() const { return this->fileUrl_ != nullptr;};
+    void deleteFileUrl() { this->fileUrl_ = nullptr;};
+    inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
+    inline UploadSampleFileRequest& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline UploadSampleFileRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // regId Field Functions 
+    bool hasRegId() const { return this->regId_ != nullptr;};
+    void deleteRegId() { this->regId_ = nullptr;};
+    inline string getRegId() const { DARABONBA_PTR_GET_DEFAULT(regId_, "") };
+    inline UploadSampleFileRequest& setRegId(string regId) { DARABONBA_PTR_SET_VALUE(regId_, regId) };
+
+
+    // tab Field Functions 
+    bool hasTab() const { return this->tab_ != nullptr;};
+    void deleteTab() { this->tab_ = nullptr;};
+    inline string getTab() const { DARABONBA_PTR_GET_DEFAULT(tab_, "") };
+    inline UploadSampleFileRequest& setTab(string tab) { DARABONBA_PTR_SET_VALUE(tab_, tab) };
+
+
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline UploadSampleFileRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+  protected:
+    shared_ptr<string> fileName_ {};
+    shared_ptr<string> fileUrl_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> regId_ {};
+    shared_ptr<string> tab_ {};
+    shared_ptr<string> type_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Xtee20210910
+#endif

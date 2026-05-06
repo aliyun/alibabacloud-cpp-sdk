@@ -300,6 +300,60 @@ BindVariableResponse Client::bindVariable(const BindVariableRequest &request) {
 }
 
 /**
+ * @summary 创建任务组
+ *
+ * @param request CancelSubTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelSubTaskResponse
+ */
+CancelSubTaskResponse Client::cancelSubTaskWithOptions(const CancelSubTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSubTaskId()) {
+    query["SubTaskId"] = request.getSubTaskId();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelSubTask"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelSubTaskResponse>();
+}
+
+/**
+ * @summary 创建任务组
+ *
+ * @param request CancelSubTaskRequest
+ * @return CancelSubTaskResponse
+ */
+CancelSubTaskResponse Client::cancelSubTask(const CancelSubTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelSubTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Policy Replication Lineage Check
  *
  * @param request CheckCopyRuleVariableRequest
@@ -505,6 +559,106 @@ CheckFieldLimitResponse Client::checkFieldLimitWithOptions(const CheckFieldLimit
 CheckFieldLimitResponse Client::checkFieldLimit(const CheckFieldLimitRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkFieldLimitWithOptions(request, runtime);
+}
+
+/**
+ * @summary 样本名称唯一性校验
+ *
+ * @param request CheckSampleNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckSampleNameResponse
+ */
+CheckSampleNameResponse Client::checkSampleNameWithOptions(const CheckSampleNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleName()) {
+    query["SampleName"] = request.getSampleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckSampleName"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckSampleNameResponse>();
+}
+
+/**
+ * @summary 样本名称唯一性校验
+ *
+ * @param request CheckSampleNameRequest
+ * @return CheckSampleNameResponse
+ */
+CheckSampleNameResponse Client::checkSampleName(const CheckSampleNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkSampleNameWithOptions(request, runtime);
+}
+
+/**
+ * @summary 任务组名称唯一性校验
+ *
+ * @param request CheckTaskGroupNameRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckTaskGroupNameResponse
+ */
+CheckTaskGroupNameResponse Client::checkTaskGroupNameWithOptions(const CheckTaskGroupNameRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasTaskGroupName()) {
+    query["TaskGroupName"] = request.getTaskGroupName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckTaskGroupName"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckTaskGroupNameResponse>();
+}
+
+/**
+ * @summary 任务组名称唯一性校验
+ *
+ * @param request CheckTaskGroupNameRequest
+ * @return CheckTaskGroupNameResponse
+ */
+CheckTaskGroupNameResponse Client::checkTaskGroupName(const CheckTaskGroupNameRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkTaskGroupNameWithOptions(request, runtime);
 }
 
 /**
@@ -1426,6 +1580,76 @@ CreatePocEvResponse Client::createPocEv(const CreatePocEvRequest &request) {
 }
 
 /**
+ * @summary 创建样本记录
+ *
+ * @param request CreatePocSampleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePocSampleResponse
+ */
+CreatePocSampleResponse Client::createPocSampleWithOptions(const CreatePocSampleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFileUrl()) {
+    query["FileUrl"] = request.getFileUrl();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasSampleName()) {
+    query["SampleName"] = request.getSampleName();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreatePocSample"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePocSampleResponse>();
+}
+
+/**
+ * @summary 创建样本记录
+ *
+ * @param request CreatePocSampleRequest
+ * @return CreatePocSampleResponse
+ */
+CreatePocSampleResponse Client::createPocSample(const CreatePocSampleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createPocSampleWithOptions(request, runtime);
+}
+
+/**
  * @summary Add New Custom Query Variable
  *
  * @param request CreateQueryVariableRequest
@@ -2092,6 +2316,80 @@ CreateSimulationTaskResponse Client::createSimulationTask(const CreateSimulation
 }
 
 /**
+ * @summary 取消子任务
+ *
+ * @param request CreateTaskGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTaskGroupResponse
+ */
+CreateTaskGroupResponse Client::createTaskGroupWithOptions(const CreateTaskGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleIds()) {
+    query["SampleIds"] = request.getSampleIds();
+  }
+
+  if (!!request.hasScenes()) {
+    query["Scenes"] = request.getScenes();
+  }
+
+  if (!!request.hasServiceCodes()) {
+    query["ServiceCodes"] = request.getServiceCodes();
+  }
+
+  if (!!request.hasServiceNames()) {
+    query["ServiceNames"] = request.getServiceNames();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  if (!!request.hasTaskGroupName()) {
+    query["TaskGroupName"] = request.getTaskGroupName();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTaskGroup"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTaskGroupResponse>();
+}
+
+/**
+ * @summary 取消子任务
+ *
+ * @param request CreateTaskGroupRequest
+ * @return CreateTaskGroupResponse
+ */
+CreateTaskGroupResponse Client::createTaskGroup(const CreateTaskGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTaskGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Policy Replication
  *
  * @param request DeepCopyRuleRequest
@@ -2490,7 +2788,7 @@ DeleteExpressionVariableResponse Client::deleteExpressionVariable(const DeleteEx
 }
 
 /**
- * @summary 删除字段
+ * @summary Delete Field
  *
  * @param request DeleteFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2533,7 +2831,7 @@ DeleteFieldResponse Client::deleteFieldWithOptions(const DeleteFieldRequest &req
 }
 
 /**
- * @summary 删除字段
+ * @summary Delete Field
  *
  * @param request DeleteFieldRequest
  * @return DeleteFieldResponse
@@ -2752,6 +3050,56 @@ DeleteRuleResponse Client::deleteRule(const DeleteRuleRequest &request) {
 }
 
 /**
+ * @summary 删除样本
+ *
+ * @param request DeleteSampleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSampleResponse
+ */
+DeleteSampleResponse Client::deleteSampleWithOptions(const DeleteSampleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleId()) {
+    query["SampleId"] = request.getSampleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSample"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSampleResponse>();
+}
+
+/**
+ * @summary 删除样本
+ *
+ * @param request DeleteSampleRequest
+ * @return DeleteSampleResponse
+ */
+DeleteSampleResponse Client::deleteSample(const DeleteSampleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSampleWithOptions(request, runtime);
+}
+
+/**
  * @summary Batch Delete Samples
  *
  * @param request DeleteSampleBatchRequest
@@ -2956,7 +3304,7 @@ DeleteSelfBindVariableResponse Client::deleteSelfBindVariable(const DeleteSelfBi
 }
 
 /**
- * @summary 高级查询获取左变量接口
+ * @summary Advanced Query to Get Left Variables Interface
  *
  * @param request DescribeAdvanceSearchLeftVariableListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2999,7 +3347,7 @@ DescribeAdvanceSearchLeftVariableListResponse Client::describeAdvanceSearchLeftV
 }
 
 /**
- * @summary 高级查询获取左变量接口
+ * @summary Advanced Query to Get Left Variables Interface
  *
  * @param request DescribeAdvanceSearchLeftVariableListRequest
  * @return DescribeAdvanceSearchLeftVariableListResponse
@@ -3088,7 +3436,7 @@ DescribeAdvanceSearchPageListResponse Client::describeAdvanceSearchPageList(cons
 }
 
 /**
- * @summary 数据源列表
+ * @summary Data Source List
  *
  * @param request DescribeAllDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3123,7 +3471,7 @@ DescribeAllDataSourceResponse Client::describeAllDataSourceWithOptions(const Des
 }
 
 /**
- * @summary 数据源列表
+ * @summary Data Source List
  *
  * @param request DescribeAllDataSourceRequest
  * @return DescribeAllDataSourceResponse
@@ -4020,7 +4368,7 @@ DescribeAuthEventNameListResponse Client::describeAuthEventNameList(const Descri
 }
 
 /**
- * @summary 策略列表
+ * @summary Policy List
  *
  * @param request DescribeAuthRulePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4067,7 +4415,7 @@ DescribeAuthRulePageListResponse Client::describeAuthRulePageListWithOptions(con
 }
 
 /**
- * @summary 策略列表
+ * @summary Policy List
  *
  * @param request DescribeAuthRulePageListRequest
  * @return DescribeAuthRulePageListResponse
@@ -4078,7 +4426,7 @@ DescribeAuthRulePageListResponse Client::describeAuthRulePageList(const Describe
 }
 
 /**
- * @summary 场景列表
+ * @summary List of Scenarios
  *
  * @param request DescribeAuthSceneListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4113,7 +4461,7 @@ DescribeAuthSceneListResponse Client::describeAuthSceneListWithOptions(const Des
 }
 
 /**
- * @summary 场景列表
+ * @summary List of Scenarios
  *
  * @param request DescribeAuthSceneListRequest
  * @return DescribeAuthSceneListResponse
@@ -4340,7 +4688,7 @@ DescribeBasicSearchPageListResponse Client::describeBasicSearchPageList(const De
 }
 
 /**
- * @summary 基础统计
+ * @summary Basic Statistics
  *
  * @param request DescribeBasicStartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4387,7 +4735,7 @@ DescribeBasicStartResponse Client::describeBasicStartWithOptions(const DescribeB
 }
 
 /**
- * @summary 基础统计
+ * @summary Basic Statistics
  *
  * @param request DescribeBasicStartRequest
  * @return DescribeBasicStartResponse
@@ -8754,7 +9102,7 @@ DescribeQueryVariableDetailResponse Client::describeQueryVariableDetail(const De
 }
 
 /**
- * @summary 查询变量列表查询
+ * @summary Query Variable List Query
  *
  * @param request DescribeQueryVariablePageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8809,7 +9157,7 @@ DescribeQueryVariablePageListResponse Client::describeQueryVariablePageListWithO
 }
 
 /**
- * @summary 查询变量列表查询
+ * @summary Query Variable List Query
  *
  * @param request DescribeQueryVariablePageListRequest
  * @return DescribeQueryVariablePageListResponse
@@ -13144,6 +13492,60 @@ DescribeVersionPageListResponse Client::describeVersionPageList(const DescribeVe
 }
 
 /**
+ * @summary 下载样本文件
+ *
+ * @param request DownloadSampleFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadSampleFileResponse
+ */
+DownloadSampleFileResponse Client::downloadSampleFileWithOptions(const DownloadSampleFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleId()) {
+    query["SampleId"] = request.getSampleId();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadSampleFile"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadSampleFileResponse>();
+}
+
+/**
+ * @summary 下载样本文件
+ *
+ * @param request DownloadSampleFileRequest
+ * @return DownloadSampleFileResponse
+ */
+DownloadSampleFileResponse Client::downloadSampleFile(const DownloadSampleFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadSampleFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Sample List Data Download
  *
  * @param request DownloadSmapleBatchRequest
@@ -13191,6 +13593,56 @@ DownloadSmapleBatchResponse Client::downloadSmapleBatchWithOptions(const Downloa
 DownloadSmapleBatchResponse Client::downloadSmapleBatch(const DownloadSmapleBatchRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return downloadSmapleBatchWithOptions(request, runtime);
+}
+
+/**
+ * @summary 下载子任务结果
+ *
+ * @param request DownloadSubTaskResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadSubTaskResultResponse
+ */
+DownloadSubTaskResultResponse Client::downloadSubTaskResultWithOptions(const DownloadSubTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSubTaskId()) {
+    query["SubTaskId"] = request.getSubTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadSubTaskResult"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadSubTaskResultResponse>();
+}
+
+/**
+ * @summary 下载子任务结果
+ *
+ * @param request DownloadSubTaskResultRequest
+ * @return DownloadSubTaskResultResponse
+ */
+DownloadSubTaskResultResponse Client::downloadSubTaskResult(const DownloadSubTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadSubTaskResultWithOptions(request, runtime);
 }
 
 /**
@@ -13311,6 +13763,106 @@ FileUploadResponse Client::fileUploadWithOptions(const FileUploadRequest &reques
 FileUploadResponse Client::fileUpload(const FileUploadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return fileUploadWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建样本记录
+ *
+ * @param request GetSampleDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSampleDetailResponse
+ */
+GetSampleDetailResponse Client::getSampleDetailWithOptions(const GetSampleDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleId()) {
+    query["SampleId"] = request.getSampleId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSampleDetail"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSampleDetailResponse>();
+}
+
+/**
+ * @summary 创建样本记录
+ *
+ * @param request GetSampleDetailRequest
+ * @return GetSampleDetailResponse
+ */
+GetSampleDetailResponse Client::getSampleDetail(const GetSampleDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSampleDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查看子任务结果
+ *
+ * @param request GetSubTaskResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSubTaskResultResponse
+ */
+GetSubTaskResultResponse Client::getSubTaskResultWithOptions(const GetSubTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSubTaskId()) {
+    query["SubTaskId"] = request.getSubTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSubTaskResult"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSubTaskResultResponse>();
+}
+
+/**
+ * @summary 查看子任务结果
+ *
+ * @param request GetSubTaskResultRequest
+ * @return GetSubTaskResultResponse
+ */
+GetSubTaskResultResponse Client::getSubTaskResult(const GetSubTaskResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSubTaskResultWithOptions(request, runtime);
 }
 
 /**
@@ -13492,6 +14044,146 @@ ImportTemplateEventResponse Client::importTemplateEvent(const ImportTemplateEven
 }
 
 /**
+ * @summary 样本列表查询
+ *
+ * @param request ListSampleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSampleResponse
+ */
+ListSampleResponse Client::listSampleWithOptions(const ListSampleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleName()) {
+    query["SampleName"] = request.getSampleName();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasUploadTimeEnd()) {
+    query["UploadTimeEnd"] = request.getUploadTimeEnd();
+  }
+
+  if (!!request.hasUploadTimeStart()) {
+    query["UploadTimeStart"] = request.getUploadTimeStart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSample"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSampleResponse>();
+}
+
+/**
+ * @summary 样本列表查询
+ *
+ * @param request ListSampleRequest
+ * @return ListSampleResponse
+ */
+ListSampleResponse Client::listSample(const ListSampleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSampleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 任务组列表查询
+ *
+ * @param request ListTaskGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTaskGroupResponse
+ */
+ListTaskGroupResponse Client::listTaskGroupWithOptions(const ListTaskGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSampleName()) {
+    query["SampleName"] = request.getSampleName();
+  }
+
+  if (!!request.hasTaskGroupName()) {
+    query["TaskGroupName"] = request.getTaskGroupName();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTaskGroup"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTaskGroupResponse>();
+}
+
+/**
+ * @summary 任务组列表查询
+ *
+ * @param request ListTaskGroupRequest
+ * @return ListTaskGroupResponse
+ */
+ListTaskGroupResponse Client::listTaskGroup(const ListTaskGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTaskGroupWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Variable Definition
  *
  * @param request ListVariableDefineRequest
@@ -13583,6 +14275,56 @@ ListVariableDefineResponse Client::listVariableDefineWithOptions(const ListVaria
 ListVariableDefineResponse Client::listVariableDefine(const ListVariableDefineRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listVariableDefineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 合并下载
+ *
+ * @param request MergeDownloadRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MergeDownloadResponse
+ */
+MergeDownloadResponse Client::mergeDownloadWithOptions(const MergeDownloadRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasSubTaskIds()) {
+    query["SubTaskIds"] = request.getSubTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MergeDownload"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MergeDownloadResponse>();
+}
+
+/**
+ * @summary 合并下载
+ *
+ * @param request MergeDownloadRequest
+ * @return MergeDownloadResponse
+ */
+MergeDownloadResponse Client::mergeDownload(const MergeDownloadRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mergeDownloadWithOptions(request, runtime);
 }
 
 /**
@@ -15078,6 +15820,72 @@ SaveByPassOrShuntEventResponse Client::saveByPassOrShuntEvent(const SaveByPassOr
 }
 
 /**
+ * @summary 样本列表查询
+ *
+ * @param request SearchSampleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchSampleResponse
+ */
+SearchSampleResponse Client::searchSampleWithOptions(const SearchSampleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasUploadTimeEnd()) {
+    query["UploadTimeEnd"] = request.getUploadTimeEnd();
+  }
+
+  if (!!request.hasUploadTimeStart()) {
+    query["UploadTimeStart"] = request.getUploadTimeStart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchSample"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchSampleResponse>();
+}
+
+/**
+ * @summary 样本列表查询
+ *
+ * @param request SearchSampleRequest
+ * @return SearchSampleResponse
+ */
+SearchSampleResponse Client::searchSample(const SearchSampleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchSampleWithOptions(request, runtime);
+}
+
+/**
  * @summary Start/Stop Bypass Event
  *
  * @param request StartOrStopByPassShuntEventRequest
@@ -16269,6 +17077,68 @@ UploadFileCheckResponse Client::uploadFileCheckWithOptions(const UploadFileCheck
 UploadFileCheckResponse Client::uploadFileCheck(const UploadFileCheckRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return uploadFileCheckWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传并校验样本文件
+ *
+ * @param request UploadSampleFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadSampleFileResponse
+ */
+UploadSampleFileResponse Client::uploadSampleFileWithOptions(const UploadSampleFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFileUrl()) {
+    query["FileUrl"] = request.getFileUrl();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasRegId()) {
+    query["RegId"] = request.getRegId();
+  }
+
+  if (!!request.hasTab()) {
+    query["Tab"] = request.getTab();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadSampleFile"},
+    {"version" , "2021-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadSampleFileResponse>();
+}
+
+/**
+ * @summary 上传并校验样本文件
+ *
+ * @param request UploadSampleFileRequest
+ * @return UploadSampleFileResponse
+ */
+UploadSampleFileResponse Client::uploadSampleFile(const UploadSampleFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadSampleFileWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Xtee20210910

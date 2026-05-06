@@ -89,6 +89,23 @@ namespace Xtee20210910
       Models::BindVariableResponse bindVariable(const Models::BindVariableRequest &request);
 
       /**
+       * @summary 创建任务组
+       *
+       * @param request CancelSubTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelSubTaskResponse
+       */
+      Models::CancelSubTaskResponse cancelSubTaskWithOptions(const Models::CancelSubTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建任务组
+       *
+       * @param request CancelSubTaskRequest
+       * @return CancelSubTaskResponse
+       */
+      Models::CancelSubTaskResponse cancelSubTask(const Models::CancelSubTaskRequest &request);
+
+      /**
        * @summary Policy Replication Lineage Check
        *
        * @param request CheckCopyRuleVariableRequest
@@ -155,6 +172,40 @@ namespace Xtee20210910
        * @return CheckFieldLimitResponse
        */
       Models::CheckFieldLimitResponse checkFieldLimit(const Models::CheckFieldLimitRequest &request);
+
+      /**
+       * @summary 样本名称唯一性校验
+       *
+       * @param request CheckSampleNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckSampleNameResponse
+       */
+      Models::CheckSampleNameResponse checkSampleNameWithOptions(const Models::CheckSampleNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 样本名称唯一性校验
+       *
+       * @param request CheckSampleNameRequest
+       * @return CheckSampleNameResponse
+       */
+      Models::CheckSampleNameResponse checkSampleName(const Models::CheckSampleNameRequest &request);
+
+      /**
+       * @summary 任务组名称唯一性校验
+       *
+       * @param request CheckTaskGroupNameRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckTaskGroupNameResponse
+       */
+      Models::CheckTaskGroupNameResponse checkTaskGroupNameWithOptions(const Models::CheckTaskGroupNameRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 任务组名称唯一性校验
+       *
+       * @param request CheckTaskGroupNameRequest
+       * @return CheckTaskGroupNameResponse
+       */
+      Models::CheckTaskGroupNameResponse checkTaskGroupName(const Models::CheckTaskGroupNameRequest &request);
 
       /**
        * @summary Validate Variable Reference
@@ -378,6 +429,23 @@ namespace Xtee20210910
       Models::CreatePocEvResponse createPocEv(const Models::CreatePocEvRequest &request);
 
       /**
+       * @summary 创建样本记录
+       *
+       * @param request CreatePocSampleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePocSampleResponse
+       */
+      Models::CreatePocSampleResponse createPocSampleWithOptions(const Models::CreatePocSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建样本记录
+       *
+       * @param request CreatePocSampleRequest
+       * @return CreatePocSampleResponse
+       */
+      Models::CreatePocSampleResponse createPocSample(const Models::CreatePocSampleRequest &request);
+
+      /**
        * @summary Add New Custom Query Variable
        *
        * @param request CreateQueryVariableRequest
@@ -531,6 +599,23 @@ namespace Xtee20210910
       Models::CreateSimulationTaskResponse createSimulationTask(const Models::CreateSimulationTaskRequest &request);
 
       /**
+       * @summary 取消子任务
+       *
+       * @param request CreateTaskGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTaskGroupResponse
+       */
+      Models::CreateTaskGroupResponse createTaskGroupWithOptions(const Models::CreateTaskGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消子任务
+       *
+       * @param request CreateTaskGroupRequest
+       * @return CreateTaskGroupResponse
+       */
+      Models::CreateTaskGroupResponse createTaskGroup(const Models::CreateTaskGroupRequest &request);
+
+      /**
        * @summary Policy Replication
        *
        * @param request DeepCopyRuleRequest
@@ -650,7 +735,7 @@ namespace Xtee20210910
       Models::DeleteExpressionVariableResponse deleteExpressionVariable(const Models::DeleteExpressionVariableRequest &request);
 
       /**
-       * @summary 删除字段
+       * @summary Delete Field
        *
        * @param request DeleteFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +744,7 @@ namespace Xtee20210910
       Models::DeleteFieldResponse deleteFieldWithOptions(const Models::DeleteFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除字段
+       * @summary Delete Field
        *
        * @param request DeleteFieldRequest
        * @return DeleteFieldResponse
@@ -735,6 +820,23 @@ namespace Xtee20210910
       Models::DeleteRuleResponse deleteRule(const Models::DeleteRuleRequest &request);
 
       /**
+       * @summary 删除样本
+       *
+       * @param request DeleteSampleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSampleResponse
+       */
+      Models::DeleteSampleResponse deleteSampleWithOptions(const Models::DeleteSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除样本
+       *
+       * @param request DeleteSampleRequest
+       * @return DeleteSampleResponse
+       */
+      Models::DeleteSampleResponse deleteSample(const Models::DeleteSampleRequest &request);
+
+      /**
        * @summary Batch Delete Samples
        *
        * @param request DeleteSampleBatchRequest
@@ -803,7 +905,7 @@ namespace Xtee20210910
       Models::DeleteSelfBindVariableResponse deleteSelfBindVariable(const Models::DeleteSelfBindVariableRequest &request);
 
       /**
-       * @summary 高级查询获取左变量接口
+       * @summary Advanced Query to Get Left Variables Interface
        *
        * @param request DescribeAdvanceSearchLeftVariableListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +914,7 @@ namespace Xtee20210910
       Models::DescribeAdvanceSearchLeftVariableListResponse describeAdvanceSearchLeftVariableListWithOptions(const Models::DescribeAdvanceSearchLeftVariableListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 高级查询获取左变量接口
+       * @summary Advanced Query to Get Left Variables Interface
        *
        * @param request DescribeAdvanceSearchLeftVariableListRequest
        * @return DescribeAdvanceSearchLeftVariableListResponse
@@ -837,7 +939,7 @@ namespace Xtee20210910
       Models::DescribeAdvanceSearchPageListResponse describeAdvanceSearchPageList(const Models::DescribeAdvanceSearchPageListRequest &request);
 
       /**
-       * @summary 数据源列表
+       * @summary Data Source List
        *
        * @param request DescribeAllDataSourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -846,7 +948,7 @@ namespace Xtee20210910
       Models::DescribeAllDataSourceResponse describeAllDataSourceWithOptions(const Models::DescribeAllDataSourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据源列表
+       * @summary Data Source List
        *
        * @param request DescribeAllDataSourceRequest
        * @return DescribeAllDataSourceResponse
@@ -1143,7 +1245,7 @@ namespace Xtee20210910
       Models::DescribeAuthEventNameListResponse describeAuthEventNameList(const Models::DescribeAuthEventNameListRequest &request);
 
       /**
-       * @summary 策略列表
+       * @summary Policy List
        *
        * @param request DescribeAuthRulePageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1254,7 @@ namespace Xtee20210910
       Models::DescribeAuthRulePageListResponse describeAuthRulePageListWithOptions(const Models::DescribeAuthRulePageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 策略列表
+       * @summary Policy List
        *
        * @param request DescribeAuthRulePageListRequest
        * @return DescribeAuthRulePageListResponse
@@ -1160,7 +1262,7 @@ namespace Xtee20210910
       Models::DescribeAuthRulePageListResponse describeAuthRulePageList(const Models::DescribeAuthRulePageListRequest &request);
 
       /**
-       * @summary 场景列表
+       * @summary List of Scenarios
        *
        * @param request DescribeAuthSceneListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1271,7 @@ namespace Xtee20210910
       Models::DescribeAuthSceneListResponse describeAuthSceneListWithOptions(const Models::DescribeAuthSceneListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 场景列表
+       * @summary List of Scenarios
        *
        * @param request DescribeAuthSceneListRequest
        * @return DescribeAuthSceneListResponse
@@ -1245,7 +1347,7 @@ namespace Xtee20210910
       Models::DescribeBasicSearchPageListResponse describeBasicSearchPageList(const Models::DescribeBasicSearchPageListRequest &request);
 
       /**
-       * @summary 基础统计
+       * @summary Basic Statistics
        *
        * @param request DescribeBasicStartRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1356,7 @@ namespace Xtee20210910
       Models::DescribeBasicStartResponse describeBasicStartWithOptions(const Models::DescribeBasicStartRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 基础统计
+       * @summary Basic Statistics
        *
        * @param request DescribeBasicStartRequest
        * @return DescribeBasicStartResponse
@@ -2566,7 +2668,7 @@ namespace Xtee20210910
       Models::DescribeQueryVariableDetailResponse describeQueryVariableDetail(const Models::DescribeQueryVariableDetailRequest &request);
 
       /**
-       * @summary 查询变量列表查询
+       * @summary Query Variable List Query
        *
        * @param request DescribeQueryVariablePageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2575,7 +2677,7 @@ namespace Xtee20210910
       Models::DescribeQueryVariablePageListResponse describeQueryVariablePageListWithOptions(const Models::DescribeQueryVariablePageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询变量列表查询
+       * @summary Query Variable List Query
        *
        * @param request DescribeQueryVariablePageListRequest
        * @return DescribeQueryVariablePageListResponse
@@ -3883,6 +3985,23 @@ namespace Xtee20210910
       Models::DescribeVersionPageListResponse describeVersionPageList(const Models::DescribeVersionPageListRequest &request);
 
       /**
+       * @summary 下载样本文件
+       *
+       * @param request DownloadSampleFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadSampleFileResponse
+       */
+      Models::DownloadSampleFileResponse downloadSampleFileWithOptions(const Models::DownloadSampleFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下载样本文件
+       *
+       * @param request DownloadSampleFileRequest
+       * @return DownloadSampleFileResponse
+       */
+      Models::DownloadSampleFileResponse downloadSampleFile(const Models::DownloadSampleFileRequest &request);
+
+      /**
        * @summary Sample List Data Download
        *
        * @param request DownloadSmapleBatchRequest
@@ -3898,6 +4017,23 @@ namespace Xtee20210910
        * @return DownloadSmapleBatchResponse
        */
       Models::DownloadSmapleBatchResponse downloadSmapleBatch(const Models::DownloadSmapleBatchRequest &request);
+
+      /**
+       * @summary 下载子任务结果
+       *
+       * @param request DownloadSubTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadSubTaskResultResponse
+       */
+      Models::DownloadSubTaskResultResponse downloadSubTaskResultWithOptions(const Models::DownloadSubTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下载子任务结果
+       *
+       * @param request DownloadSubTaskResultRequest
+       * @return DownloadSubTaskResultResponse
+       */
+      Models::DownloadSubTaskResultResponse downloadSubTaskResult(const Models::DownloadSubTaskResultRequest &request);
 
       /**
        * @summary Custom Variable Test
@@ -3932,6 +4068,40 @@ namespace Xtee20210910
        * @return FileUploadResponse
        */
       Models::FileUploadResponse fileUpload(const Models::FileUploadRequest &request);
+
+      /**
+       * @summary 创建样本记录
+       *
+       * @param request GetSampleDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSampleDetailResponse
+       */
+      Models::GetSampleDetailResponse getSampleDetailWithOptions(const Models::GetSampleDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建样本记录
+       *
+       * @param request GetSampleDetailRequest
+       * @return GetSampleDetailResponse
+       */
+      Models::GetSampleDetailResponse getSampleDetail(const Models::GetSampleDetailRequest &request);
+
+      /**
+       * @summary 查看子任务结果
+       *
+       * @param request GetSubTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSubTaskResultResponse
+       */
+      Models::GetSubTaskResultResponse getSubTaskResultWithOptions(const Models::GetSubTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看子任务结果
+       *
+       * @param request GetSubTaskResultRequest
+       * @return GetSubTaskResultResponse
+       */
+      Models::GetSubTaskResultResponse getSubTaskResult(const Models::GetSubTaskResultRequest &request);
 
       /**
        * @summary Batch Import
@@ -3985,6 +4155,40 @@ namespace Xtee20210910
       Models::ImportTemplateEventResponse importTemplateEvent(const Models::ImportTemplateEventRequest &request);
 
       /**
+       * @summary 样本列表查询
+       *
+       * @param request ListSampleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSampleResponse
+       */
+      Models::ListSampleResponse listSampleWithOptions(const Models::ListSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 样本列表查询
+       *
+       * @param request ListSampleRequest
+       * @return ListSampleResponse
+       */
+      Models::ListSampleResponse listSample(const Models::ListSampleRequest &request);
+
+      /**
+       * @summary 任务组列表查询
+       *
+       * @param request ListTaskGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTaskGroupResponse
+       */
+      Models::ListTaskGroupResponse listTaskGroupWithOptions(const Models::ListTaskGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 任务组列表查询
+       *
+       * @param request ListTaskGroupRequest
+       * @return ListTaskGroupResponse
+       */
+      Models::ListTaskGroupResponse listTaskGroup(const Models::ListTaskGroupRequest &request);
+
+      /**
        * @summary Query Variable Definition
        *
        * @param request ListVariableDefineRequest
@@ -4000,6 +4204,23 @@ namespace Xtee20210910
        * @return ListVariableDefineResponse
        */
       Models::ListVariableDefineResponse listVariableDefine(const Models::ListVariableDefineRequest &request);
+
+      /**
+       * @summary 合并下载
+       *
+       * @param request MergeDownloadRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MergeDownloadResponse
+       */
+      Models::MergeDownloadResponse mergeDownloadWithOptions(const Models::MergeDownloadRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 合并下载
+       *
+       * @param request MergeDownloadRequest
+       * @return MergeDownloadResponse
+       */
+      Models::MergeDownloadResponse mergeDownload(const Models::MergeDownloadRequest &request);
 
       /**
        * @summary Delete
@@ -4444,6 +4665,23 @@ namespace Xtee20210910
       Models::SaveByPassOrShuntEventResponse saveByPassOrShuntEvent(const Models::SaveByPassOrShuntEventRequest &request);
 
       /**
+       * @summary 样本列表查询
+       *
+       * @param request SearchSampleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchSampleResponse
+       */
+      Models::SearchSampleResponse searchSampleWithOptions(const Models::SearchSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 样本列表查询
+       *
+       * @param request SearchSampleRequest
+       * @return SearchSampleResponse
+       */
+      Models::SearchSampleResponse searchSample(const Models::SearchSampleRequest &request);
+
+      /**
        * @summary Start/Stop Bypass Event
        *
        * @param request StartOrStopByPassShuntEventRequest
@@ -4765,6 +5003,23 @@ namespace Xtee20210910
        * @return UploadFileCheckResponse
        */
       Models::UploadFileCheckResponse uploadFileCheck(const Models::UploadFileCheckRequest &request);
+
+      /**
+       * @summary 上传并校验样本文件
+       *
+       * @param request UploadSampleFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadSampleFileResponse
+       */
+      Models::UploadSampleFileResponse uploadSampleFileWithOptions(const Models::UploadSampleFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传并校验样本文件
+       *
+       * @param request UploadSampleFileRequest
+       * @return UploadSampleFileResponse
+       */
+      Models::UploadSampleFileResponse uploadSampleFile(const Models::UploadSampleFileRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Xtee20210910

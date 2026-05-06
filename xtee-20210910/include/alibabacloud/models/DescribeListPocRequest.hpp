@@ -104,7 +104,12 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // Region code
     shared_ptr<string> regId_ {};
+    // Task name.
     shared_ptr<string> taskName_ {};
+    // The status of the import task. Valid values:
+    // 
+    // *   DOING
+    // *   FINISH
     shared_ptr<string> taskStatus_ {};
     // Type
     shared_ptr<string> type_ {};
