@@ -266,7 +266,6 @@ namespace Models
       shared_ptr<string> publishType_ {};
       // The release version of the application.
       shared_ptr<string> publishingVersion_ {};
-      // The regions to which the version is released.
       shared_ptr<AppStatus::Regions> regions_ {};
       // The time when the last rollback was performed.
       shared_ptr<string> rollbackTime_ {};

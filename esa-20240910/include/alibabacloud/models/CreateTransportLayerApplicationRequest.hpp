@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CrossBorderOptimization, crossBorderOptimization_);
       DARABONBA_PTR_TO_JSON(IpAccessRule, ipAccessRule_);
       DARABONBA_PTR_TO_JSON(Ipv6, ipv6_);
+      DARABONBA_PTR_TO_JSON(KeepAliveProtection, keepAliveProtection_);
       DARABONBA_PTR_TO_JSON(RecordName, recordName_);
       DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CrossBorderOptimization, crossBorderOptimization_);
       DARABONBA_PTR_FROM_JSON(IpAccessRule, ipAccessRule_);
       DARABONBA_PTR_FROM_JSON(Ipv6, ipv6_);
+      DARABONBA_PTR_FROM_JSON(KeepAliveProtection, keepAliveProtection_);
       DARABONBA_PTR_FROM_JSON(RecordName, recordName_);
       DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
@@ -175,8 +177,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->crossBorderOptimization_ == nullptr
-        && this->ipAccessRule_ == nullptr && this->ipv6_ == nullptr && this->recordName_ == nullptr && this->rules_ == nullptr && this->siteId_ == nullptr
-        && this->staticIp_ == nullptr; };
+        && this->ipAccessRule_ == nullptr && this->ipv6_ == nullptr && this->keepAliveProtection_ == nullptr && this->recordName_ == nullptr && this->rules_ == nullptr
+        && this->siteId_ == nullptr && this->staticIp_ == nullptr; };
     // crossBorderOptimization Field Functions 
     bool hasCrossBorderOptimization() const { return this->crossBorderOptimization_ != nullptr;};
     void deleteCrossBorderOptimization() { this->crossBorderOptimization_ = nullptr;};
@@ -196,6 +198,13 @@ namespace Models
     void deleteIpv6() { this->ipv6_ = nullptr;};
     inline string getIpv6() const { DARABONBA_PTR_GET_DEFAULT(ipv6_, "") };
     inline CreateTransportLayerApplicationRequest& setIpv6(string ipv6) { DARABONBA_PTR_SET_VALUE(ipv6_, ipv6) };
+
+
+    // keepAliveProtection Field Functions 
+    bool hasKeepAliveProtection() const { return this->keepAliveProtection_ != nullptr;};
+    void deleteKeepAliveProtection() { this->keepAliveProtection_ = nullptr;};
+    inline string getKeepAliveProtection() const { DARABONBA_PTR_GET_DEFAULT(keepAliveProtection_, "") };
+    inline CreateTransportLayerApplicationRequest& setKeepAliveProtection(string keepAliveProtection) { DARABONBA_PTR_SET_VALUE(keepAliveProtection_, keepAliveProtection) };
 
 
     // recordName Field Functions 
@@ -240,6 +249,7 @@ namespace Models
     shared_ptr<string> ipAccessRule_ {};
     // IPv6 switch.
     shared_ptr<string> ipv6_ {};
+    shared_ptr<string> keepAliveProtection_ {};
     // Domain name of the transport layer application.
     // 
     // This parameter is required.

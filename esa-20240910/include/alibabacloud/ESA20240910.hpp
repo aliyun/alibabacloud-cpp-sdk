@@ -416,7 +416,6 @@ namespace ESA20240910
       /**
        * @summary 检查实时日志slr角色是否已创建
        *
-       * @param request CheckAssumeSlrRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckAssumeSlrRoleResponse
        */
@@ -916,11 +915,11 @@ namespace ESA20240910
       /**
        * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
        *
-       * @param request CreatePageRequest
+       * @param tmpReq CreatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreatePageResponse
        */
-      Models::CreatePageResponse createPageWithOptions(const Models::CreatePageRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreatePageResponse createPageWithOptions(const Models::CreatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
@@ -1176,7 +1175,6 @@ namespace ESA20240910
       /**
        * @summary 创建一个实时日志slr角色
        *
-       * @param request CreateSlrRoleForRealtimeLogRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateSlrRoleForRealtimeLogResponse
        */
@@ -1759,6 +1757,23 @@ namespace ESA20240910
        * @return DeleteImageTransformResponse
        */
       Models::DeleteImageTransformResponse deleteImageTransform(const Models::DeleteImageTransformRequest &request);
+
+      /**
+       * @summary 删除一个keyless server配置
+       *
+       * @param request DeleteKeylessServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteKeylessServerResponse
+       */
+      Models::DeleteKeylessServerResponse deleteKeylessServerWithOptions(const Models::DeleteKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除一个keyless server配置
+       *
+       * @param request DeleteKeylessServerRequest
+       * @return DeleteKeylessServerResponse
+       */
+      Models::DeleteKeylessServerResponse deleteKeylessServer(const Models::DeleteKeylessServerRequest &request);
 
       /**
        * @summary Deletes a key-value pair from a namespace.
@@ -2531,7 +2546,6 @@ namespace ESA20240910
       /**
        * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
        *
-       * @param request DescribeKvAccountStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeKvAccountStatusResponse
        */
@@ -2598,6 +2612,23 @@ namespace ESA20240910
        * @return DescribeRatePlanInstanceStatusResponse
        */
       Models::DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatus(const Models::DescribeRatePlanInstanceStatusRequest &request);
+
+      /**
+       * @summary Queries the prices, types, and status of plans.
+       *
+       * @param request DescribeRatePlanPriceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRatePlanPriceResponse
+       */
+      Models::DescribeRatePlanPriceResponse describeRatePlanPriceWithOptions(const Models::DescribeRatePlanPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the prices, types, and status of plans.
+       *
+       * @param request DescribeRatePlanPriceRequest
+       * @return DescribeRatePlanPriceResponse
+       */
+      Models::DescribeRatePlanPriceResponse describeRatePlanPrice(const Models::DescribeRatePlanPriceRequest &request);
 
       /**
        * @summary Queries the URLs from which you can download the raw access logs of a website.
@@ -2789,9 +2820,25 @@ namespace ESA20240910
       Models::GetApiSchemaUsageResponse getApiSchemaUsage(const Models::GetApiSchemaUsageRequest &request);
 
       /**
+       * @summary 查询站点智能限频阈值
+       *
+       * @param request GetAutomaticFrequencyControlConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAutomaticFrequencyControlConfigResponse
+       */
+      Models::GetAutomaticFrequencyControlConfigResponse getAutomaticFrequencyControlConfigWithOptions(const Models::GetAutomaticFrequencyControlConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询站点智能限频阈值
+       *
+       * @param request GetAutomaticFrequencyControlConfigRequest
+       * @return GetAutomaticFrequencyControlConfigResponse
+       */
+      Models::GetAutomaticFrequencyControlConfigResponse getAutomaticFrequencyControlConfig(const Models::GetAutomaticFrequencyControlConfigRequest &request);
+
+      /**
        * @summary Queries the available specifications of cache reserve instances.
        *
-       * @param request GetCacheReserveSpecificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCacheReserveSpecificationResponse
        */
@@ -2888,6 +2935,23 @@ namespace ESA20240910
        * @return GetClientCaCertificateResponse
        */
       Models::GetClientCaCertificateResponse getClientCaCertificate(const Models::GetClientCaCertificateRequest &request);
+
+      /**
+       * @summary 获取客户端CA证书绑定的域名列表
+       *
+       * @param request GetClientCaCertificateHostnamesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetClientCaCertificateHostnamesResponse
+       */
+      Models::GetClientCaCertificateHostnamesResponse getClientCaCertificateHostnamesWithOptions(const Models::GetClientCaCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取客户端CA证书绑定的域名列表
+       *
+       * @param request GetClientCaCertificateHostnamesRequest
+       * @return GetClientCaCertificateHostnamesResponse
+       */
+      Models::GetClientCaCertificateHostnamesResponse getClientCaCertificateHostnames(const Models::GetClientCaCertificateHostnamesRequest &request);
 
       /**
        * @summary Queries information about a client certificate.
@@ -3366,6 +3430,23 @@ namespace ESA20240910
       Models::GetImageTransformResponse getImageTransform(const Models::GetImageTransformRequest &request);
 
       /**
+       * @summary 获取一个keyless server配置
+       *
+       * @param request GetKeylessServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetKeylessServerResponse
+       */
+      Models::GetKeylessServerResponse getKeylessServerWithOptions(const Models::GetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一个keyless server配置
+       *
+       * @param request GetKeylessServerRequest
+       * @return GetKeylessServerResponse
+       */
+      Models::GetKeylessServerResponse getKeylessServer(const Models::GetKeylessServerRequest &request);
+
+      /**
        * @summary Queries the value of a key in a key-value pair.
        *
        * @param request GetKvRequest
@@ -3385,7 +3466,6 @@ namespace ESA20240910
       /**
        * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
        *
-       * @param request GetKvAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetKvAccountResponse
        */
@@ -3624,6 +3704,23 @@ namespace ESA20240910
       Models::GetPageResponse getPage(const Models::GetPageRequest &request);
 
       /**
+       * @summary 查询数据质量采集配置
+       *
+       * @param request GetPerformanceDataCollectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPerformanceDataCollectionResponse
+       */
+      Models::GetPerformanceDataCollectionResponse getPerformanceDataCollectionWithOptions(const Models::GetPerformanceDataCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据质量采集配置
+       *
+       * @param request GetPerformanceDataCollectionRequest
+       * @return GetPerformanceDataCollectionResponse
+       */
+      Models::GetPerformanceDataCollectionResponse getPerformanceDataCollection(const Models::GetPerformanceDataCollectionRequest &request);
+
+      /**
        * @summary Queries the quotas and quota usage for different cache purge options.
        *
        * @param request GetPurgeQuotaRequest
@@ -3802,7 +3899,6 @@ namespace ESA20240910
       /**
        * @summary Queries the IP addresses of staging environments for Edge Routine.
        *
-       * @param request GetRoutineStagingEnvIpRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRoutineStagingEnvIpResponse
        */
@@ -3818,7 +3914,6 @@ namespace ESA20240910
       /**
        * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
        *
-       * @param request GetRoutineUserInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRoutineUserInfoResponse
        */
@@ -4176,7 +4271,6 @@ namespace ESA20240910
       /**
        * @summary This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
        *
-       * @param request GetWafBotAppKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetWafBotAppKeyResponse
        */
@@ -4428,6 +4522,23 @@ namespace ESA20240910
       Models::ListCustomResponseCodeRulesResponse listCustomResponseCodeRules(const Models::ListCustomResponseCodeRulesRequest &request);
 
       /**
+       * @summary 查询DDoS安全实例列表
+       *
+       * @param request ListDDoSInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDDoSInstancesResponse
+       */
+      Models::ListDDoSInstancesResponse listDDoSInstancesWithOptions(const Models::ListDDoSInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询DDoS安全实例列表
+       *
+       * @param request ListDDoSInstancesRequest
+       * @return ListDDoSInstancesResponse
+       */
+      Models::ListDDoSInstancesResponse listDDoSInstances(const Models::ListDDoSInstancesRequest &request);
+
+      /**
        * @summary Batch query whether the IP address is included in the ESA resolution result.
        *
        * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
@@ -4536,7 +4647,6 @@ namespace ESA20240910
       /**
        * @summary Queries Edge Routine plans.
        *
-       * @param request ListEdgeRoutinePlansRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListEdgeRoutinePlansResponse
        */
@@ -4722,6 +4832,23 @@ namespace ESA20240910
        * @return ListInstanceQuotasWithUsageResponse
        */
       Models::ListInstanceQuotasWithUsageResponse listInstanceQuotasWithUsage(const Models::ListInstanceQuotasWithUsageRequest &request);
+
+      /**
+       * @summary 获取站点下keyless server列表
+       *
+       * @param request ListKeylessServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKeylessServersResponse
+       */
+      Models::ListKeylessServersResponse listKeylessServersWithOptions(const Models::ListKeylessServersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取站点下keyless server列表
+       *
+       * @param request ListKeylessServersRequest
+       * @return ListKeylessServersResponse
+       */
+      Models::ListKeylessServersResponse listKeylessServers(const Models::ListKeylessServersRequest &request);
 
       /**
        * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
@@ -5001,7 +5128,6 @@ namespace ESA20240910
       /**
        * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
        *
-       * @param request ListRoutineCanaryAreasRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRoutineCanaryAreasResponse
        */
@@ -5610,7 +5736,7 @@ namespace ESA20240910
       Models::PurchaseRatePlanResponse purchaseRatePlan(const Models::PurchaseRatePlanRequest &request);
 
       /**
-       * @summary Cache Refresh
+       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
        *
        * @param tmpReq PurgeCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5619,7 +5745,7 @@ namespace ESA20240910
       Models::PurgeCachesResponse purgeCachesWithOptions(const Models::PurgeCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cache Refresh
+       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
        *
        * @param request PurgeCachesRequest
        * @return PurgeCachesResponse
@@ -5754,6 +5880,23 @@ namespace ESA20240910
       Models::RebuildEdgeContainerAppStagingEnvResponse rebuildEdgeContainerAppStagingEnv(const Models::RebuildEdgeContainerAppStagingEnvRequest &request);
 
       /**
+       * @summary 预约释放安全实例
+       *
+       * @param request ReleaseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReleaseInstanceResponse
+       */
+      Models::ReleaseInstanceResponse releaseInstanceWithOptions(const Models::ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预约释放安全实例
+       *
+       * @param request ReleaseInstanceRequest
+       * @return ReleaseInstanceResponse
+       */
+      Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
+
+      /**
        * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
        *
        * @param request ResetScheduledPreloadJobRequest
@@ -5805,6 +5948,23 @@ namespace ESA20240910
       Models::RollbackEdgeContainerAppVersionResponse rollbackEdgeContainerAppVersion(const Models::RollbackEdgeContainerAppVersionRequest &request);
 
       /**
+       * @summary 设置站点智能限频阈值
+       *
+       * @param request SetAutomaticFrequencyControlConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetAutomaticFrequencyControlConfigResponse
+       */
+      Models::SetAutomaticFrequencyControlConfigResponse setAutomaticFrequencyControlConfigWithOptions(const Models::SetAutomaticFrequencyControlConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置站点智能限频阈值
+       *
+       * @param request SetAutomaticFrequencyControlConfigRequest
+       * @return SetAutomaticFrequencyControlConfigResponse
+       */
+      Models::SetAutomaticFrequencyControlConfigResponse setAutomaticFrequencyControlConfig(const Models::SetAutomaticFrequencyControlConfigRequest &request);
+
+      /**
        * @summary Configures whether to enable certificates and update certificate information for a website.
        *
        * @param request SetCertificateRequest
@@ -5820,6 +5980,23 @@ namespace ESA20240910
        * @return SetCertificateResponse
        */
       Models::SetCertificateResponse setCertificate(const Models::SetCertificateRequest &request);
+
+      /**
+       * @summary 为客户端CA证书绑定域名
+       *
+       * @param tmpReq SetClientCaCertificateHostnamesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetClientCaCertificateHostnamesResponse
+       */
+      Models::SetClientCaCertificateHostnamesResponse setClientCaCertificateHostnamesWithOptions(const Models::SetClientCaCertificateHostnamesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为客户端CA证书绑定域名
+       *
+       * @param request SetClientCaCertificateHostnamesRequest
+       * @return SetClientCaCertificateHostnamesResponse
+       */
+      Models::SetClientCaCertificateHostnamesResponse setClientCaCertificateHostnames(const Models::SetClientCaCertificateHostnamesRequest &request);
 
       /**
        * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
@@ -5922,6 +6099,23 @@ namespace ESA20240910
        * @return SetHttpDDoSAttackRuleStatusResponse
        */
       Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatus(const Models::SetHttpDDoSAttackRuleStatusRequest &request);
+
+      /**
+       * @summary 创建/更新一个keyless server
+       *
+       * @param request SetKeylessServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetKeylessServerResponse
+       */
+      Models::SetKeylessServerResponse setKeylessServerWithOptions(const Models::SetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建/更新一个keyless server
+       *
+       * @param request SetKeylessServerRequest
+       * @return SetKeylessServerResponse
+       */
+      Models::SetKeylessServerResponse setKeylessServer(const Models::SetKeylessServerRequest &request);
 
       /**
        * @summary 为域名回源客户端证书绑定域名
@@ -6491,11 +6685,11 @@ namespace ESA20240910
       /**
        * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
        *
-       * @param request UpdatePageRequest
+       * @param tmpReq UpdatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdatePageResponse
        */
-      Models::UpdatePageResponse updatePageWithOptions(const Models::UpdatePageRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdatePageResponse updatePageWithOptions(const Models::UpdatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
@@ -6506,7 +6700,24 @@ namespace ESA20240910
       Models::UpdatePageResponse updatePage(const Models::UpdatePageRequest &request);
 
       /**
-       * @summary 套餐变配
+       * @summary 修改网页数据质量采集配置
+       *
+       * @param request UpdatePerformanceDataCollectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePerformanceDataCollectionResponse
+       */
+      Models::UpdatePerformanceDataCollectionResponse updatePerformanceDataCollectionWithOptions(const Models::UpdatePerformanceDataCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改网页数据质量采集配置
+       *
+       * @param request UpdatePerformanceDataCollectionRequest
+       * @return UpdatePerformanceDataCollectionResponse
+       */
+      Models::UpdatePerformanceDataCollectionResponse updatePerformanceDataCollection(const Models::UpdatePerformanceDataCollectionRequest &request);
+
+      /**
+       * @summary Plan Adjustment
        *
        * @param request UpdateRatePlanSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6515,7 +6726,7 @@ namespace ESA20240910
       Models::UpdateRatePlanSpecResponse updateRatePlanSpecWithOptions(const Models::UpdateRatePlanSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 套餐变配
+       * @summary Plan Adjustment
        *
        * @param request UpdateRatePlanSpecRequest
        * @return UpdateRatePlanSpecResponse

@@ -104,8 +104,12 @@ namespace Models
 
   protected:
     // Response page.
+    // 
+    // This parameter is required.
     shared_ptr<string> pageId_ {};
     // Response code.
+    // 
+    // This parameter is required.
     shared_ptr<string> returnCode_ {};
     // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
     // 

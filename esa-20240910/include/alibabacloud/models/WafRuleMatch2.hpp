@@ -171,10 +171,15 @@ namespace Models
 
 
         protected:
+          // Transforms input to lowercase to ensure case-insensitivity.
           shared_ptr<bool> convertToLower_ {};
+          // The matching operator.
           shared_ptr<string> matchOperator_ {};
+          // The matching type.
           shared_ptr<string> matchType_ {};
+          // The value of the matching condition.
           Darabonba::Json matchValue_ {};
+          // Converts a value or condition to its opposite.
           shared_ptr<bool> negate_ {};
         };
 
@@ -235,12 +240,19 @@ namespace Models
 
 
       protected:
+        // Transforms input to lowercase to ensure case-insensitivity.
         shared_ptr<bool> convertToLower_ {};
+        // The details of logical databases.
         shared_ptr<vector<CriteriaItem::Criteria>> criteria_ {};
+        // The logical judgment.
         shared_ptr<string> logic_ {};
+        // The matching operator.
         shared_ptr<string> matchOperator_ {};
+        // The matching type.
         shared_ptr<string> matchType_ {};
+        // The value of the matching condition.
         Darabonba::Json matchValue_ {};
+        // Converts a value or condition to its opposite.
         shared_ptr<bool> negate_ {};
       };
 
@@ -301,12 +313,19 @@ namespace Models
 
 
     protected:
+      // Transforms input to lowercase to ensure case-insensitivity.
       shared_ptr<bool> convertToLower_ {};
+      // The details of logical databases.
       shared_ptr<vector<Criteria::CriteriaItem>> criteria_ {};
+      // The logical judgment.
       shared_ptr<string> logic_ {};
+      // The matching operator.
       shared_ptr<string> matchOperator_ {};
+      // The matching type.
       shared_ptr<string> matchType_ {};
+      // The value of the matching condition.
       Darabonba::Json matchValue_ {};
+      // Converts a value or condition to its opposite.
       shared_ptr<bool> negate_ {};
     };
 
@@ -367,12 +386,19 @@ namespace Models
 
 
   protected:
+    // Transforms input to lowercase to ensure case-insensitivity.
     shared_ptr<bool> convertToLower_ {};
+    // The details of logical databases.
     shared_ptr<vector<WafRuleMatch2::Criteria>> criteria_ {};
+    // The logical judgment.
     shared_ptr<string> logic_ {};
+    // The matching operator.
     shared_ptr<string> matchOperator_ {};
+    // The matching type.
     shared_ptr<string> matchType_ {};
+    // The value of the matching condition.
     Darabonba::Json matchValue_ {};
+    // Converts a value or condition to its opposite.
     shared_ptr<bool> negate_ {};
   };
 

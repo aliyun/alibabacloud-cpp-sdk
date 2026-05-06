@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEPAGEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEPAGEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContentType, contentType_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SiteIds, siteIds_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SiteIds, siteIds_);
     };
     CreatePageRequest() = default ;
     CreatePageRequest(const CreatePageRequest &) = default ;
@@ -36,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr; };
+        && this->contentType_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->siteIds_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -65,6 +68,15 @@ namespace Models
     inline CreatePageRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // siteIds Field Functions 
+    bool hasSiteIds() const { return this->siteIds_ != nullptr;};
+    void deleteSiteIds() { this->siteIds_ = nullptr;};
+    inline const vector<int64_t> & getSiteIds() const { DARABONBA_PTR_GET_CONST(siteIds_, vector<int64_t>) };
+    inline vector<int64_t> getSiteIds() { DARABONBA_PTR_GET(siteIds_, vector<int64_t>) };
+    inline CreatePageRequest& setSiteIds(const vector<int64_t> & siteIds) { DARABONBA_PTR_SET_VALUE(siteIds_, siteIds) };
+    inline CreatePageRequest& setSiteIds(vector<int64_t> && siteIds) { DARABONBA_PTR_SET_RVALUE(siteIds_, siteIds) };
+
+
   protected:
     // The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
     shared_ptr<string> content_ {};
@@ -81,6 +93,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    shared_ptr<vector<int64_t>> siteIds_ {};
   };
 
   } // namespace Models

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BotManagement, botManagement_);
       DARABONBA_PTR_TO_JSON(ClientIpIdentifier, clientIpIdentifier_);
       DARABONBA_PTR_TO_JSON(DisableSecurityModule, disableSecurityModule_);
+      DARABONBA_PTR_TO_JSON(RequestBodyInspection, requestBodyInspection_);
       DARABONBA_PTR_TO_JSON(SecurityLevel, securityLevel_);
     };
     friend void from_json(const Darabonba::Json& j, WafSiteSettings& obj) { 
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BotManagement, botManagement_);
       DARABONBA_PTR_FROM_JSON(ClientIpIdentifier, clientIpIdentifier_);
       DARABONBA_PTR_FROM_JSON(DisableSecurityModule, disableSecurityModule_);
+      DARABONBA_PTR_FROM_JSON(RequestBodyInspection, requestBodyInspection_);
       DARABONBA_PTR_FROM_JSON(SecurityLevel, securityLevel_);
     };
     WafSiteSettings() = default ;
@@ -70,7 +72,69 @@ namespace Models
 
 
     protected:
+      // The security level value.
+      // 
+      // Enumerated values:
+      // 
+      // *   high: high.
+      // *   low: low.
+      // *   under_attack: I am under attack.
+      // *   medium: medium.
+      // *   essentially_off: essentially off.
+      // *   off: completely off.
       shared_ptr<string> value_ {};
+    };
+
+    class RequestBodyInspection : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RequestBodyInspection& obj) { 
+        DARABONBA_PTR_TO_JSON(Action, action_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(SizeLimit, sizeLimit_);
+      };
+      friend void from_json(const Darabonba::Json& j, RequestBodyInspection& obj) { 
+        DARABONBA_PTR_FROM_JSON(Action, action_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(SizeLimit, sizeLimit_);
+      };
+      RequestBodyInspection() = default ;
+      RequestBodyInspection(const RequestBodyInspection &) = default ;
+      RequestBodyInspection(RequestBodyInspection &&) = default ;
+      RequestBodyInspection(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RequestBodyInspection() = default ;
+      RequestBodyInspection& operator=(const RequestBodyInspection &) = default ;
+      RequestBodyInspection& operator=(RequestBodyInspection &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->action_ == nullptr
+        && this->id_ == nullptr && this->sizeLimit_ == nullptr; };
+      // action Field Functions 
+      bool hasAction() const { return this->action_ != nullptr;};
+      void deleteAction() { this->action_ = nullptr;};
+      inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+      inline RequestBodyInspection& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline RequestBodyInspection& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // sizeLimit Field Functions 
+      bool hasSizeLimit() const { return this->sizeLimit_ != nullptr;};
+      void deleteSizeLimit() { this->sizeLimit_ = nullptr;};
+      inline string getSizeLimit() const { DARABONBA_PTR_GET_DEFAULT(sizeLimit_, "") };
+      inline RequestBodyInspection& setSizeLimit(string sizeLimit) { DARABONBA_PTR_SET_VALUE(sizeLimit_, sizeLimit) };
+
+
+    protected:
+      shared_ptr<string> action_ {};
+      shared_ptr<int64_t> id_ {};
+      shared_ptr<string> sizeLimit_ {};
     };
 
     class DisableSecurityModule : public Darabonba::Model {
@@ -144,7 +208,14 @@ namespace Models
 
 
     protected:
+      // Specify headers.
       shared_ptr<vector<string>> headers_ {};
+      // Identifies the mode.
+      // 
+      // Enumerated values:
+      // 
+      // *   headers: specifies the headers.
+      // *   connection_ip: the IP address for establishing a connection.
       shared_ptr<string> mode_ {};
     };
 
@@ -213,7 +284,9 @@ namespace Models
 
 
       protected:
+        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
+        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -255,7 +328,9 @@ namespace Models
 
 
       protected:
+        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
+        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -287,6 +362,7 @@ namespace Models
 
 
       protected:
+        // Indicates whether the parameter is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -318,6 +394,7 @@ namespace Models
 
 
       protected:
+        // Indicates whether the parameter is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -359,7 +436,9 @@ namespace Models
 
 
       protected:
+        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
+        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -411,10 +490,15 @@ namespace Models
 
 
     protected:
+      // Definite Bots
       shared_ptr<BotManagement::DefiniteBots> definiteBots_ {};
+      // Takes effect on static resource requests.
       shared_ptr<BotManagement::EffectOnStatic> effectOnStatic_ {};
+      // JavaScript detection.
       shared_ptr<BotManagement::JSDetection> JSDetection_ {};
+      // Likely Bots
       shared_ptr<BotManagement::LikelyBots> likelyBots_ {};
+      // Verified Bots
       shared_ptr<BotManagement::VerifiedBots> verifiedBots_ {};
     };
 
@@ -498,6 +582,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether the parameter is enabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -529,12 +614,13 @@ namespace Models
 
 
     protected:
+      // Indicates whether the parameter is enabled.
       shared_ptr<bool> enable_ {};
     };
 
     virtual bool empty() const override { return this->addBotProtectionHeaders_ == nullptr
         && this->addSecurityHeaders_ == nullptr && this->bandwidthAbuseProtection_ == nullptr && this->botManagement_ == nullptr && this->clientIpIdentifier_ == nullptr && this->disableSecurityModule_ == nullptr
-        && this->securityLevel_ == nullptr; };
+        && this->requestBodyInspection_ == nullptr && this->securityLevel_ == nullptr; };
     // addBotProtectionHeaders Field Functions 
     bool hasAddBotProtectionHeaders() const { return this->addBotProtectionHeaders_ != nullptr;};
     void deleteAddBotProtectionHeaders() { this->addBotProtectionHeaders_ = nullptr;};
@@ -589,6 +675,15 @@ namespace Models
     inline WafSiteSettings& setDisableSecurityModule(WafSiteSettings::DisableSecurityModule && disableSecurityModule) { DARABONBA_PTR_SET_RVALUE(disableSecurityModule_, disableSecurityModule) };
 
 
+    // requestBodyInspection Field Functions 
+    bool hasRequestBodyInspection() const { return this->requestBodyInspection_ != nullptr;};
+    void deleteRequestBodyInspection() { this->requestBodyInspection_ = nullptr;};
+    inline const WafSiteSettings::RequestBodyInspection & getRequestBodyInspection() const { DARABONBA_PTR_GET_CONST(requestBodyInspection_, WafSiteSettings::RequestBodyInspection) };
+    inline WafSiteSettings::RequestBodyInspection getRequestBodyInspection() { DARABONBA_PTR_GET(requestBodyInspection_, WafSiteSettings::RequestBodyInspection) };
+    inline WafSiteSettings& setRequestBodyInspection(const WafSiteSettings::RequestBodyInspection & requestBodyInspection) { DARABONBA_PTR_SET_VALUE(requestBodyInspection_, requestBodyInspection) };
+    inline WafSiteSettings& setRequestBodyInspection(WafSiteSettings::RequestBodyInspection && requestBodyInspection) { DARABONBA_PTR_SET_RVALUE(requestBodyInspection_, requestBodyInspection) };
+
+
     // securityLevel Field Functions 
     bool hasSecurityLevel() const { return this->securityLevel_ != nullptr;};
     void deleteSecurityLevel() { this->securityLevel_ = nullptr;};
@@ -599,12 +694,18 @@ namespace Models
 
 
   protected:
+    // Adds a bot protection header.
     shared_ptr<WafSiteSettings::AddBotProtectionHeaders> addBotProtectionHeaders_ {};
+    // Adds security request header.
     shared_ptr<WafSiteSettings::AddSecurityHeaders> addSecurityHeaders_ {};
     shared_ptr<WafSiteSettings::BandwidthAbuseProtection> bandwidthAbuseProtection_ {};
+    // Bot management.
     shared_ptr<WafSiteSettings::BotManagement> botManagement_ {};
+    // Identifies the IP address of the client.
     shared_ptr<WafSiteSettings::ClientIpIdentifier> clientIpIdentifier_ {};
     shared_ptr<WafSiteSettings::DisableSecurityModule> disableSecurityModule_ {};
+    shared_ptr<WafSiteSettings::RequestBodyInspection> requestBodyInspection_ {};
+    // The security level.
     shared_ptr<WafSiteSettings::SecurityLevel> securityLevel_ {};
   };
 

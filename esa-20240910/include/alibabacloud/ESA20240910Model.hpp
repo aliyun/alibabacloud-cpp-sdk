@@ -159,6 +159,7 @@
 #include <alibabacloud/models/CreateOriginRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateOriginRuleResponse.hpp>
 #include <alibabacloud/models/CreatePageRequest.hpp>
+#include <alibabacloud/models/CreatePageShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePageResponseBody.hpp>
 #include <alibabacloud/models/CreatePageResponse.hpp>
 #include <alibabacloud/models/CreateRecordRequest.hpp>
@@ -306,6 +307,9 @@
 #include <alibabacloud/models/DeleteImageTransformRequest.hpp>
 #include <alibabacloud/models/DeleteImageTransformResponseBody.hpp>
 #include <alibabacloud/models/DeleteImageTransformResponse.hpp>
+#include <alibabacloud/models/DeleteKeylessServerRequest.hpp>
+#include <alibabacloud/models/DeleteKeylessServerResponseBody.hpp>
+#include <alibabacloud/models/DeleteKeylessServerResponse.hpp>
 #include <alibabacloud/models/DeleteKvRequest.hpp>
 #include <alibabacloud/models/DeleteKvResponseBody.hpp>
 #include <alibabacloud/models/DeleteKvResponse.hpp>
@@ -449,6 +453,9 @@
 #include <alibabacloud/models/DescribeRatePlanInstanceStatusRequest.hpp>
 #include <alibabacloud/models/DescribeRatePlanInstanceStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeRatePlanInstanceStatusResponse.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceRequest.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceResponseBody.hpp>
+#include <alibabacloud/models/DescribeRatePlanPriceResponse.hpp>
 #include <alibabacloud/models/DescribeSiteLogsRequest.hpp>
 #include <alibabacloud/models/DescribeSiteLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSiteLogsResponse.hpp>
@@ -479,6 +486,9 @@
 #include <alibabacloud/models/GetApiSchemaUsageRequest.hpp>
 #include <alibabacloud/models/GetApiSchemaUsageResponseBody.hpp>
 #include <alibabacloud/models/GetApiSchemaUsageResponse.hpp>
+#include <alibabacloud/models/GetAutomaticFrequencyControlConfigRequest.hpp>
+#include <alibabacloud/models/GetAutomaticFrequencyControlConfigResponseBody.hpp>
+#include <alibabacloud/models/GetAutomaticFrequencyControlConfigResponse.hpp>
 #include <alibabacloud/models/GetCacheReserveSpecificationResponseBody.hpp>
 #include <alibabacloud/models/GetCacheReserveSpecificationResponse.hpp>
 #include <alibabacloud/models/GetCacheRuleRequest.hpp>
@@ -496,6 +506,9 @@
 #include <alibabacloud/models/GetClientCaCertificateRequest.hpp>
 #include <alibabacloud/models/GetClientCaCertificateResponseBody.hpp>
 #include <alibabacloud/models/GetClientCaCertificateResponse.hpp>
+#include <alibabacloud/models/GetClientCaCertificateHostnamesRequest.hpp>
+#include <alibabacloud/models/GetClientCaCertificateHostnamesResponseBody.hpp>
+#include <alibabacloud/models/GetClientCaCertificateHostnamesResponse.hpp>
 #include <alibabacloud/models/GetClientCertificateRequest.hpp>
 #include <alibabacloud/models/GetClientCertificateResponseBody.hpp>
 #include <alibabacloud/models/GetClientCertificateResponse.hpp>
@@ -580,6 +593,9 @@
 #include <alibabacloud/models/GetImageTransformRequest.hpp>
 #include <alibabacloud/models/GetImageTransformResponseBody.hpp>
 #include <alibabacloud/models/GetImageTransformResponse.hpp>
+#include <alibabacloud/models/GetKeylessServerRequest.hpp>
+#include <alibabacloud/models/GetKeylessServerResponseBody.hpp>
+#include <alibabacloud/models/GetKeylessServerResponse.hpp>
 #include <alibabacloud/models/GetKvRequest.hpp>
 #include <alibabacloud/models/GetKvResponseBody.hpp>
 #include <alibabacloud/models/GetKvResponse.hpp>
@@ -624,6 +640,9 @@
 #include <alibabacloud/models/GetPageRequest.hpp>
 #include <alibabacloud/models/GetPageResponseBody.hpp>
 #include <alibabacloud/models/GetPageResponse.hpp>
+#include <alibabacloud/models/GetPerformanceDataCollectionRequest.hpp>
+#include <alibabacloud/models/GetPerformanceDataCollectionResponseBody.hpp>
+#include <alibabacloud/models/GetPerformanceDataCollectionResponse.hpp>
 #include <alibabacloud/models/GetPurgeQuotaRequest.hpp>
 #include <alibabacloud/models/GetPurgeQuotaResponseBody.hpp>
 #include <alibabacloud/models/GetPurgeQuotaResponse.hpp>
@@ -756,6 +775,9 @@
 #include <alibabacloud/models/ListCustomResponseCodeRulesRequest.hpp>
 #include <alibabacloud/models/ListCustomResponseCodeRulesResponseBody.hpp>
 #include <alibabacloud/models/ListCustomResponseCodeRulesResponse.hpp>
+#include <alibabacloud/models/ListDDoSInstancesRequest.hpp>
+#include <alibabacloud/models/ListDDoSInstancesResponseBody.hpp>
+#include <alibabacloud/models/ListDDoSInstancesResponse.hpp>
 #include <alibabacloud/models/ListESAIPInfoRequest.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponseBody.hpp>
 #include <alibabacloud/models/ListESAIPInfoResponse.hpp>
@@ -806,6 +828,9 @@
 #include <alibabacloud/models/ListInstanceQuotasWithUsageRequest.hpp>
 #include <alibabacloud/models/ListInstanceQuotasWithUsageResponseBody.hpp>
 #include <alibabacloud/models/ListInstanceQuotasWithUsageResponse.hpp>
+#include <alibabacloud/models/ListKeylessServersRequest.hpp>
+#include <alibabacloud/models/ListKeylessServersResponseBody.hpp>
+#include <alibabacloud/models/ListKeylessServersResponse.hpp>
 #include <alibabacloud/models/ListKvsRequest.hpp>
 #include <alibabacloud/models/ListKvsResponseBody.hpp>
 #include <alibabacloud/models/ListKvsResponse.hpp>
@@ -976,6 +1001,9 @@
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvRequest.hpp>
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvResponseBody.hpp>
 #include <alibabacloud/models/RebuildEdgeContainerAppStagingEnvResponse.hpp>
+#include <alibabacloud/models/ReleaseInstanceRequest.hpp>
+#include <alibabacloud/models/ReleaseInstanceResponseBody.hpp>
+#include <alibabacloud/models/ReleaseInstanceResponse.hpp>
 #include <alibabacloud/models/ResetScheduledPreloadJobRequest.hpp>
 #include <alibabacloud/models/ResetScheduledPreloadJobResponseBody.hpp>
 #include <alibabacloud/models/ResetScheduledPreloadJobResponse.hpp>
@@ -985,9 +1013,16 @@
 #include <alibabacloud/models/RollbackEdgeContainerAppVersionRequest.hpp>
 #include <alibabacloud/models/RollbackEdgeContainerAppVersionResponseBody.hpp>
 #include <alibabacloud/models/RollbackEdgeContainerAppVersionResponse.hpp>
+#include <alibabacloud/models/SetAutomaticFrequencyControlConfigRequest.hpp>
+#include <alibabacloud/models/SetAutomaticFrequencyControlConfigResponseBody.hpp>
+#include <alibabacloud/models/SetAutomaticFrequencyControlConfigResponse.hpp>
 #include <alibabacloud/models/SetCertificateRequest.hpp>
 #include <alibabacloud/models/SetCertificateResponseBody.hpp>
 #include <alibabacloud/models/SetCertificateResponse.hpp>
+#include <alibabacloud/models/SetClientCaCertificateHostnamesRequest.hpp>
+#include <alibabacloud/models/SetClientCaCertificateHostnamesShrinkRequest.hpp>
+#include <alibabacloud/models/SetClientCaCertificateHostnamesResponseBody.hpp>
+#include <alibabacloud/models/SetClientCaCertificateHostnamesResponse.hpp>
 #include <alibabacloud/models/SetClientCertificateHostnamesRequest.hpp>
 #include <alibabacloud/models/SetClientCertificateHostnamesShrinkRequest.hpp>
 #include <alibabacloud/models/SetClientCertificateHostnamesResponseBody.hpp>
@@ -1007,6 +1042,9 @@
 #include <alibabacloud/models/SetHttpDDoSAttackRuleStatusRequest.hpp>
 #include <alibabacloud/models/SetHttpDDoSAttackRuleStatusResponseBody.hpp>
 #include <alibabacloud/models/SetHttpDDoSAttackRuleStatusResponse.hpp>
+#include <alibabacloud/models/SetKeylessServerRequest.hpp>
+#include <alibabacloud/models/SetKeylessServerResponseBody.hpp>
+#include <alibabacloud/models/SetKeylessServerResponse.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesRequest.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesShrinkRequest.hpp>
 #include <alibabacloud/models/SetOriginClientCertificateHostnamesResponseBody.hpp>
@@ -1116,8 +1154,12 @@
 #include <alibabacloud/models/UpdateOriginRuleResponseBody.hpp>
 #include <alibabacloud/models/UpdateOriginRuleResponse.hpp>
 #include <alibabacloud/models/UpdatePageRequest.hpp>
+#include <alibabacloud/models/UpdatePageShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePageResponseBody.hpp>
 #include <alibabacloud/models/UpdatePageResponse.hpp>
+#include <alibabacloud/models/UpdatePerformanceDataCollectionRequest.hpp>
+#include <alibabacloud/models/UpdatePerformanceDataCollectionResponseBody.hpp>
+#include <alibabacloud/models/UpdatePerformanceDataCollectionResponse.hpp>
 #include <alibabacloud/models/UpdateRatePlanSpecRequest.hpp>
 #include <alibabacloud/models/UpdateRatePlanSpecResponseBody.hpp>
 #include <alibabacloud/models/UpdateRatePlanSpecResponse.hpp>

@@ -15,14 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BlockObjectRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Content, content_);
-      DARABONBA_PTR_TO_JSON(Extension, extension_);
       DARABONBA_PTR_TO_JSON(Maxage, maxage_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, BlockObjectRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
-      DARABONBA_PTR_FROM_JSON(Extension, extension_);
       DARABONBA_PTR_FROM_JSON(Maxage, maxage_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -39,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->extension_ == nullptr && this->maxage_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
+        && this->maxage_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -47,13 +45,6 @@ namespace Models
     inline vector<string> getContent() { DARABONBA_PTR_GET(content_, vector<string>) };
     inline BlockObjectRequest& setContent(const vector<string> & content) { DARABONBA_PTR_SET_VALUE(content_, content) };
     inline BlockObjectRequest& setContent(vector<string> && content) { DARABONBA_PTR_SET_RVALUE(content_, content) };
-
-
-    // extension Field Functions 
-    bool hasExtension() const { return this->extension_ != nullptr;};
-    void deleteExtension() { this->extension_ = nullptr;};
-    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
-    inline BlockObjectRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // maxage Field Functions 
@@ -82,8 +73,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> content_ {};
-    // The blocking period that you can extend. Set the value to 2year.
-    shared_ptr<string> extension_ {};
     // The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
     shared_ptr<int32_t> maxage_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.

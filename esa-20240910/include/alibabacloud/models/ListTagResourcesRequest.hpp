@@ -16,7 +16,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListTagResourcesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(MaxItem, maxItem_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
-      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -26,7 +25,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListTagResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(MaxItem, maxItem_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
-      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -89,8 +87,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->maxItem_ == nullptr
-        && this->nextToken_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr
-        && this->securityToken_ == nullptr && this->tag_ == nullptr; };
+        && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->securityToken_ == nullptr
+        && this->tag_ == nullptr; };
     // maxItem Field Functions 
     bool hasMaxItem() const { return this->maxItem_ != nullptr;};
     void deleteMaxItem() { this->maxItem_ = nullptr;};
@@ -103,13 +101,6 @@ namespace Models
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagResourcesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
-
-
-    // ownerId Field Functions 
-    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
-    void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
-    inline ListTagResourcesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
@@ -158,7 +149,6 @@ namespace Models
     // 
     // >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
     shared_ptr<string> nextToken_ {};
-    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the resources reside.
     // 
     // This parameter is required.

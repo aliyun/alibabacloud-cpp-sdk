@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETPAGERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Kind, kind_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SiteIds, siteIds_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetPageResponseBody& obj) { 
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Kind, kind_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SiteIds, siteIds_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
     };
     GetPageResponseBody() = default ;
@@ -45,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
         && this->contentType_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->kind_ == nullptr && this->name_ == nullptr
-        && this->requestId_ == nullptr && this->updateTime_ == nullptr; };
+        && this->requestId_ == nullptr && this->siteIds_ == nullptr && this->updateTime_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -95,6 +98,15 @@ namespace Models
     inline GetPageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // siteIds Field Functions 
+    bool hasSiteIds() const { return this->siteIds_ != nullptr;};
+    void deleteSiteIds() { this->siteIds_ = nullptr;};
+    inline const vector<int64_t> & getSiteIds() const { DARABONBA_PTR_GET_CONST(siteIds_, vector<int64_t>) };
+    inline vector<int64_t> getSiteIds() { DARABONBA_PTR_GET(siteIds_, vector<int64_t>) };
+    inline GetPageResponseBody& setSiteIds(const vector<int64_t> & siteIds) { DARABONBA_PTR_SET_VALUE(siteIds_, siteIds) };
+    inline GetPageResponseBody& setSiteIds(vector<int64_t> && siteIds) { DARABONBA_PTR_SET_RVALUE(siteIds_, siteIds) };
+
+
     // updateTime Field Functions 
     bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
     void deleteUpdateTime() { this->updateTime_ = nullptr;};
@@ -123,6 +135,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<vector<int64_t>> siteIds_ {};
     // The time when the custom error page was last modified.
     shared_ptr<string> updateTime_ {};
   };

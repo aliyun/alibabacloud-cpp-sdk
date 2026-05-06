@@ -15,7 +15,6 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UntagResourcesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(All, all_);
-      DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -24,7 +23,6 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UntagResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(All, all_);
-      DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -43,20 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->all_ == nullptr
-        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->securityToken_ == nullptr
-        && this->tagKey_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceId_ == nullptr && this->resourceType_ == nullptr && this->securityToken_ == nullptr && this->tagKey_ == nullptr; };
     // all Field Functions 
     bool hasAll() const { return this->all_ != nullptr;};
     void deleteAll() { this->all_ = nullptr;};
     inline bool getAll() const { DARABONBA_PTR_GET_DEFAULT(all_, false) };
     inline UntagResourcesRequest& setAll(bool all) { DARABONBA_PTR_SET_VALUE(all_, all) };
-
-
-    // ownerId Field Functions 
-    bool hasOwnerId() const { return this->ownerId_ != nullptr;};
-    void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
-    inline UntagResourcesRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // regionId Field Functions 
@@ -106,7 +96,6 @@ namespace Models
     // 
     // Default value: **false**.
     shared_ptr<bool> all_ {};
-    shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
     // 
     // This parameter is required.

@@ -36,9 +36,11 @@ namespace Models
     class QueryArgs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const QueryArgs& obj) { 
+        DARABONBA_PTR_TO_JSON(ContentType, contentType_);
         DARABONBA_PTR_TO_JSON(NameDescriptionLike, nameDescriptionLike_);
       };
       friend void from_json(const Darabonba::Json& j, QueryArgs& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
         DARABONBA_PTR_FROM_JSON(NameDescriptionLike, nameDescriptionLike_);
       };
       QueryArgs() = default ;
@@ -52,7 +54,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->nameDescriptionLike_ == nullptr; };
+      virtual bool empty() const override { return this->contentType_ == nullptr
+        && this->nameDescriptionLike_ == nullptr; };
+      // contentType Field Functions 
+      bool hasContentType() const { return this->contentType_ != nullptr;};
+      void deleteContentType() { this->contentType_ = nullptr;};
+      inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+      inline QueryArgs& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
       // nameDescriptionLike Field Functions 
       bool hasNameDescriptionLike() const { return this->nameDescriptionLike_ != nullptr;};
       void deleteNameDescriptionLike() { this->nameDescriptionLike_ = nullptr;};
@@ -61,6 +71,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> contentType_ {};
       shared_ptr<string> nameDescriptionLike_ {};
     };
 

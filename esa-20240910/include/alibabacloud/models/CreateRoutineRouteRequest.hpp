@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Rule, rule_);
       DARABONBA_PTR_TO_JSON(Sequence, sequence_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+      DARABONBA_PTR_TO_JSON(Timeout, timeout_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRoutineRouteRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Bypass, bypass_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Rule, rule_);
       DARABONBA_PTR_FROM_JSON(Sequence, sequence_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+      DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
     };
     CreateRoutineRouteRequest() = default ;
     CreateRoutineRouteRequest(const CreateRoutineRouteRequest &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bypass_ == nullptr
         && this->fallback_ == nullptr && this->routeEnable_ == nullptr && this->routeName_ == nullptr && this->routineName_ == nullptr && this->rule_ == nullptr
-        && this->sequence_ == nullptr && this->siteId_ == nullptr; };
+        && this->sequence_ == nullptr && this->siteId_ == nullptr && this->timeout_ == nullptr; };
     // bypass Field Functions 
     bool hasBypass() const { return this->bypass_ != nullptr;};
     void deleteBypass() { this->bypass_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
     inline CreateRoutineRouteRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
+    // timeout Field Functions 
+    bool hasTimeout() const { return this->timeout_ != nullptr;};
+    void deleteTimeout() { this->timeout_ = nullptr;};
+    inline string getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, "") };
+    inline CreateRoutineRouteRequest& setTimeout(string timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
+
+
   protected:
     // Bypass mode Valid values:
     // 
@@ -132,6 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    shared_ptr<string> timeout_ {};
   };
 
   } // namespace Models

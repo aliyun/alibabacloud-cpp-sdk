@@ -54,6 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Rule, rule_);
         DARABONBA_PTR_TO_JSON(Sequence, sequence_);
         DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
+        DARABONBA_PTR_TO_JSON(Timeout, timeout_);
       };
       friend void from_json(const Darabonba::Json& j, Configs& obj) { 
         DARABONBA_PTR_FROM_JSON(Bypass, bypass_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Rule, rule_);
         DARABONBA_PTR_FROM_JSON(Sequence, sequence_);
         DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
+        DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
       };
       Configs() = default ;
       Configs(const Configs &) = default ;
@@ -81,7 +83,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bypass_ == nullptr
         && this->configId_ == nullptr && this->configType_ == nullptr && this->fallback_ == nullptr && this->mode_ == nullptr && this->routeEnable_ == nullptr
-        && this->routeName_ == nullptr && this->routineName_ == nullptr && this->rule_ == nullptr && this->sequence_ == nullptr && this->siteVersion_ == nullptr; };
+        && this->routeName_ == nullptr && this->routineName_ == nullptr && this->rule_ == nullptr && this->sequence_ == nullptr && this->siteVersion_ == nullptr
+        && this->timeout_ == nullptr; };
       // bypass Field Functions 
       bool hasBypass() const { return this->bypass_ != nullptr;};
       void deleteBypass() { this->bypass_ = nullptr;};
@@ -159,6 +162,13 @@ namespace Models
       inline Configs& setSiteVersion(int32_t siteVersion) { DARABONBA_PTR_SET_VALUE(siteVersion_, siteVersion) };
 
 
+      // timeout Field Functions 
+      bool hasTimeout() const { return this->timeout_ != nullptr;};
+      void deleteTimeout() { this->timeout_ = nullptr;};
+      inline string getTimeout() const { DARABONBA_PTR_GET_DEFAULT(timeout_, "") };
+      inline Configs& setTimeout(string timeout) { DARABONBA_PTR_SET_VALUE(timeout_, timeout) };
+
+
     protected:
       // The bypass mode. Valid values:
       // 
@@ -193,6 +203,7 @@ namespace Models
       shared_ptr<int32_t> sequence_ {};
       // The version number of the website.
       shared_ptr<int32_t> siteVersion_ {};
+      shared_ptr<string> timeout_ {};
     };
 
     virtual bool empty() const override { return this->configs_ == nullptr

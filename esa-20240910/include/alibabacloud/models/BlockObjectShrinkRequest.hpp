@@ -14,14 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BlockObjectShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Content, contentShrink_);
-      DARABONBA_PTR_TO_JSON(Extension, extension_);
       DARABONBA_PTR_TO_JSON(Maxage, maxage_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, BlockObjectShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, contentShrink_);
-      DARABONBA_PTR_FROM_JSON(Extension, extension_);
       DARABONBA_PTR_FROM_JSON(Maxage, maxage_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -38,19 +36,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentShrink_ == nullptr
-        && this->extension_ == nullptr && this->maxage_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
+        && this->maxage_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
     // contentShrink Field Functions 
     bool hasContentShrink() const { return this->contentShrink_ != nullptr;};
     void deleteContentShrink() { this->contentShrink_ = nullptr;};
     inline string getContentShrink() const { DARABONBA_PTR_GET_DEFAULT(contentShrink_, "") };
     inline BlockObjectShrinkRequest& setContentShrink(string contentShrink) { DARABONBA_PTR_SET_VALUE(contentShrink_, contentShrink) };
-
-
-    // extension Field Functions 
-    bool hasExtension() const { return this->extension_ != nullptr;};
-    void deleteExtension() { this->extension_ = nullptr;};
-    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
-    inline BlockObjectShrinkRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // maxage Field Functions 
@@ -79,8 +70,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> contentShrink_ {};
-    // The blocking period that you can extend. Set the value to 2year.
-    shared_ptr<string> extension_ {};
     // The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
     shared_ptr<int32_t> maxage_ {};
     // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.

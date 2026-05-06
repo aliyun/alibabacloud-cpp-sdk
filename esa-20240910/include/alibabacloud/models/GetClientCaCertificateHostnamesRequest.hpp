@@ -1,0 +1,59 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETCLIENTCACERTIFICATEHOSTNAMESREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETCLIENTCACERTIFICATEHOSTNAMESREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace ESA20240910
+{
+namespace Models
+{
+  class GetClientCaCertificateHostnamesRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetClientCaCertificateHostnamesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetClientCaCertificateHostnamesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+    };
+    GetClientCaCertificateHostnamesRequest() = default ;
+    GetClientCaCertificateHostnamesRequest(const GetClientCaCertificateHostnamesRequest &) = default ;
+    GetClientCaCertificateHostnamesRequest(GetClientCaCertificateHostnamesRequest &&) = default ;
+    GetClientCaCertificateHostnamesRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetClientCaCertificateHostnamesRequest() = default ;
+    GetClientCaCertificateHostnamesRequest& operator=(const GetClientCaCertificateHostnamesRequest &) = default ;
+    GetClientCaCertificateHostnamesRequest& operator=(GetClientCaCertificateHostnamesRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->id_ == nullptr
+        && this->siteId_ == nullptr; };
+    // id Field Functions 
+    bool hasId() const { return this->id_ != nullptr;};
+    void deleteId() { this->id_ = nullptr;};
+    inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+    inline GetClientCaCertificateHostnamesRequest& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    // siteId Field Functions 
+    bool hasSiteId() const { return this->siteId_ != nullptr;};
+    void deleteSiteId() { this->siteId_ = nullptr;};
+    inline int64_t getSiteId() const { DARABONBA_PTR_GET_DEFAULT(siteId_, 0L) };
+    inline GetClientCaCertificateHostnamesRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
+
+
+  protected:
+    shared_ptr<string> id_ {};
+    // This parameter is required.
+    shared_ptr<int64_t> siteId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace ESA20240910
+#endif

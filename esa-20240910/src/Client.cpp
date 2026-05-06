@@ -10,16 +10,16 @@
 #include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
-#include <alibabacloud/credential/Credential.hpp>
+#include <alibabacloud/credentials/Client.hpp>
 #include <darabonba/http/FileField.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace Darabonba::Http;
 using namespace AlibabaCloud::OpenApi;
-using namespace AlibabaCloud::Credential::Models;
 using namespace AlibabaCloud::OpenApi::Exceptions;
 using namespace AlibabaCloud::ESA20240910::Models;
+using namespace AlibabaCloud::Credentials::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 namespace AlibabaCloud
@@ -52,9 +52,7 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     {"tlsMinVersion", _tlsMinVersion}
     }));
 
-  shared_ptr<Darabonba::Http::Request> _lastRequest = nullptr;
-  shared_ptr<Darabonba::Http::MCurlResponse> _lastResponse = nullptr;
-  Darabonba::Exception _lastException;
+  std::exception_ptr _lastExceptionPtr;
   int _retriesAttempted = 0;
   Darabonba::Policy::RetryPolicyContext _context = json({
     {"retriesAttempted" , _retriesAttempted}
@@ -70,33 +68,33 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form["host"])},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
       request_.getHeaders()["content-type"] = DARA_STRING_TEMPLATE("multipart/form-data; boundary=" , boundary);
       request_.setBody(Darabonba::Http::Form::toFileForm(form, boundary));
-      _lastRequest = make_shared<Darabonba::Http::Request>(request_);
       auto futureResp_ = Darabonba::Core::doAction(request_, runtime_);
       shared_ptr<Darabonba::Http::MCurlResponse> response_ = futureResp_.get();
-      _lastResponse  = response_;
 
       json respMap = nullptr;
       string bodyStr = Darabonba::Stream::readAsString(response_->getBody());
       if ((response_->getStatusCode() >= 400) && (response_->getStatusCode() < 600)) {
         respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
-        json err = json(respMap["Error"]);
+        json err = json(respMap.value("Error", Darabonba::Json()));
         throw ClientException(json({
-          {"code" , Darabonba::Convert::stringVal(err["Code"])},
-          {"message" , Darabonba::Convert::stringVal(err["Message"])},
+          {"code" , Darabonba::Convert::stringVal(err.value("Code", Darabonba::Json()))},
+          {"message" , Darabonba::Convert::stringVal(err.value("Message", Darabonba::Json()))},
           {"data" , json({
             {"httpCode" , response_->getStatusCode()},
-            {"requestId" , Darabonba::Convert::stringVal(err["RequestId"])},
-            {"hostId" , Darabonba::Convert::stringVal(err["HostId"])}
+            {"requestId" , Darabonba::Convert::stringVal(err.value("RequestId", Darabonba::Json()))},
+            {"hostId" , Darabonba::Convert::stringVal(err.value("HostId", Darabonba::Json()))}
           })}
         }));
       }
@@ -104,18 +102,17 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
       respMap = Darabonba::XML::parseXml(bodyStr, nullptr);
       return Darabonba::Core::merge(respMap
       );
-    } catch (const Darabonba::Exception& ex) {
+    } catch (const Darabonba::DaraException& ex) {
+      _lastExceptionPtr = std::current_exception();
       _context = Darabonba::Policy::RetryPolicyContext(json({
         {"retriesAttempted" , _retriesAttempted},
-        {"lastRequest" , _lastRequest},
-        {"lastResponse" , _lastResponse},
         {"exception" , ex},
       }));
       continue;
     }
   }
 
-  throw *_context.getException();
+  std::rethrow_exception(_lastExceptionPtr);
 }
 
 string Client::getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint) {
@@ -676,7 +673,7 @@ BatchDeleteKvWithHighCapacityResponse Client::batchDeleteKvWithHighCapacityAdvan
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1020,7 +1017,7 @@ BatchPutKvWithHighCapacityResponse Client::batchPutKvWithHighCapacityAdvance(con
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1130,10 +1127,6 @@ BlockObjectResponse Client::blockObjectWithOptions(const BlockObjectRequest &tmp
     query["Content"] = request.getContentShrink();
   }
 
-  if (!!request.hasExtension()) {
-    query["Extension"] = request.getExtension();
-  }
-
   if (!!request.hasMaxage()) {
     query["Maxage"] = request.getMaxage();
   }
@@ -1177,7 +1170,6 @@ BlockObjectResponse Client::blockObject(const BlockObjectRequest &request) {
 /**
  * @summary 检查实时日志slr角色是否已创建
  *
- * @param request CheckAssumeSlrRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckAssumeSlrRoleResponse
  */
@@ -3236,12 +3228,18 @@ CreateOriginRuleResponse Client::createOriginRule(const CreateOriginRuleRequest 
 /**
  * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
  *
- * @param request CreatePageRequest
+ * @param tmpReq CreatePageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreatePageResponse
  */
-CreatePageResponse Client::createPageWithOptions(const CreatePageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreatePageResponse Client::createPageWithOptions(const CreatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreatePageShrinkRequest request = CreatePageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSiteIds()) {
+    request.setSiteIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSiteIds(), "SiteIds", "json"));
+  }
+
   json body = {};
   if (!!request.hasContent()) {
     body["Content"] = request.getContent();
@@ -3257,6 +3255,10 @@ CreatePageResponse Client::createPageWithOptions(const CreatePageRequest &reques
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSiteIdsShrink()) {
+    body["SiteIds"] = request.getSiteIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3745,6 +3747,10 @@ CreateRoutineRouteResponse Client::createRoutineRouteWithOptions(const CreateRou
     query["SiteId"] = request.getSiteId();
   }
 
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.getTimeout();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4204,7 +4210,6 @@ CreateSiteDeliveryTaskResponse Client::createSiteDeliveryTask(const CreateSiteDe
 /**
  * @summary 创建一个实时日志slr角色
  *
- * @param request CreateSlrRoleForRealtimeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateSlrRoleForRealtimeLogResponse
  */
@@ -4260,6 +4265,10 @@ CreateTransportLayerApplicationResponse Client::createTransportLayerApplicationW
 
   if (!!request.hasIpv6()) {
     query["Ipv6"] = request.getIpv6();
+  }
+
+  if (!!request.hasKeepAliveProtection()) {
+    query["KeepAliveProtection"] = request.getKeepAliveProtection();
   }
 
   if (!!request.hasRecordName()) {
@@ -6025,6 +6034,52 @@ DeleteImageTransformResponse Client::deleteImageTransform(const DeleteImageTrans
 }
 
 /**
+ * @summary 删除一个keyless server配置
+ *
+ * @param request DeleteKeylessServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteKeylessServerResponse
+ */
+DeleteKeylessServerResponse Client::deleteKeylessServerWithOptions(const DeleteKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteKeylessServer"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteKeylessServerResponse>();
+}
+
+/**
+ * @summary 删除一个keyless server配置
+ *
+ * @param request DeleteKeylessServerRequest
+ * @return DeleteKeylessServerResponse
+ */
+DeleteKeylessServerResponse Client::deleteKeylessServer(const DeleteKeylessServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteKeylessServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a key-value pair from a namespace.
  *
  * @param request DeleteKvRequest
@@ -6916,10 +6971,6 @@ DeleteScheduledPreloadJobResponse Client::deleteScheduledPreloadJob(const Delete
 DeleteSiteResponse Client::deleteSiteWithOptions(const DeleteSiteRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.getSecurityToken();
   }
@@ -8055,7 +8106,6 @@ DescribeHttpDDoSIntelligentRateLimitRulesResponse Client::describeHttpDDoSIntell
 /**
  * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
  *
- * @param request DescribeKvAccountStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeKvAccountStatusResponse
  */
@@ -8205,6 +8255,56 @@ DescribeRatePlanInstanceStatusResponse Client::describeRatePlanInstanceStatusWit
 DescribeRatePlanInstanceStatusResponse Client::describeRatePlanInstanceStatus(const DescribeRatePlanInstanceStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeRatePlanInstanceStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the prices, types, and status of plans.
+ *
+ * @param request DescribeRatePlanPriceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRatePlanPriceResponse
+ */
+DescribeRatePlanPriceResponse Client::describeRatePlanPriceWithOptions(const DescribeRatePlanPriceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmount()) {
+    query["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPlanName()) {
+    query["PlanName"] = request.getPlanName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRatePlanPrice"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRatePlanPriceResponse>();
+}
+
+/**
+ * @summary Queries the prices, types, and status of plans.
+ *
+ * @param request DescribeRatePlanPriceRequest
+ * @return DescribeRatePlanPriceResponse
+ */
+DescribeRatePlanPriceResponse Client::describeRatePlanPrice(const DescribeRatePlanPriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeRatePlanPriceWithOptions(request, runtime);
 }
 
 /**
@@ -8722,9 +8822,54 @@ GetApiSchemaUsageResponse Client::getApiSchemaUsage(const GetApiSchemaUsageReque
 }
 
 /**
+ * @summary 查询站点智能限频阈值
+ *
+ * @param request GetAutomaticFrequencyControlConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAutomaticFrequencyControlConfigResponse
+ */
+GetAutomaticFrequencyControlConfigResponse Client::getAutomaticFrequencyControlConfigWithOptions(const GetAutomaticFrequencyControlConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAutomaticFrequencyControlConfig"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAutomaticFrequencyControlConfigResponse>();
+}
+
+/**
+ * @summary 查询站点智能限频阈值
+ *
+ * @param request GetAutomaticFrequencyControlConfigRequest
+ * @return GetAutomaticFrequencyControlConfigResponse
+ */
+GetAutomaticFrequencyControlConfigResponse Client::getAutomaticFrequencyControlConfig(const GetAutomaticFrequencyControlConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAutomaticFrequencyControlConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the available specifications of cache reserve instances.
  *
- * @param request GetCacheReserveSpecificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCacheReserveSpecificationResponse
  */
@@ -8950,6 +9095,52 @@ GetClientCaCertificateResponse Client::getClientCaCertificateWithOptions(const G
 GetClientCaCertificateResponse Client::getClientCaCertificate(const GetClientCaCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getClientCaCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取客户端CA证书绑定的域名列表
+ *
+ * @param request GetClientCaCertificateHostnamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetClientCaCertificateHostnamesResponse
+ */
+GetClientCaCertificateHostnamesResponse Client::getClientCaCertificateHostnamesWithOptions(const GetClientCaCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetClientCaCertificateHostnames"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetClientCaCertificateHostnamesResponse>();
+}
+
+/**
+ * @summary 获取客户端CA证书绑定的域名列表
+ *
+ * @param request GetClientCaCertificateHostnamesRequest
+ * @return GetClientCaCertificateHostnamesResponse
+ */
+GetClientCaCertificateHostnamesResponse Client::getClientCaCertificateHostnames(const GetClientCaCertificateHostnamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getClientCaCertificateHostnamesWithOptions(request, runtime);
 }
 
 /**
@@ -10057,6 +10248,52 @@ GetImageTransformResponse Client::getImageTransform(const GetImageTransformReque
 }
 
 /**
+ * @summary 获取一个keyless server配置
+ *
+ * @param request GetKeylessServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetKeylessServerResponse
+ */
+GetKeylessServerResponse Client::getKeylessServerWithOptions(const GetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetKeylessServer"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetKeylessServerResponse>();
+}
+
+/**
+ * @summary 获取一个keyless server配置
+ *
+ * @param request GetKeylessServerRequest
+ * @return GetKeylessServerResponse
+ */
+GetKeylessServerResponse Client::getKeylessServer(const GetKeylessServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getKeylessServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the value of a key in a key-value pair.
  *
  * @param request GetKvRequest
@@ -10097,7 +10334,6 @@ GetKvResponse Client::getKv(const GetKvRequest &request) {
 /**
  * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
  *
- * @param request GetKvAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetKvAccountResponse
  */
@@ -10642,6 +10878,48 @@ GetPageResponse Client::getPage(const GetPageRequest &request) {
 }
 
 /**
+ * @summary 查询数据质量采集配置
+ *
+ * @param request GetPerformanceDataCollectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPerformanceDataCollectionResponse
+ */
+GetPerformanceDataCollectionResponse Client::getPerformanceDataCollectionWithOptions(const GetPerformanceDataCollectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPerformanceDataCollection"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPerformanceDataCollectionResponse>();
+}
+
+/**
+ * @summary 查询数据质量采集配置
+ *
+ * @param request GetPerformanceDataCollectionRequest
+ * @return GetPerformanceDataCollectionResponse
+ */
+GetPerformanceDataCollectionResponse Client::getPerformanceDataCollection(const GetPerformanceDataCollectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPerformanceDataCollectionWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the quotas and quota usage for different cache purge options.
  *
  * @param request GetPurgeQuotaRequest
@@ -10650,7 +10928,15 @@ GetPageResponse Client::getPage(const GetPageRequest &request) {
  */
 GetPurgeQuotaResponse Client::getPurgeQuotaWithOptions(const GetPurgeQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  map<string, string> query = Utils::Utils::query(request.toMap());
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -10659,7 +10945,7 @@ GetPurgeQuotaResponse Client::getPurgeQuotaWithOptions(const GetPurgeQuotaReques
     {"version" , "2024-09-10"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
-    {"method" , "GET"},
+    {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
@@ -11062,7 +11348,6 @@ GetRoutineStagingCodeUploadInfoResponse Client::getRoutineStagingCodeUploadInfo(
 /**
  * @summary Queries the IP addresses of staging environments for Edge Routine.
  *
- * @param request GetRoutineStagingEnvIpRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRoutineStagingEnvIpResponse
  */
@@ -11095,7 +11380,6 @@ GetRoutineStagingEnvIpResponse Client::getRoutineStagingEnvIp() {
 /**
  * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
  *
- * @param request GetRoutineUserInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRoutineUserInfoResponse
  */
@@ -11876,7 +12160,6 @@ GetVideoProcessingResponse Client::getVideoProcessing(const GetVideoProcessingRe
 /**
  * @summary This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
  *
- * @param request GetWafBotAppKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetWafBotAppKeyResponse
  */
@@ -12571,6 +12854,72 @@ ListCustomResponseCodeRulesResponse Client::listCustomResponseCodeRules(const Li
 }
 
 /**
+ * @summary 查询DDoS安全实例列表
+ *
+ * @param request ListDDoSInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDDoSInstancesResponse
+ */
+ListDDoSInstancesResponse Client::listDDoSInstancesWithOptions(const ListDDoSInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSiteInstanceId()) {
+    query["SiteInstanceId"] = request.getSiteInstanceId();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListDDoSInstances"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDDoSInstancesResponse>();
+}
+
+/**
+ * @summary 查询DDoS安全实例列表
+ *
+ * @param request ListDDoSInstancesRequest
+ * @return ListDDoSInstancesResponse
+ */
+ListDDoSInstancesResponse Client::listDDoSInstances(const ListDDoSInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDDoSInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Batch query whether the IP address is included in the ESA resolution result.
  *
  * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
@@ -12833,7 +13182,6 @@ ListEdgeContainerRecordsResponse Client::listEdgeContainerRecords(const ListEdge
 /**
  * @summary Queries Edge Routine plans.
  *
- * @param request ListEdgeRoutinePlansRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListEdgeRoutinePlansResponse
  */
@@ -13245,6 +13593,56 @@ ListInstanceQuotasWithUsageResponse Client::listInstanceQuotasWithUsageWithOptio
 ListInstanceQuotasWithUsageResponse Client::listInstanceQuotasWithUsage(const ListInstanceQuotasWithUsageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listInstanceQuotasWithUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取站点下keyless server列表
+ *
+ * @param request ListKeylessServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKeylessServersResponse
+ */
+ListKeylessServersResponse Client::listKeylessServersWithOptions(const ListKeylessServersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKeylessServers"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKeylessServersResponse>();
+}
+
+/**
+ * @summary 获取站点下keyless server列表
+ *
+ * @param request ListKeylessServersRequest
+ * @return ListKeylessServersResponse
+ */
+ListKeylessServersResponse Client::listKeylessServers(const ListKeylessServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKeylessServersWithOptions(request, runtime);
 }
 
 /**
@@ -13884,7 +14282,6 @@ ListRewriteUrlRulesResponse Client::listRewriteUrlRules(const ListRewriteUrlRule
 /**
  * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
  *
- * @param request ListRoutineCanaryAreasRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRoutineCanaryAreasResponse
  */
@@ -14358,10 +14755,6 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
@@ -15322,10 +15715,6 @@ ListWaitingRoomsResponse Client::listWaitingRooms(const ListWaitingRoomsRequest 
 OpenErServiceResponse Client::openErServiceWithOptions(const OpenErServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
-  }
-
   if (!!request.hasSecurityToken()) {
     query["SecurityToken"] = request.getSecurityToken();
   }
@@ -15701,7 +16090,7 @@ PurchaseRatePlanResponse Client::purchaseRatePlan(const PurchaseRatePlanRequest 
 }
 
 /**
- * @summary Cache Refresh
+ * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
  *
  * @param tmpReq PurgeCachesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15754,7 +16143,7 @@ PurgeCachesResponse Client::purgeCachesWithOptions(const PurgeCachesRequest &tmp
 }
 
 /**
- * @summary Cache Refresh
+ * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
  *
  * @param request PurgeCachesRequest
  * @return PurgeCachesResponse
@@ -16022,7 +16411,7 @@ PutKvWithHighCapacityResponse Client::putKvWithHighCapacityAdvance(const PutKvWi
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -16078,6 +16467,48 @@ RebuildEdgeContainerAppStagingEnvResponse Client::rebuildEdgeContainerAppStaging
 RebuildEdgeContainerAppStagingEnvResponse Client::rebuildEdgeContainerAppStagingEnv(const RebuildEdgeContainerAppStagingEnvRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return rebuildEdgeContainerAppStagingEnvWithOptions(request, runtime);
+}
+
+/**
+ * @summary 预约释放安全实例
+ *
+ * @param request ReleaseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReleaseInstanceResponse
+ */
+ReleaseInstanceResponse Client::releaseInstanceWithOptions(const ReleaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReleaseInstance"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReleaseInstanceResponse>();
+}
+
+/**
+ * @summary 预约释放安全实例
+ *
+ * @param request ReleaseInstanceRequest
+ * @return ReleaseInstanceResponse
+ */
+ReleaseInstanceResponse Client::releaseInstance(const ReleaseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return releaseInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -16221,6 +16652,64 @@ RollbackEdgeContainerAppVersionResponse Client::rollbackEdgeContainerAppVersion(
 }
 
 /**
+ * @summary 设置站点智能限频阈值
+ *
+ * @param request SetAutomaticFrequencyControlConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetAutomaticFrequencyControlConfigResponse
+ */
+SetAutomaticFrequencyControlConfigResponse Client::setAutomaticFrequencyControlConfigWithOptions(const SetAutomaticFrequencyControlConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActionType()) {
+    query["ActionType"] = request.getActionType();
+  }
+
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasLevel()) {
+    query["Level"] = request.getLevel();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetAutomaticFrequencyControlConfig"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetAutomaticFrequencyControlConfigResponse>();
+}
+
+/**
+ * @summary 设置站点智能限频阈值
+ *
+ * @param request SetAutomaticFrequencyControlConfigRequest
+ * @return SetAutomaticFrequencyControlConfigResponse
+ */
+SetAutomaticFrequencyControlConfigResponse Client::setAutomaticFrequencyControlConfig(const SetAutomaticFrequencyControlConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setAutomaticFrequencyControlConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary Configures whether to enable certificates and update certificate information for a website.
  *
  * @param request SetCertificateRequest
@@ -16232,10 +16721,6 @@ SetCertificateResponse Client::setCertificateWithOptions(const SetCertificateReq
   json query = {};
   if (!!request.hasKeyServerId()) {
     query["KeyServerId"] = request.getKeyServerId();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasSecurityToken()) {
@@ -16302,6 +16787,64 @@ SetCertificateResponse Client::setCertificateWithOptions(const SetCertificateReq
 SetCertificateResponse Client::setCertificate(const SetCertificateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setCertificateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 为客户端CA证书绑定域名
+ *
+ * @param tmpReq SetClientCaCertificateHostnamesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetClientCaCertificateHostnamesResponse
+ */
+SetClientCaCertificateHostnamesResponse Client::setClientCaCertificateHostnamesWithOptions(const SetClientCaCertificateHostnamesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SetClientCaCertificateHostnamesShrinkRequest request = SetClientCaCertificateHostnamesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHostnames()) {
+    request.setHostnamesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHostnames(), "Hostnames", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  json body = {};
+  if (!!request.hasHostnamesShrink()) {
+    body["Hostnames"] = request.getHostnamesShrink();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetClientCaCertificateHostnames"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetClientCaCertificateHostnamesResponse>();
+}
+
+/**
+ * @summary 为客户端CA证书绑定域名
+ *
+ * @param request SetClientCaCertificateHostnamesRequest
+ * @return SetClientCaCertificateHostnamesResponse
+ */
+SetClientCaCertificateHostnamesResponse Client::setClientCaCertificateHostnames(const SetClientCaCertificateHostnamesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setClientCaCertificateHostnamesWithOptions(request, runtime);
 }
 
 /**
@@ -16605,6 +17148,82 @@ SetHttpDDoSAttackRuleStatusResponse Client::setHttpDDoSAttackRuleStatus(const Se
 }
 
 /**
+ * @summary 创建/更新一个keyless server
+ *
+ * @param request SetKeylessServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetKeylessServerResponse
+ */
+SetKeylessServerResponse Client::setKeylessServerWithOptions(const SetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  json body = {};
+  if (!!request.hasCaCertificate()) {
+    body["CaCertificate"] = request.getCaCertificate();
+  }
+
+  if (!!request.hasClientCertificate()) {
+    body["ClientCertificate"] = request.getClientCertificate();
+  }
+
+  if (!!request.hasClientPrivateKey()) {
+    body["ClientPrivateKey"] = request.getClientPrivateKey();
+  }
+
+  if (!!request.hasHost()) {
+    body["Host"] = request.getHost();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPort()) {
+    body["Port"] = request.getPort();
+  }
+
+  if (!!request.hasVerify()) {
+    body["Verify"] = request.getVerify();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetKeylessServer"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetKeylessServerResponse>();
+}
+
+/**
+ * @summary 创建/更新一个keyless server
+ *
+ * @param request SetKeylessServerRequest
+ * @return SetKeylessServerResponse
+ */
+SetKeylessServerResponse Client::setKeylessServer(const SetKeylessServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setKeylessServerWithOptions(request, runtime);
+}
+
+/**
  * @summary 为域名回源客户端证书绑定域名
  *
  * @param tmpReq SetOriginClientCertificateHostnamesRequest
@@ -16818,10 +17437,6 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   json query = {};
   if (!!request.hasAll()) {
     query["All"] = request.getAll();
-  }
-
-  if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasRegionId()) {
@@ -18891,12 +19506,18 @@ UpdateOriginRuleResponse Client::updateOriginRule(const UpdateOriginRuleRequest 
 /**
  * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
  *
- * @param request UpdatePageRequest
+ * @param tmpReq UpdatePageRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdatePageResponse
  */
-UpdatePageResponse Client::updatePageWithOptions(const UpdatePageRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdatePageResponse Client::updatePageWithOptions(const UpdatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdatePageShrinkRequest request = UpdatePageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSiteIds()) {
+    request.setSiteIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSiteIds(), "SiteIds", "json"));
+  }
+
   json body = {};
   if (!!request.hasContent()) {
     body["Content"] = request.getContent();
@@ -18916,6 +19537,10 @@ UpdatePageResponse Client::updatePageWithOptions(const UpdatePageRequest &reques
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSiteIdsShrink()) {
+    body["SiteIds"] = request.getSiteIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18947,7 +19572,53 @@ UpdatePageResponse Client::updatePage(const UpdatePageRequest &request) {
 }
 
 /**
- * @summary 套餐变配
+ * @summary 修改网页数据质量采集配置
+ *
+ * @param request UpdatePerformanceDataCollectionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePerformanceDataCollectionResponse
+ */
+UpdatePerformanceDataCollectionResponse Client::updatePerformanceDataCollectionWithOptions(const UpdatePerformanceDataCollectionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnable()) {
+    query["Enable"] = request.getEnable();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdatePerformanceDataCollection"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePerformanceDataCollectionResponse>();
+}
+
+/**
+ * @summary 修改网页数据质量采集配置
+ *
+ * @param request UpdatePerformanceDataCollectionRequest
+ * @return UpdatePerformanceDataCollectionResponse
+ */
+UpdatePerformanceDataCollectionResponse Client::updatePerformanceDataCollection(const UpdatePerformanceDataCollectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updatePerformanceDataCollectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Plan Adjustment
  *
  * @param request UpdateRatePlanSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18998,7 +19669,7 @@ UpdateRatePlanSpecResponse Client::updateRatePlanSpecWithOptions(const UpdateRat
 }
 
 /**
- * @summary 套餐变配
+ * @summary Plan Adjustment
  *
  * @param request UpdateRatePlanSpecRequest
  * @return UpdateRatePlanSpecResponse
@@ -19358,6 +20029,10 @@ UpdateRoutineRouteResponse Client::updateRoutineRouteWithOptions(const UpdateRou
 
   if (!!request.hasSiteId()) {
     query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -19976,6 +20651,10 @@ UpdateTransportLayerApplicationResponse Client::updateTransportLayerApplicationW
 
   if (!!request.hasIpv6()) {
     query["Ipv6"] = request.getIpv6();
+  }
+
+  if (!!request.hasKeepAliveProtection()) {
+    query["KeepAliveProtection"] = request.getKeepAliveProtection();
   }
 
   if (!!request.hasRulesShrink()) {
@@ -20970,7 +21649,7 @@ UploadFileResponse Client::uploadFileAdvance(const UploadFileAdvanceRequest &req
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},

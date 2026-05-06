@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ManagedRulesGroup, managedRulesGroup_);
         DARABONBA_PTR_TO_JSON(Page, page_);
         DARABONBA_PTR_TO_JSON(ScenePolicy, scenePolicy_);
+        DARABONBA_PTR_TO_JSON(SliderCaptchaPage, sliderCaptchaPage_);
       };
       friend void from_json(const Darabonba::Json& j, Quota& obj) { 
         DARABONBA_PTR_FROM_JSON(Captcha, captcha_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ManagedRulesGroup, managedRulesGroup_);
         DARABONBA_PTR_FROM_JSON(Page, page_);
         DARABONBA_PTR_FROM_JSON(ScenePolicy, scenePolicy_);
+        DARABONBA_PTR_FROM_JSON(SliderCaptchaPage, sliderCaptchaPage_);
       };
       Quota() = default ;
       Quota(const Quota &) = default ;
@@ -62,6 +64,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class SliderCaptchaPage : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const SliderCaptchaPage& obj) { 
+          DARABONBA_PTR_TO_JSON(Enable, enable_);
+          DARABONBA_PTR_TO_JSON(NumberTotal, numberTotal_);
+        };
+        friend void from_json(const Darabonba::Json& j, SliderCaptchaPage& obj) { 
+          DARABONBA_PTR_FROM_JSON(Enable, enable_);
+          DARABONBA_PTR_FROM_JSON(NumberTotal, numberTotal_);
+        };
+        SliderCaptchaPage() = default ;
+        SliderCaptchaPage(const SliderCaptchaPage &) = default ;
+        SliderCaptchaPage(SliderCaptchaPage &&) = default ;
+        SliderCaptchaPage(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~SliderCaptchaPage() = default ;
+        SliderCaptchaPage& operator=(const SliderCaptchaPage &) = default ;
+        SliderCaptchaPage& operator=(SliderCaptchaPage &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->enable_ == nullptr
+        && this->numberTotal_ == nullptr; };
+        // enable Field Functions 
+        bool hasEnable() const { return this->enable_ != nullptr;};
+        void deleteEnable() { this->enable_ = nullptr;};
+        inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+        inline SliderCaptchaPage& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+        // numberTotal Field Functions 
+        bool hasNumberTotal() const { return this->numberTotal_ != nullptr;};
+        void deleteNumberTotal() { this->numberTotal_ = nullptr;};
+        inline const WafQuotaInteger & getNumberTotal() const { DARABONBA_PTR_GET_CONST(numberTotal_, WafQuotaInteger) };
+        inline WafQuotaInteger getNumberTotal() { DARABONBA_PTR_GET(numberTotal_, WafQuotaInteger) };
+        inline SliderCaptchaPage& setNumberTotal(const WafQuotaInteger & numberTotal) { DARABONBA_PTR_SET_VALUE(numberTotal_, numberTotal) };
+        inline SliderCaptchaPage& setNumberTotal(WafQuotaInteger && numberTotal) { DARABONBA_PTR_SET_RVALUE(numberTotal_, numberTotal) };
+
+
+      protected:
+        shared_ptr<bool> enable_ {};
+        shared_ptr<WafQuotaInteger> numberTotal_ {};
+      };
+
       class ScenePolicy : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ScenePolicy& obj) { 
@@ -343,7 +389,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->captcha_ == nullptr
-        && this->list_ == nullptr && this->managedRulesGroup_ == nullptr && this->page_ == nullptr && this->scenePolicy_ == nullptr; };
+        && this->list_ == nullptr && this->managedRulesGroup_ == nullptr && this->page_ == nullptr && this->scenePolicy_ == nullptr && this->sliderCaptchaPage_ == nullptr; };
       // captcha Field Functions 
       bool hasCaptcha() const { return this->captcha_ != nullptr;};
       void deleteCaptcha() { this->captcha_ = nullptr;};
@@ -389,6 +435,15 @@ namespace Models
       inline Quota& setScenePolicy(Quota::ScenePolicy && scenePolicy) { DARABONBA_PTR_SET_RVALUE(scenePolicy_, scenePolicy) };
 
 
+      // sliderCaptchaPage Field Functions 
+      bool hasSliderCaptchaPage() const { return this->sliderCaptchaPage_ != nullptr;};
+      void deleteSliderCaptchaPage() { this->sliderCaptchaPage_ = nullptr;};
+      inline const Quota::SliderCaptchaPage & getSliderCaptchaPage() const { DARABONBA_PTR_GET_CONST(sliderCaptchaPage_, Quota::SliderCaptchaPage) };
+      inline Quota::SliderCaptchaPage getSliderCaptchaPage() { DARABONBA_PTR_GET(sliderCaptchaPage_, Quota::SliderCaptchaPage) };
+      inline Quota& setSliderCaptchaPage(const Quota::SliderCaptchaPage & sliderCaptchaPage) { DARABONBA_PTR_SET_VALUE(sliderCaptchaPage_, sliderCaptchaPage) };
+      inline Quota& setSliderCaptchaPage(Quota::SliderCaptchaPage && sliderCaptchaPage) { DARABONBA_PTR_SET_RVALUE(sliderCaptchaPage_, sliderCaptchaPage) };
+
+
     protected:
       shared_ptr<Quota::Captcha> captcha_ {};
       // Quota information related to custom lists.
@@ -399,6 +454,7 @@ namespace Models
       shared_ptr<Quota::Page> page_ {};
       // Quota information related to scene protection.
       shared_ptr<Quota::ScenePolicy> scenePolicy_ {};
+      shared_ptr<Quota::SliderCaptchaPage> sliderCaptchaPage_ {};
     };
 
     virtual bool empty() const override { return this->quota_ == nullptr
