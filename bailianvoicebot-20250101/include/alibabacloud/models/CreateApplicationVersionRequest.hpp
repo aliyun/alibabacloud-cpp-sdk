@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEAPPLICATIONVERSIONREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEAPPLICATIONVERSIONREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_TO_JSON(InteractionConfig, interactionConfig_);
+      DARABONBA_PTR_TO_JSON(RagConfig, ragConfig_);
       DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
       DARABONBA_PTR_TO_JSON(SourceVersionId, sourceVersionId_);
       DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -25,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_FROM_JSON(InteractionConfig, interactionConfig_);
+      DARABONBA_PTR_FROM_JSON(RagConfig, ragConfig_);
       DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
       DARABONBA_PTR_FROM_JSON(SourceVersionId, sourceVersionId_);
       DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -271,6 +274,80 @@ namespace Models
       shared_ptr<string> model_ {};
     };
 
+    class RagConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RagConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Enabled, enabled_);
+        DARABONBA_PTR_TO_JSON(KnowledgeBaseIds, knowledgeBaseIds_);
+        DARABONBA_PTR_TO_JSON(MaxContentLength, maxContentLength_);
+        DARABONBA_PTR_TO_JSON(RagEngine, ragEngine_);
+        DARABONBA_PTR_TO_JSON(TopN, topN_);
+      };
+      friend void from_json(const Darabonba::Json& j, RagConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Enabled, enabled_);
+        DARABONBA_PTR_FROM_JSON(KnowledgeBaseIds, knowledgeBaseIds_);
+        DARABONBA_PTR_FROM_JSON(MaxContentLength, maxContentLength_);
+        DARABONBA_PTR_FROM_JSON(RagEngine, ragEngine_);
+        DARABONBA_PTR_FROM_JSON(TopN, topN_);
+      };
+      RagConfig() = default ;
+      RagConfig(const RagConfig &) = default ;
+      RagConfig(RagConfig &&) = default ;
+      RagConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RagConfig() = default ;
+      RagConfig& operator=(const RagConfig &) = default ;
+      RagConfig& operator=(RagConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->knowledgeBaseIds_ == nullptr && this->maxContentLength_ == nullptr && this->ragEngine_ == nullptr && this->topN_ == nullptr; };
+      // enabled Field Functions 
+      bool hasEnabled() const { return this->enabled_ != nullptr;};
+      void deleteEnabled() { this->enabled_ = nullptr;};
+      inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+      inline RagConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+      // knowledgeBaseIds Field Functions 
+      bool hasKnowledgeBaseIds() const { return this->knowledgeBaseIds_ != nullptr;};
+      void deleteKnowledgeBaseIds() { this->knowledgeBaseIds_ = nullptr;};
+      inline const vector<string> & getKnowledgeBaseIds() const { DARABONBA_PTR_GET_CONST(knowledgeBaseIds_, vector<string>) };
+      inline vector<string> getKnowledgeBaseIds() { DARABONBA_PTR_GET(knowledgeBaseIds_, vector<string>) };
+      inline RagConfig& setKnowledgeBaseIds(const vector<string> & knowledgeBaseIds) { DARABONBA_PTR_SET_VALUE(knowledgeBaseIds_, knowledgeBaseIds) };
+      inline RagConfig& setKnowledgeBaseIds(vector<string> && knowledgeBaseIds) { DARABONBA_PTR_SET_RVALUE(knowledgeBaseIds_, knowledgeBaseIds) };
+
+
+      // maxContentLength Field Functions 
+      bool hasMaxContentLength() const { return this->maxContentLength_ != nullptr;};
+      void deleteMaxContentLength() { this->maxContentLength_ = nullptr;};
+      inline int32_t getMaxContentLength() const { DARABONBA_PTR_GET_DEFAULT(maxContentLength_, 0) };
+      inline RagConfig& setMaxContentLength(int32_t maxContentLength) { DARABONBA_PTR_SET_VALUE(maxContentLength_, maxContentLength) };
+
+
+      // ragEngine Field Functions 
+      bool hasRagEngine() const { return this->ragEngine_ != nullptr;};
+      void deleteRagEngine() { this->ragEngine_ = nullptr;};
+      inline string getRagEngine() const { DARABONBA_PTR_GET_DEFAULT(ragEngine_, "") };
+      inline RagConfig& setRagEngine(string ragEngine) { DARABONBA_PTR_SET_VALUE(ragEngine_, ragEngine) };
+
+
+      // topN Field Functions 
+      bool hasTopN() const { return this->topN_ != nullptr;};
+      void deleteTopN() { this->topN_ = nullptr;};
+      inline int32_t getTopN() const { DARABONBA_PTR_GET_DEFAULT(topN_, 0) };
+      inline RagConfig& setTopN(int32_t topN) { DARABONBA_PTR_SET_VALUE(topN_, topN) };
+
+
+    protected:
+      shared_ptr<bool> enabled_ {};
+      shared_ptr<vector<string>> knowledgeBaseIds_ {};
+      shared_ptr<int32_t> maxContentLength_ {};
+      shared_ptr<string> ragEngine_ {};
+      shared_ptr<int32_t> topN_ {};
+    };
+
     class InteractionConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const InteractionConfig& obj) { 
@@ -336,8 +413,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->businessUnitId_ == nullptr && this->interactionConfig_ == nullptr && this->scriptProfile_ == nullptr && this->sourceVersionId_ == nullptr && this->synthesizerConfig_ == nullptr
-        && this->transcriberConfig_ == nullptr; };
+        && this->businessUnitId_ == nullptr && this->interactionConfig_ == nullptr && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->sourceVersionId_ == nullptr
+        && this->synthesizerConfig_ == nullptr && this->transcriberConfig_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -359,6 +436,15 @@ namespace Models
     inline CreateApplicationVersionRequest::InteractionConfig getInteractionConfig() { DARABONBA_PTR_GET(interactionConfig_, CreateApplicationVersionRequest::InteractionConfig) };
     inline CreateApplicationVersionRequest& setInteractionConfig(const CreateApplicationVersionRequest::InteractionConfig & interactionConfig) { DARABONBA_PTR_SET_VALUE(interactionConfig_, interactionConfig) };
     inline CreateApplicationVersionRequest& setInteractionConfig(CreateApplicationVersionRequest::InteractionConfig && interactionConfig) { DARABONBA_PTR_SET_RVALUE(interactionConfig_, interactionConfig) };
+
+
+    // ragConfig Field Functions 
+    bool hasRagConfig() const { return this->ragConfig_ != nullptr;};
+    void deleteRagConfig() { this->ragConfig_ = nullptr;};
+    inline const CreateApplicationVersionRequest::RagConfig & getRagConfig() const { DARABONBA_PTR_GET_CONST(ragConfig_, CreateApplicationVersionRequest::RagConfig) };
+    inline CreateApplicationVersionRequest::RagConfig getRagConfig() { DARABONBA_PTR_GET(ragConfig_, CreateApplicationVersionRequest::RagConfig) };
+    inline CreateApplicationVersionRequest& setRagConfig(const CreateApplicationVersionRequest::RagConfig & ragConfig) { DARABONBA_PTR_SET_VALUE(ragConfig_, ragConfig) };
+    inline CreateApplicationVersionRequest& setRagConfig(CreateApplicationVersionRequest::RagConfig && ragConfig) { DARABONBA_PTR_SET_RVALUE(ragConfig_, ragConfig) };
 
 
     // scriptProfile Field Functions 
@@ -401,6 +487,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
     shared_ptr<CreateApplicationVersionRequest::InteractionConfig> interactionConfig_ {};
+    shared_ptr<CreateApplicationVersionRequest::RagConfig> ragConfig_ {};
     shared_ptr<CreateApplicationVersionRequest::ScriptProfile> scriptProfile_ {};
     shared_ptr<string> sourceVersionId_ {};
     shared_ptr<CreateApplicationVersionRequest::SynthesizerConfig> synthesizerConfig_ {};

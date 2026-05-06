@@ -182,6 +182,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
     request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
   }
 
+  if (!!tmpReq.hasRagConfig()) {
+    request.setRagConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRagConfig(), "RagConfig", "json"));
+  }
+
   if (!!tmpReq.hasScriptProfile()) {
     request.setScriptProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScriptProfile(), "ScriptProfile", "json"));
   }
@@ -205,6 +209,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
 
   if (!!request.hasInteractionConfigShrink()) {
     query["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasRagConfigShrink()) {
+    query["RagConfig"] = request.getRagConfigShrink();
   }
 
   if (!!request.hasScriptProfileShrink()) {
@@ -356,6 +364,122 @@ CreateVariableResponse Client::createVariable(const CreateVariableRequest &reque
 }
 
 /**
+ * @summary 创建实例
+ *
+ * @param tmpReq CreateVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVocabularyResponse
+ */
+CreateVocabularyResponse Client::createVocabularyWithOptions(const CreateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateVocabularyShrinkRequest request = CreateVocabularyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWords()) {
+    request.setWordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWords(), "Words", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasWordsShrink()) {
+    body["Words"] = request.getWordsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVocabularyResponse>();
+}
+
+/**
+ * @summary 创建实例
+ *
+ * @param request CreateVocabularyRequest
+ * @return CreateVocabularyResponse
+ */
+CreateVocabularyResponse Client::createVocabulary(const CreateVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVocabularyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建实例
+ *
+ * @param tmpReq CreateVoiceAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVoiceAccessProfileResponse
+ */
+CreateVoiceAccessProfileResponse Client::createVoiceAccessProfileWithOptions(const CreateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateVoiceAccessProfileShrinkRequest request = CreateVoiceAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasNlsEngine()) {
+    body["NlsEngine"] = request.getNlsEngine();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateVoiceAccessProfile"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVoiceAccessProfileResponse>();
+}
+
+/**
+ * @summary 创建实例
+ *
+ * @param request CreateVoiceAccessProfileRequest
+ * @return CreateVoiceAccessProfileResponse
+ */
+CreateVoiceAccessProfileResponse Client::createVoiceAccessProfile(const CreateVoiceAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVoiceAccessProfileWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除应用
  *
  * @param request DeleteApplicationRequest
@@ -491,6 +615,192 @@ DeleteVariableResponse Client::deleteVariableWithOptions(const DeleteVariableReq
 DeleteVariableResponse Client::deleteVariable(const DeleteVariableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteVariableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除场景
+ *
+ * @param request DeleteVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVocabularyResponse
+ */
+DeleteVocabularyResponse Client::deleteVocabularyWithOptions(const DeleteVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasVocabularyId()) {
+    body["VocabularyId"] = request.getVocabularyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVocabularyResponse>();
+}
+
+/**
+ * @summary 删除场景
+ *
+ * @param request DeleteVocabularyRequest
+ * @return DeleteVocabularyResponse
+ */
+DeleteVocabularyResponse Client::deleteVocabulary(const DeleteVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVocabularyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除三方语音配置
+ *
+ * @param request DeleteVoiceAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVoiceAccessProfileResponse
+ */
+DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfileWithOptions(const DeleteVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteVoiceAccessProfile"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVoiceAccessProfileResponse>();
+}
+
+/**
+ * @summary 删除三方语音配置
+ *
+ * @param request DeleteVoiceAccessProfileRequest
+ * @return DeleteVoiceAccessProfileResponse
+ */
+DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVoiceAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVoiceAccessProfileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 禁用消息订阅
+ *
+ * @param request DisableSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSubscriptionResponse
+ */
+DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const DisableSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DisableSubscription"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSubscriptionResponse>();
+}
+
+/**
+ * @summary 禁用消息订阅
+ *
+ * @param request DisableSubscriptionRequest
+ * @return DisableSubscriptionResponse
+ */
+DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导出热词
+ *
+ * @param tmpReq ExportVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExportVocabularyResponse
+ */
+ExportVocabularyResponse Client::exportVocabularyWithOptions(const ExportVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ExportVocabularyShrinkRequest request = ExportVocabularyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVocabularyIds()) {
+    request.setVocabularyIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVocabularyIds(), "VocabularyIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasVocabularyIdsShrink()) {
+    body["VocabularyIds"] = request.getVocabularyIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ExportVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExportVocabularyResponse>();
+}
+
+/**
+ * @summary 导出热词
+ *
+ * @param request ExportVocabularyRequest
+ * @return ExportVocabularyResponse
+ */
+ExportVocabularyResponse Client::exportVocabulary(const ExportVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return exportVocabularyWithOptions(request, runtime);
 }
 
 /**
@@ -636,6 +946,140 @@ GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataC
 }
 
 /**
+ * @summary 获取MQ配置
+ *
+ * @param request GetSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSubscriptionResponse
+ */
+GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetSubscription"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSubscriptionResponse>();
+}
+
+/**
+ * @summary 获取MQ配置
+ *
+ * @param request GetSubscriptionRequest
+ * @return GetSubscriptionResponse
+ */
+GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request GetVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetVocabularyResponse
+ */
+GetVocabularyResponse Client::getVocabularyWithOptions(const GetVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasVocabularyId()) {
+    body["VocabularyId"] = request.getVocabularyId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetVocabularyResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request GetVocabularyRequest
+ * @return GetVocabularyResponse
+ */
+GetVocabularyResponse Client::getVocabulary(const GetVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getVocabularyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 导入热词
+ *
+ * @param request ImportVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportVocabularyResponse
+ */
+ImportVocabularyResponse Client::importVocabularyWithOptions(const ImportVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasFileKey()) {
+    body["FileKey"] = request.getFileKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ImportVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportVocabularyResponse>();
+}
+
+/**
+ * @summary 导入热词
+ *
+ * @param request ImportVocabularyRequest
+ * @return ImportVocabularyResponse
+ */
+ImportVocabularyResponse Client::importVocabulary(const ImportVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return importVocabularyWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询应用
  *
  * @param request ListApplicationsRequest
@@ -687,6 +1131,56 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 ListApplicationsResponse Client::listApplications(const ListApplicationsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listApplicationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取背景音列表
+ *
+ * @param request ListBackgroundMusicsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBackgroundMusicsResponse
+ */
+ListBackgroundMusicsResponse Client::listBackgroundMusicsWithOptions(const ListBackgroundMusicsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListBackgroundMusics"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBackgroundMusicsResponse>();
+}
+
+/**
+ * @summary 获取背景音列表
+ *
+ * @param request ListBackgroundMusicsRequest
+ * @return ListBackgroundMusicsResponse
+ */
+ListBackgroundMusicsResponse Client::listBackgroundMusics(const ListBackgroundMusicsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBackgroundMusicsWithOptions(request, runtime);
 }
 
 /**
@@ -744,6 +1238,94 @@ ListCloneVoiceResponse Client::listCloneVoice(const ListCloneVoiceRequest &reque
 }
 
 /**
+ * @summary 获取克隆音色可用模型列表
+ *
+ * @param request ListCloneVoiceModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCloneVoiceModelsResponse
+ */
+ListCloneVoiceModelsResponse Client::listCloneVoiceModelsWithOptions(const ListCloneVoiceModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListCloneVoiceModels"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCloneVoiceModelsResponse>();
+}
+
+/**
+ * @summary 获取克隆音色可用模型列表
+ *
+ * @param request ListCloneVoiceModelsRequest
+ * @return ListCloneVoiceModelsResponse
+ */
+ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCloneVoiceModelsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取对话模型列表
+ *
+ * @param request ListNluModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNluModelsResponse
+ */
+ListNluModelsResponse Client::listNluModelsWithOptions(const ListNluModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListNluModels"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNluModelsResponse>();
+}
+
+/**
+ * @summary 获取对话模型列表
+ *
+ * @param request ListNluModelsRequest
+ * @return ListNluModelsResponse
+ */
+ListNluModelsResponse Client::listNluModels(const ListNluModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listNluModelsWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取变量列表
  *
  * @param request ListVariableRequest
@@ -795,6 +1377,156 @@ ListVariableResponse Client::listVariableWithOptions(const ListVariableRequest &
 ListVariableResponse Client::listVariable(const ListVariableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listVariableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request ListVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVocabularyResponse
+ */
+ListVocabularyResponse Client::listVocabularyWithOptions(const ListVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVocabularyResponse>();
+}
+
+/**
+ * @summary 获取实例详情
+ *
+ * @param request ListVocabularyRequest
+ * @return ListVocabularyResponse
+ */
+ListVocabularyResponse Client::listVocabulary(const ListVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVocabularyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取三方语音配置列表
+ *
+ * @param request ListVoiceAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVoiceAccessProfileResponse
+ */
+ListVoiceAccessProfileResponse Client::listVoiceAccessProfileWithOptions(const ListVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVoiceAccessProfile"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVoiceAccessProfileResponse>();
+}
+
+/**
+ * @summary 获取三方语音配置列表
+ *
+ * @param request ListVoiceAccessProfileRequest
+ * @return ListVoiceAccessProfileResponse
+ */
+ListVoiceAccessProfileResponse Client::listVoiceAccessProfile(const ListVoiceAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVoiceAccessProfileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取引擎列表
+ *
+ * @param request ListVoiceEnginesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListVoiceEnginesResponse
+ */
+ListVoiceEnginesResponse Client::listVoiceEnginesWithOptions(const ListVoiceEnginesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListVoiceEngines"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListVoiceEnginesResponse>();
+}
+
+/**
+ * @summary 获取引擎列表
+ *
+ * @param request ListVoiceEnginesRequest
+ * @return ListVoiceEnginesResponse
+ */
+ListVoiceEnginesResponse Client::listVoiceEngines(const ListVoiceEnginesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listVoiceEnginesWithOptions(request, runtime);
 }
 
 /**
@@ -853,6 +1585,78 @@ ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &reques
 ListVoicesResponse Client::listVoices(const ListVoicesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listVoicesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 试听
+ *
+ * @param tmpReq PreviewVoiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewVoiceResponse
+ */
+PreviewVoiceResponse Client::previewVoiceWithOptions(const PreviewVoiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  PreviewVoiceShrinkRequest request = PreviewVoiceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParams()) {
+    request.setParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParams(), "Params", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasNlsAccessType()) {
+    body["NlsAccessType"] = request.getNlsAccessType();
+  }
+
+  if (!!request.hasNlsEngine()) {
+    body["NlsEngine"] = request.getNlsEngine();
+  }
+
+  if (!!request.hasParamsShrink()) {
+    body["Params"] = request.getParamsShrink();
+  }
+
+  if (!!request.hasText()) {
+    body["Text"] = request.getText();
+  }
+
+  if (!!request.hasVoice()) {
+    body["Voice"] = request.getVoice();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "PreviewVoice"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewVoiceResponse>();
+}
+
+/**
+ * @summary 试听
+ *
+ * @param request PreviewVoiceRequest
+ * @return PreviewVoiceResponse
+ */
+PreviewVoiceResponse Client::previewVoice(const PreviewVoiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return previewVoiceWithOptions(request, runtime);
 }
 
 /**
@@ -978,6 +1782,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
     request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
   }
 
+  if (!!tmpReq.hasRagConfig()) {
+    request.setRagConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRagConfig(), "RagConfig", "json"));
+  }
+
   if (!!tmpReq.hasScriptProfile()) {
     request.setScriptProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getScriptProfile(), "ScriptProfile", "json"));
   }
@@ -1001,6 +1809,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
 
   if (!!request.hasInteractionConfigShrink()) {
     query["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasRagConfigShrink()) {
+    query["RagConfig"] = request.getRagConfigShrink();
   }
 
   if (!!request.hasScriptProfileShrink()) {
@@ -1098,6 +1910,86 @@ UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest 
 }
 
 /**
+ * @summary 创建或更新MQ配置
+ *
+ * @param tmpReq UpdateSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSubscriptionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSubscriptionShrinkRequest request = UpdateSubscriptionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEventSubscriptions()) {
+    request.setEventSubscriptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventSubscriptions(), "EventSubscriptions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasEndpoint()) {
+    body["Endpoint"] = request.getEndpoint();
+  }
+
+  if (!!request.hasEventSubscriptionsShrink()) {
+    body["EventSubscriptions"] = request.getEventSubscriptionsShrink();
+  }
+
+  if (!!request.hasMqInstanceId()) {
+    body["MqInstanceId"] = request.getMqInstanceId();
+  }
+
+  if (!!request.hasMqType()) {
+    body["MqType"] = request.getMqType();
+  }
+
+  if (!!request.hasPassword()) {
+    body["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasProducerId()) {
+    body["ProducerId"] = request.getProducerId();
+  }
+
+  if (!!request.hasTopic()) {
+    body["Topic"] = request.getTopic();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateSubscription"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSubscriptionResponse>();
+}
+
+/**
+ * @summary 创建或更新MQ配置
+ *
+ * @param request UpdateSubscriptionRequest
+ * @return UpdateSubscriptionResponse
+ */
+UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSubscriptionWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新变量
  *
  * @param request UpdateVariableRequest
@@ -1149,6 +2041,130 @@ UpdateVariableResponse Client::updateVariableWithOptions(const UpdateVariableReq
 UpdateVariableResponse Client::updateVariable(const UpdateVariableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateVariableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param tmpReq UpdateVocabularyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVocabularyResponse
+ */
+UpdateVocabularyResponse Client::updateVocabularyWithOptions(const UpdateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateVocabularyShrinkRequest request = UpdateVocabularyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWords()) {
+    request.setWordsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWords(), "Words", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasVocabularyId()) {
+    body["VocabularyId"] = request.getVocabularyId();
+  }
+
+  if (!!request.hasWordsShrink()) {
+    body["Words"] = request.getWordsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVocabulary"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVocabularyResponse>();
+}
+
+/**
+ * @summary 更新实例
+ *
+ * @param request UpdateVocabularyRequest
+ * @return UpdateVocabularyResponse
+ */
+UpdateVocabularyResponse Client::updateVocabulary(const UpdateVocabularyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVocabularyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新三方语音配置
+ *
+ * @param tmpReq UpdateVoiceAccessProfileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateVoiceAccessProfileResponse
+ */
+UpdateVoiceAccessProfileResponse Client::updateVoiceAccessProfileWithOptions(const UpdateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateVoiceAccessProfileShrinkRequest request = UpdateVoiceAccessProfileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProfile()) {
+    request.setProfileShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProfile(), "Profile", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessProfileId()) {
+    body["AccessProfileId"] = request.getAccessProfileId();
+  }
+
+  if (!!request.hasBusinessUnitId()) {
+    body["BusinessUnitId"] = request.getBusinessUnitId();
+  }
+
+  if (!!request.hasNlsEngine()) {
+    body["NlsEngine"] = request.getNlsEngine();
+  }
+
+  if (!!request.hasProfileShrink()) {
+    body["Profile"] = request.getProfileShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateVoiceAccessProfile"},
+    {"version" , "2025-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateVoiceAccessProfileResponse>();
+}
+
+/**
+ * @summary 更新三方语音配置
+ *
+ * @param request UpdateVoiceAccessProfileRequest
+ * @return UpdateVoiceAccessProfileResponse
+ */
+UpdateVoiceAccessProfileResponse Client::updateVoiceAccessProfile(const UpdateVoiceAccessProfileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateVoiceAccessProfileWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace BailianVoiceBot20250101
