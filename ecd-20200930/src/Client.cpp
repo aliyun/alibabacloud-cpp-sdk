@@ -10552,6 +10552,56 @@ DescribeOfficeSitesResponse Client::describeOfficeSites(const DescribeOfficeSite
 }
 
 /**
+ * @param request DescribeOnlineUserCountRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeOnlineUserCountResponse
+ */
+DescribeOnlineUserCountResponse Client::describeOnlineUserCountWithOptions(const DescribeOnlineUserCountRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasOfficeSiteId()) {
+    query["OfficeSiteId"] = request.getOfficeSiteId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.getSearchRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeOnlineUserCount"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeOnlineUserCountResponse>();
+}
+
+/**
+ * @param request DescribeOnlineUserCountRequest
+ * @return DescribeOnlineUserCountResponse
+ */
+DescribeOnlineUserCountResponse Client::describeOnlineUserCount(const DescribeOnlineUserCountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeOnlineUserCountWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the details of a cloud computer policy.
  *
  * @param request DescribePolicyGroupsRequest
@@ -18069,6 +18119,82 @@ QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCountWithOptio
 QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCount(const QueryHistoryActiveUserCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryHistoryActiveUserCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询桌面平均指标列表
+ *
+ * @param tmpReq QueryHistoryAvgMetricListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoryAvgMetricListResponse
+ */
+QueryHistoryAvgMetricListResponse Client::queryHistoryAvgMetricListWithOptions(const QueryHistoryAvgMetricListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryHistoryAvgMetricListShrinkRequest request = QueryHistoryAvgMetricListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRange()) {
+    request.setRangeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRange(), "Range", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasDataDate()) {
+    query["DataDate"] = request.getDataDate();
+  }
+
+  if (!!request.hasDesktopId()) {
+    query["DesktopId"] = request.getDesktopId();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.getMetricName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRangeShrink()) {
+    query["Range"] = request.getRangeShrink();
+  }
+
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.getResourceRegionId();
+  }
+
+  if (!!request.hasSortType()) {
+    query["SortType"] = request.getSortType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoryAvgMetricList"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoryAvgMetricListResponse>();
+}
+
+/**
+ * @summary 查询桌面平均指标列表
+ *
+ * @param request QueryHistoryAvgMetricListRequest
+ * @return QueryHistoryAvgMetricListResponse
+ */
+QueryHistoryAvgMetricListResponse Client::queryHistoryAvgMetricList(const QueryHistoryAvgMetricListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoryAvgMetricListWithOptions(request, runtime);
 }
 
 /**

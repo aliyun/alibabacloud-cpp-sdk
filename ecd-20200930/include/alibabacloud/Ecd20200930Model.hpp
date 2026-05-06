@@ -433,6 +433,9 @@
 #include <alibabacloud/models/DescribeOfficeSitesRequest.hpp>
 #include <alibabacloud/models/DescribeOfficeSitesResponseBody.hpp>
 #include <alibabacloud/models/DescribeOfficeSitesResponse.hpp>
+#include <alibabacloud/models/DescribeOnlineUserCountRequest.hpp>
+#include <alibabacloud/models/DescribeOnlineUserCountResponseBody.hpp>
+#include <alibabacloud/models/DescribeOnlineUserCountResponse.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsRequest.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribePolicyGroupsResponse.hpp>
@@ -749,6 +752,10 @@
 #include <alibabacloud/models/QueryHistoryActiveUserCountRequest.hpp>
 #include <alibabacloud/models/QueryHistoryActiveUserCountResponseBody.hpp>
 #include <alibabacloud/models/QueryHistoryActiveUserCountResponse.hpp>
+#include <alibabacloud/models/QueryHistoryAvgMetricListRequest.hpp>
+#include <alibabacloud/models/QueryHistoryAvgMetricListShrinkRequest.hpp>
+#include <alibabacloud/models/QueryHistoryAvgMetricListResponseBody.hpp>
+#include <alibabacloud/models/QueryHistoryAvgMetricListResponse.hpp>
 #include <alibabacloud/models/QueryHistoryMetricDistributionRequest.hpp>
 #include <alibabacloud/models/QueryHistoryMetricDistributionResponseBody.hpp>
 #include <alibabacloud/models/QueryHistoryMetricDistributionResponse.hpp>

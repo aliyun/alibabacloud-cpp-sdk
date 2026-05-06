@@ -2671,6 +2671,19 @@ namespace Ecd20200930
       Models::DescribeOfficeSitesResponse describeOfficeSites(const Models::DescribeOfficeSitesRequest &request);
 
       /**
+       * @param request DescribeOnlineUserCountRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeOnlineUserCountResponse
+       */
+      Models::DescribeOnlineUserCountResponse describeOnlineUserCountWithOptions(const Models::DescribeOnlineUserCountRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DescribeOnlineUserCountRequest
+       * @return DescribeOnlineUserCountResponse
+       */
+      Models::DescribeOnlineUserCountResponse describeOnlineUserCount(const Models::DescribeOnlineUserCountRequest &request);
+
+      /**
        * @summary Queries the details of a cloud computer policy.
        *
        * @param request DescribePolicyGroupsRequest
@@ -4658,6 +4671,23 @@ namespace Ecd20200930
        * @return QueryHistoryActiveUserCountResponse
        */
       Models::QueryHistoryActiveUserCountResponse queryHistoryActiveUserCount(const Models::QueryHistoryActiveUserCountRequest &request);
+
+      /**
+       * @summary 查询桌面平均指标列表
+       *
+       * @param tmpReq QueryHistoryAvgMetricListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoryAvgMetricListResponse
+       */
+      Models::QueryHistoryAvgMetricListResponse queryHistoryAvgMetricListWithOptions(const Models::QueryHistoryAvgMetricListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面平均指标列表
+       *
+       * @param request QueryHistoryAvgMetricListRequest
+       * @return QueryHistoryAvgMetricListResponse
+       */
+      Models::QueryHistoryAvgMetricListResponse queryHistoryAvgMetricList(const Models::QueryHistoryAvgMetricListRequest &request);
 
       /**
        * @summary 查询桌面历史指标分布
