@@ -14,6 +14,7 @@ namespace Models
   class Instance : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Instance& obj) { 
+      DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(CurrentAmount, currentAmount_);
       DARABONBA_PTR_TO_JSON(Detached, detached_);
       DARABONBA_PTR_TO_JSON(ExternalIP, externalIP_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Zone, zone_);
     };
     friend void from_json(const Darabonba::Json& j, Instance& obj) { 
+      DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(CurrentAmount, currentAmount_);
       DARABONBA_PTR_FROM_JSON(Detached, detached_);
       DARABONBA_PTR_FROM_JSON(ExternalIP, externalIP_);
@@ -88,13 +90,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->currentAmount_ == nullptr
-        && this->detached_ == nullptr && this->externalIP_ == nullptr && this->externalInstancePort_ == nullptr && this->hostIP_ == nullptr && this->hostName_ == nullptr
-        && this->innerIP_ == nullptr && this->instanceName_ == nullptr && this->instancePort_ == nullptr && this->instanceType_ == nullptr && this->isLatest_ == nullptr
-        && this->isReplica_ == nullptr && this->isSpot_ == nullptr && this->isolated_ == nullptr && this->lastState_ == nullptr && this->namespace_ == nullptr
-        && this->originalAmount_ == nullptr && this->readyProcesses_ == nullptr && this->reason_ == nullptr && this->replicaName_ == nullptr && this->resourceType_ == nullptr
-        && this->restartCount_ == nullptr && this->role_ == nullptr && this->startAt_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->tenantHostIP_ == nullptr && this->tenantInstanceIP_ == nullptr && this->totalProcesses_ == nullptr && this->zone_ == nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->currentAmount_ == nullptr && this->detached_ == nullptr && this->externalIP_ == nullptr && this->externalInstancePort_ == nullptr && this->hostIP_ == nullptr
+        && this->hostName_ == nullptr && this->innerIP_ == nullptr && this->instanceName_ == nullptr && this->instancePort_ == nullptr && this->instanceType_ == nullptr
+        && this->isLatest_ == nullptr && this->isReplica_ == nullptr && this->isSpot_ == nullptr && this->isolated_ == nullptr && this->lastState_ == nullptr
+        && this->namespace_ == nullptr && this->originalAmount_ == nullptr && this->readyProcesses_ == nullptr && this->reason_ == nullptr && this->replicaName_ == nullptr
+        && this->resourceType_ == nullptr && this->restartCount_ == nullptr && this->role_ == nullptr && this->startAt_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->tenantHostIP_ == nullptr && this->tenantInstanceIP_ == nullptr && this->totalProcesses_ == nullptr && this->zone_ == nullptr; };
+    // createTime Field Functions 
+    bool hasCreateTime() const { return this->createTime_ != nullptr;};
+    void deleteCreateTime() { this->createTime_ = nullptr;};
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline Instance& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
     // currentAmount Field Functions 
     bool hasCurrentAmount() const { return this->currentAmount_ != nullptr;};
     void deleteCurrentAmount() { this->currentAmount_ = nullptr;};
@@ -308,6 +317,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> createTime_ {};
     // The current hourly price of the spot instance.
     shared_ptr<float> currentAmount_ {};
     shared_ptr<bool> detached_ {};
