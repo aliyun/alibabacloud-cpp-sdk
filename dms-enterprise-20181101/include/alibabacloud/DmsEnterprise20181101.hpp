@@ -3109,6 +3109,27 @@ namespace DmsEnterprise20181101
       Models::GetTableInstructionsResponse getTableInstructions(const Models::GetTableInstructionsRequest &request);
 
       /**
+       * @summary 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+       *
+       * @description 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+       *
+       * @param request GetTableKnowledgeDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableKnowledgeDetailsResponse
+       */
+      Models::GetTableKnowledgeDetailsResponse getTableKnowledgeDetailsWithOptions(const Models::GetTableKnowledgeDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+       *
+       * @description 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+       *
+       * @param request GetTableKnowledgeDetailsRequest
+       * @return GetTableKnowledgeDetailsResponse
+       */
+      Models::GetTableKnowledgeDetailsResponse getTableKnowledgeDetails(const Models::GetTableKnowledgeDetailsRequest &request);
+
+      /**
        * @summary Gets metadata knowledge for a specified GUID.
        *
        * @description This API can be called only for database instances that are enabled for security hosting.

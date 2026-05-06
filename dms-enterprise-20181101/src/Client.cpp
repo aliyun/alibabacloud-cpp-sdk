@@ -9903,6 +9903,56 @@ GetTableInstructionsResponse Client::getTableInstructions(const GetTableInstruct
 }
 
 /**
+ * @summary 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+ *
+ * @description 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+ *
+ * @param request GetTableKnowledgeDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableKnowledgeDetailsResponse
+ */
+GetTableKnowledgeDetailsResponse Client::getTableKnowledgeDetailsWithOptions(const GetTableKnowledgeDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDbId()) {
+    query["DbId"] = request.getDbId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTableKnowledgeDetails"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableKnowledgeDetailsResponse>();
+}
+
+/**
+ * @summary 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+ *
+ * @description 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+ *
+ * @param request GetTableKnowledgeDetailsRequest
+ * @return GetTableKnowledgeDetailsResponse
+ */
+GetTableKnowledgeDetailsResponse Client::getTableKnowledgeDetails(const GetTableKnowledgeDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableKnowledgeDetailsWithOptions(request, runtime);
+}
+
+/**
  * @summary Gets metadata knowledge for a specified GUID.
  *
  * @description This API can be called only for database instances that are enabled for security hosting.

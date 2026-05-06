@@ -549,6 +549,9 @@
 #include <alibabacloud/models/GetTableInstructionsRequest.hpp>
 #include <alibabacloud/models/GetTableInstructionsResponseBody.hpp>
 #include <alibabacloud/models/GetTableInstructionsResponse.hpp>
+#include <alibabacloud/models/GetTableKnowledgeDetailsRequest.hpp>
+#include <alibabacloud/models/GetTableKnowledgeDetailsResponseBody.hpp>
+#include <alibabacloud/models/GetTableKnowledgeDetailsResponse.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoRequest.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoResponseBody.hpp>
 #include <alibabacloud/models/GetTableKnowledgeInfoResponse.hpp>
