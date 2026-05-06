@@ -178,6 +178,56 @@ AuthorizeInstanceGroupResponse Client::authorizeInstanceGroup(const AuthorizeIns
 }
 
 /**
+ * @summary 批量创建LLM模板
+ *
+ * @param request BatchCreateLlmTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateLlmTemplatesResponse
+ */
+BatchCreateLlmTemplatesResponse Client::batchCreateLlmTemplatesWithOptions(const BatchCreateLlmTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasLlmTemplateItems()) {
+    body["LlmTemplateItems"] = request.getLlmTemplateItems();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    body["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasProviderTemplateId()) {
+    body["ProviderTemplateId"] = request.getProviderTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchCreateLlmTemplates"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateLlmTemplatesResponse>();
+}
+
+/**
+ * @summary 批量创建LLM模板
+ *
+ * @param request BatchCreateLlmTemplatesRequest
+ * @return BatchCreateLlmTemplatesResponse
+ */
+BatchCreateLlmTemplatesResponse Client::batchCreateLlmTemplates(const BatchCreateLlmTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateLlmTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary 配置资源组模型模板
  *
  * @param request ConfigResourceGroupModelTemplateRequest
@@ -664,6 +714,84 @@ CreateImageFromAppInstanceGroupResponse Client::createImageFromAppInstanceGroup(
 }
 
 /**
+ * @summary 创建模型提供商模板
+ *
+ * @param request CreateModelProviderTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelProviderTemplateResponse
+ */
+CreateModelProviderTemplateResponse Client::createModelProviderTemplateWithOptions(const CreateModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableWuyingProxy()) {
+    query["EnableWuyingProxy"] = request.getEnableWuyingProxy();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasProviderName()) {
+    query["ProviderName"] = request.getProviderName();
+  }
+
+  if (!!request.hasProviderType()) {
+    query["ProviderType"] = request.getProviderType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateModelProviderTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelProviderTemplateResponse>();
+}
+
+/**
+ * @summary 创建模型提供商模板
+ *
+ * @param request CreateModelProviderTemplateRequest
+ * @return CreateModelProviderTemplateResponse
+ */
+CreateModelProviderTemplateResponse Client::createModelProviderTemplate(const CreateModelProviderTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createModelProviderTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建模型模板
  *
  * @param request CreateModelTemplateRequest
@@ -1042,6 +1170,132 @@ DeleteImageResponse Client::deleteImage(const DeleteImageRequest &request) {
 }
 
 /**
+ * @summary 删除LLM模板
+ *
+ * @param request DeleteLlmTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteLlmTemplateResponse
+ */
+DeleteLlmTemplateResponse Client::deleteLlmTemplateWithOptions(const DeleteLlmTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLlmTemplateId()) {
+    query["LlmTemplateId"] = request.getLlmTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteLlmTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteLlmTemplateResponse>();
+}
+
+/**
+ * @summary 删除LLM模板
+ *
+ * @param request DeleteLlmTemplateRequest
+ * @return DeleteLlmTemplateResponse
+ */
+DeleteLlmTemplateResponse Client::deleteLlmTemplate(const DeleteLlmTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteLlmTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除模型提供商模板
+ *
+ * @param request DeleteModelProviderTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelProviderTemplateResponse
+ */
+DeleteModelProviderTemplateResponse Client::deleteModelProviderTemplateWithOptions(const DeleteModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProviderTemplateId()) {
+    query["ProviderTemplateId"] = request.getProviderTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelProviderTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelProviderTemplateResponse>();
+}
+
+/**
+ * @summary 删除模型提供商模板
+ *
+ * @param request DeleteModelProviderTemplateRequest
+ * @return DeleteModelProviderTemplateResponse
+ */
+DeleteModelProviderTemplateResponse Client::deleteModelProviderTemplate(const DeleteModelProviderTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteModelProviderTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除模型模板
+ *
+ * @param request DeleteModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelTemplateResponse
+ */
+DeleteModelTemplateResponse Client::deleteModelTemplateWithOptions(const DeleteModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelTemplateResponse>();
+}
+
+/**
+ * @summary 删除模型模板
+ *
+ * @param request DeleteModelTemplateRequest
+ * @return DeleteModelTemplateResponse
+ */
+DeleteModelTemplateResponse Client::deleteModelTemplate(const DeleteModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteModelTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除工作站
  *
  * @description Deletes a workstation.
@@ -1321,6 +1575,48 @@ GetDebugAppInstanceResponse Client::getDebugAppInstanceWithOptions(const GetDebu
 GetDebugAppInstanceResponse Client::getDebugAppInstance(const GetDebugAppInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getDebugAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型提供商模板详情
+ *
+ * @param request GetModelProviderTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetModelProviderTemplateResponse
+ */
+GetModelProviderTemplateResponse Client::getModelProviderTemplateWithOptions(const GetModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProviderTemplateId()) {
+    query["ProviderTemplateId"] = request.getProviderTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetModelProviderTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetModelProviderTemplateResponse>();
+}
+
+/**
+ * @summary 查询模型提供商模板详情
+ *
+ * @param request GetModelProviderTemplateRequest
+ * @return GetModelProviderTemplateResponse
+ */
+GetModelProviderTemplateResponse Client::getModelProviderTemplate(const GetModelProviderTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getModelProviderTemplateWithOptions(request, runtime);
 }
 
 /**
@@ -2140,6 +2436,150 @@ ListImageResponse Client::listImage(const ListImageRequest &request) {
 }
 
 /**
+ * @summary 查询LLM模板列表
+ *
+ * @param tmpReq ListLlmTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLlmTemplatesResponse
+ */
+ListLlmTemplatesResponse Client::listLlmTemplatesWithOptions(const ListLlmTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListLlmTemplatesShrinkRequest request = ListLlmTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasLlmTemplateIds()) {
+    request.setLlmTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLlmTemplateIds(), "LlmTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasLlmCode()) {
+    query["LlmCode"] = request.getLlmCode();
+  }
+
+  if (!!request.hasLlmTemplateIdsShrink()) {
+    query["LlmTemplateIds"] = request.getLlmTemplateIdsShrink();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProviderTemplateId()) {
+    query["ProviderTemplateId"] = request.getProviderTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLlmTemplates"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLlmTemplatesResponse>();
+}
+
+/**
+ * @summary 查询LLM模板列表
+ *
+ * @param request ListLlmTemplatesRequest
+ * @return ListLlmTemplatesResponse
+ */
+ListLlmTemplatesResponse Client::listLlmTemplates(const ListLlmTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLlmTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型提供商模板列表
+ *
+ * @param tmpReq ListModelProviderTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelProviderTemplatesResponse
+ */
+ListModelProviderTemplatesResponse Client::listModelProviderTemplatesWithOptions(const ListModelProviderTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListModelProviderTemplatesShrinkRequest request = ListModelProviderTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasProviderTemplateIds()) {
+    request.setProviderTemplateIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getProviderTemplateIds(), "ProviderTemplateIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProviderName()) {
+    query["ProviderName"] = request.getProviderName();
+  }
+
+  if (!!request.hasProviderTemplateIdsShrink()) {
+    query["ProviderTemplateIds"] = request.getProviderTemplateIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelProviderTemplates"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelProviderTemplatesResponse>();
+}
+
+/**
+ * @summary 查询模型提供商模板列表
+ *
+ * @param request ListModelProviderTemplatesRequest
+ * @return ListModelProviderTemplatesResponse
+ */
+ListModelProviderTemplatesResponse Client::listModelProviderTemplates(const ListModelProviderTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelProviderTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询模型分组绑定的资源组列表
  *
  * @param request ListModelTemplateResourceGroupRequest
@@ -2191,6 +2631,78 @@ ListModelTemplateResourceGroupResponse Client::listModelTemplateResourceGroupWit
 ListModelTemplateResourceGroupResponse Client::listModelTemplateResourceGroup(const ListModelTemplateResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listModelTemplateResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询模型模板列表
+ *
+ * @param tmpReq ListModelTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelTemplatesResponse
+ */
+ListModelTemplatesResponse Client::listModelTemplatesWithOptions(const ListModelTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListModelTemplatesShrinkRequest request = ListModelTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasModelTemplateIdList()) {
+    request.setModelTemplateIdListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModelTemplateIdList(), "ModelTemplateIdList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasHasModel()) {
+    query["HasModel"] = request.getHasModel();
+  }
+
+  if (!!request.hasModelTemplateIdListShrink()) {
+    query["ModelTemplateIdList"] = request.getModelTemplateIdListShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelTemplates"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelTemplatesResponse>();
+}
+
+/**
+ * @summary 查询模型模板列表
+ *
+ * @param request ListModelTemplatesRequest
+ * @return ListModelTemplatesResponse
+ */
+ListModelTemplatesResponse Client::listModelTemplates(const ListModelTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelTemplatesWithOptions(request, runtime);
 }
 
 /**
@@ -4021,6 +4533,126 @@ UpdateAppInstanceGroupImageResponse Client::updateAppInstanceGroupImageWithOptio
 UpdateAppInstanceGroupImageResponse Client::updateAppInstanceGroupImage(const UpdateAppInstanceGroupImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAppInstanceGroupImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新模型提供商模板
+ *
+ * @param tmpReq UpdateModelProviderTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelProviderTemplateResponse
+ */
+UpdateModelProviderTemplateResponse Client::updateModelProviderTemplateWithOptions(const UpdateModelProviderTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateModelProviderTemplateShrinkRequest request = UpdateModelProviderTemplateShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfig()) {
+    request.setConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfig(), "Config", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasConfigShrink()) {
+    query["Config"] = request.getConfigShrink();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableWuyingProxy()) {
+    body["EnableWuyingProxy"] = request.getEnableWuyingProxy();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasProviderTemplateId()) {
+    body["ProviderTemplateId"] = request.getProviderTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelProviderTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelProviderTemplateResponse>();
+}
+
+/**
+ * @summary 更新模型提供商模板
+ *
+ * @param request UpdateModelProviderTemplateRequest
+ * @return UpdateModelProviderTemplateResponse
+ */
+UpdateModelProviderTemplateResponse Client::updateModelProviderTemplate(const UpdateModelProviderTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateModelProviderTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新模型模板
+ *
+ * @param request UpdateModelTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelTemplateResponse
+ */
+UpdateModelTemplateResponse Client::updateModelTemplateWithOptions(const UpdateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasModelTemplateId()) {
+    query["ModelTemplateId"] = request.getModelTemplateId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateModelTemplate"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelTemplateResponse>();
+}
+
+/**
+ * @summary 更新模型模板
+ *
+ * @param request UpdateModelTemplateRequest
+ * @return UpdateModelTemplateResponse
+ */
+UpdateModelTemplateResponse Client::updateModelTemplate(const UpdateModelTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateModelTemplateWithOptions(request, runtime);
 }
 
 /**

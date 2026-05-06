@@ -55,6 +55,23 @@ namespace AppstreamCenter20210901
       Models::AuthorizeInstanceGroupResponse authorizeInstanceGroup(const Models::AuthorizeInstanceGroupRequest &request);
 
       /**
+       * @summary 批量创建LLM模板
+       *
+       * @param request BatchCreateLlmTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCreateLlmTemplatesResponse
+       */
+      Models::BatchCreateLlmTemplatesResponse batchCreateLlmTemplatesWithOptions(const Models::BatchCreateLlmTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量创建LLM模板
+       *
+       * @param request BatchCreateLlmTemplatesRequest
+       * @return BatchCreateLlmTemplatesResponse
+       */
+      Models::BatchCreateLlmTemplatesResponse batchCreateLlmTemplates(const Models::BatchCreateLlmTemplatesRequest &request);
+
+      /**
        * @summary 配置资源组模型模板
        *
        * @param request ConfigResourceGroupModelTemplateRequest
@@ -161,6 +178,23 @@ namespace AppstreamCenter20210901
        * @return CreateImageFromAppInstanceGroupResponse
        */
       Models::CreateImageFromAppInstanceGroupResponse createImageFromAppInstanceGroup(const Models::CreateImageFromAppInstanceGroupRequest &request);
+
+      /**
+       * @summary 创建模型提供商模板
+       *
+       * @param request CreateModelProviderTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateModelProviderTemplateResponse
+       */
+      Models::CreateModelProviderTemplateResponse createModelProviderTemplateWithOptions(const Models::CreateModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模型提供商模板
+       *
+       * @param request CreateModelProviderTemplateRequest
+       * @return CreateModelProviderTemplateResponse
+       */
+      Models::CreateModelProviderTemplateResponse createModelProviderTemplate(const Models::CreateModelProviderTemplateRequest &request);
 
       /**
        * @summary 创建模型模板
@@ -280,6 +314,57 @@ namespace AppstreamCenter20210901
       Models::DeleteImageResponse deleteImage(const Models::DeleteImageRequest &request);
 
       /**
+       * @summary 删除LLM模板
+       *
+       * @param request DeleteLlmTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteLlmTemplateResponse
+       */
+      Models::DeleteLlmTemplateResponse deleteLlmTemplateWithOptions(const Models::DeleteLlmTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除LLM模板
+       *
+       * @param request DeleteLlmTemplateRequest
+       * @return DeleteLlmTemplateResponse
+       */
+      Models::DeleteLlmTemplateResponse deleteLlmTemplate(const Models::DeleteLlmTemplateRequest &request);
+
+      /**
+       * @summary 删除模型提供商模板
+       *
+       * @param request DeleteModelProviderTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelProviderTemplateResponse
+       */
+      Models::DeleteModelProviderTemplateResponse deleteModelProviderTemplateWithOptions(const Models::DeleteModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型提供商模板
+       *
+       * @param request DeleteModelProviderTemplateRequest
+       * @return DeleteModelProviderTemplateResponse
+       */
+      Models::DeleteModelProviderTemplateResponse deleteModelProviderTemplate(const Models::DeleteModelProviderTemplateRequest &request);
+
+      /**
+       * @summary 删除模型模板
+       *
+       * @param request DeleteModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteModelTemplateResponse
+       */
+      Models::DeleteModelTemplateResponse deleteModelTemplateWithOptions(const Models::DeleteModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模型模板
+       *
+       * @param request DeleteModelTemplateRequest
+       * @return DeleteModelTemplateResponse
+       */
+      Models::DeleteModelTemplateResponse deleteModelTemplate(const Models::DeleteModelTemplateRequest &request);
+
+      /**
        * @summary 删除工作站
        *
        * @description Deletes a workstation.
@@ -375,6 +460,23 @@ namespace AppstreamCenter20210901
        * @return GetDebugAppInstanceResponse
        */
       Models::GetDebugAppInstanceResponse getDebugAppInstance(const Models::GetDebugAppInstanceRequest &request);
+
+      /**
+       * @summary 查询模型提供商模板详情
+       *
+       * @param request GetModelProviderTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetModelProviderTemplateResponse
+       */
+      Models::GetModelProviderTemplateResponse getModelProviderTemplateWithOptions(const Models::GetModelProviderTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型提供商模板详情
+       *
+       * @param request GetModelProviderTemplateRequest
+       * @return GetModelProviderTemplateResponse
+       */
+      Models::GetModelProviderTemplateResponse getModelProviderTemplate(const Models::GetModelProviderTemplateRequest &request);
 
       /**
        * @summary Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
@@ -564,6 +666,40 @@ namespace AppstreamCenter20210901
       Models::ListImageResponse listImage(const Models::ListImageRequest &request);
 
       /**
+       * @summary 查询LLM模板列表
+       *
+       * @param tmpReq ListLlmTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLlmTemplatesResponse
+       */
+      Models::ListLlmTemplatesResponse listLlmTemplatesWithOptions(const Models::ListLlmTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询LLM模板列表
+       *
+       * @param request ListLlmTemplatesRequest
+       * @return ListLlmTemplatesResponse
+       */
+      Models::ListLlmTemplatesResponse listLlmTemplates(const Models::ListLlmTemplatesRequest &request);
+
+      /**
+       * @summary 查询模型提供商模板列表
+       *
+       * @param tmpReq ListModelProviderTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelProviderTemplatesResponse
+       */
+      Models::ListModelProviderTemplatesResponse listModelProviderTemplatesWithOptions(const Models::ListModelProviderTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型提供商模板列表
+       *
+       * @param request ListModelProviderTemplatesRequest
+       * @return ListModelProviderTemplatesResponse
+       */
+      Models::ListModelProviderTemplatesResponse listModelProviderTemplates(const Models::ListModelProviderTemplatesRequest &request);
+
+      /**
        * @summary 查询模型分组绑定的资源组列表
        *
        * @param request ListModelTemplateResourceGroupRequest
@@ -579,6 +715,23 @@ namespace AppstreamCenter20210901
        * @return ListModelTemplateResourceGroupResponse
        */
       Models::ListModelTemplateResourceGroupResponse listModelTemplateResourceGroup(const Models::ListModelTemplateResourceGroupRequest &request);
+
+      /**
+       * @summary 查询模型模板列表
+       *
+       * @param tmpReq ListModelTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelTemplatesResponse
+       */
+      Models::ListModelTemplatesResponse listModelTemplatesWithOptions(const Models::ListModelTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型模板列表
+       *
+       * @param request ListModelTemplatesRequest
+       * @return ListModelTemplatesResponse
+       */
+      Models::ListModelTemplatesResponse listModelTemplates(const Models::ListModelTemplatesRequest &request);
 
       /**
        * @summary Queries the resource types that are available for purchase when you create a delivery group.
@@ -1123,6 +1276,40 @@ namespace AppstreamCenter20210901
        * @return UpdateAppInstanceGroupImageResponse
        */
       Models::UpdateAppInstanceGroupImageResponse updateAppInstanceGroupImage(const Models::UpdateAppInstanceGroupImageRequest &request);
+
+      /**
+       * @summary 更新模型提供商模板
+       *
+       * @param tmpReq UpdateModelProviderTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelProviderTemplateResponse
+       */
+      Models::UpdateModelProviderTemplateResponse updateModelProviderTemplateWithOptions(const Models::UpdateModelProviderTemplateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模型提供商模板
+       *
+       * @param request UpdateModelProviderTemplateRequest
+       * @return UpdateModelProviderTemplateResponse
+       */
+      Models::UpdateModelProviderTemplateResponse updateModelProviderTemplate(const Models::UpdateModelProviderTemplateRequest &request);
+
+      /**
+       * @summary 更新模型模板
+       *
+       * @param request UpdateModelTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelTemplateResponse
+       */
+      Models::UpdateModelTemplateResponse updateModelTemplateWithOptions(const Models::UpdateModelTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新模型模板
+       *
+       * @param request UpdateModelTemplateRequest
+       * @return UpdateModelTemplateResponse
+       */
+      Models::UpdateModelTemplateResponse updateModelTemplate(const Models::UpdateModelTemplateRequest &request);
 
       /**
        * @summary Updates the workstation image.
