@@ -53,6 +53,7 @@
 #include <alibabacloud/models/RunEnterpriseVocAnalysisResponseBody.hpp>
 #include <alibabacloud/models/RunEnterpriseVocAnalysisResponse.hpp>
 #include <alibabacloud/models/RunEssayCorrectionRequest.hpp>
+#include <alibabacloud/models/RunEssayCorrectionShrinkRequest.hpp>
 #include <alibabacloud/models/RunEssayCorrectionResponseBody.hpp>
 #include <alibabacloud/models/RunEssayCorrectionResponse.hpp>
 #include <alibabacloud/models/RunHotTopicChatRequest.hpp>

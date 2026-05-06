@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETESSAYCORRECTIONTASKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETESSAYCORRECTIONTASKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/ModelUsage.hpp>
 #include <vector>
+#include <alibabacloud/models/ModelUsage.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -70,12 +70,20 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Results& obj) { 
           DARABONBA_PTR_TO_JSON(customId, customId_);
+          DARABONBA_PTR_TO_JSON(dimensionResults, dimensionResults_);
+          DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+          DARABONBA_PTR_TO_JSON(overallComment, overallComment_);
           DARABONBA_PTR_TO_JSON(result, result_);
           DARABONBA_PTR_TO_JSON(score, score_);
           DARABONBA_PTR_TO_JSON(usage, usage_);
         };
         friend void from_json(const Darabonba::Json& j, Results& obj) { 
           DARABONBA_PTR_FROM_JSON(customId, customId_);
+          DARABONBA_PTR_FROM_JSON(dimensionResults, dimensionResults_);
+          DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+          DARABONBA_PTR_FROM_JSON(overallComment, overallComment_);
           DARABONBA_PTR_FROM_JSON(result, result_);
           DARABONBA_PTR_FROM_JSON(score, score_);
           DARABONBA_PTR_FROM_JSON(usage, usage_);
@@ -91,13 +99,106 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class DimensionResults : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DimensionResults& obj) { 
+            DARABONBA_PTR_TO_JSON(analysis, analysis_);
+            DARABONBA_PTR_TO_JSON(maxScore, maxScore_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(score, score_);
+          };
+          friend void from_json(const Darabonba::Json& j, DimensionResults& obj) { 
+            DARABONBA_PTR_FROM_JSON(analysis, analysis_);
+            DARABONBA_PTR_FROM_JSON(maxScore, maxScore_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(score, score_);
+          };
+          DimensionResults() = default ;
+          DimensionResults(const DimensionResults &) = default ;
+          DimensionResults(DimensionResults &&) = default ;
+          DimensionResults(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DimensionResults() = default ;
+          DimensionResults& operator=(const DimensionResults &) = default ;
+          DimensionResults& operator=(DimensionResults &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->analysis_ == nullptr
+        && this->maxScore_ == nullptr && this->name_ == nullptr && this->score_ == nullptr; };
+          // analysis Field Functions 
+          bool hasAnalysis() const { return this->analysis_ != nullptr;};
+          void deleteAnalysis() { this->analysis_ = nullptr;};
+          inline string getAnalysis() const { DARABONBA_PTR_GET_DEFAULT(analysis_, "") };
+          inline DimensionResults& setAnalysis(string analysis) { DARABONBA_PTR_SET_VALUE(analysis_, analysis) };
+
+
+          // maxScore Field Functions 
+          bool hasMaxScore() const { return this->maxScore_ != nullptr;};
+          void deleteMaxScore() { this->maxScore_ = nullptr;};
+          inline double getMaxScore() const { DARABONBA_PTR_GET_DEFAULT(maxScore_, 0.0) };
+          inline DimensionResults& setMaxScore(double maxScore) { DARABONBA_PTR_SET_VALUE(maxScore_, maxScore) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline DimensionResults& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // score Field Functions 
+          bool hasScore() const { return this->score_ != nullptr;};
+          void deleteScore() { this->score_ = nullptr;};
+          inline double getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+          inline DimensionResults& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+        protected:
+          shared_ptr<string> analysis_ {};
+          shared_ptr<double> maxScore_ {};
+          shared_ptr<string> name_ {};
+          shared_ptr<double> score_ {};
+        };
+
         virtual bool empty() const override { return this->customId_ == nullptr
-        && this->result_ == nullptr && this->score_ == nullptr && this->usage_ == nullptr; };
+        && this->dimensionResults_ == nullptr && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->overallComment_ == nullptr && this->result_ == nullptr
+        && this->score_ == nullptr && this->usage_ == nullptr; };
         // customId Field Functions 
         bool hasCustomId() const { return this->customId_ != nullptr;};
         void deleteCustomId() { this->customId_ = nullptr;};
         inline string getCustomId() const { DARABONBA_PTR_GET_DEFAULT(customId_, "") };
         inline Results& setCustomId(string customId) { DARABONBA_PTR_SET_VALUE(customId_, customId) };
+
+
+        // dimensionResults Field Functions 
+        bool hasDimensionResults() const { return this->dimensionResults_ != nullptr;};
+        void deleteDimensionResults() { this->dimensionResults_ = nullptr;};
+        inline const vector<Results::DimensionResults> & getDimensionResults() const { DARABONBA_PTR_GET_CONST(dimensionResults_, vector<Results::DimensionResults>) };
+        inline vector<Results::DimensionResults> getDimensionResults() { DARABONBA_PTR_GET(dimensionResults_, vector<Results::DimensionResults>) };
+        inline Results& setDimensionResults(const vector<Results::DimensionResults> & dimensionResults) { DARABONBA_PTR_SET_VALUE(dimensionResults_, dimensionResults) };
+        inline Results& setDimensionResults(vector<Results::DimensionResults> && dimensionResults) { DARABONBA_PTR_SET_RVALUE(dimensionResults_, dimensionResults) };
+
+
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline Results& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // errorMessage Field Functions 
+        bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+        void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+        inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+        inline Results& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+        // overallComment Field Functions 
+        bool hasOverallComment() const { return this->overallComment_ != nullptr;};
+        void deleteOverallComment() { this->overallComment_ = nullptr;};
+        inline string getOverallComment() const { DARABONBA_PTR_GET_DEFAULT(overallComment_, "") };
+        inline Results& setOverallComment(string overallComment) { DARABONBA_PTR_SET_VALUE(overallComment_, overallComment) };
 
 
         // result Field Functions 
@@ -126,6 +227,10 @@ namespace Models
       protected:
         // xxx
         shared_ptr<string> customId_ {};
+        shared_ptr<vector<Results::DimensionResults>> dimensionResults_ {};
+        shared_ptr<string> errorCode_ {};
+        shared_ptr<string> errorMessage_ {};
+        shared_ptr<string> overallComment_ {};
         shared_ptr<string> result_ {};
         shared_ptr<int32_t> score_ {};
         shared_ptr<ModelUsage> usage_ {};

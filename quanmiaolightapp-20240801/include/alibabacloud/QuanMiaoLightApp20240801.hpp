@@ -317,22 +317,22 @@ namespace QuanMiaoLightApp20240801
       /**
        * @summary 作业批改
        *
-       * @param request RunEssayCorrectionRequest
+       * @param tmpReq RunEssayCorrectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunEssayCorrectionResponse
        */
-      FutureGenerator<Models::RunEssayCorrectionResponse> runEssayCorrectionWithSSE(const string &workspaceId, const Models::RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      FutureGenerator<Models::RunEssayCorrectionResponse> runEssayCorrectionWithSSE(const string &workspaceId, const Models::RunEssayCorrectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 作业批改
        *
-       * @param request RunEssayCorrectionRequest
+       * @param tmpReq RunEssayCorrectionRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return RunEssayCorrectionResponse
        */
-      Models::RunEssayCorrectionResponse runEssayCorrectionWithOptions(const string &workspaceId, const Models::RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::RunEssayCorrectionResponse runEssayCorrectionWithOptions(const string &workspaceId, const Models::RunEssayCorrectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 作业批改

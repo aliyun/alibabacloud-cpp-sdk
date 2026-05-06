@@ -949,16 +949,26 @@ RunEnterpriseVocAnalysisResponse Client::runEnterpriseVocAnalysis(const string &
 /**
  * @summary 作业批改
  *
- * @param request RunEssayCorrectionRequest
+ * @param tmpReq RunEssayCorrectionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunEssayCorrectionResponse
  */
-FutureGenerator<RunEssayCorrectionResponse> Client::runEssayCorrectionWithSSE(const string &workspaceId, const RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+FutureGenerator<RunEssayCorrectionResponse> Client::runEssayCorrectionWithSSE(const string &workspaceId, const RunEssayCorrectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunEssayCorrectionShrinkRequest request = RunEssayCorrectionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDimensions()) {
+    request.setDimensionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDimensions(), "dimensions", "json"));
+  }
+
   json body = {};
   if (!!request.hasAnswer()) {
     body["answer"] = request.getAnswer();
+  }
+
+  if (!!request.hasDimensionsShrink()) {
+    body["dimensions"] = request.getDimensionsShrink();
   }
 
   if (!!request.hasGrade()) {
@@ -1020,16 +1030,26 @@ return Darabonba::FutureGenerator<json>(__retrun);
 /**
  * @summary 作业批改
  *
- * @param request RunEssayCorrectionRequest
+ * @param tmpReq RunEssayCorrectionRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return RunEssayCorrectionResponse
  */
-RunEssayCorrectionResponse Client::runEssayCorrectionWithOptions(const string &workspaceId, const RunEssayCorrectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+RunEssayCorrectionResponse Client::runEssayCorrectionWithOptions(const string &workspaceId, const RunEssayCorrectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunEssayCorrectionShrinkRequest request = RunEssayCorrectionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDimensions()) {
+    request.setDimensionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDimensions(), "dimensions", "json"));
+  }
+
   json body = {};
   if (!!request.hasAnswer()) {
     body["answer"] = request.getAnswer();
+  }
+
+  if (!!request.hasDimensionsShrink()) {
+    body["dimensions"] = request.getDimensionsShrink();
   }
 
   if (!!request.hasGrade()) {
@@ -3473,11 +3493,19 @@ SubmitEssayCorrectionTaskResponse Client::submitEssayCorrectionTaskWithOptions(c
   tmpReq.validate();
   SubmitEssayCorrectionTaskShrinkRequest request = SubmitEssayCorrectionTaskShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDimensions()) {
+    request.setDimensionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDimensions(), "dimensions", "json"));
+  }
+
   if (!!tmpReq.hasTasks()) {
     request.setTasksShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTasks(), "tasks", "json"));
   }
 
   json body = {};
+  if (!!request.hasDimensionsShrink()) {
+    body["dimensions"] = request.getDimensionsShrink();
+  }
+
   if (!!request.hasGrade()) {
     body["grade"] = request.getGrade();
   }

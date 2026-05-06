@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_RUNESSAYCORRECTIONRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_RUNESSAYCORRECTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -109,10 +110,16 @@ namespace Models
       class Output : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Output& obj) { 
+          DARABONBA_PTR_TO_JSON(dimensionResults, dimensionResults_);
+          DARABONBA_PTR_TO_JSON(overallComment, overallComment_);
+          DARABONBA_PTR_TO_JSON(reasoningContent, reasoningContent_);
           DARABONBA_PTR_TO_JSON(score, score_);
           DARABONBA_PTR_TO_JSON(text, text_);
         };
         friend void from_json(const Darabonba::Json& j, Output& obj) { 
+          DARABONBA_PTR_FROM_JSON(dimensionResults, dimensionResults_);
+          DARABONBA_PTR_FROM_JSON(overallComment, overallComment_);
+          DARABONBA_PTR_FROM_JSON(reasoningContent, reasoningContent_);
           DARABONBA_PTR_FROM_JSON(score, score_);
           DARABONBA_PTR_FROM_JSON(text, text_);
         };
@@ -127,8 +134,93 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->score_ == nullptr
-        && this->text_ == nullptr; };
+        class DimensionResults : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DimensionResults& obj) { 
+            DARABONBA_PTR_TO_JSON(analysis, analysis_);
+            DARABONBA_PTR_TO_JSON(maxScore, maxScore_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(score, score_);
+          };
+          friend void from_json(const Darabonba::Json& j, DimensionResults& obj) { 
+            DARABONBA_PTR_FROM_JSON(analysis, analysis_);
+            DARABONBA_PTR_FROM_JSON(maxScore, maxScore_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(score, score_);
+          };
+          DimensionResults() = default ;
+          DimensionResults(const DimensionResults &) = default ;
+          DimensionResults(DimensionResults &&) = default ;
+          DimensionResults(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DimensionResults() = default ;
+          DimensionResults& operator=(const DimensionResults &) = default ;
+          DimensionResults& operator=(DimensionResults &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->analysis_ == nullptr
+        && this->maxScore_ == nullptr && this->name_ == nullptr && this->score_ == nullptr; };
+          // analysis Field Functions 
+          bool hasAnalysis() const { return this->analysis_ != nullptr;};
+          void deleteAnalysis() { this->analysis_ = nullptr;};
+          inline string getAnalysis() const { DARABONBA_PTR_GET_DEFAULT(analysis_, "") };
+          inline DimensionResults& setAnalysis(string analysis) { DARABONBA_PTR_SET_VALUE(analysis_, analysis) };
+
+
+          // maxScore Field Functions 
+          bool hasMaxScore() const { return this->maxScore_ != nullptr;};
+          void deleteMaxScore() { this->maxScore_ = nullptr;};
+          inline double getMaxScore() const { DARABONBA_PTR_GET_DEFAULT(maxScore_, 0.0) };
+          inline DimensionResults& setMaxScore(double maxScore) { DARABONBA_PTR_SET_VALUE(maxScore_, maxScore) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline DimensionResults& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+          // score Field Functions 
+          bool hasScore() const { return this->score_ != nullptr;};
+          void deleteScore() { this->score_ = nullptr;};
+          inline double getScore() const { DARABONBA_PTR_GET_DEFAULT(score_, 0.0) };
+          inline DimensionResults& setScore(double score) { DARABONBA_PTR_SET_VALUE(score_, score) };
+
+
+        protected:
+          shared_ptr<string> analysis_ {};
+          shared_ptr<double> maxScore_ {};
+          shared_ptr<string> name_ {};
+          shared_ptr<double> score_ {};
+        };
+
+        virtual bool empty() const override { return this->dimensionResults_ == nullptr
+        && this->overallComment_ == nullptr && this->reasoningContent_ == nullptr && this->score_ == nullptr && this->text_ == nullptr; };
+        // dimensionResults Field Functions 
+        bool hasDimensionResults() const { return this->dimensionResults_ != nullptr;};
+        void deleteDimensionResults() { this->dimensionResults_ = nullptr;};
+        inline const vector<Output::DimensionResults> & getDimensionResults() const { DARABONBA_PTR_GET_CONST(dimensionResults_, vector<Output::DimensionResults>) };
+        inline vector<Output::DimensionResults> getDimensionResults() { DARABONBA_PTR_GET(dimensionResults_, vector<Output::DimensionResults>) };
+        inline Output& setDimensionResults(const vector<Output::DimensionResults> & dimensionResults) { DARABONBA_PTR_SET_VALUE(dimensionResults_, dimensionResults) };
+        inline Output& setDimensionResults(vector<Output::DimensionResults> && dimensionResults) { DARABONBA_PTR_SET_RVALUE(dimensionResults_, dimensionResults) };
+
+
+        // overallComment Field Functions 
+        bool hasOverallComment() const { return this->overallComment_ != nullptr;};
+        void deleteOverallComment() { this->overallComment_ = nullptr;};
+        inline string getOverallComment() const { DARABONBA_PTR_GET_DEFAULT(overallComment_, "") };
+        inline Output& setOverallComment(string overallComment) { DARABONBA_PTR_SET_VALUE(overallComment_, overallComment) };
+
+
+        // reasoningContent Field Functions 
+        bool hasReasoningContent() const { return this->reasoningContent_ != nullptr;};
+        void deleteReasoningContent() { this->reasoningContent_ = nullptr;};
+        inline string getReasoningContent() const { DARABONBA_PTR_GET_DEFAULT(reasoningContent_, "") };
+        inline Output& setReasoningContent(string reasoningContent) { DARABONBA_PTR_SET_VALUE(reasoningContent_, reasoningContent) };
+
+
         // score Field Functions 
         bool hasScore() const { return this->score_ != nullptr;};
         void deleteScore() { this->score_ = nullptr;};
@@ -144,6 +236,9 @@ namespace Models
 
 
       protected:
+        shared_ptr<vector<Output::DimensionResults>> dimensionResults_ {};
+        shared_ptr<string> overallComment_ {};
+        shared_ptr<string> reasoningContent_ {};
         shared_ptr<int32_t> score_ {};
         shared_ptr<string> text_ {};
       };

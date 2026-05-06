@@ -14,6 +14,7 @@ namespace Models
   class SubmitEssayCorrectionTaskRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubmitEssayCorrectionTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(dimensions, dimensions_);
       DARABONBA_PTR_TO_JSON(grade, grade_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(otherReviewPoints, otherReviewPoints_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(totalScore, totalScore_);
     };
     friend void from_json(const Darabonba::Json& j, SubmitEssayCorrectionTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(dimensions, dimensions_);
       DARABONBA_PTR_FROM_JSON(grade, grade_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(otherReviewPoints, otherReviewPoints_);
@@ -135,9 +137,70 @@ namespace Models
       shared_ptr<int32_t> totalScore_ {};
     };
 
-    virtual bool empty() const override { return this->grade_ == nullptr
-        && this->modelId_ == nullptr && this->otherReviewPoints_ == nullptr && this->question_ == nullptr && this->subject_ == nullptr && this->tasks_ == nullptr
-        && this->totalScore_ == nullptr; };
+    class Dimensions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Dimensions& obj) { 
+        DARABONBA_PTR_TO_JSON(maxScore, maxScore_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(rubric, rubric_);
+      };
+      friend void from_json(const Darabonba::Json& j, Dimensions& obj) { 
+        DARABONBA_PTR_FROM_JSON(maxScore, maxScore_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(rubric, rubric_);
+      };
+      Dimensions() = default ;
+      Dimensions(const Dimensions &) = default ;
+      Dimensions(Dimensions &&) = default ;
+      Dimensions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Dimensions() = default ;
+      Dimensions& operator=(const Dimensions &) = default ;
+      Dimensions& operator=(Dimensions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->maxScore_ == nullptr
+        && this->name_ == nullptr && this->rubric_ == nullptr; };
+      // maxScore Field Functions 
+      bool hasMaxScore() const { return this->maxScore_ != nullptr;};
+      void deleteMaxScore() { this->maxScore_ = nullptr;};
+      inline int32_t getMaxScore() const { DARABONBA_PTR_GET_DEFAULT(maxScore_, 0) };
+      inline Dimensions& setMaxScore(int32_t maxScore) { DARABONBA_PTR_SET_VALUE(maxScore_, maxScore) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Dimensions& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // rubric Field Functions 
+      bool hasRubric() const { return this->rubric_ != nullptr;};
+      void deleteRubric() { this->rubric_ = nullptr;};
+      inline string getRubric() const { DARABONBA_PTR_GET_DEFAULT(rubric_, "") };
+      inline Dimensions& setRubric(string rubric) { DARABONBA_PTR_SET_VALUE(rubric_, rubric) };
+
+
+    protected:
+      shared_ptr<int32_t> maxScore_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> rubric_ {};
+    };
+
+    virtual bool empty() const override { return this->dimensions_ == nullptr
+        && this->grade_ == nullptr && this->modelId_ == nullptr && this->otherReviewPoints_ == nullptr && this->question_ == nullptr && this->subject_ == nullptr
+        && this->tasks_ == nullptr && this->totalScore_ == nullptr; };
+    // dimensions Field Functions 
+    bool hasDimensions() const { return this->dimensions_ != nullptr;};
+    void deleteDimensions() { this->dimensions_ = nullptr;};
+    inline const vector<SubmitEssayCorrectionTaskRequest::Dimensions> & getDimensions() const { DARABONBA_PTR_GET_CONST(dimensions_, vector<SubmitEssayCorrectionTaskRequest::Dimensions>) };
+    inline vector<SubmitEssayCorrectionTaskRequest::Dimensions> getDimensions() { DARABONBA_PTR_GET(dimensions_, vector<SubmitEssayCorrectionTaskRequest::Dimensions>) };
+    inline SubmitEssayCorrectionTaskRequest& setDimensions(const vector<SubmitEssayCorrectionTaskRequest::Dimensions> & dimensions) { DARABONBA_PTR_SET_VALUE(dimensions_, dimensions) };
+    inline SubmitEssayCorrectionTaskRequest& setDimensions(vector<SubmitEssayCorrectionTaskRequest::Dimensions> && dimensions) { DARABONBA_PTR_SET_RVALUE(dimensions_, dimensions) };
+
+
     // grade Field Functions 
     bool hasGrade() const { return this->grade_ != nullptr;};
     void deleteGrade() { this->grade_ = nullptr;};
@@ -190,6 +253,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<SubmitEssayCorrectionTaskRequest::Dimensions>> dimensions_ {};
     shared_ptr<string> grade_ {};
     shared_ptr<string> modelId_ {};
     shared_ptr<string> otherReviewPoints_ {};
