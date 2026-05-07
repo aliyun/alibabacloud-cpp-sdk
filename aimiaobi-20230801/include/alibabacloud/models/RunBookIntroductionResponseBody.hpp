@@ -133,10 +133,12 @@ namespace Models
         class Introductions : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Introductions& obj) { 
+            DARABONBA_PTR_TO_JSON(Blocks, blocks_);
             DARABONBA_PTR_TO_JSON(Summary, summary_);
             DARABONBA_PTR_TO_JSON(Title, title_);
           };
           friend void from_json(const Darabonba::Json& j, Introductions& obj) { 
+            DARABONBA_PTR_FROM_JSON(Blocks, blocks_);
             DARABONBA_PTR_FROM_JSON(Summary, summary_);
             DARABONBA_PTR_FROM_JSON(Title, title_);
           };
@@ -151,8 +153,110 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->summary_ == nullptr
-        && this->title_ == nullptr; };
+          class Blocks : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Blocks& obj) { 
+              DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
+              DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+              DARABONBA_PTR_TO_JSON(Height, height_);
+              DARABONBA_PTR_TO_JSON(PageId, pageId_);
+              DARABONBA_PTR_TO_JSON(Width, width_);
+              DARABONBA_PTR_TO_JSON(X, x_);
+              DARABONBA_PTR_TO_JSON(Y, y_);
+            };
+            friend void from_json(const Darabonba::Json& j, Blocks& obj) { 
+              DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
+              DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+              DARABONBA_PTR_FROM_JSON(Height, height_);
+              DARABONBA_PTR_FROM_JSON(PageId, pageId_);
+              DARABONBA_PTR_FROM_JSON(Width, width_);
+              DARABONBA_PTR_FROM_JSON(X, x_);
+              DARABONBA_PTR_FROM_JSON(Y, y_);
+            };
+            Blocks() = default ;
+            Blocks(const Blocks &) = default ;
+            Blocks(Blocks &&) = default ;
+            Blocks(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Blocks() = default ;
+            Blocks& operator=(const Blocks &) = default ;
+            Blocks& operator=(Blocks &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->beginTime_ == nullptr
+        && this->endTime_ == nullptr && this->height_ == nullptr && this->pageId_ == nullptr && this->width_ == nullptr && this->x_ == nullptr
+        && this->y_ == nullptr; };
+            // beginTime Field Functions 
+            bool hasBeginTime() const { return this->beginTime_ != nullptr;};
+            void deleteBeginTime() { this->beginTime_ = nullptr;};
+            inline int64_t getBeginTime() const { DARABONBA_PTR_GET_DEFAULT(beginTime_, 0L) };
+            inline Blocks& setBeginTime(int64_t beginTime) { DARABONBA_PTR_SET_VALUE(beginTime_, beginTime) };
+
+
+            // endTime Field Functions 
+            bool hasEndTime() const { return this->endTime_ != nullptr;};
+            void deleteEndTime() { this->endTime_ = nullptr;};
+            inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+            inline Blocks& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+            // height Field Functions 
+            bool hasHeight() const { return this->height_ != nullptr;};
+            void deleteHeight() { this->height_ = nullptr;};
+            inline int32_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
+            inline Blocks& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
+
+
+            // pageId Field Functions 
+            bool hasPageId() const { return this->pageId_ != nullptr;};
+            void deletePageId() { this->pageId_ = nullptr;};
+            inline int32_t getPageId() const { DARABONBA_PTR_GET_DEFAULT(pageId_, 0) };
+            inline Blocks& setPageId(int32_t pageId) { DARABONBA_PTR_SET_VALUE(pageId_, pageId) };
+
+
+            // width Field Functions 
+            bool hasWidth() const { return this->width_ != nullptr;};
+            void deleteWidth() { this->width_ = nullptr;};
+            inline int32_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
+            inline Blocks& setWidth(int32_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
+
+
+            // x Field Functions 
+            bool hasX() const { return this->x_ != nullptr;};
+            void deleteX() { this->x_ = nullptr;};
+            inline int32_t getX() const { DARABONBA_PTR_GET_DEFAULT(x_, 0) };
+            inline Blocks& setX(int32_t x) { DARABONBA_PTR_SET_VALUE(x_, x) };
+
+
+            // y Field Functions 
+            bool hasY() const { return this->y_ != nullptr;};
+            void deleteY() { this->y_ = nullptr;};
+            inline int32_t getY() const { DARABONBA_PTR_GET_DEFAULT(y_, 0) };
+            inline Blocks& setY(int32_t y) { DARABONBA_PTR_SET_VALUE(y_, y) };
+
+
+          protected:
+            shared_ptr<int64_t> beginTime_ {};
+            shared_ptr<int64_t> endTime_ {};
+            shared_ptr<int32_t> height_ {};
+            shared_ptr<int32_t> pageId_ {};
+            shared_ptr<int32_t> width_ {};
+            shared_ptr<int32_t> x_ {};
+            shared_ptr<int32_t> y_ {};
+          };
+
+          virtual bool empty() const override { return this->blocks_ == nullptr
+        && this->summary_ == nullptr && this->title_ == nullptr; };
+          // blocks Field Functions 
+          bool hasBlocks() const { return this->blocks_ != nullptr;};
+          void deleteBlocks() { this->blocks_ = nullptr;};
+          inline const vector<Introductions::Blocks> & getBlocks() const { DARABONBA_PTR_GET_CONST(blocks_, vector<Introductions::Blocks>) };
+          inline vector<Introductions::Blocks> getBlocks() { DARABONBA_PTR_GET(blocks_, vector<Introductions::Blocks>) };
+          inline Introductions& setBlocks(const vector<Introductions::Blocks> & blocks) { DARABONBA_PTR_SET_VALUE(blocks_, blocks) };
+          inline Introductions& setBlocks(vector<Introductions::Blocks> && blocks) { DARABONBA_PTR_SET_RVALUE(blocks_, blocks) };
+
+
           // summary Field Functions 
           bool hasSummary() const { return this->summary_ != nullptr;};
           void deleteSummary() { this->summary_ = nullptr;};
@@ -168,6 +272,7 @@ namespace Models
 
 
         protected:
+          shared_ptr<vector<Introductions::Blocks>> blocks_ {};
           shared_ptr<string> summary_ {};
           shared_ptr<string> title_ {};
         };

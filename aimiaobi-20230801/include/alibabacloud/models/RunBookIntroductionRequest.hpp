@@ -13,6 +13,7 @@ namespace Models
   class RunBookIntroductionRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RunBookIntroductionRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CleanCache, cleanCache_);
       DARABONBA_PTR_TO_JSON(DocId, docId_);
       DARABONBA_PTR_TO_JSON(KeyPointPrompt, keyPointPrompt_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, RunBookIntroductionRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CleanCache, cleanCache_);
       DARABONBA_PTR_FROM_JSON(DocId, docId_);
       DARABONBA_PTR_FROM_JSON(KeyPointPrompt, keyPointPrompt_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->docId_ == nullptr
-        && this->keyPointPrompt_ == nullptr && this->sessionId_ == nullptr && this->summaryPrompt_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->cleanCache_ == nullptr
+        && this->docId_ == nullptr && this->keyPointPrompt_ == nullptr && this->sessionId_ == nullptr && this->summaryPrompt_ == nullptr && this->workspaceId_ == nullptr; };
+    // cleanCache Field Functions 
+    bool hasCleanCache() const { return this->cleanCache_ != nullptr;};
+    void deleteCleanCache() { this->cleanCache_ = nullptr;};
+    inline bool getCleanCache() const { DARABONBA_PTR_GET_DEFAULT(cleanCache_, false) };
+    inline RunBookIntroductionRequest& setCleanCache(bool cleanCache) { DARABONBA_PTR_SET_VALUE(cleanCache_, cleanCache) };
+
+
     // docId Field Functions 
     bool hasDocId() const { return this->docId_ != nullptr;};
     void deleteDocId() { this->docId_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> cleanCache_ {};
     // This parameter is required.
     shared_ptr<string> docId_ {};
     shared_ptr<string> keyPointPrompt_ {};

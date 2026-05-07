@@ -8762,6 +8762,10 @@ FutureGenerator<RunBookBrainmapResponse> Client::runBookBrainmapWithSSE(const Ru
     body["Prompt"] = request.getPrompt();
   }
 
+  if (!!request.hasResponseFormat()) {
+    body["ResponseFormat"] = request.getResponseFormat();
+  }
+
   if (!!request.hasSessionId()) {
     body["SessionId"] = request.getSessionId();
   }
@@ -8831,6 +8835,10 @@ RunBookBrainmapResponse Client::runBookBrainmapWithOptions(const RunBookBrainmap
     body["Prompt"] = request.getPrompt();
   }
 
+  if (!!request.hasResponseFormat()) {
+    body["ResponseFormat"] = request.getResponseFormat();
+  }
+
   if (!!request.hasSessionId()) {
     body["SessionId"] = request.getSessionId();
   }
@@ -8881,6 +8889,10 @@ RunBookBrainmapResponse Client::runBookBrainmap(const RunBookBrainmapRequest &re
 FutureGenerator<RunBookIntroductionResponse> Client::runBookIntroductionWithSSE(const RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.getCleanCache();
+  }
+
   if (!!request.hasDocId()) {
     body["DocId"] = request.getDocId();
   }
@@ -8942,6 +8954,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 RunBookIntroductionResponse Client::runBookIntroductionWithOptions(const RunBookIntroductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasCleanCache()) {
+    body["CleanCache"] = request.getCleanCache();
+  }
+
   if (!!request.hasDocId()) {
     body["DocId"] = request.getDocId();
   }
@@ -9818,6 +9834,10 @@ FutureGenerator<RunDocBrainmapResponse> Client::runDocBrainmapWithSSE(const RunD
     body["Prompt"] = request.getPrompt();
   }
 
+  if (!!request.hasResponseFormat()) {
+    body["ResponseFormat"] = request.getResponseFormat();
+  }
+
   if (!!request.hasSessionId()) {
     body["SessionId"] = request.getSessionId();
   }
@@ -9893,6 +9913,10 @@ RunDocBrainmapResponse Client::runDocBrainmapWithOptions(const RunDocBrainmapReq
 
   if (!!request.hasPrompt()) {
     body["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasResponseFormat()) {
+    body["ResponseFormat"] = request.getResponseFormat();
   }
 
   if (!!request.hasSessionId()) {

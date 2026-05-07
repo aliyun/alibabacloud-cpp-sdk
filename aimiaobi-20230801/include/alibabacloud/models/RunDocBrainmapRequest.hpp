@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(NodeNumber, nodeNumber_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
+      DARABONBA_PTR_TO_JSON(ResponseFormat, responseFormat_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(WordNumber, wordNumber_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(NodeNumber, nodeNumber_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
+      DARABONBA_PTR_FROM_JSON(ResponseFormat, responseFormat_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(WordNumber, wordNumber_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cleanCache_ == nullptr
-        && this->docId_ == nullptr && this->modelName_ == nullptr && this->nodeNumber_ == nullptr && this->prompt_ == nullptr && this->sessionId_ == nullptr
-        && this->wordNumber_ == nullptr && this->workspaceId_ == nullptr && this->referenceContent_ == nullptr; };
+        && this->docId_ == nullptr && this->modelName_ == nullptr && this->nodeNumber_ == nullptr && this->prompt_ == nullptr && this->responseFormat_ == nullptr
+        && this->sessionId_ == nullptr && this->wordNumber_ == nullptr && this->workspaceId_ == nullptr && this->referenceContent_ == nullptr; };
     // cleanCache Field Functions 
     bool hasCleanCache() const { return this->cleanCache_ != nullptr;};
     void deleteCleanCache() { this->cleanCache_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     void deletePrompt() { this->prompt_ = nullptr;};
     inline string getPrompt() const { DARABONBA_PTR_GET_DEFAULT(prompt_, "") };
     inline RunDocBrainmapRequest& setPrompt(string prompt) { DARABONBA_PTR_SET_VALUE(prompt_, prompt) };
+
+
+    // responseFormat Field Functions 
+    bool hasResponseFormat() const { return this->responseFormat_ != nullptr;};
+    void deleteResponseFormat() { this->responseFormat_ = nullptr;};
+    inline int32_t getResponseFormat() const { DARABONBA_PTR_GET_DEFAULT(responseFormat_, 0) };
+    inline RunDocBrainmapRequest& setResponseFormat(int32_t responseFormat) { DARABONBA_PTR_SET_VALUE(responseFormat_, responseFormat) };
 
 
     // sessionId Field Functions 
@@ -118,10 +127,10 @@ namespace Models
     shared_ptr<string> modelName_ {};
     shared_ptr<int32_t> nodeNumber_ {};
     shared_ptr<string> prompt_ {};
+    shared_ptr<int32_t> responseFormat_ {};
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
     shared_ptr<int32_t> wordNumber_ {};
-    // This parameter is required.
     shared_ptr<string> workspaceId_ {};
     shared_ptr<string> referenceContent_ {};
   };
