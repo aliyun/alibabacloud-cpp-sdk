@@ -1381,12 +1381,20 @@ CreateUploadVideoResponse Client::createUploadVideoWithOptions(const CreateUploa
     query["Description"] = request.getDescription();
   }
 
+  if (!!request.hasEnableFirstFrameCover()) {
+    query["EnableFirstFrameCover"] = request.getEnableFirstFrameCover();
+  }
+
   if (!!request.hasFileName()) {
     query["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileSize()) {
     query["FileSize"] = request.getFileSize();
+  }
+
+  if (!!request.hasGenerateThumbnail()) {
+    query["GenerateThumbnail"] = request.getGenerateThumbnail();
   }
 
   if (!!request.hasReferenceId()) {
@@ -9003,6 +9011,14 @@ RefreshVodObjectCachesResponse Client::refreshVodObjectCaches(const RefreshVodOb
 RegisterMediaResponse Client::registerMediaWithOptions(const RegisterMediaRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEnableFirstFrameCover()) {
+    query["EnableFirstFrameCover"] = request.getEnableFirstFrameCover();
+  }
+
+  if (!!request.hasGenerateThumbnail()) {
+    query["GenerateThumbnail"] = request.getGenerateThumbnail();
+  }
+
   if (!!request.hasRegisterMetadatas()) {
     query["RegisterMetadatas"] = request.getRegisterMetadatas();
   }
@@ -11434,6 +11450,14 @@ UploadMediaByURLResponse Client::uploadMediaByURLWithOptions(const UploadMediaBy
   json query = {};
   if (!!request.hasAppId()) {
     query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasEnableFirstFrameCover()) {
+    query["EnableFirstFrameCover"] = request.getEnableFirstFrameCover();
+  }
+
+  if (!!request.hasGenerateThumbnail()) {
+    query["GenerateThumbnail"] = request.getGenerateThumbnail();
   }
 
   if (!!request.hasSessionId()) {

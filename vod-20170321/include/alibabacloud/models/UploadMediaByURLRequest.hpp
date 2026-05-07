@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UploadMediaByURLRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
+      DARABONBA_PTR_TO_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
       DARABONBA_PTR_TO_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_TO_JSON(TemplateGroupId, templateGroupId_);
@@ -24,6 +26,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UploadMediaByURLRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
+      DARABONBA_PTR_FROM_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
       DARABONBA_PTR_FROM_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_FROM_JSON(TemplateGroupId, templateGroupId_);
@@ -44,13 +48,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->sessionId_ == nullptr && this->storageLocation_ == nullptr && this->templateGroupId_ == nullptr && this->uploadMetadatas_ == nullptr && this->uploadURLs_ == nullptr
-        && this->userData_ == nullptr && this->workflowId_ == nullptr; };
+        && this->enableFirstFrameCover_ == nullptr && this->generateThumbnail_ == nullptr && this->sessionId_ == nullptr && this->storageLocation_ == nullptr && this->templateGroupId_ == nullptr
+        && this->uploadMetadatas_ == nullptr && this->uploadURLs_ == nullptr && this->userData_ == nullptr && this->workflowId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
     inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UploadMediaByURLRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // enableFirstFrameCover Field Functions 
+    bool hasEnableFirstFrameCover() const { return this->enableFirstFrameCover_ != nullptr;};
+    void deleteEnableFirstFrameCover() { this->enableFirstFrameCover_ = nullptr;};
+    inline bool getEnableFirstFrameCover() const { DARABONBA_PTR_GET_DEFAULT(enableFirstFrameCover_, false) };
+    inline UploadMediaByURLRequest& setEnableFirstFrameCover(bool enableFirstFrameCover) { DARABONBA_PTR_SET_VALUE(enableFirstFrameCover_, enableFirstFrameCover) };
+
+
+    // generateThumbnail Field Functions 
+    bool hasGenerateThumbnail() const { return this->generateThumbnail_ != nullptr;};
+    void deleteGenerateThumbnail() { this->generateThumbnail_ = nullptr;};
+    inline bool getGenerateThumbnail() const { DARABONBA_PTR_GET_DEFAULT(generateThumbnail_, false) };
+    inline UploadMediaByURLRequest& setGenerateThumbnail(bool generateThumbnail) { DARABONBA_PTR_SET_VALUE(generateThumbnail_, generateThumbnail) };
 
 
     // sessionId Field Functions 
@@ -105,6 +123,8 @@ namespace Models
   protected:
     // The ID of the application. Default value: **app-1000000**. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
     shared_ptr<string> appId_ {};
+    shared_ptr<bool> enableFirstFrameCover_ {};
+    shared_ptr<bool> generateThumbnail_ {};
     // The custom identifier for deduplication. If you specify this parameter and send a request, an error is returned if a request with the same identifier was sent in the last 10 minutes. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
     shared_ptr<string> sessionId_ {};
     // The storage address of the media file.

@@ -13,12 +13,16 @@ namespace Models
   class RegisterMediaRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RegisterMediaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
+      DARABONBA_PTR_TO_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_TO_JSON(RegisterMetadatas, registerMetadatas_);
       DARABONBA_PTR_TO_JSON(TemplateGroupId, templateGroupId_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, RegisterMediaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
+      DARABONBA_PTR_FROM_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_FROM_JSON(RegisterMetadatas, registerMetadatas_);
       DARABONBA_PTR_FROM_JSON(TemplateGroupId, templateGroupId_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
@@ -35,8 +39,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->registerMetadatas_ == nullptr
-        && this->templateGroupId_ == nullptr && this->userData_ == nullptr && this->workflowId_ == nullptr; };
+    virtual bool empty() const override { return this->enableFirstFrameCover_ == nullptr
+        && this->generateThumbnail_ == nullptr && this->registerMetadatas_ == nullptr && this->templateGroupId_ == nullptr && this->userData_ == nullptr && this->workflowId_ == nullptr; };
+    // enableFirstFrameCover Field Functions 
+    bool hasEnableFirstFrameCover() const { return this->enableFirstFrameCover_ != nullptr;};
+    void deleteEnableFirstFrameCover() { this->enableFirstFrameCover_ = nullptr;};
+    inline bool getEnableFirstFrameCover() const { DARABONBA_PTR_GET_DEFAULT(enableFirstFrameCover_, false) };
+    inline RegisterMediaRequest& setEnableFirstFrameCover(bool enableFirstFrameCover) { DARABONBA_PTR_SET_VALUE(enableFirstFrameCover_, enableFirstFrameCover) };
+
+
+    // generateThumbnail Field Functions 
+    bool hasGenerateThumbnail() const { return this->generateThumbnail_ != nullptr;};
+    void deleteGenerateThumbnail() { this->generateThumbnail_ = nullptr;};
+    inline bool getGenerateThumbnail() const { DARABONBA_PTR_GET_DEFAULT(generateThumbnail_, false) };
+    inline RegisterMediaRequest& setGenerateThumbnail(bool generateThumbnail) { DARABONBA_PTR_SET_VALUE(generateThumbnail_, generateThumbnail) };
+
+
     // registerMetadatas Field Functions 
     bool hasRegisterMetadatas() const { return this->registerMetadatas_ != nullptr;};
     void deleteRegisterMetadatas() { this->registerMetadatas_ = nullptr;};
@@ -66,6 +84,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> enableFirstFrameCover_ {};
+    shared_ptr<bool> generateThumbnail_ {};
     // The metadata of the media files. The value must be a JSON string. You can specify the metadata for up to 10 media files at a time. For more information about the metadata of media files, see the **RegisterMetadata** section of this topic.
     // 
     // This parameter is required.

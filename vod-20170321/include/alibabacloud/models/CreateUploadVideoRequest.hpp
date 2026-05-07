@@ -17,8 +17,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CateId, cateId_);
       DARABONBA_PTR_TO_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
       DARABONBA_PTR_TO_JSON(FileName, fileName_);
       DARABONBA_PTR_TO_JSON(FileSize, fileSize_);
+      DARABONBA_PTR_TO_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_TO_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_TO_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -32,8 +34,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CateId, cateId_);
       DARABONBA_PTR_FROM_JSON(CoverURL, coverURL_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(EnableFirstFrameCover, enableFirstFrameCover_);
       DARABONBA_PTR_FROM_JSON(FileName, fileName_);
       DARABONBA_PTR_FROM_JSON(FileSize, fileSize_);
+      DARABONBA_PTR_FROM_JSON(GenerateThumbnail, generateThumbnail_);
       DARABONBA_PTR_FROM_JSON(ReferenceId, referenceId_);
       DARABONBA_PTR_FROM_JSON(StorageLocation, storageLocation_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -54,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->cateId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->fileName_ == nullptr && this->fileSize_ == nullptr
-        && this->referenceId_ == nullptr && this->storageLocation_ == nullptr && this->tags_ == nullptr && this->templateGroupId_ == nullptr && this->title_ == nullptr
-        && this->userData_ == nullptr && this->workflowId_ == nullptr; };
+        && this->cateId_ == nullptr && this->coverURL_ == nullptr && this->description_ == nullptr && this->enableFirstFrameCover_ == nullptr && this->fileName_ == nullptr
+        && this->fileSize_ == nullptr && this->generateThumbnail_ == nullptr && this->referenceId_ == nullptr && this->storageLocation_ == nullptr && this->tags_ == nullptr
+        && this->templateGroupId_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr && this->workflowId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -85,6 +89,13 @@ namespace Models
     inline CreateUploadVideoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+    // enableFirstFrameCover Field Functions 
+    bool hasEnableFirstFrameCover() const { return this->enableFirstFrameCover_ != nullptr;};
+    void deleteEnableFirstFrameCover() { this->enableFirstFrameCover_ = nullptr;};
+    inline bool getEnableFirstFrameCover() const { DARABONBA_PTR_GET_DEFAULT(enableFirstFrameCover_, false) };
+    inline CreateUploadVideoRequest& setEnableFirstFrameCover(bool enableFirstFrameCover) { DARABONBA_PTR_SET_VALUE(enableFirstFrameCover_, enableFirstFrameCover) };
+
+
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
@@ -97,6 +108,13 @@ namespace Models
     void deleteFileSize() { this->fileSize_ = nullptr;};
     inline int64_t getFileSize() const { DARABONBA_PTR_GET_DEFAULT(fileSize_, 0L) };
     inline CreateUploadVideoRequest& setFileSize(int64_t fileSize) { DARABONBA_PTR_SET_VALUE(fileSize_, fileSize) };
+
+
+    // generateThumbnail Field Functions 
+    bool hasGenerateThumbnail() const { return this->generateThumbnail_ != nullptr;};
+    void deleteGenerateThumbnail() { this->generateThumbnail_ = nullptr;};
+    inline bool getGenerateThumbnail() const { DARABONBA_PTR_GET_DEFAULT(generateThumbnail_, false) };
+    inline CreateUploadVideoRequest& setGenerateThumbnail(bool generateThumbnail) { DARABONBA_PTR_SET_VALUE(generateThumbnail_, generateThumbnail) };
 
 
     // referenceId Field Functions 
@@ -164,6 +182,7 @@ namespace Models
     // *   The value can be up to 1,024 characters in length.
     // *   The value must be encoded in UTF-8.
     shared_ptr<string> description_ {};
+    shared_ptr<bool> enableFirstFrameCover_ {};
     // The name of the source file.
     // 
     // *   The name must contain a file name extension, which is not case-sensitive.
@@ -173,6 +192,7 @@ namespace Models
     shared_ptr<string> fileName_ {};
     // The size of the source file. Unit: bytes.
     shared_ptr<int64_t> fileSize_ {};
+    shared_ptr<bool> generateThumbnail_ {};
     shared_ptr<string> referenceId_ {};
     // The storage address. Perform the following operations to obtain the storage address: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
     // 
