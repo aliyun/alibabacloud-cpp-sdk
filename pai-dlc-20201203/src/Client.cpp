@@ -227,6 +227,71 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
+ * @summary 创建任务模板
+ *
+ * @param request CreateJobTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateJobTemplateResponse
+ */
+CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConstraints()) {
+    body["Constraints"] = request.getConstraints();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.getContent();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasMetadata()) {
+    body["Metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateJobTemplate"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateJobTemplateResponse>();
+}
+
+/**
+ * @summary 创建任务模板
+ *
+ * @param request CreateJobTemplateRequest
+ * @return CreateJobTemplateResponse
+ */
+CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createJobTemplateWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
  *
  * @param request CreateTensorboardRequest
@@ -384,6 +449,45 @@ DeleteJobResponse Client::deleteJob(const string &JobId, const DeleteJobRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteJobWithOptions(JobId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除任务模板
+ *
+ * @param request DeleteJobTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteJobTemplateResponse
+ */
+DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const string &TemplateId, const DeleteJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteJobTemplate"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates/" , Darabonba::Encode::Encoder::percentEncode(TemplateId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteJobTemplateResponse>();
+}
+
+/**
+ * @summary 删除任务模板
+ *
+ * @param request DeleteJobTemplateRequest
+ * @return DeleteJobTemplateResponse
+ */
+DeleteJobTemplateResponse Client::deleteJobTemplate(const string &TemplateId, const DeleteJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteJobTemplateWithOptions(TemplateId, request, headers, runtime);
 }
 
 /**
@@ -694,6 +798,51 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResult(const string &Jo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取任务模板详情
+ *
+ * @param request GetJobTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetJobTemplateResponse
+ */
+GetJobTemplateResponse Client::getJobTemplateWithOptions(const string &TemplateId, const GetJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasVersion()) {
+    query["Version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetJobTemplate"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates/" , Darabonba::Encode::Encoder::percentEncode(TemplateId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetJobTemplateResponse>();
+}
+
+/**
+ * @summary 获取任务模板详情
+ *
+ * @param request GetJobTemplateRequest
+ * @return GetJobTemplateResponse
+ */
+GetJobTemplateResponse Client::getJobTemplate(const string &TemplateId, const GetJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getJobTemplateWithOptions(TemplateId, request, headers, runtime);
 }
 
 /**
@@ -1182,6 +1331,79 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResults(const string
 }
 
 /**
+ * @summary 列出任务模板
+ *
+ * @param request ListJobTemplatesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListJobTemplatesResponse
+ */
+ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasUserId()) {
+    query["UserId"] = request.getUserId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListJobTemplates"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListJobTemplatesResponse>();
+}
+
+/**
+ * @summary 列出任务模板
+ *
+ * @param request ListJobTemplatesRequest
+ * @return ListJobTemplatesResponse
+ */
+ListJobTemplatesResponse Client::listJobTemplates(const ListJobTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listJobTemplatesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
  *
  * @param tmpReq ListJobsRequest
@@ -1494,6 +1716,51 @@ ListTensorboardsResponse Client::listTensorboards(const ListTensorboardsRequest 
 }
 
 /**
+ * @summary 设置任务模板默认版本
+ *
+ * @param request SetJobTemplateDefaultVersionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetJobTemplateDefaultVersionResponse
+ */
+SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersionWithOptions(const string &TemplateId, const SetJobTemplateDefaultVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasVersion()) {
+    body["Version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetJobTemplateDefaultVersion"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates/" , Darabonba::Encode::Encoder::percentEncode(TemplateId) , "/defaultversion")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetJobTemplateDefaultVersionResponse>();
+}
+
+/**
+ * @summary 设置任务模板默认版本
+ *
+ * @param request SetJobTemplateDefaultVersionRequest
+ * @return SetJobTemplateDefaultVersionResponse
+ */
+SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersion(const string &TemplateId, const SetJobTemplateDefaultVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return setJobTemplateDefaultVersionWithOptions(TemplateId, request, headers, runtime);
+}
+
+/**
  * @summary Starts a TensorBoard instance.
  *
  * @param request StartTensorboardRequest
@@ -1677,6 +1944,75 @@ UpdateJobResponse Client::updateJob(const string &JobId, const UpdateJobRequest 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateJobWithOptions(JobId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新任务模板
+ *
+ * @param request UpdateJobTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateJobTemplateResponse
+ */
+UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const string &TemplateId, const UpdateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConstraints()) {
+    body["Constraints"] = request.getConstraints();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.getContent();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasMetadata()) {
+    body["Metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasSetAsDefault()) {
+    body["SetAsDefault"] = request.getSetAsDefault();
+  }
+
+  if (!!request.hasTemplateName()) {
+    body["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateJobTemplate"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/jobtemplates/" , Darabonba::Encode::Encoder::percentEncode(TemplateId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateJobTemplateResponse>();
+}
+
+/**
+ * @summary 更新任务模板
+ *
+ * @param request UpdateJobTemplateRequest
+ * @return UpdateJobTemplateResponse
+ */
+UpdateJobTemplateResponse Client::updateJobTemplate(const string &TemplateId, const UpdateJobTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateJobTemplateWithOptions(TemplateId, request, headers, runtime);
 }
 
 /**

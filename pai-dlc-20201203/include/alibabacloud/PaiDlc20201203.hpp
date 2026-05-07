@@ -43,6 +43,24 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
+       * @summary 创建任务模板
+       *
+       * @param request CreateJobTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateJobTemplateResponse
+       */
+      Models::CreateJobTemplateResponse createJobTemplateWithOptions(const Models::CreateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建任务模板
+       *
+       * @param request CreateJobTemplateRequest
+       * @return CreateJobTemplateResponse
+       */
+      Models::CreateJobTemplateResponse createJobTemplate(const Models::CreateJobTemplateRequest &request);
+
+      /**
        * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
        *
        * @param request CreateTensorboardRequest
@@ -77,6 +95,24 @@ namespace PaiDlc20201203
        * @return DeleteJobResponse
        */
       Models::DeleteJobResponse deleteJob(const string &JobId, const Models::DeleteJobRequest &request);
+
+      /**
+       * @summary 删除任务模板
+       *
+       * @param request DeleteJobTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteJobTemplateResponse
+       */
+      Models::DeleteJobTemplateResponse deleteJobTemplateWithOptions(const string &TemplateId, const Models::DeleteJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除任务模板
+       *
+       * @param request DeleteJobTemplateRequest
+       * @return DeleteJobTemplateResponse
+       */
+      Models::DeleteJobTemplateResponse deleteJobTemplate(const string &TemplateId, const Models::DeleteJobTemplateRequest &request);
 
       /**
        * @summary Deletes a stopped TensorBoard.
@@ -189,6 +225,24 @@ namespace PaiDlc20201203
        * @return GetJobSanityCheckResultResponse
        */
       Models::GetJobSanityCheckResultResponse getJobSanityCheckResult(const string &JobId, const Models::GetJobSanityCheckResultRequest &request);
+
+      /**
+       * @summary 获取任务模板详情
+       *
+       * @param request GetJobTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetJobTemplateResponse
+       */
+      Models::GetJobTemplateResponse getJobTemplateWithOptions(const string &TemplateId, const Models::GetJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取任务模板详情
+       *
+       * @param request GetJobTemplateRequest
+       * @return GetJobTemplateResponse
+       */
+      Models::GetJobTemplateResponse getJobTemplate(const string &TemplateId, const Models::GetJobTemplateRequest &request);
 
       /**
        * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
@@ -357,6 +411,24 @@ namespace PaiDlc20201203
       Models::ListJobSanityCheckResultsResponse listJobSanityCheckResults(const string &JobId, const Models::ListJobSanityCheckResultsRequest &request);
 
       /**
+       * @summary 列出任务模板
+       *
+       * @param request ListJobTemplatesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListJobTemplatesResponse
+       */
+      Models::ListJobTemplatesResponse listJobTemplatesWithOptions(const Models::ListJobTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出任务模板
+       *
+       * @param request ListJobTemplatesRequest
+       * @return ListJobTemplatesResponse
+       */
+      Models::ListJobTemplatesResponse listJobTemplates(const Models::ListJobTemplatesRequest &request);
+
+      /**
        * @summary Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
        *
        * @param tmpReq ListJobsRequest
@@ -391,6 +463,24 @@ namespace PaiDlc20201203
        * @return ListTensorboardsResponse
        */
       Models::ListTensorboardsResponse listTensorboards(const Models::ListTensorboardsRequest &request);
+
+      /**
+       * @summary 设置任务模板默认版本
+       *
+       * @param request SetJobTemplateDefaultVersionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetJobTemplateDefaultVersionResponse
+       */
+      Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersionWithOptions(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置任务模板默认版本
+       *
+       * @param request SetJobTemplateDefaultVersionRequest
+       * @return SetJobTemplateDefaultVersionResponse
+       */
+      Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersion(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request);
 
       /**
        * @summary Starts a TensorBoard instance.
@@ -463,6 +553,24 @@ namespace PaiDlc20201203
        * @return UpdateJobResponse
        */
       Models::UpdateJobResponse updateJob(const string &JobId, const Models::UpdateJobRequest &request);
+
+      /**
+       * @summary 更新任务模板
+       *
+       * @param request UpdateJobTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateJobTemplateResponse
+       */
+      Models::UpdateJobTemplateResponse updateJobTemplateWithOptions(const string &TemplateId, const Models::UpdateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新任务模板
+       *
+       * @param request UpdateJobTemplateRequest
+       * @return UpdateJobTemplateResponse
+       */
+      Models::UpdateJobTemplateResponse updateJobTemplate(const string &TemplateId, const Models::UpdateJobTemplateRequest &request);
 
       /**
        * @summary Updates a TensorBoard instance.
