@@ -646,7 +646,7 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
 }
 
 /**
- * @summary Create a bill report subscription.
+ * @summary Creates a billing report subscription.
  *
  * @param request CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +727,7 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 }
 
 /**
- * @summary Create a bill report subscription.
+ * @summary Creates a billing report subscription.
  *
  * @param request CreateReportDefinitionRequest
  * @return CreateReportDefinitionResponse
@@ -956,7 +956,7 @@ DeleteReportDefinitionResponse Client::deleteReportDefinition(const DeleteReport
 }
 
 /**
- * @summary 查询优惠券列表
+ * @summary Queries the list of coupons.
  *
  * @param tmpReq DescribeCouponRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1015,6 +1015,10 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
     query["ExpireStartDate"] = request.getExpireStartDate();
   }
 
+  if (!!request.hasIncludeShare()) {
+    query["IncludeShare"] = request.getIncludeShare();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }
@@ -1029,6 +1033,10 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
   }
 
   if (!!request.hasStatus()) {
@@ -1053,7 +1061,7 @@ DescribeCouponResponse Client::describeCouponWithOptions(const DescribeCouponReq
 }
 
 /**
- * @summary 查询优惠券列表
+ * @summary Queries the list of coupons.
  *
  * @param request DescribeCouponRequest
  * @return DescribeCouponResponse
@@ -1064,7 +1072,7 @@ DescribeCouponResponse Client::describeCoupon(const DescribeCouponRequest &reque
 }
 
 /**
- * @summary 查询优惠券可用商品列表
+ * @summary Query the list of products for which a coupon is applicable.
  *
  * @param tmpReq DescribeCouponItemListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1129,7 @@ DescribeCouponItemListResponse Client::describeCouponItemListWithOptions(const D
 }
 
 /**
- * @summary 查询优惠券可用商品列表
+ * @summary Query the list of products for which a coupon is applicable.
  *
  * @param request DescribeCouponItemListRequest
  * @return DescribeCouponItemListResponse
@@ -2132,7 +2140,6 @@ ListInvoiceCandidateResponse Client::listInvoiceCandidate(const ListInvoiceCandi
 /**
  * @summary 发票抬头查询服务
  *
- * @param request ListInvoiceTitleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInvoiceTitleResponse
  */

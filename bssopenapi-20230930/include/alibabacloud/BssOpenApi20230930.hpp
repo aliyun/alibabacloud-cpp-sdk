@@ -174,7 +174,7 @@ namespace BssOpenApi20230930
       Models::CreateInvoiceResponse createInvoice(const Models::CreateInvoiceRequest &request);
 
       /**
-       * @summary Create a bill report subscription.
+       * @summary Creates a billing report subscription.
        *
        * @param request CreateReportDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace BssOpenApi20230930
       Models::CreateReportDefinitionResponse createReportDefinitionWithOptions(const Models::CreateReportDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a bill report subscription.
+       * @summary Creates a billing report subscription.
        *
        * @param request CreateReportDefinitionRequest
        * @return CreateReportDefinitionResponse
@@ -259,7 +259,7 @@ namespace BssOpenApi20230930
       Models::DeleteReportDefinitionResponse deleteReportDefinition(const Models::DeleteReportDefinitionRequest &request);
 
       /**
-       * @summary 查询优惠券列表
+       * @summary Queries the list of coupons.
        *
        * @param tmpReq DescribeCouponRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace BssOpenApi20230930
       Models::DescribeCouponResponse describeCouponWithOptions(const Models::DescribeCouponRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询优惠券列表
+       * @summary Queries the list of coupons.
        *
        * @param request DescribeCouponRequest
        * @return DescribeCouponResponse
@@ -276,7 +276,7 @@ namespace BssOpenApi20230930
       Models::DescribeCouponResponse describeCoupon(const Models::DescribeCouponRequest &request);
 
       /**
-       * @summary 查询优惠券可用商品列表
+       * @summary Query the list of products for which a coupon is applicable.
        *
        * @param tmpReq DescribeCouponItemListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace BssOpenApi20230930
       Models::DescribeCouponItemListResponse describeCouponItemListWithOptions(const Models::DescribeCouponItemListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询优惠券可用商品列表
+       * @summary Query the list of products for which a coupon is applicable.
        *
        * @param request DescribeCouponItemListRequest
        * @return DescribeCouponItemListResponse
@@ -584,7 +584,6 @@ namespace BssOpenApi20230930
       /**
        * @summary 发票抬头查询服务
        *
-       * @param request ListInvoiceTitleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListInvoiceTitleResponse
        */

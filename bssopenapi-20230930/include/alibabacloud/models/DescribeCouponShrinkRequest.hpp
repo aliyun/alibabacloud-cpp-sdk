@@ -23,10 +23,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EffectiveStartTime, effectiveStartTime_);
       DARABONBA_PTR_TO_JSON(ExpireEndDate, expireEndDate_);
       DARABONBA_PTR_TO_JSON(ExpireStartDate, expireStartDate_);
+      DARABONBA_PTR_TO_JSON(IncludeShare, includeShare_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(Nbid, nbid_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCouponShrinkRequest& obj) { 
@@ -40,10 +42,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EffectiveStartTime, effectiveStartTime_);
       DARABONBA_PTR_FROM_JSON(ExpireEndDate, expireEndDate_);
       DARABONBA_PTR_FROM_JSON(ExpireStartDate, expireStartDate_);
+      DARABONBA_PTR_FROM_JSON(IncludeShare, includeShare_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(Nbid, nbid_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
     DescribeCouponShrinkRequest() = default ;
@@ -59,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->couponId_ == nullptr
         && this->couponNo_ == nullptr && this->couponTemplateIdListShrink_ == nullptr && this->couponType_ == nullptr && this->currentPage_ == nullptr && this->ecIdAccountIdsShrink_ == nullptr
-        && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->expireEndDate_ == nullptr && this->expireStartDate_ == nullptr && this->maxResults_ == nullptr
-        && this->nbid_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+        && this->effectiveEndTime_ == nullptr && this->effectiveStartTime_ == nullptr && this->expireEndDate_ == nullptr && this->expireStartDate_ == nullptr && this->includeShare_ == nullptr
+        && this->maxResults_ == nullptr && this->nbid_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr && this->productCode_ == nullptr
+        && this->status_ == nullptr; };
     // couponId Field Functions 
     bool hasCouponId() const { return this->couponId_ != nullptr;};
     void deleteCouponId() { this->couponId_ = nullptr;};
@@ -131,6 +136,13 @@ namespace Models
     inline DescribeCouponShrinkRequest& setExpireStartDate(int64_t expireStartDate) { DARABONBA_PTR_SET_VALUE(expireStartDate_, expireStartDate) };
 
 
+    // includeShare Field Functions 
+    bool hasIncludeShare() const { return this->includeShare_ != nullptr;};
+    void deleteIncludeShare() { this->includeShare_ = nullptr;};
+    inline bool getIncludeShare() const { DARABONBA_PTR_GET_DEFAULT(includeShare_, false) };
+    inline DescribeCouponShrinkRequest& setIncludeShare(bool includeShare) { DARABONBA_PTR_SET_VALUE(includeShare_, includeShare) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -159,6 +171,13 @@ namespace Models
     inline DescribeCouponShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline DescribeCouponShrinkRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -178,11 +197,13 @@ namespace Models
     shared_ptr<int64_t> effectiveStartTime_ {};
     shared_ptr<int64_t> expireEndDate_ {};
     shared_ptr<int64_t> expireStartDate_ {};
+    shared_ptr<bool> includeShare_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nbid_ {};
     shared_ptr<string> nextToken_ {};
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productCode_ {};
     shared_ptr<string> status_ {};
   };
 
