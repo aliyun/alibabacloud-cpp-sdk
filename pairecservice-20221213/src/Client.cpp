@@ -2024,6 +2024,10 @@ CreateRecallManagementServiceVersionResponse Client::createRecallManagementServi
     body["Configs"] = request.getConfigs();
   }
 
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
   if (!!request.hasSourceRecallManagementServiceVersionId()) {
     body["SourceRecallManagementServiceVersionId"] = request.getSourceRecallManagementServiceVersionId();
   }
@@ -3138,6 +3142,10 @@ DeleteDataDiagnosisResponse Client::deleteDataDiagnosis(const string &DataDiagno
 DeleteEngineConfigResponse Client::deleteEngineConfigWithOptions(const string &EngineConfigId, const DeleteEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDeleteAll()) {
+    query["DeleteAll"] = request.getDeleteAll();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }

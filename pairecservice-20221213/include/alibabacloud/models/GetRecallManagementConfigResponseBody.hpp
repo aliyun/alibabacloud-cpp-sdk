@@ -39,13 +39,17 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const NetworkConfigs& obj) { 
         DARABONBA_PTR_TO_JSON(PrivateLinkAddress, privateLinkAddress_);
+        DARABONBA_PTR_TO_JSON(PublicEndpoint, publicEndpoint_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Token, token_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
         DARABONBA_PTR_TO_JSON(VswitchIds, vswitchIds_);
       };
       friend void from_json(const Darabonba::Json& j, NetworkConfigs& obj) { 
         DARABONBA_PTR_FROM_JSON(PrivateLinkAddress, privateLinkAddress_);
+        DARABONBA_PTR_FROM_JSON(PublicEndpoint, publicEndpoint_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Token, token_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
         DARABONBA_PTR_FROM_JSON(VswitchIds, vswitchIds_);
       };
@@ -61,7 +65,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->privateLinkAddress_ == nullptr
-        && this->status_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->publicEndpoint_ == nullptr && this->status_ == nullptr && this->token_ == nullptr && this->vpcId_ == nullptr && this->vswitchIds_ == nullptr; };
       // privateLinkAddress Field Functions 
       bool hasPrivateLinkAddress() const { return this->privateLinkAddress_ != nullptr;};
       void deletePrivateLinkAddress() { this->privateLinkAddress_ = nullptr;};
@@ -69,11 +73,25 @@ namespace Models
       inline NetworkConfigs& setPrivateLinkAddress(string privateLinkAddress) { DARABONBA_PTR_SET_VALUE(privateLinkAddress_, privateLinkAddress) };
 
 
+      // publicEndpoint Field Functions 
+      bool hasPublicEndpoint() const { return this->publicEndpoint_ != nullptr;};
+      void deletePublicEndpoint() { this->publicEndpoint_ = nullptr;};
+      inline string getPublicEndpoint() const { DARABONBA_PTR_GET_DEFAULT(publicEndpoint_, "") };
+      inline NetworkConfigs& setPublicEndpoint(string publicEndpoint) { DARABONBA_PTR_SET_VALUE(publicEndpoint_, publicEndpoint) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
       inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
       inline NetworkConfigs& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // token Field Functions 
+      bool hasToken() const { return this->token_ != nullptr;};
+      void deleteToken() { this->token_ = nullptr;};
+      inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+      inline NetworkConfigs& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
       // vpcId Field Functions 
@@ -94,7 +112,9 @@ namespace Models
 
     protected:
       shared_ptr<string> privateLinkAddress_ {};
+      shared_ptr<string> publicEndpoint_ {};
       shared_ptr<string> status_ {};
+      shared_ptr<string> token_ {};
       shared_ptr<string> vpcId_ {};
       shared_ptr<map<string, string>> vswitchIds_ {};
     };

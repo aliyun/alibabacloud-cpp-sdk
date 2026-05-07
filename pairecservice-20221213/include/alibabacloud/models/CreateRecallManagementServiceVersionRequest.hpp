@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateRecallManagementServiceVersionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Configs, configs_);
+      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(SourceRecallManagementServiceVersionId, sourceRecallManagementServiceVersionId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateRecallManagementServiceVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Configs, configs_);
+      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(SourceRecallManagementServiceVersionId, sourceRecallManagementServiceVersionId_);
     };
     CreateRecallManagementServiceVersionRequest() = default ;
@@ -621,7 +623,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->configs_ == nullptr
-        && this->sourceRecallManagementServiceVersionId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->sourceRecallManagementServiceVersionId_ == nullptr; };
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
@@ -629,6 +631,13 @@ namespace Models
     inline CreateRecallManagementServiceVersionRequest::Configs getConfigs() { DARABONBA_PTR_GET(configs_, CreateRecallManagementServiceVersionRequest::Configs) };
     inline CreateRecallManagementServiceVersionRequest& setConfigs(const CreateRecallManagementServiceVersionRequest::Configs & configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
     inline CreateRecallManagementServiceVersionRequest& setConfigs(CreateRecallManagementServiceVersionRequest::Configs && configs) { DARABONBA_PTR_SET_RVALUE(configs_, configs) };
+
+
+    // instanceId Field Functions 
+    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+    void deleteInstanceId() { this->instanceId_ = nullptr;};
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline CreateRecallManagementServiceVersionRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // sourceRecallManagementServiceVersionId Field Functions 
@@ -640,6 +649,7 @@ namespace Models
 
   protected:
     shared_ptr<CreateRecallManagementServiceVersionRequest::Configs> configs_ {};
+    shared_ptr<string> instanceId_ {};
     shared_ptr<string> sourceRecallManagementServiceVersionId_ {};
   };
 

@@ -13,9 +13,11 @@ namespace Models
   class DeleteEngineConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteEngineConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DeleteAll, deleteAll_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteEngineConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DeleteAll, deleteAll_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
     };
     DeleteEngineConfigRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr; };
+    virtual bool empty() const override { return this->deleteAll_ == nullptr
+        && this->instanceId_ == nullptr; };
+    // deleteAll Field Functions 
+    bool hasDeleteAll() const { return this->deleteAll_ != nullptr;};
+    void deleteDeleteAll() { this->deleteAll_ = nullptr;};
+    inline bool getDeleteAll() const { DARABONBA_PTR_GET_DEFAULT(deleteAll_, false) };
+    inline DeleteEngineConfigRequest& setDeleteAll(bool deleteAll) { DARABONBA_PTR_SET_VALUE(deleteAll_, deleteAll) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> deleteAll_ {};
     shared_ptr<string> instanceId_ {};
   };
 
