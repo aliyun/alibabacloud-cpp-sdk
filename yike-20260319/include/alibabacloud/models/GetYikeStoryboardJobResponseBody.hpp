@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExceptionStoryboardIds, exceptionStoryboardIds_);
         DARABONBA_PTR_TO_JSON(FailureShotList, failureShotList_);
         DARABONBA_PTR_TO_JSON(OutputUrl, outputUrl_);
+        DARABONBA_PTR_TO_JSON(SrtFileUrl, srtFileUrl_);
         DARABONBA_PTR_TO_JSON(StoryboardInfoList, storyboardInfoList_);
         DARABONBA_PTR_TO_JSON(SuccessStoryboardIds, successStoryboardIds_);
         DARABONBA_PTR_TO_JSON(SuccessStoryboardList, successStoryboardList_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExceptionStoryboardIds, exceptionStoryboardIds_);
         DARABONBA_PTR_FROM_JSON(FailureShotList, failureShotList_);
         DARABONBA_PTR_FROM_JSON(OutputUrl, outputUrl_);
+        DARABONBA_PTR_FROM_JSON(SrtFileUrl, srtFileUrl_);
         DARABONBA_PTR_FROM_JSON(StoryboardInfoList, storyboardInfoList_);
         DARABONBA_PTR_FROM_JSON(SuccessStoryboardIds, successStoryboardIds_);
         DARABONBA_PTR_FROM_JSON(SuccessStoryboardList, successStoryboardList_);
@@ -67,7 +69,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->exceptionStoryboardIds_ == nullptr
-        && this->failureShotList_ == nullptr && this->outputUrl_ == nullptr && this->storyboardInfoList_ == nullptr && this->successStoryboardIds_ == nullptr && this->successStoryboardList_ == nullptr; };
+        && this->failureShotList_ == nullptr && this->outputUrl_ == nullptr && this->srtFileUrl_ == nullptr && this->storyboardInfoList_ == nullptr && this->successStoryboardIds_ == nullptr
+        && this->successStoryboardList_ == nullptr; };
       // exceptionStoryboardIds Field Functions 
       bool hasExceptionStoryboardIds() const { return this->exceptionStoryboardIds_ != nullptr;};
       void deleteExceptionStoryboardIds() { this->exceptionStoryboardIds_ = nullptr;};
@@ -87,6 +90,13 @@ namespace Models
       void deleteOutputUrl() { this->outputUrl_ = nullptr;};
       inline string getOutputUrl() const { DARABONBA_PTR_GET_DEFAULT(outputUrl_, "") };
       inline JobResult& setOutputUrl(string outputUrl) { DARABONBA_PTR_SET_VALUE(outputUrl_, outputUrl) };
+
+
+      // srtFileUrl Field Functions 
+      bool hasSrtFileUrl() const { return this->srtFileUrl_ != nullptr;};
+      void deleteSrtFileUrl() { this->srtFileUrl_ = nullptr;};
+      inline string getSrtFileUrl() const { DARABONBA_PTR_GET_DEFAULT(srtFileUrl_, "") };
+      inline JobResult& setSrtFileUrl(string srtFileUrl) { DARABONBA_PTR_SET_VALUE(srtFileUrl_, srtFileUrl) };
 
 
       // storyboardInfoList Field Functions 
@@ -114,6 +124,7 @@ namespace Models
       shared_ptr<string> exceptionStoryboardIds_ {};
       shared_ptr<string> failureShotList_ {};
       shared_ptr<string> outputUrl_ {};
+      shared_ptr<string> srtFileUrl_ {};
       shared_ptr<string> storyboardInfoList_ {};
       shared_ptr<string> successStoryboardIds_ {};
       shared_ptr<string> successStoryboardList_ {};
