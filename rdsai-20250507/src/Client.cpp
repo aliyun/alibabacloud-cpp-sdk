@@ -1830,6 +1830,56 @@ EnableAgentRuntimeResponse Client::enableAgentRuntime(const EnableAgentRuntimeRe
 }
 
 /**
+ * @summary GetAvailableLLMModels
+ *
+ * @param request GetAvailableLLMModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAvailableLLMModelsResponse
+ */
+GetAvailableLLMModelsResponse Client::getAvailableLLMModelsWithOptions(const GetAvailableLLMModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAvailableLLMModels"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAvailableLLMModelsResponse>();
+}
+
+/**
+ * @summary GetAvailableLLMModels
+ *
+ * @param request GetAvailableLLMModelsRequest
+ * @return GetAvailableLLMModelsResponse
+ */
+GetAvailableLLMModelsResponse Client::getAvailableLLMModels(const GetAvailableLLMModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAvailableLLMModelsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the history conversations of a user.
  *
  * @param request GetConversationsRequest
@@ -2402,6 +2452,64 @@ ListCustomAgentToolsResponse Client::listCustomAgentToolsWithOptions(const Darab
 ListCustomAgentToolsResponse Client::listCustomAgentTools() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCustomAgentToolsWithOptions(runtime);
+}
+
+/**
+ * @summary ListLLMTokenUsage
+ *
+ * @param request ListLLMTokenUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLLMTokenUsageResponse
+ */
+ListLLMTokenUsageResponse Client::listLLMTokenUsageWithOptions(const ListLLMTokenUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLLMTokenUsage"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLLMTokenUsageResponse>();
+}
+
+/**
+ * @summary ListLLMTokenUsage
+ *
+ * @param request ListLLMTokenUsageRequest
+ * @return ListLLMTokenUsageResponse
+ */
+ListLLMTokenUsageResponse Client::listLLMTokenUsage(const ListLLMTokenUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listLLMTokenUsageWithOptions(request, runtime);
 }
 
 /**

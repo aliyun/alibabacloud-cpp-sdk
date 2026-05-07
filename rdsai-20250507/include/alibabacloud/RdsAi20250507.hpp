@@ -621,6 +621,23 @@ namespace RdsAi20250507
       Models::EnableAgentRuntimeResponse enableAgentRuntime(const Models::EnableAgentRuntimeRequest &request);
 
       /**
+       * @summary GetAvailableLLMModels
+       *
+       * @param request GetAvailableLLMModelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAvailableLLMModelsResponse
+       */
+      Models::GetAvailableLLMModelsResponse getAvailableLLMModelsWithOptions(const Models::GetAvailableLLMModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetAvailableLLMModels
+       *
+       * @param request GetAvailableLLMModelsRequest
+       * @return GetAvailableLLMModelsResponse
+       */
+      Models::GetAvailableLLMModelsResponse getAvailableLLMModels(const Models::GetAvailableLLMModelsRequest &request);
+
+      /**
        * @summary Queries the history conversations of a user.
        *
        * @param request GetConversationsRequest
@@ -821,6 +838,23 @@ namespace RdsAi20250507
        * @return ListCustomAgentToolsResponse
        */
       Models::ListCustomAgentToolsResponse listCustomAgentTools();
+
+      /**
+       * @summary ListLLMTokenUsage
+       *
+       * @param request ListLLMTokenUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLLMTokenUsageResponse
+       */
+      Models::ListLLMTokenUsageResponse listLLMTokenUsageWithOptions(const Models::ListLLMTokenUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListLLMTokenUsage
+       *
+       * @param request ListLLMTokenUsageRequest
+       * @return ListLLMTokenUsageResponse
+       */
+      Models::ListLLMTokenUsageResponse listLLMTokenUsage(const Models::ListLLMTokenUsageRequest &request);
 
       /**
        * @summary Queries the basic information of all inspection configurations under a specified user.

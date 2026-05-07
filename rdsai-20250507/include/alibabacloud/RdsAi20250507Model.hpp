@@ -94,6 +94,9 @@
 #include <alibabacloud/models/EnableAgentRuntimeRequest.hpp>
 #include <alibabacloud/models/EnableAgentRuntimeResponseBody.hpp>
 #include <alibabacloud/models/EnableAgentRuntimeResponse.hpp>
+#include <alibabacloud/models/GetAvailableLLMModelsRequest.hpp>
+#include <alibabacloud/models/GetAvailableLLMModelsResponseBody.hpp>
+#include <alibabacloud/models/GetAvailableLLMModelsResponse.hpp>
 #include <alibabacloud/models/GetConversationsRequest.hpp>
 #include <alibabacloud/models/GetConversationsResponseBody.hpp>
 #include <alibabacloud/models/GetConversationsResponse.hpp>
@@ -129,6 +132,9 @@
 #include <alibabacloud/models/ListCustomAgentResponse.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentToolsResponse.hpp>
+#include <alibabacloud/models/ListLLMTokenUsageRequest.hpp>
+#include <alibabacloud/models/ListLLMTokenUsageResponseBody.hpp>
+#include <alibabacloud/models/ListLLMTokenUsageResponse.hpp>
 #include <alibabacloud/models/ListScheduledTasksRequest.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponseBody.hpp>
 #include <alibabacloud/models/ListScheduledTasksResponse.hpp>
