@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateDataAgentWorkspaceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DMSUnit, DMSUnit_);
+      DARABONBA_PTR_TO_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
       DARABONBA_PTR_TO_JSON(WorkspaceDesc, workspaceDesc_);
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataAgentWorkspaceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DMSUnit, DMSUnit_);
+      DARABONBA_PTR_FROM_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
       DARABONBA_PTR_FROM_JSON(WorkspaceDesc, workspaceDesc_);
       DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DMSUnit_ == nullptr
-        && this->workspaceDesc_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->isSessionShareEnabled_ == nullptr && this->workspaceDesc_ == nullptr && this->workspaceName_ == nullptr; };
     // DMSUnit Field Functions 
     bool hasDMSUnit() const { return this->DMSUnit_ != nullptr;};
     void deleteDMSUnit() { this->DMSUnit_ = nullptr;};
     inline string getDMSUnit() const { DARABONBA_PTR_GET_DEFAULT(DMSUnit_, "") };
     inline CreateDataAgentWorkspaceRequest& setDMSUnit(string DMSUnit) { DARABONBA_PTR_SET_VALUE(DMSUnit_, DMSUnit) };
+
+
+    // isSessionShareEnabled Field Functions 
+    bool hasIsSessionShareEnabled() const { return this->isSessionShareEnabled_ != nullptr;};
+    void deleteIsSessionShareEnabled() { this->isSessionShareEnabled_ = nullptr;};
+    inline bool getIsSessionShareEnabled() const { DARABONBA_PTR_GET_DEFAULT(isSessionShareEnabled_, false) };
+    inline CreateDataAgentWorkspaceRequest& setIsSessionShareEnabled(bool isSessionShareEnabled) { DARABONBA_PTR_SET_VALUE(isSessionShareEnabled_, isSessionShareEnabled) };
 
 
     // workspaceDesc Field Functions 
@@ -58,6 +67,7 @@ namespace Models
 
   protected:
     shared_ptr<string> DMSUnit_ {};
+    shared_ptr<bool> isSessionShareEnabled_ {};
     shared_ptr<string> workspaceDesc_ {};
     shared_ptr<string> workspaceName_ {};
   };

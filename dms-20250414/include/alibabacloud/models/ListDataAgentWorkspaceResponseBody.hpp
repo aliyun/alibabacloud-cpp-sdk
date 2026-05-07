@@ -75,6 +75,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Creator, creator_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
           DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_TO_JSON(RoleName, roleName_);
           DARABONBA_PTR_TO_JSON(TotalMember, totalMember_);
@@ -86,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Creator, creator_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(IsSessionShareEnabled, isSessionShareEnabled_);
           DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_FROM_JSON(RoleName, roleName_);
           DARABONBA_PTR_FROM_JSON(TotalMember, totalMember_);
@@ -105,8 +107,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->creator_ == nullptr && this->description_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr && this->totalMember_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->creator_ == nullptr && this->description_ == nullptr && this->isSessionShareEnabled_ == nullptr && this->modifyTime_ == nullptr && this->roleName_ == nullptr
+        && this->totalMember_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -126,6 +128,13 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Content& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // isSessionShareEnabled Field Functions 
+        bool hasIsSessionShareEnabled() const { return this->isSessionShareEnabled_ != nullptr;};
+        void deleteIsSessionShareEnabled() { this->isSessionShareEnabled_ = nullptr;};
+        inline bool getIsSessionShareEnabled() const { DARABONBA_PTR_GET_DEFAULT(isSessionShareEnabled_, false) };
+        inline Content& setIsSessionShareEnabled(bool isSessionShareEnabled) { DARABONBA_PTR_SET_VALUE(isSessionShareEnabled_, isSessionShareEnabled) };
 
 
         // modifyTime Field Functions 
@@ -174,6 +183,7 @@ namespace Models
         shared_ptr<int64_t> createTime_ {};
         shared_ptr<string> creator_ {};
         shared_ptr<string> description_ {};
+        shared_ptr<bool> isSessionShareEnabled_ {};
         shared_ptr<int64_t> modifyTime_ {};
         shared_ptr<string> roleName_ {};
         shared_ptr<int64_t> totalMember_ {};

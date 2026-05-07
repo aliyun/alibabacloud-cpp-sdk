@@ -634,6 +634,10 @@ CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(con
     query["DMSUnit"] = request.getDMSUnit();
   }
 
+  if (!!request.hasIsSessionShareEnabled()) {
+    query["IsSessionShareEnabled"] = request.getIsSessionShareEnabled();
+  }
+
   if (!!request.hasWorkspaceDesc()) {
     query["WorkspaceDesc"] = request.getWorkspaceDesc();
   }
@@ -3857,6 +3861,10 @@ UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfoWithOptions(con
   json query = {};
   if (!!request.hasDMSUnit()) {
     query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasIsSessionShareEnabled()) {
+    query["IsSessionShareEnabled"] = request.getIsSessionShareEnabled();
   }
 
   if (!!request.hasWorkspaceDesc()) {
