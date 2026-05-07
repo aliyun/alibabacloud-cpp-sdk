@@ -417,6 +417,9 @@
 #include <alibabacloud/models/EnableRealtimeLogDeliveryRequest.hpp>
 #include <alibabacloud/models/EnableRealtimeLogDeliveryResponseBody.hpp>
 #include <alibabacloud/models/EnableRealtimeLogDeliveryResponse.hpp>
+#include <alibabacloud/models/GenerateCdnDiagnoseRequest.hpp>
+#include <alibabacloud/models/GenerateCdnDiagnoseResponseBody.hpp>
+#include <alibabacloud/models/GenerateCdnDiagnoseResponse.hpp>
 #include <alibabacloud/models/GetGrayDomainFunctionRequest.hpp>
 #include <alibabacloud/models/GetGrayDomainFunctionResponseBody.hpp>
 #include <alibabacloud/models/GetGrayDomainFunctionResponse.hpp>

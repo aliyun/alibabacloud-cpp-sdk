@@ -1291,7 +1291,6 @@ DeleteCdnDomainResponse Client::deleteCdnDomain(const DeleteCdnDomainRequest &re
  *
  * @description >  You can call this API operation up to three times per second per account.
  *
- * @param request DeleteCdnSubTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteCdnSubTaskResponse
  */
@@ -3113,7 +3112,6 @@ DescribeCdnServiceResponse Client::describeCdnService(const DescribeCdnServiceRe
  * @description *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
  * *   You can call this operation up to three times per second per account.
  *
- * @param request DescribeCdnSubListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCdnSubListResponse
  */
@@ -7483,7 +7481,6 @@ DescribeRefreshTasksResponse Client::describeRefreshTasks(const DescribeRefreshT
  *
  * @description >The maximum number of times that each user can call this operation per second is 30.
  *
- * @param request DescribeStagingIpRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeStagingIpResponse
  */
@@ -7678,7 +7675,6 @@ DescribeUserCdnStatusResponse Client::describeUserCdnStatus(const DescribeUserCd
  *
  * @description > You can call this operation up to 100 times per second per account.
  *
- * @param request DescribeUserCertificateExpireCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserCertificateExpireCountResponse
  */
@@ -7869,7 +7865,6 @@ DescribeUserDomainsResponse Client::describeUserDomains(const DescribeUserDomain
  *
  * @description > You can call this operation up to 100 times per second per account.
  *
- * @param request DescribeUserTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserTagsResponse
  */
@@ -8172,6 +8167,48 @@ EnableRealtimeLogDeliveryResponse Client::enableRealtimeLogDelivery(const Enable
 }
 
 /**
+ * @summary Generates a link to the detection tool based on the access URL.
+ *
+ * @param request GenerateCdnDiagnoseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateCdnDiagnoseResponse
+ */
+GenerateCdnDiagnoseResponse Client::generateCdnDiagnoseWithOptions(const GenerateCdnDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUrl()) {
+    query["Url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateCdnDiagnose"},
+    {"version" , "2018-05-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateCdnDiagnoseResponse>();
+}
+
+/**
+ * @summary Generates a link to the detection tool based on the access URL.
+ *
+ * @param request GenerateCdnDiagnoseRequest
+ * @return GenerateCdnDiagnoseResponse
+ */
+GenerateCdnDiagnoseResponse Client::generateCdnDiagnose(const GenerateCdnDiagnoseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateCdnDiagnoseWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
  *
  * @param request GetGrayDomainFunctionRequest
@@ -8304,7 +8341,6 @@ ListFCTriggerResponse Client::listFCTrigger(const ListFCTriggerRequest &request)
 /**
  * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
  *
- * @param request ListRealtimeLogDeliveryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRealtimeLogDeliveryResponse
  */
@@ -8381,7 +8417,6 @@ ListRealtimeLogDeliveryDomainsResponse Client::listRealtimeLogDeliveryDomains(co
  *
  * @description > You can call this operation up to 100 times per second per account.
  *
- * @param request ListRealtimeLogDeliveryInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRealtimeLogDeliveryInfosResponse
  */
@@ -8480,7 +8515,6 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
  *
  * @description > You can call this operation up to 100 times per second per account.
  *
- * @param request ListUserCustomLogConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListUserCustomLogConfigResponse
  */

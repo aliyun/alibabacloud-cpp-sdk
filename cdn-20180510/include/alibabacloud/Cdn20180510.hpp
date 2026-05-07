@@ -473,7 +473,6 @@ namespace Cdn20180510
        *
        * @description >  You can call this API operation up to three times per second per account.
        *
-       * @param request DeleteCdnSubTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteCdnSubTaskResponse
        */
@@ -1204,7 +1203,6 @@ namespace Cdn20180510
        * @description *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
        * *   You can call this operation up to three times per second per account.
        *
-       * @param request DescribeCdnSubListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCdnSubListResponse
        */
@@ -3187,7 +3185,6 @@ namespace Cdn20180510
        *
        * @description >The maximum number of times that each user can call this operation per second is 30.
        *
-       * @param request DescribeStagingIpRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeStagingIpResponse
        */
@@ -3270,7 +3267,6 @@ namespace Cdn20180510
        *
        * @description > You can call this operation up to 100 times per second per account.
        *
-       * @param request DescribeUserCertificateExpireCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUserCertificateExpireCountResponse
        */
@@ -3330,7 +3326,6 @@ namespace Cdn20180510
        *
        * @description > You can call this operation up to 100 times per second per account.
        *
-       * @param request DescribeUserTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUserTagsResponse
        */
@@ -3470,6 +3465,23 @@ namespace Cdn20180510
       Models::EnableRealtimeLogDeliveryResponse enableRealtimeLogDelivery(const Models::EnableRealtimeLogDeliveryRequest &request);
 
       /**
+       * @summary Generates a link to the detection tool based on the access URL.
+       *
+       * @param request GenerateCdnDiagnoseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateCdnDiagnoseResponse
+       */
+      Models::GenerateCdnDiagnoseResponse generateCdnDiagnoseWithOptions(const Models::GenerateCdnDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Generates a link to the detection tool based on the access URL.
+       *
+       * @param request GenerateCdnDiagnoseRequest
+       * @return GenerateCdnDiagnoseResponse
+       */
+      Models::GenerateCdnDiagnoseResponse generateCdnDiagnose(const Models::GenerateCdnDiagnoseRequest &request);
+
+      /**
        * @summary Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
        *
        * @param request GetGrayDomainFunctionRequest
@@ -3531,7 +3543,6 @@ namespace Cdn20180510
       /**
        * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
        *
-       * @param request ListRealtimeLogDeliveryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRealtimeLogDeliveryResponse
        */
@@ -3570,7 +3581,6 @@ namespace Cdn20180510
        *
        * @description > You can call this operation up to 100 times per second per account.
        *
-       * @param request ListRealtimeLogDeliveryInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRealtimeLogDeliveryInfosResponse
        */
@@ -3607,7 +3617,6 @@ namespace Cdn20180510
        *
        * @description > You can call this operation up to 100 times per second per account.
        *
-       * @param request ListUserCustomLogConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListUserCustomLogConfigResponse
        */
