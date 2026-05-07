@@ -1229,7 +1229,6 @@ namespace Polardbx20200202
       Models::DescribeRdsVswitchesResponse describeRdsVswitches(const Models::DescribeRdsVswitchesRequest &request);
 
       /**
-       * @param request DescribeRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeRegionsResponse
        */
@@ -1936,6 +1935,27 @@ namespace Polardbx20200202
        * @return RestartDataImportTaskResponse
        */
       Models::RestartDataImportTaskResponse restartDataImportTask(const Models::RestartDataImportTaskRequest &request);
+
+      /**
+       * @summary 克隆PolarDB-X实例
+       *
+       * @description ****
+       *
+       * @param request RestoreDBInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RestoreDBInstanceResponse
+       */
+      Models::RestoreDBInstanceResponse restoreDBInstanceWithOptions(const Models::RestoreDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 克隆PolarDB-X实例
+       *
+       * @description ****
+       *
+       * @param request RestoreDBInstanceRequest
+       * @return RestoreDBInstanceResponse
+       */
+      Models::RestoreDBInstanceResponse restoreDBInstance(const Models::RestoreDBInstanceRequest &request);
 
       /**
        * @summary 跳过评估迁移的当前步骤

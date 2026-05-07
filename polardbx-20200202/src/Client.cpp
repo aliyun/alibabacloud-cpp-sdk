@@ -4115,7 +4115,6 @@ DescribeRdsVswitchesResponse Client::describeRdsVswitches(const DescribeRdsVswit
 }
 
 /**
- * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeRegionsResponse
  */
@@ -6631,6 +6630,172 @@ RestartDataImportTaskResponse Client::restartDataImportTaskWithOptions(const Res
 RestartDataImportTaskResponse Client::restartDataImportTask(const RestartDataImportTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return restartDataImportTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 克隆PolarDB-X实例
+ *
+ * @description ****
+ *
+ * @param request RestoreDBInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RestoreDBInstanceResponse
+ */
+RestoreDBInstanceResponse Client::restoreDBInstanceWithOptions(const RestoreDBInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBackupSetId()) {
+    query["BackupSetId"] = request.getBackupSetId();
+  }
+
+  if (!!request.hasBackupSetRegion()) {
+    query["BackupSetRegion"] = request.getBackupSetRegion();
+  }
+
+  if (!!request.hasCNNodeCount()) {
+    query["CNNodeCount"] = request.getCNNodeCount();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloneInstanceName()) {
+    query["CloneInstanceName"] = request.getCloneInstanceName();
+  }
+
+  if (!!request.hasCnClass()) {
+    query["CnClass"] = request.getCnClass();
+  }
+
+  if (!!request.hasDBNodeClass()) {
+    query["DBNodeClass"] = request.getDBNodeClass();
+  }
+
+  if (!!request.hasDBNodeCount()) {
+    query["DBNodeCount"] = request.getDBNodeCount();
+  }
+
+  if (!!request.hasDNNodeCount()) {
+    query["DNNodeCount"] = request.getDNNodeCount();
+  }
+
+  if (!!request.hasDnClass()) {
+    query["DnClass"] = request.getDnClass();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasGdnRole()) {
+    query["GdnRole"] = request.getGdnRole();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.getNetworkType();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPrimaryZone()) {
+    query["PrimaryZone"] = request.getPrimaryZone();
+  }
+
+  if (!!request.hasRecoveryTypeCode()) {
+    query["RecoveryTypeCode"] = request.getRecoveryTypeCode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasRestoreTime()) {
+    query["RestoreTime"] = request.getRestoreTime();
+  }
+
+  if (!!request.hasSecondaryZone()) {
+    query["SecondaryZone"] = request.getSecondaryZone();
+  }
+
+  if (!!request.hasSeries()) {
+    query["Series"] = request.getSeries();
+  }
+
+  if (!!request.hasSourceInstanceRegion()) {
+    query["SourceInstanceRegion"] = request.getSourceInstanceRegion();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTertiaryZone()) {
+    query["TertiaryZone"] = request.getTertiaryZone();
+  }
+
+  if (!!request.hasTopologyType()) {
+    query["TopologyType"] = request.getTopologyType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RestoreDBInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RestoreDBInstanceResponse>();
+}
+
+/**
+ * @summary 克隆PolarDB-X实例
+ *
+ * @description ****
+ *
+ * @param request RestoreDBInstanceRequest
+ * @return RestoreDBInstanceResponse
+ */
+RestoreDBInstanceResponse Client::restoreDBInstance(const RestoreDBInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return restoreDBInstanceWithOptions(request, runtime);
 }
 
 /**

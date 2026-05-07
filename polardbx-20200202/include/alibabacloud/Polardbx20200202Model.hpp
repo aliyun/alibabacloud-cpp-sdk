@@ -368,6 +368,9 @@
 #include <alibabacloud/models/RestartDataImportTaskRequest.hpp>
 #include <alibabacloud/models/RestartDataImportTaskResponseBody.hpp>
 #include <alibabacloud/models/RestartDataImportTaskResponse.hpp>
+#include <alibabacloud/models/RestoreDBInstanceRequest.hpp>
+#include <alibabacloud/models/RestoreDBInstanceResponseBody.hpp>
+#include <alibabacloud/models/RestoreDBInstanceResponse.hpp>
 #include <alibabacloud/models/SkipCurrentStepRequest.hpp>
 #include <alibabacloud/models/SkipCurrentStepResponseBody.hpp>
 #include <alibabacloud/models/SkipCurrentStepResponse.hpp>
