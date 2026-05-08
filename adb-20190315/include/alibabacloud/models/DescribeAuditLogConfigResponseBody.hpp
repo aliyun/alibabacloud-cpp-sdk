@@ -36,47 +36,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->auditLogStatus_ == nullptr && return this->DBClusterId_ == nullptr && return this->requestId_ == nullptr; };
+        && this->auditLogStatus_ == nullptr && this->DBClusterId_ == nullptr && this->requestId_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline DescribeAuditLogConfigResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // auditLogStatus Field Functions 
     bool hasAuditLogStatus() const { return this->auditLogStatus_ != nullptr;};
     void deleteAuditLogStatus() { this->auditLogStatus_ = nullptr;};
-    inline string auditLogStatus() const { DARABONBA_PTR_GET_DEFAULT(auditLogStatus_, "") };
+    inline string getAuditLogStatus() const { DARABONBA_PTR_GET_DEFAULT(auditLogStatus_, "") };
     inline DescribeAuditLogConfigResponseBody& setAuditLogStatus(string auditLogStatus) { DARABONBA_PTR_SET_VALUE(auditLogStatus_, auditLogStatus) };
 
 
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribeAuditLogConfigResponseBody& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeAuditLogConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The details about the access denial. This parameter is returned only if Resource Access Management (RAM) permission verification failed.
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
     // The status of SQL audit. Valid values:
     // 
     // *   **on**: SQL audit is enabled.
     // *   **off**: SQL audit is disabled.
-    std::shared_ptr<string> auditLogStatus_ = nullptr;
+    shared_ptr<string> auditLogStatus_ {};
     // The cluster ID.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

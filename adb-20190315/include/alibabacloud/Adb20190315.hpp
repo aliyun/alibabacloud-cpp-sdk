@@ -38,7 +38,7 @@ namespace Adb20190315
       Models::AllocateClusterPublicConnectionResponse allocateClusterPublicConnection(const Models::AllocateClusterPublicConnectionRequest &request);
 
       /**
-       * @summary ApplyAdviceById
+       * @summary Applies an optimization suggestion.
        *
        * @param request ApplyAdviceByIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Adb20190315
       Models::ApplyAdviceByIdResponse applyAdviceByIdWithOptions(const Models::ApplyAdviceByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ApplyAdviceById
+       * @summary Applies an optimization suggestion.
        *
        * @param request ApplyAdviceByIdRequest
        * @return ApplyAdviceByIdResponse
@@ -76,7 +76,7 @@ namespace Adb20190315
       Models::AttachUserENIResponse attachUserENI(const Models::AttachUserENIRequest &request);
 
       /**
-       * @summary BatchApplyAdviceByIdList
+       * @summary Applies multiple optimization suggestions at a time.
        *
        * @param request BatchApplyAdviceByIdListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -85,7 +85,7 @@ namespace Adb20190315
       Models::BatchApplyAdviceByIdListResponse batchApplyAdviceByIdListWithOptions(const Models::BatchApplyAdviceByIdListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary BatchApplyAdviceByIdList
+       * @summary Applies multiple optimization suggestions at a time.
        *
        * @param request BatchApplyAdviceByIdListRequest
        * @return BatchApplyAdviceByIdListResponse
@@ -118,7 +118,7 @@ namespace Adb20190315
       Models::BindDBResourceGroupWithUserResponse bindDBResourceGroupWithUser(const Models::BindDBResourceGroupWithUserRequest &request);
 
       /**
-       * @summary 绑定资源组用户
+       * @summary Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
        * *   The default resource group USER_DEFAULT cannot be associated with a database account.
@@ -130,7 +130,7 @@ namespace Adb20190315
       Models::BindDBResourcePoolWithUserResponse bindDBResourcePoolWithUserWithOptions(const Models::BindDBResourcePoolWithUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 绑定资源组用户
+       * @summary Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
        * *   The default resource group USER_DEFAULT cannot be associated with a database account.
@@ -141,7 +141,7 @@ namespace Adb20190315
       Models::BindDBResourcePoolWithUserResponse bindDBResourcePoolWithUser(const Models::BindDBResourcePoolWithUserRequest &request);
 
       /**
-       * @summary Cancels O\\&M events.
+       * @summary Cancels O\\\\\\&M events.
        *
        * @param request CancelActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -150,7 +150,7 @@ namespace Adb20190315
       Models::CancelActiveOperationTasksResponse cancelActiveOperationTasksWithOptions(const Models::CancelActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels O\\&M events.
+       * @summary Cancels O\\\\\\&M events.
        *
        * @param request CancelActiveOperationTasksRequest
        * @return CancelActiveOperationTasksResponse
@@ -395,7 +395,7 @@ namespace Adb20190315
       Models::DeleteDBResourceGroupResponse deleteDBResourceGroup(const Models::DeleteDBResourceGroupRequest &request);
 
       /**
-       * @summary 删除资源组
+       * @summary Deletes a resource group. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description **Precautions**
        * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
@@ -408,7 +408,7 @@ namespace Adb20190315
       Models::DeleteDBResourcePoolResponse deleteDBResourcePoolWithOptions(const Models::DeleteDBResourcePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除资源组
+       * @summary Deletes a resource group. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description **Precautions**
        * *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
@@ -471,7 +471,7 @@ namespace Adb20190315
       Models::DescribeAccountsResponse describeAccounts(const Models::DescribeAccountsRequest &request);
 
       /**
-       * @summary Queries the configuration information about O\\&M tasks.
+       * @summary Queries the configuration information about O\\\\\\&M tasks.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -480,7 +480,7 @@ namespace Adb20190315
       Models::DescribeActiveOperationMaintainConfResponse describeActiveOperationMaintainConfWithOptions(const Models::DescribeActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configuration information about O\\&M tasks.
+       * @summary Queries the configuration information about O\\\\\\&M tasks.
        *
        * @param request DescribeActiveOperationMaintainConfRequest
        * @return DescribeActiveOperationMaintainConfResponse
@@ -664,7 +664,7 @@ namespace Adb20190315
       Models::DescribeAvailableResourceResponse describeAvailableResource(const Models::DescribeAvailableResourceRequest &request);
 
       /**
-       * @summary 查看备份策略
+       * @summary Queries the backup settings of an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -673,7 +673,7 @@ namespace Adb20190315
       Models::DescribeBackupPolicyResponse describeBackupPolicyWithOptions(const Models::DescribeBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看备份策略
+       * @summary Queries the backup settings of an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeBackupPolicyRequest
        * @return DescribeBackupPolicyResponse
@@ -817,7 +817,7 @@ namespace Adb20190315
       Models::DescribeDBClusterAttributeResponse describeDBClusterAttribute(const Models::DescribeDBClusterAttributeRequest &request);
 
       /**
-       * @summary 查询集群健康检查状态
+       * @summary Queries the health status of an AnalyticDB for MySQL Data Warehouse Edition cluster.
        *
        * @param request DescribeDBClusterHealthStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -826,7 +826,7 @@ namespace Adb20190315
       Models::DescribeDBClusterHealthStatusResponse describeDBClusterHealthStatusWithOptions(const Models::DescribeDBClusterHealthStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询集群健康检查状态
+       * @summary Queries the health status of an AnalyticDB for MySQL Data Warehouse Edition cluster.
        *
        * @param request DescribeDBClusterHealthStatusRequest
        * @return DescribeDBClusterHealthStatusResponse
@@ -1007,7 +1007,7 @@ namespace Adb20190315
       Models::DescribeDBResourceGroupResponse describeDBResourceGroup(const Models::DescribeDBResourceGroupRequest &request);
 
       /**
-       * @summary 查询资源组详情
+       * @summary Queries the information about resource groups of an AnalyticDB for MySQL cluster. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description This operation is applicable only for elastic clusters of 32 cores or more.
        *
@@ -1018,7 +1018,7 @@ namespace Adb20190315
       Models::DescribeDBResourcePoolResponse describeDBResourcePoolWithOptions(const Models::DescribeDBResourcePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询资源组详情
+       * @summary Queries the information about resource groups of an AnalyticDB for MySQL cluster. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
        *
        * @description This operation is applicable only for elastic clusters of 32 cores or more.
        *
@@ -1386,7 +1386,7 @@ namespace Adb20190315
       Models::DescribeLoghubDetailResponse describeLoghubDetail(const Models::DescribeLoghubDetailRequest &request);
 
       /**
-       * @summary Queries the information about O&M events.
+       * @summary Queries the information about O\\&M events.
        *
        * @param request DescribeMaintenanceActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1395,7 +1395,7 @@ namespace Adb20190315
       Models::DescribeMaintenanceActionResponse describeMaintenanceActionWithOptions(const Models::DescribeMaintenanceActionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about O&M events.
+       * @summary Queries the information about O\\&M events.
        *
        * @param request DescribeMaintenanceActionRequest
        * @return DescribeMaintenanceActionResponse
@@ -1539,7 +1539,7 @@ namespace Adb20190315
       Models::DescribeResubmitConfigResponse describeResubmitConfig(const Models::DescribeResubmitConfigRequest &request);
 
       /**
-       * @summary 查询SQA状态
+       * @summary Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeSQAConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1548,7 +1548,7 @@ namespace Adb20190315
       Models::DescribeSQAConfigResponse describeSQAConfigWithOptions(const Models::DescribeSQAConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询SQA状态
+       * @summary Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
        *
        * @param request DescribeSQAConfigRequest
        * @return DescribeSQAConfigResponse
@@ -1709,7 +1709,7 @@ namespace Adb20190315
       Models::DescribeTableAccessCountResponse describeTableAccessCount(const Models::DescribeTableAccessCountRequest &request);
 
       /**
-       * @summary 查询表详情
+       * @summary Queries the distribution of data in a table among partitions.
        *
        * @param request DescribeTableDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1718,7 +1718,7 @@ namespace Adb20190315
       Models::DescribeTableDetailResponse describeTableDetailWithOptions(const Models::DescribeTableDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询表详情
+       * @summary Queries the distribution of data in a table among partitions.
        *
        * @param request DescribeTableDetailRequest
        * @return DescribeTableDetailResponse
@@ -1862,7 +1862,7 @@ namespace Adb20190315
       Models::DescribeWorkerDetectionResponse describeWorkerDetection(const Models::DescribeWorkerDetectionRequest &request);
 
       /**
-       * @summary 关闭用户ENI
+       * @summary Detaches an elastic network interface (ENI) from an AnalyticDB for MySQL Data Warehouse Edition cluster.
        *
        * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
        *
@@ -1873,7 +1873,7 @@ namespace Adb20190315
       Models::DetachUserENIResponse detachUserENIWithOptions(const Models::DetachUserENIRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭用户ENI
+       * @summary Detaches an elastic network interface (ENI) from an AnalyticDB for MySQL Data Warehouse Edition cluster.
        *
        * @description You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
        *
@@ -1917,7 +1917,7 @@ namespace Adb20190315
       Models::DownloadDiagnosisRecordsResponse downloadDiagnosisRecords(const Models::DownloadDiagnosisRecordsRequest &request);
 
       /**
-       * @summary 开通建议服务
+       * @summary Enables the suggestion feature.
        *
        * @param request EnableAdviceServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1926,7 +1926,7 @@ namespace Adb20190315
       Models::EnableAdviceServiceResponse enableAdviceServiceWithOptions(const Models::EnableAdviceServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通建议服务
+       * @summary Enables the suggestion feature.
        *
        * @param request EnableAdviceServiceRequest
        * @return EnableAdviceServiceResponse
@@ -2012,7 +2012,7 @@ namespace Adb20190315
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition cluster in AnalyticDB for MySQL.
+       * @summary Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
        *
        * @param request MigrateDBClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2021,7 +2021,7 @@ namespace Adb20190315
       Models::MigrateDBClusterResponse migrateDBClusterWithOptions(const Models::MigrateDBClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition cluster in AnalyticDB for MySQL.
+       * @summary Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
        *
        * @param request MigrateDBClusterRequest
        * @return MigrateDBClusterResponse
@@ -2046,7 +2046,7 @@ namespace Adb20190315
       Models::ModifyAccountDescriptionResponse modifyAccountDescription(const Models::ModifyAccountDescriptionRequest &request);
 
       /**
-       * @summary Changes the time configuration of O\\&M events.
+       * @summary Changes the time configuration of O\\\\\\&M events.
        *
        * @param request ModifyActiveOperationMaintainConfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2055,7 +2055,7 @@ namespace Adb20190315
       Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConfWithOptions(const Models::ModifyActiveOperationMaintainConfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the time configuration of O\\&M events.
+       * @summary Changes the time configuration of O\\\\\\&M events.
        *
        * @param request ModifyActiveOperationMaintainConfRequest
        * @return ModifyActiveOperationMaintainConfResponse
@@ -2063,7 +2063,7 @@ namespace Adb20190315
       Models::ModifyActiveOperationMaintainConfResponse modifyActiveOperationMaintainConf(const Models::ModifyActiveOperationMaintainConfRequest &request);
 
       /**
-       * @summary Changes the execution time of O&M events.
+       * @summary Changes the execution time of O\\&M events.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2072,7 +2072,7 @@ namespace Adb20190315
       Models::ModifyActiveOperationTasksResponse modifyActiveOperationTasksWithOptions(const Models::ModifyActiveOperationTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the execution time of O&M events.
+       * @summary Changes the execution time of O\\&M events.
        *
        * @param request ModifyActiveOperationTasksRequest
        * @return ModifyActiveOperationTasksResponse
@@ -2114,7 +2114,7 @@ namespace Adb20190315
       Models::ModifyAutoRenewAttributeResponse modifyAutoRenewAttribute(const Models::ModifyAutoRenewAttributeRequest &request);
 
       /**
-       * @summary 修改全量备份策略
+       * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
        *
        * @param request ModifyBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2123,7 @@ namespace Adb20190315
       Models::ModifyBackupPolicyResponse modifyBackupPolicyWithOptions(const Models::ModifyBackupPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改全量备份策略
+       * @summary Modifies the backup policy of an AnalyticDB for MySQL cluster.
        *
        * @param request ModifyBackupPolicyRequest
        * @return ModifyBackupPolicyResponse
@@ -2182,7 +2182,7 @@ namespace Adb20190315
       Models::ModifyDBClusterAccessWhiteListResponse modifyDBClusterAccessWhiteList(const Models::ModifyDBClusterAccessWhiteListRequest &request);
 
       /**
-       * @summary 修改备注
+       * @summary Modifies the description of an AnalyticDB for MySQL cluster to facilitate the maintenance and management of the cluster.
        *
        * @param request ModifyDBClusterDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2191,7 +2191,7 @@ namespace Adb20190315
       Models::ModifyDBClusterDescriptionResponse modifyDBClusterDescriptionWithOptions(const Models::ModifyDBClusterDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改备注
+       * @summary Modifies the description of an AnalyticDB for MySQL cluster to facilitate the maintenance and management of the cluster.
        *
        * @param request ModifyDBClusterDescriptionRequest
        * @return ModifyDBClusterDescriptionResponse
@@ -2414,7 +2414,7 @@ namespace Adb20190315
       Models::ModifyLogHubStatusResponse modifyLogHubStatus(const Models::ModifyLogHubStatusRequest &request);
 
       /**
-       * @summary Changes the switchover time of O&M events.
+       * @summary Changes the switchover time of O\\&M events.
        *
        * @param request ModifyMaintenanceActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2423,7 +2423,7 @@ namespace Adb20190315
       Models::ModifyMaintenanceActionResponse modifyMaintenanceActionWithOptions(const Models::ModifyMaintenanceActionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the switchover time of O&M events.
+       * @summary Changes the switchover time of O\\&M events.
        *
        * @param request ModifyMaintenanceActionRequest
        * @return ModifyMaintenanceActionResponse
@@ -2533,7 +2533,7 @@ namespace Adb20190315
       Models::ResetAccountPasswordResponse resetAccountPassword(const Models::ResetAccountPasswordRequest &request);
 
       /**
-       * @summary 取消服务帐号授权
+       * @summary Revokes permissions from the service account of an AnalyticDB for MySQL cluster.
        *
        * @param request RevokeOperatorPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2542,7 +2542,7 @@ namespace Adb20190315
       Models::RevokeOperatorPermissionResponse revokeOperatorPermissionWithOptions(const Models::RevokeOperatorPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消服务帐号授权
+       * @summary Revokes permissions from the service account of an AnalyticDB for MySQL cluster.
        *
        * @param request RevokeOperatorPermissionRequest
        * @return RevokeOperatorPermissionResponse

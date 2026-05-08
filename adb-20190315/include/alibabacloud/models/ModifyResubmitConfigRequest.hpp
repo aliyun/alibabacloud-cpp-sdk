@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_MODIFYRESUBMITCONFIGREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ModifyResubmitConfigRequestRules.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,58 +42,135 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Rules : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Rules& obj) { 
+        DARABONBA_PTR_TO_JSON(ExceedMemoryException, exceedMemoryException_);
+        DARABONBA_PTR_TO_JSON(GroupName, groupName_);
+        DARABONBA_PTR_TO_JSON(PeakMemory, peakMemory_);
+        DARABONBA_PTR_TO_JSON(QueryTime, queryTime_);
+        DARABONBA_PTR_TO_JSON(TargetGroupName, targetGroupName_);
+      };
+      friend void from_json(const Darabonba::Json& j, Rules& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExceedMemoryException, exceedMemoryException_);
+        DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
+        DARABONBA_PTR_FROM_JSON(PeakMemory, peakMemory_);
+        DARABONBA_PTR_FROM_JSON(QueryTime, queryTime_);
+        DARABONBA_PTR_FROM_JSON(TargetGroupName, targetGroupName_);
+      };
+      Rules() = default ;
+      Rules(const Rules &) = default ;
+      Rules(Rules &&) = default ;
+      Rules(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Rules() = default ;
+      Rules& operator=(const Rules &) = default ;
+      Rules& operator=(Rules &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->exceedMemoryException_ == nullptr
+        && this->groupName_ == nullptr && this->peakMemory_ == nullptr && this->queryTime_ == nullptr && this->targetGroupName_ == nullptr; };
+      // exceedMemoryException Field Functions 
+      bool hasExceedMemoryException() const { return this->exceedMemoryException_ != nullptr;};
+      void deleteExceedMemoryException() { this->exceedMemoryException_ = nullptr;};
+      inline bool getExceedMemoryException() const { DARABONBA_PTR_GET_DEFAULT(exceedMemoryException_, false) };
+      inline Rules& setExceedMemoryException(bool exceedMemoryException) { DARABONBA_PTR_SET_VALUE(exceedMemoryException_, exceedMemoryException) };
+
+
+      // groupName Field Functions 
+      bool hasGroupName() const { return this->groupName_ != nullptr;};
+      void deleteGroupName() { this->groupName_ = nullptr;};
+      inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+      inline Rules& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
+
+
+      // peakMemory Field Functions 
+      bool hasPeakMemory() const { return this->peakMemory_ != nullptr;};
+      void deletePeakMemory() { this->peakMemory_ = nullptr;};
+      inline string getPeakMemory() const { DARABONBA_PTR_GET_DEFAULT(peakMemory_, "") };
+      inline Rules& setPeakMemory(string peakMemory) { DARABONBA_PTR_SET_VALUE(peakMemory_, peakMemory) };
+
+
+      // queryTime Field Functions 
+      bool hasQueryTime() const { return this->queryTime_ != nullptr;};
+      void deleteQueryTime() { this->queryTime_ = nullptr;};
+      inline string getQueryTime() const { DARABONBA_PTR_GET_DEFAULT(queryTime_, "") };
+      inline Rules& setQueryTime(string queryTime) { DARABONBA_PTR_SET_VALUE(queryTime_, queryTime) };
+
+
+      // targetGroupName Field Functions 
+      bool hasTargetGroupName() const { return this->targetGroupName_ != nullptr;};
+      void deleteTargetGroupName() { this->targetGroupName_ = nullptr;};
+      inline string getTargetGroupName() const { DARABONBA_PTR_GET_DEFAULT(targetGroupName_, "") };
+      inline Rules& setTargetGroupName(string targetGroupName) { DARABONBA_PTR_SET_VALUE(targetGroupName_, targetGroupName) };
+
+
+    protected:
+      // Specifies whether to configure out-of-memory (OOM) check.
+      shared_ptr<bool> exceedMemoryException_ {};
+      // The name of the source resource group.
+      shared_ptr<string> groupName_ {};
+      // The peak memory usage.
+      shared_ptr<string> peakMemory_ {};
+      // The duration of the SQL statement. Unit: milliseconds.
+      shared_ptr<string> queryTime_ {};
+      // The name of the destination resource group.
+      shared_ptr<string> targetGroupName_ {};
+    };
+
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && return this->ownerAccount_ == nullptr && return this->ownerId_ == nullptr && return this->resourceGroupId_ == nullptr && return this->resourceOwnerAccount_ == nullptr && return this->resourceOwnerId_ == nullptr
-        && return this->rules_ == nullptr; };
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->rules_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
-    inline string DBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+    inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline ModifyResubmitConfigRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
 
 
     // ownerAccount Field Functions 
     bool hasOwnerAccount() const { return this->ownerAccount_ != nullptr;};
     void deleteOwnerAccount() { this->ownerAccount_ = nullptr;};
-    inline string ownerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
+    inline string getOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(ownerAccount_, "") };
     inline ModifyResubmitConfigRequest& setOwnerAccount(string ownerAccount) { DARABONBA_PTR_SET_VALUE(ownerAccount_, ownerAccount) };
 
 
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
-    inline int64_t ownerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
+    inline int64_t getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, 0L) };
     inline ModifyResubmitConfigRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyResubmitConfigRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline string resourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
     inline ModifyResubmitConfigRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
     bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
     void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
-    inline int64_t resourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
+    inline int64_t getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, 0L) };
     inline ModifyResubmitConfigRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
     // rules Field Functions 
     bool hasRules() const { return this->rules_ != nullptr;};
     void deleteRules() { this->rules_ = nullptr;};
-    inline const vector<ModifyResubmitConfigRequestRules> & rules() const { DARABONBA_PTR_GET_CONST(rules_, vector<ModifyResubmitConfigRequestRules>) };
-    inline vector<ModifyResubmitConfigRequestRules> rules() { DARABONBA_PTR_GET(rules_, vector<ModifyResubmitConfigRequestRules>) };
-    inline ModifyResubmitConfigRequest& setRules(const vector<ModifyResubmitConfigRequestRules> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
-    inline ModifyResubmitConfigRequest& setRules(vector<ModifyResubmitConfigRequestRules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+    inline const vector<ModifyResubmitConfigRequest::Rules> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, vector<ModifyResubmitConfigRequest::Rules>) };
+    inline vector<ModifyResubmitConfigRequest::Rules> getRules() { DARABONBA_PTR_GET(rules_, vector<ModifyResubmitConfigRequest::Rules>) };
+    inline ModifyResubmitConfigRequest& setRules(const vector<ModifyResubmitConfigRequest::Rules> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
+    inline ModifyResubmitConfigRequest& setRules(vector<ModifyResubmitConfigRequest::Rules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
 
 
   protected:
@@ -103,17 +179,17 @@ namespace Models
     // >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> DBClusterId_ = nullptr;
-    std::shared_ptr<string> ownerAccount_ = nullptr;
-    std::shared_ptr<int64_t> ownerId_ = nullptr;
+    shared_ptr<string> DBClusterId_ {};
+    shared_ptr<string> ownerAccount_ {};
+    shared_ptr<int64_t> ownerId_ {};
     // The resource group ID.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
-    std::shared_ptr<string> resourceOwnerAccount_ = nullptr;
-    std::shared_ptr<int64_t> resourceOwnerId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
+    shared_ptr<int64_t> resourceOwnerId_ {};
     // The job resubmission rules.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<ModifyResubmitConfigRequestRules>> rules_ = nullptr;
+    shared_ptr<vector<ModifyResubmitConfigRequest::Rules>> rules_ {};
   };
 
   } // namespace Models
