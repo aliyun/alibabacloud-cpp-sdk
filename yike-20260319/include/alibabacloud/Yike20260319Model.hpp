@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_YIKE20260319MODEL_HPP_
 #define ALIBABACLOUD_YIKE20260319MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddYikeProductionMembersRequest.hpp>
+#include <alibabacloud/models/AddYikeProductionMembersResponseBody.hpp>
+#include <alibabacloud/models/AddYikeProductionMembersResponse.hpp>
 #include <alibabacloud/models/AddYikeUserCreditRequest.hpp>
 #include <alibabacloud/models/AddYikeUserCreditResponseBody.hpp>
 #include <alibabacloud/models/AddYikeUserCreditResponse.hpp>
@@ -50,6 +53,9 @@
 #include <alibabacloud/models/ListYikeProductionsRequest.hpp>
 #include <alibabacloud/models/ListYikeProductionsResponseBody.hpp>
 #include <alibabacloud/models/ListYikeProductionsResponse.hpp>
+#include <alibabacloud/models/ListYikeWorkspacesRequest.hpp>
+#include <alibabacloud/models/ListYikeWorkspacesResponseBody.hpp>
+#include <alibabacloud/models/ListYikeWorkspacesResponse.hpp>
 #include <alibabacloud/models/PrecheckYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/PrecheckYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/PrecheckYikeAIAppJobResponse.hpp>
@@ -77,5 +83,11 @@
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeVoiceNarratorJobResponse.hpp>
+#include <alibabacloud/models/UpdateYikeProductionRequest.hpp>
+#include <alibabacloud/models/UpdateYikeProductionResponseBody.hpp>
+#include <alibabacloud/models/UpdateYikeProductionResponse.hpp>
+#include <alibabacloud/models/UpdateYikeProductionMemberAuthRequest.hpp>
+#include <alibabacloud/models/UpdateYikeProductionMemberAuthResponseBody.hpp>
+#include <alibabacloud/models/UpdateYikeProductionMemberAuthResponse.hpp>
 
 #endif

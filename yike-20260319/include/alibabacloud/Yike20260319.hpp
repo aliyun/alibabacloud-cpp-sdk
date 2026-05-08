@@ -21,6 +21,23 @@ namespace Yike20260319
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 增加一刻项目成员
+       *
+       * @param request AddYikeProductionMembersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddYikeProductionMembersResponse
+       */
+      Models::AddYikeProductionMembersResponse addYikeProductionMembersWithOptions(const Models::AddYikeProductionMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 增加一刻项目成员
+       *
+       * @param request AddYikeProductionMembersRequest
+       * @return AddYikeProductionMembersResponse
+       */
+      Models::AddYikeProductionMembersResponse addYikeProductionMembers(const Models::AddYikeProductionMembersRequest &request);
+
+      /**
        * @summary 增加用户积分
        *
        * @param request AddYikeUserCreditRequest
@@ -293,6 +310,23 @@ namespace Yike20260319
       Models::ListYikeProductionsResponse listYikeProductions(const Models::ListYikeProductionsRequest &request);
 
       /**
+       * @summary 获取一刻工作室列表
+       *
+       * @param request ListYikeWorkspacesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListYikeWorkspacesResponse
+       */
+      Models::ListYikeWorkspacesResponse listYikeWorkspacesWithOptions(const Models::ListYikeWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取一刻工作室列表
+       *
+       * @param request ListYikeWorkspacesRequest
+       * @return ListYikeWorkspacesResponse
+       */
+      Models::ListYikeWorkspacesResponse listYikeWorkspaces(const Models::ListYikeWorkspacesRequest &request);
+
+      /**
        * @summary 检查应用参数是否合法
        *
        * @param request PrecheckYikeAIAppJobRequest
@@ -444,6 +478,40 @@ namespace Yike20260319
        * @return SubmitYikeVoiceNarratorJobResponse
        */
       Models::SubmitYikeVoiceNarratorJobResponse submitYikeVoiceNarratorJob(const Models::SubmitYikeVoiceNarratorJobRequest &request);
+
+      /**
+       * @summary 更新一刻项目
+       *
+       * @param request UpdateYikeProductionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateYikeProductionResponse
+       */
+      Models::UpdateYikeProductionResponse updateYikeProductionWithOptions(const Models::UpdateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新一刻项目
+       *
+       * @param request UpdateYikeProductionRequest
+       * @return UpdateYikeProductionResponse
+       */
+      Models::UpdateYikeProductionResponse updateYikeProduction(const Models::UpdateYikeProductionRequest &request);
+
+      /**
+       * @summary 修改一刻项目成员权限
+       *
+       * @param request UpdateYikeProductionMemberAuthRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateYikeProductionMemberAuthResponse
+       */
+      Models::UpdateYikeProductionMemberAuthResponse updateYikeProductionMemberAuthWithOptions(const Models::UpdateYikeProductionMemberAuthRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改一刻项目成员权限
+       *
+       * @param request UpdateYikeProductionMemberAuthRequest
+       * @return UpdateYikeProductionMemberAuthResponse
+       */
+      Models::UpdateYikeProductionMemberAuthResponse updateYikeProductionMemberAuth(const Models::UpdateYikeProductionMemberAuthRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Yike20260319

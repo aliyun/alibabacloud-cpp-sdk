@@ -36,6 +36,52 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 增加一刻项目成员
+ *
+ * @param request AddYikeProductionMembersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddYikeProductionMembersResponse
+ */
+AddYikeProductionMembersResponse Client::addYikeProductionMembersWithOptions(const AddYikeProductionMembersRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasYikeUserIds()) {
+    query["YikeUserIds"] = request.getYikeUserIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddYikeProductionMembers"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddYikeProductionMembersResponse>();
+}
+
+/**
+ * @summary 增加一刻项目成员
+ *
+ * @param request AddYikeProductionMembersRequest
+ * @return AddYikeProductionMembersResponse
+ */
+AddYikeProductionMembersResponse Client::addYikeProductionMembers(const AddYikeProductionMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addYikeProductionMembersWithOptions(request, runtime);
+}
+
+/**
  * @summary 增加用户积分
  *
  * @param request AddYikeUserCreditRequest
@@ -768,6 +814,52 @@ ListYikeProductionsResponse Client::listYikeProductions(const ListYikeProduction
 }
 
 /**
+ * @summary 获取一刻工作室列表
+ *
+ * @param request ListYikeWorkspacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListYikeWorkspacesResponse
+ */
+ListYikeWorkspacesResponse Client::listYikeWorkspacesWithOptions(const ListYikeWorkspacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListYikeWorkspaces"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListYikeWorkspacesResponse>();
+}
+
+/**
+ * @summary 获取一刻工作室列表
+ *
+ * @param request ListYikeWorkspacesRequest
+ * @return ListYikeWorkspacesResponse
+ */
+ListYikeWorkspacesResponse Client::listYikeWorkspaces(const ListYikeWorkspacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listYikeWorkspacesWithOptions(request, runtime);
+}
+
+/**
  * @summary 检查应用参数是否合法
  *
  * @param request PrecheckYikeAIAppJobRequest
@@ -1241,6 +1333,102 @@ SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJobWithOptions
 SubmitYikeVoiceNarratorJobResponse Client::submitYikeVoiceNarratorJob(const SubmitYikeVoiceNarratorJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitYikeVoiceNarratorJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新一刻项目
+ *
+ * @param request UpdateYikeProductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateYikeProductionResponse
+ */
+UpdateYikeProductionResponse Client::updateYikeProductionWithOptions(const UpdateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasTitle()) {
+    query["Title"] = request.getTitle();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateYikeProduction"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateYikeProductionResponse>();
+}
+
+/**
+ * @summary 更新一刻项目
+ *
+ * @param request UpdateYikeProductionRequest
+ * @return UpdateYikeProductionResponse
+ */
+UpdateYikeProductionResponse Client::updateYikeProduction(const UpdateYikeProductionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateYikeProductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改一刻项目成员权限
+ *
+ * @param request UpdateYikeProductionMemberAuthRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateYikeProductionMemberAuthResponse
+ */
+UpdateYikeProductionMemberAuthResponse Client::updateYikeProductionMemberAuthWithOptions(const UpdateYikeProductionMemberAuthRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuth()) {
+    query["Auth"] = request.getAuth();
+  }
+
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  if (!!request.hasYikeUserId()) {
+    query["YikeUserId"] = request.getYikeUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateYikeProductionMemberAuth"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateYikeProductionMemberAuthResponse>();
+}
+
+/**
+ * @summary 修改一刻项目成员权限
+ *
+ * @param request UpdateYikeProductionMemberAuthRequest
+ * @return UpdateYikeProductionMemberAuthResponse
+ */
+UpdateYikeProductionMemberAuthResponse Client::updateYikeProductionMemberAuth(const UpdateYikeProductionMemberAuthRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateYikeProductionMemberAuthWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Yike20260319
