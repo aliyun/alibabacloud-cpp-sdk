@@ -255,6 +255,24 @@ namespace IntelligentCreation20240313
       Models::CreateAICoachTaskResponse createAICoachTask(const Models::CreateAICoachTaskRequest &request);
 
       /**
+       * @summary 创建离线评测任务
+       *
+       * @param request CreateAICoachTaskReportRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAICoachTaskReportResponse
+       */
+      Models::CreateAICoachTaskReportResponse createAICoachTaskReportWithOptions(const Models::CreateAICoachTaskReportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建离线评测任务
+       *
+       * @param request CreateAICoachTaskReportRequest
+       * @return CreateAICoachTaskReportResponse
+       */
+      Models::CreateAICoachTaskReportResponse createAICoachTaskReport(const Models::CreateAICoachTaskReportRequest &request);
+
+      /**
        * @summary 学员开启对练会话
        *
        * @param request CreateAICoachTaskSessionRequest

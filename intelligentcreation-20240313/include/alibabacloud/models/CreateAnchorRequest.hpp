@@ -94,12 +94,14 @@ namespace Models
 
 
   protected:
+    // 类型
     shared_ptr<string> anchorCategory_ {};
     shared_ptr<string> anchorMaterialName_ {};
     shared_ptr<string> coverUrl_ {};
     shared_ptr<string> digitalHumanType_ {};
     shared_ptr<string> gender_ {};
     shared_ptr<string> useScene_ {};
+    // 视频文件osskey
     shared_ptr<string> videoOssKey_ {};
   };
 

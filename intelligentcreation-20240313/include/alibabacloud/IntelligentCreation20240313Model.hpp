@@ -70,6 +70,9 @@
 #include <alibabacloud/models/CreateAICoachTaskRequest.hpp>
 #include <alibabacloud/models/CreateAICoachTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateAICoachTaskResponse.hpp>
+#include <alibabacloud/models/CreateAICoachTaskReportRequest.hpp>
+#include <alibabacloud/models/CreateAICoachTaskReportResponseBody.hpp>
+#include <alibabacloud/models/CreateAICoachTaskReportResponse.hpp>
 #include <alibabacloud/models/CreateAICoachTaskSessionRequest.hpp>
 #include <alibabacloud/models/CreateAICoachTaskSessionResponseBody.hpp>
 #include <alibabacloud/models/CreateAICoachTaskSessionResponse.hpp>
