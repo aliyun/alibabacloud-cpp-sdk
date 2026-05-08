@@ -21,6 +21,24 @@ namespace Cms20240330
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 写入上下文
+       *
+       * @param request AddContextsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddContextsResponse
+       */
+      Models::AddContextsResponse addContextsWithOptions(const string &workspace, const string &contextStoreName, const Models::AddContextsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 写入上下文
+       *
+       * @param request AddContextsRequest
+       * @return AddContextsResponse
+       */
+      Models::AddContextsResponse addContexts(const string &workspace, const string &contextStoreName, const Models::AddContextsRequest &request);
+
+      /**
        * @summary 添加记忆
        *
        * @param request AddMemoriesRequest
@@ -147,6 +165,42 @@ namespace Cms20240330
        * @return CreateCloudResourceResponse
        */
       Models::CreateCloudResourceResponse createCloudResource();
+
+      /**
+       * @summary 创建上下文库
+       *
+       * @param request CreateContextStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContextStoreResponse
+       */
+      Models::CreateContextStoreResponse createContextStoreWithOptions(const string &workspace, const Models::CreateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建上下文库
+       *
+       * @param request CreateContextStoreRequest
+       * @return CreateContextStoreResponse
+       */
+      Models::CreateContextStoreResponse createContextStore(const string &workspace, const Models::CreateContextStoreRequest &request);
+
+      /**
+       * @summary 创建 API Key
+       *
+       * @param request CreateContextStoreAPIKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateContextStoreAPIKeyResponse
+       */
+      Models::CreateContextStoreAPIKeyResponse createContextStoreAPIKeyWithOptions(const string &workspace, const string &contextStoreName, const Models::CreateContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 API Key
+       *
+       * @param request CreateContextStoreAPIKeyRequest
+       * @return CreateContextStoreAPIKeyResponse
+       */
+      Models::CreateContextStoreAPIKeyResponse createContextStoreAPIKey(const string &workspace, const string &contextStoreName, const Models::CreateContextStoreAPIKeyRequest &request);
 
       /**
        * @summary 创建数据集
@@ -485,6 +539,78 @@ namespace Cms20240330
        * @return DeleteCloudResourceResponse
        */
       Models::DeleteCloudResourceResponse deleteCloudResource();
+
+      /**
+       * @summary 删除上下文
+       *
+       * @param request DeleteContextRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContextResponse
+       */
+      Models::DeleteContextResponse deleteContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const Models::DeleteContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除上下文
+       *
+       * @param request DeleteContextRequest
+       * @return DeleteContextResponse
+       */
+      Models::DeleteContextResponse deleteContext(const string &workspace, const string &contextStoreName, const string &contextId, const Models::DeleteContextRequest &request);
+
+      /**
+       * @summary 删除上下文库
+       *
+       * @param request DeleteContextStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContextStoreResponse
+       */
+      Models::DeleteContextStoreResponse deleteContextStoreWithOptions(const string &workspace, const string &contextStoreName, const Models::DeleteContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除上下文库
+       *
+       * @param request DeleteContextStoreRequest
+       * @return DeleteContextStoreResponse
+       */
+      Models::DeleteContextStoreResponse deleteContextStore(const string &workspace, const string &contextStoreName, const Models::DeleteContextStoreRequest &request);
+
+      /**
+       * @summary 删除 API Key
+       *
+       * @param request DeleteContextStoreAPIKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContextStoreAPIKeyResponse
+       */
+      Models::DeleteContextStoreAPIKeyResponse deleteContextStoreAPIKeyWithOptions(const string &workspace, const string &contextStoreName, const string &name, const Models::DeleteContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 API Key
+       *
+       * @param request DeleteContextStoreAPIKeyRequest
+       * @return DeleteContextStoreAPIKeyResponse
+       */
+      Models::DeleteContextStoreAPIKeyResponse deleteContextStoreAPIKey(const string &workspace, const string &contextStoreName, const string &name, const Models::DeleteContextStoreAPIKeyRequest &request);
+
+      /**
+       * @summary 批量删除上下文
+       *
+       * @param request DeleteContextsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteContextsResponse
+       */
+      Models::DeleteContextsResponse deleteContextsWithOptions(const string &workspace, const string &contextStoreName, const Models::DeleteContextsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除上下文
+       *
+       * @param request DeleteContextsRequest
+       * @return DeleteContextsResponse
+       */
+      Models::DeleteContextsResponse deleteContexts(const string &workspace, const string &contextStoreName, const Models::DeleteContextsRequest &request);
 
       /**
        * @summary 删除数据集
@@ -1003,6 +1129,42 @@ namespace Cms20240330
        * @return GetCmsServiceResponse
        */
       Models::GetCmsServiceResponse getCmsService(const Models::GetCmsServiceRequest &request);
+
+      /**
+       * @summary 查询单条上下文
+       *
+       * @param request GetContextRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetContextResponse
+       */
+      Models::GetContextResponse getContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const Models::GetContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询单条上下文
+       *
+       * @param request GetContextRequest
+       * @return GetContextResponse
+       */
+      Models::GetContextResponse getContext(const string &workspace, const string &contextStoreName, const string &contextId, const Models::GetContextRequest &request);
+
+      /**
+       * @summary 查询上下文库
+       *
+       * @param request GetContextStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetContextStoreResponse
+       */
+      Models::GetContextStoreResponse getContextStoreWithOptions(const string &workspace, const string &contextStoreName, const Models::GetContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询上下文库
+       *
+       * @param request GetContextStoreRequest
+       * @return GetContextStoreResponse
+       */
+      Models::GetContextStoreResponse getContextStore(const string &workspace, const string &contextStoreName, const Models::GetContextStoreRequest &request);
 
       /**
        * @summary 查询数据集
@@ -1547,6 +1709,42 @@ namespace Cms20240330
       Models::ListContactsResponse listContacts(const Models::ListContactsRequest &request);
 
       /**
+       * @summary 获取 API Key 列表
+       *
+       * @param request ListContextStoreAPIKeysRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListContextStoreAPIKeysResponse
+       */
+      Models::ListContextStoreAPIKeysResponse listContextStoreAPIKeysWithOptions(const string &workspace, const string &contextStoreName, const Models::ListContextStoreAPIKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 API Key 列表
+       *
+       * @param request ListContextStoreAPIKeysRequest
+       * @return ListContextStoreAPIKeysResponse
+       */
+      Models::ListContextStoreAPIKeysResponse listContextStoreAPIKeys(const string &workspace, const string &contextStoreName, const Models::ListContextStoreAPIKeysRequest &request);
+
+      /**
+       * @summary 查询上下文库列表
+       *
+       * @param request ListContextStoresRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListContextStoresResponse
+       */
+      Models::ListContextStoresResponse listContextStoresWithOptions(const string &workspace, const Models::ListContextStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询上下文库列表
+       *
+       * @param request ListContextStoresRequest
+       * @return ListContextStoresResponse
+       */
+      Models::ListContextStoresResponse listContextStores(const string &workspace, const Models::ListContextStoresRequest &request);
+
+      /**
        * @summary 查询数据集列表
        *
        * @param request ListDatasetsRequest
@@ -1979,6 +2177,24 @@ namespace Cms20240330
       Models::QueryAlertRulesResponse queryAlertRules(const Models::QueryAlertRulesRequest &request);
 
       /**
+       * @summary 搜索上下文
+       *
+       * @param request SearchContextRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchContextResponse
+       */
+      Models::SearchContextResponse searchContextWithOptions(const string &workspace, const string &contextStoreName, const Models::SearchContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 搜索上下文
+       *
+       * @param request SearchContextRequest
+       * @return SearchContextResponse
+       */
+      Models::SearchContextResponse searchContext(const string &workspace, const string &contextStoreName, const Models::SearchContextRequest &request);
+
+      /**
        * @summary 搜索记忆
        *
        * @param request SearchMemoriesRequest
@@ -2121,6 +2337,42 @@ namespace Cms20240330
        * @return UpdateBizTraceResponse
        */
       Models::UpdateBizTraceResponse updateBizTrace(const string &bizTraceId, const Models::UpdateBizTraceRequest &request);
+
+      /**
+       * @summary 修改上下文
+       *
+       * @param request UpdateContextRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContextResponse
+       */
+      Models::UpdateContextResponse updateContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const Models::UpdateContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改上下文
+       *
+       * @param request UpdateContextRequest
+       * @return UpdateContextResponse
+       */
+      Models::UpdateContextResponse updateContext(const string &workspace, const string &contextStoreName, const string &contextId, const Models::UpdateContextRequest &request);
+
+      /**
+       * @summary 修改上下文库配置
+       *
+       * @param request UpdateContextStoreRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateContextStoreResponse
+       */
+      Models::UpdateContextStoreResponse updateContextStoreWithOptions(const string &workspace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改上下文库配置
+       *
+       * @param request UpdateContextStoreRequest
+       * @return UpdateContextStoreResponse
+       */
+      Models::UpdateContextStoreResponse updateContextStore(const string &workspace, const string &contextStoreName, const Models::UpdateContextStoreRequest &request);
 
       /**
        * @summary 更新数据集

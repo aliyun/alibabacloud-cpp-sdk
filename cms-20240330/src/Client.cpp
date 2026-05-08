@@ -38,6 +38,59 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 写入上下文
+ *
+ * @param request AddContextsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddContextsResponse
+ */
+AddContextsResponse Client::addContextsWithOptions(const string &workspace, const string &contextStoreName, const AddContextsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContextType()) {
+    body["contextType"] = request.getContextType();
+  }
+
+  if (!!request.hasItems()) {
+    body["items"] = request.getItems();
+  }
+
+  if (!!request.hasMemoryType()) {
+    body["memoryType"] = request.getMemoryType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddContexts"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddContextsResponse>();
+}
+
+/**
+ * @summary 写入上下文
+ *
+ * @param request AddContextsRequest
+ * @return AddContextsResponse
+ */
+AddContextsResponse Client::addContexts(const string &workspace, const string &contextStoreName, const AddContextsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
  * @summary 添加记忆
  *
  * @param request AddMemoriesRequest
@@ -535,6 +588,112 @@ CreateCloudResourceResponse Client::createCloudResource() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 创建上下文库
+ *
+ * @param request CreateContextStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextStoreResponse
+ */
+CreateContextStoreResponse Client::createContextStoreWithOptions(const string &workspace, const CreateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasContextStoreName()) {
+    body["contextStoreName"] = request.getContextStoreName();
+  }
+
+  if (!!request.hasContextType()) {
+    body["contextType"] = request.getContextType();
+  }
+
+  if (!!request.hasDataset()) {
+    body["dataset"] = request.getDataset();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateContextStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextStoreResponse>();
+}
+
+/**
+ * @summary 创建上下文库
+ *
+ * @param request CreateContextStoreRequest
+ * @return CreateContextStoreResponse
+ */
+CreateContextStoreResponse Client::createContextStore(const string &workspace, const CreateContextStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createContextStoreWithOptions(workspace, request, headers, runtime);
+}
+
+/**
+ * @summary 创建 API Key
+ *
+ * @param request CreateContextStoreAPIKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateContextStoreAPIKeyResponse
+ */
+CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKeyWithOptions(const string &workspace, const string &contextStoreName, const CreateContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateContextStoreAPIKey"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/apikey")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateContextStoreAPIKeyResponse>();
+}
+
+/**
+ * @summary 创建 API Key
+ *
+ * @param request CreateContextStoreAPIKeyRequest
+ * @return CreateContextStoreAPIKeyResponse
+ */
+CreateContextStoreAPIKeyResponse Client::createContextStoreAPIKey(const string &workspace, const string &contextStoreName, const CreateContextStoreAPIKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createContextStoreAPIKeyWithOptions(workspace, contextStoreName, request, headers, runtime);
 }
 
 /**
@@ -1566,6 +1725,172 @@ DeleteCloudResourceResponse Client::deleteCloudResource() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteCloudResourceWithOptions(headers, runtime);
+}
+
+/**
+ * @summary 删除上下文
+ *
+ * @param request DeleteContextRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextResponse
+ */
+DeleteContextResponse Client::deleteContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const DeleteContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContext"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context/" , Darabonba::Encode::Encoder::percentEncode(contextId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextResponse>();
+}
+
+/**
+ * @summary 删除上下文
+ *
+ * @param request DeleteContextRequest
+ * @return DeleteContextResponse
+ */
+DeleteContextResponse Client::deleteContext(const string &workspace, const string &contextStoreName, const string &contextId, const DeleteContextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除上下文库
+ *
+ * @param request DeleteContextStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextStoreResponse
+ */
+DeleteContextStoreResponse Client::deleteContextStoreWithOptions(const string &workspace, const string &contextStoreName, const DeleteContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextStoreResponse>();
+}
+
+/**
+ * @summary 删除上下文库
+ *
+ * @param request DeleteContextStoreRequest
+ * @return DeleteContextStoreResponse
+ */
+DeleteContextStoreResponse Client::deleteContextStore(const string &workspace, const string &contextStoreName, const DeleteContextStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除 API Key
+ *
+ * @param request DeleteContextStoreAPIKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextStoreAPIKeyResponse
+ */
+DeleteContextStoreAPIKeyResponse Client::deleteContextStoreAPIKeyWithOptions(const string &workspace, const string &contextStoreName, const string &name, const DeleteContextStoreAPIKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContextStoreAPIKey"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/apikey/" , Darabonba::Encode::Encoder::percentEncode(name))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextStoreAPIKeyResponse>();
+}
+
+/**
+ * @summary 删除 API Key
+ *
+ * @param request DeleteContextStoreAPIKeyRequest
+ * @return DeleteContextStoreAPIKeyResponse
+ */
+DeleteContextStoreAPIKeyResponse Client::deleteContextStoreAPIKey(const string &workspace, const string &contextStoreName, const string &name, const DeleteContextStoreAPIKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContextStoreAPIKeyWithOptions(workspace, contextStoreName, name, request, headers, runtime);
+}
+
+/**
+ * @summary 批量删除上下文
+ *
+ * @param request DeleteContextsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteContextsResponse
+ */
+DeleteContextsResponse Client::deleteContextsWithOptions(const string &workspace, const string &contextStoreName, const DeleteContextsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContextIds()) {
+    query["contextIds"] = request.getContextIds();
+  }
+
+  if (!!request.hasFilter()) {
+    query["filter"] = request.getFilter();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteContexts"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteContextsResponse>();
+}
+
+/**
+ * @summary 批量删除上下文
+ *
+ * @param request DeleteContextsRequest
+ * @return DeleteContextsResponse
+ */
+DeleteContextsResponse Client::deleteContexts(const string &workspace, const string &contextStoreName, const DeleteContextsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
 }
 
 /**
@@ -2825,6 +3150,90 @@ GetCmsServiceResponse Client::getCmsService(const GetCmsServiceRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCmsServiceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询单条上下文
+ *
+ * @param request GetContextRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextResponse
+ */
+GetContextResponse Client::getContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const GetContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFormatted()) {
+    query["formatted"] = request.getFormatted();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContext"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context/" , Darabonba::Encode::Encoder::percentEncode(contextId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextResponse>();
+}
+
+/**
+ * @summary 查询单条上下文
+ *
+ * @param request GetContextRequest
+ * @return GetContextResponse
+ */
+GetContextResponse Client::getContext(const string &workspace, const string &contextStoreName, const string &contextId, const GetContextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询上下文库
+ *
+ * @param request GetContextStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetContextStoreResponse
+ */
+GetContextStoreResponse Client::getContextStoreWithOptions(const string &workspace, const string &contextStoreName, const GetContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetContextStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetContextStoreResponse>();
+}
+
+/**
+ * @summary 查询上下文库
+ *
+ * @param request GetContextStoreRequest
+ * @return GetContextStoreResponse
+ */
+GetContextStoreResponse Client::getContextStore(const string &workspace, const string &contextStoreName, const GetContextStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
 }
 
 /**
@@ -4326,6 +4735,112 @@ ListContactsResponse Client::listContacts(const ListContactsRequest &request) {
 }
 
 /**
+ * @summary 获取 API Key 列表
+ *
+ * @param request ListContextStoreAPIKeysRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextStoreAPIKeysResponse
+ */
+ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeysWithOptions(const string &workspace, const string &contextStoreName, const ListContextStoreAPIKeysRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextStoreAPIKeys"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/apikey")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextStoreAPIKeysResponse>();
+}
+
+/**
+ * @summary 获取 API Key 列表
+ *
+ * @param request ListContextStoreAPIKeysRequest
+ * @return ListContextStoreAPIKeysResponse
+ */
+ListContextStoreAPIKeysResponse Client::listContextStoreAPIKeys(const string &workspace, const string &contextStoreName, const ListContextStoreAPIKeysRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listContextStoreAPIKeysWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 查询上下文库列表
+ *
+ * @param request ListContextStoresRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListContextStoresResponse
+ */
+ListContextStoresResponse Client::listContextStoresWithOptions(const string &workspace, const ListContextStoresRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContextStoreName()) {
+    query["contextStoreName"] = request.getContextStoreName();
+  }
+
+  if (!!request.hasContextType()) {
+    query["contextType"] = request.getContextType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListContextStores"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListContextStoresResponse>();
+}
+
+/**
+ * @summary 查询上下文库列表
+ *
+ * @param request ListContextStoresRequest
+ * @return ListContextStoresResponse
+ */
+ListContextStoresResponse Client::listContextStores(const string &workspace, const ListContextStoresRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listContextStoresWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary 查询数据集列表
  *
  * @param request ListDatasetsRequest
@@ -5706,6 +6221,71 @@ QueryAlertRulesResponse Client::queryAlertRules(const QueryAlertRulesRequest &re
 }
 
 /**
+ * @summary 搜索上下文
+ *
+ * @param request SearchContextRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchContextResponse
+ */
+SearchContextResponse Client::searchContextWithOptions(const string &workspace, const string &contextStoreName, const SearchContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFilter()) {
+    body["filter"] = request.getFilter();
+  }
+
+  if (!!request.hasFormatted()) {
+    body["formatted"] = request.getFormatted();
+  }
+
+  if (!!request.hasLimit()) {
+    body["limit"] = request.getLimit();
+  }
+
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasRetrievalOption()) {
+    body["retrievalOption"] = request.getRetrievalOption();
+  }
+
+  if (!!request.hasThreshold()) {
+    body["threshold"] = request.getThreshold();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SearchContext"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context/search")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchContextResponse>();
+}
+
+/**
+ * @summary 搜索上下文
+ *
+ * @param request SearchContextRequest
+ * @return SearchContextResponse
+ */
+SearchContextResponse Client::searchContext(const string &workspace, const string &contextStoreName, const SearchContextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return searchContextWithOptions(workspace, contextStoreName, request, headers, runtime);
+}
+
+/**
  * @summary 搜索记忆
  *
  * @param request SearchMemoriesRequest
@@ -6237,6 +6817,124 @@ UpdateBizTraceResponse Client::updateBizTrace(const string &bizTraceId, const Up
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改上下文
+ *
+ * @param request UpdateContextRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextResponse
+ */
+UpdateContextResponse Client::updateContextWithOptions(const string &workspace, const string &contextStoreName, const string &contextId, const UpdateContextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasExperience()) {
+    body["experience"] = request.getExperience();
+  }
+
+  if (!!request.hasMetadata()) {
+    body["metadata"] = request.getMetadata();
+  }
+
+  if (!!request.hasPayload()) {
+    body["payload"] = request.getPayload();
+  }
+
+  if (!!request.hasTriggerCondition()) {
+    body["triggerCondition"] = request.getTriggerCondition();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateContext"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName) , "/context/" , Darabonba::Encode::Encoder::percentEncode(contextId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextResponse>();
+}
+
+/**
+ * @summary 修改上下文
+ *
+ * @param request UpdateContextRequest
+ * @return UpdateContextResponse
+ */
+UpdateContextResponse Client::updateContext(const string &workspace, const string &contextStoreName, const string &contextId, const UpdateContextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改上下文库配置
+ *
+ * @param request UpdateContextStoreRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateContextStoreResponse
+ */
+UpdateContextStoreResponse Client::updateContextStoreWithOptions(const string &workspace, const string &contextStoreName, const UpdateContextStoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasContextType()) {
+    body["contextType"] = request.getContextType();
+  }
+
+  if (!!request.hasDataset()) {
+    body["dataset"] = request.getDataset();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateContextStore"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/contextstore/" , Darabonba::Encode::Encoder::percentEncode(contextStoreName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateContextStoreResponse>();
+}
+
+/**
+ * @summary 修改上下文库配置
+ *
+ * @param request UpdateContextStoreRequest
+ * @return UpdateContextStoreResponse
+ */
+UpdateContextStoreResponse Client::updateContextStore(const string &workspace, const string &contextStoreName, const UpdateContextStoreRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
 }
 
 /**
