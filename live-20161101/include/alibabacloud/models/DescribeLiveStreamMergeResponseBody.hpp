@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(StartTime, startTime_);
           DARABONBA_PTR_TO_JSON(StreamName, streamName_);
           DARABONBA_PTR_TO_JSON(StreamUsing, streamUsing_);
+          DARABONBA_PTR_TO_JSON(SwitchMode, switchMode_);
         };
         friend void from_json(const Darabonba::Json& j, LiveStreamMerge& obj) { 
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -86,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
           DARABONBA_PTR_FROM_JSON(StreamName, streamName_);
           DARABONBA_PTR_FROM_JSON(StreamUsing, streamUsing_);
+          DARABONBA_PTR_FROM_JSON(SwitchMode, switchMode_);
         };
         LiveStreamMerge() = default ;
         LiveStreamMerge(const LiveStreamMerge &) = default ;
@@ -101,7 +103,7 @@ namespace Models
         virtual bool empty() const override { return this->appName_ == nullptr
         && this->appUsing_ == nullptr && this->domainName_ == nullptr && this->endTime_ == nullptr && this->extraInAppStreams_ == nullptr && this->inAppName1_ == nullptr
         && this->inAppName2_ == nullptr && this->inStreamName1_ == nullptr && this->inStreamName2_ == nullptr && this->liveMerger_ == nullptr && this->mergeParameters_ == nullptr
-        && this->protocol_ == nullptr && this->startTime_ == nullptr && this->streamName_ == nullptr && this->streamUsing_ == nullptr; };
+        && this->protocol_ == nullptr && this->startTime_ == nullptr && this->streamName_ == nullptr && this->streamUsing_ == nullptr && this->switchMode_ == nullptr; };
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -207,6 +209,13 @@ namespace Models
         inline LiveStreamMerge& setStreamUsing(string streamUsing) { DARABONBA_PTR_SET_VALUE(streamUsing_, streamUsing) };
 
 
+        // switchMode Field Functions 
+        bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
+        void deleteSwitchMode() { this->switchMode_ = nullptr;};
+        inline string getSwitchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
+        inline LiveStreamMerge& setSwitchMode(string switchMode) { DARABONBA_PTR_SET_VALUE(switchMode_, switchMode) };
+
+
       protected:
         shared_ptr<string> appName_ {};
         shared_ptr<string> appUsing_ {};
@@ -223,6 +232,7 @@ namespace Models
         shared_ptr<string> startTime_ {};
         shared_ptr<string> streamName_ {};
         shared_ptr<string> streamUsing_ {};
+        shared_ptr<string> switchMode_ {};
       };
 
       virtual bool empty() const override { return this->liveStreamMerge_ == nullptr; };

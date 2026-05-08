@@ -2410,12 +2410,24 @@ AddLiveStreamMergeResponse Client::addLiveStreamMergeWithOptions(const AddLiveSt
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasSelectAppName()) {
+    query["SelectAppName"] = request.getSelectAppName();
+  }
+
+  if (!!request.hasSelectStreamName()) {
+    query["SelectStreamName"] = request.getSelectStreamName();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasStreamName()) {
     query["StreamName"] = request.getStreamName();
+  }
+
+  if (!!request.hasSwitchMode()) {
+    query["SwitchMode"] = request.getSwitchMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

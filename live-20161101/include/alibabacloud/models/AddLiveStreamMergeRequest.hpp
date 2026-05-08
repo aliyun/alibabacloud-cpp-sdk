@@ -25,8 +25,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(SelectAppName, selectAppName_);
+      DARABONBA_PTR_TO_JSON(SelectStreamName, selectStreamName_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(StreamName, streamName_);
+      DARABONBA_PTR_TO_JSON(SwitchMode, switchMode_);
     };
     friend void from_json(const Darabonba::Json& j, AddLiveStreamMergeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -41,8 +44,11 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(SelectAppName, selectAppName_);
+      DARABONBA_PTR_FROM_JSON(SelectStreamName, selectStreamName_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(StreamName, streamName_);
+      DARABONBA_PTR_FROM_JSON(SwitchMode, switchMode_);
     };
     AddLiveStreamMergeRequest() = default ;
     AddLiveStreamMergeRequest(const AddLiveStreamMergeRequest &) = default ;
@@ -58,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->domainName_ == nullptr && this->endTime_ == nullptr && this->inAppName1_ == nullptr && this->inAppName2_ == nullptr && this->inStreamName1_ == nullptr
         && this->inStreamName2_ == nullptr && this->liveMerger_ == nullptr && this->mergeParameters_ == nullptr && this->ownerId_ == nullptr && this->protocol_ == nullptr
-        && this->regionId_ == nullptr && this->startTime_ == nullptr && this->streamName_ == nullptr; };
+        && this->regionId_ == nullptr && this->selectAppName_ == nullptr && this->selectStreamName_ == nullptr && this->startTime_ == nullptr && this->streamName_ == nullptr
+        && this->switchMode_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -143,6 +150,20 @@ namespace Models
     inline AddLiveStreamMergeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // selectAppName Field Functions 
+    bool hasSelectAppName() const { return this->selectAppName_ != nullptr;};
+    void deleteSelectAppName() { this->selectAppName_ = nullptr;};
+    inline string getSelectAppName() const { DARABONBA_PTR_GET_DEFAULT(selectAppName_, "") };
+    inline AddLiveStreamMergeRequest& setSelectAppName(string selectAppName) { DARABONBA_PTR_SET_VALUE(selectAppName_, selectAppName) };
+
+
+    // selectStreamName Field Functions 
+    bool hasSelectStreamName() const { return this->selectStreamName_ != nullptr;};
+    void deleteSelectStreamName() { this->selectStreamName_ = nullptr;};
+    inline string getSelectStreamName() const { DARABONBA_PTR_GET_DEFAULT(selectStreamName_, "") };
+    inline AddLiveStreamMergeRequest& setSelectStreamName(string selectStreamName) { DARABONBA_PTR_SET_VALUE(selectStreamName_, selectStreamName) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -155,6 +176,13 @@ namespace Models
     void deleteStreamName() { this->streamName_ = nullptr;};
     inline string getStreamName() const { DARABONBA_PTR_GET_DEFAULT(streamName_, "") };
     inline AddLiveStreamMergeRequest& setStreamName(string streamName) { DARABONBA_PTR_SET_VALUE(streamName_, streamName) };
+
+
+    // switchMode Field Functions 
+    bool hasSwitchMode() const { return this->switchMode_ != nullptr;};
+    void deleteSwitchMode() { this->switchMode_ = nullptr;};
+    inline string getSwitchMode() const { DARABONBA_PTR_GET_DEFAULT(switchMode_, "") };
+    inline AddLiveStreamMergeRequest& setSwitchMode(string switchMode) { DARABONBA_PTR_SET_VALUE(switchMode_, switchMode) };
 
 
   protected:
@@ -199,6 +227,8 @@ namespace Models
     // *   **rtc**
     shared_ptr<string> protocol_ {};
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> selectAppName_ {};
+    shared_ptr<string> selectStreamName_ {};
     // The start time of the stream mixing.
     // 
     // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
@@ -209,6 +239,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> streamName_ {};
+    shared_ptr<string> switchMode_ {};
   };
 
   } // namespace Models
