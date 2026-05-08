@@ -146,6 +146,9 @@
 #include <alibabacloud/models/CreateMemoryStoreRequest.hpp>
 #include <alibabacloud/models/CreateMemoryStoreResponseBody.hpp>
 #include <alibabacloud/models/CreateMemoryStoreResponse.hpp>
+#include <alibabacloud/models/CreatePipelineRequest.hpp>
+#include <alibabacloud/models/CreatePipelineResponseBody.hpp>
+#include <alibabacloud/models/CreatePipelineResponse.hpp>
 #include <alibabacloud/models/CreatePrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/CreatePrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreatePrometheusInstanceResponse.hpp>
@@ -203,6 +206,9 @@
 #include <alibabacloud/models/DeleteMemoryStoreRequest.hpp>
 #include <alibabacloud/models/DeleteMemoryStoreResponseBody.hpp>
 #include <alibabacloud/models/DeleteMemoryStoreResponse.hpp>
+#include <alibabacloud/models/DeletePipelineRequest.hpp>
+#include <alibabacloud/models/DeletePipelineResponseBody.hpp>
+#include <alibabacloud/models/DeletePipelineResponse.hpp>
 #include <alibabacloud/models/DeletePrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/DeletePrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeletePrometheusInstanceResponse.hpp>
@@ -294,6 +300,9 @@
 #include <alibabacloud/models/GetMemoryStoreRequest.hpp>
 #include <alibabacloud/models/GetMemoryStoreResponseBody.hpp>
 #include <alibabacloud/models/GetMemoryStoreResponse.hpp>
+#include <alibabacloud/models/GetPipelineRequest.hpp>
+#include <alibabacloud/models/GetPipelineResponseBody.hpp>
+#include <alibabacloud/models/GetPipelineResponse.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetPrometheusInstanceResponse.hpp>
@@ -389,6 +398,9 @@
 #include <alibabacloud/models/ListMemoryStoresRequest.hpp>
 #include <alibabacloud/models/ListMemoryStoresResponseBody.hpp>
 #include <alibabacloud/models/ListMemoryStoresResponse.hpp>
+#include <alibabacloud/models/ListPipelinesRequest.hpp>
+#include <alibabacloud/models/ListPipelinesResponseBody.hpp>
+#include <alibabacloud/models/ListPipelinesResponse.hpp>
 #include <alibabacloud/models/ListPrometheusDashboardsRequest.hpp>
 #include <alibabacloud/models/ListPrometheusDashboardsResponseBody.hpp>
 #include <alibabacloud/models/ListPrometheusDashboardsResponse.hpp>
@@ -467,6 +479,9 @@
 #include <alibabacloud/models/UpdateNotifyStrategyRequest.hpp>
 #include <alibabacloud/models/UpdateNotifyStrategyResponseBody.hpp>
 #include <alibabacloud/models/UpdateNotifyStrategyResponse.hpp>
+#include <alibabacloud/models/UpdatePipelineRequest.hpp>
+#include <alibabacloud/models/UpdatePipelineResponseBody.hpp>
+#include <alibabacloud/models/UpdatePipelineResponse.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceRequest.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdatePrometheusInstanceResponse.hpp>

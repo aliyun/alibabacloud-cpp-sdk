@@ -845,6 +845,71 @@ CreateMemoryStoreResponse Client::createMemoryStore(const string &workspace, con
 }
 
 /**
+ * @summary 创建流水线
+ *
+ * @param request CreatePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipelineWithOptions(const string &workspace, const CreatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutePolicy()) {
+    body["executePolicy"] = request.getExecutePolicy();
+  }
+
+  if (!!request.hasPipeline()) {
+    body["pipeline"] = request.getPipeline();
+  }
+
+  if (!!request.hasPipelineName()) {
+    body["pipelineName"] = request.getPipelineName();
+  }
+
+  if (!!request.hasSink()) {
+    body["sink"] = request.getSink();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/pipeline")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePipelineResponse>();
+}
+
+/**
+ * @summary 创建流水线
+ *
+ * @param request CreatePipelineRequest
+ * @return CreatePipelineResponse
+ */
+CreatePipelineResponse Client::createPipeline(const string &workspace, const CreatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPipelineWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary Create a Prometheus monitoring instance
  *
  * @param request CreatePrometheusInstanceRequest
@@ -1798,6 +1863,45 @@ DeleteMemoryStoreResponse Client::deleteMemoryStore(const string &workspace, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除流水线
+ *
+ * @param request DeletePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeletePipelineResponse
+ */
+DeletePipelineResponse Client::deletePipelineWithOptions(const string &workspace, const string &pipelineName, const DeletePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeletePipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeletePipelineResponse>();
+}
+
+/**
+ * @summary 删除流水线
+ *
+ * @param request DeletePipelineRequest
+ * @return DeletePipelineResponse
+ */
+DeletePipelineResponse Client::deletePipeline(const string &workspace, const string &pipelineName, const DeletePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deletePipelineWithOptions(workspace, pipelineName, request, headers, runtime);
 }
 
 /**
@@ -3174,6 +3278,45 @@ GetMemoryStoreResponse Client::getMemoryStore(const string &workspace, const str
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+}
+
+/**
+ * @summary 查询流水线
+ *
+ * @param request GetPipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPipelineResponse
+ */
+GetPipelineResponse Client::getPipelineWithOptions(const string &workspace, const string &pipelineName, const GetPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetPipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPipelineResponse>();
+}
+
+/**
+ * @summary 查询流水线
+ *
+ * @param request GetPipelineRequest
+ * @return GetPipelineResponse
+ */
+GetPipelineResponse Client::getPipeline(const string &workspace, const string &pipelineName, const GetPipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
 }
 
 /**
@@ -4836,6 +4979,59 @@ ListMemoryStoresResponse Client::listMemoryStores(const string &workspace, const
 }
 
 /**
+ * @summary 查询流水线列表
+ *
+ * @param request ListPipelinesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPipelinesResponse
+ */
+ListPipelinesResponse Client::listPipelinesWithOptions(const string &workspace, const ListPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPipelineName()) {
+    query["pipelineName"] = request.getPipelineName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPipelines"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/pipeline")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPipelinesResponse>();
+}
+
+/**
+ * @summary 查询流水线列表
+ *
+ * @param request ListPipelinesRequest
+ * @return ListPipelinesResponse
+ */
+ListPipelinesResponse Client::listPipelines(const string &workspace, const ListPipelinesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listPipelinesWithOptions(workspace, request, headers, runtime);
+}
+
+/**
  * @summary Get Prometheus Instance Dashboard List
  *
  * @description Get the list of Prometheus instance dashboards.
@@ -6372,6 +6568,67 @@ UpdateNotifyStrategyResponse Client::updateNotifyStrategy(const string &notifySt
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateNotifyStrategyWithOptions(notifyStrategyId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新流水线
+ *
+ * @param request UpdatePipelineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdatePipelineResponse
+ */
+UpdatePipelineResponse Client::updatePipelineWithOptions(const string &workspace, const string &pipelineName, const UpdatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasExecutePolicy()) {
+    body["executePolicy"] = request.getExecutePolicy();
+  }
+
+  if (!!request.hasPipeline()) {
+    body["pipeline"] = request.getPipeline();
+  }
+
+  if (!!request.hasSink()) {
+    body["sink"] = request.getSink();
+  }
+
+  if (!!request.hasSource()) {
+    body["source"] = request.getSource();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdatePipeline"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspace/" , Darabonba::Encode::Encoder::percentEncode(workspace) , "/pipeline/" , Darabonba::Encode::Encoder::percentEncode(pipelineName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdatePipelineResponse>();
+}
+
+/**
+ * @summary 更新流水线
+ *
+ * @param request UpdatePipelineRequest
+ * @return UpdatePipelineResponse
+ */
+UpdatePipelineResponse Client::updatePipeline(const string &workspace, const string &pipelineName, const UpdatePipelineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updatePipelineWithOptions(workspace, pipelineName, request, headers, runtime);
 }
 
 /**

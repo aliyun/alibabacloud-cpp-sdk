@@ -243,6 +243,24 @@ namespace Cms20240330
       Models::CreateMemoryStoreResponse createMemoryStore(const string &workspace, const Models::CreateMemoryStoreRequest &request);
 
       /**
+       * @summary 创建流水线
+       *
+       * @param request CreatePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipelineWithOptions(const string &workspace, const Models::CreatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建流水线
+       *
+       * @param request CreatePipelineRequest
+       * @return CreatePipelineResponse
+       */
+      Models::CreatePipelineResponse createPipeline(const string &workspace, const Models::CreatePipelineRequest &request);
+
+      /**
        * @summary Create a Prometheus monitoring instance
        *
        * @param request CreatePrometheusInstanceRequest
@@ -593,6 +611,24 @@ namespace Cms20240330
        * @return DeleteMemoryStoreResponse
        */
       Models::DeleteMemoryStoreResponse deleteMemoryStore(const string &workspace, const string &memoryStoreName, const Models::DeleteMemoryStoreRequest &request);
+
+      /**
+       * @summary 删除流水线
+       *
+       * @param request DeletePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeletePipelineResponse
+       */
+      Models::DeletePipelineResponse deletePipelineWithOptions(const string &workspace, const string &pipelineName, const Models::DeletePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除流水线
+       *
+       * @param request DeletePipelineRequest
+       * @return DeletePipelineResponse
+       */
+      Models::DeletePipelineResponse deletePipeline(const string &workspace, const string &pipelineName, const Models::DeletePipelineRequest &request);
 
       /**
        * @summary Delete prom instance
@@ -1147,6 +1183,24 @@ namespace Cms20240330
        * @return GetMemoryStoreResponse
        */
       Models::GetMemoryStoreResponse getMemoryStore(const string &workspace, const string &memoryStoreName, const Models::GetMemoryStoreRequest &request);
+
+      /**
+       * @summary 查询流水线
+       *
+       * @param request GetPipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPipelineResponse
+       */
+      Models::GetPipelineResponse getPipelineWithOptions(const string &workspace, const string &pipelineName, const Models::GetPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询流水线
+       *
+       * @param request GetPipelineRequest
+       * @return GetPipelineResponse
+       */
+      Models::GetPipelineResponse getPipeline(const string &workspace, const string &pipelineName, const Models::GetPipelineRequest &request);
 
       /**
        * @summary Query the instance in a specified environment
@@ -1711,6 +1765,24 @@ namespace Cms20240330
       Models::ListMemoryStoresResponse listMemoryStores(const string &workspace, const Models::ListMemoryStoresRequest &request);
 
       /**
+       * @summary 查询流水线列表
+       *
+       * @param request ListPipelinesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPipelinesResponse
+       */
+      Models::ListPipelinesResponse listPipelinesWithOptions(const string &workspace, const Models::ListPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询流水线列表
+       *
+       * @param request ListPipelinesRequest
+       * @return ListPipelinesResponse
+       */
+      Models::ListPipelinesResponse listPipelines(const string &workspace, const Models::ListPipelinesRequest &request);
+
+      /**
        * @summary Get Prometheus Instance Dashboard List
        *
        * @description Get the list of Prometheus instance dashboards.
@@ -2157,6 +2229,24 @@ namespace Cms20240330
        * @return UpdateNotifyStrategyResponse
        */
       Models::UpdateNotifyStrategyResponse updateNotifyStrategy(const string &notifyStrategyId, const Models::UpdateNotifyStrategyRequest &request);
+
+      /**
+       * @summary 更新流水线
+       *
+       * @param request UpdatePipelineRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdatePipelineResponse
+       */
+      Models::UpdatePipelineResponse updatePipelineWithOptions(const string &workspace, const string &pipelineName, const Models::UpdatePipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新流水线
+       *
+       * @param request UpdatePipelineRequest
+       * @return UpdatePipelineResponse
+       */
+      Models::UpdatePipelineResponse updatePipeline(const string &workspace, const string &pipelineName, const Models::UpdatePipelineRequest &request);
 
       /**
        * @summary Update Prometheus instance information

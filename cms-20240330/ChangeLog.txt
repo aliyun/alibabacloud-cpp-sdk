@@ -1,3 +1,11 @@
+2026-05-08 Version: 8.2.0
+- Support API CreatePipeline.
+- Support API DeletePipeline.
+- Support API GetPipeline.
+- Support API ListPipelines.
+- Support API UpdatePipeline.
+
+
 2026-04-30 Version: 8.1.2
 - Generated cpp 2024-03-30 for Cms.
 
