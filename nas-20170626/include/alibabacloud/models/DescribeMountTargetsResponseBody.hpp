@@ -61,6 +61,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const MountTarget& obj) { 
           DARABONBA_PTR_TO_JSON(AccessGroup, accessGroup_);
+          DARABONBA_PTR_TO_JSON(AccessPointAccessOnly, accessPointAccessOnly_);
           DARABONBA_PTR_TO_JSON(ClientMasterNodes, clientMasterNodes_);
           DARABONBA_PTR_TO_JSON(DualStackMountTargetDomain, dualStackMountTargetDomain_);
           DARABONBA_PTR_TO_JSON(IPVersion, IPVersion_);
@@ -73,6 +74,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, MountTarget& obj) { 
           DARABONBA_PTR_FROM_JSON(AccessGroup, accessGroup_);
+          DARABONBA_PTR_FROM_JSON(AccessPointAccessOnly, accessPointAccessOnly_);
           DARABONBA_PTR_FROM_JSON(ClientMasterNodes, clientMasterNodes_);
           DARABONBA_PTR_FROM_JSON(DualStackMountTargetDomain, dualStackMountTargetDomain_);
           DARABONBA_PTR_FROM_JSON(IPVersion, IPVersion_);
@@ -255,13 +257,20 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->accessGroup_ == nullptr
-        && this->clientMasterNodes_ == nullptr && this->dualStackMountTargetDomain_ == nullptr && this->IPVersion_ == nullptr && this->mountTargetDomain_ == nullptr && this->networkType_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr && this->vswId_ == nullptr; };
+        && this->accessPointAccessOnly_ == nullptr && this->clientMasterNodes_ == nullptr && this->dualStackMountTargetDomain_ == nullptr && this->IPVersion_ == nullptr && this->mountTargetDomain_ == nullptr
+        && this->networkType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->vpcId_ == nullptr && this->vswId_ == nullptr; };
         // accessGroup Field Functions 
         bool hasAccessGroup() const { return this->accessGroup_ != nullptr;};
         void deleteAccessGroup() { this->accessGroup_ = nullptr;};
         inline string getAccessGroup() const { DARABONBA_PTR_GET_DEFAULT(accessGroup_, "") };
         inline MountTarget& setAccessGroup(string accessGroup) { DARABONBA_PTR_SET_VALUE(accessGroup_, accessGroup) };
+
+
+        // accessPointAccessOnly Field Functions 
+        bool hasAccessPointAccessOnly() const { return this->accessPointAccessOnly_ != nullptr;};
+        void deleteAccessPointAccessOnly() { this->accessPointAccessOnly_ = nullptr;};
+        inline bool getAccessPointAccessOnly() const { DARABONBA_PTR_GET_DEFAULT(accessPointAccessOnly_, false) };
+        inline MountTarget& setAccessPointAccessOnly(bool accessPointAccessOnly) { DARABONBA_PTR_SET_VALUE(accessPointAccessOnly_, accessPointAccessOnly) };
 
 
         // clientMasterNodes Field Functions 
@@ -333,6 +342,7 @@ namespace Models
 
       protected:
         shared_ptr<string> accessGroup_ {};
+        shared_ptr<bool> accessPointAccessOnly_ {};
         shared_ptr<MountTarget::ClientMasterNodes> clientMasterNodes_ {};
         shared_ptr<string> dualStackMountTargetDomain_ {};
         shared_ptr<string> IPVersion_ {};

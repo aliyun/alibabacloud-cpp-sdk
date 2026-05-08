@@ -1734,7 +1734,7 @@ namespace NAS20170626
       Models::DescribeLifecyclePoliciesResponse describeLifecyclePolicies(const Models::DescribeLifecyclePoliciesRequest &request);
 
       /**
-       * @summary 查询生命周期策略日志
+       * @summary Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
        *
        * @param request DescribeLifecyclePolicyLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1743,7 +1743,7 @@ namespace NAS20170626
       Models::DescribeLifecyclePolicyLogsResponse describeLifecyclePolicyLogsWithOptions(const Models::DescribeLifecyclePolicyLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询生命周期策略日志
+       * @summary Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
        *
        * @param request DescribeLifecyclePolicyLogsRequest
        * @return DescribeLifecyclePolicyLogsResponse
@@ -2609,7 +2609,6 @@ namespace NAS20170626
       /**
        * @summary Activates File Storage NAS.
        *
-       * @param request OpenNASServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return OpenNASServiceResponse
        */
@@ -2777,7 +2776,7 @@ namespace NAS20170626
       Models::StartDataFlowResponse startDataFlow(const Models::StartDataFlowRequest &request);
 
       /**
-       * @summary 启动生命周期策略运行
+       * @summary Starts the execution of lifecycle policies.
        *
        * @param request StartLifecyclePolicyExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2786,7 +2785,7 @@ namespace NAS20170626
       Models::StartLifecyclePolicyExecutionResponse startLifecyclePolicyExecutionWithOptions(const Models::StartLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动生命周期策略运行
+       * @summary Starts the execution of lifecycle policies.
        *
        * @param request StartLifecyclePolicyExecutionRequest
        * @return StartLifecyclePolicyExecutionResponse
@@ -2825,7 +2824,7 @@ namespace NAS20170626
       Models::StopDataFlowResponse stopDataFlow(const Models::StopDataFlowRequest &request);
 
       /**
-       * @summary 停止生命周期策略运行
+       * @summary Stops the execution of lifecycle policies.
        *
        * @param request StopLifecyclePolicyExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2834,7 +2833,7 @@ namespace NAS20170626
       Models::StopLifecyclePolicyExecutionResponse stopLifecyclePolicyExecutionWithOptions(const Models::StopLifecyclePolicyExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止生命周期策略运行
+       * @summary Stops the execution of lifecycle policies.
        *
        * @param request StopLifecyclePolicyExecutionRequest
        * @return StopLifecyclePolicyExecutionResponse
@@ -2876,7 +2875,7 @@ namespace NAS20170626
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 更新生命周期策略
+       * @summary Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
        *
        * @param request UpdateLifecyclePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2885,7 +2884,7 @@ namespace NAS20170626
       Models::UpdateLifecyclePolicyResponse updateLifecyclePolicyWithOptions(const Models::UpdateLifecyclePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新生命周期策略
+       * @summary Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
        *
        * @param request UpdateLifecyclePolicyRequest
        * @return UpdateLifecyclePolicyResponse

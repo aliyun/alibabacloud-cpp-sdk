@@ -426,10 +426,12 @@ namespace Models
           friend void to_json(Darabonba::Json& j, const Options& obj) { 
             DARABONBA_PTR_TO_JSON(EnableABE, enableABE_);
             DARABONBA_PTR_TO_JSON(EnableOplock, enableOplock_);
+            DARABONBA_PTR_TO_JSON(VscAccessPointAccessOnly, vscAccessPointAccessOnly_);
           };
           friend void from_json(const Darabonba::Json& j, Options& obj) { 
             DARABONBA_PTR_FROM_JSON(EnableABE, enableABE_);
             DARABONBA_PTR_FROM_JSON(EnableOplock, enableOplock_);
+            DARABONBA_PTR_FROM_JSON(VscAccessPointAccessOnly, vscAccessPointAccessOnly_);
           };
           Options() = default ;
           Options(const Options &) = default ;
@@ -443,7 +445,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->enableABE_ == nullptr
-        && this->enableOplock_ == nullptr; };
+        && this->enableOplock_ == nullptr && this->vscAccessPointAccessOnly_ == nullptr; };
           // enableABE Field Functions 
           bool hasEnableABE() const { return this->enableABE_ != nullptr;};
           void deleteEnableABE() { this->enableABE_ = nullptr;};
@@ -458,9 +460,17 @@ namespace Models
           inline Options& setEnableOplock(bool enableOplock) { DARABONBA_PTR_SET_VALUE(enableOplock_, enableOplock) };
 
 
+          // vscAccessPointAccessOnly Field Functions 
+          bool hasVscAccessPointAccessOnly() const { return this->vscAccessPointAccessOnly_ != nullptr;};
+          void deleteVscAccessPointAccessOnly() { this->vscAccessPointAccessOnly_ = nullptr;};
+          inline bool getVscAccessPointAccessOnly() const { DARABONBA_PTR_GET_DEFAULT(vscAccessPointAccessOnly_, false) };
+          inline Options& setVscAccessPointAccessOnly(bool vscAccessPointAccessOnly) { DARABONBA_PTR_SET_VALUE(vscAccessPointAccessOnly_, vscAccessPointAccessOnly) };
+
+
         protected:
           shared_ptr<bool> enableABE_ {};
           shared_ptr<bool> enableOplock_ {};
+          shared_ptr<bool> vscAccessPointAccessOnly_ {};
         };
 
         class MountTargets : public Darabonba::Model {

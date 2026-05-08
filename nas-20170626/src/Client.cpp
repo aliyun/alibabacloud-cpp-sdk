@@ -4354,7 +4354,7 @@ DescribeLifecyclePoliciesResponse Client::describeLifecyclePolicies(const Descri
 }
 
 /**
- * @summary 查询生命周期策略日志
+ * @summary Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
  *
  * @param request DescribeLifecyclePolicyLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4397,7 +4397,7 @@ DescribeLifecyclePolicyLogsResponse Client::describeLifecyclePolicyLogsWithOptio
 }
 
 /**
- * @summary 查询生命周期策略日志
+ * @summary Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
  *
  * @param request DescribeLifecyclePolicyLogsRequest
  * @return DescribeLifecyclePolicyLogsResponse
@@ -6541,6 +6541,10 @@ ModifyMountTargetResponse Client::modifyMountTargetWithOptions(const ModifyMount
     query["AccessGroupName"] = request.getAccessGroupName();
   }
 
+  if (!!request.hasAccessPointAccessOnly()) {
+    query["AccessPointAccessOnly"] = request.getAccessPointAccessOnly();
+  }
+
   if (!!request.hasDualStackMountTargetDomain()) {
     query["DualStackMountTargetDomain"] = request.getDualStackMountTargetDomain();
   }
@@ -6786,7 +6790,6 @@ ModifySmbAclResponse Client::modifySmbAcl(const ModifySmbAclRequest &request) {
 /**
  * @summary Activates File Storage NAS.
  *
- * @param request OpenNASServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenNASServiceResponse
  */
@@ -7193,7 +7196,7 @@ StartDataFlowResponse Client::startDataFlow(const StartDataFlowRequest &request)
 }
 
 /**
- * @summary 启动生命周期策略运行
+ * @summary Starts the execution of lifecycle policies.
  *
  * @param request StartLifecyclePolicyExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7228,7 +7231,7 @@ StartLifecyclePolicyExecutionResponse Client::startLifecyclePolicyExecutionWithO
 }
 
 /**
- * @summary 启动生命周期策略运行
+ * @summary Starts the execution of lifecycle policies.
  *
  * @param request StartLifecyclePolicyExecutionRequest
  * @return StartLifecyclePolicyExecutionResponse
@@ -7307,7 +7310,7 @@ StopDataFlowResponse Client::stopDataFlow(const StopDataFlowRequest &request) {
 }
 
 /**
- * @summary 停止生命周期策略运行
+ * @summary Stops the execution of lifecycle policies.
  *
  * @param request StopLifecyclePolicyExecutionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7342,7 +7345,7 @@ StopLifecyclePolicyExecutionResponse Client::stopLifecyclePolicyExecutionWithOpt
 }
 
 /**
- * @summary 停止生命周期策略运行
+ * @summary Stops the execution of lifecycle policies.
  *
  * @param request StopLifecyclePolicyExecutionRequest
  * @return StopLifecyclePolicyExecutionResponse
@@ -7457,7 +7460,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary 更新生命周期策略
+ * @summary Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
  *
  * @param request UpdateLifecyclePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7512,7 +7515,7 @@ UpdateLifecyclePolicyResponse Client::updateLifecyclePolicyWithOptions(const Upd
 }
 
 /**
- * @summary 更新生命周期策略
+ * @summary Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
  *
  * @param request UpdateLifecyclePolicyRequest
  * @return UpdateLifecyclePolicyResponse

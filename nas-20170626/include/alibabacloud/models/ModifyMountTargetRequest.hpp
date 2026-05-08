@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyMountTargetRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccessGroupName, accessGroupName_);
+      DARABONBA_PTR_TO_JSON(AccessPointAccessOnly, accessPointAccessOnly_);
       DARABONBA_PTR_TO_JSON(DualStackMountTargetDomain, dualStackMountTargetDomain_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(MountTargetDomain, mountTargetDomain_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyMountTargetRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccessGroupName, accessGroupName_);
+      DARABONBA_PTR_FROM_JSON(AccessPointAccessOnly, accessPointAccessOnly_);
       DARABONBA_PTR_FROM_JSON(DualStackMountTargetDomain, dualStackMountTargetDomain_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(MountTargetDomain, mountTargetDomain_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupName_ == nullptr
-        && this->dualStackMountTargetDomain_ == nullptr && this->fileSystemId_ == nullptr && this->mountTargetDomain_ == nullptr && this->status_ == nullptr; };
+        && this->accessPointAccessOnly_ == nullptr && this->dualStackMountTargetDomain_ == nullptr && this->fileSystemId_ == nullptr && this->mountTargetDomain_ == nullptr && this->status_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
     inline string getAccessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
     inline ModifyMountTargetRequest& setAccessGroupName(string accessGroupName) { DARABONBA_PTR_SET_VALUE(accessGroupName_, accessGroupName) };
+
+
+    // accessPointAccessOnly Field Functions 
+    bool hasAccessPointAccessOnly() const { return this->accessPointAccessOnly_ != nullptr;};
+    void deleteAccessPointAccessOnly() { this->accessPointAccessOnly_ = nullptr;};
+    inline bool getAccessPointAccessOnly() const { DARABONBA_PTR_GET_DEFAULT(accessPointAccessOnly_, false) };
+    inline ModifyMountTargetRequest& setAccessPointAccessOnly(bool accessPointAccessOnly) { DARABONBA_PTR_SET_VALUE(accessPointAccessOnly_, accessPointAccessOnly) };
 
 
     // dualStackMountTargetDomain Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     // The name of the permission group that is attached to the mount target.
     shared_ptr<string> accessGroupName_ {};
+    shared_ptr<bool> accessPointAccessOnly_ {};
     // The dual-stack (IPv4 and IPv6) domain name of the mount target.
     // 
     // >  Only Extreme NAS file systems that reside in the Chinese mainland support IPv6.
