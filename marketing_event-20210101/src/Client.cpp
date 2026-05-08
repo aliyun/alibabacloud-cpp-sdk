@@ -44,35 +44,35 @@ AddSumRecordFlowPopResponse Client::addSumRecordFlowPopWithOptions(const AddSumR
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasConferenceName()) {
-    query["ConferenceName"] = request.conferenceName();
+    query["ConferenceName"] = request.getConferenceName();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasEntryName()) {
-    query["EntryName"] = request.entryName();
+    query["EntryName"] = request.getEntryName();
   }
 
   if (!!request.hasIdcard()) {
-    query["Idcard"] = request.idcard();
+    query["Idcard"] = request.getIdcard();
   }
 
   if (!!request.hasSignTime()) {
-    query["SignTime"] = request.signTime();
+    query["SignTime"] = request.getSignTime();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -110,35 +110,35 @@ BindExhibitorRfidPopResponse Client::bindExhibitorRfidPopWithOptions(const BindE
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasGmtCreate()) {
-    query["GmtCreate"] = request.gmtCreate();
+    query["GmtCreate"] = request.getGmtCreate();
   }
 
   if (!!request.hasGmtModified()) {
-    query["GmtModified"] = request.gmtModified();
+    query["GmtModified"] = request.getGmtModified();
   }
 
   if (!!request.hasGuestTicketRecordId()) {
-    query["GuestTicketRecordId"] = request.guestTicketRecordId();
+    query["GuestTicketRecordId"] = request.getGuestTicketRecordId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasRfid()) {
-    query["Rfid"] = request.rfid();
+    query["Rfid"] = request.getRfid();
   }
 
   if (!!request.hasTicketCode()) {
-    query["TicketCode"] = request.ticketCode();
+    query["TicketCode"] = request.getTicketCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -176,35 +176,35 @@ BindGuestRfidPopResponse Client::bindGuestRfidPopWithOptions(const BindGuestRfid
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasGmtCreate()) {
-    query["GmtCreate"] = request.gmtCreate();
+    query["GmtCreate"] = request.getGmtCreate();
   }
 
   if (!!request.hasGmtModified()) {
-    query["GmtModified"] = request.gmtModified();
+    query["GmtModified"] = request.getGmtModified();
   }
 
   if (!!request.hasGuestTicketRecordId()) {
-    query["GuestTicketRecordId"] = request.guestTicketRecordId();
+    query["GuestTicketRecordId"] = request.getGuestTicketRecordId();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasRfid()) {
-    query["Rfid"] = request.rfid();
+    query["Rfid"] = request.getRfid();
   }
 
   if (!!request.hasTicketCode()) {
-    query["TicketCode"] = request.ticketCode();
+    query["TicketCode"] = request.getTicketCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -242,11 +242,11 @@ CheckNFCBindPopResponse Client::checkNFCBindPopWithOptions(const CheckNFCBindPop
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasNfcId()) {
-    query["NfcId"] = request.nfcId();
+    query["NfcId"] = request.getNfcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -286,19 +286,19 @@ FindGuestCredentialsRecordResponse Client::findGuestCredentialsRecordWithOptions
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasDateTimeString()) {
-    query["DateTimeString"] = request.dateTimeString();
+    query["DateTimeString"] = request.getDateTimeString();
   }
 
   if (!!request.hasEndDateTime()) {
-    query["EndDateTime"] = request.endDateTime();
+    query["EndDateTime"] = request.getEndDateTime();
   }
 
   if (!!request.hasStartDateTime()) {
-    query["StartDateTime"] = request.startDateTime();
+    query["StartDateTime"] = request.getStartDateTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -340,19 +340,19 @@ FindGuestTicketRecordResponse Client::findGuestTicketRecordWithOptions(const Fin
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasDateTimeString()) {
-    query["DateTimeString"] = request.dateTimeString();
+    query["DateTimeString"] = request.getDateTimeString();
   }
 
   if (!!request.hasEndDateTime()) {
-    query["EndDateTime"] = request.endDateTime();
+    query["EndDateTime"] = request.getEndDateTime();
   }
 
   if (!!request.hasStartDateTime()) {
-    query["StartDateTime"] = request.startDateTime();
+    query["StartDateTime"] = request.getStartDateTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -426,11 +426,11 @@ QueryOrderSessionListPopResponse Client::queryOrderSessionListPopWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasNfcId()) {
-    query["NfcId"] = request.nfcId();
+    query["NfcId"] = request.getNfcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -460,6 +460,90 @@ QueryOrderSessionListPopResponse Client::queryOrderSessionListPop(const QueryOrd
 }
 
 /**
+ * @summary 查询新加坡千问大会票证信息
+ *
+ * @param request QueryQwenConferenceSgTicketPopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryQwenConferenceSgTicketPopResponse
+ */
+QueryQwenConferenceSgTicketPopResponse Client::queryQwenConferenceSgTicketPopWithOptions(const QueryQwenConferenceSgTicketPopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTicketToken()) {
+    query["TicketToken"] = request.getTicketToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryQwenConferenceSgTicketPop"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryQwenConferenceSgTicketPopResponse>();
+}
+
+/**
+ * @summary 查询新加坡千问大会票证信息
+ *
+ * @param request QueryQwenConferenceSgTicketPopRequest
+ * @return QueryQwenConferenceSgTicketPopResponse
+ */
+QueryQwenConferenceSgTicketPopResponse Client::queryQwenConferenceSgTicketPop(const QueryQwenConferenceSgTicketPopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryQwenConferenceSgTicketPopWithOptions(request, runtime);
+}
+
+/**
+ * @summary 千问大会搜索票据信息
+ *
+ * @param request QueryQwenConferenceSgTicketSearchPopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryQwenConferenceSgTicketSearchPopResponse
+ */
+QueryQwenConferenceSgTicketSearchPopResponse Client::queryQwenConferenceSgTicketSearchPopWithOptions(const QueryQwenConferenceSgTicketSearchPopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryQwenConferenceSgTicketSearchPop"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryQwenConferenceSgTicketSearchPopResponse>();
+}
+
+/**
+ * @summary 千问大会搜索票据信息
+ *
+ * @param request QueryQwenConferenceSgTicketSearchPopRequest
+ * @return QueryQwenConferenceSgTicketSearchPopResponse
+ */
+QueryQwenConferenceSgTicketSearchPopResponse Client::queryQwenConferenceSgTicketSearchPop(const QueryQwenConferenceSgTicketSearchPopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryQwenConferenceSgTicketSearchPopWithOptions(request, runtime);
+}
+
+/**
  * @param request QuerySessionByActivityIdPopRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QuerySessionByActivityIdPopResponse
@@ -468,7 +552,7 @@ QuerySessionByActivityIdPopResponse Client::querySessionByActivityIdPopWithOptio
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -506,11 +590,11 @@ QuerySessionListPopResponse Client::querySessionListPopWithOptions(const QuerySe
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasNfcId()) {
-    query["NfcId"] = request.nfcId();
+    query["NfcId"] = request.getNfcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -548,23 +632,23 @@ QuerySignInRecordPopResponse Client::querySignInRecordPopWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasEndTime()) {
-    query["EndTime"] = request.endTime();
+    query["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasPageNum()) {
-    query["PageNum"] = request.pageNum();
+    query["PageNum"] = request.getPageNum();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    query["StartTime"] = request.startTime();
+    query["StartTime"] = request.getStartTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -670,35 +754,35 @@ TicketOrCredentialsSignInPopResponse Client::ticketOrCredentialsSignInPopWithOpt
   request.validate();
   json query = {};
   if (!!request.hasActivityId()) {
-    query["ActivityId"] = request.activityId();
+    query["ActivityId"] = request.getActivityId();
   }
 
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasConferenceName()) {
-    query["ConferenceName"] = request.conferenceName();
+    query["ConferenceName"] = request.getConferenceName();
   }
 
   if (!!request.hasDeviceId()) {
-    query["DeviceId"] = request.deviceId();
+    query["DeviceId"] = request.getDeviceId();
   }
 
   if (!!request.hasEntryName()) {
-    query["EntryName"] = request.entryName();
+    query["EntryName"] = request.getEntryName();
   }
 
   if (!!request.hasIdcard()) {
-    query["Idcard"] = request.idcard();
+    query["Idcard"] = request.getIdcard();
   }
 
   if (!!request.hasSignTime()) {
-    query["SignTime"] = request.signTime();
+    query["SignTime"] = request.getSignTime();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -736,23 +820,23 @@ UpdateCredentialsStatusPopResponse Client::updateCredentialsStatusPopWithOptions
   request.validate();
   json query = {};
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasProxyRecipientName()) {
-    query["ProxyRecipientName"] = request.proxyRecipientName();
+    query["ProxyRecipientName"] = request.getProxyRecipientName();
   }
 
   if (!!request.hasProxyRecipientPhoneNumber()) {
-    query["ProxyRecipientPhoneNumber"] = request.proxyRecipientPhoneNumber();
+    query["ProxyRecipientPhoneNumber"] = request.getProxyRecipientPhoneNumber();
   }
 
   if (!!request.hasReceiptLocation()) {
-    query["ReceiptLocation"] = request.receiptLocation();
+    query["ReceiptLocation"] = request.getReceiptLocation();
   }
 
   if (!!request.hasTime()) {
-    query["Time"] = request.time();
+    query["Time"] = request.getTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -790,23 +874,23 @@ UpdateTicketRecordByticketCodePopResponse Client::updateTicketRecordByticketCode
   request.validate();
   json query = {};
   if (!!request.hasAgendaId()) {
-    query["AgendaId"] = request.agendaId();
+    query["AgendaId"] = request.getAgendaId();
   }
 
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasEvent()) {
-    query["Event"] = request.event();
+    query["Event"] = request.getEvent();
   }
 
   if (!!request.hasSceneId()) {
-    query["SceneId"] = request.sceneId();
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasTime()) {
-    query["Time"] = request.time();
+    query["Time"] = request.getTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

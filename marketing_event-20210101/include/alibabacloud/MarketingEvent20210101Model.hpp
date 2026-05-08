@@ -11,9 +11,9 @@
 #include <alibabacloud/models/BindGuestRfidPopRequest.hpp>
 #include <alibabacloud/models/BindGuestRfidPopResponseBody.hpp>
 #include <alibabacloud/models/BindGuestRfidPopResponse.hpp>
-#include <alibabacloud/models/CheckNfcbindPopRequest.hpp>
-#include <alibabacloud/models/CheckNfcbindPopResponseBody.hpp>
-#include <alibabacloud/models/CheckNfcbindPopResponse.hpp>
+#include <alibabacloud/models/CheckNFCBindPopRequest.hpp>
+#include <alibabacloud/models/CheckNFCBindPopResponseBody.hpp>
+#include <alibabacloud/models/CheckNFCBindPopResponse.hpp>
 #include <alibabacloud/models/FindGuestCredentialsRecordRequest.hpp>
 #include <alibabacloud/models/FindGuestCredentialsRecordResponseBody.hpp>
 #include <alibabacloud/models/FindGuestCredentialsRecordResponse.hpp>
@@ -26,6 +26,12 @@
 #include <alibabacloud/models/QueryOrderSessionListPopRequest.hpp>
 #include <alibabacloud/models/QueryOrderSessionListPopResponseBody.hpp>
 #include <alibabacloud/models/QueryOrderSessionListPopResponse.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketPopRequest.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketPopResponseBody.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketPopResponse.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketSearchPopRequest.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketSearchPopResponseBody.hpp>
+#include <alibabacloud/models/QueryQwenConferenceSgTicketSearchPopResponse.hpp>
 #include <alibabacloud/models/QuerySessionByActivityIdPopRequest.hpp>
 #include <alibabacloud/models/QuerySessionByActivityIdPopResponseBody.hpp>
 #include <alibabacloud/models/QuerySessionByActivityIdPopResponse.hpp>
@@ -50,22 +56,5 @@
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopRequest.hpp>
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopResponseBody.hpp>
 #include <alibabacloud/models/UpdateTicketRecordByticketCodePopResponse.hpp>
-#include <alibabacloud/models/CheckNfcbindPopResponseBodyData.hpp>
-#include <alibabacloud/models/FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelOneOwner.hpp>
-#include <alibabacloud/models/FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelThreeOwner.hpp>
-#include <alibabacloud/models/FindGuestCredentialsRecordResponseBodyDataChannelLevelInfoLevelTwoOwner.hpp>
-#include <alibabacloud/models/FindGuestCredentialsRecordResponseBodyDataChannelLevelInfo.hpp>
-#include <alibabacloud/models/FindGuestCredentialsRecordResponseBodyData.hpp>
-#include <alibabacloud/models/FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelOneOwner.hpp>
-#include <alibabacloud/models/FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelThreeOwner.hpp>
-#include <alibabacloud/models/FindGuestTicketRecordResponseBodyDataChannelLevelInfoLevelTwoOwner.hpp>
-#include <alibabacloud/models/FindGuestTicketRecordResponseBodyDataChannelLevelInfo.hpp>
-#include <alibabacloud/models/FindGuestTicketRecordResponseBodyData.hpp>
-#include <alibabacloud/models/QueryAllActivityInfoResponseBodyData.hpp>
-#include <alibabacloud/models/QueryOrderSessionListPopResponseBodyData.hpp>
-#include <alibabacloud/models/QuerySessionByActivityIdPopResponseBodyData.hpp>
-#include <alibabacloud/models/QuerySessionListPopResponseBodyData.hpp>
-#include <alibabacloud/models/QuerySignInRecordPopResponseBodyData.hpp>
-#include <alibabacloud/models/QuerySingleActivityInfoResponseBodyData.hpp>
 
 #endif

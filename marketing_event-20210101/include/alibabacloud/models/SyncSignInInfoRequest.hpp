@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityId_ != nullptr
-        && this->QRCode_ != nullptr; };
+    virtual bool empty() const override { return this->activityId_ == nullptr
+        && this->QRCode_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
-    inline string activityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
+    inline string getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
     inline SyncSignInInfoRequest& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
 
 
     // QRCode Field Functions 
     bool hasQRCode() const { return this->QRCode_ != nullptr;};
     void deleteQRCode() { this->QRCode_ = nullptr;};
-    inline string QRCode() const { DARABONBA_PTR_GET_DEFAULT(QRCode_, "") };
+    inline string getQRCode() const { DARABONBA_PTR_GET_DEFAULT(QRCode_, "") };
     inline SyncSignInInfoRequest& setQRCode(string QRCode) { DARABONBA_PTR_SET_VALUE(QRCode_, QRCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> activityId_ = nullptr;
+    shared_ptr<string> activityId_ {};
     // This parameter is required.
-    std::shared_ptr<string> QRCode_ = nullptr;
+    shared_ptr<string> QRCode_ {};
   };
 
   } // namespace Models

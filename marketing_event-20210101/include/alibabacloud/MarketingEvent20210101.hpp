@@ -133,6 +133,40 @@ namespace MarketingEvent20210101
       Models::QueryOrderSessionListPopResponse queryOrderSessionListPop(const Models::QueryOrderSessionListPopRequest &request);
 
       /**
+       * @summary 查询新加坡千问大会票证信息
+       *
+       * @param request QueryQwenConferenceSgTicketPopRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryQwenConferenceSgTicketPopResponse
+       */
+      Models::QueryQwenConferenceSgTicketPopResponse queryQwenConferenceSgTicketPopWithOptions(const Models::QueryQwenConferenceSgTicketPopRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询新加坡千问大会票证信息
+       *
+       * @param request QueryQwenConferenceSgTicketPopRequest
+       * @return QueryQwenConferenceSgTicketPopResponse
+       */
+      Models::QueryQwenConferenceSgTicketPopResponse queryQwenConferenceSgTicketPop(const Models::QueryQwenConferenceSgTicketPopRequest &request);
+
+      /**
+       * @summary 千问大会搜索票据信息
+       *
+       * @param request QueryQwenConferenceSgTicketSearchPopRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryQwenConferenceSgTicketSearchPopResponse
+       */
+      Models::QueryQwenConferenceSgTicketSearchPopResponse queryQwenConferenceSgTicketSearchPopWithOptions(const Models::QueryQwenConferenceSgTicketSearchPopRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 千问大会搜索票据信息
+       *
+       * @param request QueryQwenConferenceSgTicketSearchPopRequest
+       * @return QueryQwenConferenceSgTicketSearchPopResponse
+       */
+      Models::QueryQwenConferenceSgTicketSearchPopResponse queryQwenConferenceSgTicketSearchPop(const Models::QueryQwenConferenceSgTicketSearchPopRequest &request);
+
+      /**
        * @param request QuerySessionByActivityIdPopRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QuerySessionByActivityIdPopResponse

@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityId_ != nullptr
-        && this->nfcId_ != nullptr; };
+    virtual bool empty() const override { return this->activityId_ == nullptr
+        && this->nfcId_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
-    inline int64_t activityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, 0L) };
+    inline int64_t getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, 0L) };
     inline QuerySessionListPopRequest& setActivityId(int64_t activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
 
 
     // nfcId Field Functions 
     bool hasNfcId() const { return this->nfcId_ != nullptr;};
     void deleteNfcId() { this->nfcId_ = nullptr;};
-    inline string nfcId() const { DARABONBA_PTR_GET_DEFAULT(nfcId_, "") };
+    inline string getNfcId() const { DARABONBA_PTR_GET_DEFAULT(nfcId_, "") };
     inline QuerySessionListPopRequest& setNfcId(string nfcId) { DARABONBA_PTR_SET_VALUE(nfcId_, nfcId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> activityId_ = nullptr;
+    shared_ptr<int64_t> activityId_ {};
     // This parameter is required.
-    std::shared_ptr<string> nfcId_ = nullptr;
+    shared_ptr<string> nfcId_ {};
   };
 
   } // namespace Models

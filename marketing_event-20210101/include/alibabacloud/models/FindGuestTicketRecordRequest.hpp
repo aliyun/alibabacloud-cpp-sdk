@@ -35,41 +35,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->activityId_ != nullptr
-        && this->dateTimeString_ != nullptr && this->endDateTime_ != nullptr && this->startDateTime_ != nullptr; };
+    virtual bool empty() const override { return this->activityId_ == nullptr
+        && this->dateTimeString_ == nullptr && this->endDateTime_ == nullptr && this->startDateTime_ == nullptr; };
     // activityId Field Functions 
     bool hasActivityId() const { return this->activityId_ != nullptr;};
     void deleteActivityId() { this->activityId_ = nullptr;};
-    inline string activityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
+    inline string getActivityId() const { DARABONBA_PTR_GET_DEFAULT(activityId_, "") };
     inline FindGuestTicketRecordRequest& setActivityId(string activityId) { DARABONBA_PTR_SET_VALUE(activityId_, activityId) };
 
 
     // dateTimeString Field Functions 
     bool hasDateTimeString() const { return this->dateTimeString_ != nullptr;};
     void deleteDateTimeString() { this->dateTimeString_ = nullptr;};
-    inline string dateTimeString() const { DARABONBA_PTR_GET_DEFAULT(dateTimeString_, "") };
+    inline string getDateTimeString() const { DARABONBA_PTR_GET_DEFAULT(dateTimeString_, "") };
     inline FindGuestTicketRecordRequest& setDateTimeString(string dateTimeString) { DARABONBA_PTR_SET_VALUE(dateTimeString_, dateTimeString) };
 
 
     // endDateTime Field Functions 
     bool hasEndDateTime() const { return this->endDateTime_ != nullptr;};
     void deleteEndDateTime() { this->endDateTime_ = nullptr;};
-    inline string endDateTime() const { DARABONBA_PTR_GET_DEFAULT(endDateTime_, "") };
+    inline string getEndDateTime() const { DARABONBA_PTR_GET_DEFAULT(endDateTime_, "") };
     inline FindGuestTicketRecordRequest& setEndDateTime(string endDateTime) { DARABONBA_PTR_SET_VALUE(endDateTime_, endDateTime) };
 
 
     // startDateTime Field Functions 
     bool hasStartDateTime() const { return this->startDateTime_ != nullptr;};
     void deleteStartDateTime() { this->startDateTime_ = nullptr;};
-    inline string startDateTime() const { DARABONBA_PTR_GET_DEFAULT(startDateTime_, "") };
+    inline string getStartDateTime() const { DARABONBA_PTR_GET_DEFAULT(startDateTime_, "") };
     inline FindGuestTicketRecordRequest& setStartDateTime(string startDateTime) { DARABONBA_PTR_SET_VALUE(startDateTime_, startDateTime) };
 
 
   protected:
-    std::shared_ptr<string> activityId_ = nullptr;
-    std::shared_ptr<string> dateTimeString_ = nullptr;
-    std::shared_ptr<string> endDateTime_ = nullptr;
-    std::shared_ptr<string> startDateTime_ = nullptr;
+    shared_ptr<string> activityId_ {};
+    shared_ptr<string> dateTimeString_ {};
+    shared_ptr<string> endDateTime_ {};
+    shared_ptr<string> startDateTime_ {};
   };
 
   } // namespace Models

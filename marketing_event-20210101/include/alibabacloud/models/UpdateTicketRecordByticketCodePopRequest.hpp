@@ -37,49 +37,49 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->agendaId_ != nullptr
-        && this->code_ != nullptr && this->event_ != nullptr && this->sceneId_ != nullptr && this->time_ != nullptr; };
+    virtual bool empty() const override { return this->agendaId_ == nullptr
+        && this->code_ == nullptr && this->event_ == nullptr && this->sceneId_ == nullptr && this->time_ == nullptr; };
     // agendaId Field Functions 
     bool hasAgendaId() const { return this->agendaId_ != nullptr;};
     void deleteAgendaId() { this->agendaId_ = nullptr;};
-    inline string agendaId() const { DARABONBA_PTR_GET_DEFAULT(agendaId_, "") };
+    inline string getAgendaId() const { DARABONBA_PTR_GET_DEFAULT(agendaId_, "") };
     inline UpdateTicketRecordByticketCodePopRequest& setAgendaId(string agendaId) { DARABONBA_PTR_SET_VALUE(agendaId_, agendaId) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline UpdateTicketRecordByticketCodePopRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // event Field Functions 
     bool hasEvent() const { return this->event_ != nullptr;};
     void deleteEvent() { this->event_ = nullptr;};
-    inline string event() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
+    inline string getEvent() const { DARABONBA_PTR_GET_DEFAULT(event_, "") };
     inline UpdateTicketRecordByticketCodePopRequest& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
     // sceneId Field Functions 
     bool hasSceneId() const { return this->sceneId_ != nullptr;};
     void deleteSceneId() { this->sceneId_ = nullptr;};
-    inline string sceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
     inline UpdateTicketRecordByticketCodePopRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
 
 
     // time Field Functions 
     bool hasTime() const { return this->time_ != nullptr;};
     void deleteTime() { this->time_ = nullptr;};
-    inline string time() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
+    inline string getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, "") };
     inline UpdateTicketRecordByticketCodePopRequest& setTime(string time) { DARABONBA_PTR_SET_VALUE(time_, time) };
 
 
   protected:
-    std::shared_ptr<string> agendaId_ = nullptr;
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<string> event_ = nullptr;
-    std::shared_ptr<string> sceneId_ = nullptr;
-    std::shared_ptr<string> time_ = nullptr;
+    shared_ptr<string> agendaId_ {};
+    shared_ptr<string> code_ {};
+    shared_ptr<string> event_ {};
+    shared_ptr<string> sceneId_ {};
+    shared_ptr<string> time_ {};
   };
 
   } // namespace Models

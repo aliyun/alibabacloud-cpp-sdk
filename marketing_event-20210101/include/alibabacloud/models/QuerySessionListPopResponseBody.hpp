@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_QUERYSESSIONLISTPOPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/QuerySessionListPopResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -43,68 +42,154 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->accessDeniedDetail_ != nullptr
-        && this->data_ != nullptr && this->errCode_ != nullptr && this->errMessage_ != nullptr && this->httpStatusCode_ != nullptr && this->requestId_ != nullptr
-        && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(Location, location_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(Location, location_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->code_ == nullptr
+        && this->endTime_ == nullptr && this->id_ == nullptr && this->location_ == nullptr && this->name_ == nullptr && this->startTime_ == nullptr; };
+      // code Field Functions 
+      bool hasCode() const { return this->code_ != nullptr;};
+      void deleteCode() { this->code_ = nullptr;};
+      inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+      inline Data& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+      inline Data& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline int64_t getId() const { DARABONBA_PTR_GET_DEFAULT(id_, 0L) };
+      inline Data& setId(int64_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // location Field Functions 
+      bool hasLocation() const { return this->location_ != nullptr;};
+      void deleteLocation() { this->location_ = nullptr;};
+      inline string getLocation() const { DARABONBA_PTR_GET_DEFAULT(location_, "") };
+      inline Data& setLocation(string location) { DARABONBA_PTR_SET_VALUE(location_, location) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+      inline Data& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    protected:
+      // code
+      shared_ptr<string> code_ {};
+      shared_ptr<string> endTime_ {};
+      // id
+      shared_ptr<int64_t> id_ {};
+      // location
+      shared_ptr<string> location_ {};
+      // name
+      shared_ptr<string> name_ {};
+      shared_ptr<string> startTime_ {};
+    };
+
+    virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
+        && this->data_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->requestId_ == nullptr
+        && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline QuerySessionListPopResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<QuerySessionListPopResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<QuerySessionListPopResponseBodyData>) };
-    inline vector<QuerySessionListPopResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<QuerySessionListPopResponseBodyData>) };
-    inline QuerySessionListPopResponseBody& setData(const vector<QuerySessionListPopResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline QuerySessionListPopResponseBody& setData(vector<QuerySessionListPopResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<QuerySessionListPopResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<QuerySessionListPopResponseBody::Data>) };
+    inline vector<QuerySessionListPopResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<QuerySessionListPopResponseBody::Data>) };
+    inline QuerySessionListPopResponseBody& setData(const vector<QuerySessionListPopResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline QuerySessionListPopResponseBody& setData(vector<QuerySessionListPopResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
-    inline string errCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
+    inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
     inline QuerySessionListPopResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
-    inline string errMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
+    inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
     inline QuerySessionListPopResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline QuerySessionListPopResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline QuerySessionListPopResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline QuerySessionListPopResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
-    std::shared_ptr<vector<QuerySessionListPopResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<string> errCode_ = nullptr;
-    std::shared_ptr<string> errMessage_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
+    shared_ptr<vector<QuerySessionListPopResponseBody::Data>> data_ {};
+    shared_ptr<string> errCode_ {};
+    shared_ptr<string> errMessage_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models
