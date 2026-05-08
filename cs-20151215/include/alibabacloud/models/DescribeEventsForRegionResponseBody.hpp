@@ -15,10 +15,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeEventsForRegionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(events, events_);
+      DARABONBA_PTR_TO_JSON(next_token, nextToken_);
       DARABONBA_PTR_TO_JSON(page_info, pageInfo_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEventsForRegionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(events, events_);
+      DARABONBA_PTR_FROM_JSON(next_token, nextToken_);
       DARABONBA_PTR_FROM_JSON(page_info, pageInfo_);
     };
     DescribeEventsForRegionResponseBody() = default ;
@@ -245,7 +247,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->events_ == nullptr
-        && this->pageInfo_ == nullptr; };
+        && this->nextToken_ == nullptr && this->pageInfo_ == nullptr; };
     // events Field Functions 
     bool hasEvents() const { return this->events_ != nullptr;};
     void deleteEvents() { this->events_ = nullptr;};
@@ -253,6 +255,13 @@ namespace Models
     inline vector<DescribeEventsForRegionResponseBody::Events> getEvents() { DARABONBA_PTR_GET(events_, vector<DescribeEventsForRegionResponseBody::Events>) };
     inline DescribeEventsForRegionResponseBody& setEvents(const vector<DescribeEventsForRegionResponseBody::Events> & events) { DARABONBA_PTR_SET_VALUE(events_, events) };
     inline DescribeEventsForRegionResponseBody& setEvents(vector<DescribeEventsForRegionResponseBody::Events> && events) { DARABONBA_PTR_SET_RVALUE(events_, events) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribeEventsForRegionResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageInfo Field Functions 
@@ -267,6 +276,7 @@ namespace Models
   protected:
     // The events.
     shared_ptr<vector<DescribeEventsForRegionResponseBody::Events>> events_ {};
+    shared_ptr<string> nextToken_ {};
     // The pagination details.
     shared_ptr<DescribeEventsForRegionResponseBody::PageInfo> pageInfo_ {};
   };

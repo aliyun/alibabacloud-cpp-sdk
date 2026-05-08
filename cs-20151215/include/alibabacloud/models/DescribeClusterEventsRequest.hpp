@@ -13,11 +13,15 @@ namespace Models
   class DescribeClusterEventsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeClusterEventsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(max_results, maxResults_);
+      DARABONBA_PTR_TO_JSON(next_token, nextToken_);
       DARABONBA_PTR_TO_JSON(page_number, pageNumber_);
       DARABONBA_PTR_TO_JSON(page_size, pageSize_);
       DARABONBA_PTR_TO_JSON(task_id, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClusterEventsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(max_results, maxResults_);
+      DARABONBA_PTR_FROM_JSON(next_token, nextToken_);
       DARABONBA_PTR_FROM_JSON(page_number, pageNumber_);
       DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
       DARABONBA_PTR_FROM_JSON(task_id, taskId_);
@@ -33,8 +37,22 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->taskId_ == nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->taskId_ == nullptr; };
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline DescribeClusterEventsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribeClusterEventsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -57,6 +75,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // The number of the page to return.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: 1 to 50. Default value: 50.

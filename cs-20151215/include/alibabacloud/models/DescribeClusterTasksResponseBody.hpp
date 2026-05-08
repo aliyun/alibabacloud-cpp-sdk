@@ -14,11 +14,13 @@ namespace Models
   class DescribeClusterTasksResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeClusterTasksResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(next_token, nextToken_);
       DARABONBA_PTR_TO_JSON(page_info, pageInfo_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(tasks, tasks_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeClusterTasksResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(next_token, nextToken_);
       DARABONBA_PTR_FROM_JSON(page_info, pageInfo_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(tasks, tasks_);
@@ -223,8 +225,15 @@ namespace Models
       shared_ptr<int64_t> totalCount_ {};
     };
 
-    virtual bool empty() const override { return this->pageInfo_ == nullptr
-        && this->requestId_ == nullptr && this->tasks_ == nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && this->pageInfo_ == nullptr && this->requestId_ == nullptr && this->tasks_ == nullptr; };
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribeClusterTasksResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // pageInfo Field Functions 
     bool hasPageInfo() const { return this->pageInfo_ != nullptr;};
     void deletePageInfo() { this->pageInfo_ = nullptr;};
@@ -251,6 +260,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeClusterTasksResponseBody::PageInfo> pageInfo_ {};
     // The request ID.

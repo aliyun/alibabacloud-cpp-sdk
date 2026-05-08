@@ -217,7 +217,7 @@ namespace CS20151215
       Models::CleanUserPermissionsResponse cleanUserPermissions(const string &Uid, const Models::CleanUserPermissionsRequest &request);
 
       /**
-       * @summary 查询自愈规则
+       * @summary Creates an auto-repair policy.
        *
        * @param request CreateAutoRepairPolicyRequest
        * @param headers map
@@ -227,7 +227,7 @@ namespace CS20151215
       Models::CreateAutoRepairPolicyResponse createAutoRepairPolicyWithOptions(const string &clusterId, const Models::CreateAutoRepairPolicyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自愈规则
+       * @summary Creates an auto-repair policy.
        *
        * @param request CreateAutoRepairPolicyRequest
        * @return CreateAutoRepairPolicyResponse
@@ -1017,7 +1017,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusters is deprecated
        *
-       * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+       * @summary Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
        *
        * @param request DescribeClustersRequest
        * @param headers map
@@ -1029,7 +1029,7 @@ namespace CS20151215
       /**
        * @deprecated OpenAPI DescribeClusters is deprecated
        *
-       * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+       * @summary Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
        *
        * @param request DescribeClustersRequest
        * @return DescribeClustersResponse
@@ -1253,7 +1253,7 @@ namespace CS20151215
       Models::DescribePolicyInstancesStatusResponse describePolicyInstancesStatus(const string &clusterId);
 
       /**
-       * @summary 查询地域列表
+       * @summary Queries the list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @param headers map
@@ -1263,7 +1263,7 @@ namespace CS20151215
       Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询地域列表
+       * @summary Queries the list of available regions.
        *
        * @param request DescribeRegionsRequest
        * @return DescribeRegionsResponse
@@ -1665,7 +1665,7 @@ namespace CS20151215
       Models::InstallClusterAddonsResponse installClusterAddons(const string &ClusterId, const Models::InstallClusterAddonsRequest &request);
 
       /**
-       * @summary 为ACK集群节点池安装节点组件
+       * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
        *
        * @param request InstallNodePoolComponentsRequest
        * @param headers map
@@ -1675,7 +1675,7 @@ namespace CS20151215
       Models::InstallNodePoolComponentsResponse installNodePoolComponentsWithOptions(const string &clusterId, const string &nodePoolId, const Models::InstallNodePoolComponentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为ACK集群节点池安装节点组件
+       * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
        *
        * @param request InstallNodePoolComponentsRequest
        * @return InstallNodePoolComponentsResponse
@@ -1701,7 +1701,7 @@ namespace CS20151215
       Models::ListAddonsResponse listAddons(const Models::ListAddonsRequest &request);
 
       /**
-       * @summary 查询自愈规则
+       * @summary List auto-repair policies.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1710,14 +1710,14 @@ namespace CS20151215
       Models::ListAutoRepairPoliciesResponse listAutoRepairPoliciesWithOptions(const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自愈规则
+       * @summary List auto-repair policies.
        *
        * @return ListAutoRepairPoliciesResponse
        */
       Models::ListAutoRepairPoliciesResponse listAutoRepairPolicies(const string &clusterId);
 
       /**
-       * @summary 获取集群组件实例的资源列表
+       * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +1726,7 @@ namespace CS20151215
       Models::ListClusterAddonInstanceResourcesResponse listClusterAddonInstanceResourcesWithOptions(const string &clusterId, const string &instanceName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群组件实例的资源列表
+       * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
        *
        * @return ListClusterAddonInstanceResourcesResponse
        */
@@ -2423,7 +2423,7 @@ namespace CS20151215
       Models::SyncClusterNodePoolResponse syncClusterNodePool(const string &ClusterId);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
        *
        * @param request TagResourcesRequest
        * @param headers map
@@ -2433,7 +2433,7 @@ namespace CS20151215
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+       * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2577,7 +2577,7 @@ namespace CS20151215
       Models::UpdateK8sClusterUserConfigExpireResponse updateK8sClusterUserConfigExpire(const string &ClusterId, const Models::UpdateK8sClusterUserConfigExpireRequest &request);
 
       /**
-       * @summary 更新 Secret 落盘加密配置
+       * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
        *
        * @param request UpdateKMSEncryptionRequest
        * @param headers map
@@ -2587,7 +2587,7 @@ namespace CS20151215
       Models::UpdateKMSEncryptionResponse updateKMSEncryptionWithOptions(const string &ClusterId, const Models::UpdateKMSEncryptionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 Secret 落盘加密配置
+       * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
        *
        * @param request UpdateKMSEncryptionRequest
        * @return UpdateKMSEncryptionResponse
@@ -2595,7 +2595,7 @@ namespace CS20151215
       Models::UpdateKMSEncryptionResponse updateKMSEncryption(const string &ClusterId, const Models::UpdateKMSEncryptionRequest &request);
 
       /**
-       * @summary 更新节点组件
+       * @summary Updates a specific component within a node pool, such as the kubelet.
        *
        * @param request UpdateNodePoolComponentRequest
        * @param headers map
@@ -2605,7 +2605,7 @@ namespace CS20151215
       Models::UpdateNodePoolComponentResponse updateNodePoolComponentWithOptions(const string &clusterId, const string &nodepoolId, const Models::UpdateNodePoolComponentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新节点组件
+       * @summary Updates a specific component within a node pool, such as the kubelet.
        *
        * @param request UpdateNodePoolComponentRequest
        * @return UpdateNodePoolComponentResponse
@@ -2703,7 +2703,7 @@ namespace CS20151215
       Models::UpgradeClusterResponse upgradeCluster(const string &ClusterId, const Models::UpgradeClusterRequest &request);
 
       /**
-       * @summary Updates cluster add-ons to newer versions for enhanced functionality.
+       * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
        *
        * @param request UpgradeClusterAddonsRequest
        * @param headers map
@@ -2713,7 +2713,7 @@ namespace CS20151215
       Models::UpgradeClusterAddonsResponse upgradeClusterAddonsWithOptions(const string &ClusterId, const Models::UpgradeClusterAddonsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates cluster add-ons to newer versions for enhanced functionality.
+       * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
        *
        * @param request UpgradeClusterAddonsRequest
        * @return UpgradeClusterAddonsResponse

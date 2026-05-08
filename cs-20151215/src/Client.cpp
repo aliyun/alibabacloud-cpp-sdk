@@ -570,7 +570,7 @@ CleanUserPermissionsResponse Client::cleanUserPermissions(const string &Uid, con
 }
 
 /**
- * @summary 查询自愈规则
+ * @summary Creates an auto-repair policy.
  *
  * @param request CreateAutoRepairPolicyRequest
  * @param headers map
@@ -615,7 +615,7 @@ CreateAutoRepairPolicyResponse Client::createAutoRepairPolicyWithOptions(const s
 }
 
 /**
- * @summary 查询自愈规则
+ * @summary Creates an auto-repair policy.
  *
  * @param request CreateAutoRepairPolicyRequest
  * @return CreateAutoRepairPolicyResponse
@@ -2677,6 +2677,14 @@ DescribeClusterDetailResponse Client::describeClusterDetail(const string &Cluste
 DescribeClusterEventsResponse Client::describeClusterEventsWithOptions(const string &ClusterId, const DescribeClusterEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasMaxResults()) {
+    query["max_results"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["next_token"] = request.getNextToken();
+  }
+
   if (!!request.hasPageNumber()) {
     query["page_number"] = request.getPageNumber();
   }
@@ -2953,6 +2961,14 @@ DescribeClusterResourcesResponse Client::describeClusterResources(const string &
 DescribeClusterTasksResponse Client::describeClusterTasksWithOptions(const string &clusterId, const DescribeClusterTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasMaxResults()) {
+    query["max_results"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["next_token"] = request.getNextToken();
+  }
+
   if (!!request.hasPageNumber()) {
     query["page_number"] = request.getPageNumber();
   }
@@ -3138,7 +3154,7 @@ DescribeClusterVulsResponse Client::describeClusterVuls(const string &clusterId)
 /**
  * @deprecated OpenAPI DescribeClusters is deprecated
  *
- * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+ * @summary Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
  *
  * @param request DescribeClustersRequest
  * @param headers map
@@ -3181,7 +3197,7 @@ DescribeClustersResponse Client::describeClustersWithOptions(const DescribeClust
 /**
  * @deprecated OpenAPI DescribeClusters is deprecated
  *
- * @summary Queries all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+ * @summary Queries all existing clusters in ACK, including Kubernetes clusters and Swarm clusters.
  *
  * @param request DescribeClustersRequest
  * @return DescribeClustersResponse
@@ -3349,6 +3365,14 @@ DescribeEventsResponse Client::describeEventsWithOptions(const DescribeEventsReq
     query["cluster_id"] = request.getClusterId();
   }
 
+  if (!!request.hasMaxResults()) {
+    query["max_results"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["next_token"] = request.getNextToken();
+  }
+
   if (!!request.hasPageNumber()) {
     query["page_number"] = request.getPageNumber();
   }
@@ -3404,6 +3428,14 @@ DescribeEventsForRegionResponse Client::describeEventsForRegionWithOptions(const
   json query = {};
   if (!!request.hasClusterId()) {
     query["cluster_id"] = request.getClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["max_results"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["next_token"] = request.getNextToken();
   }
 
   if (!!request.hasPageNumber()) {
@@ -3809,7 +3841,7 @@ DescribePolicyInstancesStatusResponse Client::describePolicyInstancesStatus(cons
 }
 
 /**
- * @summary 查询地域列表
+ * @summary Queries the list of available regions.
  *
  * @param request DescribeRegionsRequest
  * @param headers map
@@ -3850,7 +3882,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary 查询地域列表
+ * @summary Queries the list of available regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -4826,7 +4858,7 @@ InstallClusterAddonsResponse Client::installClusterAddons(const string &ClusterI
 }
 
 /**
- * @summary 为ACK集群节点池安装节点组件
+ * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
  *
  * @param request InstallNodePoolComponentsRequest
  * @param headers map
@@ -4867,7 +4899,7 @@ InstallNodePoolComponentsResponse Client::installNodePoolComponentsWithOptions(c
 }
 
 /**
- * @summary 为ACK集群节点池安装节点组件
+ * @summary Installs components onto the nodes within a specified node pool. This API supports custom configurations and allows you to target specific nodes for the installation.
  *
  * @param request InstallNodePoolComponentsRequest
  * @return InstallNodePoolComponentsResponse
@@ -4944,7 +4976,7 @@ ListAddonsResponse Client::listAddons(const ListAddonsRequest &request) {
 }
 
 /**
- * @summary 查询自愈规则
+ * @summary List auto-repair policies.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4969,7 +5001,7 @@ ListAutoRepairPoliciesResponse Client::listAutoRepairPoliciesWithOptions(const s
 }
 
 /**
- * @summary 查询自愈规则
+ * @summary List auto-repair policies.
  *
  * @return ListAutoRepairPoliciesResponse
  */
@@ -4980,7 +5012,7 @@ ListAutoRepairPoliciesResponse Client::listAutoRepairPolicies(const string &clus
 }
 
 /**
- * @summary 获取集群组件实例的资源列表
+ * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5005,7 +5037,7 @@ ListClusterAddonInstanceResourcesResponse Client::listClusterAddonInstanceResour
 }
 
 /**
- * @summary 获取集群组件实例的资源列表
+ * @summary Queries the list of resources associated with installed cluster add-ons, including Kubernetes resources and Helm release information.
  *
  * @return ListClusterAddonInstanceResourcesResponse
  */
@@ -6908,7 +6940,7 @@ SyncClusterNodePoolResponse Client::syncClusterNodePool(const string &ClusterId)
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+ * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
  *
  * @param request TagResourcesRequest
  * @param headers map
@@ -6953,7 +6985,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
+ * @summary You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the TagResources operation to add labels to a cluster.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -7351,7 +7383,7 @@ UpdateK8sClusterUserConfigExpireResponse Client::updateK8sClusterUserConfigExpir
 }
 
 /**
- * @summary 更新 Secret 落盘加密配置
+ * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
  *
  * @param request UpdateKMSEncryptionRequest
  * @param headers map
@@ -7388,7 +7420,7 @@ UpdateKMSEncryptionResponse Client::updateKMSEncryptionWithOptions(const string 
 }
 
 /**
- * @summary 更新 Secret 落盘加密配置
+ * @summary Updates the Secret encryption at rest configuration for a specified cluster by cluster ID.
  *
  * @param request UpdateKMSEncryptionRequest
  * @return UpdateKMSEncryptionResponse
@@ -7400,7 +7432,7 @@ UpdateKMSEncryptionResponse Client::updateKMSEncryption(const string &ClusterId,
 }
 
 /**
- * @summary 更新节点组件
+ * @summary Updates a specific component within a node pool, such as the kubelet.
  *
  * @param request UpdateNodePoolComponentRequest
  * @param headers map
@@ -7453,7 +7485,7 @@ UpdateNodePoolComponentResponse Client::updateNodePoolComponentWithOptions(const
 }
 
 /**
- * @summary 更新节点组件
+ * @summary Updates a specific component within a node pool, such as the kubelet.
  *
  * @param request UpdateNodePoolComponentRequest
  * @return UpdateNodePoolComponentResponse
@@ -7708,7 +7740,7 @@ UpgradeClusterResponse Client::upgradeCluster(const string &ClusterId, const Upg
 }
 
 /**
- * @summary Updates cluster add-ons to newer versions for enhanced functionality.
+ * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
  *
  * @param request UpgradeClusterAddonsRequest
  * @param headers map
@@ -7736,7 +7768,7 @@ UpgradeClusterAddonsResponse Client::upgradeClusterAddonsWithOptions(const strin
 }
 
 /**
- * @summary Updates cluster add-ons to newer versions for enhanced functionality.
+ * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
  *
  * @param request UpgradeClusterAddonsRequest
  * @return UpgradeClusterAddonsResponse

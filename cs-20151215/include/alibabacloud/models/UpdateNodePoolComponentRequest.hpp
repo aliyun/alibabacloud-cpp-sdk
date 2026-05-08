@@ -88,8 +88,11 @@ namespace Models
 
 
     protected:
+      // The time interval between update batches, in seconds.
       shared_ptr<int64_t> batchInterval_ {};
+      // The maximum number of nodes that can be updated concurrently. Default: 1.
       shared_ptr<int64_t> maxParallelism_ {};
+      // The automatic pause strategy during the update process. Valid values: NotPause, FirstBatchPause, EveryBatchPause.
       shared_ptr<string> pausePolicy_ {};
     };
 
@@ -123,6 +126,7 @@ namespace Models
 
 
     protected:
+      // Custom configuration parameters for the component.
       shared_ptr<map<string, string>> customConfig_ {};
     };
 
@@ -177,11 +181,17 @@ namespace Models
 
 
   protected:
+    // The configuration details for the component update.
     shared_ptr<UpdateNodePoolComponentRequest::Config> config_ {};
+    // Specifies whether to disable rolling updates. Default: false. If set to false, nodes will be rolled automatically to apply the new configuration.
     shared_ptr<bool> disableRolling_ {};
+    // The name of the node component.
     shared_ptr<string> name_ {};
+    // A list of specific nodes to be rolled. If not specified, all nodes in the node pool will be updated.
     shared_ptr<vector<string>> nodeNames_ {};
+    // The rolling update configuration.
     shared_ptr<UpdateNodePoolComponentRequest::RollingPolicy> rollingPolicy_ {};
+    // The version of the node component to be updated to.
     shared_ptr<string> version_ {};
   };
 

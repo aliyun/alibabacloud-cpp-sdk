@@ -14,11 +14,15 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeEventsForRegionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
+      DARABONBA_PTR_TO_JSON(max_results, maxResults_);
+      DARABONBA_PTR_TO_JSON(next_token, nextToken_);
       DARABONBA_PTR_TO_JSON(page_number, pageNumber_);
       DARABONBA_PTR_TO_JSON(page_size, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeEventsForRegionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
+      DARABONBA_PTR_FROM_JSON(max_results, maxResults_);
+      DARABONBA_PTR_FROM_JSON(next_token, nextToken_);
       DARABONBA_PTR_FROM_JSON(page_number, pageNumber_);
       DARABONBA_PTR_FROM_JSON(page_size, pageSize_);
     };
@@ -34,12 +38,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
     inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline DescribeEventsForRegionRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+    // maxResults Field Functions 
+    bool hasMaxResults() const { return this->maxResults_ != nullptr;};
+    void deleteMaxResults() { this->maxResults_ = nullptr;};
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline DescribeEventsForRegionRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline DescribeEventsForRegionRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // pageNumber Field Functions 
@@ -59,6 +77,8 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
     // The number of pages.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of records on each page.

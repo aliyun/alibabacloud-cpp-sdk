@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the asynchronous task. You can use this ID to track the installation progress.
     shared_ptr<string> clusterId_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 
