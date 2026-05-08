@@ -1691,6 +1691,10 @@ CreateAIDBClusterResponse Client::createAIDBClusterWithOptions(const CreateAIDBC
     query["AutoUseCoupon"] = request.getAutoUseCoupon();
   }
 
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDBClusterDescription()) {
     query["DBClusterDescription"] = request.getDBClusterDescription();
   }

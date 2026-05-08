@@ -16,16 +16,19 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeGatewayAttributeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ClassCode, classCode_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(CurrentVersion, currentVersion_);
       DARABONBA_PTR_TO_JSON(DbType, dbType_);
       DARABONBA_PTR_TO_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_TO_JSON(Expired, expired_);
       DARABONBA_PTR_TO_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_TO_JSON(GwDescription, gwDescription_);
+      DARABONBA_PTR_TO_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
@@ -34,16 +37,19 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeGatewayAttributeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ClassCode, classCode_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(CurrentVersion, currentVersion_);
       DARABONBA_PTR_FROM_JSON(DbType, dbType_);
       DARABONBA_PTR_FROM_JSON(Endpoints, endpoints_);
       DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
       DARABONBA_PTR_FROM_JSON(Expired, expired_);
       DARABONBA_PTR_FROM_JSON(GwClusterId, gwClusterId_);
       DARABONBA_PTR_FROM_JSON(GwDescription, gwDescription_);
+      DARABONBA_PTR_FROM_JSON(LatestVersion, latestVersion_);
       DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(RunningVersion, runningVersion_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
@@ -206,9 +212,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->classCode_ == nullptr
-        && this->createTime_ == nullptr && this->dbType_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
-        && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr && this->modifyTime_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->securityIPArrays_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->createTime_ == nullptr && this->currentVersion_ == nullptr && this->dbType_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr
+        && this->expired_ == nullptr && this->gwClusterId_ == nullptr && this->gwDescription_ == nullptr && this->latestVersion_ == nullptr && this->modifyTime_ == nullptr
+        && this->payType_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runningVersion_ == nullptr && this->securityIPArrays_ == nullptr
+        && this->status_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
     // classCode Field Functions 
     bool hasClassCode() const { return this->classCode_ != nullptr;};
     void deleteClassCode() { this->classCode_ = nullptr;};
@@ -221,6 +228,13 @@ namespace Models
     void deleteCreateTime() { this->createTime_ = nullptr;};
     inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
     inline DescribeGatewayAttributeResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+    // currentVersion Field Functions 
+    bool hasCurrentVersion() const { return this->currentVersion_ != nullptr;};
+    void deleteCurrentVersion() { this->currentVersion_ = nullptr;};
+    inline string getCurrentVersion() const { DARABONBA_PTR_GET_DEFAULT(currentVersion_, "") };
+    inline DescribeGatewayAttributeResponseBody& setCurrentVersion(string currentVersion) { DARABONBA_PTR_SET_VALUE(currentVersion_, currentVersion) };
 
 
     // dbType Field Functions 
@@ -267,6 +281,13 @@ namespace Models
     inline DescribeGatewayAttributeResponseBody& setGwDescription(string gwDescription) { DARABONBA_PTR_SET_VALUE(gwDescription_, gwDescription) };
 
 
+    // latestVersion Field Functions 
+    bool hasLatestVersion() const { return this->latestVersion_ != nullptr;};
+    void deleteLatestVersion() { this->latestVersion_ = nullptr;};
+    inline string getLatestVersion() const { DARABONBA_PTR_GET_DEFAULT(latestVersion_, "") };
+    inline DescribeGatewayAttributeResponseBody& setLatestVersion(string latestVersion) { DARABONBA_PTR_SET_VALUE(latestVersion_, latestVersion) };
+
+
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
@@ -293,6 +314,13 @@ namespace Models
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeGatewayAttributeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // runningVersion Field Functions 
+    bool hasRunningVersion() const { return this->runningVersion_ != nullptr;};
+    void deleteRunningVersion() { this->runningVersion_ = nullptr;};
+    inline string getRunningVersion() const { DARABONBA_PTR_GET_DEFAULT(runningVersion_, "") };
+    inline DescribeGatewayAttributeResponseBody& setRunningVersion(string runningVersion) { DARABONBA_PTR_SET_VALUE(runningVersion_, runningVersion) };
 
 
     // securityIPArrays Field Functions 
@@ -328,17 +356,20 @@ namespace Models
   protected:
     shared_ptr<string> classCode_ {};
     shared_ptr<string> createTime_ {};
+    shared_ptr<string> currentVersion_ {};
     shared_ptr<string> dbType_ {};
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::Endpoints>> endpoints_ {};
     shared_ptr<string> expireTime_ {};
     shared_ptr<bool> expired_ {};
     shared_ptr<string> gwClusterId_ {};
     shared_ptr<string> gwDescription_ {};
+    shared_ptr<string> latestVersion_ {};
     shared_ptr<string> modifyTime_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<string> regionId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> runningVersion_ {};
     shared_ptr<vector<DescribeGatewayAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     shared_ptr<string> status_ {};
     shared_ptr<string> vSwitchId_ {};

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AckAdmin, ackAdmin_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBNodeClass, DBNodeClass_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AckAdmin, ackAdmin_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBNodeClass, DBNodeClass_);
@@ -135,13 +137,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->ackAdmin_ == nullptr
-        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBNodeClass_ == nullptr
-        && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr && this->kubeConfig_ == nullptr && this->kubeManagement_ == nullptr
-        && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr && this->modeName_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->password_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr && this->storageSpace_ == nullptr
-        && this->storageType_ == nullptr && this->timeSlices_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
+        && this->DBNodeClass_ == nullptr && this->extension_ == nullptr && this->inferenceEngine_ == nullptr && this->kubeClusterId_ == nullptr && this->kubeConfig_ == nullptr
+        && this->kubeManagement_ == nullptr && this->kubeType_ == nullptr && this->kubernetesConfig_ == nullptr && this->managementMode_ == nullptr && this->modeName_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
+        && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->storageSpace_ == nullptr && this->storageType_ == nullptr && this->timeSlices_ == nullptr && this->usedTime_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr && this->zoneId_ == nullptr; };
     // ackAdmin Field Functions 
     bool hasAckAdmin() const { return this->ackAdmin_ != nullptr;};
     void deleteAckAdmin() { this->ackAdmin_ = nullptr;};
@@ -161,6 +163,13 @@ namespace Models
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
     inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline CreateAIDBClusterRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateAIDBClusterRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // DBClusterDescription Field Functions 
@@ -372,6 +381,7 @@ namespace Models
     shared_ptr<string> ackAdmin_ {};
     shared_ptr<string> autoRenew_ {};
     shared_ptr<bool> autoUseCoupon_ {};
+    shared_ptr<string> clientToken_ {};
     shared_ptr<string> DBClusterDescription_ {};
     shared_ptr<string> DBClusterId_ {};
     // This parameter is required.
@@ -397,7 +407,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
     shared_ptr<int32_t> storageSpace_ {};
     // This parameter is required.
