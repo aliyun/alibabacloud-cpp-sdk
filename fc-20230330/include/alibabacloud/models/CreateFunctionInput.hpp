@@ -9,6 +9,7 @@
 #include <map>
 #include <alibabacloud/models/GPUConfig.hpp>
 #include <alibabacloud/models/InstanceLifecycleConfig.hpp>
+#include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/LogConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(instanceIsolationMode, instanceIsolationMode_);
       DARABONBA_PTR_TO_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
       DARABONBA_PTR_TO_JSON(internetAccess, internetAccess_);
+      DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(layers, layers_);
       DARABONBA_PTR_TO_JSON(logConfig, logConfig_);
       DARABONBA_PTR_TO_JSON(memorySize, memorySize_);
@@ -83,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(instanceIsolationMode, instanceIsolationMode_);
       DARABONBA_PTR_FROM_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
       DARABONBA_PTR_FROM_JSON(internetAccess, internetAccess_);
+      DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(layers, layers_);
       DARABONBA_PTR_FROM_JSON(logConfig, logConfig_);
       DARABONBA_PTR_FROM_JSON(memorySize, memorySize_);
@@ -114,10 +117,10 @@ namespace Models
         && this->cpu_ == nullptr && this->customContainerConfig_ == nullptr && this->customDNS_ == nullptr && this->customRuntimeConfig_ == nullptr && this->description_ == nullptr
         && this->disableInjectCredentials_ == nullptr && this->disableOndemand_ == nullptr && this->diskSize_ == nullptr && this->enableLongLiving_ == nullptr && this->environmentVariables_ == nullptr
         && this->functionName_ == nullptr && this->gpuConfig_ == nullptr && this->handler_ == nullptr && this->idleTimeout_ == nullptr && this->instanceConcurrency_ == nullptr
-        && this->instanceIsolationMode_ == nullptr && this->instanceLifecycleConfig_ == nullptr && this->internetAccess_ == nullptr && this->layers_ == nullptr && this->logConfig_ == nullptr
-        && this->memorySize_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr && this->sessionAffinityConfig_ == nullptr && this->tags_ == nullptr
-        && this->timeout_ == nullptr && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
+        && this->instanceIsolationMode_ == nullptr && this->instanceLifecycleConfig_ == nullptr && this->internetAccess_ == nullptr && this->juiceFsConfig_ == nullptr && this->layers_ == nullptr
+        && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr && this->sessionAffinityConfig_ == nullptr
+        && this->tags_ == nullptr && this->timeout_ == nullptr && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -263,6 +266,15 @@ namespace Models
     void deleteInternetAccess() { this->internetAccess_ = nullptr;};
     inline bool getInternetAccess() const { DARABONBA_PTR_GET_DEFAULT(internetAccess_, false) };
     inline CreateFunctionInput& setInternetAccess(bool internetAccess) { DARABONBA_PTR_SET_VALUE(internetAccess_, internetAccess) };
+
+
+    // juiceFsConfig Field Functions 
+    bool hasJuiceFsConfig() const { return this->juiceFsConfig_ != nullptr;};
+    void deleteJuiceFsConfig() { this->juiceFsConfig_ = nullptr;};
+    inline const JuiceFsConfig & getJuiceFsConfig() const { DARABONBA_PTR_GET_CONST(juiceFsConfig_, JuiceFsConfig) };
+    inline JuiceFsConfig getJuiceFsConfig() { DARABONBA_PTR_GET(juiceFsConfig_, JuiceFsConfig) };
+    inline CreateFunctionInput& setJuiceFsConfig(const JuiceFsConfig & juiceFsConfig) { DARABONBA_PTR_SET_VALUE(juiceFsConfig_, juiceFsConfig) };
+    inline CreateFunctionInput& setJuiceFsConfig(JuiceFsConfig && juiceFsConfig) { DARABONBA_PTR_SET_RVALUE(juiceFsConfig_, juiceFsConfig) };
 
 
     // layers Field Functions 
@@ -424,6 +436,7 @@ namespace Models
     shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig_ {};
     // Specifies whether to allow the function to access the Internet. Default value: true.
     shared_ptr<bool> internetAccess_ {};
+    shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The layers. Multiple layers are merged based on the order of array subscripts. If two layers have the same file name, the content of the layer with the smaller subscript will overwrite the content of the layer with the larger subscript.
     shared_ptr<vector<string>> layers_ {};
     // The logging configurations. Logs generated by the function are written to the specified Logstore.

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATESESSIONINPUT_HPP_
 #define ALIBABACLOUD_MODELS_UPDATESESSIONINPUT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/PolarFsConfig.hpp>
@@ -17,6 +18,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateSessionInput& obj) { 
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_TO_JSON(polarFsConfig, polarFsConfig_);
@@ -25,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateSessionInput& obj) { 
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
+      DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
       DARABONBA_PTR_FROM_JSON(polarFsConfig, polarFsConfig_);
@@ -43,12 +46,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->disableSessionIdReuse_ == nullptr
-        && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+        && this->juiceFsConfig_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr
+        && this->sessionTTLInSeconds_ == nullptr; };
     // disableSessionIdReuse Field Functions 
     bool hasDisableSessionIdReuse() const { return this->disableSessionIdReuse_ != nullptr;};
     void deleteDisableSessionIdReuse() { this->disableSessionIdReuse_ = nullptr;};
     inline bool getDisableSessionIdReuse() const { DARABONBA_PTR_GET_DEFAULT(disableSessionIdReuse_, false) };
     inline UpdateSessionInput& setDisableSessionIdReuse(bool disableSessionIdReuse) { DARABONBA_PTR_SET_VALUE(disableSessionIdReuse_, disableSessionIdReuse) };
+
+
+    // juiceFsConfig Field Functions 
+    bool hasJuiceFsConfig() const { return this->juiceFsConfig_ != nullptr;};
+    void deleteJuiceFsConfig() { this->juiceFsConfig_ = nullptr;};
+    inline const JuiceFsConfig & getJuiceFsConfig() const { DARABONBA_PTR_GET_CONST(juiceFsConfig_, JuiceFsConfig) };
+    inline JuiceFsConfig getJuiceFsConfig() { DARABONBA_PTR_GET(juiceFsConfig_, JuiceFsConfig) };
+    inline UpdateSessionInput& setJuiceFsConfig(const JuiceFsConfig & juiceFsConfig) { DARABONBA_PTR_SET_VALUE(juiceFsConfig_, juiceFsConfig) };
+    inline UpdateSessionInput& setJuiceFsConfig(JuiceFsConfig && juiceFsConfig) { DARABONBA_PTR_SET_RVALUE(juiceFsConfig_, juiceFsConfig) };
 
 
     // nasConfig Field Functions 
@@ -94,6 +107,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> disableSessionIdReuse_ {};
+    shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     shared_ptr<NASConfig> nasConfig_ {};
     shared_ptr<OSSMountConfig> ossMountConfig_ {};
     shared_ptr<PolarFsConfig> polarFsConfig_ {};

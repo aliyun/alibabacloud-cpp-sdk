@@ -41,6 +41,8 @@
 #include <alibabacloud/models/GPUConfig.hpp>
 #include <alibabacloud/models/LifecycleHook.hpp>
 #include <alibabacloud/models/InstanceLifecycleConfig.hpp>
+#include <alibabacloud/models/JuiceFsMountConfig.hpp>
+#include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/LogConfig.hpp>
 #include <alibabacloud/models/NASMountConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>

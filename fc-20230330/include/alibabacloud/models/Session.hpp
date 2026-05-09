@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_SESSION_HPP_
 #define ALIBABACLOUD_MODELS_SESSION_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <alibabacloud/models/NASConfig.hpp>
 #include <alibabacloud/models/OSSMountConfig.hpp>
 #include <alibabacloud/models/PolarFsConfig.hpp>
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_TO_JSON(functionName, functionName_);
+      DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(ossMountConfig, ossMountConfig_);
@@ -36,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(disableSessionIdReuse, disableSessionIdReuse_);
       DARABONBA_PTR_FROM_JSON(functionName, functionName_);
+      DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(ossMountConfig, ossMountConfig_);
@@ -59,9 +62,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->containerId_ == nullptr
-        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->functionName_ == nullptr && this->lastModifiedTime_ == nullptr && this->nasConfig_ == nullptr
-        && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr && this->sessionId_ == nullptr
-        && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
+        && this->createdTime_ == nullptr && this->disableSessionIdReuse_ == nullptr && this->functionName_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr
+        && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->qualifier_ == nullptr && this->sessionAffinityType_ == nullptr
+        && this->sessionId_ == nullptr && this->sessionIdleTimeoutInSeconds_ == nullptr && this->sessionStatus_ == nullptr && this->sessionTTLInSeconds_ == nullptr; };
     // containerId Field Functions 
     bool hasContainerId() const { return this->containerId_ != nullptr;};
     void deleteContainerId() { this->containerId_ = nullptr;};
@@ -88,6 +91,15 @@ namespace Models
     void deleteFunctionName() { this->functionName_ = nullptr;};
     inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
     inline Session& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
+
+
+    // juiceFsConfig Field Functions 
+    bool hasJuiceFsConfig() const { return this->juiceFsConfig_ != nullptr;};
+    void deleteJuiceFsConfig() { this->juiceFsConfig_ = nullptr;};
+    inline const JuiceFsConfig & getJuiceFsConfig() const { DARABONBA_PTR_GET_CONST(juiceFsConfig_, JuiceFsConfig) };
+    inline JuiceFsConfig getJuiceFsConfig() { DARABONBA_PTR_GET(juiceFsConfig_, JuiceFsConfig) };
+    inline Session& setJuiceFsConfig(const JuiceFsConfig & juiceFsConfig) { DARABONBA_PTR_SET_VALUE(juiceFsConfig_, juiceFsConfig) };
+    inline Session& setJuiceFsConfig(JuiceFsConfig && juiceFsConfig) { DARABONBA_PTR_SET_RVALUE(juiceFsConfig_, juiceFsConfig) };
 
 
     // lastModifiedTime Field Functions 
@@ -174,6 +186,7 @@ namespace Models
     shared_ptr<bool> disableSessionIdReuse_ {};
     // The name of the function to which the session belongs.
     shared_ptr<string> functionName_ {};
+    shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The time when the session was last updated.
     shared_ptr<string> lastModifiedTime_ {};
     // The File Storage NAS (NAS) configuration. Once configured, the instance associated with the session can access designated NAS resources.

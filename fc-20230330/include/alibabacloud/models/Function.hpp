@@ -9,6 +9,7 @@
 #include <alibabacloud/models/GPUConfig.hpp>
 #include <alibabacloud/models/InstanceLifecycleConfig.hpp>
 #include <alibabacloud/models/FunctionRestriction.hpp>
+#include <alibabacloud/models/JuiceFsConfig.hpp>
 #include <vector>
 #include <alibabacloud/models/FunctionLayer.hpp>
 #include <alibabacloud/models/FunctionLockInfo.hpp>
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
       DARABONBA_PTR_TO_JSON(internetAccess, internetAccess_);
       DARABONBA_PTR_TO_JSON(invocationRestriction, invocationRestriction_);
+      DARABONBA_PTR_TO_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_TO_JSON(lastUpdateStatus, lastUpdateStatus_);
       DARABONBA_PTR_TO_JSON(lastUpdateStatusReason, lastUpdateStatusReason_);
@@ -103,6 +105,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(instanceLifecycleConfig, instanceLifecycleConfig_);
       DARABONBA_PTR_FROM_JSON(internetAccess, internetAccess_);
       DARABONBA_PTR_FROM_JSON(invocationRestriction, invocationRestriction_);
+      DARABONBA_PTR_FROM_JSON(juiceFsConfig, juiceFsConfig_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_FROM_JSON(lastUpdateStatus, lastUpdateStatus_);
       DARABONBA_PTR_FROM_JSON(lastUpdateStatusReason, lastUpdateStatusReason_);
@@ -143,12 +146,12 @@ namespace Models
         && this->customRuntimeConfig_ == nullptr && this->description_ == nullptr && this->disableInjectCredentials_ == nullptr && this->disableOndemand_ == nullptr && this->diskSize_ == nullptr
         && this->enableLongLiving_ == nullptr && this->environmentVariables_ == nullptr && this->functionArn_ == nullptr && this->functionId_ == nullptr && this->functionName_ == nullptr
         && this->gpuConfig_ == nullptr && this->handler_ == nullptr && this->idleTimeout_ == nullptr && this->instanceConcurrency_ == nullptr && this->instanceIsolationMode_ == nullptr
-        && this->instanceLifecycleConfig_ == nullptr && this->internetAccess_ == nullptr && this->invocationRestriction_ == nullptr && this->lastModifiedTime_ == nullptr && this->lastUpdateStatus_ == nullptr
-        && this->lastUpdateStatusReason_ == nullptr && this->lastUpdateStatusReasonCode_ == nullptr && this->layers_ == nullptr && this->lockInfo_ == nullptr && this->logConfig_ == nullptr
-        && this->memorySize_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr && this->sessionAffinityConfig_ == nullptr && this->state_ == nullptr
-        && this->stateReason_ == nullptr && this->stateReasonCode_ == nullptr && this->tags_ == nullptr && this->timeout_ == nullptr && this->tracingConfig_ == nullptr
-        && this->vpcConfig_ == nullptr; };
+        && this->instanceLifecycleConfig_ == nullptr && this->internetAccess_ == nullptr && this->invocationRestriction_ == nullptr && this->juiceFsConfig_ == nullptr && this->lastModifiedTime_ == nullptr
+        && this->lastUpdateStatus_ == nullptr && this->lastUpdateStatusReason_ == nullptr && this->lastUpdateStatusReasonCode_ == nullptr && this->layers_ == nullptr && this->lockInfo_ == nullptr
+        && this->logConfig_ == nullptr && this->memorySize_ == nullptr && this->nasConfig_ == nullptr && this->ossMountConfig_ == nullptr && this->polarFsConfig_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->role_ == nullptr && this->runtime_ == nullptr && this->sessionAffinity_ == nullptr && this->sessionAffinityConfig_ == nullptr
+        && this->state_ == nullptr && this->stateReason_ == nullptr && this->stateReasonCode_ == nullptr && this->tags_ == nullptr && this->timeout_ == nullptr
+        && this->tracingConfig_ == nullptr && this->vpcConfig_ == nullptr; };
     // codeChecksum Field Functions 
     bool hasCodeChecksum() const { return this->codeChecksum_ != nullptr;};
     void deleteCodeChecksum() { this->codeChecksum_ = nullptr;};
@@ -329,6 +332,15 @@ namespace Models
     inline FunctionRestriction getInvocationRestriction() { DARABONBA_PTR_GET(invocationRestriction_, FunctionRestriction) };
     inline Function& setInvocationRestriction(const FunctionRestriction & invocationRestriction) { DARABONBA_PTR_SET_VALUE(invocationRestriction_, invocationRestriction) };
     inline Function& setInvocationRestriction(FunctionRestriction && invocationRestriction) { DARABONBA_PTR_SET_RVALUE(invocationRestriction_, invocationRestriction) };
+
+
+    // juiceFsConfig Field Functions 
+    bool hasJuiceFsConfig() const { return this->juiceFsConfig_ != nullptr;};
+    void deleteJuiceFsConfig() { this->juiceFsConfig_ = nullptr;};
+    inline const JuiceFsConfig & getJuiceFsConfig() const { DARABONBA_PTR_GET_CONST(juiceFsConfig_, JuiceFsConfig) };
+    inline JuiceFsConfig getJuiceFsConfig() { DARABONBA_PTR_GET(juiceFsConfig_, JuiceFsConfig) };
+    inline Function& setJuiceFsConfig(const JuiceFsConfig & juiceFsConfig) { DARABONBA_PTR_SET_VALUE(juiceFsConfig_, juiceFsConfig) };
+    inline Function& setJuiceFsConfig(JuiceFsConfig && juiceFsConfig) { DARABONBA_PTR_SET_RVALUE(juiceFsConfig_, juiceFsConfig) };
 
 
     // lastModifiedTime Field Functions 
@@ -553,6 +565,7 @@ namespace Models
     // Specifies whether to allow the function to access the Internet. Default value: true.
     shared_ptr<bool> internetAccess_ {};
     shared_ptr<FunctionRestriction> invocationRestriction_ {};
+    shared_ptr<JuiceFsConfig> juiceFsConfig_ {};
     // The last time the function was updated.
     shared_ptr<string> lastModifiedTime_ {};
     // The status of the most recent update that was executed on the function. The initial value for this parameter is Successful once the function has been successfully created. Valid values: Successful, Failed, and InProgress.
