@@ -36,6 +36,48 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 查询当前任务的并发数
+ *
+ * @param request QueryTaskConcurrencyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryTaskConcurrencyResponse
+ */
+QueryTaskConcurrencyResponse Client::queryTaskConcurrencyWithOptions(const QueryTaskConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "QueryTaskConcurrency"},
+    {"version" , "2025-11-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryTaskConcurrencyResponse>();
+}
+
+/**
+ * @summary 查询当前任务的并发数
+ *
+ * @param request QueryTaskConcurrencyRequest
+ * @return QueryTaskConcurrencyResponse
+ */
+QueryTaskConcurrencyResponse Client::queryTaskConcurrency(const QueryTaskConcurrencyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryTaskConcurrencyWithOptions(request, runtime);
+}
+
+/**
  * @summary 外呼任务通话列表查询
  *
  * @param tmpReq ReadOutboundTaskCallListRequest

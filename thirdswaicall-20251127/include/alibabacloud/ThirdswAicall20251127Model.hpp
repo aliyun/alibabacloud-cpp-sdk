@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_THIRDSWAICALL20251127MODEL_HPP_
 #define ALIBABACLOUD_THIRDSWAICALL20251127MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/QueryTaskConcurrencyRequest.hpp>
+#include <alibabacloud/models/QueryTaskConcurrencyResponseBody.hpp>
+#include <alibabacloud/models/QueryTaskConcurrencyResponse.hpp>
 #include <alibabacloud/models/ReadOutboundTaskCallListRequest.hpp>
 #include <alibabacloud/models/ReadOutboundTaskCallListShrinkRequest.hpp>
 #include <alibabacloud/models/ReadOutboundTaskCallListResponseBody.hpp>
