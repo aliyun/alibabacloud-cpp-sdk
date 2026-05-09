@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeSpecRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(MatrixSpec, matrixSpec_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeSpecRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
+      DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(MatrixSpec, matrixSpec_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -45,13 +47,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->matrixSpec_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->saleMode_ == nullptr && this->specIds_ == nullptr
-        && this->specStatus_ == nullptr && this->specType_ == nullptr; };
+        && this->chargeType_ == nullptr && this->matrixSpec_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->saleMode_ == nullptr
+        && this->specIds_ == nullptr && this->specStatus_ == nullptr && this->specType_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
     inline string getBizRegionId() const { DARABONBA_PTR_GET_DEFAULT(bizRegionId_, "") };
     inline DescribeSpecRequest& setBizRegionId(string bizRegionId) { DARABONBA_PTR_SET_VALUE(bizRegionId_, bizRegionId) };
+
+
+    // chargeType Field Functions 
+    bool hasChargeType() const { return this->chargeType_ != nullptr;};
+    void deleteChargeType() { this->chargeType_ = nullptr;};
+    inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+    inline DescribeSpecRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
     // matrixSpec Field Functions 
@@ -107,6 +116,7 @@ namespace Models
 
   protected:
     shared_ptr<string> bizRegionId_ {};
+    shared_ptr<string> chargeType_ {};
     // The matrix specification.
     // 
     // Valid values:

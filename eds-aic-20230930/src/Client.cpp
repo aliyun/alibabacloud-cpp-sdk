@@ -2819,6 +2819,10 @@ DescribeSpecResponse Client::describeSpecWithOptions(const DescribeSpecRequest &
     query["BizRegionId"] = request.getBizRegionId();
   }
 
+  if (!!request.hasChargeType()) {
+    query["ChargeType"] = request.getChargeType();
+  }
+
   if (!!request.hasMatrixSpec()) {
     query["MatrixSpec"] = request.getMatrixSpec();
   }
