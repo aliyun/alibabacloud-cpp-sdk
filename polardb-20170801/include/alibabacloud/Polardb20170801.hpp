@@ -676,6 +676,23 @@ namespace Polardb20170801
       Models::CreateBackupResponse createBackup(const Models::CreateBackupRequest &request);
 
       /**
+       * @summary 创建批量任务
+       *
+       * @param tmpReq CreateBatchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBatchTaskResponse
+       */
+      Models::CreateBatchTaskResponse createBatchTaskWithOptions(const Models::CreateBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建批量任务
+       *
+       * @param request CreateBatchTaskRequest
+       * @return CreateBatchTaskResponse
+       */
+      Models::CreateBatchTaskResponse createBatchTask(const Models::CreateBatchTaskRequest &request);
+
+      /**
        * @summary 创建预算策略
        *
        * @param request CreateBudgetPolicyRequest
@@ -2502,6 +2519,40 @@ namespace Polardb20170801
        * @return DescribeBackupsResponse
        */
       Models::DescribeBackupsResponse describeBackups(const Models::DescribeBackupsRequest &request);
+
+      /**
+       * @summary 查询批量任务状态详情
+       *
+       * @param request DescribeBatchTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBatchTaskResponse
+       */
+      Models::DescribeBatchTaskResponse describeBatchTaskWithOptions(const Models::DescribeBatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量任务状态详情
+       *
+       * @param request DescribeBatchTaskRequest
+       * @return DescribeBatchTaskResponse
+       */
+      Models::DescribeBatchTaskResponse describeBatchTask(const Models::DescribeBatchTaskRequest &request);
+
+      /**
+       * @summary 查询批量任务状态
+       *
+       * @param tmpReq DescribeBatchTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBatchTasksResponse
+       */
+      Models::DescribeBatchTasksResponse describeBatchTasksWithOptions(const Models::DescribeBatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询批量任务状态
+       *
+       * @param request DescribeBatchTasksRequest
+       * @return DescribeBatchTasksResponse
+       */
+      Models::DescribeBatchTasksResponse describeBatchTasks(const Models::DescribeBatchTasksRequest &request);
 
       /**
        * @summary 查询预算策略

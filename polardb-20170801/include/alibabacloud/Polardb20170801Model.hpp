@@ -116,6 +116,10 @@
 #include <alibabacloud/models/CreateBackupRequest.hpp>
 #include <alibabacloud/models/CreateBackupResponseBody.hpp>
 #include <alibabacloud/models/CreateBackupResponse.hpp>
+#include <alibabacloud/models/CreateBatchTaskRequest.hpp>
+#include <alibabacloud/models/CreateBatchTaskShrinkRequest.hpp>
+#include <alibabacloud/models/CreateBatchTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateBatchTaskResponse.hpp>
 #include <alibabacloud/models/CreateBudgetPolicyRequest.hpp>
 #include <alibabacloud/models/CreateBudgetPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateBudgetPolicyResponse.hpp>
@@ -426,6 +430,13 @@
 #include <alibabacloud/models/DescribeBackupsRequest.hpp>
 #include <alibabacloud/models/DescribeBackupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeBackupsResponse.hpp>
+#include <alibabacloud/models/DescribeBatchTaskRequest.hpp>
+#include <alibabacloud/models/DescribeBatchTaskResponseBody.hpp>
+#include <alibabacloud/models/DescribeBatchTaskResponse.hpp>
+#include <alibabacloud/models/DescribeBatchTasksRequest.hpp>
+#include <alibabacloud/models/DescribeBatchTasksShrinkRequest.hpp>
+#include <alibabacloud/models/DescribeBatchTasksResponseBody.hpp>
+#include <alibabacloud/models/DescribeBatchTasksResponse.hpp>
 #include <alibabacloud/models/DescribeBudgetPoliciesRequest.hpp>
 #include <alibabacloud/models/DescribeBudgetPoliciesResponseBody.hpp>
 #include <alibabacloud/models/DescribeBudgetPoliciesResponse.hpp>

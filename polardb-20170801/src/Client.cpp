@@ -2732,6 +2732,70 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
+ * @summary 创建批量任务
+ *
+ * @param tmpReq CreateBatchTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBatchTaskResponse
+ */
+CreateBatchTaskResponse Client::createBatchTaskWithOptions(const CreateBatchTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateBatchTaskShrinkRequest request = CreateBatchTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasParam()) {
+    query["Param"] = request.getParam();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateBatchTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBatchTaskResponse>();
+}
+
+/**
+ * @summary 创建批量任务
+ *
+ * @param request CreateBatchTaskRequest
+ * @return CreateBatchTaskResponse
+ */
+CreateBatchTaskResponse Client::createBatchTask(const CreateBatchTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBatchTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建预算策略
  *
  * @param request CreateBudgetPolicyRequest
@@ -9871,6 +9935,116 @@ DescribeBackupsResponse Client::describeBackupsWithOptions(const DescribeBackups
 DescribeBackupsResponse Client::describeBackups(const DescribeBackupsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeBackupsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询批量任务状态详情
+ *
+ * @param request DescribeBatchTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBatchTaskResponse
+ */
+DescribeBatchTaskResponse Client::describeBatchTaskWithOptions(const DescribeBatchTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBatchId()) {
+    query["BatchId"] = request.getBatchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBatchTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBatchTaskResponse>();
+}
+
+/**
+ * @summary 查询批量任务状态详情
+ *
+ * @param request DescribeBatchTaskRequest
+ * @return DescribeBatchTaskResponse
+ */
+DescribeBatchTaskResponse Client::describeBatchTask(const DescribeBatchTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBatchTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询批量任务状态
+ *
+ * @param tmpReq DescribeBatchTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBatchTasksResponse
+ */
+DescribeBatchTasksResponse Client::describeBatchTasksWithOptions(const DescribeBatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DescribeBatchTasksShrinkRequest request = DescribeBatchTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStatus()) {
+    request.setStatusShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatus(), "Status", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatusShrink()) {
+    query["Status"] = request.getStatusShrink();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeBatchTasks"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBatchTasksResponse>();
+}
+
+/**
+ * @summary 查询批量任务状态
+ *
+ * @param request DescribeBatchTasksRequest
+ * @return DescribeBatchTasksResponse
+ */
+DescribeBatchTasksResponse Client::describeBatchTasks(const DescribeBatchTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBatchTasksWithOptions(request, runtime);
 }
 
 /**
