@@ -141,6 +141,10 @@
 #include <alibabacloud/models/ListSkillRequest.hpp>
 #include <alibabacloud/models/ListSkillResponseBody.hpp>
 #include <alibabacloud/models/ListSkillResponse.hpp>
+#include <alibabacloud/models/ModifyAppInstanceRequest.hpp>
+#include <alibabacloud/models/ModifyAppInstanceShrinkRequest.hpp>
+#include <alibabacloud/models/ModifyAppInstanceResponseBody.hpp>
+#include <alibabacloud/models/ModifyAppInstanceResponse.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyInstanceAuthConfigResponseBody.hpp>

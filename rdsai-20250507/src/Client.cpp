@@ -2613,6 +2613,66 @@ ListSkillResponse Client::listSkill(const ListSkillRequest &request) {
 }
 
 /**
+ * @summary 修改RDS AI应用实例
+ *
+ * @param tmpReq ModifyAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAppInstanceResponse
+ */
+ModifyAppInstanceResponse Client::modifyAppInstanceWithOptions(const ModifyAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyAppInstanceShrinkRequest request = ModifyAppInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasComponents()) {
+    request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComponents(), "Components", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasComponentsShrink()) {
+    query["Components"] = request.getComponentsShrink();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAppInstance"},
+    {"version" , "2025-05-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAppInstanceResponse>();
+}
+
+/**
+ * @summary 修改RDS AI应用实例
+ *
+ * @param request ModifyAppInstanceRequest
+ * @return ModifyAppInstanceResponse
+ */
+ModifyAppInstanceResponse Client::modifyAppInstance(const ModifyAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAppInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the authentication configurations of an RDS Supabase instance.
  *
  * @description ### [](#)Supported database engine

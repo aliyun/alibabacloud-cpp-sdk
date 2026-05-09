@@ -891,6 +891,23 @@ namespace RdsAi20250507
       Models::ListSkillResponse listSkill(const Models::ListSkillRequest &request);
 
       /**
+       * @summary 修改RDS AI应用实例
+       *
+       * @param tmpReq ModifyAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAppInstanceResponse
+       */
+      Models::ModifyAppInstanceResponse modifyAppInstanceWithOptions(const Models::ModifyAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改RDS AI应用实例
+       *
+       * @param request ModifyAppInstanceRequest
+       * @return ModifyAppInstanceResponse
+       */
+      Models::ModifyAppInstanceResponse modifyAppInstance(const Models::ModifyAppInstanceRequest &request);
+
+      /**
        * @summary Modifies the authentication configurations of an RDS Supabase instance.
        *
        * @description ### [](#)Supported database engine

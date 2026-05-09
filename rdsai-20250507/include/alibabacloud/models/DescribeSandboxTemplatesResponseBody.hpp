@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(EnableVpcAccess, enableVpcAccess_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Replicas, replicas_);
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       };
       friend void from_json(const Darabonba::Json& j, SandboxTemplates& obj) { 
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(EnableVpcAccess, enableVpcAccess_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Replicas, replicas_);
         DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       };
       SandboxTemplates() = default ;
@@ -72,7 +74,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->defaultCpu_ == nullptr
-        && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->name_ == nullptr && this->templateId_ == nullptr; };
+        && this->defaultMemory_ == nullptr && this->description_ == nullptr && this->enableVpcAccess_ == nullptr && this->name_ == nullptr && this->replicas_ == nullptr
+        && this->templateId_ == nullptr; };
       // defaultCpu Field Functions 
       bool hasDefaultCpu() const { return this->defaultCpu_ != nullptr;};
       void deleteDefaultCpu() { this->defaultCpu_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
       inline SandboxTemplates& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // replicas Field Functions 
+      bool hasReplicas() const { return this->replicas_ != nullptr;};
+      void deleteReplicas() { this->replicas_ = nullptr;};
+      inline int64_t getReplicas() const { DARABONBA_PTR_GET_DEFAULT(replicas_, 0L) };
+      inline SandboxTemplates& setReplicas(int64_t replicas) { DARABONBA_PTR_SET_VALUE(replicas_, replicas) };
+
+
       // templateId Field Functions 
       bool hasTemplateId() const { return this->templateId_ != nullptr;};
       void deleteTemplateId() { this->templateId_ = nullptr;};
@@ -121,6 +131,7 @@ namespace Models
       shared_ptr<string> description_ {};
       shared_ptr<string> enableVpcAccess_ {};
       shared_ptr<string> name_ {};
+      shared_ptr<int64_t> replicas_ {};
       shared_ptr<string> templateId_ {};
     };
 
