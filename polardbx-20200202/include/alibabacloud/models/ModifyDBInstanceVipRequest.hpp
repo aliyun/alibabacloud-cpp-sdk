@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDBInstanceVipRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_TO_JSON(InstanceClusterName, instanceClusterName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDBInstanceVipRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_FROM_JSON(InstanceClusterName, instanceClusterName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceName_ == nullptr
-        && this->regionId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->instanceClusterName_ == nullptr && this->regionId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
     // DBInstanceName Field Functions 
     bool hasDBInstanceName() const { return this->DBInstanceName_ != nullptr;};
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
     inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline ModifyDBInstanceVipRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
+
+
+    // instanceClusterName Field Functions 
+    bool hasInstanceClusterName() const { return this->instanceClusterName_ != nullptr;};
+    void deleteInstanceClusterName() { this->instanceClusterName_ = nullptr;};
+    inline string getInstanceClusterName() const { DARABONBA_PTR_GET_DEFAULT(instanceClusterName_, "") };
+    inline ModifyDBInstanceVipRequest& setInstanceClusterName(string instanceClusterName) { DARABONBA_PTR_SET_VALUE(instanceClusterName_, instanceClusterName) };
 
 
     // regionId Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> instanceClusterName_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // This parameter is required.

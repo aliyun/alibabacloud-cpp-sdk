@@ -54,6 +54,9 @@
 #include <alibabacloud/models/CreateGdnInstanceRequest.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponseBody.hpp>
 #include <alibabacloud/models/CreateGdnInstanceResponse.hpp>
+#include <alibabacloud/models/CreateGdnStandbyMemberRequest.hpp>
+#include <alibabacloud/models/CreateGdnStandbyMemberResponseBody.hpp>
+#include <alibabacloud/models/CreateGdnStandbyMemberResponse.hpp>
 #include <alibabacloud/models/CreateMem0Request.hpp>
 #include <alibabacloud/models/CreateMem0ResponseBody.hpp>
 #include <alibabacloud/models/CreateMem0Response.hpp>
@@ -69,6 +72,9 @@
 #include <alibabacloud/models/CreateStructureImportTaskRequest.hpp>
 #include <alibabacloud/models/CreateStructureImportTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateStructureImportTaskResponse.hpp>
+#include <alibabacloud/models/CreateSubCNInstanceRequest.hpp>
+#include <alibabacloud/models/CreateSubCNInstanceResponseBody.hpp>
+#include <alibabacloud/models/CreateSubCNInstanceResponse.hpp>
 #include <alibabacloud/models/CreateSuperAccountRequest.hpp>
 #include <alibabacloud/models/CreateSuperAccountResponseBody.hpp>
 #include <alibabacloud/models/CreateSuperAccountResponse.hpp>
@@ -96,6 +102,9 @@
 #include <alibabacloud/models/DeleteMem0Request.hpp>
 #include <alibabacloud/models/DeleteMem0ResponseBody.hpp>
 #include <alibabacloud/models/DeleteMem0Response.hpp>
+#include <alibabacloud/models/DeleteSubCNInstanceRequest.hpp>
+#include <alibabacloud/models/DeleteSubCNInstanceResponseBody.hpp>
+#include <alibabacloud/models/DeleteSubCNInstanceResponse.hpp>
 #include <alibabacloud/models/DescribeAccountListRequest.hpp>
 #include <alibabacloud/models/DescribeAccountListResponseBody.hpp>
 #include <alibabacloud/models/DescribeAccountListResponse.hpp>
@@ -162,6 +171,9 @@
 #include <alibabacloud/models/DescribeDBInstanceConfigRequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceConfigResponse.hpp>
+#include <alibabacloud/models/DescribeDBInstanceEndpointRequest.hpp>
+#include <alibabacloud/models/DescribeDBInstanceEndpointResponseBody.hpp>
+#include <alibabacloud/models/DescribeDBInstanceEndpointResponse.hpp>
 #include <alibabacloud/models/DescribeDBInstanceHARequest.hpp>
 #include <alibabacloud/models/DescribeDBInstanceHAResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBInstanceHAResponse.hpp>
@@ -398,6 +410,9 @@
 #include <alibabacloud/models/UpdateBackupPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateBackupPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateBackupPolicyResponse.hpp>
+#include <alibabacloud/models/UpdateCustinsParamRequest.hpp>
+#include <alibabacloud/models/UpdateCustinsParamResponseBody.hpp>
+#include <alibabacloud/models/UpdateCustinsParamResponse.hpp>
 #include <alibabacloud/models/UpdateDBInstanceSSLRequest.hpp>
 #include <alibabacloud/models/UpdateDBInstanceSSLResponseBody.hpp>
 #include <alibabacloud/models/UpdateDBInstanceSSLResponse.hpp>

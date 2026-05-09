@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AllocateInstancePublicConnectionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_TO_JSON(InstanceClusterName, instanceClusterName_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AllocateInstancePublicConnectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConnectionStringPrefix, connectionStringPrefix_);
       DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+      DARABONBA_PTR_FROM_JSON(InstanceClusterName, instanceClusterName_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->connectionStringPrefix_ == nullptr
-        && this->DBInstanceName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->port_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->DBInstanceName_ == nullptr && this->instanceClusterName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->port_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // connectionStringPrefix Field Functions 
     bool hasConnectionStringPrefix() const { return this->connectionStringPrefix_ != nullptr;};
     void deleteConnectionStringPrefix() { this->connectionStringPrefix_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDBInstanceName() { this->DBInstanceName_ = nullptr;};
     inline string getDBInstanceName() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceName_, "") };
     inline AllocateInstancePublicConnectionRequest& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
+
+
+    // instanceClusterName Field Functions 
+    bool hasInstanceClusterName() const { return this->instanceClusterName_ != nullptr;};
+    void deleteInstanceClusterName() { this->instanceClusterName_ = nullptr;};
+    inline string getInstanceClusterName() const { DARABONBA_PTR_GET_DEFAULT(instanceClusterName_, "") };
+    inline AllocateInstancePublicConnectionRequest& setInstanceClusterName(string instanceClusterName) { DARABONBA_PTR_SET_VALUE(instanceClusterName_, instanceClusterName) };
 
 
     // ownerAccount Field Functions 
@@ -107,6 +116,7 @@ namespace Models
     shared_ptr<string> connectionStringPrefix_ {};
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    shared_ptr<string> instanceClusterName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // This parameter is required.

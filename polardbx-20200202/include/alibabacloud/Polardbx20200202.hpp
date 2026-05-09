@@ -51,6 +51,8 @@ namespace Polardbx20200202
       Models::AllocateColdDataVolumeResponse allocateColdDataVolume(const Models::AllocateColdDataVolumeRequest &request);
 
       /**
+       * @summary 开通公网域名
+       *
        * @param request AllocateInstancePublicConnectionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AllocateInstancePublicConnectionResponse
@@ -58,6 +60,8 @@ namespace Polardbx20200202
       Models::AllocateInstancePublicConnectionResponse allocateInstancePublicConnectionWithOptions(const Models::AllocateInstancePublicConnectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 开通公网域名
+       *
        * @param request AllocateInstancePublicConnectionRequest
        * @return AllocateInstancePublicConnectionResponse
        */
@@ -278,6 +282,23 @@ namespace Polardbx20200202
       Models::CreateGdnInstanceResponse createGdnInstance(const Models::CreateGdnInstanceRequest &request);
 
       /**
+       * @summary 创建GDN从实例
+       *
+       * @param request CreateGdnStandbyMemberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGdnStandbyMemberResponse
+       */
+      Models::CreateGdnStandbyMemberResponse createGdnStandbyMemberWithOptions(const Models::CreateGdnStandbyMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建GDN从实例
+       *
+       * @param request CreateGdnStandbyMemberRequest
+       * @return CreateGdnStandbyMemberResponse
+       */
+      Models::CreateGdnStandbyMemberResponse createGdnStandbyMember(const Models::CreateGdnStandbyMemberRequest &request);
+
+      /**
        * @summary 创建mem0
        *
        * @param request CreateMem0Request
@@ -361,6 +382,27 @@ namespace Polardbx20200202
        * @return CreateStructureImportTaskResponse
        */
       Models::CreateStructureImportTaskResponse createStructureImportTask(const Models::CreateStructureImportTaskRequest &request);
+
+      /**
+       * @summary 开通CN子实例
+       *
+       * @description ****
+       *
+       * @param request CreateSubCNInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSubCNInstanceResponse
+       */
+      Models::CreateSubCNInstanceResponse createSubCNInstanceWithOptions(const Models::CreateSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开通CN子实例
+       *
+       * @description ****
+       *
+       * @param request CreateSubCNInstanceRequest
+       * @return CreateSubCNInstanceResponse
+       */
+      Models::CreateSubCNInstanceResponse createSubCNInstance(const Models::CreateSubCNInstanceRequest &request);
 
       /**
        * @param request CreateSuperAccountRequest
@@ -502,6 +544,27 @@ namespace Polardbx20200202
        * @return DeleteMem0Response
        */
       Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
+
+      /**
+       * @summary 删除CN子实例
+       *
+       * @description ****
+       *
+       * @param request DeleteSubCNInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSubCNInstanceResponse
+       */
+      Models::DeleteSubCNInstanceResponse deleteSubCNInstanceWithOptions(const Models::DeleteSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除CN子实例
+       *
+       * @description ****
+       *
+       * @param request DeleteSubCNInstanceRequest
+       * @return DeleteSubCNInstanceResponse
+       */
+      Models::DeleteSubCNInstanceResponse deleteSubCNInstance(const Models::DeleteSubCNInstanceRequest &request);
 
       /**
        * @param request DescribeAccountListRequest
@@ -860,6 +923,23 @@ namespace Polardbx20200202
        * @return DescribeDBInstanceConfigResponse
        */
       Models::DescribeDBInstanceConfigResponse describeDBInstanceConfig(const Models::DescribeDBInstanceConfigRequest &request);
+
+      /**
+       * @summary 查询endpoint列表
+       *
+       * @param request DescribeDBInstanceEndpointRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBInstanceEndpointResponse
+       */
+      Models::DescribeDBInstanceEndpointResponse describeDBInstanceEndpointWithOptions(const Models::DescribeDBInstanceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询endpoint列表
+       *
+       * @param request DescribeDBInstanceEndpointRequest
+       * @return DescribeDBInstanceEndpointResponse
+       */
+      Models::DescribeDBInstanceEndpointResponse describeDBInstanceEndpoint(const Models::DescribeDBInstanceEndpointRequest &request);
 
       /**
        * @summary 查询实例的HA信息
@@ -1736,6 +1816,8 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceMaintainTimeResponse modifyDBInstanceMaintainTime(const Models::ModifyDBInstanceMaintainTimeRequest &request);
 
       /**
+       * @summary 切换交换机
+       *
        * @description ****
        *
        * @param request ModifyDBInstanceVipRequest
@@ -1745,6 +1827,8 @@ namespace Polardbx20200202
       Models::ModifyDBInstanceVipResponse modifyDBInstanceVipWithOptions(const Models::ModifyDBInstanceVipRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 切换交换机
+       *
        * @description ****
        *
        * @param request ModifyDBInstanceVipRequest
@@ -2105,6 +2189,23 @@ namespace Polardbx20200202
        * @return UpdateBackupPolicyResponse
        */
       Models::UpdateBackupPolicyResponse updateBackupPolicy(const Models::UpdateBackupPolicyRequest &request);
+
+      /**
+       * @summary 更新实例的管控参数
+       *
+       * @param request UpdateCustinsParamRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustinsParamResponse
+       */
+      Models::UpdateCustinsParamResponse updateCustinsParamWithOptions(const Models::UpdateCustinsParamRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新实例的管控参数
+       *
+       * @param request UpdateCustinsParamRequest
+       * @return UpdateCustinsParamResponse
+       */
+      Models::UpdateCustinsParamResponse updateCustinsParam(const Models::UpdateCustinsParamRequest &request);
 
       /**
        * @param request UpdateDBInstanceSSLRequest

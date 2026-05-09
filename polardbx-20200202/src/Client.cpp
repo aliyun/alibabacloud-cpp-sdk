@@ -183,6 +183,8 @@ AllocateColdDataVolumeResponse Client::allocateColdDataVolume(const AllocateCold
 }
 
 /**
+ * @summary 开通公网域名
+ *
  * @param request AllocateInstancePublicConnectionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AllocateInstancePublicConnectionResponse
@@ -196,6 +198,10 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 
   if (!!request.hasDBInstanceName()) {
     query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasInstanceClusterName()) {
+    query["InstanceClusterName"] = request.getInstanceClusterName();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -240,6 +246,8 @@ AllocateInstancePublicConnectionResponse Client::allocateInstancePublicConnectio
 }
 
 /**
+ * @summary 开通公网域名
+ *
  * @param request AllocateInstancePublicConnectionRequest
  * @return AllocateInstancePublicConnectionResponse
  */
@@ -1147,6 +1155,140 @@ CreateGdnInstanceResponse Client::createGdnInstance(const CreateGdnInstanceReque
 }
 
 /**
+ * @summary 创建GDN从实例
+ *
+ * @param request CreateGdnStandbyMemberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGdnStandbyMemberResponse
+ */
+CreateGdnStandbyMemberResponse Client::createGdnStandbyMemberWithOptions(const CreateGdnStandbyMemberRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasCNNodeCount()) {
+    query["CNNodeCount"] = request.getCNNodeCount();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCloneInstanceName()) {
+    query["CloneInstanceName"] = request.getCloneInstanceName();
+  }
+
+  if (!!request.hasCnClass()) {
+    query["CnClass"] = request.getCnClass();
+  }
+
+  if (!!request.hasDNNodeCount()) {
+    query["DNNodeCount"] = request.getDNNodeCount();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDnClass()) {
+    query["DnClass"] = request.getDnClass();
+  }
+
+  if (!!request.hasEngineVersion()) {
+    query["EngineVersion"] = request.getEngineVersion();
+  }
+
+  if (!!request.hasNetworkType()) {
+    query["NetworkType"] = request.getNetworkType();
+  }
+
+  if (!!request.hasPayType()) {
+    query["PayType"] = request.getPayType();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPrimaryZone()) {
+    query["PrimaryZone"] = request.getPrimaryZone();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSecondaryZone()) {
+    query["SecondaryZone"] = request.getSecondaryZone();
+  }
+
+  if (!!request.hasSeries()) {
+    query["Series"] = request.getSeries();
+  }
+
+  if (!!request.hasSourceInstanceRegion()) {
+    query["SourceInstanceRegion"] = request.getSourceInstanceRegion();
+  }
+
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
+  if (!!request.hasTertiaryZone()) {
+    query["TertiaryZone"] = request.getTertiaryZone();
+  }
+
+  if (!!request.hasTopologyType()) {
+    query["TopologyType"] = request.getTopologyType();
+  }
+
+  if (!!request.hasUsedTime()) {
+    query["UsedTime"] = request.getUsedTime();
+  }
+
+  if (!!request.hasVPCId()) {
+    query["VPCId"] = request.getVPCId();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateGdnStandbyMember"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGdnStandbyMemberResponse>();
+}
+
+/**
+ * @summary 创建GDN从实例
+ *
+ * @param request CreateGdnStandbyMemberRequest
+ * @return CreateGdnStandbyMemberResponse
+ */
+CreateGdnStandbyMemberResponse Client::createGdnStandbyMember(const CreateGdnStandbyMemberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createGdnStandbyMemberWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建mem0
  *
  * @param request CreateMem0Request
@@ -1464,6 +1606,64 @@ CreateStructureImportTaskResponse Client::createStructureImportTaskWithOptions(c
 CreateStructureImportTaskResponse Client::createStructureImportTask(const CreateStructureImportTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createStructureImportTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 开通CN子实例
+ *
+ * @description ****
+ *
+ * @param request CreateSubCNInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSubCNInstanceResponse
+ */
+CreateSubCNInstanceResponse Client::createSubCNInstanceWithOptions(const CreateSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasIsAutoCreate()) {
+    query["IsAutoCreate"] = request.getIsAutoCreate();
+  }
+
+  if (!!request.hasReadType()) {
+    query["ReadType"] = request.getReadType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSubCNInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSubCNInstanceResponse>();
+}
+
+/**
+ * @summary 开通CN子实例
+ *
+ * @description ****
+ *
+ * @param request CreateSubCNInstanceRequest
+ * @return CreateSubCNInstanceResponse
+ */
+CreateSubCNInstanceResponse Client::createSubCNInstance(const CreateSubCNInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSubCNInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -1902,6 +2102,56 @@ DeleteMem0Response Client::deleteMem0WithOptions(const DeleteMem0Request &reques
 DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMem0WithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除CN子实例
+ *
+ * @description ****
+ *
+ * @param request DeleteSubCNInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSubCNInstanceResponse
+ */
+DeleteSubCNInstanceResponse Client::deleteSubCNInstanceWithOptions(const DeleteSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSubCNInstance"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSubCNInstanceResponse>();
+}
+
+/**
+ * @summary 删除CN子实例
+ *
+ * @description ****
+ *
+ * @param request DeleteSubCNInstanceRequest
+ * @return DeleteSubCNInstanceResponse
+ */
+DeleteSubCNInstanceResponse Client::deleteSubCNInstance(const DeleteSubCNInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSubCNInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -2950,6 +3200,60 @@ DescribeDBInstanceConfigResponse Client::describeDBInstanceConfigWithOptions(con
 DescribeDBInstanceConfigResponse Client::describeDBInstanceConfig(const DescribeDBInstanceConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBInstanceConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询endpoint列表
+ *
+ * @param request DescribeDBInstanceEndpointRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBInstanceEndpointResponse
+ */
+DescribeDBInstanceEndpointResponse Client::describeDBInstanceEndpointWithOptions(const DescribeDBInstanceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBInstanceEndpoint"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBInstanceEndpointResponse>();
+}
+
+/**
+ * @summary 查询endpoint列表
+ *
+ * @param request DescribeDBInstanceEndpointRequest
+ * @return DescribeDBInstanceEndpointResponse
+ */
+DescribeDBInstanceEndpointResponse Client::describeDBInstanceEndpoint(const DescribeDBInstanceEndpointRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBInstanceEndpointWithOptions(request, runtime);
 }
 
 /**
@@ -5935,6 +6239,8 @@ ModifyDBInstanceMaintainTimeResponse Client::modifyDBInstanceMaintainTime(const 
 }
 
 /**
+ * @summary 切换交换机
+ *
  * @description ****
  *
  * @param request ModifyDBInstanceVipRequest
@@ -5946,6 +6252,10 @@ ModifyDBInstanceVipResponse Client::modifyDBInstanceVipWithOptions(const ModifyD
   json query = {};
   if (!!request.hasDBInstanceName()) {
     query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasInstanceClusterName()) {
+    query["InstanceClusterName"] = request.getInstanceClusterName();
   }
 
   if (!!request.hasRegionId()) {
@@ -5978,6 +6288,8 @@ ModifyDBInstanceVipResponse Client::modifyDBInstanceVipWithOptions(const ModifyD
 }
 
 /**
+ * @summary 切换交换机
+ *
  * @description ****
  *
  * @param request ModifyDBInstanceVipRequest
@@ -7418,6 +7730,60 @@ UpdateBackupPolicyResponse Client::updateBackupPolicyWithOptions(const UpdateBac
 UpdateBackupPolicyResponse Client::updateBackupPolicy(const UpdateBackupPolicyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateBackupPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新实例的管控参数
+ *
+ * @param request UpdateCustinsParamRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustinsParamResponse
+ */
+UpdateCustinsParamResponse Client::updateCustinsParamWithOptions(const UpdateCustinsParamRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceName()) {
+    query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasValue()) {
+    query["Value"] = request.getValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCustinsParam"},
+    {"version" , "2020-02-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustinsParamResponse>();
+}
+
+/**
+ * @summary 更新实例的管控参数
+ *
+ * @param request UpdateCustinsParamRequest
+ * @return UpdateCustinsParamResponse
+ */
+UpdateCustinsParamResponse Client::updateCustinsParam(const UpdateCustinsParamRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCustinsParamWithOptions(request, runtime);
 }
 
 /**

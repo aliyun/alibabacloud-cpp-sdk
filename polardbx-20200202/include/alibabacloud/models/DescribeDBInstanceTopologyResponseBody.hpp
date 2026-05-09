@@ -118,6 +118,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(DiskSize, diskSize_);
             DARABONBA_PTR_TO_JSON(Engine, engine_);
             DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
+            DARABONBA_PTR_TO_JSON(InstanceClusterName, instanceClusterName_);
             DARABONBA_PTR_TO_JSON(LockMode, lockMode_);
             DARABONBA_PTR_TO_JSON(LockReason, lockReason_);
             DARABONBA_PTR_TO_JSON(MaintainEndTime, maintainEndTime_);
@@ -126,6 +127,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(MaxIops, maxIops_);
             DARABONBA_PTR_TO_JSON(NodeClass, nodeClass_);
             DARABONBA_PTR_TO_JSON(PhyInstanceName, phyInstanceName_);
+            DARABONBA_PTR_TO_JSON(ReadType, readType_);
             DARABONBA_PTR_TO_JSON(Region, region_);
             DARABONBA_PTR_TO_JSON(Role, role_);
             DARABONBA_PTR_TO_JSON(Status, status_);
@@ -148,6 +150,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(DiskSize, diskSize_);
             DARABONBA_PTR_FROM_JSON(Engine, engine_);
             DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
+            DARABONBA_PTR_FROM_JSON(InstanceClusterName, instanceClusterName_);
             DARABONBA_PTR_FROM_JSON(LockMode, lockMode_);
             DARABONBA_PTR_FROM_JSON(LockReason, lockReason_);
             DARABONBA_PTR_FROM_JSON(MaintainEndTime, maintainEndTime_);
@@ -156,6 +159,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(MaxIops, maxIops_);
             DARABONBA_PTR_FROM_JSON(NodeClass, nodeClass_);
             DARABONBA_PTR_FROM_JSON(PhyInstanceName, phyInstanceName_);
+            DARABONBA_PTR_FROM_JSON(ReadType, readType_);
             DARABONBA_PTR_FROM_JSON(Region, region_);
             DARABONBA_PTR_FROM_JSON(Role, role_);
             DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -270,10 +274,10 @@ namespace Models
           virtual bool empty() const override { return this->activated_ == nullptr
         && this->azone_ == nullptr && this->azoneRoleList_ == nullptr && this->characterType_ == nullptr && this->connectionIp_ == nullptr && this->DBInstanceConnType_ == nullptr
         && this->DBInstanceCreateTime_ == nullptr && this->DBInstanceDescription_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceName_ == nullptr && this->DBInstanceStatus_ == nullptr
-        && this->DBInstanceStatusDescription_ == nullptr && this->diskSize_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->lockMode_ == nullptr
-        && this->lockReason_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr && this->maxIops_ == nullptr
-        && this->nodeClass_ == nullptr && this->phyInstanceName_ == nullptr && this->region_ == nullptr && this->role_ == nullptr && this->status_ == nullptr
-        && this->storageUsed_ == nullptr && this->version_ == nullptr; };
+        && this->DBInstanceStatusDescription_ == nullptr && this->diskSize_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->instanceClusterName_ == nullptr
+        && this->lockMode_ == nullptr && this->lockReason_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->maxConnections_ == nullptr
+        && this->maxIops_ == nullptr && this->nodeClass_ == nullptr && this->phyInstanceName_ == nullptr && this->readType_ == nullptr && this->region_ == nullptr
+        && this->role_ == nullptr && this->status_ == nullptr && this->storageUsed_ == nullptr && this->version_ == nullptr; };
           // activated Field Functions 
           bool hasActivated() const { return this->activated_ != nullptr;};
           void deleteActivated() { this->activated_ = nullptr;};
@@ -383,6 +387,13 @@ namespace Models
           inline Items& setEngineVersion(string engineVersion) { DARABONBA_PTR_SET_VALUE(engineVersion_, engineVersion) };
 
 
+          // instanceClusterName Field Functions 
+          bool hasInstanceClusterName() const { return this->instanceClusterName_ != nullptr;};
+          void deleteInstanceClusterName() { this->instanceClusterName_ = nullptr;};
+          inline string getInstanceClusterName() const { DARABONBA_PTR_GET_DEFAULT(instanceClusterName_, "") };
+          inline Items& setInstanceClusterName(string instanceClusterName) { DARABONBA_PTR_SET_VALUE(instanceClusterName_, instanceClusterName) };
+
+
           // lockMode Field Functions 
           bool hasLockMode() const { return this->lockMode_ != nullptr;};
           void deleteLockMode() { this->lockMode_ = nullptr;};
@@ -439,6 +450,13 @@ namespace Models
           inline Items& setPhyInstanceName(string phyInstanceName) { DARABONBA_PTR_SET_VALUE(phyInstanceName_, phyInstanceName) };
 
 
+          // readType Field Functions 
+          bool hasReadType() const { return this->readType_ != nullptr;};
+          void deleteReadType() { this->readType_ = nullptr;};
+          inline string getReadType() const { DARABONBA_PTR_GET_DEFAULT(readType_, "") };
+          inline Items& setReadType(string readType) { DARABONBA_PTR_SET_VALUE(readType_, readType) };
+
+
           // region Field Functions 
           bool hasRegion() const { return this->region_ != nullptr;};
           void deleteRegion() { this->region_ = nullptr;};
@@ -490,6 +508,7 @@ namespace Models
           shared_ptr<int64_t> diskSize_ {};
           shared_ptr<string> engine_ {};
           shared_ptr<string> engineVersion_ {};
+          shared_ptr<string> instanceClusterName_ {};
           shared_ptr<int32_t> lockMode_ {};
           shared_ptr<string> lockReason_ {};
           shared_ptr<string> maintainEndTime_ {};
@@ -498,6 +517,7 @@ namespace Models
           shared_ptr<int32_t> maxIops_ {};
           shared_ptr<string> nodeClass_ {};
           shared_ptr<string> phyInstanceName_ {};
+          shared_ptr<string> readType_ {};
           shared_ptr<string> region_ {};
           shared_ptr<string> role_ {};
           shared_ptr<string> status_ {};
