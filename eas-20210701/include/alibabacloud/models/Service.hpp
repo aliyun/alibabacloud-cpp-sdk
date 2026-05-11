@@ -65,6 +65,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TrafficState, trafficState_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(Weight, weight_);
+      DARABONBA_PTR_TO_JSON(WorkloadType, workloadType_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, Service& obj) { 
@@ -119,6 +120,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(TrafficState, trafficState_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(Weight, weight_);
+      DARABONBA_PTR_FROM_JSON(WorkloadType, workloadType_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     Service() = default ;
@@ -239,7 +241,7 @@ namespace Models
         && this->runningInstance_ == nullptr && this->safetyLock_ == nullptr && this->secondaryInternetEndpoint_ == nullptr && this->secondaryIntranetEndpoint_ == nullptr && this->serviceConfig_ == nullptr
         && this->serviceGroup_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr && this->serviceUid_ == nullptr && this->source_ == nullptr
         && this->status_ == nullptr && this->totalInstance_ == nullptr && this->trafficState_ == nullptr && this->updateTime_ == nullptr && this->weight_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->workloadType_ == nullptr && this->workspaceId_ == nullptr; };
     // accessToken Field Functions 
     bool hasAccessToken() const { return this->accessToken_ != nullptr;};
     void deleteAccessToken() { this->accessToken_ = nullptr;};
@@ -601,6 +603,13 @@ namespace Models
     inline Service& setWeight(int32_t weight) { DARABONBA_PTR_SET_VALUE(weight_, weight) };
 
 
+    // workloadType Field Functions 
+    bool hasWorkloadType() const { return this->workloadType_ != nullptr;};
+    void deleteWorkloadType() { this->workloadType_ = nullptr;};
+    inline string getWorkloadType() const { DARABONBA_PTR_GET_DEFAULT(workloadType_, "") };
+    inline Service& setWorkloadType(string workloadType) { DARABONBA_PTR_SET_VALUE(workloadType_, workloadType) };
+
+
     // workspaceId Field Functions 
     bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
     void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
@@ -733,6 +742,7 @@ namespace Models
     shared_ptr<string> updateTime_ {};
     // The weight of the service in canary release.
     shared_ptr<int32_t> weight_ {};
+    shared_ptr<string> workloadType_ {};
     // The ID of the workspace to which the service belongs.
     shared_ptr<string> workspaceId_ {};
   };

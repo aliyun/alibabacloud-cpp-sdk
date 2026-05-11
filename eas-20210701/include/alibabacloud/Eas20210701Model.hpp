@@ -68,6 +68,9 @@
 #include <alibabacloud/models/CreateServiceMirrorRequest.hpp>
 #include <alibabacloud/models/CreateServiceMirrorResponseBody.hpp>
 #include <alibabacloud/models/CreateServiceMirrorResponse.hpp>
+#include <alibabacloud/models/CreateServiceRolloutRequest.hpp>
+#include <alibabacloud/models/CreateServiceRolloutResponseBody.hpp>
+#include <alibabacloud/models/CreateServiceRolloutResponse.hpp>
 #include <alibabacloud/models/CreateVirtualResourceRequest.hpp>
 #include <alibabacloud/models/CreateVirtualResourceResponseBody.hpp>
 #include <alibabacloud/models/CreateVirtualResourceResponse.hpp>
@@ -130,6 +133,9 @@
 #include <alibabacloud/models/DeleteServiceMirrorRequest.hpp>
 #include <alibabacloud/models/DeleteServiceMirrorResponseBody.hpp>
 #include <alibabacloud/models/DeleteServiceMirrorResponse.hpp>
+#include <alibabacloud/models/DeleteServiceRolloutRequest.hpp>
+#include <alibabacloud/models/DeleteServiceRolloutResponseBody.hpp>
+#include <alibabacloud/models/DeleteServiceRolloutResponse.hpp>
 #include <alibabacloud/models/DeleteVirtualResourceRequest.hpp>
 #include <alibabacloud/models/DeleteVirtualResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteVirtualResourceResponse.hpp>
@@ -188,6 +194,9 @@
 #include <alibabacloud/models/DescribeServiceMirrorRequest.hpp>
 #include <alibabacloud/models/DescribeServiceMirrorResponseBody.hpp>
 #include <alibabacloud/models/DescribeServiceMirrorResponse.hpp>
+#include <alibabacloud/models/DescribeServiceRolloutRequest.hpp>
+#include <alibabacloud/models/DescribeServiceRolloutResponseBody.hpp>
+#include <alibabacloud/models/DescribeServiceRolloutResponse.hpp>
 #include <alibabacloud/models/DescribeServiceSignedUrlRequest.hpp>
 #include <alibabacloud/models/DescribeServiceSignedUrlResponseBody.hpp>
 #include <alibabacloud/models/DescribeServiceSignedUrlResponse.hpp>
@@ -336,6 +345,9 @@
 #include <alibabacloud/models/UpdateServiceMirrorRequest.hpp>
 #include <alibabacloud/models/UpdateServiceMirrorResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceMirrorResponse.hpp>
+#include <alibabacloud/models/UpdateServiceRolloutRequest.hpp>
+#include <alibabacloud/models/UpdateServiceRolloutResponseBody.hpp>
+#include <alibabacloud/models/UpdateServiceRolloutResponse.hpp>
 #include <alibabacloud/models/UpdateServiceSafetyLockRequest.hpp>
 #include <alibabacloud/models/UpdateServiceSafetyLockResponseBody.hpp>
 #include <alibabacloud/models/UpdateServiceSafetyLockResponse.hpp>

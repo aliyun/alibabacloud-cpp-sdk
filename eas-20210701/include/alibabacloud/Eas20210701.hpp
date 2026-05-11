@@ -353,6 +353,40 @@ namespace Eas20210701
       Models::CreateServiceMirrorResponse createServiceMirror(const string &ClusterId, const string &ServiceName, const Models::CreateServiceMirrorRequest &request);
 
       /**
+       * @summary 创建服务更新计划
+       *
+       * @description ## 请求说明
+       * - **策略互斥**：`Partition`（分区发布）和`Batch`（批量发布）两种策略只能选择其中一种，不能同时使用。
+       * - **请求速率限制**：每秒最多100次请求。
+       * - **授权信息**：需要具备`eas:CreateServiceRollout`权限才能调用此接口。
+       * - **资源ARN**：`acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`。
+       * - **暂停发布**：通过设置`Paused`参数为`true`可以暂停发布流程，之后可通过`UpdateServiceRollout`接口恢复或取消发布。
+       * - **监控与回滚**：在发布过程中建议持续监控服务指标，以便及时发现并处理问题；如需回滚，可以通过调整`Partition`值或删除发布策略来实现。
+       *
+       * @param request CreateServiceRolloutRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateServiceRolloutResponse
+       */
+      Models::CreateServiceRolloutResponse createServiceRolloutWithOptions(const string &ClusterId, const string &ServiceName, const Models::CreateServiceRolloutRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建服务更新计划
+       *
+       * @description ## 请求说明
+       * - **策略互斥**：`Partition`（分区发布）和`Batch`（批量发布）两种策略只能选择其中一种，不能同时使用。
+       * - **请求速率限制**：每秒最多100次请求。
+       * - **授权信息**：需要具备`eas:CreateServiceRollout`权限才能调用此接口。
+       * - **资源ARN**：`acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`。
+       * - **暂停发布**：通过设置`Paused`参数为`true`可以暂停发布流程，之后可通过`UpdateServiceRollout`接口恢复或取消发布。
+       * - **监控与回滚**：在发布过程中建议持续监控服务指标，以便及时发现并处理问题；如需回滚，可以通过调整`Partition`值或删除发布策略来实现。
+       *
+       * @param request CreateServiceRolloutRequest
+       * @return CreateServiceRolloutResponse
+       */
+      Models::CreateServiceRolloutResponse createServiceRollout(const string &ClusterId, const string &ServiceName, const Models::CreateServiceRolloutRequest &request);
+
+      /**
        * @summary Creates a virtual resource group.
        *
        * @param request CreateVirtualResourceRequest
@@ -693,6 +727,42 @@ namespace Eas20210701
        * @return DeleteServiceMirrorResponse
        */
       Models::DeleteServiceMirrorResponse deleteServiceMirror(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceMirrorRequest &request);
+
+      /**
+       * @summary 删除服务更新计划
+       *
+       * @description ## 请求说明
+       * - **不可恢复**：删除操作不可撤销，请谨慎操作。
+       * - **不自动回退**：删除策略不会回退已更新的副本。
+       * - **停止发布**：正在进行的发布会立即停止。
+       * - **状态保留**：已更新的副本保持新版本，未更新的保持旧版本。
+       * - 删除后，后续服务更新将采用默认的滚动更新方式。
+       * - 在删除前，请确认要删除的服务名称和地域，并了解当前发布状态（可以通过调用`DescribeServiceRollout`接口获取）。
+       * - 如果需要回退版本，请在删除策略后通过重新创建策略或直接更新服务镜像来实现。
+       *
+       * @param request DeleteServiceRolloutRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteServiceRolloutResponse
+       */
+      Models::DeleteServiceRolloutResponse deleteServiceRolloutWithOptions(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceRolloutRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除服务更新计划
+       *
+       * @description ## 请求说明
+       * - **不可恢复**：删除操作不可撤销，请谨慎操作。
+       * - **不自动回退**：删除策略不会回退已更新的副本。
+       * - **停止发布**：正在进行的发布会立即停止。
+       * - **状态保留**：已更新的副本保持新版本，未更新的保持旧版本。
+       * - 删除后，后续服务更新将采用默认的滚动更新方式。
+       * - 在删除前，请确认要删除的服务名称和地域，并了解当前发布状态（可以通过调用`DescribeServiceRollout`接口获取）。
+       * - 如果需要回退版本，请在删除策略后通过重新创建策略或直接更新服务镜像来实现。
+       *
+       * @param request DeleteServiceRolloutRequest
+       * @return DeleteServiceRolloutResponse
+       */
+      Models::DeleteServiceRolloutResponse deleteServiceRollout(const string &ClusterId, const string &ServiceName, const Models::DeleteServiceRolloutRequest &request);
 
       /**
        * @summary Deletes a virtual resource group that contains no resources or instances.
@@ -1051,6 +1121,40 @@ namespace Eas20210701
        * @return DescribeServiceMirrorResponse
        */
       Models::DescribeServiceMirrorResponse describeServiceMirror(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceMirrorRequest &request);
+
+      /**
+       * @summary 查看服务更新计划
+       *
+       * @description ## 请求说明
+       * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
+       * - 返回的信息包括但不限于发布策略的具体参数、当前发布进度等。
+       * - 请求时需提供`ClusterId`和服务名称`ServiceName`作为路径参数。
+       * - 注意，请求速率限制为每秒最多100次。
+       * - 如果服务不存在或未创建发布策略，调用此接口将返回错误。
+       * - 返回的状态是实时查询的结果，可能会随时间而变化，请根据实际需要调整轮询间隔。
+       *
+       * @param request DescribeServiceRolloutRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeServiceRolloutResponse
+       */
+      Models::DescribeServiceRolloutResponse describeServiceRolloutWithOptions(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceRolloutRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看服务更新计划
+       *
+       * @description ## 请求说明
+       * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
+       * - 返回的信息包括但不限于发布策略的具体参数、当前发布进度等。
+       * - 请求时需提供`ClusterId`和服务名称`ServiceName`作为路径参数。
+       * - 注意，请求速率限制为每秒最多100次。
+       * - 如果服务不存在或未创建发布策略，调用此接口将返回错误。
+       * - 返回的状态是实时查询的结果，可能会随时间而变化，请根据实际需要调整轮询间隔。
+       *
+       * @param request DescribeServiceRolloutRequest
+       * @return DescribeServiceRolloutResponse
+       */
+      Models::DescribeServiceRolloutResponse describeServiceRollout(const string &ClusterId, const string &ServiceName, const Models::DescribeServiceRolloutRequest &request);
 
       /**
        * @summary Obtains the logon-free URL of the service.
@@ -1917,6 +2021,38 @@ namespace Eas20210701
        * @return UpdateServiceMirrorResponse
        */
       Models::UpdateServiceMirrorResponse updateServiceMirror(const string &ClusterId, const string &ServiceName, const Models::UpdateServiceMirrorRequest &request);
+
+      /**
+       * @summary 更新服务发布计划
+       *
+       * @description ## 请求说明
+       * - **至少提供一个参数**：必须在请求中指定`Partition`、`Batch`或`Paused`中的至少一个参数。
+       * - **互斥策略**：不能同时提供`Partition`和`Batch`配置。
+       * - **实时生效**：更新将立即生效，影响正在进行的服务发布过程。
+       * - **回退操作**：通过增加`Partition`值可以实现版本回退，但不会自动触发，需要手动更新服务镜像。
+       * - **暂停不影响参数**：暂停发布不会改变已设置的`Partition`或`Batch`参数，仅暂停执行当前策略。
+       *
+       * @param request UpdateServiceRolloutRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateServiceRolloutResponse
+       */
+      Models::UpdateServiceRolloutResponse updateServiceRolloutWithOptions(const string &ClusterId, const string &ServiceName, const Models::UpdateServiceRolloutRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新服务发布计划
+       *
+       * @description ## 请求说明
+       * - **至少提供一个参数**：必须在请求中指定`Partition`、`Batch`或`Paused`中的至少一个参数。
+       * - **互斥策略**：不能同时提供`Partition`和`Batch`配置。
+       * - **实时生效**：更新将立即生效，影响正在进行的服务发布过程。
+       * - **回退操作**：通过增加`Partition`值可以实现版本回退，但不会自动触发，需要手动更新服务镜像。
+       * - **暂停不影响参数**：暂停发布不会改变已设置的`Partition`或`Batch`参数，仅暂停执行当前策略。
+       *
+       * @param request UpdateServiceRolloutRequest
+       * @return UpdateServiceRolloutResponse
+       */
+      Models::UpdateServiceRolloutResponse updateServiceRollout(const string &ClusterId, const string &ServiceName, const Models::UpdateServiceRolloutRequest &request);
 
       /**
        * @summary Updates the safety lock of a service to minimize misoperations on the service.
