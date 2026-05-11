@@ -23,6 +23,7 @@
 #include <alibabacloud/models/DebuggerJob.hpp>
 #include <alibabacloud/models/DebuggerJobIssue.hpp>
 #include <alibabacloud/models/DebuggerResult.hpp>
+#include <alibabacloud/models/DownloadJobResult.hpp>
 #include <alibabacloud/models/EcsSpec.hpp>
 #include <alibabacloud/models/EventInfo.hpp>
 #include <alibabacloud/models/Lifecycle.hpp>

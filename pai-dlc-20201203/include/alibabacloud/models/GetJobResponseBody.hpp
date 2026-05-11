@@ -56,6 +56,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RestartRecord, restartRecord_);
       DARABONBA_PTR_TO_JSON(RestartTimes, restartTimes_);
       DARABONBA_PTR_TO_JSON(RoleSystemEnvs, roleSystemEnvs_);
+      DARABONBA_PTR_TO_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusHistory, statusHistory_);
@@ -104,6 +105,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RestartRecord, restartRecord_);
       DARABONBA_PTR_FROM_JSON(RestartTimes, restartTimes_);
       DARABONBA_PTR_FROM_JSON(RoleSystemEnvs, roleSystemEnvs_);
+      DARABONBA_PTR_FROM_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusHistory, statusHistory_);
@@ -974,9 +976,10 @@ namespace Models
         && this->gmtStoppedTime_ == nullptr && this->gmtSubmittedTime_ == nullptr && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr
         && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr
         && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr
-        && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr
-        && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr
-        && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr
+        && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr
+        && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -1237,6 +1240,13 @@ namespace Models
     inline GetJobResponseBody& setRoleSystemEnvs(map<string, Darabonba::Json> && roleSystemEnvs) { DARABONBA_PTR_SET_RVALUE(roleSystemEnvs_, roleSystemEnvs) };
 
 
+    // schedulingStrategy Field Functions 
+    bool hasSchedulingStrategy() const { return this->schedulingStrategy_ != nullptr;};
+    void deleteSchedulingStrategy() { this->schedulingStrategy_ = nullptr;};
+    inline string getSchedulingStrategy() const { DARABONBA_PTR_GET_DEFAULT(schedulingStrategy_, "") };
+    inline GetJobResponseBody& setSchedulingStrategy(string schedulingStrategy) { DARABONBA_PTR_SET_VALUE(schedulingStrategy_, schedulingStrategy) };
+
+
     // settings Field Functions 
     bool hasSettings() const { return this->settings_ != nullptr;};
     void deleteSettings() { this->settings_ = nullptr;};
@@ -1396,6 +1406,7 @@ namespace Models
     // The number of retries and the maximum number of retries used by the job.
     shared_ptr<string> restartTimes_ {};
     shared_ptr<map<string, Darabonba::Json>> roleSystemEnvs_ {};
+    shared_ptr<string> schedulingStrategy_ {};
     // The additional parameter configurations of the job.
     shared_ptr<JobSettings> settings_ {};
     // The status of the job. Valid values:

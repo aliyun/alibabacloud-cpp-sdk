@@ -35,6 +35,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_TO_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
       DARABONBA_PTR_TO_JSON(SuccessPolicy, successPolicy_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
@@ -62,6 +63,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
+      DARABONBA_PTR_FROM_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
       DARABONBA_PTR_FROM_JSON(SuccessPolicy, successPolicy_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -410,8 +412,8 @@ namespace Models
         && this->codeSource_ == nullptr && this->credentialConfig_ == nullptr && this->customEnvs_ == nullptr && this->dataSources_ == nullptr && this->debuggerConfigContent_ == nullptr
         && this->description_ == nullptr && this->displayName_ == nullptr && this->elasticSpec_ == nullptr && this->envs_ == nullptr && this->jobMaxRunningTimeMinutes_ == nullptr
         && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->options_ == nullptr && this->priority_ == nullptr && this->resourceId_ == nullptr
-        && this->settings_ == nullptr && this->successPolicy_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr && this->thirdpartyLibDir_ == nullptr
-        && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr && this->successPolicy_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr
+        && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -536,6 +538,13 @@ namespace Models
     void deleteResourceId() { this->resourceId_ = nullptr;};
     inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
     inline CreateJobRequest& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+    // schedulingStrategy Field Functions 
+    bool hasSchedulingStrategy() const { return this->schedulingStrategy_ != nullptr;};
+    void deleteSchedulingStrategy() { this->schedulingStrategy_ = nullptr;};
+    inline string getSchedulingStrategy() const { DARABONBA_PTR_GET_DEFAULT(schedulingStrategy_, "") };
+    inline CreateJobRequest& setSchedulingStrategy(string schedulingStrategy) { DARABONBA_PTR_SET_VALUE(schedulingStrategy_, schedulingStrategy) };
 
 
     // settings Field Functions 
@@ -678,6 +687,7 @@ namespace Models
     // *   If you leave this parameter empty, the job is submitted to a public resource group.
     // *   If a resource quota is bound to the current workspace, you can specify the resource quota ID. For more information about how to query the resource quota ID, see [Manage resource quotas](https://help.aliyun.com/document_detail/2651299.html).
     shared_ptr<string> resourceId_ {};
+    shared_ptr<string> schedulingStrategy_ {};
     // The additional parameter configurations of the job.
     shared_ptr<JobSettings> settings_ {};
     // The policy that is used to check whether a distributed multi-node job is successful. Only TensorFlow distributed multi-node jobs are supported.

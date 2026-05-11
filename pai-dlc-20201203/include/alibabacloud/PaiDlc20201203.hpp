@@ -43,7 +43,7 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary 创建任务模板
+       * @summary Create a Job Template
        *
        * @param request CreateJobTemplateRequest
        * @param headers map
@@ -53,7 +53,7 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplateWithOptions(const Models::CreateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建任务模板
+       * @summary Create a Job Template
        *
        * @param request CreateJobTemplateRequest
        * @return CreateJobTemplateResponse
@@ -97,7 +97,7 @@ namespace PaiDlc20201203
       Models::DeleteJobResponse deleteJob(const string &JobId, const Models::DeleteJobRequest &request);
 
       /**
-       * @summary 删除任务模板
+       * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
        *
        * @param request DeleteJobTemplateRequest
        * @param headers map
@@ -107,7 +107,7 @@ namespace PaiDlc20201203
       Models::DeleteJobTemplateResponse deleteJobTemplateWithOptions(const string &TemplateId, const Models::DeleteJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除任务模板
+       * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
        *
        * @param request DeleteJobTemplateRequest
        * @return DeleteJobTemplateResponse
@@ -227,7 +227,7 @@ namespace PaiDlc20201203
       Models::GetJobSanityCheckResultResponse getJobSanityCheckResult(const string &JobId, const Models::GetJobSanityCheckResultRequest &request);
 
       /**
-       * @summary 获取任务模板详情
+       * @summary Obtains the details of a job template.
        *
        * @param request GetJobTemplateRequest
        * @param headers map
@@ -237,7 +237,7 @@ namespace PaiDlc20201203
       Models::GetJobTemplateResponse getJobTemplateWithOptions(const string &TemplateId, const Models::GetJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务模板详情
+       * @summary Obtains the details of a job template.
        *
        * @param request GetJobTemplateRequest
        * @return GetJobTemplateResponse
@@ -411,7 +411,7 @@ namespace PaiDlc20201203
       Models::ListJobSanityCheckResultsResponse listJobSanityCheckResults(const string &JobId, const Models::ListJobSanityCheckResultsRequest &request);
 
       /**
-       * @summary 列出任务模板
+       * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
        *
        * @param request ListJobTemplatesRequest
        * @param headers map
@@ -421,7 +421,7 @@ namespace PaiDlc20201203
       Models::ListJobTemplatesResponse listJobTemplatesWithOptions(const Models::ListJobTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出任务模板
+       * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
        *
        * @param request ListJobTemplatesRequest
        * @return ListJobTemplatesResponse
@@ -465,7 +465,7 @@ namespace PaiDlc20201203
       Models::ListTensorboardsResponse listTensorboards(const Models::ListTensorboardsRequest &request);
 
       /**
-       * @summary 设置任务模板默认版本
+       * @summary Sets the default version of the template.
        *
        * @param request SetJobTemplateDefaultVersionRequest
        * @param headers map
@@ -475,7 +475,7 @@ namespace PaiDlc20201203
       Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersionWithOptions(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置任务模板默认版本
+       * @summary Sets the default version of the template.
        *
        * @param request SetJobTemplateDefaultVersionRequest
        * @return SetJobTemplateDefaultVersionResponse
@@ -555,7 +555,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJob(const string &JobId, const Models::UpdateJobRequest &request);
 
       /**
-       * @summary 更新任务模板
+       * @summary Update a Job template
        *
        * @param request UpdateJobTemplateRequest
        * @param headers map
@@ -565,7 +565,7 @@ namespace PaiDlc20201203
       Models::UpdateJobTemplateResponse updateJobTemplateWithOptions(const string &TemplateId, const Models::UpdateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新任务模板
+       * @summary Update a Job template
        *
        * @param request UpdateJobTemplateRequest
        * @return UpdateJobTemplateResponse

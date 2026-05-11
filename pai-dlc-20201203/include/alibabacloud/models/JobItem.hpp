@@ -62,6 +62,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(RestartTimes, restartTimes_);
+      DARABONBA_PTR_TO_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_TO_JSON(Settings, settings_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(StatusHistory, statusHistory_);
@@ -123,6 +124,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceQuotaName, resourceQuotaName_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(RestartTimes, restartTimes_);
+      DARABONBA_PTR_FROM_JSON(SchedulingStrategy, schedulingStrategy_);
       DARABONBA_PTR_FROM_JSON(Settings, settings_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(StatusHistory, statusHistory_);
@@ -354,11 +356,11 @@ namespace Models
         && this->jobMaxRunningTimeMinutes_ == nullptr && this->jobReplicaStatuses_ == nullptr && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->nodeCount_ == nullptr
         && this->nodeNames_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr
         && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestMemory_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr
-        && this->resourceName_ == nullptr && this->resourceQuotaName_ == nullptr && this->resourceType_ == nullptr && this->restartTimes_ == nullptr && this->settings_ == nullptr
-        && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->systemEnvs_ == nullptr && this->templateId_ == nullptr
-        && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->useOversoldResource_ == nullptr
-        && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userScript_ == nullptr && this->userVpc_ == nullptr && this->username_ == nullptr
-        && this->workingDir_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->resourceName_ == nullptr && this->resourceQuotaName_ == nullptr && this->resourceType_ == nullptr && this->restartTimes_ == nullptr && this->schedulingStrategy_ == nullptr
+        && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->systemEnvs_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr
+        && this->useOversoldResource_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userScript_ == nullptr && this->userVpc_ == nullptr
+        && this->username_ == nullptr && this->workingDir_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -657,6 +659,13 @@ namespace Models
     inline JobItem& setRestartTimes(string restartTimes) { DARABONBA_PTR_SET_VALUE(restartTimes_, restartTimes) };
 
 
+    // schedulingStrategy Field Functions 
+    bool hasSchedulingStrategy() const { return this->schedulingStrategy_ != nullptr;};
+    void deleteSchedulingStrategy() { this->schedulingStrategy_ = nullptr;};
+    inline string getSchedulingStrategy() const { DARABONBA_PTR_GET_DEFAULT(schedulingStrategy_, "") };
+    inline JobItem& setSchedulingStrategy(string schedulingStrategy) { DARABONBA_PTR_SET_VALUE(schedulingStrategy_, schedulingStrategy) };
+
+
     // settings Field Functions 
     bool hasSettings() const { return this->settings_ != nullptr;};
     void deleteSettings() { this->settings_ = nullptr;};
@@ -893,6 +902,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The number of job restarts.
     shared_ptr<string> restartTimes_ {};
+    shared_ptr<string> schedulingStrategy_ {};
     // The extra parameters of the job.
     shared_ptr<JobSettings> settings_ {};
     // The job status. Valid values:

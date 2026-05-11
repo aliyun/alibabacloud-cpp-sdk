@@ -158,6 +158,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
     body["ResourceId"] = request.getResourceId();
   }
 
+  if (!!request.hasSchedulingStrategy()) {
+    body["SchedulingStrategy"] = request.getSchedulingStrategy();
+  }
+
   if (!!request.hasSettings()) {
     body["Settings"] = request.getSettings();
   }
@@ -227,7 +231,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary 创建任务模板
+ * @summary Create a Job Template
  *
  * @param request CreateJobTemplateRequest
  * @param headers map
@@ -280,7 +284,7 @@ CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTe
 }
 
 /**
- * @summary 创建任务模板
+ * @summary Create a Job Template
  *
  * @param request CreateJobTemplateRequest
  * @return CreateJobTemplateResponse
@@ -452,7 +456,7 @@ DeleteJobResponse Client::deleteJob(const string &JobId, const DeleteJobRequest 
 }
 
 /**
- * @summary 删除任务模板
+ * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
  *
  * @param request DeleteJobTemplateRequest
  * @param headers map
@@ -479,7 +483,7 @@ DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary 删除任务模板
+ * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
  *
  * @param request DeleteJobTemplateRequest
  * @return DeleteJobTemplateResponse
@@ -801,7 +805,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResult(const string &Jo
 }
 
 /**
- * @summary 获取任务模板详情
+ * @summary Obtains the details of a job template.
  *
  * @param request GetJobTemplateRequest
  * @param headers map
@@ -834,7 +838,7 @@ GetJobTemplateResponse Client::getJobTemplateWithOptions(const string &TemplateI
 }
 
 /**
- * @summary 获取任务模板详情
+ * @summary Obtains the details of a job template.
  *
  * @param request GetJobTemplateRequest
  * @return GetJobTemplateResponse
@@ -1331,7 +1335,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResults(const string
 }
 
 /**
- * @summary 列出任务模板
+ * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
  *
  * @param request ListJobTemplatesRequest
  * @param headers map
@@ -1392,7 +1396,7 @@ ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTempla
 }
 
 /**
- * @summary 列出任务模板
+ * @summary List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
  *
  * @param request ListJobTemplatesRequest
  * @return ListJobTemplatesResponse
@@ -1716,7 +1720,7 @@ ListTensorboardsResponse Client::listTensorboards(const ListTensorboardsRequest 
 }
 
 /**
- * @summary 设置任务模板默认版本
+ * @summary Sets the default version of the template.
  *
  * @param request SetJobTemplateDefaultVersionRequest
  * @param headers map
@@ -1749,7 +1753,7 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersionWithOpt
 }
 
 /**
- * @summary 设置任务模板默认版本
+ * @summary Sets the default version of the template.
  *
  * @param request SetJobTemplateDefaultVersionRequest
  * @return SetJobTemplateDefaultVersionResponse
@@ -1947,7 +1951,7 @@ UpdateJobResponse Client::updateJob(const string &JobId, const UpdateJobRequest 
 }
 
 /**
- * @summary 更新任务模板
+ * @summary Update a Job template
  *
  * @param request UpdateJobTemplateRequest
  * @param headers map
@@ -2004,7 +2008,7 @@ UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary 更新任务模板
+ * @summary Update a Job template
  *
  * @param request UpdateJobTemplateRequest
  * @return UpdateJobTemplateResponse
