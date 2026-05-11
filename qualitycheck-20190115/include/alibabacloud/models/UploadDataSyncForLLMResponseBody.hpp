@@ -106,12 +106,14 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const RuleHitInfo& obj) { 
               DARABONBA_PTR_TO_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_TO_JSON(Hit, hit_);
+              DARABONBA_PTR_TO_JSON(LlmResponse, llmResponse_);
               DARABONBA_PTR_TO_JSON(Rid, rid_);
               DARABONBA_PTR_TO_JSON(Tid, tid_);
             };
             friend void from_json(const Darabonba::Json& j, RuleHitInfo& obj) { 
               DARABONBA_PTR_FROM_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_FROM_JSON(Hit, hit_);
+              DARABONBA_PTR_FROM_JSON(LlmResponse, llmResponse_);
               DARABONBA_PTR_FROM_JSON(Rid, rid_);
               DARABONBA_PTR_FROM_JSON(Tid, tid_);
             };
@@ -272,14 +274,18 @@ namespace Models
                   class HitKeyWord : public Darabonba::Model {
                   public:
                     friend void to_json(Darabonba::Json& j, const HitKeyWord& obj) { 
+                      DARABONBA_PTR_TO_JSON(CustomizeCode, customizeCode_);
                       DARABONBA_PTR_TO_JSON(From, from_);
+                      DARABONBA_PTR_TO_JSON(IsMatch, isMatch_);
                       DARABONBA_PTR_TO_JSON(Pid, pid_);
                       DARABONBA_PTR_TO_JSON(Tid, tid_);
                       DARABONBA_PTR_TO_JSON(To, to_);
                       DARABONBA_PTR_TO_JSON(Val, val_);
                     };
                     friend void from_json(const Darabonba::Json& j, HitKeyWord& obj) { 
+                      DARABONBA_PTR_FROM_JSON(CustomizeCode, customizeCode_);
                       DARABONBA_PTR_FROM_JSON(From, from_);
+                      DARABONBA_PTR_FROM_JSON(IsMatch, isMatch_);
                       DARABONBA_PTR_FROM_JSON(Pid, pid_);
                       DARABONBA_PTR_FROM_JSON(Tid, tid_);
                       DARABONBA_PTR_FROM_JSON(To, to_);
@@ -296,13 +302,28 @@ namespace Models
                     };
                     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
                     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-                    virtual bool empty() const override { return this->from_ == nullptr
-        && this->pid_ == nullptr && this->tid_ == nullptr && this->to_ == nullptr && this->val_ == nullptr; };
+                    virtual bool empty() const override { return this->customizeCode_ == nullptr
+        && this->from_ == nullptr && this->isMatch_ == nullptr && this->pid_ == nullptr && this->tid_ == nullptr && this->to_ == nullptr
+        && this->val_ == nullptr; };
+                    // customizeCode Field Functions 
+                    bool hasCustomizeCode() const { return this->customizeCode_ != nullptr;};
+                    void deleteCustomizeCode() { this->customizeCode_ = nullptr;};
+                    inline string getCustomizeCode() const { DARABONBA_PTR_GET_DEFAULT(customizeCode_, "") };
+                    inline HitKeyWord& setCustomizeCode(string customizeCode) { DARABONBA_PTR_SET_VALUE(customizeCode_, customizeCode) };
+
+
                     // from Field Functions 
                     bool hasFrom() const { return this->from_ != nullptr;};
                     void deleteFrom() { this->from_ = nullptr;};
                     inline int32_t getFrom() const { DARABONBA_PTR_GET_DEFAULT(from_, 0) };
                     inline HitKeyWord& setFrom(int32_t from) { DARABONBA_PTR_SET_VALUE(from_, from) };
+
+
+                    // isMatch Field Functions 
+                    bool hasIsMatch() const { return this->isMatch_ != nullptr;};
+                    void deleteIsMatch() { this->isMatch_ = nullptr;};
+                    inline bool getIsMatch() const { DARABONBA_PTR_GET_DEFAULT(isMatch_, false) };
+                    inline HitKeyWord& setIsMatch(bool isMatch) { DARABONBA_PTR_SET_VALUE(isMatch_, isMatch) };
 
 
                     // pid Field Functions 
@@ -334,7 +355,9 @@ namespace Models
 
 
                   protected:
+                    shared_ptr<string> customizeCode_ {};
                     shared_ptr<int32_t> from_ {};
+                    shared_ptr<bool> isMatch_ {};
                     shared_ptr<int32_t> pid_ {};
                     shared_ptr<string> tid_ {};
                     shared_ptr<int32_t> to_ {};
@@ -502,7 +525,7 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->conditionInfo_ == nullptr
-        && this->hit_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
+        && this->hit_ == nullptr && this->llmResponse_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
             // conditionInfo Field Functions 
             bool hasConditionInfo() const { return this->conditionInfo_ != nullptr;};
             void deleteConditionInfo() { this->conditionInfo_ = nullptr;};
@@ -519,6 +542,13 @@ namespace Models
             inline RuleHitInfo::Hit getHit() { DARABONBA_PTR_GET(hit_, RuleHitInfo::Hit) };
             inline RuleHitInfo& setHit(const RuleHitInfo::Hit & hit) { DARABONBA_PTR_SET_VALUE(hit_, hit) };
             inline RuleHitInfo& setHit(RuleHitInfo::Hit && hit) { DARABONBA_PTR_SET_RVALUE(hit_, hit) };
+
+
+            // llmResponse Field Functions 
+            bool hasLlmResponse() const { return this->llmResponse_ != nullptr;};
+            void deleteLlmResponse() { this->llmResponse_ = nullptr;};
+            inline string getLlmResponse() const { DARABONBA_PTR_GET_DEFAULT(llmResponse_, "") };
+            inline RuleHitInfo& setLlmResponse(string llmResponse) { DARABONBA_PTR_SET_VALUE(llmResponse_, llmResponse) };
 
 
             // rid Field Functions 
@@ -538,6 +568,7 @@ namespace Models
           protected:
             shared_ptr<RuleHitInfo::ConditionInfo> conditionInfo_ {};
             shared_ptr<RuleHitInfo::Hit> hit_ {};
+            shared_ptr<string> llmResponse_ {};
             shared_ptr<string> rid_ {};
             shared_ptr<string> tid_ {};
           };

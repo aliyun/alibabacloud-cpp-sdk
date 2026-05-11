@@ -776,7 +776,7 @@ CreateWarningConfigResponse Client::createWarningConfig(const CreateWarningConfi
 }
 
 /**
- * @summary  预警策略-新增
+ * @summary 预警策略-新增
  *
  * @param request CreateWarningStrategyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +811,7 @@ CreateWarningStrategyConfigResponse Client::createWarningStrategyConfigWithOptio
 }
 
 /**
- * @summary  预警策略-新增
+ * @summary 预警策略-新增
  *
  * @param request CreateWarningStrategyConfigRequest
  * @return CreateWarningStrategyConfigResponse
@@ -1458,7 +1458,7 @@ DeleteWarningConfigResponse Client::deleteWarningConfig(const DeleteWarningConfi
 }
 
 /**
- * @summary  预警策略-删除
+ * @summary 预警策略-删除
  *
  * @param request DeleteWarningStrategyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1493,7 +1493,7 @@ DeleteWarningStrategyConfigResponse Client::deleteWarningStrategyConfigWithOptio
 }
 
 /**
- * @summary  预警策略-删除
+ * @summary 预警策略-删除
  *
  * @param request DeleteWarningStrategyConfigRequest
  * @return DeleteWarningStrategyConfigResponse
@@ -3234,7 +3234,7 @@ ListWarningConfigResponse Client::listWarningConfig(const ListWarningConfigReque
 }
 
 /**
- * @summary  预警策略-列表
+ * @summary 预警策略-列表
  *
  * @param request ListWarningStrategyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3269,7 +3269,7 @@ ListWarningStrategyConfigResponse Client::listWarningStrategyConfigWithOptions(c
 }
 
 /**
- * @summary  预警策略-列表
+ * @summary 预警策略-列表
  *
  * @param request ListWarningStrategyConfigRequest
  * @return ListWarningStrategyConfigResponse
@@ -4372,7 +4372,7 @@ UpdateWarningConfigResponse Client::updateWarningConfig(const UpdateWarningConfi
 }
 
 /**
- * @summary  预警策略-更新
+ * @summary 预警策略-更新
  *
  * @param request UpdateWarningStrategyConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4407,7 +4407,7 @@ UpdateWarningStrategyConfigResponse Client::updateWarningStrategyConfigWithOptio
 }
 
 /**
- * @summary  预警策略-更新
+ * @summary 预警策略-更新
  *
  * @param request UpdateWarningStrategyConfigRequest
  * @return UpdateWarningStrategyConfigResponse

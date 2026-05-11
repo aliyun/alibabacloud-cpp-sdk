@@ -382,6 +382,7 @@ namespace Models
     shared_ptr<vector<ConditionBasicInfo>> conditions_ {};
     shared_ptr<string> content_ {};
     shared_ptr<int64_t> id_ {};
+    // index
     shared_ptr<int32_t> index_ {};
     shared_ptr<string> name_ {};
     shared_ptr<vector<GraphFlowNode::NextNodes>> nextNodes_ {};

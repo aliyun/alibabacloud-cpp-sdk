@@ -48,6 +48,7 @@ namespace Models
 
 
   protected:
+    // baseMeAgentId
     shared_ptr<int64_t> baseMeAgentId_ {};
     shared_ptr<string> jsonStr_ {};
   };

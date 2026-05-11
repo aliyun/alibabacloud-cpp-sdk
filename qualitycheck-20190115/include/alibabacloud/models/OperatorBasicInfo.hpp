@@ -692,11 +692,13 @@ namespace Models
       shared_ptr<bool> contextChatMatch_ {};
       shared_ptr<JudgeNodeMetaDesc> customerParam_ {};
       shared_ptr<int32_t> delayTime_ {};
+      // different_role
       shared_ptr<bool> differentRole_ {};
       shared_ptr<vector<Param::Dimensions>> dimensions_ {};
       shared_ptr<string> endType_ {};
       shared_ptr<vector<string>> excludes_ {};
       shared_ptr<int32_t> from_ {};
+      // from_end
       shared_ptr<bool> fromEnd_ {};
       shared_ptr<string> hitCondition_ {};
       shared_ptr<int32_t> hitTime_ {};
@@ -731,11 +733,14 @@ namespace Models
       shared_ptr<double> similarityThreshold_ {};
       shared_ptr<vector<string>> similarlySentences_ {};
       shared_ptr<map<string, vector<string>>> synonyms_ {};
+      // target
       shared_ptr<int32_t> target_ {};
+      // target_role
       shared_ptr<string> targetRole_ {};
       shared_ptr<float> threshold_ {};
       shared_ptr<bool> useEasAlgorithm_ {};
       shared_ptr<double> velocity_ {};
+      // velocityInMint
       shared_ptr<int32_t> velocityInMint_ {};
     };
 

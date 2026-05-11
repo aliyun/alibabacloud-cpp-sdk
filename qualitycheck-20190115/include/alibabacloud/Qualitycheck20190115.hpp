@@ -277,7 +277,7 @@ namespace Qualitycheck20190115
       Models::CreateWarningConfigResponse createWarningConfig(const Models::CreateWarningConfigRequest &request);
 
       /**
-       * @summary  预警策略-新增
+       * @summary 预警策略-新增
        *
        * @param request CreateWarningStrategyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -286,7 +286,7 @@ namespace Qualitycheck20190115
       Models::CreateWarningStrategyConfigResponse createWarningStrategyConfigWithOptions(const Models::CreateWarningStrategyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  预警策略-新增
+       * @summary 预警策略-新增
        *
        * @param request CreateWarningStrategyConfigRequest
        * @return CreateWarningStrategyConfigResponse
@@ -508,7 +508,7 @@ namespace Qualitycheck20190115
       Models::DeleteWarningConfigResponse deleteWarningConfig(const Models::DeleteWarningConfigRequest &request);
 
       /**
-       * @summary  预警策略-删除
+       * @summary 预警策略-删除
        *
        * @param request DeleteWarningStrategyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -517,7 +517,7 @@ namespace Qualitycheck20190115
       Models::DeleteWarningStrategyConfigResponse deleteWarningStrategyConfigWithOptions(const Models::DeleteWarningStrategyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  预警策略-删除
+       * @summary 预警策略-删除
        *
        * @param request DeleteWarningStrategyConfigRequest
        * @return DeleteWarningStrategyConfigResponse
@@ -1075,7 +1075,7 @@ namespace Qualitycheck20190115
       Models::ListWarningConfigResponse listWarningConfig(const Models::ListWarningConfigRequest &request);
 
       /**
-       * @summary  预警策略-列表
+       * @summary 预警策略-列表
        *
        * @param request ListWarningStrategyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1084,7 @@ namespace Qualitycheck20190115
       Models::ListWarningStrategyConfigResponse listWarningStrategyConfigWithOptions(const Models::ListWarningStrategyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  预警策略-列表
+       * @summary 预警策略-列表
        *
        * @param request ListWarningStrategyConfigRequest
        * @return ListWarningStrategyConfigResponse
@@ -1468,7 +1468,7 @@ namespace Qualitycheck20190115
       Models::UpdateWarningConfigResponse updateWarningConfig(const Models::UpdateWarningConfigRequest &request);
 
       /**
-       * @summary  预警策略-更新
+       * @summary 预警策略-更新
        *
        * @param request UpdateWarningStrategyConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1477,7 +1477,7 @@ namespace Qualitycheck20190115
       Models::UpdateWarningStrategyConfigResponse updateWarningStrategyConfigWithOptions(const Models::UpdateWarningStrategyConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary  预警策略-更新
+       * @summary 预警策略-更新
        *
        * @param request UpdateWarningStrategyConfigRequest
        * @return UpdateWarningStrategyConfigResponse

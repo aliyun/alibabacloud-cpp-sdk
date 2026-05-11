@@ -1611,9 +1611,7 @@ namespace Models
 
 
                           protected:
-                            // 意图模型ID
                             shared_ptr<int64_t> id_ {};
-                            // 意图模型名称
                             shared_ptr<string> name_ {};
                           };
 
@@ -1650,9 +1648,7 @@ namespace Models
 
 
                       protected:
-                        // 引用的意图模型
                         shared_ptr<IntentModelCheckParm::Intents> intents_ {};
-                        // 模型应用的场景 AGENT:客户场景、CUSTOMER:客服场景 (CUSTOMER: 客户场景, AGENT: 坐席场景)
                         shared_ptr<string> modelScene_ {};
                       };
 
@@ -1703,11 +1699,8 @@ namespace Models
 
 
                       protected:
-                        // 节点id
                         shared_ptr<int64_t> nodeId_ {};
-                        // 节点匹配状态。
                         shared_ptr<int32_t> nodeMatchStatus_ {};
-                        // 冗余的节点名称
                         shared_ptr<string> nodeName_ {};
                       };
 
@@ -1963,63 +1956,34 @@ namespace Models
 
 
                     protected:
-                      // 语速检测，是否计算整个对话平均语速，默认false
                       shared_ptr<bool> average_ {};
-                      // 时长算子，时长计算开始类型，录音开始，还是某句对话开始
                       shared_ptr<string> beginType_ {};
-                      // 区分大小写
                       shared_ptr<bool> caseSensitive_ {};
-                      // 静音检测：要不要检测第一句话
                       shared_ptr<bool> checkFirstSentence_ {};
-                      // 检测方式，1 相邻句能量波动 2 最大能量跨度 默认1
                       shared_ptr<int32_t> checkType_ {};
-                      // 大于，还是小于，gt/lt
                       shared_ptr<string> compareOperator_ {};
-                      // 是否单句话匹配；
                       shared_ptr<bool> contextChatMatch_ {};
-                      // 抢话算子 延时时长
                       shared_ptr<int32_t> delayTime_ {};
-                      // 时长算子，时长计算结束类型，录音结束，还是某句对话结束
                       shared_ptr<string> endType_ {};
-                      // 上下文重复算子：排除掉某些对话
                       shared_ptr<Param::Excludes> excludes_ {};
-                      // 流程节点前置条件参数
                       shared_ptr<Param::FlowNodePrerequisiteParam> flowNodePrerequisiteParam_ {};
-                      // 上下文重复算子：检测当前句的前from句是否有重复；0表示前面的所有句
                       shared_ptr<int32_t> from_ {};
-                      // from_end
                       shared_ptr<bool> fromEnd_ {};
-                      // 上下文重复算子：重复几次
                       shared_ptr<int32_t> hitTime_ {};
-                      // 生效句子， true单个句子，false多个句子
                       shared_ptr<bool> inSentence_ {};
-                      // 意图模型检查参数
                       shared_ptr<Param::IntentModelCheckParm> intentModelCheckParm_ {};
-                      // interval代表区间范围开始
                       shared_ptr<int32_t> interval_ {};
-                      // intervalEnd 代表区间范围结束
                       shared_ptr<int32_t> intervalEnd_ {};
-                      // 关键字扩展
                       shared_ptr<int32_t> keywordExtension_ {};
-                      // 匹配到的关键字数量
                       shared_ptr<int32_t> keywordMatchSize_ {};
-                      // 关键词
                       shared_ptr<Param::Keywords> keywords_ {};
-                      // 能量值变化，默认3, 1~9
                       shared_ptr<int32_t> maxEmotionChangeValue_ {};
-                      // 句子中最少字数，小于此字数的句子不检查
                       shared_ptr<int32_t> minWordSize_ {};
-                      // true表示取不同角色相邻的两句话，false表示取不同角色的第一句话比较响应时间（默认）
                       shared_ptr<bool> nearDialogue_ {};
-                      // 排除的正则表达式
                       shared_ptr<string> notRegex_ {};
-                      // 语句
                       shared_ptr<string> phrase_ {};
-                      // 正则表达式
                       shared_ptr<string> regex_ {};
-                      // target
                       shared_ptr<int32_t> target_ {};
-                      // 阈值
                       shared_ptr<float> threshold_ {};
                     };
 
@@ -2063,15 +2027,10 @@ namespace Models
 
 
                   protected:
-                    // 主键id
                     shared_ptr<int64_t> id_ {};
-                    // 算子名
                     shared_ptr<string> name_ {};
-                    // 可能是主键id，也可能是前端生成的id
                     shared_ptr<string> oid_ {};
-                    // 算子参数
                     shared_ptr<Operator::Param> param_ {};
-                    // 算子类别
                     shared_ptr<string> type_ {};
                   };
 
@@ -2200,9 +2159,7 @@ namespace Models
 
 
                   protected:
-                    // 对话开始索引
                     shared_ptr<int32_t> from_ {};
-                    // 对话结束索引
                     shared_ptr<int32_t> to_ {};
                   };
 
@@ -2253,11 +2210,8 @@ namespace Models
 
 
                   protected:
-                    // 条件ID
                     shared_ptr<string> cid_ {};
-                    // 命中次数
                     shared_ptr<int32_t> hitTime_ {};
-                    // 位置
                     shared_ptr<string> location_ {};
                   };
 
@@ -2320,17 +2274,11 @@ namespace Models
 
 
                 protected:
-                  // false: 相对位置; 会结合anchor以及角色来决定句子位置
                   shared_ptr<bool> absolute_ {};
-                  // true: 每句话都必须满足条件；
                   shared_ptr<bool> allSentencesSatisfy_ {};
-                  // 前置后置条件
                   shared_ptr<CheckRange::Anchor> anchor_ {};
-                  // 相对范围
                   shared_ptr<CheckRange::Range> range_ {};
-                  // 对应 RoleType.type
                   shared_ptr<string> role_ {};
-                  // 对应 RoleType.id
                   shared_ptr<int32_t> roleId_ {};
                   shared_ptr<CheckRange::TimeRange> timeRange_ {};
                 };
@@ -2392,19 +2340,12 @@ namespace Models
 
 
               protected:
-                // 检测范围
                 shared_ptr<ConditionsItem::CheckRange> checkRange_ {};
-                // 条件id，可能是db中的主键，也可能是转换成的a, b, c
                 shared_ptr<string> cid_ {};
-                // 排除
                 shared_ptr<int32_t> exclusion_ {};
-                // 在db中的主键
                 shared_ptr<int64_t> id_ {};
-                // Lambda表达式：例如:a&&b
                 shared_ptr<string> lambda_ {};
-                // 算子列表
                 shared_ptr<ConditionsItem::Operators> operators_ {};
-                // 条件所属的规则id
                 shared_ptr<string> rid_ {};
               };
 

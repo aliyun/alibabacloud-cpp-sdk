@@ -68,6 +68,7 @@ namespace Models
   protected:
     shared_ptr<int32_t> bid_ {};
     shared_ptr<string> name_ {};
+    // originalId
     shared_ptr<int64_t> originalId_ {};
     shared_ptr<int32_t> serviceType_ {};
   };
