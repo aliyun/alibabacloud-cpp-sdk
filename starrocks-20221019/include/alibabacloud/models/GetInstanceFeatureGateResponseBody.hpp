@@ -67,6 +67,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SupportMultiAZ, supportMultiAZ_);
         DARABONBA_PTR_TO_JSON(UseComputeNode, useComputeNode_);
         DARABONBA_PTR_TO_JSON(supportCompactionService, supportCompactionService_);
+        DARABONBA_PTR_TO_JSON(supportCompactionServiceWhiteList, supportCompactionServiceWhiteList_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ConsoleControlRestart, consoleControlRestart_);
@@ -89,6 +90,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SupportMultiAZ, supportMultiAZ_);
         DARABONBA_PTR_FROM_JSON(UseComputeNode, useComputeNode_);
         DARABONBA_PTR_FROM_JSON(supportCompactionService, supportCompactionService_);
+        DARABONBA_PTR_FROM_JSON(supportCompactionServiceWhiteList, supportCompactionServiceWhiteList_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -105,7 +107,7 @@ namespace Models
         && this->enableManageMv_ == nullptr && this->fullManagedSecurityGroup_ == nullptr && this->mountDlfMetaToken_ == nullptr && this->supportAddConfigTypes_ == nullptr && this->supportBackup_ == nullptr
         && this->supportCreateAgent_ == nullptr && this->supportCreateNonStandardNodeGroup_ == nullptr && this->supportEed_ == nullptr && this->supportEnableAi_ == nullptr && this->supportEnableSSL_ == nullptr
         && this->supportFastModeModifyConfig_ == nullptr && this->supportFastModeModifyResource_ == nullptr && this->supportFastRestart_ == nullptr && this->supportFeGateway_ == nullptr && this->supportHostAlias_ == nullptr
-        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr; };
+        && this->supportModifyTimezone_ == nullptr && this->supportMultiAZ_ == nullptr && this->useComputeNode_ == nullptr && this->supportCompactionService_ == nullptr && this->supportCompactionServiceWhiteList_ == nullptr; };
       // consoleControlRestart Field Functions 
       bool hasConsoleControlRestart() const { return this->consoleControlRestart_ != nullptr;};
       void deleteConsoleControlRestart() { this->consoleControlRestart_ = nullptr;};
@@ -248,6 +250,13 @@ namespace Models
       inline Data& setSupportCompactionService(bool supportCompactionService) { DARABONBA_PTR_SET_VALUE(supportCompactionService_, supportCompactionService) };
 
 
+      // supportCompactionServiceWhiteList Field Functions 
+      bool hasSupportCompactionServiceWhiteList() const { return this->supportCompactionServiceWhiteList_ != nullptr;};
+      void deleteSupportCompactionServiceWhiteList() { this->supportCompactionServiceWhiteList_ = nullptr;};
+      inline bool getSupportCompactionServiceWhiteList() const { DARABONBA_PTR_GET_DEFAULT(supportCompactionServiceWhiteList_, false) };
+      inline Data& setSupportCompactionServiceWhiteList(bool supportCompactionServiceWhiteList) { DARABONBA_PTR_SET_VALUE(supportCompactionServiceWhiteList_, supportCompactionServiceWhiteList) };
+
+
     protected:
       shared_ptr<bool> consoleControlRestart_ {};
       shared_ptr<bool> enableManageMv_ {};
@@ -269,6 +278,8 @@ namespace Models
       shared_ptr<bool> supportMultiAZ_ {};
       shared_ptr<bool> useComputeNode_ {};
       shared_ptr<bool> supportCompactionService_ {};
+      // 是否支持Compaction Service白名单功能
+      shared_ptr<bool> supportCompactionServiceWhiteList_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr

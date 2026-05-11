@@ -46,6 +46,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AclId, aclId_);
+        DARABONBA_PTR_TO_JSON(AiFunctionInstanceId, aiFunctionInstanceId_);
         DARABONBA_PTR_TO_JSON(Architecture, architecture_);
         DARABONBA_PTR_TO_JSON(BeginTime, beginTime_);
         DARABONBA_PTR_TO_JSON(EnableAiFunction, enableAiFunction_);
@@ -79,6 +80,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AclId, aclId_);
+        DARABONBA_PTR_FROM_JSON(AiFunctionInstanceId, aiFunctionInstanceId_);
         DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
         DARABONBA_PTR_FROM_JSON(BeginTime, beginTime_);
         DARABONBA_PTR_FROM_JSON(EnableAiFunction, enableAiFunction_);
@@ -216,17 +218,25 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->aclId_ == nullptr
-        && this->architecture_ == nullptr && this->beginTime_ == nullptr && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr && this->enableMultiAz_ == nullptr
-        && this->enableSSL_ == nullptr && this->enabledAuditLoader_ == nullptr && this->encrypted_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr
-        && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr && this->maintainablePeriod_ == nullptr
-        && this->minorVersion_ == nullptr && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr && this->securityGroupManaged_ == nullptr
-        && this->sgId_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr; };
+        && this->aiFunctionInstanceId_ == nullptr && this->architecture_ == nullptr && this->beginTime_ == nullptr && this->enableAiFunction_ == nullptr && this->enableAutoMinorVersionUpgrade_ == nullptr
+        && this->enableMultiAz_ == nullptr && this->enableSSL_ == nullptr && this->enabledAuditLoader_ == nullptr && this->encrypted_ == nullptr && this->expireTime_ == nullptr
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceStatus_ == nullptr && this->isolateLeader_ == nullptr && this->kmsKeyId_ == nullptr
+        && this->maintainablePeriod_ == nullptr && this->minorVersion_ == nullptr && this->monitorType_ == nullptr && this->ossLocation_ == nullptr && this->packageType_ == nullptr
+        && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runMode_ == nullptr && this->runningTime_ == nullptr
+        && this->securityGroupManaged_ == nullptr && this->sgId_ == nullptr && this->tags_ == nullptr && this->vSwitches_ == nullptr && this->version_ == nullptr
+        && this->vpcId_ == nullptr; };
       // aclId Field Functions 
       bool hasAclId() const { return this->aclId_ != nullptr;};
       void deleteAclId() { this->aclId_ = nullptr;};
       inline string getAclId() const { DARABONBA_PTR_GET_DEFAULT(aclId_, "") };
       inline Data& setAclId(string aclId) { DARABONBA_PTR_SET_VALUE(aclId_, aclId) };
+
+
+      // aiFunctionInstanceId Field Functions 
+      bool hasAiFunctionInstanceId() const { return this->aiFunctionInstanceId_ != nullptr;};
+      void deleteAiFunctionInstanceId() { this->aiFunctionInstanceId_ = nullptr;};
+      inline string getAiFunctionInstanceId() const { DARABONBA_PTR_GET_DEFAULT(aiFunctionInstanceId_, "") };
+      inline Data& setAiFunctionInstanceId(string aiFunctionInstanceId) { DARABONBA_PTR_SET_VALUE(aiFunctionInstanceId_, aiFunctionInstanceId) };
 
 
       // architecture Field Functions 
@@ -445,6 +455,7 @@ namespace Models
 
     protected:
       shared_ptr<string> aclId_ {};
+      shared_ptr<string> aiFunctionInstanceId_ {};
       shared_ptr<string> architecture_ {};
       shared_ptr<int64_t> beginTime_ {};
       shared_ptr<bool> enableAiFunction_ {};
