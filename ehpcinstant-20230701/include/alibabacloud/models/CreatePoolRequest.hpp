@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PoolName, poolName_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ResourceLimits, resourceLimits_);
+      DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePoolRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ResourceLimits, resourceLimits_);
+      DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
     };
     CreatePoolRequest() = default ;
     CreatePoolRequest(const CreatePoolRequest &) = default ;
@@ -36,10 +38,10 @@ namespace Models
     class ResourceLimits : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ResourceLimits& obj) { 
-        DARABONBA_PTR_TO_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_TO_JSON(MaxExecutorNum, maxExecutorNum_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceLimits& obj) { 
-        DARABONBA_PTR_FROM_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_FROM_JSON(MaxExecutorNum, maxExecutorNum_);
       };
       ResourceLimits() = default ;
       ResourceLimits(const ResourceLimits &) = default ;
@@ -52,21 +54,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->maxExectorNum_ == nullptr; };
-      // maxExectorNum Field Functions 
-      bool hasMaxExectorNum() const { return this->maxExectorNum_ != nullptr;};
-      void deleteMaxExectorNum() { this->maxExectorNum_ = nullptr;};
-      inline int32_t getMaxExectorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExectorNum_, 0) };
-      inline ResourceLimits& setMaxExectorNum(int32_t maxExectorNum) { DARABONBA_PTR_SET_VALUE(maxExectorNum_, maxExectorNum) };
+      virtual bool empty() const override { return this->maxExecutorNum_ == nullptr; };
+      // maxExecutorNum Field Functions 
+      bool hasMaxExecutorNum() const { return this->maxExecutorNum_ != nullptr;};
+      void deleteMaxExecutorNum() { this->maxExecutorNum_ = nullptr;};
+      inline int32_t getMaxExecutorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExecutorNum_, 0) };
+      inline ResourceLimits& setMaxExecutorNum(int32_t maxExecutorNum) { DARABONBA_PTR_SET_VALUE(maxExecutorNum_, maxExecutorNum) };
 
 
     protected:
-      // The maximum number of concurrent execution nodes in a resource pool.
-      shared_ptr<int32_t> maxExectorNum_ {};
+      shared_ptr<int32_t> maxExecutorNum_ {};
     };
 
     virtual bool empty() const override { return this->poolName_ == nullptr
-        && this->priority_ == nullptr && this->resourceLimits_ == nullptr; };
+        && this->priority_ == nullptr && this->resourceLimits_ == nullptr && this->schedulingPolicyId_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
@@ -90,6 +91,13 @@ namespace Models
     inline CreatePoolRequest& setResourceLimits(CreatePoolRequest::ResourceLimits && resourceLimits) { DARABONBA_PTR_SET_RVALUE(resourceLimits_, resourceLimits) };
 
 
+    // schedulingPolicyId Field Functions 
+    bool hasSchedulingPolicyId() const { return this->schedulingPolicyId_ != nullptr;};
+    void deleteSchedulingPolicyId() { this->schedulingPolicyId_ = nullptr;};
+    inline string getSchedulingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(schedulingPolicyId_, "") };
+    inline CreatePoolRequest& setSchedulingPolicyId(string schedulingPolicyId) { DARABONBA_PTR_SET_VALUE(schedulingPolicyId_, schedulingPolicyId) };
+
+
   protected:
     // The name of the resource pool.
     // 
@@ -105,6 +113,7 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The quota of resources that users are allowed to concurrently use in a resource pool.
     shared_ptr<CreatePoolRequest::ResourceLimits> resourceLimits_ {};
+    shared_ptr<string> schedulingPolicyId_ {};
   };
 
   } // namespace Models

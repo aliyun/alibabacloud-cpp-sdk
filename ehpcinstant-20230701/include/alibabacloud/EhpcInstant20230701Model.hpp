@@ -56,6 +56,9 @@
 #include <alibabacloud/models/GetJobRequest.hpp>
 #include <alibabacloud/models/GetJobResponseBody.hpp>
 #include <alibabacloud/models/GetJobResponse.hpp>
+#include <alibabacloud/models/GetJobRecordDurationRequest.hpp>
+#include <alibabacloud/models/GetJobRecordDurationResponseBody.hpp>
+#include <alibabacloud/models/GetJobRecordDurationResponse.hpp>
 #include <alibabacloud/models/GetPoolRequest.hpp>
 #include <alibabacloud/models/GetPoolResponseBody.hpp>
 #include <alibabacloud/models/GetPoolResponse.hpp>
@@ -108,6 +111,9 @@
 #include <alibabacloud/models/UpdateActionPlanRequest.hpp>
 #include <alibabacloud/models/UpdateActionPlanResponseBody.hpp>
 #include <alibabacloud/models/UpdateActionPlanResponse.hpp>
+#include <alibabacloud/models/UpdateJobRecordDurationRequest.hpp>
+#include <alibabacloud/models/UpdateJobRecordDurationResponseBody.hpp>
+#include <alibabacloud/models/UpdateJobRecordDurationResponse.hpp>
 #include <alibabacloud/models/UpdatePoolRequest.hpp>
 #include <alibabacloud/models/UpdatePoolShrinkRequest.hpp>
 #include <alibabacloud/models/UpdatePoolResponseBody.hpp>

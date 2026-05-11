@@ -286,6 +286,23 @@ namespace EhpcInstant20230701
       Models::GetJobResponse getJob(const Models::GetJobRequest &request);
 
       /**
+       * @summary 查询作业保留时长
+       *
+       * @param request GetJobRecordDurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetJobRecordDurationResponse
+       */
+      Models::GetJobRecordDurationResponse getJobRecordDurationWithOptions(const Models::GetJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询作业保留时长
+       *
+       * @param request GetJobRecordDurationRequest
+       * @return GetJobRecordDurationResponse
+       */
+      Models::GetJobRecordDurationResponse getJobRecordDuration(const Models::GetJobRecordDurationRequest &request);
+
+      /**
        * @summary Obtains the details of a resource pool.
        *
        * @param request GetPoolRequest
@@ -547,6 +564,23 @@ namespace EhpcInstant20230701
        * @return UpdateActionPlanResponse
        */
       Models::UpdateActionPlanResponse updateActionPlan(const Models::UpdateActionPlanRequest &request);
+
+      /**
+       * @summary 更新作业保留时长
+       *
+       * @param request UpdateJobRecordDurationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateJobRecordDurationResponse
+       */
+      Models::UpdateJobRecordDurationResponse updateJobRecordDurationWithOptions(const Models::UpdateJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新作业保留时长
+       *
+       * @param request UpdateJobRecordDurationRequest
+       * @return UpdateJobRecordDurationResponse
+       */
+      Models::UpdateJobRecordDurationResponse updateJobRecordDuration(const Models::UpdateJobRecordDurationRequest &request);
 
       /**
        * @summary Update the resource pool configuration.

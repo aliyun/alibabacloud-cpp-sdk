@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PoolName, poolName_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ResourceLimits, resourceLimitsShrink_);
+      DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdatePoolShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ResourceLimits, resourceLimitsShrink_);
+      DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
     };
     UpdatePoolShrinkRequest() = default ;
     UpdatePoolShrinkRequest(const UpdatePoolShrinkRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->poolName_ == nullptr
-        && this->priority_ == nullptr && this->resourceLimitsShrink_ == nullptr; };
+        && this->priority_ == nullptr && this->resourceLimitsShrink_ == nullptr && this->schedulingPolicyId_ == nullptr; };
     // poolName Field Functions 
     bool hasPoolName() const { return this->poolName_ != nullptr;};
     void deletePoolName() { this->poolName_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline UpdatePoolShrinkRequest& setResourceLimitsShrink(string resourceLimitsShrink) { DARABONBA_PTR_SET_VALUE(resourceLimitsShrink_, resourceLimitsShrink) };
 
 
+    // schedulingPolicyId Field Functions 
+    bool hasSchedulingPolicyId() const { return this->schedulingPolicyId_ != nullptr;};
+    void deleteSchedulingPolicyId() { this->schedulingPolicyId_ = nullptr;};
+    inline string getSchedulingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(schedulingPolicyId_, "") };
+    inline UpdatePoolShrinkRequest& setSchedulingPolicyId(string schedulingPolicyId) { DARABONBA_PTR_SET_VALUE(schedulingPolicyId_, schedulingPolicyId) };
+
+
   protected:
     // The name of the resource pool.
     // 
@@ -71,6 +80,7 @@ namespace Models
     shared_ptr<int32_t> priority_ {};
     // The quota of resources that users are allowed to concurrently use in a resource pool.
     shared_ptr<string> resourceLimitsShrink_ {};
+    shared_ptr<string> schedulingPolicyId_ {};
   };
 
   } // namespace Models

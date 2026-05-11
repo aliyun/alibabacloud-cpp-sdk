@@ -35,23 +35,25 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PoolInfo& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
-        DARABONBA_PTR_TO_JSON(ExectorUsage, exectorUsage_);
+        DARABONBA_PTR_TO_JSON(ExecutorUsage, executorUsage_);
         DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
-        DARABONBA_PTR_TO_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_TO_JSON(MaxExecutorNum, maxExecutorNum_);
         DARABONBA_PTR_TO_JSON(PoolName, poolName_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(Reason, reason_);
+        DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, PoolInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
-        DARABONBA_PTR_FROM_JSON(ExectorUsage, exectorUsage_);
+        DARABONBA_PTR_FROM_JSON(ExecutorUsage, executorUsage_);
         DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
-        DARABONBA_PTR_FROM_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_FROM_JSON(MaxExecutorNum, maxExecutorNum_);
         DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
+        DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
@@ -67,8 +69,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->exectorUsage_ == nullptr && this->isDefault_ == nullptr && this->maxExectorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr
-        && this->reason_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->executorUsage_ == nullptr && this->isDefault_ == nullptr && this->maxExecutorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr
+        && this->reason_ == nullptr && this->schedulingPolicyId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -76,11 +78,11 @@ namespace Models
       inline PoolInfo& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
-      // exectorUsage Field Functions 
-      bool hasExectorUsage() const { return this->exectorUsage_ != nullptr;};
-      void deleteExectorUsage() { this->exectorUsage_ = nullptr;};
-      inline int32_t getExectorUsage() const { DARABONBA_PTR_GET_DEFAULT(exectorUsage_, 0) };
-      inline PoolInfo& setExectorUsage(int32_t exectorUsage) { DARABONBA_PTR_SET_VALUE(exectorUsage_, exectorUsage) };
+      // executorUsage Field Functions 
+      bool hasExecutorUsage() const { return this->executorUsage_ != nullptr;};
+      void deleteExecutorUsage() { this->executorUsage_ = nullptr;};
+      inline int32_t getExecutorUsage() const { DARABONBA_PTR_GET_DEFAULT(executorUsage_, 0) };
+      inline PoolInfo& setExecutorUsage(int32_t executorUsage) { DARABONBA_PTR_SET_VALUE(executorUsage_, executorUsage) };
 
 
       // isDefault Field Functions 
@@ -90,11 +92,11 @@ namespace Models
       inline PoolInfo& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
-      // maxExectorNum Field Functions 
-      bool hasMaxExectorNum() const { return this->maxExectorNum_ != nullptr;};
-      void deleteMaxExectorNum() { this->maxExectorNum_ = nullptr;};
-      inline int32_t getMaxExectorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExectorNum_, 0) };
-      inline PoolInfo& setMaxExectorNum(int32_t maxExectorNum) { DARABONBA_PTR_SET_VALUE(maxExectorNum_, maxExectorNum) };
+      // maxExecutorNum Field Functions 
+      bool hasMaxExecutorNum() const { return this->maxExecutorNum_ != nullptr;};
+      void deleteMaxExecutorNum() { this->maxExecutorNum_ = nullptr;};
+      inline int32_t getMaxExecutorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExecutorNum_, 0) };
+      inline PoolInfo& setMaxExecutorNum(int32_t maxExecutorNum) { DARABONBA_PTR_SET_VALUE(maxExecutorNum_, maxExecutorNum) };
 
 
       // poolName Field Functions 
@@ -118,6 +120,13 @@ namespace Models
       inline PoolInfo& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
+      // schedulingPolicyId Field Functions 
+      bool hasSchedulingPolicyId() const { return this->schedulingPolicyId_ != nullptr;};
+      void deleteSchedulingPolicyId() { this->schedulingPolicyId_ = nullptr;};
+      inline string getSchedulingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(schedulingPolicyId_, "") };
+      inline PoolInfo& setSchedulingPolicyId(string schedulingPolicyId) { DARABONBA_PTR_SET_VALUE(schedulingPolicyId_, schedulingPolicyId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -135,15 +144,13 @@ namespace Models
     protected:
       // The time when the resource pool is created.
       shared_ptr<string> createTime_ {};
-      // The usage of execution nodes that are running in a resource pool.
-      shared_ptr<int32_t> exectorUsage_ {};
+      shared_ptr<int32_t> executorUsage_ {};
       // Indices whether the resource pool is the default resource pool. Valid values:
       // 
       // *   **true**
       // *   **false**
       shared_ptr<bool> isDefault_ {};
-      // The maximum number of execution nodes that can run concurrently in a resource pool.
-      shared_ptr<int32_t> maxExectorNum_ {};
+      shared_ptr<int32_t> maxExecutorNum_ {};
       // The name of the resource group.
       // 
       // *   The value can be up to 15 characters in length.
@@ -156,6 +163,7 @@ namespace Models
       shared_ptr<int32_t> priority_ {};
       // The cause of the error.
       shared_ptr<string> reason_ {};
+      shared_ptr<string> schedulingPolicyId_ {};
       // The status of the resource pool. Valid values:
       // 
       // *   Creating: The resource pool is being created.

@@ -315,6 +315,10 @@ CreatePoolResponse Client::createPoolWithOptions(const CreatePoolRequest &tmpReq
     query["ResourceLimits"] = request.getResourceLimitsShrink();
   }
 
+  if (!!request.hasSchedulingPolicyId()) {
+    query["SchedulingPolicyId"] = request.getSchedulingPolicyId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -919,6 +923,41 @@ GetJobResponse Client::getJobWithOptions(const GetJobRequest &request, const Dar
 GetJobResponse Client::getJob(const GetJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询作业保留时长
+ *
+ * @param request GetJobRecordDurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetJobRecordDurationResponse
+ */
+GetJobRecordDurationResponse Client::getJobRecordDurationWithOptions(const GetJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetJobRecordDuration"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetJobRecordDurationResponse>();
+}
+
+/**
+ * @summary 查询作业保留时长
+ *
+ * @param request GetJobRecordDurationRequest
+ * @return GetJobRecordDurationResponse
+ */
+GetJobRecordDurationResponse Client::getJobRecordDuration(const GetJobRecordDurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getJobRecordDurationWithOptions(request, runtime);
 }
 
 /**
@@ -1754,6 +1793,48 @@ UpdateActionPlanResponse Client::updateActionPlan(const UpdateActionPlanRequest 
 }
 
 /**
+ * @summary 更新作业保留时长
+ *
+ * @param request UpdateJobRecordDurationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateJobRecordDurationResponse
+ */
+UpdateJobRecordDurationResponse Client::updateJobRecordDurationWithOptions(const UpdateJobRecordDurationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobRecordDuration()) {
+    query["JobRecordDuration"] = request.getJobRecordDuration();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateJobRecordDuration"},
+    {"version" , "2023-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateJobRecordDurationResponse>();
+}
+
+/**
+ * @summary 更新作业保留时长
+ *
+ * @param request UpdateJobRecordDurationRequest
+ * @return UpdateJobRecordDurationResponse
+ */
+UpdateJobRecordDurationResponse Client::updateJobRecordDuration(const UpdateJobRecordDurationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateJobRecordDurationWithOptions(request, runtime);
+}
+
+/**
  * @summary Update the resource pool configuration.
  *
  * @param tmpReq UpdatePoolRequest
@@ -1779,6 +1860,10 @@ UpdatePoolResponse Client::updatePoolWithOptions(const UpdatePoolRequest &tmpReq
 
   if (!!request.hasResourceLimitsShrink()) {
     query["ResourceLimits"] = request.getResourceLimitsShrink();
+  }
+
+  if (!!request.hasSchedulingPolicyId()) {
+    query["SchedulingPolicyId"] = request.getSchedulingPolicyId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

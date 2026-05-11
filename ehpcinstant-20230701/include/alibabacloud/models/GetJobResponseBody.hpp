@@ -856,12 +856,14 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AllocationSpec, allocationSpec_);
           DARABONBA_PTR_TO_JSON(Level, level_);
           DARABONBA_PTR_TO_JSON(Network, network_);
+          DARABONBA_PTR_TO_JSON(Pool, pool_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
         };
         friend void from_json(const Darabonba::Json& j, DeploymentPolicy& obj) { 
           DARABONBA_PTR_FROM_JSON(AllocationSpec, allocationSpec_);
           DARABONBA_PTR_FROM_JSON(Level, level_);
           DARABONBA_PTR_FROM_JSON(Network, network_);
+          DARABONBA_PTR_FROM_JSON(Pool, pool_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
         };
         DeploymentPolicy() = default ;
@@ -985,7 +987,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->allocationSpec_ == nullptr
-        && this->level_ == nullptr && this->network_ == nullptr && this->tags_ == nullptr; };
+        && this->level_ == nullptr && this->network_ == nullptr && this->pool_ == nullptr && this->tags_ == nullptr; };
         // allocationSpec Field Functions 
         bool hasAllocationSpec() const { return this->allocationSpec_ != nullptr;};
         void deleteAllocationSpec() { this->allocationSpec_ = nullptr;};
@@ -1009,6 +1011,13 @@ namespace Models
         inline DeploymentPolicy& setNetwork(DeploymentPolicy::Network && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
 
 
+        // pool Field Functions 
+        bool hasPool() const { return this->pool_ != nullptr;};
+        void deletePool() { this->pool_ = nullptr;};
+        inline string getPool() const { DARABONBA_PTR_GET_DEFAULT(pool_, "") };
+        inline DeploymentPolicy& setPool(string pool) { DARABONBA_PTR_SET_VALUE(pool_, pool) };
+
+
         // tags Field Functions 
         bool hasTags() const { return this->tags_ != nullptr;};
         void deleteTags() { this->tags_ = nullptr;};
@@ -1030,6 +1039,7 @@ namespace Models
         shared_ptr<string> level_ {};
         // The network configuration information.
         shared_ptr<DeploymentPolicy::Network> network_ {};
+        shared_ptr<string> pool_ {};
         // The list of job tags.
         shared_ptr<vector<DeploymentPolicy::Tags>> tags_ {};
       };

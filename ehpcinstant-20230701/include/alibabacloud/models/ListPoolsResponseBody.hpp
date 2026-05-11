@@ -41,18 +41,24 @@ namespace Models
     class PoolList : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const PoolList& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(IsDefault, isDefault_);
-        DARABONBA_PTR_TO_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_TO_JSON(MaxExecutorNum, maxExecutorNum_);
         DARABONBA_PTR_TO_JSON(PoolName, poolName_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
       friend void from_json(const Darabonba::Json& j, PoolList& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(IsDefault, isDefault_);
-        DARABONBA_PTR_FROM_JSON(MaxExectorNum, maxExectorNum_);
+        DARABONBA_PTR_FROM_JSON(MaxExecutorNum, maxExecutorNum_);
         DARABONBA_PTR_FROM_JSON(PoolName, poolName_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(SchedulingPolicyId, schedulingPolicyId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
       PoolList() = default ;
       PoolList(const PoolList &) = default ;
@@ -65,8 +71,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->isDefault_ == nullptr
-        && this->maxExectorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr && this->status_ == nullptr; };
+      virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->isDefault_ == nullptr && this->maxExecutorNum_ == nullptr && this->poolName_ == nullptr && this->priority_ == nullptr && this->schedulingPolicyId_ == nullptr
+        && this->status_ == nullptr && this->updateTime_ == nullptr; };
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline PoolList& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
       // isDefault Field Functions 
       bool hasIsDefault() const { return this->isDefault_ != nullptr;};
       void deleteIsDefault() { this->isDefault_ = nullptr;};
@@ -74,11 +88,11 @@ namespace Models
       inline PoolList& setIsDefault(bool isDefault) { DARABONBA_PTR_SET_VALUE(isDefault_, isDefault) };
 
 
-      // maxExectorNum Field Functions 
-      bool hasMaxExectorNum() const { return this->maxExectorNum_ != nullptr;};
-      void deleteMaxExectorNum() { this->maxExectorNum_ = nullptr;};
-      inline int32_t getMaxExectorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExectorNum_, 0) };
-      inline PoolList& setMaxExectorNum(int32_t maxExectorNum) { DARABONBA_PTR_SET_VALUE(maxExectorNum_, maxExectorNum) };
+      // maxExecutorNum Field Functions 
+      bool hasMaxExecutorNum() const { return this->maxExecutorNum_ != nullptr;};
+      void deleteMaxExecutorNum() { this->maxExecutorNum_ = nullptr;};
+      inline int32_t getMaxExecutorNum() const { DARABONBA_PTR_GET_DEFAULT(maxExecutorNum_, 0) };
+      inline PoolList& setMaxExecutorNum(int32_t maxExecutorNum) { DARABONBA_PTR_SET_VALUE(maxExecutorNum_, maxExecutorNum) };
 
 
       // poolName Field Functions 
@@ -95,6 +109,13 @@ namespace Models
       inline PoolList& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
+      // schedulingPolicyId Field Functions 
+      bool hasSchedulingPolicyId() const { return this->schedulingPolicyId_ != nullptr;};
+      void deleteSchedulingPolicyId() { this->schedulingPolicyId_ = nullptr;};
+      inline string getSchedulingPolicyId() const { DARABONBA_PTR_GET_DEFAULT(schedulingPolicyId_, "") };
+      inline PoolList& setSchedulingPolicyId(string schedulingPolicyId) { DARABONBA_PTR_SET_VALUE(schedulingPolicyId_, schedulingPolicyId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -102,14 +123,21 @@ namespace Models
       inline PoolList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // updateTime Field Functions 
+      bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+      void deleteUpdateTime() { this->updateTime_ = nullptr;};
+      inline string getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, "") };
+      inline PoolList& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
     protected:
+      shared_ptr<string> createTime_ {};
       // Indices whether the resource pool is the default resource pool. Valid values:
       // 
       // *   **true**
       // *   **false**
       shared_ptr<bool> isDefault_ {};
-      // The maximum number of execution nodes that can run concurrently in a resource pool.
-      shared_ptr<int32_t> maxExectorNum_ {};
+      shared_ptr<int32_t> maxExecutorNum_ {};
       // The name of the resource pool.
       // 
       // *   The value can be up to 15 characters in length.
@@ -120,6 +148,7 @@ namespace Models
       // *   You can set a priority in the range of 1 to 99. The default value is 1, which is the lowest priority.
       // *   Jobs submitted to a resource pool with a higher priority level value will be scheduled before pending jobs in a resource pool with a lower priority level value, and the priority level of the resource pool takes precedence over the priority of the job.
       shared_ptr<int32_t> priority_ {};
+      shared_ptr<string> schedulingPolicyId_ {};
       // The status of the resource pool. Valid values:
       // 
       // *   Creating: The resource pool is being created.
@@ -128,6 +157,7 @@ namespace Models
       // *   Working: The resource pool is working.
       // *   Deleted: The resource pool is deleted.
       shared_ptr<string> status_ {};
+      shared_ptr<string> updateTime_ {};
     };
 
     virtual bool empty() const override { return this->pageNumber_ == nullptr
