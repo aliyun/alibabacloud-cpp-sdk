@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
+      DARABONBA_PTR_TO_JSON(ResourceClassification, resourceClassification_);
       DARABONBA_PTR_TO_JSON(ResourceGroupIds, resourceGroupIds_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
+      DARABONBA_PTR_FROM_JSON(ResourceClassification, resourceClassification_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupIds, resourceGroupIds_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
@@ -46,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliyunResourceGroupIds_ == nullptr
         && this->businessChannel_ == nullptr && this->needContainResourceGroupWithOfficeSite_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr
-        && this->resourceGroupIds_ == nullptr && this->resourceGroupName_ == nullptr; };
+        && this->resourceClassification_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceGroupName_ == nullptr; };
     // aliyunResourceGroupIds Field Functions 
     bool hasAliyunResourceGroupIds() const { return this->aliyunResourceGroupIds_ != nullptr;};
     void deleteAliyunResourceGroupIds() { this->aliyunResourceGroupIds_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     inline DescribeResourceGroupsRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
+    // resourceClassification Field Functions 
+    bool hasResourceClassification() const { return this->resourceClassification_ != nullptr;};
+    void deleteResourceClassification() { this->resourceClassification_ = nullptr;};
+    inline string getResourceClassification() const { DARABONBA_PTR_GET_DEFAULT(resourceClassification_, "") };
+    inline DescribeResourceGroupsRequest& setResourceClassification(string resourceClassification) { DARABONBA_PTR_SET_VALUE(resourceClassification_, resourceClassification) };
+
+
     // resourceGroupIds Field Functions 
     bool hasResourceGroupIds() const { return this->resourceGroupIds_ != nullptr;};
     void deleteResourceGroupIds() { this->resourceGroupIds_ = nullptr;};
@@ -120,6 +129,7 @@ namespace Models
     // 
     // *   This parameter is not publicly available on other platforms.
     shared_ptr<string> platform_ {};
+    shared_ptr<string> resourceClassification_ {};
     // The IDs of the resource groups that you want to query.
     shared_ptr<vector<string>> resourceGroupIds_ {};
     // The name of the resource group.

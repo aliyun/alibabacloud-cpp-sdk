@@ -427,6 +427,10 @@ CreateResourceGroupResponse Client::createResourceGroupWithOptions(const CreateR
     query["Platform"] = request.getPlatform();
   }
 
+  if (!!request.hasResourceClassification()) {
+    query["ResourceClassification"] = request.getResourceClassification();
+  }
+
   if (!!request.hasResourceGroupName()) {
     query["ResourceGroupName"] = request.getResourceGroupName();
   }
@@ -1007,6 +1011,10 @@ DescribeResourceGroupsResponse Client::describeResourceGroupsWithOptions(const D
 
   if (!!request.hasPlatform()) {
     query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasResourceClassification()) {
+    query["ResourceClassification"] = request.getResourceClassification();
   }
 
   if (!!request.hasResourceGroupIds()) {

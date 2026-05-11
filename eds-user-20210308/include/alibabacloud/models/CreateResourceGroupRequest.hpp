@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_TO_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
+      DARABONBA_PTR_TO_JSON(ResourceClassification, resourceClassification_);
       DARABONBA_PTR_TO_JSON(ResourceGroupName, resourceGroupName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateResourceGroupRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableAliyunResourceGroup, enableAliyunResourceGroup_);
       DARABONBA_PTR_FROM_JSON(IsResourceGroupWithOfficeSite, isResourceGroupWithOfficeSite_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
+      DARABONBA_PTR_FROM_JSON(ResourceClassification, resourceClassification_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupName, resourceGroupName_);
     };
     CreateResourceGroupRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessChannel_ == nullptr
-        && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceGroupName_ == nullptr; };
+        && this->enableAliyunResourceGroup_ == nullptr && this->isResourceGroupWithOfficeSite_ == nullptr && this->platform_ == nullptr && this->resourceClassification_ == nullptr && this->resourceGroupName_ == nullptr; };
     // businessChannel Field Functions 
     bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
     void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline CreateResourceGroupRequest& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
 
 
+    // resourceClassification Field Functions 
+    bool hasResourceClassification() const { return this->resourceClassification_ != nullptr;};
+    void deleteResourceClassification() { this->resourceClassification_ = nullptr;};
+    inline string getResourceClassification() const { DARABONBA_PTR_GET_DEFAULT(resourceClassification_, "") };
+    inline CreateResourceGroupRequest& setResourceClassification(string resourceClassification) { DARABONBA_PTR_SET_VALUE(resourceClassification_, resourceClassification) };
+
+
     // resourceGroupName Field Functions 
     bool hasResourceGroupName() const { return this->resourceGroupName_ != nullptr;};
     void deleteResourceGroupName() { this->resourceGroupName_ = nullptr;};
@@ -83,6 +92,7 @@ namespace Models
     // 
     // *   This parameter is not publicly available in other platforms.
     shared_ptr<string> platform_ {};
+    shared_ptr<string> resourceClassification_ {};
     // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
   };
