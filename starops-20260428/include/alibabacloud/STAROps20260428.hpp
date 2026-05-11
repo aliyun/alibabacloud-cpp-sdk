@@ -103,6 +103,24 @@ namespace STAROps20260428
       Models::CreateThreadResponse createThread(const string &name, const Models::CreateThreadRequest &request);
 
       /**
+       * @summary 创建票据
+       *
+       * @param request CreateTicketRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTicketResponse
+       */
+      Models::CreateTicketResponse createTicketWithOptions(const Models::CreateTicketRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建票据
+       *
+       * @param request CreateTicketRequest
+       * @return CreateTicketResponse
+       */
+      Models::CreateTicketResponse createTicket(const Models::CreateTicketRequest &request);
+
+      /**
        * @summary 删除DigitalEmployee
        *
        * @param request DeleteDigitalEmployeeRequest
@@ -155,6 +173,24 @@ namespace STAROps20260428
        * @return DeleteThreadResponse
        */
       Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId, const Models::DeleteThreadRequest &request);
+
+      /**
+       * @summary 下载产物文件
+       *
+       * @param request GetArtifactRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetArtifactResponse
+       */
+      Models::GetArtifactResponse getArtifactWithOptions(const string &name, const Models::GetArtifactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 下载产物文件
+       *
+       * @param request GetArtifactRequest
+       * @return GetArtifactResponse
+       */
+      Models::GetArtifactResponse getArtifact(const string &name, const Models::GetArtifactRequest &request);
 
       /**
        * @summary 查询 DigitalEmployee
@@ -227,6 +263,24 @@ namespace STAROps20260428
        * @return GetThreadDataResponse
        */
       Models::GetThreadDataResponse getThreadData(const string &name, const string &threadId, const Models::GetThreadDataRequest &request);
+
+      /**
+       * @summary 列出产物文件
+       *
+       * @param request ListArtifactsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListArtifactsResponse
+       */
+      Models::ListArtifactsResponse listArtifactsWithOptions(const string &name, const Models::ListArtifactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出产物文件
+       *
+       * @param request ListArtifactsRequest
+       * @return ListArtifactsResponse
+       */
+      Models::ListArtifactsResponse listArtifacts(const string &name, const Models::ListArtifactsRequest &request);
 
       /**
        * @summary 列出技能版本

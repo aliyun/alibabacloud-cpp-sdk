@@ -5,6 +5,8 @@
 #include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/encode/Encoder.hpp>
+#include <darabonba/Stream.hpp>
+#include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
@@ -353,6 +355,55 @@ CreateThreadResponse Client::createThread(const string &name, const CreateThread
 }
 
 /**
+ * @summary 创建票据
+ *
+ * @param request CreateTicketRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTicketResponse
+ */
+CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessTokenExpirationTime()) {
+    query["accessTokenExpirationTime"] = request.getAccessTokenExpirationTime();
+  }
+
+  if (!!request.hasExpirationTime()) {
+    query["expirationTime"] = request.getExpirationTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTicket"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/tickets")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTicketResponse>();
+}
+
+/**
+ * @summary 创建票据
+ *
+ * @param request CreateTicketRequest
+ * @return CreateTicketResponse
+ */
+CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTicketWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 删除DigitalEmployee
  *
  * @param request DeleteDigitalEmployeeRequest
@@ -467,6 +518,68 @@ DeleteThreadResponse Client::deleteThread(const string &name, const string &thre
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteThreadWithOptions(name, threadId, request, headers, runtime);
+}
+
+/**
+ * @summary 下载产物文件
+ *
+ * @param request GetArtifactRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetArtifactResponse
+ */
+GetArtifactResponse Client::getArtifactWithOptions(const string &name, const GetArtifactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactPath()) {
+    query["artifactPath"] = request.getArtifactPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetArtifact"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/artifact")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "binary"}
+  }).get<map<string, string>>());
+  GetArtifactResponse res = GetArtifactResponse();
+  json tmp = callApi(params, req, runtime);
+  if (!!tmp.contains("body")) {
+    shared_ptr<Darabonba::IStream> respBody = Darabonba::Stream::toReadable(tmp.value("body", Darabonba::Json()));
+    res.setBody(respBody);
+  }
+
+  if (!!tmp.contains("headers")) {
+    json respHeaders = json(tmp.value("headers", Darabonba::Json()));
+    res.setHeaders(Utils::Utils::stringifyMapValue(respHeaders));
+  }
+
+  if (!!tmp.contains("statusCode")) {
+    int32_t statusCode = Darabonba::Convert::integerVal(tmp.value("statusCode", Darabonba::Json()));
+    res.setStatusCode(statusCode);
+  }
+
+  return res;
+}
+
+/**
+ * @summary 下载产物文件
+ *
+ * @param request GetArtifactRequest
+ * @return GetArtifactResponse
+ */
+GetArtifactResponse Client::getArtifact(const string &name, const GetArtifactRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getArtifactWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -639,6 +752,59 @@ GetThreadDataResponse Client::getThreadData(const string &name, const string &th
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getThreadDataWithOptions(name, threadId, request, headers, runtime);
+}
+
+/**
+ * @summary 列出产物文件
+ *
+ * @param request ListArtifactsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListArtifactsResponse
+ */
+ListArtifactsResponse Client::listArtifactsWithOptions(const string &name, const ListArtifactsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasArtifactPath()) {
+    query["artifactPath"] = request.getArtifactPath();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListArtifacts"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/artifacts")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListArtifactsResponse>();
+}
+
+/**
+ * @summary 列出产物文件
+ *
+ * @param request ListArtifactsRequest
+ * @return ListArtifactsResponse
+ */
+ListArtifactsResponse Client::listArtifacts(const string &name, const ListArtifactsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listArtifactsWithOptions(name, request, headers, runtime);
 }
 
 /**

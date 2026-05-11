@@ -15,6 +15,9 @@
 #include <alibabacloud/models/CreateThreadRequest.hpp>
 #include <alibabacloud/models/CreateThreadResponseBody.hpp>
 #include <alibabacloud/models/CreateThreadResponse.hpp>
+#include <alibabacloud/models/CreateTicketRequest.hpp>
+#include <alibabacloud/models/CreateTicketResponseBody.hpp>
+#include <alibabacloud/models/CreateTicketResponse.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeResponse.hpp>
@@ -24,6 +27,8 @@
 #include <alibabacloud/models/DeleteThreadRequest.hpp>
 #include <alibabacloud/models/DeleteThreadResponseBody.hpp>
 #include <alibabacloud/models/DeleteThreadResponse.hpp>
+#include <alibabacloud/models/GetArtifactRequest.hpp>
+#include <alibabacloud/models/GetArtifactResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>
@@ -36,6 +41,9 @@
 #include <alibabacloud/models/GetThreadDataRequest.hpp>
 #include <alibabacloud/models/GetThreadDataResponseBody.hpp>
 #include <alibabacloud/models/GetThreadDataResponse.hpp>
+#include <alibabacloud/models/ListArtifactsRequest.hpp>
+#include <alibabacloud/models/ListArtifactsResponseBody.hpp>
+#include <alibabacloud/models/ListArtifactsResponse.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillVersionsRequest.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListDigitalEmployeeSkillVersionsResponse.hpp>
