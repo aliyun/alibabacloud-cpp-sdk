@@ -33,6 +33,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(ResourceIds, resourceIds_);
     };
     friend void from_json(const Darabonba::Json& j, ListDesktopAgentRuntimeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentInstanceStatuses, agentInstanceStatuses_);
@@ -54,6 +55,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(ResourceIds, resourceIds_);
     };
     ListDesktopAgentRuntimeRequest() = default ;
     ListDesktopAgentRuntimeRequest(const ListDesktopAgentRuntimeRequest &) = default ;
@@ -70,7 +72,7 @@ namespace Models
         && this->agentInstanceVersions_ == nullptr && this->agentPlatform_ == nullptr && this->agentProvider_ == nullptr && this->authUsers_ == nullptr && this->bizType_ == nullptr
         && this->channelConfigure_ == nullptr && this->deploymentSource_ == nullptr && this->desktopIds_ == nullptr && this->desktopNames_ == nullptr && this->desktopStatuses_ == nullptr
         && this->hasAuthUser_ == nullptr && this->hasRisk_ == nullptr && this->includeRiskInfo_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceIds_ == nullptr; };
     // agentInstanceStatuses Field Functions 
     bool hasAgentInstanceStatuses() const { return this->agentInstanceStatuses_ != nullptr;};
     void deleteAgentInstanceStatuses() { this->agentInstanceStatuses_ = nullptr;};
@@ -216,6 +218,15 @@ namespace Models
     inline ListDesktopAgentRuntimeRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+    // resourceIds Field Functions 
+    bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
+    void deleteResourceIds() { this->resourceIds_ = nullptr;};
+    inline const vector<string> & getResourceIds() const { DARABONBA_PTR_GET_CONST(resourceIds_, vector<string>) };
+    inline vector<string> getResourceIds() { DARABONBA_PTR_GET(resourceIds_, vector<string>) };
+    inline ListDesktopAgentRuntimeRequest& setResourceIds(const vector<string> & resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
+    inline ListDesktopAgentRuntimeRequest& setResourceIds(vector<string> && resourceIds) { DARABONBA_PTR_SET_RVALUE(resourceIds_, resourceIds) };
+
+
   protected:
     shared_ptr<vector<string>> agentInstanceStatuses_ {};
     shared_ptr<vector<string>> agentInstanceVersions_ {};
@@ -237,6 +248,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<vector<string>> resourceIds_ {};
   };
 
   } // namespace Models

@@ -51,6 +51,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_TO_JSON(HasAuthUser, hasAuthUser_);
         DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
+        DARABONBA_PTR_TO_JSON(OsType, osType_);
+        DARABONBA_PTR_TO_JSON(QrCodeConfiguringList, qrCodeConfiguringList_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
@@ -67,6 +69,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_FROM_JSON(HasAuthUser, hasAuthUser_);
         DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
+        DARABONBA_PTR_FROM_JSON(OsType, osType_);
+        DARABONBA_PTR_FROM_JSON(QrCodeConfiguringList, qrCodeConfiguringList_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
@@ -316,8 +320,8 @@ namespace Models
 
       virtual bool empty() const override { return this->agentImInfo_ == nullptr
         && this->agentInstanceInfoList_ == nullptr && this->authUsers_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr && this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->modelConfigure_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
+        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->modelConfigure_ == nullptr && this->osType_ == nullptr
+        && this->qrCodeConfiguringList_ == nullptr && this->regionId_ == nullptr && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
       // agentImInfo Field Functions 
       bool hasAgentImInfo() const { return this->agentImInfo_ != nullptr;};
       void deleteAgentImInfo() { this->agentImInfo_ = nullptr;};
@@ -396,6 +400,22 @@ namespace Models
       inline Data& setModelConfigure(bool modelConfigure) { DARABONBA_PTR_SET_VALUE(modelConfigure_, modelConfigure) };
 
 
+      // osType Field Functions 
+      bool hasOsType() const { return this->osType_ != nullptr;};
+      void deleteOsType() { this->osType_ = nullptr;};
+      inline string getOsType() const { DARABONBA_PTR_GET_DEFAULT(osType_, "") };
+      inline Data& setOsType(string osType) { DARABONBA_PTR_SET_VALUE(osType_, osType) };
+
+
+      // qrCodeConfiguringList Field Functions 
+      bool hasQrCodeConfiguringList() const { return this->qrCodeConfiguringList_ != nullptr;};
+      void deleteQrCodeConfiguringList() { this->qrCodeConfiguringList_ = nullptr;};
+      inline const vector<string> & getQrCodeConfiguringList() const { DARABONBA_PTR_GET_CONST(qrCodeConfiguringList_, vector<string>) };
+      inline vector<string> getQrCodeConfiguringList() { DARABONBA_PTR_GET(qrCodeConfiguringList_, vector<string>) };
+      inline Data& setQrCodeConfiguringList(const vector<string> & qrCodeConfiguringList) { DARABONBA_PTR_SET_VALUE(qrCodeConfiguringList_, qrCodeConfiguringList) };
+      inline Data& setQrCodeConfiguringList(vector<string> && qrCodeConfiguringList) { DARABONBA_PTR_SET_RVALUE(qrCodeConfiguringList_, qrCodeConfiguringList) };
+
+
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -439,6 +459,8 @@ namespace Models
       shared_ptr<string> desktopStatus_ {};
       shared_ptr<bool> hasAuthUser_ {};
       shared_ptr<bool> modelConfigure_ {};
+      shared_ptr<string> osType_ {};
+      shared_ptr<vector<string>> qrCodeConfiguringList_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};
       shared_ptr<string> resourceId_ {};

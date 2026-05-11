@@ -282,12 +282,11 @@ ConfigResourceGroupModelTemplateResponse Client::configResourceGroupModelTemplat
  */
 ConfigRuntimeChannelResponse Client::configRuntimeChannelWithOptions(const ConfigRuntimeChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasAgentPlatform()) {
-    query["AgentPlatform"] = request.getAgentPlatform();
+    body["AgentPlatform"] = request.getAgentPlatform();
   }
 
-  json body = {};
   if (!!request.hasAgentProvider()) {
     body["AgentProvider"] = request.getAgentProvider();
   }
@@ -298,6 +297,10 @@ ConfigRuntimeChannelResponse Client::configRuntimeChannelWithOptions(const Confi
 
   if (!!request.hasConfig()) {
     body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasConfigMode()) {
+    body["ConfigMode"] = request.getConfigMode();
   }
 
   if (!!request.hasName()) {
@@ -313,9 +316,8 @@ ConfigRuntimeChannelResponse Client::configRuntimeChannelWithOptions(const Confi
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
-  }));
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "ConfigRuntimeChannel"},
     {"version" , "2021-09-01"},
@@ -2281,6 +2283,10 @@ ListDesktopAgentRuntimeResponse Client::listDesktopAgentRuntimeWithOptions(const
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceIds()) {
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

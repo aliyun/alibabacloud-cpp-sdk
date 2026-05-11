@@ -37,14 +37,22 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
         DARABONBA_PTR_TO_JSON(Code, code_);
         DARABONBA_PTR_TO_JSON(Config, config_);
+        DARABONBA_PTR_TO_JSON(ConfigMode, configMode_);
+        DARABONBA_PTR_TO_JSON(QrCodeNotifyUrl, qrCodeNotifyUrl_);
+        DARABONBA_PTR_TO_JSON(QrCodeStatus, qrCodeStatus_);
         DARABONBA_PTR_TO_JSON(RiskType, riskType_);
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
         DARABONBA_PTR_FROM_JSON(Code, code_);
         DARABONBA_PTR_FROM_JSON(Config, config_);
+        DARABONBA_PTR_FROM_JSON(ConfigMode, configMode_);
+        DARABONBA_PTR_FROM_JSON(QrCodeNotifyUrl, qrCodeNotifyUrl_);
+        DARABONBA_PTR_FROM_JSON(QrCodeStatus, qrCodeStatus_);
         DARABONBA_PTR_FROM_JSON(RiskType, riskType_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
       };
@@ -59,8 +67,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->code_ == nullptr
-        && this->config_ == nullptr && this->riskType_ == nullptr && this->status_ == nullptr; };
+      virtual bool empty() const override { return this->avatarUrl_ == nullptr
+        && this->code_ == nullptr && this->config_ == nullptr && this->configMode_ == nullptr && this->qrCodeNotifyUrl_ == nullptr && this->qrCodeStatus_ == nullptr
+        && this->riskType_ == nullptr && this->status_ == nullptr; };
+      // avatarUrl Field Functions 
+      bool hasAvatarUrl() const { return this->avatarUrl_ != nullptr;};
+      void deleteAvatarUrl() { this->avatarUrl_ = nullptr;};
+      inline string getAvatarUrl() const { DARABONBA_PTR_GET_DEFAULT(avatarUrl_, "") };
+      inline Data& setAvatarUrl(string avatarUrl) { DARABONBA_PTR_SET_VALUE(avatarUrl_, avatarUrl) };
+
+
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
@@ -73,6 +89,27 @@ namespace Models
       void deleteConfig() { this->config_ = nullptr;};
       inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
       inline Data& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
+      // configMode Field Functions 
+      bool hasConfigMode() const { return this->configMode_ != nullptr;};
+      void deleteConfigMode() { this->configMode_ = nullptr;};
+      inline string getConfigMode() const { DARABONBA_PTR_GET_DEFAULT(configMode_, "") };
+      inline Data& setConfigMode(string configMode) { DARABONBA_PTR_SET_VALUE(configMode_, configMode) };
+
+
+      // qrCodeNotifyUrl Field Functions 
+      bool hasQrCodeNotifyUrl() const { return this->qrCodeNotifyUrl_ != nullptr;};
+      void deleteQrCodeNotifyUrl() { this->qrCodeNotifyUrl_ = nullptr;};
+      inline string getQrCodeNotifyUrl() const { DARABONBA_PTR_GET_DEFAULT(qrCodeNotifyUrl_, "") };
+      inline Data& setQrCodeNotifyUrl(string qrCodeNotifyUrl) { DARABONBA_PTR_SET_VALUE(qrCodeNotifyUrl_, qrCodeNotifyUrl) };
+
+
+      // qrCodeStatus Field Functions 
+      bool hasQrCodeStatus() const { return this->qrCodeStatus_ != nullptr;};
+      void deleteQrCodeStatus() { this->qrCodeStatus_ = nullptr;};
+      inline string getQrCodeStatus() const { DARABONBA_PTR_GET_DEFAULT(qrCodeStatus_, "") };
+      inline Data& setQrCodeStatus(string qrCodeStatus) { DARABONBA_PTR_SET_VALUE(qrCodeStatus_, qrCodeStatus) };
 
 
       // riskType Field Functions 
@@ -90,8 +127,12 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> avatarUrl_ {};
       shared_ptr<string> code_ {};
       shared_ptr<string> config_ {};
+      shared_ptr<string> configMode_ {};
+      shared_ptr<string> qrCodeNotifyUrl_ {};
+      shared_ptr<string> qrCodeStatus_ {};
       shared_ptr<string> riskType_ {};
       shared_ptr<string> status_ {};
     };

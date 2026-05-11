@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentProvider, agentProvider_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Config, config_);
+      DARABONBA_PTR_TO_JSON(ConfigMode, configMode_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RuntimeIds, runtimeIds_);
       DARABONBA_PTR_TO_JSON(RuntimeType, runtimeType_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentProvider, agentProvider_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Config, config_);
+      DARABONBA_PTR_FROM_JSON(ConfigMode, configMode_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RuntimeIds, runtimeIds_);
       DARABONBA_PTR_FROM_JSON(RuntimeType, runtimeType_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentPlatform_ == nullptr
-        && this->agentProvider_ == nullptr && this->code_ == nullptr && this->config_ == nullptr && this->name_ == nullptr && this->runtimeIds_ == nullptr
-        && this->runtimeType_ == nullptr; };
+        && this->agentProvider_ == nullptr && this->code_ == nullptr && this->config_ == nullptr && this->configMode_ == nullptr && this->name_ == nullptr
+        && this->runtimeIds_ == nullptr && this->runtimeType_ == nullptr; };
     // agentPlatform Field Functions 
     bool hasAgentPlatform() const { return this->agentPlatform_ != nullptr;};
     void deleteAgentPlatform() { this->agentPlatform_ = nullptr;};
@@ -71,6 +73,13 @@ namespace Models
     void deleteConfig() { this->config_ = nullptr;};
     inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline ConfigRuntimeChannelRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
+    // configMode Field Functions 
+    bool hasConfigMode() const { return this->configMode_ != nullptr;};
+    void deleteConfigMode() { this->configMode_ = nullptr;};
+    inline string getConfigMode() const { DARABONBA_PTR_GET_DEFAULT(configMode_, "") };
+    inline ConfigRuntimeChannelRequest& setConfigMode(string configMode) { DARABONBA_PTR_SET_VALUE(configMode_, configMode) };
 
 
     // name Field Functions 
@@ -104,6 +113,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // This parameter is required.
     shared_ptr<string> config_ {};
+    shared_ptr<string> configMode_ {};
     shared_ptr<string> name_ {};
     // This parameter is required.
     shared_ptr<vector<string>> runtimeIds_ {};
