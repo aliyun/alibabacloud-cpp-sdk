@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(Options, options_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(Options, options_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -52,10 +54,52 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Options : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Options& obj) { 
+        DARABONBA_PTR_TO_JSON(ApplianceModeSupport, applianceModeSupport_);
+        DARABONBA_PTR_TO_JSON(Ipv6Support, ipv6Support_);
+      };
+      friend void from_json(const Darabonba::Json& j, Options& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApplianceModeSupport, applianceModeSupport_);
+        DARABONBA_PTR_FROM_JSON(Ipv6Support, ipv6Support_);
+      };
+      Options() = default ;
+      Options(const Options &) = default ;
+      Options(Options &&) = default ;
+      Options(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Options() = default ;
+      Options& operator=(const Options &) = default ;
+      Options& operator=(Options &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->applianceModeSupport_ == nullptr
+        && this->ipv6Support_ == nullptr; };
+      // applianceModeSupport Field Functions 
+      bool hasApplianceModeSupport() const { return this->applianceModeSupport_ != nullptr;};
+      void deleteApplianceModeSupport() { this->applianceModeSupport_ = nullptr;};
+      inline string getApplianceModeSupport() const { DARABONBA_PTR_GET_DEFAULT(applianceModeSupport_, "") };
+      inline Options& setApplianceModeSupport(string applianceModeSupport) { DARABONBA_PTR_SET_VALUE(applianceModeSupport_, applianceModeSupport) };
+
+
+      // ipv6Support Field Functions 
+      bool hasIpv6Support() const { return this->ipv6Support_ != nullptr;};
+      void deleteIpv6Support() { this->ipv6Support_ = nullptr;};
+      inline string getIpv6Support() const { DARABONBA_PTR_GET_DEFAULT(ipv6Support_, "") };
+      inline Options& setIpv6Support(string ipv6Support) { DARABONBA_PTR_SET_VALUE(ipv6Support_, ipv6Support) };
+
+
+    protected:
+      shared_ptr<string> applianceModeSupport_ {};
+      shared_ptr<string> ipv6Support_ {};
+    };
+
     virtual bool empty() const override { return this->autoPublishRouteEnabled_ == nullptr
-        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentName_ == nullptr
-        && this->transitRouterVPCAttachmentOptions_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->options_ == nullptr && this->orderType_ == nullptr && this->ownerAccount_ == nullptr
+        && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr
+        && this->transitRouterAttachmentName_ == nullptr && this->transitRouterVPCAttachmentOptions_ == nullptr; };
     // autoPublishRouteEnabled Field Functions 
     bool hasAutoPublishRouteEnabled() const { return this->autoPublishRouteEnabled_ != nullptr;};
     void deleteAutoPublishRouteEnabled() { this->autoPublishRouteEnabled_ = nullptr;};
@@ -75,6 +119,15 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline UpdateTransitRouterVpcAttachmentAttributeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // options Field Functions 
+    bool hasOptions() const { return this->options_ != nullptr;};
+    void deleteOptions() { this->options_ = nullptr;};
+    inline const UpdateTransitRouterVpcAttachmentAttributeRequest::Options & getOptions() const { DARABONBA_PTR_GET_CONST(options_, UpdateTransitRouterVpcAttachmentAttributeRequest::Options) };
+    inline UpdateTransitRouterVpcAttachmentAttributeRequest::Options getOptions() { DARABONBA_PTR_GET(options_, UpdateTransitRouterVpcAttachmentAttributeRequest::Options) };
+    inline UpdateTransitRouterVpcAttachmentAttributeRequest& setOptions(const UpdateTransitRouterVpcAttachmentAttributeRequest::Options & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
+    inline UpdateTransitRouterVpcAttachmentAttributeRequest& setOptions(UpdateTransitRouterVpcAttachmentAttributeRequest::Options && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
 
 
     // orderType Field Functions 
@@ -159,6 +212,7 @@ namespace Models
     // *   **false** (default): performs a dry run and sends the request.
     // *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
     shared_ptr<bool> dryRun_ {};
+    shared_ptr<UpdateTransitRouterVpcAttachmentAttributeRequest::Options> options_ {};
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

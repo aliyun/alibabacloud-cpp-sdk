@@ -2759,6 +2759,10 @@ CreateTransitRouterVpcAttachmentResponse Client::createTransitRouterVpcAttachmen
   tmpReq.validate();
   CreateTransitRouterVpcAttachmentShrinkRequest request = CreateTransitRouterVpcAttachmentShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
+  }
+
   if (!!tmpReq.hasTransitRouterVPCAttachmentOptions()) {
     request.setTransitRouterVPCAttachmentOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransitRouterVPCAttachmentOptions(), "TransitRouterVPCAttachmentOptions", "json"));
   }
@@ -2782,6 +2786,10 @@ CreateTransitRouterVpcAttachmentResponse Client::createTransitRouterVpcAttachmen
 
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    query["Options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -12914,6 +12922,10 @@ UpdateTransitRouterVpcAttachmentAttributeResponse Client::updateTransitRouterVpc
   tmpReq.validate();
   UpdateTransitRouterVpcAttachmentAttributeShrinkRequest request = UpdateTransitRouterVpcAttachmentAttributeShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasOptions()) {
+    request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
+  }
+
   if (!!tmpReq.hasTransitRouterVPCAttachmentOptions()) {
     request.setTransitRouterVPCAttachmentOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTransitRouterVPCAttachmentOptions(), "TransitRouterVPCAttachmentOptions", "json"));
   }
@@ -12929,6 +12941,10 @@ UpdateTransitRouterVpcAttachmentAttributeResponse Client::updateTransitRouterVpc
 
   if (!!request.hasDryRun()) {
     query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOptionsShrink()) {
+    query["Options"] = request.getOptionsShrink();
   }
 
   if (!!request.hasOrderType()) {

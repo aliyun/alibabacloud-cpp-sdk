@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(Options, optionsShrink_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(Options, optionsShrink_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -171,10 +173,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoPublishRouteEnabled_ == nullptr
-        && this->cenId_ == nullptr && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr
-        && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentName_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterVPCAttachmentOptionsShrink_ == nullptr && this->vpcId_ == nullptr
-        && this->vpcOwnerId_ == nullptr && this->zoneMappings_ == nullptr; };
+        && this->cenId_ == nullptr && this->chargeType_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->optionsShrink_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->tag_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentName_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterVPCAttachmentOptionsShrink_ == nullptr
+        && this->vpcId_ == nullptr && this->vpcOwnerId_ == nullptr && this->zoneMappings_ == nullptr; };
     // autoPublishRouteEnabled Field Functions 
     bool hasAutoPublishRouteEnabled() const { return this->autoPublishRouteEnabled_ != nullptr;};
     void deleteAutoPublishRouteEnabled() { this->autoPublishRouteEnabled_ = nullptr;};
@@ -208,6 +210,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateTransitRouterVpcAttachmentShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // optionsShrink Field Functions 
+    bool hasOptionsShrink() const { return this->optionsShrink_ != nullptr;};
+    void deleteOptionsShrink() { this->optionsShrink_ = nullptr;};
+    inline string getOptionsShrink() const { DARABONBA_PTR_GET_DEFAULT(optionsShrink_, "") };
+    inline CreateTransitRouterVpcAttachmentShrinkRequest& setOptionsShrink(string optionsShrink) { DARABONBA_PTR_SET_VALUE(optionsShrink_, optionsShrink) };
 
 
     // ownerAccount Field Functions 
@@ -326,6 +335,7 @@ namespace Models
     // *   **false** (default): performs a dry run and sends the request.
     // *   **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     shared_ptr<bool> dryRun_ {};
+    shared_ptr<string> optionsShrink_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the region where the VPC is deployed.
