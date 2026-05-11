@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_IQS20241111MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AISearchQuery.hpp>
+#include <alibabacloud/models/AgentBaseQuery.hpp>
+#include <alibabacloud/models/CommonAgentQuery.hpp>
 #include <alibabacloud/models/IncludeImage.hpp>
 #include <alibabacloud/models/ScorePageItem.hpp>
 #include <alibabacloud/models/QueryContext.hpp>
@@ -33,6 +35,7 @@
 #include <alibabacloud/models/MultimodalSearchOutput.hpp>
 #include <alibabacloud/models/OmniSearchQuery.hpp>
 #include <alibabacloud/models/OmniSearchResult.hpp>
+#include <alibabacloud/models/QueryResult.hpp>
 #include <alibabacloud/models/ReadPageBody.hpp>
 #include <alibabacloud/models/ReadPageItem.hpp>
 #include <alibabacloud/models/ReadPageScrapeBody.hpp>
@@ -50,6 +53,8 @@
 #include <alibabacloud/models/AiSearchRequest.hpp>
 #include <alibabacloud/models/AiSearchResponseBody.hpp>
 #include <alibabacloud/models/AiSearchResponse.hpp>
+#include <alibabacloud/models/CommonQueryBySceneRequest.hpp>
+#include <alibabacloud/models/CommonQueryBySceneResponse.hpp>
 #include <alibabacloud/models/GenericAdvancedSearchRequest.hpp>
 #include <alibabacloud/models/GenericAdvancedSearchResponse.hpp>
 #include <alibabacloud/models/GenericSearchRequest.hpp>

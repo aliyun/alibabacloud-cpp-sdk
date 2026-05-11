@@ -49,6 +49,24 @@ namespace IQS20241111
       Models::AiSearchResponse aiSearch(const Models::AiSearchRequest &request);
 
       /**
+       * @summary 自然语言通用查询
+       *
+       * @param request CommonQueryBySceneRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CommonQueryBySceneResponse
+       */
+      Models::CommonQueryBySceneResponse commonQueryBySceneWithOptions(const Models::CommonQueryBySceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 自然语言通用查询
+       *
+       * @param request CommonQueryBySceneRequest
+       * @return CommonQueryBySceneResponse
+       */
+      Models::CommonQueryBySceneResponse commonQueryByScene(const Models::CommonQueryBySceneRequest &request);
+
+      /**
        * @summary 增强版通用搜索
        *
        * @param request GenericAdvancedSearchRequest

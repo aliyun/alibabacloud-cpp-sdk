@@ -161,6 +161,46 @@ AiSearchResponse Client::aiSearch(const AiSearchRequest &request) {
 }
 
 /**
+ * @summary 自然语言通用查询
+ *
+ * @param request CommonQueryBySceneRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CommonQueryBySceneResponse
+ */
+CommonQueryBySceneResponse Client::commonQueryBySceneWithOptions(const CommonQueryBySceneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CommonQueryByScene"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/amap-function-call-agent/iqs-agent-service/v2/nl/common")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CommonQueryBySceneResponse>();
+}
+
+/**
+ * @summary 自然语言通用查询
+ *
+ * @param request CommonQueryBySceneRequest
+ * @return CommonQueryBySceneResponse
+ */
+CommonQueryBySceneResponse Client::commonQueryByScene(const CommonQueryBySceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return commonQueryBySceneWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 增强版通用搜索
  *
  * @param request GenericAdvancedSearchRequest
