@@ -42,16 +42,20 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Records& obj) { 
         DARABONBA_PTR_TO_JSON(ConsumerName, consumerName_);
+        DARABONBA_PTR_TO_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(Model, model_);
+        DARABONBA_PTR_TO_JSON(OutputTokens, outputTokens_);
         DARABONBA_PTR_TO_JSON(Region, region_);
         DARABONBA_PTR_TO_JSON(RequestTime, requestTime_);
         DARABONBA_PTR_TO_JSON(TotalTokens, totalTokens_);
       };
       friend void from_json(const Darabonba::Json& j, Records& obj) { 
         DARABONBA_PTR_FROM_JSON(ConsumerName, consumerName_);
+        DARABONBA_PTR_FROM_JSON(InputTokens, inputTokens_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(Model, model_);
+        DARABONBA_PTR_FROM_JSON(OutputTokens, outputTokens_);
         DARABONBA_PTR_FROM_JSON(Region, region_);
         DARABONBA_PTR_FROM_JSON(RequestTime, requestTime_);
         DARABONBA_PTR_FROM_JSON(TotalTokens, totalTokens_);
@@ -68,12 +72,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->consumerName_ == nullptr
-        && this->instanceId_ == nullptr && this->model_ == nullptr && this->region_ == nullptr && this->requestTime_ == nullptr && this->totalTokens_ == nullptr; };
+        && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr && this->outputTokens_ == nullptr && this->region_ == nullptr
+        && this->requestTime_ == nullptr && this->totalTokens_ == nullptr; };
       // consumerName Field Functions 
       bool hasConsumerName() const { return this->consumerName_ != nullptr;};
       void deleteConsumerName() { this->consumerName_ = nullptr;};
       inline string getConsumerName() const { DARABONBA_PTR_GET_DEFAULT(consumerName_, "") };
       inline Records& setConsumerName(string consumerName) { DARABONBA_PTR_SET_VALUE(consumerName_, consumerName) };
+
+
+      // inputTokens Field Functions 
+      bool hasInputTokens() const { return this->inputTokens_ != nullptr;};
+      void deleteInputTokens() { this->inputTokens_ = nullptr;};
+      inline double getInputTokens() const { DARABONBA_PTR_GET_DEFAULT(inputTokens_, 0.0) };
+      inline Records& setInputTokens(double inputTokens) { DARABONBA_PTR_SET_VALUE(inputTokens_, inputTokens) };
 
 
       // instanceId Field Functions 
@@ -88,6 +100,13 @@ namespace Models
       void deleteModel() { this->model_ = nullptr;};
       inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
       inline Records& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+      // outputTokens Field Functions 
+      bool hasOutputTokens() const { return this->outputTokens_ != nullptr;};
+      void deleteOutputTokens() { this->outputTokens_ = nullptr;};
+      inline double getOutputTokens() const { DARABONBA_PTR_GET_DEFAULT(outputTokens_, 0.0) };
+      inline Records& setOutputTokens(double outputTokens) { DARABONBA_PTR_SET_VALUE(outputTokens_, outputTokens) };
 
 
       // region Field Functions 
@@ -113,8 +132,10 @@ namespace Models
 
     protected:
       shared_ptr<string> consumerName_ {};
+      shared_ptr<double> inputTokens_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> model_ {};
+      shared_ptr<double> outputTokens_ {};
       shared_ptr<string> region_ {};
       shared_ptr<string> requestTime_ {};
       shared_ptr<double> totalTokens_ {};

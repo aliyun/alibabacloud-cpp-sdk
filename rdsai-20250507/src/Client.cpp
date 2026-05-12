@@ -1443,6 +1443,10 @@ DescribeInstanceStorageConfigResponse Client::describeInstanceStorageConfig(cons
 DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetailWithOptions(const DescribeMOTokenUsageDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKey()) {
+    query["ApiKey"] = request.getApiKey();
+  }
+
   if (!!request.hasConsumerName()) {
     query["ConsumerName"] = request.getConsumerName();
   }
