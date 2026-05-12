@@ -61,6 +61,9 @@
 #include <alibabacloud/models/DeleteWuyingServerRequest.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponseBody.hpp>
 #include <alibabacloud/models/DeleteWuyingServerResponse.hpp>
+#include <alibabacloud/models/DeliverToUserSlsRequest.hpp>
+#include <alibabacloud/models/DeliverToUserSlsResponseBody.hpp>
+#include <alibabacloud/models/DeliverToUserSlsResponse.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoRequest.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoResponse.hpp>

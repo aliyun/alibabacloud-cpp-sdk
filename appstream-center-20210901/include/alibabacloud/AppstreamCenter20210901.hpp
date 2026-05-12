@@ -386,6 +386,23 @@ namespace AppstreamCenter20210901
       Models::DeleteWuyingServerResponse deleteWuyingServer(const Models::DeleteWuyingServerRequest &request);
 
       /**
+       * @summary 配置SLS日志投递
+       *
+       * @param request DeliverToUserSlsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeliverToUserSlsResponse
+       */
+      Models::DeliverToUserSlsResponse deliverToUserSlsWithOptions(const Models::DeliverToUserSlsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置SLS日志投递
+       *
+       * @param request DeliverToUserSlsRequest
+       * @return DeliverToUserSlsResponse
+       */
+      Models::DeliverToUserSlsResponse deliverToUserSls(const Models::DeliverToUserSlsRequest &request);
+
+      /**
        * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
        *
        * @param request DescribeWuyingServerEipInfoRequest

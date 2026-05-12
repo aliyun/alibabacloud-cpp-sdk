@@ -1344,6 +1344,72 @@ DeleteWuyingServerResponse Client::deleteWuyingServer(const DeleteWuyingServerRe
 }
 
 /**
+ * @summary 配置SLS日志投递
+ *
+ * @param request DeliverToUserSlsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeliverToUserSlsResponse
+ */
+DeliverToUserSlsResponse Client::deliverToUserSlsWithOptions(const DeliverToUserSlsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  json bodyFlat = {};
+  if (!!request.hasDeliveryScopes()) {
+    bodyFlat["DeliveryScopes"] = request.getDeliveryScopes();
+  }
+
+  if (!!request.hasExistedProjectName()) {
+    body["ExistedProjectName"] = request.getExistedProjectName();
+  }
+
+  if (!!request.hasLogStoreName()) {
+    body["LogStoreName"] = request.getLogStoreName();
+  }
+
+  if (!!request.hasProjectName()) {
+    body["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasSlsRegionId()) {
+    body["SlsRegionId"] = request.getSlsRegionId();
+  }
+
+  if (!!request.hasTtl()) {
+    body["Ttl"] = request.getTtl();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeliverToUserSls"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeliverToUserSlsResponse>();
+}
+
+/**
+ * @summary 配置SLS日志投递
+ *
+ * @param request DeliverToUserSlsRequest
+ * @return DeliverToUserSlsResponse
+ */
+DeliverToUserSlsResponse Client::deliverToUserSls(const DeliverToUserSlsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deliverToUserSlsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
  *
  * @param request DescribeWuyingServerEipInfoRequest
