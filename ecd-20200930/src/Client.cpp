@@ -8557,6 +8557,10 @@ DescribeDesktopTypesResponse Client::describeDesktopTypesWithOptions(const Descr
     query["DesktopIdForModify"] = request.getDesktopIdForModify();
   }
 
+  if (!!request.hasDesktopScenario()) {
+    query["DesktopScenario"] = request.getDesktopScenario();
+  }
+
   if (!!request.hasDesktopTypeId()) {
     query["DesktopTypeId"] = request.getDesktopTypeId();
   }

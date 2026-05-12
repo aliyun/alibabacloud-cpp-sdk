@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_TO_JSON(DesktopGroupIdForModify, desktopGroupIdForModify_);
       DARABONBA_PTR_TO_JSON(DesktopIdForModify, desktopIdForModify_);
+      DARABONBA_PTR_TO_JSON(DesktopScenario, desktopScenario_);
       DARABONBA_PTR_TO_JSON(DesktopTypeId, desktopTypeId_);
       DARABONBA_PTR_TO_JSON(DesktopTypeIdList, desktopTypeIdList_);
       DARABONBA_PTR_TO_JSON(GpuCount, gpuCount_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CpuCount, cpuCount_);
       DARABONBA_PTR_FROM_JSON(DesktopGroupIdForModify, desktopGroupIdForModify_);
       DARABONBA_PTR_FROM_JSON(DesktopIdForModify, desktopIdForModify_);
+      DARABONBA_PTR_FROM_JSON(DesktopScenario, desktopScenario_);
       DARABONBA_PTR_FROM_JSON(DesktopTypeId, desktopTypeId_);
       DARABONBA_PTR_FROM_JSON(DesktopTypeIdList, desktopTypeIdList_);
       DARABONBA_PTR_FROM_JSON(GpuCount, gpuCount_);
@@ -71,10 +73,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appliedScope_ == nullptr
-        && this->businessChannel_ == nullptr && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopTypeId_ == nullptr
-        && this->desktopTypeIdList_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr && this->instanceTypeFamily_ == nullptr
-        && this->memorySize_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr
-        && this->scope_ == nullptr && this->scopeSet_ == nullptr && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr && this->zoneId_ == nullptr; };
+        && this->businessChannel_ == nullptr && this->cpuCount_ == nullptr && this->desktopGroupIdForModify_ == nullptr && this->desktopIdForModify_ == nullptr && this->desktopScenario_ == nullptr
+        && this->desktopTypeId_ == nullptr && this->desktopTypeIdList_ == nullptr && this->gpuCount_ == nullptr && this->gpuDriverType_ == nullptr && this->gpuMemory_ == nullptr
+        && this->instanceTypeFamily_ == nullptr && this->memorySize_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr
+        && this->regionId_ == nullptr && this->scope_ == nullptr && this->scopeSet_ == nullptr && this->sortType_ == nullptr && this->supportMinSessionCount_ == nullptr
+        && this->zoneId_ == nullptr; };
     // appliedScope Field Functions 
     bool hasAppliedScope() const { return this->appliedScope_ != nullptr;};
     void deleteAppliedScope() { this->appliedScope_ = nullptr;};
@@ -108,6 +111,13 @@ namespace Models
     void deleteDesktopIdForModify() { this->desktopIdForModify_ = nullptr;};
     inline string getDesktopIdForModify() const { DARABONBA_PTR_GET_DEFAULT(desktopIdForModify_, "") };
     inline DescribeDesktopTypesRequest& setDesktopIdForModify(string desktopIdForModify) { DARABONBA_PTR_SET_VALUE(desktopIdForModify_, desktopIdForModify) };
+
+
+    // desktopScenario Field Functions 
+    bool hasDesktopScenario() const { return this->desktopScenario_ != nullptr;};
+    void deleteDesktopScenario() { this->desktopScenario_ = nullptr;};
+    inline string getDesktopScenario() const { DARABONBA_PTR_GET_DEFAULT(desktopScenario_, "") };
+    inline DescribeDesktopTypesRequest& setDesktopScenario(string desktopScenario) { DARABONBA_PTR_SET_VALUE(desktopScenario_, desktopScenario) };
 
 
     // desktopTypeId Field Functions 
@@ -236,6 +246,7 @@ namespace Models
     shared_ptr<string> desktopGroupIdForModify_ {};
     // The ID of the cloud computer when you change instance types of cloud computers. If you specify this parameter, the information about whether the instance type is compatible with the cloud computer is included in the response.
     shared_ptr<string> desktopIdForModify_ {};
+    shared_ptr<string> desktopScenario_ {};
     // The specification ID.
     // 
     // >  If both `InstanceTypeFamily` and `DesktopTypeId` are empty, all cloud computer specifications will be queried.
