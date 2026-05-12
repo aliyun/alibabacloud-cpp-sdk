@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRCDisksRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DiskIds, diskIds_);
+      DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCDisksRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DiskIds, diskIds_);
+      DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -87,13 +89,20 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->diskIds_ == nullptr
-        && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr
-        && this->tag_ == nullptr; };
+        && this->diskType_ == nullptr && this->instanceId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->status_ == nullptr && this->tag_ == nullptr; };
     // diskIds Field Functions 
     bool hasDiskIds() const { return this->diskIds_ != nullptr;};
     void deleteDiskIds() { this->diskIds_ = nullptr;};
     inline string getDiskIds() const { DARABONBA_PTR_GET_DEFAULT(diskIds_, "") };
     inline DescribeRCDisksRequest& setDiskIds(string diskIds) { DARABONBA_PTR_SET_VALUE(diskIds_, diskIds) };
+
+
+    // diskType Field Functions 
+    bool hasDiskType() const { return this->diskType_ != nullptr;};
+    void deleteDiskType() { this->diskType_ = nullptr;};
+    inline string getDiskType() const { DARABONBA_PTR_GET_DEFAULT(diskType_, "") };
+    inline DescribeRCDisksRequest& setDiskType(string diskType) { DARABONBA_PTR_SET_VALUE(diskType_, diskType) };
 
 
     // instanceId Field Functions 
@@ -143,6 +152,7 @@ namespace Models
   protected:
     // The disk ID. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,). Format: `["Disk ID1","Disk ID2"]`.
     shared_ptr<string> diskIds_ {};
+    shared_ptr<string> diskType_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The page number.
