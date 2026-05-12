@@ -13,6 +13,8 @@ namespace Models
   class CreateImageTransformRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateImageTransformRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoAvif, autoAvif_);
+      DARABONBA_PTR_TO_JSON(AutoWebp, autoWebp_);
       DARABONBA_PTR_TO_JSON(Enable, enable_);
       DARABONBA_PTR_TO_JSON(Rule, rule_);
       DARABONBA_PTR_TO_JSON(RuleEnable, ruleEnable_);
@@ -22,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
     };
     friend void from_json(const Darabonba::Json& j, CreateImageTransformRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoAvif, autoAvif_);
+      DARABONBA_PTR_FROM_JSON(AutoWebp, autoWebp_);
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
       DARABONBA_PTR_FROM_JSON(Rule, rule_);
       DARABONBA_PTR_FROM_JSON(RuleEnable, ruleEnable_);
@@ -41,9 +45,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->enable_ == nullptr
-        && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr && this->sequence_ == nullptr && this->siteId_ == nullptr
-        && this->siteVersion_ == nullptr; };
+    virtual bool empty() const override { return this->autoAvif_ == nullptr
+        && this->autoWebp_ == nullptr && this->enable_ == nullptr && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr
+        && this->sequence_ == nullptr && this->siteId_ == nullptr && this->siteVersion_ == nullptr; };
+    // autoAvif Field Functions 
+    bool hasAutoAvif() const { return this->autoAvif_ != nullptr;};
+    void deleteAutoAvif() { this->autoAvif_ = nullptr;};
+    inline string getAutoAvif() const { DARABONBA_PTR_GET_DEFAULT(autoAvif_, "") };
+    inline CreateImageTransformRequest& setAutoAvif(string autoAvif) { DARABONBA_PTR_SET_VALUE(autoAvif_, autoAvif) };
+
+
+    // autoWebp Field Functions 
+    bool hasAutoWebp() const { return this->autoWebp_ != nullptr;};
+    void deleteAutoWebp() { this->autoWebp_ = nullptr;};
+    inline string getAutoWebp() const { DARABONBA_PTR_GET_DEFAULT(autoWebp_, "") };
+    inline CreateImageTransformRequest& setAutoWebp(string autoWebp) { DARABONBA_PTR_SET_VALUE(autoWebp_, autoWebp) };
+
+
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
@@ -94,6 +112,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> autoAvif_ {};
+    shared_ptr<string> autoWebp_ {};
     // Indicates whether image transformation is enabled. Possible values:
     // - on: Enabled.
     // - off: Disabled.

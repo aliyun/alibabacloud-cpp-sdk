@@ -2621,6 +2621,14 @@ CreateHttpsBasicConfigurationResponse Client::createHttpsBasicConfiguration(cons
 CreateImageTransformResponse Client::createImageTransformWithOptions(const CreateImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoAvif()) {
+    query["AutoAvif"] = request.getAutoAvif();
+  }
+
+  if (!!request.hasAutoWebp()) {
+    query["AutoWebp"] = request.getAutoWebp();
+  }
+
   if (!!request.hasEnable()) {
     query["Enable"] = request.getEnable();
   }
@@ -18845,6 +18853,14 @@ UpdateIPv6Response Client::updateIPv6(const UpdateIPv6Request &request) {
 UpdateImageTransformResponse Client::updateImageTransformWithOptions(const UpdateImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAutoAvif()) {
+    query["AutoAvif"] = request.getAutoAvif();
+  }
+
+  if (!!request.hasAutoWebp()) {
+    query["AutoWebp"] = request.getAutoWebp();
+  }
+
   if (!!request.hasConfigId()) {
     query["ConfigId"] = request.getConfigId();
   }

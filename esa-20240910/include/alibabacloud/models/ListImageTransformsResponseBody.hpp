@@ -43,6 +43,8 @@ namespace Models
     class Configs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Configs& obj) { 
+        DARABONBA_PTR_TO_JSON(AutoAvif, autoAvif_);
+        DARABONBA_PTR_TO_JSON(AutoWebp, autoWebp_);
         DARABONBA_PTR_TO_JSON(ConfigId, configId_);
         DARABONBA_PTR_TO_JSON(ConfigType, configType_);
         DARABONBA_PTR_TO_JSON(Enable, enable_);
@@ -53,6 +55,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
       };
       friend void from_json(const Darabonba::Json& j, Configs& obj) { 
+        DARABONBA_PTR_FROM_JSON(AutoAvif, autoAvif_);
+        DARABONBA_PTR_FROM_JSON(AutoWebp, autoWebp_);
         DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
         DARABONBA_PTR_FROM_JSON(ConfigType, configType_);
         DARABONBA_PTR_FROM_JSON(Enable, enable_);
@@ -73,9 +77,23 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->configId_ == nullptr
-        && this->configType_ == nullptr && this->enable_ == nullptr && this->rule_ == nullptr && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr
-        && this->sequence_ == nullptr && this->siteVersion_ == nullptr; };
+      virtual bool empty() const override { return this->autoAvif_ == nullptr
+        && this->autoWebp_ == nullptr && this->configId_ == nullptr && this->configType_ == nullptr && this->enable_ == nullptr && this->rule_ == nullptr
+        && this->ruleEnable_ == nullptr && this->ruleName_ == nullptr && this->sequence_ == nullptr && this->siteVersion_ == nullptr; };
+      // autoAvif Field Functions 
+      bool hasAutoAvif() const { return this->autoAvif_ != nullptr;};
+      void deleteAutoAvif() { this->autoAvif_ = nullptr;};
+      inline string getAutoAvif() const { DARABONBA_PTR_GET_DEFAULT(autoAvif_, "") };
+      inline Configs& setAutoAvif(string autoAvif) { DARABONBA_PTR_SET_VALUE(autoAvif_, autoAvif) };
+
+
+      // autoWebp Field Functions 
+      bool hasAutoWebp() const { return this->autoWebp_ != nullptr;};
+      void deleteAutoWebp() { this->autoWebp_ = nullptr;};
+      inline string getAutoWebp() const { DARABONBA_PTR_GET_DEFAULT(autoWebp_, "") };
+      inline Configs& setAutoWebp(string autoWebp) { DARABONBA_PTR_SET_VALUE(autoWebp_, autoWebp) };
+
+
       // configId Field Functions 
       bool hasConfigId() const { return this->configId_ != nullptr;};
       void deleteConfigId() { this->configId_ = nullptr;};
@@ -133,6 +151,8 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> autoAvif_ {};
+      shared_ptr<string> autoWebp_ {};
       // Configuration ID.
       shared_ptr<int64_t> configId_ {};
       // Configuration type. Possible values:
