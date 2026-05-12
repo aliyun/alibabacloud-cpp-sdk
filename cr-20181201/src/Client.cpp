@@ -82,7 +82,7 @@ CancelArtifactBuildTaskResponse Client::cancelArtifactBuildTask(const CancelArti
 }
 
 /**
- * @summary Cancels an image building task of a repository.
+ * @summary Cancels a repository building record.
  *
  * @param request CancelRepoBuildRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -121,7 +121,7 @@ CancelRepoBuildRecordResponse Client::cancelRepoBuildRecordWithOptions(const Can
 }
 
 /**
- * @summary Cancels an image building task of a repository.
+ * @summary Cancels a repository building record.
  *
  * @param request CancelRepoBuildRecordRequest
  * @return CancelRepoBuildRecordResponse
@@ -1119,6 +1119,10 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRuleWithOptions(const CreateRep
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasLinkId()) {
+    query["LinkId"] = request.getLinkId();
+  }
+
   if (!!request.hasNamespaceName()) {
     query["NamespaceName"] = request.getNamespaceName();
   }
@@ -1196,6 +1200,8 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRule(const CreateRepoSyncRuleRe
 }
 
 /**
+ * @summary Manually creates an image synchronization task.
+ *
  * @param request CreateRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateRepoSyncTaskResponse
@@ -1261,6 +1267,8 @@ CreateRepoSyncTaskResponse Client::createRepoSyncTaskWithOptions(const CreateRep
 }
 
 /**
+ * @summary Manually creates an image synchronization task.
+ *
  * @param request CreateRepoSyncTaskRequest
  * @return CreateRepoSyncTaskResponse
  */
@@ -1804,7 +1812,7 @@ DeleteArtifactSubscriptionRuleResponse Client::deleteArtifactSubscriptionRule(co
 }
 
 /**
- * @summary Deletes a delivery pipeline.
+ * @summary Deletes a delivery chain.
  *
  * @param request DeleteChainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1839,7 +1847,7 @@ DeleteChainResponse Client::deleteChainWithOptions(const DeleteChainRequest &req
 }
 
 /**
- * @summary Deletes a delivery pipeline.
+ * @summary Deletes a delivery chain.
  *
  * @param request DeleteChainRequest
  * @return DeleteChainResponse
@@ -2566,6 +2574,8 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRule(co
 }
 
 /**
+ * @summary Queries the details of an artifact building rule.
+ *
  * @param request GetArtifactBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetArtifactBuildRuleResponse
@@ -2591,6 +2601,8 @@ GetArtifactBuildRuleResponse Client::getArtifactBuildRuleWithOptions(const GetAr
 }
 
 /**
+ * @summary Queries the details of an artifact building rule.
+ *
  * @param request GetArtifactBuildRuleRequest
  * @return GetArtifactBuildRuleResponse
  */
@@ -2842,7 +2854,7 @@ GetAuthorizationTokenResponse Client::getAuthorizationToken(const GetAuthorizati
 }
 
 /**
- * @summary 获取交付链
+ * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
  *
  * @param request GetChainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2877,7 +2889,7 @@ GetChainResponse Client::getChainWithOptions(const GetChainRequest &request, con
 }
 
 /**
- * @summary 获取交付链
+ * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
  *
  * @param request GetChainRequest
  * @return GetChainResponse
@@ -3028,7 +3040,6 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 /**
  * @summary Queries the number of instances.
  *
- * @param request GetInstanceCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetInstanceCountResponse
  */
@@ -3059,7 +3070,7 @@ GetInstanceCountResponse Client::getInstanceCount() {
 }
 
 /**
- * @summary Queries the endpoint of an instance.
+ * @summary Queries an endpoint of an instance.
  *
  * @param request GetInstanceEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3098,7 +3109,7 @@ GetInstanceEndpointResponse Client::getInstanceEndpointWithOptions(const GetInst
 }
 
 /**
- * @summary Queries the endpoint of an instance.
+ * @summary Queries an endpoint of an instance.
  *
  * @param request GetInstanceEndpointRequest
  * @return GetInstanceEndpointResponse
@@ -3439,7 +3450,7 @@ GetRepoSyncTaskResponse Client::getRepoSyncTask(const GetRepoSyncTaskRequest &re
 }
 
 /**
- * @summary The version of the repository.
+ * @summary Queries the information about an image tag.
  *
  * @param request GetRepoTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3466,7 +3477,7 @@ GetRepoTagResponse Client::getRepoTagWithOptions(const GetRepoTagRequest &reques
 }
 
 /**
- * @summary The version of the repository.
+ * @summary Queries the information about an image tag.
  *
  * @param request GetRepoTagRequest
  * @return GetRepoTagResponse
@@ -3539,6 +3550,8 @@ GetRepoTagScanStatusResponse Client::getRepoTagScanStatus(const GetRepoTagScanSt
 }
 
 /**
+ * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+ *
  * @param request GetRepoTagScanSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetRepoTagScanSummaryResponse
@@ -3584,6 +3597,8 @@ GetRepoTagScanSummaryResponse Client::getRepoTagScanSummaryWithOptions(const Get
 }
 
 /**
+ * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+ *
  * @param request GetRepoTagScanSummaryRequest
  * @return GetRepoTagScanSummaryResponse
  */
@@ -3647,7 +3662,7 @@ GetRepositoryResponse Client::getRepository(const GetRepositoryRequest &request)
 }
 
 /**
- * @summary Obtains a scan rule.
+ * @summary Queries a scan rule.
  *
  * @description Get scan rule.
  *
@@ -3684,7 +3699,7 @@ GetScanRuleResponse Client::getScanRuleWithOptions(const GetScanRuleRequest &req
 }
 
 /**
- * @summary Obtains a scan rule.
+ * @summary Queries a scan rule.
  *
  * @description Get scan rule.
  *
@@ -3957,7 +3972,7 @@ ListChainResponse Client::listChain(const ListChainRequest &request) {
 }
 
 /**
- * @summary The response code.
+ * @summary Queries execution records of delivery chains.
  *
  * @param request ListChainInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4004,7 +4019,7 @@ ListChainInstanceResponse Client::listChainInstanceWithOptions(const ListChainIn
 }
 
 /**
- * @summary The response code.
+ * @summary Queries execution records of delivery chains.
  *
  * @param request ListChainInstanceRequest
  * @return ListChainInstanceResponse
@@ -4235,7 +4250,7 @@ ListEventCenterRecordResponse Client::listEventCenterRecord(const ListEventCente
 }
 
 /**
- * @summary Queries the names of event notification rules.
+ * @summary Queries the name of an event rule.
  *
  * @param request ListEventCenterRuleNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4262,7 +4277,7 @@ ListEventCenterRuleNameResponse Client::listEventCenterRuleNameWithOptions(const
 }
 
 /**
- * @summary Queries the names of event notification rules.
+ * @summary Queries the name of an event rule.
  *
  * @param request ListEventCenterRuleNameRequest
  * @return ListEventCenterRuleNameResponse
@@ -5699,7 +5714,7 @@ UpdateChartRepositoryResponse Client::updateChartRepository(const UpdateChartRep
 }
 
 /**
- * @summary Updates an event notification rule.
+ * @summary Updates an event rule.
  *
  * @param tmpReq UpdateEventCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5776,7 +5791,7 @@ UpdateEventCenterRuleResponse Client::updateEventCenterRuleWithOptions(const Upd
 }
 
 /**
- * @summary Updates an event notification rule.
+ * @summary Updates an event rule.
  *
  * @param request UpdateEventCenterRuleRequest
  * @return UpdateEventCenterRuleResponse

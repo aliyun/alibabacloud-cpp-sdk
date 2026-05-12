@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateRepoSyncRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(LinkId, linkId_);
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
       DARABONBA_PTR_TO_JSON(RepoNameFilter, repoNameFilter_);
@@ -29,6 +30,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateRepoSyncRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(LinkId, linkId_);
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
       DARABONBA_PTR_FROM_JSON(RepoNameFilter, repoNameFilter_);
@@ -54,14 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->repoNameFilter_ == nullptr && this->syncRuleName_ == nullptr && this->syncScope_ == nullptr
-        && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr && this->targetRegionId_ == nullptr
-        && this->targetRepoName_ == nullptr && this->targetUserId_ == nullptr; };
+        && this->linkId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->repoNameFilter_ == nullptr && this->syncRuleName_ == nullptr
+        && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr
+        && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr && this->targetUserId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline CreateRepoSyncRuleRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // linkId Field Functions 
+    bool hasLinkId() const { return this->linkId_ != nullptr;};
+    void deleteLinkId() { this->linkId_ = nullptr;};
+    inline string getLinkId() const { DARABONBA_PTR_GET_DEFAULT(linkId_, "") };
+    inline CreateRepoSyncRuleRequest& setLinkId(string linkId) { DARABONBA_PTR_SET_VALUE(linkId_, linkId) };
 
 
     // namespaceName Field Functions 
@@ -153,6 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<string> linkId_ {};
     // The namespace name of the source instance.
     // 
     // This parameter is required.

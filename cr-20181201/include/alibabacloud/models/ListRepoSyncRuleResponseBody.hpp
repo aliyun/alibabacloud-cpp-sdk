@@ -47,6 +47,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const SyncRules& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CrossUser, crossUser_);
+        DARABONBA_PTR_TO_JSON(LinkId, linkId_);
         DARABONBA_PTR_TO_JSON(LocalInstanceId, localInstanceId_);
         DARABONBA_PTR_TO_JSON(LocalNamespaceName, localNamespaceName_);
         DARABONBA_PTR_TO_JSON(LocalRegionId, localRegionId_);
@@ -67,6 +68,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, SyncRules& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CrossUser, crossUser_);
+        DARABONBA_PTR_FROM_JSON(LinkId, linkId_);
         DARABONBA_PTR_FROM_JSON(LocalInstanceId, localInstanceId_);
         DARABONBA_PTR_FROM_JSON(LocalNamespaceName, localNamespaceName_);
         DARABONBA_PTR_FROM_JSON(LocalRegionId, localRegionId_);
@@ -96,10 +98,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->crossUser_ == nullptr && this->localInstanceId_ == nullptr && this->localNamespaceName_ == nullptr && this->localRegionId_ == nullptr && this->localRepoName_ == nullptr
-        && this->modifiedTime_ == nullptr && this->repoNameFilter_ == nullptr && this->syncDirection_ == nullptr && this->syncRuleId_ == nullptr && this->syncRuleName_ == nullptr
-        && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr && this->targetNamespaceName_ == nullptr
-        && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr; };
+        && this->crossUser_ == nullptr && this->linkId_ == nullptr && this->localInstanceId_ == nullptr && this->localNamespaceName_ == nullptr && this->localRegionId_ == nullptr
+        && this->localRepoName_ == nullptr && this->modifiedTime_ == nullptr && this->repoNameFilter_ == nullptr && this->syncDirection_ == nullptr && this->syncRuleId_ == nullptr
+        && this->syncRuleName_ == nullptr && this->syncScope_ == nullptr && this->syncTrigger_ == nullptr && this->tagFilter_ == nullptr && this->targetInstanceId_ == nullptr
+        && this->targetNamespaceName_ == nullptr && this->targetRegionId_ == nullptr && this->targetRepoName_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -112,6 +114,13 @@ namespace Models
       void deleteCrossUser() { this->crossUser_ = nullptr;};
       inline bool getCrossUser() const { DARABONBA_PTR_GET_DEFAULT(crossUser_, false) };
       inline SyncRules& setCrossUser(bool crossUser) { DARABONBA_PTR_SET_VALUE(crossUser_, crossUser) };
+
+
+      // linkId Field Functions 
+      bool hasLinkId() const { return this->linkId_ != nullptr;};
+      void deleteLinkId() { this->linkId_ = nullptr;};
+      inline string getLinkId() const { DARABONBA_PTR_GET_DEFAULT(linkId_, "") };
+      inline SyncRules& setLinkId(string linkId) { DARABONBA_PTR_SET_VALUE(linkId_, linkId) };
 
 
       // localInstanceId Field Functions 
@@ -236,6 +245,7 @@ namespace Models
       // 
       // Default value: `false`.
       shared_ptr<bool> crossUser_ {};
+      shared_ptr<string> linkId_ {};
       // The ID of the source instance.
       shared_ptr<string> localInstanceId_ {};
       // The name of the namespace in the source instance.

@@ -50,7 +50,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CustomLink, customLink_);
         DARABONBA_PTR_TO_JSON(ImageFrom, imageFrom_);
         DARABONBA_PTR_TO_JSON(ImageTo, imageTo_);
+        DARABONBA_PTR_TO_JSON(LinkId, linkId_);
         DARABONBA_PTR_TO_JSON(ModifedTime, modifedTime_);
+        DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_TO_JSON(SyncBatchTaskId, syncBatchTaskId_);
         DARABONBA_PTR_TO_JSON(SyncRuleId, syncRuleId_);
         DARABONBA_PTR_TO_JSON(SyncTaskId, syncTaskId_);
@@ -65,7 +67,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CustomLink, customLink_);
         DARABONBA_PTR_FROM_JSON(ImageFrom, imageFrom_);
         DARABONBA_PTR_FROM_JSON(ImageTo, imageTo_);
+        DARABONBA_PTR_FROM_JSON(LinkId, linkId_);
         DARABONBA_PTR_FROM_JSON(ModifedTime, modifedTime_);
+        DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_FROM_JSON(SyncBatchTaskId, syncBatchTaskId_);
         DARABONBA_PTR_FROM_JSON(SyncRuleId, syncRuleId_);
         DARABONBA_PTR_FROM_JSON(SyncTaskId, syncTaskId_);
@@ -240,9 +244,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->crossUser_ == nullptr && this->customLink_ == nullptr && this->imageFrom_ == nullptr && this->imageTo_ == nullptr && this->modifedTime_ == nullptr
-        && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr && this->syncTaskId_ == nullptr && this->syncTransAccelerate_ == nullptr && this->taskIssue_ == nullptr
-        && this->taskStatus_ == nullptr && this->taskTrigger_ == nullptr; };
+        && this->crossUser_ == nullptr && this->customLink_ == nullptr && this->imageFrom_ == nullptr && this->imageTo_ == nullptr && this->linkId_ == nullptr
+        && this->modifedTime_ == nullptr && this->modifiedTime_ == nullptr && this->syncBatchTaskId_ == nullptr && this->syncRuleId_ == nullptr && this->syncTaskId_ == nullptr
+        && this->syncTransAccelerate_ == nullptr && this->taskIssue_ == nullptr && this->taskStatus_ == nullptr && this->taskTrigger_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -282,11 +286,25 @@ namespace Models
       inline SyncTasks& setImageTo(SyncTasks::ImageTo && imageTo) { DARABONBA_PTR_SET_RVALUE(imageTo_, imageTo) };
 
 
+      // linkId Field Functions 
+      bool hasLinkId() const { return this->linkId_ != nullptr;};
+      void deleteLinkId() { this->linkId_ = nullptr;};
+      inline string getLinkId() const { DARABONBA_PTR_GET_DEFAULT(linkId_, "") };
+      inline SyncTasks& setLinkId(string linkId) { DARABONBA_PTR_SET_VALUE(linkId_, linkId) };
+
+
       // modifedTime Field Functions 
       bool hasModifedTime() const { return this->modifedTime_ != nullptr;};
       void deleteModifedTime() { this->modifedTime_ = nullptr;};
       inline int64_t getModifedTime() const { DARABONBA_PTR_GET_DEFAULT(modifedTime_, 0L) };
       inline SyncTasks& setModifedTime(int64_t modifedTime) { DARABONBA_PTR_SET_VALUE(modifedTime_, modifedTime) };
+
+
+      // modifiedTime Field Functions 
+      bool hasModifiedTime() const { return this->modifiedTime_ != nullptr;};
+      void deleteModifiedTime() { this->modifiedTime_ = nullptr;};
+      inline int64_t getModifiedTime() const { DARABONBA_PTR_GET_DEFAULT(modifiedTime_, 0L) };
+      inline SyncTasks& setModifiedTime(int64_t modifiedTime) { DARABONBA_PTR_SET_VALUE(modifiedTime_, modifiedTime) };
 
 
       // syncBatchTaskId Field Functions 
@@ -354,8 +372,10 @@ namespace Models
       shared_ptr<SyncTasks::ImageFrom> imageFrom_ {};
       // The information about the destination image.
       shared_ptr<SyncTasks::ImageTo> imageTo_ {};
+      shared_ptr<string> linkId_ {};
       // The time when the synchronization task was last modified.
       shared_ptr<int64_t> modifedTime_ {};
+      shared_ptr<int64_t> modifiedTime_ {};
       // The ID of the image synchronization batch tasks, which is the same as the value of SyncRecordId in the request.
       // 
       // >  If an image meets multiple synchronization rules and multiple synchronization tasks are generated for the image, these synchronization tasks use the same SyncBatchTaskId.

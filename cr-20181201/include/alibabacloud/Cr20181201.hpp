@@ -38,7 +38,7 @@ namespace Cr20181201
       Models::CancelArtifactBuildTaskResponse cancelArtifactBuildTask(const Models::CancelArtifactBuildTaskRequest &request);
 
       /**
-       * @summary Cancels an image building task of a repository.
+       * @summary Cancels a repository building record.
        *
        * @param request CancelRepoBuildRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Cr20181201
       Models::CancelRepoBuildRecordResponse cancelRepoBuildRecordWithOptions(const Models::CancelRepoBuildRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancels an image building task of a repository.
+       * @summary Cancels a repository building record.
        *
        * @param request CancelRepoBuildRecordRequest
        * @return CancelRepoBuildRecordResponse
@@ -354,6 +354,8 @@ namespace Cr20181201
       Models::CreateRepoSyncRuleResponse createRepoSyncRule(const Models::CreateRepoSyncRuleRequest &request);
 
       /**
+       * @summary Manually creates an image synchronization task.
+       *
        * @param request CreateRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateRepoSyncTaskResponse
@@ -361,6 +363,8 @@ namespace Cr20181201
       Models::CreateRepoSyncTaskResponse createRepoSyncTaskWithOptions(const Models::CreateRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Manually creates an image synchronization task.
+       *
        * @param request CreateRepoSyncTaskRequest
        * @return CreateRepoSyncTaskResponse
        */
@@ -528,7 +532,7 @@ namespace Cr20181201
       Models::DeleteArtifactSubscriptionRuleResponse deleteArtifactSubscriptionRule(const Models::DeleteArtifactSubscriptionRuleRequest &request);
 
       /**
-       * @summary Deletes a delivery pipeline.
+       * @summary Deletes a delivery chain.
        *
        * @param request DeleteChainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +541,7 @@ namespace Cr20181201
       Models::DeleteChainResponse deleteChainWithOptions(const Models::DeleteChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a delivery pipeline.
+       * @summary Deletes a delivery chain.
        *
        * @param request DeleteChainRequest
        * @return DeleteChainResponse
@@ -803,6 +807,8 @@ namespace Cr20181201
       Models::DeleteStorageDomainRoutingRuleResponse deleteStorageDomainRoutingRule(const Models::DeleteStorageDomainRoutingRuleRequest &request);
 
       /**
+       * @summary Queries the details of an artifact building rule.
+       *
        * @param request GetArtifactBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetArtifactBuildRuleResponse
@@ -810,6 +816,8 @@ namespace Cr20181201
       Models::GetArtifactBuildRuleResponse getArtifactBuildRuleWithOptions(const Models::GetArtifactBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the details of an artifact building rule.
+       *
        * @param request GetArtifactBuildRuleRequest
        * @return GetArtifactBuildRuleResponse
        */
@@ -928,7 +936,7 @@ namespace Cr20181201
       Models::GetAuthorizationTokenResponse getAuthorizationToken(const Models::GetAuthorizationTokenRequest &request);
 
       /**
-       * @summary 获取交付链
+       * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
        *
        * @param request GetChainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -937,7 +945,7 @@ namespace Cr20181201
       Models::GetChainResponse getChainWithOptions(const Models::GetChainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取交付链
+       * @summary Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
        *
        * @param request GetChainRequest
        * @return GetChainResponse
@@ -998,7 +1006,6 @@ namespace Cr20181201
       /**
        * @summary Queries the number of instances.
        *
-       * @param request GetInstanceCountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetInstanceCountResponse
        */
@@ -1012,7 +1019,7 @@ namespace Cr20181201
       Models::GetInstanceCountResponse getInstanceCount();
 
       /**
-       * @summary Queries the endpoint of an instance.
+       * @summary Queries an endpoint of an instance.
        *
        * @param request GetInstanceEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1021,7 +1028,7 @@ namespace Cr20181201
       Models::GetInstanceEndpointResponse getInstanceEndpointWithOptions(const Models::GetInstanceEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the endpoint of an instance.
+       * @summary Queries an endpoint of an instance.
        *
        * @param request GetInstanceEndpointRequest
        * @return GetInstanceEndpointResponse
@@ -1152,7 +1159,7 @@ namespace Cr20181201
       Models::GetRepoSyncTaskResponse getRepoSyncTask(const Models::GetRepoSyncTaskRequest &request);
 
       /**
-       * @summary The version of the repository.
+       * @summary Queries the information about an image tag.
        *
        * @param request GetRepoTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1168,7 @@ namespace Cr20181201
       Models::GetRepoTagResponse getRepoTagWithOptions(const Models::GetRepoTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The version of the repository.
+       * @summary Queries the information about an image tag.
        *
        * @param request GetRepoTagRequest
        * @return GetRepoTagResponse
@@ -1186,6 +1193,8 @@ namespace Cr20181201
       Models::GetRepoTagScanStatusResponse getRepoTagScanStatus(const Models::GetRepoTagScanStatusRequest &request);
 
       /**
+       * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+       *
        * @param request GetRepoTagScanSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRepoTagScanSummaryResponse
@@ -1193,6 +1202,8 @@ namespace Cr20181201
       Models::GetRepoTagScanSummaryResponse getRepoTagScanSummaryWithOptions(const Models::GetRepoTagScanSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+       *
        * @param request GetRepoTagScanSummaryRequest
        * @return GetRepoTagScanSummaryResponse
        */
@@ -1216,7 +1227,7 @@ namespace Cr20181201
       Models::GetRepositoryResponse getRepository(const Models::GetRepositoryRequest &request);
 
       /**
-       * @summary Obtains a scan rule.
+       * @summary Queries a scan rule.
        *
        * @description Get scan rule.
        *
@@ -1227,7 +1238,7 @@ namespace Cr20181201
       Models::GetScanRuleResponse getScanRuleWithOptions(const Models::GetScanRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a scan rule.
+       * @summary Queries a scan rule.
        *
        * @description Get scan rule.
        *
@@ -1343,7 +1354,7 @@ namespace Cr20181201
       Models::ListChainResponse listChain(const Models::ListChainRequest &request);
 
       /**
-       * @summary The response code.
+       * @summary Queries execution records of delivery chains.
        *
        * @param request ListChainInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1352,7 +1363,7 @@ namespace Cr20181201
       Models::ListChainInstanceResponse listChainInstanceWithOptions(const Models::ListChainInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The response code.
+       * @summary Queries execution records of delivery chains.
        *
        * @param request ListChainInstanceRequest
        * @return ListChainInstanceResponse
@@ -1428,7 +1439,7 @@ namespace Cr20181201
       Models::ListEventCenterRecordResponse listEventCenterRecord(const Models::ListEventCenterRecordRequest &request);
 
       /**
-       * @summary Queries the names of event notification rules.
+       * @summary Queries the name of an event rule.
        *
        * @param request ListEventCenterRuleNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1437,7 +1448,7 @@ namespace Cr20181201
       Models::ListEventCenterRuleNameResponse listEventCenterRuleNameWithOptions(const Models::ListEventCenterRuleNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the names of event notification rules.
+       * @summary Queries the name of an event rule.
        *
        * @param request ListEventCenterRuleNameRequest
        * @return ListEventCenterRuleNameResponse
@@ -1882,7 +1893,7 @@ namespace Cr20181201
       Models::UpdateChartRepositoryResponse updateChartRepository(const Models::UpdateChartRepositoryRequest &request);
 
       /**
-       * @summary Updates an event notification rule.
+       * @summary Updates an event rule.
        *
        * @param tmpReq UpdateEventCenterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1891,7 +1902,7 @@ namespace Cr20181201
       Models::UpdateEventCenterRuleResponse updateEventCenterRuleWithOptions(const Models::UpdateEventCenterRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates an event notification rule.
+       * @summary Updates an event rule.
        *
        * @param request UpdateEventCenterRuleRequest
        * @return UpdateEventCenterRuleResponse

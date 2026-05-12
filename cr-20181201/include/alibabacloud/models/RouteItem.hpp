@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance Endpoint Type
+    // 
     // This parameter is required.
     shared_ptr<string> endpointType_ {};
+    // Instance Domain
+    // 
     // This parameter is required.
     shared_ptr<string> instanceDomain_ {};
+    // OSS Domain
+    // 
     // This parameter is required.
     shared_ptr<string> storageDomain_ {};
   };
