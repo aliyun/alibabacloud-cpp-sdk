@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListThreadsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(filter, filter_);
+      DARABONBA_PTR_TO_JSON(includeMission, includeMission_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListThreadsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(filter, filter_);
+      DARABONBA_PTR_FROM_JSON(includeMission, includeMission_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -83,7 +85,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->filter_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr; };
+        && this->includeMission_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     inline vector<ListThreadsRequest::Filter> getFilter() { DARABONBA_PTR_GET(filter_, vector<ListThreadsRequest::Filter>) };
     inline ListThreadsRequest& setFilter(const vector<ListThreadsRequest::Filter> & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
     inline ListThreadsRequest& setFilter(vector<ListThreadsRequest::Filter> && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
+
+
+    // includeMission Field Functions 
+    bool hasIncludeMission() const { return this->includeMission_ != nullptr;};
+    void deleteIncludeMission() { this->includeMission_ = nullptr;};
+    inline bool getIncludeMission() const { DARABONBA_PTR_GET_DEFAULT(includeMission_, false) };
+    inline ListThreadsRequest& setIncludeMission(bool includeMission) { DARABONBA_PTR_SET_VALUE(includeMission_, includeMission) };
 
 
     // maxResults Field Functions 
@@ -123,6 +132,7 @@ namespace Models
 
   protected:
     shared_ptr<vector<ListThreadsRequest::Filter>> filter_ {};
+    shared_ptr<bool> includeMission_ {};
     shared_ptr<int64_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> status_ {};

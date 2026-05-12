@@ -995,6 +995,10 @@ ListThreadsResponse Client::listThreadsWithOptions(const string &name, const Lis
     query["filter"] = request.getFilterShrink();
   }
 
+  if (!!request.hasIncludeMission()) {
+    query["includeMission"] = request.getIncludeMission();
+  }
+
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
   }

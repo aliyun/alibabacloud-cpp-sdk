@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListThreadsShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(filter, filterShrink_);
+      DARABONBA_PTR_TO_JSON(includeMission, includeMission_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(status, status_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListThreadsShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(filter, filterShrink_);
+      DARABONBA_PTR_FROM_JSON(includeMission, includeMission_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(status, status_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filterShrink_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr; };
+        && this->includeMission_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr && this->threadId_ == nullptr; };
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
     inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline ListThreadsShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
+
+
+    // includeMission Field Functions 
+    bool hasIncludeMission() const { return this->includeMission_ != nullptr;};
+    void deleteIncludeMission() { this->includeMission_ = nullptr;};
+    inline bool getIncludeMission() const { DARABONBA_PTR_GET_DEFAULT(includeMission_, false) };
+    inline ListThreadsShrinkRequest& setIncludeMission(bool includeMission) { DARABONBA_PTR_SET_VALUE(includeMission_, includeMission) };
 
 
     // maxResults Field Functions 
@@ -76,6 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<string> filterShrink_ {};
+    shared_ptr<bool> includeMission_ {};
     shared_ptr<int64_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> status_ {};
