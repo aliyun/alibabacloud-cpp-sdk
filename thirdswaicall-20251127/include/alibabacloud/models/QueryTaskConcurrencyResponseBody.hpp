@@ -44,10 +44,14 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AvailableConcurrency, availableConcurrency_);
         DARABONBA_PTR_TO_JSON(CurrentConcurrency, currentConcurrency_);
+        DARABONBA_PTR_TO_JSON(MaxConcurrency, maxConcurrency_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AvailableConcurrency, availableConcurrency_);
         DARABONBA_PTR_FROM_JSON(CurrentConcurrency, currentConcurrency_);
+        DARABONBA_PTR_FROM_JSON(MaxConcurrency, maxConcurrency_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -60,7 +64,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->currentConcurrency_ == nullptr; };
+      virtual bool empty() const override { return this->availableConcurrency_ == nullptr
+        && this->currentConcurrency_ == nullptr && this->maxConcurrency_ == nullptr; };
+      // availableConcurrency Field Functions 
+      bool hasAvailableConcurrency() const { return this->availableConcurrency_ != nullptr;};
+      void deleteAvailableConcurrency() { this->availableConcurrency_ = nullptr;};
+      inline int64_t getAvailableConcurrency() const { DARABONBA_PTR_GET_DEFAULT(availableConcurrency_, 0L) };
+      inline Data& setAvailableConcurrency(int64_t availableConcurrency) { DARABONBA_PTR_SET_VALUE(availableConcurrency_, availableConcurrency) };
+
+
       // currentConcurrency Field Functions 
       bool hasCurrentConcurrency() const { return this->currentConcurrency_ != nullptr;};
       void deleteCurrentConcurrency() { this->currentConcurrency_ = nullptr;};
@@ -68,8 +80,17 @@ namespace Models
       inline Data& setCurrentConcurrency(int64_t currentConcurrency) { DARABONBA_PTR_SET_VALUE(currentConcurrency_, currentConcurrency) };
 
 
+      // maxConcurrency Field Functions 
+      bool hasMaxConcurrency() const { return this->maxConcurrency_ != nullptr;};
+      void deleteMaxConcurrency() { this->maxConcurrency_ = nullptr;};
+      inline int64_t getMaxConcurrency() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrency_, 0L) };
+      inline Data& setMaxConcurrency(int64_t maxConcurrency) { DARABONBA_PTR_SET_VALUE(maxConcurrency_, maxConcurrency) };
+
+
     protected:
+      shared_ptr<int64_t> availableConcurrency_ {};
       shared_ptr<int64_t> currentConcurrency_ {};
+      shared_ptr<int64_t> maxConcurrency_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
