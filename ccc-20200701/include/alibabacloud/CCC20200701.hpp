@@ -1668,6 +1668,8 @@ namespace CCC20200701
       Models::HoldCallResponse holdCall(const Models::HoldCallRequest &request);
 
       /**
+       * @summary 导入管理员
+       *
        * @param request ImportAdminsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ImportAdminsResponse
@@ -1675,6 +1677,8 @@ namespace CCC20200701
       Models::ImportAdminsResponse importAdminsWithOptions(const Models::ImportAdminsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 导入管理员
+       *
        * @param request ImportAdminsRequest
        * @return ImportAdminsResponse
        */
@@ -3055,6 +3059,8 @@ namespace CCC20200701
       Models::ModifyCustomCallTaggingResponse modifyCustomCallTagging(const Models::ModifyCustomCallTaggingRequest &request);
 
       /**
+       * @summary 修改实例
+       *
        * @param request ModifyInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyInstanceResponse
@@ -3062,6 +3068,8 @@ namespace CCC20200701
       Models::ModifyInstanceResponse modifyInstanceWithOptions(const Models::ModifyInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 修改实例
+       *
        * @param request ModifyInstanceRequest
        * @return ModifyInstanceResponse
        */

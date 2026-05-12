@@ -911,6 +911,10 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 AssignUsersResponse Client::assignUsersWithOptions(const AssignUsersRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAsync()) {
+    query["Async"] = request.getAsync();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -5376,6 +5380,8 @@ HoldCallResponse Client::holdCall(const HoldCallRequest &request) {
 }
 
 /**
+ * @summary 导入管理员
+ *
  * @param request ImportAdminsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ImportAdminsResponse
@@ -5409,6 +5415,8 @@ ImportAdminsResponse Client::importAdminsWithOptions(const ImportAdminsRequest &
 }
 
 /**
+ * @summary 导入管理员
+ *
  * @param request ImportAdminsRequest
  * @return ImportAdminsResponse
  */
@@ -10286,6 +10294,8 @@ ModifyCustomCallTaggingResponse Client::modifyCustomCallTagging(const ModifyCust
 }
 
 /**
+ * @summary 修改实例
+ *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyInstanceResponse
@@ -10319,6 +10329,8 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
+ * @summary 修改实例
+ *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
  */
