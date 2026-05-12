@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
         DARABONBA_PTR_TO_JSON(CenId, cenId_);
         DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_TO_JSON(ManagedService, managedService_);
         DARABONBA_PTR_TO_JSON(OrderType, orderType_);
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AutoPublishRouteEnabled, autoPublishRouteEnabled_);
         DARABONBA_PTR_FROM_JSON(CenId, cenId_);
         DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+        DARABONBA_PTR_FROM_JSON(ManagedService, managedService_);
         DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -128,9 +130,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->autoPublishRouteEnabled_ == nullptr
-        && this->cenId_ == nullptr && this->creationTime_ == nullptr && this->orderType_ == nullptr && this->resourceType_ == nullptr && this->status_ == nullptr
-        && this->tags_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentName_ == nullptr && this->transitRouterId_ == nullptr
-        && this->vbrId_ == nullptr && this->vbrOwnerId_ == nullptr && this->vbrRegionId_ == nullptr; };
+        && this->cenId_ == nullptr && this->creationTime_ == nullptr && this->managedService_ == nullptr && this->orderType_ == nullptr && this->resourceType_ == nullptr
+        && this->status_ == nullptr && this->tags_ == nullptr && this->transitRouterAttachmentDescription_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterAttachmentName_ == nullptr
+        && this->transitRouterId_ == nullptr && this->vbrId_ == nullptr && this->vbrOwnerId_ == nullptr && this->vbrRegionId_ == nullptr; };
       // autoPublishRouteEnabled Field Functions 
       bool hasAutoPublishRouteEnabled() const { return this->autoPublishRouteEnabled_ != nullptr;};
       void deleteAutoPublishRouteEnabled() { this->autoPublishRouteEnabled_ = nullptr;};
@@ -150,6 +152,13 @@ namespace Models
       void deleteCreationTime() { this->creationTime_ = nullptr;};
       inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
       inline TransitRouterAttachments& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+      // managedService Field Functions 
+      bool hasManagedService() const { return this->managedService_ != nullptr;};
+      void deleteManagedService() { this->managedService_ = nullptr;};
+      inline string getManagedService() const { DARABONBA_PTR_GET_DEFAULT(managedService_, "") };
+      inline TransitRouterAttachments& setManagedService(string managedService) { DARABONBA_PTR_SET_VALUE(managedService_, managedService) };
 
 
       // orderType Field Functions 
@@ -243,6 +252,7 @@ namespace Models
       // 
       // The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
+      shared_ptr<string> managedService_ {};
       // The entity that pays the fees of the network instance. Valid values:
       // 
       // *   **PayByCenOwner**: the Alibaba Cloud account that owns the CEN instance.
