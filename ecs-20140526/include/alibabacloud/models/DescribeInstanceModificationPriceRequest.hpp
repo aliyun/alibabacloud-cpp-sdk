@@ -16,24 +16,36 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeInstanceModificationPriceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(ISP, ISP_);
+      DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_TO_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_TO_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeInstanceModificationPriceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(ISP, ISP_);
+      DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
+      DARABONBA_PTR_FROM_JSON(InternetChargeType, internetChargeType_);
+      DARABONBA_PTR_FROM_JSON(InternetMaxBandwidthOut, internetMaxBandwidthOut_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
     };
     DescribeInstanceModificationPriceRequest() = default ;
     DescribeInstanceModificationPriceRequest(const DescribeInstanceModificationPriceRequest &) = default ;
@@ -50,11 +62,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const DataDisk& obj) { 
         DARABONBA_PTR_TO_JSON(Category, category_);
+        DARABONBA_PTR_TO_JSON(DiskId, diskId_);
         DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
         DARABONBA_PTR_TO_JSON(Size, size_);
       };
       friend void from_json(const Darabonba::Json& j, DataDisk& obj) { 
         DARABONBA_PTR_FROM_JSON(Category, category_);
+        DARABONBA_PTR_FROM_JSON(DiskId, diskId_);
         DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
         DARABONBA_PTR_FROM_JSON(Size, size_);
       };
@@ -70,12 +84,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->category_ == nullptr
-        && this->performanceLevel_ == nullptr && this->size_ == nullptr; };
+        && this->diskId_ == nullptr && this->performanceLevel_ == nullptr && this->size_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
       inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
       inline DataDisk& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+      // diskId Field Functions 
+      bool hasDiskId() const { return this->diskId_ != nullptr;};
+      void deleteDiskId() { this->diskId_ = nullptr;};
+      inline string getDiskId() const { DARABONBA_PTR_GET_DEFAULT(diskId_, "") };
+      inline DataDisk& setDiskId(string diskId) { DARABONBA_PTR_SET_VALUE(diskId_, diskId) };
 
 
       // performanceLevel Field Functions 
@@ -104,6 +125,7 @@ namespace Models
       // 
       // >  When you call the DescribeInstanceModificationPrice operation, you must specify at least one of the following parameters: `InstanceType` and `DataDisk.N.*`.
       shared_ptr<string> category_ {};
+      shared_ptr<string> diskId_ {};
       // The performance level of data disk N that is an enhanced SSD (ESSD). The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
       // 
       // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
@@ -138,9 +160,13 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const SystemDisk& obj) { 
         DARABONBA_PTR_TO_JSON(Category, category_);
+        DARABONBA_PTR_TO_JSON(PerformanceLevel, performanceLevel_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
       };
       friend void from_json(const Darabonba::Json& j, SystemDisk& obj) { 
         DARABONBA_PTR_FROM_JSON(Category, category_);
+        DARABONBA_PTR_FROM_JSON(PerformanceLevel, performanceLevel_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
       };
       SystemDisk() = default ;
       SystemDisk(const SystemDisk &) = default ;
@@ -153,7 +179,8 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->category_ == nullptr; };
+      virtual bool empty() const override { return this->category_ == nullptr
+        && this->performanceLevel_ == nullptr && this->size_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -161,21 +188,30 @@ namespace Models
       inline SystemDisk& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
+      // performanceLevel Field Functions 
+      bool hasPerformanceLevel() const { return this->performanceLevel_ != nullptr;};
+      void deletePerformanceLevel() { this->performanceLevel_ = nullptr;};
+      inline string getPerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(performanceLevel_, "") };
+      inline SystemDisk& setPerformanceLevel(string performanceLevel) { DARABONBA_PTR_SET_VALUE(performanceLevel_, performanceLevel) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline int32_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0) };
+      inline SystemDisk& setSize(int32_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
     protected:
-      // The category of the system disk. You must specify this parameter only when you upgrade a non-I/O optimized instance of a retired instance type to an I/O optimized instance of an available instance type. For more information about instance types, see [Instance families](https://help.aliyun.com/document_detail/25378.html) and [Retired instance types](https://help.aliyun.com/document_detail/55263.html).
-      // 
-      // Valid values:
-      // 
-      // *   cloud_efficiency: ultra disk
-      // *   cloud_ssd: standard SSD
-      // 
-      // This parameter is empty by default.
       shared_ptr<string> category_ {};
+      shared_ptr<string> performanceLevel_ {};
+      shared_ptr<int32_t> size_ {};
     };
 
     virtual bool empty() const override { return this->systemDisk_ == nullptr
-        && this->dataDisk_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->dataDisk_ == nullptr && this->endTime_ == nullptr && this->ISP_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr; };
     // systemDisk Field Functions 
     bool hasSystemDisk() const { return this->systemDisk_ != nullptr;};
     void deleteSystemDisk() { this->systemDisk_ = nullptr;};
@@ -194,6 +230,27 @@ namespace Models
     inline DescribeInstanceModificationPriceRequest& setDataDisk(vector<DescribeInstanceModificationPriceRequest::DataDisk> && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
 
 
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline DescribeInstanceModificationPriceRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // ISP Field Functions 
+    bool hasISP() const { return this->ISP_ != nullptr;};
+    void deleteISP() { this->ISP_ = nullptr;};
+    inline string getISP() const { DARABONBA_PTR_GET_DEFAULT(ISP_, "") };
+    inline DescribeInstanceModificationPriceRequest& setISP(string ISP) { DARABONBA_PTR_SET_VALUE(ISP_, ISP) };
+
+
+    // imageId Field Functions 
+    bool hasImageId() const { return this->imageId_ != nullptr;};
+    void deleteImageId() { this->imageId_ = nullptr;};
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline DescribeInstanceModificationPriceRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -206,6 +263,20 @@ namespace Models
     void deleteInstanceType() { this->instanceType_ = nullptr;};
     inline string getInstanceType() const { DARABONBA_PTR_GET_DEFAULT(instanceType_, "") };
     inline DescribeInstanceModificationPriceRequest& setInstanceType(string instanceType) { DARABONBA_PTR_SET_VALUE(instanceType_, instanceType) };
+
+
+    // internetChargeType Field Functions 
+    bool hasInternetChargeType() const { return this->internetChargeType_ != nullptr;};
+    void deleteInternetChargeType() { this->internetChargeType_ = nullptr;};
+    inline string getInternetChargeType() const { DARABONBA_PTR_GET_DEFAULT(internetChargeType_, "") };
+    inline DescribeInstanceModificationPriceRequest& setInternetChargeType(string internetChargeType) { DARABONBA_PTR_SET_VALUE(internetChargeType_, internetChargeType) };
+
+
+    // internetMaxBandwidthOut Field Functions 
+    bool hasInternetMaxBandwidthOut() const { return this->internetMaxBandwidthOut_ != nullptr;};
+    void deleteInternetMaxBandwidthOut() { this->internetMaxBandwidthOut_ = nullptr;};
+    inline int32_t getInternetMaxBandwidthOut() const { DARABONBA_PTR_GET_DEFAULT(internetMaxBandwidthOut_, 0) };
+    inline DescribeInstanceModificationPriceRequest& setInternetMaxBandwidthOut(int32_t internetMaxBandwidthOut) { DARABONBA_PTR_SET_VALUE(internetMaxBandwidthOut_, internetMaxBandwidthOut) };
 
 
     // ownerAccount Field Functions 
@@ -243,10 +314,20 @@ namespace Models
     inline DescribeInstanceModificationPriceRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline DescribeInstanceModificationPriceRequest& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
   protected:
     shared_ptr<DescribeInstanceModificationPriceRequest::SystemDisk> systemDisk_ {};
     // The information about data disks.
     shared_ptr<vector<DescribeInstanceModificationPriceRequest::DataDisk>> dataDisk_ {};
+    shared_ptr<string> endTime_ {};
+    shared_ptr<string> ISP_ {};
+    shared_ptr<string> imageId_ {};
     // The ID of the instance for which you want to query pricing information for a configuration upgrade.
     // 
     // This parameter is required.
@@ -255,6 +336,8 @@ namespace Models
     // 
     // > When you call the DescribeInstanceModificationPrice operation, you must specify at least one of the following parameters: `InstanceType` and `DataDisk.N.*`.
     shared_ptr<string> instanceType_ {};
+    shared_ptr<string> internetChargeType_ {};
+    shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
@@ -263,6 +346,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> startTime_ {};
   };
 
   } // namespace Models

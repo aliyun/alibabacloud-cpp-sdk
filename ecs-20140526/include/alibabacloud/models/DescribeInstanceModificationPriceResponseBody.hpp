@@ -36,10 +36,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const PriceInfo& obj) { 
         DARABONBA_PTR_TO_JSON(Price, price_);
+        DARABONBA_PTR_TO_JSON(RelatedPrice, relatedPrice_);
         DARABONBA_PTR_TO_JSON(Rules, rules_);
       };
       friend void from_json(const Darabonba::Json& j, PriceInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(Price, price_);
+        DARABONBA_PTR_FROM_JSON(RelatedPrice, relatedPrice_);
         DARABONBA_PTR_FROM_JSON(Rules, rules_);
       };
       PriceInfo() = default ;
@@ -126,6 +128,101 @@ namespace Models
 
       protected:
         shared_ptr<vector<Rules::Rule>> rule_ {};
+      };
+
+      class RelatedPrice : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const RelatedPrice& obj) { 
+          DARABONBA_PTR_TO_JSON(MarketplaceImagePrice, marketplaceImagePrice_);
+        };
+        friend void from_json(const Darabonba::Json& j, RelatedPrice& obj) { 
+          DARABONBA_PTR_FROM_JSON(MarketplaceImagePrice, marketplaceImagePrice_);
+        };
+        RelatedPrice() = default ;
+        RelatedPrice(const RelatedPrice &) = default ;
+        RelatedPrice(RelatedPrice &&) = default ;
+        RelatedPrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~RelatedPrice() = default ;
+        RelatedPrice& operator=(const RelatedPrice &) = default ;
+        RelatedPrice& operator=(RelatedPrice &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class MarketplaceImagePrice : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const MarketplaceImagePrice& obj) { 
+            DARABONBA_PTR_TO_JSON(Currency, currency_);
+            DARABONBA_PTR_TO_JSON(DiscountPrice, discountPrice_);
+            DARABONBA_PTR_TO_JSON(OriginalPrice, originalPrice_);
+            DARABONBA_PTR_TO_JSON(TradePrice, tradePrice_);
+          };
+          friend void from_json(const Darabonba::Json& j, MarketplaceImagePrice& obj) { 
+            DARABONBA_PTR_FROM_JSON(Currency, currency_);
+            DARABONBA_PTR_FROM_JSON(DiscountPrice, discountPrice_);
+            DARABONBA_PTR_FROM_JSON(OriginalPrice, originalPrice_);
+            DARABONBA_PTR_FROM_JSON(TradePrice, tradePrice_);
+          };
+          MarketplaceImagePrice() = default ;
+          MarketplaceImagePrice(const MarketplaceImagePrice &) = default ;
+          MarketplaceImagePrice(MarketplaceImagePrice &&) = default ;
+          MarketplaceImagePrice(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~MarketplaceImagePrice() = default ;
+          MarketplaceImagePrice& operator=(const MarketplaceImagePrice &) = default ;
+          MarketplaceImagePrice& operator=(MarketplaceImagePrice &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->currency_ == nullptr
+        && this->discountPrice_ == nullptr && this->originalPrice_ == nullptr && this->tradePrice_ == nullptr; };
+          // currency Field Functions 
+          bool hasCurrency() const { return this->currency_ != nullptr;};
+          void deleteCurrency() { this->currency_ = nullptr;};
+          inline string getCurrency() const { DARABONBA_PTR_GET_DEFAULT(currency_, "") };
+          inline MarketplaceImagePrice& setCurrency(string currency) { DARABONBA_PTR_SET_VALUE(currency_, currency) };
+
+
+          // discountPrice Field Functions 
+          bool hasDiscountPrice() const { return this->discountPrice_ != nullptr;};
+          void deleteDiscountPrice() { this->discountPrice_ = nullptr;};
+          inline float getDiscountPrice() const { DARABONBA_PTR_GET_DEFAULT(discountPrice_, 0.0) };
+          inline MarketplaceImagePrice& setDiscountPrice(float discountPrice) { DARABONBA_PTR_SET_VALUE(discountPrice_, discountPrice) };
+
+
+          // originalPrice Field Functions 
+          bool hasOriginalPrice() const { return this->originalPrice_ != nullptr;};
+          void deleteOriginalPrice() { this->originalPrice_ = nullptr;};
+          inline float getOriginalPrice() const { DARABONBA_PTR_GET_DEFAULT(originalPrice_, 0.0) };
+          inline MarketplaceImagePrice& setOriginalPrice(float originalPrice) { DARABONBA_PTR_SET_VALUE(originalPrice_, originalPrice) };
+
+
+          // tradePrice Field Functions 
+          bool hasTradePrice() const { return this->tradePrice_ != nullptr;};
+          void deleteTradePrice() { this->tradePrice_ = nullptr;};
+          inline float getTradePrice() const { DARABONBA_PTR_GET_DEFAULT(tradePrice_, 0.0) };
+          inline MarketplaceImagePrice& setTradePrice(float tradePrice) { DARABONBA_PTR_SET_VALUE(tradePrice_, tradePrice) };
+
+
+        protected:
+          shared_ptr<string> currency_ {};
+          shared_ptr<float> discountPrice_ {};
+          shared_ptr<float> originalPrice_ {};
+          shared_ptr<float> tradePrice_ {};
+        };
+
+        virtual bool empty() const override { return this->marketplaceImagePrice_ == nullptr; };
+        // marketplaceImagePrice Field Functions 
+        bool hasMarketplaceImagePrice() const { return this->marketplaceImagePrice_ != nullptr;};
+        void deleteMarketplaceImagePrice() { this->marketplaceImagePrice_ = nullptr;};
+        inline const RelatedPrice::MarketplaceImagePrice & getMarketplaceImagePrice() const { DARABONBA_PTR_GET_CONST(marketplaceImagePrice_, RelatedPrice::MarketplaceImagePrice) };
+        inline RelatedPrice::MarketplaceImagePrice getMarketplaceImagePrice() { DARABONBA_PTR_GET(marketplaceImagePrice_, RelatedPrice::MarketplaceImagePrice) };
+        inline RelatedPrice& setMarketplaceImagePrice(const RelatedPrice::MarketplaceImagePrice & marketplaceImagePrice) { DARABONBA_PTR_SET_VALUE(marketplaceImagePrice_, marketplaceImagePrice) };
+        inline RelatedPrice& setMarketplaceImagePrice(RelatedPrice::MarketplaceImagePrice && marketplaceImagePrice) { DARABONBA_PTR_SET_RVALUE(marketplaceImagePrice_, marketplaceImagePrice) };
+
+
+      protected:
+        shared_ptr<RelatedPrice::MarketplaceImagePrice> marketplaceImagePrice_ {};
       };
 
       class Price : public Darabonba::Model {
@@ -392,7 +489,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->price_ == nullptr
-        && this->rules_ == nullptr; };
+        && this->relatedPrice_ == nullptr && this->rules_ == nullptr; };
       // price Field Functions 
       bool hasPrice() const { return this->price_ != nullptr;};
       void deletePrice() { this->price_ = nullptr;};
@@ -400,6 +497,15 @@ namespace Models
       inline PriceInfo::Price getPrice() { DARABONBA_PTR_GET(price_, PriceInfo::Price) };
       inline PriceInfo& setPrice(const PriceInfo::Price & price) { DARABONBA_PTR_SET_VALUE(price_, price) };
       inline PriceInfo& setPrice(PriceInfo::Price && price) { DARABONBA_PTR_SET_RVALUE(price_, price) };
+
+
+      // relatedPrice Field Functions 
+      bool hasRelatedPrice() const { return this->relatedPrice_ != nullptr;};
+      void deleteRelatedPrice() { this->relatedPrice_ = nullptr;};
+      inline const PriceInfo::RelatedPrice & getRelatedPrice() const { DARABONBA_PTR_GET_CONST(relatedPrice_, PriceInfo::RelatedPrice) };
+      inline PriceInfo::RelatedPrice getRelatedPrice() { DARABONBA_PTR_GET(relatedPrice_, PriceInfo::RelatedPrice) };
+      inline PriceInfo& setRelatedPrice(const PriceInfo::RelatedPrice & relatedPrice) { DARABONBA_PTR_SET_VALUE(relatedPrice_, relatedPrice) };
+      inline PriceInfo& setRelatedPrice(PriceInfo::RelatedPrice && relatedPrice) { DARABONBA_PTR_SET_RVALUE(relatedPrice_, relatedPrice) };
 
 
       // rules Field Functions 
@@ -414,6 +520,7 @@ namespace Models
     protected:
       // The price.
       shared_ptr<PriceInfo::Price> price_ {};
+      shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
     };
 

@@ -15040,12 +15040,32 @@ DescribeInstanceModificationPriceResponse Client::describeInstanceModificationPr
     query["DataDisk"] = request.getDataDisk();
   }
 
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasISP()) {
+    query["ISP"] = request.getISP();
+  }
+
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
     query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasInternetChargeType()) {
+    query["InternetChargeType"] = request.getInternetChargeType();
+  }
+
+  if (!!request.hasInternetMaxBandwidthOut()) {
+    query["InternetMaxBandwidthOut"] = request.getInternetMaxBandwidthOut();
   }
 
   if (!!request.hasOwnerAccount()) {
@@ -15066,6 +15086,10 @@ DescribeInstanceModificationPriceResponse Client::describeInstanceModificationPr
 
   if (!!request.hasResourceOwnerId()) {
     query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasSystemDisk()) {
