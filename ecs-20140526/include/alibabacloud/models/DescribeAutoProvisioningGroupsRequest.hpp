@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoProvisioningGroupId, autoProvisioningGroupId_);
       DARABONBA_PTR_TO_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
       DARABONBA_PTR_TO_JSON(AutoProvisioningGroupStatus, autoProvisioningGroupStatus_);
+      DARABONBA_PTR_TO_JSON(AutoProvisioningGroupTypes, autoProvisioningGroupTypes_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupId, autoProvisioningGroupId_);
       DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
       DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupStatus, autoProvisioningGroupStatus_);
+      DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupTypes, autoProvisioningGroupTypes_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
@@ -101,9 +103,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
-        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupStatus_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->tag_ == nullptr; };
+        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupStatus_ == nullptr && this->autoProvisioningGroupTypes_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr; };
     // autoProvisioningGroupId Field Functions 
     bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
     void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};
@@ -127,6 +129,15 @@ namespace Models
     inline vector<string> getAutoProvisioningGroupStatus() { DARABONBA_PTR_GET(autoProvisioningGroupStatus_, vector<string>) };
     inline DescribeAutoProvisioningGroupsRequest& setAutoProvisioningGroupStatus(const vector<string> & autoProvisioningGroupStatus) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupStatus_, autoProvisioningGroupStatus) };
     inline DescribeAutoProvisioningGroupsRequest& setAutoProvisioningGroupStatus(vector<string> && autoProvisioningGroupStatus) { DARABONBA_PTR_SET_RVALUE(autoProvisioningGroupStatus_, autoProvisioningGroupStatus) };
+
+
+    // autoProvisioningGroupTypes Field Functions 
+    bool hasAutoProvisioningGroupTypes() const { return this->autoProvisioningGroupTypes_ != nullptr;};
+    void deleteAutoProvisioningGroupTypes() { this->autoProvisioningGroupTypes_ = nullptr;};
+    inline const vector<string> & getAutoProvisioningGroupTypes() const { DARABONBA_PTR_GET_CONST(autoProvisioningGroupTypes_, vector<string>) };
+    inline vector<string> getAutoProvisioningGroupTypes() { DARABONBA_PTR_GET(autoProvisioningGroupTypes_, vector<string>) };
+    inline DescribeAutoProvisioningGroupsRequest& setAutoProvisioningGroupTypes(const vector<string> & autoProvisioningGroupTypes) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupTypes_, autoProvisioningGroupTypes) };
+    inline DescribeAutoProvisioningGroupsRequest& setAutoProvisioningGroupTypes(vector<string> && autoProvisioningGroupTypes) { DARABONBA_PTR_SET_RVALUE(autoProvisioningGroupTypes_, autoProvisioningGroupTypes) };
 
 
     // ownerAccount Field Functions 
@@ -201,6 +212,7 @@ namespace Models
     shared_ptr<string> autoProvisioningGroupName_ {};
     // The status of the auto provisioning group.
     shared_ptr<vector<string>> autoProvisioningGroupStatus_ {};
+    shared_ptr<vector<string>> autoProvisioningGroupTypes_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.

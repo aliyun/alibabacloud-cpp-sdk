@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LaunchConfiguration, launchConfiguration_);
       DARABONBA_PTR_TO_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
       DARABONBA_PTR_TO_JSON(AutoProvisioningGroupType, autoProvisioningGroupType_);
+      DARABONBA_PTR_TO_JSON(CandidateOptions, candidateOptions_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DataDiskConfig, dataDiskConfig_);
       DARABONBA_PTR_TO_JSON(DefaultTargetCapacityType, defaultTargetCapacityType_);
@@ -55,6 +56,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LaunchConfiguration, launchConfiguration_);
       DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
       DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupType, autoProvisioningGroupType_);
+      DARABONBA_PTR_FROM_JSON(CandidateOptions, candidateOptions_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DataDiskConfig, dataDiskConfig_);
       DARABONBA_PTR_FROM_JSON(DefaultTargetCapacityType, defaultTargetCapacityType_);
@@ -550,6 +552,48 @@ namespace Models
       // - cloud_essd: ESSD
       // - cloud: basic disk
       shared_ptr<string> diskCategory_ {};
+    };
+
+    class CandidateOptions : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const CandidateOptions& obj) { 
+        DARABONBA_PTR_TO_JSON(Evaluate, evaluate_);
+        DARABONBA_PTR_TO_JSON(TimeoutMinutes, timeoutMinutes_);
+      };
+      friend void from_json(const Darabonba::Json& j, CandidateOptions& obj) { 
+        DARABONBA_PTR_FROM_JSON(Evaluate, evaluate_);
+        DARABONBA_PTR_FROM_JSON(TimeoutMinutes, timeoutMinutes_);
+      };
+      CandidateOptions() = default ;
+      CandidateOptions(const CandidateOptions &) = default ;
+      CandidateOptions(CandidateOptions &&) = default ;
+      CandidateOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~CandidateOptions() = default ;
+      CandidateOptions& operator=(const CandidateOptions &) = default ;
+      CandidateOptions& operator=(CandidateOptions &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->evaluate_ == nullptr
+        && this->timeoutMinutes_ == nullptr; };
+      // evaluate Field Functions 
+      bool hasEvaluate() const { return this->evaluate_ != nullptr;};
+      void deleteEvaluate() { this->evaluate_ = nullptr;};
+      inline bool getEvaluate() const { DARABONBA_PTR_GET_DEFAULT(evaluate_, false) };
+      inline CandidateOptions& setEvaluate(bool evaluate) { DARABONBA_PTR_SET_VALUE(evaluate_, evaluate) };
+
+
+      // timeoutMinutes Field Functions 
+      bool hasTimeoutMinutes() const { return this->timeoutMinutes_ != nullptr;};
+      void deleteTimeoutMinutes() { this->timeoutMinutes_ = nullptr;};
+      inline int32_t getTimeoutMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutMinutes_, 0) };
+      inline CandidateOptions& setTimeoutMinutes(int32_t timeoutMinutes) { DARABONBA_PTR_SET_VALUE(timeoutMinutes_, timeoutMinutes) };
+
+
+    protected:
+      shared_ptr<bool> evaluate_ {};
+      shared_ptr<int32_t> timeoutMinutes_ {};
     };
 
     class LaunchConfiguration : public Darabonba::Model {
@@ -1800,13 +1844,14 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->launchConfiguration_ == nullptr
-        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupType_ == nullptr && this->clientToken_ == nullptr && this->dataDiskConfig_ == nullptr && this->defaultTargetCapacityType_ == nullptr
-        && this->description_ == nullptr && this->excessCapacityTerminationPolicy_ == nullptr && this->executionMode_ == nullptr && this->hibernationOptionsConfigured_ == nullptr && this->launchTemplateConfig_ == nullptr
-        && this->launchTemplateId_ == nullptr && this->launchTemplateVersion_ == nullptr && this->maxSpotPrice_ == nullptr && this->minTargetCapacity_ == nullptr && this->ownerAccount_ == nullptr
-        && this->ownerId_ == nullptr && this->payAsYouGoAllocationStrategy_ == nullptr && this->payAsYouGoTargetCapacity_ == nullptr && this->prePaidOptions_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourcePoolOptions_ == nullptr && this->spotAllocationStrategy_ == nullptr
-        && this->spotInstanceInterruptionBehavior_ == nullptr && this->spotInstancePoolsToUseCount_ == nullptr && this->spotTargetCapacity_ == nullptr && this->systemDiskConfig_ == nullptr && this->tag_ == nullptr
-        && this->terminateInstances_ == nullptr && this->terminateInstancesWithExpiration_ == nullptr && this->totalTargetCapacity_ == nullptr && this->validFrom_ == nullptr && this->validUntil_ == nullptr; };
+        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupType_ == nullptr && this->candidateOptions_ == nullptr && this->clientToken_ == nullptr && this->dataDiskConfig_ == nullptr
+        && this->defaultTargetCapacityType_ == nullptr && this->description_ == nullptr && this->excessCapacityTerminationPolicy_ == nullptr && this->executionMode_ == nullptr && this->hibernationOptionsConfigured_ == nullptr
+        && this->launchTemplateConfig_ == nullptr && this->launchTemplateId_ == nullptr && this->launchTemplateVersion_ == nullptr && this->maxSpotPrice_ == nullptr && this->minTargetCapacity_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->payAsYouGoAllocationStrategy_ == nullptr && this->payAsYouGoTargetCapacity_ == nullptr && this->prePaidOptions_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourcePoolOptions_ == nullptr
+        && this->spotAllocationStrategy_ == nullptr && this->spotInstanceInterruptionBehavior_ == nullptr && this->spotInstancePoolsToUseCount_ == nullptr && this->spotTargetCapacity_ == nullptr && this->systemDiskConfig_ == nullptr
+        && this->tag_ == nullptr && this->terminateInstances_ == nullptr && this->terminateInstancesWithExpiration_ == nullptr && this->totalTargetCapacity_ == nullptr && this->validFrom_ == nullptr
+        && this->validUntil_ == nullptr; };
     // launchConfiguration Field Functions 
     bool hasLaunchConfiguration() const { return this->launchConfiguration_ != nullptr;};
     void deleteLaunchConfiguration() { this->launchConfiguration_ = nullptr;};
@@ -1828,6 +1873,15 @@ namespace Models
     void deleteAutoProvisioningGroupType() { this->autoProvisioningGroupType_ = nullptr;};
     inline string getAutoProvisioningGroupType() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupType_, "") };
     inline CreateAutoProvisioningGroupRequest& setAutoProvisioningGroupType(string autoProvisioningGroupType) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupType_, autoProvisioningGroupType) };
+
+
+    // candidateOptions Field Functions 
+    bool hasCandidateOptions() const { return this->candidateOptions_ != nullptr;};
+    void deleteCandidateOptions() { this->candidateOptions_ = nullptr;};
+    inline const CreateAutoProvisioningGroupRequest::CandidateOptions & getCandidateOptions() const { DARABONBA_PTR_GET_CONST(candidateOptions_, CreateAutoProvisioningGroupRequest::CandidateOptions) };
+    inline CreateAutoProvisioningGroupRequest::CandidateOptions getCandidateOptions() { DARABONBA_PTR_GET(candidateOptions_, CreateAutoProvisioningGroupRequest::CandidateOptions) };
+    inline CreateAutoProvisioningGroupRequest& setCandidateOptions(const CreateAutoProvisioningGroupRequest::CandidateOptions & candidateOptions) { DARABONBA_PTR_SET_VALUE(candidateOptions_, candidateOptions) };
+    inline CreateAutoProvisioningGroupRequest& setCandidateOptions(CreateAutoProvisioningGroupRequest::CandidateOptions && candidateOptions) { DARABONBA_PTR_SET_RVALUE(candidateOptions_, candidateOptions) };
 
 
     // clientToken Field Functions 
@@ -2085,6 +2139,7 @@ namespace Models
     // 
     // Default value: maintain.
     shared_ptr<string> autoProvisioningGroupType_ {};
+    shared_ptr<CreateAutoProvisioningGroupRequest::CandidateOptions> candidateOptions_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The information of data disks on the instance.

@@ -683,7 +683,7 @@ AllocatePublicIpAddressResponse Client::allocatePublicIpAddress(const AllocatePu
 }
 
 /**
- * @summary Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+ * @summary Applies an automatic snapshot policy to one or more disks.
  *
  * @description ## [](#)Usage notes
  * When you call this operation, note that:
@@ -746,7 +746,7 @@ ApplyAutoSnapshotPolicyResponse Client::applyAutoSnapshotPolicyWithOptions(const
 }
 
 /**
- * @summary Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+ * @summary Applies an automatic snapshot policy to one or more disks.
  *
  * @description ## [](#)Usage notes
  * When you call this operation, note that:
@@ -2025,7 +2025,7 @@ AuthorizeSecurityGroupEgressResponse Client::authorizeSecurityGroupEgress(const 
 }
 
 /**
- * @summary Disables an automatic snapshot policy for one or more cloud disks.
+ * @summary Disables automatic snapshot policies for one or more disks.
  *
  * @param request CancelAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2076,7 +2076,7 @@ CancelAutoSnapshotPolicyResponse Client::cancelAutoSnapshotPolicyWithOptions(con
 }
 
 /**
- * @summary Disables an automatic snapshot policy for one or more cloud disks.
+ * @summary Disables automatic snapshot policies for one or more disks.
  *
  * @param request CancelAutoSnapshotPolicyRequest
  * @return CancelAutoSnapshotPolicyResponse
@@ -3060,6 +3060,10 @@ CreateAutoProvisioningGroupResponse Client::createAutoProvisioningGroupWithOptio
 
   if (!!request.hasAutoProvisioningGroupType()) {
     query["AutoProvisioningGroupType"] = request.getAutoProvisioningGroupType();
+  }
+
+  if (!!request.hasCandidateOptions()) {
+    query["CandidateOptions"] = request.getCandidateOptions();
   }
 
   if (!!request.hasClientToken()) {
@@ -10673,7 +10677,7 @@ DescribeActivationsResponse Client::describeActivations(const DescribeActivation
 }
 
 /**
- * @summary Queries the scheduling tasks of an auto provisioning group.
+ * @summary Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
  *
  * @param request DescribeAutoProvisioningGroupHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10740,7 +10744,7 @@ DescribeAutoProvisioningGroupHistoryResponse Client::describeAutoProvisioningGro
 }
 
 /**
- * @summary Queries the scheduling tasks of an auto provisioning group.
+ * @summary Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
  *
  * @param request DescribeAutoProvisioningGroupHistoryRequest
  * @return DescribeAutoProvisioningGroupHistoryResponse
@@ -10840,6 +10844,10 @@ DescribeAutoProvisioningGroupsResponse Client::describeAutoProvisioningGroupsWit
 
   if (!!request.hasAutoProvisioningGroupStatus()) {
     query["AutoProvisioningGroupStatus"] = request.getAutoProvisioningGroupStatus();
+  }
+
+  if (!!request.hasAutoProvisioningGroupTypes()) {
+    query["AutoProvisioningGroupTypes"] = request.getAutoProvisioningGroupTypes();
   }
 
   if (!!request.hasOwnerAccount()) {

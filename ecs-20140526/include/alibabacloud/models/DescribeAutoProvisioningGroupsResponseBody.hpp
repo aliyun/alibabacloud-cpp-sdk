@@ -63,6 +63,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AutoProvisioningGroupId, autoProvisioningGroupId_);
           DARABONBA_PTR_TO_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
           DARABONBA_PTR_TO_JSON(AutoProvisioningGroupType, autoProvisioningGroupType_);
+          DARABONBA_PTR_TO_JSON(CandidateOptions, candidateOptions_);
+          DARABONBA_PTR_TO_JSON(CapacitySpecification, capacitySpecification_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(ExcessCapacityTerminationPolicy, excessCapacityTerminationPolicy_);
           DARABONBA_PTR_TO_JSON(LaunchTemplateConfigs, launchTemplateConfigs_);
@@ -75,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SpotOptions, spotOptions_);
           DARABONBA_PTR_TO_JSON(State, state_);
           DARABONBA_PTR_TO_JSON(Status, status_);
+          DARABONBA_PTR_TO_JSON(SuspendedProcesses, suspendedProcesses_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
           DARABONBA_PTR_TO_JSON(TargetCapacitySpecification, targetCapacitySpecification_);
           DARABONBA_PTR_TO_JSON(TerminateInstances, terminateInstances_);
@@ -86,6 +89,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupId, autoProvisioningGroupId_);
           DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupName, autoProvisioningGroupName_);
           DARABONBA_PTR_FROM_JSON(AutoProvisioningGroupType, autoProvisioningGroupType_);
+          DARABONBA_PTR_FROM_JSON(CandidateOptions, candidateOptions_);
+          DARABONBA_PTR_FROM_JSON(CapacitySpecification, capacitySpecification_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(ExcessCapacityTerminationPolicy, excessCapacityTerminationPolicy_);
           DARABONBA_PTR_FROM_JSON(LaunchTemplateConfigs, launchTemplateConfigs_);
@@ -98,6 +103,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SpotOptions, spotOptions_);
           DARABONBA_PTR_FROM_JSON(State, state_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
+          DARABONBA_PTR_FROM_JSON(SuspendedProcesses, suspendedProcesses_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
           DARABONBA_PTR_FROM_JSON(TargetCapacitySpecification, targetCapacitySpecification_);
           DARABONBA_PTR_FROM_JSON(TerminateInstances, terminateInstances_);
@@ -251,6 +257,39 @@ namespace Models
 
         protected:
           shared_ptr<vector<Tags::Tag>> tag_ {};
+        };
+
+        class SuspendedProcesses : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SuspendedProcesses& obj) { 
+            DARABONBA_PTR_TO_JSON(SuspendedProcess, suspendedProcess_);
+          };
+          friend void from_json(const Darabonba::Json& j, SuspendedProcesses& obj) { 
+            DARABONBA_PTR_FROM_JSON(SuspendedProcess, suspendedProcess_);
+          };
+          SuspendedProcesses() = default ;
+          SuspendedProcesses(const SuspendedProcesses &) = default ;
+          SuspendedProcesses(SuspendedProcesses &&) = default ;
+          SuspendedProcesses(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SuspendedProcesses() = default ;
+          SuspendedProcesses& operator=(const SuspendedProcesses &) = default ;
+          SuspendedProcesses& operator=(SuspendedProcesses &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->suspendedProcess_ == nullptr; };
+          // suspendedProcess Field Functions 
+          bool hasSuspendedProcess() const { return this->suspendedProcess_ != nullptr;};
+          void deleteSuspendedProcess() { this->suspendedProcess_ = nullptr;};
+          inline const vector<string> & getSuspendedProcess() const { DARABONBA_PTR_GET_CONST(suspendedProcess_, vector<string>) };
+          inline vector<string> getSuspendedProcess() { DARABONBA_PTR_GET(suspendedProcess_, vector<string>) };
+          inline SuspendedProcesses& setSuspendedProcess(const vector<string> & suspendedProcess) { DARABONBA_PTR_SET_VALUE(suspendedProcess_, suspendedProcess) };
+          inline SuspendedProcesses& setSuspendedProcess(vector<string> && suspendedProcess) { DARABONBA_PTR_SET_RVALUE(suspendedProcess_, suspendedProcess) };
+
+
+        protected:
+          shared_ptr<vector<string>> suspendedProcess_ {};
         };
 
         class SpotOptions : public Darabonba::Model {
@@ -441,11 +480,105 @@ namespace Models
           shared_ptr<vector<LaunchTemplateConfigs::LaunchTemplateConfig>> launchTemplateConfig_ {};
         };
 
+        class CapacitySpecification : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CapacitySpecification& obj) { 
+            DARABONBA_PTR_TO_JSON(PayAsYouGoCapacity, payAsYouGoCapacity_);
+            DARABONBA_PTR_TO_JSON(PrePaidCapacity, prePaidCapacity_);
+            DARABONBA_PTR_TO_JSON(SpotCapacity, spotCapacity_);
+            DARABONBA_PTR_TO_JSON(TotalCapacity, totalCapacity_);
+          };
+          friend void from_json(const Darabonba::Json& j, CapacitySpecification& obj) { 
+            DARABONBA_PTR_FROM_JSON(PayAsYouGoCapacity, payAsYouGoCapacity_);
+            DARABONBA_PTR_FROM_JSON(PrePaidCapacity, prePaidCapacity_);
+            DARABONBA_PTR_FROM_JSON(SpotCapacity, spotCapacity_);
+            DARABONBA_PTR_FROM_JSON(TotalCapacity, totalCapacity_);
+          };
+          CapacitySpecification() = default ;
+          CapacitySpecification(const CapacitySpecification &) = default ;
+          CapacitySpecification(CapacitySpecification &&) = default ;
+          CapacitySpecification(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CapacitySpecification() = default ;
+          CapacitySpecification& operator=(const CapacitySpecification &) = default ;
+          CapacitySpecification& operator=(CapacitySpecification &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->payAsYouGoCapacity_ == nullptr
+        && this->prePaidCapacity_ == nullptr && this->spotCapacity_ == nullptr && this->totalCapacity_ == nullptr; };
+          // payAsYouGoCapacity Field Functions 
+          bool hasPayAsYouGoCapacity() const { return this->payAsYouGoCapacity_ != nullptr;};
+          void deletePayAsYouGoCapacity() { this->payAsYouGoCapacity_ = nullptr;};
+          inline float getPayAsYouGoCapacity() const { DARABONBA_PTR_GET_DEFAULT(payAsYouGoCapacity_, 0.0) };
+          inline CapacitySpecification& setPayAsYouGoCapacity(float payAsYouGoCapacity) { DARABONBA_PTR_SET_VALUE(payAsYouGoCapacity_, payAsYouGoCapacity) };
+
+
+          // prePaidCapacity Field Functions 
+          bool hasPrePaidCapacity() const { return this->prePaidCapacity_ != nullptr;};
+          void deletePrePaidCapacity() { this->prePaidCapacity_ = nullptr;};
+          inline float getPrePaidCapacity() const { DARABONBA_PTR_GET_DEFAULT(prePaidCapacity_, 0.0) };
+          inline CapacitySpecification& setPrePaidCapacity(float prePaidCapacity) { DARABONBA_PTR_SET_VALUE(prePaidCapacity_, prePaidCapacity) };
+
+
+          // spotCapacity Field Functions 
+          bool hasSpotCapacity() const { return this->spotCapacity_ != nullptr;};
+          void deleteSpotCapacity() { this->spotCapacity_ = nullptr;};
+          inline float getSpotCapacity() const { DARABONBA_PTR_GET_DEFAULT(spotCapacity_, 0.0) };
+          inline CapacitySpecification& setSpotCapacity(float spotCapacity) { DARABONBA_PTR_SET_VALUE(spotCapacity_, spotCapacity) };
+
+
+          // totalCapacity Field Functions 
+          bool hasTotalCapacity() const { return this->totalCapacity_ != nullptr;};
+          void deleteTotalCapacity() { this->totalCapacity_ = nullptr;};
+          inline float getTotalCapacity() const { DARABONBA_PTR_GET_DEFAULT(totalCapacity_, 0.0) };
+          inline CapacitySpecification& setTotalCapacity(float totalCapacity) { DARABONBA_PTR_SET_VALUE(totalCapacity_, totalCapacity) };
+
+
+        protected:
+          shared_ptr<float> payAsYouGoCapacity_ {};
+          shared_ptr<float> prePaidCapacity_ {};
+          shared_ptr<float> spotCapacity_ {};
+          shared_ptr<float> totalCapacity_ {};
+        };
+
+        class CandidateOptions : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const CandidateOptions& obj) { 
+            DARABONBA_PTR_TO_JSON(TimeoutMinutes, timeoutMinutes_);
+          };
+          friend void from_json(const Darabonba::Json& j, CandidateOptions& obj) { 
+            DARABONBA_PTR_FROM_JSON(TimeoutMinutes, timeoutMinutes_);
+          };
+          CandidateOptions() = default ;
+          CandidateOptions(const CandidateOptions &) = default ;
+          CandidateOptions(CandidateOptions &&) = default ;
+          CandidateOptions(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~CandidateOptions() = default ;
+          CandidateOptions& operator=(const CandidateOptions &) = default ;
+          CandidateOptions& operator=(CandidateOptions &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->timeoutMinutes_ == nullptr; };
+          // timeoutMinutes Field Functions 
+          bool hasTimeoutMinutes() const { return this->timeoutMinutes_ != nullptr;};
+          void deleteTimeoutMinutes() { this->timeoutMinutes_ = nullptr;};
+          inline int32_t getTimeoutMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutMinutes_, 0) };
+          inline CandidateOptions& setTimeoutMinutes(int32_t timeoutMinutes) { DARABONBA_PTR_SET_VALUE(timeoutMinutes_, timeoutMinutes) };
+
+
+        protected:
+          shared_ptr<int32_t> timeoutMinutes_ {};
+        };
+
         virtual bool empty() const override { return this->autoProvisioningGroupId_ == nullptr
-        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupType_ == nullptr && this->creationTime_ == nullptr && this->excessCapacityTerminationPolicy_ == nullptr && this->launchTemplateConfigs_ == nullptr
-        && this->launchTemplateId_ == nullptr && this->launchTemplateVersion_ == nullptr && this->maxSpotPrice_ == nullptr && this->payAsYouGoOptions_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->spotOptions_ == nullptr && this->state_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->targetCapacitySpecification_ == nullptr && this->terminateInstances_ == nullptr && this->terminateInstancesWithExpiration_ == nullptr && this->validFrom_ == nullptr && this->validUntil_ == nullptr; };
+        && this->autoProvisioningGroupName_ == nullptr && this->autoProvisioningGroupType_ == nullptr && this->candidateOptions_ == nullptr && this->capacitySpecification_ == nullptr && this->creationTime_ == nullptr
+        && this->excessCapacityTerminationPolicy_ == nullptr && this->launchTemplateConfigs_ == nullptr && this->launchTemplateId_ == nullptr && this->launchTemplateVersion_ == nullptr && this->maxSpotPrice_ == nullptr
+        && this->payAsYouGoOptions_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->spotOptions_ == nullptr && this->state_ == nullptr
+        && this->status_ == nullptr && this->suspendedProcesses_ == nullptr && this->tags_ == nullptr && this->targetCapacitySpecification_ == nullptr && this->terminateInstances_ == nullptr
+        && this->terminateInstancesWithExpiration_ == nullptr && this->validFrom_ == nullptr && this->validUntil_ == nullptr; };
         // autoProvisioningGroupId Field Functions 
         bool hasAutoProvisioningGroupId() const { return this->autoProvisioningGroupId_ != nullptr;};
         void deleteAutoProvisioningGroupId() { this->autoProvisioningGroupId_ = nullptr;};
@@ -465,6 +598,24 @@ namespace Models
         void deleteAutoProvisioningGroupType() { this->autoProvisioningGroupType_ = nullptr;};
         inline string getAutoProvisioningGroupType() const { DARABONBA_PTR_GET_DEFAULT(autoProvisioningGroupType_, "") };
         inline AutoProvisioningGroup& setAutoProvisioningGroupType(string autoProvisioningGroupType) { DARABONBA_PTR_SET_VALUE(autoProvisioningGroupType_, autoProvisioningGroupType) };
+
+
+        // candidateOptions Field Functions 
+        bool hasCandidateOptions() const { return this->candidateOptions_ != nullptr;};
+        void deleteCandidateOptions() { this->candidateOptions_ = nullptr;};
+        inline const AutoProvisioningGroup::CandidateOptions & getCandidateOptions() const { DARABONBA_PTR_GET_CONST(candidateOptions_, AutoProvisioningGroup::CandidateOptions) };
+        inline AutoProvisioningGroup::CandidateOptions getCandidateOptions() { DARABONBA_PTR_GET(candidateOptions_, AutoProvisioningGroup::CandidateOptions) };
+        inline AutoProvisioningGroup& setCandidateOptions(const AutoProvisioningGroup::CandidateOptions & candidateOptions) { DARABONBA_PTR_SET_VALUE(candidateOptions_, candidateOptions) };
+        inline AutoProvisioningGroup& setCandidateOptions(AutoProvisioningGroup::CandidateOptions && candidateOptions) { DARABONBA_PTR_SET_RVALUE(candidateOptions_, candidateOptions) };
+
+
+        // capacitySpecification Field Functions 
+        bool hasCapacitySpecification() const { return this->capacitySpecification_ != nullptr;};
+        void deleteCapacitySpecification() { this->capacitySpecification_ = nullptr;};
+        inline const AutoProvisioningGroup::CapacitySpecification & getCapacitySpecification() const { DARABONBA_PTR_GET_CONST(capacitySpecification_, AutoProvisioningGroup::CapacitySpecification) };
+        inline AutoProvisioningGroup::CapacitySpecification getCapacitySpecification() { DARABONBA_PTR_GET(capacitySpecification_, AutoProvisioningGroup::CapacitySpecification) };
+        inline AutoProvisioningGroup& setCapacitySpecification(const AutoProvisioningGroup::CapacitySpecification & capacitySpecification) { DARABONBA_PTR_SET_VALUE(capacitySpecification_, capacitySpecification) };
+        inline AutoProvisioningGroup& setCapacitySpecification(AutoProvisioningGroup::CapacitySpecification && capacitySpecification) { DARABONBA_PTR_SET_RVALUE(capacitySpecification_, capacitySpecification) };
 
 
         // creationTime Field Functions 
@@ -557,6 +708,15 @@ namespace Models
         inline AutoProvisioningGroup& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+        // suspendedProcesses Field Functions 
+        bool hasSuspendedProcesses() const { return this->suspendedProcesses_ != nullptr;};
+        void deleteSuspendedProcesses() { this->suspendedProcesses_ = nullptr;};
+        inline const AutoProvisioningGroup::SuspendedProcesses & getSuspendedProcesses() const { DARABONBA_PTR_GET_CONST(suspendedProcesses_, AutoProvisioningGroup::SuspendedProcesses) };
+        inline AutoProvisioningGroup::SuspendedProcesses getSuspendedProcesses() { DARABONBA_PTR_GET(suspendedProcesses_, AutoProvisioningGroup::SuspendedProcesses) };
+        inline AutoProvisioningGroup& setSuspendedProcesses(const AutoProvisioningGroup::SuspendedProcesses & suspendedProcesses) { DARABONBA_PTR_SET_VALUE(suspendedProcesses_, suspendedProcesses) };
+        inline AutoProvisioningGroup& setSuspendedProcesses(AutoProvisioningGroup::SuspendedProcesses && suspendedProcesses) { DARABONBA_PTR_SET_RVALUE(suspendedProcesses_, suspendedProcesses) };
+
+
         // tags Field Functions 
         bool hasTags() const { return this->tags_ != nullptr;};
         void deleteTags() { this->tags_ = nullptr;};
@@ -607,6 +767,8 @@ namespace Models
         shared_ptr<string> autoProvisioningGroupId_ {};
         shared_ptr<string> autoProvisioningGroupName_ {};
         shared_ptr<string> autoProvisioningGroupType_ {};
+        shared_ptr<AutoProvisioningGroup::CandidateOptions> candidateOptions_ {};
+        shared_ptr<AutoProvisioningGroup::CapacitySpecification> capacitySpecification_ {};
         shared_ptr<string> creationTime_ {};
         shared_ptr<string> excessCapacityTerminationPolicy_ {};
         shared_ptr<AutoProvisioningGroup::LaunchTemplateConfigs> launchTemplateConfigs_ {};
@@ -619,6 +781,7 @@ namespace Models
         shared_ptr<AutoProvisioningGroup::SpotOptions> spotOptions_ {};
         shared_ptr<string> state_ {};
         shared_ptr<string> status_ {};
+        shared_ptr<AutoProvisioningGroup::SuspendedProcesses> suspendedProcesses_ {};
         shared_ptr<AutoProvisioningGroup::Tags> tags_ {};
         shared_ptr<AutoProvisioningGroup::TargetCapacitySpecification> targetCapacitySpecification_ {};
         shared_ptr<bool> terminateInstances_ {};

@@ -57,6 +57,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const LaunchResult& obj) { 
           DARABONBA_PTR_TO_JSON(Amount, amount_);
+          DARABONBA_PTR_TO_JSON(CandidateEvaluateLevel, candidateEvaluateLevel_);
           DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
           DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
           DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
@@ -66,6 +67,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, LaunchResult& obj) { 
           DARABONBA_PTR_FROM_JSON(Amount, amount_);
+          DARABONBA_PTR_FROM_JSON(CandidateEvaluateLevel, candidateEvaluateLevel_);
           DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
           DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
           DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
@@ -118,13 +120,20 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->amount_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->instanceIds_ == nullptr && this->instanceType_ == nullptr && this->spotStrategy_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->candidateEvaluateLevel_ == nullptr && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->instanceIds_ == nullptr && this->instanceType_ == nullptr
+        && this->spotStrategy_ == nullptr && this->zoneId_ == nullptr; };
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
         inline int32_t getAmount() const { DARABONBA_PTR_GET_DEFAULT(amount_, 0) };
         inline LaunchResult& setAmount(int32_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
+
+
+        // candidateEvaluateLevel Field Functions 
+        bool hasCandidateEvaluateLevel() const { return this->candidateEvaluateLevel_ != nullptr;};
+        void deleteCandidateEvaluateLevel() { this->candidateEvaluateLevel_ = nullptr;};
+        inline string getCandidateEvaluateLevel() const { DARABONBA_PTR_GET_DEFAULT(candidateEvaluateLevel_, "") };
+        inline LaunchResult& setCandidateEvaluateLevel(string candidateEvaluateLevel) { DARABONBA_PTR_SET_VALUE(candidateEvaluateLevel_, candidateEvaluateLevel) };
 
 
         // errorCode Field Functions 
@@ -173,6 +182,7 @@ namespace Models
 
       protected:
         shared_ptr<int32_t> amount_ {};
+        shared_ptr<string> candidateEvaluateLevel_ {};
         shared_ptr<string> errorCode_ {};
         shared_ptr<string> errorMsg_ {};
         shared_ptr<LaunchResult::InstanceIds> instanceIds_ {};

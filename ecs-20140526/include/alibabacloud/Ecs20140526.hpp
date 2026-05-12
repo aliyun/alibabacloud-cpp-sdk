@@ -204,7 +204,7 @@ namespace Ecs20140526
       Models::AllocatePublicIpAddressResponse allocatePublicIpAddress(const Models::AllocatePublicIpAddressRequest &request);
 
       /**
-       * @summary Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+       * @summary Applies an automatic snapshot policy to one or more disks.
        *
        * @description ## [](#)Usage notes
        * When you call this operation, note that:
@@ -225,7 +225,7 @@ namespace Ecs20140526
       Models::ApplyAutoSnapshotPolicyResponse applyAutoSnapshotPolicyWithOptions(const Models::ApplyAutoSnapshotPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+       * @summary Applies an automatic snapshot policy to one or more disks.
        *
        * @description ## [](#)Usage notes
        * When you call this operation, note that:
@@ -726,7 +726,7 @@ namespace Ecs20140526
       Models::AuthorizeSecurityGroupEgressResponse authorizeSecurityGroupEgress(const Models::AuthorizeSecurityGroupEgressRequest &request);
 
       /**
-       * @summary Disables an automatic snapshot policy for one or more cloud disks.
+       * @summary Disables automatic snapshot policies for one or more disks.
        *
        * @param request CancelAutoSnapshotPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +735,7 @@ namespace Ecs20140526
       Models::CancelAutoSnapshotPolicyResponse cancelAutoSnapshotPolicyWithOptions(const Models::CancelAutoSnapshotPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Disables an automatic snapshot policy for one or more cloud disks.
+       * @summary Disables automatic snapshot policies for one or more disks.
        *
        * @param request CancelAutoSnapshotPolicyRequest
        * @return CancelAutoSnapshotPolicyResponse
@@ -3020,7 +3020,7 @@ namespace Ecs20140526
       Models::DescribeActivationsResponse describeActivations(const Models::DescribeActivationsRequest &request);
 
       /**
-       * @summary Queries the scheduling tasks of an auto provisioning group.
+       * @summary Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
        *
        * @param request DescribeAutoProvisioningGroupHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3029,7 +3029,7 @@ namespace Ecs20140526
       Models::DescribeAutoProvisioningGroupHistoryResponse describeAutoProvisioningGroupHistoryWithOptions(const Models::DescribeAutoProvisioningGroupHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scheduling tasks of an auto provisioning group.
+       * @summary Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
        *
        * @param request DescribeAutoProvisioningGroupHistoryRequest
        * @return DescribeAutoProvisioningGroupHistoryResponse

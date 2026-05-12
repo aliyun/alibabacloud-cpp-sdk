@@ -106,11 +106,17 @@ namespace Models
           class ActivityDetail : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const ActivityDetail& obj) { 
+              DARABONBA_PTR_TO_JSON(CreatedInstanceIds, createdInstanceIds_);
+              DARABONBA_PTR_TO_JSON(DestroyedInstanceIds, destroyedInstanceIds_);
               DARABONBA_PTR_TO_JSON(Detail, detail_);
+              DARABONBA_PTR_TO_JSON(ErrorMessages, errorMessages_);
               DARABONBA_PTR_TO_JSON(Status, status_);
             };
             friend void from_json(const Darabonba::Json& j, ActivityDetail& obj) { 
+              DARABONBA_PTR_FROM_JSON(CreatedInstanceIds, createdInstanceIds_);
+              DARABONBA_PTR_FROM_JSON(DestroyedInstanceIds, destroyedInstanceIds_);
               DARABONBA_PTR_FROM_JSON(Detail, detail_);
+              DARABONBA_PTR_FROM_JSON(ErrorMessages, errorMessages_);
               DARABONBA_PTR_FROM_JSON(Status, status_);
             };
             ActivityDetail() = default ;
@@ -124,13 +130,226 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->detail_ == nullptr
-        && this->status_ == nullptr; };
+            class ErrorMessages : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const ErrorMessages& obj) { 
+                DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+              };
+              friend void from_json(const Darabonba::Json& j, ErrorMessages& obj) { 
+                DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+              };
+              ErrorMessages() = default ;
+              ErrorMessages(const ErrorMessages &) = default ;
+              ErrorMessages(ErrorMessages &&) = default ;
+              ErrorMessages(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~ErrorMessages() = default ;
+              ErrorMessages& operator=(const ErrorMessages &) = default ;
+              ErrorMessages& operator=(ErrorMessages &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              class ErrorMessage : public Darabonba::Model {
+              public:
+                friend void to_json(Darabonba::Json& j, const ErrorMessage& obj) { 
+                  DARABONBA_PTR_TO_JSON(Code, code_);
+                  DARABONBA_PTR_TO_JSON(FailedInstanceIds, failedInstanceIds_);
+                  DARABONBA_PTR_TO_JSON(Message, message_);
+                };
+                friend void from_json(const Darabonba::Json& j, ErrorMessage& obj) { 
+                  DARABONBA_PTR_FROM_JSON(Code, code_);
+                  DARABONBA_PTR_FROM_JSON(FailedInstanceIds, failedInstanceIds_);
+                  DARABONBA_PTR_FROM_JSON(Message, message_);
+                };
+                ErrorMessage() = default ;
+                ErrorMessage(const ErrorMessage &) = default ;
+                ErrorMessage(ErrorMessage &&) = default ;
+                ErrorMessage(const Darabonba::Json & obj) { from_json(obj, *this); };
+                virtual ~ErrorMessage() = default ;
+                ErrorMessage& operator=(const ErrorMessage &) = default ;
+                ErrorMessage& operator=(ErrorMessage &&) = default ;
+                virtual void validate() const override {
+                };
+                virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                class FailedInstanceIds : public Darabonba::Model {
+                public:
+                  friend void to_json(Darabonba::Json& j, const FailedInstanceIds& obj) { 
+                    DARABONBA_PTR_TO_JSON(FailedInstanceId, failedInstanceId_);
+                  };
+                  friend void from_json(const Darabonba::Json& j, FailedInstanceIds& obj) { 
+                    DARABONBA_PTR_FROM_JSON(FailedInstanceId, failedInstanceId_);
+                  };
+                  FailedInstanceIds() = default ;
+                  FailedInstanceIds(const FailedInstanceIds &) = default ;
+                  FailedInstanceIds(FailedInstanceIds &&) = default ;
+                  FailedInstanceIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+                  virtual ~FailedInstanceIds() = default ;
+                  FailedInstanceIds& operator=(const FailedInstanceIds &) = default ;
+                  FailedInstanceIds& operator=(FailedInstanceIds &&) = default ;
+                  virtual void validate() const override {
+                  };
+                  virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                  virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                  virtual bool empty() const override { return this->failedInstanceId_ == nullptr; };
+                  // failedInstanceId Field Functions 
+                  bool hasFailedInstanceId() const { return this->failedInstanceId_ != nullptr;};
+                  void deleteFailedInstanceId() { this->failedInstanceId_ = nullptr;};
+                  inline const vector<string> & getFailedInstanceId() const { DARABONBA_PTR_GET_CONST(failedInstanceId_, vector<string>) };
+                  inline vector<string> getFailedInstanceId() { DARABONBA_PTR_GET(failedInstanceId_, vector<string>) };
+                  inline FailedInstanceIds& setFailedInstanceId(const vector<string> & failedInstanceId) { DARABONBA_PTR_SET_VALUE(failedInstanceId_, failedInstanceId) };
+                  inline FailedInstanceIds& setFailedInstanceId(vector<string> && failedInstanceId) { DARABONBA_PTR_SET_RVALUE(failedInstanceId_, failedInstanceId) };
+
+
+                protected:
+                  shared_ptr<vector<string>> failedInstanceId_ {};
+                };
+
+                virtual bool empty() const override { return this->code_ == nullptr
+        && this->failedInstanceIds_ == nullptr && this->message_ == nullptr; };
+                // code Field Functions 
+                bool hasCode() const { return this->code_ != nullptr;};
+                void deleteCode() { this->code_ = nullptr;};
+                inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+                inline ErrorMessage& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+                // failedInstanceIds Field Functions 
+                bool hasFailedInstanceIds() const { return this->failedInstanceIds_ != nullptr;};
+                void deleteFailedInstanceIds() { this->failedInstanceIds_ = nullptr;};
+                inline const ErrorMessage::FailedInstanceIds & getFailedInstanceIds() const { DARABONBA_PTR_GET_CONST(failedInstanceIds_, ErrorMessage::FailedInstanceIds) };
+                inline ErrorMessage::FailedInstanceIds getFailedInstanceIds() { DARABONBA_PTR_GET(failedInstanceIds_, ErrorMessage::FailedInstanceIds) };
+                inline ErrorMessage& setFailedInstanceIds(const ErrorMessage::FailedInstanceIds & failedInstanceIds) { DARABONBA_PTR_SET_VALUE(failedInstanceIds_, failedInstanceIds) };
+                inline ErrorMessage& setFailedInstanceIds(ErrorMessage::FailedInstanceIds && failedInstanceIds) { DARABONBA_PTR_SET_RVALUE(failedInstanceIds_, failedInstanceIds) };
+
+
+                // message Field Functions 
+                bool hasMessage() const { return this->message_ != nullptr;};
+                void deleteMessage() { this->message_ = nullptr;};
+                inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+                inline ErrorMessage& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+              protected:
+                shared_ptr<string> code_ {};
+                shared_ptr<ErrorMessage::FailedInstanceIds> failedInstanceIds_ {};
+                shared_ptr<string> message_ {};
+              };
+
+              virtual bool empty() const override { return this->errorMessage_ == nullptr; };
+              // errorMessage Field Functions 
+              bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+              void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+              inline const vector<ErrorMessages::ErrorMessage> & getErrorMessage() const { DARABONBA_PTR_GET_CONST(errorMessage_, vector<ErrorMessages::ErrorMessage>) };
+              inline vector<ErrorMessages::ErrorMessage> getErrorMessage() { DARABONBA_PTR_GET(errorMessage_, vector<ErrorMessages::ErrorMessage>) };
+              inline ErrorMessages& setErrorMessage(const vector<ErrorMessages::ErrorMessage> & errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+              inline ErrorMessages& setErrorMessage(vector<ErrorMessages::ErrorMessage> && errorMessage) { DARABONBA_PTR_SET_RVALUE(errorMessage_, errorMessage) };
+
+
+            protected:
+              shared_ptr<vector<ErrorMessages::ErrorMessage>> errorMessage_ {};
+            };
+
+            class DestroyedInstanceIds : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const DestroyedInstanceIds& obj) { 
+                DARABONBA_PTR_TO_JSON(DestroyedInstanceId, destroyedInstanceId_);
+              };
+              friend void from_json(const Darabonba::Json& j, DestroyedInstanceIds& obj) { 
+                DARABONBA_PTR_FROM_JSON(DestroyedInstanceId, destroyedInstanceId_);
+              };
+              DestroyedInstanceIds() = default ;
+              DestroyedInstanceIds(const DestroyedInstanceIds &) = default ;
+              DestroyedInstanceIds(DestroyedInstanceIds &&) = default ;
+              DestroyedInstanceIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~DestroyedInstanceIds() = default ;
+              DestroyedInstanceIds& operator=(const DestroyedInstanceIds &) = default ;
+              DestroyedInstanceIds& operator=(DestroyedInstanceIds &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->destroyedInstanceId_ == nullptr; };
+              // destroyedInstanceId Field Functions 
+              bool hasDestroyedInstanceId() const { return this->destroyedInstanceId_ != nullptr;};
+              void deleteDestroyedInstanceId() { this->destroyedInstanceId_ = nullptr;};
+              inline const vector<string> & getDestroyedInstanceId() const { DARABONBA_PTR_GET_CONST(destroyedInstanceId_, vector<string>) };
+              inline vector<string> getDestroyedInstanceId() { DARABONBA_PTR_GET(destroyedInstanceId_, vector<string>) };
+              inline DestroyedInstanceIds& setDestroyedInstanceId(const vector<string> & destroyedInstanceId) { DARABONBA_PTR_SET_VALUE(destroyedInstanceId_, destroyedInstanceId) };
+              inline DestroyedInstanceIds& setDestroyedInstanceId(vector<string> && destroyedInstanceId) { DARABONBA_PTR_SET_RVALUE(destroyedInstanceId_, destroyedInstanceId) };
+
+
+            protected:
+              shared_ptr<vector<string>> destroyedInstanceId_ {};
+            };
+
+            class CreatedInstanceIds : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const CreatedInstanceIds& obj) { 
+                DARABONBA_PTR_TO_JSON(CreatedInstanceId, createdInstanceId_);
+              };
+              friend void from_json(const Darabonba::Json& j, CreatedInstanceIds& obj) { 
+                DARABONBA_PTR_FROM_JSON(CreatedInstanceId, createdInstanceId_);
+              };
+              CreatedInstanceIds() = default ;
+              CreatedInstanceIds(const CreatedInstanceIds &) = default ;
+              CreatedInstanceIds(CreatedInstanceIds &&) = default ;
+              CreatedInstanceIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~CreatedInstanceIds() = default ;
+              CreatedInstanceIds& operator=(const CreatedInstanceIds &) = default ;
+              CreatedInstanceIds& operator=(CreatedInstanceIds &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->createdInstanceId_ == nullptr; };
+              // createdInstanceId Field Functions 
+              bool hasCreatedInstanceId() const { return this->createdInstanceId_ != nullptr;};
+              void deleteCreatedInstanceId() { this->createdInstanceId_ = nullptr;};
+              inline const vector<string> & getCreatedInstanceId() const { DARABONBA_PTR_GET_CONST(createdInstanceId_, vector<string>) };
+              inline vector<string> getCreatedInstanceId() { DARABONBA_PTR_GET(createdInstanceId_, vector<string>) };
+              inline CreatedInstanceIds& setCreatedInstanceId(const vector<string> & createdInstanceId) { DARABONBA_PTR_SET_VALUE(createdInstanceId_, createdInstanceId) };
+              inline CreatedInstanceIds& setCreatedInstanceId(vector<string> && createdInstanceId) { DARABONBA_PTR_SET_RVALUE(createdInstanceId_, createdInstanceId) };
+
+
+            protected:
+              shared_ptr<vector<string>> createdInstanceId_ {};
+            };
+
+            virtual bool empty() const override { return this->createdInstanceIds_ == nullptr
+        && this->destroyedInstanceIds_ == nullptr && this->detail_ == nullptr && this->errorMessages_ == nullptr && this->status_ == nullptr; };
+            // createdInstanceIds Field Functions 
+            bool hasCreatedInstanceIds() const { return this->createdInstanceIds_ != nullptr;};
+            void deleteCreatedInstanceIds() { this->createdInstanceIds_ = nullptr;};
+            inline const ActivityDetail::CreatedInstanceIds & getCreatedInstanceIds() const { DARABONBA_PTR_GET_CONST(createdInstanceIds_, ActivityDetail::CreatedInstanceIds) };
+            inline ActivityDetail::CreatedInstanceIds getCreatedInstanceIds() { DARABONBA_PTR_GET(createdInstanceIds_, ActivityDetail::CreatedInstanceIds) };
+            inline ActivityDetail& setCreatedInstanceIds(const ActivityDetail::CreatedInstanceIds & createdInstanceIds) { DARABONBA_PTR_SET_VALUE(createdInstanceIds_, createdInstanceIds) };
+            inline ActivityDetail& setCreatedInstanceIds(ActivityDetail::CreatedInstanceIds && createdInstanceIds) { DARABONBA_PTR_SET_RVALUE(createdInstanceIds_, createdInstanceIds) };
+
+
+            // destroyedInstanceIds Field Functions 
+            bool hasDestroyedInstanceIds() const { return this->destroyedInstanceIds_ != nullptr;};
+            void deleteDestroyedInstanceIds() { this->destroyedInstanceIds_ = nullptr;};
+            inline const ActivityDetail::DestroyedInstanceIds & getDestroyedInstanceIds() const { DARABONBA_PTR_GET_CONST(destroyedInstanceIds_, ActivityDetail::DestroyedInstanceIds) };
+            inline ActivityDetail::DestroyedInstanceIds getDestroyedInstanceIds() { DARABONBA_PTR_GET(destroyedInstanceIds_, ActivityDetail::DestroyedInstanceIds) };
+            inline ActivityDetail& setDestroyedInstanceIds(const ActivityDetail::DestroyedInstanceIds & destroyedInstanceIds) { DARABONBA_PTR_SET_VALUE(destroyedInstanceIds_, destroyedInstanceIds) };
+            inline ActivityDetail& setDestroyedInstanceIds(ActivityDetail::DestroyedInstanceIds && destroyedInstanceIds) { DARABONBA_PTR_SET_RVALUE(destroyedInstanceIds_, destroyedInstanceIds) };
+
+
             // detail Field Functions 
             bool hasDetail() const { return this->detail_ != nullptr;};
             void deleteDetail() { this->detail_ = nullptr;};
             inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
             inline ActivityDetail& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+            // errorMessages Field Functions 
+            bool hasErrorMessages() const { return this->errorMessages_ != nullptr;};
+            void deleteErrorMessages() { this->errorMessages_ = nullptr;};
+            inline const ActivityDetail::ErrorMessages & getErrorMessages() const { DARABONBA_PTR_GET_CONST(errorMessages_, ActivityDetail::ErrorMessages) };
+            inline ActivityDetail::ErrorMessages getErrorMessages() { DARABONBA_PTR_GET(errorMessages_, ActivityDetail::ErrorMessages) };
+            inline ActivityDetail& setErrorMessages(const ActivityDetail::ErrorMessages & errorMessages) { DARABONBA_PTR_SET_VALUE(errorMessages_, errorMessages) };
+            inline ActivityDetail& setErrorMessages(ActivityDetail::ErrorMessages && errorMessages) { DARABONBA_PTR_SET_RVALUE(errorMessages_, errorMessages) };
 
 
             // status Field Functions 
@@ -141,7 +360,10 @@ namespace Models
 
 
           protected:
+            shared_ptr<ActivityDetail::CreatedInstanceIds> createdInstanceIds_ {};
+            shared_ptr<ActivityDetail::DestroyedInstanceIds> destroyedInstanceIds_ {};
             shared_ptr<string> detail_ {};
+            shared_ptr<ActivityDetail::ErrorMessages> errorMessages_ {};
             shared_ptr<string> status_ {};
           };
 

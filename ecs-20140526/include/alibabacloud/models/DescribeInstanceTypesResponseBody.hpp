@@ -486,6 +486,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Core, core_);
             DARABONBA_PTR_TO_JSON(CoreFactor, coreFactor_);
             DARABONBA_PTR_TO_JSON(HyperThreadingAdjustable, hyperThreadingAdjustable_);
+            DARABONBA_PTR_TO_JSON(NestedVirtualizationSupport, nestedVirtualizationSupport_);
             DARABONBA_PTR_TO_JSON(SupportedTopologyTypes, supportedTopologyTypes_);
             DARABONBA_PTR_TO_JSON(ThreadsPerCore, threadsPerCore_);
           };
@@ -493,6 +494,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(Core, core_);
             DARABONBA_PTR_FROM_JSON(CoreFactor, coreFactor_);
             DARABONBA_PTR_FROM_JSON(HyperThreadingAdjustable, hyperThreadingAdjustable_);
+            DARABONBA_PTR_FROM_JSON(NestedVirtualizationSupport, nestedVirtualizationSupport_);
             DARABONBA_PTR_FROM_JSON(SupportedTopologyTypes, supportedTopologyTypes_);
             DARABONBA_PTR_FROM_JSON(ThreadsPerCore, threadsPerCore_);
           };
@@ -541,7 +543,7 @@ namespace Models
           };
 
           virtual bool empty() const override { return this->core_ == nullptr
-        && this->coreFactor_ == nullptr && this->hyperThreadingAdjustable_ == nullptr && this->supportedTopologyTypes_ == nullptr && this->threadsPerCore_ == nullptr; };
+        && this->coreFactor_ == nullptr && this->hyperThreadingAdjustable_ == nullptr && this->nestedVirtualizationSupport_ == nullptr && this->supportedTopologyTypes_ == nullptr && this->threadsPerCore_ == nullptr; };
           // core Field Functions 
           bool hasCore() const { return this->core_ != nullptr;};
           void deleteCore() { this->core_ = nullptr;};
@@ -561,6 +563,13 @@ namespace Models
           void deleteHyperThreadingAdjustable() { this->hyperThreadingAdjustable_ = nullptr;};
           inline bool getHyperThreadingAdjustable() const { DARABONBA_PTR_GET_DEFAULT(hyperThreadingAdjustable_, false) };
           inline CpuOptions& setHyperThreadingAdjustable(bool hyperThreadingAdjustable) { DARABONBA_PTR_SET_VALUE(hyperThreadingAdjustable_, hyperThreadingAdjustable) };
+
+
+          // nestedVirtualizationSupport Field Functions 
+          bool hasNestedVirtualizationSupport() const { return this->nestedVirtualizationSupport_ != nullptr;};
+          void deleteNestedVirtualizationSupport() { this->nestedVirtualizationSupport_ = nullptr;};
+          inline string getNestedVirtualizationSupport() const { DARABONBA_PTR_GET_DEFAULT(nestedVirtualizationSupport_, "") };
+          inline CpuOptions& setNestedVirtualizationSupport(string nestedVirtualizationSupport) { DARABONBA_PTR_SET_VALUE(nestedVirtualizationSupport_, nestedVirtualizationSupport) };
 
 
           // supportedTopologyTypes Field Functions 
@@ -583,6 +592,7 @@ namespace Models
           shared_ptr<int32_t> core_ {};
           shared_ptr<int32_t> coreFactor_ {};
           shared_ptr<bool> hyperThreadingAdjustable_ {};
+          shared_ptr<string> nestedVirtualizationSupport_ {};
           shared_ptr<CpuOptions::SupportedTopologyTypes> supportedTopologyTypes_ {};
           shared_ptr<int32_t> threadsPerCore_ {};
         };
