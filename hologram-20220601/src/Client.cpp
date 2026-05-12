@@ -926,6 +926,10 @@ GrantTablePermissionResponse Client::grantTablePermissionWithOptions(const strin
     body["allTable"] = request.getAllTable();
   }
 
+  if (!!request.hasColumnNames()) {
+    body["columnNames"] = request.getColumnNames();
+  }
+
   if (!!request.hasDatabaseName()) {
     body["databaseName"] = request.getDatabaseName();
   }
@@ -1633,6 +1637,10 @@ RevokeTablePermissionResponse Client::revokeTablePermissionWithOptions(const str
   json body = {};
   if (!!request.hasAllTable()) {
     body["allTable"] = request.getAllTable();
+  }
+
+  if (!!request.hasColumnNames()) {
+    body["columnNames"] = request.getColumnNames();
   }
 
   if (!!request.hasDatabaseName()) {

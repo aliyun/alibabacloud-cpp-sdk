@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const RevokeTablePermissionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(allTable, allTable_);
+      DARABONBA_PTR_TO_JSON(columnNames, columnNames_);
       DARABONBA_PTR_TO_JSON(databaseName, databaseName_);
       DARABONBA_PTR_TO_JSON(privileges, privileges_);
       DARABONBA_PTR_TO_JSON(schemaName, schemaName_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, RevokeTablePermissionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(allTable, allTable_);
+      DARABONBA_PTR_FROM_JSON(columnNames, columnNames_);
       DARABONBA_PTR_FROM_JSON(databaseName, databaseName_);
       DARABONBA_PTR_FROM_JSON(privileges, privileges_);
       DARABONBA_PTR_FROM_JSON(schemaName, schemaName_);
@@ -41,12 +43,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allTable_ == nullptr
-        && this->databaseName_ == nullptr && this->privileges_ == nullptr && this->schemaName_ == nullptr && this->tableName_ == nullptr && this->userName_ == nullptr; };
+        && this->columnNames_ == nullptr && this->databaseName_ == nullptr && this->privileges_ == nullptr && this->schemaName_ == nullptr && this->tableName_ == nullptr
+        && this->userName_ == nullptr; };
     // allTable Field Functions 
     bool hasAllTable() const { return this->allTable_ != nullptr;};
     void deleteAllTable() { this->allTable_ = nullptr;};
     inline bool getAllTable() const { DARABONBA_PTR_GET_DEFAULT(allTable_, false) };
     inline RevokeTablePermissionRequest& setAllTable(bool allTable) { DARABONBA_PTR_SET_VALUE(allTable_, allTable) };
+
+
+    // columnNames Field Functions 
+    bool hasColumnNames() const { return this->columnNames_ != nullptr;};
+    void deleteColumnNames() { this->columnNames_ = nullptr;};
+    inline const vector<string> & getColumnNames() const { DARABONBA_PTR_GET_CONST(columnNames_, vector<string>) };
+    inline vector<string> getColumnNames() { DARABONBA_PTR_GET(columnNames_, vector<string>) };
+    inline RevokeTablePermissionRequest& setColumnNames(const vector<string> & columnNames) { DARABONBA_PTR_SET_VALUE(columnNames_, columnNames) };
+    inline RevokeTablePermissionRequest& setColumnNames(vector<string> && columnNames) { DARABONBA_PTR_SET_RVALUE(columnNames_, columnNames) };
 
 
     // databaseName Field Functions 
@@ -88,6 +100,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> allTable_ {};
+    shared_ptr<vector<string>> columnNames_ {};
     shared_ptr<string> databaseName_ {};
     shared_ptr<vector<string>> privileges_ {};
     shared_ptr<string> schemaName_ {};
