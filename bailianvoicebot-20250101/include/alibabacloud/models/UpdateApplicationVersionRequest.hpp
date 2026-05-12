@@ -89,17 +89,23 @@ namespace Models
     class SynthesizerConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const SynthesizerConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(Model, model_);
+        DARABONBA_PTR_TO_JSON(NlsAccessProfile, nlsAccessProfile_);
         DARABONBA_PTR_TO_JSON(NlsAccessType, nlsAccessType_);
         DARABONBA_PTR_TO_JSON(NlsEngine, nlsEngine_);
         DARABONBA_PTR_TO_JSON(PitchRate, pitchRate_);
+        DARABONBA_PTR_TO_JSON(PronRules, pronRules_);
         DARABONBA_PTR_TO_JSON(SpeechRate, speechRate_);
         DARABONBA_PTR_TO_JSON(Voice, voice_);
         DARABONBA_PTR_TO_JSON(Volume, volume_);
       };
       friend void from_json(const Darabonba::Json& j, SynthesizerConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(Model, model_);
+        DARABONBA_PTR_FROM_JSON(NlsAccessProfile, nlsAccessProfile_);
         DARABONBA_PTR_FROM_JSON(NlsAccessType, nlsAccessType_);
         DARABONBA_PTR_FROM_JSON(NlsEngine, nlsEngine_);
         DARABONBA_PTR_FROM_JSON(PitchRate, pitchRate_);
+        DARABONBA_PTR_FROM_JSON(PronRules, pronRules_);
         DARABONBA_PTR_FROM_JSON(SpeechRate, speechRate_);
         DARABONBA_PTR_FROM_JSON(Voice, voice_);
         DARABONBA_PTR_FROM_JSON(Volume, volume_);
@@ -115,8 +121,98 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->nlsAccessType_ == nullptr
-        && this->nlsEngine_ == nullptr && this->pitchRate_ == nullptr && this->speechRate_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
+      class PronRules : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PronRules& obj) { 
+          DARABONBA_PTR_TO_JSON(Pattern, pattern_);
+          DARABONBA_PTR_TO_JSON(Replacement, replacement_);
+        };
+        friend void from_json(const Darabonba::Json& j, PronRules& obj) { 
+          DARABONBA_PTR_FROM_JSON(Pattern, pattern_);
+          DARABONBA_PTR_FROM_JSON(Replacement, replacement_);
+        };
+        PronRules() = default ;
+        PronRules(const PronRules &) = default ;
+        PronRules(PronRules &&) = default ;
+        PronRules(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PronRules() = default ;
+        PronRules& operator=(const PronRules &) = default ;
+        PronRules& operator=(PronRules &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->pattern_ == nullptr
+        && this->replacement_ == nullptr; };
+        // pattern Field Functions 
+        bool hasPattern() const { return this->pattern_ != nullptr;};
+        void deletePattern() { this->pattern_ = nullptr;};
+        inline string getPattern() const { DARABONBA_PTR_GET_DEFAULT(pattern_, "") };
+        inline PronRules& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
+
+
+        // replacement Field Functions 
+        bool hasReplacement() const { return this->replacement_ != nullptr;};
+        void deleteReplacement() { this->replacement_ = nullptr;};
+        inline string getReplacement() const { DARABONBA_PTR_GET_DEFAULT(replacement_, "") };
+        inline PronRules& setReplacement(string replacement) { DARABONBA_PTR_SET_VALUE(replacement_, replacement) };
+
+
+      protected:
+        shared_ptr<string> pattern_ {};
+        shared_ptr<string> replacement_ {};
+      };
+
+      class NlsAccessProfile : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const NlsAccessProfile& obj) { 
+          DARABONBA_PTR_TO_JSON(AccessProfileId, accessProfileId_);
+        };
+        friend void from_json(const Darabonba::Json& j, NlsAccessProfile& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccessProfileId, accessProfileId_);
+        };
+        NlsAccessProfile() = default ;
+        NlsAccessProfile(const NlsAccessProfile &) = default ;
+        NlsAccessProfile(NlsAccessProfile &&) = default ;
+        NlsAccessProfile(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~NlsAccessProfile() = default ;
+        NlsAccessProfile& operator=(const NlsAccessProfile &) = default ;
+        NlsAccessProfile& operator=(NlsAccessProfile &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accessProfileId_ == nullptr; };
+        // accessProfileId Field Functions 
+        bool hasAccessProfileId() const { return this->accessProfileId_ != nullptr;};
+        void deleteAccessProfileId() { this->accessProfileId_ = nullptr;};
+        inline string getAccessProfileId() const { DARABONBA_PTR_GET_DEFAULT(accessProfileId_, "") };
+        inline NlsAccessProfile& setAccessProfileId(string accessProfileId) { DARABONBA_PTR_SET_VALUE(accessProfileId_, accessProfileId) };
+
+
+      protected:
+        shared_ptr<string> accessProfileId_ {};
+      };
+
+      virtual bool empty() const override { return this->model_ == nullptr
+        && this->nlsAccessProfile_ == nullptr && this->nlsAccessType_ == nullptr && this->nlsEngine_ == nullptr && this->pitchRate_ == nullptr && this->pronRules_ == nullptr
+        && this->speechRate_ == nullptr && this->voice_ == nullptr && this->volume_ == nullptr; };
+      // model Field Functions 
+      bool hasModel() const { return this->model_ != nullptr;};
+      void deleteModel() { this->model_ = nullptr;};
+      inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
+      inline SynthesizerConfig& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+      // nlsAccessProfile Field Functions 
+      bool hasNlsAccessProfile() const { return this->nlsAccessProfile_ != nullptr;};
+      void deleteNlsAccessProfile() { this->nlsAccessProfile_ = nullptr;};
+      inline const SynthesizerConfig::NlsAccessProfile & getNlsAccessProfile() const { DARABONBA_PTR_GET_CONST(nlsAccessProfile_, SynthesizerConfig::NlsAccessProfile) };
+      inline SynthesizerConfig::NlsAccessProfile getNlsAccessProfile() { DARABONBA_PTR_GET(nlsAccessProfile_, SynthesizerConfig::NlsAccessProfile) };
+      inline SynthesizerConfig& setNlsAccessProfile(const SynthesizerConfig::NlsAccessProfile & nlsAccessProfile) { DARABONBA_PTR_SET_VALUE(nlsAccessProfile_, nlsAccessProfile) };
+      inline SynthesizerConfig& setNlsAccessProfile(SynthesizerConfig::NlsAccessProfile && nlsAccessProfile) { DARABONBA_PTR_SET_RVALUE(nlsAccessProfile_, nlsAccessProfile) };
+
+
       // nlsAccessType Field Functions 
       bool hasNlsAccessType() const { return this->nlsAccessType_ != nullptr;};
       void deleteNlsAccessType() { this->nlsAccessType_ = nullptr;};
@@ -136,6 +232,15 @@ namespace Models
       void deletePitchRate() { this->pitchRate_ = nullptr;};
       inline int32_t getPitchRate() const { DARABONBA_PTR_GET_DEFAULT(pitchRate_, 0) };
       inline SynthesizerConfig& setPitchRate(int32_t pitchRate) { DARABONBA_PTR_SET_VALUE(pitchRate_, pitchRate) };
+
+
+      // pronRules Field Functions 
+      bool hasPronRules() const { return this->pronRules_ != nullptr;};
+      void deletePronRules() { this->pronRules_ = nullptr;};
+      inline const vector<SynthesizerConfig::PronRules> & getPronRules() const { DARABONBA_PTR_GET_CONST(pronRules_, vector<SynthesizerConfig::PronRules>) };
+      inline vector<SynthesizerConfig::PronRules> getPronRules() { DARABONBA_PTR_GET(pronRules_, vector<SynthesizerConfig::PronRules>) };
+      inline SynthesizerConfig& setPronRules(const vector<SynthesizerConfig::PronRules> & pronRules) { DARABONBA_PTR_SET_VALUE(pronRules_, pronRules) };
+      inline SynthesizerConfig& setPronRules(vector<SynthesizerConfig::PronRules> && pronRules) { DARABONBA_PTR_SET_RVALUE(pronRules_, pronRules) };
 
 
       // speechRate Field Functions 
@@ -160,9 +265,12 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> model_ {};
+      shared_ptr<SynthesizerConfig::NlsAccessProfile> nlsAccessProfile_ {};
       shared_ptr<string> nlsAccessType_ {};
       shared_ptr<string> nlsEngine_ {};
       shared_ptr<int32_t> pitchRate_ {};
+      shared_ptr<vector<SynthesizerConfig::PronRules>> pronRules_ {};
       shared_ptr<int32_t> speechRate_ {};
       shared_ptr<string> voice_ {};
       shared_ptr<int32_t> volume_ {};
