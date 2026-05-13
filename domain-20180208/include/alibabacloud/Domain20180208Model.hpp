@@ -87,6 +87,7 @@
 #include <alibabacloud/models/QueryExportAuctionDetailResponseBody.hpp>
 #include <alibabacloud/models/QueryExportAuctionDetailResponse.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsRequest.hpp>
+#include <alibabacloud/models/QueryExportDomainExpireSnatchsShrinkRequest.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsResponseBody.hpp>
 #include <alibabacloud/models/QueryExportDomainExpireSnatchsResponse.hpp>
 #include <alibabacloud/models/QueryPurchasedDomainsRequest.hpp>

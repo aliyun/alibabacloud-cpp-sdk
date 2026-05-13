@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_QUERYEXPORTDOMAINEXPIRESNATCHSREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_QUERYEXPORTDOMAINEXPIRESNATCHSREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,12 +15,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryExportDomainExpireSnatchsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentId, currentId_);
+      DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, QueryExportDomainExpireSnatchsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentId, currentId_);
+      DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -36,12 +39,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr; };
+        && this->dataSources_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageSize_ == nullptr; };
     // currentId Field Functions 
     bool hasCurrentId() const { return this->currentId_ != nullptr;};
     void deleteCurrentId() { this->currentId_ = nullptr;};
     inline int64_t getCurrentId() const { DARABONBA_PTR_GET_DEFAULT(currentId_, 0L) };
     inline QueryExportDomainExpireSnatchsRequest& setCurrentId(int64_t currentId) { DARABONBA_PTR_SET_VALUE(currentId_, currentId) };
+
+
+    // dataSources Field Functions 
+    bool hasDataSources() const { return this->dataSources_ != nullptr;};
+    void deleteDataSources() { this->dataSources_ = nullptr;};
+    inline const vector<string> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<string>) };
+    inline vector<string> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<string>) };
+    inline QueryExportDomainExpireSnatchsRequest& setDataSources(const vector<string> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
+    inline QueryExportDomainExpireSnatchsRequest& setDataSources(vector<string> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
 
     // maxResults Field Functions 
@@ -68,6 +80,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<int64_t> currentId_ {};
+    shared_ptr<vector<string>> dataSources_ {};
     shared_ptr<int32_t> maxResults_ {};
     // This parameter is required.
     shared_ptr<string> nextToken_ {};

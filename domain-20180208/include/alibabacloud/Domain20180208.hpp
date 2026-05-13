@@ -430,11 +430,11 @@ namespace Domain20180208
       /**
        * @summary 查询导出的抢注域名
        *
-       * @param request QueryExportDomainExpireSnatchsRequest
+       * @param tmpReq QueryExportDomainExpireSnatchsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryExportDomainExpireSnatchsResponse
        */
-      Models::QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchsWithOptions(const Models::QueryExportDomainExpireSnatchsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::QueryExportDomainExpireSnatchsResponse queryExportDomainExpireSnatchsWithOptions(const Models::QueryExportDomainExpireSnatchsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 查询导出的抢注域名

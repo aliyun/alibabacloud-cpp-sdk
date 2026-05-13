@@ -1322,15 +1322,25 @@ QueryExportAuctionDetailResponse Client::queryExportAuctionDetail(const QueryExp
 /**
  * @summary 查询导出的抢注域名
  *
- * @param request QueryExportDomainExpireSnatchsRequest
+ * @param tmpReq QueryExportDomainExpireSnatchsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryExportDomainExpireSnatchsResponse
  */
-QueryExportDomainExpireSnatchsResponse Client::queryExportDomainExpireSnatchsWithOptions(const QueryExportDomainExpireSnatchsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+QueryExportDomainExpireSnatchsResponse Client::queryExportDomainExpireSnatchsWithOptions(const QueryExportDomainExpireSnatchsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryExportDomainExpireSnatchsShrinkRequest request = QueryExportDomainExpireSnatchsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataSources()) {
+    request.setDataSourcesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataSources(), "DataSources", "json"));
+  }
+
   json query = {};
   if (!!request.hasCurrentId()) {
     query["CurrentId"] = request.getCurrentId();
+  }
+
+  if (!!request.hasDataSourcesShrink()) {
+    query["DataSources"] = request.getDataSourcesShrink();
   }
 
   if (!!request.hasMaxResults()) {
