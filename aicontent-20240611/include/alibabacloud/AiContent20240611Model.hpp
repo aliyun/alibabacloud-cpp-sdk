@@ -9,6 +9,10 @@
 #include <alibabacloud/models/ApiKeyDecryptedDTO.hpp>
 #include <alibabacloud/models/ApiKeyListQry.hpp>
 #include <alibabacloud/models/ApiKeyUpdateCmd.hpp>
+#include <alibabacloud/models/BillingBillSummaryPointDTO.hpp>
+#include <alibabacloud/models/BillingBillSummaryRespDTO.hpp>
+#include <alibabacloud/models/BillingBillTierDTO.hpp>
+#include <alibabacloud/models/MetricDefRespDTO.hpp>
 #include <alibabacloud/models/BillingCostBreakdownRowDTO.hpp>
 #include <alibabacloud/models/BillingCostBreakdownRespDTO.hpp>
 #include <alibabacloud/models/ClientBalanceDTO.hpp>
@@ -21,7 +25,6 @@
 #include <alibabacloud/models/ConversationDTO.hpp>
 #include <alibabacloud/models/ConversationListQry.hpp>
 #include <alibabacloud/models/ConversationUpdateCmd.hpp>
-#include <alibabacloud/models/MetricDefRespDTO.hpp>
 #include <alibabacloud/models/CostModelDetailRowDTO.hpp>
 #include <alibabacloud/models/CostModelDetailRespDTO.hpp>
 #include <alibabacloud/models/ModelRowDTO.hpp>

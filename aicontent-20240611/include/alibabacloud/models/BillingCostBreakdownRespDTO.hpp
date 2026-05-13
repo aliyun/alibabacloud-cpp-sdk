@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_BILLINGCOSTBREAKDOWNRESPDTO_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/MetricDefRespDTO.hpp>
 #include <alibabacloud/models/BillingCostBreakdownRowDTO.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class BillingCostBreakdownRespDTO : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BillingCostBreakdownRespDTO& obj) { 
+      DARABONBA_PTR_TO_JSON(columns, columns_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
@@ -22,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, BillingCostBreakdownRespDTO& obj) { 
+      DARABONBA_PTR_FROM_JSON(columns, columns_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -39,8 +42,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->granularity_ == nullptr
-        && this->page_ == nullptr && this->pageSize_ == nullptr && this->rows_ == nullptr && this->total_ == nullptr; };
+    virtual bool empty() const override { return this->columns_ == nullptr
+        && this->granularity_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->rows_ == nullptr && this->total_ == nullptr; };
+    // columns Field Functions 
+    bool hasColumns() const { return this->columns_ != nullptr;};
+    void deleteColumns() { this->columns_ = nullptr;};
+    inline const vector<MetricDefRespDTO> & getColumns() const { DARABONBA_PTR_GET_CONST(columns_, vector<MetricDefRespDTO>) };
+    inline vector<MetricDefRespDTO> getColumns() { DARABONBA_PTR_GET(columns_, vector<MetricDefRespDTO>) };
+    inline BillingCostBreakdownRespDTO& setColumns(const vector<MetricDefRespDTO> & columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
+    inline BillingCostBreakdownRespDTO& setColumns(vector<MetricDefRespDTO> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
+
+
     // granularity Field Functions 
     bool hasGranularity() const { return this->granularity_ != nullptr;};
     void deleteGranularity() { this->granularity_ = nullptr;};
@@ -79,6 +91,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<MetricDefRespDTO>> columns_ {};
     shared_ptr<string> granularity_ {};
     shared_ptr<int32_t> page_ {};
     shared_ptr<int32_t> pageSize_ {};

@@ -13,18 +13,24 @@ namespace Models
   class ModelRouterQueryBillingCostBreakdownRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryBillingCostBreakdownRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_TO_JSON(modelId, modelId_);
+      DARABONBA_PTR_TO_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(page, page_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryBillingCostBreakdownRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
+      DARABONBA_PTR_FROM_JSON(modelId, modelId_);
+      DARABONBA_PTR_FROM_JSON(modelTypes, modelTypes_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(page, page_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -41,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr
-        && this->startTime_ == nullptr; };
+    virtual bool empty() const override { return this->clientId_ == nullptr
+        && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->modelId_ == nullptr && this->modelTypes_ == nullptr
+        && this->nextToken_ == nullptr && this->page_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+    // clientId Field Functions 
+    bool hasClientId() const { return this->clientId_ != nullptr;};
+    void deleteClientId() { this->clientId_ = nullptr;};
+    inline int64_t getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, 0L) };
+    inline ModelRouterQueryBillingCostBreakdownRequest& setClientId(int64_t clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -63,6 +76,20 @@ namespace Models
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ModelRouterQueryBillingCostBreakdownRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+
+
+    // modelId Field Functions 
+    bool hasModelId() const { return this->modelId_ != nullptr;};
+    void deleteModelId() { this->modelId_ = nullptr;};
+    inline int64_t getModelId() const { DARABONBA_PTR_GET_DEFAULT(modelId_, 0L) };
+    inline ModelRouterQueryBillingCostBreakdownRequest& setModelId(int64_t modelId) { DARABONBA_PTR_SET_VALUE(modelId_, modelId) };
+
+
+    // modelTypes Field Functions 
+    bool hasModelTypes() const { return this->modelTypes_ != nullptr;};
+    void deleteModelTypes() { this->modelTypes_ = nullptr;};
+    inline string getModelTypes() const { DARABONBA_PTR_GET_DEFAULT(modelTypes_, "") };
+    inline ModelRouterQueryBillingCostBreakdownRequest& setModelTypes(string modelTypes) { DARABONBA_PTR_SET_VALUE(modelTypes_, modelTypes) };
 
 
     // nextToken Field Functions 
@@ -94,11 +121,14 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> clientId_ {};
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // This parameter is required.
     shared_ptr<string> granularity_ {};
     shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<int64_t> modelId_ {};
+    shared_ptr<string> modelTypes_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> page_ {};
     shared_ptr<int32_t> pageSize_ {};

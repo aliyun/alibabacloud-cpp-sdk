@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_BILLINGCOSTBREAKDOWNROWDTO_HPP_
 #define ALIBABACLOUD_MODELS_BILLINGCOSTBREAKDOWNROWDTO_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/BillingBillTierDTO.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,23 +18,29 @@ namespace Models
       DARABONBA_PTR_TO_JSON(billingType, billingType_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(clientName, clientName_);
+      DARABONBA_PTR_TO_JSON(dimValues, dimValues_);
       DARABONBA_PTR_TO_JSON(modelCode, modelCode_);
       DARABONBA_PTR_TO_JSON(modelId, modelId_);
       DARABONBA_PTR_TO_JSON(modelName, modelName_);
       DARABONBA_PTR_TO_JSON(modelType, modelType_);
       DARABONBA_PTR_TO_JSON(payableAmount, payableAmount_);
       DARABONBA_PTR_TO_JSON(summaryTime, summaryTime_);
+      DARABONBA_PTR_TO_JSON(tiers, tiers_);
+      DARABONBA_PTR_TO_JSON(values, values_);
     };
     friend void from_json(const Darabonba::Json& j, BillingCostBreakdownRowDTO& obj) { 
       DARABONBA_PTR_FROM_JSON(billingType, billingType_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(clientName, clientName_);
+      DARABONBA_PTR_FROM_JSON(dimValues, dimValues_);
       DARABONBA_PTR_FROM_JSON(modelCode, modelCode_);
       DARABONBA_PTR_FROM_JSON(modelId, modelId_);
       DARABONBA_PTR_FROM_JSON(modelName, modelName_);
       DARABONBA_PTR_FROM_JSON(modelType, modelType_);
       DARABONBA_PTR_FROM_JSON(payableAmount, payableAmount_);
       DARABONBA_PTR_FROM_JSON(summaryTime, summaryTime_);
+      DARABONBA_PTR_FROM_JSON(tiers, tiers_);
+      DARABONBA_PTR_FROM_JSON(values, values_);
     };
     BillingCostBreakdownRowDTO() = default ;
     BillingCostBreakdownRowDTO(const BillingCostBreakdownRowDTO &) = default ;
@@ -46,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->billingType_ == nullptr
-        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr
-        && this->modelType_ == nullptr && this->payableAmount_ == nullptr && this->summaryTime_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->dimValues_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr
+        && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payableAmount_ == nullptr && this->summaryTime_ == nullptr && this->tiers_ == nullptr
+        && this->values_ == nullptr; };
     // billingType Field Functions 
     bool hasBillingType() const { return this->billingType_ != nullptr;};
     void deleteBillingType() { this->billingType_ = nullptr;};
@@ -67,6 +76,13 @@ namespace Models
     void deleteClientName() { this->clientName_ = nullptr;};
     inline string getClientName() const { DARABONBA_PTR_GET_DEFAULT(clientName_, "") };
     inline BillingCostBreakdownRowDTO& setClientName(string clientName) { DARABONBA_PTR_SET_VALUE(clientName_, clientName) };
+
+
+    // dimValues Field Functions 
+    bool hasDimValues() const { return this->dimValues_ != nullptr;};
+    void deleteDimValues() { this->dimValues_ = nullptr;};
+    inline string getDimValues() const { DARABONBA_PTR_GET_DEFAULT(dimValues_, "") };
+    inline BillingCostBreakdownRowDTO& setDimValues(string dimValues) { DARABONBA_PTR_SET_VALUE(dimValues_, dimValues) };
 
 
     // modelCode Field Functions 
@@ -111,16 +127,35 @@ namespace Models
     inline BillingCostBreakdownRowDTO& setSummaryTime(int64_t summaryTime) { DARABONBA_PTR_SET_VALUE(summaryTime_, summaryTime) };
 
 
+    // tiers Field Functions 
+    bool hasTiers() const { return this->tiers_ != nullptr;};
+    void deleteTiers() { this->tiers_ = nullptr;};
+    inline const vector<BillingBillTierDTO> & getTiers() const { DARABONBA_PTR_GET_CONST(tiers_, vector<BillingBillTierDTO>) };
+    inline vector<BillingBillTierDTO> getTiers() { DARABONBA_PTR_GET(tiers_, vector<BillingBillTierDTO>) };
+    inline BillingCostBreakdownRowDTO& setTiers(const vector<BillingBillTierDTO> & tiers) { DARABONBA_PTR_SET_VALUE(tiers_, tiers) };
+    inline BillingCostBreakdownRowDTO& setTiers(vector<BillingBillTierDTO> && tiers) { DARABONBA_PTR_SET_RVALUE(tiers_, tiers) };
+
+
+    // values Field Functions 
+    bool hasValues() const { return this->values_ != nullptr;};
+    void deleteValues() { this->values_ = nullptr;};
+    inline string getValues() const { DARABONBA_PTR_GET_DEFAULT(values_, "") };
+    inline BillingCostBreakdownRowDTO& setValues(string values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+
+
   protected:
     shared_ptr<string> billingType_ {};
     shared_ptr<int64_t> clientId_ {};
     shared_ptr<string> clientName_ {};
+    shared_ptr<string> dimValues_ {};
     shared_ptr<string> modelCode_ {};
     shared_ptr<int64_t> modelId_ {};
     shared_ptr<string> modelName_ {};
     shared_ptr<string> modelType_ {};
     shared_ptr<float> payableAmount_ {};
     shared_ptr<int64_t> summaryTime_ {};
+    shared_ptr<vector<BillingBillTierDTO>> tiers_ {};
+    shared_ptr<string> values_ {};
   };
 
   } // namespace Models

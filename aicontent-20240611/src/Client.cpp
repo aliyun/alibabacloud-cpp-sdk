@@ -3423,6 +3423,10 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCostBreakdownWithOptions(const ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
   }
@@ -3433,6 +3437,14 @@ ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCost
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModelId()) {
+    query["modelId"] = request.getModelId();
+  }
+
+  if (!!request.hasModelTypes()) {
+    query["modelTypes"] = request.getModelTypes();
   }
 
   if (!!request.hasNextToken()) {
