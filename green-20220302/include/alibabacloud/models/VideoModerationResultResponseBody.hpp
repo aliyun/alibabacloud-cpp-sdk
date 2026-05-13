@@ -130,6 +130,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(Result, result_);
               DARABONBA_PTR_TO_JSON(Service, service_);
               DARABONBA_ANY_TO_JSON(TextInImage, textInImage_);
+              DARABONBA_PTR_TO_JSON(VlContent, vlContent_);
             };
             friend void from_json(const Darabonba::Json& j, Results& obj) { 
               DARABONBA_PTR_FROM_JSON(CustomImage, customImage_);
@@ -138,6 +139,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(Result, result_);
               DARABONBA_PTR_FROM_JSON(Service, service_);
               DARABONBA_ANY_FROM_JSON(TextInImage, textInImage_);
+              DARABONBA_PTR_FROM_JSON(VlContent, vlContent_);
             };
             Results() = default ;
             Results(const Results &) = default ;
@@ -150,6 +152,37 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class VlContent : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const VlContent& obj) { 
+                DARABONBA_PTR_TO_JSON(OutputText, outputText_);
+              };
+              friend void from_json(const Darabonba::Json& j, VlContent& obj) { 
+                DARABONBA_PTR_FROM_JSON(OutputText, outputText_);
+              };
+              VlContent() = default ;
+              VlContent(const VlContent &) = default ;
+              VlContent(VlContent &&) = default ;
+              VlContent(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~VlContent() = default ;
+              VlContent& operator=(const VlContent &) = default ;
+              VlContent& operator=(VlContent &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->outputText_ == nullptr; };
+              // outputText Field Functions 
+              bool hasOutputText() const { return this->outputText_ != nullptr;};
+              void deleteOutputText() { this->outputText_ = nullptr;};
+              inline string getOutputText() const { DARABONBA_PTR_GET_DEFAULT(outputText_, "") };
+              inline VlContent& setOutputText(string outputText) { DARABONBA_PTR_SET_VALUE(outputText_, outputText) };
+
+
+            protected:
+              shared_ptr<string> outputText_ {};
+            };
+
             class Result : public Darabonba::Model {
             public:
               friend void to_json(Darabonba::Json& j, const Result& obj) { 
@@ -536,7 +569,8 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->customImage_ == nullptr
-        && this->logoData_ == nullptr && this->publicFigure_ == nullptr && this->result_ == nullptr && this->service_ == nullptr && this->textInImage_ == nullptr; };
+        && this->logoData_ == nullptr && this->publicFigure_ == nullptr && this->result_ == nullptr && this->service_ == nullptr && this->textInImage_ == nullptr
+        && this->vlContent_ == nullptr; };
             // customImage Field Functions 
             bool hasCustomImage() const { return this->customImage_ != nullptr;};
             void deleteCustomImage() { this->customImage_ = nullptr;};
@@ -589,6 +623,15 @@ namespace Models
             inline Results& setTextInImage(Darabonba::Json && textInImage) { DARABONBA_SET_RVALUE(textInImage_, textInImage) };
 
 
+            // vlContent Field Functions 
+            bool hasVlContent() const { return this->vlContent_ != nullptr;};
+            void deleteVlContent() { this->vlContent_ = nullptr;};
+            inline const Results::VlContent & getVlContent() const { DARABONBA_PTR_GET_CONST(vlContent_, Results::VlContent) };
+            inline Results::VlContent getVlContent() { DARABONBA_PTR_GET(vlContent_, Results::VlContent) };
+            inline Results& setVlContent(const Results::VlContent & vlContent) { DARABONBA_PTR_SET_VALUE(vlContent_, vlContent) };
+            inline Results& setVlContent(Results::VlContent && vlContent) { DARABONBA_PTR_SET_RVALUE(vlContent_, vlContent) };
+
+
           protected:
             // If a custom image library is hit, information about the custom image library is returned.
             shared_ptr<vector<Results::CustomImage>> customImage_ {};
@@ -602,6 +645,7 @@ namespace Models
             shared_ptr<string> service_ {};
             // The information about the text hit in the image is returned.
             Darabonba::Json textInImage_ {};
+            shared_ptr<Results::VlContent> vlContent_ {};
           };
 
           virtual bool empty() const override { return this->offset_ == nullptr

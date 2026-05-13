@@ -97,7 +97,6 @@ namespace Green20220302
       /**
        * @summary Queries the token for uploading files.
        *
-       * @param request DescribeUploadTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeUploadTokenResponse
        */
