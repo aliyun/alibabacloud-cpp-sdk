@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListFileUploadRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CallFrom, callFrom_);
       DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
+      DARABONBA_PTR_TO_JSON(DownloadLinkExpire, downloadLinkExpire_);
       DARABONBA_PTR_TO_JSON(FileCategory, fileCategory_);
       DARABONBA_PTR_TO_JSON(FileFrom, fileFrom_);
       DARABONBA_PTR_TO_JSON(FileId, fileId_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListFileUploadRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallFrom, callFrom_);
       DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
+      DARABONBA_PTR_FROM_JSON(DownloadLinkExpire, downloadLinkExpire_);
       DARABONBA_PTR_FROM_JSON(FileCategory, fileCategory_);
       DARABONBA_PTR_FROM_JSON(FileFrom, fileFrom_);
       DARABONBA_PTR_FROM_JSON(FileId, fileId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callFrom_ == nullptr
-        && this->dmsUnit_ == nullptr && this->fileCategory_ == nullptr && this->fileFrom_ == nullptr && this->fileId_ == nullptr && this->sessionId_ == nullptr
-        && this->sortColumn_ == nullptr && this->sortDirection_ == nullptr; };
+        && this->dmsUnit_ == nullptr && this->downloadLinkExpire_ == nullptr && this->fileCategory_ == nullptr && this->fileFrom_ == nullptr && this->fileId_ == nullptr
+        && this->sessionId_ == nullptr && this->sortColumn_ == nullptr && this->sortDirection_ == nullptr; };
     // callFrom Field Functions 
     bool hasCallFrom() const { return this->callFrom_ != nullptr;};
     void deleteCallFrom() { this->callFrom_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDmsUnit() { this->dmsUnit_ = nullptr;};
     inline string getDmsUnit() const { DARABONBA_PTR_GET_DEFAULT(dmsUnit_, "") };
     inline ListFileUploadRequest& setDmsUnit(string dmsUnit) { DARABONBA_PTR_SET_VALUE(dmsUnit_, dmsUnit) };
+
+
+    // downloadLinkExpire Field Functions 
+    bool hasDownloadLinkExpire() const { return this->downloadLinkExpire_ != nullptr;};
+    void deleteDownloadLinkExpire() { this->downloadLinkExpire_ = nullptr;};
+    inline int32_t getDownloadLinkExpire() const { DARABONBA_PTR_GET_DEFAULT(downloadLinkExpire_, 0) };
+    inline ListFileUploadRequest& setDownloadLinkExpire(int32_t downloadLinkExpire) { DARABONBA_PTR_SET_VALUE(downloadLinkExpire_, downloadLinkExpire) };
 
 
     // fileCategory Field Functions 
@@ -105,6 +114,7 @@ namespace Models
   protected:
     shared_ptr<string> callFrom_ {};
     shared_ptr<string> dmsUnit_ {};
+    shared_ptr<int32_t> downloadLinkExpire_ {};
     shared_ptr<string> fileCategory_ {};
     shared_ptr<string> fileFrom_ {};
     shared_ptr<string> fileId_ {};

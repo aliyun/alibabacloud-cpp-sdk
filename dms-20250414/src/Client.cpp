@@ -3403,6 +3403,10 @@ ListFileUploadResponse Client::listFileUploadWithOptions(const ListFileUploadReq
     query["DmsUnit"] = request.getDmsUnit();
   }
 
+  if (!!request.hasDownloadLinkExpire()) {
+    query["DownloadLinkExpire"] = request.getDownloadLinkExpire();
+  }
+
   if (!!request.hasFileCategory()) {
     query["FileCategory"] = request.getFileCategory();
   }
