@@ -17,6 +17,9 @@
 #include <alibabacloud/models/CreateAlertStrategyRequest.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponseBody.hpp>
 #include <alibabacloud/models/CreateAlertStrategyResponse.hpp>
+#include <alibabacloud/models/CreateClusterVpcEndpointConnectionRequest.hpp>
+#include <alibabacloud/models/CreateClusterVpcEndpointConnectionResponseBody.hpp>
+#include <alibabacloud/models/CreateClusterVpcEndpointConnectionResponse.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionRequest.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionResponseBody.hpp>
 #include <alibabacloud/models/CreateInstanceInspectionResponse.hpp>

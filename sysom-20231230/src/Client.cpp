@@ -345,6 +345,59 @@ CreateAlertStrategyResponse Client::createAlertStrategy(const CreateAlertStrateg
 }
 
 /**
+ * @summary 创建集群Vpc端点连接
+ *
+ * @param request CreateClusterVpcEndpointConnectionRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateClusterVpcEndpointConnectionResponse
+ */
+CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConnectionWithOptions(const CreateClusterVpcEndpointConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClusterId()) {
+    body["clusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasRegion()) {
+    body["region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateClusterVpcEndpointConnection"},
+    {"version" , "2023-12-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/k8sProxy/access/createClusterVpcEndpointConnection")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateClusterVpcEndpointConnectionResponse>();
+}
+
+/**
+ * @summary 创建集群Vpc端点连接
+ *
+ * @param request CreateClusterVpcEndpointConnectionRequest
+ * @return CreateClusterVpcEndpointConnectionResponse
+ */
+CreateClusterVpcEndpointConnectionResponse Client::createClusterVpcEndpointConnection(const CreateClusterVpcEndpointConnectionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createClusterVpcEndpointConnectionWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建实例巡检
  *
  * @param request CreateInstanceInspectionRequest

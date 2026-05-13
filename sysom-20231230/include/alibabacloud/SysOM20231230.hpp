@@ -121,6 +121,24 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategy(const Models::CreateAlertStrategyRequest &request);
 
       /**
+       * @summary 创建集群Vpc端点连接
+       *
+       * @param request CreateClusterVpcEndpointConnectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateClusterVpcEndpointConnectionResponse
+       */
+      Models::CreateClusterVpcEndpointConnectionResponse createClusterVpcEndpointConnectionWithOptions(const Models::CreateClusterVpcEndpointConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建集群Vpc端点连接
+       *
+       * @param request CreateClusterVpcEndpointConnectionRequest
+       * @return CreateClusterVpcEndpointConnectionResponse
+       */
+      Models::CreateClusterVpcEndpointConnectionResponse createClusterVpcEndpointConnection(const Models::CreateClusterVpcEndpointConnectionRequest &request);
+
+      /**
        * @summary 创建实例巡检
        *
        * @param request CreateInstanceInspectionRequest
