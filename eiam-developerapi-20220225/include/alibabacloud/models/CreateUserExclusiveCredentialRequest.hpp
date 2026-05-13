@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateUserExclusiveCredentialRequest& obj) { 
       DARABONBA_PTR_TO_JSON(credentialContent, credentialContent_);
+      DARABONBA_PTR_TO_JSON(credentialExternalId, credentialExternalId_);
       DARABONBA_PTR_TO_JSON(credentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(credentialScenarioLabel, credentialScenarioLabel_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateUserExclusiveCredentialRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(credentialContent, credentialContent_);
+      DARABONBA_PTR_FROM_JSON(credentialExternalId, credentialExternalId_);
       DARABONBA_PTR_FROM_JSON(credentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(credentialScenarioLabel, credentialScenarioLabel_);
@@ -105,7 +107,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->credentialContent_ == nullptr
-        && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr && this->credentialType_ == nullptr && this->description_ == nullptr; };
+        && this->credentialExternalId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr && this->credentialType_ == nullptr
+        && this->description_ == nullptr; };
     // credentialContent Field Functions 
     bool hasCredentialContent() const { return this->credentialContent_ != nullptr;};
     void deleteCredentialContent() { this->credentialContent_ = nullptr;};
@@ -113,6 +116,13 @@ namespace Models
     inline CreateUserExclusiveCredentialRequest::CredentialContent getCredentialContent() { DARABONBA_PTR_GET(credentialContent_, CreateUserExclusiveCredentialRequest::CredentialContent) };
     inline CreateUserExclusiveCredentialRequest& setCredentialContent(const CreateUserExclusiveCredentialRequest::CredentialContent & credentialContent) { DARABONBA_PTR_SET_VALUE(credentialContent_, credentialContent) };
     inline CreateUserExclusiveCredentialRequest& setCredentialContent(CreateUserExclusiveCredentialRequest::CredentialContent && credentialContent) { DARABONBA_PTR_SET_RVALUE(credentialContent_, credentialContent) };
+
+
+    // credentialExternalId Field Functions 
+    bool hasCredentialExternalId() const { return this->credentialExternalId_ != nullptr;};
+    void deleteCredentialExternalId() { this->credentialExternalId_ = nullptr;};
+    inline string getCredentialExternalId() const { DARABONBA_PTR_GET_DEFAULT(credentialExternalId_, "") };
+    inline CreateUserExclusiveCredentialRequest& setCredentialExternalId(string credentialExternalId) { DARABONBA_PTR_SET_VALUE(credentialExternalId_, credentialExternalId) };
 
 
     // credentialIdentifier Field Functions 
@@ -153,6 +163,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<CreateUserExclusiveCredentialRequest::CredentialContent> credentialContent_ {};
+    shared_ptr<string> credentialExternalId_ {};
     // This parameter is required.
     shared_ptr<string> credentialIdentifier_ {};
     // This parameter is required.

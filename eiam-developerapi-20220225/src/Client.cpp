@@ -386,6 +386,10 @@ CreateUserExclusiveCredentialResponse Client::createUserExclusiveCredentialWithO
     body["credentialContent"] = request.getCredentialContent();
   }
 
+  if (!!request.hasCredentialExternalId()) {
+    body["credentialExternalId"] = request.getCredentialExternalId();
+  }
+
   if (!!request.hasCredentialIdentifier()) {
     body["credentialIdentifier"] = request.getCredentialIdentifier();
   }
