@@ -1877,6 +1877,10 @@ ListAppInstanceDomainsResponse Client::listAppInstanceDomainsWithOptions(const L
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasDomainKeyword()) {
+    query["DomainKeyword"] = request.getDomainKeyword();
+  }
+
   if (!!request.hasMaxResults()) {
     query["MaxResults"] = request.getMaxResults();
   }

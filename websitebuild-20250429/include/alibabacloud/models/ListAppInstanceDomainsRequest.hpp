@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAppInstanceDomainsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(DomainKeyword, domainKeyword_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(OrderColumn, orderColumn_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListAppInstanceDomainsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(DomainKeyword, domainKeyword_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(OrderColumn, orderColumn_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr
-        && this->pageSize_ == nullptr; };
+        && this->domainKeyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline ListAppInstanceDomainsRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // domainKeyword Field Functions 
+    bool hasDomainKeyword() const { return this->domainKeyword_ != nullptr;};
+    void deleteDomainKeyword() { this->domainKeyword_ = nullptr;};
+    inline string getDomainKeyword() const { DARABONBA_PTR_GET_DEFAULT(domainKeyword_, "") };
+    inline ListAppInstanceDomainsRequest& setDomainKeyword(string domainKeyword) { DARABONBA_PTR_SET_VALUE(domainKeyword_, domainKeyword) };
 
 
     // maxResults Field Functions 
@@ -96,6 +105,7 @@ namespace Models
   protected:
     // Business ID
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> domainKeyword_ {};
     // Number of results per query.
     // 
     // Range: 10~100. Default value: 20.
