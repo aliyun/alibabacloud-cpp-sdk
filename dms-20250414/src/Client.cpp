@@ -2238,6 +2238,48 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
+ * @summary 获取工作空间发布配置
+ *
+ * @param request GetWorkspaceCodePublishSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceCodePublishSettingResponse
+ */
+GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSettingWithOptions(const GetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceCodePublishSetting"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceCodePublishSettingResponse>();
+}
+
+/**
+ * @summary 获取工作空间发布配置
+ *
+ * @param request GetWorkspaceCodePublishSettingRequest
+ * @return GetWorkspaceCodePublishSettingResponse
+ */
+GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSetting(const GetWorkspaceCodePublishSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkspaceCodePublishSettingWithOptions(request, runtime);
+}
+
+/**
  * @summary 列出资源Airflow
  *
  * @param request ListAirflowsRequest
@@ -3772,6 +3814,54 @@ SendChatMessageResponse Client::sendChatMessage(const SendChatMessageRequest &re
 }
 
 /**
+ * @summary 设置工作空间代码发布配置
+ *
+ * @param request SetWorkspaceCodePublishSettingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetWorkspaceCodePublishSettingResponse
+ */
+SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSettingWithOptions(const SetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SetWorkspaceCodePublishSetting"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetWorkspaceCodePublishSettingResponse>();
+}
+
+/**
+ * @summary 设置工作空间代码发布配置
+ *
+ * @param request SetWorkspaceCodePublishSettingRequest
+ * @return SetWorkspaceCodePublishSettingResponse
+ */
+SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSetting(const SetWorkspaceCodePublishSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setWorkspaceCodePublishSettingWithOptions(request, runtime);
+}
+
+/**
  * @summary 更新UpdateAirflow
  *
  * @param request UpdateAirflowRequest
@@ -4245,6 +4335,146 @@ UpdateDataLakeTableResponse Client::updateDataLakeTableWithOptions(const UpdateD
 UpdateDataLakeTableResponse Client::updateDataLakeTable(const UpdateDataLakeTableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataLakeTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 工作空间异步操作日志查询接口
+ *
+ * @param request WorkspaceActionLogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WorkspaceActionLogResponse
+ */
+WorkspaceActionLogResponse Client::workspaceActionLogWithOptions(const WorkspaceActionLogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "WorkspaceActionLog"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WorkspaceActionLogResponse>();
+}
+
+/**
+ * @summary 工作空间异步操作日志查询接口
+ *
+ * @param request WorkspaceActionLogRequest
+ * @return WorkspaceActionLogResponse
+ */
+WorkspaceActionLogResponse Client::workspaceActionLog(const WorkspaceActionLogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return workspaceActionLogWithOptions(request, runtime);
+}
+
+/**
+ * @summary 工作空间异步操作状态查询接口
+ *
+ * @param request WorkspaceActionStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WorkspaceActionStatusResponse
+ */
+WorkspaceActionStatusResponse Client::workspaceActionStatusWithOptions(const WorkspaceActionStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "WorkspaceActionStatus"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WorkspaceActionStatusResponse>();
+}
+
+/**
+ * @summary 工作空间异步操作状态查询接口
+ *
+ * @param request WorkspaceActionStatusRequest
+ * @return WorkspaceActionStatusResponse
+ */
+WorkspaceActionStatusResponse Client::workspaceActionStatus(const WorkspaceActionStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return workspaceActionStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+ *
+ * @param request WorkspaceCodePublishRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return WorkspaceCodePublishResponse
+ */
+WorkspaceCodePublishResponse Client::workspaceCodePublishWithOptions(const WorkspaceCodePublishRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "WorkspaceCodePublish"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<WorkspaceCodePublishResponse>();
+}
+
+/**
+ * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+ *
+ * @param request WorkspaceCodePublishRequest
+ * @return WorkspaceCodePublishResponse
+ */
+WorkspaceCodePublishResponse Client::workspaceCodePublish(const WorkspaceCodePublishRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return workspaceCodePublishWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Dms20250414

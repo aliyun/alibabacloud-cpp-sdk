@@ -642,6 +642,23 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
+       * @summary 获取工作空间发布配置
+       *
+       * @param request GetWorkspaceCodePublishSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceCodePublishSettingResponse
+       */
+      Models::GetWorkspaceCodePublishSettingResponse getWorkspaceCodePublishSettingWithOptions(const Models::GetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作空间发布配置
+       *
+       * @param request GetWorkspaceCodePublishSettingRequest
+       * @return GetWorkspaceCodePublishSettingResponse
+       */
+      Models::GetWorkspaceCodePublishSettingResponse getWorkspaceCodePublishSetting(const Models::GetWorkspaceCodePublishSettingRequest &request);
+
+      /**
        * @summary 列出资源Airflow
        *
        * @param request ListAirflowsRequest
@@ -1016,6 +1033,23 @@ namespace Dms20250414
       Models::SendChatMessageResponse sendChatMessage(const Models::SendChatMessageRequest &request);
 
       /**
+       * @summary 设置工作空间代码发布配置
+       *
+       * @param request SetWorkspaceCodePublishSettingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetWorkspaceCodePublishSettingResponse
+       */
+      Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSettingWithOptions(const Models::SetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置工作空间代码发布配置
+       *
+       * @param request SetWorkspaceCodePublishSettingRequest
+       * @return SetWorkspaceCodePublishSettingResponse
+       */
+      Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSetting(const Models::SetWorkspaceCodePublishSettingRequest &request);
+
+      /**
        * @summary 更新UpdateAirflow
        *
        * @param request UpdateAirflowRequest
@@ -1133,6 +1167,57 @@ namespace Dms20250414
        * @return UpdateDataLakeTableResponse
        */
       Models::UpdateDataLakeTableResponse updateDataLakeTable(const Models::UpdateDataLakeTableRequest &request);
+
+      /**
+       * @summary 工作空间异步操作日志查询接口
+       *
+       * @param request WorkspaceActionLogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WorkspaceActionLogResponse
+       */
+      Models::WorkspaceActionLogResponse workspaceActionLogWithOptions(const Models::WorkspaceActionLogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工作空间异步操作日志查询接口
+       *
+       * @param request WorkspaceActionLogRequest
+       * @return WorkspaceActionLogResponse
+       */
+      Models::WorkspaceActionLogResponse workspaceActionLog(const Models::WorkspaceActionLogRequest &request);
+
+      /**
+       * @summary 工作空间异步操作状态查询接口
+       *
+       * @param request WorkspaceActionStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WorkspaceActionStatusResponse
+       */
+      Models::WorkspaceActionStatusResponse workspaceActionStatusWithOptions(const Models::WorkspaceActionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工作空间异步操作状态查询接口
+       *
+       * @param request WorkspaceActionStatusRequest
+       * @return WorkspaceActionStatusResponse
+       */
+      Models::WorkspaceActionStatusResponse workspaceActionStatus(const Models::WorkspaceActionStatusRequest &request);
+
+      /**
+       * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+       *
+       * @param request WorkspaceCodePublishRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return WorkspaceCodePublishResponse
+       */
+      Models::WorkspaceCodePublishResponse workspaceCodePublishWithOptions(const Models::WorkspaceCodePublishRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+       *
+       * @param request WorkspaceCodePublishRequest
+       * @return WorkspaceCodePublishResponse
+       */
+      Models::WorkspaceCodePublishResponse workspaceCodePublish(const Models::WorkspaceCodePublishRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Dms20250414

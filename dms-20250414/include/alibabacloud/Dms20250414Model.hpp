@@ -153,6 +153,9 @@
 #include <alibabacloud/models/GetNotebookTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceCodePublishSettingRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceCodePublishSettingResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceCodePublishSettingResponse.hpp>
 #include <alibabacloud/models/ListAirflowsRequest.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBody.hpp>
 #include <alibabacloud/models/ListAirflowsResponse.hpp>
@@ -222,6 +225,9 @@
 #include <alibabacloud/models/SendChatMessageShrinkRequest.hpp>
 #include <alibabacloud/models/SendChatMessageResponseBody.hpp>
 #include <alibabacloud/models/SendChatMessageResponse.hpp>
+#include <alibabacloud/models/SetWorkspaceCodePublishSettingRequest.hpp>
+#include <alibabacloud/models/SetWorkspaceCodePublishSettingResponseBody.hpp>
+#include <alibabacloud/models/SetWorkspaceCodePublishSettingResponse.hpp>
 #include <alibabacloud/models/UpdateAirflowRequest.hpp>
 #include <alibabacloud/models/UpdateAirflowResponseBody.hpp>
 #include <alibabacloud/models/UpdateAirflowResponse.hpp>
@@ -247,5 +253,14 @@
 #include <alibabacloud/models/UpdateDataLakeTableShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDataLakeTableResponseBody.hpp>
 #include <alibabacloud/models/UpdateDataLakeTableResponse.hpp>
+#include <alibabacloud/models/WorkspaceActionLogRequest.hpp>
+#include <alibabacloud/models/WorkspaceActionLogResponseBody.hpp>
+#include <alibabacloud/models/WorkspaceActionLogResponse.hpp>
+#include <alibabacloud/models/WorkspaceActionStatusRequest.hpp>
+#include <alibabacloud/models/WorkspaceActionStatusResponseBody.hpp>
+#include <alibabacloud/models/WorkspaceActionStatusResponse.hpp>
+#include <alibabacloud/models/WorkspaceCodePublishRequest.hpp>
+#include <alibabacloud/models/WorkspaceCodePublishResponseBody.hpp>
+#include <alibabacloud/models/WorkspaceCodePublishResponse.hpp>
 
 #endif
