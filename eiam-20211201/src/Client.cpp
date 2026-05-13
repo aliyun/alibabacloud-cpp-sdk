@@ -1845,6 +1845,10 @@ CreateCredentialResponse Client::createCredentialWithOptions(const CreateCredent
     query["CredentialContent"] = request.getCredentialContent();
   }
 
+  if (!!request.hasCredentialExternalId()) {
+    query["CredentialExternalId"] = request.getCredentialExternalId();
+  }
+
   if (!!request.hasCredentialIdentifier()) {
     query["CredentialIdentifier"] = request.getCredentialIdentifier();
   }
@@ -11281,6 +11285,10 @@ ListCredentialProvidersResponse Client::listCredentialProviders(const ListCreden
 ListCredentialsResponse Client::listCredentialsWithOptions(const ListCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCredentialExternalIds()) {
+    query["CredentialExternalIds"] = request.getCredentialExternalIds();
+  }
+
   if (!!request.hasCredentialIds()) {
     query["CredentialIds"] = request.getCredentialIds();
   }

@@ -14,6 +14,7 @@ namespace Models
   class ListCredentialsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListCredentialsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CredentialExternalIds, credentialExternalIds_);
       DARABONBA_PTR_TO_JSON(CredentialIds, credentialIds_);
       DARABONBA_PTR_TO_JSON(CredentialSharingScopes, credentialSharingScopes_);
       DARABONBA_PTR_TO_JSON(CredentialTypes, credentialTypes_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Statuses, statuses_);
     };
     friend void from_json(const Darabonba::Json& j, ListCredentialsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CredentialExternalIds, credentialExternalIds_);
       DARABONBA_PTR_FROM_JSON(CredentialIds, credentialIds_);
       DARABONBA_PTR_FROM_JSON(CredentialSharingScopes, credentialSharingScopes_);
       DARABONBA_PTR_FROM_JSON(CredentialTypes, credentialTypes_);
@@ -88,9 +90,18 @@ namespace Models
       shared_ptr<vector<string>> value_ {};
     };
 
-    virtual bool empty() const override { return this->credentialIds_ == nullptr
-        && this->credentialSharingScopes_ == nullptr && this->credentialTypes_ == nullptr && this->filter_ == nullptr && this->instanceId_ == nullptr && this->maxResults_ == nullptr
-        && this->nextToken_ == nullptr && this->statuses_ == nullptr; };
+    virtual bool empty() const override { return this->credentialExternalIds_ == nullptr
+        && this->credentialIds_ == nullptr && this->credentialSharingScopes_ == nullptr && this->credentialTypes_ == nullptr && this->filter_ == nullptr && this->instanceId_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->statuses_ == nullptr; };
+    // credentialExternalIds Field Functions 
+    bool hasCredentialExternalIds() const { return this->credentialExternalIds_ != nullptr;};
+    void deleteCredentialExternalIds() { this->credentialExternalIds_ = nullptr;};
+    inline const vector<string> & getCredentialExternalIds() const { DARABONBA_PTR_GET_CONST(credentialExternalIds_, vector<string>) };
+    inline vector<string> getCredentialExternalIds() { DARABONBA_PTR_GET(credentialExternalIds_, vector<string>) };
+    inline ListCredentialsRequest& setCredentialExternalIds(const vector<string> & credentialExternalIds) { DARABONBA_PTR_SET_VALUE(credentialExternalIds_, credentialExternalIds) };
+    inline ListCredentialsRequest& setCredentialExternalIds(vector<string> && credentialExternalIds) { DARABONBA_PTR_SET_RVALUE(credentialExternalIds_, credentialExternalIds) };
+
+
     // credentialIds Field Functions 
     bool hasCredentialIds() const { return this->credentialIds_ != nullptr;};
     void deleteCredentialIds() { this->credentialIds_ = nullptr;};
@@ -158,6 +169,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<string>> credentialExternalIds_ {};
     shared_ptr<vector<string>> credentialIds_ {};
     shared_ptr<vector<string>> credentialSharingScopes_ {};
     shared_ptr<vector<string>> credentialTypes_ {};

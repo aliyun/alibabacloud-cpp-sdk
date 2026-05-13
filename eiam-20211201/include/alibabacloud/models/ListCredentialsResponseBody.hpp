@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CredentialContent, credentialContent_);
         DARABONBA_PTR_TO_JSON(CredentialCreationType, credentialCreationType_);
+        DARABONBA_PTR_TO_JSON(CredentialExternalId, credentialExternalId_);
         DARABONBA_PTR_TO_JSON(CredentialId, credentialId_);
         DARABONBA_PTR_TO_JSON(CredentialIdentifier, credentialIdentifier_);
         DARABONBA_PTR_TO_JSON(CredentialName, credentialName_);
@@ -62,6 +63,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CredentialContent, credentialContent_);
         DARABONBA_PTR_FROM_JSON(CredentialCreationType, credentialCreationType_);
+        DARABONBA_PTR_FROM_JSON(CredentialExternalId, credentialExternalId_);
         DARABONBA_PTR_FROM_JSON(CredentialId, credentialId_);
         DARABONBA_PTR_FROM_JSON(CredentialIdentifier, credentialIdentifier_);
         DARABONBA_PTR_FROM_JSON(CredentialName, credentialName_);
@@ -154,9 +156,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->credentialContent_ == nullptr && this->credentialCreationType_ == nullptr && this->credentialId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr
-        && this->credentialScenarioLabel_ == nullptr && this->credentialSharingScope_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr
-        && this->description_ == nullptr && this->exclusiveUserId_ == nullptr && this->instanceId_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr; };
+        && this->credentialContent_ == nullptr && this->credentialCreationType_ == nullptr && this->credentialExternalId_ == nullptr && this->credentialId_ == nullptr && this->credentialIdentifier_ == nullptr
+        && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr && this->credentialSharingScope_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr
+        && this->credentialType_ == nullptr && this->description_ == nullptr && this->exclusiveUserId_ == nullptr && this->instanceId_ == nullptr && this->status_ == nullptr
+        && this->updateTime_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -178,6 +181,13 @@ namespace Models
       void deleteCredentialCreationType() { this->credentialCreationType_ = nullptr;};
       inline string getCredentialCreationType() const { DARABONBA_PTR_GET_DEFAULT(credentialCreationType_, "") };
       inline Credentials& setCredentialCreationType(string credentialCreationType) { DARABONBA_PTR_SET_VALUE(credentialCreationType_, credentialCreationType) };
+
+
+      // credentialExternalId Field Functions 
+      bool hasCredentialExternalId() const { return this->credentialExternalId_ != nullptr;};
+      void deleteCredentialExternalId() { this->credentialExternalId_ = nullptr;};
+      inline string getCredentialExternalId() const { DARABONBA_PTR_GET_DEFAULT(credentialExternalId_, "") };
+      inline Credentials& setCredentialExternalId(string credentialExternalId) { DARABONBA_PTR_SET_VALUE(credentialExternalId_, credentialExternalId) };
 
 
       // credentialId Field Functions 
@@ -278,6 +288,7 @@ namespace Models
       shared_ptr<Credentials::CredentialContent> credentialContent_ {};
       // 凭据的创建类型。
       shared_ptr<string> credentialCreationType_ {};
+      shared_ptr<string> credentialExternalId_ {};
       // 凭据ID。
       shared_ptr<string> credentialId_ {};
       // 凭据标识

@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCredentialRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CredentialContent, credentialContent_);
+      DARABONBA_PTR_TO_JSON(CredentialExternalId, credentialExternalId_);
       DARABONBA_PTR_TO_JSON(CredentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_TO_JSON(CredentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(CredentialScenarioLabel, credentialScenarioLabel_);
@@ -29,6 +30,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateCredentialRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CredentialContent, credentialContent_);
+      DARABONBA_PTR_FROM_JSON(CredentialExternalId, credentialExternalId_);
       DARABONBA_PTR_FROM_JSON(CredentialIdentifier, credentialIdentifier_);
       DARABONBA_PTR_FROM_JSON(CredentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(CredentialScenarioLabel, credentialScenarioLabel_);
@@ -176,9 +178,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->credentialContent_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr && this->credentialSharingScope_ == nullptr
-        && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr && this->description_ == nullptr && this->exclusiveUserId_ == nullptr
-        && this->instanceId_ == nullptr; };
+        && this->credentialContent_ == nullptr && this->credentialExternalId_ == nullptr && this->credentialIdentifier_ == nullptr && this->credentialName_ == nullptr && this->credentialScenarioLabel_ == nullptr
+        && this->credentialSharingScope_ == nullptr && this->credentialSubjectId_ == nullptr && this->credentialSubjectType_ == nullptr && this->credentialType_ == nullptr && this->description_ == nullptr
+        && this->exclusiveUserId_ == nullptr && this->instanceId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -193,6 +195,13 @@ namespace Models
     inline CreateCredentialRequest::CredentialContent getCredentialContent() { DARABONBA_PTR_GET(credentialContent_, CreateCredentialRequest::CredentialContent) };
     inline CreateCredentialRequest& setCredentialContent(const CreateCredentialRequest::CredentialContent & credentialContent) { DARABONBA_PTR_SET_VALUE(credentialContent_, credentialContent) };
     inline CreateCredentialRequest& setCredentialContent(CreateCredentialRequest::CredentialContent && credentialContent) { DARABONBA_PTR_SET_RVALUE(credentialContent_, credentialContent) };
+
+
+    // credentialExternalId Field Functions 
+    bool hasCredentialExternalId() const { return this->credentialExternalId_ != nullptr;};
+    void deleteCredentialExternalId() { this->credentialExternalId_ = nullptr;};
+    inline string getCredentialExternalId() const { DARABONBA_PTR_GET_DEFAULT(credentialExternalId_, "") };
+    inline CreateCredentialRequest& setCredentialExternalId(string credentialExternalId) { DARABONBA_PTR_SET_VALUE(credentialExternalId_, credentialExternalId) };
 
 
     // credentialIdentifier Field Functions 
@@ -274,6 +283,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateCredentialRequest::CredentialContent> credentialContent_ {};
+    shared_ptr<string> credentialExternalId_ {};
     // 凭据标识。
     // 
     // This parameter is required.
