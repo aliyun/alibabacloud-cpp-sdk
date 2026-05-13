@@ -39,11 +39,15 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const DescribePolicyGroups& obj) { 
         DARABONBA_PTR_TO_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_TO_JSON(AdminAccess, adminAccess_);
+        DARABONBA_PTR_TO_JSON(AdminKeyboardOnFullScreen, adminKeyboardOnFullScreen_);
+        DARABONBA_PTR_TO_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
+        DARABONBA_PTR_TO_JSON(AdminMonitor, adminMonitor_);
         DARABONBA_PTR_TO_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_TO_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_TO_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_TO_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_TO_JSON(ClientControlMenu, clientControlMenu_);
+        DARABONBA_PTR_TO_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
         DARABONBA_PTR_TO_JSON(ClientHibernate, clientHibernate_);
         DARABONBA_PTR_TO_JSON(ClientRestart, clientRestart_);
         DARABONBA_PTR_TO_JSON(ClientShutdown, clientShutdown_);
@@ -52,6 +56,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ColorEnhancement, colorEnhancement_);
         DARABONBA_PTR_TO_JSON(CpdDriveClipboard, cpdDriveClipboard_);
         DARABONBA_PTR_TO_JSON(CpuDownGradeDuration, cpuDownGradeDuration_);
+        DARABONBA_PTR_TO_JSON(CpuOverload, cpuOverload_);
         DARABONBA_PTR_TO_JSON(CpuProcessors, cpuProcessors_);
         DARABONBA_PTR_TO_JSON(CpuProtectedMode, cpuProtectedMode_);
         DARABONBA_PTR_TO_JSON(CpuRateLimit, cpuRateLimit_);
@@ -63,12 +68,15 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DeviceRules, deviceRules_);
         DARABONBA_PTR_TO_JSON(DisconnectKeepSession, disconnectKeepSession_);
         DARABONBA_PTR_TO_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
+        DARABONBA_PTR_TO_JSON(DiskOverload, diskOverload_);
         DARABONBA_PTR_TO_JSON(DisplayMode, displayMode_);
         DARABONBA_PTR_TO_JSON(DomainRegisterValue, domainRegisterValue_);
         DARABONBA_PTR_TO_JSON(DomainResolveRule, domainResolveRule_);
         DARABONBA_PTR_TO_JSON(DomainResolveRuleType, domainResolveRuleType_);
         DARABONBA_PTR_TO_JSON(EndUserApplyAdminCoordinate, endUserApplyAdminCoordinate_);
+        DARABONBA_PTR_TO_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_TO_JSON(EndUserGroupCoordinate, endUserGroupCoordinate_);
+        DARABONBA_PTR_TO_JSON(ExternalDrive, externalDrive_);
         DARABONBA_PTR_TO_JSON(FileTransferAddress, fileTransferAddress_);
         DARABONBA_PTR_TO_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_TO_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
@@ -81,9 +89,13 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_TO_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
         DARABONBA_PTR_TO_JSON(InternetPrinter, internetPrinter_);
+        DARABONBA_PTR_TO_JSON(KeyboardControl, keyboardControl_);
+        DARABONBA_PTR_TO_JSON(KmsServer, kmsServer_);
+        DARABONBA_PTR_TO_JSON(KmsServerConfig, kmsServerConfig_);
         DARABONBA_PTR_TO_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_TO_JSON(MaxReconnectTime, maxReconnectTime_);
         DARABONBA_PTR_TO_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
+        DARABONBA_PTR_TO_JSON(MemoryOverload, memoryOverload_);
         DARABONBA_PTR_TO_JSON(MemoryProcessors, memoryProcessors_);
         DARABONBA_PTR_TO_JSON(MemoryProtectedMode, memoryProtectedMode_);
         DARABONBA_PTR_TO_JSON(MemoryRateLimit, memoryRateLimit_);
@@ -99,8 +111,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_TO_JSON(NetRedirectRule, netRedirectRule_);
+        DARABONBA_PTR_TO_JSON(NetworkPrinter, networkPrinter_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_TO_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
+        DARABONBA_PTR_TO_JSON(OrganizationCount, organizationCount_);
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_TO_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_TO_JSON(PolicyStatus, policyStatus_);
@@ -164,11 +178,15 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, DescribePolicyGroups& obj) { 
         DARABONBA_PTR_FROM_JSON(AcademicProxy, academicProxy_);
         DARABONBA_PTR_FROM_JSON(AdminAccess, adminAccess_);
+        DARABONBA_PTR_FROM_JSON(AdminKeyboardOnFullScreen, adminKeyboardOnFullScreen_);
+        DARABONBA_PTR_FROM_JSON(AdminKeyboardOnWindows, adminKeyboardOnWindows_);
+        DARABONBA_PTR_FROM_JSON(AdminMonitor, adminMonitor_);
         DARABONBA_PTR_FROM_JSON(AppContentProtection, appContentProtection_);
         DARABONBA_PTR_FROM_JSON(AuthorizeAccessPolicyRules, authorizeAccessPolicyRules_);
         DARABONBA_PTR_FROM_JSON(AuthorizeSecurityPolicyRules, authorizeSecurityPolicyRules_);
         DARABONBA_PTR_FROM_JSON(CameraRedirect, cameraRedirect_);
         DARABONBA_PTR_FROM_JSON(ClientControlMenu, clientControlMenu_);
+        DARABONBA_PTR_FROM_JSON(ClientCreateSnapshot, clientCreateSnapshot_);
         DARABONBA_PTR_FROM_JSON(ClientHibernate, clientHibernate_);
         DARABONBA_PTR_FROM_JSON(ClientRestart, clientRestart_);
         DARABONBA_PTR_FROM_JSON(ClientShutdown, clientShutdown_);
@@ -177,6 +195,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ColorEnhancement, colorEnhancement_);
         DARABONBA_PTR_FROM_JSON(CpdDriveClipboard, cpdDriveClipboard_);
         DARABONBA_PTR_FROM_JSON(CpuDownGradeDuration, cpuDownGradeDuration_);
+        DARABONBA_PTR_FROM_JSON(CpuOverload, cpuOverload_);
         DARABONBA_PTR_FROM_JSON(CpuProcessors, cpuProcessors_);
         DARABONBA_PTR_FROM_JSON(CpuProtectedMode, cpuProtectedMode_);
         DARABONBA_PTR_FROM_JSON(CpuRateLimit, cpuRateLimit_);
@@ -188,12 +207,15 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DeviceRules, deviceRules_);
         DARABONBA_PTR_FROM_JSON(DisconnectKeepSession, disconnectKeepSession_);
         DARABONBA_PTR_FROM_JSON(DisconnectKeepSessionTime, disconnectKeepSessionTime_);
+        DARABONBA_PTR_FROM_JSON(DiskOverload, diskOverload_);
         DARABONBA_PTR_FROM_JSON(DisplayMode, displayMode_);
         DARABONBA_PTR_FROM_JSON(DomainRegisterValue, domainRegisterValue_);
         DARABONBA_PTR_FROM_JSON(DomainResolveRule, domainResolveRule_);
         DARABONBA_PTR_FROM_JSON(DomainResolveRuleType, domainResolveRuleType_);
         DARABONBA_PTR_FROM_JSON(EndUserApplyAdminCoordinate, endUserApplyAdminCoordinate_);
+        DARABONBA_PTR_FROM_JSON(EndUserCount, endUserCount_);
         DARABONBA_PTR_FROM_JSON(EndUserGroupCoordinate, endUserGroupCoordinate_);
+        DARABONBA_PTR_FROM_JSON(ExternalDrive, externalDrive_);
         DARABONBA_PTR_FROM_JSON(FileTransferAddress, fileTransferAddress_);
         DARABONBA_PTR_FROM_JSON(FileTransferSpeed, fileTransferSpeed_);
         DARABONBA_PTR_FROM_JSON(FileTransferSpeedLocation, fileTransferSpeedLocation_);
@@ -206,9 +228,13 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Html5FileTransfer, html5FileTransfer_);
         DARABONBA_PTR_FROM_JSON(InternetCommunicationProtocol, internetCommunicationProtocol_);
         DARABONBA_PTR_FROM_JSON(InternetPrinter, internetPrinter_);
+        DARABONBA_PTR_FROM_JSON(KeyboardControl, keyboardControl_);
+        DARABONBA_PTR_FROM_JSON(KmsServer, kmsServer_);
+        DARABONBA_PTR_FROM_JSON(KmsServerConfig, kmsServerConfig_);
         DARABONBA_PTR_FROM_JSON(LocalDrive, localDrive_);
         DARABONBA_PTR_FROM_JSON(MaxReconnectTime, maxReconnectTime_);
         DARABONBA_PTR_FROM_JSON(MemoryDownGradeDuration, memoryDownGradeDuration_);
+        DARABONBA_PTR_FROM_JSON(MemoryOverload, memoryOverload_);
         DARABONBA_PTR_FROM_JSON(MemoryProcessors, memoryProcessors_);
         DARABONBA_PTR_FROM_JSON(MemoryProtectedMode, memoryProtectedMode_);
         DARABONBA_PTR_FROM_JSON(MemoryRateLimit, memoryRateLimit_);
@@ -224,8 +250,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NetRedirect, netRedirect_);
         DARABONBA_PTR_FROM_JSON(NetRedirectRule, netRedirectRule_);
+        DARABONBA_PTR_FROM_JSON(NetworkPrinter, networkPrinter_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnect, noOperationDisconnect_);
         DARABONBA_PTR_FROM_JSON(NoOperationDisconnectTime, noOperationDisconnectTime_);
+        DARABONBA_PTR_FROM_JSON(OrganizationCount, organizationCount_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupType, policyGroupType_);
         DARABONBA_PTR_FROM_JSON(PolicyStatus, policyStatus_);
@@ -816,31 +844,34 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->academicProxy_ == nullptr
-        && this->adminAccess_ == nullptr && this->appContentProtection_ == nullptr && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->cameraRedirect_ == nullptr
-        && this->clientControlMenu_ == nullptr && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr
-        && this->clipboard_ == nullptr && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuProcessors_ == nullptr
+        && this->adminAccess_ == nullptr && this->adminKeyboardOnFullScreen_ == nullptr && this->adminKeyboardOnWindows_ == nullptr && this->adminMonitor_ == nullptr && this->appContentProtection_ == nullptr
+        && this->authorizeAccessPolicyRules_ == nullptr && this->authorizeSecurityPolicyRules_ == nullptr && this->cameraRedirect_ == nullptr && this->clientControlMenu_ == nullptr && this->clientCreateSnapshot_ == nullptr
+        && this->clientHibernate_ == nullptr && this->clientRestart_ == nullptr && this->clientShutdown_ == nullptr && this->clientTypes_ == nullptr && this->clipboard_ == nullptr
+        && this->colorEnhancement_ == nullptr && this->cpdDriveClipboard_ == nullptr && this->cpuDownGradeDuration_ == nullptr && this->cpuOverload_ == nullptr && this->cpuProcessors_ == nullptr
         && this->cpuProtectedMode_ == nullptr && this->cpuRateLimit_ == nullptr && this->cpuSampleDuration_ == nullptr && this->cpuSingleRateLimit_ == nullptr && this->desktopCount_ == nullptr
         && this->desktopGroupCount_ == nullptr && this->deviceRedirects_ == nullptr && this->deviceRules_ == nullptr && this->disconnectKeepSession_ == nullptr && this->disconnectKeepSessionTime_ == nullptr
-        && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr && this->endUserApplyAdminCoordinate_ == nullptr
-        && this->endUserGroupCoordinate_ == nullptr && this->fileTransferAddress_ == nullptr && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr
-        && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr
-        && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr && this->internetPrinter_ == nullptr && this->localDrive_ == nullptr && this->maxReconnectTime_ == nullptr
-        && this->memoryDownGradeDuration_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr
-        && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr
-        && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr && this->name_ == nullptr && this->netRedirect_ == nullptr
-        && this->netRedirectRule_ == nullptr && this->noOperationDisconnect_ == nullptr && this->noOperationDisconnectTime_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr
-        && this->policyStatus_ == nullptr && this->portProxy_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr
-        && this->recordContentExpires_ == nullptr && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr
-        && this->recordingAudio_ == nullptr && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr
-        && this->recordingStartTime_ == nullptr && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resolutionDpi_ == nullptr
-        && this->resolutionHeight_ == nullptr && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr
-        && this->scope_ == nullptr && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr
-        && this->streamingMode_ == nullptr && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr
-        && this->useTime_ == nullptr && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr
-        && this->videoEncPolicy_ == nullptr && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr
-        && this->watermarkColor_ == nullptr && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr
-        && this->watermarkPower_ == nullptr && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr
-        && this->watermarkType_ == nullptr && this->wyAssistant_ == nullptr; };
+        && this->diskOverload_ == nullptr && this->displayMode_ == nullptr && this->domainRegisterValue_ == nullptr && this->domainResolveRule_ == nullptr && this->domainResolveRuleType_ == nullptr
+        && this->endUserApplyAdminCoordinate_ == nullptr && this->endUserCount_ == nullptr && this->endUserGroupCoordinate_ == nullptr && this->externalDrive_ == nullptr && this->fileTransferAddress_ == nullptr
+        && this->fileTransferSpeed_ == nullptr && this->fileTransferSpeedLocation_ == nullptr && this->gpuAcceleration_ == nullptr && this->hoverConfigMsg_ == nullptr && this->hoverHibernate_ == nullptr
+        && this->hoverRestart_ == nullptr && this->hoverShutdown_ == nullptr && this->html5Access_ == nullptr && this->html5FileTransfer_ == nullptr && this->internetCommunicationProtocol_ == nullptr
+        && this->internetPrinter_ == nullptr && this->keyboardControl_ == nullptr && this->kmsServer_ == nullptr && this->kmsServerConfig_ == nullptr && this->localDrive_ == nullptr
+        && this->maxReconnectTime_ == nullptr && this->memoryDownGradeDuration_ == nullptr && this->memoryOverload_ == nullptr && this->memoryProcessors_ == nullptr && this->memoryProtectedMode_ == nullptr
+        && this->memoryRateLimit_ == nullptr && this->memorySampleDuration_ == nullptr && this->memorySingleRateLimit_ == nullptr && this->mobileRestart_ == nullptr && this->mobileSafeMenu_ == nullptr
+        && this->mobileShutdown_ == nullptr && this->mobileWuyingKeeper_ == nullptr && this->mobileWyAssistant_ == nullptr && this->modelLibrary_ == nullptr && this->multiScreen_ == nullptr
+        && this->name_ == nullptr && this->netRedirect_ == nullptr && this->netRedirectRule_ == nullptr && this->networkPrinter_ == nullptr && this->noOperationDisconnect_ == nullptr
+        && this->noOperationDisconnectTime_ == nullptr && this->organizationCount_ == nullptr && this->policyGroupId_ == nullptr && this->policyGroupType_ == nullptr && this->policyStatus_ == nullptr
+        && this->portProxy_ == nullptr && this->printerRedirection_ == nullptr && this->qualityEnhancement_ == nullptr && this->recordContent_ == nullptr && this->recordContentExpires_ == nullptr
+        && this->recordEventDuration_ == nullptr && this->recordEventFilePaths_ == nullptr && this->recordEventRegisters_ == nullptr && this->recording_ == nullptr && this->recordingAudio_ == nullptr
+        && this->recordingDuration_ == nullptr && this->recordingEndTime_ == nullptr && this->recordingExpires_ == nullptr && this->recordingFps_ == nullptr && this->recordingStartTime_ == nullptr
+        && this->recordingUserNotify_ == nullptr && this->recordingUserNotifyMessage_ == nullptr && this->remoteCoordinate_ == nullptr && this->resolutionDpi_ == nullptr && this->resolutionHeight_ == nullptr
+        && this->resolutionModel_ == nullptr && this->resolutionWidth_ == nullptr && this->resourceGroupCount_ == nullptr && this->safeMenu_ == nullptr && this->scope_ == nullptr
+        && this->scopeValue_ == nullptr && this->screenDisplayMode_ == nullptr && this->smoothEnhancement_ == nullptr && this->statusMonitor_ == nullptr && this->streamingMode_ == nullptr
+        && this->targetFps_ == nullptr && this->taskbar_ == nullptr && this->usbRedirect_ == nullptr && this->usbSupplyRedirectRule_ == nullptr && this->useTime_ == nullptr
+        && this->videoEncAvgKbps_ == nullptr && this->videoEncMaxQP_ == nullptr && this->videoEncMinQP_ == nullptr && this->videoEncPeakKbps_ == nullptr && this->videoEncPolicy_ == nullptr
+        && this->videoRedirect_ == nullptr && this->visualQuality_ == nullptr && this->watermark_ == nullptr && this->watermarkAntiCam_ == nullptr && this->watermarkColor_ == nullptr
+        && this->watermarkCustomText_ == nullptr && this->watermarkDegree_ == nullptr && this->watermarkFontSize_ == nullptr && this->watermarkFontStyle_ == nullptr && this->watermarkPower_ == nullptr
+        && this->watermarkRowAmount_ == nullptr && this->watermarkSecurity_ == nullptr && this->watermarkShadow_ == nullptr && this->watermarkTransparencyValue_ == nullptr && this->watermarkType_ == nullptr
+        && this->wyAssistant_ == nullptr; };
       // academicProxy Field Functions 
       bool hasAcademicProxy() const { return this->academicProxy_ != nullptr;};
       void deleteAcademicProxy() { this->academicProxy_ = nullptr;};
@@ -853,6 +884,27 @@ namespace Models
       void deleteAdminAccess() { this->adminAccess_ = nullptr;};
       inline string getAdminAccess() const { DARABONBA_PTR_GET_DEFAULT(adminAccess_, "") };
       inline DescribePolicyGroups& setAdminAccess(string adminAccess) { DARABONBA_PTR_SET_VALUE(adminAccess_, adminAccess) };
+
+
+      // adminKeyboardOnFullScreen Field Functions 
+      bool hasAdminKeyboardOnFullScreen() const { return this->adminKeyboardOnFullScreen_ != nullptr;};
+      void deleteAdminKeyboardOnFullScreen() { this->adminKeyboardOnFullScreen_ = nullptr;};
+      inline string getAdminKeyboardOnFullScreen() const { DARABONBA_PTR_GET_DEFAULT(adminKeyboardOnFullScreen_, "") };
+      inline DescribePolicyGroups& setAdminKeyboardOnFullScreen(string adminKeyboardOnFullScreen) { DARABONBA_PTR_SET_VALUE(adminKeyboardOnFullScreen_, adminKeyboardOnFullScreen) };
+
+
+      // adminKeyboardOnWindows Field Functions 
+      bool hasAdminKeyboardOnWindows() const { return this->adminKeyboardOnWindows_ != nullptr;};
+      void deleteAdminKeyboardOnWindows() { this->adminKeyboardOnWindows_ = nullptr;};
+      inline string getAdminKeyboardOnWindows() const { DARABONBA_PTR_GET_DEFAULT(adminKeyboardOnWindows_, "") };
+      inline DescribePolicyGroups& setAdminKeyboardOnWindows(string adminKeyboardOnWindows) { DARABONBA_PTR_SET_VALUE(adminKeyboardOnWindows_, adminKeyboardOnWindows) };
+
+
+      // adminMonitor Field Functions 
+      bool hasAdminMonitor() const { return this->adminMonitor_ != nullptr;};
+      void deleteAdminMonitor() { this->adminMonitor_ = nullptr;};
+      inline int32_t getAdminMonitor() const { DARABONBA_PTR_GET_DEFAULT(adminMonitor_, 0) };
+      inline DescribePolicyGroups& setAdminMonitor(int32_t adminMonitor) { DARABONBA_PTR_SET_VALUE(adminMonitor_, adminMonitor) };
 
 
       // appContentProtection Field Functions 
@@ -892,6 +944,13 @@ namespace Models
       void deleteClientControlMenu() { this->clientControlMenu_ = nullptr;};
       inline string getClientControlMenu() const { DARABONBA_PTR_GET_DEFAULT(clientControlMenu_, "") };
       inline DescribePolicyGroups& setClientControlMenu(string clientControlMenu) { DARABONBA_PTR_SET_VALUE(clientControlMenu_, clientControlMenu) };
+
+
+      // clientCreateSnapshot Field Functions 
+      bool hasClientCreateSnapshot() const { return this->clientCreateSnapshot_ != nullptr;};
+      void deleteClientCreateSnapshot() { this->clientCreateSnapshot_ = nullptr;};
+      inline string getClientCreateSnapshot() const { DARABONBA_PTR_GET_DEFAULT(clientCreateSnapshot_, "") };
+      inline DescribePolicyGroups& setClientCreateSnapshot(string clientCreateSnapshot) { DARABONBA_PTR_SET_VALUE(clientCreateSnapshot_, clientCreateSnapshot) };
 
 
       // clientHibernate Field Functions 
@@ -950,6 +1009,13 @@ namespace Models
       void deleteCpuDownGradeDuration() { this->cpuDownGradeDuration_ = nullptr;};
       inline int32_t getCpuDownGradeDuration() const { DARABONBA_PTR_GET_DEFAULT(cpuDownGradeDuration_, 0) };
       inline DescribePolicyGroups& setCpuDownGradeDuration(int32_t cpuDownGradeDuration) { DARABONBA_PTR_SET_VALUE(cpuDownGradeDuration_, cpuDownGradeDuration) };
+
+
+      // cpuOverload Field Functions 
+      bool hasCpuOverload() const { return this->cpuOverload_ != nullptr;};
+      void deleteCpuOverload() { this->cpuOverload_ = nullptr;};
+      inline string getCpuOverload() const { DARABONBA_PTR_GET_DEFAULT(cpuOverload_, "") };
+      inline DescribePolicyGroups& setCpuOverload(string cpuOverload) { DARABONBA_PTR_SET_VALUE(cpuOverload_, cpuOverload) };
 
 
       // cpuProcessors Field Functions 
@@ -1035,6 +1101,13 @@ namespace Models
       inline DescribePolicyGroups& setDisconnectKeepSessionTime(int32_t disconnectKeepSessionTime) { DARABONBA_PTR_SET_VALUE(disconnectKeepSessionTime_, disconnectKeepSessionTime) };
 
 
+      // diskOverload Field Functions 
+      bool hasDiskOverload() const { return this->diskOverload_ != nullptr;};
+      void deleteDiskOverload() { this->diskOverload_ = nullptr;};
+      inline string getDiskOverload() const { DARABONBA_PTR_GET_DEFAULT(diskOverload_, "") };
+      inline DescribePolicyGroups& setDiskOverload(string diskOverload) { DARABONBA_PTR_SET_VALUE(diskOverload_, diskOverload) };
+
+
       // displayMode Field Functions 
       bool hasDisplayMode() const { return this->displayMode_ != nullptr;};
       void deleteDisplayMode() { this->displayMode_ = nullptr;};
@@ -1072,11 +1145,25 @@ namespace Models
       inline DescribePolicyGroups& setEndUserApplyAdminCoordinate(string endUserApplyAdminCoordinate) { DARABONBA_PTR_SET_VALUE(endUserApplyAdminCoordinate_, endUserApplyAdminCoordinate) };
 
 
+      // endUserCount Field Functions 
+      bool hasEndUserCount() const { return this->endUserCount_ != nullptr;};
+      void deleteEndUserCount() { this->endUserCount_ = nullptr;};
+      inline string getEndUserCount() const { DARABONBA_PTR_GET_DEFAULT(endUserCount_, "") };
+      inline DescribePolicyGroups& setEndUserCount(string endUserCount) { DARABONBA_PTR_SET_VALUE(endUserCount_, endUserCount) };
+
+
       // endUserGroupCoordinate Field Functions 
       bool hasEndUserGroupCoordinate() const { return this->endUserGroupCoordinate_ != nullptr;};
       void deleteEndUserGroupCoordinate() { this->endUserGroupCoordinate_ = nullptr;};
       inline string getEndUserGroupCoordinate() const { DARABONBA_PTR_GET_DEFAULT(endUserGroupCoordinate_, "") };
       inline DescribePolicyGroups& setEndUserGroupCoordinate(string endUserGroupCoordinate) { DARABONBA_PTR_SET_VALUE(endUserGroupCoordinate_, endUserGroupCoordinate) };
+
+
+      // externalDrive Field Functions 
+      bool hasExternalDrive() const { return this->externalDrive_ != nullptr;};
+      void deleteExternalDrive() { this->externalDrive_ = nullptr;};
+      inline string getExternalDrive() const { DARABONBA_PTR_GET_DEFAULT(externalDrive_, "") };
+      inline DescribePolicyGroups& setExternalDrive(string externalDrive) { DARABONBA_PTR_SET_VALUE(externalDrive_, externalDrive) };
 
 
       // fileTransferAddress Field Functions 
@@ -1163,6 +1250,27 @@ namespace Models
       inline DescribePolicyGroups& setInternetPrinter(string internetPrinter) { DARABONBA_PTR_SET_VALUE(internetPrinter_, internetPrinter) };
 
 
+      // keyboardControl Field Functions 
+      bool hasKeyboardControl() const { return this->keyboardControl_ != nullptr;};
+      void deleteKeyboardControl() { this->keyboardControl_ = nullptr;};
+      inline string getKeyboardControl() const { DARABONBA_PTR_GET_DEFAULT(keyboardControl_, "") };
+      inline DescribePolicyGroups& setKeyboardControl(string keyboardControl) { DARABONBA_PTR_SET_VALUE(keyboardControl_, keyboardControl) };
+
+
+      // kmsServer Field Functions 
+      bool hasKmsServer() const { return this->kmsServer_ != nullptr;};
+      void deleteKmsServer() { this->kmsServer_ = nullptr;};
+      inline string getKmsServer() const { DARABONBA_PTR_GET_DEFAULT(kmsServer_, "") };
+      inline DescribePolicyGroups& setKmsServer(string kmsServer) { DARABONBA_PTR_SET_VALUE(kmsServer_, kmsServer) };
+
+
+      // kmsServerConfig Field Functions 
+      bool hasKmsServerConfig() const { return this->kmsServerConfig_ != nullptr;};
+      void deleteKmsServerConfig() { this->kmsServerConfig_ = nullptr;};
+      inline string getKmsServerConfig() const { DARABONBA_PTR_GET_DEFAULT(kmsServerConfig_, "") };
+      inline DescribePolicyGroups& setKmsServerConfig(string kmsServerConfig) { DARABONBA_PTR_SET_VALUE(kmsServerConfig_, kmsServerConfig) };
+
+
       // localDrive Field Functions 
       bool hasLocalDrive() const { return this->localDrive_ != nullptr;};
       void deleteLocalDrive() { this->localDrive_ = nullptr;};
@@ -1182,6 +1290,13 @@ namespace Models
       void deleteMemoryDownGradeDuration() { this->memoryDownGradeDuration_ = nullptr;};
       inline int32_t getMemoryDownGradeDuration() const { DARABONBA_PTR_GET_DEFAULT(memoryDownGradeDuration_, 0) };
       inline DescribePolicyGroups& setMemoryDownGradeDuration(int32_t memoryDownGradeDuration) { DARABONBA_PTR_SET_VALUE(memoryDownGradeDuration_, memoryDownGradeDuration) };
+
+
+      // memoryOverload Field Functions 
+      bool hasMemoryOverload() const { return this->memoryOverload_ != nullptr;};
+      void deleteMemoryOverload() { this->memoryOverload_ = nullptr;};
+      inline string getMemoryOverload() const { DARABONBA_PTR_GET_DEFAULT(memoryOverload_, "") };
+      inline DescribePolicyGroups& setMemoryOverload(string memoryOverload) { DARABONBA_PTR_SET_VALUE(memoryOverload_, memoryOverload) };
 
 
       // memoryProcessors Field Functions 
@@ -1293,6 +1408,13 @@ namespace Models
       inline DescribePolicyGroups& setNetRedirectRule(vector<DescribePolicyGroups::NetRedirectRule> && netRedirectRule) { DARABONBA_PTR_SET_RVALUE(netRedirectRule_, netRedirectRule) };
 
 
+      // networkPrinter Field Functions 
+      bool hasNetworkPrinter() const { return this->networkPrinter_ != nullptr;};
+      void deleteNetworkPrinter() { this->networkPrinter_ = nullptr;};
+      inline string getNetworkPrinter() const { DARABONBA_PTR_GET_DEFAULT(networkPrinter_, "") };
+      inline DescribePolicyGroups& setNetworkPrinter(string networkPrinter) { DARABONBA_PTR_SET_VALUE(networkPrinter_, networkPrinter) };
+
+
       // noOperationDisconnect Field Functions 
       bool hasNoOperationDisconnect() const { return this->noOperationDisconnect_ != nullptr;};
       void deleteNoOperationDisconnect() { this->noOperationDisconnect_ = nullptr;};
@@ -1305,6 +1427,13 @@ namespace Models
       void deleteNoOperationDisconnectTime() { this->noOperationDisconnectTime_ = nullptr;};
       inline int32_t getNoOperationDisconnectTime() const { DARABONBA_PTR_GET_DEFAULT(noOperationDisconnectTime_, 0) };
       inline DescribePolicyGroups& setNoOperationDisconnectTime(int32_t noOperationDisconnectTime) { DARABONBA_PTR_SET_VALUE(noOperationDisconnectTime_, noOperationDisconnectTime) };
+
+
+      // organizationCount Field Functions 
+      bool hasOrganizationCount() const { return this->organizationCount_ != nullptr;};
+      void deleteOrganizationCount() { this->organizationCount_ = nullptr;};
+      inline string getOrganizationCount() const { DARABONBA_PTR_GET_DEFAULT(organizationCount_, "") };
+      inline DescribePolicyGroups& setOrganizationCount(string organizationCount) { DARABONBA_PTR_SET_VALUE(organizationCount_, organizationCount) };
 
 
       // policyGroupId Field Functions 
@@ -1734,6 +1863,9 @@ namespace Models
       // 
       // >  This parameter is in private preview and only available to specific users.
       shared_ptr<string> adminAccess_ {};
+      shared_ptr<string> adminKeyboardOnFullScreen_ {};
+      shared_ptr<string> adminKeyboardOnWindows_ {};
+      shared_ptr<int32_t> adminMonitor_ {};
       // Indicates whether anti-screenshot is enabled.
       shared_ptr<string> appContentProtection_ {};
       // The client IP address whitelists.
@@ -1743,6 +1875,7 @@ namespace Models
       // Indicates whether on-premises webcam redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
       shared_ptr<string> clientControlMenu_ {};
+      shared_ptr<string> clientCreateSnapshot_ {};
       shared_ptr<string> clientHibernate_ {};
       shared_ptr<string> clientRestart_ {};
       shared_ptr<string> clientShutdown_ {};
@@ -1755,6 +1888,7 @@ namespace Models
       shared_ptr<string> cpdDriveClipboard_ {};
       // The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> cpuDownGradeDuration_ {};
+      shared_ptr<string> cpuOverload_ {};
       // The CPU processors.
       shared_ptr<vector<string>> cpuProcessors_ {};
       // The CPU spike protection policy.
@@ -1781,6 +1915,7 @@ namespace Models
       // 
       // >  This parameter applies only to cloud application policies.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
+      shared_ptr<string> diskOverload_ {};
       // The display mode.
       shared_ptr<string> displayMode_ {};
       // The field where the domain resolution policy is applied.
@@ -1791,8 +1926,10 @@ namespace Models
       shared_ptr<string> domainResolveRuleType_ {};
       // Indicates whether end users are allowed to request administrator help.
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
+      shared_ptr<string> endUserCount_ {};
       // Indicates whether end users in the same office network can share cloud computers.
       shared_ptr<string> endUserGroupCoordinate_ {};
+      shared_ptr<string> externalDrive_ {};
       shared_ptr<string> fileTransferAddress_ {};
       shared_ptr<string> fileTransferSpeed_ {};
       shared_ptr<string> fileTransferSpeedLocation_ {};
@@ -1809,12 +1946,16 @@ namespace Models
       // The network communication protocol.
       shared_ptr<string> internetCommunicationProtocol_ {};
       shared_ptr<string> internetPrinter_ {};
+      shared_ptr<string> keyboardControl_ {};
+      shared_ptr<string> kmsServer_ {};
+      shared_ptr<string> kmsServerConfig_ {};
       // The read/write permissions on the on-premises drive.
       shared_ptr<string> localDrive_ {};
       // The maximum duration to retry reconnecting to cloud computers after an unexpected disconnection (non-human causes). Valid values: 30 to 7200. Unit: seconds.
       shared_ptr<int32_t> maxReconnectTime_ {};
       // The memory underclocking duration per process. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
+      shared_ptr<string> memoryOverload_ {};
       // The memory processors.
       shared_ptr<vector<string>> memoryProcessors_ {};
       // The memory spike protection policy.
@@ -1848,6 +1989,7 @@ namespace Models
       // 
       // >  This parameter is in private preview and only available to specific users.
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
+      shared_ptr<string> networkPrinter_ {};
       // Indicates whether a disconnection is enforced upon inactivity.
       // 
       // >  This parameter applies only to cloud application policies.
@@ -1856,6 +1998,7 @@ namespace Models
       // 
       // >  This parameter applies only to cloud application policies.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
+      shared_ptr<string> organizationCount_ {};
       // The policy ID.
       shared_ptr<string> policyGroupId_ {};
       // The type of the policy.
