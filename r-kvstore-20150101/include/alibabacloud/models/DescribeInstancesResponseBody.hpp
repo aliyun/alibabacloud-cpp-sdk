@@ -103,6 +103,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(UserName, userName_);
           DARABONBA_PTR_TO_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+          DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
         };
         friend void from_json(const Darabonba::Json& j, KVStoreInstance& obj) { 
@@ -149,6 +150,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(UserName, userName_);
           DARABONBA_PTR_FROM_JSON(VSwitchId, vSwitchId_);
           DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+          DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
           DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
         };
         KVStoreInstance() = default ;
@@ -246,7 +248,7 @@ namespace Models
         && this->port_ == nullptr && this->privateIp_ == nullptr && this->QPS_ == nullptr && this->readOnlyCount_ == nullptr && this->regionId_ == nullptr
         && this->replacateId_ == nullptr && this->replicaCount_ == nullptr && this->resourceGroupId_ == nullptr && this->secondaryZoneId_ == nullptr && this->shardClass_ == nullptr
         && this->shardCount_ == nullptr && this->slaveReadOnlyCount_ == nullptr && this->slaveReplicaCount_ == nullptr && this->tags_ == nullptr && this->userName_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
         // architectureType Field Functions 
         bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
         void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -550,6 +552,13 @@ namespace Models
         inline KVStoreInstance& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+        // workspaceId Field Functions 
+        bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+        void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+        inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+        inline KVStoreInstance& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
         // zoneId Field Functions 
         bool hasZoneId() const { return this->zoneId_ != nullptr;};
         void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -601,6 +610,7 @@ namespace Models
         shared_ptr<string> userName_ {};
         shared_ptr<string> vSwitchId_ {};
         shared_ptr<string> vpcId_ {};
+        shared_ptr<string> workspaceId_ {};
         shared_ptr<string> zoneId_ {};
       };
 

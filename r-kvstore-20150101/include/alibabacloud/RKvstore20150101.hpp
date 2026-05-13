@@ -389,6 +389,40 @@ namespace RKvstore20150101
       Models::CreateTairKVCacheVNodeResponse createTairKVCacheVNode(const Models::CreateTairKVCacheVNodeRequest &request);
 
       /**
+       * @summary 创建Tair Serverless 类型实例的Workspace
+       *
+       * @param request CreateTairSkvDdbTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTairSkvDdbTableResponse
+       */
+      Models::CreateTairSkvDdbTableResponse createTairSkvDdbTableWithOptions(const Models::CreateTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Tair Serverless 类型实例的Workspace
+       *
+       * @param request CreateTairSkvDdbTableRequest
+       * @return CreateTairSkvDdbTableResponse
+       */
+      Models::CreateTairSkvDdbTableResponse createTairSkvDdbTable(const Models::CreateTairSkvDdbTableRequest &request);
+
+      /**
+       * @summary 创建Tair Serverless 类型实例的Workspace
+       *
+       * @param request CreateTairSkvDdbWorkspaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTairSkvDdbWorkspaceResponse
+       */
+      Models::CreateTairSkvDdbWorkspaceResponse createTairSkvDdbWorkspaceWithOptions(const Models::CreateTairSkvDdbWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Tair Serverless 类型实例的Workspace
+       *
+       * @param request CreateTairSkvDdbWorkspaceRequest
+       * @return CreateTairSkvDdbWorkspaceResponse
+       */
+      Models::CreateTairSkvDdbWorkspaceResponse createTairSkvDdbWorkspace(const Models::CreateTairSkvDdbWorkspaceRequest &request);
+
+      /**
        * @summary Deletes an account from a Tair (Redis OSS-compatible) instance.
        *
        * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
@@ -1727,6 +1761,57 @@ namespace RKvstore20150101
        * @return DescribeTairKVCacheInferInstancesResponse
        */
       Models::DescribeTairKVCacheInferInstancesResponse describeTairKVCacheInferInstances(const Models::DescribeTairKVCacheInferInstancesRequest &request);
+
+      /**
+       * @summary 查询Tair Serverless KV DDB实例的table
+       *
+       * @param request DescribeTairSkvDdbTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTairSkvDdbTableResponse
+       */
+      Models::DescribeTairSkvDdbTableResponse describeTairSkvDdbTableWithOptions(const Models::DescribeTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Tair Serverless KV DDB实例的table
+       *
+       * @param request DescribeTairSkvDdbTableRequest
+       * @return DescribeTairSkvDdbTableResponse
+       */
+      Models::DescribeTairSkvDdbTableResponse describeTairSkvDdbTable(const Models::DescribeTairSkvDdbTableRequest &request);
+
+      /**
+       * @summary 查询Tair Serverless KV DDB实例的table schema
+       *
+       * @param request DescribeTairSkvDdbTableSchemaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTairSkvDdbTableSchemaResponse
+       */
+      Models::DescribeTairSkvDdbTableSchemaResponse describeTairSkvDdbTableSchemaWithOptions(const Models::DescribeTairSkvDdbTableSchemaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Tair Serverless KV DDB实例的table schema
+       *
+       * @param request DescribeTairSkvDdbTableSchemaRequest
+       * @return DescribeTairSkvDdbTableSchemaResponse
+       */
+      Models::DescribeTairSkvDdbTableSchemaResponse describeTairSkvDdbTableSchema(const Models::DescribeTairSkvDdbTableSchemaRequest &request);
+
+      /**
+       * @summary 查询任务详情
+       *
+       * @param request DescribeTaskDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTaskDetailResponse
+       */
+      Models::DescribeTaskDetailResponse describeTaskDetailWithOptions(const Models::DescribeTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询任务详情
+       *
+       * @param request DescribeTaskDetailRequest
+       * @return DescribeTaskDetailResponse
+       */
+      Models::DescribeTaskDetailResponse describeTaskDetail(const Models::DescribeTaskDetailRequest &request);
 
       /**
        * @summary Queries the zones that support Tair (Redis OSS-compatible) in a specific region. To query the zones where Tair (Redis OSS-compatible) instances can be purchased, call the DescribeAvailableResource operation.

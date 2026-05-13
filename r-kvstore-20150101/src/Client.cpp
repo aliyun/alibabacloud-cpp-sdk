@@ -1815,6 +1815,198 @@ CreateTairKVCacheVNodeResponse Client::createTairKVCacheVNode(const CreateTairKV
 }
 
 /**
+ * @summary 创建Tair Serverless 类型实例的Workspace
+ *
+ * @param request CreateTairSkvDdbTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTairSkvDdbTableResponse
+ */
+CreateTairSkvDdbTableResponse Client::createTairSkvDdbTableWithOptions(const CreateTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupId()) {
+    query["BackupId"] = request.getBackupId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSchema()) {
+    query["Schema"] = request.getSchema();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasSrcDBInstanceId()) {
+    query["SrcDBInstanceId"] = request.getSrcDBInstanceId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  if (!!request.hasTtlSpec()) {
+    query["TtlSpec"] = request.getTtlSpec();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTairSkvDdbTable"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTairSkvDdbTableResponse>();
+}
+
+/**
+ * @summary 创建Tair Serverless 类型实例的Workspace
+ *
+ * @param request CreateTairSkvDdbTableRequest
+ * @return CreateTairSkvDdbTableResponse
+ */
+CreateTairSkvDdbTableResponse Client::createTairSkvDdbTable(const CreateTairSkvDdbTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTairSkvDdbTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建Tair Serverless 类型实例的Workspace
+ *
+ * @param request CreateTairSkvDdbWorkspaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTairSkvDdbWorkspaceResponse
+ */
+CreateTairSkvDdbWorkspaceResponse Client::createTairSkvDdbWorkspaceWithOptions(const CreateTairSkvDdbWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasInstanceType()) {
+    query["InstanceType"] = request.getInstanceType();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPort()) {
+    query["Port"] = request.getPort();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasVSwitchId()) {
+    query["VSwitchId"] = request.getVSwitchId();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasZoneId()) {
+    query["ZoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTairSkvDdbWorkspace"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTairSkvDdbWorkspaceResponse>();
+}
+
+/**
+ * @summary 创建Tair Serverless 类型实例的Workspace
+ *
+ * @param request CreateTairSkvDdbWorkspaceRequest
+ * @return CreateTairSkvDdbWorkspaceResponse
+ */
+CreateTairSkvDdbWorkspaceResponse Client::createTairSkvDdbWorkspace(const CreateTairSkvDdbWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTairSkvDdbWorkspaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an account from a Tair (Redis OSS-compatible) instance.
  *
  * @description *   This operation is supported only for instances that are compatible with Redis 4.0 or later.
@@ -6952,6 +7144,180 @@ DescribeTairKVCacheInferInstancesResponse Client::describeTairKVCacheInferInstan
 DescribeTairKVCacheInferInstancesResponse Client::describeTairKVCacheInferInstances(const DescribeTairKVCacheInferInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeTairKVCacheInferInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Tair Serverless KV DDB实例的table
+ *
+ * @param request DescribeTairSkvDdbTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTairSkvDdbTableResponse
+ */
+DescribeTairSkvDdbTableResponse Client::describeTairSkvDdbTableWithOptions(const DescribeTairSkvDdbTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTairSkvDdbTable"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTairSkvDdbTableResponse>();
+}
+
+/**
+ * @summary 查询Tair Serverless KV DDB实例的table
+ *
+ * @param request DescribeTairSkvDdbTableRequest
+ * @return DescribeTairSkvDdbTableResponse
+ */
+DescribeTairSkvDdbTableResponse Client::describeTairSkvDdbTable(const DescribeTairSkvDdbTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTairSkvDdbTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Tair Serverless KV DDB实例的table schema
+ *
+ * @param request DescribeTairSkvDdbTableSchemaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTairSkvDdbTableSchemaResponse
+ */
+DescribeTairSkvDdbTableSchemaResponse Client::describeTairSkvDdbTableSchemaWithOptions(const DescribeTairSkvDdbTableSchemaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupId()) {
+    query["BackupId"] = request.getBackupId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTairSkvDdbTableSchema"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTairSkvDdbTableSchemaResponse>();
+}
+
+/**
+ * @summary 查询Tair Serverless KV DDB实例的table schema
+ *
+ * @param request DescribeTairSkvDdbTableSchemaRequest
+ * @return DescribeTairSkvDdbTableSchemaResponse
+ */
+DescribeTairSkvDdbTableSchemaResponse Client::describeTairSkvDdbTableSchema(const DescribeTairSkvDdbTableSchemaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTairSkvDdbTableSchemaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询任务详情
+ *
+ * @param request DescribeTaskDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTaskDetailResponse
+ */
+DescribeTaskDetailResponse Client::describeTaskDetailWithOptions(const DescribeTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTaskDetail"},
+    {"version" , "2015-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTaskDetailResponse>();
+}
+
+/**
+ * @summary 查询任务详情
+ *
+ * @param request DescribeTaskDetailRequest
+ * @return DescribeTaskDetailResponse
+ */
+DescribeTaskDetailResponse Client::describeTaskDetail(const DescribeTaskDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTaskDetailWithOptions(request, runtime);
 }
 
 /**
