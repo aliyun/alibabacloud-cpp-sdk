@@ -364,10 +364,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const ResourcePoolOptions& obj) { 
           DARABONBA_PTR_TO_JSON(PrivatePoolIds, privatePoolIds_);
+          DARABONBA_PTR_TO_JSON(PrivatePoolTags, privatePoolTags_);
           DARABONBA_PTR_TO_JSON(Strategy, strategy_);
         };
         friend void from_json(const Darabonba::Json& j, ResourcePoolOptions& obj) { 
           DARABONBA_PTR_FROM_JSON(PrivatePoolIds, privatePoolIds_);
+          DARABONBA_PTR_FROM_JSON(PrivatePoolTags, privatePoolTags_);
           DARABONBA_PTR_FROM_JSON(Strategy, strategy_);
         };
         ResourcePoolOptions() = default ;
@@ -381,8 +383,50 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class PrivatePoolTags : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const PrivatePoolTags& obj) { 
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(Value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, PrivatePoolTags& obj) { 
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(Value, value_);
+          };
+          PrivatePoolTags() = default ;
+          PrivatePoolTags(const PrivatePoolTags &) = default ;
+          PrivatePoolTags(PrivatePoolTags &&) = default ;
+          PrivatePoolTags(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~PrivatePoolTags() = default ;
+          PrivatePoolTags& operator=(const PrivatePoolTags &) = default ;
+          PrivatePoolTags& operator=(PrivatePoolTags &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline PrivatePoolTags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline PrivatePoolTags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          shared_ptr<string> key_ {};
+          shared_ptr<string> value_ {};
+        };
+
         virtual bool empty() const override { return this->privatePoolIds_ == nullptr
-        && this->strategy_ == nullptr; };
+        && this->privatePoolTags_ == nullptr && this->strategy_ == nullptr; };
         // privatePoolIds Field Functions 
         bool hasPrivatePoolIds() const { return this->privatePoolIds_ != nullptr;};
         void deletePrivatePoolIds() { this->privatePoolIds_ = nullptr;};
@@ -390,6 +434,15 @@ namespace Models
         inline vector<string> getPrivatePoolIds() { DARABONBA_PTR_GET(privatePoolIds_, vector<string>) };
         inline ResourcePoolOptions& setPrivatePoolIds(const vector<string> & privatePoolIds) { DARABONBA_PTR_SET_VALUE(privatePoolIds_, privatePoolIds) };
         inline ResourcePoolOptions& setPrivatePoolIds(vector<string> && privatePoolIds) { DARABONBA_PTR_SET_RVALUE(privatePoolIds_, privatePoolIds) };
+
+
+        // privatePoolTags Field Functions 
+        bool hasPrivatePoolTags() const { return this->privatePoolTags_ != nullptr;};
+        void deletePrivatePoolTags() { this->privatePoolTags_ = nullptr;};
+        inline const vector<ResourcePoolOptions::PrivatePoolTags> & getPrivatePoolTags() const { DARABONBA_PTR_GET_CONST(privatePoolTags_, vector<ResourcePoolOptions::PrivatePoolTags>) };
+        inline vector<ResourcePoolOptions::PrivatePoolTags> getPrivatePoolTags() { DARABONBA_PTR_GET(privatePoolTags_, vector<ResourcePoolOptions::PrivatePoolTags>) };
+        inline ResourcePoolOptions& setPrivatePoolTags(const vector<ResourcePoolOptions::PrivatePoolTags> & privatePoolTags) { DARABONBA_PTR_SET_VALUE(privatePoolTags_, privatePoolTags) };
+        inline ResourcePoolOptions& setPrivatePoolTags(vector<ResourcePoolOptions::PrivatePoolTags> && privatePoolTags) { DARABONBA_PTR_SET_RVALUE(privatePoolTags_, privatePoolTags) };
 
 
         // strategy Field Functions 
@@ -402,6 +455,7 @@ namespace Models
       protected:
         // The IDs of private pools. The ID of a private pool is the same as the ID of the elasticity assurance or capacity reservation that is associated with the private pool.
         shared_ptr<vector<string>> privatePoolIds_ {};
+        shared_ptr<vector<ResourcePoolOptions::PrivatePoolTags>> privatePoolTags_ {};
         // The resource pool used for instance creation, which can be the public pool or a private pool associated with any active elasticity assurance or capacity reservation. Valid values:
         // 
         // *   PrivatePoolFirst: prioritizes private pools. When this option is set along with ResourcePoolOptions.PrivatePoolIds, the specified private pools are used first. If you leave ResourcePoolOptions.PrivatePoolIds empty or if the specified private pools lack sufficient capacity, the system will automatically use available open private pools instead. If no matching private pools are available, the system defaults to the public pool.
