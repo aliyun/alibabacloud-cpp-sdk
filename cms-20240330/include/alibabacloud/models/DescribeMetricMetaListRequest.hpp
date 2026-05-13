@@ -14,6 +14,7 @@ namespace Models
   class DescribeMetricMetaListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMetricMetaListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(keywords, keywords_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(metaFormat, metaFormat_);
       DARABONBA_PTR_TO_JSON(metricName, metricName_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMetricMetaListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(keywords, keywords_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(metaFormat, metaFormat_);
       DARABONBA_PTR_FROM_JSON(metricName, metricName_);
@@ -82,8 +84,16 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->labels_ == nullptr
-        && this->metaFormat_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->keywords_ == nullptr
+        && this->labels_ == nullptr && this->metaFormat_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
+    // keywords Field Functions 
+    bool hasKeywords() const { return this->keywords_ != nullptr;};
+    void deleteKeywords() { this->keywords_ = nullptr;};
+    inline string getKeywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
+    inline DescribeMetricMetaListRequest& setKeywords(string keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
+
+
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
@@ -129,6 +139,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> keywords_ {};
     shared_ptr<vector<DescribeMetricMetaListRequest::Labels>> labels_ {};
     shared_ptr<string> metaFormat_ {};
     shared_ptr<string> metricName_ {};

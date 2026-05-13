@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(dimensionDescription, dimensionDescription_);
         DARABONBA_PTR_TO_JSON(dimensions, dimensions_);
         DARABONBA_PTR_TO_JSON(labels, labels_);
+        DARABONBA_PTR_TO_JSON(metaFormat, metaFormat_);
         DARABONBA_PTR_TO_JSON(metricName, metricName_);
         DARABONBA_PTR_TO_JSON(namespace, namespace_);
         DARABONBA_PTR_TO_JSON(periods, periods_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(dimensionDescription, dimensionDescription_);
         DARABONBA_PTR_FROM_JSON(dimensions, dimensions_);
         DARABONBA_PTR_FROM_JSON(labels, labels_);
+        DARABONBA_PTR_FROM_JSON(metaFormat, metaFormat_);
         DARABONBA_PTR_FROM_JSON(metricName, metricName_);
         DARABONBA_PTR_FROM_JSON(namespace, namespace_);
         DARABONBA_PTR_FROM_JSON(periods, periods_);
@@ -108,8 +110,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->dimensionDescription_ == nullptr && this->dimensions_ == nullptr && this->labels_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr
-        && this->periods_ == nullptr && this->statistics_ == nullptr && this->type_ == nullptr && this->unit_ == nullptr; };
+        && this->dimensionDescription_ == nullptr && this->dimensions_ == nullptr && this->labels_ == nullptr && this->metaFormat_ == nullptr && this->metricName_ == nullptr
+        && this->namespace_ == nullptr && this->periods_ == nullptr && this->statistics_ == nullptr && this->type_ == nullptr && this->unit_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -142,6 +144,13 @@ namespace Models
       inline map<string, string> getLabels() { DARABONBA_PTR_GET(labels_, map<string, string>) };
       inline Resources& setLabels(const map<string, string> & labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
       inline Resources& setLabels(map<string, string> && labels) { DARABONBA_PTR_SET_RVALUE(labels_, labels) };
+
+
+      // metaFormat Field Functions 
+      bool hasMetaFormat() const { return this->metaFormat_ != nullptr;};
+      void deleteMetaFormat() { this->metaFormat_ = nullptr;};
+      inline string getMetaFormat() const { DARABONBA_PTR_GET_DEFAULT(metaFormat_, "") };
+      inline Resources& setMetaFormat(string metaFormat) { DARABONBA_PTR_SET_VALUE(metaFormat_, metaFormat) };
 
 
       // metricName Field Functions 
@@ -191,6 +200,7 @@ namespace Models
       shared_ptr<vector<Resources::DimensionDescription>> dimensionDescription_ {};
       shared_ptr<vector<string>> dimensions_ {};
       shared_ptr<map<string, string>> labels_ {};
+      shared_ptr<string> metaFormat_ {};
       shared_ptr<string> metricName_ {};
       shared_ptr<string> namespace_ {};
       shared_ptr<string> periods_ {};

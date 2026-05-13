@@ -76,10 +76,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Logstore& obj) { 
           DARABONBA_PTR_TO_JSON(logstore, logstore_);
           DARABONBA_PTR_TO_JSON(project, project_);
+          DARABONBA_PTR_TO_JSON(query, query_);
         };
         friend void from_json(const Darabonba::Json& j, Logstore& obj) { 
           DARABONBA_PTR_FROM_JSON(logstore, logstore_);
           DARABONBA_PTR_FROM_JSON(project, project_);
+          DARABONBA_PTR_FROM_JSON(query, query_);
         };
         Logstore() = default ;
         Logstore(const Logstore &) = default ;
@@ -93,7 +95,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->logstore_ == nullptr
-        && this->project_ == nullptr; };
+        && this->project_ == nullptr && this->query_ == nullptr; };
         // logstore Field Functions 
         bool hasLogstore() const { return this->logstore_ != nullptr;};
         void deleteLogstore() { this->logstore_ = nullptr;};
@@ -108,9 +110,17 @@ namespace Models
         inline Logstore& setProject(string project) { DARABONBA_PTR_SET_VALUE(project_, project) };
 
 
+        // query Field Functions 
+        bool hasQuery() const { return this->query_ != nullptr;};
+        void deleteQuery() { this->query_ = nullptr;};
+        inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+        inline Logstore& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
+
+
       protected:
         shared_ptr<string> logstore_ {};
         shared_ptr<string> project_ {};
+        shared_ptr<string> query_ {};
       };
 
       virtual bool empty() const override { return this->logstore_ == nullptr

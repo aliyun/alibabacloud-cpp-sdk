@@ -2594,6 +2594,10 @@ DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const D
   }
 
   json query = {};
+  if (!!request.hasKeywords()) {
+    query["keywords"] = request.getKeywords();
+  }
+
   if (!!request.hasLabelsShrink()) {
     query["labels"] = request.getLabelsShrink();
   }

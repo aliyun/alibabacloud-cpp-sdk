@@ -13,6 +13,7 @@ namespace Models
   class DescribeMetricMetaListShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMetricMetaListShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(keywords, keywords_);
       DARABONBA_PTR_TO_JSON(labels, labelsShrink_);
       DARABONBA_PTR_TO_JSON(metaFormat, metaFormat_);
       DARABONBA_PTR_TO_JSON(metricName, metricName_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMetricMetaListShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(keywords, keywords_);
       DARABONBA_PTR_FROM_JSON(labels, labelsShrink_);
       DARABONBA_PTR_FROM_JSON(metaFormat, metaFormat_);
       DARABONBA_PTR_FROM_JSON(metricName, metricName_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->labelsShrink_ == nullptr
-        && this->metaFormat_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->keywords_ == nullptr
+        && this->labelsShrink_ == nullptr && this->metaFormat_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr; };
+    // keywords Field Functions 
+    bool hasKeywords() const { return this->keywords_ != nullptr;};
+    void deleteKeywords() { this->keywords_ = nullptr;};
+    inline string getKeywords() const { DARABONBA_PTR_GET_DEFAULT(keywords_, "") };
+    inline DescribeMetricMetaListShrinkRequest& setKeywords(string keywords) { DARABONBA_PTR_SET_VALUE(keywords_, keywords) };
+
+
     // labelsShrink Field Functions 
     bool hasLabelsShrink() const { return this->labelsShrink_ != nullptr;};
     void deleteLabelsShrink() { this->labelsShrink_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> keywords_ {};
     shared_ptr<string> labelsShrink_ {};
     shared_ptr<string> metaFormat_ {};
     shared_ptr<string> metricName_ {};
