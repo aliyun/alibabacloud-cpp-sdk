@@ -2086,6 +2086,23 @@ namespace Ecs20140526
       Models::CreateVpcResponse createVpc(const Models::CreateVpcRequest &request);
 
       /**
+       * @summary 创建Vsc
+       *
+       * @param request CreateVscRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateVscResponse
+       */
+      Models::CreateVscResponse createVscWithOptions(const Models::CreateVscRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Vsc
+       *
+       * @param request CreateVscRequest
+       * @return CreateVscResponse
+       */
+      Models::CreateVscResponse createVsc(const Models::CreateVscRequest &request);
+
+      /**
        * @deprecated OpenAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead.
        *
        * @summary DeactivateRouterInterface
@@ -2930,6 +2947,23 @@ namespace Ecs20140526
        * @return DeleteVpcResponse
        */
       Models::DeleteVpcResponse deleteVpc(const Models::DeleteVpcRequest &request);
+
+      /**
+       * @summary 删除虚拟存储通道
+       *
+       * @param request DeleteVscRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteVscResponse
+       */
+      Models::DeleteVscResponse deleteVscWithOptions(const Models::DeleteVscRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除虚拟存储通道
+       *
+       * @param request DeleteVscRequest
+       * @return DeleteVscResponse
+       */
+      Models::DeleteVscResponse deleteVsc(const Models::DeleteVscRequest &request);
 
       /**
        * @summary Deregisters a managed instance. After you deregister the managed instance, you can no longer use Cloud Assistant to send commands or files to the instance.
@@ -5732,6 +5766,23 @@ namespace Ecs20140526
        * @return DescribeVpcsResponse
        */
       Models::DescribeVpcsResponse describeVpcs(const Models::DescribeVpcsRequest &request);
+
+      /**
+       * @summary 查询虚拟存储通道
+       *
+       * @param request DescribeVscsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeVscsResponse
+       */
+      Models::DescribeVscsResponse describeVscsWithOptions(const Models::DescribeVscsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询虚拟存储通道
+       *
+       * @param request DescribeVscsRequest
+       * @return DescribeVscsResponse
+       */
+      Models::DescribeVscsResponse describeVscs(const Models::DescribeVscsRequest &request);
 
       /**
        * @summary Queries Alibaba Cloud regions. You can specify parameters, such as InstanceChargeType and ResourceType, in the request.

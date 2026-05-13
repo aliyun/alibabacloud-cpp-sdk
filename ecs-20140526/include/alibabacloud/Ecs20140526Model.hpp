@@ -212,6 +212,9 @@
 #include <alibabacloud/models/CreateVpcRequest.hpp>
 #include <alibabacloud/models/CreateVpcResponseBody.hpp>
 #include <alibabacloud/models/CreateVpcResponse.hpp>
+#include <alibabacloud/models/CreateVscRequest.hpp>
+#include <alibabacloud/models/CreateVscResponseBody.hpp>
+#include <alibabacloud/models/CreateVscResponse.hpp>
 #include <alibabacloud/models/DeactivateRouterInterfaceRequest.hpp>
 #include <alibabacloud/models/DeactivateRouterInterfaceResponseBody.hpp>
 #include <alibabacloud/models/DeactivateRouterInterfaceResponse.hpp>
@@ -326,6 +329,9 @@
 #include <alibabacloud/models/DeleteVpcRequest.hpp>
 #include <alibabacloud/models/DeleteVpcResponseBody.hpp>
 #include <alibabacloud/models/DeleteVpcResponse.hpp>
+#include <alibabacloud/models/DeleteVscRequest.hpp>
+#include <alibabacloud/models/DeleteVscResponseBody.hpp>
+#include <alibabacloud/models/DeleteVscResponse.hpp>
 #include <alibabacloud/models/DeregisterManagedInstanceRequest.hpp>
 #include <alibabacloud/models/DeregisterManagedInstanceResponseBody.hpp>
 #include <alibabacloud/models/DeregisterManagedInstanceResponse.hpp>
@@ -699,6 +705,9 @@
 #include <alibabacloud/models/DescribeVpcsRequest.hpp>
 #include <alibabacloud/models/DescribeVpcsResponseBody.hpp>
 #include <alibabacloud/models/DescribeVpcsResponse.hpp>
+#include <alibabacloud/models/DescribeVscsRequest.hpp>
+#include <alibabacloud/models/DescribeVscsResponseBody.hpp>
+#include <alibabacloud/models/DescribeVscsResponse.hpp>
 #include <alibabacloud/models/DescribeZonesRequest.hpp>
 #include <alibabacloud/models/DescribeZonesResponseBody.hpp>
 #include <alibabacloud/models/DescribeZonesResponse.hpp>

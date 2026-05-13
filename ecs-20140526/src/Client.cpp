@@ -7725,6 +7725,96 @@ CreateVpcResponse Client::createVpc(const CreateVpcRequest &request) {
 }
 
 /**
+ * @summary 创建Vsc
+ *
+ * @param request CreateVscRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateVscResponse
+ */
+CreateVscResponse Client::createVscWithOptions(const CreateVscRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasVscName()) {
+    query["VscName"] = request.getVscName();
+  }
+
+  if (!!request.hasVscType()) {
+    query["VscType"] = request.getVscType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateVsc"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateVscResponse>();
+}
+
+/**
+ * @summary 创建Vsc
+ *
+ * @param request CreateVscRequest
+ * @return CreateVscResponse
+ */
+CreateVscResponse Client::createVsc(const CreateVscRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createVscWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead.
  *
  * @summary DeactivateRouterInterface
@@ -10358,6 +10448,76 @@ DeleteVpcResponse Client::deleteVpcWithOptions(const DeleteVpcRequest &request, 
 DeleteVpcResponse Client::deleteVpc(const DeleteVpcRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteVpcWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除虚拟存储通道
+ *
+ * @param request DeleteVscRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteVscResponse
+ */
+DeleteVscResponse Client::deleteVscWithOptions(const DeleteVscRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasVscId()) {
+    query["VscId"] = request.getVscId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteVsc"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteVscResponse>();
+}
+
+/**
+ * @summary 删除虚拟存储通道
+ *
+ * @param request DeleteVscRequest
+ * @return DeleteVscResponse
+ */
+DeleteVscResponse Client::deleteVsc(const DeleteVscRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteVscWithOptions(request, runtime);
 }
 
 /**
@@ -21502,6 +21662,92 @@ DescribeVpcsResponse Client::describeVpcsWithOptions(const DescribeVpcsRequest &
 DescribeVpcsResponse Client::describeVpcs(const DescribeVpcsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeVpcsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询虚拟存储通道
+ *
+ * @param request DescribeVscsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeVscsResponse
+ */
+DescribeVscsResponse Client::describeVscsWithOptions(const DescribeVscsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  if (!!request.hasVscIds()) {
+    query["VscIds"] = request.getVscIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeVscs"},
+    {"version" , "2014-05-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeVscsResponse>();
+}
+
+/**
+ * @summary 查询虚拟存储通道
+ *
+ * @param request DescribeVscsRequest
+ * @return DescribeVscsResponse
+ */
+DescribeVscsResponse Client::describeVscs(const DescribeVscsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeVscsWithOptions(request, runtime);
 }
 
 /**
