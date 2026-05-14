@@ -3675,6 +3675,10 @@ ListHttpApiOperationsResponse Client::listHttpApiOperations(const string &httpAp
 ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &httpApiId, const ListHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBackendServiceName()) {
+    query["backendServiceName"] = request.getBackendServiceName();
+  }
+
   if (!!request.hasConsumerAuthorizationRuleId()) {
     query["consumerAuthorizationRuleId"] = request.getConsumerAuthorizationRuleId();
   }

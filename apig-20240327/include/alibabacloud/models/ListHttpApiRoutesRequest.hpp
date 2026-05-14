@@ -13,6 +13,7 @@ namespace Models
   class ListHttpApiRoutesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListHttpApiRoutesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(backendServiceName, backendServiceName_);
       DARABONBA_PTR_TO_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
       DARABONBA_PTR_TO_JSON(deployStatuses, deployStatuses_);
       DARABONBA_PTR_TO_JSON(domainId, domainId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(withPluginAttachmentByPluginId, withPluginAttachmentByPluginId_);
     };
     friend void from_json(const Darabonba::Json& j, ListHttpApiRoutesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(backendServiceName, backendServiceName_);
       DARABONBA_PTR_FROM_JSON(consumerAuthorizationRuleId, consumerAuthorizationRuleId_);
       DARABONBA_PTR_FROM_JSON(deployStatuses, deployStatuses_);
       DARABONBA_PTR_FROM_JSON(domainId, domainId_);
@@ -55,10 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->consumerAuthorizationRuleId_ == nullptr
-        && this->deployStatuses_ == nullptr && this->domainId_ == nullptr && this->environmentId_ == nullptr && this->forDeploy_ == nullptr && this->gatewayId_ == nullptr
-        && this->name_ == nullptr && this->nameLike_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->pathLike_ == nullptr
-        && this->withAuthPolicyInfo_ == nullptr && this->withConsumerInfoById_ == nullptr && this->withPluginAttachmentByPluginId_ == nullptr; };
+    virtual bool empty() const override { return this->backendServiceName_ == nullptr
+        && this->consumerAuthorizationRuleId_ == nullptr && this->deployStatuses_ == nullptr && this->domainId_ == nullptr && this->environmentId_ == nullptr && this->forDeploy_ == nullptr
+        && this->gatewayId_ == nullptr && this->name_ == nullptr && this->nameLike_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->pathLike_ == nullptr && this->withAuthPolicyInfo_ == nullptr && this->withConsumerInfoById_ == nullptr && this->withPluginAttachmentByPluginId_ == nullptr; };
+    // backendServiceName Field Functions 
+    bool hasBackendServiceName() const { return this->backendServiceName_ != nullptr;};
+    void deleteBackendServiceName() { this->backendServiceName_ = nullptr;};
+    inline string getBackendServiceName() const { DARABONBA_PTR_GET_DEFAULT(backendServiceName_, "") };
+    inline ListHttpApiRoutesRequest& setBackendServiceName(string backendServiceName) { DARABONBA_PTR_SET_VALUE(backendServiceName_, backendServiceName) };
+
+
     // consumerAuthorizationRuleId Field Functions 
     bool hasConsumerAuthorizationRuleId() const { return this->consumerAuthorizationRuleId_ != nullptr;};
     void deleteConsumerAuthorizationRuleId() { this->consumerAuthorizationRuleId_ = nullptr;};
@@ -158,6 +167,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> backendServiceName_ {};
     // The string that is used to filter routes based on consumer authentication rules. Only authorized APIs are returned.
     shared_ptr<string> consumerAuthorizationRuleId_ {};
     // The deployment state of the route.
