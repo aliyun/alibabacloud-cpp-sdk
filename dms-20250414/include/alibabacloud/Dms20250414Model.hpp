@@ -19,6 +19,7 @@
 #include <alibabacloud/models/DLTable.hpp>
 #include <alibabacloud/models/DLTableInput.hpp>
 #include <alibabacloud/models/DLTablebaseInfo.hpp>
+#include <alibabacloud/models/DataMountInfo.hpp>
 #include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
@@ -50,6 +51,7 @@
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponseBody.hpp>
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponse.hpp>
 #include <alibabacloud/models/CreateAirflowRequest.hpp>
+#include <alibabacloud/models/CreateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAirflowResponseBody.hpp>
 #include <alibabacloud/models/CreateAirflowResponse.hpp>
 #include <alibabacloud/models/CreateAirflowLoginTokenRequest.hpp>
@@ -229,6 +231,7 @@
 #include <alibabacloud/models/SetWorkspaceCodePublishSettingResponseBody.hpp>
 #include <alibabacloud/models/SetWorkspaceCodePublishSettingResponse.hpp>
 #include <alibabacloud/models/UpdateAirflowRequest.hpp>
+#include <alibabacloud/models/UpdateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAirflowResponseBody.hpp>
 #include <alibabacloud/models/UpdateAirflowResponse.hpp>
 #include <alibabacloud/models/UpdateDataAgentSpaceInfoRequest.hpp>

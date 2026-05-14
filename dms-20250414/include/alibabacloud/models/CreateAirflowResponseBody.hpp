@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEAIRFLOWRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_CREATEAIRFLOWRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/DataMountInfo.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -46,12 +48,17 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Root& obj) { 
         DARABONBA_PTR_TO_JSON(AirflowId, airflowId_);
         DARABONBA_PTR_TO_JSON(AirflowName, airflowName_);
+        DARABONBA_PTR_TO_JSON(AirflowVersion, airflowVersion_);
         DARABONBA_PTR_TO_JSON(AppSpec, appSpec_);
         DARABONBA_PTR_TO_JSON(AppType, appType_);
+        DARABONBA_PTR_TO_JSON(CustomAirflowCfg, customAirflowCfg_);
         DARABONBA_PTR_TO_JSON(DagsDir, dagsDir_);
+        DARABONBA_PTR_TO_JSON(DataMountInfoList, dataMountInfoList_);
         DARABONBA_PTR_TO_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(EnableServerless, enableServerless_);
         DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_TO_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
         DARABONBA_PTR_TO_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_TO_JSON(OssPath, ossPath_);
         DARABONBA_PTR_TO_JSON(PluginsDir, pluginsDir_);
@@ -68,12 +75,17 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Root& obj) { 
         DARABONBA_PTR_FROM_JSON(AirflowId, airflowId_);
         DARABONBA_PTR_FROM_JSON(AirflowName, airflowName_);
+        DARABONBA_PTR_FROM_JSON(AirflowVersion, airflowVersion_);
         DARABONBA_PTR_FROM_JSON(AppSpec, appSpec_);
         DARABONBA_PTR_FROM_JSON(AppType, appType_);
+        DARABONBA_PTR_FROM_JSON(CustomAirflowCfg, customAirflowCfg_);
         DARABONBA_PTR_FROM_JSON(DagsDir, dagsDir_);
+        DARABONBA_PTR_FROM_JSON(DataMountInfoList, dataMountInfoList_);
         DARABONBA_PTR_FROM_JSON(DeployErrorMsg, deployErrorMsg_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(EnableServerless, enableServerless_);
         DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
+        DARABONBA_PTR_FROM_JSON(GracefulShutdownTimeout, gracefulShutdownTimeout_);
         DARABONBA_PTR_FROM_JSON(OssBucketName, ossBucketName_);
         DARABONBA_PTR_FROM_JSON(OssPath, ossPath_);
         DARABONBA_PTR_FROM_JSON(PluginsDir, pluginsDir_);
@@ -99,8 +111,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->airflowId_ == nullptr
-        && this->airflowName_ == nullptr && this->appSpec_ == nullptr && this->appType_ == nullptr && this->dagsDir_ == nullptr && this->deployErrorMsg_ == nullptr
-        && this->description_ == nullptr && this->gmtCreated_ == nullptr && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr && this->pluginsDir_ == nullptr
+        && this->airflowName_ == nullptr && this->airflowVersion_ == nullptr && this->appSpec_ == nullptr && this->appType_ == nullptr && this->customAirflowCfg_ == nullptr
+        && this->dagsDir_ == nullptr && this->dataMountInfoList_ == nullptr && this->deployErrorMsg_ == nullptr && this->description_ == nullptr && this->enableServerless_ == nullptr
+        && this->gmtCreated_ == nullptr && this->gracefulShutdownTimeout_ == nullptr && this->ossBucketName_ == nullptr && this->ossPath_ == nullptr && this->pluginsDir_ == nullptr
         && this->requirementFile_ == nullptr && this->securityGroupId_ == nullptr && this->startupFile_ == nullptr && this->status_ == nullptr && this->vSwitchId_ == nullptr
         && this->vpcId_ == nullptr && this->workerServerlessReplicas_ == nullptr && this->workspaceId_ == nullptr && this->zoneId_ == nullptr; };
       // airflowId Field Functions 
@@ -117,6 +130,13 @@ namespace Models
       inline Root& setAirflowName(string airflowName) { DARABONBA_PTR_SET_VALUE(airflowName_, airflowName) };
 
 
+      // airflowVersion Field Functions 
+      bool hasAirflowVersion() const { return this->airflowVersion_ != nullptr;};
+      void deleteAirflowVersion() { this->airflowVersion_ = nullptr;};
+      inline string getAirflowVersion() const { DARABONBA_PTR_GET_DEFAULT(airflowVersion_, "") };
+      inline Root& setAirflowVersion(string airflowVersion) { DARABONBA_PTR_SET_VALUE(airflowVersion_, airflowVersion) };
+
+
       // appSpec Field Functions 
       bool hasAppSpec() const { return this->appSpec_ != nullptr;};
       void deleteAppSpec() { this->appSpec_ = nullptr;};
@@ -131,11 +151,29 @@ namespace Models
       inline Root& setAppType(string appType) { DARABONBA_PTR_SET_VALUE(appType_, appType) };
 
 
+      // customAirflowCfg Field Functions 
+      bool hasCustomAirflowCfg() const { return this->customAirflowCfg_ != nullptr;};
+      void deleteCustomAirflowCfg() { this->customAirflowCfg_ = nullptr;};
+      inline const vector<string> & getCustomAirflowCfg() const { DARABONBA_PTR_GET_CONST(customAirflowCfg_, vector<string>) };
+      inline vector<string> getCustomAirflowCfg() { DARABONBA_PTR_GET(customAirflowCfg_, vector<string>) };
+      inline Root& setCustomAirflowCfg(const vector<string> & customAirflowCfg) { DARABONBA_PTR_SET_VALUE(customAirflowCfg_, customAirflowCfg) };
+      inline Root& setCustomAirflowCfg(vector<string> && customAirflowCfg) { DARABONBA_PTR_SET_RVALUE(customAirflowCfg_, customAirflowCfg) };
+
+
       // dagsDir Field Functions 
       bool hasDagsDir() const { return this->dagsDir_ != nullptr;};
       void deleteDagsDir() { this->dagsDir_ = nullptr;};
       inline string getDagsDir() const { DARABONBA_PTR_GET_DEFAULT(dagsDir_, "") };
       inline Root& setDagsDir(string dagsDir) { DARABONBA_PTR_SET_VALUE(dagsDir_, dagsDir) };
+
+
+      // dataMountInfoList Field Functions 
+      bool hasDataMountInfoList() const { return this->dataMountInfoList_ != nullptr;};
+      void deleteDataMountInfoList() { this->dataMountInfoList_ = nullptr;};
+      inline const vector<DataMountInfo> & getDataMountInfoList() const { DARABONBA_PTR_GET_CONST(dataMountInfoList_, vector<DataMountInfo>) };
+      inline vector<DataMountInfo> getDataMountInfoList() { DARABONBA_PTR_GET(dataMountInfoList_, vector<DataMountInfo>) };
+      inline Root& setDataMountInfoList(const vector<DataMountInfo> & dataMountInfoList) { DARABONBA_PTR_SET_VALUE(dataMountInfoList_, dataMountInfoList) };
+      inline Root& setDataMountInfoList(vector<DataMountInfo> && dataMountInfoList) { DARABONBA_PTR_SET_RVALUE(dataMountInfoList_, dataMountInfoList) };
 
 
       // deployErrorMsg Field Functions 
@@ -152,11 +190,25 @@ namespace Models
       inline Root& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // enableServerless Field Functions 
+      bool hasEnableServerless() const { return this->enableServerless_ != nullptr;};
+      void deleteEnableServerless() { this->enableServerless_ = nullptr;};
+      inline bool getEnableServerless() const { DARABONBA_PTR_GET_DEFAULT(enableServerless_, false) };
+      inline Root& setEnableServerless(bool enableServerless) { DARABONBA_PTR_SET_VALUE(enableServerless_, enableServerless) };
+
+
       // gmtCreated Field Functions 
       bool hasGmtCreated() const { return this->gmtCreated_ != nullptr;};
       void deleteGmtCreated() { this->gmtCreated_ = nullptr;};
       inline string getGmtCreated() const { DARABONBA_PTR_GET_DEFAULT(gmtCreated_, "") };
       inline Root& setGmtCreated(string gmtCreated) { DARABONBA_PTR_SET_VALUE(gmtCreated_, gmtCreated) };
+
+
+      // gracefulShutdownTimeout Field Functions 
+      bool hasGracefulShutdownTimeout() const { return this->gracefulShutdownTimeout_ != nullptr;};
+      void deleteGracefulShutdownTimeout() { this->gracefulShutdownTimeout_ = nullptr;};
+      inline int32_t getGracefulShutdownTimeout() const { DARABONBA_PTR_GET_DEFAULT(gracefulShutdownTimeout_, 0) };
+      inline Root& setGracefulShutdownTimeout(int32_t gracefulShutdownTimeout) { DARABONBA_PTR_SET_VALUE(gracefulShutdownTimeout_, gracefulShutdownTimeout) };
 
 
       // ossBucketName Field Functions 
@@ -246,12 +298,17 @@ namespace Models
     protected:
       shared_ptr<string> airflowId_ {};
       shared_ptr<string> airflowName_ {};
+      shared_ptr<string> airflowVersion_ {};
       shared_ptr<string> appSpec_ {};
       shared_ptr<string> appType_ {};
+      shared_ptr<vector<string>> customAirflowCfg_ {};
       shared_ptr<string> dagsDir_ {};
+      shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
       shared_ptr<string> deployErrorMsg_ {};
       shared_ptr<string> description_ {};
+      shared_ptr<bool> enableServerless_ {};
       shared_ptr<string> gmtCreated_ {};
+      shared_ptr<int32_t> gracefulShutdownTimeout_ {};
       shared_ptr<string> ossBucketName_ {};
       shared_ptr<string> ossPath_ {};
       shared_ptr<string> pluginsDir_ {};

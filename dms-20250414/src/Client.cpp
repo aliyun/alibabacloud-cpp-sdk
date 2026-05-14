@@ -307,15 +307,25 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitions(cons
 /**
  * @summary 创建Airflow
  *
- * @param request CreateAirflowRequest
+ * @param tmpReq CreateAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAirflowResponse
  */
-CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAirflowShrinkRequest request = CreateAirflowShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataMountInfoList()) {
+    request.setDataMountInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataMountInfoList(), "DataMountInfoList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAirflowName()) {
     query["AirflowName"] = request.getAirflowName();
+  }
+
+  if (!!request.hasAirflowVersion()) {
+    query["AirflowVersion"] = request.getAirflowVersion();
   }
 
   if (!!request.hasAppSpec()) {
@@ -330,8 +340,20 @@ CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowReques
     query["DagsDir"] = request.getDagsDir();
   }
 
+  if (!!request.hasDataMountInfoListShrink()) {
+    query["DataMountInfoList"] = request.getDataMountInfoListShrink();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableServerless()) {
+    query["EnableServerless"] = request.getEnableServerless();
+  }
+
+  if (!!request.hasGracefulShutdownTimeout()) {
+    query["GracefulShutdownTimeout"] = request.getGracefulShutdownTimeout();
   }
 
   if (!!request.hasOssBucketName()) {
@@ -3864,12 +3886,18 @@ SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSetting(co
 /**
  * @summary 更新UpdateAirflow
  *
- * @param request UpdateAirflowRequest
+ * @param tmpReq UpdateAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateAirflowResponse
  */
-UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateAirflowShrinkRequest request = UpdateAirflowShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDataMountInfoList()) {
+    request.setDataMountInfoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDataMountInfoList(), "DataMountInfoList", "json"));
+  }
+
   json query = {};
   if (!!request.hasAirflowId()) {
     query["AirflowId"] = request.getAirflowId();
@@ -3891,8 +3919,20 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
     query["DagsDir"] = request.getDagsDir();
   }
 
+  if (!!request.hasDataMountInfoListShrink()) {
+    query["DataMountInfoList"] = request.getDataMountInfoListShrink();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnableServerless()) {
+    query["EnableServerless"] = request.getEnableServerless();
+  }
+
+  if (!!request.hasGracefulShutdownTimeout()) {
+    query["GracefulShutdownTimeout"] = request.getGracefulShutdownTimeout();
   }
 
   if (!!request.hasPluginsDir()) {

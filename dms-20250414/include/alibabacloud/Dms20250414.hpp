@@ -91,11 +91,11 @@ namespace Dms20250414
       /**
        * @summary 创建Airflow
        *
-       * @param request CreateAirflowRequest
+       * @param tmpReq CreateAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAirflowResponse
        */
-      Models::CreateAirflowResponse createAirflowWithOptions(const Models::CreateAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::CreateAirflowResponse createAirflowWithOptions(const Models::CreateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 创建Airflow
@@ -1052,11 +1052,11 @@ namespace Dms20250414
       /**
        * @summary 更新UpdateAirflow
        *
-       * @param request UpdateAirflowRequest
+       * @param tmpReq UpdateAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateAirflowResponse
        */
-      Models::UpdateAirflowResponse updateAirflowWithOptions(const Models::UpdateAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateAirflowResponse updateAirflowWithOptions(const Models::UpdateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 更新UpdateAirflow
