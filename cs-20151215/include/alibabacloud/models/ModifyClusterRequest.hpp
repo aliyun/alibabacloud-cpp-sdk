@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(api_server_eip, apiServerEip_);
       DARABONBA_PTR_TO_JSON(api_server_eip_id, apiServerEipId_);
       DARABONBA_PTR_TO_JSON(cluster_name, clusterName_);
+      DARABONBA_PTR_TO_JSON(cluster_spec, clusterSpec_);
       DARABONBA_PTR_TO_JSON(control_plane_config, controlPlaneConfig_);
       DARABONBA_PTR_TO_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_TO_JSON(deletion_protection, deletionProtection_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(api_server_eip, apiServerEip_);
       DARABONBA_PTR_FROM_JSON(api_server_eip_id, apiServerEipId_);
       DARABONBA_PTR_FROM_JSON(cluster_name, clusterName_);
+      DARABONBA_PTR_FROM_JSON(cluster_spec, clusterSpec_);
       DARABONBA_PTR_FROM_JSON(control_plane_config, controlPlaneConfig_);
       DARABONBA_PTR_FROM_JSON(control_plane_endpoints_config, controlPlaneEndpointsConfig_);
       DARABONBA_PTR_FROM_JSON(deletion_protection, deletionProtection_);
@@ -671,10 +673,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->accessControlList_ == nullptr
-        && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clusterName_ == nullptr && this->controlPlaneConfig_ == nullptr
-        && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr && this->ingressDomainRebinding_ == nullptr && this->ingressLoadbalancerId_ == nullptr
-        && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr
-        && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
+        && this->apiServerCustomCertSans_ == nullptr && this->apiServerEip_ == nullptr && this->apiServerEipId_ == nullptr && this->clusterName_ == nullptr && this->clusterSpec_ == nullptr
+        && this->controlPlaneConfig_ == nullptr && this->controlPlaneEndpointsConfig_ == nullptr && this->deletionProtection_ == nullptr && this->enableRrsa_ == nullptr && this->ingressDomainRebinding_ == nullptr
+        && this->ingressLoadbalancerId_ == nullptr && this->instanceDeletionProtection_ == nullptr && this->maintenanceWindow_ == nullptr && this->operationPolicy_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->securityGroupId_ == nullptr && this->systemEventsLogging_ == nullptr && this->timezone_ == nullptr && this->vswitchIds_ == nullptr; };
     // accessControlList Field Functions 
     bool hasAccessControlList() const { return this->accessControlList_ != nullptr;};
     void deleteAccessControlList() { this->accessControlList_ = nullptr;};
@@ -712,6 +714,13 @@ namespace Models
     void deleteClusterName() { this->clusterName_ = nullptr;};
     inline string getClusterName() const { DARABONBA_PTR_GET_DEFAULT(clusterName_, "") };
     inline ModifyClusterRequest& setClusterName(string clusterName) { DARABONBA_PTR_SET_VALUE(clusterName_, clusterName) };
+
+
+    // clusterSpec Field Functions 
+    bool hasClusterSpec() const { return this->clusterSpec_ != nullptr;};
+    void deleteClusterSpec() { this->clusterSpec_ = nullptr;};
+    inline string getClusterSpec() const { DARABONBA_PTR_GET_DEFAULT(clusterSpec_, "") };
+    inline ModifyClusterRequest& setClusterSpec(string clusterSpec) { DARABONBA_PTR_SET_VALUE(clusterSpec_, clusterSpec) };
 
 
     // controlPlaneConfig Field Functions 
@@ -840,6 +849,7 @@ namespace Models
     // 
     // The cluster name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The cluster name cannot start with a hyphen (-).
     shared_ptr<string> clusterName_ {};
+    shared_ptr<string> clusterSpec_ {};
     // The control plane configurations of an ACK dedicated cluster.
     shared_ptr<ModifyClusterRequest::ControlPlaneConfig> controlPlaneConfig_ {};
     shared_ptr<ModifyClusterRequest::ControlPlaneEndpointsConfig> controlPlaneEndpointsConfig_ {};

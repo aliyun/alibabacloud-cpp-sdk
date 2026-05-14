@@ -5595,6 +5595,10 @@ ModifyClusterResponse Client::modifyClusterWithOptions(const string &ClusterId, 
     body["cluster_name"] = request.getClusterName();
   }
 
+  if (!!request.hasClusterSpec()) {
+    body["cluster_spec"] = request.getClusterSpec();
+  }
+
   if (!!request.hasControlPlaneConfig()) {
     body["control_plane_config"] = request.getControlPlaneConfig();
   }
