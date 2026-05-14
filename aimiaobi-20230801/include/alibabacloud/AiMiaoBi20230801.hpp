@@ -1551,6 +1551,23 @@ namespace AiMiaoBi20230801
       Models::GetPptConfigResponse getPptConfig(const Models::GetPptConfigRequest &request);
 
       /**
+       * @summary 查询PPT任务信息
+       *
+       * @param request GetPptInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPptInfoResponse
+       */
+      Models::GetPptInfoResponse getPptInfoWithOptions(const Models::GetPptInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PPT任务信息
+       *
+       * @param request GetPptInfoRequest
+       * @return GetPptInfoResponse
+       */
+      Models::GetPptInfoResponse getPptInfo(const Models::GetPptInfoRequest &request);
+
+      /**
        * @summary 查询PPT模板筛选器
        *
        * @param request GetPptTemplateSelectorRequest

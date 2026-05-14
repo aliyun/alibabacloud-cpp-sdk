@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Outline, outline_);
       DARABONBA_PTR_TO_JSON(PptTemplateId, pptTemplateId_);
       DARABONBA_PTR_TO_JSON(PptTemplateType, pptTemplateType_);
+      DARABONBA_PTR_TO_JSON(PptTitle, pptTitle_);
       DARABONBA_PTR_TO_JSON(ProcessType, processType_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Outline, outline_);
       DARABONBA_PTR_FROM_JSON(PptTemplateId, pptTemplateId_);
       DARABONBA_PTR_FROM_JSON(PptTemplateType, pptTemplateType_);
+      DARABONBA_PTR_FROM_JSON(PptTitle, pptTitle_);
       DARABONBA_PTR_FROM_JSON(ProcessType, processType_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->externalUserId_ == nullptr
-        && this->isMobile_ == nullptr && this->outline_ == nullptr && this->pptTemplateId_ == nullptr && this->pptTemplateType_ == nullptr && this->processType_ == nullptr
-        && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->isMobile_ == nullptr && this->outline_ == nullptr && this->pptTemplateId_ == nullptr && this->pptTemplateType_ == nullptr && this->pptTitle_ == nullptr
+        && this->processType_ == nullptr && this->taskId_ == nullptr && this->workspaceId_ == nullptr; };
     // externalUserId Field Functions 
     bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
     void deleteExternalUserId() { this->externalUserId_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     inline InitiatePptCreationV2Request& setPptTemplateType(int32_t pptTemplateType) { DARABONBA_PTR_SET_VALUE(pptTemplateType_, pptTemplateType) };
 
 
+    // pptTitle Field Functions 
+    bool hasPptTitle() const { return this->pptTitle_ != nullptr;};
+    void deletePptTitle() { this->pptTitle_ = nullptr;};
+    inline string getPptTitle() const { DARABONBA_PTR_GET_DEFAULT(pptTitle_, "") };
+    inline InitiatePptCreationV2Request& setPptTitle(string pptTitle) { DARABONBA_PTR_SET_VALUE(pptTitle_, pptTitle) };
+
+
     // processType Field Functions 
     bool hasProcessType() const { return this->processType_ != nullptr;};
     void deleteProcessType() { this->processType_ = nullptr;};
@@ -108,6 +117,7 @@ namespace Models
     shared_ptr<string> outline_ {};
     shared_ptr<int32_t> pptTemplateId_ {};
     shared_ptr<int32_t> pptTemplateType_ {};
+    shared_ptr<string> pptTitle_ {};
     shared_ptr<int32_t> processType_ {};
     // This parameter is required.
     shared_ptr<string> taskId_ {};

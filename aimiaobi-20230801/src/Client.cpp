@@ -4885,6 +4885,52 @@ GetPptConfigResponse Client::getPptConfig(const GetPptConfigRequest &request) {
 }
 
 /**
+ * @summary 查询PPT任务信息
+ *
+ * @param request GetPptInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPptInfoResponse
+ */
+GetPptInfoResponse Client::getPptInfoWithOptions(const GetPptInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetPptInfo"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPptInfoResponse>();
+}
+
+/**
+ * @summary 查询PPT任务信息
+ *
+ * @param request GetPptInfoRequest
+ * @return GetPptInfoResponse
+ */
+GetPptInfoResponse Client::getPptInfo(const GetPptInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPptInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询PPT模板筛选器
  *
  * @param request GetPptTemplateSelectorRequest
@@ -5398,6 +5444,10 @@ InitiatePptCreationV2Response Client::initiatePptCreationV2WithOptions(const Ini
 
   if (!!request.hasPptTemplateType()) {
     body["PptTemplateType"] = request.getPptTemplateType();
+  }
+
+  if (!!request.hasPptTitle()) {
+    body["PptTitle"] = request.getPptTitle();
   }
 
   if (!!request.hasProcessType()) {

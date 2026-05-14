@@ -302,6 +302,9 @@
 #include <alibabacloud/models/GetPptConfigRequest.hpp>
 #include <alibabacloud/models/GetPptConfigResponseBody.hpp>
 #include <alibabacloud/models/GetPptConfigResponse.hpp>
+#include <alibabacloud/models/GetPptInfoRequest.hpp>
+#include <alibabacloud/models/GetPptInfoResponseBody.hpp>
+#include <alibabacloud/models/GetPptInfoResponse.hpp>
 #include <alibabacloud/models/GetPptTemplateSelectorRequest.hpp>
 #include <alibabacloud/models/GetPptTemplateSelectorResponseBody.hpp>
 #include <alibabacloud/models/GetPptTemplateSelectorResponse.hpp>
