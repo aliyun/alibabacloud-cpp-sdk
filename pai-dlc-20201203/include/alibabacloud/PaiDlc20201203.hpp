@@ -43,7 +43,7 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary Create a Job Template
+       * @summary Create a job template.
        *
        * @param request CreateJobTemplateRequest
        * @param headers map
@@ -53,7 +53,7 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplateWithOptions(const Models::CreateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a Job Template
+       * @summary Create a job template.
        *
        * @param request CreateJobTemplateRequest
        * @return CreateJobTemplateResponse
@@ -97,7 +97,7 @@ namespace PaiDlc20201203
       Models::DeleteJobResponse deleteJob(const string &JobId, const Models::DeleteJobRequest &request);
 
       /**
-       * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
+       * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
        *
        * @param request DeleteJobTemplateRequest
        * @param headers map
@@ -107,7 +107,7 @@ namespace PaiDlc20201203
       Models::DeleteJobTemplateResponse deleteJobTemplateWithOptions(const string &TemplateId, const Models::DeleteJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
+       * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
        *
        * @param request DeleteJobTemplateRequest
        * @return DeleteJobTemplateResponse
@@ -555,7 +555,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJob(const string &JobId, const Models::UpdateJobRequest &request);
 
       /**
-       * @summary Update a Job template
+       * @summary Updates a job template.
        *
        * @param request UpdateJobTemplateRequest
        * @param headers map
@@ -565,7 +565,7 @@ namespace PaiDlc20201203
       Models::UpdateJobTemplateResponse updateJobTemplateWithOptions(const string &TemplateId, const Models::UpdateJobTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a Job template
+       * @summary Updates a job template.
        *
        * @param request UpdateJobTemplateRequest
        * @return UpdateJobTemplateResponse

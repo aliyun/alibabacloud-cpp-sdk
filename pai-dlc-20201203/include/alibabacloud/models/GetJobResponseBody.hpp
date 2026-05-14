@@ -221,6 +221,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Reason, reason_);
         DARABONBA_PTR_TO_JSON(RestartDurationInSec, restartDurationInSec_);
         DARABONBA_PTR_TO_JSON(RestartFailReason, restartFailReason_);
+        DARABONBA_PTR_TO_JSON(RestartLevelType, restartLevelType_);
         DARABONBA_PTR_TO_JSON(RestartStatus, restartStatus_);
         DARABONBA_PTR_TO_JSON(TriggerID, triggerID_);
       };
@@ -232,6 +233,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Reason, reason_);
         DARABONBA_PTR_FROM_JSON(RestartDurationInSec, restartDurationInSec_);
         DARABONBA_PTR_FROM_JSON(RestartFailReason, restartFailReason_);
+        DARABONBA_PTR_FROM_JSON(RestartLevelType, restartLevelType_);
         DARABONBA_PTR_FROM_JSON(RestartStatus, restartStatus_);
         DARABONBA_PTR_FROM_JSON(TriggerID, triggerID_);
       };
@@ -361,7 +363,7 @@ namespace Models
 
       virtual bool empty() const override { return this->detailErrorInfoList_ == nullptr
         && this->jobRestartCount_ == nullptr && this->occurPhase_ == nullptr && this->occurTime_ == nullptr && this->reason_ == nullptr && this->restartDurationInSec_ == nullptr
-        && this->restartFailReason_ == nullptr && this->restartStatus_ == nullptr && this->triggerID_ == nullptr; };
+        && this->restartFailReason_ == nullptr && this->restartLevelType_ == nullptr && this->restartStatus_ == nullptr && this->triggerID_ == nullptr; };
       // detailErrorInfoList Field Functions 
       bool hasDetailErrorInfoList() const { return this->detailErrorInfoList_ != nullptr;};
       void deleteDetailErrorInfoList() { this->detailErrorInfoList_ = nullptr;};
@@ -413,6 +415,13 @@ namespace Models
       inline RestartRecord& setRestartFailReason(string restartFailReason) { DARABONBA_PTR_SET_VALUE(restartFailReason_, restartFailReason) };
 
 
+      // restartLevelType Field Functions 
+      bool hasRestartLevelType() const { return this->restartLevelType_ != nullptr;};
+      void deleteRestartLevelType() { this->restartLevelType_ = nullptr;};
+      inline string getRestartLevelType() const { DARABONBA_PTR_GET_DEFAULT(restartLevelType_, "") };
+      inline RestartRecord& setRestartLevelType(string restartLevelType) { DARABONBA_PTR_SET_VALUE(restartLevelType_, restartLevelType) };
+
+
       // restartStatus Field Functions 
       bool hasRestartStatus() const { return this->restartStatus_ != nullptr;};
       void deleteRestartStatus() { this->restartStatus_ = nullptr;};
@@ -435,6 +444,7 @@ namespace Models
       shared_ptr<string> reason_ {};
       shared_ptr<int64_t> restartDurationInSec_ {};
       shared_ptr<string> restartFailReason_ {};
+      shared_ptr<string> restartLevelType_ {};
       shared_ptr<string> restartStatus_ {};
       shared_ptr<string> triggerID_ {};
     };

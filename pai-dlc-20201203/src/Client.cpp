@@ -231,7 +231,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary Create a Job Template
+ * @summary Create a job template.
  *
  * @param request CreateJobTemplateRequest
  * @param headers map
@@ -284,7 +284,7 @@ CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTe
 }
 
 /**
- * @summary Create a Job Template
+ * @summary Create a job template.
  *
  * @param request CreateJobTemplateRequest
  * @return CreateJobTemplateResponse
@@ -456,7 +456,7 @@ DeleteJobResponse Client::deleteJob(const string &JobId, const DeleteJobRequest 
 }
 
 /**
- * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
+ * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
  *
  * @param request DeleteJobTemplateRequest
  * @param headers map
@@ -483,7 +483,7 @@ DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Delete an unused job template. If the template is already used by a job, you cannot delete it.
+ * @summary Deletes an unused job template. Templates that are used by jobs cannot be deleted.
  *
  * @param request DeleteJobTemplateRequest
  * @return DeleteJobTemplateResponse
@@ -1951,7 +1951,7 @@ UpdateJobResponse Client::updateJob(const string &JobId, const UpdateJobRequest 
 }
 
 /**
- * @summary Update a Job template
+ * @summary Updates a job template.
  *
  * @param request UpdateJobTemplateRequest
  * @param headers map
@@ -2008,7 +2008,7 @@ UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Update a Job template
+ * @summary Updates a job template.
  *
  * @param request UpdateJobTemplateRequest
  * @return UpdateJobTemplateResponse
