@@ -235,7 +235,7 @@ namespace Ens20171110
       Models::AttachInstanceSDGResponse attachInstanceSDG(const Models::AttachInstanceSDGRequest &request);
 
       /**
-       * @summary 添加已有节点到集群节点池
+       * @summary Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
        *
        * @param tmpReq AttachInstancesToNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -244,7 +244,7 @@ namespace Ens20171110
       Models::AttachInstancesToNodePoolResponse attachInstancesToNodePoolWithOptions(const Models::AttachInstancesToNodePoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加已有节点到集群节点池
+       * @summary Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
        *
        * @param request AttachInstancesToNodePoolRequest
        * @return AttachInstancesToNodePoolResponse
@@ -2044,7 +2044,7 @@ namespace Ens20171110
       Models::DescribeClusterResponse describeCluster(const Models::DescribeClusterRequest &request);
 
       /**
-       * @summary 查询添加已有节点到集群节点池的脚本
+       * @summary To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
        *
        * @param request DescribeClusterAttachScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2053,7 +2053,7 @@ namespace Ens20171110
       Models::DescribeClusterAttachScriptsResponse describeClusterAttachScriptsWithOptions(const Models::DescribeClusterAttachScriptsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询添加已有节点到集群节点池的脚本
+       * @summary To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
        *
        * @param request DescribeClusterAttachScriptsRequest
        * @return DescribeClusterAttachScriptsResponse
@@ -6186,7 +6186,7 @@ namespace Ens20171110
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 更新集群证书
+       * @summary Update cluster certificates
        *
        * @param request UpdateClusterCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6195,7 +6195,7 @@ namespace Ens20171110
       Models::UpdateClusterCertificateResponse updateClusterCertificateWithOptions(const Models::UpdateClusterCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新集群证书
+       * @summary Update cluster certificates
        *
        * @param request UpdateClusterCertificateRequest
        * @return UpdateClusterCertificateResponse

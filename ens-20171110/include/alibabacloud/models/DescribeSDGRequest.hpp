@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SDGIds, SDGIds_);
+      DARABONBA_PTR_TO_JSON(SameDiskId, sameDiskId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSDGRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SDGIds, SDGIds_);
+      DARABONBA_PTR_FROM_JSON(SameDiskId, sameDiskId_);
     };
     DescribeSDGRequest() = default ;
     DescribeSDGRequest(const DescribeSDGRequest &) = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->SDGIds_ == nullptr; };
+        && this->pageSize_ == nullptr && this->SDGIds_ == nullptr && this->sameDiskId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -59,6 +61,13 @@ namespace Models
     inline DescribeSDGRequest& setSDGIds(vector<string> && SDGIds) { DARABONBA_PTR_SET_RVALUE(SDGIds_, SDGIds) };
 
 
+    // sameDiskId Field Functions 
+    bool hasSameDiskId() const { return this->sameDiskId_ != nullptr;};
+    void deleteSameDiskId() { this->sameDiskId_ = nullptr;};
+    inline bool getSameDiskId() const { DARABONBA_PTR_GET_DEFAULT(sameDiskId_, false) };
+    inline DescribeSDGRequest& setSameDiskId(bool sameDiskId) { DARABONBA_PTR_SET_VALUE(sameDiskId_, sameDiskId) };
+
+
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -68,6 +77,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The IDs of SDGs that you want to query. By default, all SDGs are queried.
     shared_ptr<vector<string>> SDGIds_ {};
+    shared_ptr<bool> sameDiskId_ {};
   };
 
   } // namespace Models

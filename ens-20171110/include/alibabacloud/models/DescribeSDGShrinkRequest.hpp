@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SDGIds, SDGIdsShrink_);
+      DARABONBA_PTR_TO_JSON(SameDiskId, sameDiskId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeSDGShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SDGIds, SDGIdsShrink_);
+      DARABONBA_PTR_FROM_JSON(SameDiskId, sameDiskId_);
     };
     DescribeSDGShrinkRequest() = default ;
     DescribeSDGShrinkRequest(const DescribeSDGShrinkRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->SDGIdsShrink_ == nullptr; };
+        && this->pageSize_ == nullptr && this->SDGIdsShrink_ == nullptr && this->sameDiskId_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline DescribeSDGShrinkRequest& setSDGIdsShrink(string SDGIdsShrink) { DARABONBA_PTR_SET_VALUE(SDGIdsShrink_, SDGIdsShrink) };
 
 
+    // sameDiskId Field Functions 
+    bool hasSameDiskId() const { return this->sameDiskId_ != nullptr;};
+    void deleteSameDiskId() { this->sameDiskId_ = nullptr;};
+    inline bool getSameDiskId() const { DARABONBA_PTR_GET_DEFAULT(sameDiskId_, false) };
+    inline DescribeSDGShrinkRequest& setSameDiskId(bool sameDiskId) { DARABONBA_PTR_SET_VALUE(sameDiskId_, sameDiskId) };
+
+
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -65,6 +74,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The IDs of SDGs that you want to query. By default, all SDGs are queried.
     shared_ptr<string> SDGIdsShrink_ {};
+    shared_ptr<bool> sameDiskId_ {};
   };
 
   } // namespace Models
