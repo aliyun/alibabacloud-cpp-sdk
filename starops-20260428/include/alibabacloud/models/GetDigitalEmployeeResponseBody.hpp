@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_GETDIGITALEMPLOYEERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 #include <alibabacloud/models/Tag.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -15,6 +16,7 @@ namespace Models
   class GetDigitalEmployeeResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetDigitalEmployeeResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(attributes, attributes_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(description, description_);
@@ -30,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetDigitalEmployeeResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(attributes, attributes_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(description, description_);
@@ -163,10 +166,19 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
-    virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->employeeType_ == nullptr && this->knowledges_ == nullptr
-        && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr
-        && this->tags_ == nullptr && this->updateTime_ == nullptr; };
+    virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->employeeType_ == nullptr
+        && this->knowledges_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->roleArn_ == nullptr && this->tags_ == nullptr && this->updateTime_ == nullptr; };
+    // attributes Field Functions 
+    bool hasAttributes() const { return this->attributes_ != nullptr;};
+    void deleteAttributes() { this->attributes_ = nullptr;};
+    inline const map<string, string> & getAttributes() const { DARABONBA_PTR_GET_CONST(attributes_, map<string, string>) };
+    inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
+    inline GetDigitalEmployeeResponseBody& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+    inline GetDigitalEmployeeResponseBody& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -263,6 +275,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, string>> attributes_ {};
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
     shared_ptr<string> defaultRule_ {};

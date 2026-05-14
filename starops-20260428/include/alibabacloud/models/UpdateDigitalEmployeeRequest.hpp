@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_UPDATEDIGITALEMPLOYEEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   class UpdateDigitalEmployeeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateDigitalEmployeeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(attributes, attributes_);
       DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
@@ -21,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(roleArn, roleArn_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateDigitalEmployeeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(attributes, attributes_);
       DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
@@ -146,8 +149,17 @@ namespace Models
       shared_ptr<vector<Darabonba::Json>> sop_ {};
     };
 
-    virtual bool empty() const override { return this->defaultRule_ == nullptr
-        && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr && this->roleArn_ == nullptr; };
+    virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr && this->roleArn_ == nullptr; };
+    // attributes Field Functions 
+    bool hasAttributes() const { return this->attributes_ != nullptr;};
+    void deleteAttributes() { this->attributes_ = nullptr;};
+    inline const map<string, string> & getAttributes() const { DARABONBA_PTR_GET_CONST(attributes_, map<string, string>) };
+    inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
+    inline UpdateDigitalEmployeeRequest& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+    inline UpdateDigitalEmployeeRequest& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
     // defaultRule Field Functions 
     bool hasDefaultRule() const { return this->defaultRule_ != nullptr;};
     void deleteDefaultRule() { this->defaultRule_ = nullptr;};
@@ -186,6 +198,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, string>> attributes_ {};
     shared_ptr<string> defaultRule_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> displayName_ {};

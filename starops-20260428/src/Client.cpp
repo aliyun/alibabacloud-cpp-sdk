@@ -174,6 +174,10 @@ CreateChatResponse Client::createChat(const CreateChatRequest &request) {
 CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const CreateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttributes()) {
+    body["attributes"] = request.getAttributes();
+  }
+
   if (!!request.hasDefaultRule()) {
     body["defaultRule"] = request.getDefaultRule();
   }
@@ -1056,6 +1060,10 @@ ListThreadsResponse Client::listThreads(const string &name, const ListThreadsReq
 UpdateDigitalEmployeeResponse Client::updateDigitalEmployeeWithOptions(const string &name, const UpdateDigitalEmployeeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAttributes()) {
+    body["attributes"] = request.getAttributes();
+  }
+
   if (!!request.hasDefaultRule()) {
     body["defaultRule"] = request.getDefaultRule();
   }
