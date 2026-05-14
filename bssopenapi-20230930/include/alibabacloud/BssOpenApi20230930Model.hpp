@@ -22,6 +22,13 @@
 #include <alibabacloud/models/CheckAccountExistRequest.hpp>
 #include <alibabacloud/models/CheckAccountExistResponseBody.hpp>
 #include <alibabacloud/models/CheckAccountExistResponse.hpp>
+#include <alibabacloud/models/CheckBudgetNameExistsRequest.hpp>
+#include <alibabacloud/models/CheckBudgetNameExistsResponseBody.hpp>
+#include <alibabacloud/models/CheckBudgetNameExistsResponse.hpp>
+#include <alibabacloud/models/CreateBudgetRequest.hpp>
+#include <alibabacloud/models/CreateBudgetShrinkRequest.hpp>
+#include <alibabacloud/models/CreateBudgetResponseBody.hpp>
+#include <alibabacloud/models/CreateBudgetResponse.hpp>
 #include <alibabacloud/models/CreateCostCenterRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterResponseBody.hpp>
@@ -58,6 +65,12 @@
 #include <alibabacloud/models/DeleteReportDefinitionRequest.hpp>
 #include <alibabacloud/models/DeleteReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/DeleteReportDefinitionResponse.hpp>
+#include <alibabacloud/models/DescribeBudgetRequest.hpp>
+#include <alibabacloud/models/DescribeBudgetResponseBody.hpp>
+#include <alibabacloud/models/DescribeBudgetResponse.hpp>
+#include <alibabacloud/models/DescribeBudgetsRequest.hpp>
+#include <alibabacloud/models/DescribeBudgetsResponseBody.hpp>
+#include <alibabacloud/models/DescribeBudgetsResponse.hpp>
 #include <alibabacloud/models/DescribeCouponRequest.hpp>
 #include <alibabacloud/models/DescribeCouponShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeCouponResponseBody.hpp>
@@ -167,5 +180,9 @@
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleShrinkRequest.hpp>
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleResponseBody.hpp>
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleResponse.hpp>
+#include <alibabacloud/models/UpdateBudgetRequest.hpp>
+#include <alibabacloud/models/UpdateBudgetShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateBudgetResponseBody.hpp>
+#include <alibabacloud/models/UpdateBudgetResponse.hpp>
 
 #endif

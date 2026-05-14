@@ -89,6 +89,40 @@ namespace BssOpenApi20230930
       Models::CheckAccountExistResponse checkAccountExist(const Models::CheckAccountExistRequest &request);
 
       /**
+       * @summary 检测budgetName是否存在
+       *
+       * @param request CheckBudgetNameExistsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckBudgetNameExistsResponse
+       */
+      Models::CheckBudgetNameExistsResponse checkBudgetNameExistsWithOptions(const Models::CheckBudgetNameExistsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检测budgetName是否存在
+       *
+       * @param request CheckBudgetNameExistsRequest
+       * @return CheckBudgetNameExistsResponse
+       */
+      Models::CheckBudgetNameExistsResponse checkBudgetNameExists(const Models::CheckBudgetNameExistsRequest &request);
+
+      /**
+       * @summary 创建预算
+       *
+       * @param tmpReq CreateBudgetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateBudgetResponse
+       */
+      Models::CreateBudgetResponse createBudgetWithOptions(const Models::CreateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建预算
+       *
+       * @param request CreateBudgetRequest
+       * @return CreateBudgetResponse
+       */
+      Models::CreateBudgetResponse createBudget(const Models::CreateBudgetRequest &request);
+
+      /**
        * @summary 创建财务单元
        *
        * @param tmpReq CreateCostCenterRequest
@@ -257,6 +291,40 @@ namespace BssOpenApi20230930
        * @return DeleteReportDefinitionResponse
        */
       Models::DeleteReportDefinitionResponse deleteReportDefinition(const Models::DeleteReportDefinitionRequest &request);
+
+      /**
+       * @summary 查询单个Budget
+       *
+       * @param request DescribeBudgetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBudgetResponse
+       */
+      Models::DescribeBudgetResponse describeBudgetWithOptions(const Models::DescribeBudgetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询单个Budget
+       *
+       * @param request DescribeBudgetRequest
+       * @return DescribeBudgetResponse
+       */
+      Models::DescribeBudgetResponse describeBudget(const Models::DescribeBudgetRequest &request);
+
+      /**
+       * @summary 查询预算列表
+       *
+       * @param request DescribeBudgetsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeBudgetsResponse
+       */
+      Models::DescribeBudgetsResponse describeBudgetsWithOptions(const Models::DescribeBudgetsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询预算列表
+       *
+       * @param request DescribeBudgetsRequest
+       * @return DescribeBudgetsResponse
+       */
+      Models::DescribeBudgetsResponse describeBudgets(const Models::DescribeBudgetsRequest &request);
 
       /**
        * @summary Queries the list of coupons.
@@ -799,6 +867,23 @@ namespace BssOpenApi20230930
        * @return SetSavingPlanUserDeductRuleResponse
        */
       Models::SetSavingPlanUserDeductRuleResponse setSavingPlanUserDeductRule(const Models::SetSavingPlanUserDeductRuleRequest &request);
+
+      /**
+       * @summary 更新预算
+       *
+       * @param tmpReq UpdateBudgetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBudgetResponse
+       */
+      Models::UpdateBudgetResponse updateBudgetWithOptions(const Models::UpdateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新预算
+       *
+       * @param request UpdateBudgetRequest
+       * @return UpdateBudgetResponse
+       */
+      Models::UpdateBudgetResponse updateBudget(const Models::UpdateBudgetRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace BssOpenApi20230930

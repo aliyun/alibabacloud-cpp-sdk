@@ -324,6 +324,168 @@ CheckAccountExistResponse Client::checkAccountExist(const CheckAccountExistReque
 }
 
 /**
+ * @summary 检测budgetName是否存在
+ *
+ * @param request CheckBudgetNameExistsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckBudgetNameExistsResponse
+ */
+CheckBudgetNameExistsResponse Client::checkBudgetNameExistsWithOptions(const CheckBudgetNameExistsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckBudgetNameExists"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckBudgetNameExistsResponse>();
+}
+
+/**
+ * @summary 检测budgetName是否存在
+ *
+ * @param request CheckBudgetNameExistsRequest
+ * @return CheckBudgetNameExistsResponse
+ */
+CheckBudgetNameExistsResponse Client::checkBudgetNameExists(const CheckBudgetNameExistsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkBudgetNameExistsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建预算
+ *
+ * @param tmpReq CreateBudgetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateBudgetResponse
+ */
+CreateBudgetResponse Client::createBudgetWithOptions(const CreateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateBudgetShrinkRequest request = CreateBudgetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCycleQuota()) {
+    request.setCycleQuotaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCycleQuota(), "CycleQuota", "json"));
+  }
+
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  if (!!tmpReq.hasQueryFilter()) {
+    request.setQueryFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryFilter(), "QueryFilter", "json"));
+  }
+
+  if (!!tmpReq.hasWarnConfs()) {
+    request.setWarnConfsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarnConfs(), "WarnConfs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  if (!!request.hasBudgetType()) {
+    body["BudgetType"] = request.getBudgetType();
+  }
+
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasCycleEndPeriod()) {
+    body["CycleEndPeriod"] = request.getCycleEndPeriod();
+  }
+
+  if (!!request.hasCycleQuotaShrink()) {
+    body["CycleQuota"] = request.getCycleQuotaShrink();
+  }
+
+  if (!!request.hasCycleStartPeriod()) {
+    body["CycleStartPeriod"] = request.getCycleStartPeriod();
+  }
+
+  if (!!request.hasCycleType()) {
+    body["CycleType"] = request.getCycleType();
+  }
+
+  if (!!request.hasMetric()) {
+    body["Metric"] = request.getMetric();
+  }
+
+  if (!!request.hasQueryFilterShrink()) {
+    body["QueryFilter"] = request.getQueryFilterShrink();
+  }
+
+  if (!!request.hasQuota()) {
+    body["Quota"] = request.getQuota();
+  }
+
+  if (!!request.hasQuotaType()) {
+    body["QuotaType"] = request.getQuotaType();
+  }
+
+  if (!!request.hasWarnConfsShrink()) {
+    body["WarnConfs"] = request.getWarnConfsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateBudget"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateBudgetResponse>();
+}
+
+/**
+ * @summary 创建预算
+ *
+ * @param request CreateBudgetRequest
+ * @return CreateBudgetResponse
+ */
+CreateBudgetResponse Client::createBudget(const CreateBudgetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createBudgetWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建财务单元
  *
  * @param tmpReq CreateCostCenterRequest
@@ -953,6 +1115,118 @@ DeleteReportDefinitionResponse Client::deleteReportDefinitionWithOptions(const D
 DeleteReportDefinitionResponse Client::deleteReportDefinition(const DeleteReportDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteReportDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询单个Budget
+ *
+ * @param request DescribeBudgetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBudgetResponse
+ */
+DescribeBudgetResponse Client::describeBudgetWithOptions(const DescribeBudgetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeBudget"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBudgetResponse>();
+}
+
+/**
+ * @summary 查询单个Budget
+ *
+ * @param request DescribeBudgetRequest
+ * @return DescribeBudgetResponse
+ */
+DescribeBudgetResponse Client::describeBudget(const DescribeBudgetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBudgetWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询预算列表
+ *
+ * @param request DescribeBudgetsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeBudgetsResponse
+ */
+DescribeBudgetsResponse Client::describeBudgetsWithOptions(const DescribeBudgetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  if (!!request.hasBudgetType()) {
+    body["BudgetType"] = request.getBudgetType();
+  }
+
+  if (!!request.hasExpireStatus()) {
+    body["ExpireStatus"] = request.getExpireStatus();
+  }
+
+  if (!!request.hasPageNo()) {
+    body["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeBudgets"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeBudgetsResponse>();
+}
+
+/**
+ * @summary 查询预算列表
+ *
+ * @param request DescribeBudgetsRequest
+ * @return DescribeBudgetsResponse
+ */
+DescribeBudgetsResponse Client::describeBudgets(const DescribeBudgetsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeBudgetsWithOptions(request, runtime);
 }
 
 /**
@@ -2865,6 +3139,124 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRuleWithOptio
 SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const SetSavingPlanUserDeductRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setSavingPlanUserDeductRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新预算
+ *
+ * @param tmpReq UpdateBudgetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBudgetResponse
+ */
+UpdateBudgetResponse Client::updateBudgetWithOptions(const UpdateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateBudgetShrinkRequest request = UpdateBudgetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCycleQuota()) {
+    request.setCycleQuotaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCycleQuota(), "CycleQuota", "json"));
+  }
+
+  if (!!tmpReq.hasEcIdAccountIds()) {
+    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
+  }
+
+  if (!!tmpReq.hasQueryFilter()) {
+    request.setQueryFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryFilter(), "QueryFilter", "json"));
+  }
+
+  if (!!tmpReq.hasWarnConfs()) {
+    request.setWarnConfsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarnConfs(), "WarnConfs", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEcIdAccountIdsShrink()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  if (!!request.hasBudgetType()) {
+    body["BudgetType"] = request.getBudgetType();
+  }
+
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasCycleEndPeriod()) {
+    body["CycleEndPeriod"] = request.getCycleEndPeriod();
+  }
+
+  if (!!request.hasCycleQuotaShrink()) {
+    body["CycleQuota"] = request.getCycleQuotaShrink();
+  }
+
+  if (!!request.hasCycleStartPeriod()) {
+    body["CycleStartPeriod"] = request.getCycleStartPeriod();
+  }
+
+  if (!!request.hasCycleType()) {
+    body["CycleType"] = request.getCycleType();
+  }
+
+  if (!!request.hasMetric()) {
+    body["Metric"] = request.getMetric();
+  }
+
+  if (!!request.hasOriginalBudgetName()) {
+    body["OriginalBudgetName"] = request.getOriginalBudgetName();
+  }
+
+  if (!!request.hasQueryFilterShrink()) {
+    body["QueryFilter"] = request.getQueryFilterShrink();
+  }
+
+  if (!!request.hasQuota()) {
+    body["Quota"] = request.getQuota();
+  }
+
+  if (!!request.hasQuotaType()) {
+    body["QuotaType"] = request.getQuotaType();
+  }
+
+  if (!!request.hasWarnConfsShrink()) {
+    body["WarnConfs"] = request.getWarnConfsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateBudget"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBudgetResponse>();
+}
+
+/**
+ * @summary 更新预算
+ *
+ * @param request UpdateBudgetRequest
+ * @return UpdateBudgetResponse
+ */
+UpdateBudgetResponse Client::updateBudget(const UpdateBudgetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateBudgetWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace BssOpenApi20230930
