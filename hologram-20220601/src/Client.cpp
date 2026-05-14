@@ -86,6 +86,116 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary 创建db
+ *
+ * @param request CreateDatabaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDatabaseResponse
+ */
+CreateDatabaseResponse Client::createDatabaseWithOptions(const string &instanceId, const CreateDatabaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.getDatabaseName();
+  }
+
+  if (!!request.hasPermissionModel()) {
+    body["permissionModel"] = request.getPermissionModel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateDatabase"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createDatabase")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDatabaseResponse>();
+}
+
+/**
+ * @summary 创建db
+ *
+ * @param request CreateDatabaseRequest
+ * @return CreateDatabaseResponse
+ */
+CreateDatabaseResponse Client::createDatabase(const string &instanceId, const CreateDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createDatabaseWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建外部db
+ *
+ * @param request CreateExternalDatabaseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateExternalDatabaseResponse
+ */
+CreateExternalDatabaseResponse Client::createExternalDatabaseWithOptions(const string &instanceId, const CreateExternalDatabaseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasComment()) {
+    body["comment"] = request.getComment();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    body["databaseName"] = request.getDatabaseName();
+  }
+
+  if (!!request.hasDefaultUserMapping()) {
+    body["defaultUserMapping"] = request.getDefaultUserMapping();
+  }
+
+  if (!!request.hasExternalConfig()) {
+    body["externalConfig"] = request.getExternalConfig();
+  }
+
+  if (!!request.hasMetastoreType()) {
+    body["metastoreType"] = request.getMetastoreType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateExternalDatabase"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createExternalDatabase")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateExternalDatabaseResponse>();
+}
+
+/**
+ * @summary 创建外部db
+ *
+ * @param request CreateExternalDatabaseRequest
+ * @return CreateExternalDatabaseResponse
+ */
+CreateExternalDatabaseResponse Client::createExternalDatabase(const string &instanceId, const CreateExternalDatabaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createExternalDatabaseWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Creates a virtual warehouse.
  *
  * @param request CreateHoloWarehouseRequest
@@ -300,6 +410,91 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary 创建模型服务
+ *
+ * @param request CreateModelServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelServiceWithOptions(const string &instanceId, const CreateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApiKey()) {
+    body["apiKey"] = request.getApiKey();
+  }
+
+  if (!!request.hasCpu()) {
+    body["cpu"] = request.getCpu();
+  }
+
+  if (!!request.hasGpu()) {
+    body["gpu"] = request.getGpu();
+  }
+
+  if (!!request.hasGpuMemory()) {
+    body["gpuMemory"] = request.getGpuMemory();
+  }
+
+  if (!!request.hasMemory()) {
+    body["memory"] = request.getMemory();
+  }
+
+  if (!!request.hasModelParams()) {
+    body["modelParams"] = request.getModelParams();
+  }
+
+  if (!!request.hasModelServiceName()) {
+    body["modelServiceName"] = request.getModelServiceName();
+  }
+
+  if (!!request.hasModelType()) {
+    body["modelType"] = request.getModelType();
+  }
+
+  if (!!request.hasProvider()) {
+    body["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasServiceCount()) {
+    body["serviceCount"] = request.getServiceCount();
+  }
+
+  if (!!request.hasTaskType()) {
+    body["taskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateModelService"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createModelService")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateModelServiceResponse>();
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request CreateModelServiceRequest
+ * @return CreateModelServiceResponse
+ */
+CreateModelServiceResponse Client::createModelService(const string &instanceId, const CreateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createModelServiceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 添加用户
  *
  * @param request CreateUserRequest
@@ -346,6 +541,126 @@ CreateUserResponse Client::createUser(const string &instanceId, const CreateUser
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createUserWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建warehouse
+ *
+ * @param request CreateWarehouseRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWarehouseResponse
+ */
+CreateWarehouseResponse Client::createWarehouseWithOptions(const string &instanceId, const CreateWarehouseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["config"] = request.getConfig();
+  }
+
+  if (!!request.hasCpu()) {
+    body["cpu"] = request.getCpu();
+  }
+
+  if (!!request.hasWarehouseName()) {
+    body["warehouseName"] = request.getWarehouseName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWarehouse"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/warehouse/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/create")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWarehouseResponse>();
+}
+
+/**
+ * @summary 创建warehouse
+ *
+ * @param request CreateWarehouseRequest
+ * @return CreateWarehouseResponse
+ */
+CreateWarehouseResponse Client::createWarehouse(const string &instanceId, const CreateWarehouseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWarehouseWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建分时弹性计划
+ *
+ * @param request CreateWarehouseScheduleTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWarehouseScheduleTaskResponse
+ */
+CreateWarehouseScheduleTaskResponse Client::createWarehouseScheduleTaskWithOptions(const string &instanceId, const CreateWarehouseScheduleTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasElasticCu()) {
+    body["elasticCu"] = request.getElasticCu();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWarehouseId()) {
+    body["warehouseId"] = request.getWarehouseId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWarehouseScheduleTask"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/createWarehouseScheduleTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWarehouseScheduleTaskResponse>();
+}
+
+/**
+ * @summary 创建分时弹性计划
+ *
+ * @param request CreateWarehouseScheduleTaskRequest
+ * @return CreateWarehouseScheduleTaskResponse
+ */
+CreateWarehouseScheduleTaskResponse Client::createWarehouseScheduleTask(const string &instanceId, const CreateWarehouseScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -447,6 +762,145 @@ DeleteInstanceResponse Client::deleteInstance(const string &instanceId, const De
 }
 
 /**
+ * @summary 删除模型资源
+ *
+ * @param request DeleteModelResourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelResourceResponse
+ */
+DeleteModelResourceResponse Client::deleteModelResourceWithOptions(const string &instanceId, const DeleteModelResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAiInstanceId()) {
+    query["aiInstanceId"] = request.getAiInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelResource"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/deleteModelResource")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelResourceResponse>();
+}
+
+/**
+ * @summary 删除模型资源
+ *
+ * @param request DeleteModelResourceRequest
+ * @return DeleteModelResourceResponse
+ */
+DeleteModelResourceResponse Client::deleteModelResource(const string &instanceId, const DeleteModelResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelResourceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelServiceWithOptions(const string &instanceId, const DeleteModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModelServiceName()) {
+    query["modelServiceName"] = request.getModelServiceName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteModelService"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/deleteModelService")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteModelServiceResponse>();
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request DeleteModelServiceRequest
+ * @return DeleteModelServiceResponse
+ */
+DeleteModelServiceResponse Client::deleteModelService(const string &instanceId, const DeleteModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteModelServiceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除计算组弹性计划
+ *
+ * @param request DeleteWarehouseScheduleTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWarehouseScheduleTaskResponse
+ */
+DeleteWarehouseScheduleTaskResponse Client::deleteWarehouseScheduleTaskWithOptions(const string &instanceId, const DeleteWarehouseScheduleTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["id"] = request.getId();
+  }
+
+  if (!!request.hasWarehouseId()) {
+    body["warehouseId"] = request.getWarehouseId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteWarehouseScheduleTask"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/deleteWarehouseScheduleTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWarehouseScheduleTaskResponse>();
+}
+
+/**
+ * @summary 删除计算组弹性计划
+ *
+ * @param request DeleteWarehouseScheduleTaskRequest
+ * @return DeleteWarehouseScheduleTaskResponse
+ */
+DeleteWarehouseScheduleTaskResponse Client::deleteWarehouseScheduleTask(const string &instanceId, const DeleteWarehouseScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Disables data lake acceleration.
  *
  * @param request DisableHiveAccessRequest
@@ -525,6 +979,51 @@ DisableSSLResponse Client::disableSSL(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableSSLWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 关闭自动弹性
+ *
+ * @param request DisableWarehouseAutoScaleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableWarehouseAutoScaleResponse
+ */
+DisableWarehouseAutoScaleResponse Client::disableWarehouseAutoScaleWithOptions(const string &instanceId, const DisableWarehouseAutoScaleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableWarehouseAutoScale"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/disableWarehouseAutoScale")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableWarehouseAutoScaleResponse>();
+}
+
+/**
+ * @summary 关闭自动弹性
+ *
+ * @param request DisableWarehouseAutoScaleRequest
+ * @return DisableWarehouseAutoScaleResponse
+ */
+DisableWarehouseAutoScaleResponse Client::disableWarehouseAutoScale(const string &instanceId, const DisableWarehouseAutoScaleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -658,6 +1157,55 @@ EnableSSLResponse Client::enableSSL(const string &instanceId) {
 }
 
 /**
+ * @summary 开启自动弹性
+ *
+ * @param request EnableWarehouseAutoScaleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableWarehouseAutoScaleResponse
+ */
+EnableWarehouseAutoScaleResponse Client::enableWarehouseAutoScaleWithOptions(const string &instanceId, const EnableWarehouseAutoScaleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasMaxClusterCount()) {
+    body["maxClusterCount"] = request.getMaxClusterCount();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableWarehouseAutoScale"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/enableWarehouseAutoScale")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableWarehouseAutoScaleResponse>();
+}
+
+/**
+ * @summary 开启自动弹性
+ *
+ * @param request EnableWarehouseAutoScaleRequest
+ * @return EnableWarehouseAutoScaleResponse
+ */
+EnableWarehouseAutoScaleResponse Client::enableWarehouseAutoScale(const string &instanceId, const EnableWarehouseAutoScaleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 获得证书信息
  *
  * @param headers map
@@ -727,6 +1275,45 @@ GetInstanceResponse Client::getInstance(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getInstanceWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 模型信息
+ *
+ * @param request GetInstanceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetInstanceModelResponse
+ */
+GetInstanceModelResponse Client::getInstanceModelWithOptions(const string &instanceId, const GetInstanceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetInstanceModel"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/getInstanceModel")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetInstanceModelResponse>();
+}
+
+/**
+ * @summary 模型信息
+ *
+ * @param request GetInstanceModelRequest
+ * @return GetInstanceModelResponse
+ */
+GetInstanceModelResponse Client::getInstanceModel(const string &instanceId, const GetInstanceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getInstanceModelWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1075,6 +1662,45 @@ ListDatabasesResponse Client::listDatabases(const string &instanceId, const List
 }
 
 /**
+ * @summary AI资源列表
+ *
+ * @param request ListInstanceModelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceModelResponse
+ */
+ListInstanceModelResponse Client::listInstanceModelWithOptions(const ListInstanceModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceModel"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/rpc/listInstanceModel")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceModelResponse>();
+}
+
+/**
+ * @summary AI资源列表
+ *
+ * @param request ListInstanceModelRequest
+ * @return ListInstanceModelResponse
+ */
+ListInstanceModelResponse Client::listInstanceModel(const ListInstanceModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstanceModelWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of instances.
  *
  * @param request ListInstancesRequest
@@ -1125,6 +1751,155 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listInstancesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 列出模型列表
+ *
+ * @param request ListModelCatalogRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelCatalogResponse
+ */
+ListModelCatalogResponse Client::listModelCatalogWithOptions(const string &instanceId, const ListModelCatalogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelCatalog"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listModelCatalog")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelCatalogResponse>();
+}
+
+/**
+ * @summary 列出模型列表
+ *
+ * @param request ListModelCatalogRequest
+ * @return ListModelCatalogResponse
+ */
+ListModelCatalogResponse Client::listModelCatalog(const string &instanceId, const ListModelCatalogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listModelCatalogWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 分时弹性日志
+ *
+ * @param request ListWarehouseScheduleEventRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWarehouseScheduleEventResponse
+ */
+ListWarehouseScheduleEventResponse Client::listWarehouseScheduleEventWithOptions(const string &instanceId, const ListWarehouseScheduleEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasElasticType()) {
+    body["elasticType"] = request.getElasticType();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListWarehouseScheduleEvent"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listWarehouseScheduleEvent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWarehouseScheduleEventResponse>();
+}
+
+/**
+ * @summary 分时弹性日志
+ *
+ * @param request ListWarehouseScheduleEventRequest
+ * @return ListWarehouseScheduleEventResponse
+ */
+ListWarehouseScheduleEventResponse Client::listWarehouseScheduleEvent(const string &instanceId, const ListWarehouseScheduleEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWarehouseScheduleEventWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 计算分时弹性计划列表
+ *
+ * @param request ListWarehouseScheduleTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWarehouseScheduleTaskResponse
+ */
+ListWarehouseScheduleTaskResponse Client::listWarehouseScheduleTaskWithOptions(const string &instanceId, const ListWarehouseScheduleTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWarehouseScheduleTask"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listWarehouseScheduleTask")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWarehouseScheduleTaskResponse>();
+}
+
+/**
+ * @summary 计算分时弹性计划列表
+ *
+ * @param request ListWarehouseScheduleTaskRequest
+ * @return ListWarehouseScheduleTaskResponse
+ */
+ListWarehouseScheduleTaskResponse Client::listWarehouseScheduleTask(const string &instanceId, const ListWarehouseScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -2008,6 +2783,132 @@ UpdateInstanceNetworkTypeResponse Client::updateInstanceNetworkType(const string
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateInstanceNetworkTypeWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request UpdateModelServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelServiceResponse
+ */
+UpdateModelServiceResponse Client::updateModelServiceWithOptions(const string &instanceId, const UpdateModelServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCpu()) {
+    body["cpu"] = request.getCpu();
+  }
+
+  if (!!request.hasGpu()) {
+    body["gpu"] = request.getGpu();
+  }
+
+  if (!!request.hasMemory()) {
+    body["memory"] = request.getMemory();
+  }
+
+  if (!!request.hasModelServiceName()) {
+    body["modelServiceName"] = request.getModelServiceName();
+  }
+
+  if (!!request.hasModelType()) {
+    body["modelType"] = request.getModelType();
+  }
+
+  if (!!request.hasServiceCount()) {
+    body["serviceCount"] = request.getServiceCount();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateModelService"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/updateModelService")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelServiceResponse>();
+}
+
+/**
+ * @summary 创建模型服务
+ *
+ * @param request UpdateModelServiceRequest
+ * @return UpdateModelServiceResponse
+ */
+UpdateModelServiceResponse Client::updateModelService(const string &instanceId, const UpdateModelServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateModelServiceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 创建分时弹性计划
+ *
+ * @param request UpdateWarehouseScheduleTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateWarehouseScheduleTaskResponse
+ */
+UpdateWarehouseScheduleTaskResponse Client::updateWarehouseScheduleTaskWithOptions(const string &instanceId, const UpdateWarehouseScheduleTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasElasticCu()) {
+    body["elasticCu"] = request.getElasticCu();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasId()) {
+    body["id"] = request.getId();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWarehouseId()) {
+    body["warehouseId"] = request.getWarehouseId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateWarehouseScheduleTask"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/updateWarehouseScheduleTask")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateWarehouseScheduleTaskResponse>();
+}
+
+/**
+ * @summary 创建分时弹性计划
+ *
+ * @param request UpdateWarehouseScheduleTaskRequest
+ * @return UpdateWarehouseScheduleTaskResponse
+ */
+UpdateWarehouseScheduleTaskResponse Client::updateWarehouseScheduleTask(const string &instanceId, const UpdateWarehouseScheduleTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Hologram20220601
