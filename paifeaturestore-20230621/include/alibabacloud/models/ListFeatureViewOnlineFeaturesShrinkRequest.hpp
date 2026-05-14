@@ -13,9 +13,11 @@ namespace Models
   class ListFeatureViewOnlineFeaturesShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListFeatureViewOnlineFeaturesShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(JoinIds, joinIdsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ListFeatureViewOnlineFeaturesShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(JoinIds, joinIdsShrink_);
     };
     ListFeatureViewOnlineFeaturesShrinkRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->joinIdsShrink_ == nullptr; };
+    virtual bool empty() const override { return this->config_ == nullptr
+        && this->joinIdsShrink_ == nullptr; };
+    // config Field Functions 
+    bool hasConfig() const { return this->config_ != nullptr;};
+    void deleteConfig() { this->config_ = nullptr;};
+    inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
+    inline ListFeatureViewOnlineFeaturesShrinkRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
     // joinIdsShrink Field Functions 
     bool hasJoinIdsShrink() const { return this->joinIdsShrink_ != nullptr;};
     void deleteJoinIdsShrink() { this->joinIdsShrink_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> config_ {};
     // This parameter is required.
     shared_ptr<string> joinIdsShrink_ {};
   };

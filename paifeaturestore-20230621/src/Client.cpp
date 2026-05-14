@@ -1862,6 +1862,10 @@ ListFeatureViewOnlineFeaturesResponse Client::listFeatureViewOnlineFeaturesWithO
   }
 
   json query = {};
+  if (!!request.hasConfig()) {
+    query["Config"] = request.getConfig();
+  }
+
   if (!!request.hasJoinIdsShrink()) {
     query["JoinIds"] = request.getJoinIdsShrink();
   }

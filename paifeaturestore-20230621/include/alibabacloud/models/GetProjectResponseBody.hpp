@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OnlineDatasourceType, onlineDatasourceType_);
       DARABONBA_PTR_TO_JSON(Owner, owner_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetProjectResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OnlineDatasourceType, onlineDatasourceType_);
       DARABONBA_PTR_FROM_JSON(Owner, owner_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetProjectResponseBody() = default ;
     GetProjectResponseBody(const GetProjectResponseBody &) = default ;
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->description_ == nullptr
         && this->featureEntityCount_ == nullptr && this->featureViewCount_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->modelCount_ == nullptr
         && this->name_ == nullptr && this->offlineDatasourceId_ == nullptr && this->offlineDatasourceName_ == nullptr && this->offlineDatasourceType_ == nullptr && this->offlineLifecycle_ == nullptr
-        && this->onlineDatasourceId_ == nullptr && this->onlineDatasourceName_ == nullptr && this->onlineDatasourceType_ == nullptr && this->owner_ == nullptr && this->requestId_ == nullptr; };
+        && this->onlineDatasourceId_ == nullptr && this->onlineDatasourceName_ == nullptr && this->onlineDatasourceType_ == nullptr && this->owner_ == nullptr && this->requestId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -175,6 +178,13 @@ namespace Models
     inline GetProjectResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline GetProjectResponseBody& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     shared_ptr<string> description_ {};
     shared_ptr<int32_t> featureEntityCount_ {};
@@ -192,6 +202,7 @@ namespace Models
     shared_ptr<string> onlineDatasourceType_ {};
     shared_ptr<string> owner_ {};
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
