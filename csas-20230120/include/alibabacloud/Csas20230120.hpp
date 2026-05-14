@@ -1200,7 +1200,7 @@ namespace Csas20230120
       Models::ListExcessiveDeviceRegistrationApplicationsResponse listExcessiveDeviceRegistrationApplications(const Models::ListExcessiveDeviceRegistrationApplicationsRequest &request);
 
       /**
-       * @summary 批量查询转发策略
+       * @summary Batch query forwarding rules
        *
        * @param request ListForwardStrategiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1209,7 +1209,7 @@ namespace Csas20230120
       Models::ListForwardStrategiesResponse listForwardStrategiesWithOptions(const Models::ListForwardStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询转发策略
+       * @summary Batch query forwarding rules
        *
        * @param request ListForwardStrategiesRequest
        * @return ListForwardStrategiesResponse
@@ -1217,7 +1217,7 @@ namespace Csas20230120
       Models::ListForwardStrategiesResponse listForwardStrategies(const Models::ListForwardStrategiesRequest &request);
 
       /**
-       * @summary 批量查询转发策略绑定项目
+       * @summary Batch Query Forwarding Rules Attached to Projects
        *
        * @param request ListForwardStrategyBindingItemsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1226,7 +1226,7 @@ namespace Csas20230120
       Models::ListForwardStrategyBindingItemsResponse listForwardStrategyBindingItemsWithOptions(const Models::ListForwardStrategyBindingItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询转发策略绑定项目
+       * @summary Batch Query Forwarding Rules Attached to Projects
        *
        * @param request ListForwardStrategyBindingItemsRequest
        * @return ListForwardStrategyBindingItemsResponse
@@ -1693,7 +1693,7 @@ namespace Csas20230120
       Models::ModifyEnterpriseAcceleratePolicyResponse modifyEnterpriseAcceleratePolicy(const Models::ModifyEnterpriseAcceleratePolicyRequest &request);
 
       /**
-       * @summary 吊销用户设备会话
+       * @summary Revoke a user device session.
        *
        * @param request RevokeUserDeviceSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1702,7 +1702,7 @@ namespace Csas20230120
       Models::RevokeUserDeviceSessionResponse revokeUserDeviceSessionWithOptions(const Models::RevokeUserDeviceSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 吊销用户设备会话
+       * @summary Revoke a user device session.
        *
        * @param request RevokeUserDeviceSessionRequest
        * @return RevokeUserDeviceSessionResponse

@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EventLabel, eventLabel_);
       DARABONBA_PTR_TO_JSON(EventVerifyToken, eventVerifyToken_);
       DARABONBA_PTR_TO_JSON(Exclusive, exclusive_);
+      DARABONBA_PTR_TO_JSON(Oauth, oauth_);
       DARABONBA_PTR_TO_JSON(RedirectUri, redirectUri_);
     };
     friend void from_json(const Darabonba::Json& j, IdpDingtalkSubConfig& obj) { 
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EventLabel, eventLabel_);
       DARABONBA_PTR_FROM_JSON(EventVerifyToken, eventVerifyToken_);
       DARABONBA_PTR_FROM_JSON(Exclusive, exclusive_);
+      DARABONBA_PTR_FROM_JSON(Oauth, oauth_);
       DARABONBA_PTR_FROM_JSON(RedirectUri, redirectUri_);
     };
     IdpDingtalkSubConfig() = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appKey_ == nullptr
         && this->appSecret_ == nullptr && this->corpId_ == nullptr && this->eventAesKey_ == nullptr && this->eventLabel_ == nullptr && this->eventVerifyToken_ == nullptr
-        && this->exclusive_ == nullptr && this->redirectUri_ == nullptr; };
+        && this->exclusive_ == nullptr && this->oauth_ == nullptr && this->redirectUri_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
@@ -95,6 +97,13 @@ namespace Models
     inline IdpDingtalkSubConfig& setExclusive(bool exclusive) { DARABONBA_PTR_SET_VALUE(exclusive_, exclusive) };
 
 
+    // oauth Field Functions 
+    bool hasOauth() const { return this->oauth_ != nullptr;};
+    void deleteOauth() { this->oauth_ = nullptr;};
+    inline bool getOauth() const { DARABONBA_PTR_GET_DEFAULT(oauth_, false) };
+    inline IdpDingtalkSubConfig& setOauth(bool oauth) { DARABONBA_PTR_SET_VALUE(oauth_, oauth) };
+
+
     // redirectUri Field Functions 
     bool hasRedirectUri() const { return this->redirectUri_ != nullptr;};
     void deleteRedirectUri() { this->redirectUri_ = nullptr;};
@@ -110,6 +119,7 @@ namespace Models
     shared_ptr<string> eventLabel_ {};
     shared_ptr<string> eventVerifyToken_ {};
     shared_ptr<bool> exclusive_ {};
+    shared_ptr<bool> oauth_ {};
     shared_ptr<string> redirectUri_ {};
   };
 

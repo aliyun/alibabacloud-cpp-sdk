@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_CSAS20230120MODEL_HPP_
 #define ALIBABACLOUD_CSAS20230120MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AIUsageLimitPolicy.hpp>
 #include <alibabacloud/models/AddressGroup.hpp>
 #include <alibabacloud/models/AuthReportInterval.hpp>
 #include <alibabacloud/models/CommonConfig.hpp>

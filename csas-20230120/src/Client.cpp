@@ -3486,7 +3486,7 @@ ListExcessiveDeviceRegistrationApplicationsResponse Client::listExcessiveDeviceR
 }
 
 /**
- * @summary 批量查询转发策略
+ * @summary Batch query forwarding rules
  *
  * @param request ListForwardStrategiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3513,7 +3513,7 @@ ListForwardStrategiesResponse Client::listForwardStrategiesWithOptions(const Lis
 }
 
 /**
- * @summary 批量查询转发策略
+ * @summary Batch query forwarding rules
  *
  * @param request ListForwardStrategiesRequest
  * @return ListForwardStrategiesResponse
@@ -3524,7 +3524,7 @@ ListForwardStrategiesResponse Client::listForwardStrategies(const ListForwardStr
 }
 
 /**
- * @summary 批量查询转发策略绑定项目
+ * @summary Batch Query Forwarding Rules Attached to Projects
  *
  * @param request ListForwardStrategyBindingItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3551,7 +3551,7 @@ ListForwardStrategyBindingItemsResponse Client::listForwardStrategyBindingItemsW
 }
 
 /**
- * @summary 批量查询转发策略绑定项目
+ * @summary Batch Query Forwarding Rules Attached to Projects
  *
  * @param request ListForwardStrategyBindingItemsRequest
  * @return ListForwardStrategyBindingItemsResponse
@@ -4704,7 +4704,7 @@ ModifyEnterpriseAcceleratePolicyResponse Client::modifyEnterpriseAcceleratePolic
 }
 
 /**
- * @summary 吊销用户设备会话
+ * @summary Revoke a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4739,7 +4739,7 @@ RevokeUserDeviceSessionResponse Client::revokeUserDeviceSessionWithOptions(const
 }
 
 /**
- * @summary 吊销用户设备会话
+ * @summary Revoke a user device session.
  *
  * @param request RevokeUserDeviceSessionRequest
  * @return RevokeUserDeviceSessionResponse
