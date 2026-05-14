@@ -445,9 +445,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const AdaptiveRouting& obj) { 
         DARABONBA_PTR_TO_JSON(FailoverAcrossPools, failoverAcrossPools_);
+        DARABONBA_PTR_TO_JSON(OriginLevelRetry, originLevelRetry_);
       };
       friend void from_json(const Darabonba::Json& j, AdaptiveRouting& obj) { 
         DARABONBA_PTR_FROM_JSON(FailoverAcrossPools, failoverAcrossPools_);
+        DARABONBA_PTR_FROM_JSON(OriginLevelRetry, originLevelRetry_);
       };
       AdaptiveRouting() = default ;
       AdaptiveRouting(const AdaptiveRouting &) = default ;
@@ -460,12 +462,20 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->failoverAcrossPools_ == nullptr; };
+      virtual bool empty() const override { return this->failoverAcrossPools_ == nullptr
+        && this->originLevelRetry_ == nullptr; };
       // failoverAcrossPools Field Functions 
       bool hasFailoverAcrossPools() const { return this->failoverAcrossPools_ != nullptr;};
       void deleteFailoverAcrossPools() { this->failoverAcrossPools_ = nullptr;};
       inline bool getFailoverAcrossPools() const { DARABONBA_PTR_GET_DEFAULT(failoverAcrossPools_, false) };
       inline AdaptiveRouting& setFailoverAcrossPools(bool failoverAcrossPools) { DARABONBA_PTR_SET_VALUE(failoverAcrossPools_, failoverAcrossPools) };
+
+
+      // originLevelRetry Field Functions 
+      bool hasOriginLevelRetry() const { return this->originLevelRetry_ != nullptr;};
+      void deleteOriginLevelRetry() { this->originLevelRetry_ = nullptr;};
+      inline bool getOriginLevelRetry() const { DARABONBA_PTR_GET_DEFAULT(originLevelRetry_, false) };
+      inline AdaptiveRouting& setOriginLevelRetry(bool originLevelRetry) { DARABONBA_PTR_SET_VALUE(originLevelRetry_, originLevelRetry) };
 
 
     protected:
@@ -474,6 +484,7 @@ namespace Models
       // - true: Yes.
       // - false: No.
       shared_ptr<bool> failoverAcrossPools_ {};
+      shared_ptr<bool> originLevelRetry_ {};
     };
 
     virtual bool empty() const override { return this->adaptiveRouting_ == nullptr
