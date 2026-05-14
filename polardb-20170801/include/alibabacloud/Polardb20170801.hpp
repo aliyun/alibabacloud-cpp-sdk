@@ -153,6 +153,23 @@ namespace Polardb20170801
       Models::ApplyApplicationPromptsResponse applyApplicationPrompts(const Models::ApplyApplicationPromptsRequest &request);
 
       /**
+       * @summary 批准PolarClaw设备配对
+       *
+       * @param request ApprovePolarClawDevicePairRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApprovePolarClawDevicePairResponse
+       */
+      Models::ApprovePolarClawDevicePairResponse approvePolarClawDevicePairWithOptions(const Models::ApprovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批准PolarClaw设备配对
+       *
+       * @param request ApprovePolarClawDevicePairRequest
+       * @return ApprovePolarClawDevicePairResponse
+       */
+      Models::ApprovePolarClawDevicePairResponse approvePolarClawDevicePair(const Models::ApprovePolarClawDevicePairRequest &request);
+
+      /**
        * @summary 挂载PolarFS到PolarDB应用
        *
        * @param request AttachApplicationPolarFSRequest
@@ -2334,6 +2351,23 @@ namespace Polardb20170801
       Models::DescribeApplicationParametersResponse describeApplicationParameters(const Models::DescribeApplicationParametersRequest &request);
 
       /**
+       * @summary 查询PolarDB AI应用性能
+       *
+       * @param request DescribeApplicationPerformanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeApplicationPerformanceResponse
+       */
+      Models::DescribeApplicationPerformanceResponse describeApplicationPerformanceWithOptions(const Models::DescribeApplicationPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarDB AI应用性能
+       *
+       * @param request DescribeApplicationPerformanceRequest
+       * @return DescribeApplicationPerformanceResponse
+       */
+      Models::DescribeApplicationPerformanceResponse describeApplicationPerformance(const Models::DescribeApplicationPerformanceRequest &request);
+
+      /**
        * @summary 查询当前应用下所有的应用提示词策略列表
        *
        * @param request DescribeApplicationPromptsRequest
@@ -4057,6 +4091,23 @@ namespace Polardb20170801
       Models::DescribePolarClawPluginsResponse describePolarClawPlugins(const Models::DescribePolarClawPluginsRequest &request);
 
       /**
+       * @summary 查询PolarClaw异步任务状态
+       *
+       * @param request DescribePolarClawTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarClawTaskResponse
+       */
+      Models::DescribePolarClawTaskResponse describePolarClawTaskWithOptions(const Models::DescribePolarClawTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询PolarClaw异步任务状态
+       *
+       * @param request DescribePolarClawTaskRequest
+       * @return DescribePolarClawTaskResponse
+       */
+      Models::DescribePolarClawTaskResponse describePolarClawTask(const Models::DescribePolarClawTaskRequest &request);
+
+      /**
        * @summary 获取PolarFS实例详情
        *
        * @param request DescribePolarFsAttributeRequest
@@ -4882,6 +4933,23 @@ namespace Polardb20170801
       Models::ListPolarClawBindingsResponse listPolarClawBindings(const Models::ListPolarClawBindingsRequest &request);
 
       /**
+       * @summary 列出PolarClaw设备配对
+       *
+       * @param request ListPolarClawDevicePairsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPolarClawDevicePairsResponse
+       */
+      Models::ListPolarClawDevicePairsResponse listPolarClawDevicePairsWithOptions(const Models::ListPolarClawDevicePairsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出PolarClaw设备配对
+       *
+       * @param request ListPolarClawDevicePairsRequest
+       * @return ListPolarClawDevicePairsResponse
+       */
+      Models::ListPolarClawDevicePairsResponse listPolarClawDevicePairs(const Models::ListPolarClawDevicePairsRequest &request);
+
+      /**
        * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
        *
        * @param request ListTagResourcesRequest
@@ -4910,6 +4978,23 @@ namespace Polardb20170801
        * @return ListTagResourcesForRegionResponse
        */
       Models::ListTagResourcesForRegionResponse listTagResourcesForRegion(const Models::ListTagResourcesForRegionRequest &request);
+
+      /**
+       * @summary 登录PolarClaw Channel
+       *
+       * @param request LoginPolarClawChannelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LoginPolarClawChannelResponse
+       */
+      Models::LoginPolarClawChannelResponse loginPolarClawChannelWithOptions(const Models::LoginPolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 登录PolarClaw Channel
+       *
+       * @param request LoginPolarClawChannelRequest
+       * @return LoginPolarClawChannelResponse
+       */
+      Models::LoginPolarClawChannelResponse loginPolarClawChannel(const Models::LoginPolarClawChannelRequest &request);
 
       /**
        * @summary Manually starts a cluster.
@@ -6233,6 +6318,23 @@ namespace Polardb20170801
       Models::RefreshDBClusterStorageUsageResponse refreshDBClusterStorageUsage(const Models::RefreshDBClusterStorageUsageRequest &request);
 
       /**
+       * @summary 拒绝PolarClaw设备配对
+       *
+       * @param request RejectPolarClawDevicePairRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RejectPolarClawDevicePairResponse
+       */
+      Models::RejectPolarClawDevicePairResponse rejectPolarClawDevicePairWithOptions(const Models::RejectPolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 拒绝PolarClaw设备配对
+       *
+       * @param request RejectPolarClawDevicePairRequest
+       * @return RejectPolarClawDevicePairResponse
+       */
+      Models::RejectPolarClawDevicePairResponse rejectPolarClawDevicePair(const Models::RejectPolarClawDevicePairRequest &request);
+
+      /**
        * @summary 删除应用环境变量
        *
        * @param tmpReq RemoveApplicationEnvironmentVariablesRequest
@@ -6269,6 +6371,23 @@ namespace Polardb20170801
        * @return RemoveDBClusterFromGDNResponse
        */
       Models::RemoveDBClusterFromGDNResponse removeDBClusterFromGDN(const Models::RemoveDBClusterFromGDNRequest &request);
+
+      /**
+       * @summary 移除PolarClaw已配对设备
+       *
+       * @param request RemovePolarClawDevicePairRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemovePolarClawDevicePairResponse
+       */
+      Models::RemovePolarClawDevicePairResponse removePolarClawDevicePairWithOptions(const Models::RemovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移除PolarClaw已配对设备
+       *
+       * @param request RemovePolarClawDevicePairRequest
+       * @return RemovePolarClawDevicePairResponse
+       */
+      Models::RemovePolarClawDevicePairResponse removePolarClawDevicePair(const Models::RemovePolarClawDevicePairRequest &request);
 
       /**
        * @summary 删除PolarClaw MCP Server

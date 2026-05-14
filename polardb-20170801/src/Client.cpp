@@ -558,6 +558,52 @@ ApplyApplicationPromptsResponse Client::applyApplicationPrompts(const ApplyAppli
 }
 
 /**
+ * @summary 批准PolarClaw设备配对
+ *
+ * @param request ApprovePolarClawDevicePairRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApprovePolarClawDevicePairResponse
+ */
+ApprovePolarClawDevicePairResponse Client::approvePolarClawDevicePairWithOptions(const ApprovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPairRequestId()) {
+    query["PairRequestId"] = request.getPairRequestId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ApprovePolarClawDevicePair"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApprovePolarClawDevicePairResponse>();
+}
+
+/**
+ * @summary 批准PolarClaw设备配对
+ *
+ * @param request ApprovePolarClawDevicePairRequest
+ * @return ApprovePolarClawDevicePairResponse
+ */
+ApprovePolarClawDevicePairResponse Client::approvePolarClawDevicePair(const ApprovePolarClawDevicePairRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return approvePolarClawDevicePairWithOptions(request, runtime);
+}
+
+/**
  * @summary 挂载PolarFS到PolarDB应用
  *
  * @param request AttachApplicationPolarFSRequest
@@ -9248,6 +9294,76 @@ DescribeApplicationParametersResponse Client::describeApplicationParameters(cons
 }
 
 /**
+ * @summary 查询PolarDB AI应用性能
+ *
+ * @param request DescribeApplicationPerformanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeApplicationPerformanceResponse
+ */
+DescribeApplicationPerformanceResponse Client::describeApplicationPerformanceWithOptions(const DescribeApplicationPerformanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasConsumer()) {
+    query["Consumer"] = request.getConsumer();
+  }
+
+  if (!!request.hasConsumerGroup()) {
+    query["ConsumerGroup"] = request.getConsumerGroup();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInterval()) {
+    query["Interval"] = request.getInterval();
+  }
+
+  if (!!request.hasKey()) {
+    query["Key"] = request.getKey();
+  }
+
+  if (!!request.hasModelService()) {
+    query["ModelService"] = request.getModelService();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeApplicationPerformance"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeApplicationPerformanceResponse>();
+}
+
+/**
+ * @summary 查询PolarDB AI应用性能
+ *
+ * @param request DescribeApplicationPerformanceRequest
+ * @return DescribeApplicationPerformanceResponse
+ */
+DescribeApplicationPerformanceResponse Client::describeApplicationPerformance(const DescribeApplicationPerformanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeApplicationPerformanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询当前应用下所有的应用提示词策略列表
  *
  * @param request DescribeApplicationPromptsRequest
@@ -15752,6 +15868,52 @@ DescribePolarClawPluginsResponse Client::describePolarClawPlugins(const Describe
 }
 
 /**
+ * @summary 查询PolarClaw异步任务状态
+ *
+ * @param request DescribePolarClawTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarClawTaskResponse
+ */
+DescribePolarClawTaskResponse Client::describePolarClawTaskWithOptions(const DescribePolarClawTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarClawTask"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarClawTaskResponse>();
+}
+
+/**
+ * @summary 查询PolarClaw异步任务状态
+ *
+ * @param request DescribePolarClawTaskRequest
+ * @return DescribePolarClawTaskResponse
+ */
+DescribePolarClawTaskResponse Client::describePolarClawTask(const DescribePolarClawTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarClawTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取PolarFS实例详情
  *
  * @param request DescribePolarFsAttributeRequest
@@ -18797,6 +18959,48 @@ ListPolarClawBindingsResponse Client::listPolarClawBindings(const ListPolarClawB
 }
 
 /**
+ * @summary 列出PolarClaw设备配对
+ *
+ * @param request ListPolarClawDevicePairsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPolarClawDevicePairsResponse
+ */
+ListPolarClawDevicePairsResponse Client::listPolarClawDevicePairsWithOptions(const ListPolarClawDevicePairsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPolarClawDevicePairs"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPolarClawDevicePairsResponse>();
+}
+
+/**
+ * @summary 列出PolarClaw设备配对
+ *
+ * @param request ListPolarClawDevicePairsRequest
+ * @return ListPolarClawDevicePairsResponse
+ */
+ListPolarClawDevicePairsResponse Client::listPolarClawDevicePairs(const ListPolarClawDevicePairsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPolarClawDevicePairsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
  *
  * @param request ListTagResourcesRequest
@@ -18930,6 +19134,52 @@ ListTagResourcesForRegionResponse Client::listTagResourcesForRegionWithOptions(c
 ListTagResourcesForRegionResponse Client::listTagResourcesForRegion(const ListTagResourcesForRegionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesForRegionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 登录PolarClaw Channel
+ *
+ * @param request LoginPolarClawChannelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LoginPolarClawChannelResponse
+ */
+LoginPolarClawChannelResponse Client::loginPolarClawChannelWithOptions(const LoginPolarClawChannelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasChannelId()) {
+    query["ChannelId"] = request.getChannelId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LoginPolarClawChannel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LoginPolarClawChannelResponse>();
+}
+
+/**
+ * @summary 登录PolarClaw Channel
+ *
+ * @param request LoginPolarClawChannelRequest
+ * @return LoginPolarClawChannelResponse
+ */
+LoginPolarClawChannelResponse Client::loginPolarClawChannel(const LoginPolarClawChannelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return loginPolarClawChannelWithOptions(request, runtime);
 }
 
 /**
@@ -24433,6 +24683,52 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const 
 }
 
 /**
+ * @summary 拒绝PolarClaw设备配对
+ *
+ * @param request RejectPolarClawDevicePairRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RejectPolarClawDevicePairResponse
+ */
+RejectPolarClawDevicePairResponse Client::rejectPolarClawDevicePairWithOptions(const RejectPolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasPairRequestId()) {
+    query["PairRequestId"] = request.getPairRequestId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RejectPolarClawDevicePair"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RejectPolarClawDevicePairResponse>();
+}
+
+/**
+ * @summary 拒绝PolarClaw设备配对
+ *
+ * @param request RejectPolarClawDevicePairRequest
+ * @return RejectPolarClawDevicePairResponse
+ */
+RejectPolarClawDevicePairResponse Client::rejectPolarClawDevicePair(const RejectPolarClawDevicePairRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rejectPolarClawDevicePairWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除应用环境变量
  *
  * @param tmpReq RemoveApplicationEnvironmentVariablesRequest
@@ -24564,6 +24860,52 @@ RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDNWithOptions(const R
 RemoveDBClusterFromGDNResponse Client::removeDBClusterFromGDN(const RemoveDBClusterFromGDNRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeDBClusterFromGDNWithOptions(request, runtime);
+}
+
+/**
+ * @summary 移除PolarClaw已配对设备
+ *
+ * @param request RemovePolarClawDevicePairRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemovePolarClawDevicePairResponse
+ */
+RemovePolarClawDevicePairResponse Client::removePolarClawDevicePairWithOptions(const RemovePolarClawDevicePairRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasDeviceId()) {
+    query["DeviceId"] = request.getDeviceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemovePolarClawDevicePair"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemovePolarClawDevicePairResponse>();
+}
+
+/**
+ * @summary 移除PolarClaw已配对设备
+ *
+ * @param request RemovePolarClawDevicePairRequest
+ * @return RemovePolarClawDevicePairResponse
+ */
+RemovePolarClawDevicePairResponse Client::removePolarClawDevicePair(const RemovePolarClawDevicePairRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removePolarClawDevicePairWithOptions(request, runtime);
 }
 
 /**

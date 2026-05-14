@@ -99,6 +99,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RetentionValue, retentionValue_);
           DARABONBA_PTR_TO_JSON(SrcRegion, srcRegion_);
           DARABONBA_PTR_TO_JSON(SrcType, srcType_);
+          DARABONBA_PTR_TO_JSON(StorageClass, storageClass_);
         };
         friend void from_json(const Darabonba::Json& j, AdvancedDataPolicy& obj) { 
           DARABONBA_PTR_FROM_JSON(AutoCreated, autoCreated_);
@@ -116,6 +117,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RetentionValue, retentionValue_);
           DARABONBA_PTR_FROM_JSON(SrcRegion, srcRegion_);
           DARABONBA_PTR_FROM_JSON(SrcType, srcType_);
+          DARABONBA_PTR_FROM_JSON(StorageClass, storageClass_);
         };
         AdvancedDataPolicy() = default ;
         AdvancedDataPolicy(const AdvancedDataPolicy &) = default ;
@@ -131,7 +133,7 @@ namespace Models
         virtual bool empty() const override { return this->autoCreated_ == nullptr
         && this->bakType_ == nullptr && this->destRegion_ == nullptr && this->destType_ == nullptr && this->dumpAction_ == nullptr && this->filterKey_ == nullptr
         && this->filterType_ == nullptr && this->filterValue_ == nullptr && this->onlyPreserveOneEachDay_ == nullptr && this->onlyPreserveOneEachHour_ == nullptr && this->policyId_ == nullptr
-        && this->retentionType_ == nullptr && this->retentionValue_ == nullptr && this->srcRegion_ == nullptr && this->srcType_ == nullptr; };
+        && this->retentionType_ == nullptr && this->retentionValue_ == nullptr && this->srcRegion_ == nullptr && this->srcType_ == nullptr && this->storageClass_ == nullptr; };
         // autoCreated Field Functions 
         bool hasAutoCreated() const { return this->autoCreated_ != nullptr;};
         void deleteAutoCreated() { this->autoCreated_ = nullptr;};
@@ -237,6 +239,13 @@ namespace Models
         inline AdvancedDataPolicy& setSrcType(string srcType) { DARABONBA_PTR_SET_VALUE(srcType_, srcType) };
 
 
+        // storageClass Field Functions 
+        bool hasStorageClass() const { return this->storageClass_ != nullptr;};
+        void deleteStorageClass() { this->storageClass_ = nullptr;};
+        inline string getStorageClass() const { DARABONBA_PTR_GET_DEFAULT(storageClass_, "") };
+        inline AdvancedDataPolicy& setStorageClass(string storageClass) { DARABONBA_PTR_SET_VALUE(storageClass_, storageClass) };
+
+
       protected:
         shared_ptr<bool> autoCreated_ {};
         shared_ptr<string> bakType_ {};
@@ -253,6 +262,7 @@ namespace Models
         shared_ptr<string> retentionValue_ {};
         shared_ptr<string> srcRegion_ {};
         shared_ptr<string> srcType_ {};
+        shared_ptr<string> storageClass_ {};
       };
 
       virtual bool empty() const override { return this->advancedDataPolicy_ == nullptr; };
