@@ -17,13 +17,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(code, code_);
       DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(message, message_);
-      DARABONBA_PTR_TO_JSON(traceId, traceId_);
     };
     friend void from_json(const Darabonba::Json& j, WebSearchResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(message, message_);
-      DARABONBA_PTR_FROM_JSON(traceId, traceId_);
     };
     WebSearchResponseBody() = default ;
     WebSearchResponseBody(const WebSearchResponseBody &) = default ;
@@ -60,12 +58,16 @@ namespace Models
       class Result : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Result& obj) { 
+          DARABONBA_PTR_TO_JSON(date, date_);
           DARABONBA_PTR_TO_JSON(snippet, snippet_);
+          DARABONBA_PTR_TO_JSON(source, source_);
           DARABONBA_PTR_TO_JSON(title, title_);
           DARABONBA_PTR_TO_JSON(url, url_);
         };
         friend void from_json(const Darabonba::Json& j, Result& obj) { 
+          DARABONBA_PTR_FROM_JSON(date, date_);
           DARABONBA_PTR_FROM_JSON(snippet, snippet_);
+          DARABONBA_PTR_FROM_JSON(source, source_);
           DARABONBA_PTR_FROM_JSON(title, title_);
           DARABONBA_PTR_FROM_JSON(url, url_);
         };
@@ -80,13 +82,81 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->snippet_ == nullptr
-        && this->title_ == nullptr && this->url_ == nullptr; };
+        class Source : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Source& obj) { 
+            DARABONBA_PTR_TO_JSON(domain, domain_);
+            DARABONBA_PTR_TO_JSON(favicon, favicon_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, Source& obj) { 
+            DARABONBA_PTR_FROM_JSON(domain, domain_);
+            DARABONBA_PTR_FROM_JSON(favicon, favicon_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+          };
+          Source() = default ;
+          Source(const Source &) = default ;
+          Source(Source &&) = default ;
+          Source(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Source() = default ;
+          Source& operator=(const Source &) = default ;
+          Source& operator=(Source &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->domain_ == nullptr
+        && this->favicon_ == nullptr && this->name_ == nullptr; };
+          // domain Field Functions 
+          bool hasDomain() const { return this->domain_ != nullptr;};
+          void deleteDomain() { this->domain_ = nullptr;};
+          inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+          inline Source& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+          // favicon Field Functions 
+          bool hasFavicon() const { return this->favicon_ != nullptr;};
+          void deleteFavicon() { this->favicon_ = nullptr;};
+          inline string getFavicon() const { DARABONBA_PTR_GET_DEFAULT(favicon_, "") };
+          inline Source& setFavicon(string favicon) { DARABONBA_PTR_SET_VALUE(favicon_, favicon) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline Source& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<string> domain_ {};
+          shared_ptr<string> favicon_ {};
+          shared_ptr<string> name_ {};
+        };
+
+        virtual bool empty() const override { return this->date_ == nullptr
+        && this->snippet_ == nullptr && this->source_ == nullptr && this->title_ == nullptr && this->url_ == nullptr; };
+        // date Field Functions 
+        bool hasDate() const { return this->date_ != nullptr;};
+        void deleteDate() { this->date_ = nullptr;};
+        inline string getDate() const { DARABONBA_PTR_GET_DEFAULT(date_, "") };
+        inline Result& setDate(string date) { DARABONBA_PTR_SET_VALUE(date_, date) };
+
+
         // snippet Field Functions 
         bool hasSnippet() const { return this->snippet_ != nullptr;};
         void deleteSnippet() { this->snippet_ = nullptr;};
         inline string getSnippet() const { DARABONBA_PTR_GET_DEFAULT(snippet_, "") };
         inline Result& setSnippet(string snippet) { DARABONBA_PTR_SET_VALUE(snippet_, snippet) };
+
+
+        // source Field Functions 
+        bool hasSource() const { return this->source_ != nullptr;};
+        void deleteSource() { this->source_ = nullptr;};
+        inline const Result::Source & getSource() const { DARABONBA_PTR_GET_CONST(source_, Result::Source) };
+        inline Result::Source getSource() { DARABONBA_PTR_GET(source_, Result::Source) };
+        inline Result& setSource(const Result::Source & source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+        inline Result& setSource(Result::Source && source) { DARABONBA_PTR_SET_RVALUE(source_, source) };
 
 
         // title Field Functions 
@@ -104,7 +174,9 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> date_ {};
         shared_ptr<string> snippet_ {};
+        shared_ptr<Result::Source> source_ {};
         shared_ptr<string> title_ {};
         shared_ptr<string> url_ {};
       };
@@ -133,7 +205,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->data_ == nullptr && this->message_ == nullptr && this->traceId_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -157,19 +229,10 @@ namespace Models
     inline WebSearchResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
-    // traceId Field Functions 
-    bool hasTraceId() const { return this->traceId_ != nullptr;};
-    void deleteTraceId() { this->traceId_ = nullptr;};
-    inline string getTraceId() const { DARABONBA_PTR_GET_DEFAULT(traceId_, "") };
-    inline WebSearchResponseBody& setTraceId(string traceId) { DARABONBA_PTR_SET_VALUE(traceId_, traceId) };
-
-
   protected:
     shared_ptr<int32_t> code_ {};
     shared_ptr<WebSearchResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
-    // requestId
-    shared_ptr<string> traceId_ {};
   };
 
   } // namespace Models
