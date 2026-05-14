@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(StorageType, storageType_);
       DARABONBA_PTR_TO_JSON(StreamName, streamName_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeLiveRecordNotifyRecordsRequest& obj) { 
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
       DARABONBA_PTR_FROM_JSON(StreamName, streamName_);
     };
     DescribeLiveRecordNotifyRecordsRequest() = default ;
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->domainName_ == nullptr && this->endTime_ == nullptr && this->ownerId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->streamName_ == nullptr; };
+        && this->regionId_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->storageType_ == nullptr && this->streamName_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline DescribeLiveRecordNotifyRecordsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // storageType Field Functions 
+    bool hasStorageType() const { return this->storageType_ != nullptr;};
+    void deleteStorageType() { this->storageType_ = nullptr;};
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline DescribeLiveRecordNotifyRecordsRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
     // streamName Field Functions 
     bool hasStreamName() const { return this->streamName_ != nullptr;};
     void deleteStreamName() { this->streamName_ = nullptr;};
@@ -152,6 +161,7 @@ namespace Models
     // *   success
     // *   failed
     shared_ptr<string> status_ {};
+    shared_ptr<string> storageType_ {};
     // The name of the live stream.
     shared_ptr<string> streamName_ {};
   };

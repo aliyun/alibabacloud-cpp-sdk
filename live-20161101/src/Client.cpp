@@ -14806,6 +14806,10 @@ DescribeLiveRecordNotifyRecordsResponse Client::describeLiveRecordNotifyRecordsW
     query["Status"] = request.getStatus();
   }
 
+  if (!!request.hasStorageType()) {
+    query["StorageType"] = request.getStorageType();
+  }
+
   if (!!request.hasStreamName()) {
     query["StreamName"] = request.getStreamName();
   }
