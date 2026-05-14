@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListServiceConfigsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Classify, classify_);
+      DARABONBA_PTR_TO_JSON(ProtectionType, protectionType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(UseStatus, useStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ListServiceConfigsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Classify, classify_);
+      DARABONBA_PTR_FROM_JSON(ProtectionType, protectionType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(UseStatus, useStatus_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->classify_ == nullptr
-        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->useStatus_ == nullptr; };
+        && this->protectionType_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->useStatus_ == nullptr; };
     // classify Field Functions 
     bool hasClassify() const { return this->classify_ != nullptr;};
     void deleteClassify() { this->classify_ = nullptr;};
     inline string getClassify() const { DARABONBA_PTR_GET_DEFAULT(classify_, "") };
     inline ListServiceConfigsRequest& setClassify(string classify) { DARABONBA_PTR_SET_VALUE(classify_, classify) };
+
+
+    // protectionType Field Functions 
+    bool hasProtectionType() const { return this->protectionType_ != nullptr;};
+    void deleteProtectionType() { this->protectionType_ = nullptr;};
+    inline string getProtectionType() const { DARABONBA_PTR_GET_DEFAULT(protectionType_, "") };
+    inline ListServiceConfigsRequest& setProtectionType(string protectionType) { DARABONBA_PTR_SET_VALUE(protectionType_, protectionType) };
 
 
     // regionId Field Functions 
@@ -68,6 +77,7 @@ namespace Models
   protected:
     // Category.
     shared_ptr<string> classify_ {};
+    shared_ptr<string> protectionType_ {};
     // Region ID.
     shared_ptr<string> regionId_ {};
     // Resource type.

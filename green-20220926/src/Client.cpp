@@ -3906,6 +3906,10 @@ ListServiceConfigsResponse Client::listServiceConfigsWithOptions(const ListServi
     query["Classify"] = request.getClassify();
   }
 
+  if (!!request.hasProtectionType()) {
+    query["ProtectionType"] = request.getProtectionType();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
