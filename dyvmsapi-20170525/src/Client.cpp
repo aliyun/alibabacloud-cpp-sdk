@@ -464,6 +464,2706 @@ ChangeMediaTypeResponse Client::changeMediaType(const ChangeMediaTypeRequest &re
 }
 
 /**
+ * @summary Agent status monitoring.
+ *
+ * @param request ClinkAgentStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkAgentStatusResponse
+ */
+ClinkAgentStatusResponse Client::clinkAgentStatusWithOptions(const ClinkAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkAgentStatus"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkAgentStatusResponse>();
+}
+
+/**
+ * @summary Agent status monitoring.
+ *
+ * @param request ClinkAgentStatusRequest
+ * @return ClinkAgentStatusResponse
+ */
+ClinkAgentStatusResponse Client::clinkAgentStatus(const ClinkAgentStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkAgentStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the status details of an agent.
+ *
+ * @param request ClinkAgentStatusDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkAgentStatusDetailResponse
+ */
+ClinkAgentStatusDetailResponse Client::clinkAgentStatusDetailWithOptions(const ClinkAgentStatusDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkAgentStatusDetail"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkAgentStatusDetailResponse>();
+}
+
+/**
+ * @summary Queries the status details of an agent.
+ *
+ * @param request ClinkAgentStatusDetailRequest
+ * @return ClinkAgentStatusDetailResponse
+ */
+ClinkAgentStatusDetailResponse Client::clinkAgentStatusDetail(const ClinkAgentStatusDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkAgentStatusDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary Attach an agent phone.
+ *
+ * @param request ClinkBindClientTelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkBindClientTelResponse
+ */
+ClinkBindClientTelResponse Client::clinkBindClientTelWithOptions(const ClinkBindClientTelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIsBind()) {
+    query["IsBind"] = request.getIsBind();
+  }
+
+  if (!!request.hasIsReserveTel()) {
+    query["IsReserveTel"] = request.getIsReserveTel();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTel()) {
+    query["Tel"] = request.getTel();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkBindClientTel"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkBindClientTelResponse>();
+}
+
+/**
+ * @summary Attach an agent phone.
+ *
+ * @param request ClinkBindClientTelRequest
+ * @return ClinkBindClientTelResponse
+ */
+ClinkBindClientTelResponse Client::clinkBindClientTel(const ClinkBindClientTelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkBindClientTelWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the details of an outbound call record.
+ *
+ * @param request ClinkCdrObDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkCdrObDetailsResponse
+ */
+ClinkCdrObDetailsResponse Client::clinkCdrObDetailsWithOptions(const ClinkCdrObDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkCdrObDetails"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkCdrObDetailsResponse>();
+}
+
+/**
+ * @summary Queries the details of an outbound call record.
+ *
+ * @param request ClinkCdrObDetailsRequest
+ * @return ClinkCdrObDetailsResponse
+ */
+ClinkCdrObDetailsResponse Client::clinkCdrObDetails(const ClinkCdrObDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkCdrObDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Add an agent.
+ *
+ * @param tmpReq ClinkCreateClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkCreateClientResponse
+ */
+ClinkCreateClientResponse Client::clinkCreateClientWithOptions(const ClinkCreateClientRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ClinkCreateClientShrinkRequest request = ClinkCreateClientShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasClid()) {
+    request.setClidShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClid(), "Clid", "json"));
+  }
+
+  if (!!tmpReq.hasClidArea()) {
+    request.setClidAreaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClidArea(), "ClidArea", "json"));
+  }
+
+  if (!!tmpReq.hasClidDefault()) {
+    request.setClidDefaultShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClidDefault(), "ClidDefault", "json"));
+  }
+
+  if (!!tmpReq.hasCloudNumberModes()) {
+    request.setCloudNumberModesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCloudNumberModes(), "CloudNumberModes", "json"));
+  }
+
+  if (!!tmpReq.hasPermission()) {
+    request.setPermissionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermission(), "Permission", "json"));
+  }
+
+  if (!!tmpReq.hasQnos()) {
+    request.setQnosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQnos(), "Qnos", "json"));
+  }
+
+  if (!!tmpReq.hasServeArea()) {
+    request.setServeAreaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServeArea(), "ServeArea", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasAssignType()) {
+    query["AssignType"] = request.getAssignType();
+  }
+
+  if (!!request.hasClidShrink()) {
+    query["Clid"] = request.getClidShrink();
+  }
+
+  if (!!request.hasClidAreaShrink()) {
+    query["ClidArea"] = request.getClidAreaShrink();
+  }
+
+  if (!!request.hasClidDefaultShrink()) {
+    query["ClidDefault"] = request.getClidDefaultShrink();
+  }
+
+  if (!!request.hasClidRule()) {
+    query["ClidRule"] = request.getClidRule();
+  }
+
+  if (!!request.hasClidType()) {
+    query["ClidType"] = request.getClidType();
+  }
+
+  if (!!request.hasCloudNumberEnabled()) {
+    query["CloudNumberEnabled"] = request.getCloudNumberEnabled();
+  }
+
+  if (!!request.hasCloudNumberModesShrink()) {
+    query["CloudNumberModes"] = request.getCloudNumberModesShrink();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCrmId()) {
+    query["CrmId"] = request.getCrmId();
+  }
+
+  if (!!request.hasDynamicTelGroupIdDefault()) {
+    query["DynamicTelGroupIdDefault"] = request.getDynamicTelGroupIdDefault();
+  }
+
+  if (!!request.hasDynamicTelGroupName()) {
+    query["DynamicTelGroupName"] = request.getDynamicTelGroupName();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenTel()) {
+    query["HiddenTel"] = request.getHiddenTel();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClidDefaultType()) {
+    query["ObClidDefaultType"] = request.getObClidDefaultType();
+  }
+
+  if (!!request.hasObHangupSms()) {
+    query["ObHangupSms"] = request.getObHangupSms();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPauseLogin()) {
+    query["PauseLogin"] = request.getPauseLogin();
+  }
+
+  if (!!request.hasPermissionShrink()) {
+    query["Permission"] = request.getPermissionShrink();
+  }
+
+  if (!!request.hasQnosShrink()) {
+    query["Qnos"] = request.getQnosShrink();
+  }
+
+  if (!!request.hasRecurrentselectionType()) {
+    query["RecurrentselectionType"] = request.getRecurrentselectionType();
+  }
+
+  if (!!request.hasRecurrentselectionValue()) {
+    query["RecurrentselectionValue"] = request.getRecurrentselectionValue();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasServeAreaShrink()) {
+    query["ServeArea"] = request.getServeAreaShrink();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  if (!!request.hasWechatMiniProgramRtc()) {
+    query["WechatMiniProgramRtc"] = request.getWechatMiniProgramRtc();
+  }
+
+  if (!!request.hasWrapupTime()) {
+    query["WrapupTime"] = request.getWrapupTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkCreateClient"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkCreateClientResponse>();
+}
+
+/**
+ * @summary Add an agent.
+ *
+ * @param request ClinkCreateClientRequest
+ * @return ClinkCreateClientResponse
+ */
+ClinkCreateClientResponse Client::clinkCreateClient(const ClinkCreateClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkCreateClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary Add a busy status.
+ *
+ * @param request ClinkCreateEnterprisePauseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkCreateEnterprisePauseResponse
+ */
+ClinkCreateEnterprisePauseResponse Client::clinkCreateEnterprisePauseWithOptions(const ClinkCreateEnterprisePauseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIsDefault()) {
+    query["IsDefault"] = request.getIsDefault();
+  }
+
+  if (!!request.hasIsRest()) {
+    query["IsRest"] = request.getIsRest();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPauseStatus()) {
+    query["PauseStatus"] = request.getPauseStatus();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkCreateEnterprisePause"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkCreateEnterprisePauseResponse>();
+}
+
+/**
+ * @summary Add a busy status.
+ *
+ * @param request ClinkCreateEnterprisePauseRequest
+ * @return ClinkCreateEnterprisePauseResponse
+ */
+ClinkCreateEnterprisePauseResponse Client::clinkCreateEnterprisePause(const ClinkCreateEnterprisePauseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkCreateEnterprisePauseWithOptions(request, runtime);
+}
+
+/**
+ * @summary Add a phone.
+ *
+ * @param request ClinkCreateExtenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkCreateExtenResponse
+ */
+ClinkCreateExtenResponse Client::clinkCreateExtenWithOptions(const ClinkCreateExtenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAllow()) {
+    query["Allow"] = request.getAllow();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasExtenNumber()) {
+    query["ExtenNumber"] = request.getExtenNumber();
+  }
+
+  if (!!request.hasIsDirect()) {
+    query["IsDirect"] = request.getIsDirect();
+  }
+
+  if (!!request.hasJittBuffer()) {
+    query["JittBuffer"] = request.getJittBuffer();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkCreateExten"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkCreateExtenResponse>();
+}
+
+/**
+ * @summary Add a phone.
+ *
+ * @param request ClinkCreateExtenRequest
+ * @return ClinkCreateExtenResponse
+ */
+ClinkCreateExtenResponse Client::clinkCreateExten(const ClinkCreateExtenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkCreateExtenWithOptions(request, runtime);
+}
+
+/**
+ * @summary Add a queue.
+ *
+ * @param tmpReq ClinkCreateQueueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkCreateQueueResponse
+ */
+ClinkCreateQueueResponse Client::clinkCreateQueueWithOptions(const ClinkCreateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ClinkCreateQueueShrinkRequest request = ClinkCreateQueueShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasQueueMembers()) {
+    request.setQueueMembersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueueMembers(), "QueueMembers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasChatLocation()) {
+    query["ChatLocation"] = request.getChatLocation();
+  }
+
+  if (!!request.hasChatMaxWait()) {
+    query["ChatMaxWait"] = request.getChatMaxWait();
+  }
+
+  if (!!request.hasChatStrategy()) {
+    query["ChatStrategy"] = request.getChatStrategy();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIbAllowed()) {
+    query["IbAllowed"] = request.getIbAllowed();
+  }
+
+  if (!!request.hasJoinEmpty()) {
+    query["JoinEmpty"] = request.getJoinEmpty();
+  }
+
+  if (!!request.hasMaxPauseClientFlag()) {
+    query["MaxPauseClientFlag"] = request.getMaxPauseClientFlag();
+  }
+
+  if (!!request.hasMaxPauseClientType()) {
+    query["MaxPauseClientType"] = request.getMaxPauseClientType();
+  }
+
+  if (!!request.hasMaxPauseClientValue()) {
+    query["MaxPauseClientValue"] = request.getMaxPauseClientValue();
+  }
+
+  if (!!request.hasMaxWait()) {
+    query["MaxWait"] = request.getMaxWait();
+  }
+
+  if (!!request.hasMemberTimeout()) {
+    query["MemberTimeout"] = request.getMemberTimeout();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasQueueMembersShrink()) {
+    query["QueueMembers"] = request.getQueueMembersShrink();
+  }
+
+  if (!!request.hasQueueTimeout()) {
+    query["QueueTimeout"] = request.getQueueTimeout();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSayCno()) {
+    query["SayCno"] = request.getSayCno();
+  }
+
+  if (!!request.hasServiceLevel()) {
+    query["ServiceLevel"] = request.getServiceLevel();
+  }
+
+  if (!!request.hasStrategy()) {
+    query["Strategy"] = request.getStrategy();
+  }
+
+  if (!!request.hasVipSupport()) {
+    query["VipSupport"] = request.getVipSupport();
+  }
+
+  if (!!request.hasWeight()) {
+    query["Weight"] = request.getWeight();
+  }
+
+  if (!!request.hasWrapupTime()) {
+    query["WrapupTime"] = request.getWrapupTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkCreateQueue"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkCreateQueueResponse>();
+}
+
+/**
+ * @summary Add a queue.
+ *
+ * @param request ClinkCreateQueueRequest
+ * @return ClinkCreateQueueResponse
+ */
+ClinkCreateQueueResponse Client::clinkCreateQueue(const ClinkCreateQueueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkCreateQueueWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes an agent.
+ *
+ * @param request ClinkDeleteClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDeleteClientResponse
+ */
+ClinkDeleteClientResponse Client::clinkDeleteClientWithOptions(const ClinkDeleteClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDeleteClient"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDeleteClientResponse>();
+}
+
+/**
+ * @summary Deletes an agent.
+ *
+ * @param request ClinkDeleteClientRequest
+ * @return ClinkDeleteClientResponse
+ */
+ClinkDeleteClientResponse Client::clinkDeleteClient(const ClinkDeleteClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDeleteClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete the phone.
+ *
+ * @param request ClinkDeleteExtenRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDeleteExtenResponse
+ */
+ClinkDeleteExtenResponse Client::clinkDeleteExtenWithOptions(const ClinkDeleteExtenRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasExtenNumber()) {
+    query["ExtenNumber"] = request.getExtenNumber();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDeleteExten"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDeleteExtenResponse>();
+}
+
+/**
+ * @summary Delete the phone.
+ *
+ * @param request ClinkDeleteExtenRequest
+ * @return ClinkDeleteExtenResponse
+ */
+ClinkDeleteExtenResponse Client::clinkDeleteExten(const ClinkDeleteExtenRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDeleteExtenWithOptions(request, runtime);
+}
+
+/**
+ * @summary View incoming call records.
+ *
+ * @param request ClinkDescribeCdrIbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeCdrIbResponse
+ */
+ClinkDescribeCdrIbResponse Client::clinkDescribeCdrIbWithOptions(const ClinkDescribeCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeCdrIb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeCdrIbResponse>();
+}
+
+/**
+ * @summary View incoming call records.
+ *
+ * @param request ClinkDescribeCdrIbRequest
+ * @return ClinkDescribeCdrIbResponse
+ */
+ClinkDescribeCdrIbResponse Client::clinkDescribeCdrIb(const ClinkDescribeCdrIbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeCdrIbWithOptions(request, runtime);
+}
+
+/**
+ * @summary View incoming call record details.
+ *
+ * @param request ClinkDescribeCdrIbDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeCdrIbDetailsResponse
+ */
+ClinkDescribeCdrIbDetailsResponse Client::clinkDescribeCdrIbDetailsWithOptions(const ClinkDescribeCdrIbDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeCdrIbDetails"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeCdrIbDetailsResponse>();
+}
+
+/**
+ * @summary View incoming call record details.
+ *
+ * @param request ClinkDescribeCdrIbDetailsRequest
+ * @return ClinkDescribeCdrIbDetailsResponse
+ */
+ClinkDescribeCdrIbDetailsResponse Client::clinkDescribeCdrIbDetails(const ClinkDescribeCdrIbDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeCdrIbDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary View outbound call records.
+ *
+ * @param request ClinkDescribeCdrObRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeCdrObResponse
+ */
+ClinkDescribeCdrObResponse Client::clinkDescribeCdrObWithOptions(const ClinkDescribeCdrObRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeCdrOb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeCdrObResponse>();
+}
+
+/**
+ * @summary View outbound call records.
+ *
+ * @param request ClinkDescribeCdrObRequest
+ * @return ClinkDescribeCdrObResponse
+ */
+ClinkDescribeCdrObResponse Client::clinkDescribeCdrOb(const ClinkDescribeCdrObRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeCdrObWithOptions(request, runtime);
+}
+
+/**
+ * @summary View outbound call record details.
+ *
+ * @param request ClinkDescribeCdrObDetailsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeCdrObDetailsResponse
+ */
+ClinkDescribeCdrObDetailsResponse Client::clinkDescribeCdrObDetailsWithOptions(const ClinkDescribeCdrObDetailsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeCdrObDetails"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeCdrObDetailsResponse>();
+}
+
+/**
+ * @summary View outbound call record details.
+ *
+ * @param request ClinkDescribeCdrObDetailsRequest
+ * @return ClinkDescribeCdrObDetailsResponse
+ */
+ClinkDescribeCdrObDetailsResponse Client::clinkDescribeCdrObDetails(const ClinkDescribeCdrObDetailsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeCdrObDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary View the agent details.
+ *
+ * @param request ClinkDescribeClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeClientResponse
+ */
+ClinkDescribeClientResponse Client::clinkDescribeClientWithOptions(const ClinkDescribeClientRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeClient"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeClientResponse>();
+}
+
+/**
+ * @summary View the agent details.
+ *
+ * @param request ClinkDescribeClientRequest
+ * @return ClinkDescribeClientResponse
+ */
+ClinkDescribeClientResponse Client::clinkDescribeClient(const ClinkDescribeClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeClientWithOptions(request, runtime);
+}
+
+/**
+ * @summary View queue details.
+ *
+ * @param request ClinkDescribeQueueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeQueueResponse
+ */
+ClinkDescribeQueueResponse Client::clinkDescribeQueueWithOptions(const ClinkDescribeQueueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeQueue"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeQueueResponse>();
+}
+
+/**
+ * @summary View queue details.
+ *
+ * @param request ClinkDescribeQueueRequest
+ * @return ClinkDescribeQueueResponse
+ */
+ClinkDescribeQueueResponse Client::clinkDescribeQueue(const ClinkDescribeQueueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeQueueWithOptions(request, runtime);
+}
+
+/**
+ * @summary View call recording address.
+ *
+ * @param request ClinkDescribeRecordFileUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDescribeRecordFileUrlResponse
+ */
+ClinkDescribeRecordFileUrlResponse Client::clinkDescribeRecordFileUrlWithOptions(const ClinkDescribeRecordFileUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDownload()) {
+    query["Download"] = request.getDownload();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRecordSide()) {
+    query["RecordSide"] = request.getRecordSide();
+  }
+
+  if (!!request.hasRecordType()) {
+    query["RecordType"] = request.getRecordType();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTimeout()) {
+    query["Timeout"] = request.getTimeout();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDescribeRecordFileUrl"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDescribeRecordFileUrlResponse>();
+}
+
+/**
+ * @summary View call recording address.
+ *
+ * @param request ClinkDescribeRecordFileUrlRequest
+ * @return ClinkDescribeRecordFileUrlResponse
+ */
+ClinkDescribeRecordFileUrlResponse Client::clinkDescribeRecordFileUrl(const ClinkDescribeRecordFileUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDescribeRecordFileUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the details of customer call records.
+ *
+ * @param request ClinkDetailCdrIbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkDetailCdrIbResponse
+ */
+ClinkDetailCdrIbResponse Client::clinkDetailCdrIbWithOptions(const ClinkDetailCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkDetailCdrIb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkDetailCdrIbResponse>();
+}
+
+/**
+ * @summary Query the details of customer call records.
+ *
+ * @param request ClinkDetailCdrIbRequest
+ * @return ClinkDetailCdrIbResponse
+ */
+ClinkDetailCdrIbResponse Client::clinkDetailCdrIb(const ClinkDetailCdrIbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkDetailCdrIbWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the customer call record list.
+ *
+ * @param request ClinkListCdrIbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListCdrIbResponse
+ */
+ClinkListCdrIbResponse Client::clinkListCdrIbWithOptions(const ClinkListCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBridgeDuration()) {
+    query["BridgeDuration"] = request.getBridgeDuration();
+  }
+
+  if (!!request.hasBridgeDurationEnd()) {
+    query["BridgeDurationEnd"] = request.getBridgeDurationEnd();
+  }
+
+  if (!!request.hasBridgeTime()) {
+    query["BridgeTime"] = request.getBridgeTime();
+  }
+
+  if (!!request.hasBridgeTimeEnd()) {
+    query["BridgeTimeEnd"] = request.getBridgeTimeEnd();
+  }
+
+  if (!!request.hasClientNumber()) {
+    query["ClientNumber"] = request.getClientNumber();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEndTimeEnd()) {
+    query["EndTimeEnd"] = request.getEndTimeEnd();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasFirstCallCno()) {
+    query["FirstCallCno"] = request.getFirstCallCno();
+  }
+
+  if (!!request.hasFirstCallNumber()) {
+    query["FirstCallNumber"] = request.getFirstCallNumber();
+  }
+
+  if (!!request.hasFirstCallQno()) {
+    query["FirstCallQno"] = request.getFirstCallQno();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQnos()) {
+    query["Qnos"] = request.getQnos();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasScrollId()) {
+    query["ScrollId"] = request.getScrollId();
+  }
+
+  if (!!request.hasScrollSearch()) {
+    query["ScrollSearch"] = request.getScrollSearch();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStartTimeEnd()) {
+    query["StartTimeEnd"] = request.getStartTimeEnd();
+  }
+
+  if (!!request.hasStatuses()) {
+    query["Statuses"] = request.getStatuses();
+  }
+
+  if (!!request.hasTotalDuration()) {
+    query["TotalDuration"] = request.getTotalDuration();
+  }
+
+  if (!!request.hasTotalDurationEnd()) {
+    query["TotalDurationEnd"] = request.getTotalDurationEnd();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListCdrIb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListCdrIbResponse>();
+}
+
+/**
+ * @summary Query the customer call record list.
+ *
+ * @param request ClinkListCdrIbRequest
+ * @return ClinkListCdrIbResponse
+ */
+ClinkListCdrIbResponse Client::clinkListCdrIb(const ClinkListCdrIbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListCdrIbWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of agent answering records.
+ *
+ * @param request ClinkListCdrIbAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListCdrIbAgentResponse
+ */
+ClinkListCdrIbAgentResponse Client::clinkListCdrIbAgentWithOptions(const ClinkListCdrIbAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentAnswerInTime()) {
+    query["AgentAnswerInTime"] = request.getAgentAnswerInTime();
+  }
+
+  if (!!request.hasBridgeDuration()) {
+    query["BridgeDuration"] = request.getBridgeDuration();
+  }
+
+  if (!!request.hasBridgeDurationEnd()) {
+    query["BridgeDurationEnd"] = request.getBridgeDurationEnd();
+  }
+
+  if (!!request.hasBridgeTime()) {
+    query["BridgeTime"] = request.getBridgeTime();
+  }
+
+  if (!!request.hasBridgeTimeEnd()) {
+    query["BridgeTimeEnd"] = request.getBridgeTimeEnd();
+  }
+
+  if (!!request.hasClientNumber()) {
+    query["ClientNumber"] = request.getClientNumber();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEndTimeEnd()) {
+    query["EndTimeEnd"] = request.getEndTimeEnd();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasHotlineName()) {
+    query["HotlineName"] = request.getHotlineName();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasScrollId()) {
+    query["ScrollId"] = request.getScrollId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStartTimeEnd()) {
+    query["StartTimeEnd"] = request.getStartTimeEnd();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListCdrIbAgent"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListCdrIbAgentResponse>();
+}
+
+/**
+ * @summary Queries the list of agent answering records.
+ *
+ * @param request ClinkListCdrIbAgentRequest
+ * @return ClinkListCdrIbAgentResponse
+ */
+ClinkListCdrIbAgentResponse Client::clinkListCdrIbAgent(const ClinkListCdrIbAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListCdrIbAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the list of inbound call records.
+ *
+ * @param request ClinkListCdrIbsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListCdrIbsResponse
+ */
+ClinkListCdrIbsResponse Client::clinkListCdrIbsWithOptions(const ClinkListCdrIbsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientNumber()) {
+    query["ClientNumber"] = request.getClientNumber();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasQueueAnswerInTime()) {
+    query["QueueAnswerInTime"] = request.getQueueAnswerInTime();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListCdrIbs"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListCdrIbsResponse>();
+}
+
+/**
+ * @summary Query the list of inbound call records.
+ *
+ * @param request ClinkListCdrIbsRequest
+ * @return ClinkListCdrIbsResponse
+ */
+ClinkListCdrIbsResponse Client::clinkListCdrIbs(const ClinkListCdrIbsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListCdrIbsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of outbound call records.
+ *
+ * @param request ClinkListCdrObRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListCdrObResponse
+ */
+ClinkListCdrObResponse Client::clinkListCdrObWithOptions(const ClinkListCdrObRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBridgeDuration()) {
+    query["BridgeDuration"] = request.getBridgeDuration();
+  }
+
+  if (!!request.hasBridgeDurationEnd()) {
+    query["BridgeDurationEnd"] = request.getBridgeDurationEnd();
+  }
+
+  if (!!request.hasBridgeTime()) {
+    query["BridgeTime"] = request.getBridgeTime();
+  }
+
+  if (!!request.hasBridgeTimeEnd()) {
+    query["BridgeTimeEnd"] = request.getBridgeTimeEnd();
+  }
+
+  if (!!request.hasCallType()) {
+    query["CallType"] = request.getCallType();
+  }
+
+  if (!!request.hasClientNumber()) {
+    query["ClientNumber"] = request.getClientNumber();
+  }
+
+  if (!!request.hasCnos()) {
+    query["Cnos"] = request.getCnos();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEndTimeEnd()) {
+    query["EndTimeEnd"] = request.getEndTimeEnd();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasLeftClid()) {
+    query["LeftClid"] = request.getLeftClid();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQnos()) {
+    query["Qnos"] = request.getQnos();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasScrollId()) {
+    query["ScrollId"] = request.getScrollId();
+  }
+
+  if (!!request.hasScrollSearch()) {
+    query["ScrollSearch"] = request.getScrollSearch();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStartTimeEnd()) {
+    query["StartTimeEnd"] = request.getStartTimeEnd();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTaskName()) {
+    query["TaskName"] = request.getTaskName();
+  }
+
+  if (!!request.hasTotalDuration()) {
+    query["TotalDuration"] = request.getTotalDuration();
+  }
+
+  if (!!request.hasTotalDurationEnd()) {
+    query["TotalDurationEnd"] = request.getTotalDurationEnd();
+  }
+
+  if (!!request.hasXnumber()) {
+    query["Xnumber"] = request.getXnumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListCdrOb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListCdrObResponse>();
+}
+
+/**
+ * @summary Queries the list of outbound call records.
+ *
+ * @param request ClinkListCdrObRequest
+ * @return ClinkListCdrObResponse
+ */
+ClinkListCdrObResponse Client::clinkListCdrOb(const ClinkListCdrObRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListCdrObWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the outbound call record list.
+ *
+ * @param request ClinkListCdrObsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListCdrObsResponse
+ */
+ClinkListCdrObsResponse Client::clinkListCdrObsWithOptions(const ClinkListCdrObsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAssociatedId()) {
+    query["AssociatedId"] = request.getAssociatedId();
+  }
+
+  if (!!request.hasCity()) {
+    query["City"] = request.getCity();
+  }
+
+  if (!!request.hasClientNumber()) {
+    query["ClientNumber"] = request.getClientNumber();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCustomerNumber()) {
+    query["CustomerNumber"] = request.getCustomerNumber();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasEvaluation()) {
+    query["Evaluation"] = request.getEvaluation();
+  }
+
+  if (!!request.hasHiddenType()) {
+    query["HiddenType"] = request.getHiddenType();
+  }
+
+  if (!!request.hasHotline()) {
+    query["Hotline"] = request.getHotline();
+  }
+
+  if (!!request.hasIdType()) {
+    query["IdType"] = request.getIdType();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasMainUniqueId()) {
+    query["MainUniqueId"] = request.getMainUniqueId();
+  }
+
+  if (!!request.hasMark()) {
+    query["Mark"] = request.getMark();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasProvince()) {
+    query["Province"] = request.getProvince();
+  }
+
+  if (!!request.hasQueueAnswerInTime()) {
+    query["QueueAnswerInTime"] = request.getQueueAnswerInTime();
+  }
+
+  if (!!request.hasRequestUniqueId()) {
+    query["RequestUniqueId"] = request.getRequestUniqueId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListCdrObs"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListCdrObsResponse>();
+}
+
+/**
+ * @summary Queries the outbound call record list.
+ *
+ * @param request ClinkListCdrObsRequest
+ * @return ClinkListCdrObsResponse
+ */
+ClinkListCdrObsResponse Client::clinkListCdrObs(const ClinkListCdrObsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListCdrObsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of agents.
+ *
+ * @param request ClinkListClientsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListClientsResponse
+ */
+ClinkListClientsResponse Client::clinkListClientsWithOptions(const ClinkListClientsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasBindTel()) {
+    query["BindTel"] = request.getBindTel();
+  }
+
+  if (!!request.hasClid()) {
+    query["Clid"] = request.getClid();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasQno()) {
+    query["Qno"] = request.getQno();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasUpdateEndTime()) {
+    query["UpdateEndTime"] = request.getUpdateEndTime();
+  }
+
+  if (!!request.hasUpdateStartTime()) {
+    query["UpdateStartTime"] = request.getUpdateStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListClients"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListClientsResponse>();
+}
+
+/**
+ * @summary Queries the list of agents.
+ *
+ * @param request ClinkListClientsRequest
+ * @return ClinkListClientsResponse
+ */
+ClinkListClientsResponse Client::clinkListClients(const ClinkListClientsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListClientsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the busy status list.
+ *
+ * @param request ClinkListEnterprisePausesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListEnterprisePausesResponse
+ */
+ClinkListEnterprisePausesResponse Client::clinkListEnterprisePausesWithOptions(const ClinkListEnterprisePausesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListEnterprisePauses"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListEnterprisePausesResponse>();
+}
+
+/**
+ * @summary Queries the busy status list.
+ *
+ * @param request ClinkListEnterprisePausesRequest
+ * @return ClinkListEnterprisePausesResponse
+ */
+ClinkListEnterprisePausesResponse Client::clinkListEnterprisePauses(const ClinkListEnterprisePausesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListEnterprisePausesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Query the phone list.
+ *
+ * @param request ClinkListExtensRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListExtensResponse
+ */
+ClinkListExtensResponse Client::clinkListExtensWithOptions(const ClinkListExtensRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListExtens"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListExtensResponse>();
+}
+
+/**
+ * @summary Query the phone list.
+ *
+ * @param request ClinkListExtensRequest
+ * @return ClinkListExtensResponse
+ */
+ClinkListExtensResponse Client::clinkListExtens(const ClinkListExtensRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListExtensWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the voice navigation edge zone list.
+ *
+ * @param request ClinkListIvrNodesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListIvrNodesResponse
+ */
+ClinkListIvrNodesResponse Client::clinkListIvrNodesWithOptions(const ClinkListIvrNodesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasIvrName()) {
+    query["IvrName"] = request.getIvrName();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListIvrNodes"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListIvrNodesResponse>();
+}
+
+/**
+ * @summary Queries the voice navigation edge zone list.
+ *
+ * @param request ClinkListIvrNodesRequest
+ * @return ClinkListIvrNodesResponse
+ */
+ClinkListIvrNodesResponse Client::clinkListIvrNodes(const ClinkListIvrNodesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListIvrNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the voice navigation list.
+ *
+ * @param request ClinkListIvrsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListIvrsResponse
+ */
+ClinkListIvrsResponse Client::clinkListIvrsWithOptions(const ClinkListIvrsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListIvrs"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListIvrsResponse>();
+}
+
+/**
+ * @summary Queries the voice navigation list.
+ *
+ * @param request ClinkListIvrsRequest
+ * @return ClinkListIvrsResponse
+ */
+ClinkListIvrsResponse Client::clinkListIvrs(const ClinkListIvrsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListIvrsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the queue list.
+ *
+ * @param request ClinkListQueuesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkListQueuesResponse
+ */
+ClinkListQueuesResponse Client::clinkListQueuesWithOptions(const ClinkListQueuesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkListQueues"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkListQueuesResponse>();
+}
+
+/**
+ * @summary Queries the queue list.
+ *
+ * @param request ClinkListQueuesRequest
+ * @return ClinkListQueuesResponse
+ */
+ClinkListQueuesResponse Client::clinkListQueues(const ClinkListQueuesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkListQueuesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Inbound report - call statistics.
+ *
+ * @param request ClinkStatIbRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkStatIbResponse
+ */
+ClinkStatIbResponse Client::clinkStatIbWithOptions(const ClinkStatIbRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDate()) {
+    query["Date"] = request.getDate();
+  }
+
+  if (!!request.hasDateEnd()) {
+    query["DateEnd"] = request.getDateEnd();
+  }
+
+  if (!!request.hasEndHour()) {
+    query["EndHour"] = request.getEndHour();
+  }
+
+  if (!!request.hasEndMinute()) {
+    query["EndMinute"] = request.getEndMinute();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasFields()) {
+    query["Fields"] = request.getFields();
+  }
+
+  if (!!request.hasHotlines()) {
+    query["Hotlines"] = request.getHotlines();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasStartHour()) {
+    query["StartHour"] = request.getStartHour();
+  }
+
+  if (!!request.hasStartMinute()) {
+    query["StartMinute"] = request.getStartMinute();
+  }
+
+  if (!!request.hasStatisticMethod()) {
+    query["StatisticMethod"] = request.getStatisticMethod();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkStatIb"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkStatIbResponse>();
+}
+
+/**
+ * @summary Inbound report - call statistics.
+ *
+ * @param request ClinkStatIbRequest
+ * @return ClinkStatIbResponse
+ */
+ClinkStatIbResponse Client::clinkStatIb(const ClinkStatIbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkStatIbWithOptions(request, runtime);
+}
+
+/**
+ * @summary Update an agent.
+ *
+ * @param tmpReq ClinkUpdateClientRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClinkUpdateClientResponse
+ */
+ClinkUpdateClientResponse Client::clinkUpdateClientWithOptions(const ClinkUpdateClientRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ClinkUpdateClientShrinkRequest request = ClinkUpdateClientShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasClid()) {
+    request.setClidShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClid(), "Clid", "json"));
+  }
+
+  if (!!tmpReq.hasClidArea()) {
+    request.setClidAreaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClidArea(), "ClidArea", "json"));
+  }
+
+  if (!!tmpReq.hasClidDefault()) {
+    request.setClidDefaultShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getClidDefault(), "ClidDefault", "json"));
+  }
+
+  if (!!tmpReq.hasCloudNumberModes()) {
+    request.setCloudNumberModesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCloudNumberModes(), "CloudNumberModes", "json"));
+  }
+
+  if (!!tmpReq.hasPermission()) {
+    request.setPermissionShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPermission(), "Permission", "json"));
+  }
+
+  if (!!tmpReq.hasQnos()) {
+    request.setQnosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQnos(), "Qnos", "json"));
+  }
+
+  if (!!tmpReq.hasServeArea()) {
+    request.setServeAreaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getServeArea(), "ServeArea", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasActive()) {
+    query["Active"] = request.getActive();
+  }
+
+  if (!!request.hasAreaCode()) {
+    query["AreaCode"] = request.getAreaCode();
+  }
+
+  if (!!request.hasAssignType()) {
+    query["AssignType"] = request.getAssignType();
+  }
+
+  if (!!request.hasClidShrink()) {
+    query["Clid"] = request.getClidShrink();
+  }
+
+  if (!!request.hasClidAreaShrink()) {
+    query["ClidArea"] = request.getClidAreaShrink();
+  }
+
+  if (!!request.hasClidDefaultShrink()) {
+    query["ClidDefault"] = request.getClidDefaultShrink();
+  }
+
+  if (!!request.hasClidRule()) {
+    query["ClidRule"] = request.getClidRule();
+  }
+
+  if (!!request.hasClidType()) {
+    query["ClidType"] = request.getClidType();
+  }
+
+  if (!!request.hasCloudNumberEnabled()) {
+    query["CloudNumberEnabled"] = request.getCloudNumberEnabled();
+  }
+
+  if (!!request.hasCloudNumberModesShrink()) {
+    query["CloudNumberModes"] = request.getCloudNumberModesShrink();
+  }
+
+  if (!!request.hasCno()) {
+    query["Cno"] = request.getCno();
+  }
+
+  if (!!request.hasCrmId()) {
+    query["CrmId"] = request.getCrmId();
+  }
+
+  if (!!request.hasDynamicTelGroupIdDefault()) {
+    query["DynamicTelGroupIdDefault"] = request.getDynamicTelGroupIdDefault();
+  }
+
+  if (!!request.hasDynamicTelGroupName()) {
+    query["DynamicTelGroupName"] = request.getDynamicTelGroupName();
+  }
+
+  if (!!request.hasEnterpriseId()) {
+    query["EnterpriseId"] = request.getEnterpriseId();
+  }
+
+  if (!!request.hasHiddenTel()) {
+    query["HiddenTel"] = request.getHiddenTel();
+  }
+
+  if (!!request.hasIbWrapupTime()) {
+    query["IbWrapupTime"] = request.getIbWrapupTime();
+  }
+
+  if (!!request.hasIbWrapupType()) {
+    query["IbWrapupType"] = request.getIbWrapupType();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasObClidDefaultType()) {
+    query["ObClidDefaultType"] = request.getObClidDefaultType();
+  }
+
+  if (!!request.hasObHangupSms()) {
+    query["ObHangupSms"] = request.getObHangupSms();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPassword()) {
+    query["Password"] = request.getPassword();
+  }
+
+  if (!!request.hasPauseLogin()) {
+    query["PauseLogin"] = request.getPauseLogin();
+  }
+
+  if (!!request.hasPermissionShrink()) {
+    query["Permission"] = request.getPermissionShrink();
+  }
+
+  if (!!request.hasQnosShrink()) {
+    query["Qnos"] = request.getQnosShrink();
+  }
+
+  if (!!request.hasRecurrentselectionType()) {
+    query["RecurrentselectionType"] = request.getRecurrentselectionType();
+  }
+
+  if (!!request.hasRecurrentselectionValue()) {
+    query["RecurrentselectionValue"] = request.getRecurrentselectionValue();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasRole()) {
+    query["Role"] = request.getRole();
+  }
+
+  if (!!request.hasServeAreaShrink()) {
+    query["ServeArea"] = request.getServeAreaShrink();
+  }
+
+  if (!!request.hasWechatMiniProgramRtc()) {
+    query["WechatMiniProgramRtc"] = request.getWechatMiniProgramRtc();
+  }
+
+  if (!!request.hasWrapupTime()) {
+    query["WrapupTime"] = request.getWrapupTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClinkUpdateClient"},
+    {"version" , "2017-05-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClinkUpdateClientResponse>();
+}
+
+/**
+ * @summary Update an agent.
+ *
+ * @param request ClinkUpdateClientRequest
+ * @return ClinkUpdateClientResponse
+ */
+ClinkUpdateClientResponse Client::clinkUpdateClient(const ClinkUpdateClientRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clinkUpdateClientWithOptions(request, runtime);
+}
+
+/**
  * @summary Publish the agent online through this interface.
  *
  * @param request CloudAgentLoginRequest
@@ -584,7 +3284,7 @@ CloudAgentLogoutResponse Client::cloudAgentLogout(const CloudAgentLogoutRequest 
 }
 
 /**
- * @summary 座席实时统计
+ * @summary Real-time statistics on agent call data.
  *
  * @param request CloudAgentMonitorStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +3351,7 @@ CloudAgentMonitorStatisticsResponse Client::cloudAgentMonitorStatisticsWithOptio
 }
 
 /**
- * @summary 座席实时统计
+ * @summary Real-time statistics on agent call data.
  *
  * @param request CloudAgentMonitorStatisticsRequest
  * @return CloudAgentMonitorStatisticsResponse
@@ -774,7 +3474,7 @@ CloudAgentUnlinkResponse Client::cloudAgentUnlink(const CloudAgentUnlinkRequest 
 }
 
 /**
- * @summary 获取座席工作量报表数据
+ * @summary Gets agent workload report data.
  *
  * @param request CloudAgentWorkloadReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -849,7 +3549,7 @@ CloudAgentWorkloadReportResponse Client::cloudAgentWorkloadReportWithOptions(con
 }
 
 /**
- * @summary 获取座席工作量报表数据
+ * @summary Gets agent workload report data.
  *
  * @param request CloudAgentWorkloadReportRequest
  * @return CloudAgentWorkloadReportResponse
@@ -922,7 +3622,7 @@ CloudAssignAgentGroupResponse Client::cloudAssignAgentGroup(const CloudAssignAge
 }
 
 /**
- * @summary 批量新增座席,单次批量创建不能超过100个
+ * @summary Batch add agents. You can create up to 100 agents in a single batch.
  *
  * @param request CloudBatchCreateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1045,7 +3745,7 @@ CloudBatchCreateAgentResponse Client::cloudBatchCreateAgentWithOptions(const Clo
 }
 
 /**
- * @summary 批量新增座席,单次批量创建不能超过100个
+ * @summary Batch add agents. You can create up to 100 agents in a single batch.
  *
  * @param request CloudBatchCreateAgentRequest
  * @return CloudBatchCreateAgentResponse
@@ -1114,7 +3814,7 @@ CloudBatchGetAgentStatusResponse Client::cloudBatchGetAgentStatus(const CloudBat
 }
 
 /**
- * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+ * @summary Batch update the basic info of agents, excluding the update of skill info attached to agents.
  *
  * @param request CloudBatchUpdateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +3941,7 @@ CloudBatchUpdateAgentResponse Client::cloudBatchUpdateAgentWithOptions(const Clo
 }
 
 /**
- * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+ * @summary Batch update the basic info of agents, excluding the update of skill info attached to agents.
  *
  * @param request CloudBatchUpdateAgentRequest
  * @return CloudBatchUpdateAgentResponse
@@ -1252,7 +3952,7 @@ CloudBatchUpdateAgentResponse Client::cloudBatchUpdateAgent(const CloudBatchUpda
 }
 
 /**
- * @summary 座席新增
+ * @summary Creates an agent.
  *
  * @param request CloudCreateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1379,7 +4079,7 @@ CloudCreateAgentResponse Client::cloudCreateAgentWithOptions(const CloudCreateAg
 }
 
 /**
- * @summary 座席新增
+ * @summary Creates an agent.
  *
  * @param request CloudCreateAgentRequest
  * @return CloudCreateAgentResponse
@@ -1526,7 +4226,7 @@ CloudCreateAsrResponse Client::cloudCreateAsr(const CloudCreateAsrRequest &reque
 }
 
 /**
- * @summary 新增时间条件设置
+ * @summary Adds a time condition configuration.
  *
  * @param request CloudCreateEnterpriseTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +4305,7 @@ CloudCreateEnterpriseTimeResponse Client::cloudCreateEnterpriseTimeWithOptions(c
 }
 
 /**
- * @summary 新增时间条件设置
+ * @summary Adds a time condition configuration.
  *
  * @param request CloudCreateEnterpriseTimeRequest
  * @return CloudCreateEnterpriseTimeResponse
@@ -1616,7 +4316,7 @@ CloudCreateEnterpriseTimeResponse Client::cloudCreateEnterpriseTime(const CloudC
 }
 
 /**
- * @summary 新增分机
+ * @summary Add an extension through this interface.
  *
  * @param request CloudCreateExtenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1715,7 +4415,7 @@ CloudCreateExtenResponse Client::cloudCreateExtenWithOptions(const CloudCreateEx
 }
 
 /**
- * @summary 新增分机
+ * @summary Add an extension through this interface.
  *
  * @param request CloudCreateExtenRequest
  * @return CloudCreateExtenResponse
@@ -1726,7 +4426,7 @@ CloudCreateExtenResponse Client::cloudCreateExten(const CloudCreateExtenRequest 
 }
 
 /**
- * @summary 新增队列
+ * @summary Add a queue through this interface.
  *
  * @param tmpReq CloudCreateQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1787,7 +4487,7 @@ CloudCreateQueueResponse Client::cloudCreateQueueWithOptions(const CloudCreateQu
 }
 
 /**
- * @summary 新增队列
+ * @summary Add a queue through this interface.
  *
  * @param request CloudCreateQueueRequest
  * @return CloudCreateQueueResponse
@@ -1926,7 +4626,7 @@ CloudCreateSkillResponse Client::cloudCreateSkill(const CloudCreateSkillRequest 
 }
 
 /**
- * @summary 新增任务
+ * @summary Creates an outbound call job.
  *
  * @param request CloudCreateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2169,7 +4869,7 @@ CloudCreateTaskResponse Client::cloudCreateTaskWithOptions(const CloudCreateTask
 }
 
 /**
- * @summary 新增任务
+ * @summary Creates an outbound call job.
  *
  * @param request CloudCreateTaskRequest
  * @return CloudCreateTaskResponse
@@ -2792,7 +5492,7 @@ CloudDeleteTaskTelResponse Client::cloudDeleteTaskTel(const CloudDeleteTaskTelRe
 }
 
 /**
- * @summary 座席详细信息获取
+ * @summary Queries the details of an agent.
  *
  * @param request CloudGetAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2839,7 +5539,7 @@ CloudGetAgentResponse Client::cloudGetAgentWithOptions(const CloudGetAgentReques
 }
 
 /**
- * @summary 座席详细信息获取
+ * @summary Queries the details of an agent.
  *
  * @param request CloudGetAgentRequest
  * @return CloudGetAgentResponse
@@ -2954,7 +5654,7 @@ CloudGetAreaCodeResponse Client::cloudGetAreaCode(const CloudGetAreaCodeRequest 
 }
 
 /**
- * @summary ASR数据获取
+ * @summary Query ASR job task results and obtain data.
  *
  * @param request CloudGetAsrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2997,7 +5697,7 @@ CloudGetAsrResponse Client::cloudGetAsrWithOptions(const CloudGetAsrRequest &req
 }
 
 /**
- * @summary ASR数据获取
+ * @summary Query ASR job task results and obtain data.
  *
  * @param request CloudGetAsrRequest
  * @return CloudGetAsrResponse
@@ -3066,7 +5766,7 @@ CloudGetExtenResponse Client::cloudGetExten(const CloudGetExtenRequest &request)
 }
 
 /**
- * @summary 获取座席外呼通话记录详情
+ * @summary Queries the details of outbound call records of a specified agent based on the unique phone identity.
  *
  * @param request CloudGetObCdrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3101,7 +5801,7 @@ CloudGetObCdrResponse Client::cloudGetObCdrWithOptions(const CloudGetObCdrReques
 }
 
 /**
- * @summary 获取座席外呼通话记录详情
+ * @summary Queries the details of outbound call records of a specified agent based on the unique phone identity.
  *
  * @param request CloudGetObCdrRequest
  * @return CloudGetObCdrResponse
@@ -3112,7 +5812,7 @@ CloudGetObCdrResponse Client::cloudGetObCdr(const CloudGetObCdrRequest &request)
 }
 
 /**
- * @summary 获取队列信息
+ * @summary Query queue info.
  *
  * @param request CloudGetQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3159,7 +5859,7 @@ CloudGetQueueResponse Client::cloudGetQueueWithOptions(const CloudGetQueueReques
 }
 
 /**
- * @summary 获取队列信息
+ * @summary Query queue info.
  *
  * @param request CloudGetQueueRequest
  * @return CloudGetQueueResponse
@@ -3170,7 +5870,7 @@ CloudGetQueueResponse Client::cloudGetQueue(const CloudGetQueueRequest &request)
 }
 
 /**
- * @summary 获取通话录音地址
+ * @summary Obtains the audition or download URL of a recording based on the recording file name.
  *
  * @param request CloudGetRecordUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3225,7 +5925,7 @@ CloudGetRecordUrlResponse Client::cloudGetRecordUrlWithOptions(const CloudGetRec
 }
 
 /**
- * @summary 获取通话录音地址
+ * @summary Obtains the audition or download URL of a recording based on the recording file name.
  *
  * @param request CloudGetRecordUrlRequest
  * @return CloudGetRecordUrlResponse
@@ -3236,7 +5936,7 @@ CloudGetRecordUrlResponse Client::cloudGetRecordUrl(const CloudGetRecordUrlReque
 }
 
 /**
- * @summary 获取任务信息
+ * @summary Obtains the configuration info of a single job based on the job ID.
  *
  * @param request CloudGetTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3283,7 +5983,7 @@ CloudGetTaskResponse Client::cloudGetTaskWithOptions(const CloudGetTaskRequest &
 }
 
 /**
- * @summary 获取任务信息
+ * @summary Obtains the configuration info of a single job based on the job ID.
  *
  * @param request CloudGetTaskRequest
  * @return CloudGetTaskResponse
@@ -3294,7 +5994,7 @@ CloudGetTaskResponse Client::cloudGetTask(const CloudGetTaskRequest &request) {
 }
 
 /**
- * @summary 任务号码导入
+ * @summary Imports phone numbers for the outbound call task.
  *
  * @param tmpReq CloudImportTaskTelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3379,7 +6079,7 @@ CloudImportTaskTelResponse Client::cloudImportTaskTelWithOptions(const CloudImpo
 }
 
 /**
- * @summary 任务号码导入
+ * @summary Imports phone numbers for the outbound call task.
  *
  * @param request CloudImportTaskTelRequest
  * @return CloudImportTaskTelResponse
@@ -3646,7 +6346,7 @@ CloudListAssignedAgentGroupResponse Client::cloudListAssignedAgentGroup(const Cl
 }
 
 /**
- * @summary 推送日志查询
+ * @summary Queries user push logs.
  *
  * @param request CloudListCurlLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3709,7 +6409,7 @@ CloudListCurlLogResponse Client::cloudListCurlLogWithOptions(const CloudListCurl
 }
 
 /**
- * @summary 推送日志查询
+ * @summary Queries user push logs.
  *
  * @param request CloudListCurlLogRequest
  * @return CloudListCurlLogResponse
@@ -3720,7 +6420,7 @@ CloudListCurlLogResponse Client::cloudListCurlLog(const CloudListCurlLogRequest 
 }
 
 /**
- * @summary 获取时间条件设置列表
+ * @summary Queries the list of time condition settings.
  *
  * @param request CloudListEnterpriseTimeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3775,7 +6475,7 @@ CloudListEnterpriseTimeResponse Client::cloudListEnterpriseTimeWithOptions(const
 }
 
 /**
- * @summary 获取时间条件设置列表
+ * @summary Queries the list of time condition settings.
  *
  * @param request CloudListEnterpriseTimeRequest
  * @return CloudListEnterpriseTimeResponse
@@ -3786,7 +6486,7 @@ CloudListEnterpriseTimeResponse Client::cloudListEnterpriseTime(const CloudListE
 }
 
 /**
- * @summary 获取分机列表
+ * @summary Queries the extension info list.
  *
  * @param request CloudListExtenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3873,7 +6573,7 @@ CloudListExtenResponse Client::cloudListExtenWithOptions(const CloudListExtenReq
 }
 
 /**
- * @summary 获取分机列表
+ * @summary Queries the extension info list.
  *
  * @param request CloudListExtenRequest
  * @return CloudListExtenResponse
@@ -3938,7 +6638,7 @@ CloudListFreeAgentResponse Client::cloudListFreeAgent(const CloudListFreeAgentRe
 }
 
 /**
- * @summary 在线座席信息
+ * @summary Queries the list of online agent info.
  *
  * @param request CloudListOnlineAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4001,7 +6701,7 @@ CloudListOnlineAgentResponse Client::cloudListOnlineAgentWithOptions(const Cloud
 }
 
 /**
- * @summary 在线座席信息
+ * @summary Queries the list of online agent info.
  *
  * @param request CloudListOnlineAgentRequest
  * @return CloudListOnlineAgentResponse
@@ -4012,7 +6712,7 @@ CloudListOnlineAgentResponse Client::cloudListOnlineAgent(const CloudListOnlineA
 }
 
 /**
- * @summary 获取队列列表
+ * @summary Queries the queue info list.
  *
  * @param request CloudListQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4083,7 +6783,7 @@ CloudListQueueResponse Client::cloudListQueueWithOptions(const CloudListQueueReq
 }
 
 /**
- * @summary 获取队列列表
+ * @summary Queries the queue info list.
  *
  * @param request CloudListQueueRequest
  * @return CloudListQueueResponse
@@ -4304,7 +7004,7 @@ CloudListTaskFileResponse Client::cloudListTaskFile(const CloudListTaskFileReque
 }
 
 /**
- * @summary 任务监控
+ * @summary Call job monitoring.
  *
  * @param request CloudMonitorTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4351,7 +7051,7 @@ CloudMonitorTaskResponse Client::cloudMonitorTaskWithOptions(const CloudMonitorT
 }
 
 /**
- * @summary 任务监控
+ * @summary Call job monitoring.
  *
  * @param request CloudMonitorTaskRequest
  * @return CloudMonitorTaskResponse
@@ -4362,7 +7062,7 @@ CloudMonitorTaskResponse Client::cloudMonitorTask(const CloudMonitorTaskRequest 
 }
 
 /**
- * @summary 获取预览外呼主叫号码报表
+ * @summary Obtains preview outbound caller report data.
  *
  * @param request CloudOutboundObClidReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4429,7 +7129,7 @@ CloudOutboundObClidReportResponse Client::cloudOutboundObClidReportWithOptions(c
 }
 
 /**
- * @summary 获取预览外呼主叫号码报表
+ * @summary Obtains preview outbound caller report data.
  *
  * @param request CloudOutboundObClidReportRequest
  * @return CloudOutboundObClidReportResponse
@@ -4440,7 +7140,7 @@ CloudOutboundObClidReportResponse Client::cloudOutboundObClidReport(const CloudO
 }
 
 /**
- * @summary 获取预览外呼报表
+ * @summary Obtains a preview outbound report.
  *
  * @param request CloudOutboundPreviewObReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4507,7 +7207,7 @@ CloudOutboundPreviewObReportResponse Client::cloudOutboundPreviewObReportWithOpt
 }
 
 /**
- * @summary 获取预览外呼报表
+ * @summary Obtains a preview outbound report.
  *
  * @param request CloudOutboundPreviewObReportRequest
  * @return CloudOutboundPreviewObReportResponse
@@ -4580,7 +7280,7 @@ CloudPauseTaskResponse Client::cloudPauseTask(const CloudPauseTaskRequest &reque
 }
 
 /**
- * @summary 座席外呼
+ * @summary When the agent is online, make a call through this interface.
  *
  * @param request CloudPreviewoutcallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4667,7 +7367,7 @@ CloudPreviewoutcallResponse Client::cloudPreviewoutcallWithOptions(const CloudPr
 }
 
 /**
- * @summary 座席外呼
+ * @summary When the agent is online, make a call through this interface.
  *
  * @param request CloudPreviewoutcallRequest
  * @return CloudPreviewoutcallResponse
@@ -4678,7 +7378,7 @@ CloudPreviewoutcallResponse Client::cloudPreviewoutcall(const CloudPreviewoutcal
 }
 
 /**
- * @summary 座席详细信息列表获取
+ * @summary Queries the list of agent details.
  *
  * @param request CloudQueryAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4773,7 +7473,7 @@ CloudQueryAgentResponse Client::cloudQueryAgentWithOptions(const CloudQueryAgent
 }
 
 /**
- * @summary 座席详细信息列表获取
+ * @summary Queries the list of agent details.
  *
  * @param request CloudQueryAgentRequest
  * @return CloudQueryAgentResponse
@@ -4958,7 +7658,7 @@ CloudQueryAgentSkillResponse Client::cloudQueryAgentSkill(const CloudQueryAgentS
 }
 
 /**
- * @summary 来电通话记录
+ * @summary Query incoming call records based on specified conditions.
  *
  * @param request CloudQueryIbCdrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5061,7 +7761,7 @@ CloudQueryIbCdrResponse Client::cloudQueryIbCdrWithOptions(const CloudQueryIbCdr
 }
 
 /**
- * @summary 来电通话记录
+ * @summary Query incoming call records based on specified conditions.
  *
  * @param request CloudQueryIbCdrRequest
  * @return CloudQueryIbCdrResponse
@@ -5072,7 +7772,7 @@ CloudQueryIbCdrResponse Client::cloudQueryIbCdr(const CloudQueryIbCdrRequest &re
 }
 
 /**
- * @summary 获取座席外呼通话记录
+ * @summary Query agent outbound call records based on conditions.
  *
  * @param request CloudQueryObCdrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5199,7 +7899,7 @@ CloudQueryObCdrResponse Client::cloudQueryObCdrWithOptions(const CloudQueryObCdr
 }
 
 /**
- * @summary 获取座席外呼通话记录
+ * @summary Query agent outbound call records based on conditions.
  *
  * @param request CloudQueryObCdrRequest
  * @return CloudQueryObCdrResponse
@@ -5210,7 +7910,7 @@ CloudQueryObCdrResponse Client::cloudQueryObCdr(const CloudQueryObCdrRequest &re
 }
 
 /**
- * @summary 预测式外呼通话记录
+ * @summary Query the call record info of predictive outbound calls.
  *
  * @param request CloudQueryPredictiveCallCdrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5329,7 +8029,7 @@ CloudQueryPredictiveCallCdrResponse Client::cloudQueryPredictiveCallCdrWithOptio
 }
 
 /**
- * @summary 预测式外呼通话记录
+ * @summary Query the call record info of predictive outbound calls.
  *
  * @param request CloudQueryPredictiveCallCdrRequest
  * @return CloudQueryPredictiveCallCdrResponse
@@ -5386,7 +8086,7 @@ CloudQueryRasrEventResponse Client::cloudQueryRasrEvent(const CloudQueryRasrEven
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Queries call jobs. Supports conditional query.
  *
  * @param request CloudQueryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5469,7 +8169,7 @@ CloudQueryTaskResponse Client::cloudQueryTaskWithOptions(const CloudQueryTaskReq
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Queries call jobs. Supports conditional query.
  *
  * @param request CloudQueryTaskRequest
  * @return CloudQueryTaskResponse
@@ -5480,7 +8180,7 @@ CloudQueryTaskResponse Client::cloudQueryTask(const CloudQueryTaskRequest &reque
 }
 
 /**
- * @summary webcall通话记录
+ * @summary Query webCall call record info through this interface.
  *
  * @param request CloudQueryWebcallCdrRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5599,7 +8299,7 @@ CloudQueryWebcallCdrResponse Client::cloudQueryWebcallCdrWithOptions(const Cloud
 }
 
 /**
- * @summary webcall通话记录
+ * @summary Query webCall call record info through this interface.
  *
  * @param request CloudQueryWebcallCdrRequest
  * @return CloudQueryWebcallCdrResponse
@@ -5610,7 +8310,7 @@ CloudQueryWebcallCdrResponse Client::cloudQueryWebcallCdr(const CloudQueryWebcal
 }
 
 /**
- * @summary 任务启动
+ * @summary Starts an outbound call task.
  *
  * @param request CloudStartTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5657,7 +8357,7 @@ CloudStartTaskResponse Client::cloudStartTaskWithOptions(const CloudStartTaskReq
 }
 
 /**
- * @summary 任务启动
+ * @summary Starts an outbound call task.
  *
  * @param request CloudStartTaskRequest
  * @return CloudStartTaskResponse
@@ -5730,7 +8430,7 @@ CloudUnassignAgentGroupResponse Client::cloudUnassignAgentGroup(const CloudUnass
 }
 
 /**
- * @summary 座席更新
+ * @summary Update agent basic info.
  *
  * @param request CloudUpdateAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5865,7 +8565,7 @@ CloudUpdateAgentResponse Client::cloudUpdateAgentWithOptions(const CloudUpdateAg
 }
 
 /**
- * @summary 座席更新
+ * @summary Update agent basic info.
  *
  * @param request CloudUpdateAgentRequest
  * @return CloudUpdateAgentResponse
@@ -5876,7 +8576,7 @@ CloudUpdateAgentResponse Client::cloudUpdateAgent(const CloudUpdateAgentRequest 
 }
 
 /**
- * @summary 更新任务
+ * @summary Modifies the basic information of an outbound call job.
  *
  * @param request CloudUpdateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6107,7 +8807,7 @@ CloudUpdateTaskResponse Client::cloudUpdateTaskWithOptions(const CloudUpdateTask
 }
 
 /**
- * @summary 更新任务
+ * @summary Modifies the basic information of an outbound call job.
  *
  * @param request CloudUpdateTaskRequest
  * @return CloudUpdateTaskResponse
@@ -6118,7 +8818,7 @@ CloudUpdateTaskResponse Client::cloudUpdateTask(const CloudUpdateTaskRequest &re
 }
 
 /**
- * @summary webcall
+ * @summary Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
  *
  * @param request CloudWebcallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6221,7 +8921,7 @@ CloudWebcallResponse Client::cloudWebcallWithOptions(const CloudWebcallRequest &
 }
 
 /**
- * @summary webcall
+ * @summary Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
  *
  * @param request CloudWebcallRequest
  * @return CloudWebcallResponse

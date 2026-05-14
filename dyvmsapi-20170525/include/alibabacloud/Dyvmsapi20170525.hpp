@@ -159,6 +159,533 @@ namespace Dyvmsapi20170525
       Models::ChangeMediaTypeResponse changeMediaType(const Models::ChangeMediaTypeRequest &request);
 
       /**
+       * @summary Agent status monitoring.
+       *
+       * @param request ClinkAgentStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkAgentStatusResponse
+       */
+      Models::ClinkAgentStatusResponse clinkAgentStatusWithOptions(const Models::ClinkAgentStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Agent status monitoring.
+       *
+       * @param request ClinkAgentStatusRequest
+       * @return ClinkAgentStatusResponse
+       */
+      Models::ClinkAgentStatusResponse clinkAgentStatus(const Models::ClinkAgentStatusRequest &request);
+
+      /**
+       * @summary Queries the status details of an agent.
+       *
+       * @param request ClinkAgentStatusDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkAgentStatusDetailResponse
+       */
+      Models::ClinkAgentStatusDetailResponse clinkAgentStatusDetailWithOptions(const Models::ClinkAgentStatusDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the status details of an agent.
+       *
+       * @param request ClinkAgentStatusDetailRequest
+       * @return ClinkAgentStatusDetailResponse
+       */
+      Models::ClinkAgentStatusDetailResponse clinkAgentStatusDetail(const Models::ClinkAgentStatusDetailRequest &request);
+
+      /**
+       * @summary Attach an agent phone.
+       *
+       * @param request ClinkBindClientTelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkBindClientTelResponse
+       */
+      Models::ClinkBindClientTelResponse clinkBindClientTelWithOptions(const Models::ClinkBindClientTelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Attach an agent phone.
+       *
+       * @param request ClinkBindClientTelRequest
+       * @return ClinkBindClientTelResponse
+       */
+      Models::ClinkBindClientTelResponse clinkBindClientTel(const Models::ClinkBindClientTelRequest &request);
+
+      /**
+       * @summary Queries the details of an outbound call record.
+       *
+       * @param request ClinkCdrObDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkCdrObDetailsResponse
+       */
+      Models::ClinkCdrObDetailsResponse clinkCdrObDetailsWithOptions(const Models::ClinkCdrObDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an outbound call record.
+       *
+       * @param request ClinkCdrObDetailsRequest
+       * @return ClinkCdrObDetailsResponse
+       */
+      Models::ClinkCdrObDetailsResponse clinkCdrObDetails(const Models::ClinkCdrObDetailsRequest &request);
+
+      /**
+       * @summary Add an agent.
+       *
+       * @param tmpReq ClinkCreateClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkCreateClientResponse
+       */
+      Models::ClinkCreateClientResponse clinkCreateClientWithOptions(const Models::ClinkCreateClientRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Add an agent.
+       *
+       * @param request ClinkCreateClientRequest
+       * @return ClinkCreateClientResponse
+       */
+      Models::ClinkCreateClientResponse clinkCreateClient(const Models::ClinkCreateClientRequest &request);
+
+      /**
+       * @summary Add a busy status.
+       *
+       * @param request ClinkCreateEnterprisePauseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkCreateEnterprisePauseResponse
+       */
+      Models::ClinkCreateEnterprisePauseResponse clinkCreateEnterprisePauseWithOptions(const Models::ClinkCreateEnterprisePauseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Add a busy status.
+       *
+       * @param request ClinkCreateEnterprisePauseRequest
+       * @return ClinkCreateEnterprisePauseResponse
+       */
+      Models::ClinkCreateEnterprisePauseResponse clinkCreateEnterprisePause(const Models::ClinkCreateEnterprisePauseRequest &request);
+
+      /**
+       * @summary Add a phone.
+       *
+       * @param request ClinkCreateExtenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkCreateExtenResponse
+       */
+      Models::ClinkCreateExtenResponse clinkCreateExtenWithOptions(const Models::ClinkCreateExtenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Add a phone.
+       *
+       * @param request ClinkCreateExtenRequest
+       * @return ClinkCreateExtenResponse
+       */
+      Models::ClinkCreateExtenResponse clinkCreateExten(const Models::ClinkCreateExtenRequest &request);
+
+      /**
+       * @summary Add a queue.
+       *
+       * @param tmpReq ClinkCreateQueueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkCreateQueueResponse
+       */
+      Models::ClinkCreateQueueResponse clinkCreateQueueWithOptions(const Models::ClinkCreateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Add a queue.
+       *
+       * @param request ClinkCreateQueueRequest
+       * @return ClinkCreateQueueResponse
+       */
+      Models::ClinkCreateQueueResponse clinkCreateQueue(const Models::ClinkCreateQueueRequest &request);
+
+      /**
+       * @summary Deletes an agent.
+       *
+       * @param request ClinkDeleteClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDeleteClientResponse
+       */
+      Models::ClinkDeleteClientResponse clinkDeleteClientWithOptions(const Models::ClinkDeleteClientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an agent.
+       *
+       * @param request ClinkDeleteClientRequest
+       * @return ClinkDeleteClientResponse
+       */
+      Models::ClinkDeleteClientResponse clinkDeleteClient(const Models::ClinkDeleteClientRequest &request);
+
+      /**
+       * @summary Delete the phone.
+       *
+       * @param request ClinkDeleteExtenRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDeleteExtenResponse
+       */
+      Models::ClinkDeleteExtenResponse clinkDeleteExtenWithOptions(const Models::ClinkDeleteExtenRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete the phone.
+       *
+       * @param request ClinkDeleteExtenRequest
+       * @return ClinkDeleteExtenResponse
+       */
+      Models::ClinkDeleteExtenResponse clinkDeleteExten(const Models::ClinkDeleteExtenRequest &request);
+
+      /**
+       * @summary View incoming call records.
+       *
+       * @param request ClinkDescribeCdrIbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeCdrIbResponse
+       */
+      Models::ClinkDescribeCdrIbResponse clinkDescribeCdrIbWithOptions(const Models::ClinkDescribeCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View incoming call records.
+       *
+       * @param request ClinkDescribeCdrIbRequest
+       * @return ClinkDescribeCdrIbResponse
+       */
+      Models::ClinkDescribeCdrIbResponse clinkDescribeCdrIb(const Models::ClinkDescribeCdrIbRequest &request);
+
+      /**
+       * @summary View incoming call record details.
+       *
+       * @param request ClinkDescribeCdrIbDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeCdrIbDetailsResponse
+       */
+      Models::ClinkDescribeCdrIbDetailsResponse clinkDescribeCdrIbDetailsWithOptions(const Models::ClinkDescribeCdrIbDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View incoming call record details.
+       *
+       * @param request ClinkDescribeCdrIbDetailsRequest
+       * @return ClinkDescribeCdrIbDetailsResponse
+       */
+      Models::ClinkDescribeCdrIbDetailsResponse clinkDescribeCdrIbDetails(const Models::ClinkDescribeCdrIbDetailsRequest &request);
+
+      /**
+       * @summary View outbound call records.
+       *
+       * @param request ClinkDescribeCdrObRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeCdrObResponse
+       */
+      Models::ClinkDescribeCdrObResponse clinkDescribeCdrObWithOptions(const Models::ClinkDescribeCdrObRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View outbound call records.
+       *
+       * @param request ClinkDescribeCdrObRequest
+       * @return ClinkDescribeCdrObResponse
+       */
+      Models::ClinkDescribeCdrObResponse clinkDescribeCdrOb(const Models::ClinkDescribeCdrObRequest &request);
+
+      /**
+       * @summary View outbound call record details.
+       *
+       * @param request ClinkDescribeCdrObDetailsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeCdrObDetailsResponse
+       */
+      Models::ClinkDescribeCdrObDetailsResponse clinkDescribeCdrObDetailsWithOptions(const Models::ClinkDescribeCdrObDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View outbound call record details.
+       *
+       * @param request ClinkDescribeCdrObDetailsRequest
+       * @return ClinkDescribeCdrObDetailsResponse
+       */
+      Models::ClinkDescribeCdrObDetailsResponse clinkDescribeCdrObDetails(const Models::ClinkDescribeCdrObDetailsRequest &request);
+
+      /**
+       * @summary View the agent details.
+       *
+       * @param request ClinkDescribeClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeClientResponse
+       */
+      Models::ClinkDescribeClientResponse clinkDescribeClientWithOptions(const Models::ClinkDescribeClientRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View the agent details.
+       *
+       * @param request ClinkDescribeClientRequest
+       * @return ClinkDescribeClientResponse
+       */
+      Models::ClinkDescribeClientResponse clinkDescribeClient(const Models::ClinkDescribeClientRequest &request);
+
+      /**
+       * @summary View queue details.
+       *
+       * @param request ClinkDescribeQueueRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeQueueResponse
+       */
+      Models::ClinkDescribeQueueResponse clinkDescribeQueueWithOptions(const Models::ClinkDescribeQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View queue details.
+       *
+       * @param request ClinkDescribeQueueRequest
+       * @return ClinkDescribeQueueResponse
+       */
+      Models::ClinkDescribeQueueResponse clinkDescribeQueue(const Models::ClinkDescribeQueueRequest &request);
+
+      /**
+       * @summary View call recording address.
+       *
+       * @param request ClinkDescribeRecordFileUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDescribeRecordFileUrlResponse
+       */
+      Models::ClinkDescribeRecordFileUrlResponse clinkDescribeRecordFileUrlWithOptions(const Models::ClinkDescribeRecordFileUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary View call recording address.
+       *
+       * @param request ClinkDescribeRecordFileUrlRequest
+       * @return ClinkDescribeRecordFileUrlResponse
+       */
+      Models::ClinkDescribeRecordFileUrlResponse clinkDescribeRecordFileUrl(const Models::ClinkDescribeRecordFileUrlRequest &request);
+
+      /**
+       * @summary Query the details of customer call records.
+       *
+       * @param request ClinkDetailCdrIbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkDetailCdrIbResponse
+       */
+      Models::ClinkDetailCdrIbResponse clinkDetailCdrIbWithOptions(const Models::ClinkDetailCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the details of customer call records.
+       *
+       * @param request ClinkDetailCdrIbRequest
+       * @return ClinkDetailCdrIbResponse
+       */
+      Models::ClinkDetailCdrIbResponse clinkDetailCdrIb(const Models::ClinkDetailCdrIbRequest &request);
+
+      /**
+       * @summary Query the customer call record list.
+       *
+       * @param request ClinkListCdrIbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListCdrIbResponse
+       */
+      Models::ClinkListCdrIbResponse clinkListCdrIbWithOptions(const Models::ClinkListCdrIbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the customer call record list.
+       *
+       * @param request ClinkListCdrIbRequest
+       * @return ClinkListCdrIbResponse
+       */
+      Models::ClinkListCdrIbResponse clinkListCdrIb(const Models::ClinkListCdrIbRequest &request);
+
+      /**
+       * @summary Queries the list of agent answering records.
+       *
+       * @param request ClinkListCdrIbAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListCdrIbAgentResponse
+       */
+      Models::ClinkListCdrIbAgentResponse clinkListCdrIbAgentWithOptions(const Models::ClinkListCdrIbAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of agent answering records.
+       *
+       * @param request ClinkListCdrIbAgentRequest
+       * @return ClinkListCdrIbAgentResponse
+       */
+      Models::ClinkListCdrIbAgentResponse clinkListCdrIbAgent(const Models::ClinkListCdrIbAgentRequest &request);
+
+      /**
+       * @summary Query the list of inbound call records.
+       *
+       * @param request ClinkListCdrIbsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListCdrIbsResponse
+       */
+      Models::ClinkListCdrIbsResponse clinkListCdrIbsWithOptions(const Models::ClinkListCdrIbsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the list of inbound call records.
+       *
+       * @param request ClinkListCdrIbsRequest
+       * @return ClinkListCdrIbsResponse
+       */
+      Models::ClinkListCdrIbsResponse clinkListCdrIbs(const Models::ClinkListCdrIbsRequest &request);
+
+      /**
+       * @summary Queries the list of outbound call records.
+       *
+       * @param request ClinkListCdrObRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListCdrObResponse
+       */
+      Models::ClinkListCdrObResponse clinkListCdrObWithOptions(const Models::ClinkListCdrObRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of outbound call records.
+       *
+       * @param request ClinkListCdrObRequest
+       * @return ClinkListCdrObResponse
+       */
+      Models::ClinkListCdrObResponse clinkListCdrOb(const Models::ClinkListCdrObRequest &request);
+
+      /**
+       * @summary Queries the outbound call record list.
+       *
+       * @param request ClinkListCdrObsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListCdrObsResponse
+       */
+      Models::ClinkListCdrObsResponse clinkListCdrObsWithOptions(const Models::ClinkListCdrObsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the outbound call record list.
+       *
+       * @param request ClinkListCdrObsRequest
+       * @return ClinkListCdrObsResponse
+       */
+      Models::ClinkListCdrObsResponse clinkListCdrObs(const Models::ClinkListCdrObsRequest &request);
+
+      /**
+       * @summary Queries the list of agents.
+       *
+       * @param request ClinkListClientsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListClientsResponse
+       */
+      Models::ClinkListClientsResponse clinkListClientsWithOptions(const Models::ClinkListClientsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of agents.
+       *
+       * @param request ClinkListClientsRequest
+       * @return ClinkListClientsResponse
+       */
+      Models::ClinkListClientsResponse clinkListClients(const Models::ClinkListClientsRequest &request);
+
+      /**
+       * @summary Queries the busy status list.
+       *
+       * @param request ClinkListEnterprisePausesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListEnterprisePausesResponse
+       */
+      Models::ClinkListEnterprisePausesResponse clinkListEnterprisePausesWithOptions(const Models::ClinkListEnterprisePausesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the busy status list.
+       *
+       * @param request ClinkListEnterprisePausesRequest
+       * @return ClinkListEnterprisePausesResponse
+       */
+      Models::ClinkListEnterprisePausesResponse clinkListEnterprisePauses(const Models::ClinkListEnterprisePausesRequest &request);
+
+      /**
+       * @summary Query the phone list.
+       *
+       * @param request ClinkListExtensRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListExtensResponse
+       */
+      Models::ClinkListExtensResponse clinkListExtensWithOptions(const Models::ClinkListExtensRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the phone list.
+       *
+       * @param request ClinkListExtensRequest
+       * @return ClinkListExtensResponse
+       */
+      Models::ClinkListExtensResponse clinkListExtens(const Models::ClinkListExtensRequest &request);
+
+      /**
+       * @summary Queries the voice navigation edge zone list.
+       *
+       * @param request ClinkListIvrNodesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListIvrNodesResponse
+       */
+      Models::ClinkListIvrNodesResponse clinkListIvrNodesWithOptions(const Models::ClinkListIvrNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the voice navigation edge zone list.
+       *
+       * @param request ClinkListIvrNodesRequest
+       * @return ClinkListIvrNodesResponse
+       */
+      Models::ClinkListIvrNodesResponse clinkListIvrNodes(const Models::ClinkListIvrNodesRequest &request);
+
+      /**
+       * @summary Queries the voice navigation list.
+       *
+       * @param request ClinkListIvrsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListIvrsResponse
+       */
+      Models::ClinkListIvrsResponse clinkListIvrsWithOptions(const Models::ClinkListIvrsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the voice navigation list.
+       *
+       * @param request ClinkListIvrsRequest
+       * @return ClinkListIvrsResponse
+       */
+      Models::ClinkListIvrsResponse clinkListIvrs(const Models::ClinkListIvrsRequest &request);
+
+      /**
+       * @summary Queries the queue list.
+       *
+       * @param request ClinkListQueuesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkListQueuesResponse
+       */
+      Models::ClinkListQueuesResponse clinkListQueuesWithOptions(const Models::ClinkListQueuesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the queue list.
+       *
+       * @param request ClinkListQueuesRequest
+       * @return ClinkListQueuesResponse
+       */
+      Models::ClinkListQueuesResponse clinkListQueues(const Models::ClinkListQueuesRequest &request);
+
+      /**
+       * @summary Inbound report - call statistics.
+       *
+       * @param request ClinkStatIbRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkStatIbResponse
+       */
+      Models::ClinkStatIbResponse clinkStatIbWithOptions(const Models::ClinkStatIbRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Inbound report - call statistics.
+       *
+       * @param request ClinkStatIbRequest
+       * @return ClinkStatIbResponse
+       */
+      Models::ClinkStatIbResponse clinkStatIb(const Models::ClinkStatIbRequest &request);
+
+      /**
+       * @summary Update an agent.
+       *
+       * @param tmpReq ClinkUpdateClientRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ClinkUpdateClientResponse
+       */
+      Models::ClinkUpdateClientResponse clinkUpdateClientWithOptions(const Models::ClinkUpdateClientRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update an agent.
+       *
+       * @param request ClinkUpdateClientRequest
+       * @return ClinkUpdateClientResponse
+       */
+      Models::ClinkUpdateClientResponse clinkUpdateClient(const Models::ClinkUpdateClientRequest &request);
+
+      /**
        * @summary Publish the agent online through this interface.
        *
        * @param request CloudAgentLoginRequest
@@ -193,7 +720,7 @@ namespace Dyvmsapi20170525
       Models::CloudAgentLogoutResponse cloudAgentLogout(const Models::CloudAgentLogoutRequest &request);
 
       /**
-       * @summary 座席实时统计
+       * @summary Real-time statistics on agent call data.
        *
        * @param request CloudAgentMonitorStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +729,7 @@ namespace Dyvmsapi20170525
       Models::CloudAgentMonitorStatisticsResponse cloudAgentMonitorStatisticsWithOptions(const Models::CloudAgentMonitorStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席实时统计
+       * @summary Real-time statistics on agent call data.
        *
        * @param request CloudAgentMonitorStatisticsRequest
        * @return CloudAgentMonitorStatisticsResponse
@@ -244,7 +771,7 @@ namespace Dyvmsapi20170525
       Models::CloudAgentUnlinkResponse cloudAgentUnlink(const Models::CloudAgentUnlinkRequest &request);
 
       /**
-       * @summary 获取座席工作量报表数据
+       * @summary Gets agent workload report data.
        *
        * @param request CloudAgentWorkloadReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -253,7 +780,7 @@ namespace Dyvmsapi20170525
       Models::CloudAgentWorkloadReportResponse cloudAgentWorkloadReportWithOptions(const Models::CloudAgentWorkloadReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取座席工作量报表数据
+       * @summary Gets agent workload report data.
        *
        * @param request CloudAgentWorkloadReportRequest
        * @return CloudAgentWorkloadReportResponse
@@ -278,7 +805,7 @@ namespace Dyvmsapi20170525
       Models::CloudAssignAgentGroupResponse cloudAssignAgentGroup(const Models::CloudAssignAgentGroupRequest &request);
 
       /**
-       * @summary 批量新增座席,单次批量创建不能超过100个
+       * @summary Batch add agents. You can create up to 100 agents in a single batch.
        *
        * @param request CloudBatchCreateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -287,7 +814,7 @@ namespace Dyvmsapi20170525
       Models::CloudBatchCreateAgentResponse cloudBatchCreateAgentWithOptions(const Models::CloudBatchCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量新增座席,单次批量创建不能超过100个
+       * @summary Batch add agents. You can create up to 100 agents in a single batch.
        *
        * @param request CloudBatchCreateAgentRequest
        * @return CloudBatchCreateAgentResponse
@@ -312,7 +839,7 @@ namespace Dyvmsapi20170525
       Models::CloudBatchGetAgentStatusResponse cloudBatchGetAgentStatus(const Models::CloudBatchGetAgentStatusRequest &request);
 
       /**
-       * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+       * @summary Batch update the basic info of agents, excluding the update of skill info attached to agents.
        *
        * @param request CloudBatchUpdateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -321,7 +848,7 @@ namespace Dyvmsapi20170525
       Models::CloudBatchUpdateAgentResponse cloudBatchUpdateAgentWithOptions(const Models::CloudBatchUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+       * @summary Batch update the basic info of agents, excluding the update of skill info attached to agents.
        *
        * @param request CloudBatchUpdateAgentRequest
        * @return CloudBatchUpdateAgentResponse
@@ -329,7 +856,7 @@ namespace Dyvmsapi20170525
       Models::CloudBatchUpdateAgentResponse cloudBatchUpdateAgent(const Models::CloudBatchUpdateAgentRequest &request);
 
       /**
-       * @summary 座席新增
+       * @summary Creates an agent.
        *
        * @param request CloudCreateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -338,7 +865,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateAgentResponse cloudCreateAgentWithOptions(const Models::CloudCreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席新增
+       * @summary Creates an agent.
        *
        * @param request CloudCreateAgentRequest
        * @return CloudCreateAgentResponse
@@ -380,7 +907,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateAsrResponse cloudCreateAsr(const Models::CloudCreateAsrRequest &request);
 
       /**
-       * @summary 新增时间条件设置
+       * @summary Adds a time condition configuration.
        *
        * @param request CloudCreateEnterpriseTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -389,7 +916,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateEnterpriseTimeResponse cloudCreateEnterpriseTimeWithOptions(const Models::CloudCreateEnterpriseTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增时间条件设置
+       * @summary Adds a time condition configuration.
        *
        * @param request CloudCreateEnterpriseTimeRequest
        * @return CloudCreateEnterpriseTimeResponse
@@ -397,7 +924,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateEnterpriseTimeResponse cloudCreateEnterpriseTime(const Models::CloudCreateEnterpriseTimeRequest &request);
 
       /**
-       * @summary 新增分机
+       * @summary Add an extension through this interface.
        *
        * @param request CloudCreateExtenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -406,7 +933,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateExtenResponse cloudCreateExtenWithOptions(const Models::CloudCreateExtenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增分机
+       * @summary Add an extension through this interface.
        *
        * @param request CloudCreateExtenRequest
        * @return CloudCreateExtenResponse
@@ -414,7 +941,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateExtenResponse cloudCreateExten(const Models::CloudCreateExtenRequest &request);
 
       /**
-       * @summary 新增队列
+       * @summary Add a queue through this interface.
        *
        * @param tmpReq CloudCreateQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -423,7 +950,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateQueueResponse cloudCreateQueueWithOptions(const Models::CloudCreateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增队列
+       * @summary Add a queue through this interface.
        *
        * @param request CloudCreateQueueRequest
        * @return CloudCreateQueueResponse
@@ -465,7 +992,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateSkillResponse cloudCreateSkill(const Models::CloudCreateSkillRequest &request);
 
       /**
-       * @summary 新增任务
+       * @summary Creates an outbound call job.
        *
        * @param request CloudCreateTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -474,7 +1001,7 @@ namespace Dyvmsapi20170525
       Models::CloudCreateTaskResponse cloudCreateTaskWithOptions(const Models::CloudCreateTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增任务
+       * @summary Creates an outbound call job.
        *
        * @param request CloudCreateTaskRequest
        * @return CloudCreateTaskResponse
@@ -652,7 +1179,7 @@ namespace Dyvmsapi20170525
       Models::CloudDeleteTaskTelResponse cloudDeleteTaskTel(const Models::CloudDeleteTaskTelRequest &request);
 
       /**
-       * @summary 座席详细信息获取
+       * @summary Queries the details of an agent.
        *
        * @param request CloudGetAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +1188,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetAgentResponse cloudGetAgentWithOptions(const Models::CloudGetAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席详细信息获取
+       * @summary Queries the details of an agent.
        *
        * @param request CloudGetAgentRequest
        * @return CloudGetAgentResponse
@@ -703,7 +1230,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetAreaCodeResponse cloudGetAreaCode(const Models::CloudGetAreaCodeRequest &request);
 
       /**
-       * @summary ASR数据获取
+       * @summary Query ASR job task results and obtain data.
        *
        * @param request CloudGetAsrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -712,7 +1239,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetAsrResponse cloudGetAsrWithOptions(const Models::CloudGetAsrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ASR数据获取
+       * @summary Query ASR job task results and obtain data.
        *
        * @param request CloudGetAsrRequest
        * @return CloudGetAsrResponse
@@ -737,7 +1264,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetExtenResponse cloudGetExten(const Models::CloudGetExtenRequest &request);
 
       /**
-       * @summary 获取座席外呼通话记录详情
+       * @summary Queries the details of outbound call records of a specified agent based on the unique phone identity.
        *
        * @param request CloudGetObCdrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -746,7 +1273,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetObCdrResponse cloudGetObCdrWithOptions(const Models::CloudGetObCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取座席外呼通话记录详情
+       * @summary Queries the details of outbound call records of a specified agent based on the unique phone identity.
        *
        * @param request CloudGetObCdrRequest
        * @return CloudGetObCdrResponse
@@ -754,7 +1281,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetObCdrResponse cloudGetObCdr(const Models::CloudGetObCdrRequest &request);
 
       /**
-       * @summary 获取队列信息
+       * @summary Query queue info.
        *
        * @param request CloudGetQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,7 +1290,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetQueueResponse cloudGetQueueWithOptions(const Models::CloudGetQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取队列信息
+       * @summary Query queue info.
        *
        * @param request CloudGetQueueRequest
        * @return CloudGetQueueResponse
@@ -771,7 +1298,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetQueueResponse cloudGetQueue(const Models::CloudGetQueueRequest &request);
 
       /**
-       * @summary 获取通话录音地址
+       * @summary Obtains the audition or download URL of a recording based on the recording file name.
        *
        * @param request CloudGetRecordUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -780,7 +1307,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetRecordUrlResponse cloudGetRecordUrlWithOptions(const Models::CloudGetRecordUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取通话录音地址
+       * @summary Obtains the audition or download URL of a recording based on the recording file name.
        *
        * @param request CloudGetRecordUrlRequest
        * @return CloudGetRecordUrlResponse
@@ -788,7 +1315,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetRecordUrlResponse cloudGetRecordUrl(const Models::CloudGetRecordUrlRequest &request);
 
       /**
-       * @summary 获取任务信息
+       * @summary Obtains the configuration info of a single job based on the job ID.
        *
        * @param request CloudGetTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -797,7 +1324,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetTaskResponse cloudGetTaskWithOptions(const Models::CloudGetTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务信息
+       * @summary Obtains the configuration info of a single job based on the job ID.
        *
        * @param request CloudGetTaskRequest
        * @return CloudGetTaskResponse
@@ -805,7 +1332,7 @@ namespace Dyvmsapi20170525
       Models::CloudGetTaskResponse cloudGetTask(const Models::CloudGetTaskRequest &request);
 
       /**
-       * @summary 任务号码导入
+       * @summary Imports phone numbers for the outbound call task.
        *
        * @param tmpReq CloudImportTaskTelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,7 +1341,7 @@ namespace Dyvmsapi20170525
       Models::CloudImportTaskTelResponse cloudImportTaskTelWithOptions(const Models::CloudImportTaskTelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务号码导入
+       * @summary Imports phone numbers for the outbound call task.
        *
        * @param request CloudImportTaskTelRequest
        * @return CloudImportTaskTelResponse
@@ -890,7 +1417,7 @@ namespace Dyvmsapi20170525
       Models::CloudListAssignedAgentGroupResponse cloudListAssignedAgentGroup(const Models::CloudListAssignedAgentGroupRequest &request);
 
       /**
-       * @summary 推送日志查询
+       * @summary Queries user push logs.
        *
        * @param request CloudListCurlLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +1426,7 @@ namespace Dyvmsapi20170525
       Models::CloudListCurlLogResponse cloudListCurlLogWithOptions(const Models::CloudListCurlLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 推送日志查询
+       * @summary Queries user push logs.
        *
        * @param request CloudListCurlLogRequest
        * @return CloudListCurlLogResponse
@@ -907,7 +1434,7 @@ namespace Dyvmsapi20170525
       Models::CloudListCurlLogResponse cloudListCurlLog(const Models::CloudListCurlLogRequest &request);
 
       /**
-       * @summary 获取时间条件设置列表
+       * @summary Queries the list of time condition settings.
        *
        * @param request CloudListEnterpriseTimeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -916,7 +1443,7 @@ namespace Dyvmsapi20170525
       Models::CloudListEnterpriseTimeResponse cloudListEnterpriseTimeWithOptions(const Models::CloudListEnterpriseTimeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取时间条件设置列表
+       * @summary Queries the list of time condition settings.
        *
        * @param request CloudListEnterpriseTimeRequest
        * @return CloudListEnterpriseTimeResponse
@@ -924,7 +1451,7 @@ namespace Dyvmsapi20170525
       Models::CloudListEnterpriseTimeResponse cloudListEnterpriseTime(const Models::CloudListEnterpriseTimeRequest &request);
 
       /**
-       * @summary 获取分机列表
+       * @summary Queries the extension info list.
        *
        * @param request CloudListExtenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -933,7 +1460,7 @@ namespace Dyvmsapi20170525
       Models::CloudListExtenResponse cloudListExtenWithOptions(const Models::CloudListExtenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取分机列表
+       * @summary Queries the extension info list.
        *
        * @param request CloudListExtenRequest
        * @return CloudListExtenResponse
@@ -958,7 +1485,7 @@ namespace Dyvmsapi20170525
       Models::CloudListFreeAgentResponse cloudListFreeAgent(const Models::CloudListFreeAgentRequest &request);
 
       /**
-       * @summary 在线座席信息
+       * @summary Queries the list of online agent info.
        *
        * @param request CloudListOnlineAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -967,7 +1494,7 @@ namespace Dyvmsapi20170525
       Models::CloudListOnlineAgentResponse cloudListOnlineAgentWithOptions(const Models::CloudListOnlineAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在线座席信息
+       * @summary Queries the list of online agent info.
        *
        * @param request CloudListOnlineAgentRequest
        * @return CloudListOnlineAgentResponse
@@ -975,7 +1502,7 @@ namespace Dyvmsapi20170525
       Models::CloudListOnlineAgentResponse cloudListOnlineAgent(const Models::CloudListOnlineAgentRequest &request);
 
       /**
-       * @summary 获取队列列表
+       * @summary Queries the queue info list.
        *
        * @param request CloudListQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -984,7 +1511,7 @@ namespace Dyvmsapi20170525
       Models::CloudListQueueResponse cloudListQueueWithOptions(const Models::CloudListQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取队列列表
+       * @summary Queries the queue info list.
        *
        * @param request CloudListQueueRequest
        * @return CloudListQueueResponse
@@ -1043,7 +1570,7 @@ namespace Dyvmsapi20170525
       Models::CloudListTaskFileResponse cloudListTaskFile(const Models::CloudListTaskFileRequest &request);
 
       /**
-       * @summary 任务监控
+       * @summary Call job monitoring.
        *
        * @param request CloudMonitorTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1052,7 +1579,7 @@ namespace Dyvmsapi20170525
       Models::CloudMonitorTaskResponse cloudMonitorTaskWithOptions(const Models::CloudMonitorTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务监控
+       * @summary Call job monitoring.
        *
        * @param request CloudMonitorTaskRequest
        * @return CloudMonitorTaskResponse
@@ -1060,7 +1587,7 @@ namespace Dyvmsapi20170525
       Models::CloudMonitorTaskResponse cloudMonitorTask(const Models::CloudMonitorTaskRequest &request);
 
       /**
-       * @summary 获取预览外呼主叫号码报表
+       * @summary Obtains preview outbound caller report data.
        *
        * @param request CloudOutboundObClidReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1069,7 +1596,7 @@ namespace Dyvmsapi20170525
       Models::CloudOutboundObClidReportResponse cloudOutboundObClidReportWithOptions(const Models::CloudOutboundObClidReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取预览外呼主叫号码报表
+       * @summary Obtains preview outbound caller report data.
        *
        * @param request CloudOutboundObClidReportRequest
        * @return CloudOutboundObClidReportResponse
@@ -1077,7 +1604,7 @@ namespace Dyvmsapi20170525
       Models::CloudOutboundObClidReportResponse cloudOutboundObClidReport(const Models::CloudOutboundObClidReportRequest &request);
 
       /**
-       * @summary 获取预览外呼报表
+       * @summary Obtains a preview outbound report.
        *
        * @param request CloudOutboundPreviewObReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1086,7 +1613,7 @@ namespace Dyvmsapi20170525
       Models::CloudOutboundPreviewObReportResponse cloudOutboundPreviewObReportWithOptions(const Models::CloudOutboundPreviewObReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取预览外呼报表
+       * @summary Obtains a preview outbound report.
        *
        * @param request CloudOutboundPreviewObReportRequest
        * @return CloudOutboundPreviewObReportResponse
@@ -1111,7 +1638,7 @@ namespace Dyvmsapi20170525
       Models::CloudPauseTaskResponse cloudPauseTask(const Models::CloudPauseTaskRequest &request);
 
       /**
-       * @summary 座席外呼
+       * @summary When the agent is online, make a call through this interface.
        *
        * @param request CloudPreviewoutcallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1120,7 +1647,7 @@ namespace Dyvmsapi20170525
       Models::CloudPreviewoutcallResponse cloudPreviewoutcallWithOptions(const Models::CloudPreviewoutcallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席外呼
+       * @summary When the agent is online, make a call through this interface.
        *
        * @param request CloudPreviewoutcallRequest
        * @return CloudPreviewoutcallResponse
@@ -1128,7 +1655,7 @@ namespace Dyvmsapi20170525
       Models::CloudPreviewoutcallResponse cloudPreviewoutcall(const Models::CloudPreviewoutcallRequest &request);
 
       /**
-       * @summary 座席详细信息列表获取
+       * @summary Queries the list of agent details.
        *
        * @param request CloudQueryAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1137,7 +1664,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryAgentResponse cloudQueryAgentWithOptions(const Models::CloudQueryAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席详细信息列表获取
+       * @summary Queries the list of agent details.
        *
        * @param request CloudQueryAgentRequest
        * @return CloudQueryAgentResponse
@@ -1196,7 +1723,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryAgentSkillResponse cloudQueryAgentSkill(const Models::CloudQueryAgentSkillRequest &request);
 
       /**
-       * @summary 来电通话记录
+       * @summary Query incoming call records based on specified conditions.
        *
        * @param request CloudQueryIbCdrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1205,7 +1732,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryIbCdrResponse cloudQueryIbCdrWithOptions(const Models::CloudQueryIbCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 来电通话记录
+       * @summary Query incoming call records based on specified conditions.
        *
        * @param request CloudQueryIbCdrRequest
        * @return CloudQueryIbCdrResponse
@@ -1213,7 +1740,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryIbCdrResponse cloudQueryIbCdr(const Models::CloudQueryIbCdrRequest &request);
 
       /**
-       * @summary 获取座席外呼通话记录
+       * @summary Query agent outbound call records based on conditions.
        *
        * @param request CloudQueryObCdrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1222,7 +1749,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryObCdrResponse cloudQueryObCdrWithOptions(const Models::CloudQueryObCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取座席外呼通话记录
+       * @summary Query agent outbound call records based on conditions.
        *
        * @param request CloudQueryObCdrRequest
        * @return CloudQueryObCdrResponse
@@ -1230,7 +1757,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryObCdrResponse cloudQueryObCdr(const Models::CloudQueryObCdrRequest &request);
 
       /**
-       * @summary 预测式外呼通话记录
+       * @summary Query the call record info of predictive outbound calls.
        *
        * @param request CloudQueryPredictiveCallCdrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1239,7 +1766,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryPredictiveCallCdrResponse cloudQueryPredictiveCallCdrWithOptions(const Models::CloudQueryPredictiveCallCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预测式外呼通话记录
+       * @summary Query the call record info of predictive outbound calls.
        *
        * @param request CloudQueryPredictiveCallCdrRequest
        * @return CloudQueryPredictiveCallCdrResponse
@@ -1264,7 +1791,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryRasrEventResponse cloudQueryRasrEvent(const Models::CloudQueryRasrEventRequest &request);
 
       /**
-       * @summary 获取任务列表
+       * @summary Queries call jobs. Supports conditional query.
        *
        * @param request CloudQueryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1273,7 +1800,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryTaskResponse cloudQueryTaskWithOptions(const Models::CloudQueryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务列表
+       * @summary Queries call jobs. Supports conditional query.
        *
        * @param request CloudQueryTaskRequest
        * @return CloudQueryTaskResponse
@@ -1281,7 +1808,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryTaskResponse cloudQueryTask(const Models::CloudQueryTaskRequest &request);
 
       /**
-       * @summary webcall通话记录
+       * @summary Query webCall call record info through this interface.
        *
        * @param request CloudQueryWebcallCdrRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1290,7 +1817,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryWebcallCdrResponse cloudQueryWebcallCdrWithOptions(const Models::CloudQueryWebcallCdrRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary webcall通话记录
+       * @summary Query webCall call record info through this interface.
        *
        * @param request CloudQueryWebcallCdrRequest
        * @return CloudQueryWebcallCdrResponse
@@ -1298,7 +1825,7 @@ namespace Dyvmsapi20170525
       Models::CloudQueryWebcallCdrResponse cloudQueryWebcallCdr(const Models::CloudQueryWebcallCdrRequest &request);
 
       /**
-       * @summary 任务启动
+       * @summary Starts an outbound call task.
        *
        * @param request CloudStartTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1307,7 +1834,7 @@ namespace Dyvmsapi20170525
       Models::CloudStartTaskResponse cloudStartTaskWithOptions(const Models::CloudStartTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务启动
+       * @summary Starts an outbound call task.
        *
        * @param request CloudStartTaskRequest
        * @return CloudStartTaskResponse
@@ -1332,7 +1859,7 @@ namespace Dyvmsapi20170525
       Models::CloudUnassignAgentGroupResponse cloudUnassignAgentGroup(const Models::CloudUnassignAgentGroupRequest &request);
 
       /**
-       * @summary 座席更新
+       * @summary Update agent basic info.
        *
        * @param request CloudUpdateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1341,7 +1868,7 @@ namespace Dyvmsapi20170525
       Models::CloudUpdateAgentResponse cloudUpdateAgentWithOptions(const Models::CloudUpdateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 座席更新
+       * @summary Update agent basic info.
        *
        * @param request CloudUpdateAgentRequest
        * @return CloudUpdateAgentResponse
@@ -1349,7 +1876,7 @@ namespace Dyvmsapi20170525
       Models::CloudUpdateAgentResponse cloudUpdateAgent(const Models::CloudUpdateAgentRequest &request);
 
       /**
-       * @summary 更新任务
+       * @summary Modifies the basic information of an outbound call job.
        *
        * @param request CloudUpdateTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1358,7 +1885,7 @@ namespace Dyvmsapi20170525
       Models::CloudUpdateTaskResponse cloudUpdateTaskWithOptions(const Models::CloudUpdateTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新任务
+       * @summary Modifies the basic information of an outbound call job.
        *
        * @param request CloudUpdateTaskRequest
        * @return CloudUpdateTaskResponse
@@ -1366,7 +1893,7 @@ namespace Dyvmsapi20170525
       Models::CloudUpdateTaskResponse cloudUpdateTask(const Models::CloudUpdateTaskRequest &request);
 
       /**
-       * @summary webcall
+       * @summary Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
        *
        * @param request CloudWebcallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1375,7 +1902,7 @@ namespace Dyvmsapi20170525
       Models::CloudWebcallResponse cloudWebcallWithOptions(const Models::CloudWebcallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary webcall
+       * @summary Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
        *
        * @param request CloudWebcallRequest
        * @return CloudWebcallResponse
