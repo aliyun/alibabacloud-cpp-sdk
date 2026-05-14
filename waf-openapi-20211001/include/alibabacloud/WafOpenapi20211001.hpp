@@ -3967,11 +3967,11 @@ namespace WafOpenapi20211001
       /**
        * @summary Enables or disables the log collection feature for a protected object.
        *
-       * @param request ModifyResourceLogStatusRequest
+       * @param tmpReq ModifyResourceLogStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyResourceLogStatusResponse
        */
-      Models::ModifyResourceLogStatusResponse modifyResourceLogStatusWithOptions(const Models::ModifyResourceLogStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::ModifyResourceLogStatusResponse modifyResourceLogStatusWithOptions(const Models::ModifyResourceLogStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Enables or disables the log collection feature for a protected object.

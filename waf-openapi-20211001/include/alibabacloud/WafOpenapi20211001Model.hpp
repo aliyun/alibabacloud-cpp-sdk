@@ -704,6 +704,7 @@
 #include <alibabacloud/models/ModifyResourceLogFieldConfigResponseBody.hpp>
 #include <alibabacloud/models/ModifyResourceLogFieldConfigResponse.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusRequest.hpp>
+#include <alibabacloud/models/ModifyResourceLogStatusShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusResponseBody.hpp>
 #include <alibabacloud/models/ModifyResourceLogStatusResponse.hpp>
 #include <alibabacloud/models/ModifyTemplateResourcesRequest.hpp>

@@ -14728,12 +14728,18 @@ ModifyResourceLogFieldConfigResponse Client::modifyResourceLogFieldConfig(const 
 /**
  * @summary Enables or disables the log collection feature for a protected object.
  *
- * @param request ModifyResourceLogStatusRequest
+ * @param tmpReq ModifyResourceLogStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyResourceLogStatusResponse
  */
-ModifyResourceLogStatusResponse Client::modifyResourceLogStatusWithOptions(const ModifyResourceLogStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ModifyResourceLogStatusResponse Client::modifyResourceLogStatusWithOptions(const ModifyResourceLogStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ModifyResourceLogStatusShrinkRequest request = ModifyResourceLogStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTraceConfig()) {
+    request.setTraceConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTraceConfig(), "TraceConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
@@ -14753,6 +14759,14 @@ ModifyResourceLogStatusResponse Client::modifyResourceLogStatusWithOptions(const
 
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasTraceConfigShrink()) {
+    query["TraceConfig"] = request.getTraceConfigShrink();
+  }
+
+  if (!!request.hasTraceStatus()) {
+    query["TraceStatus"] = request.getTraceStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

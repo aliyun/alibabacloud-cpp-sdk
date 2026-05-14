@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Resource, resource_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(TraceConfig, traceConfig_);
+      DARABONBA_PTR_TO_JSON(TraceStatus, traceStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyResourceLogStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -25,6 +27,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Resource, resource_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(TraceConfig, traceConfig_);
+      DARABONBA_PTR_FROM_JSON(TraceStatus, traceStatus_);
     };
     ModifyResourceLogStatusRequest() = default ;
     ModifyResourceLogStatusRequest(const ModifyResourceLogStatusRequest &) = default ;
@@ -37,8 +41,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class TraceConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TraceConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(RatePerMille, ratePerMille_);
+        DARABONBA_PTR_TO_JSON(Workspace, workspace_);
+      };
+      friend void from_json(const Darabonba::Json& j, TraceConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(RatePerMille, ratePerMille_);
+        DARABONBA_PTR_FROM_JSON(Workspace, workspace_);
+      };
+      TraceConfig() = default ;
+      TraceConfig(const TraceConfig &) = default ;
+      TraceConfig(TraceConfig &&) = default ;
+      TraceConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TraceConfig() = default ;
+      TraceConfig& operator=(const TraceConfig &) = default ;
+      TraceConfig& operator=(TraceConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->ratePerMille_ == nullptr
+        && this->workspace_ == nullptr; };
+      // ratePerMille Field Functions 
+      bool hasRatePerMille() const { return this->ratePerMille_ != nullptr;};
+      void deleteRatePerMille() { this->ratePerMille_ = nullptr;};
+      inline int32_t getRatePerMille() const { DARABONBA_PTR_GET_DEFAULT(ratePerMille_, 0) };
+      inline TraceConfig& setRatePerMille(int32_t ratePerMille) { DARABONBA_PTR_SET_VALUE(ratePerMille_, ratePerMille) };
+
+
+      // workspace Field Functions 
+      bool hasWorkspace() const { return this->workspace_ != nullptr;};
+      void deleteWorkspace() { this->workspace_ = nullptr;};
+      inline string getWorkspace() const { DARABONBA_PTR_GET_DEFAULT(workspace_, "") };
+      inline TraceConfig& setWorkspace(string workspace) { DARABONBA_PTR_SET_VALUE(workspace_, workspace) };
+
+
+    protected:
+      shared_ptr<int32_t> ratePerMille_ {};
+      shared_ptr<string> workspace_ {};
+    };
+
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->status_ == nullptr; };
+        && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->status_ == nullptr && this->traceConfig_ == nullptr
+        && this->traceStatus_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -74,6 +121,22 @@ namespace Models
     inline ModifyResourceLogStatusRequest& setStatus(bool status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // traceConfig Field Functions 
+    bool hasTraceConfig() const { return this->traceConfig_ != nullptr;};
+    void deleteTraceConfig() { this->traceConfig_ = nullptr;};
+    inline const ModifyResourceLogStatusRequest::TraceConfig & getTraceConfig() const { DARABONBA_PTR_GET_CONST(traceConfig_, ModifyResourceLogStatusRequest::TraceConfig) };
+    inline ModifyResourceLogStatusRequest::TraceConfig getTraceConfig() { DARABONBA_PTR_GET(traceConfig_, ModifyResourceLogStatusRequest::TraceConfig) };
+    inline ModifyResourceLogStatusRequest& setTraceConfig(const ModifyResourceLogStatusRequest::TraceConfig & traceConfig) { DARABONBA_PTR_SET_VALUE(traceConfig_, traceConfig) };
+    inline ModifyResourceLogStatusRequest& setTraceConfig(ModifyResourceLogStatusRequest::TraceConfig && traceConfig) { DARABONBA_PTR_SET_RVALUE(traceConfig_, traceConfig) };
+
+
+    // traceStatus Field Functions 
+    bool hasTraceStatus() const { return this->traceStatus_ != nullptr;};
+    void deleteTraceStatus() { this->traceStatus_ = nullptr;};
+    inline bool getTraceStatus() const { DARABONBA_PTR_GET_DEFAULT(traceStatus_, false) };
+    inline ModifyResourceLogStatusRequest& setTraceStatus(bool traceStatus) { DARABONBA_PTR_SET_VALUE(traceStatus_, traceStatus) };
+
+
   protected:
     // The ID of the Web Application Firewall (WAF) instance.
     // 
@@ -99,6 +162,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
+    shared_ptr<ModifyResourceLogStatusRequest::TraceConfig> traceConfig_ {};
+    shared_ptr<bool> traceStatus_ {};
   };
 
   } // namespace Models
