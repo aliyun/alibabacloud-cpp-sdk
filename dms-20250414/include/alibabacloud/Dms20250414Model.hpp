@@ -50,6 +50,10 @@
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsShrinkRequest.hpp>
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponseBody.hpp>
 #include <alibabacloud/models/BatchUpdateDataLakePartitionsResponse.hpp>
+#include <alibabacloud/models/ConfigAirflowRequest.hpp>
+#include <alibabacloud/models/ConfigAirflowShrinkRequest.hpp>
+#include <alibabacloud/models/ConfigAirflowResponseBody.hpp>
+#include <alibabacloud/models/ConfigAirflowResponse.hpp>
 #include <alibabacloud/models/CreateAirflowRequest.hpp>
 #include <alibabacloud/models/CreateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAirflowResponseBody.hpp>
@@ -61,6 +65,9 @@
 #include <alibabacloud/models/CreateCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomAgentResponse.hpp>
+#include <alibabacloud/models/CreateDataAgentKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/CreateDataAgentKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/CreateDataAgentKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateDataAgentSessionResponseBody.hpp>
@@ -90,6 +97,9 @@
 #include <alibabacloud/models/DeleteCustomAgentRequest.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DeleteCustomAgentResponse.hpp>
+#include <alibabacloud/models/DeleteDataAgentKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/DeleteDataAgentKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteDataAgentWorkspaceResponse.hpp>
@@ -118,6 +128,9 @@
 #include <alibabacloud/models/DescribeFileUploadSignatureRequest.hpp>
 #include <alibabacloud/models/DescribeFileUploadSignatureResponseBody.hpp>
 #include <alibabacloud/models/DescribeFileUploadSignatureResponse.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseStatsRequest.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseStatsResponseBody.hpp>
+#include <alibabacloud/models/DescribeKnowledgeBaseStatsResponse.hpp>
 #include <alibabacloud/models/FileUploadCallbackRequest.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponseBody.hpp>
 #include <alibabacloud/models/FileUploadCallbackResponse.hpp>
@@ -158,6 +171,12 @@
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceQuotaRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceQuotaResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceQuotaResponse.hpp>
+#include <alibabacloud/models/ListAirflowVersionsRequest.hpp>
+#include <alibabacloud/models/ListAirflowVersionsResponseBody.hpp>
+#include <alibabacloud/models/ListAirflowVersionsResponse.hpp>
 #include <alibabacloud/models/ListAirflowsRequest.hpp>
 #include <alibabacloud/models/ListAirflowsResponseBody.hpp>
 #include <alibabacloud/models/ListAirflowsResponse.hpp>
@@ -220,6 +239,9 @@
 #include <alibabacloud/models/OperateCustomAgentRequest.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/OperateCustomAgentResponse.hpp>
+#include <alibabacloud/models/RedeployAirflowRequest.hpp>
+#include <alibabacloud/models/RedeployAirflowResponseBody.hpp>
+#include <alibabacloud/models/RedeployAirflowResponse.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponse.hpp>
@@ -230,6 +252,9 @@
 #include <alibabacloud/models/SetWorkspaceCodePublishSettingRequest.hpp>
 #include <alibabacloud/models/SetWorkspaceCodePublishSettingResponseBody.hpp>
 #include <alibabacloud/models/SetWorkspaceCodePublishSettingResponse.hpp>
+#include <alibabacloud/models/SetWorkspaceQuotaRequest.hpp>
+#include <alibabacloud/models/SetWorkspaceQuotaResponseBody.hpp>
+#include <alibabacloud/models/SetWorkspaceQuotaResponse.hpp>
 #include <alibabacloud/models/UpdateAirflowRequest.hpp>
 #include <alibabacloud/models/UpdateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAirflowResponseBody.hpp>

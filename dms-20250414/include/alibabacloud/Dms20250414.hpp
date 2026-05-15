@@ -89,6 +89,23 @@ namespace Dms20250414
       Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitions(const Models::BatchUpdateDataLakePartitionsRequest &request);
 
       /**
+       * @summary 更新Airflow实例的自定义配置
+       *
+       * @param tmpReq ConfigAirflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfigAirflowResponse
+       */
+      Models::ConfigAirflowResponse configAirflowWithOptions(const Models::ConfigAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Airflow实例的自定义配置
+       *
+       * @param request ConfigAirflowRequest
+       * @return ConfigAirflowResponse
+       */
+      Models::ConfigAirflowResponse configAirflow(const Models::ConfigAirflowRequest &request);
+
+      /**
        * @summary 创建Airflow
        *
        * @param tmpReq CreateAirflowRequest
@@ -138,6 +155,23 @@ namespace Dms20250414
        * @return CreateCustomAgentResponse
        */
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
+
+      /**
+       * @summary CreateDataAgentKnowledgeBase
+       *
+       * @param request CreateDataAgentKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateDataAgentKnowledgeBaseResponse
+       */
+      Models::CreateDataAgentKnowledgeBaseResponse createDataAgentKnowledgeBaseWithOptions(const Models::CreateDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateDataAgentKnowledgeBase
+       *
+       * @param request CreateDataAgentKnowledgeBaseRequest
+       * @return CreateDataAgentKnowledgeBaseResponse
+       */
+      Models::CreateDataAgentKnowledgeBaseResponse createDataAgentKnowledgeBase(const Models::CreateDataAgentKnowledgeBaseRequest &request);
 
       /**
        * @summary CreateDataAgentSession
@@ -274,6 +308,23 @@ namespace Dms20250414
        * @return DeleteCustomAgentResponse
        */
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
+
+      /**
+       * @summary DeleteDataAgentKnowledgeBase
+       *
+       * @param request DeleteDataAgentKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDataAgentKnowledgeBaseResponse
+       */
+      Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBaseWithOptions(const Models::DeleteDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DeleteDataAgentKnowledgeBase
+       *
+       * @param request DeleteDataAgentKnowledgeBaseRequest
+       * @return DeleteDataAgentKnowledgeBaseResponse
+       */
+      Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBase(const Models::DeleteDataAgentKnowledgeBaseRequest &request);
 
       /**
        * @summary 删除DataAgent工作空间
@@ -427,6 +478,23 @@ namespace Dms20250414
        * @return DescribeFileUploadSignatureResponse
        */
       Models::DescribeFileUploadSignatureResponse describeFileUploadSignature(const Models::DescribeFileUploadSignatureRequest &request);
+
+      /**
+       * @summary 获取onemeta3.0的知识库统计信息
+       *
+       * @param request DescribeKnowledgeBaseStatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseStatsResponse
+       */
+      Models::DescribeKnowledgeBaseStatsResponse describeKnowledgeBaseStatsWithOptions(const Models::DescribeKnowledgeBaseStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取onemeta3.0的知识库统计信息
+       *
+       * @param request DescribeKnowledgeBaseStatsRequest
+       * @return DescribeKnowledgeBaseStatsResponse
+       */
+      Models::DescribeKnowledgeBaseStatsResponse describeKnowledgeBaseStats(const Models::DescribeKnowledgeBaseStatsRequest &request);
 
       /**
        * @summary FileUploadCallback
@@ -657,6 +725,40 @@ namespace Dms20250414
        * @return GetWorkspaceCodePublishSettingResponse
        */
       Models::GetWorkspaceCodePublishSettingResponse getWorkspaceCodePublishSetting(const Models::GetWorkspaceCodePublishSettingRequest &request);
+
+      /**
+       * @summary 获取工作空间配额
+       *
+       * @param request GetWorkspaceQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceQuotaResponse
+       */
+      Models::GetWorkspaceQuotaResponse getWorkspaceQuotaWithOptions(const Models::GetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作空间配额
+       *
+       * @param request GetWorkspaceQuotaRequest
+       * @return GetWorkspaceQuotaResponse
+       */
+      Models::GetWorkspaceQuotaResponse getWorkspaceQuota(const Models::GetWorkspaceQuotaRequest &request);
+
+      /**
+       * @summary 获取可用的Airflow版本列表
+       *
+       * @param request ListAirflowVersionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAirflowVersionsResponse
+       */
+      Models::ListAirflowVersionsResponse listAirflowVersionsWithOptions(const Models::ListAirflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取可用的Airflow版本列表
+       *
+       * @param request ListAirflowVersionsRequest
+       * @return ListAirflowVersionsResponse
+       */
+      Models::ListAirflowVersionsResponse listAirflowVersions(const Models::ListAirflowVersionsRequest &request);
 
       /**
        * @summary 列出资源Airflow
@@ -999,6 +1101,23 @@ namespace Dms20250414
       Models::OperateCustomAgentResponse operateCustomAgent(const Models::OperateCustomAgentRequest &request);
 
       /**
+       * @summary 重新部署Airflow实例
+       *
+       * @param request RedeployAirflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RedeployAirflowResponse
+       */
+      Models::RedeployAirflowResponse redeployAirflowWithOptions(const Models::RedeployAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新部署Airflow实例
+       *
+       * @param request RedeployAirflowRequest
+       * @return RedeployAirflowResponse
+       */
+      Models::RedeployAirflowResponse redeployAirflow(const Models::RedeployAirflowRequest &request);
+
+      /**
        * @summary 从空间中移除用户
        *
        * @param request RemoveUserToDataAgentWorkspaceRequest
@@ -1048,6 +1167,23 @@ namespace Dms20250414
        * @return SetWorkspaceCodePublishSettingResponse
        */
       Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSetting(const Models::SetWorkspaceCodePublishSettingRequest &request);
+
+      /**
+       * @summary 设置工作空间配额
+       *
+       * @param request SetWorkspaceQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SetWorkspaceQuotaResponse
+       */
+      Models::SetWorkspaceQuotaResponse setWorkspaceQuotaWithOptions(const Models::SetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置工作空间配额
+       *
+       * @param request SetWorkspaceQuotaRequest
+       * @return SetWorkspaceQuotaResponse
+       */
+      Models::SetWorkspaceQuotaResponse setWorkspaceQuota(const Models::SetWorkspaceQuotaRequest &request);
 
       /**
        * @summary 更新UpdateAirflow

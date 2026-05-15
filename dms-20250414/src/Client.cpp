@@ -305,6 +305,62 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitions(cons
 }
 
 /**
+ * @summary 更新Airflow实例的自定义配置
+ *
+ * @param tmpReq ConfigAirflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfigAirflowResponse
+ */
+ConfigAirflowResponse Client::configAirflowWithOptions(const ConfigAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ConfigAirflowShrinkRequest request = ConfigAirflowShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCustomAirflowCfg()) {
+    request.setCustomAirflowCfgShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomAirflowCfg(), "CustomAirflowCfg", "simple"));
+  }
+
+  json query = {};
+  if (!!request.hasAirflowId()) {
+    query["AirflowId"] = request.getAirflowId();
+  }
+
+  if (!!request.hasCustomAirflowCfgShrink()) {
+    query["CustomAirflowCfg"] = request.getCustomAirflowCfgShrink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfigAirflow"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfigAirflowResponse>();
+}
+
+/**
+ * @summary 更新Airflow实例的自定义配置
+ *
+ * @param request ConfigAirflowRequest
+ * @return ConfigAirflowResponse
+ */
+ConfigAirflowResponse Client::configAirflow(const ConfigAirflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return configAirflowWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建Airflow
  *
  * @param tmpReq CreateAirflowRequest
@@ -576,6 +632,64 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCustomAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary CreateDataAgentKnowledgeBase
+ *
+ * @param request CreateDataAgentKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateDataAgentKnowledgeBaseResponse
+ */
+CreateDataAgentKnowledgeBaseResponse Client::createDataAgentKnowledgeBaseWithOptions(const CreateDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFromKbUuid()) {
+    query["FromKbUuid"] = request.getFromKbUuid();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateDataAgentKnowledgeBase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateDataAgentKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary CreateDataAgentKnowledgeBase
+ *
+ * @param request CreateDataAgentKnowledgeBaseRequest
+ * @return CreateDataAgentKnowledgeBaseResponse
+ */
+CreateDataAgentKnowledgeBaseResponse Client::createDataAgentKnowledgeBase(const CreateDataAgentKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createDataAgentKnowledgeBaseWithOptions(request, runtime);
 }
 
 /**
@@ -1075,6 +1189,56 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
+ * @summary DeleteDataAgentKnowledgeBase
+ *
+ * @param request DeleteDataAgentKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDataAgentKnowledgeBaseResponse
+ */
+DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBaseWithOptions(const DeleteDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDMSUnit()) {
+    query["DMSUnit"] = request.getDMSUnit();
+  }
+
+  if (!!request.hasKbUuid()) {
+    query["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDataAgentKnowledgeBase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDataAgentKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary DeleteDataAgentKnowledgeBase
+ *
+ * @param request DeleteDataAgentKnowledgeBaseRequest
+ * @return DeleteDataAgentKnowledgeBaseResponse
+ */
+DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBase(const DeleteDataAgentKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDataAgentKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除DataAgent工作空间
  *
  * @param request DeleteDataAgentWorkspaceRequest
@@ -1552,6 +1716,48 @@ DescribeFileUploadSignatureResponse Client::describeFileUploadSignatureWithOptio
 DescribeFileUploadSignatureResponse Client::describeFileUploadSignature(const DescribeFileUploadSignatureRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeFileUploadSignatureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取onemeta3.0的知识库统计信息
+ *
+ * @param request DescribeKnowledgeBaseStatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseStatsResponse
+ */
+DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStatsWithOptions(const DescribeKnowledgeBaseStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKbUuid()) {
+    query["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseStats"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseStatsResponse>();
+}
+
+/**
+ * @summary 获取onemeta3.0的知识库统计信息
+ *
+ * @param request DescribeKnowledgeBaseStatsRequest
+ * @return DescribeKnowledgeBaseStatsResponse
+ */
+DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStats(const DescribeKnowledgeBaseStatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseStatsWithOptions(request, runtime);
 }
 
 /**
@@ -2299,6 +2505,90 @@ GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSettingWit
 GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSetting(const GetWorkspaceCodePublishSettingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getWorkspaceCodePublishSettingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取工作空间配额
+ *
+ * @param request GetWorkspaceQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceQuotaResponse
+ */
+GetWorkspaceQuotaResponse Client::getWorkspaceQuotaWithOptions(const GetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceQuota"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceQuotaResponse>();
+}
+
+/**
+ * @summary 获取工作空间配额
+ *
+ * @param request GetWorkspaceQuotaRequest
+ * @return GetWorkspaceQuotaResponse
+ */
+GetWorkspaceQuotaResponse Client::getWorkspaceQuota(const GetWorkspaceQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkspaceQuotaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取可用的Airflow版本列表
+ *
+ * @param request ListAirflowVersionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAirflowVersionsResponse
+ */
+ListAirflowVersionsResponse Client::listAirflowVersionsWithOptions(const ListAirflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAirflowVersions"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAirflowVersionsResponse>();
+}
+
+/**
+ * @summary 获取可用的Airflow版本列表
+ *
+ * @param request ListAirflowVersionsRequest
+ * @return ListAirflowVersionsResponse
+ */
+ListAirflowVersionsResponse Client::listAirflowVersions(const ListAirflowVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAirflowVersionsWithOptions(request, runtime);
 }
 
 /**
@@ -3686,6 +3976,52 @@ OperateCustomAgentResponse Client::operateCustomAgent(const OperateCustomAgentRe
 }
 
 /**
+ * @summary 重新部署Airflow实例
+ *
+ * @param request RedeployAirflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RedeployAirflowResponse
+ */
+RedeployAirflowResponse Client::redeployAirflowWithOptions(const RedeployAirflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAirflowId()) {
+    query["AirflowId"] = request.getAirflowId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RedeployAirflow"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RedeployAirflowResponse>();
+}
+
+/**
+ * @summary 重新部署Airflow实例
+ *
+ * @param request RedeployAirflowRequest
+ * @return RedeployAirflowResponse
+ */
+RedeployAirflowResponse Client::redeployAirflow(const RedeployAirflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return redeployAirflowWithOptions(request, runtime);
+}
+
+/**
  * @summary 从空间中移除用户
  *
  * @param request RemoveUserToDataAgentWorkspaceRequest
@@ -3881,6 +4217,64 @@ SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSettingWit
 SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSetting(const SetWorkspaceCodePublishSettingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setWorkspaceCodePublishSettingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 设置工作空间配额
+ *
+ * @param request SetWorkspaceQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SetWorkspaceQuotaResponse
+ */
+SetWorkspaceQuotaResponse Client::setWorkspaceQuotaWithOptions(const SetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasCuQuota()) {
+    query["CuQuota"] = request.getCuQuota();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.getRegion();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SetWorkspaceQuota"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SetWorkspaceQuotaResponse>();
+}
+
+/**
+ * @summary 设置工作空间配额
+ *
+ * @param request SetWorkspaceQuotaRequest
+ * @return SetWorkspaceQuotaResponse
+ */
+SetWorkspaceQuotaResponse Client::setWorkspaceQuota(const SetWorkspaceQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return setWorkspaceQuotaWithOptions(request, runtime);
 }
 
 /**
