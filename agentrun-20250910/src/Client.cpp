@@ -474,6 +474,50 @@ CreateFlowEndpointResponse Client::createFlowEndpoint(const string &flowName, co
 }
 
 /**
+ * @summary 创建 IM Bot
+ *
+ * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+ *
+ * @param request CreateIMBotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateIMBotResponse
+ */
+CreateIMBotResponse Client::createIMBotWithOptions(const CreateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateIMBot"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/im-bots")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateIMBotResponse>();
+}
+
+/**
+ * @summary 创建 IM Bot
+ *
+ * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+ *
+ * @param request CreateIMBotRequest
+ * @return CreateIMBotResponse
+ */
+CreateIMBotResponse Client::createIMBot(const CreateIMBotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createIMBotWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建知识库
  *
  * @param request CreateKnowledgeBaseRequest
@@ -1164,6 +1208,49 @@ DeleteFlowVersionResponse Client::deleteFlowVersion(const string &flowName, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
+}
+
+/**
+ * @summary 删除 IM Bot
+ *
+ * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+ *
+ * @param request DeleteIMBotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteIMBotResponse
+ */
+DeleteIMBotResponse Client::deleteIMBotWithOptions(const string &imBotId, const DeleteIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteIMBot"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/im-bots/" , Darabonba::Encode::Encoder::percentEncode(imBotId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteIMBotResponse>();
+}
+
+/**
+ * @summary 删除 IM Bot
+ *
+ * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+ *
+ * @param request DeleteIMBotRequest
+ * @return DeleteIMBotResponse
+ */
+DeleteIMBotResponse Client::deleteIMBot(const string &imBotId, const DeleteIMBotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteIMBotWithOptions(imBotId, request, headers, runtime);
 }
 
 /**
@@ -1926,6 +2013,49 @@ GetFlowVersionResponse Client::getFlowVersion(const string &flowName, const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
+}
+
+/**
+ * @summary 获取 IM Bot
+ *
+ * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+ *
+ * @param request GetIMBotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetIMBotResponse
+ */
+GetIMBotResponse Client::getIMBotWithOptions(const string &imBotId, const GetIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetIMBot"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/im-bots/" , Darabonba::Encode::Encoder::percentEncode(imBotId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetIMBotResponse>();
+}
+
+/**
+ * @summary 获取 IM Bot
+ *
+ * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+ *
+ * @param request GetIMBotRequest
+ * @return GetIMBotResponse
+ */
+GetIMBotResponse Client::getIMBot(const string &imBotId, const GetIMBotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getIMBotWithOptions(imBotId, request, headers, runtime);
 }
 
 /**
@@ -2892,6 +3022,75 @@ ListFlowsResponse Client::listFlows(const ListFlowsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listFlowsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 分页列举 IM Bots
+ *
+ * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+ *
+ * @param request ListIMBotsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIMBotsResponse
+ */
+ListIMBotsResponse Client::listIMBotsWithOptions(const ListIMBotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentRuntimeId()) {
+    query["agentRuntimeId"] = request.getAgentRuntimeId();
+  }
+
+  if (!!request.hasBotBizType()) {
+    query["botBizType"] = request.getBotBizType();
+  }
+
+  if (!!request.hasBotName()) {
+    query["botName"] = request.getBotName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIMBots"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/im-bots")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIMBotsResponse>();
+}
+
+/**
+ * @summary 分页列举 IM Bots
+ *
+ * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+ *
+ * @param request ListIMBotsRequest
+ * @return ListIMBotsResponse
+ */
+ListIMBotsResponse Client::listIMBots(const ListIMBotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listIMBotsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -4025,6 +4224,50 @@ UpdateFlowEndpointResponse Client::updateFlowEndpoint(const string &flowName, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新 IM Bot
+ *
+ * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+ *
+ * @param request UpdateIMBotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateIMBotResponse
+ */
+UpdateIMBotResponse Client::updateIMBotWithOptions(const string &imBotId, const UpdateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateIMBot"},
+    {"version" , "2025-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/2025-09-10/agents/im-bots/" , Darabonba::Encode::Encoder::percentEncode(imBotId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateIMBotResponse>();
+}
+
+/**
+ * @summary 更新 IM Bot
+ *
+ * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+ *
+ * @param request UpdateIMBotRequest
+ * @return UpdateIMBotResponse
+ */
+UpdateIMBotResponse Client::updateIMBot(const string &imBotId, const UpdateIMBotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateIMBotWithOptions(imBotId, request, headers, runtime);
 }
 
 /**

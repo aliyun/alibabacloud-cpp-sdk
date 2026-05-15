@@ -229,6 +229,28 @@ namespace AgentRun20250910
       Models::CreateFlowEndpointResponse createFlowEndpoint(const string &flowName, const Models::CreateFlowEndpointRequest &request);
 
       /**
+       * @summary 创建 IM Bot
+       *
+       * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+       *
+       * @param request CreateIMBotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateIMBotResponse
+       */
+      Models::CreateIMBotResponse createIMBotWithOptions(const Models::CreateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 IM Bot
+       *
+       * @description POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+       *
+       * @param request CreateIMBotRequest
+       * @return CreateIMBotResponse
+       */
+      Models::CreateIMBotResponse createIMBot(const Models::CreateIMBotRequest &request);
+
+      /**
        * @summary 创建知识库
        *
        * @param request CreateKnowledgeBaseRequest
@@ -561,6 +583,28 @@ namespace AgentRun20250910
        * @return DeleteFlowVersionResponse
        */
       Models::DeleteFlowVersionResponse deleteFlowVersion(const string &flowName, const string &flowVersion, const Models::DeleteFlowVersionRequest &request);
+
+      /**
+       * @summary 删除 IM Bot
+       *
+       * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+       *
+       * @param request DeleteIMBotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteIMBotResponse
+       */
+      Models::DeleteIMBotResponse deleteIMBotWithOptions(const string &imBotId, const Models::DeleteIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 IM Bot
+       *
+       * @description DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+       *
+       * @param request DeleteIMBotRequest
+       * @return DeleteIMBotResponse
+       */
+      Models::DeleteIMBotResponse deleteIMBot(const string &imBotId, const Models::DeleteIMBotRequest &request);
 
       /**
        * @summary 删除知识库
@@ -917,6 +961,28 @@ namespace AgentRun20250910
        * @return GetFlowVersionResponse
        */
       Models::GetFlowVersionResponse getFlowVersion(const string &flowName, const string &flowVersion, const Models::GetFlowVersionRequest &request);
+
+      /**
+       * @summary 获取 IM Bot
+       *
+       * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+       *
+       * @param request GetIMBotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetIMBotResponse
+       */
+      Models::GetIMBotResponse getIMBotWithOptions(const string &imBotId, const Models::GetIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取 IM Bot
+       *
+       * @description GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+       *
+       * @param request GetIMBotRequest
+       * @return GetIMBotResponse
+       */
+      Models::GetIMBotResponse getIMBot(const string &imBotId, const Models::GetIMBotRequest &request);
 
       /**
        * @summary 获取知识库
@@ -1285,6 +1351,28 @@ namespace AgentRun20250910
        * @return ListFlowsResponse
        */
       Models::ListFlowsResponse listFlows(const Models::ListFlowsRequest &request);
+
+      /**
+       * @summary 分页列举 IM Bots
+       *
+       * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+       *
+       * @param request ListIMBotsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIMBotsResponse
+       */
+      Models::ListIMBotsResponse listIMBotsWithOptions(const Models::ListIMBotsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页列举 IM Bots
+       *
+       * @description GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+       *
+       * @param request ListIMBotsRequest
+       * @return ListIMBotsResponse
+       */
+      Models::ListIMBotsResponse listIMBots(const Models::ListIMBotsRequest &request);
 
       /**
        * @summary 列出知识库
@@ -1721,6 +1809,28 @@ namespace AgentRun20250910
        * @return UpdateFlowEndpointResponse
        */
       Models::UpdateFlowEndpointResponse updateFlowEndpoint(const string &flowName, const string &flowEndpointName, const Models::UpdateFlowEndpointRequest &request);
+
+      /**
+       * @summary 更新 IM Bot
+       *
+       * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+       *
+       * @param request UpdateIMBotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateIMBotResponse
+       */
+      Models::UpdateIMBotResponse updateIMBotWithOptions(const string &imBotId, const Models::UpdateIMBotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 IM Bot
+       *
+       * @description PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+       *
+       * @param request UpdateIMBotRequest
+       * @return UpdateIMBotResponse
+       */
+      Models::UpdateIMBotResponse updateIMBot(const string &imBotId, const Models::UpdateIMBotRequest &request);
 
       /**
        * @summary 更新知识库

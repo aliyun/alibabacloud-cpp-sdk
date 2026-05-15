@@ -101,6 +101,7 @@ namespace Models
     protected:
       // 是否执行兼容性检查，默认为true
       shared_ptr<bool> compatibilityCheck_ {};
+      // 调用方指定的 AgentRun 凭证资源名称。转换后会替换模型相关节点访问凭证
       shared_ptr<string> credentialName_ {};
       shared_ptr<string> flowName_ {};
       // 全局VPC端点名称，对所有节点统一生效。如果指定了vpcEndpoints映射，则映射中的节点优先使用映射值
