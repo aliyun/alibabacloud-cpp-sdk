@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createTimestamp_ == nullptr
-        && return this->userName_ == nullptr; };
+        && this->userName_ == nullptr; };
     // createTimestamp Field Functions 
     bool hasCreateTimestamp() const { return this->createTimestamp_ != nullptr;};
     void deleteCreateTimestamp() { this->createTimestamp_ = nullptr;};
-    inline int64_t createTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
+    inline int64_t getCreateTimestamp() const { DARABONBA_PTR_GET_DEFAULT(createTimestamp_, 0L) };
     inline DeleteAccountRequest& setCreateTimestamp(int64_t createTimestamp) { DARABONBA_PTR_SET_VALUE(createTimestamp_, createTimestamp) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline DeleteAccountRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The timestamp that indicates when the pair of static username and password that you want to delete was created. Unit: milliseconds.
     // 
     // You can call the [ListAccounts](https://help.aliyun.com/document_detail/472730.html) operation to view the timestamp.
-    std::shared_ptr<int64_t> createTimestamp_ = nullptr;
+    shared_ptr<int64_t> createTimestamp_ {};
     // The pair of username and password that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

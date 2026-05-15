@@ -46,31 +46,31 @@ CreateAccountResponse Client::createAccountWithOptions(const CreateAccountReques
   request.validate();
   json query = {};
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   if (!!request.hasAccountAccessKey()) {
-    query["accountAccessKey"] = request.accountAccessKey();
+    query["accountAccessKey"] = request.getAccountAccessKey();
   }
 
   if (!!request.hasCreateTimestamp()) {
-    query["createTimestamp"] = request.createTimestamp();
+    query["createTimestamp"] = request.getCreateTimestamp();
   }
 
   if (!!request.hasInstanceId()) {
-    query["instanceId"] = request.instanceId();
+    query["instanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSecretSign()) {
-    query["secretSign"] = request.secretSign();
+    query["secretSign"] = request.getSecretSign();
   }
 
   if (!!request.hasSignature()) {
-    query["signature"] = request.signature();
+    query["signature"] = request.getSignature();
   }
 
   if (!!request.hasUserName()) {
-    query["userName"] = request.userName();
+    query["userName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -112,31 +112,31 @@ CreateBindingResponse Client::createBindingWithOptions(const CreateBindingReques
   request.validate();
   json body = {};
   if (!!request.hasArgument()) {
-    body["Argument"] = request.argument();
+    body["Argument"] = request.getArgument();
   }
 
   if (!!request.hasBindingKey()) {
-    body["BindingKey"] = request.bindingKey();
+    body["BindingKey"] = request.getBindingKey();
   }
 
   if (!!request.hasBindingType()) {
-    body["BindingType"] = request.bindingType();
+    body["BindingType"] = request.getBindingType();
   }
 
   if (!!request.hasDestinationName()) {
-    body["DestinationName"] = request.destinationName();
+    body["DestinationName"] = request.getDestinationName();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceExchange()) {
-    body["SourceExchange"] = request.sourceExchange();
+    body["SourceExchange"] = request.getSourceExchange();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -178,35 +178,35 @@ CreateExchangeResponse Client::createExchangeWithOptions(const CreateExchangeReq
   request.validate();
   json body = {};
   if (!!request.hasAlternateExchange()) {
-    body["AlternateExchange"] = request.alternateExchange();
+    body["AlternateExchange"] = request.getAlternateExchange();
   }
 
   if (!!request.hasAutoDeleteState()) {
-    body["AutoDeleteState"] = request.autoDeleteState();
+    body["AutoDeleteState"] = request.getAutoDeleteState();
   }
 
   if (!!request.hasExchangeName()) {
-    body["ExchangeName"] = request.exchangeName();
+    body["ExchangeName"] = request.getExchangeName();
   }
 
   if (!!request.hasExchangeType()) {
-    body["ExchangeType"] = request.exchangeType();
+    body["ExchangeType"] = request.getExchangeType();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInternal()) {
-    body["Internal"] = request.internal();
+    body["Internal"] = request.getInternal();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   if (!!request.hasXDelayedType()) {
-    body["XDelayedType"] = request.XDelayedType();
+    body["XDelayedType"] = request.getXDelayedType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -251,108 +251,136 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   CreateInstanceShrinkRequest request = CreateInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTags()) {
-    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.tags(), "Tags", "json"));
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
+  if (!!tmpReq.hasVswitchIds()) {
+    request.setVswitchIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVswitchIds(), "VswitchIds", "json"));
   }
 
   json query = {};
+  if (!!request.hasAuthModel()) {
+    query["AuthModel"] = request.getAuthModel();
+  }
+
   if (!!request.hasAutoRenew()) {
-    query["AutoRenew"] = request.autoRenew();
+    query["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasAutoRenewPeriod()) {
-    query["AutoRenewPeriod"] = request.autoRenewPeriod();
+    query["AutoRenewPeriod"] = request.getAutoRenewPeriod();
   }
 
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEdition()) {
-    query["Edition"] = request.edition();
+    query["Edition"] = request.getEdition();
   }
 
   if (!!request.hasEncryptedInstance()) {
-    query["EncryptedInstance"] = request.encryptedInstance();
+    query["EncryptedInstance"] = request.getEncryptedInstance();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasKmsKeyId()) {
-    query["KmsKeyId"] = request.kmsKeyId();
+    query["KmsKeyId"] = request.getKmsKeyId();
+  }
+
+  if (!!request.hasListenerMode()) {
+    query["ListenerMode"] = request.getListenerMode();
   }
 
   if (!!request.hasMaxConnections()) {
-    query["MaxConnections"] = request.maxConnections();
+    query["MaxConnections"] = request.getMaxConnections();
   }
 
   if (!!request.hasMaxEipTps()) {
-    query["MaxEipTps"] = request.maxEipTps();
+    query["MaxEipTps"] = request.getMaxEipTps();
   }
 
   if (!!request.hasMaxPrivateTps()) {
-    query["MaxPrivateTps"] = request.maxPrivateTps();
+    query["MaxPrivateTps"] = request.getMaxPrivateTps();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   if (!!request.hasPeriod()) {
-    query["Period"] = request.period();
+    query["Period"] = request.getPeriod();
   }
 
   if (!!request.hasPeriodCycle()) {
-    query["PeriodCycle"] = request.periodCycle();
+    query["PeriodCycle"] = request.getPeriodCycle();
   }
 
   if (!!request.hasProvisionedCapacity()) {
-    query["ProvisionedCapacity"] = request.provisionedCapacity();
+    query["ProvisionedCapacity"] = request.getProvisionedCapacity();
   }
 
   if (!!request.hasQueueCapacity()) {
-    query["QueueCapacity"] = request.queueCapacity();
+    query["QueueCapacity"] = request.getQueueCapacity();
   }
 
   if (!!request.hasRenewStatus()) {
-    query["RenewStatus"] = request.renewStatus();
+    query["RenewStatus"] = request.getRenewStatus();
   }
 
   if (!!request.hasRenewalDurationUnit()) {
-    query["RenewalDurationUnit"] = request.renewalDurationUnit();
+    query["RenewalDurationUnit"] = request.getRenewalDurationUnit();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
   }
 
   if (!!request.hasServerlessChargeType()) {
-    query["ServerlessChargeType"] = request.serverlessChargeType();
+    query["ServerlessChargeType"] = request.getServerlessChargeType();
+  }
+
+  if (!!request.hasServerlessSwitch()) {
+    query["ServerlessSwitch"] = request.getServerlessSwitch();
   }
 
   if (!!request.hasStorageSize()) {
-    query["StorageSize"] = request.storageSize();
+    query["StorageSize"] = request.getStorageSize();
   }
 
   if (!!request.hasSupportEip()) {
-    query["SupportEip"] = request.supportEip();
+    query["SupportEip"] = request.getSupportEip();
   }
 
   if (!!request.hasSupportTracing()) {
-    query["SupportTracing"] = request.supportTracing();
+    query["SupportTracing"] = request.getSupportTracing();
   }
 
   if (!!request.hasTagsShrink()) {
-    query["Tags"] = request.tagsShrink();
+    query["Tags"] = request.getTagsShrink();
   }
 
   if (!!request.hasTracingStorageTime()) {
-    query["TracingStorageTime"] = request.tracingStorageTime();
+    query["TracingStorageTime"] = request.getTracingStorageTime();
+  }
+
+  if (!!request.hasVpcId()) {
+    query["VpcId"] = request.getVpcId();
+  }
+
+  if (!!request.hasVswitchIdsShrink()) {
+    query["VswitchIds"] = request.getVswitchIdsShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -396,47 +424,47 @@ CreateQueueResponse Client::createQueueWithOptions(const CreateQueueRequest &req
   request.validate();
   json body = {};
   if (!!request.hasAutoDeleteState()) {
-    body["AutoDeleteState"] = request.autoDeleteState();
+    body["AutoDeleteState"] = request.getAutoDeleteState();
   }
 
   if (!!request.hasAutoExpireState()) {
-    body["AutoExpireState"] = request.autoExpireState();
+    body["AutoExpireState"] = request.getAutoExpireState();
   }
 
   if (!!request.hasDeadLetterExchange()) {
-    body["DeadLetterExchange"] = request.deadLetterExchange();
+    body["DeadLetterExchange"] = request.getDeadLetterExchange();
   }
 
   if (!!request.hasDeadLetterRoutingKey()) {
-    body["DeadLetterRoutingKey"] = request.deadLetterRoutingKey();
+    body["DeadLetterRoutingKey"] = request.getDeadLetterRoutingKey();
   }
 
   if (!!request.hasExclusiveState()) {
-    body["ExclusiveState"] = request.exclusiveState();
+    body["ExclusiveState"] = request.getExclusiveState();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasMaxLength()) {
-    body["MaxLength"] = request.maxLength();
+    body["MaxLength"] = request.getMaxLength();
   }
 
   if (!!request.hasMaximumPriority()) {
-    body["MaximumPriority"] = request.maximumPriority();
+    body["MaximumPriority"] = request.getMaximumPriority();
   }
 
   if (!!request.hasMessageTTL()) {
-    body["MessageTTL"] = request.messageTTL();
+    body["MessageTTL"] = request.getMessageTTL();
   }
 
   if (!!request.hasQueueName()) {
-    body["QueueName"] = request.queueName();
+    body["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -478,11 +506,11 @@ CreateVirtualHostResponse Client::createVirtualHostWithOptions(const CreateVirtu
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -524,11 +552,11 @@ DeleteAccountResponse Client::deleteAccountWithOptions(const DeleteAccountReques
   request.validate();
   json query = {};
   if (!!request.hasCreateTimestamp()) {
-    query["CreateTimestamp"] = request.createTimestamp();
+    query["CreateTimestamp"] = request.getCreateTimestamp();
   }
 
   if (!!request.hasUserName()) {
-    query["UserName"] = request.userName();
+    query["UserName"] = request.getUserName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -570,27 +598,27 @@ DeleteBindingResponse Client::deleteBindingWithOptions(const DeleteBindingReques
   request.validate();
   json body = {};
   if (!!request.hasBindingKey()) {
-    body["BindingKey"] = request.bindingKey();
+    body["BindingKey"] = request.getBindingKey();
   }
 
   if (!!request.hasBindingType()) {
-    body["BindingType"] = request.bindingType();
+    body["BindingType"] = request.getBindingType();
   }
 
   if (!!request.hasDestinationName()) {
-    body["DestinationName"] = request.destinationName();
+    body["DestinationName"] = request.getDestinationName();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasSourceExchange()) {
-    body["SourceExchange"] = request.sourceExchange();
+    body["SourceExchange"] = request.getSourceExchange();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -636,15 +664,15 @@ DeleteExchangeResponse Client::deleteExchangeWithOptions(const DeleteExchangeReq
   request.validate();
   json body = {};
   if (!!request.hasExchangeName()) {
-    body["ExchangeName"] = request.exchangeName();
+    body["ExchangeName"] = request.getExchangeName();
   }
 
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -690,15 +718,15 @@ DeleteQueueResponse Client::deleteQueueWithOptions(const DeleteQueueRequest &req
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasQueueName()) {
-    body["QueueName"] = request.queueName();
+    body["QueueName"] = request.getQueueName();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -742,11 +770,11 @@ DeleteVirtualHostResponse Client::deleteVirtualHostWithOptions(const DeleteVirtu
   request.validate();
   json body = {};
   if (!!request.hasInstanceId()) {
-    body["InstanceId"] = request.instanceId();
+    body["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasVirtualHost()) {
-    body["VirtualHost"] = request.virtualHost();
+    body["VirtualHost"] = request.getVirtualHost();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -866,7 +894,7 @@ ListAccountsResponse Client::listAccountsWithOptions(const ListAccountsRequest &
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1254,71 +1282,71 @@ UpdateInstanceResponse Client::updateInstanceWithOptions(const UpdateInstanceReq
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasEdition()) {
-    query["Edition"] = request.edition();
+    query["Edition"] = request.getEdition();
   }
 
   if (!!request.hasEncryptedInstance()) {
-    query["EncryptedInstance"] = request.encryptedInstance();
+    query["EncryptedInstance"] = request.getEncryptedInstance();
   }
 
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceType()) {
-    query["InstanceType"] = request.instanceType();
+    query["InstanceType"] = request.getInstanceType();
   }
 
   if (!!request.hasKmsKeyId()) {
-    query["KmsKeyId"] = request.kmsKeyId();
+    query["KmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasMaxConnections()) {
-    query["MaxConnections"] = request.maxConnections();
+    query["MaxConnections"] = request.getMaxConnections();
   }
 
   if (!!request.hasMaxEipTps()) {
-    query["MaxEipTps"] = request.maxEipTps();
+    query["MaxEipTps"] = request.getMaxEipTps();
   }
 
   if (!!request.hasMaxPrivateTps()) {
-    query["MaxPrivateTps"] = request.maxPrivateTps();
+    query["MaxPrivateTps"] = request.getMaxPrivateTps();
   }
 
   if (!!request.hasModifyType()) {
-    query["ModifyType"] = request.modifyType();
+    query["ModifyType"] = request.getModifyType();
   }
 
   if (!!request.hasProvisionedCapacity()) {
-    query["ProvisionedCapacity"] = request.provisionedCapacity();
+    query["ProvisionedCapacity"] = request.getProvisionedCapacity();
   }
 
   if (!!request.hasQueueCapacity()) {
-    query["QueueCapacity"] = request.queueCapacity();
+    query["QueueCapacity"] = request.getQueueCapacity();
   }
 
   if (!!request.hasServerlessChargeType()) {
-    query["ServerlessChargeType"] = request.serverlessChargeType();
+    query["ServerlessChargeType"] = request.getServerlessChargeType();
   }
 
   if (!!request.hasStorageSize()) {
-    query["StorageSize"] = request.storageSize();
+    query["StorageSize"] = request.getStorageSize();
   }
 
   if (!!request.hasSupportEip()) {
-    query["SupportEip"] = request.supportEip();
+    query["SupportEip"] = request.getSupportEip();
   }
 
   if (!!request.hasSupportTracing()) {
-    query["SupportTracing"] = request.supportTracing();
+    query["SupportTracing"] = request.getSupportTracing();
   }
 
   if (!!request.hasTracingStorageTime()) {
-    query["TracingStorageTime"] = request.tracingStorageTime();
+    query["TracingStorageTime"] = request.getTracingStorageTime();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1360,11 +1388,11 @@ UpdateInstanceNameResponse Client::updateInstanceNameWithOptions(const UpdateIns
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasInstanceName()) {
-    query["InstanceName"] = request.instanceName();
+    query["InstanceName"] = request.getInstanceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

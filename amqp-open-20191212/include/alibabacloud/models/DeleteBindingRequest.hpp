@@ -40,75 +40,75 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindingKey_ == nullptr
-        && return this->bindingType_ == nullptr && return this->destinationName_ == nullptr && return this->instanceId_ == nullptr && return this->sourceExchange_ == nullptr && return this->virtualHost_ == nullptr; };
+        && this->bindingType_ == nullptr && this->destinationName_ == nullptr && this->instanceId_ == nullptr && this->sourceExchange_ == nullptr && this->virtualHost_ == nullptr; };
     // bindingKey Field Functions 
     bool hasBindingKey() const { return this->bindingKey_ != nullptr;};
     void deleteBindingKey() { this->bindingKey_ = nullptr;};
-    inline string bindingKey() const { DARABONBA_PTR_GET_DEFAULT(bindingKey_, "") };
+    inline string getBindingKey() const { DARABONBA_PTR_GET_DEFAULT(bindingKey_, "") };
     inline DeleteBindingRequest& setBindingKey(string bindingKey) { DARABONBA_PTR_SET_VALUE(bindingKey_, bindingKey) };
 
 
     // bindingType Field Functions 
     bool hasBindingType() const { return this->bindingType_ != nullptr;};
     void deleteBindingType() { this->bindingType_ = nullptr;};
-    inline string bindingType() const { DARABONBA_PTR_GET_DEFAULT(bindingType_, "") };
+    inline string getBindingType() const { DARABONBA_PTR_GET_DEFAULT(bindingType_, "") };
     inline DeleteBindingRequest& setBindingType(string bindingType) { DARABONBA_PTR_SET_VALUE(bindingType_, bindingType) };
 
 
     // destinationName Field Functions 
     bool hasDestinationName() const { return this->destinationName_ != nullptr;};
     void deleteDestinationName() { this->destinationName_ = nullptr;};
-    inline string destinationName() const { DARABONBA_PTR_GET_DEFAULT(destinationName_, "") };
+    inline string getDestinationName() const { DARABONBA_PTR_GET_DEFAULT(destinationName_, "") };
     inline DeleteBindingRequest& setDestinationName(string destinationName) { DARABONBA_PTR_SET_VALUE(destinationName_, destinationName) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteBindingRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // sourceExchange Field Functions 
     bool hasSourceExchange() const { return this->sourceExchange_ != nullptr;};
     void deleteSourceExchange() { this->sourceExchange_ = nullptr;};
-    inline string sourceExchange() const { DARABONBA_PTR_GET_DEFAULT(sourceExchange_, "") };
+    inline string getSourceExchange() const { DARABONBA_PTR_GET_DEFAULT(sourceExchange_, "") };
     inline DeleteBindingRequest& setSourceExchange(string sourceExchange) { DARABONBA_PTR_SET_VALUE(sourceExchange_, sourceExchange) };
 
 
     // virtualHost Field Functions 
     bool hasVirtualHost() const { return this->virtualHost_ != nullptr;};
     void deleteVirtualHost() { this->virtualHost_ = nullptr;};
-    inline string virtualHost() const { DARABONBA_PTR_GET_DEFAULT(virtualHost_, "") };
+    inline string getVirtualHost() const { DARABONBA_PTR_GET_DEFAULT(virtualHost_, "") };
     inline DeleteBindingRequest& setVirtualHost(string virtualHost) { DARABONBA_PTR_SET_VALUE(virtualHost_, virtualHost) };
 
 
   protected:
     // The binding key.
-    std::shared_ptr<string> bindingKey_ = nullptr;
+    shared_ptr<string> bindingKey_ {};
     // The type of the object that you want to unbind from the source exchange. Valid values:
     // 
     // *   **QUEUE**
     // *   **EXCHANGE**
     // 
     // This parameter is required.
-    std::shared_ptr<string> bindingType_ = nullptr;
+    shared_ptr<string> bindingType_ {};
     // The name of the object that you want to unbind from the source exchange.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationName_ = nullptr;
+    shared_ptr<string> destinationName_ {};
     // The instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the source exchange.
     // 
     // This parameter is required.
-    std::shared_ptr<string> sourceExchange_ = nullptr;
+    shared_ptr<string> sourceExchange_ {};
     // The vhost name.
     // 
     // This parameter is required.
-    std::shared_ptr<string> virtualHost_ = nullptr;
+    shared_ptr<string> virtualHost_ {};
   };
 
   } // namespace Models

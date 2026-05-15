@@ -79,29 +79,5 @@
 #include <alibabacloud/models/UpdateInstanceNameRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceNameResponse.hpp>
-#include <alibabacloud/models/CreateAccountResponseBodyData.hpp>
-#include <alibabacloud/models/CreateInstanceRequestTags.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyDataTags.hpp>
-#include <alibabacloud/models/GetInstanceResponseBodyData.hpp>
-#include <alibabacloud/models/GetMetadataAmountResponseBodyData.hpp>
-#include <alibabacloud/models/ListBindingsResponseBodyDataBindings.hpp>
-#include <alibabacloud/models/ListBindingsResponseBodyData.hpp>
-#include <alibabacloud/models/ListDownStreamBindingsResponseBodyDataBindings.hpp>
-#include <alibabacloud/models/ListDownStreamBindingsResponseBodyData.hpp>
-#include <alibabacloud/models/ListExchangeUpStreamBindingsResponseBodyDataBindings.hpp>
-#include <alibabacloud/models/ListExchangeUpStreamBindingsResponseBodyData.hpp>
-#include <alibabacloud/models/ListExchangesResponseBodyDataExchanges.hpp>
-#include <alibabacloud/models/ListExchangesResponseBodyData.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyDataInstancesTags.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyDataInstances.hpp>
-#include <alibabacloud/models/ListInstancesResponseBodyData.hpp>
-#include <alibabacloud/models/ListQueueConsumersResponseBodyDataConsumers.hpp>
-#include <alibabacloud/models/ListQueueConsumersResponseBodyData.hpp>
-#include <alibabacloud/models/ListQueueUpStreamBindingsResponseBodyDataBindings.hpp>
-#include <alibabacloud/models/ListQueueUpStreamBindingsResponseBodyData.hpp>
-#include <alibabacloud/models/ListQueuesResponseBodyDataQueues.hpp>
-#include <alibabacloud/models/ListQueuesResponseBodyData.hpp>
-#include <alibabacloud/models/ListVirtualHostsResponseBodyDataVirtualHosts.hpp>
-#include <alibabacloud/models/ListVirtualHostsResponseBodyData.hpp>
 
 #endif

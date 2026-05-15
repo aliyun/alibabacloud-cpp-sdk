@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && return this->virtualHost_ == nullptr; };
+        && this->virtualHost_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DeleteVirtualHostRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // virtualHost Field Functions 
     bool hasVirtualHost() const { return this->virtualHost_ != nullptr;};
     void deleteVirtualHost() { this->virtualHost_ = nullptr;};
-    inline string virtualHost() const { DARABONBA_PTR_GET_DEFAULT(virtualHost_, "") };
+    inline string getVirtualHost() const { DARABONBA_PTR_GET_DEFAULT(virtualHost_, "") };
     inline DeleteVirtualHostRequest& setVirtualHost(string virtualHost) { DARABONBA_PTR_SET_VALUE(virtualHost_, virtualHost) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the ApsaraMQ for RabbitMQ instance to which the vhost you want to delete belongs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // The name of the vhost that you want to delete.
     // 
     // This parameter is required.
-    std::shared_ptr<string> virtualHost_ = nullptr;
+    shared_ptr<string> virtualHost_ {};
   };
 
   } // namespace Models
