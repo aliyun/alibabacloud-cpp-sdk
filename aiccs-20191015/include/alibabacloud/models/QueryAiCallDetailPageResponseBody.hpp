@@ -70,6 +70,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const List& obj) { 
           DARABONBA_PTR_TO_JSON(BatchId, batchId_);
           DARABONBA_PTR_TO_JSON(BranchId, branchId_);
+          DARABONBA_PTR_TO_JSON(BranchName, branchName_);
           DARABONBA_PTR_TO_JSON(BranchVersionId, branchVersionId_);
           DARABONBA_PTR_TO_JSON(CallResult, callResult_);
           DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
@@ -87,10 +88,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RecordingFilePath, recordingFilePath_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+          DARABONBA_PTR_TO_JSON(VersionName, versionName_);
+          DARABONBA_PTR_TO_JSON(VersionNo, versionNo_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
           DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
+          DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
           DARABONBA_PTR_FROM_JSON(BranchVersionId, branchVersionId_);
           DARABONBA_PTR_FROM_JSON(CallResult, callResult_);
           DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
@@ -108,6 +112,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RecordingFilePath, recordingFilePath_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+          DARABONBA_PTR_FROM_JSON(VersionName, versionName_);
+          DARABONBA_PTR_FROM_JSON(VersionNo, versionNo_);
         };
         List() = default ;
         List(const List &) = default ;
@@ -121,10 +127,11 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->branchId_ == nullptr && this->branchVersionId_ == nullptr && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->callingTime_ == nullptr
-        && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->encryptionType_ == nullptr
-        && this->failedReason_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr
-        && this->recordingFilePath_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->branchId_ == nullptr && this->branchName_ == nullptr && this->branchVersionId_ == nullptr && this->callResult_ == nullptr && this->calledNumber_ == nullptr
+        && this->callingTime_ == nullptr && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr
+        && this->encryptionType_ == nullptr && this->failedReason_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr
+        && this->outId_ == nullptr && this->recordingFilePath_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->versionName_ == nullptr
+        && this->versionNo_ == nullptr; };
         // batchId Field Functions 
         bool hasBatchId() const { return this->batchId_ != nullptr;};
         void deleteBatchId() { this->batchId_ = nullptr;};
@@ -137,6 +144,13 @@ namespace Models
         void deleteBranchId() { this->branchId_ = nullptr;};
         inline int64_t getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, 0L) };
         inline List& setBranchId(int64_t branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+
+
+        // branchName Field Functions 
+        bool hasBranchName() const { return this->branchName_ != nullptr;};
+        void deleteBranchName() { this->branchName_ = nullptr;};
+        inline string getBranchName() const { DARABONBA_PTR_GET_DEFAULT(branchName_, "") };
+        inline List& setBranchName(string branchName) { DARABONBA_PTR_SET_VALUE(branchName_, branchName) };
 
 
         // branchVersionId Field Functions 
@@ -258,9 +272,24 @@ namespace Models
         inline List& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+        // versionName Field Functions 
+        bool hasVersionName() const { return this->versionName_ != nullptr;};
+        void deleteVersionName() { this->versionName_ = nullptr;};
+        inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+        inline List& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
+
+
+        // versionNo Field Functions 
+        bool hasVersionNo() const { return this->versionNo_ != nullptr;};
+        void deleteVersionNo() { this->versionNo_ = nullptr;};
+        inline int64_t getVersionNo() const { DARABONBA_PTR_GET_DEFAULT(versionNo_, 0L) };
+        inline List& setVersionNo(int64_t versionNo) { DARABONBA_PTR_SET_VALUE(versionNo_, versionNo) };
+
+
       protected:
         shared_ptr<string> batchId_ {};
         shared_ptr<int64_t> branchId_ {};
+        shared_ptr<string> branchName_ {};
         shared_ptr<int64_t> branchVersionId_ {};
         shared_ptr<string> callResult_ {};
         shared_ptr<string> calledNumber_ {};
@@ -278,6 +307,8 @@ namespace Models
         shared_ptr<string> recordingFilePath_ {};
         shared_ptr<int64_t> status_ {};
         shared_ptr<string> taskId_ {};
+        shared_ptr<string> versionName_ {};
+        shared_ptr<int64_t> versionNo_ {};
       };
 
       virtual bool empty() const override { return this->list_ == nullptr

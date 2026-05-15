@@ -399,6 +399,9 @@
 #include <alibabacloud/models/PageQueryAgentListRequest.hpp>
 #include <alibabacloud/models/PageQueryAgentListResponseBody.hpp>
 #include <alibabacloud/models/PageQueryAgentListResponse.hpp>
+#include <alibabacloud/models/PageQueryAgentListNewRequest.hpp>
+#include <alibabacloud/models/PageQueryAgentListNewResponseBody.hpp>
+#include <alibabacloud/models/PageQueryAgentListNewResponse.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageRequest.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageShrinkRequest.hpp>
 #include <alibabacloud/models/QueryAiCallDetailPageResponseBody.hpp>
@@ -412,6 +415,9 @@
 #include <alibabacloud/models/QueryAiVoiceAgentDetailRequest.hpp>
 #include <alibabacloud/models/QueryAiVoiceAgentDetailResponseBody.hpp>
 #include <alibabacloud/models/QueryAiVoiceAgentDetailResponse.hpp>
+#include <alibabacloud/models/QueryAiVoiceAgentDetailNewRequest.hpp>
+#include <alibabacloud/models/QueryAiVoiceAgentDetailNewResponseBody.hpp>
+#include <alibabacloud/models/QueryAiVoiceAgentDetailNewResponse.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoRequest.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryConversationDetailInfoResponse.hpp>

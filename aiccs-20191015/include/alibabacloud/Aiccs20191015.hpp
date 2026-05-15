@@ -1909,6 +1909,23 @@ namespace Aiccs20191015
       Models::PageQueryAgentListResponse pageQueryAgentList(const Models::PageQueryAgentListRequest &request);
 
       /**
+       * @summary 分页查询智能体列表（代运营模式V2）
+       *
+       * @param request PageQueryAgentListNewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PageQueryAgentListNewResponse
+       */
+      Models::PageQueryAgentListNewResponse pageQueryAgentListNewWithOptions(const Models::PageQueryAgentListNewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询智能体列表（代运营模式V2）
+       *
+       * @param request PageQueryAgentListNewRequest
+       * @return PageQueryAgentListNewResponse
+       */
+      Models::PageQueryAgentListNewResponse pageQueryAgentListNew(const Models::PageQueryAgentListNewRequest &request);
+
+      /**
        * @summary 查询明细记录
        *
        * @param tmpReq QueryAiCallDetailPageRequest
@@ -1975,6 +1992,23 @@ namespace Aiccs20191015
        * @return QueryAiVoiceAgentDetailResponse
        */
       Models::QueryAiVoiceAgentDetailResponse queryAiVoiceAgentDetail(const Models::QueryAiVoiceAgentDetailRequest &request);
+
+      /**
+       * @summary 查询智能体详情（代运营模式V2）
+       *
+       * @param request QueryAiVoiceAgentDetailNewRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAiVoiceAgentDetailNewResponse
+       */
+      Models::QueryAiVoiceAgentDetailNewResponse queryAiVoiceAgentDetailNewWithOptions(const Models::QueryAiVoiceAgentDetailNewRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询智能体详情（代运营模式V2）
+       *
+       * @param request QueryAiVoiceAgentDetailNewRequest
+       * @return QueryAiVoiceAgentDetailNewResponse
+       */
+      Models::QueryAiVoiceAgentDetailNewResponse queryAiVoiceAgentDetailNew(const Models::QueryAiVoiceAgentDetailNewRequest &request);
 
       /**
        * @summary 查询通话详情信息

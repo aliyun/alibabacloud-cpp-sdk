@@ -16,7 +16,6 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAiCallTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
-      DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_TO_JSON(CallDay, callDay_);
       DARABONBA_PTR_TO_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_TO_JSON(CallRetryReason, callRetryReason_);
@@ -39,7 +38,6 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateAiCallTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
-      DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
       DARABONBA_PTR_FROM_JSON(CallDay, callDay_);
       DARABONBA_PTR_FROM_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_FROM_JSON(CallRetryReason, callRetryReason_);
@@ -71,10 +69,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callDay_ == nullptr && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr
-        && this->callRetryTimes_ == nullptr && this->callTime_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr
-        && this->ownerId_ == nullptr && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->source_ == nullptr
-        && this->startType_ == nullptr && this->taskCps_ == nullptr && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
+        && this->applicationCode_ == nullptr && this->callDay_ == nullptr && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr && this->callRetryTimes_ == nullptr
+        && this->callTime_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr
+        && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->startType_ == nullptr
+        && this->taskCps_ == nullptr && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -87,13 +85,6 @@ namespace Models
     void deleteApplicationCode() { this->applicationCode_ = nullptr;};
     inline string getApplicationCode() const { DARABONBA_PTR_GET_DEFAULT(applicationCode_, "") };
     inline CreateAiCallTaskRequest& setApplicationCode(string applicationCode) { DARABONBA_PTR_SET_VALUE(applicationCode_, applicationCode) };
-
-
-    // applicationName Field Functions 
-    bool hasApplicationName() const { return this->applicationName_ != nullptr;};
-    void deleteApplicationName() { this->applicationName_ = nullptr;};
-    inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
-    inline CreateAiCallTaskRequest& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
 
 
     // callDay Field Functions 
@@ -231,7 +222,6 @@ namespace Models
   protected:
     shared_ptr<string> agentId_ {};
     shared_ptr<string> applicationCode_ {};
-    shared_ptr<string> applicationName_ {};
     // This parameter is required.
     shared_ptr<vector<string>> callDay_ {};
     shared_ptr<int64_t> callRetryInterval_ {};

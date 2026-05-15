@@ -921,10 +921,6 @@ CreateAiCallTaskResponse Client::createAiCallTaskWithOptions(const CreateAiCallT
     query["ApplicationCode"] = request.getApplicationCode();
   }
 
-  if (!!request.hasApplicationName()) {
-    query["ApplicationName"] = request.getApplicationName();
-  }
-
   if (!!request.hasCallDayShrink()) {
     query["CallDay"] = request.getCallDayShrink();
   }
@@ -6766,6 +6762,68 @@ PageQueryAgentListResponse Client::pageQueryAgentList(const PageQueryAgentListRe
 }
 
 /**
+ * @summary 分页查询智能体列表（代运营模式V2）
+ *
+ * @param request PageQueryAgentListNewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PageQueryAgentListNewResponse
+ */
+PageQueryAgentListNewResponse Client::pageQueryAgentListNewWithOptions(const PageQueryAgentListNewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasIsAvailable()) {
+    query["IsAvailable"] = request.getIsAvailable();
+  }
+
+  if (!!request.hasPageIndex()) {
+    query["PageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PageQueryAgentListNew"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PageQueryAgentListNewResponse>();
+}
+
+/**
+ * @summary 分页查询智能体列表（代运营模式V2）
+ *
+ * @param request PageQueryAgentListNewRequest
+ * @return PageQueryAgentListNewResponse
+ */
+PageQueryAgentListNewResponse Client::pageQueryAgentListNew(const PageQueryAgentListNewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pageQueryAgentListNewWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询明细记录
  *
  * @param tmpReq QueryAiCallDetailPageRequest
@@ -7077,6 +7135,56 @@ QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetailWithOptions(const
 QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetail(const QueryAiVoiceAgentDetailRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryAiVoiceAgentDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询智能体详情（代运营模式V2）
+ *
+ * @param request QueryAiVoiceAgentDetailNewRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAiVoiceAgentDetailNewResponse
+ */
+QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNewWithOptions(const QueryAiVoiceAgentDetailNewRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasBranchId()) {
+    query["BranchId"] = request.getBranchId();
+  }
+
+  if (!!request.hasVersionId()) {
+    query["VersionId"] = request.getVersionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAiVoiceAgentDetailNew"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAiVoiceAgentDetailNewResponse>();
+}
+
+/**
+ * @summary 查询智能体详情（代运营模式V2）
+ *
+ * @param request QueryAiVoiceAgentDetailNewRequest
+ * @return QueryAiVoiceAgentDetailNewResponse
+ */
+QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNew(const QueryAiVoiceAgentDetailNewRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAiVoiceAgentDetailNewWithOptions(request, runtime);
 }
 
 /**
