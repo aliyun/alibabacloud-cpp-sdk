@@ -15776,6 +15776,236 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary 按会议 conferenceId 聚合查询实时听记
+ *
+ * @param tmpReq MeetingFlashMinutesRequest
+ * @param tmpHeader MeetingFlashMinutesHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MeetingFlashMinutesResponse
+ */
+MeetingFlashMinutesResponse Client::meetingFlashMinutesWithOptions(const MeetingFlashMinutesRequest &tmpReq, const MeetingFlashMinutesHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MeetingFlashMinutesShrinkRequest request = MeetingFlashMinutesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  MeetingFlashMinutesShrinkHeaders headers = MeetingFlashMinutesShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MeetingFlashMinutes"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/minutes/meetingFlashMinutes")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MeetingFlashMinutesResponse>();
+}
+
+/**
+ * @summary 按会议 conferenceId 聚合查询实时听记
+ *
+ * @param request MeetingFlashMinutesRequest
+ * @return MeetingFlashMinutesResponse
+ */
+MeetingFlashMinutesResponse Client::meetingFlashMinutes(const MeetingFlashMinutesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MeetingFlashMinutesHeaders headers = MeetingFlashMinutesHeaders();
+  return meetingFlashMinutesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 全员静音或全员取消静音
+ *
+ * @param tmpReq MuteAllRequest
+ * @param tmpHeader MuteAllHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MuteAllResponse
+ */
+MuteAllResponse Client::muteAllWithOptions(const MuteAllRequest &tmpReq, const MuteAllHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MuteAllShrinkRequest request = MuteAllShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  MuteAllShrinkHeaders headers = MuteAllShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasForceMute()) {
+    body["ForceMute"] = request.getForceMute();
+  }
+
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasMuteAction()) {
+    body["muteAction"] = request.getMuteAction();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MuteAll"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/muteAll")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MuteAllResponse>();
+}
+
+/**
+ * @summary 全员静音或全员取消静音
+ *
+ * @param request MuteAllRequest
+ * @return MuteAllResponse
+ */
+MuteAllResponse Client::muteAll(const MuteAllRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MuteAllHeaders headers = MuteAllHeaders();
+  return muteAllWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 指定人员静音或取消静音
+ *
+ * @param tmpReq MuteMembersRequest
+ * @param tmpHeader MuteMembersHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MuteMembersResponse
+ */
+MuteMembersResponse Client::muteMembersWithOptions(const MuteMembersRequest &tmpReq, const MuteMembersHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MuteMembersShrinkRequest request = MuteMembersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  MuteMembersShrinkHeaders headers = MuteMembersShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  if (!!tmpReq.hasUserIds()) {
+    request.setUserIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUserIds(), "UserIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasUserIdsShrink()) {
+    body["UserIds"] = request.getUserIdsShrink();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasMuteAction()) {
+    body["muteAction"] = request.getMuteAction();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MuteMembers"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/ysp/muteMembers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MuteMembersResponse>();
+}
+
+/**
+ * @summary 指定人员静音或取消静音
+ *
+ * @param request MuteMembersRequest
+ * @return MuteMembersResponse
+ */
+MuteMembersResponse Client::muteMembers(const MuteMembersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MuteMembersHeaders headers = MuteMembersHeaders();
+  return muteMembersWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 修改日程
  *
  * @param tmpReq PatchEventRequest

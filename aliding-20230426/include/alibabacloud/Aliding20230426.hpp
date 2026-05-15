@@ -3429,6 +3429,60 @@ namespace Aliding20230426
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
+       * @summary 按会议 conferenceId 聚合查询实时听记
+       *
+       * @param tmpReq MeetingFlashMinutesRequest
+       * @param tmpHeader MeetingFlashMinutesHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MeetingFlashMinutesResponse
+       */
+      Models::MeetingFlashMinutesResponse meetingFlashMinutesWithOptions(const Models::MeetingFlashMinutesRequest &tmpReq, const Models::MeetingFlashMinutesHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按会议 conferenceId 聚合查询实时听记
+       *
+       * @param request MeetingFlashMinutesRequest
+       * @return MeetingFlashMinutesResponse
+       */
+      Models::MeetingFlashMinutesResponse meetingFlashMinutes(const Models::MeetingFlashMinutesRequest &request);
+
+      /**
+       * @summary 全员静音或全员取消静音
+       *
+       * @param tmpReq MuteAllRequest
+       * @param tmpHeader MuteAllHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MuteAllResponse
+       */
+      Models::MuteAllResponse muteAllWithOptions(const Models::MuteAllRequest &tmpReq, const Models::MuteAllHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 全员静音或全员取消静音
+       *
+       * @param request MuteAllRequest
+       * @return MuteAllResponse
+       */
+      Models::MuteAllResponse muteAll(const Models::MuteAllRequest &request);
+
+      /**
+       * @summary 指定人员静音或取消静音
+       *
+       * @param tmpReq MuteMembersRequest
+       * @param tmpHeader MuteMembersHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MuteMembersResponse
+       */
+      Models::MuteMembersResponse muteMembersWithOptions(const Models::MuteMembersRequest &tmpReq, const Models::MuteMembersHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 指定人员静音或取消静音
+       *
+       * @param request MuteMembersRequest
+       * @return MuteMembersResponse
+       */
+      Models::MuteMembersResponse muteMembers(const Models::MuteMembersRequest &request);
+
+      /**
        * @summary 修改日程
        *
        * @param tmpReq PatchEventRequest

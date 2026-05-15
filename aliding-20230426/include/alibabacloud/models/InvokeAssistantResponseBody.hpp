@@ -610,6 +610,7 @@ namespace Models
       class Content : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
+          DARABONBA_PTR_TO_JSON(aguiContent, aguiContent_);
           DARABONBA_PTR_TO_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_TO_JSON(dingCard, dingCard_);
           DARABONBA_PTR_TO_JSON(dingNormalCard, dingNormalCard_);
@@ -619,6 +620,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
+          DARABONBA_PTR_FROM_JSON(aguiContent, aguiContent_);
           DARABONBA_PTR_FROM_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_FROM_JSON(dingCard, dingCard_);
           DARABONBA_PTR_FROM_JSON(dingNormalCard, dingNormalCard_);
@@ -1541,9 +1543,135 @@ namespace Models
           shared_ptr<string> relatedMessageId_ {};
         };
 
-        virtual bool empty() const override { return this->cardCallback_ == nullptr
-        && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->markdown_ == nullptr && this->structView_ == nullptr && this->text_ == nullptr
-        && this->type_ == nullptr; };
+        class AguiContent : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AguiContent& obj) { 
+            DARABONBA_PTR_TO_JSON(aguiEventList, aguiEventList_);
+          };
+          friend void from_json(const Darabonba::Json& j, AguiContent& obj) { 
+            DARABONBA_PTR_FROM_JSON(aguiEventList, aguiEventList_);
+          };
+          AguiContent() = default ;
+          AguiContent(const AguiContent &) = default ;
+          AguiContent(AguiContent &&) = default ;
+          AguiContent(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AguiContent() = default ;
+          AguiContent& operator=(const AguiContent &) = default ;
+          AguiContent& operator=(AguiContent &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class AguiEventList : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const AguiEventList& obj) { 
+              DARABONBA_PTR_TO_JSON(activityType, activityType_);
+              DARABONBA_ANY_TO_JSON(content, content_);
+              DARABONBA_PTR_TO_JSON(messageId, messageId_);
+              DARABONBA_PTR_TO_JSON(replace, replace_);
+              DARABONBA_PTR_TO_JSON(timestamp, timestamp_);
+              DARABONBA_PTR_TO_JSON(type, type_);
+            };
+            friend void from_json(const Darabonba::Json& j, AguiEventList& obj) { 
+              DARABONBA_PTR_FROM_JSON(activityType, activityType_);
+              DARABONBA_ANY_FROM_JSON(content, content_);
+              DARABONBA_PTR_FROM_JSON(messageId, messageId_);
+              DARABONBA_PTR_FROM_JSON(replace, replace_);
+              DARABONBA_PTR_FROM_JSON(timestamp, timestamp_);
+              DARABONBA_PTR_FROM_JSON(type, type_);
+            };
+            AguiEventList() = default ;
+            AguiEventList(const AguiEventList &) = default ;
+            AguiEventList(AguiEventList &&) = default ;
+            AguiEventList(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~AguiEventList() = default ;
+            AguiEventList& operator=(const AguiEventList &) = default ;
+            AguiEventList& operator=(AguiEventList &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->activityType_ == nullptr
+        && this->content_ == nullptr && this->messageId_ == nullptr && this->replace_ == nullptr && this->timestamp_ == nullptr && this->type_ == nullptr; };
+            // activityType Field Functions 
+            bool hasActivityType() const { return this->activityType_ != nullptr;};
+            void deleteActivityType() { this->activityType_ = nullptr;};
+            inline string getActivityType() const { DARABONBA_PTR_GET_DEFAULT(activityType_, "") };
+            inline AguiEventList& setActivityType(string activityType) { DARABONBA_PTR_SET_VALUE(activityType_, activityType) };
+
+
+            // content Field Functions 
+            bool hasContent() const { return this->content_ != nullptr;};
+            void deleteContent() { this->content_ = nullptr;};
+            inline             const Darabonba::Json & getContent() const { DARABONBA_GET(content_) };
+            Darabonba::Json & getContent() { DARABONBA_GET(content_) };
+            inline AguiEventList& setContent(const Darabonba::Json & content) { DARABONBA_SET_VALUE(content_, content) };
+            inline AguiEventList& setContent(Darabonba::Json && content) { DARABONBA_SET_RVALUE(content_, content) };
+
+
+            // messageId Field Functions 
+            bool hasMessageId() const { return this->messageId_ != nullptr;};
+            void deleteMessageId() { this->messageId_ = nullptr;};
+            inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+            inline AguiEventList& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
+            // replace Field Functions 
+            bool hasReplace() const { return this->replace_ != nullptr;};
+            void deleteReplace() { this->replace_ = nullptr;};
+            inline bool getReplace() const { DARABONBA_PTR_GET_DEFAULT(replace_, false) };
+            inline AguiEventList& setReplace(bool replace) { DARABONBA_PTR_SET_VALUE(replace_, replace) };
+
+
+            // timestamp Field Functions 
+            bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+            void deleteTimestamp() { this->timestamp_ = nullptr;};
+            inline int64_t getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, 0L) };
+            inline AguiEventList& setTimestamp(int64_t timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline AguiEventList& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          protected:
+            shared_ptr<string> activityType_ {};
+            Darabonba::Json content_ {};
+            shared_ptr<string> messageId_ {};
+            shared_ptr<bool> replace_ {};
+            shared_ptr<int64_t> timestamp_ {};
+            shared_ptr<string> type_ {};
+          };
+
+          virtual bool empty() const override { return this->aguiEventList_ == nullptr; };
+          // aguiEventList Field Functions 
+          bool hasAguiEventList() const { return this->aguiEventList_ != nullptr;};
+          void deleteAguiEventList() { this->aguiEventList_ = nullptr;};
+          inline const vector<AguiContent::AguiEventList> & getAguiEventList() const { DARABONBA_PTR_GET_CONST(aguiEventList_, vector<AguiContent::AguiEventList>) };
+          inline vector<AguiContent::AguiEventList> getAguiEventList() { DARABONBA_PTR_GET(aguiEventList_, vector<AguiContent::AguiEventList>) };
+          inline AguiContent& setAguiEventList(const vector<AguiContent::AguiEventList> & aguiEventList) { DARABONBA_PTR_SET_VALUE(aguiEventList_, aguiEventList) };
+          inline AguiContent& setAguiEventList(vector<AguiContent::AguiEventList> && aguiEventList) { DARABONBA_PTR_SET_RVALUE(aguiEventList_, aguiEventList) };
+
+
+        protected:
+          shared_ptr<vector<AguiContent::AguiEventList>> aguiEventList_ {};
+        };
+
+        virtual bool empty() const override { return this->aguiContent_ == nullptr
+        && this->cardCallback_ == nullptr && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->markdown_ == nullptr && this->structView_ == nullptr
+        && this->text_ == nullptr && this->type_ == nullptr; };
+        // aguiContent Field Functions 
+        bool hasAguiContent() const { return this->aguiContent_ != nullptr;};
+        void deleteAguiContent() { this->aguiContent_ = nullptr;};
+        inline const Content::AguiContent & getAguiContent() const { DARABONBA_PTR_GET_CONST(aguiContent_, Content::AguiContent) };
+        inline Content::AguiContent getAguiContent() { DARABONBA_PTR_GET(aguiContent_, Content::AguiContent) };
+        inline Content& setAguiContent(const Content::AguiContent & aguiContent) { DARABONBA_PTR_SET_VALUE(aguiContent_, aguiContent) };
+        inline Content& setAguiContent(Content::AguiContent && aguiContent) { DARABONBA_PTR_SET_RVALUE(aguiContent_, aguiContent) };
+
+
         // cardCallback Field Functions 
         bool hasCardCallback() const { return this->cardCallback_ != nullptr;};
         void deleteCardCallback() { this->cardCallback_ = nullptr;};
@@ -1606,6 +1734,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<Content::AguiContent> aguiContent_ {};
         shared_ptr<Content::CardCallback> cardCallback_ {};
         shared_ptr<Content::DingCard> dingCard_ {};
         shared_ptr<Content::DingNormalCard> dingNormalCard_ {};
