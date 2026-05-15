@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DocName, docName_);
         DARABONBA_PTR_TO_JSON(DocType, docType_);
         DARABONBA_PTR_TO_JSON(FileUrl, fileUrl_);
+        DARABONBA_PTR_TO_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StatusMessage, statusMessage_);
         DARABONBA_PTR_TO_JSON(VideoContents, videoContents_);
@@ -56,6 +57,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DocName, docName_);
         DARABONBA_PTR_FROM_JSON(DocType, docType_);
         DARABONBA_PTR_FROM_JSON(FileUrl, fileUrl_);
+        DARABONBA_PTR_FROM_JSON(PageInfo, pageInfo_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StatusMessage, statusMessage_);
         DARABONBA_PTR_FROM_JSON(VideoContents, videoContents_);
@@ -71,9 +73,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class PageInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PageInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(Height, height_);
+          DARABONBA_PTR_TO_JSON(Width, width_);
+        };
+        friend void from_json(const Darabonba::Json& j, PageInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(Height, height_);
+          DARABONBA_PTR_FROM_JSON(Width, width_);
+        };
+        PageInfo() = default ;
+        PageInfo(const PageInfo &) = default ;
+        PageInfo(PageInfo &&) = default ;
+        PageInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PageInfo() = default ;
+        PageInfo& operator=(const PageInfo &) = default ;
+        PageInfo& operator=(PageInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->height_ == nullptr
+        && this->width_ == nullptr; };
+        // height Field Functions 
+        bool hasHeight() const { return this->height_ != nullptr;};
+        void deleteHeight() { this->height_ = nullptr;};
+        inline int32_t getHeight() const { DARABONBA_PTR_GET_DEFAULT(height_, 0) };
+        inline PageInfo& setHeight(int32_t height) { DARABONBA_PTR_SET_VALUE(height_, height) };
+
+
+        // width Field Functions 
+        bool hasWidth() const { return this->width_ != nullptr;};
+        void deleteWidth() { this->width_ = nullptr;};
+        inline int32_t getWidth() const { DARABONBA_PTR_GET_DEFAULT(width_, 0) };
+        inline PageInfo& setWidth(int32_t width) { DARABONBA_PTR_SET_VALUE(width_, width) };
+
+
+      protected:
+        shared_ptr<int32_t> height_ {};
+        shared_ptr<int32_t> width_ {};
+      };
+
       virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->docName_ == nullptr && this->docType_ == nullptr && this->fileUrl_ == nullptr && this->status_ == nullptr && this->statusMessage_ == nullptr
-        && this->videoContents_ == nullptr; };
+        && this->docName_ == nullptr && this->docType_ == nullptr && this->fileUrl_ == nullptr && this->pageInfo_ == nullptr && this->status_ == nullptr
+        && this->statusMessage_ == nullptr && this->videoContents_ == nullptr; };
       // categoryId Field Functions 
       bool hasCategoryId() const { return this->categoryId_ != nullptr;};
       void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -100,6 +144,15 @@ namespace Models
       void deleteFileUrl() { this->fileUrl_ = nullptr;};
       inline string getFileUrl() const { DARABONBA_PTR_GET_DEFAULT(fileUrl_, "") };
       inline Data& setFileUrl(string fileUrl) { DARABONBA_PTR_SET_VALUE(fileUrl_, fileUrl) };
+
+
+      // pageInfo Field Functions 
+      bool hasPageInfo() const { return this->pageInfo_ != nullptr;};
+      void deletePageInfo() { this->pageInfo_ = nullptr;};
+      inline const Data::PageInfo & getPageInfo() const { DARABONBA_PTR_GET_CONST(pageInfo_, Data::PageInfo) };
+      inline Data::PageInfo getPageInfo() { DARABONBA_PTR_GET(pageInfo_, Data::PageInfo) };
+      inline Data& setPageInfo(const Data::PageInfo & pageInfo) { DARABONBA_PTR_SET_VALUE(pageInfo_, pageInfo) };
+      inline Data& setPageInfo(Data::PageInfo && pageInfo) { DARABONBA_PTR_SET_RVALUE(pageInfo_, pageInfo) };
 
 
       // status Field Functions 
@@ -130,6 +183,7 @@ namespace Models
       shared_ptr<string> docName_ {};
       shared_ptr<string> docType_ {};
       shared_ptr<string> fileUrl_ {};
+      shared_ptr<Data::PageInfo> pageInfo_ {};
       shared_ptr<int32_t> status_ {};
       shared_ptr<string> statusMessage_ {};
       shared_ptr<vector<string>> videoContents_ {};
