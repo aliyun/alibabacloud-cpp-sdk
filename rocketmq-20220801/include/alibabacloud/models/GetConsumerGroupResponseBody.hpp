@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(consumerGroupId, consumerGroupId_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(deliveryOrderType, deliveryOrderType_);
+        DARABONBA_PTR_TO_JSON(exclusive, exclusive_);
         DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(maxReceiveTps, maxReceiveTps_);
         DARABONBA_PTR_TO_JSON(messageModel, messageModel_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(consumerGroupId, consumerGroupId_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(deliveryOrderType, deliveryOrderType_);
+        DARABONBA_PTR_FROM_JSON(exclusive, exclusive_);
         DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(maxReceiveTps, maxReceiveTps_);
         DARABONBA_PTR_FROM_JSON(messageModel, messageModel_);
@@ -160,9 +162,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->consumeRetryPolicy_ == nullptr
-        && this->consumerGroupId_ == nullptr && this->createTime_ == nullptr && this->deliveryOrderType_ == nullptr && this->instanceId_ == nullptr && this->maxReceiveTps_ == nullptr
-        && this->messageModel_ == nullptr && this->regionId_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->topicName_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->consumerGroupId_ == nullptr && this->createTime_ == nullptr && this->deliveryOrderType_ == nullptr && this->exclusive_ == nullptr && this->instanceId_ == nullptr
+        && this->maxReceiveTps_ == nullptr && this->messageModel_ == nullptr && this->regionId_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr
+        && this->topicName_ == nullptr && this->updateTime_ == nullptr; };
       // consumeRetryPolicy Field Functions 
       bool hasConsumeRetryPolicy() const { return this->consumeRetryPolicy_ != nullptr;};
       void deleteConsumeRetryPolicy() { this->consumeRetryPolicy_ = nullptr;};
@@ -191,6 +193,13 @@ namespace Models
       void deleteDeliveryOrderType() { this->deliveryOrderType_ = nullptr;};
       inline string getDeliveryOrderType() const { DARABONBA_PTR_GET_DEFAULT(deliveryOrderType_, "") };
       inline Data& setDeliveryOrderType(string deliveryOrderType) { DARABONBA_PTR_SET_VALUE(deliveryOrderType_, deliveryOrderType) };
+
+
+      // exclusive Field Functions 
+      bool hasExclusive() const { return this->exclusive_ != nullptr;};
+      void deleteExclusive() { this->exclusive_ = nullptr;};
+      inline bool getExclusive() const { DARABONBA_PTR_GET_DEFAULT(exclusive_, false) };
+      inline Data& setExclusive(bool exclusive) { DARABONBA_PTR_SET_VALUE(exclusive_, exclusive) };
 
 
       // instanceId Field Functions 
@@ -263,6 +272,7 @@ namespace Models
       // *   Concurrently: concurrent delivery
       // *   Orderly: ordered delivery
       shared_ptr<string> deliveryOrderType_ {};
+      shared_ptr<bool> exclusive_ {};
       // The ID of the instance.
       shared_ptr<string> instanceId_ {};
       // Maximum received message tps

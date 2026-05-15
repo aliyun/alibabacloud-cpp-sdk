@@ -163,6 +163,10 @@ CreateConsumerGroupResponse Client::createConsumerGroupWithOptions(const string 
     body["deliveryOrderType"] = request.getDeliveryOrderType();
   }
 
+  if (!!request.hasExclusive()) {
+    body["exclusive"] = request.getExclusive();
+  }
+
   if (!!request.hasMaxReceiveTps()) {
     body["maxReceiveTps"] = request.getMaxReceiveTps();
   }
