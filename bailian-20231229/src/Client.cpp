@@ -123,6 +123,10 @@ AddFileResponse Client::addFileWithOptions(const string &WorkspaceId, const AddF
   tmpReq.validate();
   AddFileShrinkRequest request = AddFileShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParserConfig()) {
+    request.setParserConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParserConfig(), "ParserConfig", "json"));
+  }
+
   if (!!tmpReq.hasTags()) {
     request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
   }
@@ -146,6 +150,10 @@ AddFileResponse Client::addFileWithOptions(const string &WorkspaceId, const AddF
 
   if (!!request.hasParser()) {
     body["Parser"] = request.getParser();
+  }
+
+  if (!!request.hasParserConfigShrink()) {
+    body["ParserConfig"] = request.getParserConfigShrink();
   }
 
   if (!!request.hasTagsShrink()) {
@@ -448,6 +456,61 @@ ApplyTempStorageLeaseResponse Client::applyTempStorageLease(const string &Worksp
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return applyTempStorageLeaseWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 批量更新文档Tag
+ *
+ * @param tmpReq BatchUpdateFileTagRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchUpdateFileTagResponse
+ */
+BatchUpdateFileTagResponse Client::batchUpdateFileTagWithOptions(const string &WorkspaceId, const BatchUpdateFileTagRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchUpdateFileTagShrinkRequest request = BatchUpdateFileTagShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileInfos()) {
+    request.setFileInfosShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileInfos(), "FileInfos", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasFileInfosShrink()) {
+    body["FileInfos"] = request.getFileInfosShrink();
+  }
+
+  if (!!request.hasUpdateMode()) {
+    body["UpdateMode"] = request.getUpdateMode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchUpdateFileTag"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/batchupdatetag")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchUpdateFileTagResponse>();
+}
+
+/**
+ * @summary 批量更新文档Tag
+ *
+ * @param request BatchUpdateFileTagRequest
+ * @return BatchUpdateFileTagResponse
+ */
+BatchUpdateFileTagResponse Client::batchUpdateFileTag(const string &WorkspaceId, const BatchUpdateFileTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchUpdateFileTagWithOptions(WorkspaceId, request, headers, runtime);
 }
 
 /**

@@ -23,6 +23,10 @@
 #include <alibabacloud/models/ApplyTempStorageLeaseRequest.hpp>
 #include <alibabacloud/models/ApplyTempStorageLeaseResponseBody.hpp>
 #include <alibabacloud/models/ApplyTempStorageLeaseResponse.hpp>
+#include <alibabacloud/models/BatchUpdateFileTagRequest.hpp>
+#include <alibabacloud/models/BatchUpdateFileTagShrinkRequest.hpp>
+#include <alibabacloud/models/BatchUpdateFileTagResponseBody.hpp>
+#include <alibabacloud/models/BatchUpdateFileTagResponse.hpp>
 #include <alibabacloud/models/ChangeParseSettingRequest.hpp>
 #include <alibabacloud/models/ChangeParseSettingShrinkRequest.hpp>
 #include <alibabacloud/models/ChangeParseSettingResponseBody.hpp>

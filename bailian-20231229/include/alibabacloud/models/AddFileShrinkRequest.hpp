@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LeaseId, leaseId_);
       DARABONBA_PTR_TO_JSON(OriginalFileUrl, originalFileUrl_);
       DARABONBA_PTR_TO_JSON(Parser, parser_);
+      DARABONBA_PTR_TO_JSON(ParserConfig, parserConfigShrink_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, AddFileShrinkRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LeaseId, leaseId_);
       DARABONBA_PTR_FROM_JSON(OriginalFileUrl, originalFileUrl_);
       DARABONBA_PTR_FROM_JSON(Parser, parser_);
+      DARABONBA_PTR_FROM_JSON(ParserConfig, parserConfigShrink_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
     };
     AddFileShrinkRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->categoryType_ == nullptr && this->leaseId_ == nullptr && this->originalFileUrl_ == nullptr && this->parser_ == nullptr && this->tagsShrink_ == nullptr; };
+        && this->categoryType_ == nullptr && this->leaseId_ == nullptr && this->originalFileUrl_ == nullptr && this->parser_ == nullptr && this->parserConfigShrink_ == nullptr
+        && this->tagsShrink_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline AddFileShrinkRequest& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
 
 
+    // parserConfigShrink Field Functions 
+    bool hasParserConfigShrink() const { return this->parserConfigShrink_ != nullptr;};
+    void deleteParserConfigShrink() { this->parserConfigShrink_ = nullptr;};
+    inline string getParserConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(parserConfigShrink_, "") };
+    inline AddFileShrinkRequest& setParserConfigShrink(string parserConfigShrink) { DARABONBA_PTR_SET_VALUE(parserConfigShrink_, parserConfigShrink) };
+
+
     // tagsShrink Field Functions 
     bool hasTagsShrink() const { return this->tagsShrink_ != nullptr;};
     void deleteTagsShrink() { this->tagsShrink_ = nullptr;};
@@ -103,6 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> parser_ {};
+    shared_ptr<string> parserConfigShrink_ {};
     // A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
     shared_ptr<string> tagsShrink_ {};
   };

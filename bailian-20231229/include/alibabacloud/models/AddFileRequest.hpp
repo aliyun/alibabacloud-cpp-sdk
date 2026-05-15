@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LeaseId, leaseId_);
       DARABONBA_PTR_TO_JSON(OriginalFileUrl, originalFileUrl_);
       DARABONBA_PTR_TO_JSON(Parser, parser_);
+      DARABONBA_PTR_TO_JSON(ParserConfig, parserConfig_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, AddFileRequest& obj) { 
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LeaseId, leaseId_);
       DARABONBA_PTR_FROM_JSON(OriginalFileUrl, originalFileUrl_);
       DARABONBA_PTR_FROM_JSON(Parser, parser_);
+      DARABONBA_PTR_FROM_JSON(ParserConfig, parserConfig_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
     };
     AddFileRequest() = default ;
@@ -40,8 +42,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ParserConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ParserConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+        DARABONBA_PTR_TO_JSON(ModelPrompt, modelPrompt_);
+      };
+      friend void from_json(const Darabonba::Json& j, ParserConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+        DARABONBA_PTR_FROM_JSON(ModelPrompt, modelPrompt_);
+      };
+      ParserConfig() = default ;
+      ParserConfig(const ParserConfig &) = default ;
+      ParserConfig(ParserConfig &&) = default ;
+      ParserConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ParserConfig() = default ;
+      ParserConfig& operator=(const ParserConfig &) = default ;
+      ParserConfig& operator=(ParserConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->modelName_ == nullptr
+        && this->modelPrompt_ == nullptr; };
+      // modelName Field Functions 
+      bool hasModelName() const { return this->modelName_ != nullptr;};
+      void deleteModelName() { this->modelName_ = nullptr;};
+      inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+      inline ParserConfig& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+      // modelPrompt Field Functions 
+      bool hasModelPrompt() const { return this->modelPrompt_ != nullptr;};
+      void deleteModelPrompt() { this->modelPrompt_ = nullptr;};
+      inline string getModelPrompt() const { DARABONBA_PTR_GET_DEFAULT(modelPrompt_, "") };
+      inline ParserConfig& setModelPrompt(string modelPrompt) { DARABONBA_PTR_SET_VALUE(modelPrompt_, modelPrompt) };
+
+
+    protected:
+      shared_ptr<string> modelName_ {};
+      shared_ptr<string> modelPrompt_ {};
+    };
+
     virtual bool empty() const override { return this->categoryId_ == nullptr
-        && this->categoryType_ == nullptr && this->leaseId_ == nullptr && this->originalFileUrl_ == nullptr && this->parser_ == nullptr && this->tags_ == nullptr; };
+        && this->categoryType_ == nullptr && this->leaseId_ == nullptr && this->originalFileUrl_ == nullptr && this->parser_ == nullptr && this->parserConfig_ == nullptr
+        && this->tags_ == nullptr; };
     // categoryId Field Functions 
     bool hasCategoryId() const { return this->categoryId_ != nullptr;};
     void deleteCategoryId() { this->categoryId_ = nullptr;};
@@ -77,6 +122,15 @@ namespace Models
     inline AddFileRequest& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
 
 
+    // parserConfig Field Functions 
+    bool hasParserConfig() const { return this->parserConfig_ != nullptr;};
+    void deleteParserConfig() { this->parserConfig_ = nullptr;};
+    inline const AddFileRequest::ParserConfig & getParserConfig() const { DARABONBA_PTR_GET_CONST(parserConfig_, AddFileRequest::ParserConfig) };
+    inline AddFileRequest::ParserConfig getParserConfig() { DARABONBA_PTR_GET(parserConfig_, AddFileRequest::ParserConfig) };
+    inline AddFileRequest& setParserConfig(const AddFileRequest::ParserConfig & parserConfig) { DARABONBA_PTR_SET_VALUE(parserConfig_, parserConfig) };
+    inline AddFileRequest& setParserConfig(AddFileRequest::ParserConfig && parserConfig) { DARABONBA_PTR_SET_RVALUE(parserConfig_, parserConfig) };
+
+
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
@@ -106,6 +160,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> parser_ {};
+    shared_ptr<AddFileRequest::ParserConfig> parserConfig_ {};
     // A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
     shared_ptr<vector<string>> tags_ {};
   };

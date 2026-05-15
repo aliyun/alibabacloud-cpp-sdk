@@ -167,6 +167,24 @@ namespace Bailian20231229
       Models::ApplyTempStorageLeaseResponse applyTempStorageLease(const string &WorkspaceId, const Models::ApplyTempStorageLeaseRequest &request);
 
       /**
+       * @summary 批量更新文档Tag
+       *
+       * @param tmpReq BatchUpdateFileTagRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchUpdateFileTagResponse
+       */
+      Models::BatchUpdateFileTagResponse batchUpdateFileTagWithOptions(const string &WorkspaceId, const Models::BatchUpdateFileTagRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量更新文档Tag
+       *
+       * @param request BatchUpdateFileTagRequest
+       * @return BatchUpdateFileTagResponse
+       */
+      Models::BatchUpdateFileTagResponse batchUpdateFileTag(const string &WorkspaceId, const Models::BatchUpdateFileTagRequest &request);
+
+      /**
        * @summary Configure the parsing method for a specific file type. For example, use LLM parsing for .pdf files, or use Qwen VL parsing for .jpg files.
        *
        * @param tmpReq ChangeParseSettingRequest
