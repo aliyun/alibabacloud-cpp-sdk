@@ -25,6 +25,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeClusterNodePoolDetailResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(auto_mode, autoMode_);
       DARABONBA_PTR_TO_JSON(auto_scaling, autoScaling_);
+      DARABONBA_PTR_TO_JSON(eflo_node_group, efloNodeGroup_);
       DARABONBA_PTR_TO_JSON(host_network, hostNetwork_);
       DARABONBA_PTR_TO_JSON(interconnect_config, interconnectConfig_);
       DARABONBA_PTR_TO_JSON(interconnect_mode, interconnectMode_);
@@ -42,6 +43,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeClusterNodePoolDetailResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(auto_mode, autoMode_);
       DARABONBA_PTR_FROM_JSON(auto_scaling, autoScaling_);
+      DARABONBA_PTR_FROM_JSON(eflo_node_group, efloNodeGroup_);
       DARABONBA_PTR_FROM_JSON(host_network, hostNetwork_);
       DARABONBA_PTR_FROM_JSON(interconnect_config, interconnectConfig_);
       DARABONBA_PTR_FROM_JSON(interconnect_mode, interconnectMode_);
@@ -1992,6 +1994,48 @@ namespace Models
       shared_ptr<string> improvedPeriod_ {};
     };
 
+    class EfloNodeGroup : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EfloNodeGroup& obj) { 
+        DARABONBA_PTR_TO_JSON(cluster_id, clusterId_);
+        DARABONBA_PTR_TO_JSON(group_id, groupId_);
+      };
+      friend void from_json(const Darabonba::Json& j, EfloNodeGroup& obj) { 
+        DARABONBA_PTR_FROM_JSON(cluster_id, clusterId_);
+        DARABONBA_PTR_FROM_JSON(group_id, groupId_);
+      };
+      EfloNodeGroup() = default ;
+      EfloNodeGroup(const EfloNodeGroup &) = default ;
+      EfloNodeGroup(EfloNodeGroup &&) = default ;
+      EfloNodeGroup(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EfloNodeGroup() = default ;
+      EfloNodeGroup& operator=(const EfloNodeGroup &) = default ;
+      EfloNodeGroup& operator=(EfloNodeGroup &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->groupId_ == nullptr; };
+      // clusterId Field Functions 
+      bool hasClusterId() const { return this->clusterId_ != nullptr;};
+      void deleteClusterId() { this->clusterId_ = nullptr;};
+      inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+      inline EfloNodeGroup& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
+      // groupId Field Functions 
+      bool hasGroupId() const { return this->groupId_ != nullptr;};
+      void deleteGroupId() { this->groupId_ = nullptr;};
+      inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+      inline EfloNodeGroup& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
+
+
+    protected:
+      shared_ptr<string> clusterId_ {};
+      shared_ptr<string> groupId_ {};
+    };
+
     class AutoScaling : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const AutoScaling& obj) { 
@@ -2138,9 +2182,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoMode_ == nullptr
-        && this->autoScaling_ == nullptr && this->hostNetwork_ == nullptr && this->interconnectConfig_ == nullptr && this->interconnectMode_ == nullptr && this->intranet_ == nullptr
-        && this->kubernetesConfig_ == nullptr && this->management_ == nullptr && this->maxNodes_ == nullptr && this->nodeComponents_ == nullptr && this->nodeConfig_ == nullptr
-        && this->nodepoolInfo_ == nullptr && this->scalingGroup_ == nullptr && this->status_ == nullptr && this->teeConfig_ == nullptr; };
+        && this->autoScaling_ == nullptr && this->efloNodeGroup_ == nullptr && this->hostNetwork_ == nullptr && this->interconnectConfig_ == nullptr && this->interconnectMode_ == nullptr
+        && this->intranet_ == nullptr && this->kubernetesConfig_ == nullptr && this->management_ == nullptr && this->maxNodes_ == nullptr && this->nodeComponents_ == nullptr
+        && this->nodeConfig_ == nullptr && this->nodepoolInfo_ == nullptr && this->scalingGroup_ == nullptr && this->status_ == nullptr && this->teeConfig_ == nullptr; };
     // autoMode Field Functions 
     bool hasAutoMode() const { return this->autoMode_ != nullptr;};
     void deleteAutoMode() { this->autoMode_ = nullptr;};
@@ -2157,6 +2201,15 @@ namespace Models
     inline DescribeClusterNodePoolDetailResponseBody::AutoScaling getAutoScaling() { DARABONBA_PTR_GET(autoScaling_, DescribeClusterNodePoolDetailResponseBody::AutoScaling) };
     inline DescribeClusterNodePoolDetailResponseBody& setAutoScaling(const DescribeClusterNodePoolDetailResponseBody::AutoScaling & autoScaling) { DARABONBA_PTR_SET_VALUE(autoScaling_, autoScaling) };
     inline DescribeClusterNodePoolDetailResponseBody& setAutoScaling(DescribeClusterNodePoolDetailResponseBody::AutoScaling && autoScaling) { DARABONBA_PTR_SET_RVALUE(autoScaling_, autoScaling) };
+
+
+    // efloNodeGroup Field Functions 
+    bool hasEfloNodeGroup() const { return this->efloNodeGroup_ != nullptr;};
+    void deleteEfloNodeGroup() { this->efloNodeGroup_ = nullptr;};
+    inline const DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup & getEfloNodeGroup() const { DARABONBA_PTR_GET_CONST(efloNodeGroup_, DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup) };
+    inline DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup getEfloNodeGroup() { DARABONBA_PTR_GET(efloNodeGroup_, DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup) };
+    inline DescribeClusterNodePoolDetailResponseBody& setEfloNodeGroup(const DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup & efloNodeGroup) { DARABONBA_PTR_SET_VALUE(efloNodeGroup_, efloNodeGroup) };
+    inline DescribeClusterNodePoolDetailResponseBody& setEfloNodeGroup(DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup && efloNodeGroup) { DARABONBA_PTR_SET_RVALUE(efloNodeGroup_, efloNodeGroup) };
 
 
     // hostNetwork Field Functions 
@@ -2272,6 +2325,7 @@ namespace Models
     shared_ptr<DescribeClusterNodePoolDetailResponseBody::AutoMode> autoMode_ {};
     // The auto scaling configuration of the node pool.
     shared_ptr<DescribeClusterNodePoolDetailResponseBody::AutoScaling> autoScaling_ {};
+    shared_ptr<DescribeClusterNodePoolDetailResponseBody::EfloNodeGroup> efloNodeGroup_ {};
     // Indicates whether the pods in the edge node pool can use the host network.
     // 
     // `true`: sets to host network.
