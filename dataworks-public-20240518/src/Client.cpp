@@ -2831,6 +2831,68 @@ CreateProjectMemberResponse Client::createProjectMember(const CreateProjectMembe
 }
 
 /**
+ * @summary Create a workspace custom role
+ *
+ * @param tmpReq CreateProjectRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProjectRoleResponse
+ */
+CreateProjectRoleResponse Client::createProjectRoleWithOptions(const CreateProjectRoleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateProjectRoleShrinkRequest request = CreateProjectRoleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasModulePermissions()) {
+    request.setModulePermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModulePermissions(), "ModulePermissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasModulePermissionsShrink()) {
+    query["ModulePermissions"] = request.getModulePermissionsShrink();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateProjectRole"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProjectRoleResponse>();
+}
+
+/**
+ * @summary Create a workspace custom role
+ *
+ * @param request CreateProjectRoleRequest
+ * @return CreateProjectRoleResponse
+ */
+CreateProjectRoleResponse Client::createProjectRole(const CreateProjectRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProjectRoleWithOptions(request, runtime);
+}
+
+/**
  * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
  *
  * @description Private
@@ -4858,6 +4920,52 @@ DeleteProjectMemberResponse Client::deleteProjectMemberWithOptions(const DeleteP
 DeleteProjectMemberResponse Client::deleteProjectMember(const DeleteProjectMemberRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteProjectMemberWithOptions(request, runtime);
+}
+
+/**
+ * @summary Delete a workspace custom role
+ *
+ * @param request DeleteProjectRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProjectRoleResponse
+ */
+DeleteProjectRoleResponse Client::deleteProjectRoleWithOptions(const DeleteProjectRoleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCode()) {
+    query["Code"] = request.getCode();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteProjectRole"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProjectRoleResponse>();
+}
+
+/**
+ * @summary Delete a workspace custom role
+ *
+ * @param request DeleteProjectRoleRequest
+ * @return DeleteProjectRoleResponse
+ */
+DeleteProjectRoleResponse Client::deleteProjectRole(const DeleteProjectRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProjectRoleWithOptions(request, runtime);
 }
 
 /**
@@ -15904,6 +16012,68 @@ UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectReques
 UpdateProjectResponse Client::updateProject(const UpdateProjectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateProjectWithOptions(request, runtime);
+}
+
+/**
+ * @summary Update the permissions of a custom role
+ *
+ * @param tmpReq UpdateProjectRoleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProjectRoleResponse
+ */
+UpdateProjectRoleResponse Client::updateProjectRoleWithOptions(const UpdateProjectRoleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateProjectRoleShrinkRequest request = UpdateProjectRoleShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasModulePermissions()) {
+    request.setModulePermissionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModulePermissions(), "ModulePermissions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasCode()) {
+    query["Code"] = request.getCode();
+  }
+
+  if (!!request.hasModulePermissionsShrink()) {
+    query["ModulePermissions"] = request.getModulePermissionsShrink();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateProjectRole"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProjectRoleResponse>();
+}
+
+/**
+ * @summary Update the permissions of a custom role
+ *
+ * @param request UpdateProjectRoleRequest
+ * @return UpdateProjectRoleResponse
+ */
+UpdateProjectRoleResponse Client::updateProjectRole(const UpdateProjectRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProjectRoleWithOptions(request, runtime);
 }
 
 /**

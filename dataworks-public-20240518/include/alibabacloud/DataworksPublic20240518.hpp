@@ -818,6 +818,23 @@ namespace DataworksPublic20240518
       Models::CreateProjectMemberResponse createProjectMember(const Models::CreateProjectMemberRequest &request);
 
       /**
+       * @summary Create a workspace custom role
+       *
+       * @param tmpReq CreateProjectRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProjectRoleResponse
+       */
+      Models::CreateProjectRoleResponse createProjectRoleWithOptions(const Models::CreateProjectRoleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Create a workspace custom role
+       *
+       * @param request CreateProjectRoleRequest
+       * @return CreateProjectRoleResponse
+       */
+      Models::CreateProjectRoleResponse createProjectRole(const Models::CreateProjectRoleRequest &request);
+
+      /**
        * @summary \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
        *
        * @description Private
@@ -1517,6 +1534,23 @@ namespace DataworksPublic20240518
        * @return DeleteProjectMemberResponse
        */
       Models::DeleteProjectMemberResponse deleteProjectMember(const Models::DeleteProjectMemberRequest &request);
+
+      /**
+       * @summary Delete a workspace custom role
+       *
+       * @param request DeleteProjectRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProjectRoleResponse
+       */
+      Models::DeleteProjectRoleResponse deleteProjectRoleWithOptions(const Models::DeleteProjectRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Delete a workspace custom role
+       *
+       * @param request DeleteProjectRoleRequest
+       * @return DeleteProjectRoleResponse
+       */
+      Models::DeleteProjectRoleResponse deleteProjectRole(const Models::DeleteProjectRoleRequest &request);
 
       /**
        * @summary Deletes a file resource from DataStudio.
@@ -5379,6 +5413,23 @@ namespace DataworksPublic20240518
        * @return UpdateProjectResponse
        */
       Models::UpdateProjectResponse updateProject(const Models::UpdateProjectRequest &request);
+
+      /**
+       * @summary Update the permissions of a custom role
+       *
+       * @param tmpReq UpdateProjectRoleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProjectRoleResponse
+       */
+      Models::UpdateProjectRoleResponse updateProjectRoleWithOptions(const Models::UpdateProjectRoleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Update the permissions of a custom role
+       *
+       * @param request UpdateProjectRoleRequest
+       * @return UpdateProjectRoleResponse
+       */
+      Models::UpdateProjectRoleResponse updateProjectRole(const Models::UpdateProjectRoleRequest &request);
 
       /**
        * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.

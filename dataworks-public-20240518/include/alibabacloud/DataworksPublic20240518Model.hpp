@@ -165,6 +165,10 @@
 #include <alibabacloud/models/CreateProjectMemberShrinkRequest.hpp>
 #include <alibabacloud/models/CreateProjectMemberResponseBody.hpp>
 #include <alibabacloud/models/CreateProjectMemberResponse.hpp>
+#include <alibabacloud/models/CreateProjectRoleRequest.hpp>
+#include <alibabacloud/models/CreateProjectRoleShrinkRequest.hpp>
+#include <alibabacloud/models/CreateProjectRoleResponseBody.hpp>
+#include <alibabacloud/models/CreateProjectRoleResponse.hpp>
 #include <alibabacloud/models/CreateResourceRequest.hpp>
 #include <alibabacloud/models/CreateResourceAdvanceRequest.hpp>
 #include <alibabacloud/models/CreateResourceResponseBody.hpp>
@@ -275,6 +279,9 @@
 #include <alibabacloud/models/DeleteProjectMemberRequest.hpp>
 #include <alibabacloud/models/DeleteProjectMemberResponseBody.hpp>
 #include <alibabacloud/models/DeleteProjectMemberResponse.hpp>
+#include <alibabacloud/models/DeleteProjectRoleRequest.hpp>
+#include <alibabacloud/models/DeleteProjectRoleResponseBody.hpp>
+#include <alibabacloud/models/DeleteProjectRoleResponse.hpp>
 #include <alibabacloud/models/DeleteResourceRequest.hpp>
 #include <alibabacloud/models/DeleteResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceResponse.hpp>
@@ -930,6 +937,10 @@
 #include <alibabacloud/models/UpdateProjectRequest.hpp>
 #include <alibabacloud/models/UpdateProjectResponseBody.hpp>
 #include <alibabacloud/models/UpdateProjectResponse.hpp>
+#include <alibabacloud/models/UpdateProjectRoleRequest.hpp>
+#include <alibabacloud/models/UpdateProjectRoleShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateProjectRoleResponseBody.hpp>
+#include <alibabacloud/models/UpdateProjectRoleResponse.hpp>
 #include <alibabacloud/models/UpdateResourceRequest.hpp>
 #include <alibabacloud/models/UpdateResourceAdvanceRequest.hpp>
 #include <alibabacloud/models/UpdateResourceResponseBody.hpp>
