@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyDBClusterShardNumberRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_TO_JSON(IsRollback, isRollback_);
       DARABONBA_PTR_TO_JSON(NewShardNumber, newShardNumber_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyDBClusterShardNumberRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
+      DARABONBA_PTR_FROM_JSON(IsRollback, isRollback_);
       DARABONBA_PTR_FROM_JSON(NewShardNumber, newShardNumber_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->dryRun_ == nullptr && this->newShardNumber_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr; };
+        && this->dryRun_ == nullptr && this->isRollback_ == nullptr && this->newShardNumber_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -62,6 +64,13 @@ namespace Models
     void deleteDryRun() { this->dryRun_ = nullptr;};
     inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyDBClusterShardNumberRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
+    // isRollback Field Functions 
+    bool hasIsRollback() const { return this->isRollback_ != nullptr;};
+    void deleteIsRollback() { this->isRollback_ = nullptr;};
+    inline bool getIsRollback() const { DARABONBA_PTR_GET_DEFAULT(isRollback_, false) };
+    inline ModifyDBClusterShardNumberRequest& setIsRollback(bool isRollback) { DARABONBA_PTR_SET_VALUE(isRollback_, isRollback) };
 
 
     // newShardNumber Field Functions 
@@ -132,6 +141,7 @@ namespace Models
     // *   true: sends a request to check whether the cluster meets the prerequisites for changing the number of shards and whether the desired number of shards is valid, but **does not** perform the change operation.
     // *   false (default): sends a request to perform a check and trigger the change operation.
     shared_ptr<bool> dryRun_ {};
+    shared_ptr<bool> isRollback_ {};
     // The desired number of shards.
     shared_ptr<int64_t> newShardNumber_ {};
     shared_ptr<string> ownerAccount_ {};

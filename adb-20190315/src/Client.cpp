@@ -9065,6 +9065,10 @@ ModifyDBClusterShardNumberResponse Client::modifyDBClusterShardNumberWithOptions
     query["DryRun"] = request.getDryRun();
   }
 
+  if (!!request.hasIsRollback()) {
+    query["IsRollback"] = request.getIsRollback();
+  }
+
   if (!!request.hasNewShardNumber()) {
     query["NewShardNumber"] = request.getNewShardNumber();
   }
