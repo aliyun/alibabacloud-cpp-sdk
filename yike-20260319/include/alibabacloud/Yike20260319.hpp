@@ -208,6 +208,23 @@ namespace Yike20260319
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
+       * @summary 查询一刻提示词扩写和音频修复视频生成任务
+       *
+       * @param request GetYikePromptExpansionVoiceFixJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikePromptExpansionVoiceFixJobResponse
+       */
+      Models::GetYikePromptExpansionVoiceFixJobResponse getYikePromptExpansionVoiceFixJobWithOptions(const Models::GetYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻提示词扩写和音频修复视频生成任务
+       *
+       * @param request GetYikePromptExpansionVoiceFixJobRequest
+       * @return GetYikePromptExpansionVoiceFixJobResponse
+       */
+      Models::GetYikePromptExpansionVoiceFixJobResponse getYikePromptExpansionVoiceFixJob(const Models::GetYikePromptExpansionVoiceFixJobRequest &request);
+
+      /**
        * @summary 获取一刻故事板任务
        *
        * @param request GetYikeStoryboardJobRequest
@@ -446,7 +463,24 @@ namespace Yike20260319
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
-       * @summary 提交一刻故事板任务
+       * @summary 提交一刻提示词扩写和音频修复视频生成任务
+       *
+       * @param request SubmitYikePromptExpansionVoiceFixJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikePromptExpansionVoiceFixJobResponse
+       */
+      Models::SubmitYikePromptExpansionVoiceFixJobResponse submitYikePromptExpansionVoiceFixJobWithOptions(const Models::SubmitYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻提示词扩写和音频修复视频生成任务
+       *
+       * @param request SubmitYikePromptExpansionVoiceFixJobRequest
+       * @return SubmitYikePromptExpansionVoiceFixJobResponse
+       */
+      Models::SubmitYikePromptExpansionVoiceFixJobResponse submitYikePromptExpansionVoiceFixJob(const Models::SubmitYikePromptExpansionVoiceFixJobRequest &request);
+
+      /**
+       * @summary 提交一刻故事板全链路编排任务
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +489,7 @@ namespace Yike20260319
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJobWithOptions(const Models::SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻故事板任务
+       * @summary 提交一刻故事板全链路编排任务
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @return SubmitYikeStoryboardJobResponse

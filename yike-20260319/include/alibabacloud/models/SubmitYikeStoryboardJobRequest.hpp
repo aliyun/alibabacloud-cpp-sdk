@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AspectRatio, aspectRatio_);
       DARABONBA_PTR_TO_JSON(ExecMode, execMode_);
       DARABONBA_PTR_TO_JSON(FileURL, fileURL_);
+      DARABONBA_PTR_TO_JSON(KeepOriginDialogue, keepOriginDialogue_);
       DARABONBA_PTR_TO_JSON(ModelParams, modelParams_);
       DARABONBA_PTR_TO_JSON(NarrationVoiceId, narrationVoiceId_);
       DARABONBA_PTR_TO_JSON(Resolution, resolution_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AspectRatio, aspectRatio_);
       DARABONBA_PTR_FROM_JSON(ExecMode, execMode_);
       DARABONBA_PTR_FROM_JSON(FileURL, fileURL_);
+      DARABONBA_PTR_FROM_JSON(KeepOriginDialogue, keepOriginDialogue_);
       DARABONBA_PTR_FROM_JSON(ModelParams, modelParams_);
       DARABONBA_PTR_FROM_JSON(NarrationVoiceId, narrationVoiceId_);
       DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aspectRatio_ == nullptr
-        && this->execMode_ == nullptr && this->fileURL_ == nullptr && this->modelParams_ == nullptr && this->narrationVoiceId_ == nullptr && this->resolution_ == nullptr
-        && this->shotPromptMode_ == nullptr && this->shotSplitMode_ == nullptr && this->skipFailureShot_ == nullptr && this->sourceType_ == nullptr && this->styleId_ == nullptr
-        && this->title_ == nullptr && this->userData_ == nullptr && this->videoModel_ == nullptr; };
+        && this->execMode_ == nullptr && this->fileURL_ == nullptr && this->keepOriginDialogue_ == nullptr && this->modelParams_ == nullptr && this->narrationVoiceId_ == nullptr
+        && this->resolution_ == nullptr && this->shotPromptMode_ == nullptr && this->shotSplitMode_ == nullptr && this->skipFailureShot_ == nullptr && this->sourceType_ == nullptr
+        && this->styleId_ == nullptr && this->title_ == nullptr && this->userData_ == nullptr && this->videoModel_ == nullptr; };
     // aspectRatio Field Functions 
     bool hasAspectRatio() const { return this->aspectRatio_ != nullptr;};
     void deleteAspectRatio() { this->aspectRatio_ = nullptr;};
@@ -78,6 +80,13 @@ namespace Models
     void deleteFileURL() { this->fileURL_ = nullptr;};
     inline string getFileURL() const { DARABONBA_PTR_GET_DEFAULT(fileURL_, "") };
     inline SubmitYikeStoryboardJobRequest& setFileURL(string fileURL) { DARABONBA_PTR_SET_VALUE(fileURL_, fileURL) };
+
+
+    // keepOriginDialogue Field Functions 
+    bool hasKeepOriginDialogue() const { return this->keepOriginDialogue_ != nullptr;};
+    void deleteKeepOriginDialogue() { this->keepOriginDialogue_ = nullptr;};
+    inline bool getKeepOriginDialogue() const { DARABONBA_PTR_GET_DEFAULT(keepOriginDialogue_, false) };
+    inline SubmitYikeStoryboardJobRequest& setKeepOriginDialogue(bool keepOriginDialogue) { DARABONBA_PTR_SET_VALUE(keepOriginDialogue_, keepOriginDialogue) };
 
 
     // modelParams Field Functions 
@@ -161,6 +170,7 @@ namespace Models
     shared_ptr<string> aspectRatio_ {};
     shared_ptr<string> execMode_ {};
     shared_ptr<string> fileURL_ {};
+    shared_ptr<bool> keepOriginDialogue_ {};
     shared_ptr<string> modelParams_ {};
     shared_ptr<string> narrationVoiceId_ {};
     shared_ptr<string> resolution_ {};

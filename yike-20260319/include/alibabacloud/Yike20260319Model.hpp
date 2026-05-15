@@ -35,6 +35,9 @@
 #include <alibabacloud/models/GetYikeAssetMediaInfoRequest.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponseBody.hpp>
 #include <alibabacloud/models/GetYikeAssetMediaInfoResponse.hpp>
+#include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobRequest.hpp>
+#include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobResponseBody.hpp>
+#include <alibabacloud/models/GetYikePromptExpansionVoiceFixJobResponse.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/GetYikeStoryboardJobResponse.hpp>
@@ -77,6 +80,9 @@
 #include <alibabacloud/models/SubmitYikeAIAppJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeAIAppJobResponse.hpp>
+#include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobRequest.hpp>
+#include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitYikePromptExpansionVoiceFixJobResponse.hpp>
 #include <alibabacloud/models/SubmitYikeStoryboardJobRequest.hpp>
 #include <alibabacloud/models/SubmitYikeStoryboardJobResponseBody.hpp>
 #include <alibabacloud/models/SubmitYikeStoryboardJobResponse.hpp>

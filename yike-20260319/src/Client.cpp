@@ -538,6 +538,48 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMe
 }
 
 /**
+ * @summary 查询一刻提示词扩写和音频修复视频生成任务
+ *
+ * @param request GetYikePromptExpansionVoiceFixJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikePromptExpansionVoiceFixJobResponse
+ */
+GetYikePromptExpansionVoiceFixJobResponse Client::getYikePromptExpansionVoiceFixJobWithOptions(const GetYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikePromptExpansionVoiceFixJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikePromptExpansionVoiceFixJobResponse>();
+}
+
+/**
+ * @summary 查询一刻提示词扩写和音频修复视频生成任务
+ *
+ * @param request GetYikePromptExpansionVoiceFixJobRequest
+ * @return GetYikePromptExpansionVoiceFixJobResponse
+ */
+GetYikePromptExpansionVoiceFixJobResponse Client::getYikePromptExpansionVoiceFixJob(const GetYikePromptExpansionVoiceFixJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikePromptExpansionVoiceFixJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取一刻故事板任务
  *
  * @param request GetYikeStoryboardJobRequest
@@ -1194,7 +1236,53 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRe
 }
 
 /**
- * @summary 提交一刻故事板任务
+ * @summary 提交一刻提示词扩写和音频修复视频生成任务
+ *
+ * @param request SubmitYikePromptExpansionVoiceFixJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikePromptExpansionVoiceFixJobResponse
+ */
+SubmitYikePromptExpansionVoiceFixJobResponse Client::submitYikePromptExpansionVoiceFixJobWithOptions(const SubmitYikePromptExpansionVoiceFixJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobParams()) {
+    body["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikePromptExpansionVoiceFixJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikePromptExpansionVoiceFixJobResponse>();
+}
+
+/**
+ * @summary 提交一刻提示词扩写和音频修复视频生成任务
+ *
+ * @param request SubmitYikePromptExpansionVoiceFixJobRequest
+ * @return SubmitYikePromptExpansionVoiceFixJobResponse
+ */
+SubmitYikePromptExpansionVoiceFixJobResponse Client::submitYikePromptExpansionVoiceFixJob(const SubmitYikePromptExpansionVoiceFixJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikePromptExpansionVoiceFixJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交一刻故事板全链路编排任务
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1209,6 +1297,10 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 
   if (!!request.hasExecMode()) {
     query["ExecMode"] = request.getExecMode();
+  }
+
+  if (!!request.hasKeepOriginDialogue()) {
+    query["KeepOriginDialogue"] = request.getKeepOriginDialogue();
   }
 
   if (!!request.hasModelParams()) {
@@ -1279,7 +1371,7 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary 提交一刻故事板任务
+ * @summary 提交一刻故事板全链路编排任务
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @return SubmitYikeStoryboardJobResponse
