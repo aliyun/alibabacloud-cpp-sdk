@@ -2137,8 +2137,16 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
     query["CycleDuration"] = request.getCycleDuration();
   }
 
+  if (!!request.hasDelayTime()) {
+    query["DelayTime"] = request.getDelayTime();
+  }
+
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasFormatConfig()) {
+    query["FormatConfig"] = request.getFormatConfig();
   }
 
   if (!!request.hasOnDemand()) {
@@ -2149,8 +2157,20 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasRecordContent()) {
+    query["RecordContent"] = request.getRecordContent();
+  }
+
+  if (!!request.hasRecordFormat()) {
+    query["RecordFormat"] = request.getRecordFormat();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSpaceId()) {
+    query["SpaceId"] = request.getSpaceId();
   }
 
   if (!!request.hasStorageLocation()) {
@@ -2159,6 +2179,10 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
 
   if (!!request.hasStreamName()) {
     query["StreamName"] = request.getStreamName();
+  }
+
+  if (!!request.hasTranscodeTemplates()) {
+    query["TranscodeTemplates"] = request.getTranscodeTemplates();
   }
 
   if (!!request.hasVodTranscodeGroupId()) {
@@ -29578,8 +29602,16 @@ UpdateLiveRecordVodConfigResponse Client::updateLiveRecordVodConfigWithOptions(c
     query["CycleDuration"] = request.getCycleDuration();
   }
 
+  if (!!request.hasDelayTime()) {
+    query["DelayTime"] = request.getDelayTime();
+  }
+
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasFormatConfig()) {
+    query["FormatConfig"] = request.getFormatConfig();
   }
 
   if (!!request.hasOnDemand()) {
@@ -29590,12 +29622,20 @@ UpdateLiveRecordVodConfigResponse Client::updateLiveRecordVodConfigWithOptions(c
     query["OwnerId"] = request.getOwnerId();
   }
 
+  if (!!request.hasRecordFormat()) {
+    query["RecordFormat"] = request.getRecordFormat();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasStreamName()) {
     query["StreamName"] = request.getStreamName();
+  }
+
+  if (!!request.hasTranscodeTemplates()) {
+    query["TranscodeTemplates"] = request.getTranscodeTemplates();
   }
 
   if (!!request.hasVodTranscodeGroupId()) {
