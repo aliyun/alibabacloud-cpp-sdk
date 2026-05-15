@@ -37,6 +37,7 @@ namespace Models
     class Job : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Job& obj) { 
+        DARABONBA_PTR_TO_JSON(allParameters, allParameters_);
         DARABONBA_PTR_TO_JSON(assertCheckDetail, assertCheckDetail_);
         DARABONBA_PTR_TO_JSON(config, config_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(terraformProviderVersion, terraformProviderVersion_);
       };
       friend void from_json(const Darabonba::Json& j, Job& obj) { 
+        DARABONBA_PTR_FROM_JSON(allParameters, allParameters_);
         DARABONBA_PTR_FROM_JSON(assertCheckDetail, assertCheckDetail_);
         DARABONBA_PTR_FROM_JSON(config, config_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
@@ -233,11 +235,72 @@ namespace Models
         shared_ptr<string> type_ {};
       };
 
-      virtual bool empty() const override { return this->assertCheckDetail_ == nullptr
-        && this->config_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->downloadUrl_ == nullptr && this->elapsedTime_ == nullptr
-        && this->executeType_ == nullptr && this->isPassAssertCheck_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr && this->logFile_ == nullptr
-        && this->output_ == nullptr && this->outputJsonPlan_ == nullptr && this->parameters_ == nullptr && this->status_ == nullptr && this->statusDetail_ == nullptr
-        && this->taskId_ == nullptr && this->taskType_ == nullptr && this->terraformProviderVersion_ == nullptr; };
+      class AllParameters : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AllParameters& obj) { 
+          DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(secret, secret_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, AllParameters& obj) { 
+          DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(secret, secret_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        AllParameters() = default ;
+        AllParameters(const AllParameters &) = default ;
+        AllParameters(AllParameters &&) = default ;
+        AllParameters(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AllParameters() = default ;
+        AllParameters& operator=(const AllParameters &) = default ;
+        AllParameters& operator=(AllParameters &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->secret_ == nullptr && this->value_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline AllParameters& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // secret Field Functions 
+        bool hasSecret() const { return this->secret_ != nullptr;};
+        void deleteSecret() { this->secret_ = nullptr;};
+        inline bool getSecret() const { DARABONBA_PTR_GET_DEFAULT(secret_, false) };
+        inline AllParameters& setSecret(bool secret) { DARABONBA_PTR_SET_VALUE(secret_, secret) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline AllParameters& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> name_ {};
+        shared_ptr<bool> secret_ {};
+        shared_ptr<string> value_ {};
+      };
+
+      virtual bool empty() const override { return this->allParameters_ == nullptr
+        && this->assertCheckDetail_ == nullptr && this->config_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->downloadUrl_ == nullptr
+        && this->elapsedTime_ == nullptr && this->executeType_ == nullptr && this->isPassAssertCheck_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr
+        && this->logFile_ == nullptr && this->output_ == nullptr && this->outputJsonPlan_ == nullptr && this->parameters_ == nullptr && this->status_ == nullptr
+        && this->statusDetail_ == nullptr && this->taskId_ == nullptr && this->taskType_ == nullptr && this->terraformProviderVersion_ == nullptr; };
+      // allParameters Field Functions 
+      bool hasAllParameters() const { return this->allParameters_ != nullptr;};
+      void deleteAllParameters() { this->allParameters_ = nullptr;};
+      inline const vector<Job::AllParameters> & getAllParameters() const { DARABONBA_PTR_GET_CONST(allParameters_, vector<Job::AllParameters>) };
+      inline vector<Job::AllParameters> getAllParameters() { DARABONBA_PTR_GET(allParameters_, vector<Job::AllParameters>) };
+      inline Job& setAllParameters(const vector<Job::AllParameters> & allParameters) { DARABONBA_PTR_SET_VALUE(allParameters_, allParameters) };
+      inline Job& setAllParameters(vector<Job::AllParameters> && allParameters) { DARABONBA_PTR_SET_RVALUE(allParameters_, allParameters) };
+
+
       // assertCheckDetail Field Functions 
       bool hasAssertCheckDetail() const { return this->assertCheckDetail_ != nullptr;};
       void deleteAssertCheckDetail() { this->assertCheckDetail_ = nullptr;};
@@ -386,6 +449,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<vector<Job::AllParameters>> allParameters_ {};
       shared_ptr<vector<Job::AssertCheckDetail>> assertCheckDetail_ {};
       shared_ptr<Job::Config> config_ {};
       shared_ptr<string> createTime_ {};

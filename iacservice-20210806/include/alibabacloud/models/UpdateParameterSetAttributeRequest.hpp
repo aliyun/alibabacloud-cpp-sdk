@@ -38,12 +38,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Parameters& obj) { 
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(secret, secret_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(type, type_);
         DARABONBA_PTR_TO_JSON(value, value_);
       };
       friend void from_json(const Darabonba::Json& j, Parameters& obj) { 
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(secret, secret_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(type, type_);
         DARABONBA_PTR_FROM_JSON(value, value_);
@@ -60,12 +62,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->name_ == nullptr
-        && this->status_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
+        && this->secret_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->value_ == nullptr; };
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
       inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
       inline Parameters& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // secret Field Functions 
+      bool hasSecret() const { return this->secret_ != nullptr;};
+      void deleteSecret() { this->secret_ = nullptr;};
+      inline bool getSecret() const { DARABONBA_PTR_GET_DEFAULT(secret_, false) };
+      inline Parameters& setSecret(bool secret) { DARABONBA_PTR_SET_VALUE(secret_, secret) };
 
 
       // status Field Functions 
@@ -91,6 +100,7 @@ namespace Models
 
     protected:
       shared_ptr<string> name_ {};
+      shared_ptr<bool> secret_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> type_ {};
       shared_ptr<string> value_ {};

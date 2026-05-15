@@ -1099,6 +1099,10 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
     body["name"] = request.getName();
   }
 
+  if (!!request.hasParameterSetIds()) {
+    body["parameterSetIds"] = request.getParameterSetIds();
+  }
+
   if (!!request.hasProtectionStrategy()) {
     body["protectionStrategy"] = request.getProtectionStrategy();
   }
@@ -3497,6 +3501,10 @@ ListParameterSetsResponse Client::listParameterSetsWithOptions(const ListParamet
     query["keyword"] = request.getKeyword();
   }
 
+  if (!!request.hasKmsKeyId()) {
+    query["kmsKeyId"] = request.getKmsKeyId();
+  }
+
   if (!!request.hasPageNumber()) {
     query["pageNumber"] = request.getPageNumber();
   }
@@ -4188,6 +4196,10 @@ ListStacksResponse Client::listStacksWithOptions(const ListStacksRequest &reques
     query["keyword"] = request.getKeyword();
   }
 
+  if (!!request.hasKmsKeyId()) {
+    query["kmsKeyId"] = request.getKmsKeyId();
+  }
+
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
   }
@@ -4261,6 +4273,10 @@ ListTasksResponse Client::listTasksWithOptions(const ListTasksRequest &tmpReq, c
 
   if (!!request.hasKeyword()) {
     query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasKmsKeyId()) {
+    query["kmsKeyId"] = request.getKmsKeyId();
   }
 
   if (!!request.hasModuleId()) {

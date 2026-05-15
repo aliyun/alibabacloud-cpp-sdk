@@ -303,12 +303,14 @@ namespace Models
             DARABONBA_PTR_TO_JSON(default, default_);
             DARABONBA_PTR_TO_JSON(description, description_);
             DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(sensitive, sensitive_);
             DARABONBA_PTR_TO_JSON(type, type_);
           };
           friend void from_json(const Darabonba::Json& j, Variable& obj) { 
             DARABONBA_PTR_FROM_JSON(default, default_);
             DARABONBA_PTR_FROM_JSON(description, description_);
             DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(sensitive, sensitive_);
             DARABONBA_PTR_FROM_JSON(type, type_);
           };
           Variable() = default ;
@@ -323,7 +325,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->default_ == nullptr
-        && this->description_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->sensitive_ == nullptr && this->type_ == nullptr; };
           // default Field Functions 
           bool hasDefault() const { return this->default_ != nullptr;};
           void deleteDefault() { this->default_ = nullptr;};
@@ -345,6 +347,13 @@ namespace Models
           inline Variable& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+          // sensitive Field Functions 
+          bool hasSensitive() const { return this->sensitive_ != nullptr;};
+          void deleteSensitive() { this->sensitive_ = nullptr;};
+          inline bool getSensitive() const { DARABONBA_PTR_GET_DEFAULT(sensitive_, false) };
+          inline Variable& setSensitive(bool sensitive) { DARABONBA_PTR_SET_VALUE(sensitive_, sensitive) };
+
+
           // type Field Functions 
           bool hasType() const { return this->type_ != nullptr;};
           void deleteType() { this->type_ = nullptr;};
@@ -356,6 +365,7 @@ namespace Models
           shared_ptr<string> default_ {};
           shared_ptr<string> description_ {};
           shared_ptr<string> name_ {};
+          shared_ptr<bool> sensitive_ {};
           shared_ptr<string> type_ {};
         };
 

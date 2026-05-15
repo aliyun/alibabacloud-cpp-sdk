@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListTasksRequest& obj) { 
       DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(keyword, keyword_);
+      DARABONBA_PTR_TO_JSON(kmsKeyId, kmsKeyId_);
       DARABONBA_PTR_TO_JSON(moduleId, moduleId_);
       DARABONBA_PTR_TO_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListTasksRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(keyword, keyword_);
+      DARABONBA_PTR_FROM_JSON(kmsKeyId, kmsKeyId_);
       DARABONBA_PTR_FROM_JSON(moduleId, moduleId_);
       DARABONBA_PTR_FROM_JSON(pageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
@@ -89,8 +91,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && this->keyword_ == nullptr && this->moduleId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr
-        && this->status_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr; };
+        && this->keyword_ == nullptr && this->kmsKeyId_ == nullptr && this->moduleId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->projectId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->taskId_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -103,6 +105,13 @@ namespace Models
     void deleteKeyword() { this->keyword_ = nullptr;};
     inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
     inline ListTasksRequest& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+    // kmsKeyId Field Functions 
+    bool hasKmsKeyId() const { return this->kmsKeyId_ != nullptr;};
+    void deleteKmsKeyId() { this->kmsKeyId_ = nullptr;};
+    inline string getKmsKeyId() const { DARABONBA_PTR_GET_DEFAULT(kmsKeyId_, "") };
+    inline ListTasksRequest& setKmsKeyId(string kmsKeyId) { DARABONBA_PTR_SET_VALUE(kmsKeyId_, kmsKeyId) };
 
 
     // moduleId Field Functions 
@@ -159,6 +168,7 @@ namespace Models
   protected:
     shared_ptr<string> groupId_ {};
     shared_ptr<string> keyword_ {};
+    shared_ptr<string> kmsKeyId_ {};
     shared_ptr<string> moduleId_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};

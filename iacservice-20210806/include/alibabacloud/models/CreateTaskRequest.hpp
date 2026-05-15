@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(moduleId, moduleId_);
       DARABONBA_PTR_TO_JSON(moduleVersion, moduleVersion_);
       DARABONBA_PTR_TO_JSON(name, name_);
+      DARABONBA_PTR_TO_JSON(parameterSetIds, parameterSetIds_);
       DARABONBA_PTR_TO_JSON(protectionStrategy, protectionStrategy_);
       DARABONBA_PTR_TO_JSON(ramRole, ramRole_);
       DARABONBA_PTR_TO_JSON(skipPropertyValidation, skipPropertyValidation_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(moduleId, moduleId_);
       DARABONBA_PTR_FROM_JSON(moduleVersion, moduleVersion_);
       DARABONBA_PTR_FROM_JSON(name, name_);
+      DARABONBA_PTR_FROM_JSON(parameterSetIds, parameterSetIds_);
       DARABONBA_PTR_FROM_JSON(protectionStrategy, protectionStrategy_);
       DARABONBA_PTR_FROM_JSON(ramRole, ramRole_);
       DARABONBA_PTR_FROM_JSON(skipPropertyValidation, skipPropertyValidation_);
@@ -198,8 +200,9 @@ namespace Models
 
     virtual bool empty() const override { return this->autoApply_ == nullptr
         && this->autoDestroy_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->groupInfo_ == nullptr && this->initModuleState_ == nullptr
-        && this->moduleId_ == nullptr && this->moduleVersion_ == nullptr && this->name_ == nullptr && this->protectionStrategy_ == nullptr && this->ramRole_ == nullptr
-        && this->skipPropertyValidation_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr && this->terraformVersion_ == nullptr && this->triggerStrategy_ == nullptr; };
+        && this->moduleId_ == nullptr && this->moduleVersion_ == nullptr && this->name_ == nullptr && this->parameterSetIds_ == nullptr && this->protectionStrategy_ == nullptr
+        && this->ramRole_ == nullptr && this->skipPropertyValidation_ == nullptr && this->tags_ == nullptr && this->taskBackend_ == nullptr && this->terraformVersion_ == nullptr
+        && this->triggerStrategy_ == nullptr; };
     // autoApply Field Functions 
     bool hasAutoApply() const { return this->autoApply_ != nullptr;};
     void deleteAutoApply() { this->autoApply_ = nullptr;};
@@ -263,6 +266,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateTaskRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // parameterSetIds Field Functions 
+    bool hasParameterSetIds() const { return this->parameterSetIds_ != nullptr;};
+    void deleteParameterSetIds() { this->parameterSetIds_ = nullptr;};
+    inline const vector<string> & getParameterSetIds() const { DARABONBA_PTR_GET_CONST(parameterSetIds_, vector<string>) };
+    inline vector<string> getParameterSetIds() { DARABONBA_PTR_GET(parameterSetIds_, vector<string>) };
+    inline CreateTaskRequest& setParameterSetIds(const vector<string> & parameterSetIds) { DARABONBA_PTR_SET_VALUE(parameterSetIds_, parameterSetIds) };
+    inline CreateTaskRequest& setParameterSetIds(vector<string> && parameterSetIds) { DARABONBA_PTR_SET_RVALUE(parameterSetIds_, parameterSetIds) };
 
 
     // protectionStrategy Field Functions 
@@ -334,6 +346,7 @@ namespace Models
     shared_ptr<string> moduleVersion_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};
+    shared_ptr<vector<string>> parameterSetIds_ {};
     shared_ptr<vector<string>> protectionStrategy_ {};
     shared_ptr<string> ramRole_ {};
     shared_ptr<bool> skipPropertyValidation_ {};
