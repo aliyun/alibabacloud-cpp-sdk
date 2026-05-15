@@ -321,6 +321,24 @@ namespace Hologram20220601
       Models::DeleteWarehouseScheduleTaskResponse deleteWarehouseScheduleTask(const string &instanceId, const Models::DeleteWarehouseScheduleTaskRequest &request);
 
       /**
+       * @summary 关闭OpenAPI执行SQL功能
+       *
+       * @param request DisableExecuteStatementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableExecuteStatementResponse
+       */
+      Models::DisableExecuteStatementResponse disableExecuteStatementWithOptions(const string &instanceId, const Models::DisableExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭OpenAPI执行SQL功能
+       *
+       * @param request DisableExecuteStatementRequest
+       * @return DisableExecuteStatementResponse
+       */
+      Models::DisableExecuteStatementResponse disableExecuteStatement(const string &instanceId, const Models::DisableExecuteStatementRequest &request);
+
+      /**
        * @summary Disables data lake acceleration.
        *
        * @param request DisableHiveAccessRequest
@@ -391,6 +409,24 @@ namespace Hologram20220601
       Models::DropUserResponse dropUser(const string &instanceId, const Models::DropUserRequest &request);
 
       /**
+       * @summary 开启或关闭OpenAPI执行SQL功能
+       *
+       * @param request EnableExecuteStatementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableExecuteStatementResponse
+       */
+      Models::EnableExecuteStatementResponse enableExecuteStatementWithOptions(const string &instanceId, const Models::EnableExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开启或关闭OpenAPI执行SQL功能
+       *
+       * @param request EnableExecuteStatementRequest
+       * @return EnableExecuteStatementResponse
+       */
+      Models::EnableExecuteStatementResponse enableExecuteStatement(const string &instanceId, const Models::EnableExecuteStatementRequest &request);
+
+      /**
        * @summary Enables data lake acceleration.
        *
        * @param request EnableHiveAccessRequest
@@ -443,6 +479,24 @@ namespace Hologram20220601
       Models::EnableWarehouseAutoScaleResponse enableWarehouseAutoScale(const string &instanceId, const Models::EnableWarehouseAutoScaleRequest &request);
 
       /**
+       * @summary SQL执行
+       *
+       * @param request ExecuteStatementRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecuteStatementResponse
+       */
+      Models::ExecuteStatementResponse executeStatementWithOptions(const string &instanceId, const Models::ExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SQL执行
+       *
+       * @param request ExecuteStatementRequest
+       * @return ExecuteStatementResponse
+       */
+      Models::ExecuteStatementResponse executeStatement(const string &instanceId, const Models::ExecuteStatementRequest &request);
+
+      /**
        * @summary 获得证书信息
        *
        * @param headers map
@@ -457,6 +511,24 @@ namespace Hologram20220601
        * @return GetCertificateAttributeResponse
        */
       Models::GetCertificateAttributeResponse getCertificateAttribute(const string &instanceId);
+
+      /**
+       * @summary 查询实例是否已开启OpenAPI执行SQL功能
+       *
+       * @param request GetExecuteStatementEnabledRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetExecuteStatementEnabledResponse
+       */
+      Models::GetExecuteStatementEnabledResponse getExecuteStatementEnabledWithOptions(const string &instanceId, const Models::GetExecuteStatementEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例是否已开启OpenAPI执行SQL功能
+       *
+       * @param request GetExecuteStatementEnabledRequest
+       * @return GetExecuteStatementEnabledResponse
+       */
+      Models::GetExecuteStatementEnabledResponse getExecuteStatementEnabled(const string &instanceId, const Models::GetExecuteStatementEnabledRequest &request);
 
       /**
        * @summary Obtains the details of an instance.

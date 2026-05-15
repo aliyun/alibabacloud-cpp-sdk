@@ -901,6 +901,45 @@ DeleteWarehouseScheduleTaskResponse Client::deleteWarehouseScheduleTask(const st
 }
 
 /**
+ * @summary 关闭OpenAPI执行SQL功能
+ *
+ * @param request DisableExecuteStatementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableExecuteStatementResponse
+ */
+DisableExecuteStatementResponse Client::disableExecuteStatementWithOptions(const string &instanceId, const DisableExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableExecuteStatement"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/disableExecuteStatement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableExecuteStatementResponse>();
+}
+
+/**
+ * @summary 关闭OpenAPI执行SQL功能
+ *
+ * @param request DisableExecuteStatementRequest
+ * @return DisableExecuteStatementResponse
+ */
+DisableExecuteStatementResponse Client::disableExecuteStatement(const string &instanceId, const DisableExecuteStatementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableExecuteStatementWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Disables data lake acceleration.
  *
  * @param request DisableHiveAccessRequest
@@ -1076,6 +1115,45 @@ DropUserResponse Client::dropUser(const string &instanceId, const DropUserReques
 }
 
 /**
+ * @summary 开启或关闭OpenAPI执行SQL功能
+ *
+ * @param request EnableExecuteStatementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableExecuteStatementResponse
+ */
+EnableExecuteStatementResponse Client::enableExecuteStatementWithOptions(const string &instanceId, const EnableExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableExecuteStatement"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/enableExecuteStatement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableExecuteStatementResponse>();
+}
+
+/**
+ * @summary 开启或关闭OpenAPI执行SQL功能
+ *
+ * @param request EnableExecuteStatementRequest
+ * @return EnableExecuteStatementResponse
+ */
+EnableExecuteStatementResponse Client::enableExecuteStatement(const string &instanceId, const EnableExecuteStatementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableExecuteStatementWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Enables data lake acceleration.
  *
  * @param request EnableHiveAccessRequest
@@ -1206,6 +1284,71 @@ EnableWarehouseAutoScaleResponse Client::enableWarehouseAutoScale(const string &
 }
 
 /**
+ * @summary SQL执行
+ *
+ * @param request ExecuteStatementRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ExecuteStatementResponse
+ */
+ExecuteStatementResponse Client::executeStatementWithOptions(const string &instanceId, const ExecuteStatementRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasMaxBytes()) {
+    body["maxBytes"] = request.getMaxBytes();
+  }
+
+  if (!!request.hasMaxRows()) {
+    body["maxRows"] = request.getMaxRows();
+  }
+
+  if (!!request.hasParameters()) {
+    body["parameters"] = request.getParameters();
+  }
+
+  if (!!request.hasQueryTimeout()) {
+    body["queryTimeout"] = request.getQueryTimeout();
+  }
+
+  if (!!request.hasSql()) {
+    body["sql"] = request.getSql();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ExecuteStatement"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/executeStatement")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ExecuteStatementResponse>();
+}
+
+/**
+ * @summary SQL执行
+ *
+ * @param request ExecuteStatementRequest
+ * @return ExecuteStatementResponse
+ */
+ExecuteStatementResponse Client::executeStatement(const string &instanceId, const ExecuteStatementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return executeStatementWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 获得证书信息
  *
  * @param headers map
@@ -1239,6 +1382,45 @@ GetCertificateAttributeResponse Client::getCertificateAttribute(const string &in
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getCertificateAttributeWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 查询实例是否已开启OpenAPI执行SQL功能
+ *
+ * @param request GetExecuteStatementEnabledRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetExecuteStatementEnabledResponse
+ */
+GetExecuteStatementEnabledResponse Client::getExecuteStatementEnabledWithOptions(const string &instanceId, const GetExecuteStatementEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetExecuteStatementEnabled"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/executeStatementEnabled")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetExecuteStatementEnabledResponse>();
+}
+
+/**
+ * @summary 查询实例是否已开启OpenAPI执行SQL功能
+ *
+ * @param request GetExecuteStatementEnabledRequest
+ * @return GetExecuteStatementEnabledResponse
+ */
+GetExecuteStatementEnabledResponse Client::getExecuteStatementEnabled(const string &instanceId, const GetExecuteStatementEnabledRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getExecuteStatementEnabledWithOptions(instanceId, request, headers, runtime);
 }
 
 /**

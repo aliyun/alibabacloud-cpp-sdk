@@ -44,6 +44,9 @@
 #include <alibabacloud/models/DeleteWarehouseScheduleTaskRequest.hpp>
 #include <alibabacloud/models/DeleteWarehouseScheduleTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteWarehouseScheduleTaskResponse.hpp>
+#include <alibabacloud/models/DisableExecuteStatementRequest.hpp>
+#include <alibabacloud/models/DisableExecuteStatementResponseBody.hpp>
+#include <alibabacloud/models/DisableExecuteStatementResponse.hpp>
 #include <alibabacloud/models/DisableHiveAccessRequest.hpp>
 #include <alibabacloud/models/DisableHiveAccessResponseBody.hpp>
 #include <alibabacloud/models/DisableHiveAccessResponse.hpp>
@@ -55,6 +58,9 @@
 #include <alibabacloud/models/DropUserRequest.hpp>
 #include <alibabacloud/models/DropUserResponseBody.hpp>
 #include <alibabacloud/models/DropUserResponse.hpp>
+#include <alibabacloud/models/EnableExecuteStatementRequest.hpp>
+#include <alibabacloud/models/EnableExecuteStatementResponseBody.hpp>
+#include <alibabacloud/models/EnableExecuteStatementResponse.hpp>
 #include <alibabacloud/models/EnableHiveAccessRequest.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponseBody.hpp>
 #include <alibabacloud/models/EnableHiveAccessResponse.hpp>
@@ -63,8 +69,14 @@
 #include <alibabacloud/models/EnableWarehouseAutoScaleRequest.hpp>
 #include <alibabacloud/models/EnableWarehouseAutoScaleResponseBody.hpp>
 #include <alibabacloud/models/EnableWarehouseAutoScaleResponse.hpp>
+#include <alibabacloud/models/ExecuteStatementRequest.hpp>
+#include <alibabacloud/models/ExecuteStatementResponseBody.hpp>
+#include <alibabacloud/models/ExecuteStatementResponse.hpp>
 #include <alibabacloud/models/GetCertificateAttributeResponseBody.hpp>
 #include <alibabacloud/models/GetCertificateAttributeResponse.hpp>
+#include <alibabacloud/models/GetExecuteStatementEnabledRequest.hpp>
+#include <alibabacloud/models/GetExecuteStatementEnabledResponseBody.hpp>
+#include <alibabacloud/models/GetExecuteStatementEnabledResponse.hpp>
 #include <alibabacloud/models/GetInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResponse.hpp>
 #include <alibabacloud/models/GetInstanceModelRequest.hpp>
