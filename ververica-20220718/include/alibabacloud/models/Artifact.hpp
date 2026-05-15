@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_ARTIFACT_HPP_
 #define ALIBABACLOUD_MODELS_ARTIFACT_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/CdcYamlArtifact.hpp>
 #include <alibabacloud/models/JarArtifact.hpp>
 #include <alibabacloud/models/PythonArtifact.hpp>
 #include <alibabacloud/models/SqlArtifact.hpp>
@@ -16,12 +17,14 @@ namespace Models
   class Artifact : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Artifact& obj) { 
+      DARABONBA_PTR_TO_JSON(cdcYamlArtifact, cdcYamlArtifact_);
       DARABONBA_PTR_TO_JSON(jarArtifact, jarArtifact_);
       DARABONBA_PTR_TO_JSON(kind, kind_);
       DARABONBA_PTR_TO_JSON(pythonArtifact, pythonArtifact_);
       DARABONBA_PTR_TO_JSON(sqlArtifact, sqlArtifact_);
     };
     friend void from_json(const Darabonba::Json& j, Artifact& obj) { 
+      DARABONBA_PTR_FROM_JSON(cdcYamlArtifact, cdcYamlArtifact_);
       DARABONBA_PTR_FROM_JSON(jarArtifact, jarArtifact_);
       DARABONBA_PTR_FROM_JSON(kind, kind_);
       DARABONBA_PTR_FROM_JSON(pythonArtifact, pythonArtifact_);
@@ -38,8 +41,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->jarArtifact_ == nullptr
-        && this->kind_ == nullptr && this->pythonArtifact_ == nullptr && this->sqlArtifact_ == nullptr; };
+    virtual bool empty() const override { return this->cdcYamlArtifact_ == nullptr
+        && this->jarArtifact_ == nullptr && this->kind_ == nullptr && this->pythonArtifact_ == nullptr && this->sqlArtifact_ == nullptr; };
+    // cdcYamlArtifact Field Functions 
+    bool hasCdcYamlArtifact() const { return this->cdcYamlArtifact_ != nullptr;};
+    void deleteCdcYamlArtifact() { this->cdcYamlArtifact_ = nullptr;};
+    inline const CdcYamlArtifact & getCdcYamlArtifact() const { DARABONBA_PTR_GET_CONST(cdcYamlArtifact_, CdcYamlArtifact) };
+    inline CdcYamlArtifact getCdcYamlArtifact() { DARABONBA_PTR_GET(cdcYamlArtifact_, CdcYamlArtifact) };
+    inline Artifact& setCdcYamlArtifact(const CdcYamlArtifact & cdcYamlArtifact) { DARABONBA_PTR_SET_VALUE(cdcYamlArtifact_, cdcYamlArtifact) };
+    inline Artifact& setCdcYamlArtifact(CdcYamlArtifact && cdcYamlArtifact) { DARABONBA_PTR_SET_RVALUE(cdcYamlArtifact_, cdcYamlArtifact) };
+
+
     // jarArtifact Field Functions 
     bool hasJarArtifact() const { return this->jarArtifact_ != nullptr;};
     void deleteJarArtifact() { this->jarArtifact_ = nullptr;};
@@ -75,6 +87,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<CdcYamlArtifact> cdcYamlArtifact_ {};
     // The information required for the SQL deployment.
     shared_ptr<JarArtifact> jarArtifact_ {};
     // The type of the deployment. This parameter is required and cannot be modified after the deployment is created.

@@ -8,6 +8,7 @@
 #include <alibabacloud/models/WatermarkSpec.hpp>
 #include <alibabacloud/models/Schema.hpp>
 #include <alibabacloud/models/AiModel.hpp>
+#include <alibabacloud/models/CdcYamlArtifact.hpp>
 #include <alibabacloud/models/JarArtifact.hpp>
 #include <alibabacloud/models/PythonArtifact.hpp>
 #include <alibabacloud/models/SqlArtifact.hpp>
