@@ -279,6 +279,14 @@ CheckLdpsColumnarIndexStatusResponse Client::checkLdpsColumnarIndexStatus(const 
 CreateAdditionalVpcLinkResponse Client::createAdditionalVpcLinkWithOptions(const CreateAdditionalVpcLinkRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAdditionalAliBid()) {
+    query["AdditionalAliBid"] = request.getAdditionalAliBid();
+  }
+
+  if (!!request.hasAdditionalAliUid()) {
+    query["AdditionalAliUid"] = request.getAdditionalAliUid();
+  }
+
   if (!!request.hasAdditionalVpcId()) {
     query["AdditionalVpcId"] = request.getAdditionalVpcId();
   }
