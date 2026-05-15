@@ -4068,6 +4068,10 @@ ExportRecallManagementTableResponse Client::exportRecallManagementTableWithOptio
     body["Partitions"] = request.getPartitions();
   }
 
+  if (!!request.hasRecallManagementTableVersionId()) {
+    body["RecallManagementTableVersionId"] = request.getRecallManagementTableVersionId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}

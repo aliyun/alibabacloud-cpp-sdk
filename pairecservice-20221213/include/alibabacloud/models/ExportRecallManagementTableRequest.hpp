@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxcomputeSchema, maxcomputeSchema_);
       DARABONBA_PTR_TO_JSON(MaxcomputeTableName, maxcomputeTableName_);
       DARABONBA_PTR_TO_JSON(Partitions, partitions_);
+      DARABONBA_PTR_TO_JSON(RecallManagementTableVersionId, recallManagementTableVersionId_);
     };
     friend void from_json(const Darabonba::Json& j, ExportRecallManagementTableRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxcomputeSchema, maxcomputeSchema_);
       DARABONBA_PTR_FROM_JSON(MaxcomputeTableName, maxcomputeTableName_);
       DARABONBA_PTR_FROM_JSON(Partitions, partitions_);
+      DARABONBA_PTR_FROM_JSON(RecallManagementTableVersionId, recallManagementTableVersionId_);
     };
     ExportRecallManagementTableRequest() = default ;
     ExportRecallManagementTableRequest(const ExportRecallManagementTableRequest &) = default ;
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->maxcomputeProjectName_ == nullptr && this->maxcomputeSchema_ == nullptr && this->maxcomputeTableName_ == nullptr && this->partitions_ == nullptr; };
+        && this->maxcomputeProjectName_ == nullptr && this->maxcomputeSchema_ == nullptr && this->maxcomputeTableName_ == nullptr && this->partitions_ == nullptr && this->recallManagementTableVersionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -77,6 +79,13 @@ namespace Models
     inline ExportRecallManagementTableRequest& setPartitions(map<string, string> && partitions) { DARABONBA_PTR_SET_RVALUE(partitions_, partitions) };
 
 
+    // recallManagementTableVersionId Field Functions 
+    bool hasRecallManagementTableVersionId() const { return this->recallManagementTableVersionId_ != nullptr;};
+    void deleteRecallManagementTableVersionId() { this->recallManagementTableVersionId_ = nullptr;};
+    inline string getRecallManagementTableVersionId() const { DARABONBA_PTR_GET_DEFAULT(recallManagementTableVersionId_, "") };
+    inline ExportRecallManagementTableRequest& setRecallManagementTableVersionId(string recallManagementTableVersionId) { DARABONBA_PTR_SET_VALUE(recallManagementTableVersionId_, recallManagementTableVersionId) };
+
+
   protected:
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> maxcomputeProjectName_ {};
@@ -84,6 +93,7 @@ namespace Models
     shared_ptr<string> maxcomputeSchema_ {};
     shared_ptr<string> maxcomputeTableName_ {};
     shared_ptr<map<string, string>> partitions_ {};
+    shared_ptr<string> recallManagementTableVersionId_ {};
   };
 
   } // namespace Models
