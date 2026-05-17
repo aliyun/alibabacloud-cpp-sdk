@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBSCRIPTIONFORVIEW_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/NotifyRouteForSubscription.hpp>
 #include <alibabacloud/models/FilterSetting.hpp>
 #include <alibabacloud/models/WorkspaceFilterSetting.hpp>
 using namespace std;
@@ -16,6 +17,7 @@ namespace Models
   class SubscriptionForView : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubscriptionForView& obj) { 
+      DARABONBA_PTR_TO_JSON(agentConfig, agentConfig_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(enable, enable_);
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pushingSetting, pushingSetting_);
       DARABONBA_PTR_TO_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_TO_JSON(subscriptionName, subscriptionName_);
+      DARABONBA_PTR_TO_JSON(subscriptionType, subscriptionType_);
       DARABONBA_PTR_TO_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_TO_JSON(updateTime, updateTime_);
       DARABONBA_PTR_TO_JSON(userId, userId_);
@@ -31,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
     friend void from_json(const Darabonba::Json& j, SubscriptionForView& obj) { 
+      DARABONBA_PTR_FROM_JSON(agentConfig, agentConfig_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(enable, enable_);
@@ -39,6 +43,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pushingSetting, pushingSetting_);
       DARABONBA_PTR_FROM_JSON(subscriptionId, subscriptionId_);
       DARABONBA_PTR_FROM_JSON(subscriptionName, subscriptionName_);
+      DARABONBA_PTR_FROM_JSON(subscriptionType, subscriptionType_);
       DARABONBA_PTR_FROM_JSON(syncFromType, syncFromType_);
       DARABONBA_PTR_FROM_JSON(updateTime, updateTime_);
       DARABONBA_PTR_FROM_JSON(userId, userId_);
@@ -126,10 +131,63 @@ namespace Models
       shared_ptr<string> templateUuid_ {};
     };
 
-    virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->description_ == nullptr && this->enable_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr
-        && this->subscriptionId_ == nullptr && this->subscriptionName_ == nullptr && this->syncFromType_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr
-        && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
+    class AgentConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AgentConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(agentUuid, agentUuid_);
+        DARABONBA_PTR_TO_JSON(routes, routes_);
+      };
+      friend void from_json(const Darabonba::Json& j, AgentConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(agentUuid, agentUuid_);
+        DARABONBA_PTR_FROM_JSON(routes, routes_);
+      };
+      AgentConfig() = default ;
+      AgentConfig(const AgentConfig &) = default ;
+      AgentConfig(AgentConfig &&) = default ;
+      AgentConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AgentConfig() = default ;
+      AgentConfig& operator=(const AgentConfig &) = default ;
+      AgentConfig& operator=(AgentConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->agentUuid_ == nullptr
+        && this->routes_ == nullptr; };
+      // agentUuid Field Functions 
+      bool hasAgentUuid() const { return this->agentUuid_ != nullptr;};
+      void deleteAgentUuid() { this->agentUuid_ = nullptr;};
+      inline string getAgentUuid() const { DARABONBA_PTR_GET_DEFAULT(agentUuid_, "") };
+      inline AgentConfig& setAgentUuid(string agentUuid) { DARABONBA_PTR_SET_VALUE(agentUuid_, agentUuid) };
+
+
+      // routes Field Functions 
+      bool hasRoutes() const { return this->routes_ != nullptr;};
+      void deleteRoutes() { this->routes_ = nullptr;};
+      inline const vector<NotifyRouteForSubscription> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<NotifyRouteForSubscription>) };
+      inline vector<NotifyRouteForSubscription> getRoutes() { DARABONBA_PTR_GET(routes_, vector<NotifyRouteForSubscription>) };
+      inline AgentConfig& setRoutes(const vector<NotifyRouteForSubscription> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
+      inline AgentConfig& setRoutes(vector<NotifyRouteForSubscription> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
+
+
+    protected:
+      shared_ptr<string> agentUuid_ {};
+      shared_ptr<vector<NotifyRouteForSubscription>> routes_ {};
+    };
+
+    virtual bool empty() const override { return this->agentConfig_ == nullptr
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->enable_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr
+        && this->pushingSetting_ == nullptr && this->subscriptionId_ == nullptr && this->subscriptionName_ == nullptr && this->subscriptionType_ == nullptr && this->syncFromType_ == nullptr
+        && this->updateTime_ == nullptr && this->userId_ == nullptr && this->workspace_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
+    // agentConfig Field Functions 
+    bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
+    void deleteAgentConfig() { this->agentConfig_ = nullptr;};
+    inline const SubscriptionForView::AgentConfig & getAgentConfig() const { DARABONBA_PTR_GET_CONST(agentConfig_, SubscriptionForView::AgentConfig) };
+    inline SubscriptionForView::AgentConfig getAgentConfig() { DARABONBA_PTR_GET(agentConfig_, SubscriptionForView::AgentConfig) };
+    inline SubscriptionForView& setAgentConfig(const SubscriptionForView::AgentConfig & agentConfig) { DARABONBA_PTR_SET_VALUE(agentConfig_, agentConfig) };
+    inline SubscriptionForView& setAgentConfig(SubscriptionForView::AgentConfig && agentConfig) { DARABONBA_PTR_SET_RVALUE(agentConfig_, agentConfig) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -190,6 +248,13 @@ namespace Models
     inline SubscriptionForView& setSubscriptionName(string subscriptionName) { DARABONBA_PTR_SET_VALUE(subscriptionName_, subscriptionName) };
 
 
+    // subscriptionType Field Functions 
+    bool hasSubscriptionType() const { return this->subscriptionType_ != nullptr;};
+    void deleteSubscriptionType() { this->subscriptionType_ = nullptr;};
+    inline string getSubscriptionType() const { DARABONBA_PTR_GET_DEFAULT(subscriptionType_, "") };
+    inline SubscriptionForView& setSubscriptionType(string subscriptionType) { DARABONBA_PTR_SET_VALUE(subscriptionType_, subscriptionType) };
+
+
     // syncFromType Field Functions 
     bool hasSyncFromType() const { return this->syncFromType_ != nullptr;};
     void deleteSyncFromType() { this->syncFromType_ = nullptr;};
@@ -228,6 +293,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<SubscriptionForView::AgentConfig> agentConfig_ {};
     // Create Time.
     shared_ptr<string> createTime_ {};
     // Description.
@@ -246,6 +312,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
+    shared_ptr<string> subscriptionType_ {};
     shared_ptr<string> syncFromType_ {};
     // Update Time.
     shared_ptr<string> updateTime_ {};

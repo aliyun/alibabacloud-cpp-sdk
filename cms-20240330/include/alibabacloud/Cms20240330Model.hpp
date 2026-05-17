@@ -93,8 +93,10 @@
 #include <alibabacloud/models/ManageAlertRulesUnifiedActionInput.hpp>
 #include <alibabacloud/models/MergeContact.hpp>
 #include <alibabacloud/models/MergeContactGroup.hpp>
+#include <alibabacloud/models/MergeOncallSchedule.hpp>
 #include <alibabacloud/models/MergeRobot.hpp>
 #include <alibabacloud/models/MergeWebhook.hpp>
+#include <alibabacloud/models/NotifyRouteForSubscription.hpp>
 #include <alibabacloud/models/WorkspaceFilterSetting.hpp>
 #include <alibabacloud/models/NotifyStrategyForModify.hpp>
 #include <alibabacloud/models/NotifyStrategyForView.hpp>

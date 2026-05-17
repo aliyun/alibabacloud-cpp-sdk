@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SUBSCRIPTIONFORMODIFY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/NotifyRouteForSubscription.hpp>
 #include <alibabacloud/models/FilterSetting.hpp>
 #include <alibabacloud/models/WorkspaceFilterSetting.hpp>
 using namespace std;
@@ -16,6 +17,7 @@ namespace Models
   class SubscriptionForModify : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SubscriptionForModify& obj) { 
+      DARABONBA_PTR_TO_JSON(agentConfig, agentConfig_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_TO_JSON(notifyStrategyId, notifyStrategyId_);
@@ -24,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(workspaceFilterSetting, workspaceFilterSetting_);
     };
     friend void from_json(const Darabonba::Json& j, SubscriptionForModify& obj) { 
+      DARABONBA_PTR_FROM_JSON(agentConfig, agentConfig_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(filterSetting, filterSetting_);
       DARABONBA_PTR_FROM_JSON(notifyStrategyId, notifyStrategyId_);
@@ -112,8 +115,62 @@ namespace Models
       shared_ptr<string> templateUuid_ {};
     };
 
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr && this->subscriptionName_ == nullptr && this->workspaceFilterSetting_ == nullptr; };
+    class AgentConfig : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AgentConfig& obj) { 
+        DARABONBA_PTR_TO_JSON(agentUuid, agentUuid_);
+        DARABONBA_PTR_TO_JSON(routes, routes_);
+      };
+      friend void from_json(const Darabonba::Json& j, AgentConfig& obj) { 
+        DARABONBA_PTR_FROM_JSON(agentUuid, agentUuid_);
+        DARABONBA_PTR_FROM_JSON(routes, routes_);
+      };
+      AgentConfig() = default ;
+      AgentConfig(const AgentConfig &) = default ;
+      AgentConfig(AgentConfig &&) = default ;
+      AgentConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AgentConfig() = default ;
+      AgentConfig& operator=(const AgentConfig &) = default ;
+      AgentConfig& operator=(AgentConfig &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->agentUuid_ == nullptr
+        && this->routes_ == nullptr; };
+      // agentUuid Field Functions 
+      bool hasAgentUuid() const { return this->agentUuid_ != nullptr;};
+      void deleteAgentUuid() { this->agentUuid_ = nullptr;};
+      inline string getAgentUuid() const { DARABONBA_PTR_GET_DEFAULT(agentUuid_, "") };
+      inline AgentConfig& setAgentUuid(string agentUuid) { DARABONBA_PTR_SET_VALUE(agentUuid_, agentUuid) };
+
+
+      // routes Field Functions 
+      bool hasRoutes() const { return this->routes_ != nullptr;};
+      void deleteRoutes() { this->routes_ = nullptr;};
+      inline const vector<NotifyRouteForSubscription> & getRoutes() const { DARABONBA_PTR_GET_CONST(routes_, vector<NotifyRouteForSubscription>) };
+      inline vector<NotifyRouteForSubscription> getRoutes() { DARABONBA_PTR_GET(routes_, vector<NotifyRouteForSubscription>) };
+      inline AgentConfig& setRoutes(const vector<NotifyRouteForSubscription> & routes) { DARABONBA_PTR_SET_VALUE(routes_, routes) };
+      inline AgentConfig& setRoutes(vector<NotifyRouteForSubscription> && routes) { DARABONBA_PTR_SET_RVALUE(routes_, routes) };
+
+
+    protected:
+      shared_ptr<string> agentUuid_ {};
+      shared_ptr<vector<NotifyRouteForSubscription>> routes_ {};
+    };
+
+    virtual bool empty() const override { return this->agentConfig_ == nullptr
+        && this->description_ == nullptr && this->filterSetting_ == nullptr && this->notifyStrategyId_ == nullptr && this->pushingSetting_ == nullptr && this->subscriptionName_ == nullptr
+        && this->workspaceFilterSetting_ == nullptr; };
+    // agentConfig Field Functions 
+    bool hasAgentConfig() const { return this->agentConfig_ != nullptr;};
+    void deleteAgentConfig() { this->agentConfig_ = nullptr;};
+    inline const SubscriptionForModify::AgentConfig & getAgentConfig() const { DARABONBA_PTR_GET_CONST(agentConfig_, SubscriptionForModify::AgentConfig) };
+    inline SubscriptionForModify::AgentConfig getAgentConfig() { DARABONBA_PTR_GET(agentConfig_, SubscriptionForModify::AgentConfig) };
+    inline SubscriptionForModify& setAgentConfig(const SubscriptionForModify::AgentConfig & agentConfig) { DARABONBA_PTR_SET_VALUE(agentConfig_, agentConfig) };
+    inline SubscriptionForModify& setAgentConfig(SubscriptionForModify::AgentConfig && agentConfig) { DARABONBA_PTR_SET_RVALUE(agentConfig_, agentConfig) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -163,6 +220,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<SubscriptionForModify::AgentConfig> agentConfig_ {};
     // Description.
     shared_ptr<string> description_ {};
     // Filtering settings.
