@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateSubCACertificateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_TO_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(CountryCode, countryCode_);
@@ -33,6 +34,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateSubCACertificateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Algorithm, algorithm_);
+      DARABONBA_PTR_FROM_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(CountryCode, countryCode_);
@@ -103,14 +105,22 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && this->clientToken_ == nullptr && this->commonName_ == nullptr && this->countryCode_ == nullptr && this->crlDay_ == nullptr && this->enableCrl_ == nullptr
-        && this->extendedKeyUsages_ == nullptr && this->locality_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr && this->parentIdentifier_ == nullptr
-        && this->pathLenConstraint_ == nullptr && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr && this->years_ == nullptr; };
+        && this->certMaxTime_ == nullptr && this->clientToken_ == nullptr && this->commonName_ == nullptr && this->countryCode_ == nullptr && this->crlDay_ == nullptr
+        && this->enableCrl_ == nullptr && this->extendedKeyUsages_ == nullptr && this->locality_ == nullptr && this->organization_ == nullptr && this->organizationUnit_ == nullptr
+        && this->parentIdentifier_ == nullptr && this->pathLenConstraint_ == nullptr && this->resourceGroupId_ == nullptr && this->state_ == nullptr && this->tags_ == nullptr
+        && this->years_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
     inline string getAlgorithm() const { DARABONBA_PTR_GET_DEFAULT(algorithm_, "") };
     inline CreateSubCACertificateRequest& setAlgorithm(string algorithm) { DARABONBA_PTR_SET_VALUE(algorithm_, algorithm) };
+
+
+    // certMaxTime Field Functions 
+    bool hasCertMaxTime() const { return this->certMaxTime_ != nullptr;};
+    void deleteCertMaxTime() { this->certMaxTime_ = nullptr;};
+    inline int32_t getCertMaxTime() const { DARABONBA_PTR_GET_DEFAULT(certMaxTime_, 0) };
+    inline CreateSubCACertificateRequest& setCertMaxTime(int32_t certMaxTime) { DARABONBA_PTR_SET_VALUE(certMaxTime_, certMaxTime) };
 
 
     // clientToken Field Functions 
@@ -237,6 +247,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> algorithm_ {};
+    shared_ptr<int32_t> certMaxTime_ {};
     shared_ptr<string> clientToken_ {};
     // The common name or abbreviation of the organization. The value can contain letters.
     // 

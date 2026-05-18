@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateExternalCACertificateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiPassthrough, apiPassthrough_);
+      DARABONBA_PTR_TO_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_TO_JSON(Csr, csr_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateExternalCACertificateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiPassthrough, apiPassthrough_);
+      DARABONBA_PTR_FROM_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_FROM_JSON(Csr, csr_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -255,7 +257,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->apiPassthrough_ == nullptr
-        && this->csr_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->validity_ == nullptr; };
+        && this->certMaxTime_ == nullptr && this->csr_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr
+        && this->validity_ == nullptr; };
     // apiPassthrough Field Functions 
     bool hasApiPassthrough() const { return this->apiPassthrough_ != nullptr;};
     void deleteApiPassthrough() { this->apiPassthrough_ = nullptr;};
@@ -263,6 +266,13 @@ namespace Models
     inline CreateExternalCACertificateRequest::ApiPassthrough getApiPassthrough() { DARABONBA_PTR_GET(apiPassthrough_, CreateExternalCACertificateRequest::ApiPassthrough) };
     inline CreateExternalCACertificateRequest& setApiPassthrough(const CreateExternalCACertificateRequest::ApiPassthrough & apiPassthrough) { DARABONBA_PTR_SET_VALUE(apiPassthrough_, apiPassthrough) };
     inline CreateExternalCACertificateRequest& setApiPassthrough(CreateExternalCACertificateRequest::ApiPassthrough && apiPassthrough) { DARABONBA_PTR_SET_RVALUE(apiPassthrough_, apiPassthrough) };
+
+
+    // certMaxTime Field Functions 
+    bool hasCertMaxTime() const { return this->certMaxTime_ != nullptr;};
+    void deleteCertMaxTime() { this->certMaxTime_ = nullptr;};
+    inline int32_t getCertMaxTime() const { DARABONBA_PTR_GET_DEFAULT(certMaxTime_, 0) };
+    inline CreateExternalCACertificateRequest& setCertMaxTime(int32_t certMaxTime) { DARABONBA_PTR_SET_VALUE(certMaxTime_, certMaxTime) };
 
 
     // csr Field Functions 
@@ -304,6 +314,7 @@ namespace Models
 
   protected:
     shared_ptr<CreateExternalCACertificateRequest::ApiPassthrough> apiPassthrough_ {};
+    shared_ptr<int32_t> certMaxTime_ {};
     shared_ptr<string> csr_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> resourceGroupId_ {};

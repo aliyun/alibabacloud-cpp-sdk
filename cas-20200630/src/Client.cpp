@@ -526,6 +526,10 @@ CreateExternalCACertificateResponse Client::createExternalCACertificateWithOptio
     query["ApiPassthrough"] = request.getApiPassthroughShrink();
   }
 
+  if (!!request.hasCertMaxTime()) {
+    query["CertMaxTime"] = request.getCertMaxTime();
+  }
+
   if (!!request.hasCsr()) {
     query["Csr"] = request.getCsr();
   }
@@ -983,6 +987,10 @@ CreateSubCACertificateResponse Client::createSubCACertificateWithOptions(const C
     query["Algorithm"] = request.getAlgorithm();
   }
 
+  if (!!request.hasCertMaxTime()) {
+    query["CertMaxTime"] = request.getCertMaxTime();
+  }
+
   if (!!request.hasCommonName()) {
     query["CommonName"] = request.getCommonName();
   }
@@ -1187,7 +1195,6 @@ DescribeCACertificateResponse Client::describeCACertificate(const DescribeCACert
  * ## Limits
  * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
  *
- * @param request DescribeCACertificateCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCACertificateCountResponse
  */

@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateExternalCACertificateShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiPassthrough, apiPassthroughShrink_);
+      DARABONBA_PTR_TO_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_TO_JSON(Csr, csr_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateExternalCACertificateShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiPassthrough, apiPassthroughShrink_);
+      DARABONBA_PTR_FROM_JSON(CertMaxTime, certMaxTime_);
       DARABONBA_PTR_FROM_JSON(Csr, csr_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -83,12 +85,20 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->apiPassthroughShrink_ == nullptr
-        && this->csr_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->validity_ == nullptr; };
+        && this->certMaxTime_ == nullptr && this->csr_ == nullptr && this->instanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr
+        && this->validity_ == nullptr; };
     // apiPassthroughShrink Field Functions 
     bool hasApiPassthroughShrink() const { return this->apiPassthroughShrink_ != nullptr;};
     void deleteApiPassthroughShrink() { this->apiPassthroughShrink_ = nullptr;};
     inline string getApiPassthroughShrink() const { DARABONBA_PTR_GET_DEFAULT(apiPassthroughShrink_, "") };
     inline CreateExternalCACertificateShrinkRequest& setApiPassthroughShrink(string apiPassthroughShrink) { DARABONBA_PTR_SET_VALUE(apiPassthroughShrink_, apiPassthroughShrink) };
+
+
+    // certMaxTime Field Functions 
+    bool hasCertMaxTime() const { return this->certMaxTime_ != nullptr;};
+    void deleteCertMaxTime() { this->certMaxTime_ = nullptr;};
+    inline int32_t getCertMaxTime() const { DARABONBA_PTR_GET_DEFAULT(certMaxTime_, 0) };
+    inline CreateExternalCACertificateShrinkRequest& setCertMaxTime(int32_t certMaxTime) { DARABONBA_PTR_SET_VALUE(certMaxTime_, certMaxTime) };
 
 
     // csr Field Functions 
@@ -130,6 +140,7 @@ namespace Models
 
   protected:
     shared_ptr<string> apiPassthroughShrink_ {};
+    shared_ptr<int32_t> certMaxTime_ {};
     shared_ptr<string> csr_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> resourceGroupId_ {};
