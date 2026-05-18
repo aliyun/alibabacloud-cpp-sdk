@@ -1527,6 +1527,108 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTable(const DeleteDataLakeTabl
 }
 
 /**
+ * @summary 删除文档
+ *
+ * @param request DeleteDocumentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDocumentResponse
+ */
+DeleteDocumentResponse Client::deleteDocumentWithOptions(const DeleteDocumentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDocument"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDocumentResponse>();
+}
+
+/**
+ * @summary 删除文档
+ *
+ * @param request DeleteDocumentRequest
+ * @return DeleteDocumentResponse
+ */
+DeleteDocumentResponse Client::deleteDocument(const DeleteDocumentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除onemeta3.0的知识库chunks
+ *
+ * @param tmpReq DeleteDocumentChunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDocumentChunksResponse
+ */
+DeleteDocumentChunksResponse Client::deleteDocumentChunksWithOptions(const DeleteDocumentChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteDocumentChunksShrinkRequest request = DeleteDocumentChunksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasChunkIds()) {
+    request.setChunkIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getChunkIds(), "ChunkIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasChunkIdsShrink()) {
+    body["ChunkIds"] = request.getChunkIdsShrink();
+  }
+
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteDocumentChunks"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDocumentChunksResponse>();
+}
+
+/**
+ * @summary 删除onemeta3.0的知识库chunks
+ *
+ * @param request DeleteDocumentChunksRequest
+ * @return DeleteDocumentChunksResponse
+ */
+DeleteDocumentChunksResponse Client::deleteDocumentChunks(const DeleteDocumentChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteDocumentChunksWithOptions(request, runtime);
+}
+
+/**
  * @summary DeleteFileUpload
  *
  * @param request DeleteFileUploadRequest
@@ -1673,6 +1775,52 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSession(const Describe
 }
 
 /**
+ * @summary 获取文档详情
+ *
+ * @param request DescribeDocumentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDocumentResponse
+ */
+DescribeDocumentResponse Client::describeDocumentWithOptions(const DescribeDocumentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeDocument"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDocumentResponse>();
+}
+
+/**
+ * @summary 获取文档详情
+ *
+ * @param request DescribeDocumentRequest
+ * @return DescribeDocumentResponse
+ */
+DescribeDocumentResponse Client::describeDocument(const DescribeDocumentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDocumentWithOptions(request, runtime);
+}
+
+/**
  * @summary DescribeFileUploadSignature
  *
  * @param request DescribeFileUploadSignatureRequest
@@ -1758,6 +1906,48 @@ DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStatsWithOptions
 DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStats(const DescribeKnowledgeBaseStatsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeKnowledgeBaseStatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取知识库中的上传签名
+ *
+ * @param request DescribeKnowledgeBaseUploadSignatureRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeKnowledgeBaseUploadSignatureResponse
+ */
+DescribeKnowledgeBaseUploadSignatureResponse Client::describeKnowledgeBaseUploadSignatureWithOptions(const DescribeKnowledgeBaseUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKbUuid()) {
+    query["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeKnowledgeBaseUploadSignature"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeKnowledgeBaseUploadSignatureResponse>();
+}
+
+/**
+ * @summary 获取知识库中的上传签名
+ *
+ * @param request DescribeKnowledgeBaseUploadSignatureRequest
+ * @return DescribeKnowledgeBaseUploadSignatureResponse
+ */
+DescribeKnowledgeBaseUploadSignatureResponse Client::describeKnowledgeBaseUploadSignature(const DescribeKnowledgeBaseUploadSignatureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeKnowledgeBaseUploadSignatureWithOptions(request, runtime);
 }
 
 /**
@@ -3740,6 +3930,138 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfo(const ListDa
 }
 
 /**
+ * @summary 分页查询onemeta3.0的知识库chunks
+ *
+ * @param request ListDocumentChunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDocumentChunksResponse
+ */
+ListDocumentChunksResponse Client::listDocumentChunksWithOptions(const ListDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChunkTitlePattern()) {
+    body["ChunkTitlePattern"] = request.getChunkTitlePattern();
+  }
+
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSortFieldName()) {
+    body["SortFieldName"] = request.getSortFieldName();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDocumentChunks"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDocumentChunksResponse>();
+}
+
+/**
+ * @summary 分页查询onemeta3.0的知识库chunks
+ *
+ * @param request ListDocumentChunksRequest
+ * @return ListDocumentChunksResponse
+ */
+ListDocumentChunksResponse Client::listDocumentChunks(const ListDocumentChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDocumentChunksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文档列表
+ *
+ * @param request ListDocumentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDocumentsResponse
+ */
+ListDocumentsResponse Client::listDocumentsWithOptions(const ListDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFilters()) {
+    body["Filters"] = request.getFilters();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNamePattern()) {
+    body["NamePattern"] = request.getNamePattern();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSortFieldName()) {
+    body["SortFieldName"] = request.getSortFieldName();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListDocuments"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDocumentsResponse>();
+}
+
+/**
+ * @summary 获取文档列表
+ *
+ * @param request ListDocumentsRequest
+ * @return ListDocumentsResponse
+ */
+ListDocumentsResponse Client::listDocuments(const ListDocumentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDocumentsWithOptions(request, runtime);
+}
+
+/**
  * @summary ListFileUpload
  *
  * @param request ListFileUploadRequest
@@ -3811,6 +4133,72 @@ ListFileUploadResponse Client::listFileUploadWithOptions(const ListFileUploadReq
 ListFileUploadResponse Client::listFileUpload(const ListFileUploadRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFileUploadWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询onemeta3.0的知识库
+ *
+ * @param request ListKnowledgeBasesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeBasesResponse
+ */
+ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFilters()) {
+    body["Filters"] = request.getFilters();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNamePattern()) {
+    body["NamePattern"] = request.getNamePattern();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSortFieldName()) {
+    body["SortFieldName"] = request.getSortFieldName();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasTag()) {
+    body["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeBases"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeBasesResponse>();
+}
+
+/**
+ * @summary 分页查询onemeta3.0的知识库
+ *
+ * @param request ListKnowledgeBasesRequest
+ * @return ListKnowledgeBasesResponse
+ */
+ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKnowledgeBasesWithOptions(request, runtime);
 }
 
 /**
@@ -4769,6 +5157,248 @@ UpdateDataLakeTableResponse Client::updateDataLakeTableWithOptions(const UpdateD
 UpdateDataLakeTableResponse Client::updateDataLakeTable(const UpdateDataLakeTableRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDataLakeTableWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新文档
+ *
+ * @param request UpdateDocumentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDocumentResponse
+ */
+UpdateDocumentResponse Client::updateDocumentWithOptions(const UpdateDocumentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasNewDescription()) {
+    body["NewDescription"] = request.getNewDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateDocument"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDocumentResponse>();
+}
+
+/**
+ * @summary 更新文档
+ *
+ * @param request UpdateDocumentRequest
+ * @return UpdateDocumentResponse
+ */
+UpdateDocumentResponse Client::updateDocument(const UpdateDocumentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新onemeta3.0的知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasKbUuid()) {
+    query["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateKnowledgeBase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 更新onemeta3.0的知识库
+ *
+ * @param request UpdateKnowledgeBaseRequest
+ * @return UpdateKnowledgeBaseResponse
+ */
+UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传文档
+ *
+ * @param tmpReq UploadDocumentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadDocumentResponse
+ */
+UploadDocumentResponse Client::uploadDocumentWithOptions(const UploadDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UploadDocumentShrinkRequest request = UploadDocumentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSeparators()) {
+    request.setSeparatorsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSeparators(), "Separators", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasChunkOverlap()) {
+    body["ChunkOverlap"] = request.getChunkOverlap();
+  }
+
+  if (!!request.hasChunkSize()) {
+    body["ChunkSize"] = request.getChunkSize();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDocumentLoaderName()) {
+    body["DocumentLoaderName"] = request.getDocumentLoaderName();
+  }
+
+  if (!!request.hasFileName()) {
+    body["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasLocation()) {
+    body["Location"] = request.getLocation();
+  }
+
+  if (!!request.hasSeparatorsShrink()) {
+    body["Separators"] = request.getSeparatorsShrink();
+  }
+
+  if (!!request.hasSplitterModel()) {
+    body["SplitterModel"] = request.getSplitterModel();
+  }
+
+  if (!!request.hasTextSplitterName()) {
+    body["TextSplitterName"] = request.getTextSplitterName();
+  }
+
+  if (!!request.hasVlEnhance()) {
+    body["VlEnhance"] = request.getVlEnhance();
+  }
+
+  if (!!request.hasZhTitleEnhance()) {
+    body["ZhTitleEnhance"] = request.getZhTitleEnhance();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UploadDocument"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadDocumentResponse>();
+}
+
+/**
+ * @summary 上传文档
+ *
+ * @param request UploadDocumentRequest
+ * @return UploadDocumentResponse
+ */
+UploadDocumentResponse Client::uploadDocument(const UploadDocumentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadDocumentWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新或插入onemeta3.0的知识库chunks
+ *
+ * @param request UpsertDocumentChunksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertDocumentChunksResponse
+ */
+UpsertDocumentChunksResponse Client::upsertDocumentChunksWithOptions(const UpsertDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasChunks()) {
+    body["Chunks"] = request.getChunks();
+  }
+
+  if (!!request.hasDocumentName()) {
+    body["DocumentName"] = request.getDocumentName();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpsertDocumentChunks"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertDocumentChunksResponse>();
+}
+
+/**
+ * @summary 更新或插入onemeta3.0的知识库chunks
+ *
+ * @param request UpsertDocumentChunksRequest
+ * @return UpsertDocumentChunksResponse
+ */
+UpsertDocumentChunksResponse Client::upsertDocumentChunks(const UpsertDocumentChunksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upsertDocumentChunksWithOptions(request, runtime);
 }
 
 /**

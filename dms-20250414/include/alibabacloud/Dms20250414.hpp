@@ -412,6 +412,40 @@ namespace Dms20250414
       Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
 
       /**
+       * @summary 删除文档
+       *
+       * @param request DeleteDocumentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDocumentResponse
+       */
+      Models::DeleteDocumentResponse deleteDocumentWithOptions(const Models::DeleteDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文档
+       *
+       * @param request DeleteDocumentRequest
+       * @return DeleteDocumentResponse
+       */
+      Models::DeleteDocumentResponse deleteDocument(const Models::DeleteDocumentRequest &request);
+
+      /**
+       * @summary 删除onemeta3.0的知识库chunks
+       *
+       * @param tmpReq DeleteDocumentChunksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDocumentChunksResponse
+       */
+      Models::DeleteDocumentChunksResponse deleteDocumentChunksWithOptions(const Models::DeleteDocumentChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除onemeta3.0的知识库chunks
+       *
+       * @param request DeleteDocumentChunksRequest
+       * @return DeleteDocumentChunksResponse
+       */
+      Models::DeleteDocumentChunksResponse deleteDocumentChunks(const Models::DeleteDocumentChunksRequest &request);
+
+      /**
        * @summary DeleteFileUpload
        *
        * @param request DeleteFileUploadRequest
@@ -463,6 +497,23 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
 
       /**
+       * @summary 获取文档详情
+       *
+       * @param request DescribeDocumentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDocumentResponse
+       */
+      Models::DescribeDocumentResponse describeDocumentWithOptions(const Models::DescribeDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文档详情
+       *
+       * @param request DescribeDocumentRequest
+       * @return DescribeDocumentResponse
+       */
+      Models::DescribeDocumentResponse describeDocument(const Models::DescribeDocumentRequest &request);
+
+      /**
        * @summary DescribeFileUploadSignature
        *
        * @param request DescribeFileUploadSignatureRequest
@@ -495,6 +546,23 @@ namespace Dms20250414
        * @return DescribeKnowledgeBaseStatsResponse
        */
       Models::DescribeKnowledgeBaseStatsResponse describeKnowledgeBaseStats(const Models::DescribeKnowledgeBaseStatsRequest &request);
+
+      /**
+       * @summary 获取知识库中的上传签名
+       *
+       * @param request DescribeKnowledgeBaseUploadSignatureRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeKnowledgeBaseUploadSignatureResponse
+       */
+      Models::DescribeKnowledgeBaseUploadSignatureResponse describeKnowledgeBaseUploadSignatureWithOptions(const Models::DescribeKnowledgeBaseUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取知识库中的上传签名
+       *
+       * @param request DescribeKnowledgeBaseUploadSignatureRequest
+       * @return DescribeKnowledgeBaseUploadSignatureResponse
+       */
+      Models::DescribeKnowledgeBaseUploadSignatureResponse describeKnowledgeBaseUploadSignature(const Models::DescribeKnowledgeBaseUploadSignatureRequest &request);
 
       /**
        * @summary FileUploadCallback
@@ -1050,6 +1118,40 @@ namespace Dms20250414
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(const Models::ListDataLakeTablebaseInfoRequest &request);
 
       /**
+       * @summary 分页查询onemeta3.0的知识库chunks
+       *
+       * @param request ListDocumentChunksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDocumentChunksResponse
+       */
+      Models::ListDocumentChunksResponse listDocumentChunksWithOptions(const Models::ListDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询onemeta3.0的知识库chunks
+       *
+       * @param request ListDocumentChunksRequest
+       * @return ListDocumentChunksResponse
+       */
+      Models::ListDocumentChunksResponse listDocumentChunks(const Models::ListDocumentChunksRequest &request);
+
+      /**
+       * @summary 获取文档列表
+       *
+       * @param request ListDocumentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListDocumentsResponse
+       */
+      Models::ListDocumentsResponse listDocumentsWithOptions(const Models::ListDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文档列表
+       *
+       * @param request ListDocumentsRequest
+       * @return ListDocumentsResponse
+       */
+      Models::ListDocumentsResponse listDocuments(const Models::ListDocumentsRequest &request);
+
+      /**
        * @summary ListFileUpload
        *
        * @param request ListFileUploadRequest
@@ -1065,6 +1167,23 @@ namespace Dms20250414
        * @return ListFileUploadResponse
        */
       Models::ListFileUploadResponse listFileUpload(const Models::ListFileUploadRequest &request);
+
+      /**
+       * @summary 分页查询onemeta3.0的知识库
+       *
+       * @param request ListKnowledgeBasesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeBasesResponse
+       */
+      Models::ListKnowledgeBasesResponse listKnowledgeBasesWithOptions(const Models::ListKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询onemeta3.0的知识库
+       *
+       * @param request ListKnowledgeBasesRequest
+       * @return ListKnowledgeBasesResponse
+       */
+      Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
        * @summary ModifyCustomAgent
@@ -1303,6 +1422,74 @@ namespace Dms20250414
        * @return UpdateDataLakeTableResponse
        */
       Models::UpdateDataLakeTableResponse updateDataLakeTable(const Models::UpdateDataLakeTableRequest &request);
+
+      /**
+       * @summary 更新文档
+       *
+       * @param request UpdateDocumentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDocumentResponse
+       */
+      Models::UpdateDocumentResponse updateDocumentWithOptions(const Models::UpdateDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文档
+       *
+       * @param request UpdateDocumentRequest
+       * @return UpdateDocumentResponse
+       */
+      Models::UpdateDocumentResponse updateDocument(const Models::UpdateDocumentRequest &request);
+
+      /**
+       * @summary 更新onemeta3.0的知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const Models::UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新onemeta3.0的知识库
+       *
+       * @param request UpdateKnowledgeBaseRequest
+       * @return UpdateKnowledgeBaseResponse
+       */
+      Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
+
+      /**
+       * @summary 上传文档
+       *
+       * @param tmpReq UploadDocumentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadDocumentResponse
+       */
+      Models::UploadDocumentResponse uploadDocumentWithOptions(const Models::UploadDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传文档
+       *
+       * @param request UploadDocumentRequest
+       * @return UploadDocumentResponse
+       */
+      Models::UploadDocumentResponse uploadDocument(const Models::UploadDocumentRequest &request);
+
+      /**
+       * @summary 更新或插入onemeta3.0的知识库chunks
+       *
+       * @param request UpsertDocumentChunksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertDocumentChunksResponse
+       */
+      Models::UpsertDocumentChunksResponse upsertDocumentChunksWithOptions(const Models::UpsertDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新或插入onemeta3.0的知识库chunks
+       *
+       * @param request UpsertDocumentChunksRequest
+       * @return UpsertDocumentChunksResponse
+       */
+      Models::UpsertDocumentChunksResponse upsertDocumentChunks(const Models::UpsertDocumentChunksRequest &request);
 
       /**
        * @summary 工作空间异步操作日志查询接口
