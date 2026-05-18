@@ -279,12 +279,7 @@ namespace Models
 
 
             protected:
-              // The keywords that are used to match events.
               shared_ptr<KeywordFilter::Keywords> keywords_ {};
-              // The relationship between multiple keywords in a condition. Valid values:
-              // 
-              // *   OR: The relationship between keywords is OR.
-              // *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
               shared_ptr<string> relation_ {};
             };
 
@@ -382,19 +377,12 @@ namespace Models
 
 
           protected:
-            // The custom filter conditions.
             shared_ptr<string> customFilters_ {};
-            // The types of the event-triggered alert rules.
             shared_ptr<EventPatternItem::EventTypeList> eventTypeList_ {};
-            // The keyword for filtering.
             shared_ptr<EventPatternItem::KeywordFilter> keywordFilter_ {};
-            // The levels of the event-triggered alerts.
             shared_ptr<EventPatternItem::LevelList> levelList_ {};
-            // The event names.
             shared_ptr<EventPatternItem::NameList> nameList_ {};
-            // The abbreviation of the Alibaba Cloud service name.
             shared_ptr<string> product_ {};
-            // Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
             shared_ptr<string> SQLFilter_ {};
           };
 
@@ -467,25 +455,12 @@ namespace Models
 
 
       protected:
-        // The description of the event-triggered alert rule.
         shared_ptr<string> description_ {};
-        // The mode of the event-triggered alert rule.
         shared_ptr<EventRule::EventPattern> eventPattern_ {};
-        // The type of the event-triggered alert rule. Valid values:
-        // 
-        // *   SYSTEM: system event-triggered alert rule
-        // *   CUSTOM: custom event-triggered alert rule
         shared_ptr<string> eventType_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The name of the event-triggered alert rule.
         shared_ptr<string> name_ {};
-        // The mute period during which new alert notifications are not sent even if the trigger conditions are met.
         shared_ptr<int64_t> silenceTime_ {};
-        // The status of the event-triggered alert rule. Valid values:
-        // 
-        // *   ENABLED
-        // *   DISABLED
         shared_ptr<string> state_ {};
       };
 
@@ -554,7 +529,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The event-triggered alert rule.
     shared_ptr<DescribeEventRuleListResponseBody::EventRules> eventRules_ {};
     // The error message returned.
     shared_ptr<string> message_ {};

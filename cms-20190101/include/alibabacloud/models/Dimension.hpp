@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The name of the metric dimension.
     shared_ptr<string> label_ {};
+    // The value of the metric dimension.
     shared_ptr<string> value_ {};
   };
 

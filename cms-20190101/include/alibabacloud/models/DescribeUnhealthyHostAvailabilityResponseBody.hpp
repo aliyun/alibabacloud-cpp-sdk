@@ -130,7 +130,6 @@ namespace Models
 
 
       protected:
-        // The ID of the availability monitoring task.
         shared_ptr<int64_t> id_ {};
         shared_ptr<NodeTaskInstance::InstanceList> instanceList_ {};
       };
@@ -202,7 +201,6 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> success_ {};
-    // The unhealthy instances that are detected by the specified availability monitoring tasks.
     shared_ptr<DescribeUnhealthyHostAvailabilityResponseBody::UnhealthyList> unhealthyList_ {};
   };
 

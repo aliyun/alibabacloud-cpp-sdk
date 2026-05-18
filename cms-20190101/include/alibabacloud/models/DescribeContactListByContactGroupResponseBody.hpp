@@ -140,17 +140,9 @@ namespace Models
 
 
         protected:
-          // The TradeManager ID of the alert contact.
-          // 
-          // >  This parameter can be returned only on the China site (aliyun.com).
           shared_ptr<string> aliIM_ {};
-          // The webhook URL of the DingTalk chatbot.
           shared_ptr<string> dingWebHook_ {};
-          // The email address of the alert contact.
           shared_ptr<string> mail_ {};
-          // The mobile number of the alert contact.
-          // 
-          // >  This parameter can be returned only on the China site (aliyun.com).
           shared_ptr<string> SMS_ {};
         };
 
@@ -194,19 +186,10 @@ namespace Models
 
 
       protected:
-        // The alert notification methods.
         shared_ptr<Contact::Channels> channels_ {};
-        // The time when the alert contact was created.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The description of the alert contact.
         shared_ptr<string> desc_ {};
-        // The name of the alert contact.
         shared_ptr<string> name_ {};
-        // The time when the alert contact was modified.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -268,7 +251,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The alert contacts that receive alert notifications.
     shared_ptr<DescribeContactListByContactGroupResponseBody::Contacts> contacts_ {};
     // The returned message.
     shared_ptr<string> message_ {};

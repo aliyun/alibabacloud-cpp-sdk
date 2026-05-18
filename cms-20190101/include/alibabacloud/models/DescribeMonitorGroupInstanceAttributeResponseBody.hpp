@@ -136,9 +136,7 @@ namespace Models
 
 
         protected:
-          // The VPC ID.
           shared_ptr<string> vpcInstanceId_ {};
-          // The vSwitch ID.
           shared_ptr<string> vswitchInstanceId_ {};
         };
 
@@ -199,9 +197,7 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> key_ {};
-            // The tag value.
             shared_ptr<string> value_ {};
           };
 
@@ -257,9 +253,7 @@ namespace Models
 
 
         protected:
-          // The zone.
           shared_ptr<string> availabilityZone_ {};
-          // The region ID.
           shared_ptr<string> regionId_ {};
         };
 
@@ -336,23 +330,14 @@ namespace Models
 
 
       protected:
-        // The name of the cloud service.
         shared_ptr<string> category_ {};
-        // The resource description.
         shared_ptr<string> desc_ {};
-        // The dimensions of the resource that is associated with the application group.
         shared_ptr<string> dimension_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The network type.
         shared_ptr<string> networkType_ {};
-        // The region.
         shared_ptr<Resource::Region> region_ {};
-        // The tag of the resource.
         shared_ptr<Resource::Tags> tags_ {};
-        // The VPC description.
         shared_ptr<Resource::Vpc> vpc_ {};
       };
 
@@ -444,7 +429,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources that are associated with the application group.
     shared_ptr<DescribeMonitorGroupInstanceAttributeResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the metric dimension.
     shared_ptr<string> label_ {};
+    // The matching mode of the metric dimension. Only EQUALS is supported. Default value: EQUALS.
     shared_ptr<string> operator_ {};
+    // The value of the metric dimension.
     shared_ptr<string> value_ {};
   };
 

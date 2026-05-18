@@ -906,9 +906,7 @@ namespace Models
 
 
           protected:
-            // The browser type.
             shared_ptr<string> browser_ {};
-            // The device type.
             shared_ptr<string> device_ {};
           };
 
@@ -1340,29 +1338,9 @@ namespace Models
 
 
           protected:
-            // The operator. Valid values:
-            // - contains: contains
-            // - doesNotContain: does not contain
-            // - matches: matches a regular expression
-            // - doesNotMatch: does not match a regular expression
-            // - is: equal to
-            // - isNot: not equal to
-            // - lessThan: less than
-            // - moreThan: greater than
             shared_ptr<string> operator_ {};
-            // The path to the assertion.
-            // - If the assertion type is body_json, the path is json path.
-            // - If the assertion type is body_xml, the path is xml path.
             shared_ptr<string> property_ {};
-            // The value or character to which the condition of the assertion is compared.
             shared_ptr<string> target_ {};
-            // The assertion type. Valid values:
-            // - response_time: checks whether the response time meets expectations.
-            // - status_code: checks whether the HTTP status code meets expectations.
-            // - header: checks whether the fields in the response header meet expectations.
-            // - body_text: check whether the content in the response body meets expectations by using text matching.
-            // - body_json: check whether the content in the response body meets expectations by using JSON parsing (JSONPath).
-            // - body_xml: check whether the content in the response body meets expectations by using XML parsing (XPath).
             shared_ptr<string> type_ {};
           };
 
@@ -1876,18 +1854,13 @@ namespace Models
 
 
       protected:
-        // The assertions.
         shared_ptr<OptionJson::Assertions> assertions_ {};
         // The number of retries after a DNS failure occurred.
         shared_ptr<int64_t> attempts_ {};
         shared_ptr<OptionJson::AuthInfo> authInfo_ {};
-        // The blocked URLs. Wildcards are supported in paths.
         shared_ptr<OptionJson::BlockedUrlList> blockedUrlList_ {};
-        // The custom headers. Format: {"key": "somekey", "value":"somevalue"}.
         shared_ptr<OptionJson::BrowserHeaders> browserHeaders_ {};
-        // The custom hosts. Format: {"key": "somekey", "value":"somevalue"}.
         shared_ptr<OptionJson::BrowserHosts> browserHosts_ {};
-        // The browser information.
         shared_ptr<OptionJson::BrowserInfo> browserInfo_ {};
         // Indicates whether certificate errors are ignored. Valid values:
         // - false: Certificate errors are not ignored.
@@ -1932,9 +1905,7 @@ namespace Models
         // Indicates whether the WebSocket task is allowed to return no response or return an empty response. Default value: false. Valid values: false and true.
         shared_ptr<bool> emptyMessage_ {};
         shared_ptr<bool> enablePacketCapture_ {};
-        // The string that is expected to exist on the page.
         shared_ptr<OptionJson::ExpectExistString> expectExistString_ {};
-        // The string that is not expected to exist on the page.
         shared_ptr<OptionJson::ExpectNonExistString> expectNonExistString_ {};
         // The domain name or alias to be parsed.
         // 
@@ -1991,7 +1962,6 @@ namespace Models
         shared_ptr<string> protocol_ {};
         // Indicates whether the Quick UDP Internet Connections (QUIC) protocol is used for browser detection. Valid values: true false Default value: false.
         shared_ptr<bool> quicEnabled_ {};
-        // The sites for which the QUIC protocol is forcibly used.
         shared_ptr<OptionJson::QuicTarget> quicTarget_ {};
         // The content of the HTTP request.
         shared_ptr<string> requestContent_ {};
@@ -2023,11 +1993,9 @@ namespace Models
         shared_ptr<int64_t> timeOut_ {};
         shared_ptr<string> traceRegion_ {};
         shared_ptr<string> traceType_ {};
-        // The traffic hijacking blacklist. When redirection occurs, if the URL of the resource loaded by the browser matches the expression in the blacklist, traffic hijacking is considered to have occurred.
         shared_ptr<OptionJson::TrafficHijackElementBlacklist> trafficHijackElementBlacklist_ {};
         // When redirection occurs, if the browser loads more than the specified number of resources, traffic hijacking is considered to have occurred. If you set the value to 0, no validation is performed. Default value: 0.
         shared_ptr<int32_t> trafficHijackElementCount_ {};
-        // The traffic hijacking whitelist. When redirection occurs, if the URL of the resource loaded by the browser does not match any expression in the whitelist, traffic hijacking is considered to have occurred.
         shared_ptr<OptionJson::TrafficHijackElementWhitelist> trafficHijackElementWhitelist_ {};
         shared_ptr<bool> usePrivateCrt_ {};
         shared_ptr<bool> useSsl_ {};
@@ -2121,15 +2089,10 @@ namespace Models
 
 
         protected:
-          // The city ID.
           shared_ptr<string> city_ {};
-          // The city name.
           shared_ptr<string> cityName_ {};
-          // The carrier ID.
           shared_ptr<string> isp_ {};
-          // The carrier name.
           shared_ptr<string> ispName_ {};
-          // The network type of the detection point. Valid values: IDC, LASTMILE, and MOBILE.
           shared_ptr<string> type_ {};
         };
 
@@ -2238,7 +2201,6 @@ namespace Models
 
 
       protected:
-        // The days in a week.
         shared_ptr<CustomSchedule::Days> days_ {};
         // The end time of the detection. Unit: hours.
         shared_ptr<int32_t> endHour_ {};
@@ -2347,7 +2309,6 @@ namespace Models
       shared_ptr<SiteMonitors::CustomSchedule> customSchedule_ {};
       // The interval at which the site monitoring task is executed. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
       shared_ptr<string> interval_ {};
-      // The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
       shared_ptr<SiteMonitors::IspCities> ispCities_ {};
       // The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
       shared_ptr<SiteMonitors::OptionJson> optionJson_ {};
@@ -2551,70 +2512,21 @@ namespace Models
 
 
       protected:
-        // Indicates whether the alert rule is enabled. Valid values:
-        // 
-        // *   true: The alert rule is enabled.
-        // *   false: The alert rule is disabled.
         shared_ptr<string> actionEnable_ {};
-        // The alert contact group to which alert notifications are sent.
         shared_ptr<string> alarmActions_ {};
-        // The operator that is used to compare the metric value with the threshold in the alert rule. Valid values:
-        // 
-        // *   `>=`
-        // *   `>`
-        // *   `<=`
-        // *   `<`
-        // *   `=`
-        // *   `!=`
-        // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-        // *   LessThanYesterday: less than the metric value at the same time yesterday
-        // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-        // *   LessThanLastWeek: less than the metric value at the same time last week
-        // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-        // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
         shared_ptr<string> comparisonOperator_ {};
-        // The dimension of the alert rule.
         shared_ptr<string> dimensions_ {};
-        // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
         shared_ptr<string> evaluationCount_ {};
-        // The expression that is used to trigger alerts.
         shared_ptr<string> expression_ {};
-        // The alert severity. Valid values:
-        // 
-        // *   1: critical
-        // *   2: warning
-        // *   3: information
         shared_ptr<string> level_ {};
-        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The namespace of the cloud service.
-        // 
-        // The value is in the following format: acs_service name.
         shared_ptr<string> namespace_ {};
-        // The alert contact group that receives alert notifications.
         shared_ptr<string> okActions_ {};
-        // The time interval. The value is the same as the interval at which metric data is reported. Unit: seconds.
-        // 
-        // >  If you specify a statistical period for the alert rule, data is queried based on the statistical period.
         shared_ptr<string> period_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The alert status. Valid values:
-        // 
-        // *   OK: The alert rule has no active alerts.
-        // *   ALARM: The alert rule has active alerts.
         shared_ptr<string> stateValue_ {};
-        // The statistical method of the alert rule. Valid values:
-        // 
-        // *   Availability: the percentage of available detection points
-        // *   AvailableNumber: the number of available detection points
-        // *   ErrorCodeMaximum: a status code for an alert
-        // *   ErrorCodeMinimum: all status codes for a set of alerts
-        // *   Average: response time
         shared_ptr<string> statistics_ {};
-        // The alert threshold.
         shared_ptr<string> threshold_ {};
       };
 
@@ -2687,7 +2599,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The alert rules that are configured for the site monitoring task.
     shared_ptr<DescribeSiteMonitorAttributeResponseBody::MetricRules> metricRules_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

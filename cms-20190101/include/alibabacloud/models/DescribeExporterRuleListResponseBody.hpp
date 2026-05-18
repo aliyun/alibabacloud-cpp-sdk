@@ -198,29 +198,14 @@ namespace Models
 
 
       protected:
-        // The time when the rule was created. The value is a UNIX timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The description of the rule.
         shared_ptr<string> describe_ {};
-        // The associated dimensions.
         shared_ptr<string> dimension_ {};
         shared_ptr<Datapoint::DstName> dstName_ {};
-        // Indicates whether the rule is enabled.
         shared_ptr<bool> enabled_ {};
-        // The name of the metric.
-        // 
-        // > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
         shared_ptr<string> metricName_ {};
-        // The namespace of the service.
-        // 
-        // > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
         shared_ptr<string> namespace_ {};
-        // The name of the data export rule.
         shared_ptr<string> ruleName_ {};
-        // The time window of the exported data.\\
-        // Multiple windows are separated with commas (,).
-        // 
-        // > Data in a time window of less than 60 seconds cannot be exported.
         shared_ptr<string> targetWindows_ {};
       };
 
@@ -297,7 +282,6 @@ namespace Models
     // 
     // > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
     shared_ptr<string> code_ {};
-    // The details of the data export rules.
     shared_ptr<DescribeExporterRuleListResponseBody::Datapoints> datapoints_ {};
     // The returned message.
     shared_ptr<string> message_ {};

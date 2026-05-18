@@ -125,14 +125,8 @@ namespace Models
 
 
         protected:
-          // The response code.
           shared_ptr<string> code_ {};
-          // The error message returned.
           shared_ptr<string> message_ {};
-          // Indicates whether the request was successful. Valid values:
-          // 
-          // *   true
-          // *   false
           shared_ptr<bool> success_ {};
         };
 
@@ -155,9 +149,7 @@ namespace Models
 
 
       protected:
-        // The alert rule that failed to be created.
         shared_ptr<Target::Result> result_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
       };
 
@@ -219,7 +211,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The alert rules that failed to be created for the resource.
     shared_ptr<PutResourceMetricRulesResponseBody::FailedListResult> failedListResult_ {};
     // The error message returned.
     shared_ptr<string> message_ {};

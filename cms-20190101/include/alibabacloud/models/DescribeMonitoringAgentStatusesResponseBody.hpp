@@ -177,63 +177,16 @@ namespace Models
 
 
       protected:
-        // The error code returned when the CloudMonitor agent is installed. Valid values:
-        // 
-        // *   Common.Timeout: The installation timed out.
-        // *   Common.SLR: The service-linked role for CloudMonitor is unauthorized.
-        // *   Common.OS: The operating system is not supported.
-        // *   Assist.Invalid: Cloud Assistant is not running.
-        // *   Assist.Invoke: An error occurred when the installation program is started.
-        // *   Assist.Execute: An error occurred when the installation program is running.
         shared_ptr<string> agentInstallErrorCode_ {};
-        // Indicates whether the CloudMonitor agent is automatically installed. Valid values:
-        // 
-        // *   true: The CloudMonitor agent is automatically installed.
-        // *   false: The CloudMonitor agent is not automatically installed.
         shared_ptr<bool> autoInstall_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
         shared_ptr<string> loongCollectorStatus_ {};
         shared_ptr<string> loongCollectorVersion_ {};
-        // Indicates whether the SysAK monitoring feature is enabled.`` Valid values:
-        // 
-        // *   `true`: The SysAK monitoring feature is enabled.
-        // *   `false`: the SysAK monitoring feature is disabled.
         shared_ptr<string> osMonitorConfig_ {};
-        // The error status of SysOM. Valid values:
-        // 
-        // *   `install_fail`: SysOM fails to be installed or an unknown error occurs.
-        // *   `install_assist_invalid`: SysOM fails to be installed because the status of Cloud Assistant is invalid.
-        // *   `install_assist_command_fail`: SysOM fails to be installed because the installation command fails to run.
-        // *   `uninstall_fail`: SysOM fails to be uninstalled or an unknown error occurs.
-        // *   `uninstall_assist_invalid`: SysOM fails to be uninstalled because the status of Cloud Assistant is invalid.
-        // *   `uninstall_assist_command_fail`: SysOM fails to be uninstalled because the uninstallation command fails to run.
         shared_ptr<string> osMonitorErrorCode_ {};
-        // The details of the execution error. Valid values:
-        // 
-        // *   `Command.ErrorCode.Fail.Downlaod.REGIN_ID`: Failed to obtain the region ID.
-        // *   `Command.ErrorCode.Fail.Downlaod.SYSAK`: Failed to download the .rpm package of System Analyse Kit (SysAK).
-        // *   `Command.ErrorCode.Fail.Downlaod.CMON_FILE`: Failed to download the CMON file.
-        // *   `Command.ErrorCode.Fail.Downlaod.BTF`: Failed to start SysAK because the BTF file is not found.
-        // *   `Command.ErrorCode.Fail.Start.SYSAK`: Failed to start SysAK due to an unknown error.
         shared_ptr<string> osMonitorErrorDetail_ {};
-        // The status of SysOM. Valid values:
-        // 
-        // *   installing: SysOM is being installed.
-        // *   running: SysOM is running.
-        // *   stopped: SysOM is stopped.
-        // *   uninstalling: SysOM is being uninstalled.
         shared_ptr<string> osMonitorStatus_ {};
-        // The SysOM version.
         shared_ptr<string> osMonitorVersion_ {};
-        // The status of the CloudMonitor agent. Valid values:
-        // 
-        // *   running: The CloudMonitor agent is running.
-        // *   stopped: The CloudMonitor agent is stopped.
-        // *   installing: The CloudMonitor agent is being installed.
-        // *   install_faild: The CloudMonitor agent fails to be installed.
-        // *   abnormal: The CloudMonitor agent is not properly installed.
-        // *   not_installed: The CloudMonitor agent is not installed.
         shared_ptr<string> status_ {};
       };
 
@@ -297,7 +250,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The host status information.
     shared_ptr<DescribeMonitoringAgentStatusesResponseBody::NodeStatusList> nodeStatusList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

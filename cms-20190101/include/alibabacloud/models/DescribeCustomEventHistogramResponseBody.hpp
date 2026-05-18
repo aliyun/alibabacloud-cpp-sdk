@@ -104,15 +104,8 @@ namespace Models
 
 
       protected:
-        // The information about the number of times that the custom event occurred during an interval of the specified time period.
         shared_ptr<int64_t> count_ {};
-        // The end time.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> endTime_ {};
-        // The start time.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -174,7 +167,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The information about the number of times that the custom event occurred during each interval of the specified time period.
     shared_ptr<DescribeCustomEventHistogramResponseBody::EventHistograms> eventHistograms_ {};
     // The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

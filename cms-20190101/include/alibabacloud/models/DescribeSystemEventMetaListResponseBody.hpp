@@ -150,28 +150,13 @@ namespace Models
 
 
       protected:
-        // The type of the system event. Valid values:
-        // 
-        // *   StatusNotification: fault notifications
-        // *   Exception: exceptions
-        // *   Maintenance: O\\&M
         shared_ptr<string> eventType_ {};
-        // The alert level. Valid values:
-        // 
-        // *   CRITICAL
-        // *   WARN
-        // *   INFO
         shared_ptr<string> level_ {};
-        // The name of the system event.
         shared_ptr<string> name_ {};
-        // The description of the event name.
         shared_ptr<string> nameDesc_ {};
         shared_ptr<string> nameDesc_en_ {};
-        // The abbreviation of the service name.
         shared_ptr<string> product_ {};
-        // The status of the system event.
         shared_ptr<string> status_ {};
-        // The description of the event status.
         shared_ptr<string> statusDesc_ {};
       };
 
@@ -233,7 +218,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<int32_t> code_ {};
-    // The queried meta information.
     shared_ptr<DescribeSystemEventMetaListResponseBody::Data> data_ {};
     // The returned message.
     shared_ptr<string> message_ {};

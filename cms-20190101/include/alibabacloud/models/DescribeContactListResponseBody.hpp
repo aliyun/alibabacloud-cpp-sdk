@@ -181,27 +181,9 @@ namespace Models
 
 
         protected:
-          // The status of the TradeManager ID.
-          // 
-          // Valid value: OK. The value OK indicates that the TradeManager ID is valid and can receive alert notifications.
-          // 
-          // >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
           shared_ptr<string> aliIM_ {};
-          // The status of the DingTalk chatbot.
-          // 
-          // Valid value: OK. The value OK indicates that the DingTalk chatbot is normal and alert notifications can be received in a DingTalk group.
           shared_ptr<string> dingWebHook_ {};
-          // The status of the email address. Valid values:
-          // 
-          // *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
-          // *   OK: The phone number is activated and can receive alert notifications.
           shared_ptr<string> mail_ {};
-          // The status of the phone number. Valid values:
-          // 
-          // *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
-          // *   OK: The phone number is activated and can receive alert notifications.
-          // 
-          // >  This parameter applies only to the Alibaba Cloud China site (aliyun.com).
           shared_ptr<string> SMS_ {};
         };
 
@@ -261,13 +243,9 @@ namespace Models
 
 
         protected:
-          // The TradeManager ID of the alert contact.
           shared_ptr<string> aliIM_ {};
-          // The webhook URL of the DingTalk chatbot.
           shared_ptr<string> dingWebHook_ {};
-          // The email address of the alert contact.
           shared_ptr<string> mail_ {};
-          // The phone number of the alert contac.
           shared_ptr<string> SMS_ {};
         };
 
@@ -337,30 +315,13 @@ namespace Models
 
 
       protected:
-        // The alert notification method.
         shared_ptr<Contact::Channels> channels_ {};
-        // The status of the alert notification method. Valid values: PENDING and OK.
-        // 
-        // The email address must be activated after it is added as the value specified for the alert notification method. The value PENDING indicates that the email address is not activated. The value OK indicates that the email address is activated.
         shared_ptr<Contact::ChannelsState> channelsState_ {};
-        // None.
         shared_ptr<Contact::ContactGroups> contactGroups_ {};
-        // The timestamp when the alert contact was created.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> createTime_ {};
-        // The description.
         shared_ptr<string> desc_ {};
-        // The language in which the alert information is displayed. Valid values:
-        // 
-        // *   zh-cn: simplified Chinese
-        // *   en: English
         shared_ptr<string> lang_ {};
-        // The name of the alert contact.
         shared_ptr<string> name_ {};
-        // The timestamp when the alert contact was updated.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -429,7 +390,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The alert contacts.
     shared_ptr<DescribeContactListResponseBody::Contacts> contacts_ {};
     // The error message returned.
     shared_ptr<string> message_ {};

@@ -213,40 +213,19 @@ namespace Models
 
 
       protected:
-        // The version of the CloudMonitor agent.
         shared_ptr<string> agentVersion_ {};
-        // The ID of the Alibaba Cloud account.
         shared_ptr<int64_t> aliUid_ {};
-        // The elastic IP address (EIP) of the host.
         shared_ptr<string> eipAddress_ {};
-        // The ID of the EIP.
         shared_ptr<string> eipId_ {};
-        // The name of the host.
         shared_ptr<string> hostName_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The type of the ECS instance.
         shared_ptr<string> instanceTypeFamily_ {};
-        // The IP address of the host.
-        // 
-        // > Multiple IP addresses are separated with commas (,).
         shared_ptr<string> ipGroup_ {};
-        // The IP address of the Network Address Translation (NAT) gateway.
         shared_ptr<string> natIp_ {};
-        // The network type.
         shared_ptr<string> networkType_ {};
-        // The operating system.
         shared_ptr<string> operatingSystem_ {};
-        // The ID of the region.
         shared_ptr<string> region_ {};
-        // The serial number of the host. A host that is not provided by Alibaba Cloud has a serial number instead of an instance ID.
-        // 
-        // > This parameter can be used to accurately search for a monitored host.
         shared_ptr<string> serialNumber_ {};
-        // Indicates whether the host is provided by Alibaba Cloud. Valid values:
-        // 
-        // *   true: The host is provided by Alibaba Cloud.
-        // *   false: The host is not provided by Alibaba Cloud.
         shared_ptr<bool> isAliyunHost_ {};
       };
 
@@ -337,7 +316,6 @@ namespace Models
     // 
     // > The status code 200 indicates that the call is successful.
     shared_ptr<string> code_ {};
-    // The information about the hosts.
     shared_ptr<DescribeMonitoringAgentHostsResponseBody::Hosts> hosts_ {};
     // The error message.
     shared_ptr<string> message_ {};

@@ -106,7 +106,6 @@ namespace Models
 
 
         protected:
-          // The name of the alert group.
           shared_ptr<string> name_ {};
         };
 
@@ -143,7 +142,6 @@ namespace Models
 
 
     protected:
-      // The alert groups that receive alert notifications for the application group.
       shared_ptr<Group::ContactGroups> contactGroups_ {};
       // The name of the application group.
       shared_ptr<string> groupName_ {};

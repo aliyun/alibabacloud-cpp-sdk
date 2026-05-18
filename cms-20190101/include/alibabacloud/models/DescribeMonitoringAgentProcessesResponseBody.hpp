@@ -131,19 +131,11 @@ namespace Models
 
 
       protected:
-        // The command used to obtain the number of processes. Valid value: `number`.
-        // 
-        // >  The `number` command obtains the number of processes that match the condition.
         shared_ptr<string> command_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The ID of the instance.
         shared_ptr<string> instanceId_ {};
-        // The ID of the process.
         shared_ptr<int64_t> processId_ {};
-        // The name of the process.
         shared_ptr<string> processName_ {};
-        // The user who launched the process.
         shared_ptr<string> processUser_ {};
       };
 
@@ -207,7 +199,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The returned message.
     shared_ptr<string> message_ {};
-    // The information about the processes.
     shared_ptr<DescribeMonitoringAgentProcessesResponseBody::NodeProcesses> nodeProcesses_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -113,22 +113,9 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
-        // 
-        // *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-        // *   {userId}: the ID of the Alibaba Cloud account.
-        // *   {regionId}: the region ID of the message queue or topic.
-        // *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
         shared_ptr<string> arn_ {};
-        // The ID of the resource for which alerts are triggered.
         shared_ptr<string> id_ {};
-        // The parameters of the alert callback. The parameters are in the JSON format.
         shared_ptr<string> jsonParams_ {};
-        // The level of the alert. Valid values:
-        // 
-        // *   INFO: information
-        // *   WARN: warning
-        // *   CRITICAL: critical
         shared_ptr<string> level_ {};
       };
 
@@ -199,7 +186,6 @@ namespace Models
     // *   true: The call was successful.
     // *   false: The call failed.
     shared_ptr<bool> success_ {};
-    // The information about the resource for which alerts are triggered.
     shared_ptr<DescribeMetricRuleTargetsResponseBody::Targets> targets_ {};
   };
 

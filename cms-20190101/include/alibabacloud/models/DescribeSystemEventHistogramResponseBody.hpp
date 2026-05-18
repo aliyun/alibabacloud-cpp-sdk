@@ -104,15 +104,8 @@ namespace Models
 
 
       protected:
-        // The number of times the system event occurred.
         shared_ptr<int64_t> count_ {};
-        // The end time.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> endTime_ {};
-        // The start time.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -180,7 +173,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
     shared_ptr<string> success_ {};
-    // The information about the number of times the system event occurred during each interval of a time period.
     shared_ptr<DescribeSystemEventHistogramResponseBody::SystemEventHistograms> systemEventHistograms_ {};
   };
 

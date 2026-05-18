@@ -178,9 +178,7 @@ namespace Models
 
 
             protected:
-              // The tag key of the alert template.
               shared_ptr<string> key_ {};
-              // The tag value of the alert template.
               shared_ptr<string> value_ {};
             };
 
@@ -277,27 +275,9 @@ namespace Models
 
 
             protected:
-              // The comparison operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
-              // 
-              // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-              // *   GreaterThanThreshold: greater than the threshold
-              // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-              // *   LessThanThreshold: less than the threshold
-              // *   NotEqualToThreshold: not equal to the threshold
-              // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-              // *   LessThanYesterday: less than the metric value at the same time yesterday
-              // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-              // *   LessThanLastWeek: less than the metric value at the same time last week
-              // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-              // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
               shared_ptr<string> comparisonOperator_ {};
-              // The statistical method for Warn-level alerts.
-              // 
-              // The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
               shared_ptr<string> statistics_ {};
-              // The threshold for Warn-level alerts.
               shared_ptr<string> threshold_ {};
-              // The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
               shared_ptr<int32_t> times_ {};
             };
 
@@ -357,27 +337,9 @@ namespace Models
 
 
             protected:
-              // The comparison operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
-              // 
-              // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-              // *   GreaterThanThreshold: greater than the threshold
-              // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-              // *   LessThanThreshold: less than the threshold
-              // *   NotEqualToThreshold: not equal to the threshold
-              // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-              // *   LessThanYesterday: less than the metric value at the same time yesterday
-              // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-              // *   LessThanLastWeek: less than the metric value at the same time last week
-              // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-              // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
               shared_ptr<string> comparisonOperator_ {};
-              // The statistical method for Info-level alerts.
-              // 
-              // The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
               shared_ptr<string> statistics_ {};
-              // The threshold for Info-level alerts.
               shared_ptr<string> threshold_ {};
-              // The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
               shared_ptr<int32_t> times_ {};
             };
 
@@ -437,27 +399,9 @@ namespace Models
 
 
             protected:
-              // The comparison operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
-              // 
-              // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-              // *   GreaterThanThreshold: greater than the threshold
-              // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-              // *   LessThanThreshold: less than the threshold
-              // *   NotEqualToThreshold: not equal to the threshold
-              // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-              // *   LessThanYesterday: less than the metric value at the same time yesterday
-              // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-              // *   LessThanLastWeek: less than the metric value at the same time last week
-              // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-              // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
               shared_ptr<string> comparisonOperator_ {};
-              // The statistical method for Critical-level alerts.
-              // 
-              // The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
               shared_ptr<string> statistics_ {};
-              // The threshold for Critical-level alerts.
               shared_ptr<string> threshold_ {};
-              // The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
               shared_ptr<int32_t> times_ {};
             };
 
@@ -491,11 +435,8 @@ namespace Models
 
 
           protected:
-            // The conditions for triggering Critical-level alerts.
             shared_ptr<Escalations::Critical> critical_ {};
-            // The conditions for triggering Info-level alerts.
             shared_ptr<Escalations::Info> info_ {};
-            // The conditions for triggering Warn-level alerts.
             shared_ptr<Escalations::Warn> warn_ {};
           };
 
@@ -577,28 +518,15 @@ namespace Models
 
 
         protected:
-          // The abbreviation of the Alibaba Cloud service name.
           shared_ptr<string> category_ {};
-          // The threshold and the alert level.
           shared_ptr<AlertTemplate::Escalations> escalations_ {};
-          // The tags of the alert template.
           shared_ptr<AlertTemplate::Labels> labels_ {};
-          // The metric name.
           shared_ptr<string> metricName_ {};
-          // The namespace of the Alibaba Cloud service.
           shared_ptr<string> namespace_ {};
-          // The method that is used to handle alerts when no monitoring data is found. Valid values:
-          // 
-          // *   KEEP_LAST_STATE (default): No operation is performed.
-          // *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-          // *   OK: The status is considered normal.
           shared_ptr<string> noDataPolicy_ {};
-          // The name of the alert rule.
           shared_ptr<string> ruleName_ {};
-          // The dimension of the alert. It is an extended field.
           shared_ptr<string> selector_ {};
           shared_ptr<int32_t> silenceTime_ {};
-          // The callback URL to which a request is sent when an alert is triggered.
           shared_ptr<string> webhook_ {};
         };
 
@@ -656,7 +584,6 @@ namespace Models
 
 
     protected:
-      // The queried alert templates.
       shared_ptr<Resource::AlertTemplates> alertTemplates_ {};
       // The description of the alert template.
       shared_ptr<string> description_ {};

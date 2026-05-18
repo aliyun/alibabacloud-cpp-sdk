@@ -1626,6 +1626,8 @@ namespace Cms20190101
       Models::DescribeMetricMetaListResponse describeMetricMetaList(const Models::DescribeMetricMetaListRequest &request);
 
       /**
+       * @summary Queries blacklist policies.
+       *
        * @param request DescribeMetricRuleBlackListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeMetricRuleBlackListResponse
@@ -1633,6 +1635,8 @@ namespace Cms20190101
       Models::DescribeMetricRuleBlackListResponse describeMetricRuleBlackListWithOptions(const Models::DescribeMetricRuleBlackListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries blacklist policies.
+       *
        * @param request DescribeMetricRuleBlackListRequest
        * @return DescribeMetricRuleBlackListResponse
        */
@@ -1957,7 +1961,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentHostsResponse describeMonitoringAgentHosts(const Models::DescribeMonitoringAgentHostsRequest &request);
 
       /**
-       * @summary 查询指定资源的进程数列表
+       * @summary Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
        *
        * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
        * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -1969,7 +1973,7 @@ namespace Cms20190101
       Models::DescribeMonitoringAgentProcessesResponse describeMonitoringAgentProcessesWithOptions(const Models::DescribeMonitoringAgentProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定资源的进程数列表
+       * @summary Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
        *
        * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
        * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
@@ -2218,7 +2222,7 @@ namespace Cms20190101
       Models::DescribeSiteMonitorStatisticsResponse describeSiteMonitorStatistics(const Models::DescribeSiteMonitorStatisticsRequest &request);
 
       /**
-       * @summary 查询拨测探测节点列表
+       * @summary Queries detection points.
        *
        * @param request DescribeSyntheticProbeListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2227,7 +2231,7 @@ namespace Cms20190101
       Models::DescribeSyntheticProbeListResponse describeSyntheticProbeListWithOptions(const Models::DescribeSyntheticProbeListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询拨测探测节点列表
+       * @summary Queries detection points.
        *
        * @param request DescribeSyntheticProbeListRequest
        * @return DescribeSyntheticProbeListResponse

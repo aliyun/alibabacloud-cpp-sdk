@@ -124,7 +124,6 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> success_ {};
-    // The deleted tags.
     shared_ptr<RemoveTagsResponseBody::Tag> tag_ {};
   };
 

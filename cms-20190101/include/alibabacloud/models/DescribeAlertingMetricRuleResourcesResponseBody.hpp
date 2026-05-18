@@ -252,31 +252,10 @@ namespace Models
 
 
               protected:
-                // The operator that is used to compare the metric value with the threshold. Valid values:
-                // 
-                // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-                // *   GreaterThanThreshold: greater than the threshold
-                // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-                // *   LessThanThreshold: less than the threshold
-                // *   NotEqualToThreshold: not equal to the threshold
-                // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-                // *   LessThanYesterday: less than the metric value at the same time yesterday
-                // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-                // *   LessThanLastWeek: less than the metric value at the same time last week
-                // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-                // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
                 shared_ptr<string> comparisonOperator_ {};
-                // The metric name.
                 shared_ptr<string> metricName_ {};
-                // The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
                 shared_ptr<string> period_ {};
-                // The statistical method of the alert level. Valid values:
-                // 
-                // *   Maximum
-                // *   Minimum
-                // *   Average
                 shared_ptr<string> statistics_ {};
-                // The alert threshold.
                 shared_ptr<string> threshold_ {};
               };
 
@@ -370,56 +349,15 @@ namespace Models
 
 
           protected:
-            // The operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The description of the alert rule.
-            // 
-            // >  This parameter indicates the content of the alert rule. If the metric value meets the alert condition, an alert is triggered.
             shared_ptr<string> expression_ {};
-            // The description of the multi-metric alert rule.
             shared_ptr<Resource::ExpressionList> expressionList_ {};
-            // The relationship between multiple metrics. Valid values:
-            // 
-            // *   &&: If all metrics meet the alert conditions, CloudMonitor sends alert notifications.
-            // *   ||: If one of the metrics meets the alert conditions, CloudMonitor sends alert notifications.
             shared_ptr<string> expressionListJoin_ {};
-            // The trigger conditions that are created by using expressions. You can use expressions to create trigger conditions in the following scenarios:
-            // 
-            // *   Set an alert blacklist for specific resources. For example, if you specify `$instanceId != \\"i-io8kfvcpp7x5****\\" ``&&`` $Average > 50`, no alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 50.
-            // *   Set a special alert threshold for a specified instance in the rule. For example, if you specify `$Average > ($instanceId == \\"i-io8kfvcpp7x5****\\"? 80: 50)`, an alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 80 or the `average metric value` of other instances exceeds 50.
-            // *   Limit the number of instances whose metric values exceed the threshold. For example, if you specify `count($Average > 20) > 3`, an alert is triggered only when the `average metric value` of more than three instances exceeds 20.
             shared_ptr<string> expressionRaw_ {};
-            // The severity level and notification methods of the alert. Valid values:
-            // 
-            // *   4: Alert notifications are sent by using emails and DingTalk chatbots.
-            // *   OK: No alert is generated.
             shared_ptr<int32_t> level_ {};
-            // The operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   `>=`
-            // *   `=`
-            // *   `<=`
-            // *   `>`
-            // *   `<`
-            // *   `!=`
             shared_ptr<string> preCondition_ {};
-            // This parameter is deprecated.
             shared_ptr<string> tag_ {};
-            // The alert threshold.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
             shared_ptr<int32_t> times_ {};
           };
 
@@ -571,55 +509,23 @@ namespace Models
 
 
       protected:
-        // The dimensions based on which the resources are queried.
         shared_ptr<string> dimensions_ {};
-        // Indicates whether the alert rule is enabled. Valid values:
-        // 
-        // *   true: The alert rule is enabled.
-        // *   false: The alert rule is disabled.
         shared_ptr<string> enable_ {};
-        // The alert rule based on which the alert is triggered.
         shared_ptr<Resource::Escalation> escalation_ {};
-        // The ID of the application group.
-        // 
-        // >  If the alert rule is associated with an application group, the ID of the application group is returned in this parameter.
         shared_ptr<string> groupId_ {};
-        // The time when the last alert was triggered for the resource based on the alert rule. The value is a timestamp.
-        // 
-        // Unit: milliseconds.
         shared_ptr<string> lastAlertTime_ {};
-        // The time when the alert rule was last modified. The value is a timestamp.
-        // 
-        // Unit: milliseconds.
         shared_ptr<string> lastModifyTime_ {};
-        // The severity level and notification methods of the alert. Valid values:
-        // 
-        // *   4: Alert notifications are sent by using emails and DingTalk chatbots.
-        // *   OK: No alert is generated.
         shared_ptr<int32_t> level_ {};
-        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The metric value that triggered the alert based on the alert rule. The value is a JSON string.
         shared_ptr<string> metricValues_ {};
-        // The namespace of the cloud service.
         shared_ptr<string> namespace_ {};
-        // The type of the cloud service.
         shared_ptr<string> productCategory_ {};
-        // The resources that are monitored.
         shared_ptr<string> resource_ {};
-        // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
         shared_ptr<string> retryTimes_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The time when the resource was associated with the alert rule. The value is a timestamp.
-        // 
-        // Unit: milliseconds.
         shared_ptr<string> startTime_ {};
-        // The method used to calculate the metric values that trigger alerts.
         shared_ptr<string> statistics_ {};
-        // The alert threshold.
         shared_ptr<string> threshold_ {};
       };
 
@@ -692,7 +598,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources that are associated with the alert rule.
     shared_ptr<DescribeAlertingMetricRuleResourcesResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 

@@ -192,71 +192,13 @@ namespace Models
 
 
           protected:
-            // The operator that is used to compare the metric value with the threshold for Warn-level alerts.
-            // 
-            // Valid values:
-            // 
-            // *   LessThanThreshold: less than the threshold
-            // 
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // 
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // 
-            // *   NotEqualToThreshold: does not equal to the threshold
-            // 
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // 
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // 
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // 
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // 
-            // *   GreaterThanThreshold: greater than the threshold
-            // 
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
             shared_ptr<string> evaluationCount_ {};
-            // The alert level.
-            // 
-            // Valid values:
-            // 
-            // *   INFO
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            // *   WARN
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            // *   CRITICAL
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
-            // 
-            //     <!-- -->
             shared_ptr<string> level_ {};
-            // The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
             shared_ptr<string> metricName_ {};
-            // The namespace of the service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
             shared_ptr<string> namespace_ {};
-            // The aggregation period of monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
             shared_ptr<string> period_ {};
-            // The method used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
             shared_ptr<string> statistics_ {};
-            // The alert threshold.
             shared_ptr<string> threshold_ {};
           };
 
@@ -293,9 +235,7 @@ namespace Models
 
 
       protected:
-        // The initial alert rules that are generated after one-click alert is enabled for a service.
         shared_ptr<AllProductInitMetricRule::AlertInitConfigList> alertInitConfigList_ {};
-        // The abbreviation of the service name.
         shared_ptr<string> product_ {};
       };
 
@@ -360,7 +300,6 @@ namespace Models
 
 
   protected:
-    // The information about the services for which one-click alert is enabled.
     shared_ptr<DescribeProductsOfActiveMetricRuleResponseBody::AllProductInitMetricRuleList> allProductInitMetricRuleList_ {};
     // The HTTP status code.
     // 

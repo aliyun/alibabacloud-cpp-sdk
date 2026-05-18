@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Resources, resources_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(SendOK, sendOK_);
       DARABONBA_PTR_TO_JSON(SilenceTime, silenceTime_);
       DARABONBA_PTR_TO_JSON(Webhook, webhook_);
     };
@@ -50,6 +51,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Resources, resources_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(SendOK, sendOK_);
       DARABONBA_PTR_FROM_JSON(SilenceTime, silenceTime_);
       DARABONBA_PTR_FROM_JSON(Webhook, webhook_);
     };
@@ -748,7 +750,7 @@ namespace Models
         && this->compositeExpression_ == nullptr && this->contactGroups_ == nullptr && this->effectiveInterval_ == nullptr && this->emailSubject_ == nullptr && this->interval_ == nullptr
         && this->labels_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->noDataPolicy_ == nullptr && this->noEffectiveInterval_ == nullptr
         && this->period_ == nullptr && this->prometheus_ == nullptr && this->resources_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
-        && this->silenceTime_ == nullptr && this->webhook_ == nullptr; };
+        && this->sendOK_ == nullptr && this->silenceTime_ == nullptr && this->webhook_ == nullptr; };
     // escalations Field Functions 
     bool hasEscalations() const { return this->escalations_ != nullptr;};
     void deleteEscalations() { this->escalations_ = nullptr;};
@@ -869,6 +871,13 @@ namespace Models
     inline PutResourceMetricRuleRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
 
 
+    // sendOK Field Functions 
+    bool hasSendOK() const { return this->sendOK_ != nullptr;};
+    void deleteSendOK() { this->sendOK_ = nullptr;};
+    inline bool getSendOK() const { DARABONBA_PTR_GET_DEFAULT(sendOK_, false) };
+    inline PutResourceMetricRuleRequest& setSendOK(bool sendOK) { DARABONBA_PTR_SET_VALUE(sendOK_, sendOK) };
+
+
     // silenceTime Field Functions 
     bool hasSilenceTime() const { return this->silenceTime_ != nullptr;};
     void deleteSilenceTime() { this->silenceTime_ = nullptr;};
@@ -955,6 +964,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
+    shared_ptr<bool> sendOK_ {};
     // The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
     // 
     // >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.

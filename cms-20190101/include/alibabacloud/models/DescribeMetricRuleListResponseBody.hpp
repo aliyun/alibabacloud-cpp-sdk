@@ -210,9 +210,7 @@ namespace Models
 
 
             protected:
-              // The key of the annotation.
               shared_ptr<string> key_ {};
-              // The value of the annotation.
               shared_ptr<string> value_ {};
             };
 
@@ -263,21 +261,9 @@ namespace Models
 
 
         protected:
-          // The annotations of the Prometheus alert rule. When a Prometheus alert is triggered, the system renders the annotated keys and values to help you understand the metrics and alert rule.
-          // 
-          // >  This parameter is equivalent to the annotations parameter of open source Prometheus.
           shared_ptr<Prometheus::Annotations> annotations_ {};
-          // The alert level. Valid values:
-          // 
-          // *   CRITICAL
-          // *   WARN
-          // *   INFO
           shared_ptr<string> level_ {};
-          // The PromQL query statement.
-          // 
-          // >  The data obtained by using the PromQL query statement is the monitoring data. You must include the alert threshold in this statement.
           shared_ptr<string> promQL_ {};
-          // The number of consecutive triggers. If the number of times that the metric values meet the trigger conditions reaches the value of this parameter, CloudMonitor sends alert notifications.
           shared_ptr<int64_t> times_ {};
         };
 
@@ -338,9 +324,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the alert rule.
             shared_ptr<string> key_ {};
-            // The tag value of the alert rule.
             shared_ptr<string> value_ {};
           };
 
@@ -446,31 +430,10 @@ namespace Models
 
 
           protected:
-            // The comparison operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The additional conditions for triggering Warn-level alerts. The additional conditions take effect when the value of the ComparisonOperator parameter is GreaterThanYesterday, LessThanYesterday, GreaterThanLastWeek, LessThanLastWeek, GreaterThanLastPeriod, or LessThanLastPeriod.
-            // 
-            // For example, the values of the PreCondition, ComparisonOperator, and Threshold parameters are set to $Average>80, GreaterThanYesterday, and 10, respectively. An alert is triggered only when the average metric value is greater than 80 and 10% greater than the average metric value at the same time yesterday.
-            // 
-            // >  $Average is a placeholder that consists of `a dollar sign ($) and the statistical method`. CloudMonitor replaces the placeholder with the aggregated value or original value before value comparison.
             shared_ptr<string> preCondition_ {};
-            // The statistical methods for Warn-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Warn-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
             shared_ptr<int32_t> times_ {};
           };
 
@@ -539,31 +502,10 @@ namespace Models
 
 
           protected:
-            // The comparison operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The additional conditions for triggering Info-level alerts. The additional conditions take effect when the value of the ComparisonOperator parameter is GreaterThanYesterday, LessThanYesterday, GreaterThanLastWeek, LessThanLastWeek, GreaterThanLastPeriod, or LessThanLastPeriod.
-            // 
-            // For example, the values of the PreCondition, ComparisonOperator, and Threshold parameters are set to $Average>80, GreaterThanYesterday, and 10, respectively. An alert is triggered only when the average metric value is greater than 80 and 10% greater than the average metric value at the same time yesterday.
-            // 
-            // >  $Average is a placeholder that consists of `a dollar sign ($) and the statistical method`. CloudMonitor replaces the placeholder with the aggregated value or original value before value comparison.
             shared_ptr<string> preCondition_ {};
-            // The statistical methods for Info-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Info-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
             shared_ptr<int32_t> times_ {};
           };
 
@@ -632,31 +574,10 @@ namespace Models
 
 
           protected:
-            // The comparison operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The additional conditions for triggering Critical-level alerts. The additional conditions take effect when the value of the ComparisonOperator parameter is GreaterThanYesterday, LessThanYesterday, GreaterThanLastWeek, LessThanLastWeek, GreaterThanLastPeriod, or LessThanLastPeriod.
-            // 
-            // For example, the values of the PreCondition, ComparisonOperator, and Threshold parameters are set to $Average>80, GreaterThanYesterday, and 10, respectively. An alert is triggered only when the average metric value is greater than 80 and 10% greater than the average metric value at the same time yesterday.
-            // 
-            // >  $Average is a placeholder that consists of `a dollar sign ($) and the statistical method`. CloudMonitor replaces the placeholder with the aggregated value or original value before value comparison.
             shared_ptr<string> preCondition_ {};
-            // The statistical methods for Critical-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Critical-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
             shared_ptr<int32_t> times_ {};
           };
 
@@ -690,11 +611,8 @@ namespace Models
 
 
         protected:
-          // The conditions for triggering Critical-level alerts.
           shared_ptr<Escalations::Critical> critical_ {};
-          // The conditions for triggering Info-level alerts.
           shared_ptr<Escalations::Info> info_ {};
-          // The conditions for triggering Warn-level alerts.
           shared_ptr<Escalations::Warn> warn_ {};
         };
 
@@ -809,36 +727,10 @@ namespace Models
 
 
             protected:
-              // The operator that is used to compare the metric value with the threshold. Valid values:
-              // 
-              // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-              // *   GreaterThanThreshold: greater than the threshold
-              // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-              // *   LessThanThreshold: less than the threshold
-              // *   NotEqualToThreshold: not equal to the threshold
-              // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-              // *   LessThanYesterday: less than the metric value at the same time yesterday
-              // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-              // *   LessThanLastWeek: less than the metric value at the same time last week
-              // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-              // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
               shared_ptr<string> comparisonOperator_ {};
-              // The metric that is used to monitor the cloud service.
               shared_ptr<string> metricName_ {};
-              // The aggregation period of the metric.
-              // 
-              // Unit: seconds.
               shared_ptr<int32_t> period_ {};
-              // The statistical method of the metric. Valid values:
-              // 
-              // *   $Maximum: the maximum value
-              // *   $Minimum: the minimum value
-              // *   $Average: the average value
-              // *   $Availability: the availability rate (usually used for site monitoring)
-              // 
-              // >  `$` is the prefix of the metric. For information about the Alibaba Cloud services that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
               shared_ptr<string> statistics_ {};
-              // The alert threshold.
               shared_ptr<string> threshold_ {};
             };
 
@@ -896,26 +788,10 @@ namespace Models
 
 
         protected:
-          // The trigger conditions that are created in standard mode.
           shared_ptr<CompositeExpression::ExpressionList> expressionList_ {};
-          // The relationship between the trigger conditions for multiple metrics. Valid values:
-          // 
-          // *   `&&`: An alert is triggered only if all metrics meet the trigger conditions. An alert is triggered only if the results of all expressions specified in the ExpressionList parameter are `true`.
-          // *   `||`: An alert is triggered if one of the metrics meets the trigger conditions.
           shared_ptr<string> expressionListJoin_ {};
-          // The trigger conditions that are created by using expressions. You can use expressions to create trigger conditions in the following scenarios:
-          // 
-          // *   Set an alert blacklist for specific resources. For example, if you specify `$instanceId != \\"i-io8kfvcpp7x5****\\" ``&&`` $Average > 50`, no alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 50.
-          // *   Set a special alert threshold for a specified instance in the rule. For example, if you specify `$Average > ($instanceId == \\"i-io8kfvcpp7x5****\\"? 80: 50)`, an alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 80 or the `average metric value` of other instances exceeds 50.
-          // *   Limit the number of instances whose metric values exceed the threshold. For example, if you specify `count($Average > 20) > 3`, an alert is triggered only when the number of instances whose `average metric value` exceeds 20 exceeds three.
           shared_ptr<string> expressionRaw_ {};
-          // The alert level. Valid values:
-          // 
-          // *   CRITICAL
-          // *   WARN
-          // *   INFO
           shared_ptr<string> level_ {};
-          // The number of consecutive triggers. If the number of times that the metric values meet the trigger conditions reaches the value of this parameter, CloudMonitor sends alert notifications.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -1116,73 +992,31 @@ namespace Models
 
 
       protected:
-        // The status of the alert rule. Valid values:
-        // 
-        // *   OK: The alert rule has no active alerts.
-        // *   ALARM: The alert rule has active alerts.
-        // *   INSUFFICIENT_DATA: No data is available.
         shared_ptr<string> alertState_ {};
-        // The trigger conditions for multiple metrics.
-        // 
-        // >  The trigger conditions for a single metric and multiple metrics are mutually exclusive. You cannot specify trigger conditions for a single metric and multiple metrics at the same time.
         shared_ptr<Alarm::CompositeExpression> compositeExpression_ {};
-        // The alert contact group.
         shared_ptr<string> contactGroups_ {};
-        // The dimensions of the alert rule.
         shared_ptr<string> dimensions_ {};
-        // The time period during which the alert rule is effective.
         shared_ptr<string> effectiveInterval_ {};
-        // Indicates whether the alert rule is enabled. Valid values:
-        // 
-        // *   true: The alert rule is enabled.
-        // *   false: The alert rule is disabled.
         shared_ptr<bool> enableState_ {};
-        // The conditions for triggering different levels of alerts.
         shared_ptr<Alarm::Escalations> escalations_ {};
         shared_ptr<int64_t> gmtCreate_ {};
         shared_ptr<string> gmtUpdate_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The name of the application group.
-        // 
-        // >  If the alert rule is associated with an application group, the name of the application group is returned in this parameter.
         shared_ptr<string> groupName_ {};
-        // The tags of the alert rule.
         shared_ptr<Alarm::Labels> labels_ {};
-        // The subject of the alert notification email.
         shared_ptr<string> mailSubject_ {};
-        // The name of the metric.
         shared_ptr<string> metricName_ {};
-        // The namespace of the cloud service.
         shared_ptr<string> namespace_ {};
-        // The method that is used to handle alerts when no monitoring data is found. Valid values:
-        // 
-        // *   KEEP_LAST_STATE (default value): No operation is performed.
-        // *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-        // *   OK: The status is considered normal.
         shared_ptr<string> noDataPolicy_ {};
-        // The time period during which the alert rule is ineffective.
         shared_ptr<string> noEffectiveInterval_ {};
-        // The statistical period.
         shared_ptr<string> period_ {};
         shared_ptr<string> productCategory_ {};
-        // The Prometheus alerts.
-        // 
-        // >  This parameter is required only if you create a Prometheus alert rule for Hybrid Cloud Monitoring.
         shared_ptr<Alarm::Prometheus> prometheus_ {};
-        // The resources that are associated with the alert rule.
         shared_ptr<string> resources_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400. Minimum value: 3600.
-        // 
-        // Only one alert is reported during each mute period even if the metric value consecutively exceeds the alert rule threshold several times.
         shared_ptr<int32_t> silenceTime_ {};
-        // The type of the alert rule. Valid value: METRIC. This value indicates an alert rule for time series metrics.
         shared_ptr<string> sourceType_ {};
-        // The callback URL. CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
         shared_ptr<string> webhook_ {};
       };
 
@@ -1247,7 +1081,6 @@ namespace Models
 
 
   protected:
-    // The queried alert rules.
     shared_ptr<DescribeMetricRuleListResponseBody::Alarms> alarms_ {};
     // The HTTP status code.
     // 

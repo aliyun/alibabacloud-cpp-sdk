@@ -110,11 +110,8 @@ namespace Models
 
 
       protected:
-        // The ID of the recipient.
         shared_ptr<int32_t> id_ {};
-        // The name of the MNS queue.
         shared_ptr<string> queue_ {};
-        // The region ID.
         shared_ptr<string> region_ {};
       };
 
@@ -207,13 +204,9 @@ namespace Models
 
 
       protected:
-        // The name of the function.
         shared_ptr<string> functionName_ {};
-        // The ID of the recipient.
         shared_ptr<int32_t> id_ {};
-        // The region ID.
         shared_ptr<string> region_ {};
-        // The name of the Function Compute service.
         shared_ptr<string> serviceName_ {};
       };
 
@@ -297,13 +290,8 @@ namespace Models
 
 
       protected:
-        // The name of the alert contact group.
         shared_ptr<string> contactGroupName_ {};
-        // The ID of the recipient.
         shared_ptr<int32_t> id_ {};
-        // The alert notification methods. Valid values:
-        // 
-        // 4: Alert notifications are sent by using DingTalk and emails.
         shared_ptr<string> level_ {};
       };
 
@@ -391,11 +379,8 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // This parameter is returned if the specified alert contact groups in the request failed to be created or modified.
     shared_ptr<PutEventRuleTargetsResponseBody::FailedContactParameters> failedContactParameters_ {};
-    // This parameter is returned if the specified functions in the request failed to be created or modified in Function Compute.
     shared_ptr<PutEventRuleTargetsResponseBody::FailedFcParameters> failedFcParameters_ {};
-    // This parameter is returned if the specified queues in the request failed to be created or modified in SMQ.
     shared_ptr<PutEventRuleTargetsResponseBody::FailedMnsParameters> failedMnsParameters_ {};
     // The number of resources that failed to be created or modified.
     shared_ptr<string> failedParameterCount_ {};

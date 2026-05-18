@@ -285,9 +285,7 @@ namespace Models
 
 
           protected:
-            // The tag key of the application group.
             shared_ptr<string> key_ {};
-            // The tag value of the application group.
             shared_ptr<string> value_ {};
           };
 
@@ -352,7 +350,6 @@ namespace Models
 
 
           protected:
-            // The name of the alert contact group.
             shared_ptr<string> name_ {};
           };
 
@@ -488,38 +485,20 @@ namespace Models
 
 
       protected:
-        // The URL of the ACK cluster from which the application group is synchronized.
         shared_ptr<string> bindUrl_ {};
-        // The alert contact groups.
         shared_ptr<Resource::ContactGroups> contactGroups_ {};
-        // The ID of the tag rule.
         shared_ptr<string> dynamicTagRuleId_ {};
-        // The timestamp when the application group was created. Unit: milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The timestamp when the application group was modified. Unit: milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
-        // The tag key that is created for the application group by using the tag rule.
         shared_ptr<string> groupFounderTagKey_ {};
-        // The tag value that is created for the application group by using the tag rule.
         shared_ptr<string> groupFounderTagValue_ {};
-        // The ID of the application group.
         shared_ptr<int64_t> groupId_ {};
-        // The name of the application group.
         shared_ptr<string> groupName_ {};
-        // The resource ID.
         shared_ptr<string> resourceGroupId_ {};
-        // The ID of the Alibaba Cloud service.
         shared_ptr<string> serviceId_ {};
-        // The tags that are attached to the application group.
         shared_ptr<Resource::Tags> tags_ {};
-        // The ID of the template.
         shared_ptr<Resource::TemplateIds> templateIds_ {};
         shared_ptr<Resource::TemplateInfos> templateInfos_ {};
-        // The type of the application group. Valid values:
-        // 
-        // *   custom: a self-managed application group
-        // *   ehpc_cluster: an application group that is synchronized from an E-HPC cluster
-        // *   kubernetes: an application group that is synchronized from an ACK cluster
         shared_ptr<string> type_ {};
       };
 
@@ -611,7 +590,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources that are associated with the application group.
     shared_ptr<DescribeMonitorGroupsResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 

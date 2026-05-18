@@ -270,27 +270,18 @@ namespace Models
       protected:
         shared_ptr<string> area_en_ {};
         shared_ptr<string> area_zh_cN_ {};
-        // The city ID.
         shared_ptr<string> city_ {};
         shared_ptr<string> cityName_en_ {};
         shared_ptr<string> cityName_zh_cN_ {};
-        // The country name.
-        // 
-        // > This parameter is valid only on the China site (aliyun.com).
         shared_ptr<string> country_ {};
         shared_ptr<string> country_en_ {};
         shared_ptr<string> country_zh_cN_ {};
-        // The IP address pool.
         shared_ptr<IspCity::IPPool> IPPool_ {};
-        // The number of IPv4 probes.
         shared_ptr<string> IPV4ProbeCount_ {};
-        // The number of IPv6 probes.
         shared_ptr<string> IPV6ProbeCount_ {};
-        // The carrier ID.
         shared_ptr<string> isp_ {};
         shared_ptr<string> ispName_en_ {};
         shared_ptr<string> ispName_zh_cN_ {};
-        // The province name.
         shared_ptr<string> region_ {};
         shared_ptr<string> region_en_ {};
         shared_ptr<string> region_zh_cN_ {};
@@ -354,7 +345,6 @@ namespace Models
     // 
     // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The queried detection points.
     shared_ptr<DescribeSiteMonitorISPCityListResponseBody::IspCityList> ispCityList_ {};
     // The returned message.
     shared_ptr<string> message_ {};

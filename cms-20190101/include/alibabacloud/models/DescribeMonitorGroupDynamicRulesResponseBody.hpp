@@ -146,15 +146,8 @@ namespace Models
 
 
           protected:
-            // The method that is used to filter the instances. Valid values:
-            // 
-            // *   contains: contains
-            // *   startWith: starts with a prefix
-            // *   endWith: ends with a suffix
             shared_ptr<string> function_ {};
-            // The instance name.
             shared_ptr<string> name_ {};
-            // The value of the dynamic rule.
             shared_ptr<string> value_ {};
           };
 
@@ -198,18 +191,8 @@ namespace Models
 
 
       protected:
-        // The type of the cloud service to which the dynamic rule belongs. Valid values:
-        // 
-        // *   ecs: Elastic Compute Service (ECS)
-        // *   rds: ApsaraDB RDS
-        // *   slb: Server Load Balancer (SLB)
         shared_ptr<string> category_ {};
-        // The filter condition. Valid values:
-        // 
-        // *   and: queries the instances that meet all alert rules.
-        // *   or: queries the instances that meet any alert rule.
         shared_ptr<string> filterRelation_ {};
-        // The dynamic rules of the application group.
         shared_ptr<ResourceItem::Filters> filters_ {};
       };
 
@@ -275,7 +258,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources that are associated with the application group.
     shared_ptr<DescribeMonitorGroupDynamicRulesResponseBody::Resource> resource_ {};
     // Indicates whether the request was successful. Valid values:
     // 

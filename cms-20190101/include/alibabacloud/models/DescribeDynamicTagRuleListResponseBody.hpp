@@ -230,20 +230,8 @@ namespace Models
 
 
           protected:
-            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // The tag value.
-            // 
-            // The `TagValue` and `TagValueMatchFunction` parameters must be used in pairs.
             shared_ptr<string> tagValue_ {};
-            // The method that is used to match tag values. Valid values:
-            // 
-            // *   all: includes all
-            // *   startWith: starts with a prefix
-            // *   endWith: ends with a suffix
-            // *   contains: contains
-            // *   notContains: does not contain
-            // *   equals: equals
             shared_ptr<string> tagValueMatchFunction_ {};
           };
 
@@ -369,30 +357,14 @@ namespace Models
 
 
       protected:
-        // The alert contact group.
         shared_ptr<TagGroup::ContactGroupList> contactGroupList_ {};
-        // The ID of the tag rule.
         shared_ptr<string> dynamicTagRuleId_ {};
-        // The conditional expressions used to create an application group based on the tag.
         shared_ptr<TagGroup::MatchExpress> matchExpress_ {};
-        // The logical operator that is used between conditional expressions. Valid values:
-        // 
-        // *   `and`
-        // *   `or`
-        // 
-        // >  Only one logical operator can be used in a request.
         shared_ptr<string> matchExpressFilterRelation_ {};
-        // The ID of the region to which the tags belong.
         shared_ptr<string> regionId_ {};
-        // The status of adding instances that meet the tag rule to the application group. Valid values:
-        // 
-        // *   `RUNNING`
-        // *   `FINISH`
         shared_ptr<string> status_ {};
-        // The tag key.
         shared_ptr<string> tagKey_ {};
         shared_ptr<TagGroup::TagValueBlacklist> tagValueBlacklist_ {};
-        // The IDs of the alert templates.
         shared_ptr<TagGroup::TemplateIdList> templateIdList_ {};
       };
 
@@ -489,7 +461,6 @@ namespace Models
     // *   true: The call was successful.
     // *   false: The call failed.
     shared_ptr<bool> success_ {};
-    // The tag rules of application groups.
     shared_ptr<DescribeDynamicTagRuleListResponseBody::TagGroupList> tagGroupList_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> total_ {};

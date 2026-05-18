@@ -123,31 +123,8 @@ namespace Models
 
 
         protected:
-          // The ARN of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. SMQ, Auto Scaling, Simple Log Service, and Function Compute are supported. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following part describes the ARN of SMQ and the parameters in the ARN:
-          // 
-          // *   {Service name abbreviation}: mns.
-          // 
-          // *   {userId}: the ID of the Alibaba Cloud account.
-          // 
-          // *   {regionId}: the region ID of the SMQ queue or topic.
-          // 
-          // *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
-          // 
-          //     *   **queues**
-          //     *   **topics**
-          // 
-          // *   {Resource name}: the resource name.
-          // 
-          //     *   If the resource type is **queues**, the resource name is the queue name.
-          //     *   If the resource type is **topics**, the resource name is the topic name.
           shared_ptr<string> arn_ {};
-          // The ID of the resource for which alerts are triggered.
           shared_ptr<string> id_ {};
-          // The alert level. Valid values:
-          // 
-          // *   INFO
-          // *   WARN
-          // *   CRITICAL
           shared_ptr<string> level_ {};
         };
 
@@ -176,7 +153,6 @@ namespace Models
 
 
     protected:
-      // The information about the resources for which alerts are triggered.
       shared_ptr<FailData::Targets> targets_ {};
     };
 

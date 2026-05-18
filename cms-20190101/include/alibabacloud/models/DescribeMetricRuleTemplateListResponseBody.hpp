@@ -156,13 +156,8 @@ namespace Models
 
 
           protected:
-            // The timestamp when the alert template was applied to the application group.
-            // 
-            // Unit: milliseconds.
             shared_ptr<int64_t> applyTime_ {};
-            // The ID of the application group.
             shared_ptr<int64_t> groupId_ {};
-            // The name of the application group.
             shared_ptr<string> groupName_ {};
           };
 
@@ -235,25 +230,12 @@ namespace Models
 
 
       protected:
-        // The history of applying the alert templates to application groups.
         shared_ptr<Template::ApplyHistories> applyHistories_ {};
-        // The description of the alert template.
         shared_ptr<string> description_ {};
-        // The timestamp when the alert template was created.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // The timestamp when the alert template was modified.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
-        // The name of the alert template.
         shared_ptr<string> name_ {};
-        // The version of the alert template.
-        // 
-        // Default value: 0.
         shared_ptr<int64_t> restVersion_ {};
-        // The ID of the alert template.
         shared_ptr<int64_t> templateId_ {};
       };
 
@@ -331,7 +313,6 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> success_ {};
-    // The queried alert templates.
     shared_ptr<DescribeMetricRuleTemplateListResponseBody::Templates> templates_ {};
     // The total number of entries returned.
     shared_ptr<int64_t> total_ {};

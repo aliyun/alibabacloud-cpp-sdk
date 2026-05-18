@@ -104,13 +104,8 @@ namespace Models
 
 
       protected:
-        // The event name.
         shared_ptr<string> name_ {};
-        // The number of times that the custom event occurred.
         shared_ptr<int32_t> num_ {};
-        // The time when the event occurred.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> time_ {};
       };
 
@@ -172,7 +167,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The details of the custom event.
     shared_ptr<DescribeCustomEventCountResponseBody::CustomEventCounts> customEventCounts_ {};
     // The returned message. If the request was successful, a success message is returned. If the request failed, an error message is returned.
     shared_ptr<string> message_ {};

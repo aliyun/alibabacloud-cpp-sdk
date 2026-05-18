@@ -143,20 +143,10 @@ namespace Models
 
 
         protected:
-          // The status code that is returned after you associate the existing alert rule with the site monitoring task.
-          // 
-          // >  The status code 200 indicates that the request was successful.
           shared_ptr<string> code_ {};
-          // The message that is returned after you associate the existing alert rule with the site monitoring task.
           shared_ptr<string> message_ {};
-          // The ID of the request that was sent to associate the existing alert rule with the site monitoring task.
           shared_ptr<string> requestId_ {};
-          // The ID of the alert rule.
           shared_ptr<string> ruleId_ {};
-          // Indicates whether the existing alert rule was associated with the site monitoring task. Valid values:
-          // 
-          // *   true
-          // *   false
           shared_ptr<string> success_ {};
         };
 
@@ -185,7 +175,6 @@ namespace Models
 
 
     protected:
-      // The result that is returned after you associate the existing alert rule with the site monitoring task.
       shared_ptr<Data::AttachAlertResult> attachAlertResult_ {};
     };
 
@@ -246,9 +235,7 @@ namespace Models
 
 
       protected:
-        // The ID of the site monitoring task.
         shared_ptr<string> taskId_ {};
-        // The name of the site monitoring task.
         shared_ptr<string> taskName_ {};
       };
 
@@ -319,9 +306,6 @@ namespace Models
     // 
     // > The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The returned result.
-    // 
-    // If a site monitoring task is created, the result is returned. If a site monitoring task fails to be created, no result is returned.
     shared_ptr<CreateSiteMonitorResponseBody::CreateResultList> createResultList_ {};
     // The result of the site monitoring task.
     shared_ptr<CreateSiteMonitorResponseBody::Data> data_ {};

@@ -270,7 +270,6 @@ namespace Models
 
 
         protected:
-          // The keywords that are used to match events.
           shared_ptr<KeywordFilterObj::Keywords> keywords_ {};
           // The relationship between multiple keywords in a condition. Valid values:
           // 
@@ -375,7 +374,6 @@ namespace Models
 
 
       protected:
-        // The types of the event-triggered alert rules.
         shared_ptr<EventPattern::EventTypeList> eventTypeList_ {};
         // The keyword for filtering.
         shared_ptr<EventPattern::KeywordFilterObj> keywordFilterObj_ {};

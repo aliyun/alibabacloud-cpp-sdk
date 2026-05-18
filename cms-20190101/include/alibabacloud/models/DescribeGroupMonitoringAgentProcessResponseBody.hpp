@@ -158,22 +158,8 @@ namespace Models
 
 
           protected:
-            // The matching condition. Valid values:
-            // 
-            // *   all (default): matches all
-            // *   startWith: starts with a prefix
-            // *   endWith: ends with a suffix
-            // *   contains: contains
-            // *   notContains: excludes
-            // *   equals: equals
-            // 
-            // >  The matched instances are monitored by the process monitoring task.
             shared_ptr<string> function_ {};
-            // The criteria based on which the instances are matched.
-            // 
-            // >  Set the value to `name`. The value name indicates that the instances are matched based on the instance name.
             shared_ptr<string> name_ {};
-            // The keyword used to match the instance name.
             shared_ptr<string> value_ {};
           };
 
@@ -322,33 +308,9 @@ namespace Models
 
 
               protected:
-                // The Alibaba Cloud Resource Name (ARN) of the resource. Format: acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message. Example: acs:mns:cn-hangzhou:120886317861\\*\\*\\*\\*:/queues/test123/message. Fields:
-                // 
-                // *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
-                // 
-                // *   {userId}: the ID of the Alibaba Cloud account.
-                // 
-                // *   {regionId}: the region ID of the SMQ queue or topic.
-                // 
-                // *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
-                // 
-                //     *   **queues**
-                //     *   **topics**
-                // 
-                // *   {Resource name}: the resource name.
-                // 
-                //     *   If the resource type is **queues**, the resource name is the queue name.
-                //     *   If the resource type is **topics**, the resource name is the topic name.
                 shared_ptr<string> arn_ {};
-                // The ID of the resource for which alerts are triggered.
                 shared_ptr<string> id_ {};
-                // The parameters of the alert callback. The parameters are in the JSON format.
                 shared_ptr<string> jsonParmas_ {};
-                // The alert level. Valid values:
-                // 
-                // *   INFO
-                // *   WARN
-                // *   CRITICAL
                 shared_ptr<string> level_ {};
               };
 
@@ -442,45 +404,15 @@ namespace Models
 
 
           protected:
-            // The comparison operator that is used to compare the metric value with the threshold. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The time period during which the alert rule is effective.
             shared_ptr<string> effectiveInterval_ {};
-            // The level of the alert. Valid values:
-            // 
-            // *   critical
-            // *   warn
-            // *   Info
             shared_ptr<string> escalationsLevel_ {};
-            // The time period during which the alert rule is ineffective.
             shared_ptr<string> noEffectiveInterval_ {};
-            // The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
-            // 
-            // >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
             shared_ptr<string> silenceTime_ {};
-            // The method used to calculate metric values that trigger alerts.
             shared_ptr<string> statistics_ {};
-            // The resources for which alerts are triggered.
             shared_ptr<AlertConfigItem::TargetList> targetList_ {};
-            // The alert threshold.
             shared_ptr<string> threshold_ {};
-            // The number of times for which the threshold can be consecutively exceeded.
-            // 
-            // >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
             shared_ptr<string> times_ {};
-            // The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
             shared_ptr<string> webhook_ {};
           };
 
@@ -547,23 +479,11 @@ namespace Models
 
 
       protected:
-        // The alert rule configurations.
         shared_ptr<Process::AlertConfig> alertConfig_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The ID of the process monitoring task.
         shared_ptr<string> id_ {};
-        // The matching conditions.
-        // 
-        // >  Only the instances that meet the conditional expressions are monitored by the process monitoring task.
         shared_ptr<Process::MatchExpress> matchExpress_ {};
-        // The logical operator used between conditional expressions that are used to match instances. Valid values:
-        // 
-        // *   all
-        // *   and
-        // *   or
         shared_ptr<string> matchExpressFilterRelation_ {};
-        // The process name.
         shared_ptr<string> processName_ {};
       };
 
@@ -653,7 +573,6 @@ namespace Models
     shared_ptr<string> pageNumber_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<string> pageSize_ {};
-    // The process monitoring tasks.
     shared_ptr<DescribeGroupMonitoringAgentProcessResponseBody::Processes> processes_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

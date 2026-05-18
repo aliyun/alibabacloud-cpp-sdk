@@ -446,61 +446,26 @@ namespace Models
 
 
       protected:
-        // The timestamp when the alert was triggered. Unit: milliseconds.
         shared_ptr<int64_t> alertTime_ {};
-        // The TradeManager IDs of the alert contacts.
-        // 
-        // > This parameter is valid only on the China site (aliyun.com).
         shared_ptr<AlarmHistory::ContactALIIMs> contactALIIMs_ {};
-        // The alert contact groups.
         shared_ptr<AlarmHistory::ContactGroups> contactGroups_ {};
-        // The email addresses of the alert contacts.
         shared_ptr<AlarmHistory::ContactMails> contactMails_ {};
-        // The mobile numbers of the alert contacts.
-        // 
-        // > This parameter is valid only on the China site (aliyun.com).
         shared_ptr<AlarmHistory::ContactSmses> contactSmses_ {};
-        // The alert contacts that receive alert notifications.
         shared_ptr<AlarmHistory::Contacts> contacts_ {};
-        // The resources that are monitored.
         shared_ptr<string> dimensions_ {};
-        // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
         shared_ptr<int32_t> evaluationCount_ {};
-        // The expression that is used to trigger alerts.
         shared_ptr<string> expression_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The duration of the alert. Unit: milliseconds.
         shared_ptr<int64_t> lastTime_ {};
-        // The severity level and notification methods of the alert. Valid values:
-        // 
-        // *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
-        // *   OK: No alert is generated.
         shared_ptr<string> level_ {};
-        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The namespace of the cloud service.
         shared_ptr<string> namespace_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The alert status. Valid values:
-        // 
-        // *   ALARM: Alerts are triggered.
-        // *   OK: No alerts are triggered.
         shared_ptr<string> state_ {};
-        // Indicates whether alerts are muted. Valid values:
-        // 
-        // *   2 (default): Alerts are muted and are not triggered within the mute period, even if the condition specified in the alert rule is met.
-        // *   0: Alerts are triggered or cleared.
-        // *   1: The alert rule is ineffective.
         shared_ptr<int32_t> status_ {};
-        // The threshold of the metric value to trigger or clear an alert.
         shared_ptr<string> value_ {};
-        // The callback URL.
         shared_ptr<string> webhooks_ {};
       };
 
@@ -565,7 +530,6 @@ namespace Models
 
 
   protected:
-    // The details of historical alerts.
     shared_ptr<DescribeAlertHistoryListResponseBody::AlarmHistoryList> alarmHistoryList_ {};
     // The status code.
     // 

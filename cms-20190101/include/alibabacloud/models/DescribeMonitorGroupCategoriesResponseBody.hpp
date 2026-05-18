@@ -116,11 +116,7 @@ namespace Models
 
 
         protected:
-          // The abbreviation of the cloud service name.
-          // 
-          // >  For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
           shared_ptr<string> category_ {};
-          // The number of resources that belong to the cloud service.
           shared_ptr<int32_t> count_ {};
         };
 
@@ -159,7 +155,6 @@ namespace Models
     protected:
       // The ID of the application group.
       shared_ptr<int64_t> groupId_ {};
-      // The cloud services to which the resources in the application group belong and the number of resources that belong to the cloud service.
       shared_ptr<MonitorGroupCategories::MonitorGroupCategory> monitorGroupCategory_ {};
     };
 

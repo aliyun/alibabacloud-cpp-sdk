@@ -177,33 +177,16 @@ namespace Models
 
 
       protected:
-        // The details of the event.
         shared_ptr<string> content_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The event ID.
         shared_ptr<string> id_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The level of the event. Valid values:
-        // 
-        // *   CRITICAL
-        // *   WARN
-        // *   INFO
         shared_ptr<string> level_ {};
-        // The event name.
         shared_ptr<string> name_ {};
-        // The abbreviation of the service name.
         shared_ptr<string> product_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The status of the event.
         shared_ptr<string> status_ {};
-        // The time when the event occurred. The value is a timestamp.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> time_ {};
       };
 
@@ -271,7 +254,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values: True: The call is successful. false: The call fails.
     shared_ptr<string> success_ {};
-    // The details of the event.
     shared_ptr<DescribeSystemEventAttributeResponseBody::SystemEvents> systemEvents_ {};
   };
 

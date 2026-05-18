@@ -101,7 +101,6 @@ namespace Models
 
 
     protected:
-      // The IDs of the resources that failed to be deleted.
       shared_ptr<FailIds::TargetIds> targetIds_ {};
     };
 

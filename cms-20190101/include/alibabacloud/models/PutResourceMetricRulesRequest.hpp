@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Resources, resources_);
         DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
         DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_TO_JSON(SendOK, sendOK_);
         DARABONBA_PTR_TO_JSON(SilenceTime, silenceTime_);
         DARABONBA_PTR_TO_JSON(Webhook, webhook_);
       };
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Resources, resources_);
         DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
         DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+        DARABONBA_PTR_FROM_JSON(SendOK, sendOK_);
         DARABONBA_PTR_FROM_JSON(SilenceTime, silenceTime_);
         DARABONBA_PTR_FROM_JSON(Webhook, webhook_);
       };
@@ -222,11 +224,46 @@ namespace Models
 
 
         protected:
+          // The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
+          // 
+          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // *   GreaterThanThreshold: greater than the threshold
+          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
+          // *   LessThanThreshold: less than the threshold
+          // *   NotEqualToThreshold: not equal to the threshold
+          // *   EqualToThreshold: equal to the threshold
+          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // *   LessThanYesterday: less than the metric value at the same time yesterday
+          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
+          // *   LessThanLastWeek: less than the metric value at the same time last week
+          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           shared_ptr<string> preCondition_ {};
+          // The statistical methods for Warn-level alerts.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
+          // The threshold for Warn-level alerts.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
+          // The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -304,11 +341,44 @@ namespace Models
 
 
         protected:
+          // The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
+          // 
+          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // *   GreaterThanThreshold: greater than the threshold
+          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
+          // *   LessThanThreshold: less than the threshold
+          // *   NotEqualToThreshold: not equal to the threshold
+          // *   EqualToThreshold: equal to the threshold
+          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // *   LessThanYesterday: less than the metric value at the same time yesterday
+          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
+          // *   LessThanLastWeek: less than the metric value at the same time last week
+          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           shared_ptr<string> preCondition_ {};
+          // The statistical methods for Info-level alerts.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
+          // The threshold for Info-level alerts.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
+          // The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -386,11 +456,46 @@ namespace Models
 
 
         protected:
+          // The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
+          // 
+          // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+          // *   GreaterThanThreshold: greater than the threshold
+          // *   LessThanOrEqualToThreshold: less than or equal to the threshold
+          // *   LessThanThreshold: less than the threshold
+          // *   NotEqualToThreshold: not equal to the threshold
+          // *   EqualToThreshold: equal to the threshold
+          // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+          // *   LessThanYesterday: less than the metric value at the same time yesterday
+          // *   GreaterThanLastWeek: greater than the metric value at the same time last week
+          // *   LessThanLastWeek: less than the metric value at the same time last week
+          // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+          // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> comparisonOperator_ {};
           shared_ptr<int32_t> n_ {};
           shared_ptr<string> preCondition_ {};
+          // The statistical methods for Critical-level alerts.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> statistics_ {};
+          // The threshold for Critical-level alerts.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<string> threshold_ {};
+          // The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+          // 
+          // Valid values of N: 1 to 500.
+          // 
+          // >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for each alert level.
           shared_ptr<int32_t> times_ {};
         };
 
@@ -432,7 +537,8 @@ namespace Models
       virtual bool empty() const override { return this->escalations_ == nullptr
         && this->contactGroups_ == nullptr && this->effectiveInterval_ == nullptr && this->emailSubject_ == nullptr && this->interval_ == nullptr && this->labels_ == nullptr
         && this->metricName_ == nullptr && this->namespace_ == nullptr && this->noDataPolicy_ == nullptr && this->noEffectiveInterval_ == nullptr && this->period_ == nullptr
-        && this->resources_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->silenceTime_ == nullptr && this->webhook_ == nullptr; };
+        && this->resources_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sendOK_ == nullptr && this->silenceTime_ == nullptr
+        && this->webhook_ == nullptr; };
       // escalations Field Functions 
       bool hasEscalations() const { return this->escalations_ != nullptr;};
       void deleteEscalations() { this->escalations_ = nullptr;};
@@ -533,6 +639,13 @@ namespace Models
       void deleteRuleName() { this->ruleName_ = nullptr;};
       inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
       inline Rules& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+      // sendOK Field Functions 
+      bool hasSendOK() const { return this->sendOK_ != nullptr;};
+      void deleteSendOK() { this->sendOK_ = nullptr;};
+      inline bool getSendOK() const { DARABONBA_PTR_GET_DEFAULT(sendOK_, false) };
+      inline Rules& setSendOK(bool sendOK) { DARABONBA_PTR_SET_VALUE(sendOK_, sendOK) };
 
 
       // silenceTime Field Functions 
@@ -639,6 +752,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> ruleName_ {};
+      shared_ptr<bool> sendOK_ {};
       // The mute period during which new alert notifications are not sent even if the trigger conditions are met.
       // 
       // Unit: seconds. Default value: 86400.

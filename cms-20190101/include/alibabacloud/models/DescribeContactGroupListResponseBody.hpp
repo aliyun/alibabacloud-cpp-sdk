@@ -213,23 +213,12 @@ namespace Models
 
 
       protected:
-        // List of contacts.
         shared_ptr<ContactGroup::Contacts> contacts_ {};
-        // Creation time.
         shared_ptr<int64_t> createTime_ {};
-        // Description information of the alarm contact group.
         shared_ptr<string> describe_ {};
-        // Indicates whether the weekly report subscription function is enabled. Values:
-        // 
-        // - true: Yes.
-        // 
-        // - false: No.
         shared_ptr<bool> enableSubscribed_ {};
-        // Indicates whether the weekly report function is enabled.
         shared_ptr<bool> enabledWeeklyReport_ {};
-        // Name.
         shared_ptr<string> name_ {};
-        // Update time.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -306,9 +295,7 @@ namespace Models
   protected:
     // Status code. Note that 200 indicates success.
     shared_ptr<string> code_ {};
-    // List of alarm contact groups.
     shared_ptr<DescribeContactGroupListResponseBody::ContactGroupList> contactGroupList_ {};
-    // List of alarm contact groups.
     shared_ptr<DescribeContactGroupListResponseBody::ContactGroups> contactGroups_ {};
     // Return message.
     shared_ptr<string> message_ {};

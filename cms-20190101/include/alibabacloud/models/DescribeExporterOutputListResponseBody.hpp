@@ -142,13 +142,9 @@ namespace Models
 
 
         protected:
-          // The AccessKey ID.
           shared_ptr<string> ak_ {};
-          // The Log Service endpoint to which the monitoring data is exported.
           shared_ptr<string> endpoint_ {};
-          // The Logstore.
           shared_ptr<string> logstore_ {};
-          // The Log Service project to which the monitoring data is exported.
           shared_ptr<string> project_ {};
         };
 
@@ -185,15 +181,9 @@ namespace Models
 
 
       protected:
-        // The JSON object that contains the details about the destination to which the monitoring data is exported.
         shared_ptr<Datapoint::ConfigJson> configJson_ {};
-        // The time when the configuration set was created. The value is a UNIX timestamp.
         shared_ptr<int64_t> createTime_ {};
-        // The name of the configuration set.
         shared_ptr<string> destName_ {};
-        // The service to which the monitoring data is exported.
-        // 
-        // > Only Log Service is supported. More services will be supported in the future.
         shared_ptr<string> destType_ {};
       };
 
@@ -270,7 +260,6 @@ namespace Models
     // 
     // > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
     shared_ptr<string> code_ {};
-    // The configuration sets for exporting monitoring data.
     shared_ptr<DescribeExporterOutputListResponseBody::Datapoints> datapoints_ {};
     // The returned message.
     shared_ptr<string> message_ {};

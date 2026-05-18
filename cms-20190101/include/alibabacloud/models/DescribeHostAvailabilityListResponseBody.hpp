@@ -189,28 +189,13 @@ namespace Models
 
 
         protected:
-          // The response to the HTTP request.
           shared_ptr<string> httpKeyword_ {};
-          // The HTTP request method. Valid values:
-          // 
-          // *   GET
-          // *   POST
-          // *   HEAD
           shared_ptr<string> httpMethod_ {};
-          // The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
-          // 
-          // *   true: If the HTTP response body includes the alert rule, an alert is triggered.
-          // *   false: If the HTTP response does not include the alert rule, an alert is triggered.
           shared_ptr<bool> httpNegative_ {};
-          // The content of the HTTP POST request.
           shared_ptr<string> httpPostContent_ {};
-          // The character set that is used in the HTTP response.
           shared_ptr<string> httpResponseCharset_ {};
-          // The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
           shared_ptr<string> httpURI_ {};
-          // The interval at which detection requests are sent. Unit: seconds.
           shared_ptr<int32_t> interval_ {};
-          // The domain name or IP address that you want to monitor.
           shared_ptr<string> telnetOrPingHost_ {};
         };
 
@@ -353,25 +338,9 @@ namespace Models
 
 
             protected:
-              // The Alibaba Cloud Resource Name (ARN) of the function.
-              // 
-              // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-              // 
-              // *   Service: the service code
-              // *   Region: the region ID
-              // *   Account: the ID of the Alibaba Cloud account
-              // *   ResourceType: the resource type
-              // *   ResourceId: the resource ID.
               shared_ptr<string> arn_ {};
-              // The ID of the resource that triggers the alert.
               shared_ptr<string> id_ {};
-              // The JSON-formatted parameters of the alert callback.
               shared_ptr<string> jsonParams_ {};
-              // The alert level. Valid values:
-              // 
-              // *   INFO
-              // *   WARN
-              // *   CRITICAL
               shared_ptr<string> level_ {};
             };
 
@@ -473,33 +442,10 @@ namespace Models
 
 
             protected:
-              // The method used to calculate metric values that trigger alerts. Valid values:
-              // 
-              // *   Value: the value of the HTTP status code
-              // *   Average: the average HTTP response time
-              // *   Value: the value of the Telnet status code
-              // *   TelnetLatency: the average Telnet response time
-              // *   Average: the average Ping packet loss rate
               shared_ptr<string> aggregate_ {};
-              // The name of the metric. Valid values:
-              // 
-              // *   HttpStatus
-              // *   HttpLatency
-              // *   TelnetStatus
-              // *   TelnetLatency
-              // *   PingLostRate
               shared_ptr<string> metricName_ {};
-              // The comparison operator that is used in the alert rule. Valid values:
-              // 
-              // *   `>`
-              // *   `>=`
-              // *   `<`
-              // *   `<=`
-              // *   `=`
               shared_ptr<string> operator_ {};
-              // The consecutive number of times for which the metric value is measured before an alert is triggered.
               shared_ptr<string> times_ {};
-              // The alert threshold.
               shared_ptr<string> value_ {};
             };
 
@@ -574,33 +520,12 @@ namespace Models
 
 
         protected:
-          // The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
-          // 
-          // For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
-          // 
-          // >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
           shared_ptr<int32_t> endTime_ {};
-          // The trigger conditions of the alert rule.
           shared_ptr<AlertConfig::EscalationList> escalationList_ {};
-          // The alert notification methods. Valid values:
-          // 
-          // *   2: Alert notifications are sent by using emails and DingTalk chatbots.
-          // *   1: Alert notifications are sent by using emails and DingTalk chatbots.
-          // *   0: Alert notifications are sent by using emails and DingTalk chatbots.
           shared_ptr<int32_t> notifyType_ {};
-          // The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
           shared_ptr<int32_t> silenceTime_ {};
-          // The beginning of the time period during which the alert rule is effective. Valid values: 0 to 23.
-          // 
-          // For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
-          // 
-          // >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
           shared_ptr<int32_t> startTime_ {};
-          // The monitored resources.
           shared_ptr<AlertConfig::TargetList> targetList_ {};
-          // The callback URL.
-          // 
-          // CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
           shared_ptr<string> webHook_ {};
         };
 
@@ -684,35 +609,15 @@ namespace Models
 
 
       protected:
-        // The configurations of the alert rule.
         shared_ptr<NodeTaskConfig::AlertConfig> alertConfig_ {};
-        // Indicates whether the availability monitoring task is disabled. Valid values:
-        // 
-        // *   true: The availability monitoring task is disabled.
-        // *   false: The availability monitoring task is enabled.
         shared_ptr<bool> disabled_ {};
-        // The ID of the application group.
         shared_ptr<int64_t> groupId_ {};
-        // The name of the application group.
         shared_ptr<string> groupName_ {};
-        // The ID of the availability monitoring task.
         shared_ptr<int64_t> id_ {};
-        // The ECS instances that are monitored.
         shared_ptr<NodeTaskConfig::Instances> instances_ {};
-        // The name of the availability monitoring task.
         shared_ptr<string> taskName_ {};
-        // The optional parameters of the availability monitoring task.
         shared_ptr<NodeTaskConfig::TaskOption> taskOption_ {};
-        // The range of instances that are monitored by the availability monitoring task. Valid values:
-        // 
-        // *   GROUP: All ECS instances in the application group are monitored.
-        // *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored.
         shared_ptr<string> taskScope_ {};
-        // The task type. Valid values:
-        // 
-        // *   PING
-        // *   TELNET
-        // *   HTTP
         shared_ptr<string> taskType_ {};
       };
 
@@ -790,7 +695,6 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> success_ {};
-    // The details of the availability monitoring tasks.
     shared_ptr<DescribeHostAvailabilityListResponseBody::TaskList> taskList_ {};
     // The total number of returned entries.
     shared_ptr<int32_t> total_ {};

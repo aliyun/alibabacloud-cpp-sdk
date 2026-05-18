@@ -152,32 +152,13 @@ namespace Models
 
 
       protected:
-        // The metric description.
         shared_ptr<string> description_ {};
-        // The monitoring dimensions of the resource. Multiple monitoring dimensions are separated with commas (,).
         shared_ptr<string> dimensions_ {};
-        // The tags of the metric, including one or more JSON strings.
-        // 
-        // Format: `[{"name":"tag key","value":"tag value"}]`. The `name` can be repeated. The following tags are available:
-        // 
-        // *   metricCategory: the category of the metric.
-        // *   alertEnable: indicates whether to report alerts for the metric.
-        // *   alertUnit: the unit of the metric in the alerts.
-        // *   unitFactor: the factor for metric unit conversion.
-        // *   minAlertPeriod: the minimum interval at which the alert is reported.
-        // *   productCategory: the category of the service.
         shared_ptr<string> labels_ {};
-        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The namespace of the cloud service.
         shared_ptr<string> namespace_ {};
-        // The statistical periods of the metric. Multiple statistical periods are separated with commas (,).
-        // 
-        // Unit: seconds.
         shared_ptr<string> periods_ {};
-        // The statistical method. Multiple statistical methods are separated with commas (,).
         shared_ptr<string> statistics_ {};
-        // The unit of the metric.
         shared_ptr<string> unit_ {};
       };
 
@@ -250,7 +231,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configuration of the metrics in the resources.
     shared_ptr<DescribeMetricMetaListResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful. Valid values:
     // 

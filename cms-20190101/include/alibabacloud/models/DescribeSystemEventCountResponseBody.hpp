@@ -177,31 +177,16 @@ namespace Models
 
 
       protected:
-        // The description of the system event.
         shared_ptr<string> content_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The name of the instance.
         shared_ptr<string> instanceName_ {};
-        // The level of the system event. Valid values:
-        // 
-        // *   Critical
-        // *   Warn
-        // *   Info
         shared_ptr<string> level_ {};
-        // The name of the system event.
         shared_ptr<string> name_ {};
-        // The number of times that the system event has occurred.
         shared_ptr<int64_t> num_ {};
-        // The name of the cloud service in which the system event occurred.
         shared_ptr<string> product_ {};
-        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The status of the system event.
         shared_ptr<string> status_ {};
-        // The time when the system event occurred. The value is a timestamp. Unit: milliseconds.
         shared_ptr<int64_t> time_ {};
       };
 
@@ -274,7 +259,6 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<string> success_ {};
-    // The details of the system event.
     shared_ptr<DescribeSystemEventCountResponseBody::SystemEventCounts> systemEventCounts_ {};
   };
 

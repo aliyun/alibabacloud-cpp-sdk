@@ -121,13 +121,9 @@ namespace Models
 
 
       protected:
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The HTTP request method. Valid values: GET and POST.
         shared_ptr<string> method_ {};
-        // The protocol type.
         shared_ptr<string> protocol_ {};
-        // The callback URL.
         shared_ptr<string> url_ {};
       };
 
@@ -229,23 +225,10 @@ namespace Models
 
 
       protected:
-        // The ARN of the Log Service Logstore. 
-        // 
-        // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-        // 
-        // - Service: the code of an Alibaba Cloud service
-        // - Region: the region ID
-        // - Account: the ID of an Alibaba Cloud account
-        // - ResourceType: the resource type
-        // - ResourceId: the resource ID
         shared_ptr<string> arn_ {};
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The name of the Logstore.
         shared_ptr<string> logStore_ {};
-        // The name of the project.
         shared_ptr<string> project_ {};
-        // The ID of the region where the Log Service project resides.
         shared_ptr<string> region_ {};
       };
 
@@ -366,34 +349,12 @@ namespace Models
 
 
       protected:
-        // The name of the API operation.
         shared_ptr<string> action_ {};
-        // The ARN of the API operation. 
-        // 
-        // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-        // 
-        // - Service: the code of an Alibaba Cloud service
-        // - Region: the region ID
-        // - Account: the ID of an Alibaba Cloud account
-        // - ResourceType: the resource type
-        // - ResourceId: the resource ID The ARN of the Log Service Logstore. 
-        // 
-        // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-        // - Service: the code of an Alibaba Cloud service
-        // - Region: the region ID
-        // - Account: the ID of an Alibaba Cloud account
-        // - ResourceType: the resource type
-        // - ResourceId: the resource ID
         shared_ptr<string> arn_ {};
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The ID of the cloud service to which the API operation belongs.
         shared_ptr<string> product_ {};
-        // The region where the resource resides.
         shared_ptr<string> region_ {};
-        // The name of the role.
         shared_ptr<string> role_ {};
-        // The version of the API.
         shared_ptr<string> version_ {};
       };
 
@@ -495,23 +456,10 @@ namespace Models
 
 
       protected:
-        // The ARN of the MNS queue. 
-        // 
-        // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-        // 
-        // - Service: the code of an Alibaba Cloud service
-        // - Region: the region ID
-        // - Account: the ID of an Alibaba Cloud account
-        // - ResourceType: the resource type
-        // - ResourceId: the resource ID
         shared_ptr<string> arn_ {};
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The name of the SMQ queue.
         shared_ptr<string> queue_ {};
-        // The region for SMQ.
         shared_ptr<string> region_ {};
-        // The SMQ topic.
         shared_ptr<string> topic_ {};
       };
 
@@ -613,23 +561,10 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the function. 
-        // 
-        // Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-        // 
-        // - Service: the code of an Alibaba Cloud service
-        // - Region: the region ID
-        // - Account: the ID of an Alibaba Cloud account
-        // - ResourceType: the resource type
-        // - ResourceId: the resource ID
         shared_ptr<string> arn_ {};
-        // The name of the function.
         shared_ptr<string> functionName_ {};
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The region where Function Compute is deployed.
         shared_ptr<string> region_ {};
-        // The name of the Function Compute service.
         shared_ptr<string> serviceName_ {};
       };
 
@@ -713,13 +648,8 @@ namespace Models
 
 
       protected:
-        // The name of the alert group.
         shared_ptr<string> contactGroupName_ {};
-        // The ID of the recipient.
         shared_ptr<string> id_ {};
-        // The alert notification methods. Valid values:
-        // 
-        // 4: Alert notifications are sent by using DingTalk chatbots and emails.
         shared_ptr<string> level_ {};
       };
 
@@ -820,21 +750,15 @@ namespace Models
     // 
     // >  The status code 200 indicates that the call was successful.
     shared_ptr<string> code_ {};
-    // The information about the recipients if alert notifications are sent to the alert contacts of an alert contact group.
     shared_ptr<DescribeEventRuleTargetListResponseBody::ContactParameters> contactParameters_ {};
-    // The information about the recipients in Function Compute.
     shared_ptr<DescribeEventRuleTargetListResponseBody::FcParameters> fcParameters_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The notifications of Simple Message Queue (formerly MNS) (SMQ).
     shared_ptr<DescribeEventRuleTargetListResponseBody::MnsParameters> mnsParameters_ {};
-    // The information about the recipients in OpenAPI Explorer.
     shared_ptr<DescribeEventRuleTargetListResponseBody::OpenApiParameters> openApiParameters_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the recipients in Log Service.
     shared_ptr<DescribeEventRuleTargetListResponseBody::SlsParameters> slsParameters_ {};
-    // The information about the recipients if alert notifications are sent by sending a request to a callback URL.
     shared_ptr<DescribeEventRuleTargetListResponseBody::WebhookParameters> webhookParameters_ {};
   };
 

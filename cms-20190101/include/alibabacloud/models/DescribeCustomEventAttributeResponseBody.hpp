@@ -122,17 +122,10 @@ namespace Models
 
 
       protected:
-        // The content of the event.
         shared_ptr<string> content_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The event ID.
         shared_ptr<string> id_ {};
-        // The event name.
         shared_ptr<string> name_ {};
-        // The time when the event occurred.
-        // 
-        // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<string> time_ {};
       };
 
@@ -194,7 +187,6 @@ namespace Models
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The event details.
     shared_ptr<DescribeCustomEventAttributeResponseBody::CustomEvents> customEvents_ {};
     // The returned message.
     shared_ptr<string> message_ {};

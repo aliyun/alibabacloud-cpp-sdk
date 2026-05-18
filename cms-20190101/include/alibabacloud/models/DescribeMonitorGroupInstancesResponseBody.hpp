@@ -128,15 +128,10 @@ namespace Models
 
 
       protected:
-        // The abbreviation of the service name.
         shared_ptr<string> category_ {};
-        // The resource ID.
         shared_ptr<int64_t> id_ {};
-        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance name.
         shared_ptr<string> instanceName_ {};
-        // The ID of the region where the instance resides.
         shared_ptr<string> regionId_ {};
       };
 
@@ -228,7 +223,6 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the resources in the application group.
     shared_ptr<DescribeMonitorGroupInstancesResponseBody::Resources> resources_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -124,19 +124,10 @@ namespace Models
 
 
       protected:
-        // The end of the time range to query.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> endTime_ {};
-        // The ID of the application group.
         shared_ptr<string> groupId_ {};
-        // The policy ID.
         shared_ptr<string> id_ {};
-        // The beginning of the time range to query.
-        // 
-        // Unit: milliseconds.
         shared_ptr<int64_t> startTime_ {};
-        // The policy type.
         shared_ptr<string> type_ {};
       };
 
@@ -207,7 +198,6 @@ namespace Models
     shared_ptr<string> code_ {};
     // The error message.
     shared_ptr<string> message_ {};
-    // The returned policies.
     shared_ptr<DescribeMonitorGroupNotifyPolicyListResponseBody::NotifyPolicyList> notifyPolicyList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

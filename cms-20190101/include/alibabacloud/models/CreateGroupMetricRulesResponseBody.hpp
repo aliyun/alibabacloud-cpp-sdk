@@ -122,20 +122,10 @@ namespace Models
 
 
       protected:
-        // The status code that is returned for the alert rule.
-        // 
-        // >  The status code 200 indicates that the call is successful.
         shared_ptr<int32_t> code_ {};
-        // The error message that is returned for the alert rule.
         shared_ptr<string> message_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // Indicates whether the alert rule was created. Valid value:
-        // 
-        // - true: The alert rule was created.
-        // - false: The alert rule failed to be created.
         shared_ptr<bool> success_ {};
       };
 
@@ -201,7 +191,6 @@ namespace Models
     shared_ptr<string> message_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The details of the alert rules.
     shared_ptr<CreateGroupMetricRulesResponseBody::Resources> resources_ {};
     // Indicates whether the call is successful. Valid value:
     // 

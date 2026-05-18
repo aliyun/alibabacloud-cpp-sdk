@@ -225,55 +225,21 @@ namespace Models
 
 
       protected:
-        // The comparison operator that is used in the alert rule. Valid values:
-        // 
-        // *   `>`
-        // *   `<`
-        // *   `>=`
-        // *   `<=`
-        // *   `=`
-        // *   `=`
         shared_ptr<string> comparisonOperator_ {};
-        // The alert contact group.
         shared_ptr<string> contactGroups_ {};
-        // Indicates whether the alert rule is enabled. Valid values:
-        // 
-        // *   true: The alert rule is enabled.
-        // *   false: The alert rule is disabled.
         shared_ptr<string> enable_ {};
-        // The end of the time period during which the alert rule is effective.
-        // 
-        // Unit: hours. For example, the value 23 indicates `23:59:59`.
         shared_ptr<string> endTime_ {};
-        // The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
         shared_ptr<string> evaluationCount_ {};
-        // The metric name.
         shared_ptr<string> metricName_ {};
-        // The namespace of the cloud service.
         shared_ptr<string> namespace_ {};
-        // The aggregation period of monitoring data.
-        // 
-        // Unit: seconds.
         shared_ptr<string> period_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The mute period during which new alerts are not sent even if the trigger conditions are met.
-        // 
-        // Unit: seconds.
         shared_ptr<string> silenceTime_ {};
-        // The beginning of the time period during which the alert rule is effective.
-        // 
-        // Unit: hours. For example, the value 00 indicates `00:00:00`.
         shared_ptr<string> startTime_ {};
-        // Indicates whether the alert rule is enabled.
         shared_ptr<string> state_ {};
-        // The statistical method.
         shared_ptr<string> statistics_ {};
-        // The alert threshold.
         shared_ptr<string> threshold_ {};
-        // The callback URL.
         shared_ptr<string> webhook_ {};
       };
 
@@ -438,27 +404,9 @@ namespace Models
 
 
           protected:
-            // The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The statistical methods for Warn-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Warn-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times
-            // 
-            // for which the metric value meets the alert condition before a Warn-level alert is triggered.
             shared_ptr<string> times_ {};
           };
 
@@ -518,27 +466,9 @@ namespace Models
 
 
           protected:
-            // The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The statistical methods for Info-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Info-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times
-            // 
-            // for which the metric value meets the alert condition before an Info-level alert is triggered.
             shared_ptr<string> times_ {};
           };
 
@@ -598,25 +528,9 @@ namespace Models
 
 
           protected:
-            // The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
-            // 
-            // *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-            // *   GreaterThanThreshold: greater than the threshold
-            // *   LessThanOrEqualToThreshold: less than or equal to the threshold
-            // *   LessThanThreshold: less than the threshold
-            // *   NotEqualToThreshold: not equal to the threshold
-            // *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-            // *   LessThanYesterday: less than the metric value at the same time yesterday
-            // *   GreaterThanLastWeek: greater than the metric value at the same time last week
-            // *   LessThanLastWeek: less than the metric value at the same time last week
-            // *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-            // *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
             shared_ptr<string> comparisonOperator_ {};
-            // The statistical methods for Critical-level alerts.
             shared_ptr<string> statistics_ {};
-            // The threshold for Critical-level alerts.
             shared_ptr<string> threshold_ {};
-            // The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
             shared_ptr<string> times_ {};
           };
 
@@ -650,11 +564,8 @@ namespace Models
 
 
         protected:
-          // The trigger condition for Critical-level alerts.
           shared_ptr<Escalations::Critical> critical_ {};
-          // The conditions for triggering Info-level alerts.
           shared_ptr<Escalations::Info> info_ {};
-          // The conditions for triggering Warn-level alerts.
           shared_ptr<Escalations::Warn> warn_ {};
         };
 
@@ -777,48 +688,21 @@ namespace Models
 
 
       protected:
-        // The status of the alert rule. Valid values:
-        // 
-        // *   OK: The alert rule has no active alerts.
-        // *   ALARM: The alert rule has active alerts.
-        // *   INSUFFICIENT_DATA: No data is found.
         shared_ptr<string> alertState_ {};
-        // The alert contact group.
         shared_ptr<string> contactGroups_ {};
-        // The monitoring data of the specified resource.
         shared_ptr<string> dimensions_ {};
-        // The time period during which the alert rule is effective.
         shared_ptr<string> effectiveInterval_ {};
-        // Indicates whether the alert rule is enabled. Valid values:
-        // 
-        // *   true: The alert rule is enabled.
-        // *   false: The alert rule is disabled.
         shared_ptr<bool> enableState_ {};
-        // The conditions for triggering different levels of alerts.
         shared_ptr<Alert::Escalations> escalations_ {};
-        // The subject of the alert notification email.
         shared_ptr<string> mailSubject_ {};
-        // The name of the metric.
         shared_ptr<string> metricName_ {};
-        // The namespace of the Alibaba Cloud service.
         shared_ptr<string> namespace_ {};
-        // The time period during which the alert rule is ineffective.
         shared_ptr<string> noEffectiveInterval_ {};
-        // The aggregation period of monitoring data.
-        // 
-        // Unit: seconds.
         shared_ptr<string> period_ {};
-        // The resources that are associated with the alert rule.
         shared_ptr<string> resources_ {};
-        // The ID of the alert rule.
         shared_ptr<string> ruleId_ {};
-        // The name of the alert rule.
         shared_ptr<string> ruleName_ {};
-        // The mute period during which new alerts are not sent even if the trigger conditions are met.
-        // 
-        // Unit: seconds.
         shared_ptr<string> silenceTime_ {};
-        // The callback URL.
         shared_ptr<string> webhook_ {};
       };
 
@@ -885,13 +769,11 @@ namespace Models
 
 
   protected:
-    // The details of the alert rules. The result is in the same structure as that returned by the DescribeMetricRuleList operation.
     shared_ptr<DescribeActiveMetricRuleListResponseBody::AlertList> alertList_ {};
     // The HTTP status code.
     // 
     // >  The status code 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The details of the alert rules.
     shared_ptr<DescribeActiveMetricRuleListResponseBody::Datapoints> datapoints_ {};
     // The returned message.
     shared_ptr<string> message_ {};
