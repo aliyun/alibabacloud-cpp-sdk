@@ -409,7 +409,6 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityGroupId_ {};
     shared_ptr<int32_t> storageSpace_ {};
-    // This parameter is required.
     shared_ptr<string> storageType_ {};
     shared_ptr<vector<CreateAIDBClusterRequest::TimeSlices>> timeSlices_ {};
     shared_ptr<string> usedTime_ {};

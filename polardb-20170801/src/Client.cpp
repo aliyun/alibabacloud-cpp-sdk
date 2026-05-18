@@ -16080,6 +16080,60 @@ DescribePolarFsQuotaResponse Client::describePolarFsQuota(const DescribePolarFsQ
 }
 
 /**
+ * @summary 查询配额列表
+ *
+ * @param request DescribePolarFsQuotaListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePolarFsQuotaListResponse
+ */
+DescribePolarFsQuotaListResponse Client::describePolarFsQuotaListWithOptions(const DescribePolarFsQuotaListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPolarFsInstanceId()) {
+    query["PolarFsInstanceId"] = request.getPolarFsInstanceId();
+  }
+
+  if (!!request.hasQuotaMode()) {
+    query["QuotaMode"] = request.getQuotaMode();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePolarFsQuotaList"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePolarFsQuotaListResponse>();
+}
+
+/**
+ * @summary 查询配额列表
+ *
+ * @param request DescribePolarFsQuotaListRequest
+ * @return DescribePolarFsQuotaListResponse
+ */
+DescribePolarFsQuotaListResponse Client::describePolarFsQuotaList(const DescribePolarFsQuotaListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePolarFsQuotaListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
  *
  * @param request DescribePolarSQLCollectorPolicyRequest

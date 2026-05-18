@@ -710,6 +710,9 @@
 #include <alibabacloud/models/DescribePolarFsQuotaRequest.hpp>
 #include <alibabacloud/models/DescribePolarFsQuotaResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarFsQuotaResponse.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaListRequest.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaListResponseBody.hpp>
+#include <alibabacloud/models/DescribePolarFsQuotaListResponse.hpp>
 #include <alibabacloud/models/DescribePolarSQLCollectorPolicyRequest.hpp>
 #include <alibabacloud/models/DescribePolarSQLCollectorPolicyResponseBody.hpp>
 #include <alibabacloud/models/DescribePolarSQLCollectorPolicyResponse.hpp>

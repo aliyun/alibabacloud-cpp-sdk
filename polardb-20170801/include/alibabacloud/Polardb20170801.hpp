@@ -4171,6 +4171,23 @@ namespace Polardb20170801
       Models::DescribePolarFsQuotaResponse describePolarFsQuota(const Models::DescribePolarFsQuotaRequest &request);
 
       /**
+       * @summary 查询配额列表
+       *
+       * @param request DescribePolarFsQuotaListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePolarFsQuotaListResponse
+       */
+      Models::DescribePolarFsQuotaListResponse describePolarFsQuotaListWithOptions(const Models::DescribePolarFsQuotaListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询配额列表
+       *
+       * @param request DescribePolarFsQuotaListRequest
+       * @return DescribePolarFsQuotaListResponse
+       */
+      Models::DescribePolarFsQuotaListResponse describePolarFsQuotaList(const Models::DescribePolarFsQuotaListRequest &request);
+
+      /**
        * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
        *
        * @param request DescribePolarSQLCollectorPolicyRequest
