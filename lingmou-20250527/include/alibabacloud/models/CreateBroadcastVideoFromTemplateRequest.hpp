@@ -42,12 +42,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const VideoOptions& obj) { 
         DARABONBA_PTR_TO_JSON(fps, fps_);
         DARABONBA_PTR_TO_JSON(languageHints, languageHints_);
+        DARABONBA_PTR_TO_JSON(mode, mode_);
         DARABONBA_PTR_TO_JSON(resolution, resolution_);
         DARABONBA_PTR_TO_JSON(watermark, watermark_);
       };
       friend void from_json(const Darabonba::Json& j, VideoOptions& obj) { 
         DARABONBA_PTR_FROM_JSON(fps, fps_);
         DARABONBA_PTR_FROM_JSON(languageHints, languageHints_);
+        DARABONBA_PTR_FROM_JSON(mode, mode_);
         DARABONBA_PTR_FROM_JSON(resolution, resolution_);
         DARABONBA_PTR_FROM_JSON(watermark, watermark_);
       };
@@ -63,7 +65,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->fps_ == nullptr
-        && this->languageHints_ == nullptr && this->resolution_ == nullptr && this->watermark_ == nullptr; };
+        && this->languageHints_ == nullptr && this->mode_ == nullptr && this->resolution_ == nullptr && this->watermark_ == nullptr; };
       // fps Field Functions 
       bool hasFps() const { return this->fps_ != nullptr;};
       void deleteFps() { this->fps_ = nullptr;};
@@ -78,6 +80,13 @@ namespace Models
       inline vector<string> getLanguageHints() { DARABONBA_PTR_GET(languageHints_, vector<string>) };
       inline VideoOptions& setLanguageHints(const vector<string> & languageHints) { DARABONBA_PTR_SET_VALUE(languageHints_, languageHints) };
       inline VideoOptions& setLanguageHints(vector<string> && languageHints) { DARABONBA_PTR_SET_RVALUE(languageHints_, languageHints) };
+
+
+      // mode Field Functions 
+      bool hasMode() const { return this->mode_ != nullptr;};
+      void deleteMode() { this->mode_ = nullptr;};
+      inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+      inline VideoOptions& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
       // resolution Field Functions 
@@ -97,6 +106,7 @@ namespace Models
     protected:
       shared_ptr<int32_t> fps_ {};
       shared_ptr<vector<string>> languageHints_ {};
+      shared_ptr<string> mode_ {};
       shared_ptr<string> resolution_ {};
       shared_ptr<bool> watermark_ {};
     };
