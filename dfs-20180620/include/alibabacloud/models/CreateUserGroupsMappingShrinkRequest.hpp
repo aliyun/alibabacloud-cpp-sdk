@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->groupNamesShrink_ == nullptr && return this->inputRegionId_ == nullptr && return this->userName_ == nullptr; };
+        && this->groupNamesShrink_ == nullptr && this->inputRegionId_ == nullptr && this->userName_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateUserGroupsMappingShrinkRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // groupNamesShrink Field Functions 
     bool hasGroupNamesShrink() const { return this->groupNamesShrink_ != nullptr;};
     void deleteGroupNamesShrink() { this->groupNamesShrink_ = nullptr;};
-    inline string groupNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(groupNamesShrink_, "") };
+    inline string getGroupNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(groupNamesShrink_, "") };
     inline CreateUserGroupsMappingShrinkRequest& setGroupNamesShrink(string groupNamesShrink) { DARABONBA_PTR_SET_VALUE(groupNamesShrink_, groupNamesShrink) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline CreateUserGroupsMappingShrinkRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // userName Field Functions 
     bool hasUserName() const { return this->userName_ != nullptr;};
     void deleteUserName() { this->userName_ = nullptr;};
-    inline string userName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
     inline CreateUserGroupsMappingShrinkRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
-    std::shared_ptr<string> groupNamesShrink_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
+    shared_ptr<string> groupNamesShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> userName_ = nullptr;
+    shared_ptr<string> userName_ {};
   };
 
   } // namespace Models

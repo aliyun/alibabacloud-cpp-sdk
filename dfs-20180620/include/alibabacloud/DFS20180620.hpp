@@ -317,6 +317,23 @@ namespace DFS20180620
       Models::DescribeVscMountPointsResponse describeVscMountPoints(const Models::DescribeVscMountPointsRequest &request);
 
       /**
+       * @summary 批量卸载VSC 挂载点
+       *
+       * @param tmpReq DetachVscFromMountPointsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DetachVscFromMountPointsResponse
+       */
+      Models::DetachVscFromMountPointsResponse detachVscFromMountPointsWithOptions(const Models::DetachVscFromMountPointsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量卸载VSC 挂载点
+       *
+       * @param request DetachVscFromMountPointsRequest
+       * @return DetachVscFromMountPointsResponse
+       */
+      Models::DetachVscFromMountPointsResponse detachVscFromMountPoints(const Models::DetachVscFromMountPointsRequest &request);
+
+      /**
        * @param tmpReq DetachVscMountPointRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DetachVscMountPointResponse

@@ -40,61 +40,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupId_ == nullptr
-        && return this->description_ == nullptr && return this->inputRegionId_ == nullptr && return this->networkSegment_ == nullptr && return this->priority_ == nullptr && return this->RWAccessType_ == nullptr; };
+        && this->description_ == nullptr && this->inputRegionId_ == nullptr && this->networkSegment_ == nullptr && this->priority_ == nullptr && this->RWAccessType_ == nullptr; };
     // accessGroupId Field Functions 
     bool hasAccessGroupId() const { return this->accessGroupId_ != nullptr;};
     void deleteAccessGroupId() { this->accessGroupId_ = nullptr;};
-    inline string accessGroupId() const { DARABONBA_PTR_GET_DEFAULT(accessGroupId_, "") };
+    inline string getAccessGroupId() const { DARABONBA_PTR_GET_DEFAULT(accessGroupId_, "") };
     inline CreateAccessRuleRequest& setAccessGroupId(string accessGroupId) { DARABONBA_PTR_SET_VALUE(accessGroupId_, accessGroupId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAccessRuleRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline CreateAccessRuleRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // networkSegment Field Functions 
     bool hasNetworkSegment() const { return this->networkSegment_ != nullptr;};
     void deleteNetworkSegment() { this->networkSegment_ = nullptr;};
-    inline string networkSegment() const { DARABONBA_PTR_GET_DEFAULT(networkSegment_, "") };
+    inline string getNetworkSegment() const { DARABONBA_PTR_GET_DEFAULT(networkSegment_, "") };
     inline CreateAccessRuleRequest& setNetworkSegment(string networkSegment) { DARABONBA_PTR_SET_VALUE(networkSegment_, networkSegment) };
 
 
     // priority Field Functions 
     bool hasPriority() const { return this->priority_ != nullptr;};
     void deletePriority() { this->priority_ = nullptr;};
-    inline int32_t priority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
     inline CreateAccessRuleRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // RWAccessType Field Functions 
     bool hasRWAccessType() const { return this->RWAccessType_ != nullptr;};
     void deleteRWAccessType() { this->RWAccessType_ = nullptr;};
-    inline string RWAccessType() const { DARABONBA_PTR_GET_DEFAULT(RWAccessType_, "") };
+    inline string getRWAccessType() const { DARABONBA_PTR_GET_DEFAULT(RWAccessType_, "") };
     inline CreateAccessRuleRequest& setRWAccessType(string RWAccessType) { DARABONBA_PTR_SET_VALUE(RWAccessType_, RWAccessType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accessGroupId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> accessGroupId_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> networkSegment_ = nullptr;
+    shared_ptr<string> networkSegment_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> priority_ = nullptr;
+    shared_ptr<int32_t> priority_ {};
     // This parameter is required.
-    std::shared_ptr<string> RWAccessType_ = nullptr;
+    shared_ptr<string> RWAccessType_ {};
   };
 
   } // namespace Models

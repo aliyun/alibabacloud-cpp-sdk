@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupName_ == nullptr
-        && return this->description_ == nullptr && return this->inputRegionId_ == nullptr && return this->networkType_ == nullptr; };
+        && this->description_ == nullptr && this->inputRegionId_ == nullptr && this->networkType_ == nullptr; };
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
-    inline string accessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
+    inline string getAccessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
     inline CreateAccessGroupRequest& setAccessGroupName(string accessGroupName) { DARABONBA_PTR_SET_VALUE(accessGroupName_, accessGroupName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateAccessGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline CreateAccessGroupRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline CreateAccessGroupRequest& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accessGroupName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> accessGroupName_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> networkType_ = nullptr;
+    shared_ptr<string> networkType_ {};
   };
 
   } // namespace Models

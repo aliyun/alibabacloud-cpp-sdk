@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessGroupId_ == nullptr
-        && return this->accessGroupName_ == nullptr && return this->description_ == nullptr && return this->inputRegionId_ == nullptr; };
+        && this->accessGroupName_ == nullptr && this->description_ == nullptr && this->inputRegionId_ == nullptr; };
     // accessGroupId Field Functions 
     bool hasAccessGroupId() const { return this->accessGroupId_ != nullptr;};
     void deleteAccessGroupId() { this->accessGroupId_ = nullptr;};
-    inline string accessGroupId() const { DARABONBA_PTR_GET_DEFAULT(accessGroupId_, "") };
+    inline string getAccessGroupId() const { DARABONBA_PTR_GET_DEFAULT(accessGroupId_, "") };
     inline ModifyAccessGroupRequest& setAccessGroupId(string accessGroupId) { DARABONBA_PTR_SET_VALUE(accessGroupId_, accessGroupId) };
 
 
     // accessGroupName Field Functions 
     bool hasAccessGroupName() const { return this->accessGroupName_ != nullptr;};
     void deleteAccessGroupName() { this->accessGroupName_ = nullptr;};
-    inline string accessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
+    inline string getAccessGroupName() const { DARABONBA_PTR_GET_DEFAULT(accessGroupName_, "") };
     inline ModifyAccessGroupRequest& setAccessGroupName(string accessGroupName) { DARABONBA_PTR_SET_VALUE(accessGroupName_, accessGroupName) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyAccessGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline ModifyAccessGroupRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> accessGroupId_ = nullptr;
-    std::shared_ptr<string> accessGroupName_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> accessGroupId_ {};
+    shared_ptr<string> accessGroupName_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
   };
 
   } // namespace Models

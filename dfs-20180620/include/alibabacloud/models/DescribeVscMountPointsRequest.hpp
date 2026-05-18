@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && return this->inputRegionId_ == nullptr && return this->instanceId_ == nullptr && return this->mountPointId_ == nullptr && return this->status_ == nullptr && return this->vscId_ == nullptr; };
+        && this->inputRegionId_ == nullptr && this->instanceId_ == nullptr && this->mountPointId_ == nullptr && this->status_ == nullptr && this->vscId_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline DescribeVscMountPointsRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline DescribeVscMountPointsRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeVscMountPointsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // mountPointId Field Functions 
     bool hasMountPointId() const { return this->mountPointId_ != nullptr;};
     void deleteMountPointId() { this->mountPointId_ = nullptr;};
-    inline string mountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
+    inline string getMountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
     inline DescribeVscMountPointsRequest& setMountPointId(string mountPointId) { DARABONBA_PTR_SET_VALUE(mountPointId_, mountPointId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline DescribeVscMountPointsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // vscId Field Functions 
     bool hasVscId() const { return this->vscId_ != nullptr;};
     void deleteVscId() { this->vscId_ = nullptr;};
-    inline string vscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
+    inline string getVscId() const { DARABONBA_PTR_GET_DEFAULT(vscId_, "") };
     inline DescribeVscMountPointsRequest& setVscId(string vscId) { DARABONBA_PTR_SET_VALUE(vscId_, vscId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<string> instanceId_ = nullptr;
-    std::shared_ptr<string> mountPointId_ = nullptr;
-    std::shared_ptr<string> status_ = nullptr;
-    std::shared_ptr<string> vscId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<string> instanceId_ {};
+    shared_ptr<string> mountPointId_ {};
+    shared_ptr<string> status_ {};
+    shared_ptr<string> vscId_ {};
   };
 
   } // namespace Models

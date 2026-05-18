@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasPrefix_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->inputRegionId_ == nullptr && return this->mountPointId_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->inputRegionId_ == nullptr && this->mountPointId_ == nullptr; };
     // aliasPrefix Field Functions 
     bool hasAliasPrefix() const { return this->aliasPrefix_ != nullptr;};
     void deleteAliasPrefix() { this->aliasPrefix_ = nullptr;};
-    inline string aliasPrefix() const { DARABONBA_PTR_GET_DEFAULT(aliasPrefix_, "") };
+    inline string getAliasPrefix() const { DARABONBA_PTR_GET_DEFAULT(aliasPrefix_, "") };
     inline BindVscMountPointAliasRequest& setAliasPrefix(string aliasPrefix) { DARABONBA_PTR_SET_VALUE(aliasPrefix_, aliasPrefix) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline BindVscMountPointAliasRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline BindVscMountPointAliasRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // mountPointId Field Functions 
     bool hasMountPointId() const { return this->mountPointId_ != nullptr;};
     void deleteMountPointId() { this->mountPointId_ = nullptr;};
-    inline string mountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
+    inline string getMountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
     inline BindVscMountPointAliasRequest& setMountPointId(string mountPointId) { DARABONBA_PTR_SET_VALUE(mountPointId_, mountPointId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> aliasPrefix_ = nullptr;
+    shared_ptr<string> aliasPrefix_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> mountPointId_ = nullptr;
+    shared_ptr<string> mountPointId_ {};
   };
 
   } // namespace Models

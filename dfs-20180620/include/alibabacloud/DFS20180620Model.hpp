@@ -69,6 +69,10 @@
 #include <alibabacloud/models/DescribeVscMountPointsRequest.hpp>
 #include <alibabacloud/models/DescribeVscMountPointsResponseBody.hpp>
 #include <alibabacloud/models/DescribeVscMountPointsResponse.hpp>
+#include <alibabacloud/models/DetachVscFromMountPointsRequest.hpp>
+#include <alibabacloud/models/DetachVscFromMountPointsShrinkRequest.hpp>
+#include <alibabacloud/models/DetachVscFromMountPointsResponseBody.hpp>
+#include <alibabacloud/models/DetachVscFromMountPointsResponse.hpp>
 #include <alibabacloud/models/DetachVscMountPointRequest.hpp>
 #include <alibabacloud/models/DetachVscMountPointShrinkRequest.hpp>
 #include <alibabacloud/models/DetachVscMountPointResponseBody.hpp>
@@ -124,26 +128,5 @@
 #include <alibabacloud/models/ModifyQosPolicyRequest.hpp>
 #include <alibabacloud/models/ModifyQosPolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifyQosPolicyResponse.hpp>
-#include <alibabacloud/models/AttachVscToMountPointsRequestAttachInfos.hpp>
-#include <alibabacloud/models/DescribeMountPointsVscAttachInfoRequestQueryInfos.hpp>
-#include <alibabacloud/models/DescribeMountPointsVscAttachInfoResponseBodyAttachInfos.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegionsRegion.hpp>
-#include <alibabacloud/models/DescribeRegionsResponseBodyRegions.hpp>
-#include <alibabacloud/models/DescribeVscMountPointsResponseBodyMountPointsInstancesVscs.hpp>
-#include <alibabacloud/models/DescribeVscMountPointsResponseBodyMountPointsInstances.hpp>
-#include <alibabacloud/models/DescribeVscMountPointsResponseBodyMountPoints.hpp>
-#include <alibabacloud/models/GetAccessGroupResponseBodyAccessGroup.hpp>
-#include <alibabacloud/models/GetAccessRuleResponseBodyAccessRule.hpp>
-#include <alibabacloud/models/GetFileSystemResponseBodyFileSystem.hpp>
-#include <alibabacloud/models/GetMountPointResponseBodyMountPoint.hpp>
-#include <alibabacloud/models/GetRegionResponseBodyAvailableZonesOptions.hpp>
-#include <alibabacloud/models/GetRegionResponseBodyAvailableZones.hpp>
-#include <alibabacloud/models/ListAccessGroupsResponseBodyAccessGroups.hpp>
-#include <alibabacloud/models/ListAccessRulesResponseBodyAccessRules.hpp>
-#include <alibabacloud/models/ListFederationsResponseBodyFederations.hpp>
-#include <alibabacloud/models/ListFileSystemsResponseBodyFileSystems.hpp>
-#include <alibabacloud/models/ListMountPointsResponseBodyMountPoints.hpp>
-#include <alibabacloud/models/ListQosPoliciesResponseBodyQosPolicies.hpp>
-#include <alibabacloud/models/ListUserGroupsMappingsResponseBodyUserGroupsMappings.hpp>
 
 #endif

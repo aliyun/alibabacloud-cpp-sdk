@@ -34,33 +34,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->attachInfosShrink_ == nullptr
-        && return this->inputRegionId_ == nullptr && return this->useAssumeRoleChkServerPerm_ == nullptr; };
+        && this->inputRegionId_ == nullptr && this->useAssumeRoleChkServerPerm_ == nullptr; };
     // attachInfosShrink Field Functions 
     bool hasAttachInfosShrink() const { return this->attachInfosShrink_ != nullptr;};
     void deleteAttachInfosShrink() { this->attachInfosShrink_ = nullptr;};
-    inline string attachInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(attachInfosShrink_, "") };
+    inline string getAttachInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(attachInfosShrink_, "") };
     inline AttachVscToMountPointsShrinkRequest& setAttachInfosShrink(string attachInfosShrink) { DARABONBA_PTR_SET_VALUE(attachInfosShrink_, attachInfosShrink) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline AttachVscToMountPointsShrinkRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // useAssumeRoleChkServerPerm Field Functions 
     bool hasUseAssumeRoleChkServerPerm() const { return this->useAssumeRoleChkServerPerm_ != nullptr;};
     void deleteUseAssumeRoleChkServerPerm() { this->useAssumeRoleChkServerPerm_ = nullptr;};
-    inline bool useAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
+    inline bool getUseAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
     inline AttachVscToMountPointsShrinkRequest& setUseAssumeRoleChkServerPerm(bool useAssumeRoleChkServerPerm) { DARABONBA_PTR_SET_VALUE(useAssumeRoleChkServerPerm_, useAssumeRoleChkServerPerm) };
 
 
   protected:
-    std::shared_ptr<string> attachInfosShrink_ = nullptr;
+    shared_ptr<string> attachInfosShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<bool> useAssumeRoleChkServerPerm_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<bool> useAssumeRoleChkServerPerm_ {};
   };
 
   } // namespace Models

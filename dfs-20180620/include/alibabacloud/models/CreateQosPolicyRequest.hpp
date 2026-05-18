@@ -49,34 +49,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->federationId_ == nullptr && return this->fileSystemId_ == nullptr && return this->flowIds_ == nullptr && return this->inputRegionId_ == nullptr && return this->maxIOBandWidth_ == nullptr
-        && return this->maxIOps_ == nullptr && return this->maxMetaQps_ == nullptr && return this->reqTags_ == nullptr && return this->zoneIds_ == nullptr; };
+        && this->federationId_ == nullptr && this->fileSystemId_ == nullptr && this->flowIds_ == nullptr && this->inputRegionId_ == nullptr && this->maxIOBandWidth_ == nullptr
+        && this->maxIOps_ == nullptr && this->maxMetaQps_ == nullptr && this->reqTags_ == nullptr && this->zoneIds_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateQosPolicyRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // federationId Field Functions 
     bool hasFederationId() const { return this->federationId_ != nullptr;};
     void deleteFederationId() { this->federationId_ = nullptr;};
-    inline string federationId() const { DARABONBA_PTR_GET_DEFAULT(federationId_, "") };
+    inline string getFederationId() const { DARABONBA_PTR_GET_DEFAULT(federationId_, "") };
     inline CreateQosPolicyRequest& setFederationId(string federationId) { DARABONBA_PTR_SET_VALUE(federationId_, federationId) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline CreateQosPolicyRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // flowIds Field Functions 
     bool hasFlowIds() const { return this->flowIds_ != nullptr;};
     void deleteFlowIds() { this->flowIds_ = nullptr;};
-    inline const vector<int32_t> & flowIds() const { DARABONBA_PTR_GET_CONST(flowIds_, vector<int32_t>) };
-    inline vector<int32_t> flowIds() { DARABONBA_PTR_GET(flowIds_, vector<int32_t>) };
+    inline const vector<int32_t> & getFlowIds() const { DARABONBA_PTR_GET_CONST(flowIds_, vector<int32_t>) };
+    inline vector<int32_t> getFlowIds() { DARABONBA_PTR_GET(flowIds_, vector<int32_t>) };
     inline CreateQosPolicyRequest& setFlowIds(const vector<int32_t> & flowIds) { DARABONBA_PTR_SET_VALUE(flowIds_, flowIds) };
     inline CreateQosPolicyRequest& setFlowIds(vector<int32_t> && flowIds) { DARABONBA_PTR_SET_RVALUE(flowIds_, flowIds) };
 
@@ -84,36 +84,36 @@ namespace Models
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline CreateQosPolicyRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // maxIOBandWidth Field Functions 
     bool hasMaxIOBandWidth() const { return this->maxIOBandWidth_ != nullptr;};
     void deleteMaxIOBandWidth() { this->maxIOBandWidth_ = nullptr;};
-    inline int64_t maxIOBandWidth() const { DARABONBA_PTR_GET_DEFAULT(maxIOBandWidth_, 0L) };
+    inline int64_t getMaxIOBandWidth() const { DARABONBA_PTR_GET_DEFAULT(maxIOBandWidth_, 0L) };
     inline CreateQosPolicyRequest& setMaxIOBandWidth(int64_t maxIOBandWidth) { DARABONBA_PTR_SET_VALUE(maxIOBandWidth_, maxIOBandWidth) };
 
 
     // maxIOps Field Functions 
     bool hasMaxIOps() const { return this->maxIOps_ != nullptr;};
     void deleteMaxIOps() { this->maxIOps_ = nullptr;};
-    inline int64_t maxIOps() const { DARABONBA_PTR_GET_DEFAULT(maxIOps_, 0L) };
+    inline int64_t getMaxIOps() const { DARABONBA_PTR_GET_DEFAULT(maxIOps_, 0L) };
     inline CreateQosPolicyRequest& setMaxIOps(int64_t maxIOps) { DARABONBA_PTR_SET_VALUE(maxIOps_, maxIOps) };
 
 
     // maxMetaQps Field Functions 
     bool hasMaxMetaQps() const { return this->maxMetaQps_ != nullptr;};
     void deleteMaxMetaQps() { this->maxMetaQps_ = nullptr;};
-    inline int64_t maxMetaQps() const { DARABONBA_PTR_GET_DEFAULT(maxMetaQps_, 0L) };
+    inline int64_t getMaxMetaQps() const { DARABONBA_PTR_GET_DEFAULT(maxMetaQps_, 0L) };
     inline CreateQosPolicyRequest& setMaxMetaQps(int64_t maxMetaQps) { DARABONBA_PTR_SET_VALUE(maxMetaQps_, maxMetaQps) };
 
 
     // reqTags Field Functions 
     bool hasReqTags() const { return this->reqTags_ != nullptr;};
     void deleteReqTags() { this->reqTags_ = nullptr;};
-    inline const vector<string> & reqTags() const { DARABONBA_PTR_GET_CONST(reqTags_, vector<string>) };
-    inline vector<string> reqTags() { DARABONBA_PTR_GET(reqTags_, vector<string>) };
+    inline const vector<string> & getReqTags() const { DARABONBA_PTR_GET_CONST(reqTags_, vector<string>) };
+    inline vector<string> getReqTags() { DARABONBA_PTR_GET(reqTags_, vector<string>) };
     inline CreateQosPolicyRequest& setReqTags(const vector<string> & reqTags) { DARABONBA_PTR_SET_VALUE(reqTags_, reqTags) };
     inline CreateQosPolicyRequest& setReqTags(vector<string> && reqTags) { DARABONBA_PTR_SET_RVALUE(reqTags_, reqTags) };
 
@@ -121,24 +121,24 @@ namespace Models
     // zoneIds Field Functions 
     bool hasZoneIds() const { return this->zoneIds_ != nullptr;};
     void deleteZoneIds() { this->zoneIds_ = nullptr;};
-    inline const vector<string> & zoneIds() const { DARABONBA_PTR_GET_CONST(zoneIds_, vector<string>) };
-    inline vector<string> zoneIds() { DARABONBA_PTR_GET(zoneIds_, vector<string>) };
+    inline const vector<string> & getZoneIds() const { DARABONBA_PTR_GET_CONST(zoneIds_, vector<string>) };
+    inline vector<string> getZoneIds() { DARABONBA_PTR_GET(zoneIds_, vector<string>) };
     inline CreateQosPolicyRequest& setZoneIds(const vector<string> & zoneIds) { DARABONBA_PTR_SET_VALUE(zoneIds_, zoneIds) };
     inline CreateQosPolicyRequest& setZoneIds(vector<string> && zoneIds) { DARABONBA_PTR_SET_RVALUE(zoneIds_, zoneIds) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> federationId_ = nullptr;
-    std::shared_ptr<string> fileSystemId_ = nullptr;
-    std::shared_ptr<vector<int32_t>> flowIds_ = nullptr;
+    shared_ptr<string> description_ {};
+    shared_ptr<string> federationId_ {};
+    shared_ptr<string> fileSystemId_ {};
+    shared_ptr<vector<int32_t>> flowIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<int64_t> maxIOBandWidth_ = nullptr;
-    std::shared_ptr<int64_t> maxIOps_ = nullptr;
-    std::shared_ptr<int64_t> maxMetaQps_ = nullptr;
-    std::shared_ptr<vector<string>> reqTags_ = nullptr;
-    std::shared_ptr<vector<string>> zoneIds_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<int64_t> maxIOBandWidth_ {};
+    shared_ptr<int64_t> maxIOps_ {};
+    shared_ptr<int64_t> maxMetaQps_ {};
+    shared_ptr<vector<string>> reqTags_ {};
+    shared_ptr<vector<string>> zoneIds_ {};
   };
 
   } // namespace Models

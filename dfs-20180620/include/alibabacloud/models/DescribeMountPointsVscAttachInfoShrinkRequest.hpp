@@ -38,49 +38,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->inputRegionId_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->queryInfosShrink_ == nullptr && return this->useAssumeRoleChkServerPerm_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->queryInfosShrink_ == nullptr && this->useAssumeRoleChkServerPerm_ == nullptr; };
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline DescribeMountPointsVscAttachInfoShrinkRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline DescribeMountPointsVscAttachInfoShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline DescribeMountPointsVscAttachInfoShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // queryInfosShrink Field Functions 
     bool hasQueryInfosShrink() const { return this->queryInfosShrink_ != nullptr;};
     void deleteQueryInfosShrink() { this->queryInfosShrink_ = nullptr;};
-    inline string queryInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(queryInfosShrink_, "") };
+    inline string getQueryInfosShrink() const { DARABONBA_PTR_GET_DEFAULT(queryInfosShrink_, "") };
     inline DescribeMountPointsVscAttachInfoShrinkRequest& setQueryInfosShrink(string queryInfosShrink) { DARABONBA_PTR_SET_VALUE(queryInfosShrink_, queryInfosShrink) };
 
 
     // useAssumeRoleChkServerPerm Field Functions 
     bool hasUseAssumeRoleChkServerPerm() const { return this->useAssumeRoleChkServerPerm_ != nullptr;};
     void deleteUseAssumeRoleChkServerPerm() { this->useAssumeRoleChkServerPerm_ = nullptr;};
-    inline bool useAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
+    inline bool getUseAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
     inline DescribeMountPointsVscAttachInfoShrinkRequest& setUseAssumeRoleChkServerPerm(bool useAssumeRoleChkServerPerm) { DARABONBA_PTR_SET_VALUE(useAssumeRoleChkServerPerm_, useAssumeRoleChkServerPerm) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> queryInfosShrink_ = nullptr;
-    std::shared_ptr<bool> useAssumeRoleChkServerPerm_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> queryInfosShrink_ {};
+    shared_ptr<bool> useAssumeRoleChkServerPerm_ {};
   };
 
   } // namespace Models

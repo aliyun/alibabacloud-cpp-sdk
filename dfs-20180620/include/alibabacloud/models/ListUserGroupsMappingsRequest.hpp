@@ -36,42 +36,42 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->filesystemId_ == nullptr
-        && return this->inputRegionId_ == nullptr && return this->limit_ == nullptr && return this->nextToken_ == nullptr; };
+        && this->inputRegionId_ == nullptr && this->limit_ == nullptr && this->nextToken_ == nullptr; };
     // filesystemId Field Functions 
     bool hasFilesystemId() const { return this->filesystemId_ != nullptr;};
     void deleteFilesystemId() { this->filesystemId_ = nullptr;};
-    inline string filesystemId() const { DARABONBA_PTR_GET_DEFAULT(filesystemId_, "") };
+    inline string getFilesystemId() const { DARABONBA_PTR_GET_DEFAULT(filesystemId_, "") };
     inline ListUserGroupsMappingsRequest& setFilesystemId(string filesystemId) { DARABONBA_PTR_SET_VALUE(filesystemId_, filesystemId) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline ListUserGroupsMappingsRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // limit Field Functions 
     bool hasLimit() const { return this->limit_ != nullptr;};
     void deleteLimit() { this->limit_ = nullptr;};
-    inline int32_t limit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
+    inline int32_t getLimit() const { DARABONBA_PTR_GET_DEFAULT(limit_, 0) };
     inline ListUserGroupsMappingsRequest& setLimit(int32_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListUserGroupsMappingsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> filesystemId_ = nullptr;
+    shared_ptr<string> filesystemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<int32_t> limit_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<int32_t> limit_ {};
+    shared_ptr<string> nextToken_ {};
   };
 
   } // namespace Models

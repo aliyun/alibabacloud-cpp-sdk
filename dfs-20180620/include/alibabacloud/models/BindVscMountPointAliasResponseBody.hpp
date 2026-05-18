@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->mountPointAlias_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // mountPointAlias Field Functions 
     bool hasMountPointAlias() const { return this->mountPointAlias_ != nullptr;};
     void deleteMountPointAlias() { this->mountPointAlias_ = nullptr;};
-    inline string mountPointAlias() const { DARABONBA_PTR_GET_DEFAULT(mountPointAlias_, "") };
+    inline string getMountPointAlias() const { DARABONBA_PTR_GET_DEFAULT(mountPointAlias_, "") };
     inline BindVscMountPointAliasResponseBody& setMountPointAlias(string mountPointAlias) { DARABONBA_PTR_SET_VALUE(mountPointAlias_, mountPointAlias) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BindVscMountPointAliasResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<string> mountPointAlias_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> mountPointAlias_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

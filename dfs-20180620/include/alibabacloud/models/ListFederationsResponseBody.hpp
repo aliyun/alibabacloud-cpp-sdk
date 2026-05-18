@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTFEDERATIONSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListFederationsResponseBodyFederations.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -37,43 +36,85 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Federations : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Federations& obj) { 
+        DARABONBA_PTR_TO_JSON(FederationId, federationId_);
+        DARABONBA_PTR_TO_JSON(FileSystemIds, fileSystemIds_);
+      };
+      friend void from_json(const Darabonba::Json& j, Federations& obj) { 
+        DARABONBA_PTR_FROM_JSON(FederationId, federationId_);
+        DARABONBA_PTR_FROM_JSON(FileSystemIds, fileSystemIds_);
+      };
+      Federations() = default ;
+      Federations(const Federations &) = default ;
+      Federations(Federations &&) = default ;
+      Federations(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Federations() = default ;
+      Federations& operator=(const Federations &) = default ;
+      Federations& operator=(Federations &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->federationId_ == nullptr
+        && this->fileSystemIds_ == nullptr; };
+      // federationId Field Functions 
+      bool hasFederationId() const { return this->federationId_ != nullptr;};
+      void deleteFederationId() { this->federationId_ = nullptr;};
+      inline string getFederationId() const { DARABONBA_PTR_GET_DEFAULT(federationId_, "") };
+      inline Federations& setFederationId(string federationId) { DARABONBA_PTR_SET_VALUE(federationId_, federationId) };
+
+
+      // fileSystemIds Field Functions 
+      bool hasFileSystemIds() const { return this->fileSystemIds_ != nullptr;};
+      void deleteFileSystemIds() { this->fileSystemIds_ = nullptr;};
+      inline string getFileSystemIds() const { DARABONBA_PTR_GET_DEFAULT(fileSystemIds_, "") };
+      inline Federations& setFileSystemIds(string fileSystemIds) { DARABONBA_PTR_SET_VALUE(fileSystemIds_, fileSystemIds) };
+
+
+    protected:
+      shared_ptr<string> federationId_ {};
+      shared_ptr<string> fileSystemIds_ {};
+    };
+
     virtual bool empty() const override { return this->federations_ == nullptr
-        && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->requestId_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
     // federations Field Functions 
     bool hasFederations() const { return this->federations_ != nullptr;};
     void deleteFederations() { this->federations_ = nullptr;};
-    inline const vector<ListFederationsResponseBodyFederations> & federations() const { DARABONBA_PTR_GET_CONST(federations_, vector<ListFederationsResponseBodyFederations>) };
-    inline vector<ListFederationsResponseBodyFederations> federations() { DARABONBA_PTR_GET(federations_, vector<ListFederationsResponseBodyFederations>) };
-    inline ListFederationsResponseBody& setFederations(const vector<ListFederationsResponseBodyFederations> & federations) { DARABONBA_PTR_SET_VALUE(federations_, federations) };
-    inline ListFederationsResponseBody& setFederations(vector<ListFederationsResponseBodyFederations> && federations) { DARABONBA_PTR_SET_RVALUE(federations_, federations) };
+    inline const vector<ListFederationsResponseBody::Federations> & getFederations() const { DARABONBA_PTR_GET_CONST(federations_, vector<ListFederationsResponseBody::Federations>) };
+    inline vector<ListFederationsResponseBody::Federations> getFederations() { DARABONBA_PTR_GET(federations_, vector<ListFederationsResponseBody::Federations>) };
+    inline ListFederationsResponseBody& setFederations(const vector<ListFederationsResponseBody::Federations> & federations) { DARABONBA_PTR_SET_VALUE(federations_, federations) };
+    inline ListFederationsResponseBody& setFederations(vector<ListFederationsResponseBody::Federations> && federations) { DARABONBA_PTR_SET_RVALUE(federations_, federations) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListFederationsResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListFederationsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListFederationsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<ListFederationsResponseBodyFederations>> federations_ = nullptr;
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<ListFederationsResponseBody::Federations>> federations_ {};
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

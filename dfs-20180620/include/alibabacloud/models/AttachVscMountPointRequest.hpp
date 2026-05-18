@@ -47,34 +47,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->fileSystemId_ == nullptr && return this->inputRegionId_ == nullptr && return this->instanceIds_ == nullptr && return this->mountPointId_ == nullptr && return this->useAssumeRoleChkServerPerm_ == nullptr
-        && return this->vscIds_ == nullptr && return this->vscName_ == nullptr && return this->vscType_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->inputRegionId_ == nullptr && this->instanceIds_ == nullptr && this->mountPointId_ == nullptr && this->useAssumeRoleChkServerPerm_ == nullptr
+        && this->vscIds_ == nullptr && this->vscName_ == nullptr && this->vscType_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AttachVscMountPointRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
-    inline string fileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
+    inline string getFileSystemId() const { DARABONBA_PTR_GET_DEFAULT(fileSystemId_, "") };
     inline AttachVscMountPointRequest& setFileSystemId(string fileSystemId) { DARABONBA_PTR_SET_VALUE(fileSystemId_, fileSystemId) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline AttachVscMountPointRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline const vector<string> & instanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
-    inline vector<string> instanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
     inline AttachVscMountPointRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
     inline AttachVscMountPointRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
@@ -82,22 +82,22 @@ namespace Models
     // mountPointId Field Functions 
     bool hasMountPointId() const { return this->mountPointId_ != nullptr;};
     void deleteMountPointId() { this->mountPointId_ = nullptr;};
-    inline string mountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
+    inline string getMountPointId() const { DARABONBA_PTR_GET_DEFAULT(mountPointId_, "") };
     inline AttachVscMountPointRequest& setMountPointId(string mountPointId) { DARABONBA_PTR_SET_VALUE(mountPointId_, mountPointId) };
 
 
     // useAssumeRoleChkServerPerm Field Functions 
     bool hasUseAssumeRoleChkServerPerm() const { return this->useAssumeRoleChkServerPerm_ != nullptr;};
     void deleteUseAssumeRoleChkServerPerm() { this->useAssumeRoleChkServerPerm_ = nullptr;};
-    inline bool useAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
+    inline bool getUseAssumeRoleChkServerPerm() const { DARABONBA_PTR_GET_DEFAULT(useAssumeRoleChkServerPerm_, false) };
     inline AttachVscMountPointRequest& setUseAssumeRoleChkServerPerm(bool useAssumeRoleChkServerPerm) { DARABONBA_PTR_SET_VALUE(useAssumeRoleChkServerPerm_, useAssumeRoleChkServerPerm) };
 
 
     // vscIds Field Functions 
     bool hasVscIds() const { return this->vscIds_ != nullptr;};
     void deleteVscIds() { this->vscIds_ = nullptr;};
-    inline const vector<string> & vscIds() const { DARABONBA_PTR_GET_CONST(vscIds_, vector<string>) };
-    inline vector<string> vscIds() { DARABONBA_PTR_GET(vscIds_, vector<string>) };
+    inline const vector<string> & getVscIds() const { DARABONBA_PTR_GET_CONST(vscIds_, vector<string>) };
+    inline vector<string> getVscIds() { DARABONBA_PTR_GET(vscIds_, vector<string>) };
     inline AttachVscMountPointRequest& setVscIds(const vector<string> & vscIds) { DARABONBA_PTR_SET_VALUE(vscIds_, vscIds) };
     inline AttachVscMountPointRequest& setVscIds(vector<string> && vscIds) { DARABONBA_PTR_SET_RVALUE(vscIds_, vscIds) };
 
@@ -105,30 +105,30 @@ namespace Models
     // vscName Field Functions 
     bool hasVscName() const { return this->vscName_ != nullptr;};
     void deleteVscName() { this->vscName_ = nullptr;};
-    inline string vscName() const { DARABONBA_PTR_GET_DEFAULT(vscName_, "") };
+    inline string getVscName() const { DARABONBA_PTR_GET_DEFAULT(vscName_, "") };
     inline AttachVscMountPointRequest& setVscName(string vscName) { DARABONBA_PTR_SET_VALUE(vscName_, vscName) };
 
 
     // vscType Field Functions 
     bool hasVscType() const { return this->vscType_ != nullptr;};
     void deleteVscType() { this->vscType_ = nullptr;};
-    inline string vscType() const { DARABONBA_PTR_GET_DEFAULT(vscType_, "") };
+    inline string getVscType() const { DARABONBA_PTR_GET_DEFAULT(vscType_, "") };
     inline AttachVscMountPointRequest& setVscType(string vscType) { DARABONBA_PTR_SET_VALUE(vscType_, vscType) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileSystemId_ = nullptr;
+    shared_ptr<string> fileSystemId_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<vector<string>> instanceIds_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<vector<string>> instanceIds_ {};
     // This parameter is required.
-    std::shared_ptr<string> mountPointId_ = nullptr;
-    std::shared_ptr<bool> useAssumeRoleChkServerPerm_ = nullptr;
-    std::shared_ptr<vector<string>> vscIds_ = nullptr;
-    std::shared_ptr<string> vscName_ = nullptr;
-    std::shared_ptr<string> vscType_ = nullptr;
+    shared_ptr<string> mountPointId_ {};
+    shared_ptr<bool> useAssumeRoleChkServerPerm_ {};
+    shared_ptr<vector<string>> vscIds_ {};
+    shared_ptr<string> vscName_ {};
+    shared_ptr<string> vscType_ {};
   };
 
   } // namespace Models

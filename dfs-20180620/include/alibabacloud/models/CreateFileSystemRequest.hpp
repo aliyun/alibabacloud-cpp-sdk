@@ -54,119 +54,119 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->dataRedundancyType_ == nullptr
-        && return this->dedicatedClusterId_ == nullptr && return this->description_ == nullptr && return this->fileSystemName_ == nullptr && return this->inputRegionId_ == nullptr && return this->partitionNumber_ == nullptr
-        && return this->protocolType_ == nullptr && return this->provisionedThroughputInMiBps_ == nullptr && return this->spaceCapacity_ == nullptr && return this->storageSetName_ == nullptr && return this->storageType_ == nullptr
-        && return this->throughputMode_ == nullptr && return this->zoneId_ == nullptr; };
+        && this->dedicatedClusterId_ == nullptr && this->description_ == nullptr && this->fileSystemName_ == nullptr && this->inputRegionId_ == nullptr && this->partitionNumber_ == nullptr
+        && this->protocolType_ == nullptr && this->provisionedThroughputInMiBps_ == nullptr && this->spaceCapacity_ == nullptr && this->storageSetName_ == nullptr && this->storageType_ == nullptr
+        && this->throughputMode_ == nullptr && this->zoneId_ == nullptr; };
     // dataRedundancyType Field Functions 
     bool hasDataRedundancyType() const { return this->dataRedundancyType_ != nullptr;};
     void deleteDataRedundancyType() { this->dataRedundancyType_ = nullptr;};
-    inline string dataRedundancyType() const { DARABONBA_PTR_GET_DEFAULT(dataRedundancyType_, "") };
+    inline string getDataRedundancyType() const { DARABONBA_PTR_GET_DEFAULT(dataRedundancyType_, "") };
     inline CreateFileSystemRequest& setDataRedundancyType(string dataRedundancyType) { DARABONBA_PTR_SET_VALUE(dataRedundancyType_, dataRedundancyType) };
 
 
     // dedicatedClusterId Field Functions 
     bool hasDedicatedClusterId() const { return this->dedicatedClusterId_ != nullptr;};
     void deleteDedicatedClusterId() { this->dedicatedClusterId_ = nullptr;};
-    inline string dedicatedClusterId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedClusterId_, "") };
+    inline string getDedicatedClusterId() const { DARABONBA_PTR_GET_DEFAULT(dedicatedClusterId_, "") };
     inline CreateFileSystemRequest& setDedicatedClusterId(string dedicatedClusterId) { DARABONBA_PTR_SET_VALUE(dedicatedClusterId_, dedicatedClusterId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateFileSystemRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // fileSystemName Field Functions 
     bool hasFileSystemName() const { return this->fileSystemName_ != nullptr;};
     void deleteFileSystemName() { this->fileSystemName_ = nullptr;};
-    inline string fileSystemName() const { DARABONBA_PTR_GET_DEFAULT(fileSystemName_, "") };
+    inline string getFileSystemName() const { DARABONBA_PTR_GET_DEFAULT(fileSystemName_, "") };
     inline CreateFileSystemRequest& setFileSystemName(string fileSystemName) { DARABONBA_PTR_SET_VALUE(fileSystemName_, fileSystemName) };
 
 
     // inputRegionId Field Functions 
     bool hasInputRegionId() const { return this->inputRegionId_ != nullptr;};
     void deleteInputRegionId() { this->inputRegionId_ = nullptr;};
-    inline string inputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
+    inline string getInputRegionId() const { DARABONBA_PTR_GET_DEFAULT(inputRegionId_, "") };
     inline CreateFileSystemRequest& setInputRegionId(string inputRegionId) { DARABONBA_PTR_SET_VALUE(inputRegionId_, inputRegionId) };
 
 
     // partitionNumber Field Functions 
     bool hasPartitionNumber() const { return this->partitionNumber_ != nullptr;};
     void deletePartitionNumber() { this->partitionNumber_ = nullptr;};
-    inline int32_t partitionNumber() const { DARABONBA_PTR_GET_DEFAULT(partitionNumber_, 0) };
+    inline int32_t getPartitionNumber() const { DARABONBA_PTR_GET_DEFAULT(partitionNumber_, 0) };
     inline CreateFileSystemRequest& setPartitionNumber(int32_t partitionNumber) { DARABONBA_PTR_SET_VALUE(partitionNumber_, partitionNumber) };
 
 
     // protocolType Field Functions 
     bool hasProtocolType() const { return this->protocolType_ != nullptr;};
     void deleteProtocolType() { this->protocolType_ = nullptr;};
-    inline string protocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+    inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
     inline CreateFileSystemRequest& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
     // provisionedThroughputInMiBps Field Functions 
     bool hasProvisionedThroughputInMiBps() const { return this->provisionedThroughputInMiBps_ != nullptr;};
     void deleteProvisionedThroughputInMiBps() { this->provisionedThroughputInMiBps_ = nullptr;};
-    inline int64_t provisionedThroughputInMiBps() const { DARABONBA_PTR_GET_DEFAULT(provisionedThroughputInMiBps_, 0L) };
+    inline int64_t getProvisionedThroughputInMiBps() const { DARABONBA_PTR_GET_DEFAULT(provisionedThroughputInMiBps_, 0L) };
     inline CreateFileSystemRequest& setProvisionedThroughputInMiBps(int64_t provisionedThroughputInMiBps) { DARABONBA_PTR_SET_VALUE(provisionedThroughputInMiBps_, provisionedThroughputInMiBps) };
 
 
     // spaceCapacity Field Functions 
     bool hasSpaceCapacity() const { return this->spaceCapacity_ != nullptr;};
     void deleteSpaceCapacity() { this->spaceCapacity_ = nullptr;};
-    inline int64_t spaceCapacity() const { DARABONBA_PTR_GET_DEFAULT(spaceCapacity_, 0L) };
+    inline int64_t getSpaceCapacity() const { DARABONBA_PTR_GET_DEFAULT(spaceCapacity_, 0L) };
     inline CreateFileSystemRequest& setSpaceCapacity(int64_t spaceCapacity) { DARABONBA_PTR_SET_VALUE(spaceCapacity_, spaceCapacity) };
 
 
     // storageSetName Field Functions 
     bool hasStorageSetName() const { return this->storageSetName_ != nullptr;};
     void deleteStorageSetName() { this->storageSetName_ = nullptr;};
-    inline string storageSetName() const { DARABONBA_PTR_GET_DEFAULT(storageSetName_, "") };
+    inline string getStorageSetName() const { DARABONBA_PTR_GET_DEFAULT(storageSetName_, "") };
     inline CreateFileSystemRequest& setStorageSetName(string storageSetName) { DARABONBA_PTR_SET_VALUE(storageSetName_, storageSetName) };
 
 
     // storageType Field Functions 
     bool hasStorageType() const { return this->storageType_ != nullptr;};
     void deleteStorageType() { this->storageType_ = nullptr;};
-    inline string storageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+    inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
     inline CreateFileSystemRequest& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
 
 
     // throughputMode Field Functions 
     bool hasThroughputMode() const { return this->throughputMode_ != nullptr;};
     void deleteThroughputMode() { this->throughputMode_ = nullptr;};
-    inline string throughputMode() const { DARABONBA_PTR_GET_DEFAULT(throughputMode_, "") };
+    inline string getThroughputMode() const { DARABONBA_PTR_GET_DEFAULT(throughputMode_, "") };
     inline CreateFileSystemRequest& setThroughputMode(string throughputMode) { DARABONBA_PTR_SET_VALUE(throughputMode_, throughputMode) };
 
 
     // zoneId Field Functions 
     bool hasZoneId() const { return this->zoneId_ != nullptr;};
     void deleteZoneId() { this->zoneId_ = nullptr;};
-    inline string zoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
     inline CreateFileSystemRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
 
 
   protected:
-    std::shared_ptr<string> dataRedundancyType_ = nullptr;
-    std::shared_ptr<string> dedicatedClusterId_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> dataRedundancyType_ {};
+    shared_ptr<string> dedicatedClusterId_ {};
+    shared_ptr<string> description_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileSystemName_ = nullptr;
+    shared_ptr<string> fileSystemName_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputRegionId_ = nullptr;
-    std::shared_ptr<int32_t> partitionNumber_ = nullptr;
+    shared_ptr<string> inputRegionId_ {};
+    shared_ptr<int32_t> partitionNumber_ {};
     // This parameter is required.
-    std::shared_ptr<string> protocolType_ = nullptr;
-    std::shared_ptr<int64_t> provisionedThroughputInMiBps_ = nullptr;
+    shared_ptr<string> protocolType_ {};
+    shared_ptr<int64_t> provisionedThroughputInMiBps_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> spaceCapacity_ = nullptr;
-    std::shared_ptr<string> storageSetName_ = nullptr;
+    shared_ptr<int64_t> spaceCapacity_ {};
+    shared_ptr<string> storageSetName_ {};
     // This parameter is required.
-    std::shared_ptr<string> storageType_ = nullptr;
-    std::shared_ptr<string> throughputMode_ = nullptr;
-    std::shared_ptr<string> zoneId_ = nullptr;
+    shared_ptr<string> storageType_ {};
+    shared_ptr<string> throughputMode_ {};
+    shared_ptr<string> zoneId_ {};
   };
 
   } // namespace Models
