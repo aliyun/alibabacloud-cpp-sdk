@@ -572,6 +572,44 @@ namespace CloudauthIntl20220809
       Models::FaceLivenessResponse faceLiveness(const Models::FaceLivenessRequest &request);
 
       /**
+       * @summary 人脸活体验证
+       *
+       * @param request FaceLivenessV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FaceLivenessV2Response
+       */
+      Models::FaceLivenessV2Response faceLivenessV2WithOptions(const Models::FaceLivenessV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸活体验证
+       *
+       * @param request FaceLivenessV2Request
+       * @return FaceLivenessV2Response
+       */
+      Models::FaceLivenessV2Response faceLivenessV2(const Models::FaceLivenessV2Request &request);
+
+      Models::FaceLivenessV2Response faceLivenessV2Advance(const Models::FaceLivenessV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸活体验证
+       *
+       * @param request FaceVerifyIntlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FaceVerifyIntlResponse
+       */
+      Models::FaceVerifyIntlResponse faceVerifyIntlWithOptions(const Models::FaceVerifyIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 人脸活体验证
+       *
+       * @param request FaceVerifyIntlRequest
+       * @return FaceVerifyIntlResponse
+       */
+      Models::FaceVerifyIntlResponse faceVerifyIntl(const Models::FaceVerifyIntlRequest &request);
+
+      Models::FaceVerifyIntlResponse faceVerifyIntlAdvance(const Models::FaceVerifyIntlAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @deprecated OpenAPI FraudResultCallBack is deprecated
        *
        * @summary Anti-Fraud Callback Interface

@@ -95,6 +95,14 @@
 #include <alibabacloud/models/FaceLivenessRequest.hpp>
 #include <alibabacloud/models/FaceLivenessResponseBody.hpp>
 #include <alibabacloud/models/FaceLivenessResponse.hpp>
+#include <alibabacloud/models/FaceLivenessV2Request.hpp>
+#include <alibabacloud/models/FaceLivenessV2AdvanceRequest.hpp>
+#include <alibabacloud/models/FaceLivenessV2ResponseBody.hpp>
+#include <alibabacloud/models/FaceLivenessV2Response.hpp>
+#include <alibabacloud/models/FaceVerifyIntlRequest.hpp>
+#include <alibabacloud/models/FaceVerifyIntlAdvanceRequest.hpp>
+#include <alibabacloud/models/FaceVerifyIntlResponseBody.hpp>
+#include <alibabacloud/models/FaceVerifyIntlResponse.hpp>
 #include <alibabacloud/models/FraudResultCallBackRequest.hpp>
 #include <alibabacloud/models/FraudResultCallBackResponseBody.hpp>
 #include <alibabacloud/models/FraudResultCallBackResponse.hpp>
