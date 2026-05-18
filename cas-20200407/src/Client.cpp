@@ -181,6 +181,64 @@ ApplyCertificateResponse Client::applyCertificate(const ApplyCertificateRequest 
 }
 
 /**
+ * @summary 批量更新通知状态
+ *
+ * @param request BatchUpdateNoticeStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchUpdateNoticeStatusResponse
+ */
+BatchUpdateNoticeStatusResponse Client::batchUpdateNoticeStatusWithOptions(const BatchUpdateNoticeStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIds()) {
+    query["Ids"] = request.getIds();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasNoticeBiz()) {
+    query["NoticeBiz"] = request.getNoticeBiz();
+  }
+
+  if (!!request.hasNoticeStatus()) {
+    query["NoticeStatus"] = request.getNoticeStatus();
+  }
+
+  if (!!request.hasSourceIp()) {
+    query["SourceIp"] = request.getSourceIp();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "BatchUpdateNoticeStatus"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchUpdateNoticeStatusResponse>();
+}
+
+/**
+ * @summary 批量更新通知状态
+ *
+ * @param request BatchUpdateNoticeStatusRequest
+ * @return BatchUpdateNoticeStatusResponse
+ */
+BatchUpdateNoticeStatusResponse Client::batchUpdateNoticeStatus(const BatchUpdateNoticeStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchUpdateNoticeStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Revokes an issued certificate and cancels the application order of the certificate.
  *
  * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Cert, cert_);
       DARABONBA_PTR_TO_JSON(CertChain, certChain_);
       DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_TO_JSON(CertSha2, certSha2_);
       DARABONBA_PTR_TO_JSON(City, city_);
       DARABONBA_PTR_TO_JSON(Common, common_);
       DARABONBA_PTR_TO_JSON(Country, country_);
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Cert, cert_);
       DARABONBA_PTR_FROM_JSON(CertChain, certChain_);
       DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
+      DARABONBA_PTR_FROM_JSON(CertSha2, certSha2_);
       DARABONBA_PTR_FROM_JSON(City, city_);
       DARABONBA_PTR_FROM_JSON(Common, common_);
       DARABONBA_PTR_FROM_JSON(Country, country_);
@@ -212,13 +214,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->algorithm_ == nullptr
-        && this->buyInAliyun_ == nullptr && this->cert_ == nullptr && this->certChain_ == nullptr && this->certIdentifier_ == nullptr && this->city_ == nullptr
-        && this->common_ == nullptr && this->country_ == nullptr && this->encryptCert_ == nullptr && this->encryptPrivateKey_ == nullptr && this->endDate_ == nullptr
-        && this->expired_ == nullptr && this->fingerprint_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr && this->issuer_ == nullptr
-        && this->key_ == nullptr && this->name_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->orderId_ == nullptr
-        && this->orgName_ == nullptr && this->province_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->sans_ == nullptr
-        && this->serialNo_ == nullptr && this->sha2_ == nullptr && this->signCert_ == nullptr && this->signPrivateKey_ == nullptr && this->startDate_ == nullptr
-        && this->tags_ == nullptr; };
+        && this->buyInAliyun_ == nullptr && this->cert_ == nullptr && this->certChain_ == nullptr && this->certIdentifier_ == nullptr && this->certSha2_ == nullptr
+        && this->city_ == nullptr && this->common_ == nullptr && this->country_ == nullptr && this->encryptCert_ == nullptr && this->encryptPrivateKey_ == nullptr
+        && this->endDate_ == nullptr && this->expired_ == nullptr && this->fingerprint_ == nullptr && this->id_ == nullptr && this->instanceId_ == nullptr
+        && this->issuer_ == nullptr && this->key_ == nullptr && this->name_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr
+        && this->orderId_ == nullptr && this->orgName_ == nullptr && this->province_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->sans_ == nullptr && this->serialNo_ == nullptr && this->sha2_ == nullptr && this->signCert_ == nullptr && this->signPrivateKey_ == nullptr
+        && this->startDate_ == nullptr && this->tags_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -254,6 +256,13 @@ namespace Models
     void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
     inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
     inline GetUserCertificateDetailResponseBody& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
+
+
+    // certSha2 Field Functions 
+    bool hasCertSha2() const { return this->certSha2_ != nullptr;};
+    void deleteCertSha2() { this->certSha2_ = nullptr;};
+    inline string getCertSha2() const { DARABONBA_PTR_GET_DEFAULT(certSha2_, "") };
+    inline GetUserCertificateDetailResponseBody& setCertSha2(string certSha2) { DARABONBA_PTR_SET_VALUE(certSha2_, certSha2) };
 
 
     // city Field Functions 
@@ -461,6 +470,7 @@ namespace Models
     shared_ptr<vector<GetUserCertificateDetailResponseBody::CertChain>> certChain_ {};
     // The certificate identifier. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
     shared_ptr<string> certIdentifier_ {};
+    shared_ptr<string> certSha2_ {};
     // The city of the company or organization to which the certificate purchaser belongs.
     shared_ptr<string> city_ {};
     // The primary domain name that is bound to the certificate.

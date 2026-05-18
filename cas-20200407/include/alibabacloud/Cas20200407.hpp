@@ -55,6 +55,23 @@ namespace Cas20200407
       Models::ApplyCertificateResponse applyCertificate(const Models::ApplyCertificateRequest &request);
 
       /**
+       * @summary 批量更新通知状态
+       *
+       * @param request BatchUpdateNoticeStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchUpdateNoticeStatusResponse
+       */
+      Models::BatchUpdateNoticeStatusResponse batchUpdateNoticeStatusWithOptions(const Models::BatchUpdateNoticeStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量更新通知状态
+       *
+       * @param request BatchUpdateNoticeStatusRequest
+       * @return BatchUpdateNoticeStatusResponse
+       */
+      Models::BatchUpdateNoticeStatusResponse batchUpdateNoticeStatus(const Models::BatchUpdateNoticeStatusRequest &request);
+
+      /**
        * @summary Revokes an issued certificate and cancels the application order of the certificate.
        *
        * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.

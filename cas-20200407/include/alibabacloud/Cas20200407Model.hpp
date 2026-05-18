@@ -8,6 +8,9 @@
 #include <alibabacloud/models/ApplyCertificateRequest.hpp>
 #include <alibabacloud/models/ApplyCertificateResponseBody.hpp>
 #include <alibabacloud/models/ApplyCertificateResponse.hpp>
+#include <alibabacloud/models/BatchUpdateNoticeStatusRequest.hpp>
+#include <alibabacloud/models/BatchUpdateNoticeStatusResponseBody.hpp>
+#include <alibabacloud/models/BatchUpdateNoticeStatusResponse.hpp>
 #include <alibabacloud/models/CancelCertificateForPackageRequestRequest.hpp>
 #include <alibabacloud/models/CancelCertificateForPackageRequestResponseBody.hpp>
 #include <alibabacloud/models/CancelCertificateForPackageRequestResponse.hpp>
