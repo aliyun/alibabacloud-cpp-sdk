@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Carrier, carrier_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_TO_JSON(DeploymentSetId, deploymentSetId_);
       DARABONBA_PTR_TO_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -68,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Carrier, carrier_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_FROM_JSON(DeploymentSetId, deploymentSetId_);
       DARABONBA_PTR_FROM_JSON(EnsRegionId, ensRegionId_);
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -285,14 +287,14 @@ namespace Models
 
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoReleaseTime_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->billingCycle_ == nullptr && this->carrier_ == nullptr
-        && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr && this->ensRegionId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
-        && this->instanceChargeStrategy_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->internetChargeType_ == nullptr
-        && this->internetMaxBandwidthOut_ == nullptr && this->ipType_ == nullptr && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr && this->launchTemplateId_ == nullptr
-        && this->launchTemplateName_ == nullptr && this->launchTemplateVersion_ == nullptr && this->netDistrictCode_ == nullptr && this->netWorkId_ == nullptr && this->password_ == nullptr
-        && this->passwordInherit_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr && this->publicIpIdentification_ == nullptr
-        && this->scheduleAreaLevel_ == nullptr && this->schedulingPriceStrategy_ == nullptr && this->schedulingStrategy_ == nullptr && this->securityId_ == nullptr && this->spotDuration_ == nullptr
-        && this->spotStrategy_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->uniqueSuffix_ == nullptr && this->userData_ == nullptr
-        && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr && this->vpdVSwitchIds_ == nullptr; };
+        && this->dataDisk_ == nullptr && this->deletionProtection_ == nullptr && this->deploymentSetId_ == nullptr && this->ensRegionId_ == nullptr && this->hostName_ == nullptr
+        && this->imageId_ == nullptr && this->instanceChargeStrategy_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceName_ == nullptr && this->instanceType_ == nullptr
+        && this->internetChargeType_ == nullptr && this->internetMaxBandwidthOut_ == nullptr && this->ipType_ == nullptr && this->ipv6AddressCount_ == nullptr && this->keyPairName_ == nullptr
+        && this->launchTemplateId_ == nullptr && this->launchTemplateName_ == nullptr && this->launchTemplateVersion_ == nullptr && this->netDistrictCode_ == nullptr && this->netWorkId_ == nullptr
+        && this->password_ == nullptr && this->passwordInherit_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->privateIpAddress_ == nullptr
+        && this->publicIpIdentification_ == nullptr && this->scheduleAreaLevel_ == nullptr && this->schedulingPriceStrategy_ == nullptr && this->schedulingStrategy_ == nullptr && this->securityId_ == nullptr
+        && this->spotDuration_ == nullptr && this->spotStrategy_ == nullptr && this->systemDisk_ == nullptr && this->tag_ == nullptr && this->uniqueSuffix_ == nullptr
+        && this->userData_ == nullptr && this->vSwitchId_ == nullptr && this->vpdId_ == nullptr && this->vpdVSwitchIds_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -349,6 +351,13 @@ namespace Models
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
     inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
     inline RunInstancesRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
+
+
+    // deploymentSetId Field Functions 
+    bool hasDeploymentSetId() const { return this->deploymentSetId_ != nullptr;};
+    void deleteDeploymentSetId() { this->deploymentSetId_ = nullptr;};
+    inline string getDeploymentSetId() const { DARABONBA_PTR_GET_DEFAULT(deploymentSetId_, "") };
+    inline RunInstancesRequest& setDeploymentSetId(string deploymentSetId) { DARABONBA_PTR_SET_VALUE(deploymentSetId_, deploymentSetId) };
 
 
     // ensRegionId Field Functions 
@@ -642,6 +651,7 @@ namespace Models
     // The specifications of data disks.
     shared_ptr<vector<RunInstancesRequest::DataDisk>> dataDisk_ {};
     shared_ptr<bool> deletionProtection_ {};
+    shared_ptr<string> deploymentSetId_ {};
     // The ID of the node.
     // 
     // >  This parameter is required if ScheduleAreaLevel is set to Region and is not available if ScheduleAreaLevel is set to other values.

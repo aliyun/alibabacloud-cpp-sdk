@@ -16583,6 +16583,10 @@ RunInstancesResponse Client::runInstancesWithOptions(const RunInstancesRequest &
     query["DeletionProtection"] = request.getDeletionProtection();
   }
 
+  if (!!request.hasDeploymentSetId()) {
+    query["DeploymentSetId"] = request.getDeploymentSetId();
+  }
+
   if (!!request.hasEnsRegionId()) {
     query["EnsRegionId"] = request.getEnsRegionId();
   }
