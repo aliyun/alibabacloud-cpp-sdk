@@ -432,6 +432,72 @@ ChangeMdsCubeTaskStatusResponse Client::changeMdsCubeTaskStatus(const ChangeMdsC
 }
 
 /**
+ * @summary 用户校验
+ *
+ * @param request CheckUserAuthToMsceneRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckUserAuthToMsceneResponse
+ */
+CheckUserAuthToMsceneResponse Client::checkUserAuthToMsceneWithOptions(const CheckUserAuthToMsceneRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppId()) {
+    body["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasAuthToken()) {
+    body["AuthToken"] = request.getAuthToken();
+  }
+
+  if (!!request.hasMiniProgramId()) {
+    body["MiniProgramId"] = request.getMiniProgramId();
+  }
+
+  if (!!request.hasOpenUid()) {
+    body["OpenUid"] = request.getOpenUid();
+  }
+
+  if (!!request.hasPlatformId()) {
+    body["PlatformId"] = request.getPlatformId();
+  }
+
+  if (!!request.hasTenantId()) {
+    body["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CheckUserAuthToMscene"},
+    {"version" , "2020-10-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckUserAuthToMsceneResponse>();
+}
+
+/**
+ * @summary 用户校验
+ *
+ * @param request CheckUserAuthToMsceneRequest
+ * @return CheckUserAuthToMsceneResponse
+ */
+CheckUserAuthToMsceneResponse Client::checkUserAuthToMscene(const CheckUserAuthToMsceneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkUserAuthToMsceneWithOptions(request, runtime);
+}
+
+/**
  * @param request CopyMcdpGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CopyMcdpGroupResponse

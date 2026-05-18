@@ -132,6 +132,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
             DARABONBA_PTR_TO_JSON(MiniResourceId, miniResourceId_);
             DARABONBA_PTR_TO_JSON(PublishStatus, publishStatus_);
+            DARABONBA_PTR_TO_JSON(PublishStatusDesc, publishStatusDesc_);
             DARABONBA_PTR_TO_JSON(QrCodeUrl, qrCodeUrl_);
             DARABONBA_PTR_TO_JSON(ReviewTargetType, reviewTargetType_);
             DARABONBA_PTR_TO_JSON(SubType, subType_);
@@ -150,6 +151,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
             DARABONBA_PTR_FROM_JSON(MiniResourceId, miniResourceId_);
             DARABONBA_PTR_FROM_JSON(PublishStatus, publishStatus_);
+            DARABONBA_PTR_FROM_JSON(PublishStatusDesc, publishStatusDesc_);
             DARABONBA_PTR_FROM_JSON(QrCodeUrl, qrCodeUrl_);
             DARABONBA_PTR_FROM_JSON(ReviewTargetType, reviewTargetType_);
             DARABONBA_PTR_FROM_JSON(SubType, subType_);
@@ -170,7 +172,8 @@ namespace Models
           virtual bool empty() const override { return this->autoOnline_ == nullptr
         && this->category_ == nullptr && this->detail_ == nullptr && this->gameMaker_ == nullptr && this->iconUrl_ == nullptr && this->introduction_ == nullptr
         && this->miniProgramCode_ == nullptr && this->miniProgramInfoId_ == nullptr && this->miniProgramName_ == nullptr && this->miniResourceId_ == nullptr && this->publishStatus_ == nullptr
-        && this->qrCodeUrl_ == nullptr && this->reviewTargetType_ == nullptr && this->subType_ == nullptr && this->targetId_ == nullptr && this->version_ == nullptr; };
+        && this->publishStatusDesc_ == nullptr && this->qrCodeUrl_ == nullptr && this->reviewTargetType_ == nullptr && this->subType_ == nullptr && this->targetId_ == nullptr
+        && this->version_ == nullptr; };
           // autoOnline Field Functions 
           bool hasAutoOnline() const { return this->autoOnline_ != nullptr;};
           void deleteAutoOnline() { this->autoOnline_ = nullptr;};
@@ -248,6 +251,13 @@ namespace Models
           inline TargetDetail& setPublishStatus(int32_t publishStatus) { DARABONBA_PTR_SET_VALUE(publishStatus_, publishStatus) };
 
 
+          // publishStatusDesc Field Functions 
+          bool hasPublishStatusDesc() const { return this->publishStatusDesc_ != nullptr;};
+          void deletePublishStatusDesc() { this->publishStatusDesc_ = nullptr;};
+          inline string getPublishStatusDesc() const { DARABONBA_PTR_GET_DEFAULT(publishStatusDesc_, "") };
+          inline TargetDetail& setPublishStatusDesc(string publishStatusDesc) { DARABONBA_PTR_SET_VALUE(publishStatusDesc_, publishStatusDesc) };
+
+
           // qrCodeUrl Field Functions 
           bool hasQrCodeUrl() const { return this->qrCodeUrl_ != nullptr;};
           void deleteQrCodeUrl() { this->qrCodeUrl_ = nullptr;};
@@ -295,6 +305,7 @@ namespace Models
           shared_ptr<string> miniProgramName_ {};
           shared_ptr<int64_t> miniResourceId_ {};
           shared_ptr<int32_t> publishStatus_ {};
+          shared_ptr<string> publishStatusDesc_ {};
           shared_ptr<string> qrCodeUrl_ {};
           shared_ptr<string> reviewTargetType_ {};
           shared_ptr<int32_t> subType_ {};

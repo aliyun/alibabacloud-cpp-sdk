@@ -20,6 +20,9 @@
 #include <alibabacloud/models/ChangeMdsCubeTaskStatusRequest.hpp>
 #include <alibabacloud/models/ChangeMdsCubeTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/ChangeMdsCubeTaskStatusResponse.hpp>
+#include <alibabacloud/models/CheckUserAuthToMsceneRequest.hpp>
+#include <alibabacloud/models/CheckUserAuthToMsceneResponseBody.hpp>
+#include <alibabacloud/models/CheckUserAuthToMsceneResponse.hpp>
 #include <alibabacloud/models/CopyMcdpGroupRequest.hpp>
 #include <alibabacloud/models/CopyMcdpGroupResponseBody.hpp>
 #include <alibabacloud/models/CopyMcdpGroupResponse.hpp>

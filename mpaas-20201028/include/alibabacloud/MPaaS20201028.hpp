@@ -99,6 +99,23 @@ namespace MPaaS20201028
       Models::ChangeMdsCubeTaskStatusResponse changeMdsCubeTaskStatus(const Models::ChangeMdsCubeTaskStatusRequest &request);
 
       /**
+       * @summary 用户校验
+       *
+       * @param request CheckUserAuthToMsceneRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckUserAuthToMsceneResponse
+       */
+      Models::CheckUserAuthToMsceneResponse checkUserAuthToMsceneWithOptions(const Models::CheckUserAuthToMsceneRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 用户校验
+       *
+       * @param request CheckUserAuthToMsceneRequest
+       * @return CheckUserAuthToMsceneResponse
+       */
+      Models::CheckUserAuthToMsceneResponse checkUserAuthToMscene(const Models::CheckUserAuthToMsceneRequest &request);
+
+      /**
        * @param request CopyMcdpGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CopyMcdpGroupResponse
