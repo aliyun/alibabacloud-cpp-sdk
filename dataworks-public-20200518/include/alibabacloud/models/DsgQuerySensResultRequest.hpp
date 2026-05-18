@@ -28,6 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SensitiveName, sensitiveName_);
       DARABONBA_PTR_TO_JSON(Table, table_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(endDate, endDate_);
+      DARABONBA_PTR_TO_JSON(startDate, startDate_);
     };
     friend void from_json(const Darabonba::Json& j, DsgQuerySensResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Col, col_);
@@ -45,6 +47,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SensitiveName, sensitiveName_);
       DARABONBA_PTR_FROM_JSON(Table, table_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(endDate, endDate_);
+      DARABONBA_PTR_FROM_JSON(startDate, startDate_);
     };
     DsgQuerySensResultRequest() = default ;
     DsgQuerySensResultRequest(const DsgQuerySensResultRequest &) = default ;
@@ -60,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->col_ == nullptr
         && this->dbType_ == nullptr && this->level_ == nullptr && this->nodeName_ == nullptr && this->order_ == nullptr && this->orderField_ == nullptr
         && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->projectName_ == nullptr && this->schemaName_ == nullptr && this->sensStatus_ == nullptr
-        && this->sensitiveId_ == nullptr && this->sensitiveName_ == nullptr && this->table_ == nullptr && this->tenantId_ == nullptr; };
+        && this->sensitiveId_ == nullptr && this->sensitiveName_ == nullptr && this->table_ == nullptr && this->tenantId_ == nullptr && this->endDate_ == nullptr
+        && this->startDate_ == nullptr; };
     // col Field Functions 
     bool hasCol() const { return this->col_ != nullptr;};
     void deleteCol() { this->col_ = nullptr;};
@@ -166,6 +171,20 @@ namespace Models
     inline DsgQuerySensResultRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // endDate Field Functions 
+    bool hasEndDate() const { return this->endDate_ != nullptr;};
+    void deleteEndDate() { this->endDate_ = nullptr;};
+    inline string getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, "") };
+    inline DsgQuerySensResultRequest& setEndDate(string endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+
+
+    // startDate Field Functions 
+    bool hasStartDate() const { return this->startDate_ != nullptr;};
+    void deleteStartDate() { this->startDate_ = nullptr;};
+    inline string getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, "") };
+    inline DsgQuerySensResultRequest& setStartDate(string startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
+
+
   protected:
     // The name of the field.
     shared_ptr<string> col_ {};
@@ -209,9 +228,9 @@ namespace Models
     // The name of the table.
     shared_ptr<string> table_ {};
     // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
-    // 
-    // This parameter is required.
     shared_ptr<string> tenantId_ {};
+    shared_ptr<string> endDate_ {};
+    shared_ptr<string> startDate_ {};
   };
 
   } // namespace Models

@@ -1706,7 +1706,6 @@ namespace DataworksPublic20200518
       /**
        * @summary Queries a list of users or roles of the current tenant.
        *
-       * @param request DsgUserGroupQueryUserListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DsgUserGroupQueryUserListResponse
        */
@@ -4585,7 +4584,6 @@ namespace DataworksPublic20200518
       /**
        * @summary Queries the built-in sensitive data identification rule that is used to configure a sensitive field.
        *
-       * @param request QueryRecognizeRulesTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryRecognizeRulesTypeResponse
        */

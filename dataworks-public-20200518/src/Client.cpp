@@ -127,11 +127,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -2246,7 +2248,7 @@ CreateImportMigrationResponse Client::createImportMigrationAdvance(const CreateI
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -3238,7 +3240,7 @@ CreateResourceFileResponse Client::createResourceFileAdvance(const CreateResourc
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -5403,6 +5405,14 @@ DsgQuerySensResultResponse Client::dsgQuerySensResultWithOptions(const DsgQueryS
     body["TenantId"] = request.getTenantId();
   }
 
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
@@ -5895,7 +5905,6 @@ DsgUserGroupQueryListResponse Client::dsgUserGroupQueryList(const DsgUserGroupQu
 /**
  * @summary Queries a list of users or roles of the current tenant.
  *
- * @param request DsgUserGroupQueryUserListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DsgUserGroupQueryUserListResponse
  */
@@ -14270,7 +14279,6 @@ QueryRecognizeRuleDetailResponse Client::queryRecognizeRuleDetail(const QueryRec
 /**
  * @summary Queries the built-in sensitive data identification rule that is used to configure a sensitive field.
  *
- * @param request QueryRecognizeRulesTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryRecognizeRulesTypeResponse
  */

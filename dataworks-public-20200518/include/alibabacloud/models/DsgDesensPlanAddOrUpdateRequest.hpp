@@ -42,7 +42,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SceneIds, sceneIds_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(columns, columns_);
-        DARABONBA_PTR_TO_JSON(emptyNotDesesn, emptyNotDesesn_);
+        DARABONBA_PTR_TO_JSON(emptyNotDesens, emptyNotDesens_);
       };
       friend void from_json(const Darabonba::Json& j, DesensRules& obj) { 
         DARABONBA_PTR_FROM_JSON(CheckWatermark, checkWatermark_);
@@ -54,7 +54,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(SceneIds, sceneIds_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(columns, columns_);
-        DARABONBA_PTR_FROM_JSON(emptyNotDesesn, emptyNotDesesn_);
+        DARABONBA_PTR_FROM_JSON(emptyNotDesens, emptyNotDesens_);
       };
       DesensRules() = default ;
       DesensRules(const DesensRules &) = default ;
@@ -191,7 +191,7 @@ namespace Models
 
       virtual bool empty() const override { return this->checkWatermark_ == nullptr
         && this->dataType_ == nullptr && this->desensPlan_ == nullptr && this->id_ == nullptr && this->owner_ == nullptr && this->ruleName_ == nullptr
-        && this->sceneIds_ == nullptr && this->status_ == nullptr && this->columns_ == nullptr && this->emptyNotDesesn_ == nullptr; };
+        && this->sceneIds_ == nullptr && this->status_ == nullptr && this->columns_ == nullptr && this->emptyNotDesens_ == nullptr; };
       // checkWatermark Field Functions 
       bool hasCheckWatermark() const { return this->checkWatermark_ != nullptr;};
       void deleteCheckWatermark() { this->checkWatermark_ = nullptr;};
@@ -261,11 +261,11 @@ namespace Models
       inline DesensRules& setColumns(vector<DesensRules::Columns> && columns) { DARABONBA_PTR_SET_RVALUE(columns_, columns) };
 
 
-      // emptyNotDesesn Field Functions 
-      bool hasEmptyNotDesesn() const { return this->emptyNotDesesn_ != nullptr;};
-      void deleteEmptyNotDesesn() { this->emptyNotDesesn_ = nullptr;};
-      inline bool getEmptyNotDesesn() const { DARABONBA_PTR_GET_DEFAULT(emptyNotDesesn_, false) };
-      inline DesensRules& setEmptyNotDesesn(bool emptyNotDesesn) { DARABONBA_PTR_SET_VALUE(emptyNotDesesn_, emptyNotDesesn) };
+      // emptyNotDesens Field Functions 
+      bool hasEmptyNotDesens() const { return this->emptyNotDesens_ != nullptr;};
+      void deleteEmptyNotDesens() { this->emptyNotDesens_ = nullptr;};
+      inline bool getEmptyNotDesens() const { DARABONBA_PTR_GET_DEFAULT(emptyNotDesens_, false) };
+      inline DesensRules& setEmptyNotDesens(bool emptyNotDesens) { DARABONBA_PTR_SET_VALUE(emptyNotDesens_, emptyNotDesens) };
 
 
     protected:
@@ -300,7 +300,7 @@ namespace Models
       // *   1: effective
       shared_ptr<int32_t> status_ {};
       shared_ptr<vector<DesensRules::Columns>> columns_ {};
-      shared_ptr<bool> emptyNotDesesn_ {};
+      shared_ptr<bool> emptyNotDesens_ {};
     };
 
     virtual bool empty() const override { return this->desensRules_ == nullptr; };
