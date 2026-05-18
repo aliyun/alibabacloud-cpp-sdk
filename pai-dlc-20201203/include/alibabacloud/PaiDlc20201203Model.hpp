@@ -80,7 +80,6 @@
 #include <alibabacloud/models/CreateTensorboardRequest.hpp>
 #include <alibabacloud/models/CreateTensorboardResponseBody.hpp>
 #include <alibabacloud/models/CreateTensorboardResponse.hpp>
-#include <alibabacloud/models/DeleteJobRequest.hpp>
 #include <alibabacloud/models/DeleteJobResponseBody.hpp>
 #include <alibabacloud/models/DeleteJobResponse.hpp>
 #include <alibabacloud/models/DeleteJobTemplateRequest.hpp>
@@ -149,7 +148,6 @@
 #include <alibabacloud/models/StartTensorboardRequest.hpp>
 #include <alibabacloud/models/StartTensorboardResponseBody.hpp>
 #include <alibabacloud/models/StartTensorboardResponse.hpp>
-#include <alibabacloud/models/StopJobRequest.hpp>
 #include <alibabacloud/models/StopJobResponseBody.hpp>
 #include <alibabacloud/models/StopJobResponse.hpp>
 #include <alibabacloud/models/StopTensorboardRequest.hpp>

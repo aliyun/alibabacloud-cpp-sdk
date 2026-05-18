@@ -419,13 +419,11 @@ CreateTensorboardResponse Client::createTensorboard(const CreateTensorboardReque
 /**
  * @summary Deletes a completed or stopped job.
  *
- * @param request DeleteJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteJobResponse
  */
-DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const DeleteJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -446,13 +444,12 @@ DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const Delete
 /**
  * @summary Deletes a completed or stopped job.
  *
- * @param request DeleteJobRequest
  * @return DeleteJobResponse
  */
-DeleteJobResponse Client::deleteJob(const string &JobId, const DeleteJobRequest &request) {
+DeleteJobResponse Client::deleteJob(const string &JobId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return deleteJobWithOptions(JobId, request, headers, runtime);
+  return deleteJobWithOptions(JobId, headers, runtime);
 }
 
 /**
@@ -1812,13 +1809,11 @@ StartTensorboardResponse Client::startTensorboard(const string &TensorboardId, c
 /**
  * @summary Stops a running job.
  *
- * @param request StopJobRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopJobResponse
  */
-StopJobResponse Client::stopJobWithOptions(const string &JobId, const StopJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+StopJobResponse Client::stopJobWithOptions(const string &JobId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers}
   }).get<map<string, map<string, string>>>());
@@ -1839,13 +1834,12 @@ StopJobResponse Client::stopJobWithOptions(const string &JobId, const StopJobReq
 /**
  * @summary Stops a running job.
  *
- * @param request StopJobRequest
  * @return StopJobResponse
  */
-StopJobResponse Client::stopJob(const string &JobId, const StopJobRequest &request) {
+StopJobResponse Client::stopJob(const string &JobId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return stopJobWithOptions(JobId, request, headers, runtime);
+  return stopJobWithOptions(JobId, headers, runtime);
 }
 
 /**
