@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_QUERYAIVOICEAGENTDETAILNEWRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -391,48 +392,6 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          class MappingTag : public Darabonba::Model {
-          public:
-            friend void to_json(Darabonba::Json& j, const MappingTag& obj) { 
-              DARABONBA_PTR_TO_JSON(Desc, desc_);
-              DARABONBA_PTR_TO_JSON(Tag, tag_);
-            };
-            friend void from_json(const Darabonba::Json& j, MappingTag& obj) { 
-              DARABONBA_PTR_FROM_JSON(Desc, desc_);
-              DARABONBA_PTR_FROM_JSON(Tag, tag_);
-            };
-            MappingTag() = default ;
-            MappingTag(const MappingTag &) = default ;
-            MappingTag(MappingTag &&) = default ;
-            MappingTag(const Darabonba::Json & obj) { from_json(obj, *this); };
-            virtual ~MappingTag() = default ;
-            MappingTag& operator=(const MappingTag &) = default ;
-            MappingTag& operator=(MappingTag &&) = default ;
-            virtual void validate() const override {
-            };
-            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->desc_ == nullptr
-        && this->tag_ == nullptr; };
-            // desc Field Functions 
-            bool hasDesc() const { return this->desc_ != nullptr;};
-            void deleteDesc() { this->desc_ = nullptr;};
-            inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
-            inline MappingTag& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
-
-
-            // tag Field Functions 
-            bool hasTag() const { return this->tag_ != nullptr;};
-            void deleteTag() { this->tag_ = nullptr;};
-            inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
-            inline MappingTag& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-
-
-          protected:
-            shared_ptr<string> desc_ {};
-            shared_ptr<string> tag_ {};
-          };
-
           class DefaultTag : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const DefaultTag& obj) { 
@@ -489,15 +448,15 @@ namespace Models
           // mappingTag Field Functions 
           bool hasMappingTag() const { return this->mappingTag_ != nullptr;};
           void deleteMappingTag() { this->mappingTag_ = nullptr;};
-          inline const CallResultTagConfig::MappingTag & getMappingTag() const { DARABONBA_PTR_GET_CONST(mappingTag_, CallResultTagConfig::MappingTag) };
-          inline CallResultTagConfig::MappingTag getMappingTag() { DARABONBA_PTR_GET(mappingTag_, CallResultTagConfig::MappingTag) };
-          inline CallResultTagConfig& setMappingTag(const CallResultTagConfig::MappingTag & mappingTag) { DARABONBA_PTR_SET_VALUE(mappingTag_, mappingTag) };
-          inline CallResultTagConfig& setMappingTag(CallResultTagConfig::MappingTag && mappingTag) { DARABONBA_PTR_SET_RVALUE(mappingTag_, mappingTag) };
+          inline const map<string, string> & getMappingTag() const { DARABONBA_PTR_GET_CONST(mappingTag_, map<string, string>) };
+          inline map<string, string> getMappingTag() { DARABONBA_PTR_GET(mappingTag_, map<string, string>) };
+          inline CallResultTagConfig& setMappingTag(const map<string, string> & mappingTag) { DARABONBA_PTR_SET_VALUE(mappingTag_, mappingTag) };
+          inline CallResultTagConfig& setMappingTag(map<string, string> && mappingTag) { DARABONBA_PTR_SET_RVALUE(mappingTag_, mappingTag) };
 
 
         protected:
           shared_ptr<CallResultTagConfig::DefaultTag> defaultTag_ {};
-          shared_ptr<CallResultTagConfig::MappingTag> mappingTag_ {};
+          shared_ptr<map<string, string>> mappingTag_ {};
         };
 
         virtual bool empty() const override { return this->callResultTagConfig_ == nullptr

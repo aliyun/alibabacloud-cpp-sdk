@@ -44,8 +44,8 @@ namespace Models
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
-    inline int64_t getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, 0L) };
-    inline PageQueryAgentListNewRequest& setAgentId(int64_t agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline PageQueryAgentListNewRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
     // agentName Field Functions 
@@ -85,7 +85,7 @@ namespace Models
 
   protected:
     // Agent ID
-    shared_ptr<int64_t> agentId_ {};
+    shared_ptr<string> agentId_ {};
     shared_ptr<string> agentName_ {};
     shared_ptr<bool> isAvailable_ {};
     shared_ptr<int64_t> pageIndex_ {};

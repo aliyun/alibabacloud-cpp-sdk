@@ -38,28 +38,29 @@ namespace Models
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
-    inline int64_t getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, 0L) };
-    inline QueryAiVoiceAgentDetailNewRequest& setAgentId(int64_t agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
+    inline string getAgentId() const { DARABONBA_PTR_GET_DEFAULT(agentId_, "") };
+    inline QueryAiVoiceAgentDetailNewRequest& setAgentId(string agentId) { DARABONBA_PTR_SET_VALUE(agentId_, agentId) };
 
 
     // branchId Field Functions 
     bool hasBranchId() const { return this->branchId_ != nullptr;};
     void deleteBranchId() { this->branchId_ = nullptr;};
-    inline int64_t getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, 0L) };
-    inline QueryAiVoiceAgentDetailNewRequest& setBranchId(int64_t branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+    inline string getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, "") };
+    inline QueryAiVoiceAgentDetailNewRequest& setBranchId(string branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline int64_t getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, 0L) };
-    inline QueryAiVoiceAgentDetailNewRequest& setVersionId(int64_t versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline QueryAiVoiceAgentDetailNewRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
   protected:
-    shared_ptr<int64_t> agentId_ {};
-    shared_ptr<int64_t> branchId_ {};
-    shared_ptr<int64_t> versionId_ {};
+    // This parameter is required.
+    shared_ptr<string> agentId_ {};
+    shared_ptr<string> branchId_ {};
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models
