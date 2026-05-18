@@ -329,6 +329,23 @@ namespace Dm20151123
       Models::CreateTagResponse createTag(const Models::CreateTagRequest &request);
 
       /**
+       * @summary 创建模板
+       *
+       * @param request CreateTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplateWithOptions(const Models::CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模板
+       *
+       * @param request CreateTemplateRequest
+       * @return CreateTemplateResponse
+       */
+      Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
+
+      /**
        * @summary Create User\\"s Invalid Address
        *
        * @param request CreateUserSuppressionRequest

@@ -56,6 +56,9 @@
 #include <alibabacloud/models/CreateTagRequest.hpp>
 #include <alibabacloud/models/CreateTagResponseBody.hpp>
 #include <alibabacloud/models/CreateTagResponse.hpp>
+#include <alibabacloud/models/CreateTemplateRequest.hpp>
+#include <alibabacloud/models/CreateTemplateResponseBody.hpp>
+#include <alibabacloud/models/CreateTemplateResponse.hpp>
 #include <alibabacloud/models/CreateUserSuppressionRequest.hpp>
 #include <alibabacloud/models/CreateUserSuppressionResponseBody.hpp>
 #include <alibabacloud/models/CreateUserSuppressionResponse.hpp>

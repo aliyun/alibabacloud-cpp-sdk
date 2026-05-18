@@ -1140,6 +1140,92 @@ CreateTagResponse Client::createTag(const CreateTagRequest &request) {
 }
 
 /**
+ * @summary 创建模板
+ *
+ * @param request CreateTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFromType()) {
+    query["FromType"] = request.getFromType();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSmsContent()) {
+    query["SmsContent"] = request.getSmsContent();
+  }
+
+  if (!!request.hasSmsType()) {
+    query["SmsType"] = request.getSmsType();
+  }
+
+  if (!!request.hasTemplateName()) {
+    query["TemplateName"] = request.getTemplateName();
+  }
+
+  if (!!request.hasTemplateNickName()) {
+    query["TemplateNickName"] = request.getTemplateNickName();
+  }
+
+  if (!!request.hasTemplateSubject()) {
+    query["TemplateSubject"] = request.getTemplateSubject();
+  }
+
+  if (!!request.hasTemplateText()) {
+    query["TemplateText"] = request.getTemplateText();
+  }
+
+  if (!!request.hasTemplateType()) {
+    query["TemplateType"] = request.getTemplateType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateTemplate"},
+    {"version" , "2015-11-23"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTemplateResponse>();
+}
+
+/**
+ * @summary 创建模板
+ *
+ * @param request CreateTemplateRequest
+ * @return CreateTemplateResponse
+ */
+CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary Create User\\"s Invalid Address
  *
  * @param request CreateUserSuppressionRequest
