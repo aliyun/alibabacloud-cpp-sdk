@@ -693,6 +693,56 @@ AddContainerPluginRuleResponse Client::addContainerPluginRule(const AddContainer
 }
 
 /**
+ * @summary 创建文件防护规则
+ *
+ * @param request AddFileProtectBindMachineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddFileProtectBindMachineResponse
+ */
+AddFileProtectBindMachineResponse Client::addFileProtectBindMachineWithOptions(const AddFileProtectBindMachineRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertUuids()) {
+    query["AlertUuids"] = request.getAlertUuids();
+  }
+
+  if (!!request.hasBlockUuids()) {
+    query["BlockUuids"] = request.getBlockUuids();
+  }
+
+  if (!!request.hasNoneUuids()) {
+    query["NoneUuids"] = request.getNoneUuids();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddFileProtectBindMachine"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddFileProtectBindMachineResponse>();
+}
+
+/**
+ * @summary 创建文件防护规则
+ *
+ * @param request AddFileProtectBindMachineRequest
+ * @return AddFileProtectBindMachineResponse
+ */
+AddFileProtectBindMachineResponse Client::addFileProtectBindMachine(const AddFileProtectBindMachineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addFileProtectBindMachineWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an IDC probe to add assets in a data center to Security Center and manage the assets by using the Security Center console.
  *
  * @description Security Center allows you to create an IDC probe only on servers on which the Security Center agent is installed.
@@ -3584,6 +3634,94 @@ CreateFileDetectUploadUrlResponse Client::createFileDetectUploadUrlWithOptions(c
 CreateFileDetectUploadUrlResponse Client::createFileDetectUploadUrl(const CreateFileDetectUploadUrlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createFileDetectUploadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建文件防护规则
+ *
+ * @param request CreateFileProtectClientRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateFileProtectClientRuleResponse
+ */
+CreateFileProtectClientRuleResponse Client::createFileProtectClientRuleWithOptions(const CreateFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevel()) {
+    query["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasExcludeUsers()) {
+    query["ExcludeUsers"] = request.getExcludeUsers();
+  }
+
+  if (!!request.hasFileOps()) {
+    query["FileOps"] = request.getFileOps();
+  }
+
+  if (!!request.hasFilePaths()) {
+    query["FilePaths"] = request.getFilePaths();
+  }
+
+  if (!!request.hasFileTypes()) {
+    query["FileTypes"] = request.getFileTypes();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasProcPaths()) {
+    query["ProcPaths"] = request.getProcPaths();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.getRuleAction();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasSwitchId()) {
+    query["SwitchId"] = request.getSwitchId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateFileProtectClientRule"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateFileProtectClientRuleResponse>();
+}
+
+/**
+ * @summary 创建文件防护规则
+ *
+ * @param request CreateFileProtectClientRuleRequest
+ * @return CreateFileProtectClientRuleResponse
+ */
+CreateFileProtectClientRuleResponse Client::createFileProtectClientRule(const CreateFileProtectClientRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createFileProtectClientRuleWithOptions(request, runtime);
 }
 
 /**
@@ -6822,6 +6960,72 @@ DeleteDingTalkResponse Client::deleteDingTalkWithOptions(const DeleteDingTalkReq
 DeleteDingTalkResponse Client::deleteDingTalk(const DeleteDingTalkRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteDingTalkWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除文件防护规则
+ *
+ * @param request DeleteFileProtectClientRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFileProtectClientRuleResponse
+ */
+DeleteFileProtectClientRuleResponse Client::deleteFileProtectClientRuleWithOptions(const DeleteFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevel()) {
+    query["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasExcludeIdList()) {
+    query["ExcludeIdList"] = request.getExcludeIdList();
+  }
+
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.getIdList();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.getRuleAction();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSelectAll()) {
+    query["SelectAll"] = request.getSelectAll();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteFileProtectClientRule"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFileProtectClientRuleResponse>();
+}
+
+/**
+ * @summary 删除文件防护规则
+ *
+ * @param request DeleteFileProtectClientRuleRequest
+ * @return DeleteFileProtectClientRuleResponse
+ */
+DeleteFileProtectClientRuleResponse Client::deleteFileProtectClientRule(const DeleteFileProtectClientRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteFileProtectClientRuleWithOptions(request, runtime);
 }
 
 /**
@@ -29445,6 +29649,175 @@ GetFileDetectResultResponse Client::getFileDetectResult(const GetFileDetectResul
 }
 
 /**
+ * @summary 获取文件防护事件
+ *
+ * @param request GetFileProtectClientEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFileProtectClientEventResponse
+ */
+GetFileProtectClientEventResponse Client::getFileProtectClientEventWithOptions(const GetFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFileProtectClientEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFileProtectClientEventResponse>();
+}
+
+/**
+ * @summary 获取文件防护事件
+ *
+ * @param request GetFileProtectClientEventRequest
+ * @return GetFileProtectClientEventResponse
+ */
+GetFileProtectClientEventResponse Client::getFileProtectClientEvent(const GetFileProtectClientEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFileProtectClientEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件防护事件大盘
+ *
+ * @param request GetFileProtectClientEventDashboardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFileProtectClientEventDashboardResponse
+ */
+GetFileProtectClientEventDashboardResponse Client::getFileProtectClientEventDashboardWithOptions(const GetFileProtectClientEventDashboardRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFileProtectClientEventDashboard"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFileProtectClientEventDashboardResponse>();
+}
+
+/**
+ * @summary 获取文件防护事件大盘
+ *
+ * @param request GetFileProtectClientEventDashboardRequest
+ * @return GetFileProtectClientEventDashboardResponse
+ */
+GetFileProtectClientEventDashboardResponse Client::getFileProtectClientEventDashboard(const GetFileProtectClientEventDashboardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFileProtectClientEventDashboardWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件保护规则
+ *
+ * @param request GetFileProtectClientRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFileProtectClientRuleResponse
+ */
+GetFileProtectClientRuleResponse Client::getFileProtectClientRuleWithOptions(const GetFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetFileProtectClientRule"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFileProtectClientRuleResponse>();
+}
+
+/**
+ * @summary 获取文件保护规则
+ *
+ * @param request GetFileProtectClientRuleRequest
+ * @return GetFileProtectClientRuleResponse
+ */
+GetFileProtectClientRuleResponse Client::getFileProtectClientRule(const GetFileProtectClientRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFileProtectClientRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件防护规则大盘
+ *
+ * @param request GetFileProtectClientRuleDashboardRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetFileProtectClientRuleDashboardResponse
+ */
+GetFileProtectClientRuleDashboardResponse Client::getFileProtectClientRuleDashboardWithOptions(const GetFileProtectClientRuleDashboardRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetFileProtectClientRuleDashboard"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetFileProtectClientRuleDashboardResponse>();
+}
+
+/**
+ * @summary 获取文件防护规则大盘
+ *
+ * @param request GetFileProtectClientRuleDashboardRequest
+ * @return GetFileProtectClientRuleDashboardResponse
+ */
+GetFileProtectClientRuleDashboardResponse Client::getFileProtectClientRuleDashboard(const GetFileProtectClientRuleDashboardRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getFileProtectClientRuleDashboardWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -36055,6 +36428,179 @@ ListDockerhubImageResponse Client::listDockerhubImageWithOptions(const ListDocke
 ListDockerhubImageResponse Client::listDockerhubImage(const ListDockerhubImageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listDockerhubImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取绑定防篡改机器列表
+ *
+ * @param request ListFileProtectBindMachineRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFileProtectBindMachineResponse
+ */
+ListFileProtectBindMachineResponse Client::listFileProtectBindMachineWithOptions(const ListFileProtectBindMachineRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFileProtectBindMachine"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFileProtectBindMachineResponse>();
+}
+
+/**
+ * @summary 获取绑定防篡改机器列表
+ *
+ * @param request ListFileProtectBindMachineRequest
+ * @return ListFileProtectBindMachineResponse
+ */
+ListFileProtectBindMachineResponse Client::listFileProtectBindMachine(const ListFileProtectBindMachineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFileProtectBindMachineWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件防护事件列表
+ *
+ * @param request ListFileProtectClientEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFileProtectClientEventResponse
+ */
+ListFileProtectClientEventResponse Client::listFileProtectClientEventWithOptions(const ListFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFileProtectClientEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFileProtectClientEventResponse>();
+}
+
+/**
+ * @summary 获取文件防护事件列表
+ *
+ * @param request ListFileProtectClientEventRequest
+ * @return ListFileProtectClientEventResponse
+ */
+ListFileProtectClientEventResponse Client::listFileProtectClientEvent(const ListFileProtectClientEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFileProtectClientEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件防护规则列表
+ *
+ * @param request ListFileProtectClientRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFileProtectClientRuleResponse
+ */
+ListFileProtectClientRuleResponse Client::listFileProtectClientRuleWithOptions(const ListFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevel()) {
+    query["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.getRuleAction();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFileProtectClientRule"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFileProtectClientRuleResponse>();
+}
+
+/**
+ * @summary 获取文件防护规则列表
+ *
+ * @param request ListFileProtectClientRuleRequest
+ * @return ListFileProtectClientRuleResponse
+ */
+ListFileProtectClientRuleResponse Client::listFileProtectClientRule(const ListFileProtectClientRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFileProtectClientRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取文件防护规则所有文件类型
+ *
+ * @param request ListFileProtectClientRuleFileTypeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFileProtectClientRuleFileTypeResponse
+ */
+ListFileProtectClientRuleFileTypeResponse Client::listFileProtectClientRuleFileTypeWithOptions(const ListFileProtectClientRuleFileTypeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListFileProtectClientRuleFileType"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFileProtectClientRuleFileTypeResponse>();
+}
+
+/**
+ * @summary 获取文件防护规则所有文件类型
+ *
+ * @param request ListFileProtectClientRuleFileTypeRequest
+ * @return ListFileProtectClientRuleFileTypeResponse
+ */
+ListFileProtectClientRuleFileTypeResponse Client::listFileProtectClientRuleFileType(const ListFileProtectClientRuleFileTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listFileProtectClientRuleFileTypeWithOptions(request, runtime);
 }
 
 /**
@@ -48763,6 +49309,264 @@ UpdateCustomizeReportStatusResponse Client::updateCustomizeReportStatusWithOptio
 UpdateCustomizeReportStatusResponse Client::updateCustomizeReportStatus(const UpdateCustomizeReportStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateCustomizeReportStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新文件防护事件状态
+ *
+ * @param request UpdateFileProtectClientEventRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFileProtectClientEventResponse
+ */
+UpdateFileProtectClientEventResponse Client::updateFileProtectClientEventWithOptions(const UpdateFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevels()) {
+    query["AlertLevels"] = request.getAlertLevels();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasExcludeIdList()) {
+    query["ExcludeIdList"] = request.getExcludeIdList();
+  }
+
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.getIdList();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasInternetIp()) {
+    query["InternetIp"] = request.getInternetIp();
+  }
+
+  if (!!request.hasIntranetIp()) {
+    query["IntranetIp"] = request.getIntranetIp();
+  }
+
+  if (!!request.hasNewStatus()) {
+    query["NewStatus"] = request.getNewStatus();
+  }
+
+  if (!!request.hasOperation()) {
+    query["Operation"] = request.getOperation();
+  }
+
+  if (!!request.hasProcPath()) {
+    query["ProcPath"] = request.getProcPath();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSelectAll()) {
+    query["SelectAll"] = request.getSelectAll();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUuid()) {
+    query["Uuid"] = request.getUuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFileProtectClientEvent"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFileProtectClientEventResponse>();
+}
+
+/**
+ * @summary 更新文件防护事件状态
+ *
+ * @param request UpdateFileProtectClientEventRequest
+ * @return UpdateFileProtectClientEventResponse
+ */
+UpdateFileProtectClientEventResponse Client::updateFileProtectClientEvent(const UpdateFileProtectClientEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFileProtectClientEventWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新文件防护规则
+ *
+ * @param request UpdateFileProtectClientRuleRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFileProtectClientRuleResponse
+ */
+UpdateFileProtectClientRuleResponse Client::updateFileProtectClientRuleWithOptions(const UpdateFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevel()) {
+    query["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasExcludeUsers()) {
+    query["ExcludeUsers"] = request.getExcludeUsers();
+  }
+
+  if (!!request.hasFileOps()) {
+    query["FileOps"] = request.getFileOps();
+  }
+
+  if (!!request.hasFilePaths()) {
+    query["FilePaths"] = request.getFilePaths();
+  }
+
+  if (!!request.hasFileTypes()) {
+    query["FileTypes"] = request.getFileTypes();
+  }
+
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  if (!!request.hasProcPaths()) {
+    query["ProcPaths"] = request.getProcPaths();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.getRuleAction();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFileProtectClientRule"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFileProtectClientRuleResponse>();
+}
+
+/**
+ * @summary 更新文件防护规则
+ *
+ * @param request UpdateFileProtectClientRuleRequest
+ * @return UpdateFileProtectClientRuleResponse
+ */
+UpdateFileProtectClientRuleResponse Client::updateFileProtectClientRule(const UpdateFileProtectClientRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFileProtectClientRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新文件防护规则状态
+ *
+ * @param request UpdateFileProtectClientRuleStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateFileProtectClientRuleStatusResponse
+ */
+UpdateFileProtectClientRuleStatusResponse Client::updateFileProtectClientRuleStatusWithOptions(const UpdateFileProtectClientRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAlertLevel()) {
+    query["AlertLevel"] = request.getAlertLevel();
+  }
+
+  if (!!request.hasExcludeIdList()) {
+    query["ExcludeIdList"] = request.getExcludeIdList();
+  }
+
+  if (!!request.hasIdList()) {
+    query["IdList"] = request.getIdList();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasRuleAction()) {
+    query["RuleAction"] = request.getRuleAction();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSelectAll()) {
+    query["SelectAll"] = request.getSelectAll();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateFileProtectClientRuleStatus"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateFileProtectClientRuleStatusResponse>();
+}
+
+/**
+ * @summary 更新文件防护规则状态
+ *
+ * @param request UpdateFileProtectClientRuleStatusRequest
+ * @return UpdateFileProtectClientRuleStatusResponse
+ */
+UpdateFileProtectClientRuleStatusResponse Client::updateFileProtectClientRuleStatus(const UpdateFileProtectClientRuleStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateFileProtectClientRuleStatusWithOptions(request, runtime);
 }
 
 /**

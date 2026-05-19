@@ -174,6 +174,23 @@ namespace Sas20181203
       Models::AddContainerPluginRuleResponse addContainerPluginRule(const Models::AddContainerPluginRuleRequest &request);
 
       /**
+       * @summary 创建文件防护规则
+       *
+       * @param request AddFileProtectBindMachineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddFileProtectBindMachineResponse
+       */
+      Models::AddFileProtectBindMachineResponse addFileProtectBindMachineWithOptions(const Models::AddFileProtectBindMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建文件防护规则
+       *
+       * @param request AddFileProtectBindMachineRequest
+       * @return AddFileProtectBindMachineResponse
+       */
+      Models::AddFileProtectBindMachineResponse addFileProtectBindMachine(const Models::AddFileProtectBindMachineRequest &request);
+
+      /**
        * @summary Creates an IDC probe to add assets in a data center to Security Center and manage the assets by using the Security Center console.
        *
        * @description Security Center allows you to create an IDC probe only on servers on which the Security Center agent is installed.
@@ -1067,6 +1084,23 @@ namespace Sas20181203
        * @return CreateFileDetectUploadUrlResponse
        */
       Models::CreateFileDetectUploadUrlResponse createFileDetectUploadUrl(const Models::CreateFileDetectUploadUrlRequest &request);
+
+      /**
+       * @summary 创建文件防护规则
+       *
+       * @param request CreateFileProtectClientRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateFileProtectClientRuleResponse
+       */
+      Models::CreateFileProtectClientRuleResponse createFileProtectClientRuleWithOptions(const Models::CreateFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建文件防护规则
+       *
+       * @param request CreateFileProtectClientRuleRequest
+       * @return CreateFileProtectClientRuleResponse
+       */
+      Models::CreateFileProtectClientRuleResponse createFileProtectClientRule(const Models::CreateFileProtectClientRuleRequest &request);
 
       /**
        * @summary Creates a core file monitoring rule.
@@ -2056,6 +2090,23 @@ namespace Sas20181203
        * @return DeleteDingTalkResponse
        */
       Models::DeleteDingTalkResponse deleteDingTalk(const Models::DeleteDingTalkRequest &request);
+
+      /**
+       * @summary 删除文件防护规则
+       *
+       * @param request DeleteFileProtectClientRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFileProtectClientRuleResponse
+       */
+      Models::DeleteFileProtectClientRuleResponse deleteFileProtectClientRuleWithOptions(const Models::DeleteFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文件防护规则
+       *
+       * @param request DeleteFileProtectClientRuleRequest
+       * @return DeleteFileProtectClientRuleResponse
+       */
+      Models::DeleteFileProtectClientRuleResponse deleteFileProtectClientRule(const Models::DeleteFileProtectClientRuleRequest &request);
 
       /**
        * @summary Deletes core file monitoring rules.
@@ -9465,6 +9516,74 @@ namespace Sas20181203
       Models::GetFileDetectResultResponse getFileDetectResult(const Models::GetFileDetectResultRequest &request);
 
       /**
+       * @summary 获取文件防护事件
+       *
+       * @param request GetFileProtectClientEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFileProtectClientEventResponse
+       */
+      Models::GetFileProtectClientEventResponse getFileProtectClientEventWithOptions(const Models::GetFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护事件
+       *
+       * @param request GetFileProtectClientEventRequest
+       * @return GetFileProtectClientEventResponse
+       */
+      Models::GetFileProtectClientEventResponse getFileProtectClientEvent(const Models::GetFileProtectClientEventRequest &request);
+
+      /**
+       * @summary 获取文件防护事件大盘
+       *
+       * @param request GetFileProtectClientEventDashboardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFileProtectClientEventDashboardResponse
+       */
+      Models::GetFileProtectClientEventDashboardResponse getFileProtectClientEventDashboardWithOptions(const Models::GetFileProtectClientEventDashboardRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护事件大盘
+       *
+       * @param request GetFileProtectClientEventDashboardRequest
+       * @return GetFileProtectClientEventDashboardResponse
+       */
+      Models::GetFileProtectClientEventDashboardResponse getFileProtectClientEventDashboard(const Models::GetFileProtectClientEventDashboardRequest &request);
+
+      /**
+       * @summary 获取文件保护规则
+       *
+       * @param request GetFileProtectClientRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFileProtectClientRuleResponse
+       */
+      Models::GetFileProtectClientRuleResponse getFileProtectClientRuleWithOptions(const Models::GetFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件保护规则
+       *
+       * @param request GetFileProtectClientRuleRequest
+       * @return GetFileProtectClientRuleResponse
+       */
+      Models::GetFileProtectClientRuleResponse getFileProtectClientRule(const Models::GetFileProtectClientRuleRequest &request);
+
+      /**
+       * @summary 获取文件防护规则大盘
+       *
+       * @param request GetFileProtectClientRuleDashboardRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetFileProtectClientRuleDashboardResponse
+       */
+      Models::GetFileProtectClientRuleDashboardResponse getFileProtectClientRuleDashboardWithOptions(const Models::GetFileProtectClientRuleDashboardRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护规则大盘
+       *
+       * @param request GetFileProtectClientRuleDashboardRequest
+       * @return GetFileProtectClientRuleDashboardResponse
+       */
+      Models::GetFileProtectClientRuleDashboardResponse getFileProtectClientRuleDashboard(const Models::GetFileProtectClientRuleDashboardRequest &request);
+
+      /**
        * @summary Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -11692,6 +11811,74 @@ namespace Sas20181203
        * @return ListDockerhubImageResponse
        */
       Models::ListDockerhubImageResponse listDockerhubImage(const Models::ListDockerhubImageRequest &request);
+
+      /**
+       * @summary 获取绑定防篡改机器列表
+       *
+       * @param request ListFileProtectBindMachineRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileProtectBindMachineResponse
+       */
+      Models::ListFileProtectBindMachineResponse listFileProtectBindMachineWithOptions(const Models::ListFileProtectBindMachineRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取绑定防篡改机器列表
+       *
+       * @param request ListFileProtectBindMachineRequest
+       * @return ListFileProtectBindMachineResponse
+       */
+      Models::ListFileProtectBindMachineResponse listFileProtectBindMachine(const Models::ListFileProtectBindMachineRequest &request);
+
+      /**
+       * @summary 获取文件防护事件列表
+       *
+       * @param request ListFileProtectClientEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileProtectClientEventResponse
+       */
+      Models::ListFileProtectClientEventResponse listFileProtectClientEventWithOptions(const Models::ListFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护事件列表
+       *
+       * @param request ListFileProtectClientEventRequest
+       * @return ListFileProtectClientEventResponse
+       */
+      Models::ListFileProtectClientEventResponse listFileProtectClientEvent(const Models::ListFileProtectClientEventRequest &request);
+
+      /**
+       * @summary 获取文件防护规则列表
+       *
+       * @param request ListFileProtectClientRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileProtectClientRuleResponse
+       */
+      Models::ListFileProtectClientRuleResponse listFileProtectClientRuleWithOptions(const Models::ListFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护规则列表
+       *
+       * @param request ListFileProtectClientRuleRequest
+       * @return ListFileProtectClientRuleResponse
+       */
+      Models::ListFileProtectClientRuleResponse listFileProtectClientRule(const Models::ListFileProtectClientRuleRequest &request);
+
+      /**
+       * @summary 获取文件防护规则所有文件类型
+       *
+       * @param request ListFileProtectClientRuleFileTypeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFileProtectClientRuleFileTypeResponse
+       */
+      Models::ListFileProtectClientRuleFileTypeResponse listFileProtectClientRuleFileTypeWithOptions(const Models::ListFileProtectClientRuleFileTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取文件防护规则所有文件类型
+       *
+       * @param request ListFileProtectClientRuleFileTypeRequest
+       * @return ListFileProtectClientRuleFileTypeResponse
+       */
+      Models::ListFileProtectClientRuleFileTypeResponse listFileProtectClientRuleFileType(const Models::ListFileProtectClientRuleFileTypeRequest &request);
 
       /**
        * @summary Queries core file monitoring rules that meet the specified filter condition.
@@ -15728,6 +15915,57 @@ namespace Sas20181203
        * @return UpdateCustomizeReportStatusResponse
        */
       Models::UpdateCustomizeReportStatusResponse updateCustomizeReportStatus(const Models::UpdateCustomizeReportStatusRequest &request);
+
+      /**
+       * @summary 更新文件防护事件状态
+       *
+       * @param request UpdateFileProtectClientEventRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFileProtectClientEventResponse
+       */
+      Models::UpdateFileProtectClientEventResponse updateFileProtectClientEventWithOptions(const Models::UpdateFileProtectClientEventRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文件防护事件状态
+       *
+       * @param request UpdateFileProtectClientEventRequest
+       * @return UpdateFileProtectClientEventResponse
+       */
+      Models::UpdateFileProtectClientEventResponse updateFileProtectClientEvent(const Models::UpdateFileProtectClientEventRequest &request);
+
+      /**
+       * @summary 更新文件防护规则
+       *
+       * @param request UpdateFileProtectClientRuleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFileProtectClientRuleResponse
+       */
+      Models::UpdateFileProtectClientRuleResponse updateFileProtectClientRuleWithOptions(const Models::UpdateFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文件防护规则
+       *
+       * @param request UpdateFileProtectClientRuleRequest
+       * @return UpdateFileProtectClientRuleResponse
+       */
+      Models::UpdateFileProtectClientRuleResponse updateFileProtectClientRule(const Models::UpdateFileProtectClientRuleRequest &request);
+
+      /**
+       * @summary 更新文件防护规则状态
+       *
+       * @param request UpdateFileProtectClientRuleStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateFileProtectClientRuleStatusResponse
+       */
+      Models::UpdateFileProtectClientRuleStatusResponse updateFileProtectClientRuleStatusWithOptions(const Models::UpdateFileProtectClientRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文件防护规则状态
+       *
+       * @param request UpdateFileProtectClientRuleStatusRequest
+       * @return UpdateFileProtectClientRuleStatusResponse
+       */
+      Models::UpdateFileProtectClientRuleStatusResponse updateFileProtectClientRuleStatus(const Models::UpdateFileProtectClientRuleStatusRequest &request);
 
       /**
        * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
