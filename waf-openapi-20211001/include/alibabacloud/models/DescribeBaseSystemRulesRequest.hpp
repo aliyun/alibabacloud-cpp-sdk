@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEBASESYSTEMRULESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEBASESYSTEMRULESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(RuleAction, ruleAction_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_TO_JSON(RuleIds, ruleIds_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(RuleStatus, ruleStatus_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
@@ -38,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(RuleAction, ruleAction_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_FROM_JSON(RuleIds, ruleIds_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(RuleStatus, ruleStatus_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -55,8 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->detectType_ == nullptr
         && this->instanceId_ == nullptr && this->lang_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
-        && this->resourceManagerResourceGroupId_ == nullptr && this->riskLevel_ == nullptr && this->ruleAction_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
-        && this->ruleStatus_ == nullptr && this->templateId_ == nullptr; };
+        && this->resourceManagerResourceGroupId_ == nullptr && this->riskLevel_ == nullptr && this->ruleAction_ == nullptr && this->ruleId_ == nullptr && this->ruleIds_ == nullptr
+        && this->ruleName_ == nullptr && this->ruleStatus_ == nullptr && this->templateId_ == nullptr; };
     // detectType Field Functions 
     bool hasDetectType() const { return this->detectType_ != nullptr;};
     void deleteDetectType() { this->detectType_ = nullptr;};
@@ -127,6 +130,15 @@ namespace Models
     inline DescribeBaseSystemRulesRequest& setRuleId(int64_t ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
 
 
+    // ruleIds Field Functions 
+    bool hasRuleIds() const { return this->ruleIds_ != nullptr;};
+    void deleteRuleIds() { this->ruleIds_ = nullptr;};
+    inline const vector<int64_t> & getRuleIds() const { DARABONBA_PTR_GET_CONST(ruleIds_, vector<int64_t>) };
+    inline vector<int64_t> getRuleIds() { DARABONBA_PTR_GET(ruleIds_, vector<int64_t>) };
+    inline DescribeBaseSystemRulesRequest& setRuleIds(const vector<int64_t> & ruleIds) { DARABONBA_PTR_SET_VALUE(ruleIds_, ruleIds) };
+    inline DescribeBaseSystemRulesRequest& setRuleIds(vector<int64_t> && ruleIds) { DARABONBA_PTR_SET_RVALUE(ruleIds_, ruleIds) };
+
+
     // ruleName Field Functions 
     bool hasRuleName() const { return this->ruleName_ != nullptr;};
     void deleteRuleName() { this->ruleName_ = nullptr;};
@@ -160,6 +172,7 @@ namespace Models
     shared_ptr<string> riskLevel_ {};
     shared_ptr<string> ruleAction_ {};
     shared_ptr<int64_t> ruleId_ {};
+    shared_ptr<vector<int64_t>> ruleIds_ {};
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> ruleStatus_ {};
     shared_ptr<int64_t> templateId_ {};

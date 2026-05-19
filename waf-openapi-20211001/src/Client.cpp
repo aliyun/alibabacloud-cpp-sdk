@@ -4421,6 +4421,10 @@ DescribeBaseSystemRulesResponse Client::describeBaseSystemRulesWithOptions(const
     query["RuleId"] = request.getRuleId();
   }
 
+  if (!!request.hasRuleIds()) {
+    query["RuleIds"] = request.getRuleIds();
+  }
+
   if (!!request.hasRuleName()) {
     query["RuleName"] = request.getRuleName();
   }
