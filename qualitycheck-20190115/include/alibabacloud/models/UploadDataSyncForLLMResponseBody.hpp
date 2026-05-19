@@ -106,14 +106,12 @@ namespace Models
             friend void to_json(Darabonba::Json& j, const RuleHitInfo& obj) { 
               DARABONBA_PTR_TO_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_TO_JSON(Hit, hit_);
-              DARABONBA_PTR_TO_JSON(LlmResponse, llmResponse_);
               DARABONBA_PTR_TO_JSON(Rid, rid_);
               DARABONBA_PTR_TO_JSON(Tid, tid_);
             };
             friend void from_json(const Darabonba::Json& j, RuleHitInfo& obj) { 
               DARABONBA_PTR_FROM_JSON(ConditionInfo, conditionInfo_);
               DARABONBA_PTR_FROM_JSON(Hit, hit_);
-              DARABONBA_PTR_FROM_JSON(LlmResponse, llmResponse_);
               DARABONBA_PTR_FROM_JSON(Rid, rid_);
               DARABONBA_PTR_FROM_JSON(Tid, tid_);
             };
@@ -525,7 +523,7 @@ namespace Models
             };
 
             virtual bool empty() const override { return this->conditionInfo_ == nullptr
-        && this->hit_ == nullptr && this->llmResponse_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
+        && this->hit_ == nullptr && this->rid_ == nullptr && this->tid_ == nullptr; };
             // conditionInfo Field Functions 
             bool hasConditionInfo() const { return this->conditionInfo_ != nullptr;};
             void deleteConditionInfo() { this->conditionInfo_ = nullptr;};
@@ -542,13 +540,6 @@ namespace Models
             inline RuleHitInfo::Hit getHit() { DARABONBA_PTR_GET(hit_, RuleHitInfo::Hit) };
             inline RuleHitInfo& setHit(const RuleHitInfo::Hit & hit) { DARABONBA_PTR_SET_VALUE(hit_, hit) };
             inline RuleHitInfo& setHit(RuleHitInfo::Hit && hit) { DARABONBA_PTR_SET_RVALUE(hit_, hit) };
-
-
-            // llmResponse Field Functions 
-            bool hasLlmResponse() const { return this->llmResponse_ != nullptr;};
-            void deleteLlmResponse() { this->llmResponse_ = nullptr;};
-            inline string getLlmResponse() const { DARABONBA_PTR_GET_DEFAULT(llmResponse_, "") };
-            inline RuleHitInfo& setLlmResponse(string llmResponse) { DARABONBA_PTR_SET_VALUE(llmResponse_, llmResponse) };
 
 
             // rid Field Functions 
@@ -568,7 +559,6 @@ namespace Models
           protected:
             shared_ptr<RuleHitInfo::ConditionInfo> conditionInfo_ {};
             shared_ptr<RuleHitInfo::Hit> hit_ {};
-            shared_ptr<string> llmResponse_ {};
             shared_ptr<string> rid_ {};
             shared_ptr<string> tid_ {};
           };
