@@ -45,6 +45,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(ExportFileLink, exportFileLink_);
         DARABONBA_PTR_TO_JSON(ExportTaskId, exportTaskId_);
+        DARABONBA_PTR_TO_JSON(PptArtifactCover, pptArtifactCover_);
         DARABONBA_PTR_TO_JSON(PptArtifactId, pptArtifactId_);
         DARABONBA_PTR_TO_JSON(PptProcessId, pptProcessId_);
         DARABONBA_PTR_TO_JSON(Query, query_);
@@ -53,6 +54,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(ExportFileLink, exportFileLink_);
         DARABONBA_PTR_FROM_JSON(ExportTaskId, exportTaskId_);
+        DARABONBA_PTR_FROM_JSON(PptArtifactCover, pptArtifactCover_);
         DARABONBA_PTR_FROM_JSON(PptArtifactId, pptArtifactId_);
         DARABONBA_PTR_FROM_JSON(PptProcessId, pptProcessId_);
         DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -70,7 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->exportFileLink_ == nullptr
-        && this->exportTaskId_ == nullptr && this->pptArtifactId_ == nullptr && this->pptProcessId_ == nullptr && this->query_ == nullptr && this->taskId_ == nullptr; };
+        && this->exportTaskId_ == nullptr && this->pptArtifactCover_ == nullptr && this->pptArtifactId_ == nullptr && this->pptProcessId_ == nullptr && this->query_ == nullptr
+        && this->taskId_ == nullptr; };
       // exportFileLink Field Functions 
       bool hasExportFileLink() const { return this->exportFileLink_ != nullptr;};
       void deleteExportFileLink() { this->exportFileLink_ = nullptr;};
@@ -85,6 +88,13 @@ namespace Models
       void deleteExportTaskId() { this->exportTaskId_ = nullptr;};
       inline string getExportTaskId() const { DARABONBA_PTR_GET_DEFAULT(exportTaskId_, "") };
       inline Data& setExportTaskId(string exportTaskId) { DARABONBA_PTR_SET_VALUE(exportTaskId_, exportTaskId) };
+
+
+      // pptArtifactCover Field Functions 
+      bool hasPptArtifactCover() const { return this->pptArtifactCover_ != nullptr;};
+      void deletePptArtifactCover() { this->pptArtifactCover_ = nullptr;};
+      inline string getPptArtifactCover() const { DARABONBA_PTR_GET_DEFAULT(pptArtifactCover_, "") };
+      inline Data& setPptArtifactCover(string pptArtifactCover) { DARABONBA_PTR_SET_VALUE(pptArtifactCover_, pptArtifactCover) };
 
 
       // pptArtifactId Field Functions 
@@ -118,6 +128,7 @@ namespace Models
     protected:
       shared_ptr<vector<string>> exportFileLink_ {};
       shared_ptr<string> exportTaskId_ {};
+      shared_ptr<string> pptArtifactCover_ {};
       shared_ptr<string> pptArtifactId_ {};
       shared_ptr<string> pptProcessId_ {};
       shared_ptr<string> query_ {};
