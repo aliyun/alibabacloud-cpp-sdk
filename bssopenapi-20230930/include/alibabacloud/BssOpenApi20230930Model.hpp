@@ -153,6 +153,9 @@
 #include <alibabacloud/models/PayOrderRequest.hpp>
 #include <alibabacloud/models/PayOrderResponseBody.hpp>
 #include <alibabacloud/models/PayOrderResponse.hpp>
+#include <alibabacloud/models/QueryCostByCostCenterRequest.hpp>
+#include <alibabacloud/models/QueryCostByCostCenterResponseBody.hpp>
+#include <alibabacloud/models/QueryCostByCostCenterResponse.hpp>
 #include <alibabacloud/models/QueryCostCenterRequest.hpp>
 #include <alibabacloud/models/QueryCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/QueryCostCenterResponseBody.hpp>

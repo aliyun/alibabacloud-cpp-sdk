@@ -89,7 +89,7 @@ namespace BssOpenApi20230930
       Models::CheckAccountExistResponse checkAccountExist(const Models::CheckAccountExistRequest &request);
 
       /**
-       * @summary 检测budgetName是否存在
+       * @summary Check whether budgetName exists
        *
        * @param request CheckBudgetNameExistsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace BssOpenApi20230930
       Models::CheckBudgetNameExistsResponse checkBudgetNameExistsWithOptions(const Models::CheckBudgetNameExistsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检测budgetName是否存在
+       * @summary Check whether budgetName exists
        *
        * @param request CheckBudgetNameExistsRequest
        * @return CheckBudgetNameExistsResponse
@@ -106,7 +106,7 @@ namespace BssOpenApi20230930
       Models::CheckBudgetNameExistsResponse checkBudgetNameExists(const Models::CheckBudgetNameExistsRequest &request);
 
       /**
-       * @summary 创建预算
+       * @summary Create Budget
        *
        * @param tmpReq CreateBudgetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace BssOpenApi20230930
       Models::CreateBudgetResponse createBudgetWithOptions(const Models::CreateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建预算
+       * @summary Create Budget
        *
        * @param request CreateBudgetRequest
        * @return CreateBudgetResponse
@@ -293,7 +293,7 @@ namespace BssOpenApi20230930
       Models::DeleteReportDefinitionResponse deleteReportDefinition(const Models::DeleteReportDefinitionRequest &request);
 
       /**
-       * @summary 查询单个Budget
+       * @summary Query a Single Budget
        *
        * @param request DescribeBudgetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace BssOpenApi20230930
       Models::DescribeBudgetResponse describeBudgetWithOptions(const Models::DescribeBudgetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单个Budget
+       * @summary Query a Single Budget
        *
        * @param request DescribeBudgetRequest
        * @return DescribeBudgetResponse
@@ -310,7 +310,7 @@ namespace BssOpenApi20230930
       Models::DescribeBudgetResponse describeBudget(const Models::DescribeBudgetRequest &request);
 
       /**
-       * @summary 查询预算列表
+       * @summary Query budget list
        *
        * @param request DescribeBudgetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace BssOpenApi20230930
       Models::DescribeBudgetsResponse describeBudgetsWithOptions(const Models::DescribeBudgetsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询预算列表
+       * @summary Query budget list
        *
        * @param request DescribeBudgetsRequest
        * @return DescribeBudgetsResponse
@@ -733,6 +733,23 @@ namespace BssOpenApi20230930
       Models::PayOrderResponse payOrder(const Models::PayOrderRequest &request);
 
       /**
+       * @summary Query Cost Overview of a Cost Center
+       *
+       * @param request QueryCostByCostCenterRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryCostByCostCenterResponse
+       */
+      Models::QueryCostByCostCenterResponse queryCostByCostCenterWithOptions(const Models::QueryCostByCostCenterRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query Cost Overview of a Cost Center
+       *
+       * @param request QueryCostByCostCenterRequest
+       * @return QueryCostByCostCenterResponse
+       */
+      Models::QueryCostByCostCenterResponse queryCostByCostCenter(const Models::QueryCostByCostCenterRequest &request);
+
+      /**
        * @summary 查询财务单元
        *
        * @param tmpReq QueryCostCenterRequest
@@ -801,7 +818,7 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterShareRuleResponse queryCostCenterShareRule(const Models::QueryCostCenterShareRuleRequest &request);
 
       /**
-       * @summary 修改财务单元分摊规则
+       * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
        *
        * @param tmpReq SaveCostCenterShareRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,7 +827,7 @@ namespace BssOpenApi20230930
       Models::SaveCostCenterShareRuleResponse saveCostCenterShareRuleWithOptions(const Models::SaveCostCenterShareRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改财务单元分摊规则
+       * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
        *
        * @param request SaveCostCenterShareRuleRequest
        * @return SaveCostCenterShareRuleResponse

@@ -324,7 +324,7 @@ CheckAccountExistResponse Client::checkAccountExist(const CheckAccountExistReque
 }
 
 /**
- * @summary 检测budgetName是否存在
+ * @summary Check whether budgetName exists
  *
  * @param request CheckBudgetNameExistsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +361,7 @@ CheckBudgetNameExistsResponse Client::checkBudgetNameExistsWithOptions(const Che
 }
 
 /**
- * @summary 检测budgetName是否存在
+ * @summary Check whether budgetName exists
  *
  * @param request CheckBudgetNameExistsRequest
  * @return CheckBudgetNameExistsResponse
@@ -372,7 +372,7 @@ CheckBudgetNameExistsResponse Client::checkBudgetNameExists(const CheckBudgetNam
 }
 
 /**
- * @summary 创建预算
+ * @summary Create Budget
  *
  * @param tmpReq CreateBudgetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +475,7 @@ CreateBudgetResponse Client::createBudgetWithOptions(const CreateBudgetRequest &
 }
 
 /**
- * @summary 创建预算
+ * @summary Create Budget
  *
  * @param request CreateBudgetRequest
  * @return CreateBudgetResponse
@@ -1118,7 +1118,7 @@ DeleteReportDefinitionResponse Client::deleteReportDefinition(const DeleteReport
 }
 
 /**
- * @summary 查询单个Budget
+ * @summary Query a Single Budget
  *
  * @param request DescribeBudgetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1155,7 @@ DescribeBudgetResponse Client::describeBudgetWithOptions(const DescribeBudgetReq
 }
 
 /**
- * @summary 查询单个Budget
+ * @summary Query a Single Budget
  *
  * @param request DescribeBudgetRequest
  * @return DescribeBudgetResponse
@@ -1166,7 +1166,7 @@ DescribeBudgetResponse Client::describeBudget(const DescribeBudgetRequest &reque
 }
 
 /**
- * @summary 查询预算列表
+ * @summary Query budget list
  *
  * @param request DescribeBudgetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1219,7 @@ DescribeBudgetsResponse Client::describeBudgetsWithOptions(const DescribeBudgets
 }
 
 /**
- * @summary 查询预算列表
+ * @summary Query budget list
  *
  * @param request DescribeBudgetsRequest
  * @return DescribeBudgetsResponse
@@ -2666,6 +2666,64 @@ PayOrderResponse Client::payOrder(const PayOrderRequest &request) {
 }
 
 /**
+ * @summary Query Cost Overview of a Cost Center
+ *
+ * @param request QueryCostByCostCenterRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryCostByCostCenterResponse
+ */
+QueryCostByCostCenterResponse Client::queryCostByCostCenterWithOptions(const QueryCostByCostCenterRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBillingMonth()) {
+    query["BillingMonth"] = request.getBillingMonth();
+  }
+
+  if (!!request.hasDisplayZeroAmountBills()) {
+    query["DisplayZeroAmountBills"] = request.getDisplayZeroAmountBills();
+  }
+
+  if (!!request.hasGroupByCostCenterLevel()) {
+    query["GroupByCostCenterLevel"] = request.getGroupByCostCenterLevel();
+  }
+
+  if (!!request.hasMetrics()) {
+    query["Metrics"] = request.getMetrics();
+  }
+
+  if (!!request.hasOwnerAccountId()) {
+    query["OwnerAccountId"] = request.getOwnerAccountId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryCostByCostCenter"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryCostByCostCenterResponse>();
+}
+
+/**
+ * @summary Query Cost Overview of a Cost Center
+ *
+ * @param request QueryCostByCostCenterRequest
+ * @return QueryCostByCostCenterResponse
+ */
+QueryCostByCostCenterResponse Client::queryCostByCostCenter(const QueryCostByCostCenterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryCostByCostCenterWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询财务单元
  *
  * @param tmpReq QueryCostCenterRequest
@@ -2908,7 +2966,7 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRule(const QueryCos
 }
 
 /**
- * @summary 修改财务单元分摊规则
+ * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
  *
  * @param tmpReq SaveCostCenterShareRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2969,7 +3027,7 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRuleWithOptions(const
 }
 
 /**
- * @summary 修改财务单元分摊规则
+ * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
  *
  * @param request SaveCostCenterShareRuleRequest
  * @return SaveCostCenterShareRuleResponse
