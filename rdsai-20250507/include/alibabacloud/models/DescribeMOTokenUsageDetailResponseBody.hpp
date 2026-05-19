@@ -14,6 +14,7 @@ namespace Models
   class DescribeMOTokenUsageDetailResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMOTokenUsageDetailResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(NextCursor, nextCursor_);
       DARABONBA_PTR_TO_JSON(Page, page_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Records, records_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMOTokenUsageDetailResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(NextCursor, nextCursor_);
       DARABONBA_PTR_FROM_JSON(Page, page_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Records, records_);
@@ -141,8 +143,15 @@ namespace Models
       shared_ptr<double> totalTokens_ {};
     };
 
-    virtual bool empty() const override { return this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->records_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+    virtual bool empty() const override { return this->nextCursor_ == nullptr
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->records_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
+    // nextCursor Field Functions 
+    bool hasNextCursor() const { return this->nextCursor_ != nullptr;};
+    void deleteNextCursor() { this->nextCursor_ = nullptr;};
+    inline string getNextCursor() const { DARABONBA_PTR_GET_DEFAULT(nextCursor_, "") };
+    inline DescribeMOTokenUsageDetailResponseBody& setNextCursor(string nextCursor) { DARABONBA_PTR_SET_VALUE(nextCursor_, nextCursor) };
+
+
     // page Field Functions 
     bool hasPage() const { return this->page_ != nullptr;};
     void deletePage() { this->page_ = nullptr;};
@@ -181,6 +190,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> nextCursor_ {};
     shared_ptr<int32_t> page_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<vector<DescribeMOTokenUsageDetailResponseBody::Records>> records_ {};

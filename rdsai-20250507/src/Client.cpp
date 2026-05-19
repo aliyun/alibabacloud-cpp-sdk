@@ -1451,6 +1451,10 @@ DescribeMOTokenUsageDetailResponse Client::describeMOTokenUsageDetailWithOptions
     query["ConsumerName"] = request.getConsumerName();
   }
 
+  if (!!request.hasCursor()) {
+    query["Cursor"] = request.getCursor();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
   }

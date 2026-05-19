@@ -60,6 +60,7 @@ namespace Models
       class InstanceList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const InstanceList& obj) { 
+          DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
           DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -67,6 +68,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
         };
         friend void from_json(const Darabonba::Json& j, InstanceList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
           DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -84,8 +86,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
+        virtual bool empty() const override { return this->chargeType_ == nullptr
+        && this->endTime_ == nullptr && this->instanceClass_ == nullptr && this->instanceId_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
+        // chargeType Field Functions 
+        bool hasChargeType() const { return this->chargeType_ != nullptr;};
+        void deleteChargeType() { this->chargeType_ = nullptr;};
+        inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+        inline InstanceList& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
         // endTime Field Functions 
         bool hasEndTime() const { return this->endTime_ != nullptr;};
         void deleteEndTime() { this->endTime_ = nullptr;};
@@ -122,6 +131,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> chargeType_ {};
         // The instance end time (format: Timestamp).
         shared_ptr<int64_t> endTime_ {};
         // instance type

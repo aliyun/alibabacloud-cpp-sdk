@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeMOTokenUsageDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(ConsumerName, consumerName_);
+      DARABONBA_PTR_TO_JSON(Cursor, cursor_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Model, model_);
@@ -26,6 +27,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeMOTokenUsageDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(ConsumerName, consumerName_);
+      DARABONBA_PTR_FROM_JSON(Cursor, cursor_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->consumerName_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr && this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
+        && this->consumerName_ == nullptr && this->cursor_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->model_ == nullptr
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->region_ == nullptr && this->startTime_ == nullptr; };
     // apiKey Field Functions 
     bool hasApiKey() const { return this->apiKey_ != nullptr;};
     void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -60,6 +62,13 @@ namespace Models
     void deleteConsumerName() { this->consumerName_ = nullptr;};
     inline string getConsumerName() const { DARABONBA_PTR_GET_DEFAULT(consumerName_, "") };
     inline DescribeMOTokenUsageDetailRequest& setConsumerName(string consumerName) { DARABONBA_PTR_SET_VALUE(consumerName_, consumerName) };
+
+
+    // cursor Field Functions 
+    bool hasCursor() const { return this->cursor_ != nullptr;};
+    void deleteCursor() { this->cursor_ = nullptr;};
+    inline string getCursor() const { DARABONBA_PTR_GET_DEFAULT(cursor_, "") };
+    inline DescribeMOTokenUsageDetailRequest& setCursor(string cursor) { DARABONBA_PTR_SET_VALUE(cursor_, cursor) };
 
 
     // endTime Field Functions 
@@ -114,6 +123,7 @@ namespace Models
   protected:
     shared_ptr<string> apiKey_ {};
     shared_ptr<string> consumerName_ {};
+    shared_ptr<string> cursor_ {};
     shared_ptr<string> endTime_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
