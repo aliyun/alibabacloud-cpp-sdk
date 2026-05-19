@@ -13,10 +13,10 @@ namespace Models
   class GetUserRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetUserRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(SceneType, sceneType_);
+      DARABONBA_PTR_TO_JSON(scene_type, sceneType_);
     };
     friend void from_json(const Darabonba::Json& j, GetUserRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(SceneType, sceneType_);
+      DARABONBA_PTR_FROM_JSON(scene_type, sceneType_);
     };
     GetUserRequest() = default ;
     GetUserRequest(const GetUserRequest &) = default ;

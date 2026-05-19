@@ -92,7 +92,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasSceneType()) {
-    query["SceneType"] = request.getSceneType();
+    query["scene_type"] = request.getSceneType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
