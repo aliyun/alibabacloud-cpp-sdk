@@ -85,6 +85,9 @@
 #include <alibabacloud/models/InviteSubAccountRequest.hpp>
 #include <alibabacloud/models/InviteSubAccountResponseBody.hpp>
 #include <alibabacloud/models/InviteSubAccountResponse.hpp>
+#include <alibabacloud/models/InviteSubResellerRequest.hpp>
+#include <alibabacloud/models/InviteSubResellerResponseBody.hpp>
+#include <alibabacloud/models/InviteSubResellerResponse.hpp>
 #include <alibabacloud/models/IssueCouponForCustomerRequest.hpp>
 #include <alibabacloud/models/IssueCouponForCustomerResponseBody.hpp>
 #include <alibabacloud/models/IssueCouponForCustomerResponse.hpp>

@@ -467,7 +467,7 @@ namespace Agency20221216
       Models::GetShutdownPolicyRecordResponse getShutdownPolicyRecord(const Models::GetShutdownPolicyRecordRequest &request);
 
       /**
-       * @summary 查询T2优惠券审批详情
+       * @summary View Tier 2 coupon approval details
        *
        * @param request GetTier2CouponApprovalDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,7 +476,7 @@ namespace Agency20221216
       Models::GetTier2CouponApprovalDetailResponse getTier2CouponApprovalDetailWithOptions(const Models::GetTier2CouponApprovalDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询T2优惠券审批详情
+       * @summary View Tier 2 coupon approval details
        *
        * @param request GetTier2CouponApprovalDetailRequest
        * @return GetTier2CouponApprovalDetailResponse
@@ -522,6 +522,33 @@ namespace Agency20221216
       Models::InviteSubAccountResponse inviteSubAccount(const Models::InviteSubAccountRequest &request);
 
       /**
+       * @summary T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+       *
+       * @description 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+       * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+       * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+       * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+       *
+       * @param request InviteSubResellerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InviteSubResellerResponse
+       */
+      Models::InviteSubResellerResponse inviteSubResellerWithOptions(const Models::InviteSubResellerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+       *
+       * @description 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+       * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+       * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+       * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+       *
+       * @param request InviteSubResellerRequest
+       * @return InviteSubResellerResponse
+       */
+      Models::InviteSubResellerResponse inviteSubReseller(const Models::InviteSubResellerRequest &request);
+
+      /**
        * @summary 发放优惠券
        *
        * @param request IssueCouponForCustomerRequest
@@ -543,7 +570,6 @@ namespace Agency20221216
        *
        * @description The current API request rate for cloud products has not been disclosed.
        *
-       * @param request ListCountriesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListCountriesResponse
        */

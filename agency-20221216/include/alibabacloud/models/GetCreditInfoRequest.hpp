@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Sub Account UID
+    // Message Information
     // 
     // This parameter is required.
     shared_ptr<int64_t> uid_ {};

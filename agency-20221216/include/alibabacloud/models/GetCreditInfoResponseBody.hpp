@@ -139,31 +139,36 @@ namespace Models
 
 
     protected:
-      // The Credit Control status, Value Range:</br>
-      // 1. normal - Sub Account status is running as usual.
-      // 2. arrearsNotShutdown - Sub Account status is running as usual, but have outstanding bill(s).
-      // 3. shutdown -  Sub Account status is down.
-      shared_ptr<string> accountStatus_ {};
       // Percentage value, when the available credit limit is lower than this credit limit percentage, a notification E-mail will be sent to the main account.
+      shared_ptr<string> accountStatus_ {};
+      // Manage order operation.
+      // - ban：Ban the new purchase action.
+      // - normal：The account could raise new purchase order as usual.
       shared_ptr<string> alarmThreshold_ {};
-      // The Credit available to consume.
-      shared_ptr<string> availableCredit_ {};
-      // Obtain total unpaid amount on demo bill before simulated deduction.
-      shared_ptr<string> consumedUndeductedValue_ {};
-      // The Credit Line of Sub Account
-      shared_ptr<string> creditLine_ {};
-      // The Credit have been consumed by Sub Account, and haven\\"t be paid.
-      shared_ptr<string> outstandingBalance_ {};
-      shared_ptr<string> PAYGFreezeStatus_ {};
       // The systematic controlling policy for resource management, specifically when the available Credit of Sub Account falls to 0 or less.</br>
       // 
       // - 1: delayStop. The account have Shutdown-delay Privilege,  After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.</br>
       // - 2: noStop. Partner will manually manage Shutdown Status for Sub Account. Meanwhile, System would not manage the resource\\"s life-circle of Sub Account.</br>
       // - 3: immediatelyStop. Once valid quota of Sub Account falls below 0 and be identified as defaulting account, it will trigger the instance shutdown immediately.</br>
+      shared_ptr<string> availableCredit_ {};
+      // Consumed & Undeducted Value（Amount consumption at the current point in time and for which the quota has not been deducted）
+      shared_ptr<string> consumedUndeductedValue_ {};
+      // The Credit available to consume.
+      shared_ptr<string> creditLine_ {};
+      // The Credit Control status, Value Range:</br>
+      // 1. normal - Sub Account status is running as usual.
+      // 2. arrearsNotShutdown - Sub Account status is running as usual, but have outstanding bill(s).
+      // 3. shutdown -  Sub Account status is down.
+      shared_ptr<string> outstandingBalance_ {};
+      // PAYG Freeze Status
+      // 
+      // freeze：freeze
+      // 
+      // normal：normal
+      shared_ptr<string> PAYGFreezeStatus_ {};
+      // Obtain total unpaid amount on demo bill before simulated deduction.
       shared_ptr<string> zeroCreditShutdownPolicy_ {};
-      // Manage order operation.
-      // - ban：Ban the new purchase action.
-      // - normal：The account could raise new purchase order as usual.
+      // Request ID, Alibaba Cloud will track errors with this.
       shared_ptr<string> newBuyStatus_ {};
     };
 
@@ -207,17 +212,14 @@ namespace Models
 
 
   protected:
-    // Result Code:
-    // - 200 OK
-    // - 1109 System Error
+    // success
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The Credit Line of Sub Account
     shared_ptr<GetCreditInfoResponseBody::Data> data_ {};
-    // Message Information
-    shared_ptr<string> message_ {};
-    // Request ID, Alibaba Cloud will track errors with this.
-    shared_ptr<string> requestId_ {};
     // Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+    shared_ptr<string> message_ {};
+    shared_ptr<string> requestId_ {};
+    // The Credit have been consumed by Sub Account, and haven\\"t be paid.
     shared_ptr<bool> success_ {};
   };
 
