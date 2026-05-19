@@ -707,6 +707,23 @@ namespace Cas20200407
       Models::GetInstanceSummaryResponse getInstanceSummary(const Models::GetInstanceSummaryRequest &request);
 
       /**
+       * @summary 获取匹配的资源
+       *
+       * @param request GetMatchedResourcesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMatchedResourcesResponse
+       */
+      Models::GetMatchedResourcesResponse getMatchedResourcesWithOptions(const Models::GetMatchedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取匹配的资源
+       *
+       * @param request GetMatchedResourcesRequest
+       * @return GetMatchedResourcesResponse
+       */
+      Models::GetMatchedResourcesResponse getMatchedResources(const Models::GetMatchedResourcesRequest &request);
+
+      /**
        * @summary 统计风险资产数量
        *
        * @param runtime runtime options for this request RuntimeOptions

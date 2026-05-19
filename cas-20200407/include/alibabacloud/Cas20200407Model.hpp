@@ -108,6 +108,9 @@
 #include <alibabacloud/models/GetInstanceSummaryRequest.hpp>
 #include <alibabacloud/models/GetInstanceSummaryResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceSummaryResponse.hpp>
+#include <alibabacloud/models/GetMatchedResourcesRequest.hpp>
+#include <alibabacloud/models/GetMatchedResourcesResponseBody.hpp>
+#include <alibabacloud/models/GetMatchedResourcesResponse.hpp>
 #include <alibabacloud/models/GetRiskCountResponseBody.hpp>
 #include <alibabacloud/models/GetRiskCountResponse.hpp>
 #include <alibabacloud/models/GetTaskAttributeRequest.hpp>

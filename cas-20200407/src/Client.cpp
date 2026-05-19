@@ -1935,6 +1935,60 @@ GetInstanceSummaryResponse Client::getInstanceSummary(const GetInstanceSummaryRe
 }
 
 /**
+ * @summary 获取匹配的资源
+ *
+ * @param request GetMatchedResourcesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMatchedResourcesResponse
+ */
+GetMatchedResourcesResponse Client::getMatchedResourcesWithOptions(const GetMatchedResourcesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCertIds()) {
+    query["CertIds"] = request.getCertIds();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasResourceScope()) {
+    query["ResourceScope"] = request.getResourceScope();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMatchedResources"},
+    {"version" , "2020-04-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMatchedResourcesResponse>();
+}
+
+/**
+ * @summary 获取匹配的资源
+ *
+ * @param request GetMatchedResourcesRequest
+ * @return GetMatchedResourcesResponse
+ */
+GetMatchedResourcesResponse Client::getMatchedResources(const GetMatchedResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMatchedResourcesWithOptions(request, runtime);
+}
+
+/**
  * @summary 统计风险资产数量
  *
  * @param runtime runtime options for this request RuntimeOptions
