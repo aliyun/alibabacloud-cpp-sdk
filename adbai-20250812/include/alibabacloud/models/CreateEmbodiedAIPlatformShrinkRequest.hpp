@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DeviceCount, deviceCount_);
       DARABONBA_PTR_TO_JSON(PlatformName, platformName_);
       DARABONBA_PTR_TO_JSON(RayConfig, rayConfigShrink_);
+      DARABONBA_PTR_TO_JSON(RayTrainConfig, rayTrainConfigShrink_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(WebserverSpecName, webserverSpecName_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DeviceCount, deviceCount_);
       DARABONBA_PTR_FROM_JSON(PlatformName, platformName_);
       DARABONBA_PTR_FROM_JSON(RayConfig, rayConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(RayTrainConfig, rayTrainConfigShrink_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(WebserverSpecName, webserverSpecName_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->deviceCount_ == nullptr && this->platformName_ == nullptr && this->rayConfigShrink_ == nullptr && this->regionId_ == nullptr && this->webserverSpecName_ == nullptr; };
+        && this->deviceCount_ == nullptr && this->platformName_ == nullptr && this->rayConfigShrink_ == nullptr && this->rayTrainConfigShrink_ == nullptr && this->regionId_ == nullptr
+        && this->webserverSpecName_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline CreateEmbodiedAIPlatformShrinkRequest& setRayConfigShrink(string rayConfigShrink) { DARABONBA_PTR_SET_VALUE(rayConfigShrink_, rayConfigShrink) };
 
 
+    // rayTrainConfigShrink Field Functions 
+    bool hasRayTrainConfigShrink() const { return this->rayTrainConfigShrink_ != nullptr;};
+    void deleteRayTrainConfigShrink() { this->rayTrainConfigShrink_ = nullptr;};
+    inline string getRayTrainConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(rayTrainConfigShrink_, "") };
+    inline CreateEmbodiedAIPlatformShrinkRequest& setRayTrainConfigShrink(string rayTrainConfigShrink) { DARABONBA_PTR_SET_VALUE(rayTrainConfigShrink_, rayTrainConfigShrink) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -90,6 +100,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> platformName_ {};
     shared_ptr<string> rayConfigShrink_ {};
+    shared_ptr<string> rayTrainConfigShrink_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> webserverSpecName_ {};

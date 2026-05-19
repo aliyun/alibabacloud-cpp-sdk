@@ -111,6 +111,10 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatformWithOptions(con
     request.setRayConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRayConfig(), "RayConfig", "json"));
   }
 
+  if (!!tmpReq.hasRayTrainConfig()) {
+    request.setRayTrainConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRayTrainConfig(), "RayTrainConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
@@ -126,6 +130,10 @@ CreateEmbodiedAIPlatformResponse Client::createEmbodiedAIPlatformWithOptions(con
 
   if (!!request.hasRayConfigShrink()) {
     query["RayConfig"] = request.getRayConfigShrink();
+  }
+
+  if (!!request.hasRayTrainConfigShrink()) {
+    query["RayTrainConfig"] = request.getRayTrainConfigShrink();
   }
 
   if (!!request.hasRegionId()) {
@@ -686,6 +694,10 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(con
     request.setRayConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRayConfig(), "RayConfig", "json"));
   }
 
+  if (!!tmpReq.hasRayTrainConfig()) {
+    request.setRayTrainConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRayTrainConfig(), "RayTrainConfig", "json"));
+  }
+
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
@@ -701,6 +713,10 @@ ModifyEmbodiedAIPlatformResponse Client::modifyEmbodiedAIPlatformWithOptions(con
 
   if (!!request.hasRayConfigShrink()) {
     query["RayConfig"] = request.getRayConfigShrink();
+  }
+
+  if (!!request.hasRayTrainConfigShrink()) {
+    query["RayTrainConfig"] = request.getRayTrainConfigShrink();
   }
 
   if (!!request.hasRegionId()) {
