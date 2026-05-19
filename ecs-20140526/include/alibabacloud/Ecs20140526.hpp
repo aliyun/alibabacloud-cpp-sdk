@@ -2086,7 +2086,7 @@ namespace Ecs20140526
       Models::CreateVpcResponse createVpc(const Models::CreateVpcRequest &request);
 
       /**
-       * @summary 创建Vsc
+       * @summary Create a virtual storage channel for an ECS instance
        *
        * @param request CreateVscRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2095,7 +2095,7 @@ namespace Ecs20140526
       Models::CreateVscResponse createVscWithOptions(const Models::CreateVscRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Vsc
+       * @summary Create a virtual storage channel for an ECS instance
        *
        * @param request CreateVscRequest
        * @return CreateVscResponse
@@ -2949,7 +2949,7 @@ namespace Ecs20140526
       Models::DeleteVpcResponse deleteVpc(const Models::DeleteVpcRequest &request);
 
       /**
-       * @summary 删除虚拟存储通道
+       * @summary Delete a Virtual Storage Channel (VSC)
        *
        * @param request DeleteVscRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2958,7 +2958,7 @@ namespace Ecs20140526
       Models::DeleteVscResponse deleteVscWithOptions(const Models::DeleteVscRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除虚拟存储通道
+       * @summary Delete a Virtual Storage Channel (VSC)
        *
        * @param request DeleteVscRequest
        * @return DeleteVscResponse
@@ -4133,7 +4133,7 @@ namespace Ecs20140526
       Models::DescribeInstanceMaintenanceAttributesResponse describeInstanceMaintenanceAttributes(const Models::DescribeInstanceMaintenanceAttributesRequest &request);
 
       /**
-       * @summary Queries the pricing information about newly attached subscription data disks or about the new instance types when you upgrade the configurations of unexpired subscription Elastic Compute Service (ECS) instances.
+       * @summary Queries the pricing info about the target instance types and newly added subscription data disks when you upgrade unexpired subscription ECS instances.
        *
        * @description *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
        * *   Pricing information cannot be queried for pay-as-you-go ECS instances when you change their configurations. Prices of existing pay-as-you-go ECS instances whose configurations are changed are the same as those of new pay-as-you-go instances. You can call the [DescribePrice](https://help.aliyun.com/document_detail/107829.html) operation to query the latest prices of ECS instances.
@@ -4146,7 +4146,7 @@ namespace Ecs20140526
       Models::DescribeInstanceModificationPriceResponse describeInstanceModificationPriceWithOptions(const Models::DescribeInstanceModificationPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the pricing information about newly attached subscription data disks or about the new instance types when you upgrade the configurations of unexpired subscription Elastic Compute Service (ECS) instances.
+       * @summary Queries the pricing info about the target instance types and newly added subscription data disks when you upgrade unexpired subscription ECS instances.
        *
        * @description *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
        * *   Pricing information cannot be queried for pay-as-you-go ECS instances when you change their configurations. Prices of existing pay-as-you-go ECS instances whose configurations are changed are the same as those of new pay-as-you-go instances. You can call the [DescribePrice](https://help.aliyun.com/document_detail/107829.html) operation to query the latest prices of ECS instances.
@@ -5768,7 +5768,7 @@ namespace Ecs20140526
       Models::DescribeVpcsResponse describeVpcs(const Models::DescribeVpcsRequest &request);
 
       /**
-       * @summary 查询虚拟存储通道
+       * @summary Query virtual storage channels (VSC). Support filtering by VscId, instance, Status, and label.
        *
        * @param request DescribeVscsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5777,7 +5777,7 @@ namespace Ecs20140526
       Models::DescribeVscsResponse describeVscsWithOptions(const Models::DescribeVscsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询虚拟存储通道
+       * @summary Query virtual storage channels (VSC). Support filtering by VscId, instance, Status, and label.
        *
        * @param request DescribeVscsRequest
        * @return DescribeVscsResponse

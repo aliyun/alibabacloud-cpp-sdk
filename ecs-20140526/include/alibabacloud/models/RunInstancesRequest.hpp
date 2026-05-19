@@ -1555,12 +1555,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Numa, numa_);
         DARABONBA_PTR_TO_JSON(ThreadsPerCore, threadsPerCore_);
         DARABONBA_PTR_TO_JSON(TopologyType, topologyType_);
+        DARABONBA_PTR_TO_JSON(NestedVirtualization, nestedVirtualization_);
       };
       friend void from_json(const Darabonba::Json& j, CpuOptions& obj) { 
         DARABONBA_PTR_FROM_JSON(Core, core_);
         DARABONBA_PTR_FROM_JSON(Numa, numa_);
         DARABONBA_PTR_FROM_JSON(ThreadsPerCore, threadsPerCore_);
         DARABONBA_PTR_FROM_JSON(TopologyType, topologyType_);
+        DARABONBA_PTR_FROM_JSON(NestedVirtualization, nestedVirtualization_);
       };
       CpuOptions() = default ;
       CpuOptions(const CpuOptions &) = default ;
@@ -1574,7 +1576,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->core_ == nullptr
-        && this->numa_ == nullptr && this->threadsPerCore_ == nullptr && this->topologyType_ == nullptr; };
+        && this->numa_ == nullptr && this->threadsPerCore_ == nullptr && this->topologyType_ == nullptr && this->nestedVirtualization_ == nullptr; };
       // core Field Functions 
       bool hasCore() const { return this->core_ != nullptr;};
       void deleteCore() { this->core_ = nullptr;};
@@ -1603,6 +1605,13 @@ namespace Models
       inline CpuOptions& setTopologyType(string topologyType) { DARABONBA_PTR_SET_VALUE(topologyType_, topologyType) };
 
 
+      // nestedVirtualization Field Functions 
+      bool hasNestedVirtualization() const { return this->nestedVirtualization_ != nullptr;};
+      void deleteNestedVirtualization() { this->nestedVirtualization_ = nullptr;};
+      inline string getNestedVirtualization() const { DARABONBA_PTR_GET_DEFAULT(nestedVirtualization_, "") };
+      inline CpuOptions& setNestedVirtualization(string nestedVirtualization) { DARABONBA_PTR_SET_VALUE(nestedVirtualization_, nestedVirtualization) };
+
+
     protected:
       // The number of CPU cores.
       shared_ptr<int32_t> core_ {};
@@ -1622,6 +1631,7 @@ namespace Models
       // 
       // >  This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](https://help.aliyun.com/document_detail/2636059.html).
       shared_ptr<string> topologyType_ {};
+      shared_ptr<string> nestedVirtualization_ {};
     };
 
     virtual bool empty() const override { return this->cpuOptions_ == nullptr
