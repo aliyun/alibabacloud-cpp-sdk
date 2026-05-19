@@ -14,21 +14,27 @@ namespace Models
   class GetYikePromptExpansionVoiceFixJobResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetYikePromptExpansionVoiceFixJobResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobParams, jobParams_);
       DARABONBA_PTR_TO_JSON(JobResult, jobResult_);
       DARABONBA_PTR_TO_JSON(JobStatus, jobStatus_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, GetYikePromptExpansionVoiceFixJobResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobParams, jobParams_);
       DARABONBA_PTR_FROM_JSON(JobResult, jobResult_);
       DARABONBA_PTR_FROM_JSON(JobStatus, jobStatus_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(UserData, userData_);
     };
     GetYikePromptExpansionVoiceFixJobResponseBody() = default ;
@@ -74,14 +80,28 @@ namespace Models
       shared_ptr<string> outputUrl_ {};
     };
 
-    virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->jobId_ == nullptr && this->jobParams_ == nullptr && this->jobResult_ == nullptr && this->jobStatus_ == nullptr && this->requestId_ == nullptr
-        && this->userData_ == nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->errorCode_ == nullptr && this->errorMessage_ == nullptr && this->jobId_ == nullptr && this->jobParams_ == nullptr && this->jobResult_ == nullptr
+        && this->jobStatus_ == nullptr && this->requestId_ == nullptr && this->startTime_ == nullptr && this->userData_ == nullptr; };
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline GetYikePromptExpansionVoiceFixJobResponseBody& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
     inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetYikePromptExpansionVoiceFixJobResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // errorMessage Field Functions 
+    bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+    void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+    inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+    inline GetYikePromptExpansionVoiceFixJobResponseBody& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
 
 
     // jobId Field Functions 
@@ -121,6 +141,13 @@ namespace Models
     inline GetYikePromptExpansionVoiceFixJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+    inline GetYikePromptExpansionVoiceFixJobResponseBody& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
     // userData Field Functions 
     bool hasUserData() const { return this->userData_ != nullptr;};
     void deleteUserData() { this->userData_ = nullptr;};
@@ -129,13 +156,16 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> endTime_ {};
     shared_ptr<string> errorCode_ {};
+    shared_ptr<string> errorMessage_ {};
     shared_ptr<string> jobId_ {};
     shared_ptr<string> jobParams_ {};
     shared_ptr<vector<GetYikePromptExpansionVoiceFixJobResponseBody::JobResult>> jobResult_ {};
     shared_ptr<string> jobStatus_ {};
     // RequestId
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> startTime_ {};
     shared_ptr<string> userData_ {};
   };
 
