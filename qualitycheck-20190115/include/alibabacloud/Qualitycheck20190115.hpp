@@ -1130,6 +1130,32 @@ namespace Qualitycheck20190115
       Models::RevertAssignedSessionGroupResponse revertAssignedSessionGroup(const Models::RevertAssignedSessionGroupRequest &request);
 
       /**
+       * @summary 使用原生Prompt调用通义晓蜜
+       *
+       * @param tmpReq RunCompletionMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunCompletionMessageResponse
+       */
+      FutureGenerator<Models::RunCompletionMessageResponse> runCompletionMessageWithSSE(const Models::RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 使用原生Prompt调用通义晓蜜
+       *
+       * @param tmpReq RunCompletionMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunCompletionMessageResponse
+       */
+      Models::RunCompletionMessageResponse runCompletionMessageWithOptions(const Models::RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 使用原生Prompt调用通义晓蜜
+       *
+       * @param request RunCompletionMessageRequest
+       * @return RunCompletionMessageResponse
+       */
+      Models::RunCompletionMessageResponse runCompletionMessage(const Models::RunCompletionMessageRequest &request);
+
+      /**
        * @deprecated OpenAPI SaveConfigDataSet is deprecated
        *
        * @param request SaveConfigDataSetRequest

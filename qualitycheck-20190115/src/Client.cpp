@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::Qualitycheck20190115::Models;
@@ -3373,6 +3374,121 @@ RevertAssignedSessionGroupResponse Client::revertAssignedSessionGroupWithOptions
 RevertAssignedSessionGroupResponse Client::revertAssignedSessionGroup(const RevertAssignedSessionGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return revertAssignedSessionGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 使用原生Prompt调用通义晓蜜
+ *
+ * @param tmpReq RunCompletionMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCompletionMessageResponse
+ */
+FutureGenerator<RunCompletionMessageResponse> Client::runCompletionMessageWithSSE(const RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunCompletionMessageShrinkRequest request = RunCompletionMessageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "Messages", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.getMessagesShrink();
+  }
+
+  if (!!request.hasModelCode()) {
+    body["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCompletionMessage"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<RunCompletionMessageResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 使用原生Prompt调用通义晓蜜
+ *
+ * @param tmpReq RunCompletionMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RunCompletionMessageResponse
+ */
+RunCompletionMessageResponse Client::runCompletionMessageWithOptions(const RunCompletionMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  RunCompletionMessageShrinkRequest request = RunCompletionMessageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasMessages()) {
+    request.setMessagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMessages(), "Messages", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasMessagesShrink()) {
+    body["Messages"] = request.getMessagesShrink();
+  }
+
+  if (!!request.hasModelCode()) {
+    body["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasStream()) {
+    body["Stream"] = request.getStream();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RunCompletionMessage"},
+    {"version" , "2019-01-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RunCompletionMessageResponse>();
+}
+
+/**
+ * @summary 使用原生Prompt调用通义晓蜜
+ *
+ * @param request RunCompletionMessageRequest
+ * @return RunCompletionMessageResponse
+ */
+RunCompletionMessageResponse Client::runCompletionMessage(const RunCompletionMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return runCompletionMessageWithOptions(request, runtime);
 }
 
 /**

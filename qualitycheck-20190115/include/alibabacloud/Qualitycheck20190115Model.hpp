@@ -221,6 +221,10 @@
 #include <alibabacloud/models/RevertAssignedSessionGroupRequest.hpp>
 #include <alibabacloud/models/RevertAssignedSessionGroupResponseBody.hpp>
 #include <alibabacloud/models/RevertAssignedSessionGroupResponse.hpp>
+#include <alibabacloud/models/RunCompletionMessageRequest.hpp>
+#include <alibabacloud/models/RunCompletionMessageShrinkRequest.hpp>
+#include <alibabacloud/models/RunCompletionMessageResponseBody.hpp>
+#include <alibabacloud/models/RunCompletionMessageResponse.hpp>
 #include <alibabacloud/models/SaveConfigDataSetRequest.hpp>
 #include <alibabacloud/models/SaveConfigDataSetResponseBody.hpp>
 #include <alibabacloud/models/SaveConfigDataSetResponse.hpp>
