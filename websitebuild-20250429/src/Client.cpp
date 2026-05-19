@@ -1536,6 +1536,52 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartner(const GetI
 }
 
 /**
+ * @summary 查询LLM Proxy配置
+ *
+ * @param request GetLlmProxyConfigForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLlmProxyConfigForAdminResponse
+ */
+GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdminWithOptions(const GetLlmProxyConfigForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasCapability()) {
+    query["Capability"] = request.getCapability();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLlmProxyConfigForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLlmProxyConfigForAdminResponse>();
+}
+
+/**
+ * @summary 查询LLM Proxy配置
+ *
+ * @param request GetLlmProxyConfigForAdminRequest
+ * @return GetLlmProxyConfigForAdminResponse
+ */
+GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdmin(const GetLlmProxyConfigForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getLlmProxyConfigForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary 通过授权码得到accessToken
  *
  * @param request GetUserAccessTokenForPartnerRequest

@@ -512,6 +512,23 @@ namespace WebsiteBuild20250429
       Models::GetIcpFilingInfoForPartnerResponse getIcpFilingInfoForPartner(const Models::GetIcpFilingInfoForPartnerRequest &request);
 
       /**
+       * @summary 查询LLM Proxy配置
+       *
+       * @param request GetLlmProxyConfigForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLlmProxyConfigForAdminResponse
+       */
+      Models::GetLlmProxyConfigForAdminResponse getLlmProxyConfigForAdminWithOptions(const Models::GetLlmProxyConfigForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询LLM Proxy配置
+       *
+       * @param request GetLlmProxyConfigForAdminRequest
+       * @return GetLlmProxyConfigForAdminResponse
+       */
+      Models::GetLlmProxyConfigForAdminResponse getLlmProxyConfigForAdmin(const Models::GetLlmProxyConfigForAdminRequest &request);
+
+      /**
        * @summary 通过授权码得到accessToken
        *
        * @param request GetUserAccessTokenForPartnerRequest

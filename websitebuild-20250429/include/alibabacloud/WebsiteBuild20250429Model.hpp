@@ -114,6 +114,9 @@
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerRequest.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetIcpFilingInfoForPartnerResponse.hpp>
+#include <alibabacloud/models/GetLlmProxyConfigForAdminRequest.hpp>
+#include <alibabacloud/models/GetLlmProxyConfigForAdminResponseBody.hpp>
+#include <alibabacloud/models/GetLlmProxyConfigForAdminResponse.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponse.hpp>
