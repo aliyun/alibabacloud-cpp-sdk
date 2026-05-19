@@ -41,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(openingRemarks, openingRemarks_);
       DARABONBA_PTR_TO_JSON(orderAckFlag, orderAckFlag_);
+      DARABONBA_PTR_TO_JSON(pointCoveredFlag, pointCoveredFlag_);
       DARABONBA_PTR_TO_JSON(pointDeductionRuleList, pointDeductionRuleList_);
       DARABONBA_PTR_TO_JSON(points, points_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(openingRemarks, openingRemarks_);
       DARABONBA_PTR_FROM_JSON(orderAckFlag, orderAckFlag_);
+      DARABONBA_PTR_FROM_JSON(pointCoveredFlag, pointCoveredFlag_);
       DARABONBA_PTR_FROM_JSON(pointDeductionRuleList, pointDeductionRuleList_);
       DARABONBA_PTR_FROM_JSON(points, points_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
@@ -421,6 +423,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(pointId, pointId_);
         DARABONBA_PTR_TO_JSON(questionDescription, questionDescription_);
+        DARABONBA_PTR_TO_JSON(scriptPointId, scriptPointId_);
         DARABONBA_PTR_TO_JSON(sortNo, sortNo_);
         DARABONBA_PTR_TO_JSON(weight, weight_);
       };
@@ -430,6 +433,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(pointId, pointId_);
         DARABONBA_PTR_FROM_JSON(questionDescription, questionDescription_);
+        DARABONBA_PTR_FROM_JSON(scriptPointId, scriptPointId_);
         DARABONBA_PTR_FROM_JSON(sortNo, sortNo_);
         DARABONBA_PTR_FROM_JSON(weight, weight_);
       };
@@ -745,8 +749,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->answerList_ == nullptr
-        && this->knowledgeList_ == nullptr && this->name_ == nullptr && this->pointId_ == nullptr && this->questionDescription_ == nullptr && this->sortNo_ == nullptr
-        && this->weight_ == nullptr; };
+        && this->knowledgeList_ == nullptr && this->name_ == nullptr && this->pointId_ == nullptr && this->questionDescription_ == nullptr && this->scriptPointId_ == nullptr
+        && this->sortNo_ == nullptr && this->weight_ == nullptr; };
       // answerList Field Functions 
       bool hasAnswerList() const { return this->answerList_ != nullptr;};
       void deleteAnswerList() { this->answerList_ = nullptr;};
@@ -786,6 +790,13 @@ namespace Models
       inline Points& setQuestionDescription(string questionDescription) { DARABONBA_PTR_SET_VALUE(questionDescription_, questionDescription) };
 
 
+      // scriptPointId Field Functions 
+      bool hasScriptPointId() const { return this->scriptPointId_ != nullptr;};
+      void deleteScriptPointId() { this->scriptPointId_ = nullptr;};
+      inline string getScriptPointId() const { DARABONBA_PTR_GET_DEFAULT(scriptPointId_, "") };
+      inline Points& setScriptPointId(string scriptPointId) { DARABONBA_PTR_SET_VALUE(scriptPointId_, scriptPointId) };
+
+
       // sortNo Field Functions 
       bool hasSortNo() const { return this->sortNo_ != nullptr;};
       void deleteSortNo() { this->sortNo_ = nullptr;};
@@ -806,6 +817,7 @@ namespace Models
       shared_ptr<string> name_ {};
       shared_ptr<string> pointId_ {};
       shared_ptr<string> questionDescription_ {};
+      shared_ptr<string> scriptPointId_ {};
       shared_ptr<int32_t> sortNo_ {};
       shared_ptr<int32_t> weight_ {};
     };
@@ -1367,9 +1379,10 @@ namespace Models
         && this->dialogueVoiceLimit_ == nullptr && this->evaluateReportFlag_ == nullptr && this->expressiveness_ == nullptr && this->expressivenessList_ == nullptr && this->gifDynamicUrl_ == nullptr
         && this->gifStaticUrl_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->initiator_ == nullptr && this->interactionInputTypes_ == nullptr
         && this->interactionType_ == nullptr && this->introduce_ == nullptr && this->name_ == nullptr && this->openingRemarks_ == nullptr && this->orderAckFlag_ == nullptr
-        && this->pointDeductionRuleList_ == nullptr && this->points_ == nullptr && this->requestId_ == nullptr && this->sampleDialogueList_ == nullptr && this->scoreConfig_ == nullptr
-        && this->scriptRecordId_ == nullptr && this->sparringTipContent_ == nullptr && this->sparringTipTitle_ == nullptr && this->status_ == nullptr && this->studentThinkTimeFlag_ == nullptr
-        && this->studentThinkTimeLimit_ == nullptr && this->type_ == nullptr && this->voiceId_ == nullptr && this->voiceLanguage_ == nullptr && this->weights_ == nullptr; };
+        && this->pointCoveredFlag_ == nullptr && this->pointDeductionRuleList_ == nullptr && this->points_ == nullptr && this->requestId_ == nullptr && this->sampleDialogueList_ == nullptr
+        && this->scoreConfig_ == nullptr && this->scriptRecordId_ == nullptr && this->sparringTipContent_ == nullptr && this->sparringTipTitle_ == nullptr && this->status_ == nullptr
+        && this->studentThinkTimeFlag_ == nullptr && this->studentThinkTimeLimit_ == nullptr && this->type_ == nullptr && this->voiceId_ == nullptr && this->voiceLanguage_ == nullptr
+        && this->weights_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -1564,6 +1577,13 @@ namespace Models
     inline GetAICoachScriptResponseBody& setOrderAckFlag(bool orderAckFlag) { DARABONBA_PTR_SET_VALUE(orderAckFlag_, orderAckFlag) };
 
 
+    // pointCoveredFlag Field Functions 
+    bool hasPointCoveredFlag() const { return this->pointCoveredFlag_ != nullptr;};
+    void deletePointCoveredFlag() { this->pointCoveredFlag_ = nullptr;};
+    inline bool getPointCoveredFlag() const { DARABONBA_PTR_GET_DEFAULT(pointCoveredFlag_, false) };
+    inline GetAICoachScriptResponseBody& setPointCoveredFlag(bool pointCoveredFlag) { DARABONBA_PTR_SET_VALUE(pointCoveredFlag_, pointCoveredFlag) };
+
+
     // pointDeductionRuleList Field Functions 
     bool hasPointDeductionRuleList() const { return this->pointDeductionRuleList_ != nullptr;};
     void deletePointDeductionRuleList() { this->pointDeductionRuleList_ = nullptr;};
@@ -1706,6 +1726,7 @@ namespace Models
     shared_ptr<string> name_ {};
     shared_ptr<string> openingRemarks_ {};
     shared_ptr<bool> orderAckFlag_ {};
+    shared_ptr<bool> pointCoveredFlag_ {};
     shared_ptr<vector<GetAICoachScriptResponseBody::PointDeductionRuleList>> pointDeductionRuleList_ {};
     shared_ptr<vector<GetAICoachScriptResponseBody::Points>> points_ {};
     shared_ptr<string> requestId_ {};
