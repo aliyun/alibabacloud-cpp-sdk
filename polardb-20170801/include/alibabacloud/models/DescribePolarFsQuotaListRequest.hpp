@@ -14,12 +14,16 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribePolarFsQuotaListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(PolarFsInstanceId, polarFsInstanceId_);
       DARABONBA_PTR_TO_JSON(QuotaMode, quotaMode_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribePolarFsQuotaListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(PolarFsInstanceId, polarFsInstanceId_);
       DARABONBA_PTR_FROM_JSON(QuotaMode, quotaMode_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -36,12 +40,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->polarFsInstanceId_ == nullptr && this->quotaMode_ == nullptr && this->regionId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->polarFsInstanceId_ == nullptr && this->quotaMode_ == nullptr && this->regionId_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
     inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
     inline DescribePolarFsQuotaListRequest& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribePolarFsQuotaListRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribePolarFsQuotaListRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // polarFsInstanceId Field Functions 
@@ -67,6 +85,8 @@ namespace Models
 
   protected:
     shared_ptr<string> DBClusterId_ {};
+    shared_ptr<int32_t> pageNumber_ {};
+    shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
     shared_ptr<string> polarFsInstanceId_ {};
     shared_ptr<string> quotaMode_ {};

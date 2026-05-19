@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
+      DARABONBA_PTR_TO_JSON(CanDisableSnat, canDisableSnat_);
       DARABONBA_PTR_TO_JSON(Components, components_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_TO_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
+      DARABONBA_PTR_TO_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_TO_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -39,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_TO_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_TO_JSON(ServerlessType, serverlessType_);
+      DARABONBA_PTR_TO_JSON(SnatStatus, snatStatus_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Storages, storages_);
       DARABONBA_PTR_TO_JSON(UpgradeAvailable, upgradeAvailable_);
@@ -51,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
+      DARABONBA_PTR_FROM_JSON(CanDisableSnat, canDisableSnat_);
       DARABONBA_PTR_FROM_JSON(Components, components_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -65,6 +69,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaintainStartTime, maintainStartTime_);
       DARABONBA_PTR_FROM_JSON(MemApplicationAttribute, memApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
+      DARABONBA_PTR_FROM_JSON(NatGatewayId, natGatewayId_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PolarClawSaaSApplicationAttribute, polarClawSaaSApplicationAttribute_);
       DARABONBA_PTR_FROM_JSON(PolarFSInstanceId, polarFSInstanceId_);
@@ -73,6 +78,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityGroups, securityGroups_);
       DARABONBA_PTR_FROM_JSON(SecurityIPArrays, securityIPArrays_);
       DARABONBA_PTR_FROM_JSON(ServerlessType, serverlessType_);
+      DARABONBA_PTR_FROM_JSON(SnatStatus, snatStatus_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Storages, storages_);
       DARABONBA_PTR_FROM_JSON(UpgradeAvailable, upgradeAvailable_);
@@ -836,13 +842,13 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->isLatestVersion_ == nullptr
-        && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr && this->memApplicationAttribute_ == nullptr
-        && this->minorVersion_ == nullptr && this->payType_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr
-        && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr && this->serverlessType_ == nullptr && this->status_ == nullptr
-        && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->canDisableSnat_ == nullptr && this->components_ == nullptr && this->creationTime_ == nullptr
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->endpoints_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr
+        && this->isLatestVersion_ == nullptr && this->latestVersion_ == nullptr && this->lockMode_ == nullptr && this->maintainEndTime_ == nullptr && this->maintainStartTime_ == nullptr
+        && this->memApplicationAttribute_ == nullptr && this->minorVersion_ == nullptr && this->natGatewayId_ == nullptr && this->payType_ == nullptr && this->polarClawSaaSApplicationAttribute_ == nullptr
+        && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityGroups_ == nullptr && this->securityIPArrays_ == nullptr
+        && this->serverlessType_ == nullptr && this->snatStatus_ == nullptr && this->status_ == nullptr && this->storages_ == nullptr && this->upgradeAvailable_ == nullptr
+        && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->version_ == nullptr && this->zoneId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -862,6 +868,13 @@ namespace Models
     void deleteArchitecture() { this->architecture_ = nullptr;};
     inline string getArchitecture() const { DARABONBA_PTR_GET_DEFAULT(architecture_, "") };
     inline DescribeApplicationAttributeResponseBody& setArchitecture(string architecture) { DARABONBA_PTR_SET_VALUE(architecture_, architecture) };
+
+
+    // canDisableSnat Field Functions 
+    bool hasCanDisableSnat() const { return this->canDisableSnat_ != nullptr;};
+    void deleteCanDisableSnat() { this->canDisableSnat_ = nullptr;};
+    inline bool getCanDisableSnat() const { DARABONBA_PTR_GET_DEFAULT(canDisableSnat_, false) };
+    inline DescribeApplicationAttributeResponseBody& setCanDisableSnat(bool canDisableSnat) { DARABONBA_PTR_SET_VALUE(canDisableSnat_, canDisableSnat) };
 
 
     // components Field Functions 
@@ -968,6 +981,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setMinorVersion(string minorVersion) { DARABONBA_PTR_SET_VALUE(minorVersion_, minorVersion) };
 
 
+    // natGatewayId Field Functions 
+    bool hasNatGatewayId() const { return this->natGatewayId_ != nullptr;};
+    void deleteNatGatewayId() { this->natGatewayId_ = nullptr;};
+    inline string getNatGatewayId() const { DARABONBA_PTR_GET_DEFAULT(natGatewayId_, "") };
+    inline DescribeApplicationAttributeResponseBody& setNatGatewayId(string natGatewayId) { DARABONBA_PTR_SET_VALUE(natGatewayId_, natGatewayId) };
+
+
     // payType Field Functions 
     bool hasPayType() const { return this->payType_ != nullptr;};
     void deletePayType() { this->payType_ = nullptr;};
@@ -1030,6 +1050,13 @@ namespace Models
     inline DescribeApplicationAttributeResponseBody& setServerlessType(string serverlessType) { DARABONBA_PTR_SET_VALUE(serverlessType_, serverlessType) };
 
 
+    // snatStatus Field Functions 
+    bool hasSnatStatus() const { return this->snatStatus_ != nullptr;};
+    void deleteSnatStatus() { this->snatStatus_ = nullptr;};
+    inline string getSnatStatus() const { DARABONBA_PTR_GET_DEFAULT(snatStatus_, "") };
+    inline DescribeApplicationAttributeResponseBody& setSnatStatus(string snatStatus) { DARABONBA_PTR_SET_VALUE(snatStatus_, snatStatus) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -1085,6 +1112,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     shared_ptr<string> applicationType_ {};
     shared_ptr<string> architecture_ {};
+    shared_ptr<bool> canDisableSnat_ {};
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Components>> components_ {};
     shared_ptr<string> creationTime_ {};
     shared_ptr<string> DBClusterId_ {};
@@ -1099,6 +1127,7 @@ namespace Models
     shared_ptr<string> maintainStartTime_ {};
     shared_ptr<DescribeApplicationAttributeResponseBody::MemApplicationAttribute> memApplicationAttribute_ {};
     shared_ptr<string> minorVersion_ {};
+    shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> payType_ {};
     shared_ptr<DescribeApplicationAttributeResponseBody::PolarClawSaaSApplicationAttribute> polarClawSaaSApplicationAttribute_ {};
     shared_ptr<string> polarFSInstanceId_ {};
@@ -1107,6 +1136,7 @@ namespace Models
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityGroups>> securityGroups_ {};
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::SecurityIPArrays>> securityIPArrays_ {};
     shared_ptr<string> serverlessType_ {};
+    shared_ptr<string> snatStatus_ {};
     shared_ptr<string> status_ {};
     shared_ptr<vector<DescribeApplicationAttributeResponseBody::Storages>> storages_ {};
     shared_ptr<string> upgradeAvailable_ {};

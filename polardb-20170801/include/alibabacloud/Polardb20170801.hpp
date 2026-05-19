@@ -3193,6 +3193,8 @@ namespace Polardb20170801
       Models::DescribeDBInitializeVariableResponse describeDBInitializeVariable(const Models::DescribeDBInitializeVariableRequest &request);
 
       /**
+       * @summary 查询实例性能数据
+       *
        * @param request DescribeDBInstancePerformanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDBInstancePerformanceResponse
@@ -3200,6 +3202,8 @@ namespace Polardb20170801
       Models::DescribeDBInstancePerformanceResponse describeDBInstancePerformanceWithOptions(const Models::DescribeDBInstancePerformanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例性能数据
+       *
        * @param request DescribeDBInstancePerformanceRequest
        * @return DescribeDBInstancePerformanceResponse
        */

@@ -12486,6 +12486,8 @@ DescribeDBInitializeVariableResponse Client::describeDBInitializeVariable(const 
 }
 
 /**
+ * @summary 查询实例性能数据
+ *
  * @param request DescribeDBInstancePerformanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDBInstancePerformanceResponse
@@ -12543,6 +12545,8 @@ DescribeDBInstancePerformanceResponse Client::describeDBInstancePerformanceWithO
 }
 
 /**
+ * @summary 查询实例性能数据
+ *
  * @param request DescribeDBInstancePerformanceRequest
  * @return DescribeDBInstancePerformanceResponse
  */
@@ -16091,6 +16095,14 @@ DescribePolarFsQuotaListResponse Client::describePolarFsQuotaListWithOptions(con
   json query = {};
   if (!!request.hasDBClusterId()) {
     query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPolarFsInstanceId()) {
