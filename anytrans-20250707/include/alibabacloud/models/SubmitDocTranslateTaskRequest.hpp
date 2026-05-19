@@ -114,9 +114,11 @@ namespace Models
       class Config : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Config& obj) { 
+          DARABONBA_PTR_TO_JSON(isBilingual, isBilingual_);
           DARABONBA_PTR_TO_JSON(skipImgTrans, skipImgTrans_);
         };
         friend void from_json(const Darabonba::Json& j, Config& obj) { 
+          DARABONBA_PTR_FROM_JSON(isBilingual, isBilingual_);
           DARABONBA_PTR_FROM_JSON(skipImgTrans, skipImgTrans_);
         };
         Config() = default ;
@@ -130,7 +132,15 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->skipImgTrans_ == nullptr; };
+        virtual bool empty() const override { return this->isBilingual_ == nullptr
+        && this->skipImgTrans_ == nullptr; };
+        // isBilingual Field Functions 
+        bool hasIsBilingual() const { return this->isBilingual_ != nullptr;};
+        void deleteIsBilingual() { this->isBilingual_ = nullptr;};
+        inline bool getIsBilingual() const { DARABONBA_PTR_GET_DEFAULT(isBilingual_, false) };
+        inline Config& setIsBilingual(bool isBilingual) { DARABONBA_PTR_SET_VALUE(isBilingual_, isBilingual) };
+
+
         // skipImgTrans Field Functions 
         bool hasSkipImgTrans() const { return this->skipImgTrans_ != nullptr;};
         void deleteSkipImgTrans() { this->skipImgTrans_ = nullptr;};
@@ -139,6 +149,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<bool> isBilingual_ {};
         shared_ptr<bool> skipImgTrans_ {};
       };
 
