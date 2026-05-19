@@ -1405,6 +1405,23 @@ namespace EdsAic20230930
       Models::OperateAppResponse operateApp(const Models::OperateAppRequest &request);
 
       /**
+       * @summary 暂停云手机实例上正在运行的 Agent 任务。
+       *
+       * @param request PauseAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PauseAgentTaskResponse
+       */
+      Models::PauseAgentTaskResponse pauseAgentTaskWithOptions(const Models::PauseAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停云手机实例上正在运行的 Agent 任务。
+       *
+       * @param request PauseAgentTaskRequest
+       * @return PauseAgentTaskResponse
+       */
+      Models::PauseAgentTaskResponse pauseAgentTask(const Models::PauseAgentTaskRequest &request);
+
+      /**
        * @summary Restarts one or more cloud phone instances.
        *
        * @description Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
@@ -1534,6 +1551,23 @@ namespace EdsAic20230930
        * @return ResetAndroidInstancesInGroupResponse
        */
       Models::ResetAndroidInstancesInGroupResponse resetAndroidInstancesInGroup(const Models::ResetAndroidInstancesInGroupRequest &request);
+
+      /**
+       * @summary 继续云手机实例上正在运行的 Agent 任务。
+       *
+       * @param request ResumeAgentTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResumeAgentTaskResponse
+       */
+      Models::ResumeAgentTaskResponse resumeAgentTaskWithOptions(const Models::ResumeAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 继续云手机实例上正在运行的 Agent 任务。
+       *
+       * @param request ResumeAgentTaskRequest
+       * @return ResumeAgentTaskResponse
+       */
+      Models::ResumeAgentTaskResponse resumeAgentTask(const Models::ResumeAgentTaskRequest &request);
 
       /**
        * @summary 触发云手机内的 Agent 执行 AI 自动化任务。

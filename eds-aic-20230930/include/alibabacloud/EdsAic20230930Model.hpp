@@ -234,6 +234,9 @@
 #include <alibabacloud/models/OperateAppRequest.hpp>
 #include <alibabacloud/models/OperateAppResponseBody.hpp>
 #include <alibabacloud/models/OperateAppResponse.hpp>
+#include <alibabacloud/models/PauseAgentTaskRequest.hpp>
+#include <alibabacloud/models/PauseAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/PauseAgentTaskResponse.hpp>
 #include <alibabacloud/models/RebootAndroidInstancesInGroupRequest.hpp>
 #include <alibabacloud/models/RebootAndroidInstancesInGroupResponseBody.hpp>
 #include <alibabacloud/models/RebootAndroidInstancesInGroupResponse.hpp>
@@ -255,6 +258,9 @@
 #include <alibabacloud/models/ResetAndroidInstancesInGroupRequest.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponseBody.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponse.hpp>
+#include <alibabacloud/models/ResumeAgentTaskRequest.hpp>
+#include <alibabacloud/models/ResumeAgentTaskResponseBody.hpp>
+#include <alibabacloud/models/ResumeAgentTaskResponse.hpp>
 #include <alibabacloud/models/RunAgentTaskRequest.hpp>
 #include <alibabacloud/models/RunAgentTaskResponseBody.hpp>
 #include <alibabacloud/models/RunAgentTaskResponse.hpp>

@@ -4698,6 +4698,48 @@ OperateAppResponse Client::operateApp(const OperateAppRequest &request) {
 }
 
 /**
+ * @summary 暂停云手机实例上正在运行的 Agent 任务。
+ *
+ * @param request PauseAgentTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PauseAgentTaskResponse
+ */
+PauseAgentTaskResponse Client::pauseAgentTaskWithOptions(const PauseAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskIds()) {
+    query["TaskIds"] = request.getTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PauseAgentTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PauseAgentTaskResponse>();
+}
+
+/**
+ * @summary 暂停云手机实例上正在运行的 Agent 任务。
+ *
+ * @param request PauseAgentTaskRequest
+ * @return PauseAgentTaskResponse
+ */
+PauseAgentTaskResponse Client::pauseAgentTask(const PauseAgentTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pauseAgentTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Restarts one or more cloud phone instances.
  *
  * @description Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
@@ -5123,6 +5165,52 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
 ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroup(const ResetAndroidInstancesInGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return resetAndroidInstancesInGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 继续云手机实例上正在运行的 Agent 任务。
+ *
+ * @param request ResumeAgentTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResumeAgentTaskResponse
+ */
+ResumeAgentTaskResponse Client::resumeAgentTaskWithOptions(const ResumeAgentTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAdditionalPrompt()) {
+    query["AdditionalPrompt"] = request.getAdditionalPrompt();
+  }
+
+  if (!!request.hasTaskIds()) {
+    query["TaskIds"] = request.getTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResumeAgentTask"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResumeAgentTaskResponse>();
+}
+
+/**
+ * @summary 继续云手机实例上正在运行的 Agent 任务。
+ *
+ * @param request ResumeAgentTaskRequest
+ * @return ResumeAgentTaskResponse
+ */
+ResumeAgentTaskResponse Client::resumeAgentTask(const ResumeAgentTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return resumeAgentTaskWithOptions(request, runtime);
 }
 
 /**
