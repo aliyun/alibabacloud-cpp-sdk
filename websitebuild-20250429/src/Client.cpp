@@ -346,6 +346,110 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUse
 }
 
 /**
+ * @summary 异步发起AI员工对话
+ *
+ * @param request CreateAIStaffChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIStaffChatResponse
+ */
+CreateAIStaffChatResponse Client::createAIStaffChatWithOptions(const CreateAIStaffChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBizId()) {
+    body["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChatId()) {
+    body["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMessages()) {
+    body["Messages"] = request.getMessages();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasMetaData()) {
+    bodyFlat["MetaData"] = request.getMetaData();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAIStaffChat"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIStaffChatResponse>();
+}
+
+/**
+ * @summary 异步发起AI员工对话
+ *
+ * @param request CreateAIStaffChatRequest
+ * @return CreateAIStaffChatResponse
+ */
+CreateAIStaffChatResponse Client::createAIStaffChat(const CreateAIStaffChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIStaffChatWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建AI员工会话
+ *
+ * @param request CreateAIStaffConversationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAIStaffConversationResponse
+ */
+CreateAIStaffConversationResponse Client::createAIStaffConversationWithOptions(const CreateAIStaffConversationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasText()) {
+    body["Text"] = request.getText();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAIStaffConversation"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAIStaffConversationResponse>();
+}
+
+/**
+ * @summary 创建AI员工会话
+ *
+ * @param request CreateAIStaffConversationRequest
+ * @return CreateAIStaffConversationResponse
+ */
+CreateAIStaffConversationResponse Client::createAIStaffConversation(const CreateAIStaffConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAIStaffConversationWithOptions(request, runtime);
+}
+
+/**
  * @summary 创建应用助手智能体
  *
  * @param request CreateAppAssistantAgentRequest
@@ -1729,6 +1833,118 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicketForPreview(const IntrospectAppInstanceTicketForPreviewRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取AI员工对话增量SSE事件
+ *
+ * @param request ListAIStaffChatEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAIStaffChatEventsResponse
+ */
+ListAIStaffChatEventsResponse Client::listAIStaffChatEventsWithOptions(const ListAIStaffChatEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  json body = {};
+  if (!!request.hasChatId()) {
+    body["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLastEventId()) {
+    body["LastEventId"] = request.getLastEventId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAIStaffChatEvents"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAIStaffChatEventsResponse>();
+}
+
+/**
+ * @summary 获取AI员工对话增量SSE事件
+ *
+ * @param request ListAIStaffChatEventsRequest
+ * @return ListAIStaffChatEventsResponse
+ */
+ListAIStaffChatEventsResponse Client::listAIStaffChatEvents(const ListAIStaffChatEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAIStaffChatEventsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询AI员工对话消息列表
+ *
+ * @param request ListAIStaffChatMessagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAIStaffChatMessagesResponse
+ */
+ListAIStaffChatMessagesResponse Client::listAIStaffChatMessagesWithOptions(const ListAIStaffChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartCreateTime()) {
+    body["StartCreateTime"] = request.getStartCreateTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListAIStaffChatMessages"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAIStaffChatMessagesResponse>();
+}
+
+/**
+ * @summary 分页查询AI员工对话消息列表
+ *
+ * @param request ListAIStaffChatMessagesRequest
+ * @return ListAIStaffChatMessagesResponse
+ */
+ListAIStaffChatMessagesResponse Client::listAIStaffChatMessages(const ListAIStaffChatMessagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAIStaffChatMessagesWithOptions(request, runtime);
 }
 
 /**

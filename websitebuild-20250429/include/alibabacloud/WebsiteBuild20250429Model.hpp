@@ -40,6 +40,12 @@
 #include <alibabacloud/models/CheckUserResourceMeasureRequest.hpp>
 #include <alibabacloud/models/CheckUserResourceMeasureResponseBody.hpp>
 #include <alibabacloud/models/CheckUserResourceMeasureResponse.hpp>
+#include <alibabacloud/models/CreateAIStaffChatRequest.hpp>
+#include <alibabacloud/models/CreateAIStaffChatResponseBody.hpp>
+#include <alibabacloud/models/CreateAIStaffChatResponse.hpp>
+#include <alibabacloud/models/CreateAIStaffConversationRequest.hpp>
+#include <alibabacloud/models/CreateAIStaffConversationResponseBody.hpp>
+#include <alibabacloud/models/CreateAIStaffConversationResponse.hpp>
 #include <alibabacloud/models/CreateAppAssistantAgentRequest.hpp>
 #include <alibabacloud/models/CreateAppAssistantAgentResponseBody.hpp>
 #include <alibabacloud/models/CreateAppAssistantAgentResponse.hpp>
@@ -126,6 +132,12 @@
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewRequest.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponseBody.hpp>
 #include <alibabacloud/models/IntrospectAppInstanceTicketForPreviewResponse.hpp>
+#include <alibabacloud/models/ListAIStaffChatEventsRequest.hpp>
+#include <alibabacloud/models/ListAIStaffChatEventsResponseBody.hpp>
+#include <alibabacloud/models/ListAIStaffChatEventsResponse.hpp>
+#include <alibabacloud/models/ListAIStaffChatMessagesRequest.hpp>
+#include <alibabacloud/models/ListAIStaffChatMessagesResponseBody.hpp>
+#include <alibabacloud/models/ListAIStaffChatMessagesResponse.hpp>
 #include <alibabacloud/models/ListAppAssistantAgentsRequest.hpp>
 #include <alibabacloud/models/ListAppAssistantAgentsResponseBody.hpp>
 #include <alibabacloud/models/ListAppAssistantAgentsResponse.hpp>

@@ -106,6 +106,40 @@ namespace WebsiteBuild20250429
       Models::CheckUserResourceMeasureResponse checkUserResourceMeasure(const Models::CheckUserResourceMeasureRequest &request);
 
       /**
+       * @summary 异步发起AI员工对话
+       *
+       * @param request CreateAIStaffChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIStaffChatResponse
+       */
+      Models::CreateAIStaffChatResponse createAIStaffChatWithOptions(const Models::CreateAIStaffChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 异步发起AI员工对话
+       *
+       * @param request CreateAIStaffChatRequest
+       * @return CreateAIStaffChatResponse
+       */
+      Models::CreateAIStaffChatResponse createAIStaffChat(const Models::CreateAIStaffChatRequest &request);
+
+      /**
+       * @summary 创建AI员工会话
+       *
+       * @param request CreateAIStaffConversationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAIStaffConversationResponse
+       */
+      Models::CreateAIStaffConversationResponse createAIStaffConversationWithOptions(const Models::CreateAIStaffConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建AI员工会话
+       *
+       * @param request CreateAIStaffConversationRequest
+       * @return CreateAIStaffConversationResponse
+       */
+      Models::CreateAIStaffConversationResponse createAIStaffConversation(const Models::CreateAIStaffConversationRequest &request);
+
+      /**
        * @summary 创建应用助手智能体
        *
        * @param request CreateAppAssistantAgentRequest
@@ -578,6 +612,40 @@ namespace WebsiteBuild20250429
        * @return IntrospectAppInstanceTicketForPreviewResponse
        */
       Models::IntrospectAppInstanceTicketForPreviewResponse introspectAppInstanceTicketForPreview(const Models::IntrospectAppInstanceTicketForPreviewRequest &request);
+
+      /**
+       * @summary 获取AI员工对话增量SSE事件
+       *
+       * @param request ListAIStaffChatEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAIStaffChatEventsResponse
+       */
+      Models::ListAIStaffChatEventsResponse listAIStaffChatEventsWithOptions(const Models::ListAIStaffChatEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI员工对话增量SSE事件
+       *
+       * @param request ListAIStaffChatEventsRequest
+       * @return ListAIStaffChatEventsResponse
+       */
+      Models::ListAIStaffChatEventsResponse listAIStaffChatEvents(const Models::ListAIStaffChatEventsRequest &request);
+
+      /**
+       * @summary 分页查询AI员工对话消息列表
+       *
+       * @param request ListAIStaffChatMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAIStaffChatMessagesResponse
+       */
+      Models::ListAIStaffChatMessagesResponse listAIStaffChatMessagesWithOptions(const Models::ListAIStaffChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询AI员工对话消息列表
+       *
+       * @param request ListAIStaffChatMessagesRequest
+       * @return ListAIStaffChatMessagesResponse
+       */
+      Models::ListAIStaffChatMessagesResponse listAIStaffChatMessages(const Models::ListAIStaffChatMessagesRequest &request);
 
       /**
        * @summary 查询应用助手智能体列表

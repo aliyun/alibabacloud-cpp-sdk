@@ -1,4 +1,12 @@
 2026-05-19 Version: 2.20.0
+- Support API CreateAIStaffChat.
+- Support API CreateAIStaffConversation.
+- Support API GetLlmProxyConfigForAdmin.
+- Support API ListAIStaffChatEvents.
+- Support API ListAIStaffChatMessages.
+
+
+2026-05-19 Version: 2.20.0
 - Support API GetLlmProxyConfigForAdmin.
 
 
