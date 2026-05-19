@@ -2045,6 +2045,52 @@ DescribeCdnDeliverListResponse Client::describeCdnDeliverList(const DescribeCdnD
 }
 
 /**
+ * @summary Queries the details of a diagnostic report.
+ *
+ * @param request DescribeCdnDiagnoseReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCdnDiagnoseReportResponse
+ */
+DescribeCdnDiagnoseReportResponse Client::describeCdnDiagnoseReportWithOptions(const DescribeCdnDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTraceId()) {
+    query["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCdnDiagnoseReport"},
+    {"version" , "2018-05-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCdnDiagnoseReportResponse>();
+}
+
+/**
+ * @summary Queries the details of a diagnostic report.
+ *
+ * @param request DescribeCdnDiagnoseReportRequest
+ * @return DescribeCdnDiagnoseReportResponse
+ */
+DescribeCdnDiagnoseReportResponse Client::describeCdnDiagnoseReport(const DescribeCdnDiagnoseReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCdnDiagnoseReportWithOptions(request, runtime);
+}
+
+/**
  * @summary 天翼定制化小时日志下载接口
  *
  * @param request DescribeCdnDomainAtoaLogsRequest
@@ -3142,6 +3188,80 @@ DescribeCdnSubListResponse Client::describeCdnSubListWithOptions(const Darabonba
 DescribeCdnSubListResponse Client::describeCdnSubList() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCdnSubListWithOptions(runtime);
+}
+
+/**
+ * @summary Queries a list of diagnostic tasks.
+ *
+ * @param request DescribeCdnTaskListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCdnTaskListResponse
+ */
+DescribeCdnTaskListResponse Client::describeCdnTaskListWithOptions(const DescribeCdnTaskListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientIp()) {
+    query["ClientIp"] = request.getClientIp();
+  }
+
+  if (!!request.hasDiagnoseId()) {
+    query["DiagnoseId"] = request.getDiagnoseId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTraceId()) {
+    query["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCdnTaskList"},
+    {"version" , "2018-05-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCdnTaskListResponse>();
+}
+
+/**
+ * @summary Queries a list of diagnostic tasks.
+ *
+ * @param request DescribeCdnTaskListRequest
+ * @return DescribeCdnTaskListResponse
+ */
+DescribeCdnTaskListResponse Client::describeCdnTaskList(const DescribeCdnTaskListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCdnTaskListWithOptions(request, runtime);
 }
 
 /**

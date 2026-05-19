@@ -109,6 +109,9 @@
 #include <alibabacloud/models/DescribeCdnDeliverListRequest.hpp>
 #include <alibabacloud/models/DescribeCdnDeliverListResponseBody.hpp>
 #include <alibabacloud/models/DescribeCdnDeliverListResponse.hpp>
+#include <alibabacloud/models/DescribeCdnDiagnoseReportRequest.hpp>
+#include <alibabacloud/models/DescribeCdnDiagnoseReportResponseBody.hpp>
+#include <alibabacloud/models/DescribeCdnDiagnoseReportResponse.hpp>
 #include <alibabacloud/models/DescribeCdnDomainAtoaLogsRequest.hpp>
 #include <alibabacloud/models/DescribeCdnDomainAtoaLogsResponseBody.hpp>
 #include <alibabacloud/models/DescribeCdnDomainAtoaLogsResponse.hpp>
@@ -168,6 +171,9 @@
 #include <alibabacloud/models/DescribeCdnServiceResponse.hpp>
 #include <alibabacloud/models/DescribeCdnSubListResponseBody.hpp>
 #include <alibabacloud/models/DescribeCdnSubListResponse.hpp>
+#include <alibabacloud/models/DescribeCdnTaskListRequest.hpp>
+#include <alibabacloud/models/DescribeCdnTaskListResponseBody.hpp>
+#include <alibabacloud/models/DescribeCdnTaskListResponse.hpp>
 #include <alibabacloud/models/DescribeCdnTypesRequest.hpp>
 #include <alibabacloud/models/DescribeCdnTypesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCdnTypesResponse.hpp>

@@ -791,6 +791,23 @@ namespace Cdn20180510
       Models::DescribeCdnDeliverListResponse describeCdnDeliverList(const Models::DescribeCdnDeliverListRequest &request);
 
       /**
+       * @summary Queries the details of a diagnostic report.
+       *
+       * @param request DescribeCdnDiagnoseReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCdnDiagnoseReportResponse
+       */
+      Models::DescribeCdnDiagnoseReportResponse describeCdnDiagnoseReportWithOptions(const Models::DescribeCdnDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a diagnostic report.
+       *
+       * @param request DescribeCdnDiagnoseReportRequest
+       * @return DescribeCdnDiagnoseReportResponse
+       */
+      Models::DescribeCdnDiagnoseReportResponse describeCdnDiagnoseReport(const Models::DescribeCdnDiagnoseReportRequest &request);
+
+      /**
        * @summary 天翼定制化小时日志下载接口
        *
        * @param request DescribeCdnDomainAtoaLogsRequest
@@ -1217,6 +1234,23 @@ namespace Cdn20180510
        * @return DescribeCdnSubListResponse
        */
       Models::DescribeCdnSubListResponse describeCdnSubList();
+
+      /**
+       * @summary Queries a list of diagnostic tasks.
+       *
+       * @param request DescribeCdnTaskListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCdnTaskListResponse
+       */
+      Models::DescribeCdnTaskListResponse describeCdnTaskListWithOptions(const Models::DescribeCdnTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of diagnostic tasks.
+       *
+       * @param request DescribeCdnTaskListRequest
+       * @return DescribeCdnTaskListResponse
+       */
+      Models::DescribeCdnTaskListResponse describeCdnTaskList(const Models::DescribeCdnTaskListRequest &request);
 
       /**
        * @summary Queries the types of domain names.
