@@ -2624,6 +2624,10 @@ RetrieveResponse Client::retrieveWithOptions(const string &WorkspaceId, const Re
   tmpReq.validate();
   RetrieveShrinkRequest request = RetrieveShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtra()) {
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
+  }
+
   if (!!tmpReq.hasImages()) {
     request.setImagesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getImages(), "Images", "simple"));
   }
@@ -2655,6 +2659,10 @@ RetrieveResponse Client::retrieveWithOptions(const string &WorkspaceId, const Re
 
   if (!!request.hasEnableRewrite()) {
     query["EnableRewrite"] = request.getEnableRewrite();
+  }
+
+  if (!!request.hasExtraShrink()) {
+    query["Extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasImagesShrink()) {
@@ -2760,6 +2768,10 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
     request.setDocumentIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDocumentIds(), "DocumentIds", "json"));
   }
 
+  if (!!tmpReq.hasExtra()) {
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
+  }
+
   json query = {};
   if (!!request.hasCategoryIdsShrink()) {
     query["CategoryIds"] = request.getCategoryIdsShrink();
@@ -2779,6 +2791,10 @@ SubmitIndexAddDocumentsJobResponse Client::submitIndexAddDocumentsJobWithOptions
 
   if (!!request.hasEnableHeaders()) {
     query["EnableHeaders"] = request.getEnableHeaders();
+  }
+
+  if (!!request.hasExtraShrink()) {
+    query["Extra"] = request.getExtraShrink();
   }
 
   if (!!request.hasIndexId()) {

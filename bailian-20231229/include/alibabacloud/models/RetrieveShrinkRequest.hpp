@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DenseSimilarityTopK, denseSimilarityTopK_);
       DARABONBA_PTR_TO_JSON(EnableReranking, enableReranking_);
       DARABONBA_PTR_TO_JSON(EnableRewrite, enableRewrite_);
+      DARABONBA_PTR_TO_JSON(Extra, extraShrink_);
       DARABONBA_PTR_TO_JSON(Images, imagesShrink_);
       DARABONBA_PTR_TO_JSON(IndexId, indexId_);
       DARABONBA_PTR_TO_JSON(Query, query_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DenseSimilarityTopK, denseSimilarityTopK_);
       DARABONBA_PTR_FROM_JSON(EnableReranking, enableReranking_);
       DARABONBA_PTR_FROM_JSON(EnableRewrite, enableRewrite_);
+      DARABONBA_PTR_FROM_JSON(Extra, extraShrink_);
       DARABONBA_PTR_FROM_JSON(Images, imagesShrink_);
       DARABONBA_PTR_FROM_JSON(IndexId, indexId_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->denseSimilarityTopK_ == nullptr
-        && this->enableReranking_ == nullptr && this->enableRewrite_ == nullptr && this->imagesShrink_ == nullptr && this->indexId_ == nullptr && this->query_ == nullptr
-        && this->queryHistoryShrink_ == nullptr && this->rerankShrink_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankTopN_ == nullptr && this->rewriteShrink_ == nullptr
-        && this->saveRetrieverHistory_ == nullptr && this->searchFiltersShrink_ == nullptr && this->sparseSimilarityTopK_ == nullptr; };
+        && this->enableReranking_ == nullptr && this->enableRewrite_ == nullptr && this->extraShrink_ == nullptr && this->imagesShrink_ == nullptr && this->indexId_ == nullptr
+        && this->query_ == nullptr && this->queryHistoryShrink_ == nullptr && this->rerankShrink_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankTopN_ == nullptr
+        && this->rewriteShrink_ == nullptr && this->saveRetrieverHistory_ == nullptr && this->searchFiltersShrink_ == nullptr && this->sparseSimilarityTopK_ == nullptr; };
     // denseSimilarityTopK Field Functions 
     bool hasDenseSimilarityTopK() const { return this->denseSimilarityTopK_ != nullptr;};
     void deleteDenseSimilarityTopK() { this->denseSimilarityTopK_ = nullptr;};
@@ -78,6 +80,13 @@ namespace Models
     void deleteEnableRewrite() { this->enableRewrite_ = nullptr;};
     inline bool getEnableRewrite() const { DARABONBA_PTR_GET_DEFAULT(enableRewrite_, false) };
     inline RetrieveShrinkRequest& setEnableRewrite(bool enableRewrite) { DARABONBA_PTR_SET_VALUE(enableRewrite_, enableRewrite) };
+
+
+    // extraShrink Field Functions 
+    bool hasExtraShrink() const { return this->extraShrink_ != nullptr;};
+    void deleteExtraShrink() { this->extraShrink_ = nullptr;};
+    inline string getExtraShrink() const { DARABONBA_PTR_GET_DEFAULT(extraShrink_, "") };
+    inline RetrieveShrinkRequest& setExtraShrink(string extraShrink) { DARABONBA_PTR_SET_VALUE(extraShrink_, extraShrink) };
 
 
     // imagesShrink Field Functions 
@@ -176,6 +185,7 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> enableRewrite_ {};
+    shared_ptr<string> extraShrink_ {};
     shared_ptr<string> imagesShrink_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 

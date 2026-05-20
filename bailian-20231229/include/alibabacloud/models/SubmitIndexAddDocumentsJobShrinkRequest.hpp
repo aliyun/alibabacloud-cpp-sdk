@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_TO_JSON(DocumentIds, documentIdsShrink_);
       DARABONBA_PTR_TO_JSON(EnableHeaders, enableHeaders_);
+      DARABONBA_PTR_TO_JSON(Extra, extraShrink_);
       DARABONBA_PTR_TO_JSON(IndexId, indexId_);
       DARABONBA_PTR_TO_JSON(OverlapSize, overlapSize_);
       DARABONBA_PTR_TO_JSON(Separator, separator_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_FROM_JSON(DocumentIds, documentIdsShrink_);
       DARABONBA_PTR_FROM_JSON(EnableHeaders, enableHeaders_);
+      DARABONBA_PTR_FROM_JSON(Extra, extraShrink_);
       DARABONBA_PTR_FROM_JSON(IndexId, indexId_);
       DARABONBA_PTR_FROM_JSON(OverlapSize, overlapSize_);
       DARABONBA_PTR_FROM_JSON(Separator, separator_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryIdsShrink_ == nullptr
-        && this->chunkMode_ == nullptr && this->chunkSize_ == nullptr && this->documentIdsShrink_ == nullptr && this->enableHeaders_ == nullptr && this->indexId_ == nullptr
-        && this->overlapSize_ == nullptr && this->separator_ == nullptr && this->sourceType_ == nullptr; };
+        && this->chunkMode_ == nullptr && this->chunkSize_ == nullptr && this->documentIdsShrink_ == nullptr && this->enableHeaders_ == nullptr && this->extraShrink_ == nullptr
+        && this->indexId_ == nullptr && this->overlapSize_ == nullptr && this->separator_ == nullptr && this->sourceType_ == nullptr; };
     // categoryIdsShrink Field Functions 
     bool hasCategoryIdsShrink() const { return this->categoryIdsShrink_ != nullptr;};
     void deleteCategoryIdsShrink() { this->categoryIdsShrink_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
     void deleteEnableHeaders() { this->enableHeaders_ = nullptr;};
     inline bool getEnableHeaders() const { DARABONBA_PTR_GET_DEFAULT(enableHeaders_, false) };
     inline SubmitIndexAddDocumentsJobShrinkRequest& setEnableHeaders(bool enableHeaders) { DARABONBA_PTR_SET_VALUE(enableHeaders_, enableHeaders) };
+
+
+    // extraShrink Field Functions 
+    bool hasExtraShrink() const { return this->extraShrink_ != nullptr;};
+    void deleteExtraShrink() { this->extraShrink_ = nullptr;};
+    inline string getExtraShrink() const { DARABONBA_PTR_GET_DEFAULT(extraShrink_, "") };
+    inline SubmitIndexAddDocumentsJobShrinkRequest& setExtraShrink(string extraShrink) { DARABONBA_PTR_SET_VALUE(extraShrink_, extraShrink) };
 
 
     // indexId Field Functions 
@@ -119,6 +128,7 @@ namespace Models
     // The list of the primary key IDs of the documents.
     shared_ptr<string> documentIdsShrink_ {};
     shared_ptr<bool> enableHeaders_ {};
+    shared_ptr<string> extraShrink_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.

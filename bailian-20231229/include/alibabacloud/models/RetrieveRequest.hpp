@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DenseSimilarityTopK, denseSimilarityTopK_);
       DARABONBA_PTR_TO_JSON(EnableReranking, enableReranking_);
       DARABONBA_PTR_TO_JSON(EnableRewrite, enableRewrite_);
+      DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(Images, images_);
       DARABONBA_PTR_TO_JSON(IndexId, indexId_);
       DARABONBA_PTR_TO_JSON(Query, query_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DenseSimilarityTopK, denseSimilarityTopK_);
       DARABONBA_PTR_FROM_JSON(EnableReranking, enableReranking_);
       DARABONBA_PTR_FROM_JSON(EnableRewrite, enableRewrite_);
+      DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(Images, images_);
       DARABONBA_PTR_FROM_JSON(IndexId, indexId_);
       DARABONBA_PTR_FROM_JSON(Query, query_);
@@ -191,10 +193,41 @@ namespace Models
       shared_ptr<string> role_ {};
     };
 
+    class Extra : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Extra& obj) { 
+        DARABONBA_PTR_TO_JSON(uniqueId, uniqueId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Extra& obj) { 
+        DARABONBA_PTR_FROM_JSON(uniqueId, uniqueId_);
+      };
+      Extra() = default ;
+      Extra(const Extra &) = default ;
+      Extra(Extra &&) = default ;
+      Extra(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Extra() = default ;
+      Extra& operator=(const Extra &) = default ;
+      Extra& operator=(Extra &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->uniqueId_ == nullptr; };
+      // uniqueId Field Functions 
+      bool hasUniqueId() const { return this->uniqueId_ != nullptr;};
+      void deleteUniqueId() { this->uniqueId_ = nullptr;};
+      inline string getUniqueId() const { DARABONBA_PTR_GET_DEFAULT(uniqueId_, "") };
+      inline Extra& setUniqueId(string uniqueId) { DARABONBA_PTR_SET_VALUE(uniqueId_, uniqueId) };
+
+
+    protected:
+      shared_ptr<string> uniqueId_ {};
+    };
+
     virtual bool empty() const override { return this->denseSimilarityTopK_ == nullptr
-        && this->enableReranking_ == nullptr && this->enableRewrite_ == nullptr && this->images_ == nullptr && this->indexId_ == nullptr && this->query_ == nullptr
-        && this->queryHistory_ == nullptr && this->rerank_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankTopN_ == nullptr && this->rewrite_ == nullptr
-        && this->saveRetrieverHistory_ == nullptr && this->searchFilters_ == nullptr && this->sparseSimilarityTopK_ == nullptr; };
+        && this->enableReranking_ == nullptr && this->enableRewrite_ == nullptr && this->extra_ == nullptr && this->images_ == nullptr && this->indexId_ == nullptr
+        && this->query_ == nullptr && this->queryHistory_ == nullptr && this->rerank_ == nullptr && this->rerankMinScore_ == nullptr && this->rerankTopN_ == nullptr
+        && this->rewrite_ == nullptr && this->saveRetrieverHistory_ == nullptr && this->searchFilters_ == nullptr && this->sparseSimilarityTopK_ == nullptr; };
     // denseSimilarityTopK Field Functions 
     bool hasDenseSimilarityTopK() const { return this->denseSimilarityTopK_ != nullptr;};
     void deleteDenseSimilarityTopK() { this->denseSimilarityTopK_ = nullptr;};
@@ -214,6 +247,15 @@ namespace Models
     void deleteEnableRewrite() { this->enableRewrite_ = nullptr;};
     inline bool getEnableRewrite() const { DARABONBA_PTR_GET_DEFAULT(enableRewrite_, false) };
     inline RetrieveRequest& setEnableRewrite(bool enableRewrite) { DARABONBA_PTR_SET_VALUE(enableRewrite_, enableRewrite) };
+
+
+    // extra Field Functions 
+    bool hasExtra() const { return this->extra_ != nullptr;};
+    void deleteExtra() { this->extra_ = nullptr;};
+    inline const RetrieveRequest::Extra & getExtra() const { DARABONBA_PTR_GET_CONST(extra_, RetrieveRequest::Extra) };
+    inline RetrieveRequest::Extra getExtra() { DARABONBA_PTR_GET(extra_, RetrieveRequest::Extra) };
+    inline RetrieveRequest& setExtra(const RetrieveRequest::Extra & extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
+    inline RetrieveRequest& setExtra(RetrieveRequest::Extra && extra) { DARABONBA_PTR_SET_RVALUE(extra_, extra) };
 
 
     // images Field Functions 
@@ -322,6 +364,7 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> enableRewrite_ {};
+    shared_ptr<RetrieveRequest::Extra> extra_ {};
     shared_ptr<vector<string>> images_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 

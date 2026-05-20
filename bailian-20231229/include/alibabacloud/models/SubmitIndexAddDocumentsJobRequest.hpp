@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_TO_JSON(DocumentIds, documentIds_);
       DARABONBA_PTR_TO_JSON(EnableHeaders, enableHeaders_);
+      DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(IndexId, indexId_);
       DARABONBA_PTR_TO_JSON(OverlapSize, overlapSize_);
       DARABONBA_PTR_TO_JSON(Separator, separator_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ChunkSize, chunkSize_);
       DARABONBA_PTR_FROM_JSON(DocumentIds, documentIds_);
       DARABONBA_PTR_FROM_JSON(EnableHeaders, enableHeaders_);
+      DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(IndexId, indexId_);
       DARABONBA_PTR_FROM_JSON(OverlapSize, overlapSize_);
       DARABONBA_PTR_FROM_JSON(Separator, separator_);
@@ -46,9 +48,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Extra : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Extra& obj) { 
+        DARABONBA_PTR_TO_JSON(uniqueId, uniqueId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Extra& obj) { 
+        DARABONBA_PTR_FROM_JSON(uniqueId, uniqueId_);
+      };
+      Extra() = default ;
+      Extra(const Extra &) = default ;
+      Extra(Extra &&) = default ;
+      Extra(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Extra() = default ;
+      Extra& operator=(const Extra &) = default ;
+      Extra& operator=(Extra &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->uniqueId_ == nullptr; };
+      // uniqueId Field Functions 
+      bool hasUniqueId() const { return this->uniqueId_ != nullptr;};
+      void deleteUniqueId() { this->uniqueId_ = nullptr;};
+      inline string getUniqueId() const { DARABONBA_PTR_GET_DEFAULT(uniqueId_, "") };
+      inline Extra& setUniqueId(string uniqueId) { DARABONBA_PTR_SET_VALUE(uniqueId_, uniqueId) };
+
+
+    protected:
+      shared_ptr<string> uniqueId_ {};
+    };
+
     virtual bool empty() const override { return this->categoryIds_ == nullptr
-        && this->chunkMode_ == nullptr && this->chunkSize_ == nullptr && this->documentIds_ == nullptr && this->enableHeaders_ == nullptr && this->indexId_ == nullptr
-        && this->overlapSize_ == nullptr && this->separator_ == nullptr && this->sourceType_ == nullptr; };
+        && this->chunkMode_ == nullptr && this->chunkSize_ == nullptr && this->documentIds_ == nullptr && this->enableHeaders_ == nullptr && this->extra_ == nullptr
+        && this->indexId_ == nullptr && this->overlapSize_ == nullptr && this->separator_ == nullptr && this->sourceType_ == nullptr; };
     // categoryIds Field Functions 
     bool hasCategoryIds() const { return this->categoryIds_ != nullptr;};
     void deleteCategoryIds() { this->categoryIds_ = nullptr;};
@@ -88,6 +121,15 @@ namespace Models
     inline SubmitIndexAddDocumentsJobRequest& setEnableHeaders(bool enableHeaders) { DARABONBA_PTR_SET_VALUE(enableHeaders_, enableHeaders) };
 
 
+    // extra Field Functions 
+    bool hasExtra() const { return this->extra_ != nullptr;};
+    void deleteExtra() { this->extra_ = nullptr;};
+    inline const SubmitIndexAddDocumentsJobRequest::Extra & getExtra() const { DARABONBA_PTR_GET_CONST(extra_, SubmitIndexAddDocumentsJobRequest::Extra) };
+    inline SubmitIndexAddDocumentsJobRequest::Extra getExtra() { DARABONBA_PTR_GET(extra_, SubmitIndexAddDocumentsJobRequest::Extra) };
+    inline SubmitIndexAddDocumentsJobRequest& setExtra(const SubmitIndexAddDocumentsJobRequest::Extra & extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
+    inline SubmitIndexAddDocumentsJobRequest& setExtra(SubmitIndexAddDocumentsJobRequest::Extra && extra) { DARABONBA_PTR_SET_RVALUE(extra_, extra) };
+
+
     // indexId Field Functions 
     bool hasIndexId() const { return this->indexId_ != nullptr;};
     void deleteIndexId() { this->indexId_ = nullptr;};
@@ -124,6 +166,7 @@ namespace Models
     // The list of the primary key IDs of the documents.
     shared_ptr<vector<string>> documentIds_ {};
     shared_ptr<bool> enableHeaders_ {};
+    shared_ptr<SubmitIndexAddDocumentsJobRequest::Extra> extra_ {};
     // The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
     // 
     // This parameter is required.
