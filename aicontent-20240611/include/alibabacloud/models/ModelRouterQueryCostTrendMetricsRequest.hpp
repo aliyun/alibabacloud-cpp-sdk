@@ -13,6 +13,7 @@ namespace Models
   class ModelRouterQueryCostTrendMetricsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModelRouterQueryCostTrendMetricsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(endTime, endTime_);
       DARABONBA_PTR_TO_JSON(granularity, granularity_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, ModelRouterQueryCostTrendMetricsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(endTime, endTime_);
       DARABONBA_PTR_FROM_JSON(granularity, granularity_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->modelTypes_ == nullptr && this->nextToken_ == nullptr
-        && this->startTime_ == nullptr; };
+    virtual bool empty() const override { return this->apiKeyId_ == nullptr
+        && this->clientId_ == nullptr && this->endTime_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->modelTypes_ == nullptr
+        && this->nextToken_ == nullptr && this->startTime_ == nullptr; };
+    // apiKeyId Field Functions 
+    bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
+    void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
+    inline int64_t getApiKeyId() const { DARABONBA_PTR_GET_DEFAULT(apiKeyId_, 0L) };
+    inline ModelRouterQueryCostTrendMetricsRequest& setApiKeyId(int64_t apiKeyId) { DARABONBA_PTR_SET_VALUE(apiKeyId_, apiKeyId) };
+
+
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -94,6 +103,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> apiKeyId_ {};
     shared_ptr<int64_t> clientId_ {};
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};

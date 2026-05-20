@@ -3423,6 +3423,10 @@ ModelRouterQueryApiKeyListResponse Client::modelRouterQueryApiKeyList(const Mode
 ModelRouterQueryBillingCostBreakdownResponse Client::modelRouterQueryBillingCostBreakdownWithOptions(const ModelRouterQueryBillingCostBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
   }
@@ -3877,6 +3881,10 @@ ModelRouterQueryConversationListResponse Client::modelRouterQueryConversationLis
 ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetailWithOptions(const ModelRouterQueryCostModelDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
   }
@@ -3954,6 +3962,10 @@ ModelRouterQueryCostModelDetailResponse Client::modelRouterQueryCostModelDetail(
 ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelListWithOptions(const ModelRouterQueryCostModelListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
   }
@@ -4027,6 +4039,10 @@ ModelRouterQueryCostModelListResponse Client::modelRouterQueryCostModelList(cons
 ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverviewMetricsWithOptions(const ModelRouterQueryCostOverviewMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
   }
@@ -4096,6 +4112,10 @@ ModelRouterQueryCostOverviewMetricsResponse Client::modelRouterQueryCostOverview
 ModelRouterQueryCostTrendMetricsResponse Client::modelRouterQueryCostTrendMetricsWithOptions(const ModelRouterQueryCostTrendMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
   if (!!request.hasClientId()) {
     query["clientId"] = request.getClientId();
   }
@@ -4695,6 +4715,14 @@ ModelRouterQueryObservationMetricsResponse Client::modelRouterQueryObservationMe
 ModelRouterQueryUsageBreakdownResponse Client::modelRouterQueryUsageBreakdownWithOptions(const ModelRouterQueryUsageBreakdownRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasApiKeyId()) {
+    query["apiKeyId"] = request.getApiKeyId();
+  }
+
+  if (!!request.hasClientId()) {
+    query["clientId"] = request.getClientId();
+  }
+
   if (!!request.hasEndTime()) {
     query["endTime"] = request.getEndTime();
   }

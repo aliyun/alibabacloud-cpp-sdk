@@ -15,6 +15,8 @@ namespace Models
   class UsageBreakdownRowDTO : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UsageBreakdownRowDTO& obj) { 
+      DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
+      DARABONBA_PTR_TO_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(clientName, clientName_);
       DARABONBA_PTR_TO_JSON(metrics, metrics_);
@@ -25,6 +27,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(summaryTime, summaryTime_);
     };
     friend void from_json(const Darabonba::Json& j, UsageBreakdownRowDTO& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
+      DARABONBA_PTR_FROM_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(clientName, clientName_);
       DARABONBA_PTR_FROM_JSON(metrics, metrics_);
@@ -45,9 +49,23 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientId_ == nullptr
-        && this->clientName_ == nullptr && this->metrics_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr
-        && this->modelType_ == nullptr && this->summaryTime_ == nullptr; };
+    virtual bool empty() const override { return this->apiKeyId_ == nullptr
+        && this->apiKeyName_ == nullptr && this->clientId_ == nullptr && this->clientName_ == nullptr && this->metrics_ == nullptr && this->modelCode_ == nullptr
+        && this->modelId_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->summaryTime_ == nullptr; };
+    // apiKeyId Field Functions 
+    bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
+    void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
+    inline int64_t getApiKeyId() const { DARABONBA_PTR_GET_DEFAULT(apiKeyId_, 0L) };
+    inline UsageBreakdownRowDTO& setApiKeyId(int64_t apiKeyId) { DARABONBA_PTR_SET_VALUE(apiKeyId_, apiKeyId) };
+
+
+    // apiKeyName Field Functions 
+    bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
+    void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
+    inline string getApiKeyName() const { DARABONBA_PTR_GET_DEFAULT(apiKeyName_, "") };
+    inline UsageBreakdownRowDTO& setApiKeyName(string apiKeyName) { DARABONBA_PTR_SET_VALUE(apiKeyName_, apiKeyName) };
+
+
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -107,6 +125,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> apiKeyId_ {};
+    shared_ptr<string> apiKeyName_ {};
     shared_ptr<int64_t> clientId_ {};
     shared_ptr<string> clientName_ {};
     shared_ptr<vector<MetricKVPairDTO>> metrics_ {};

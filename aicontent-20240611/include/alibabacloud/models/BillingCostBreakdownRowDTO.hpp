@@ -15,6 +15,8 @@ namespace Models
   class BillingCostBreakdownRowDTO : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const BillingCostBreakdownRowDTO& obj) { 
+      DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
+      DARABONBA_PTR_TO_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_TO_JSON(billingType, billingType_);
       DARABONBA_PTR_TO_JSON(clientId, clientId_);
       DARABONBA_PTR_TO_JSON(clientName, clientName_);
@@ -29,6 +31,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(values, values_);
     };
     friend void from_json(const Darabonba::Json& j, BillingCostBreakdownRowDTO& obj) { 
+      DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
+      DARABONBA_PTR_FROM_JSON(apiKeyName, apiKeyName_);
       DARABONBA_PTR_FROM_JSON(billingType, billingType_);
       DARABONBA_PTR_FROM_JSON(clientId, clientId_);
       DARABONBA_PTR_FROM_JSON(clientName, clientName_);
@@ -53,10 +57,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->billingType_ == nullptr
-        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->dimValues_ == nullptr && this->modelCode_ == nullptr && this->modelId_ == nullptr
-        && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payableAmount_ == nullptr && this->summaryTime_ == nullptr && this->tiers_ == nullptr
-        && this->values_ == nullptr; };
+    virtual bool empty() const override { return this->apiKeyId_ == nullptr
+        && this->apiKeyName_ == nullptr && this->billingType_ == nullptr && this->clientId_ == nullptr && this->clientName_ == nullptr && this->dimValues_ == nullptr
+        && this->modelCode_ == nullptr && this->modelId_ == nullptr && this->modelName_ == nullptr && this->modelType_ == nullptr && this->payableAmount_ == nullptr
+        && this->summaryTime_ == nullptr && this->tiers_ == nullptr && this->values_ == nullptr; };
+    // apiKeyId Field Functions 
+    bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
+    void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
+    inline int64_t getApiKeyId() const { DARABONBA_PTR_GET_DEFAULT(apiKeyId_, 0L) };
+    inline BillingCostBreakdownRowDTO& setApiKeyId(int64_t apiKeyId) { DARABONBA_PTR_SET_VALUE(apiKeyId_, apiKeyId) };
+
+
+    // apiKeyName Field Functions 
+    bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
+    void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
+    inline string getApiKeyName() const { DARABONBA_PTR_GET_DEFAULT(apiKeyName_, "") };
+    inline BillingCostBreakdownRowDTO& setApiKeyName(string apiKeyName) { DARABONBA_PTR_SET_VALUE(apiKeyName_, apiKeyName) };
+
+
     // billingType Field Functions 
     bool hasBillingType() const { return this->billingType_ != nullptr;};
     void deleteBillingType() { this->billingType_ = nullptr;};
@@ -144,6 +162,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> apiKeyId_ {};
+    shared_ptr<string> apiKeyName_ {};
     shared_ptr<string> billingType_ {};
     shared_ptr<int64_t> clientId_ {};
     shared_ptr<string> clientName_ {};
