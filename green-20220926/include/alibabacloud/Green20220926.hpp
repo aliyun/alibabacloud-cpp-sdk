@@ -208,6 +208,23 @@ namespace Green20220926
       Models::CreateCallbackResponse createCallback(const Models::CreateCallbackRequest &request);
 
       /**
+       * @summary 创建图库
+       *
+       * @param request CreateImageLibRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateImageLibResponse
+       */
+      Models::CreateImageLibResponse createImageLibWithOptions(const Models::CreateImageLibRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建图库
+       *
+       * @param request CreateImageLibRequest
+       * @return CreateImageLibResponse
+       */
+      Models::CreateImageLibResponse createImageLib(const Models::CreateImageLibRequest &request);
+
+      /**
        * @summary Online Test
        *
        * @param request CreateOnlineTestRequest

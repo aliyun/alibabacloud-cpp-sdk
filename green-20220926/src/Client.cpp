@@ -763,6 +763,58 @@ CreateCallbackResponse Client::createCallback(const CreateCallbackRequest &reque
 }
 
 /**
+ * @summary 创建图库
+ *
+ * @param request CreateImageLibRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateImageLibResponse
+ */
+CreateImageLibResponse Client::createImageLibWithOptions(const CreateImageLibRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasLibName()) {
+    body["LibName"] = request.getLibName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateImageLib"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateImageLibResponse>();
+}
+
+/**
+ * @summary 创建图库
+ *
+ * @param request CreateImageLibRequest
+ * @return CreateImageLibResponse
+ */
+CreateImageLibResponse Client::createImageLib(const CreateImageLibRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createImageLibWithOptions(request, runtime);
+}
+
+/**
  * @summary Online Test
  *
  * @param request CreateOnlineTestRequest

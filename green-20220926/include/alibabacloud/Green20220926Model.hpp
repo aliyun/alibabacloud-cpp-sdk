@@ -36,6 +36,9 @@
 #include <alibabacloud/models/CreateCallbackRequest.hpp>
 #include <alibabacloud/models/CreateCallbackResponseBody.hpp>
 #include <alibabacloud/models/CreateCallbackResponse.hpp>
+#include <alibabacloud/models/CreateImageLibRequest.hpp>
+#include <alibabacloud/models/CreateImageLibResponseBody.hpp>
+#include <alibabacloud/models/CreateImageLibResponse.hpp>
 #include <alibabacloud/models/CreateOnlineTestRequest.hpp>
 #include <alibabacloud/models/CreateOnlineTestResponseBody.hpp>
 #include <alibabacloud/models/CreateOnlineTestResponse.hpp>

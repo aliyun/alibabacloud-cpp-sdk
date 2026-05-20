@@ -1,0 +1,131 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_CREATEIMAGELIBRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREATEIMAGELIBRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Green20220926
+{
+namespace Models
+{
+  class CreateImageLibResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const CreateImageLibResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_TO_JSON(Msg, msg_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, CreateImageLibResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
+      DARABONBA_PTR_FROM_JSON(Msg, msg_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    CreateImageLibResponseBody() = default ;
+    CreateImageLibResponseBody(const CreateImageLibResponseBody &) = default ;
+    CreateImageLibResponseBody(CreateImageLibResponseBody &&) = default ;
+    CreateImageLibResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateImageLibResponseBody() = default ;
+    CreateImageLibResponseBody& operator=(const CreateImageLibResponseBody &) = default ;
+    CreateImageLibResponseBody& operator=(CreateImageLibResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(LibId, libId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(LibId, libId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->libId_ == nullptr; };
+      // libId Field Functions 
+      bool hasLibId() const { return this->libId_ != nullptr;};
+      void deleteLibId() { this->libId_ = nullptr;};
+      inline string getLibId() const { DARABONBA_PTR_GET_DEFAULT(libId_, "") };
+      inline Data& setLibId(string libId) { DARABONBA_PTR_SET_VALUE(libId_, libId) };
+
+
+    protected:
+      shared_ptr<string> libId_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->msg_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline CreateImageLibResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const CreateImageLibResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, CreateImageLibResponseBody::Data) };
+    inline CreateImageLibResponseBody::Data getData() { DARABONBA_PTR_GET(data_, CreateImageLibResponseBody::Data) };
+    inline CreateImageLibResponseBody& setData(const CreateImageLibResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline CreateImageLibResponseBody& setData(CreateImageLibResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // httpStatusCode Field Functions 
+    bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
+    void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline CreateImageLibResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+
+
+    // msg Field Functions 
+    bool hasMsg() const { return this->msg_ != nullptr;};
+    void deleteMsg() { this->msg_ = nullptr;};
+    inline string getMsg() const { DARABONBA_PTR_GET_DEFAULT(msg_, "") };
+    inline CreateImageLibResponseBody& setMsg(string msg) { DARABONBA_PTR_SET_VALUE(msg_, msg) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline CreateImageLibResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline CreateImageLibResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    shared_ptr<int32_t> code_ {};
+    shared_ptr<CreateImageLibResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> msg_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Green20220926
+#endif
