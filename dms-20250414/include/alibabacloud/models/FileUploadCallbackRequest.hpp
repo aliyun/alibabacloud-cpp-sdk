@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_TO_JSON(FileSize, fileSize_);
       DARABONBA_PTR_TO_JSON(Filename, filename_);
+      DARABONBA_PTR_TO_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_TO_JSON(UploadLocation, uploadLocation_);
     };
     friend void from_json(const Darabonba::Json& j, FileUploadCallbackRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DmsUnit, dmsUnit_);
       DARABONBA_PTR_FROM_JSON(FileSize, fileSize_);
       DARABONBA_PTR_FROM_JSON(Filename, filename_);
+      DARABONBA_PTR_FROM_JSON(OssBucket, ossBucket_);
       DARABONBA_PTR_FROM_JSON(UploadLocation, uploadLocation_);
     };
     FileUploadCallbackRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callFrom_ == nullptr
-        && this->dmsUnit_ == nullptr && this->fileSize_ == nullptr && this->filename_ == nullptr && this->uploadLocation_ == nullptr; };
+        && this->dmsUnit_ == nullptr && this->fileSize_ == nullptr && this->filename_ == nullptr && this->ossBucket_ == nullptr && this->uploadLocation_ == nullptr; };
     // callFrom Field Functions 
     bool hasCallFrom() const { return this->callFrom_ != nullptr;};
     void deleteCallFrom() { this->callFrom_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline FileUploadCallbackRequest& setFilename(string filename) { DARABONBA_PTR_SET_VALUE(filename_, filename) };
 
 
+    // ossBucket Field Functions 
+    bool hasOssBucket() const { return this->ossBucket_ != nullptr;};
+    void deleteOssBucket() { this->ossBucket_ = nullptr;};
+    inline string getOssBucket() const { DARABONBA_PTR_GET_DEFAULT(ossBucket_, "") };
+    inline FileUploadCallbackRequest& setOssBucket(string ossBucket) { DARABONBA_PTR_SET_VALUE(ossBucket_, ossBucket) };
+
+
     // uploadLocation Field Functions 
     bool hasUploadLocation() const { return this->uploadLocation_ != nullptr;};
     void deleteUploadLocation() { this->uploadLocation_ = nullptr;};
@@ -80,6 +89,7 @@ namespace Models
     shared_ptr<int64_t> fileSize_ {};
     // This parameter is required.
     shared_ptr<string> filename_ {};
+    shared_ptr<string> ossBucket_ {};
     // This parameter is required.
     shared_ptr<string> uploadLocation_ {};
   };

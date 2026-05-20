@@ -4,6 +4,15 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AgentServiceOrderSummaryVO.hpp>
 #include <alibabacloud/models/AgentServiceOrderVO.hpp>
+#include <alibabacloud/models/AgenticCatalog.hpp>
+#include <alibabacloud/models/AgenticDatabaseEngineMeta.hpp>
+#include <alibabacloud/models/AgenticDatabase.hpp>
+#include <alibabacloud/models/AgenticDatabaseObject.hpp>
+#include <alibabacloud/models/AgenticTableEngineMeta.hpp>
+#include <alibabacloud/models/AgenticTableBaseInfo.hpp>
+#include <alibabacloud/models/AgenticTableColumnEngineMeta.hpp>
+#include <alibabacloud/models/AgenticTableColumn.hpp>
+#include <alibabacloud/models/AgenticTableIndex.hpp>
 #include <alibabacloud/models/DLCatalog.hpp>
 #include <alibabacloud/models/DLColumn.hpp>
 #include <alibabacloud/models/DLDatabase.hpp>

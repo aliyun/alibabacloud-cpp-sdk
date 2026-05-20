@@ -1976,6 +1976,10 @@ FileUploadCallbackResponse Client::fileUploadCallbackWithOptions(const FileUploa
     query["Filename"] = request.getFilename();
   }
 
+  if (!!request.hasOssBucket()) {
+    query["OssBucket"] = request.getOssBucket();
+  }
+
   if (!!request.hasUploadLocation()) {
     query["UploadLocation"] = request.getUploadLocation();
   }
