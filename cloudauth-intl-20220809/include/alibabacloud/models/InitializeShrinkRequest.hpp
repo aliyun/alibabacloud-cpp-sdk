@@ -48,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Mobile, mobile_);
       DARABONBA_PTR_TO_JSON(Model, model_);
       DARABONBA_PTR_TO_JSON(Ocr, ocr_);
+      DARABONBA_PTR_TO_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_TO_JSON(Pages, pages_);
       DARABONBA_PTR_TO_JSON(ProcedurePriority, procedurePriority_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
@@ -105,6 +106,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Mobile, mobile_);
       DARABONBA_PTR_FROM_JSON(Model, model_);
       DARABONBA_PTR_FROM_JSON(Ocr, ocr_);
+      DARABONBA_PTR_FROM_JSON(OcrValueStandard, ocrValueStandard_);
       DARABONBA_PTR_FROM_JSON(Pages, pages_);
       DARABONBA_PTR_FROM_JSON(ProcedurePriority, procedurePriority_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
@@ -144,11 +146,11 @@ namespace Models
         && this->editOcrResult_ == nullptr && this->email_ == nullptr && this->experienceCode_ == nullptr && this->faceGroupCodes_ == nullptr && this->facePictureBase64_ == nullptr
         && this->facePictureUrl_ == nullptr && this->faceRegisterGroupCode_ == nullptr && this->faceVerifyThreshold_ == nullptr && this->idFaceQuality_ == nullptr && this->idSpoof_ == nullptr
         && this->idThreshold_ == nullptr && this->languageConfig_ == nullptr && this->MRTDInput_ == nullptr && this->merchantBizId_ == nullptr && this->merchantUserId_ == nullptr
-        && this->metaInfo_ == nullptr && this->mobile_ == nullptr && this->model_ == nullptr && this->ocr_ == nullptr && this->pages_ == nullptr
-        && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr && this->returnUrl_ == nullptr
-        && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr && this->showGuidePage_ == nullptr
-        && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr && this->templateConfig_ == nullptr
-        && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->useNFC_ == nullptr && this->verifyModel_ == nullptr; };
+        && this->metaInfo_ == nullptr && this->mobile_ == nullptr && this->model_ == nullptr && this->ocr_ == nullptr && this->ocrValueStandard_ == nullptr
+        && this->pages_ == nullptr && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->productFlow_ == nullptr && this->returnFaces_ == nullptr
+        && this->returnUrl_ == nullptr && this->saveFacePicture_ == nullptr && this->sceneCode_ == nullptr && this->securityLevel_ == nullptr && this->showAlbumIcon_ == nullptr
+        && this->showGuidePage_ == nullptr && this->showOcrResult_ == nullptr && this->styleConfig_ == nullptr && this->targetFacePicture_ == nullptr && this->targetFacePictureUrl_ == nullptr
+        && this->templateConfig_ == nullptr && this->templateRanCount_ == nullptr && this->templateType_ == nullptr && this->useNFC_ == nullptr && this->verifyModel_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -392,6 +394,13 @@ namespace Models
     void deleteOcr() { this->ocr_ = nullptr;};
     inline string getOcr() const { DARABONBA_PTR_GET_DEFAULT(ocr_, "") };
     inline InitializeShrinkRequest& setOcr(string ocr) { DARABONBA_PTR_SET_VALUE(ocr_, ocr) };
+
+
+    // ocrValueStandard Field Functions 
+    bool hasOcrValueStandard() const { return this->ocrValueStandard_ != nullptr;};
+    void deleteOcrValueStandard() { this->ocrValueStandard_ = nullptr;};
+    inline string getOcrValueStandard() const { DARABONBA_PTR_GET_DEFAULT(ocrValueStandard_, "") };
+    inline InitializeShrinkRequest& setOcrValueStandard(string ocrValueStandard) { DARABONBA_PTR_SET_VALUE(ocrValueStandard_, ocrValueStandard) };
 
 
     // pages Field Functions 
@@ -657,6 +666,7 @@ namespace Models
     shared_ptr<string> model_ {};
     // Whether to enable OCR. (IDV product input parameter)
     shared_ptr<string> ocr_ {};
+    shared_ptr<string> ocrValueStandard_ {};
     // Page configuration for collection, multiple pages are connected using commas. Value range:
     // - **01**: Front side of the document
     // 

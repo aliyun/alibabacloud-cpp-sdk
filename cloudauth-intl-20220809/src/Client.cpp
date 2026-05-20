@@ -3446,6 +3446,10 @@ InitializeResponse Client::initializeWithOptions(const InitializeRequest &tmpReq
     query["Ocr"] = request.getOcr();
   }
 
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
+  }
+
   if (!!request.hasPages()) {
     query["Pages"] = request.getPages();
   }
