@@ -51,6 +51,9 @@
 #include <alibabacloud/models/CreateReportDefinitionRequest.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponse.hpp>
+#include <alibabacloud/models/DeleteBudgetRequest.hpp>
+#include <alibabacloud/models/DeleteBudgetResponseBody.hpp>
+#include <alibabacloud/models/DeleteBudgetResponse.hpp>
 #include <alibabacloud/models/DeleteCostCenterRequest.hpp>
 #include <alibabacloud/models/DeleteCostCenterResponseBody.hpp>
 #include <alibabacloud/models/DeleteCostCenterResponse.hpp>

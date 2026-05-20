@@ -225,6 +225,23 @@ namespace BssOpenApi20230930
       Models::CreateReportDefinitionResponse createReportDefinition(const Models::CreateReportDefinitionRequest &request);
 
       /**
+       * @summary 删除预算
+       *
+       * @param request DeleteBudgetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBudgetResponse
+       */
+      Models::DeleteBudgetResponse deleteBudgetWithOptions(const Models::DeleteBudgetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除预算
+       *
+       * @param request DeleteBudgetRequest
+       * @return DeleteBudgetResponse
+       */
+      Models::DeleteBudgetResponse deleteBudget(const Models::DeleteBudgetRequest &request);
+
+      /**
        * @summary 删除财务单元
        *
        * @param request DeleteCostCenterRequest

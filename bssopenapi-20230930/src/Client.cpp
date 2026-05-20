@@ -900,6 +900,54 @@ CreateReportDefinitionResponse Client::createReportDefinition(const CreateReport
 }
 
 /**
+ * @summary 删除预算
+ *
+ * @param request DeleteBudgetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBudgetResponse
+ */
+DeleteBudgetResponse Client::deleteBudgetWithOptions(const DeleteBudgetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasBudgetName()) {
+    body["BudgetName"] = request.getBudgetName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteBudget"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBudgetResponse>();
+}
+
+/**
+ * @summary 删除预算
+ *
+ * @param request DeleteBudgetRequest
+ * @return DeleteBudgetResponse
+ */
+DeleteBudgetResponse Client::deleteBudget(const DeleteBudgetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteBudgetWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除财务单元
  *
  * @param request DeleteCostCenterRequest
