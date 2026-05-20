@@ -16,12 +16,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateFlowEndpointInput& obj) { 
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_TO_JSON(flowEndpointName, flowEndpointName_);
       DARABONBA_PTR_TO_JSON(routingConfiguration, routingConfiguration_);
       DARABONBA_PTR_TO_JSON(targetVersion, targetVersion_);
     };
     friend void from_json(const Darabonba::Json& j, CreateFlowEndpointInput& obj) { 
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_FROM_JSON(flowEndpointName, flowEndpointName_);
       DARABONBA_PTR_FROM_JSON(routingConfiguration, routingConfiguration_);
       DARABONBA_PTR_FROM_JSON(targetVersion, targetVersion_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->flowEndpointName_ == nullptr && this->routingConfiguration_ == nullptr && this->targetVersion_ == nullptr; };
+        && this->disablePublicNetworkAccess_ == nullptr && this->flowEndpointName_ == nullptr && this->routingConfiguration_ == nullptr && this->targetVersion_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateFlowEndpointInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // disablePublicNetworkAccess Field Functions 
+    bool hasDisablePublicNetworkAccess() const { return this->disablePublicNetworkAccess_ != nullptr;};
+    void deleteDisablePublicNetworkAccess() { this->disablePublicNetworkAccess_ = nullptr;};
+    inline bool getDisablePublicNetworkAccess() const { DARABONBA_PTR_GET_DEFAULT(disablePublicNetworkAccess_, false) };
+    inline CreateFlowEndpointInput& setDisablePublicNetworkAccess(bool disablePublicNetworkAccess) { DARABONBA_PTR_SET_VALUE(disablePublicNetworkAccess_, disablePublicNetworkAccess) };
 
 
     // flowEndpointName Field Functions 
@@ -72,6 +81,8 @@ namespace Models
   protected:
     // 工作流端点的描述信息
     shared_ptr<string> description_ {};
+    // 是否禁用该端点的公网访问。创建时未指定则从父工作流继承
+    shared_ptr<bool> disablePublicNetworkAccess_ {};
     // 工作流端点的唯一标识名称
     // 
     // This parameter is required.

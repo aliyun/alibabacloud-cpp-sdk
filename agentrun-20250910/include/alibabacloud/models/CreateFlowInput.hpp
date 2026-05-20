@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateFlowInput& obj) { 
       DARABONBA_PTR_TO_JSON(definition, definition_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_TO_JSON(environmentConfiguration, environmentConfiguration_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(externalStorageLocation, externalStorageLocation_);
@@ -30,6 +31,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateFlowInput& obj) { 
       DARABONBA_PTR_FROM_JSON(definition, definition_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disablePublicNetworkAccess, disablePublicNetworkAccess_);
       DARABONBA_PTR_FROM_JSON(environmentConfiguration, environmentConfiguration_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(externalStorageLocation, externalStorageLocation_);
@@ -51,8 +53,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->definition_ == nullptr
-        && this->description_ == nullptr && this->environmentConfiguration_ == nullptr && this->executionRoleArn_ == nullptr && this->externalStorageLocation_ == nullptr && this->flowName_ == nullptr
-        && this->loggingConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->tracingConfiguration_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->disablePublicNetworkAccess_ == nullptr && this->environmentConfiguration_ == nullptr && this->executionRoleArn_ == nullptr && this->externalStorageLocation_ == nullptr
+        && this->flowName_ == nullptr && this->loggingConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->tracingConfiguration_ == nullptr && this->workspaceId_ == nullptr; };
     // definition Field Functions 
     bool hasDefinition() const { return this->definition_ != nullptr;};
     void deleteDefinition() { this->definition_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateFlowInput& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // disablePublicNetworkAccess Field Functions 
+    bool hasDisablePublicNetworkAccess() const { return this->disablePublicNetworkAccess_ != nullptr;};
+    void deleteDisablePublicNetworkAccess() { this->disablePublicNetworkAccess_ = nullptr;};
+    inline bool getDisablePublicNetworkAccess() const { DARABONBA_PTR_GET_DEFAULT(disablePublicNetworkAccess_, false) };
+    inline CreateFlowInput& setDisablePublicNetworkAccess(bool disablePublicNetworkAccess) { DARABONBA_PTR_SET_VALUE(disablePublicNetworkAccess_, disablePublicNetworkAccess) };
 
 
     // environmentConfiguration Field Functions 
@@ -134,6 +143,8 @@ namespace Models
     shared_ptr<string> definition_ {};
     // 工作流的描述信息，用于说明该工作流的用途和功能
     shared_ptr<string> description_ {};
+    // 是否禁用该工作流的公网访问，作为工作流级别的默认策略。当 FlowEndpoint 未指定时，将继承此值
+    shared_ptr<bool> disablePublicNetworkAccess_ {};
     // 工作流的环境变量配置，包含一组命名变量列表
     shared_ptr<EnvironmentConfiguration> environmentConfiguration_ {};
     // 为工作流提供访问云服务权限的执行角色ARN
