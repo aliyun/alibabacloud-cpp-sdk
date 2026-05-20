@@ -78,14 +78,18 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ConditionalAccessPolicyLicenseStatus, conditionalAccessPolicyLicenseStatus_);
           DARABONBA_PTR_TO_JSON(M2mApplicationLicenseStatus, m2mApplicationLicenseStatus_);
           DARABONBA_PTR_TO_JSON(M2mApplicationQuota, m2mApplicationQuota_);
+          DARABONBA_PTR_TO_JSON(MimApplicationLicenseStatus, mimApplicationLicenseStatus_);
           DARABONBA_PTR_TO_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_TO_JSON(PrepaidActiveUserNumber, prepaidActiveUserNumber_);
           DARABONBA_PTR_TO_JSON(UserQuota, userQuota_);
         };
         friend void from_json(const Darabonba::Json& j, InstanceLicenseDetail& obj) { 
           DARABONBA_PTR_FROM_JSON(ConditionalAccessPolicyLicenseStatus, conditionalAccessPolicyLicenseStatus_);
           DARABONBA_PTR_FROM_JSON(M2mApplicationLicenseStatus, m2mApplicationLicenseStatus_);
           DARABONBA_PTR_FROM_JSON(M2mApplicationQuota, m2mApplicationQuota_);
+          DARABONBA_PTR_FROM_JSON(MimApplicationLicenseStatus, mimApplicationLicenseStatus_);
           DARABONBA_PTR_FROM_JSON(NetworkAccessEndpointQuota, networkAccessEndpointQuota_);
+          DARABONBA_PTR_FROM_JSON(PrepaidActiveUserNumber, prepaidActiveUserNumber_);
           DARABONBA_PTR_FROM_JSON(UserQuota, userQuota_);
         };
         InstanceLicenseDetail() = default ;
@@ -100,7 +104,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->conditionalAccessPolicyLicenseStatus_ == nullptr
-        && this->m2mApplicationLicenseStatus_ == nullptr && this->m2mApplicationQuota_ == nullptr && this->networkAccessEndpointQuota_ == nullptr && this->userQuota_ == nullptr; };
+        && this->m2mApplicationLicenseStatus_ == nullptr && this->m2mApplicationQuota_ == nullptr && this->mimApplicationLicenseStatus_ == nullptr && this->networkAccessEndpointQuota_ == nullptr && this->prepaidActiveUserNumber_ == nullptr
+        && this->userQuota_ == nullptr; };
         // conditionalAccessPolicyLicenseStatus Field Functions 
         bool hasConditionalAccessPolicyLicenseStatus() const { return this->conditionalAccessPolicyLicenseStatus_ != nullptr;};
         void deleteConditionalAccessPolicyLicenseStatus() { this->conditionalAccessPolicyLicenseStatus_ = nullptr;};
@@ -122,11 +127,25 @@ namespace Models
         inline InstanceLicenseDetail& setM2mApplicationQuota(int64_t m2mApplicationQuota) { DARABONBA_PTR_SET_VALUE(m2mApplicationQuota_, m2mApplicationQuota) };
 
 
+        // mimApplicationLicenseStatus Field Functions 
+        bool hasMimApplicationLicenseStatus() const { return this->mimApplicationLicenseStatus_ != nullptr;};
+        void deleteMimApplicationLicenseStatus() { this->mimApplicationLicenseStatus_ = nullptr;};
+        inline string getMimApplicationLicenseStatus() const { DARABONBA_PTR_GET_DEFAULT(mimApplicationLicenseStatus_, "") };
+        inline InstanceLicenseDetail& setMimApplicationLicenseStatus(string mimApplicationLicenseStatus) { DARABONBA_PTR_SET_VALUE(mimApplicationLicenseStatus_, mimApplicationLicenseStatus) };
+
+
         // networkAccessEndpointQuota Field Functions 
         bool hasNetworkAccessEndpointQuota() const { return this->networkAccessEndpointQuota_ != nullptr;};
         void deleteNetworkAccessEndpointQuota() { this->networkAccessEndpointQuota_ = nullptr;};
         inline int64_t getNetworkAccessEndpointQuota() const { DARABONBA_PTR_GET_DEFAULT(networkAccessEndpointQuota_, 0L) };
         inline InstanceLicenseDetail& setNetworkAccessEndpointQuota(int64_t networkAccessEndpointQuota) { DARABONBA_PTR_SET_VALUE(networkAccessEndpointQuota_, networkAccessEndpointQuota) };
+
+
+        // prepaidActiveUserNumber Field Functions 
+        bool hasPrepaidActiveUserNumber() const { return this->prepaidActiveUserNumber_ != nullptr;};
+        void deletePrepaidActiveUserNumber() { this->prepaidActiveUserNumber_ = nullptr;};
+        inline int64_t getPrepaidActiveUserNumber() const { DARABONBA_PTR_GET_DEFAULT(prepaidActiveUserNumber_, 0L) };
+        inline InstanceLicenseDetail& setPrepaidActiveUserNumber(int64_t prepaidActiveUserNumber) { DARABONBA_PTR_SET_VALUE(prepaidActiveUserNumber_, prepaidActiveUserNumber) };
 
 
         // userQuota Field Functions 
@@ -140,7 +159,9 @@ namespace Models
         shared_ptr<string> conditionalAccessPolicyLicenseStatus_ {};
         shared_ptr<string> m2mApplicationLicenseStatus_ {};
         shared_ptr<int64_t> m2mApplicationQuota_ {};
+        shared_ptr<string> mimApplicationLicenseStatus_ {};
         shared_ptr<int64_t> networkAccessEndpointQuota_ {};
+        shared_ptr<int64_t> prepaidActiveUserNumber_ {};
         shared_ptr<int64_t> userQuota_ {};
       };
 
