@@ -2714,6 +2714,23 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopData(const Models::DescribeSiteTopDataRequest &request);
 
       /**
+       * @summary 边缘容器的监控
+       *
+       * @param request DescribeTraceDiagnoseReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTraceDiagnoseReportResponse
+       */
+      Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReportWithOptions(const Models::DescribeTraceDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 边缘容器的监控
+       *
+       * @param request DescribeTraceDiagnoseReportRequest
+       * @return DescribeTraceDiagnoseReportResponse
+       */
+      Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReport(const Models::DescribeTraceDiagnoseReportRequest &request);
+
+      /**
        * @summary Queries the page monitoring data.
        *
        * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
@@ -2801,6 +2818,23 @@ namespace ESA20240910
        * @return ExportRecordsResponse
        */
       Models::ExportRecordsResponse exportRecords(const Models::ExportRecordsRequest &request);
+
+      /**
+       * @summary 边缘容器的监控
+       *
+       * @param request GenerateTraceDiagnoseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GenerateTraceDiagnoseResponse
+       */
+      Models::GenerateTraceDiagnoseResponse generateTraceDiagnoseWithOptions(const Models::GenerateTraceDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 边缘容器的监控
+       *
+       * @param request GenerateTraceDiagnoseRequest
+       * @return GenerateTraceDiagnoseResponse
+       */
+      Models::GenerateTraceDiagnoseResponse generateTraceDiagnose(const Models::GenerateTraceDiagnoseRequest &request);
 
       /**
        * @summary Queries the usage of the upload file quota for API security schema verification.
@@ -5321,6 +5355,23 @@ namespace ESA20240910
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
+
+      /**
+       * @summary 边缘容器的监控
+       *
+       * @param request ListTraceTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTraceTasksResponse
+       */
+      Models::ListTraceTasksResponse listTraceTasksWithOptions(const Models::ListTraceTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 边缘容器的监控
+       *
+       * @param request ListTraceTasksRequest
+       * @return ListTraceTasksResponse
+       */
+      Models::ListTraceTasksResponse listTraceTasks(const Models::ListTraceTasksRequest &request);
 
       /**
        * @summary List of Transport Layer Applications

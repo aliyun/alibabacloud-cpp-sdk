@@ -8538,6 +8538,52 @@ DescribeSiteTopDataResponse Client::describeSiteTopData(const DescribeSiteTopDat
 }
 
 /**
+ * @summary 边缘容器的监控
+ *
+ * @param request DescribeTraceDiagnoseReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTraceDiagnoseReportResponse
+ */
+DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReportWithOptions(const DescribeTraceDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTraceId()) {
+    query["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTraceDiagnoseReport"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTraceDiagnoseReportResponse>();
+}
+
+/**
+ * @summary 边缘容器的监控
+ *
+ * @param request DescribeTraceDiagnoseReportRequest
+ * @return DescribeTraceDiagnoseReportResponse
+ */
+DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReport(const DescribeTraceDiagnoseReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeTraceDiagnoseReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the page monitoring data.
  *
  * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
@@ -8781,6 +8827,48 @@ ExportRecordsResponse Client::exportRecordsWithOptions(const ExportRecordsReques
 ExportRecordsResponse Client::exportRecords(const ExportRecordsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return exportRecordsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 边缘容器的监控
+ *
+ * @param request GenerateTraceDiagnoseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GenerateTraceDiagnoseResponse
+ */
+GenerateTraceDiagnoseResponse Client::generateTraceDiagnoseWithOptions(const GenerateTraceDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasUrl()) {
+    query["Url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GenerateTraceDiagnose"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GenerateTraceDiagnoseResponse>();
+}
+
+/**
+ * @summary 边缘容器的监控
+ *
+ * @param request GenerateTraceDiagnoseRequest
+ * @return GenerateTraceDiagnoseResponse
+ */
+GenerateTraceDiagnoseResponse Client::generateTraceDiagnose(const GenerateTraceDiagnoseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return generateTraceDiagnoseWithOptions(request, runtime);
 }
 
 /**
@@ -14811,6 +14899,80 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 边缘容器的监控
+ *
+ * @param request ListTraceTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTraceTasksResponse
+ */
+ListTraceTasksResponse Client::listTraceTasksWithOptions(const ListTraceTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientIp()) {
+    query["ClientIp"] = request.getClientIp();
+  }
+
+  if (!!request.hasDiagnoseId()) {
+    query["DiagnoseId"] = request.getDiagnoseId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasTraceId()) {
+    query["TraceId"] = request.getTraceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTraceTasks"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTraceTasksResponse>();
+}
+
+/**
+ * @summary 边缘容器的监控
+ *
+ * @param request ListTraceTasksRequest
+ * @return ListTraceTasksResponse
+ */
+ListTraceTasksResponse Client::listTraceTasks(const ListTraceTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTraceTasksWithOptions(request, runtime);
 }
 
 /**

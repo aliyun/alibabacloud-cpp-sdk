@@ -467,6 +467,9 @@
 #include <alibabacloud/models/DescribeSiteTopDataShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeSiteTopDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeSiteTopDataResponse.hpp>
+#include <alibabacloud/models/DescribeTraceDiagnoseReportRequest.hpp>
+#include <alibabacloud/models/DescribeTraceDiagnoseReportResponseBody.hpp>
+#include <alibabacloud/models/DescribeTraceDiagnoseReportResponse.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataRequest.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeUrlObservationDataResponse.hpp>
@@ -483,6 +486,9 @@
 #include <alibabacloud/models/ExportRecordsRequest.hpp>
 #include <alibabacloud/models/ExportRecordsResponseBody.hpp>
 #include <alibabacloud/models/ExportRecordsResponse.hpp>
+#include <alibabacloud/models/GenerateTraceDiagnoseRequest.hpp>
+#include <alibabacloud/models/GenerateTraceDiagnoseResponseBody.hpp>
+#include <alibabacloud/models/GenerateTraceDiagnoseResponse.hpp>
 #include <alibabacloud/models/GetApiSchemaUsageRequest.hpp>
 #include <alibabacloud/models/GetApiSchemaUsageResponseBody.hpp>
 #include <alibabacloud/models/GetApiSchemaUsageResponse.hpp>
@@ -911,6 +917,9 @@
 #include <alibabacloud/models/ListTagResourcesRequest.hpp>
 #include <alibabacloud/models/ListTagResourcesResponseBody.hpp>
 #include <alibabacloud/models/ListTagResourcesResponse.hpp>
+#include <alibabacloud/models/ListTraceTasksRequest.hpp>
+#include <alibabacloud/models/ListTraceTasksResponseBody.hpp>
+#include <alibabacloud/models/ListTraceTasksResponse.hpp>
 #include <alibabacloud/models/ListTransportLayerApplicationsRequest.hpp>
 #include <alibabacloud/models/ListTransportLayerApplicationsResponseBody.hpp>
 #include <alibabacloud/models/ListTransportLayerApplicationsResponse.hpp>
