@@ -16640,6 +16640,92 @@ DescribeScheduleTasksResponse Client::describeScheduleTasks(const DescribeSchedu
 }
 
 /**
+ * @summary 查询共享备份集
+ *
+ * @param request DescribeSharedBackupsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSharedBackupsResponse
+ */
+DescribeSharedBackupsResponse Client::describeSharedBackupsWithOptions(const DescribeSharedBackupsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBackupId()) {
+    query["BackupId"] = request.getBackupId();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDBType()) {
+    query["DBType"] = request.getDBType();
+  }
+
+  if (!!request.hasDBVersion()) {
+    query["DBVersion"] = request.getDBVersion();
+  }
+
+  if (!!request.hasOwnerAccount()) {
+    query["OwnerAccount"] = request.getOwnerAccount();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasShareType()) {
+    query["ShareType"] = request.getShareType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSharedBackups"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSharedBackupsResponse>();
+}
+
+/**
+ * @summary 查询共享备份集
+ *
+ * @param request DescribeSharedBackupsRequest
+ * @return DescribeSharedBackupsResponse
+ */
+DescribeSharedBackupsResponse Client::describeSharedBackups(const DescribeSharedBackupsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSharedBackupsWithOptions(request, runtime);
+}
+
+/**
  * @summary Slow Log Details
  *
  * @description >- Only PolarDB MySQL Edition clusters support calling this interface.

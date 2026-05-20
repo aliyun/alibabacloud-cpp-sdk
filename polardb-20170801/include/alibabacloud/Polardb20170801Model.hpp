@@ -736,6 +736,9 @@
 #include <alibabacloud/models/DescribeScheduleTasksRequest.hpp>
 #include <alibabacloud/models/DescribeScheduleTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeScheduleTasksResponse.hpp>
+#include <alibabacloud/models/DescribeSharedBackupsRequest.hpp>
+#include <alibabacloud/models/DescribeSharedBackupsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSharedBackupsResponse.hpp>
 #include <alibabacloud/models/DescribeSlowLogRecordsRequest.hpp>
 #include <alibabacloud/models/DescribeSlowLogRecordsResponseBody.hpp>
 #include <alibabacloud/models/DescribeSlowLogRecordsResponse.hpp>

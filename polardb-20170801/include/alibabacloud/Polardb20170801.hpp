@@ -4322,6 +4322,23 @@ namespace Polardb20170801
       Models::DescribeScheduleTasksResponse describeScheduleTasks(const Models::DescribeScheduleTasksRequest &request);
 
       /**
+       * @summary 查询共享备份集
+       *
+       * @param request DescribeSharedBackupsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSharedBackupsResponse
+       */
+      Models::DescribeSharedBackupsResponse describeSharedBackupsWithOptions(const Models::DescribeSharedBackupsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询共享备份集
+       *
+       * @param request DescribeSharedBackupsRequest
+       * @return DescribeSharedBackupsResponse
+       */
+      Models::DescribeSharedBackupsResponse describeSharedBackups(const Models::DescribeSharedBackupsRequest &request);
+
+      /**
        * @summary Slow Log Details
        *
        * @description >- Only PolarDB MySQL Edition clusters support calling this interface.
