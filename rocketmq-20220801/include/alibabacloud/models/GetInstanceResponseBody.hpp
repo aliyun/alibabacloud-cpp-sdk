@@ -49,6 +49,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(accountInfo, accountInfo_);
         DARABONBA_PTR_TO_JSON(aclInfo, aclInfo_);
+        DARABONBA_PTR_TO_JSON(autoRenew, autoRenew_);
+        DARABONBA_PTR_TO_JSON(autoRenewPeriod, autoRenewPeriod_);
         DARABONBA_PTR_TO_JSON(bid, bid_);
         DARABONBA_PTR_TO_JSON(commodityCode, commodityCode_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
@@ -79,6 +81,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(accountInfo, accountInfo_);
         DARABONBA_PTR_FROM_JSON(aclInfo, aclInfo_);
+        DARABONBA_PTR_FROM_JSON(autoRenew, autoRenew_);
+        DARABONBA_PTR_FROM_JSON(autoRenewPeriod, autoRenewPeriod_);
         DARABONBA_PTR_FROM_JSON(bid, bid_);
         DARABONBA_PTR_FROM_JSON(commodityCode, commodityCode_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
@@ -1064,12 +1068,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accountInfo_ == nullptr
-        && this->aclInfo_ == nullptr && this->bid_ == nullptr && this->commodityCode_ == nullptr && this->createTime_ == nullptr && this->expireTime_ == nullptr
-        && this->extConfig_ == nullptr && this->groupCount_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->instanceQuotas_ == nullptr
-        && this->networkInfo_ == nullptr && this->paymentType_ == nullptr && this->productInfo_ == nullptr && this->regionId_ == nullptr && this->releaseTime_ == nullptr
-        && this->remark_ == nullptr && this->resourceGroupId_ == nullptr && this->seriesCode_ == nullptr && this->serviceCode_ == nullptr && this->software_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->subSeriesCode_ == nullptr && this->tags_ == nullptr && this->topicCount_ == nullptr
-        && this->updateTime_ == nullptr && this->userId_ == nullptr; };
+        && this->aclInfo_ == nullptr && this->autoRenew_ == nullptr && this->autoRenewPeriod_ == nullptr && this->bid_ == nullptr && this->commodityCode_ == nullptr
+        && this->createTime_ == nullptr && this->expireTime_ == nullptr && this->extConfig_ == nullptr && this->groupCount_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceQuotas_ == nullptr && this->networkInfo_ == nullptr && this->paymentType_ == nullptr && this->productInfo_ == nullptr
+        && this->regionId_ == nullptr && this->releaseTime_ == nullptr && this->remark_ == nullptr && this->resourceGroupId_ == nullptr && this->seriesCode_ == nullptr
+        && this->serviceCode_ == nullptr && this->software_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->subSeriesCode_ == nullptr
+        && this->tags_ == nullptr && this->topicCount_ == nullptr && this->updateTime_ == nullptr && this->userId_ == nullptr; };
       // accountInfo Field Functions 
       bool hasAccountInfo() const { return this->accountInfo_ != nullptr;};
       void deleteAccountInfo() { this->accountInfo_ = nullptr;};
@@ -1086,6 +1090,20 @@ namespace Models
       inline Data::AclInfo getAclInfo() { DARABONBA_PTR_GET(aclInfo_, Data::AclInfo) };
       inline Data& setAclInfo(const Data::AclInfo & aclInfo) { DARABONBA_PTR_SET_VALUE(aclInfo_, aclInfo) };
       inline Data& setAclInfo(Data::AclInfo && aclInfo) { DARABONBA_PTR_SET_RVALUE(aclInfo_, aclInfo) };
+
+
+      // autoRenew Field Functions 
+      bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
+      void deleteAutoRenew() { this->autoRenew_ = nullptr;};
+      inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
+      inline Data& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+      // autoRenewPeriod Field Functions 
+      bool hasAutoRenewPeriod() const { return this->autoRenewPeriod_ != nullptr;};
+      void deleteAutoRenewPeriod() { this->autoRenewPeriod_ = nullptr;};
+      inline int32_t getAutoRenewPeriod() const { DARABONBA_PTR_GET_DEFAULT(autoRenewPeriod_, 0) };
+      inline Data& setAutoRenewPeriod(int32_t autoRenewPeriod) { DARABONBA_PTR_SET_VALUE(autoRenewPeriod_, autoRenewPeriod) };
 
 
       // bid Field Functions 
@@ -1287,6 +1305,8 @@ namespace Models
       shared_ptr<Data::AccountInfo> accountInfo_ {};
       // The information about access control.
       shared_ptr<Data::AclInfo> aclInfo_ {};
+      shared_ptr<bool> autoRenew_ {};
+      shared_ptr<int32_t> autoRenewPeriod_ {};
       // The business ID (BID) of the commodity.
       shared_ptr<string> bid_ {};
       // The commodity code of the instance. The commodity code of a ApsaraMQ for RocketMQ 5.0 instance has a similar format as ons_rmqsub_public_cn.
