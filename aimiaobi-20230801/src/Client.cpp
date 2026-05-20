@@ -2662,6 +2662,10 @@ ExportPptArtifactResponse Client::exportPptArtifactWithOptions(const ExportPptAr
     body["ExportFileType"] = request.getExportFileType();
   }
 
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasPptArtifactId()) {
     body["PptArtifactId"] = request.getPptArtifactId();
   }
@@ -4806,6 +4810,10 @@ GetPptArtifactExportResultResponse Client::getPptArtifactExportResultWithOptions
     body["ExportTaskId"] = request.getExportTaskId();
   }
 
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasWorkspaceId()) {
     body["WorkspaceId"] = request.getWorkspaceId();
   }
@@ -4894,6 +4902,10 @@ GetPptConfigResponse Client::getPptConfig(const GetPptConfigRequest &request) {
 GetPptInfoResponse Client::getPptInfoWithOptions(const GetPptInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
   if (!!request.hasTaskId()) {
     body["TaskId"] = request.getTaskId();
   }

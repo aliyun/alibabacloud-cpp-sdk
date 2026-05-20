@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetPptArtifactExportResultRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ExportTaskId, exportTaskId_);
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetPptArtifactExportResultRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ExportTaskId, exportTaskId_);
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetPptArtifactExportResultRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->exportTaskId_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->externalUserId_ == nullptr && this->workspaceId_ == nullptr; };
     // exportTaskId Field Functions 
     bool hasExportTaskId() const { return this->exportTaskId_ != nullptr;};
     void deleteExportTaskId() { this->exportTaskId_ = nullptr;};
     inline string getExportTaskId() const { DARABONBA_PTR_GET_DEFAULT(exportTaskId_, "") };
     inline GetPptArtifactExportResultRequest& setExportTaskId(string exportTaskId) { DARABONBA_PTR_SET_VALUE(exportTaskId_, exportTaskId) };
+
+
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline GetPptArtifactExportResultRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
 
 
     // workspaceId Field Functions 
@@ -49,6 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> exportTaskId_ {};
+    shared_ptr<string> externalUserId_ {};
     shared_ptr<string> workspaceId_ {};
   };
 

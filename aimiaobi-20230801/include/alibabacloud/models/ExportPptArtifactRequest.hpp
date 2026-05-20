@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ExportPptArtifactRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Edit, edit_);
       DARABONBA_PTR_TO_JSON(ExportFileType, exportFileType_);
+      DARABONBA_PTR_TO_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_TO_JSON(PptArtifactId, pptArtifactId_);
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_TO_JSON(Zip, zip_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ExportPptArtifactRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Edit, edit_);
       DARABONBA_PTR_FROM_JSON(ExportFileType, exportFileType_);
+      DARABONBA_PTR_FROM_JSON(ExternalUserId, externalUserId_);
       DARABONBA_PTR_FROM_JSON(PptArtifactId, pptArtifactId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       DARABONBA_PTR_FROM_JSON(Zip, zip_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->edit_ == nullptr
-        && this->exportFileType_ == nullptr && this->pptArtifactId_ == nullptr && this->workspaceId_ == nullptr && this->zip_ == nullptr; };
+        && this->exportFileType_ == nullptr && this->externalUserId_ == nullptr && this->pptArtifactId_ == nullptr && this->workspaceId_ == nullptr && this->zip_ == nullptr; };
     // edit Field Functions 
     bool hasEdit() const { return this->edit_ != nullptr;};
     void deleteEdit() { this->edit_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteExportFileType() { this->exportFileType_ = nullptr;};
     inline string getExportFileType() const { DARABONBA_PTR_GET_DEFAULT(exportFileType_, "") };
     inline ExportPptArtifactRequest& setExportFileType(string exportFileType) { DARABONBA_PTR_SET_VALUE(exportFileType_, exportFileType) };
+
+
+    // externalUserId Field Functions 
+    bool hasExternalUserId() const { return this->externalUserId_ != nullptr;};
+    void deleteExternalUserId() { this->externalUserId_ = nullptr;};
+    inline string getExternalUserId() const { DARABONBA_PTR_GET_DEFAULT(externalUserId_, "") };
+    inline ExportPptArtifactRequest& setExternalUserId(string externalUserId) { DARABONBA_PTR_SET_VALUE(externalUserId_, externalUserId) };
 
 
     // pptArtifactId Field Functions 
@@ -77,6 +86,7 @@ namespace Models
   protected:
     shared_ptr<bool> edit_ {};
     shared_ptr<string> exportFileType_ {};
+    shared_ptr<string> externalUserId_ {};
     // This parameter is required.
     shared_ptr<int64_t> pptArtifactId_ {};
     shared_ptr<string> workspaceId_ {};
