@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(limit, limit_);
       DARABONBA_PTR_TO_JSON(query, query_);
       DARABONBA_PTR_TO_JSON(region, region_);
+      DARABONBA_PTR_TO_JSON(searchType, searchType_);
       DARABONBA_PTR_TO_JSON(startTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, WebSearchRequest& obj) { 
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(limit, limit_);
       DARABONBA_PTR_FROM_JSON(query, query_);
       DARABONBA_PTR_FROM_JSON(region, region_);
+      DARABONBA_PTR_FROM_JSON(searchType, searchType_);
       DARABONBA_PTR_FROM_JSON(startTime, startTime_);
     };
     WebSearchRequest() = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
         && this->excludeDomain_ == nullptr && this->includeDomain_ == nullptr && this->limit_ == nullptr && this->query_ == nullptr && this->region_ == nullptr
-        && this->startTime_ == nullptr; };
+        && this->searchType_ == nullptr && this->startTime_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     inline WebSearchRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+    // searchType Field Functions 
+    bool hasSearchType() const { return this->searchType_ != nullptr;};
+    void deleteSearchType() { this->searchType_ = nullptr;};
+    inline string getSearchType() const { DARABONBA_PTR_GET_DEFAULT(searchType_, "") };
+    inline WebSearchRequest& setSearchType(string searchType) { DARABONBA_PTR_SET_VALUE(searchType_, searchType) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -105,6 +114,7 @@ namespace Models
     shared_ptr<int32_t> limit_ {};
     shared_ptr<string> query_ {};
     shared_ptr<string> region_ {};
+    shared_ptr<string> searchType_ {};
     shared_ptr<string> startTime_ {};
   };
 

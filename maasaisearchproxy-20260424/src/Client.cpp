@@ -36,6 +36,104 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 提交单条记录导入任务（通过AccessKey认证）
+ *
+ * @param request OpenDatasetImportDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenDatasetImportDataResponse
+ */
+OpenDatasetImportDataResponse Client::openDatasetImportDataWithOptions(const OpenDatasetImportDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasRecords()) {
+    body["records"] = request.getRecords();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OpenDatasetImportData"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/dataset/open/upsert")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenDatasetImportDataResponse>();
+}
+
+/**
+ * @summary 提交单条记录导入任务（通过AccessKey认证）
+ *
+ * @param request OpenDatasetImportDataRequest
+ * @return OpenDatasetImportDataResponse
+ */
+OpenDatasetImportDataResponse Client::openDatasetImportData(const OpenDatasetImportDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return openDatasetImportDataWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取数据集资源 OSS 访问地址（通过AccessKey认证）
+ *
+ * @param request OpenDatasetResourceUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenDatasetResourceUrlResponse
+ */
+OpenDatasetResourceUrlResponse Client::openDatasetResourceUrlWithOptions(const OpenDatasetResourceUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasPrimaryKey()) {
+    body["primaryKey"] = request.getPrimaryKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "OpenDatasetResourceUrl"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/dataset/open/resources")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenDatasetResourceUrlResponse>();
+}
+
+/**
+ * @summary 获取数据集资源 OSS 访问地址（通过AccessKey认证）
+ *
+ * @param request OpenDatasetResourceUrlRequest
+ * @return OpenDatasetResourceUrlResponse
+ */
+OpenDatasetResourceUrlResponse Client::openDatasetResourceUrl(const OpenDatasetResourceUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return openDatasetResourceUrlWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 联网搜API
  *
  * @param request WebSearchRequest
@@ -68,6 +166,10 @@ WebSearchResponse Client::webSearchWithOptions(const WebSearchRequest &request, 
 
   if (!!request.hasRegion()) {
     body["region"] = request.getRegion();
+  }
+
+  if (!!request.hasSearchType()) {
+    body["searchType"] = request.getSearchType();
   }
 
   if (!!request.hasStartTime()) {
