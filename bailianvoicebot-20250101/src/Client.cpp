@@ -194,6 +194,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
     request.setSynthesizerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSynthesizerConfig(), "SynthesizerConfig", "json"));
   }
 
+  if (!!tmpReq.hasToolConfig()) {
+    request.setToolConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getToolConfig(), "ToolConfig", "json"));
+  }
+
   if (!!tmpReq.hasTranscriberConfig()) {
     request.setTranscriberConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTranscriberConfig(), "TranscriberConfig", "json"));
   }
@@ -225,6 +229,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
 
   if (!!request.hasSynthesizerConfigShrink()) {
     query["SynthesizerConfig"] = request.getSynthesizerConfigShrink();
+  }
+
+  if (!!request.hasToolConfigShrink()) {
+    query["ToolConfig"] = request.getToolConfigShrink();
   }
 
   if (!!request.hasTranscriberConfigShrink()) {
@@ -1794,6 +1802,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
     request.setSynthesizerConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSynthesizerConfig(), "SynthesizerConfig", "json"));
   }
 
+  if (!!tmpReq.hasToolConfig()) {
+    request.setToolConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getToolConfig(), "ToolConfig", "json"));
+  }
+
   if (!!tmpReq.hasTranscriberConfig()) {
     request.setTranscriberConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTranscriberConfig(), "TranscriberConfig", "json"));
   }
@@ -1821,6 +1833,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
 
   if (!!request.hasSynthesizerConfigShrink()) {
     query["SynthesizerConfig"] = request.getSynthesizerConfigShrink();
+  }
+
+  if (!!request.hasToolConfigShrink()) {
+    query["ToolConfig"] = request.getToolConfigShrink();
   }
 
   if (!!request.hasTranscriberConfigShrink()) {

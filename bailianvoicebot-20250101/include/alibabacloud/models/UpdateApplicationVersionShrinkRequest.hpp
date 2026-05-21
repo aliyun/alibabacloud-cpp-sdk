@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RagConfig, ragConfigShrink_);
       DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfileShrink_);
       DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfigShrink_);
+      DARABONBA_PTR_TO_JSON(ToolConfig, toolConfigShrink_);
       DARABONBA_PTR_TO_JSON(TranscriberConfig, transcriberConfigShrink_);
       DARABONBA_PTR_TO_JSON(VersionId, versionId_);
     };
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RagConfig, ragConfigShrink_);
       DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfileShrink_);
       DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(ToolConfig, toolConfigShrink_);
       DARABONBA_PTR_FROM_JSON(TranscriberConfig, transcriberConfigShrink_);
       DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
     };
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->businessUnitId_ == nullptr && this->interactionConfigShrink_ == nullptr && this->ragConfigShrink_ == nullptr && this->scriptProfileShrink_ == nullptr && this->synthesizerConfigShrink_ == nullptr
-        && this->transcriberConfigShrink_ == nullptr && this->versionId_ == nullptr; };
+        && this->toolConfigShrink_ == nullptr && this->transcriberConfigShrink_ == nullptr && this->versionId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
     inline UpdateApplicationVersionShrinkRequest& setSynthesizerConfigShrink(string synthesizerConfigShrink) { DARABONBA_PTR_SET_VALUE(synthesizerConfigShrink_, synthesizerConfigShrink) };
 
 
+    // toolConfigShrink Field Functions 
+    bool hasToolConfigShrink() const { return this->toolConfigShrink_ != nullptr;};
+    void deleteToolConfigShrink() { this->toolConfigShrink_ = nullptr;};
+    inline string getToolConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(toolConfigShrink_, "") };
+    inline UpdateApplicationVersionShrinkRequest& setToolConfigShrink(string toolConfigShrink) { DARABONBA_PTR_SET_VALUE(toolConfigShrink_, toolConfigShrink) };
+
+
     // transcriberConfigShrink Field Functions 
     bool hasTranscriberConfigShrink() const { return this->transcriberConfigShrink_ != nullptr;};
     void deleteTranscriberConfigShrink() { this->transcriberConfigShrink_ = nullptr;};
@@ -112,6 +121,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> scriptProfileShrink_ {};
     shared_ptr<string> synthesizerConfigShrink_ {};
+    shared_ptr<string> toolConfigShrink_ {};
     shared_ptr<string> transcriberConfigShrink_ {};
     // This parameter is required.
     shared_ptr<string> versionId_ {};

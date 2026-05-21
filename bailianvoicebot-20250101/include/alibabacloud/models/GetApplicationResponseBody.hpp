@@ -82,6 +82,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
+          DARABONBA_PTR_TO_JSON(ToolConfig, toolConfig_);
           DARABONBA_PTR_TO_JSON(TranscriberConfig, transcriberConfig_);
           DARABONBA_PTR_TO_JSON(VersionId, versionId_);
         };
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
+          DARABONBA_PTR_FROM_JSON(ToolConfig, toolConfig_);
           DARABONBA_PTR_FROM_JSON(TranscriberConfig, transcriberConfig_);
           DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
         };
@@ -294,6 +296,91 @@ namespace Models
           shared_ptr<string> vocabularyId_ {};
         };
 
+        class ToolConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ToolConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(McpServers, mcpServers_);
+          };
+          friend void from_json(const Darabonba::Json& j, ToolConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(McpServers, mcpServers_);
+          };
+          ToolConfig() = default ;
+          ToolConfig(const ToolConfig &) = default ;
+          ToolConfig(ToolConfig &&) = default ;
+          ToolConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ToolConfig() = default ;
+          ToolConfig& operator=(const ToolConfig &) = default ;
+          ToolConfig& operator=(ToolConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class McpServers : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const McpServers& obj) { 
+              DARABONBA_PTR_TO_JSON(BaseUrl, baseUrl_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
+              DARABONBA_PTR_TO_JSON(SseEndpoint, sseEndpoint_);
+            };
+            friend void from_json(const Darabonba::Json& j, McpServers& obj) { 
+              DARABONBA_PTR_FROM_JSON(BaseUrl, baseUrl_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
+              DARABONBA_PTR_FROM_JSON(SseEndpoint, sseEndpoint_);
+            };
+            McpServers() = default ;
+            McpServers(const McpServers &) = default ;
+            McpServers(McpServers &&) = default ;
+            McpServers(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~McpServers() = default ;
+            McpServers& operator=(const McpServers &) = default ;
+            McpServers& operator=(McpServers &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->baseUrl_ == nullptr
+        && this->name_ == nullptr && this->sseEndpoint_ == nullptr; };
+            // baseUrl Field Functions 
+            bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
+            void deleteBaseUrl() { this->baseUrl_ = nullptr;};
+            inline string getBaseUrl() const { DARABONBA_PTR_GET_DEFAULT(baseUrl_, "") };
+            inline McpServers& setBaseUrl(string baseUrl) { DARABONBA_PTR_SET_VALUE(baseUrl_, baseUrl) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline McpServers& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // sseEndpoint Field Functions 
+            bool hasSseEndpoint() const { return this->sseEndpoint_ != nullptr;};
+            void deleteSseEndpoint() { this->sseEndpoint_ = nullptr;};
+            inline string getSseEndpoint() const { DARABONBA_PTR_GET_DEFAULT(sseEndpoint_, "") };
+            inline McpServers& setSseEndpoint(string sseEndpoint) { DARABONBA_PTR_SET_VALUE(sseEndpoint_, sseEndpoint) };
+
+
+          protected:
+            shared_ptr<string> baseUrl_ {};
+            shared_ptr<string> name_ {};
+            shared_ptr<string> sseEndpoint_ {};
+          };
+
+          virtual bool empty() const override { return this->mcpServers_ == nullptr; };
+          // mcpServers Field Functions 
+          bool hasMcpServers() const { return this->mcpServers_ != nullptr;};
+          void deleteMcpServers() { this->mcpServers_ = nullptr;};
+          inline const vector<ToolConfig::McpServers> & getMcpServers() const { DARABONBA_PTR_GET_CONST(mcpServers_, vector<ToolConfig::McpServers>) };
+          inline vector<ToolConfig::McpServers> getMcpServers() { DARABONBA_PTR_GET(mcpServers_, vector<ToolConfig::McpServers>) };
+          inline ToolConfig& setMcpServers(const vector<ToolConfig::McpServers> & mcpServers) { DARABONBA_PTR_SET_VALUE(mcpServers_, mcpServers) };
+          inline ToolConfig& setMcpServers(vector<ToolConfig::McpServers> && mcpServers) { DARABONBA_PTR_SET_RVALUE(mcpServers_, mcpServers) };
+
+
+        protected:
+          shared_ptr<vector<ToolConfig::McpServers>> mcpServers_ {};
+        };
+
         class SynthesizerConfig : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const SynthesizerConfig& obj) { 
@@ -749,7 +836,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->interactionConfig_ == nullptr
-        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->transcriberConfig_ == nullptr && this->versionId_ == nullptr; };
+        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr && this->transcriberConfig_ == nullptr
+        && this->versionId_ == nullptr; };
         // interactionConfig Field Functions 
         bool hasInteractionConfig() const { return this->interactionConfig_ != nullptr;};
         void deleteInteractionConfig() { this->interactionConfig_ = nullptr;};
@@ -786,6 +874,15 @@ namespace Models
         inline PublishedVersion& setSynthesizerConfig(PublishedVersion::SynthesizerConfig && synthesizerConfig) { DARABONBA_PTR_SET_RVALUE(synthesizerConfig_, synthesizerConfig) };
 
 
+        // toolConfig Field Functions 
+        bool hasToolConfig() const { return this->toolConfig_ != nullptr;};
+        void deleteToolConfig() { this->toolConfig_ = nullptr;};
+        inline const PublishedVersion::ToolConfig & getToolConfig() const { DARABONBA_PTR_GET_CONST(toolConfig_, PublishedVersion::ToolConfig) };
+        inline PublishedVersion::ToolConfig getToolConfig() { DARABONBA_PTR_GET(toolConfig_, PublishedVersion::ToolConfig) };
+        inline PublishedVersion& setToolConfig(const PublishedVersion::ToolConfig & toolConfig) { DARABONBA_PTR_SET_VALUE(toolConfig_, toolConfig) };
+        inline PublishedVersion& setToolConfig(PublishedVersion::ToolConfig && toolConfig) { DARABONBA_PTR_SET_RVALUE(toolConfig_, toolConfig) };
+
+
         // transcriberConfig Field Functions 
         bool hasTranscriberConfig() const { return this->transcriberConfig_ != nullptr;};
         void deleteTranscriberConfig() { this->transcriberConfig_ = nullptr;};
@@ -807,6 +904,7 @@ namespace Models
         shared_ptr<PublishedVersion::RagConfig> ragConfig_ {};
         shared_ptr<PublishedVersion::ScriptProfile> scriptProfile_ {};
         shared_ptr<PublishedVersion::SynthesizerConfig> synthesizerConfig_ {};
+        shared_ptr<PublishedVersion::ToolConfig> toolConfig_ {};
         shared_ptr<PublishedVersion::TranscriberConfig> transcriberConfig_ {};
         shared_ptr<string> versionId_ {};
       };
@@ -818,6 +916,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
+          DARABONBA_PTR_TO_JSON(ToolConfig, toolConfig_);
           DARABONBA_PTR_TO_JSON(TranscriberConfig, transcriberConfig_);
           DARABONBA_PTR_TO_JSON(VersionId, versionId_);
         };
@@ -826,6 +925,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
+          DARABONBA_PTR_FROM_JSON(ToolConfig, toolConfig_);
           DARABONBA_PTR_FROM_JSON(TranscriberConfig, transcriberConfig_);
           DARABONBA_PTR_FROM_JSON(VersionId, versionId_);
         };
@@ -1030,6 +1130,91 @@ namespace Models
           shared_ptr<string> vocabularyId_ {};
         };
 
+        class ToolConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ToolConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(McpServers, mcpServers_);
+          };
+          friend void from_json(const Darabonba::Json& j, ToolConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(McpServers, mcpServers_);
+          };
+          ToolConfig() = default ;
+          ToolConfig(const ToolConfig &) = default ;
+          ToolConfig(ToolConfig &&) = default ;
+          ToolConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ToolConfig() = default ;
+          ToolConfig& operator=(const ToolConfig &) = default ;
+          ToolConfig& operator=(ToolConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class McpServers : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const McpServers& obj) { 
+              DARABONBA_PTR_TO_JSON(BaseUrl, baseUrl_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
+              DARABONBA_PTR_TO_JSON(SseEndpoint, sseEndpoint_);
+            };
+            friend void from_json(const Darabonba::Json& j, McpServers& obj) { 
+              DARABONBA_PTR_FROM_JSON(BaseUrl, baseUrl_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
+              DARABONBA_PTR_FROM_JSON(SseEndpoint, sseEndpoint_);
+            };
+            McpServers() = default ;
+            McpServers(const McpServers &) = default ;
+            McpServers(McpServers &&) = default ;
+            McpServers(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~McpServers() = default ;
+            McpServers& operator=(const McpServers &) = default ;
+            McpServers& operator=(McpServers &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->baseUrl_ == nullptr
+        && this->name_ == nullptr && this->sseEndpoint_ == nullptr; };
+            // baseUrl Field Functions 
+            bool hasBaseUrl() const { return this->baseUrl_ != nullptr;};
+            void deleteBaseUrl() { this->baseUrl_ = nullptr;};
+            inline string getBaseUrl() const { DARABONBA_PTR_GET_DEFAULT(baseUrl_, "") };
+            inline McpServers& setBaseUrl(string baseUrl) { DARABONBA_PTR_SET_VALUE(baseUrl_, baseUrl) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline McpServers& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // sseEndpoint Field Functions 
+            bool hasSseEndpoint() const { return this->sseEndpoint_ != nullptr;};
+            void deleteSseEndpoint() { this->sseEndpoint_ = nullptr;};
+            inline string getSseEndpoint() const { DARABONBA_PTR_GET_DEFAULT(sseEndpoint_, "") };
+            inline McpServers& setSseEndpoint(string sseEndpoint) { DARABONBA_PTR_SET_VALUE(sseEndpoint_, sseEndpoint) };
+
+
+          protected:
+            shared_ptr<string> baseUrl_ {};
+            shared_ptr<string> name_ {};
+            shared_ptr<string> sseEndpoint_ {};
+          };
+
+          virtual bool empty() const override { return this->mcpServers_ == nullptr; };
+          // mcpServers Field Functions 
+          bool hasMcpServers() const { return this->mcpServers_ != nullptr;};
+          void deleteMcpServers() { this->mcpServers_ = nullptr;};
+          inline const vector<ToolConfig::McpServers> & getMcpServers() const { DARABONBA_PTR_GET_CONST(mcpServers_, vector<ToolConfig::McpServers>) };
+          inline vector<ToolConfig::McpServers> getMcpServers() { DARABONBA_PTR_GET(mcpServers_, vector<ToolConfig::McpServers>) };
+          inline ToolConfig& setMcpServers(const vector<ToolConfig::McpServers> & mcpServers) { DARABONBA_PTR_SET_VALUE(mcpServers_, mcpServers) };
+          inline ToolConfig& setMcpServers(vector<ToolConfig::McpServers> && mcpServers) { DARABONBA_PTR_SET_RVALUE(mcpServers_, mcpServers) };
+
+
+        protected:
+          shared_ptr<vector<ToolConfig::McpServers>> mcpServers_ {};
+        };
+
         class SynthesizerConfig : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const SynthesizerConfig& obj) { 
@@ -1485,7 +1670,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->interactionConfig_ == nullptr
-        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->transcriberConfig_ == nullptr && this->versionId_ == nullptr; };
+        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr && this->transcriberConfig_ == nullptr
+        && this->versionId_ == nullptr; };
         // interactionConfig Field Functions 
         bool hasInteractionConfig() const { return this->interactionConfig_ != nullptr;};
         void deleteInteractionConfig() { this->interactionConfig_ = nullptr;};
@@ -1522,6 +1708,15 @@ namespace Models
         inline DraftVersion& setSynthesizerConfig(DraftVersion::SynthesizerConfig && synthesizerConfig) { DARABONBA_PTR_SET_RVALUE(synthesizerConfig_, synthesizerConfig) };
 
 
+        // toolConfig Field Functions 
+        bool hasToolConfig() const { return this->toolConfig_ != nullptr;};
+        void deleteToolConfig() { this->toolConfig_ = nullptr;};
+        inline const DraftVersion::ToolConfig & getToolConfig() const { DARABONBA_PTR_GET_CONST(toolConfig_, DraftVersion::ToolConfig) };
+        inline DraftVersion::ToolConfig getToolConfig() { DARABONBA_PTR_GET(toolConfig_, DraftVersion::ToolConfig) };
+        inline DraftVersion& setToolConfig(const DraftVersion::ToolConfig & toolConfig) { DARABONBA_PTR_SET_VALUE(toolConfig_, toolConfig) };
+        inline DraftVersion& setToolConfig(DraftVersion::ToolConfig && toolConfig) { DARABONBA_PTR_SET_RVALUE(toolConfig_, toolConfig) };
+
+
         // transcriberConfig Field Functions 
         bool hasTranscriberConfig() const { return this->transcriberConfig_ != nullptr;};
         void deleteTranscriberConfig() { this->transcriberConfig_ = nullptr;};
@@ -1543,6 +1738,7 @@ namespace Models
         shared_ptr<DraftVersion::RagConfig> ragConfig_ {};
         shared_ptr<DraftVersion::ScriptProfile> scriptProfile_ {};
         shared_ptr<DraftVersion::SynthesizerConfig> synthesizerConfig_ {};
+        shared_ptr<DraftVersion::ToolConfig> toolConfig_ {};
         shared_ptr<DraftVersion::TranscriberConfig> transcriberConfig_ {};
         shared_ptr<string> versionId_ {};
       };
