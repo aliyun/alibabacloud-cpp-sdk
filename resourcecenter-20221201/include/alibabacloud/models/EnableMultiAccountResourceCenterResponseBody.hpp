@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The status of the feature. Valid values:
+    // 
+    // *   Pending: The feature is being enabled.
+    // *   Enabled: The feature is enabled.
     shared_ptr<string> status_ {};
   };
 

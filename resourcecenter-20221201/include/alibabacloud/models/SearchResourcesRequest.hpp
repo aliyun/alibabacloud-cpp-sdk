@@ -80,17 +80,14 @@ namespace Models
 
 
     protected:
-      // The sort key.
+      // The attribute based on which the entries are sorted.
       // 
-      // Set this parameter to `CreateTime`, which means the results are sorted by resource creation time.
+      // The value CreateTime indicates the creation time of resources.
       shared_ptr<string> key_ {};
-      // The sort order. Valid values:
+      // The order in which the entries are sorted. Valid values:
       // 
-      // - ASC: Ascending order.
-      // 
-      // - DESC: Descending order.
-      // 
-      // Default value: ASC.
+      // *   ASC: The entries are sorted in ascending order. This value is the default value.
+      // *   DESC: The entries are sorted in descending order.
       shared_ptr<string> order_ {};
     };
 
@@ -143,23 +140,13 @@ namespace Models
 
 
     protected:
-      // The key of the filter condition. For more information about the valid values, see the "`Supported filter parameters`" section below.
+      // The key of the filter condition. For more information, see `Supported filter parameters`.
       shared_ptr<string> key_ {};
-      // The matching method. Valid values:
+      // The matching mode.
       // 
-      // - Equals: Exact match.
-      // 
-      // - Prefix: Prefix match.
-      // 
-      // - Contains: Contains a value.
-      // 
-      // - NotContains: Does not contain a value.
-      // 
-      // - Exists: The key exists.
-      // 
-      // - NotExists: The key does not exist.
+      // The value Equals indicates an equal match.
       shared_ptr<string> matchType_ {};
-      // The value of the filter condition.
+      // The values of the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -222,26 +209,21 @@ namespace Models
   protected:
     // The filter conditions.
     shared_ptr<vector<SearchResourcesRequest::Filter>> filter_ {};
-    // Specifies whether to include deleted resources. Valid values:
-    // 
-    // - true
-    // 
-    // - false
     shared_ptr<bool> includeDeletedResources_ {};
     // The maximum number of entries per page.
     // 
-    // Valid values: 1 to 500.
+    // Valid values: 1 to 100.
     // 
     // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The pagination token that is used in the next request to retrieve a new page of results.
+    // 
+    // If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
     shared_ptr<string> nextToken_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The search keyword. Resource Center filters and sorts the search results based on relevance.
-    // If you do not specify a sorting parameter, resources that better match the keyword are displayed with higher priority.
     shared_ptr<string> searchExpression_ {};
-    // The sorting parameters.
+    // The method that is used to sort the entries returned.
     shared_ptr<SearchResourcesRequest::SortCriterion> sortCriterion_ {};
   };
 

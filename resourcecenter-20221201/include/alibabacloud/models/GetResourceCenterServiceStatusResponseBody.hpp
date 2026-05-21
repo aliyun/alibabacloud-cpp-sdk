@@ -57,19 +57,17 @@ namespace Models
 
 
   protected:
-    // The initialization status. Valid values:
+    // The initialization status of the service. Valid values:
     // 
-    // - Pending
-    // 
-    // - Finished
+    // *   Pending: The service is being initialized.
+    // *   Finished: The service is initialized.
     shared_ptr<string> initialStatus_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The service status. Valid values:
+    // The status of the service. Valid values:
     // 
-    // - Enabled
-    // 
-    // - Disabled
+    // *   Enabled: The service is activated.
+    // *   Disabled: The service is deactivated.
     shared_ptr<string> serviceStatus_ {};
   };
 

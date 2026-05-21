@@ -91,9 +91,9 @@ namespace Models
       shared_ptr<string> deliveryChannelId_ {};
       // The name of the delivery channel.
       shared_ptr<string> deliveryChannelName_ {};
-      // The last time a resource configuration change was delivered.
+      // The last delivery time of resource configuration change events.
       shared_ptr<string> latestChangeDeliveryTime_ {};
-      // The last time a scheduled resource snapshot was delivered.
+      // The last delivery time of scheduled resource snapshots.
       shared_ptr<string> latestSnapshotDeliveryTime_ {};
     };
 
@@ -116,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The statistics of the delivery channel.
+    // The statistics on the delivery channel.
     shared_ptr<GetDeliveryChannelStatisticsResponseBody::DeliveryChannelStatistics> deliveryChannelStatistics_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

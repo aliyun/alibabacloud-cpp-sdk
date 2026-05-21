@@ -77,13 +77,8 @@ namespace Models
 
 
     protected:
-      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type.
-      // 
-      // For a list of resource types supported by Resource Center, see [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
       shared_ptr<string> resourceType_ {};
     };
 
@@ -98,7 +93,6 @@ namespace Models
 
 
   protected:
-    // The list of resources.
     shared_ptr<vector<BatchGetResourceConfigurationsRequest::Resources>> resources_ {};
   };
 

@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of tag N.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of tag N.
         shared_ptr<string> value_ {};
       };
 
@@ -176,11 +176,10 @@ namespace Models
         shared_ptr<string> ipAddress_ {};
         // The network type. Valid values:
         // 
-        // - **Public**: Internet
-        // 
-        // - **Private**: Private network
+        // *   **Public**: the Internet
+        // *   **Private**: internal network
         shared_ptr<string> networkType_ {};
-        // The IP address version.
+        // The version.
         shared_ptr<string> version_ {};
       };
 
@@ -290,21 +289,16 @@ namespace Models
       shared_ptr<string> accountId_ {};
       // The time when the resource was created.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the resource is deleted. Valid values:
-      // 
-      // - true
-      // 
-      // - false
       shared_ptr<bool> deleted_ {};
       // The time when the resource expires.
       shared_ptr<string> expireTime_ {};
-      // The attributes of the IP addresses.
+      // The attributes of the IP address.
       shared_ptr<vector<Resources::IpAddressAttributes>> ipAddressAttributes_ {};
       // The IP addresses.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<vector<string>> ipAddresses_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -320,7 +314,7 @@ namespace Models
       shared_ptr<vector<Resources::Tags>> tags_ {};
       // The zone ID.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -375,7 +369,7 @@ namespace Models
     protected:
       // The key of the filter condition.
       shared_ptr<string> key_ {};
-      // The matching method.
+      // The matching mode.
       shared_ptr<string> matchType_ {};
       // The values of the filter condition.
       shared_ptr<vector<string>> values_ {};
@@ -429,7 +423,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The information about the resources.
     shared_ptr<vector<SearchResourcesResponseBody::Resources>> resources_ {};

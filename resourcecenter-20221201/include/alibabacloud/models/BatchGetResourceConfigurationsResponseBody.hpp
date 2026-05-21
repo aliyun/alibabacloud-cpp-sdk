@@ -113,9 +113,7 @@ namespace Models
 
 
       protected:
-        // The tag key.
         shared_ptr<string> key_ {};
-        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -166,15 +164,8 @@ namespace Models
 
 
       protected:
-        // The IP address.
         shared_ptr<string> ipAddress_ {};
-        // The network type. Valid values:
-        // 
-        // - **Public**: Internet.
-        // 
-        // - **Private**: Private network.
         shared_ptr<string> networkType_ {};
-        // The version of the IP address.
         shared_ptr<string> version_ {};
       };
 
@@ -282,33 +273,18 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
       shared_ptr<string> accountId_ {};
-      // The details of the resource configuration.
       Darabonba::Json configuration_ {};
-      // The time when the resource was created.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the resource.
       shared_ptr<string> expireTime_ {};
-      // The properties of the IP addresses.
       shared_ptr<vector<Resources::IpAddressAttributes>> ipAddressAttributes_ {};
-      // The IP addresses.
-      // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
       shared_ptr<vector<string>> ipAddresses_ {};
-      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
-      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The resource name.
       shared_ptr<string> resourceName_ {};
-      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The tags.
       shared_ptr<vector<Resources::Tags>> tags_ {};
-      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -331,9 +307,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resources.
     shared_ptr<vector<BatchGetResourceConfigurationsResponseBody::Resources>> resources_ {};
   };
 

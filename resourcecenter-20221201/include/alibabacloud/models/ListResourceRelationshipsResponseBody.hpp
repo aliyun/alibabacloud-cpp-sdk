@@ -110,11 +110,17 @@ namespace Models
 
 
     protected:
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
+      // The ID of the associated resource.
       shared_ptr<string> relatedResourceId_ {};
+      // The region ID of the associated resource.
       shared_ptr<string> relatedResourceRegionId_ {};
+      // The type of the associated resource.
       shared_ptr<string> relatedResourceType_ {};
+      // The ID of the resource.
       shared_ptr<string> resourceId_ {};
+      // The type of the resource.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -151,9 +157,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource relationships.
     shared_ptr<vector<ListResourceRelationshipsResponseBody::ResourceRelationships>> resourceRelationships_ {};
   };
 

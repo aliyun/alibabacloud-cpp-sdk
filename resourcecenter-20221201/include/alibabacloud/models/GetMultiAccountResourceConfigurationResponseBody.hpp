@@ -94,9 +94,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of tag N.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of tag N.
       shared_ptr<string> value_ {};
     };
 
@@ -151,11 +151,10 @@ namespace Models
       shared_ptr<string> ipAddress_ {};
       // The network type. Valid values:
       // 
-      // - **Public**: Internet
-      // 
-      // - **Private**: internal network
+      // *   **Public**: the Internet
+      // *   **Private**: internal network
       shared_ptr<string> networkType_ {};
-      // The version of the IP address.
+      // The version.
       shared_ptr<string> version_ {};
     };
 
@@ -270,7 +269,7 @@ namespace Models
 
 
   protected:
-    // The ID of the management account or member.
+    // The ID of the management account or member of the resource directory.
     shared_ptr<string> accountId_ {};
     // The configurations of the resource.
     Darabonba::Json configuration_ {};
@@ -278,27 +277,27 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The time when the resource expires.
     shared_ptr<string> expireTime_ {};
-    // The properties of the IP addresses.
+    // The attributes of the IP address.
     shared_ptr<vector<GetMultiAccountResourceConfigurationResponseBody::IpAddressAttributes>> ipAddressAttributes_ {};
     // The IP addresses.
     // 
     // > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
     shared_ptr<vector<string>> ipAddresses_ {};
-    // The ID of the region where the resource resides.
+    // The region ID of the resource.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The ID of your Alibaba Cloud resource group.
+    // The ID of the resource group to which the resource belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The resource ID.
+    // The ID of the resource.
     shared_ptr<string> resourceId_ {};
-    // The resource name.
+    // The name of the resource.
     shared_ptr<string> resourceName_ {};
-    // The resource type.
+    // The type of the resource.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The tags of the resource.
     shared_ptr<vector<GetMultiAccountResourceConfigurationResponseBody::Tags>> tags_ {};
-    // The zone ID.
+    // The zone ID of the resource.
     shared_ptr<string> zoneId_ {};
   };
 

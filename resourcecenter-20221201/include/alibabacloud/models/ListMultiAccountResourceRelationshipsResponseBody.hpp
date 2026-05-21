@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // The ID of the management account or member.
       shared_ptr<string> accountId_ {};
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
+      // The ID of the associated resource.
       shared_ptr<string> relatedResourceId_ {};
+      // The region ID of the associated resource.
       shared_ptr<string> relatedResourceRegionId_ {};
+      // The type of the associated resource.
       shared_ptr<string> relatedResourceType_ {};
+      // The ID of the resource.
       shared_ptr<string> resourceId_ {};
+      // The type of the resource.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -171,10 +178,20 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource relationships.
     shared_ptr<vector<ListMultiAccountResourceRelationshipsResponseBody::ResourceRelationships>> resourceRelationships_ {};
+    // The search scope. Valid values:
+    // 
+    // *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
+    // *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
+    // *   ID of a folder: Resources within all members in the folder are searched.
+    // *   ID of a member: Resources within the member are searched.
     shared_ptr<string> scope_ {};
   };
 

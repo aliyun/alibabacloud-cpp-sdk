@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The initialization status of the feature. Valid values:
+    // 
+    // *   Pending: The feature is being initialized.
+    // *   Finished: The feature is initialized.
     shared_ptr<string> initialStatus_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The status of the feature. Valid values:
+    // 
+    // *   Enabled: The feature is enabled.
+    // *   Disabled: The feature is disabled.
     shared_ptr<string> serviceStatus_ {};
   };
 

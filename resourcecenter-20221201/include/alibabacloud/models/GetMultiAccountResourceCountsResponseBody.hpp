@@ -76,9 +76,7 @@ namespace Models
 
 
     protected:
-      // The number of resources.
       shared_ptr<int64_t> count_ {};
-      // The group name.
       shared_ptr<string> groupName_ {};
     };
 
@@ -122,9 +120,7 @@ namespace Models
 
 
     protected:
-      // The key of the filter condition.
       shared_ptr<string> key_ {};
-      // The values of the filter condition.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -170,25 +166,10 @@ namespace Models
 
 
   protected:
-    // The filter condition.
     shared_ptr<vector<GetMultiAccountResourceCountsResponseBody::Filters>> filters_ {};
-    // The dimension by which resources are queried.
     shared_ptr<string> groupByKey_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The numbers of resources.
     shared_ptr<vector<GetMultiAccountResourceCountsResponseBody::ResourceCounts>> resourceCounts_ {};
-    // The search scope. Valid values:
-    // 
-    // - ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
-    // 
-    // - ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
-    // 
-    // - ID of a folder: Resources within all members in the folder are searched.
-    // 
-    // - ID of a member: Resources within the member are searched.
-    // 
-    // For information about how to obtain the ID of a resource directory, the Root folder, a folder, or a member, see [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html), [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html), or [ListAccounts](https://help.aliyun.com/document_detail/160016.html).
     shared_ptr<string> scope_ {};
   };
 

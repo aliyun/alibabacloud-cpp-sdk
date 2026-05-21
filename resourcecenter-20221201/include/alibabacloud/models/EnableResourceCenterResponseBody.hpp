@@ -48,13 +48,12 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The activation status of the service. Valid values:
     // 
-    // - Pending: The service is being activated.
-    // 
-    // - Enabled: The service is activated.
+    // *   Pending: The service is being activated.
+    // *   Enabled: The service is activated.
     shared_ptr<string> status_ {};
   };
 

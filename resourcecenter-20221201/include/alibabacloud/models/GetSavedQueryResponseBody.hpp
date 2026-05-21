@@ -109,13 +109,13 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The description of the template.
       shared_ptr<string> description_ {};
-      // The expression of the template.
+      // The query statement in the template.
       shared_ptr<string> expression_ {};
       // The name of the template.
       shared_ptr<string> name_ {};
-      // The ID of the template.
+      // The template ID.
       shared_ptr<string> queryId_ {};
-      // The time when the template was last updated. The time is displayed in UTC.
+      // The time when the template was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 

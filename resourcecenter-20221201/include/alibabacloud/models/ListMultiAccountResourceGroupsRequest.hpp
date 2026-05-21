@@ -69,17 +69,17 @@ namespace Models
 
 
   protected:
-    // The ID of the management account or a member in the resource directory.
+    // The ID of the management account or member of the resource directory.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries to return on each page.
     // 
     // Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The resource group IDs.
+    // The IDs of resource groups.
     shared_ptr<vector<string>> resourceGroupIds_ {};
   };
 

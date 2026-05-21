@@ -85,11 +85,11 @@ namespace Models
 
 
     protected:
-      // The key of the filter condition. For information about valid values, see the "`Supported filter parameters`" section below.
+      // The key of the filter condition. For more information, see `Supported filter parameters`.
       shared_ptr<string> key_ {};
-      // The matching method.
+      // The matching mode.
       // 
-      // Set this parameter to `Equals`, which means an equal match.
+      // The value Equals indicates an equal match.
       shared_ptr<string> matchType_ {};
       // The values of the filter condition.
       shared_ptr<vector<string>> value_ {};
@@ -130,21 +130,15 @@ namespace Models
   protected:
     // The filter conditions.
     shared_ptr<vector<GetResourceCountsRequest::Filter>> filter_ {};
-    // The dimension by which the queried resources are grouped. Valid values:
+    // The dimension by which resources are queried. Valid values:
     // 
-    // - ResourceType: The resource type.
-    // 
-    // - RegionId: The region.
-    // 
-    // - ResourceGroupId: The resource group ID.
+    // *   ResourceType
+    // *   Region
+    // *   ResourceGroupId
+    // *   TagKey
+    // *   TagValue
     shared_ptr<string> groupByKey_ {};
-    // Specifies whether to include deleted resources. Valid values:
-    // 
-    // - true
-    // 
-    // - false
     shared_ptr<bool> includeDeletedResources_ {};
-    // The search keyword. Resource Center filters the search results based on relevance.
     shared_ptr<string> searchExpression_ {};
   };
 

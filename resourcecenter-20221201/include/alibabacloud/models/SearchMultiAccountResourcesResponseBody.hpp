@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of tag N.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of tag N.
         shared_ptr<string> value_ {};
       };
 
@@ -176,11 +176,10 @@ namespace Models
         shared_ptr<string> ipAddress_ {};
         // The network type. Valid values:
         // 
-        // - **Public**: Internet.
-        // 
-        // - **Private**: Private network.
+        // *   **Public**: the Internet
+        // *   **Private**: internal network
         shared_ptr<string> networkType_ {};
-        // The IP address version.
+        // The version.
         shared_ptr<string> version_ {};
       };
 
@@ -279,19 +278,19 @@ namespace Models
 
 
     protected:
-      // The ID of the management account or a member account of the resource directory.
+      // The ID of the management account or member of the resource directory.
       shared_ptr<string> accountId_ {};
       // The time when the resource was created.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<string> createTime_ {};
       // The time when the resource expires.
       shared_ptr<string> expireTime_ {};
-      // The attributes of the IP addresses.
+      // The attributes of the IP address.
       shared_ptr<vector<Resources::IpAddressAttributes>> ipAddressAttributes_ {};
       // The IP addresses.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<vector<string>> ipAddresses_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -307,7 +306,7 @@ namespace Models
       shared_ptr<vector<Resources::Tags>> tags_ {};
       // The zone ID.
       // 
-      // > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+      // >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -362,7 +361,7 @@ namespace Models
     protected:
       // The key of the filter condition.
       shared_ptr<string> key_ {};
-      // The matching method.
+      // The matching mode.
       shared_ptr<string> matchType_ {};
       // The values of the filter condition.
       shared_ptr<vector<string>> values_ {};
@@ -421,21 +420,18 @@ namespace Models
     shared_ptr<vector<SearchMultiAccountResourcesResponseBody::Filters>> filters_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to retrieve the next page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The information about the resources.
     shared_ptr<vector<SearchMultiAccountResourcesResponseBody::Resources>> resources_ {};
-    // The scope of accounts in which the resources were searched. Valid values:
+    // The search scope.
     // 
-    // - The ID of the resource directory. This indicates that resources were searched in the management account and all member accounts of the resource directory.
-    // 
-    // - The ID of the Root folder. This indicates that resources were searched in all member accounts under the Root folder and its subfolders.
-    // 
-    // - The ID of a folder. This indicates that resources were searched in all member accounts under the folder.
-    // 
-    // - The ID of a member account. This indicates that resources were searched in the member account.
+    // *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
+    // *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
+    // *   ID of a folder: Resources within all members in the folder are searched.
+    // *   ID of a member: Resources within the member are searched.
     shared_ptr<string> scope_ {};
   };
 

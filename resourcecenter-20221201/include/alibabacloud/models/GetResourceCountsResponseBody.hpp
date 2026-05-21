@@ -163,11 +163,11 @@ namespace Models
   protected:
     // The filter conditions.
     shared_ptr<vector<GetResourceCountsResponseBody::Filters>> filters_ {};
-    // The dimension by which the queried resources are grouped.
+    // The dimension by which resources are queried.
     shared_ptr<string> groupByKey_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resource counts.
+    // The numbers of resources.
     shared_ptr<vector<GetResourceCountsResponseBody::ResourceCounts>> resourceCounts_ {};
   };
 

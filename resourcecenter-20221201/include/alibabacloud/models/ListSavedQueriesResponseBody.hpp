@@ -105,11 +105,11 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The description of the template.
       shared_ptr<string> description_ {};
-      // The name of the template.
+      // The template name.
       shared_ptr<string> name_ {};
-      // The ID of the template.
+      // The template ID.
       shared_ptr<string> queryId_ {};
-      // The time when the template was last updated. The time is displayed in UTC.
+      // The time when the template was updated. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -146,9 +146,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned on each page.
+    // The maximum number of entries per page.
     shared_ptr<string> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

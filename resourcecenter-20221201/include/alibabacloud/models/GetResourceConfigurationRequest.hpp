@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The ID of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The region ID of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceRegionId_ {};
+    // The type of the resource.
+    // 
+    // For more information about the resource types supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

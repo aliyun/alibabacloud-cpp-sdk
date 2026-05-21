@@ -72,8 +72,11 @@ namespace Models
 
 
     protected:
+      // The configurations of the filter.
+      // 
       // This parameter is required.
       shared_ptr<string> filterConfiguration_ {};
+      // The name of the filter.
       shared_ptr<string> filterName_ {};
     };
 
@@ -103,8 +106,11 @@ namespace Models
 
 
   protected:
+    // The name of the default filter.
     shared_ptr<string> defaultFilterName_ {};
+    // The configurations of the filter.
     shared_ptr<vector<ListFiltersResponseBody::Filters>> filters_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

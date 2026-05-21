@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the management account or member.
+    // The ID of the management account or member of the resource directory.
     // 
     // This parameter is required.
     shared_ptr<string> accountId_ {};
-    // The resource ID.
+    // The ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The ID of the region where the resource resides.
+    // The region ID of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceRegionId_ {};
-    // The resource type.
+    // The type of the resource.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

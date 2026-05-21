@@ -94,7 +94,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -145,8 +147,14 @@ namespace Models
 
 
     protected:
+      // The IP address.
       shared_ptr<string> ipAddress_ {};
+      // The network type. Valid values:
+      // 
+      // *   **Public**: the Internet
+      // *   **Private**: internal network
       shared_ptr<string> networkType_ {};
+      // The version.
       shared_ptr<string> version_ {};
     };
 
@@ -261,19 +269,35 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account to which the resource belongs.
     shared_ptr<string> accountId_ {};
+    // The configurations of the resource.
     Darabonba::Json configuration_ {};
+    // The time when the resource was created.
     shared_ptr<string> createTime_ {};
+    // The time when the resource expires.
     shared_ptr<string> expireTime_ {};
+    // The attributes of the IP address.
     shared_ptr<vector<GetResourceConfigurationResponseBody::IpAddressAttributes>> ipAddressAttributes_ {};
+    // The IP addresses.
+    // 
+    // > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
     shared_ptr<vector<string>> ipAddresses_ {};
+    // The region ID of the resource.
     shared_ptr<string> regionId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the resource group to which the resource belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the resource.
     shared_ptr<string> resourceId_ {};
+    // The name of the resource.
     shared_ptr<string> resourceName_ {};
+    // The type of the resource.
     shared_ptr<string> resourceType_ {};
+    // The tags of the resource.
     shared_ptr<vector<GetResourceConfigurationResponseBody::Tags>> tags_ {};
+    // The zone ID of the resource.
     shared_ptr<string> zoneId_ {};
   };
 

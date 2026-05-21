@@ -68,9 +68,8 @@ namespace Models
   protected:
     // The matching mode. Valid values:
     // 
-    // - Equals: equal match
-    // 
-    // - Prefix: match by prefix
+    // *   Equals: equal match
+    // *   Prefix: match by prefix
     shared_ptr<string> matchType_ {};
     // The maximum number of entries to return on each page.
     // 

@@ -75,11 +75,26 @@ namespace Models
 
 
   protected:
+    // The matching mode. Valid values:
+    // 
+    // *   Equals: equal match
+    // *   Prefix: match by prefix
     shared_ptr<string> matchType_ {};
+    // The maximum number of entries to return on each page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results.
+    // 
+    // If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
     shared_ptr<string> nextToken_ {};
+    // The tag key.
+    // 
     // This parameter is required.
     shared_ptr<string> tagKey_ {};
+    // The tag value.
     shared_ptr<string> tagValue_ {};
   };
 

@@ -93,11 +93,11 @@ namespace Models
 
 
       protected:
-        // The ARN of the delivery destination for oversized data.
+        // The ARN of the destination to which large files are delivered.
         // 
-        // If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. You must enter the ARN of an OSS bucket that has a prefix of `resourcecenter-`.
+        // If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. You need to set this parameter to the ARN of a bucket whose name is prefixed with `resourcecenter-`.
         // 
-        // > This parameter takes effect only when you create a custom scheduled delivery task for resource snapshots. You do not need to specify this parameter when you create a standard scheduled delivery task for resource snapshots.
+        // >  This parameter takes effect only if you use custom delivery for scheduled resource snapshots. You do not need to configure this parameter if you use standard delivery for scheduled resource snapshots.
         shared_ptr<string> oversizedDataOssTargetArn_ {};
       };
 
@@ -145,17 +145,17 @@ namespace Models
       shared_ptr<string> customExpression_ {};
       // The delivery time.
       shared_ptr<string> deliveryTime_ {};
-      // The SLS configurations.
+      // The Simple Log Service configurations.
       shared_ptr<ResourceSnapshotDelivery::SlsProperties> slsProperties_ {};
       // The Alibaba Cloud Resource Name (ARN) of the delivery destination. Valid values:
       // 
-      // - If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a OSS bucket that has a prefix of `resourcecenter-`. Example: `acs:oss:cn-hangzhou:191142248777****:resourcecenter-oss`.
-      // - If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a SLS Logstore that has a prefix of `resourcecenter-`. Example: `acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls`.
+      // *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with `resourcecenter-`. Example: `acs:oss:cn-hangzhou:191142248777****:resourcecenter-oss`.
+      // *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with `resourcecenter-`. Example: `acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls`.
       shared_ptr<string> targetArn_ {};
       // The type of the delivery destination. Valid values:
       // 
-      // - `OSS` for standard delivery
-      // - `OSS` or `SLS` for custom delivery
+      // *   `OSS` for standard delivery
+      // *   `OSS` or `SLS` for custom delivery
       shared_ptr<string> targetType_ {};
     };
 
@@ -210,9 +210,9 @@ namespace Models
 
 
       protected:
-        // The ARN of the delivery destination for oversized data.
+        // The ARN of the destination to which large files are delivered.
         // 
-        // If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. You must enter the ARN of an OSS bucket that has a prefix of `resourcecenter-`.
+        // If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. You need to set this parameter to the ARN of a bucket whose name is prefixed with `resourcecenter-`.
         shared_ptr<string> oversizedDataOssTargetArn_ {};
       };
 
@@ -242,16 +242,16 @@ namespace Models
 
 
     protected:
-      // The SLS configurations.
+      // The Simple Log Service configurations.
       shared_ptr<ResourceChangeDelivery::SlsProperties> slsProperties_ {};
       // The ARN of the delivery destination. Valid values:
       // 
-      // - If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a OSS bucket that has a prefix of `resourcecenter-`.
-      // - If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a SLS Logstore that has a prefix of `resourcecenter-`.
+      // *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with `resourcecenter-`.
+      // *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with `resourcecenter-`.
       shared_ptr<string> targetArn_ {};
       // The type of the delivery destination.
       // 
-      // Valid value: `SLS`.
+      // Set the value to `SLS`.
       shared_ptr<string> targetType_ {};
     };
 
@@ -297,11 +297,11 @@ namespace Models
 
 
     protected:
-      // The account scopes of the delivery channel.
+      // An array of effective account scopes for the delivery channel.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> accountScopes_ {};
-      // The effective resource type of the delivery channel.
+      // The effective resource types of the delivery channel.
       shared_ptr<vector<string>> resourceTypes_ {};
     };
 
@@ -361,7 +361,7 @@ namespace Models
     shared_ptr<string> deliveryChannelName_ {};
     // The configurations for delivery of resource configuration change events.
     shared_ptr<CreateMultiAccountDeliveryChannelRequest::ResourceChangeDelivery> resourceChangeDelivery_ {};
-    // The configurations for scheduled delivery of resource snapshots.
+    // The configurations for delivery of scheduled resource snapshots.
     shared_ptr<CreateMultiAccountDeliveryChannelRequest::ResourceSnapshotDelivery> resourceSnapshotDelivery_ {};
   };
 

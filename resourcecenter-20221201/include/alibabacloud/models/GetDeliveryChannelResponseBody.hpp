@@ -99,7 +99,7 @@ namespace Models
 
 
       protected:
-        // The ARN of the OSS bucket to which oversized data is delivered.
+        // The ARN of the destination to which large files are delivered.
         shared_ptr<string> oversizedDataOssTargetArn_ {};
       };
 
@@ -152,21 +152,14 @@ namespace Models
     protected:
       // The custom expression.
       shared_ptr<string> customExpression_ {};
-      // The time when resource snapshots are delivered.
+      // The delivery time.
       shared_ptr<string> deliveryTime_ {};
-      // Indicates whether to enable the scheduled delivery of resource snapshots.
-      // 
-      // Valid values:
-      // 
-      // - true
-      // 
-      // - false
       shared_ptr<string> enabled_ {};
-      // The SLS configurations.
+      // The Simple Log Service configurations.
       shared_ptr<ResourceSnapshotDelivery::SlsProperties> slsProperties_ {};
       // The ARN of the delivery destination.
       shared_ptr<string> targetArn_ {};
-      // The type of the delivery destination.
+      // The type of the destination.
       shared_ptr<string> targetType_ {};
     };
 
@@ -223,7 +216,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of the Object Storage Service (OSS) bucket to which oversized data is delivered.
+        // The Alibaba Cloud Resource Name (ARN) of the destination to which large files are delivered.
         shared_ptr<string> oversizedDataOssTargetArn_ {};
       };
 
@@ -260,19 +253,12 @@ namespace Models
 
 
     protected:
-      // Indicates whether to deliver resource configuration changes.
-      // 
-      // Valid values:
-      // 
-      // - true
-      // 
-      // - false
       shared_ptr<string> enabled_ {};
-      // The Simple Log Service (SLS) configurations.
+      // The Simple Log Service configurations.
       shared_ptr<ResourceChangeDelivery::SlsProperties> slsProperties_ {};
       // The ARN of the delivery destination.
       shared_ptr<string> targetArn_ {};
-      // The type of the delivery destination.
+      // The type of the destination.
       shared_ptr<string> targetType_ {};
     };
 
@@ -306,7 +292,7 @@ namespace Models
 
 
     protected:
-      // The resource types that are delivered.
+      // The effective resource types of the delivery channel.
       shared_ptr<vector<string>> resourceTypes_ {};
     };
 
@@ -379,9 +365,9 @@ namespace Models
     shared_ptr<string> deliveryChannelName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The settings for delivering resource configuration changes.
+    // The configurations for delivery of resource configuration change events.
     shared_ptr<GetDeliveryChannelResponseBody::ResourceChangeDelivery> resourceChangeDelivery_ {};
-    // The settings for the scheduled delivery of resource snapshots.
+    // The configurations for delivery of scheduled resource snapshots.
     shared_ptr<GetDeliveryChannelResponseBody::ResourceSnapshotDelivery> resourceSnapshotDelivery_ {};
   };
 

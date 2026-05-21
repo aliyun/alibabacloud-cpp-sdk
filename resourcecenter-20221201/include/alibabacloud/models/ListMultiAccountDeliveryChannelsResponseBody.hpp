@@ -139,7 +139,7 @@ namespace Models
     shared_ptr<vector<ListMultiAccountDeliveryChannelsResponseBody::DeliveryChannels>> deliveryChannels_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};

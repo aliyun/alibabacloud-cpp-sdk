@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The key of the filter condition. For more information, see `Supported filter parameters`.
       shared_ptr<string> key_ {};
+      // The matching method.
       shared_ptr<string> matchType_ {};
+      // The values of the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -151,15 +154,35 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page.
+    // 
+    // Valid values: 1 to 500.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
+    // The region ID of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The filter conditions for resources associated with the resource.
     shared_ptr<vector<ListMultiAccountResourceRelationshipsRequest::RelatedResourceFilter>> relatedResourceFilter_ {};
+    // The ID of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The type of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The search scope. Valid values:
+    // 
+    // *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched. You can call the [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html) operation to query the ID.
+    // *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to query the ID.
+    // *   ID of a folder: Resources within all members in the folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to query the ID.
+    // *   ID of a member: Resources within the member are searched. You can call the [ListAccounts](https://help.aliyun.com/document_detail/160016.html) operation to query the ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scope_ {};
   };

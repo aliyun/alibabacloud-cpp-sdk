@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceGroups& obj) { 
         DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
@@ -51,6 +52,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
       };
       ResourceGroups() = default ;
       ResourceGroups(const ResourceGroups &) = default ;
@@ -63,8 +65,51 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        shared_ptr<string> key_ {};
+        shared_ptr<string> value_ {};
+      };
+
       virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->createDate_ == nullptr && this->displayName_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->status_ == nullptr; };
+        && this->createDate_ == nullptr && this->displayName_ == nullptr && this->id_ == nullptr && this->name_ == nullptr && this->status_ == nullptr
+        && this->tags_ == nullptr; };
       // accountId Field Functions 
       bool hasAccountId() const { return this->accountId_ != nullptr;};
       void deleteAccountId() { this->accountId_ = nullptr;};
@@ -107,25 +152,33 @@ namespace Models
       inline ResourceGroups& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<ResourceGroups::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<ResourceGroups::Tags>) };
+      inline vector<ResourceGroups::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<ResourceGroups::Tags>) };
+      inline ResourceGroups& setTags(const vector<ResourceGroups::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline ResourceGroups& setTags(vector<ResourceGroups::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     protected:
-      // The ID of the management account or a member in the resource directory.
+      // The ID of the management account or member of the resource directory.
       shared_ptr<string> accountId_ {};
       // The time when the resource group was created.
       shared_ptr<string> createDate_ {};
       // The display name of the resource group.
       shared_ptr<string> displayName_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> id_ {};
       // The unique identifier of the resource group.
       shared_ptr<string> name_ {};
-      // The status of the resource group.
+      // The status of the resource group. Valid values:
       // 
-      // - Creating: The resource group is being created.
-      // 
-      // - OK: The resource group is created.
-      // 
-      // - PendingDelete: The resource group is pending deletion.
+      // *   Creating: The resource group is being created.
+      // *   OK: The resource group is created.
+      // *   PendingDelete: The resource group is waiting to be deleted.
       shared_ptr<string> status_ {};
+      shared_ptr<vector<ResourceGroups::Tags>> tags_ {};
     };
 
     virtual bool empty() const override { return this->nextToken_ == nullptr
@@ -156,9 +209,9 @@ namespace Models
   protected:
     // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The resource groups.
+    // The information about the resource groups.
     shared_ptr<vector<ListMultiAccountResourceGroupsResponseBody::ResourceGroups>> resourceGroups_ {};
   };
 
