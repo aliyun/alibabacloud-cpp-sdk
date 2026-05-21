@@ -51,6 +51,24 @@ namespace Bailian20231229
       Models::AddCategoryResponse addCategory(const string &WorkspaceId, const Models::AddCategoryRequest &request);
 
       /**
+       * @summary 创建连接器
+       *
+       * @param tmpReq AddConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddConnectorResponse
+       */
+      Models::AddConnectorResponse addConnectorWithOptions(const string &WorkspaceId, const Models::AddConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建连接器
+       *
+       * @param request AddConnectorRequest
+       * @return AddConnectorResponse
+       */
+      Models::AddConnectorResponse addConnector(const string &WorkspaceId, const Models::AddConnectorRequest &request);
+
+      /**
        * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
        *
        * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
@@ -599,6 +617,24 @@ namespace Bailian20231229
       Models::GetAvailableParserTypesResponse getAvailableParserTypes(const string &WorkspaceId, const Models::GetAvailableParserTypesRequest &request);
 
       /**
+       * @summary GetConnector
+       *
+       * @param request GetConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetConnectorResponse
+       */
+      Models::GetConnectorResponse getConnectorWithOptions(const string &WorkspaceId, const Models::GetConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetConnector
+       *
+       * @param request GetConnectorRequest
+       * @return GetConnectorResponse
+       */
+      Models::GetConnectorResponse getConnector(const string &WorkspaceId, const Models::GetConnectorRequest &request);
+
+      /**
        * @summary Queries the current status of a specified knowledge base creation or add document job.
        *
        * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
@@ -800,12 +836,12 @@ namespace Bailian20231229
        * *   This operation is idempotent.
        * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
        *
-       * @param request ListFileRequest
+       * @param tmpReq ListFileRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFileResponse
        */
-      Models::ListFileResponse listFileWithOptions(const string &WorkspaceId, const Models::ListFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListFileResponse listFileWithOptions(const string &WorkspaceId, const Models::ListFileRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Queries the details of one or more documents in a specified category.

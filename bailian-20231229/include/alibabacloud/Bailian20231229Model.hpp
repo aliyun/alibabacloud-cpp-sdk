@@ -5,6 +5,10 @@
 #include <alibabacloud/models/AddCategoryRequest.hpp>
 #include <alibabacloud/models/AddCategoryResponseBody.hpp>
 #include <alibabacloud/models/AddCategoryResponse.hpp>
+#include <alibabacloud/models/AddConnectorRequest.hpp>
+#include <alibabacloud/models/AddConnectorShrinkRequest.hpp>
+#include <alibabacloud/models/AddConnectorResponseBody.hpp>
+#include <alibabacloud/models/AddConnectorResponse.hpp>
 #include <alibabacloud/models/AddFileRequest.hpp>
 #include <alibabacloud/models/AddFileShrinkRequest.hpp>
 #include <alibabacloud/models/AddFileResponseBody.hpp>
@@ -89,6 +93,9 @@
 #include <alibabacloud/models/GetAvailableParserTypesRequest.hpp>
 #include <alibabacloud/models/GetAvailableParserTypesResponseBody.hpp>
 #include <alibabacloud/models/GetAvailableParserTypesResponse.hpp>
+#include <alibabacloud/models/GetConnectorRequest.hpp>
+#include <alibabacloud/models/GetConnectorResponseBody.hpp>
+#include <alibabacloud/models/GetConnectorResponse.hpp>
 #include <alibabacloud/models/GetIndexJobStatusRequest.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponseBody.hpp>
 #include <alibabacloud/models/GetIndexJobStatusResponse.hpp>
@@ -120,6 +127,7 @@
 #include <alibabacloud/models/ListChunksResponseBody.hpp>
 #include <alibabacloud/models/ListChunksResponse.hpp>
 #include <alibabacloud/models/ListFileRequest.hpp>
+#include <alibabacloud/models/ListFileShrinkRequest.hpp>
 #include <alibabacloud/models/ListFileResponseBody.hpp>
 #include <alibabacloud/models/ListFileResponse.hpp>
 #include <alibabacloud/models/ListIndexDocumentsRequest.hpp>

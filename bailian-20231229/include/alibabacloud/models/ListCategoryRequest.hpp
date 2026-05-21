@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ListCategoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_TO_JSON(CategoryType, categoryType_);
+      DARABONBA_PTR_TO_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(ParentCategoryId, parentCategoryId_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ListCategoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CategoryName, categoryName_);
       DARABONBA_PTR_FROM_JSON(CategoryType, categoryType_);
+      DARABONBA_PTR_FROM_JSON(ConnectorId, connectorId_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(ParentCategoryId, parentCategoryId_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->categoryName_ == nullptr
-        && this->categoryType_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->parentCategoryId_ == nullptr; };
+        && this->categoryType_ == nullptr && this->connectorId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->parentCategoryId_ == nullptr; };
     // categoryName Field Functions 
     bool hasCategoryName() const { return this->categoryName_ != nullptr;};
     void deleteCategoryName() { this->categoryName_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteCategoryType() { this->categoryType_ = nullptr;};
     inline string getCategoryType() const { DARABONBA_PTR_GET_DEFAULT(categoryType_, "") };
     inline ListCategoryRequest& setCategoryType(string categoryType) { DARABONBA_PTR_SET_VALUE(categoryType_, categoryType) };
+
+
+    // connectorId Field Functions 
+    bool hasConnectorId() const { return this->connectorId_ != nullptr;};
+    void deleteConnectorId() { this->connectorId_ = nullptr;};
+    inline string getConnectorId() const { DARABONBA_PTR_GET_DEFAULT(connectorId_, "") };
+    inline ListCategoryRequest& setConnectorId(string connectorId) { DARABONBA_PTR_SET_VALUE(connectorId_, connectorId) };
 
 
     // maxResults Field Functions 
@@ -78,6 +87,7 @@ namespace Models
     shared_ptr<string> categoryName_ {};
     // This parameter is required.
     shared_ptr<string> categoryType_ {};
+    shared_ptr<string> connectorId_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> parentCategoryId_ {};

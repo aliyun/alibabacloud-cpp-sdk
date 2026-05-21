@@ -106,6 +106,69 @@ AddCategoryResponse Client::addCategory(const string &WorkspaceId, const AddCate
 }
 
 /**
+ * @summary 创建连接器
+ *
+ * @param tmpReq AddConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddConnectorResponse
+ */
+AddConnectorResponse Client::addConnectorWithOptions(const string &WorkspaceId, const AddConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddConnectorShrinkRequest request = AddConnectorShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileConnectorConfig()) {
+    request.setFileConnectorConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileConnectorConfig(), "FileConnectorConfig", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConnectorName()) {
+    body["ConnectorName"] = request.getConnectorName();
+  }
+
+  if (!!request.hasConnectorType()) {
+    body["ConnectorType"] = request.getConnectorType();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasFileConnectorConfigShrink()) {
+    body["FileConnectorConfig"] = request.getFileConnectorConfigShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddConnector"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/connector")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddConnectorResponse>();
+}
+
+/**
+ * @summary 创建连接器
+ *
+ * @param request AddConnectorRequest
+ * @return AddConnectorResponse
+ */
+AddConnectorResponse Client::addConnector(const string &WorkspaceId, const AddConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addConnectorWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
  *
  * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
@@ -1629,6 +1692,55 @@ GetAvailableParserTypesResponse Client::getAvailableParserTypes(const string &Wo
 }
 
 /**
+ * @summary GetConnector
+ *
+ * @param request GetConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetConnectorResponse
+ */
+GetConnectorResponse Client::getConnectorWithOptions(const string &WorkspaceId, const GetConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectorId()) {
+    query["ConnectorId"] = request.getConnectorId();
+  }
+
+  if (!!request.hasConnectorName()) {
+    query["ConnectorName"] = request.getConnectorName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetConnector"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/connector")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetConnectorResponse>();
+}
+
+/**
+ * @summary GetConnector
+ *
+ * @param request GetConnectorRequest
+ * @return GetConnectorResponse
+ */
+GetConnectorResponse Client::getConnector(const string &WorkspaceId, const GetConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getConnectorWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the current status of a specified knowledge base creation or add document job.
  *
  * @description 1.  A knowledge base job is running. You can call the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) operation to create a creation job or the [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operation to create a add document job. Then, obtain the `JobId` returned by the operations.
@@ -2031,6 +2143,10 @@ ListCategoryResponse Client::listCategoryWithOptions(const string &WorkspaceId, 
     body["CategoryType"] = request.getCategoryType();
   }
 
+  if (!!request.hasConnectorId()) {
+    body["ConnectorId"] = request.getConnectorId();
+  }
+
   if (!!request.hasMaxResults()) {
     body["MaxResults"] = request.getMaxResults();
   }
@@ -2152,16 +2268,26 @@ ListChunksResponse Client::listChunks(const string &WorkspaceId, const ListChunk
  * *   This operation is idempotent.
  * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
  *
- * @param request ListFileRequest
+ * @param tmpReq ListFileRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFileResponse
  */
-ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const ListFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+ListFileResponse Client::listFileWithOptions(const string &WorkspaceId, const ListFileRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListFileShrinkRequest request = ListFileShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileIds()) {
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
+  }
+
   json query = {};
   if (!!request.hasCategoryId()) {
     query["CategoryId"] = request.getCategoryId();
+  }
+
+  if (!!request.hasFileIdsShrink()) {
+    query["FileIds"] = request.getFileIdsShrink();
   }
 
   if (!!request.hasFileName()) {
