@@ -191,6 +191,23 @@ namespace Yike20260319
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
+       * @summary 查询一刻口播视频生成任务
+       *
+       * @param request GetYikeAgentJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetYikeAgentJobResponse
+       */
+      Models::GetYikeAgentJobResponse getYikeAgentJobWithOptions(const Models::GetYikeAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询一刻口播视频生成任务
+       *
+       * @param request GetYikeAgentJobRequest
+       * @return GetYikeAgentJobResponse
+       */
+      Models::GetYikeAgentJobResponse getYikeAgentJob(const Models::GetYikeAgentJobRequest &request);
+
+      /**
        * @summary 获取一刻媒资内容信息
        *
        * @param request GetYikeAssetMediaInfoRequest
@@ -461,6 +478,23 @@ namespace Yike20260319
        * @return SubmitYikeAIAppJobResponse
        */
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
+
+      /**
+       * @summary 提交一刻数字人口播视频生成任务
+       *
+       * @param request SubmitYikeAvatarNarratorJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitYikeAvatarNarratorJobResponse
+       */
+      Models::SubmitYikeAvatarNarratorJobResponse submitYikeAvatarNarratorJobWithOptions(const Models::SubmitYikeAvatarNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交一刻数字人口播视频生成任务
+       *
+       * @param request SubmitYikeAvatarNarratorJobRequest
+       * @return SubmitYikeAvatarNarratorJobResponse
+       */
+      Models::SubmitYikeAvatarNarratorJobResponse submitYikeAvatarNarratorJob(const Models::SubmitYikeAvatarNarratorJobRequest &request);
 
       /**
        * @summary 提交一刻提示词扩写和音频修复视频生成任务

@@ -496,6 +496,48 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJob(const GetYikeAIAppJobRequest &re
 }
 
 /**
+ * @summary 查询一刻口播视频生成任务
+ *
+ * @param request GetYikeAgentJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetYikeAgentJobResponse
+ */
+GetYikeAgentJobResponse Client::getYikeAgentJobWithOptions(const GetYikeAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobId()) {
+    body["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetYikeAgentJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetYikeAgentJobResponse>();
+}
+
+/**
+ * @summary 查询一刻口播视频生成任务
+ *
+ * @param request GetYikeAgentJobRequest
+ * @return GetYikeAgentJobResponse
+ */
+GetYikeAgentJobResponse Client::getYikeAgentJob(const GetYikeAgentJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getYikeAgentJobWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取一刻媒资内容信息
  *
  * @param request GetYikeAssetMediaInfoRequest
@@ -1233,6 +1275,52 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJobWithOptions(const SubmitYik
 SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitYikeAIAppJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交一刻数字人口播视频生成任务
+ *
+ * @param request SubmitYikeAvatarNarratorJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitYikeAvatarNarratorJobResponse
+ */
+SubmitYikeAvatarNarratorJobResponse Client::submitYikeAvatarNarratorJobWithOptions(const SubmitYikeAvatarNarratorJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasJobParams()) {
+    body["JobParams"] = request.getJobParams();
+  }
+
+  if (!!request.hasUserData()) {
+    body["UserData"] = request.getUserData();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SubmitYikeAvatarNarratorJob"},
+    {"version" , "2026-03-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitYikeAvatarNarratorJobResponse>();
+}
+
+/**
+ * @summary 提交一刻数字人口播视频生成任务
+ *
+ * @param request SubmitYikeAvatarNarratorJobRequest
+ * @return SubmitYikeAvatarNarratorJobResponse
+ */
+SubmitYikeAvatarNarratorJobResponse Client::submitYikeAvatarNarratorJob(const SubmitYikeAvatarNarratorJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitYikeAvatarNarratorJobWithOptions(request, runtime);
 }
 
 /**
