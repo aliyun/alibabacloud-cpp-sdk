@@ -27,6 +27,7 @@
 #include <alibabacloud/models/ComponentSpec.hpp>
 #include <alibabacloud/models/EcsSpec.hpp>
 #include <alibabacloud/models/EniCacheConfig.hpp>
+#include <alibabacloud/models/Event.hpp>
 #include <alibabacloud/models/Features.hpp>
 #include <alibabacloud/models/GPUInfo.hpp>
 #include <alibabacloud/models/GPUMetric.hpp>
@@ -56,6 +57,7 @@
 #include <alibabacloud/models/OversoldUsageConfig.hpp>
 #include <alibabacloud/models/Permission.hpp>
 #include <alibabacloud/models/QueueInfo.hpp>
+#include <alibabacloud/models/QueueMeta.hpp>
 #include <alibabacloud/models/ResourceSpec.hpp>
 #include <alibabacloud/models/QuotaCluster.hpp>
 #include <alibabacloud/models/WorkspaceSpec.hpp>
@@ -95,6 +97,7 @@
 #include <alibabacloud/models/UnschedulableNodeDetail.hpp>
 #include <alibabacloud/models/UserQuotaPermission.hpp>
 #include <alibabacloud/models/UserViewMetric.hpp>
+#include <alibabacloud/models/WorkloadInfo.hpp>
 #include <alibabacloud/models/CheckInstanceWebTerminalRequest.hpp>
 #include <alibabacloud/models/CheckInstanceWebTerminalResponseBody.hpp>
 #include <alibabacloud/models/CheckInstanceWebTerminalResponse.hpp>
@@ -181,6 +184,9 @@
 #include <alibabacloud/models/ListAlgorithmsRequest.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponseBody.hpp>
 #include <alibabacloud/models/ListAlgorithmsResponse.hpp>
+#include <alibabacloud/models/ListNodeTypesRequest.hpp>
+#include <alibabacloud/models/ListNodeTypesResponseBody.hpp>
+#include <alibabacloud/models/ListNodeTypesResponse.hpp>
 #include <alibabacloud/models/ListNodesRequest.hpp>
 #include <alibabacloud/models/ListNodesShrinkRequest.hpp>
 #include <alibabacloud/models/ListNodesResponseBody.hpp>

@@ -595,6 +595,24 @@ namespace PaiStudio20220112
       Models::ListAlgorithmsResponse listAlgorithms(const Models::ListAlgorithmsRequest &request);
 
       /**
+       * @summary 获取节点规格列表
+       *
+       * @param request ListNodeTypesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListNodeTypesResponse
+       */
+      Models::ListNodeTypesResponse listNodeTypesWithOptions(const Models::ListNodeTypesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取节点规格列表
+       *
+       * @param request ListNodeTypesRequest
+       * @return ListNodeTypesResponse
+       */
+      Models::ListNodeTypesResponse listNodeTypes(const Models::ListNodeTypesRequest &request);
+
+      /**
        * @summary 获取资源节点列表
        *
        * @param tmpReq ListNodesRequest

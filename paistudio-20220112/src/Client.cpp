@@ -1687,6 +1687,67 @@ ListAlgorithmsResponse Client::listAlgorithms(const ListAlgorithmsRequest &reque
 }
 
 /**
+ * @summary 获取节点规格列表
+ *
+ * @param request ListNodeTypesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListNodeTypesResponse
+ */
+ListNodeTypesResponse Client::listNodeTypesWithOptions(const ListNodeTypesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcceleratorType()) {
+    query["AcceleratorType"] = request.getAcceleratorType();
+  }
+
+  if (!!request.hasGPUType()) {
+    query["GPUType"] = request.getGPUType();
+  }
+
+  if (!!request.hasNodeTypes()) {
+    query["NodeTypes"] = request.getNodeTypes();
+  }
+
+  if (!!request.hasQuotaId()) {
+    query["QuotaId"] = request.getQuotaId();
+  }
+
+  if (!!request.hasResourceGroupIds()) {
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListNodeTypes"},
+    {"version" , "2022-01-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/nodetypes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListNodeTypesResponse>();
+}
+
+/**
+ * @summary 获取节点规格列表
+ *
+ * @param request ListNodeTypesRequest
+ * @return ListNodeTypesResponse
+ */
+ListNodeTypesResponse Client::listNodeTypes(const ListNodeTypesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listNodeTypesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 获取资源节点列表
  *
  * @param tmpReq ListNodesRequest

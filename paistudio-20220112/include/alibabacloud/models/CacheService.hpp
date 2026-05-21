@@ -18,6 +18,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CacheService& obj) { 
       DARABONBA_PTR_TO_JSON(CacheInfos, cacheInfos_);
       DARABONBA_PTR_TO_JSON(CacheServiceId, cacheServiceId_);
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_TO_JSON(GmtCreated, gmtCreated_);
       DARABONBA_PTR_TO_JSON(NetworkType, networkType_);
@@ -32,6 +33,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CacheService& obj) { 
       DARABONBA_PTR_FROM_JSON(CacheInfos, cacheInfos_);
       DARABONBA_PTR_FROM_JSON(CacheServiceId, cacheServiceId_);
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(CreatedBy, createdBy_);
       DARABONBA_PTR_FROM_JSON(GmtCreated, gmtCreated_);
       DARABONBA_PTR_FROM_JSON(NetworkType, networkType_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheInfos_ == nullptr
-        && this->cacheServiceId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->networkType_ == nullptr && this->quotaId_ == nullptr
-        && this->status_ == nullptr && this->supportRDMA_ == nullptr && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr
-        && this->userVpc_ == nullptr; };
+        && this->cacheServiceId_ == nullptr && this->clusterId_ == nullptr && this->createdBy_ == nullptr && this->gmtCreated_ == nullptr && this->networkType_ == nullptr
+        && this->quotaId_ == nullptr && this->status_ == nullptr && this->supportRDMA_ == nullptr && this->supportedClientQuotaIds_ == nullptr && this->tenantId_ == nullptr
+        && this->userId_ == nullptr && this->userVpc_ == nullptr; };
     // cacheInfos Field Functions 
     bool hasCacheInfos() const { return this->cacheInfos_ != nullptr;};
     void deleteCacheInfos() { this->cacheInfos_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     void deleteCacheServiceId() { this->cacheServiceId_ = nullptr;};
     inline string getCacheServiceId() const { DARABONBA_PTR_GET_DEFAULT(cacheServiceId_, "") };
     inline CacheService& setCacheServiceId(string cacheServiceId) { DARABONBA_PTR_SET_VALUE(cacheServiceId_, cacheServiceId) };
+
+
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline CacheService& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // createdBy Field Functions 
@@ -151,6 +160,7 @@ namespace Models
   protected:
     shared_ptr<vector<CacheInfo>> cacheInfos_ {};
     shared_ptr<string> cacheServiceId_ {};
+    shared_ptr<string> clusterId_ {};
     shared_ptr<string> createdBy_ {};
     shared_ptr<string> gmtCreated_ {};
     shared_ptr<string> networkType_ {};
