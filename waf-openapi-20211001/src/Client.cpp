@@ -8786,6 +8786,76 @@ DescribePocFunctionsResponse Client::describePocFunctions(const DescribePocFunct
 }
 
 /**
+ * @summary 查看用户账单详情
+ *
+ * @param request DescribePostpayBillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribePostpayBillsResponse
+ */
+DescribePostpayBillsResponse Client::describePostpayBillsWithOptions(const DescribePostpayBillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPeriodType()) {
+    query["PeriodType"] = request.getPeriodType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceManagerResourceGroupId()) {
+    query["ResourceManagerResourceGroupId"] = request.getResourceManagerResourceGroupId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribePostpayBills"},
+    {"version" , "2021-10-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribePostpayBillsResponse>();
+}
+
+/**
+ * @summary 查看用户账单详情
+ *
+ * @param request DescribePostpayBillsRequest
+ * @return DescribePostpayBillsResponse
+ */
+DescribePostpayBillsResponse Client::describePostpayBills(const DescribePostpayBillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describePostpayBillsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
  *
  * @param request DescribePrepayDailyBillsRequest

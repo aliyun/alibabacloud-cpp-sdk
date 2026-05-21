@@ -419,6 +419,9 @@
 #include <alibabacloud/models/DescribePocFunctionsRequest.hpp>
 #include <alibabacloud/models/DescribePocFunctionsResponseBody.hpp>
 #include <alibabacloud/models/DescribePocFunctionsResponse.hpp>
+#include <alibabacloud/models/DescribePostpayBillsRequest.hpp>
+#include <alibabacloud/models/DescribePostpayBillsResponseBody.hpp>
+#include <alibabacloud/models/DescribePostpayBillsResponse.hpp>
 #include <alibabacloud/models/DescribePrepayDailyBillsRequest.hpp>
 #include <alibabacloud/models/DescribePrepayDailyBillsResponseBody.hpp>
 #include <alibabacloud/models/DescribePrepayDailyBillsResponse.hpp>

@@ -2354,6 +2354,23 @@ namespace WafOpenapi20211001
       Models::DescribePocFunctionsResponse describePocFunctions(const Models::DescribePocFunctionsRequest &request);
 
       /**
+       * @summary 查看用户账单详情
+       *
+       * @param request DescribePostpayBillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribePostpayBillsResponse
+       */
+      Models::DescribePostpayBillsResponse describePostpayBillsWithOptions(const Models::DescribePostpayBillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查看用户账单详情
+       *
+       * @param request DescribePostpayBillsRequest
+       * @return DescribePostpayBillsResponse
+       */
+      Models::DescribePostpayBillsResponse describePostpayBills(const Models::DescribePostpayBillsRequest &request);
+
+      /**
        * @summary Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
        *
        * @param request DescribePrepayDailyBillsRequest
