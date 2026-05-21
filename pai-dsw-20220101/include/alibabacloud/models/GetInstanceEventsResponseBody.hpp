@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, GetInstanceEventsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     GetInstanceEventsResponseBody() = default ;
     GetInstanceEventsResponseBody(const GetInstanceEventsResponseBody &) = default ;
@@ -44,7 +46,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
         && this->events_ == nullptr && this->httpStatusCode_ == nullptr && this->instanceId_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
-        && this->success_ == nullptr; };
+        && this->success_ == nullptr && this->totalCount_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -96,6 +98,13 @@ namespace Models
     inline GetInstanceEventsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline GetInstanceEventsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
     // The status code. Valid values:
     // 
@@ -121,6 +130,7 @@ namespace Models
     // *   true
     // *   false
     shared_ptr<bool> success_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

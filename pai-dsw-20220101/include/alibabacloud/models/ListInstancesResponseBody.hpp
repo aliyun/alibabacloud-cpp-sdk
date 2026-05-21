@@ -91,6 +91,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ServiceConfig, serviceConfig_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
+        DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(TerminalUrl, terminalUrl_);
         DARABONBA_PTR_TO_JSON(UserId, userId_);
         DARABONBA_PTR_TO_JSON(UserName, userName_);
@@ -139,6 +140,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ServiceConfig, serviceConfig_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
+        DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(TerminalUrl, terminalUrl_);
         DARABONBA_PTR_FROM_JSON(UserId, userId_);
         DARABONBA_PTR_FROM_JSON(UserName, userName_);
@@ -1090,8 +1092,9 @@ namespace Models
         && this->instanceSnapshotList_ == nullptr && this->instanceUrl_ == nullptr && this->jupyterlabUrl_ == nullptr && this->labels_ == nullptr && this->latestSnapshot_ == nullptr
         && this->oversoldInfo_ == nullptr && this->oversoldType_ == nullptr && this->paymentType_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr
         && this->reasonMessage_ == nullptr && this->requestedResource_ == nullptr && this->resourceId_ == nullptr && this->resourceName_ == nullptr && this->serviceConfig_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->terminalUrl_ == nullptr && this->userId_ == nullptr && this->userName_ == nullptr
-        && this->userVpc_ == nullptr && this->webIDEUrl_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceSource_ == nullptr; };
+        && this->status_ == nullptr && this->tags_ == nullptr && this->tenantId_ == nullptr && this->terminalUrl_ == nullptr && this->userId_ == nullptr
+        && this->userName_ == nullptr && this->userVpc_ == nullptr && this->webIDEUrl_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr
+        && this->workspaceSource_ == nullptr; };
       // acceleratorType Field Functions 
       bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
       void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -1386,6 +1389,13 @@ namespace Models
       inline Instances& setTags(vector<Instances::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline Instances& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
       // terminalUrl Field Functions 
       bool hasTerminalUrl() const { return this->terminalUrl_ != nullptr;};
       void deleteTerminalUrl() { this->terminalUrl_ = nullptr;};
@@ -1530,6 +1540,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
+      shared_ptr<string> tenantId_ {};
       // The terminal URL.
       shared_ptr<string> terminalUrl_ {};
       // The user ID.

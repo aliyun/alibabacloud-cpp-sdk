@@ -129,6 +129,42 @@ namespace PaiDsw20220101
       Models::CreateSanityCheckTaskResponse createSanityCheckTask(const string &CheckType, const Models::CreateSanityCheckTaskRequest &request);
 
       /**
+       * @summary 创建临时文件
+       *
+       * @param request CreateTempFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTempFileResponse
+       */
+      Models::CreateTempFileResponse createTempFileWithOptions(const Models::CreateTempFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建临时文件
+       *
+       * @param request CreateTempFileRequest
+       * @return CreateTempFileResponse
+       */
+      Models::CreateTempFileResponse createTempFile(const Models::CreateTempFileRequest &request);
+
+      /**
+       * @summary 创建临时文件任务
+       *
+       * @param request CreateTempFileTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTempFileTaskResponse
+       */
+      Models::CreateTempFileTaskResponse createTempFileTaskWithOptions(const Models::CreateTempFileTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建临时文件任务
+       *
+       * @param request CreateTempFileTaskRequest
+       * @return CreateTempFileTaskResponse
+       */
+      Models::CreateTempFileTaskResponse createTempFileTask(const Models::CreateTempFileTaskRequest &request);
+
+      /**
        * @summary Deletes the automatic stop policy of an instance.
        *
        * @param headers map
@@ -227,6 +263,56 @@ namespace PaiDsw20220101
        * @return DeleteInstancesResponse
        */
       Models::DeleteInstancesResponse deleteInstances(const Models::DeleteInstancesRequest &request);
+
+      /**
+       * @summary 删除临时文件
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTempFileResponse
+       */
+      Models::DeleteTempFileResponse deleteTempFileWithOptions(const string &TempFileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除临时文件
+       *
+       * @return DeleteTempFileResponse
+       */
+      Models::DeleteTempFileResponse deleteTempFile(const string &TempFileId);
+
+      /**
+       * @summary 删除临时文件
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTempFileTaskResponse
+       */
+      Models::DeleteTempFileTaskResponse deleteTempFileTaskWithOptions(const string &TempFileTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除临时文件
+       *
+       * @return DeleteTempFileTaskResponse
+       */
+      Models::DeleteTempFileTaskResponse deleteTempFileTask(const string &TempFileTaskId);
+
+      /**
+       * @summary 批量删除临时文件
+       *
+       * @param request DeleteTempFileTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTempFileTasksResponse
+       */
+      Models::DeleteTempFileTasksResponse deleteTempFileTasksWithOptions(const Models::DeleteTempFileTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除临时文件
+       *
+       * @param request DeleteTempFileTasksRequest
+       * @return DeleteTempFileTasksResponse
+       */
+      Models::DeleteTempFileTasksResponse deleteTempFileTasks(const Models::DeleteTempFileTasksRequest &request);
 
       /**
        * @summary Queries the information about an auto stop policy for a specific idle instance.
@@ -407,6 +493,38 @@ namespace PaiDsw20220101
       Models::GetSanityCheckTaskResponse getSanityCheckTask(const string &CheckType, const string &TaskId, const Models::GetSanityCheckTaskRequest &request);
 
       /**
+       * @summary 获取临时文件详情
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTempFileResponse
+       */
+      Models::GetTempFileResponse getTempFileWithOptions(const string &TempFileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取临时文件详情
+       *
+       * @return GetTempFileResponse
+       */
+      Models::GetTempFileResponse getTempFile(const string &TempFileId);
+
+      /**
+       * @summary 获取临时文件任务
+       *
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTempFileTaskResponse
+       */
+      Models::GetTempFileTaskResponse getTempFileTaskWithOptions(const string &TempFileTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取临时文件任务
+       *
+       * @return GetTempFileTaskResponse
+       */
+      Models::GetTempFileTaskResponse getTempFileTask(const string &TempFileTaskId);
+
+      /**
        * @summary Obtains the temporary authentication information of a DSW instance.
        *
        * @param request GetTokenRequest
@@ -549,6 +667,24 @@ namespace PaiDsw20220101
       Models::ListSystemLogsResponse listSystemLogs(const Models::ListSystemLogsRequest &request);
 
       /**
+       * @summary 获取临时文件列表
+       *
+       * @param request ListTempFilesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTempFilesResponse
+       */
+      Models::ListTempFilesResponse listTempFilesWithOptions(const Models::ListTempFilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取临时文件列表
+       *
+       * @param request ListTempFilesRequest
+       * @return ListTempFilesResponse
+       */
+      Models::ListTempFilesResponse listTempFiles(const Models::ListTempFilesRequest &request);
+
+      /**
        * @summary 启动实例
        *
        * @param headers map
@@ -635,6 +771,42 @@ namespace PaiDsw20220101
        * @return UpdateInstanceLabelsResponse
        */
       Models::UpdateInstanceLabelsResponse updateInstanceLabels(const string &InstanceId, const Models::UpdateInstanceLabelsRequest &request);
+
+      /**
+       * @summary 更新临时文件
+       *
+       * @param request UpdateTempFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTempFileResponse
+       */
+      Models::UpdateTempFileResponse updateTempFileWithOptions(const string &TempFileId, const Models::UpdateTempFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新临时文件
+       *
+       * @param request UpdateTempFileRequest
+       * @return UpdateTempFileResponse
+       */
+      Models::UpdateTempFileResponse updateTempFile(const string &TempFileId, const Models::UpdateTempFileRequest &request);
+
+      /**
+       * @summary 更新临时文件任务
+       *
+       * @param request UpdateTempFileTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTempFileTaskResponse
+       */
+      Models::UpdateTempFileTaskResponse updateTempFileTaskWithOptions(const string &TempFileTaskId, const Models::UpdateTempFileTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新临时文件任务
+       *
+       * @param request UpdateTempFileTaskRequest
+       * @return UpdateTempFileTaskResponse
+       */
+      Models::UpdateTempFileTaskResponse updateTempFileTask(const string &TempFileTaskId, const Models::UpdateTempFileTaskRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace PaiDsw20220101

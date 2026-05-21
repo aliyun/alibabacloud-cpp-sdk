@@ -29,6 +29,12 @@
 #include <alibabacloud/models/CreateSanityCheckTaskRequest.hpp>
 #include <alibabacloud/models/CreateSanityCheckTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateSanityCheckTaskResponse.hpp>
+#include <alibabacloud/models/CreateTempFileRequest.hpp>
+#include <alibabacloud/models/CreateTempFileResponseBody.hpp>
+#include <alibabacloud/models/CreateTempFileResponse.hpp>
+#include <alibabacloud/models/CreateTempFileTaskRequest.hpp>
+#include <alibabacloud/models/CreateTempFileTaskResponseBody.hpp>
+#include <alibabacloud/models/CreateTempFileTaskResponse.hpp>
 #include <alibabacloud/models/DeleteIdleInstanceCullerResponseBody.hpp>
 #include <alibabacloud/models/DeleteIdleInstanceCullerResponse.hpp>
 #include <alibabacloud/models/DeleteInstanceResponseBody.hpp>
@@ -43,6 +49,13 @@
 #include <alibabacloud/models/DeleteInstancesRequest.hpp>
 #include <alibabacloud/models/DeleteInstancesResponseBody.hpp>
 #include <alibabacloud/models/DeleteInstancesResponse.hpp>
+#include <alibabacloud/models/DeleteTempFileResponseBody.hpp>
+#include <alibabacloud/models/DeleteTempFileResponse.hpp>
+#include <alibabacloud/models/DeleteTempFileTaskResponseBody.hpp>
+#include <alibabacloud/models/DeleteTempFileTaskResponse.hpp>
+#include <alibabacloud/models/DeleteTempFileTasksRequest.hpp>
+#include <alibabacloud/models/DeleteTempFileTasksResponseBody.hpp>
+#include <alibabacloud/models/DeleteTempFileTasksResponse.hpp>
 #include <alibabacloud/models/GetIdleInstanceCullerResponseBody.hpp>
 #include <alibabacloud/models/GetIdleInstanceCullerResponse.hpp>
 #include <alibabacloud/models/GetInstanceRequest.hpp>
@@ -70,6 +83,10 @@
 #include <alibabacloud/models/GetSanityCheckTaskRequest.hpp>
 #include <alibabacloud/models/GetSanityCheckTaskResponseBody.hpp>
 #include <alibabacloud/models/GetSanityCheckTaskResponse.hpp>
+#include <alibabacloud/models/GetTempFileResponseBody.hpp>
+#include <alibabacloud/models/GetTempFileResponse.hpp>
+#include <alibabacloud/models/GetTempFileTaskResponseBody.hpp>
+#include <alibabacloud/models/GetTempFileTaskResponse.hpp>
 #include <alibabacloud/models/GetTokenRequest.hpp>
 #include <alibabacloud/models/GetTokenResponseBody.hpp>
 #include <alibabacloud/models/GetTokenResponse.hpp>
@@ -94,6 +111,9 @@
 #include <alibabacloud/models/ListSystemLogsRequest.hpp>
 #include <alibabacloud/models/ListSystemLogsResponseBody.hpp>
 #include <alibabacloud/models/ListSystemLogsResponse.hpp>
+#include <alibabacloud/models/ListTempFilesRequest.hpp>
+#include <alibabacloud/models/ListTempFilesResponseBody.hpp>
+#include <alibabacloud/models/ListTempFilesResponse.hpp>
 #include <alibabacloud/models/StartInstanceResponseBody.hpp>
 #include <alibabacloud/models/StartInstanceResponse.hpp>
 #include <alibabacloud/models/StopInstanceRequest.hpp>
@@ -108,5 +128,11 @@
 #include <alibabacloud/models/UpdateInstanceLabelsRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceLabelsResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceLabelsResponse.hpp>
+#include <alibabacloud/models/UpdateTempFileRequest.hpp>
+#include <alibabacloud/models/UpdateTempFileResponseBody.hpp>
+#include <alibabacloud/models/UpdateTempFileResponse.hpp>
+#include <alibabacloud/models/UpdateTempFileTaskRequest.hpp>
+#include <alibabacloud/models/UpdateTempFileTaskResponseBody.hpp>
+#include <alibabacloud/models/UpdateTempFileTaskResponse.hpp>
 
 #endif

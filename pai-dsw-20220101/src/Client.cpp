@@ -459,6 +459,112 @@ CreateSanityCheckTaskResponse Client::createSanityCheckTask(const string &CheckT
 }
 
 /**
+ * @summary 创建临时文件
+ *
+ * @param request CreateTempFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTempFileResponse
+ */
+CreateTempFileResponse Client::createTempFileWithOptions(const CreateTempFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasCapacity()) {
+    body["Capacity"] = request.getCapacity();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasPrefix()) {
+    body["Prefix"] = request.getPrefix();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTempFile"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiles")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTempFileResponse>();
+}
+
+/**
+ * @summary 创建临时文件
+ *
+ * @param request CreateTempFileRequest
+ * @return CreateTempFileResponse
+ */
+CreateTempFileResponse Client::createTempFile(const CreateTempFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTempFileWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建临时文件任务
+ *
+ * @param request CreateTempFileTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTempFileTaskResponse
+ */
+CreateTempFileTaskResponse Client::createTempFileTaskWithOptions(const CreateTempFileTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateTempFileTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiletasks")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTempFileTaskResponse>();
+}
+
+/**
+ * @summary 创建临时文件任务
+ *
+ * @param request CreateTempFileTaskRequest
+ * @return CreateTempFileTaskResponse
+ */
+CreateTempFileTaskResponse Client::createTempFileTask(const CreateTempFileTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createTempFileTaskWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes the automatic stop policy of an instance.
  *
  * @param headers map
@@ -693,6 +799,123 @@ DeleteInstancesResponse Client::deleteInstances(const DeleteInstancesRequest &re
 }
 
 /**
+ * @summary 删除临时文件
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTempFileResponse
+ */
+DeleteTempFileResponse Client::deleteTempFileWithOptions(const string &TempFileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTempFile"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiles/" , Darabonba::Encode::Encoder::percentEncode(TempFileId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTempFileResponse>();
+}
+
+/**
+ * @summary 删除临时文件
+ *
+ * @return DeleteTempFileResponse
+ */
+DeleteTempFileResponse Client::deleteTempFile(const string &TempFileId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteTempFileWithOptions(TempFileId, headers, runtime);
+}
+
+/**
+ * @summary 删除临时文件
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTempFileTaskResponse
+ */
+DeleteTempFileTaskResponse Client::deleteTempFileTaskWithOptions(const string &TempFileTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteTempFileTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiletasks/" , Darabonba::Encode::Encoder::percentEncode(TempFileTaskId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTempFileTaskResponse>();
+}
+
+/**
+ * @summary 删除临时文件
+ *
+ * @return DeleteTempFileTaskResponse
+ */
+DeleteTempFileTaskResponse Client::deleteTempFileTask(const string &TempFileTaskId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteTempFileTaskWithOptions(TempFileTaskId, headers, runtime);
+}
+
+/**
+ * @summary 批量删除临时文件
+ *
+ * @param request DeleteTempFileTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteTempFileTasksResponse
+ */
+DeleteTempFileTasksResponse Client::deleteTempFileTasksWithOptions(const DeleteTempFileTasksRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTempFileTaskIds()) {
+    body["TempFileTaskIds"] = request.getTempFileTaskIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteTempFileTasks"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/batch/tempfiletasks/delete")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteTempFileTasksResponse>();
+}
+
+/**
+ * @summary 批量删除临时文件
+ *
+ * @param request DeleteTempFileTasksRequest
+ * @return DeleteTempFileTasksResponse
+ */
+DeleteTempFileTasksResponse Client::deleteTempFileTasks(const DeleteTempFileTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteTempFileTasksWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the information about an auto stop policy for a specific idle instance.
  *
  * @param headers map
@@ -798,6 +1021,14 @@ GetInstanceEventsResponse Client::getInstanceEventsWithOptions(const string &Ins
 
   if (!!request.hasMaxEventsNum()) {
     query["MaxEventsNum"] = request.getMaxEventsNum();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasReverse()) {
+    query["Reverse"] = request.getReverse();
   }
 
   if (!!request.hasStartTime()) {
@@ -1209,6 +1440,78 @@ GetSanityCheckTaskResponse Client::getSanityCheckTask(const string &CheckType, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getSanityCheckTaskWithOptions(CheckType, TaskId, request, headers, runtime);
+}
+
+/**
+ * @summary 获取临时文件详情
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTempFileResponse
+ */
+GetTempFileResponse Client::getTempFileWithOptions(const string &TempFileId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTempFile"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiles/" , Darabonba::Encode::Encoder::percentEncode(TempFileId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTempFileResponse>();
+}
+
+/**
+ * @summary 获取临时文件详情
+ *
+ * @return GetTempFileResponse
+ */
+GetTempFileResponse Client::getTempFile(const string &TempFileId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTempFileWithOptions(TempFileId, headers, runtime);
+}
+
+/**
+ * @summary 获取临时文件任务
+ *
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTempFileTaskResponse
+ */
+GetTempFileTaskResponse Client::getTempFileTaskWithOptions(const string &TempFileTaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTempFileTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiletasks/" , Darabonba::Encode::Encoder::percentEncode(TempFileTaskId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTempFileTaskResponse>();
+}
+
+/**
+ * @summary 获取临时文件任务
+ *
+ * @return GetTempFileTaskResponse
+ */
+GetTempFileTaskResponse Client::getTempFileTask(const string &TempFileTaskId) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTempFileTaskWithOptions(TempFileTaskId, headers, runtime);
 }
 
 /**
@@ -1773,6 +2076,79 @@ ListSystemLogsResponse Client::listSystemLogs(const ListSystemLogsRequest &reque
 }
 
 /**
+ * @summary 获取临时文件列表
+ *
+ * @param request ListTempFilesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTempFilesResponse
+ */
+ListTempFilesResponse Client::listTempFilesWithOptions(const ListTempFilesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDelimiter()) {
+    query["Delimiter"] = request.getDelimiter();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPrefix()) {
+    query["Prefix"] = request.getPrefix();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTempFiles"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiles")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTempFilesResponse>();
+}
+
+/**
+ * @summary 获取临时文件列表
+ *
+ * @param request ListTempFilesRequest
+ * @return ListTempFilesResponse
+ */
+ListTempFilesResponse Client::listTempFiles(const ListTempFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listTempFilesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 启动实例
  *
  * @param headers map
@@ -2118,6 +2494,100 @@ UpdateInstanceLabelsResponse Client::updateInstanceLabels(const string &Instance
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新临时文件
+ *
+ * @param request UpdateTempFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTempFileResponse
+ */
+UpdateTempFileResponse Client::updateTempFileWithOptions(const string &TempFileId, const UpdateTempFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGmtExpiredTime()) {
+    body["GmtExpiredTime"] = request.getGmtExpiredTime();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTempFile"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiles/" , Darabonba::Encode::Encoder::percentEncode(TempFileId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTempFileResponse>();
+}
+
+/**
+ * @summary 更新临时文件
+ *
+ * @param request UpdateTempFileRequest
+ * @return UpdateTempFileResponse
+ */
+UpdateTempFileResponse Client::updateTempFile(const string &TempFileId, const UpdateTempFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateTempFileWithOptions(TempFileId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新临时文件任务
+ *
+ * @param request UpdateTempFileTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTempFileTaskResponse
+ */
+UpdateTempFileTaskResponse Client::updateTempFileTaskWithOptions(const string &TempFileTaskId, const UpdateTempFileTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasGmtExpiredTime()) {
+    body["GmtExpiredTime"] = request.getGmtExpiredTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTempFileTask"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/tempfiletasks/" , Darabonba::Encode::Encoder::percentEncode(TempFileTaskId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTempFileTaskResponse>();
+}
+
+/**
+ * @summary 更新临时文件任务
+ *
+ * @param request UpdateTempFileTaskRequest
+ * @return UpdateTempFileTaskResponse
+ */
+UpdateTempFileTaskResponse Client::updateTempFileTask(const string &TempFileTaskId, const UpdateTempFileTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateTempFileTaskWithOptions(TempFileTaskId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace PaiDsw20220101

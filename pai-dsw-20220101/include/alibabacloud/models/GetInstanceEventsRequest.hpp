@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EventLevel, eventLevel_);
       DARABONBA_PTR_TO_JSON(MaxEventsNum, maxEventsNum_);
+      DARABONBA_PTR_TO_JSON(Offset, offset_);
+      DARABONBA_PTR_TO_JSON(Reverse, reverse_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Token, token_);
     };
@@ -23,6 +25,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EventLevel, eventLevel_);
       DARABONBA_PTR_FROM_JSON(MaxEventsNum, maxEventsNum_);
+      DARABONBA_PTR_FROM_JSON(Offset, offset_);
+      DARABONBA_PTR_FROM_JSON(Reverse, reverse_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Token, token_);
     };
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->eventLevel_ == nullptr && this->maxEventsNum_ == nullptr && this->startTime_ == nullptr && this->token_ == nullptr; };
+        && this->eventLevel_ == nullptr && this->maxEventsNum_ == nullptr && this->offset_ == nullptr && this->reverse_ == nullptr && this->startTime_ == nullptr
+        && this->token_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -58,6 +63,20 @@ namespace Models
     void deleteMaxEventsNum() { this->maxEventsNum_ = nullptr;};
     inline int32_t getMaxEventsNum() const { DARABONBA_PTR_GET_DEFAULT(maxEventsNum_, 0) };
     inline GetInstanceEventsRequest& setMaxEventsNum(int32_t maxEventsNum) { DARABONBA_PTR_SET_VALUE(maxEventsNum_, maxEventsNum) };
+
+
+    // offset Field Functions 
+    bool hasOffset() const { return this->offset_ != nullptr;};
+    void deleteOffset() { this->offset_ = nullptr;};
+    inline int32_t getOffset() const { DARABONBA_PTR_GET_DEFAULT(offset_, 0) };
+    inline GetInstanceEventsRequest& setOffset(int32_t offset) { DARABONBA_PTR_SET_VALUE(offset_, offset) };
+
+
+    // reverse Field Functions 
+    bool hasReverse() const { return this->reverse_ != nullptr;};
+    void deleteReverse() { this->reverse_ = nullptr;};
+    inline bool getReverse() const { DARABONBA_PTR_GET_DEFAULT(reverse_, false) };
+    inline GetInstanceEventsRequest& setReverse(bool reverse) { DARABONBA_PTR_SET_VALUE(reverse_, reverse) };
 
 
     // startTime Field Functions 
@@ -80,6 +99,8 @@ namespace Models
     shared_ptr<string> eventLevel_ {};
     // The maximum number of events. Default value: 2000.
     shared_ptr<int32_t> maxEventsNum_ {};
+    shared_ptr<int32_t> offset_ {};
+    shared_ptr<bool> reverse_ {};
     // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};
     // The token used to share the URL.
