@@ -37,6 +37,57 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 绑定主实例
+ *
+ * @param request BindLeaderInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BindLeaderInstanceResponse
+ */
+BindLeaderInstanceResponse Client::bindLeaderInstanceWithOptions(const string &instanceId, const BindLeaderInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasLeaderInstanceId()) {
+    body["leaderInstanceId"] = request.getLeaderInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BindLeaderInstance"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/bindReadOnly")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BindLeaderInstanceResponse>();
+}
+
+/**
+ * @summary 绑定主实例
+ *
+ * @param request BindLeaderInstanceRequest
+ * @return BindLeaderInstanceResponse
+ */
+BindLeaderInstanceResponse Client::bindLeaderInstance(const string &instanceId, const BindLeaderInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return bindLeaderInstanceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Updates a resource group.
  *
  * @param request ChangeResourceGroupRequest
@@ -410,6 +461,57 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary 创建手动备份
+ *
+ * @param request CreateManualBackupRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateManualBackupResponse
+ */
+CreateManualBackupResponse Client::createManualBackupWithOptions(const CreateManualBackupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateManualBackup"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/backups/manual")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateManualBackupResponse>();
+}
+
+/**
+ * @summary 创建手动备份
+ *
+ * @param request CreateManualBackupRequest
+ * @return CreateManualBackupResponse
+ */
+CreateManualBackupResponse Client::createManualBackup(const CreateManualBackupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createManualBackupWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建模型服务
  *
  * @param request CreateModelServiceRequest
@@ -664,6 +766,51 @@ CreateWarehouseScheduleTaskResponse Client::createWarehouseScheduleTask(const st
 }
 
 /**
+ * @summary 删除备份
+ *
+ * @param request DeleteBackupDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBackupDataResponse
+ */
+DeleteBackupDataResponse Client::deleteBackupDataWithOptions(const string &id, const DeleteBackupDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBackupData"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/backups/" , Darabonba::Encode::Encoder::percentEncode(id) , "/delete")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBackupDataResponse>();
+}
+
+/**
+ * @summary 删除备份
+ *
+ * @param request DeleteBackupDataRequest
+ * @return DeleteBackupDataResponse
+ */
+DeleteBackupDataResponse Client::deleteBackupData(const string &id, const DeleteBackupDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteBackupDataWithOptions(id, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a virtual warehouse.
  *
  * @param request DeleteHoloWarehouseRequest
@@ -901,6 +1048,55 @@ DeleteWarehouseScheduleTaskResponse Client::deleteWarehouseScheduleTask(const st
 }
 
 /**
+ * @summary 暂停实例
+ *
+ * @param request DescribeTagsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeTagsResponse
+ */
+DescribeTagsResponse Client::describeTagsWithOptions(const DescribeTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasTagsOnly()) {
+    query["tagsOnly"] = request.getTagsOnly();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeTags"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tag")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeTagsResponse>();
+}
+
+/**
+ * @summary 暂停实例
+ *
+ * @param request DescribeTagsRequest
+ * @return DescribeTagsResponse
+ */
+DescribeTagsResponse Client::describeTags(const DescribeTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeTagsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 关闭OpenAPI执行SQL功能
  *
  * @param request DisableExecuteStatementRequest
@@ -985,6 +1181,51 @@ DisableHiveAccessResponse Client::disableHiveAccess(const string &instanceId, co
 }
 
 /**
+ * @summary 取消执行计划
+ *
+ * @param request DisableOperationEventRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableOperationEventResponse
+ */
+DisableOperationEventResponse Client::disableOperationEventWithOptions(const string &instanceId, const DisableOperationEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DisableOperationEvent"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/disableOperationEvent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableOperationEventResponse>();
+}
+
+/**
+ * @summary 取消执行计划
+ *
+ * @param request DisableOperationEventRequest
+ * @return DisableOperationEventResponse
+ */
+DisableOperationEventResponse Client::disableOperationEvent(const string &instanceId, const DisableOperationEventRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableOperationEventWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 关闭SSL
  *
  * @param headers map
@@ -1018,6 +1259,51 @@ DisableSSLResponse Client::disableSSL(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableSSLWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 关闭服务账号
+ *
+ * @param request DisableSupportAccountRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableSupportAccountResponse
+ */
+DisableSupportAccountResponse Client::disableSupportAccountWithOptions(const string &instanceId, const DisableSupportAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableSupportAccount"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/supportAccount/disable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableSupportAccountResponse>();
+}
+
+/**
+ * @summary 关闭服务账号
+ *
+ * @param request DisableSupportAccountRequest
+ * @return DisableSupportAccountResponse
+ */
+DisableSupportAccountResponse Client::disableSupportAccount(const string &instanceId, const DisableSupportAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableSupportAccountWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1063,6 +1349,51 @@ DisableWarehouseAutoScaleResponse Client::disableWarehouseAutoScale(const string
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 取消升级
+ *
+ * @param request DiscardUpgradeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DiscardUpgradeResponse
+ */
+DiscardUpgradeResponse Client::discardUpgradeWithOptions(const string &instanceId, const DiscardUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DiscardUpgrade"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgrade/discard")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DiscardUpgradeResponse>();
+}
+
+/**
+ * @summary 取消升级
+ *
+ * @param request DiscardUpgradeRequest
+ * @return DiscardUpgradeResponse
+ */
+DiscardUpgradeResponse Client::discardUpgrade(const string &instanceId, const DiscardUpgradeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return discardUpgradeWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1232,6 +1563,65 @@ EnableSSLResponse Client::enableSSL(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return enableSSLWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 打开服务账号
+ *
+ * @param request EnableSupportAccountRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableSupportAccountResponse
+ */
+EnableSupportAccountResponse Client::enableSupportAccountWithOptions(const string &instanceId, const EnableSupportAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasExpireTime()) {
+    body["expireTime"] = request.getExpireTime();
+  }
+
+  if (!!request.hasPassword()) {
+    body["password"] = request.getPassword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableSupportAccount"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/supportAccount/enable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableSupportAccountResponse>();
+}
+
+/**
+ * @summary 打开服务账号
+ *
+ * @param request EnableSupportAccountRequest
+ * @return EnableSupportAccountResponse
+ */
+EnableSupportAccountResponse Client::enableSupportAccount(const string &instanceId, const EnableSupportAccountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableSupportAccountWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1424,6 +1814,51 @@ GetExecuteStatementEnabledResponse Client::getExecuteStatementEnabled(const stri
 }
 
 /**
+ * @summary 获取holoweb登陆权限
+ *
+ * @param request GetHoloWebLoginSettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetHoloWebLoginSettingResponse
+ */
+GetHoloWebLoginSettingResponse Client::getHoloWebLoginSettingWithOptions(const string &instanceId, const GetHoloWebLoginSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetHoloWebLoginSetting"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/getHoloWebLoginSetting")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetHoloWebLoginSettingResponse>();
+}
+
+/**
+ * @summary 获取holoweb登陆权限
+ *
+ * @param request GetHoloWebLoginSettingRequest
+ * @return GetHoloWebLoginSettingResponse
+ */
+GetHoloWebLoginSettingResponse Client::getHoloWebLoginSetting(const string &instanceId, const GetHoloWebLoginSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getHoloWebLoginSettingWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Obtains the details of an instance.
  *
  * @param headers map
@@ -1499,6 +1934,45 @@ GetInstanceModelResponse Client::getInstanceModel(const string &instanceId, cons
 }
 
 /**
+ * @summary 获取上次升级历史
+ *
+ * @param request GetLastUpgradeRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetLastUpgradeRecordResponse
+ */
+GetLastUpgradeRecordResponse Client::getLastUpgradeRecordWithOptions(const string &instanceId, const GetLastUpgradeRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetLastUpgradeRecord"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/lastUpgradeRecord")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetLastUpgradeRecordResponse>();
+}
+
+/**
+ * @summary 获取上次升级历史
+ *
+ * @param request GetLastUpgradeRecordRequest
+ * @return GetLastUpgradeRecordResponse
+ */
+GetLastUpgradeRecordResponse Client::getLastUpgradeRecord(const string &instanceId, const GetLastUpgradeRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getLastUpgradeRecordWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 获得根证书
  *
  * @param headers map
@@ -1532,6 +2006,149 @@ GetRootCertificateResponse Client::getRootCertificate(const string &instanceId) 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getRootCertificateWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 获取周期备份配置
+ *
+ * @param request GetScheduledBackupConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetScheduledBackupConfigResponse
+ */
+GetScheduledBackupConfigResponse Client::getScheduledBackupConfigWithOptions(const GetScheduledBackupConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasScheduleType()) {
+    query["scheduleType"] = request.getScheduleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetScheduledBackupConfig"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/backups/scheduledConfig")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetScheduledBackupConfigResponse>();
+}
+
+/**
+ * @summary 获取周期备份配置
+ *
+ * @param request GetScheduledBackupConfigRequest
+ * @return GetScheduledBackupConfigResponse
+ */
+GetScheduledBackupConfigResponse Client::getScheduledBackupConfig(const GetScheduledBackupConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getScheduledBackupConfigWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取升级状态
+ *
+ * @param request GetUpgradeStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUpgradeStatusResponse
+ */
+GetUpgradeStatusResponse Client::getUpgradeStatusWithOptions(const string &instanceId, const GetUpgradeStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUpgradeStatus"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgrade/status")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUpgradeStatusResponse>();
+}
+
+/**
+ * @summary 获取升级状态
+ *
+ * @param request GetUpgradeStatusRequest
+ * @return GetUpgradeStatusResponse
+ */
+GetUpgradeStatusResponse Client::getUpgradeStatus(const string &instanceId, const GetUpgradeStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getUpgradeStatusWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 是否可升级
+ *
+ * @param request GetUpgradeableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUpgradeableResponse
+ */
+GetUpgradeableResponse Client::getUpgradeableWithOptions(const string &instanceId, const GetUpgradeableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetUpgradeable"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgradeable")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUpgradeableResponse>();
+}
+
+/**
+ * @summary 是否可升级
+ *
+ * @param request GetUpgradeableRequest
+ * @return GetUpgradeableResponse
+ */
+GetUpgradeableResponse Client::getUpgradeable(const string &instanceId, const GetUpgradeableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getUpgradeableWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -1844,6 +2461,51 @@ ListDatabasesResponse Client::listDatabases(const string &instanceId, const List
 }
 
 /**
+ * @summary 获取只读从实例
+ *
+ * @param request ListFollowerInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListFollowerInstancesResponse
+ */
+ListFollowerInstancesResponse Client::listFollowerInstancesWithOptions(const string &instanceId, const ListFollowerInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListFollowerInstances"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listFollowerInstances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListFollowerInstancesResponse>();
+}
+
+/**
+ * @summary 获取只读从实例
+ *
+ * @param request ListFollowerInstancesRequest
+ * @return ListFollowerInstancesResponse
+ */
+ListFollowerInstancesResponse Client::listFollowerInstances(const string &instanceId, const ListFollowerInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listFollowerInstancesWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary AI资源列表
  *
  * @param request ListInstanceModelRequest
@@ -1936,6 +2598,100 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
+ * @summary 获取主实例
+ *
+ * @param request ListLeaderInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListLeaderInstancesResponse
+ */
+ListLeaderInstancesResponse Client::listLeaderInstancesWithOptions(const string &instanceId, const ListLeaderInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListLeaderInstances"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/primaryInstances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListLeaderInstancesResponse>();
+}
+
+/**
+ * @summary 获取主实例
+ *
+ * @param request ListLeaderInstancesRequest
+ * @return ListLeaderInstancesResponse
+ */
+ListLeaderInstancesResponse Client::listLeaderInstances(const string &instanceId, const ListLeaderInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listLeaderInstancesWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 实例可迁移可用区列表
+ *
+ * @param request ListMigrationZonesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMigrationZonesResponse
+ */
+ListMigrationZonesResponse Client::listMigrationZonesWithOptions(const string &instanceId, const ListMigrationZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMigrationZones"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/listMigrationZones")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMigrationZonesResponse>();
+}
+
+/**
+ * @summary 实例可迁移可用区列表
+ *
+ * @param request ListMigrationZonesRequest
+ * @return ListMigrationZonesResponse
+ */
+ListMigrationZonesResponse Client::listMigrationZones(const string &instanceId, const ListMigrationZonesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMigrationZonesWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 列出模型列表
  *
  * @param request ListModelCatalogRequest
@@ -1982,6 +2738,163 @@ ListModelCatalogResponse Client::listModelCatalog(const string &instanceId, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listModelCatalogWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 运维事件列表
+ *
+ * @param request ListOperationEventsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListOperationEventsResponse
+ */
+ListOperationEventsResponse Client::listOperationEventsWithOptions(const ListOperationEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEventName()) {
+    body["eventName"] = request.getEventName();
+  }
+
+  if (!!request.hasEventNameDesc()) {
+    body["eventNameDesc"] = request.getEventNameDesc();
+  }
+
+  if (!!request.hasEventType()) {
+    body["eventType"] = request.getEventType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasScheduleTimeDesc()) {
+    body["scheduleTimeDesc"] = request.getScheduleTimeDesc();
+  }
+
+  if (!!request.hasState()) {
+    body["state"] = request.getState();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListOperationEvents"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/listOperationEvents")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListOperationEventsResponse>();
+}
+
+/**
+ * @summary 运维事件列表
+ *
+ * @param request ListOperationEventsRequest
+ * @return ListOperationEventsResponse
+ */
+ListOperationEventsResponse Client::listOperationEvents(const ListOperationEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listOperationEventsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary holoapp共有云所有开服的region
+ *
+ * @param request ListRegionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRegionsResponse
+ */
+ListRegionsResponse Client::listRegionsWithOptions(const ListRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRegions"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/regions/listRegions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRegionsResponse>();
+}
+
+/**
+ * @summary holoapp共有云所有开服的region
+ *
+ * @param request ListRegionsRequest
+ * @return ListRegionsResponse
+ */
+ListRegionsResponse Client::listRegions(const ListRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRegionsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取版本列表
+ *
+ * @param request ListUpgradeReleaseVersionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUpgradeReleaseVersionsResponse
+ */
+ListUpgradeReleaseVersionsResponse Client::listUpgradeReleaseVersionsWithOptions(const string &instanceId, const ListUpgradeReleaseVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListUpgradeReleaseVersions"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgrade/listReleaseVersions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUpgradeReleaseVersionsResponse>();
+}
+
+/**
+ * @summary 获取版本列表
+ *
+ * @param request ListUpgradeReleaseVersionsRequest
+ * @return ListUpgradeReleaseVersionsResponse
+ */
+ListUpgradeReleaseVersionsResponse Client::listUpgradeReleaseVersions(const string &instanceId, const ListUpgradeReleaseVersionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listUpgradeReleaseVersionsWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -2118,6 +3031,106 @@ ListWarehousesResponse Client::listWarehouses(const string &instanceId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listWarehousesWithOptions(instanceId, headers, runtime);
+}
+
+/**
+ * @summary 实例迁移
+ *
+ * @param request MigrateInstanceZoneRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MigrateInstanceZoneResponse
+ */
+MigrateInstanceZoneResponse Client::migrateInstanceZoneWithOptions(const string &instanceId, const MigrateInstanceZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasZoneId()) {
+    body["zoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MigrateInstanceZone"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/migrateInstanceZone")},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MigrateInstanceZoneResponse>();
+}
+
+/**
+ * @summary 实例迁移
+ *
+ * @param request MigrateInstanceZoneRequest
+ * @return MigrateInstanceZoneResponse
+ */
+MigrateInstanceZoneResponse Client::migrateInstanceZone(const string &instanceId, const MigrateInstanceZoneRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return migrateInstanceZoneWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 准备升级
+ *
+ * @param request PrepareUpgradeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PrepareUpgradeResponse
+ */
+PrepareUpgradeResponse Client::prepareUpgradeWithOptions(const string &instanceId, const PrepareUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PrepareUpgrade"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgrade/prepare")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PrepareUpgradeResponse>();
+}
+
+/**
+ * @summary 准备升级
+ *
+ * @param request PrepareUpgradeRequest
+ * @return PrepareUpgradeResponse
+ */
+PrepareUpgradeResponse Client::prepareUpgrade(const string &instanceId, const PrepareUpgradeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return prepareUpgradeWithOptions(instanceId, request, headers, runtime);
 }
 
 /**
@@ -2858,6 +3871,336 @@ SuspendHoloWarehouseResponse Client::suspendHoloWarehouse(const string &instance
 }
 
 /**
+ * @summary 新增tag
+ *
+ * @param request TagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  json body = {};
+  if (!!request.hasCategory()) {
+    body["category"] = request.getCategory();
+  }
+
+  if (!!request.hasResourceIds()) {
+    body["resourceIds"] = request.getResourceIds();
+  }
+
+  if (!!request.hasTagOwnerUid()) {
+    body["tagOwnerUid"] = request.getTagOwnerUid();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "TagResources"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tag")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagResourcesResponse>();
+}
+
+/**
+ * @summary 新增tag
+ *
+ * @param request TagResourcesRequest
+ * @return TagResourcesResponse
+ */
+TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return tagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 解除绑定主实例
+ *
+ * @param request UnBindLeaderInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnBindLeaderInstanceResponse
+ */
+UnBindLeaderInstanceResponse Client::unBindLeaderInstanceWithOptions(const string &instanceId, const UnBindLeaderInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UnBindLeaderInstance"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/unBindReadOnly")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnBindLeaderInstanceResponse>();
+}
+
+/**
+ * @summary 解除绑定主实例
+ *
+ * @param request UnBindLeaderInstanceRequest
+ * @return UnBindLeaderInstanceResponse
+ */
+UnBindLeaderInstanceResponse Client::unBindLeaderInstance(const string &instanceId, const UnBindLeaderInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return unBindLeaderInstanceWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除tag
+ *
+ * @param request UntagResourcesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasCategory()) {
+    body["category"] = request.getCategory();
+  }
+
+  if (!!request.hasResourceIds()) {
+    body["resourceIds"] = request.getResourceIds();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["resourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKeys()) {
+    body["tagKeys"] = request.getTagKeys();
+  }
+
+  if (!!request.hasTagOwnerUid()) {
+    body["tagOwnerUid"] = request.getTagOwnerUid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UntagResources"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tag/unTag")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagResourcesResponse>();
+}
+
+/**
+ * @summary 删除tag
+ *
+ * @param request UntagResourcesRequest
+ * @return UntagResourcesResponse
+ */
+UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return untagResourcesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改小版本自动升级开关
+ *
+ * @param request UpdateAutoUpgradeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAutoUpgradeResponse
+ */
+UpdateAutoUpgradeResponse Client::updateAutoUpgradeWithOptions(const string &instanceId, const UpdateAutoUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAutoUpgrade()) {
+    body["autoUpgrade"] = request.getAutoUpgrade();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAutoUpgrade"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/autoUpgrade")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAutoUpgradeResponse>();
+}
+
+/**
+ * @summary 修改小版本自动升级开关
+ *
+ * @param request UpdateAutoUpgradeRequest
+ * @return UpdateAutoUpgradeResponse
+ */
+UpdateAutoUpgradeResponse Client::updateAutoUpgrade(const string &instanceId, const UpdateAutoUpgradeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAutoUpgradeWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新备份描述
+ *
+ * @param request UpdateBackupDataDescRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateBackupDataDescResponse
+ */
+UpdateBackupDataDescResponse Client::updateBackupDataDescWithOptions(const string &id, const UpdateBackupDataDescRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasDesc()) {
+    body["desc"] = request.getDesc();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateBackupDataDesc"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/backups/" , Darabonba::Encode::Encoder::percentEncode(id) , "/desc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateBackupDataDescResponse>();
+}
+
+/**
+ * @summary 更新备份描述
+ *
+ * @param request UpdateBackupDataDescRequest
+ * @return UpdateBackupDataDescResponse
+ */
+UpdateBackupDataDescResponse Client::updateBackupDataDesc(const string &id, const UpdateBackupDataDescRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateBackupDataDescWithOptions(id, request, headers, runtime);
+}
+
+/**
+ * @summary 修改holoweb登陆权限
+ *
+ * @param request UpdateHoloWebLoginSettingRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateHoloWebLoginSettingResponse
+ */
+UpdateHoloWebLoginSettingResponse Client::updateHoloWebLoginSettingWithOptions(const string &instanceId, const UpdateHoloWebLoginSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasAllowExternalAccountsLogin()) {
+    body["allowExternalAccountsLogin"] = request.getAllowExternalAccountsLogin();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateHoloWebLoginSetting"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/updateHoloWebLoginSetting")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateHoloWebLoginSettingResponse>();
+}
+
+/**
+ * @summary 修改holoweb登陆权限
+ *
+ * @param request UpdateHoloWebLoginSettingRequest
+ * @return UpdateHoloWebLoginSettingResponse
+ */
+UpdateHoloWebLoginSettingResponse Client::updateHoloWebLoginSetting(const string &instanceId, const UpdateHoloWebLoginSettingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateHoloWebLoginSettingWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary Changes the name of an instance.
  *
  * @param request UpdateInstanceNameRequest
@@ -2968,6 +4311,100 @@ UpdateInstanceNetworkTypeResponse Client::updateInstanceNetworkType(const string
 }
 
 /**
+ * @summary 修改端口号
+ *
+ * @param request UpdateInstancePortRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateInstancePortResponse
+ */
+UpdateInstancePortResponse Client::updateInstancePortWithOptions(const string &instanceId, const UpdateInstancePortRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPort()) {
+    body["port"] = request.getPort();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateInstancePort"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/updatePort")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateInstancePortResponse>();
+}
+
+/**
+ * @summary 修改端口号
+ *
+ * @param request UpdateInstancePortRequest
+ * @return UpdateInstancePortResponse
+ */
+UpdateInstancePortResponse Client::updateInstancePort(const string &instanceId, const UpdateInstancePortRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateInstancePortWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改可维护时间窗口
+ *
+ * @param request UpdateMaintenanceWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMaintenanceWindowResponse
+ */
+UpdateMaintenanceWindowResponse Client::updateMaintenanceWindowWithOptions(const string &instanceId, const UpdateMaintenanceWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMaintenanceWindow"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/maintenanceWindow")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMaintenanceWindowResponse>();
+}
+
+/**
+ * @summary 修改可维护时间窗口
+ *
+ * @param request UpdateMaintenanceWindowRequest
+ * @return UpdateMaintenanceWindowResponse
+ */
+UpdateMaintenanceWindowResponse Client::updateMaintenanceWindow(const string &instanceId, const UpdateMaintenanceWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMaintenanceWindowWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
  * @summary 创建模型服务
  *
  * @param request UpdateModelServiceRequest
@@ -3033,6 +4470,138 @@ UpdateModelServiceResponse Client::updateModelService(const string &instanceId, 
 }
 
 /**
+ * @summary 修改运维事件执行时间
+ *
+ * @param request UpdateOperationEventScheduleTimeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateOperationEventScheduleTimeResponse
+ */
+UpdateOperationEventScheduleTimeResponse Client::updateOperationEventScheduleTimeWithOptions(const string &instanceId, const UpdateOperationEventScheduleTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["id"] = request.getId();
+  }
+
+  if (!!request.hasScheduleTime()) {
+    body["scheduleTime"] = request.getScheduleTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateOperationEventScheduleTime"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/updateOperationEventScheduleTime")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateOperationEventScheduleTimeResponse>();
+}
+
+/**
+ * @summary 修改运维事件执行时间
+ *
+ * @param request UpdateOperationEventScheduleTimeRequest
+ * @return UpdateOperationEventScheduleTimeResponse
+ */
+UpdateOperationEventScheduleTimeResponse Client::updateOperationEventScheduleTime(const string &instanceId, const UpdateOperationEventScheduleTimeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateOperationEventScheduleTimeWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 配置周期备份
+ *
+ * @param request UpdateScheduledBackupConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateScheduledBackupConfigResponse
+ */
+UpdateScheduledBackupConfigResponse Client::updateScheduledBackupConfigWithOptions(const UpdateScheduledBackupConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasDataKeepQuantity()) {
+    body["dataKeepQuantity"] = request.getDataKeepQuantity();
+  }
+
+  if (!!request.hasDstRegion()) {
+    body["dstRegion"] = request.getDstRegion();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasHour()) {
+    body["hour"] = request.getHour();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasManualDataKeepQuantity()) {
+    body["manualDataKeepQuantity"] = request.getManualDataKeepQuantity();
+  }
+
+  if (!!request.hasScheduleType()) {
+    body["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasWeek()) {
+    body["week"] = request.getWeek();
+  }
+
+  if (!!request.hasZoneId()) {
+    body["zoneId"] = request.getZoneId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateScheduledBackupConfig"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/backups/scheduledConfig")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateScheduledBackupConfigResponse>();
+}
+
+/**
+ * @summary 配置周期备份
+ *
+ * @param request UpdateScheduledBackupConfigRequest
+ * @return UpdateScheduledBackupConfigResponse
+ */
+UpdateScheduledBackupConfigResponse Client::updateScheduledBackupConfig(const UpdateScheduledBackupConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateScheduledBackupConfigWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 创建分时弹性计划
  *
  * @param request UpdateWarehouseScheduleTaskRequest
@@ -3091,6 +4660,59 @@ UpdateWarehouseScheduleTaskResponse Client::updateWarehouseScheduleTask(const st
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
+}
+
+/**
+ * @summary 开始升级
+ *
+ * @param request UpgradeInstanceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeInstanceResponse
+ */
+UpgradeInstanceResponse Client::upgradeInstanceWithOptions(const string &instanceId, const UpgradeInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  if (!!request.hasUpgradeTime()) {
+    query["upgradeTime"] = request.getUpgradeTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeInstance"},
+    {"version" , "2022-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/instances/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/upgrade")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeInstanceResponse>();
+}
+
+/**
+ * @summary 开始升级
+ *
+ * @param request UpgradeInstanceRequest
+ * @return UpgradeInstanceResponse
+ */
+UpgradeInstanceResponse Client::upgradeInstance(const string &instanceId, const UpgradeInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return upgradeInstanceWithOptions(instanceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace Hologram20220601

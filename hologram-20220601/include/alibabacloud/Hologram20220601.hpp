@@ -21,6 +21,24 @@ namespace Hologram20220601
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 绑定主实例
+       *
+       * @param request BindLeaderInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BindLeaderInstanceResponse
+       */
+      Models::BindLeaderInstanceResponse bindLeaderInstanceWithOptions(const string &instanceId, const Models::BindLeaderInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 绑定主实例
+       *
+       * @param request BindLeaderInstanceRequest
+       * @return BindLeaderInstanceResponse
+       */
+      Models::BindLeaderInstanceResponse bindLeaderInstance(const string &instanceId, const Models::BindLeaderInstanceRequest &request);
+
+      /**
        * @summary Updates a resource group.
        *
        * @param request ChangeResourceGroupRequest
@@ -151,6 +169,24 @@ namespace Hologram20220601
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
+       * @summary 创建手动备份
+       *
+       * @param request CreateManualBackupRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateManualBackupResponse
+       */
+      Models::CreateManualBackupResponse createManualBackupWithOptions(const Models::CreateManualBackupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建手动备份
+       *
+       * @param request CreateManualBackupRequest
+       * @return CreateManualBackupResponse
+       */
+      Models::CreateManualBackupResponse createManualBackup(const Models::CreateManualBackupRequest &request);
+
+      /**
        * @summary 创建模型服务
        *
        * @param request CreateModelServiceRequest
@@ -221,6 +257,24 @@ namespace Hologram20220601
        * @return CreateWarehouseScheduleTaskResponse
        */
       Models::CreateWarehouseScheduleTaskResponse createWarehouseScheduleTask(const string &instanceId, const Models::CreateWarehouseScheduleTaskRequest &request);
+
+      /**
+       * @summary 删除备份
+       *
+       * @param request DeleteBackupDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBackupDataResponse
+       */
+      Models::DeleteBackupDataResponse deleteBackupDataWithOptions(const string &id, const Models::DeleteBackupDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除备份
+       *
+       * @param request DeleteBackupDataRequest
+       * @return DeleteBackupDataResponse
+       */
+      Models::DeleteBackupDataResponse deleteBackupData(const string &id, const Models::DeleteBackupDataRequest &request);
 
       /**
        * @summary Deletes a virtual warehouse.
@@ -321,6 +375,24 @@ namespace Hologram20220601
       Models::DeleteWarehouseScheduleTaskResponse deleteWarehouseScheduleTask(const string &instanceId, const Models::DeleteWarehouseScheduleTaskRequest &request);
 
       /**
+       * @summary 暂停实例
+       *
+       * @param request DescribeTagsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTagsResponse
+       */
+      Models::DescribeTagsResponse describeTagsWithOptions(const Models::DescribeTagsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 暂停实例
+       *
+       * @param request DescribeTagsRequest
+       * @return DescribeTagsResponse
+       */
+      Models::DescribeTagsResponse describeTags(const Models::DescribeTagsRequest &request);
+
+      /**
        * @summary 关闭OpenAPI执行SQL功能
        *
        * @param request DisableExecuteStatementRequest
@@ -357,6 +429,24 @@ namespace Hologram20220601
       Models::DisableHiveAccessResponse disableHiveAccess(const string &instanceId, const Models::DisableHiveAccessRequest &request);
 
       /**
+       * @summary 取消执行计划
+       *
+       * @param request DisableOperationEventRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableOperationEventResponse
+       */
+      Models::DisableOperationEventResponse disableOperationEventWithOptions(const string &instanceId, const Models::DisableOperationEventRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消执行计划
+       *
+       * @param request DisableOperationEventRequest
+       * @return DisableOperationEventResponse
+       */
+      Models::DisableOperationEventResponse disableOperationEvent(const string &instanceId, const Models::DisableOperationEventRequest &request);
+
+      /**
        * @summary 关闭SSL
        *
        * @param headers map
@@ -371,6 +461,24 @@ namespace Hologram20220601
        * @return DisableSSLResponse
        */
       Models::DisableSSLResponse disableSSL(const string &instanceId);
+
+      /**
+       * @summary 关闭服务账号
+       *
+       * @param request DisableSupportAccountRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableSupportAccountResponse
+       */
+      Models::DisableSupportAccountResponse disableSupportAccountWithOptions(const string &instanceId, const Models::DisableSupportAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 关闭服务账号
+       *
+       * @param request DisableSupportAccountRequest
+       * @return DisableSupportAccountResponse
+       */
+      Models::DisableSupportAccountResponse disableSupportAccount(const string &instanceId, const Models::DisableSupportAccountRequest &request);
 
       /**
        * @summary 关闭自动弹性
@@ -389,6 +497,24 @@ namespace Hologram20220601
        * @return DisableWarehouseAutoScaleResponse
        */
       Models::DisableWarehouseAutoScaleResponse disableWarehouseAutoScale(const string &instanceId, const Models::DisableWarehouseAutoScaleRequest &request);
+
+      /**
+       * @summary 取消升级
+       *
+       * @param request DiscardUpgradeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DiscardUpgradeResponse
+       */
+      Models::DiscardUpgradeResponse discardUpgradeWithOptions(const string &instanceId, const Models::DiscardUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消升级
+       *
+       * @param request DiscardUpgradeRequest
+       * @return DiscardUpgradeResponse
+       */
+      Models::DiscardUpgradeResponse discardUpgrade(const string &instanceId, const Models::DiscardUpgradeRequest &request);
 
       /**
        * @summary 删除用户
@@ -461,6 +587,24 @@ namespace Hologram20220601
       Models::EnableSSLResponse enableSSL(const string &instanceId);
 
       /**
+       * @summary 打开服务账号
+       *
+       * @param request EnableSupportAccountRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableSupportAccountResponse
+       */
+      Models::EnableSupportAccountResponse enableSupportAccountWithOptions(const string &instanceId, const Models::EnableSupportAccountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 打开服务账号
+       *
+       * @param request EnableSupportAccountRequest
+       * @return EnableSupportAccountResponse
+       */
+      Models::EnableSupportAccountResponse enableSupportAccount(const string &instanceId, const Models::EnableSupportAccountRequest &request);
+
+      /**
        * @summary 开启自动弹性
        *
        * @param request EnableWarehouseAutoScaleRequest
@@ -531,6 +675,24 @@ namespace Hologram20220601
       Models::GetExecuteStatementEnabledResponse getExecuteStatementEnabled(const string &instanceId, const Models::GetExecuteStatementEnabledRequest &request);
 
       /**
+       * @summary 获取holoweb登陆权限
+       *
+       * @param request GetHoloWebLoginSettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetHoloWebLoginSettingResponse
+       */
+      Models::GetHoloWebLoginSettingResponse getHoloWebLoginSettingWithOptions(const string &instanceId, const Models::GetHoloWebLoginSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取holoweb登陆权限
+       *
+       * @param request GetHoloWebLoginSettingRequest
+       * @return GetHoloWebLoginSettingResponse
+       */
+      Models::GetHoloWebLoginSettingResponse getHoloWebLoginSetting(const string &instanceId, const Models::GetHoloWebLoginSettingRequest &request);
+
+      /**
        * @summary Obtains the details of an instance.
        *
        * @param headers map
@@ -565,6 +727,24 @@ namespace Hologram20220601
       Models::GetInstanceModelResponse getInstanceModel(const string &instanceId, const Models::GetInstanceModelRequest &request);
 
       /**
+       * @summary 获取上次升级历史
+       *
+       * @param request GetLastUpgradeRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetLastUpgradeRecordResponse
+       */
+      Models::GetLastUpgradeRecordResponse getLastUpgradeRecordWithOptions(const string &instanceId, const Models::GetLastUpgradeRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取上次升级历史
+       *
+       * @param request GetLastUpgradeRecordRequest
+       * @return GetLastUpgradeRecordResponse
+       */
+      Models::GetLastUpgradeRecordResponse getLastUpgradeRecord(const string &instanceId, const Models::GetLastUpgradeRecordRequest &request);
+
+      /**
        * @summary 获得根证书
        *
        * @param headers map
@@ -579,6 +759,60 @@ namespace Hologram20220601
        * @return GetRootCertificateResponse
        */
       Models::GetRootCertificateResponse getRootCertificate(const string &instanceId);
+
+      /**
+       * @summary 获取周期备份配置
+       *
+       * @param request GetScheduledBackupConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetScheduledBackupConfigResponse
+       */
+      Models::GetScheduledBackupConfigResponse getScheduledBackupConfigWithOptions(const Models::GetScheduledBackupConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取周期备份配置
+       *
+       * @param request GetScheduledBackupConfigRequest
+       * @return GetScheduledBackupConfigResponse
+       */
+      Models::GetScheduledBackupConfigResponse getScheduledBackupConfig(const Models::GetScheduledBackupConfigRequest &request);
+
+      /**
+       * @summary 获取升级状态
+       *
+       * @param request GetUpgradeStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUpgradeStatusResponse
+       */
+      Models::GetUpgradeStatusResponse getUpgradeStatusWithOptions(const string &instanceId, const Models::GetUpgradeStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取升级状态
+       *
+       * @param request GetUpgradeStatusRequest
+       * @return GetUpgradeStatusResponse
+       */
+      Models::GetUpgradeStatusResponse getUpgradeStatus(const string &instanceId, const Models::GetUpgradeStatusRequest &request);
+
+      /**
+       * @summary 是否可升级
+       *
+       * @param request GetUpgradeableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUpgradeableResponse
+       */
+      Models::GetUpgradeableResponse getUpgradeableWithOptions(const string &instanceId, const Models::GetUpgradeableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 是否可升级
+       *
+       * @param request GetUpgradeableRequest
+       * @return GetUpgradeableResponse
+       */
+      Models::GetUpgradeableResponse getUpgradeable(const string &instanceId, const Models::GetUpgradeableRequest &request);
 
       /**
        * @summary Queries details of a virtual warehouse instance.
@@ -687,6 +921,24 @@ namespace Hologram20220601
       Models::ListDatabasesResponse listDatabases(const string &instanceId, const Models::ListDatabasesRequest &request);
 
       /**
+       * @summary 获取只读从实例
+       *
+       * @param request ListFollowerInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListFollowerInstancesResponse
+       */
+      Models::ListFollowerInstancesResponse listFollowerInstancesWithOptions(const string &instanceId, const Models::ListFollowerInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取只读从实例
+       *
+       * @param request ListFollowerInstancesRequest
+       * @return ListFollowerInstancesResponse
+       */
+      Models::ListFollowerInstancesResponse listFollowerInstances(const string &instanceId, const Models::ListFollowerInstancesRequest &request);
+
+      /**
        * @summary AI资源列表
        *
        * @param request ListInstanceModelRequest
@@ -723,6 +975,42 @@ namespace Hologram20220601
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
+       * @summary 获取主实例
+       *
+       * @param request ListLeaderInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListLeaderInstancesResponse
+       */
+      Models::ListLeaderInstancesResponse listLeaderInstancesWithOptions(const string &instanceId, const Models::ListLeaderInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取主实例
+       *
+       * @param request ListLeaderInstancesRequest
+       * @return ListLeaderInstancesResponse
+       */
+      Models::ListLeaderInstancesResponse listLeaderInstances(const string &instanceId, const Models::ListLeaderInstancesRequest &request);
+
+      /**
+       * @summary 实例可迁移可用区列表
+       *
+       * @param request ListMigrationZonesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMigrationZonesResponse
+       */
+      Models::ListMigrationZonesResponse listMigrationZonesWithOptions(const string &instanceId, const Models::ListMigrationZonesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例可迁移可用区列表
+       *
+       * @param request ListMigrationZonesRequest
+       * @return ListMigrationZonesResponse
+       */
+      Models::ListMigrationZonesResponse listMigrationZones(const string &instanceId, const Models::ListMigrationZonesRequest &request);
+
+      /**
        * @summary 列出模型列表
        *
        * @param request ListModelCatalogRequest
@@ -739,6 +1027,60 @@ namespace Hologram20220601
        * @return ListModelCatalogResponse
        */
       Models::ListModelCatalogResponse listModelCatalog(const string &instanceId, const Models::ListModelCatalogRequest &request);
+
+      /**
+       * @summary 运维事件列表
+       *
+       * @param request ListOperationEventsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListOperationEventsResponse
+       */
+      Models::ListOperationEventsResponse listOperationEventsWithOptions(const Models::ListOperationEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 运维事件列表
+       *
+       * @param request ListOperationEventsRequest
+       * @return ListOperationEventsResponse
+       */
+      Models::ListOperationEventsResponse listOperationEvents(const Models::ListOperationEventsRequest &request);
+
+      /**
+       * @summary holoapp共有云所有开服的region
+       *
+       * @param request ListRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRegionsResponse
+       */
+      Models::ListRegionsResponse listRegionsWithOptions(const Models::ListRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary holoapp共有云所有开服的region
+       *
+       * @param request ListRegionsRequest
+       * @return ListRegionsResponse
+       */
+      Models::ListRegionsResponse listRegions(const Models::ListRegionsRequest &request);
+
+      /**
+       * @summary 获取版本列表
+       *
+       * @param request ListUpgradeReleaseVersionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUpgradeReleaseVersionsResponse
+       */
+      Models::ListUpgradeReleaseVersionsResponse listUpgradeReleaseVersionsWithOptions(const string &instanceId, const Models::ListUpgradeReleaseVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取版本列表
+       *
+       * @param request ListUpgradeReleaseVersionsRequest
+       * @return ListUpgradeReleaseVersionsResponse
+       */
+      Models::ListUpgradeReleaseVersionsResponse listUpgradeReleaseVersions(const string &instanceId, const Models::ListUpgradeReleaseVersionsRequest &request);
 
       /**
        * @summary 分时弹性日志
@@ -791,6 +1133,42 @@ namespace Hologram20220601
        * @return ListWarehousesResponse
        */
       Models::ListWarehousesResponse listWarehouses(const string &instanceId);
+
+      /**
+       * @summary 实例迁移
+       *
+       * @param request MigrateInstanceZoneRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MigrateInstanceZoneResponse
+       */
+      Models::MigrateInstanceZoneResponse migrateInstanceZoneWithOptions(const string &instanceId, const Models::MigrateInstanceZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 实例迁移
+       *
+       * @param request MigrateInstanceZoneRequest
+       * @return MigrateInstanceZoneResponse
+       */
+      Models::MigrateInstanceZoneResponse migrateInstanceZone(const string &instanceId, const Models::MigrateInstanceZoneRequest &request);
+
+      /**
+       * @summary 准备升级
+       *
+       * @param request PrepareUpgradeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PrepareUpgradeResponse
+       */
+      Models::PrepareUpgradeResponse prepareUpgradeWithOptions(const string &instanceId, const Models::PrepareUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 准备升级
+       *
+       * @param request PrepareUpgradeRequest
+       * @return PrepareUpgradeResponse
+       */
+      Models::PrepareUpgradeResponse prepareUpgrade(const string &instanceId, const Models::PrepareUpgradeRequest &request);
 
       /**
        * @summary Triggers shard rebalancing for a virtual warehouse.
@@ -1073,6 +1451,114 @@ namespace Hologram20220601
       Models::SuspendHoloWarehouseResponse suspendHoloWarehouse(const string &instanceId, const Models::SuspendHoloWarehouseRequest &request);
 
       /**
+       * @summary 新增tag
+       *
+       * @param request TagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增tag
+       *
+       * @param request TagResourcesRequest
+       * @return TagResourcesResponse
+       */
+      Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
+
+      /**
+       * @summary 解除绑定主实例
+       *
+       * @param request UnBindLeaderInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnBindLeaderInstanceResponse
+       */
+      Models::UnBindLeaderInstanceResponse unBindLeaderInstanceWithOptions(const string &instanceId, const Models::UnBindLeaderInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解除绑定主实例
+       *
+       * @param request UnBindLeaderInstanceRequest
+       * @return UnBindLeaderInstanceResponse
+       */
+      Models::UnBindLeaderInstanceResponse unBindLeaderInstance(const string &instanceId, const Models::UnBindLeaderInstanceRequest &request);
+
+      /**
+       * @summary 删除tag
+       *
+       * @param request UntagResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除tag
+       *
+       * @param request UntagResourcesRequest
+       * @return UntagResourcesResponse
+       */
+      Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary 修改小版本自动升级开关
+       *
+       * @param request UpdateAutoUpgradeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAutoUpgradeResponse
+       */
+      Models::UpdateAutoUpgradeResponse updateAutoUpgradeWithOptions(const string &instanceId, const Models::UpdateAutoUpgradeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改小版本自动升级开关
+       *
+       * @param request UpdateAutoUpgradeRequest
+       * @return UpdateAutoUpgradeResponse
+       */
+      Models::UpdateAutoUpgradeResponse updateAutoUpgrade(const string &instanceId, const Models::UpdateAutoUpgradeRequest &request);
+
+      /**
+       * @summary 更新备份描述
+       *
+       * @param request UpdateBackupDataDescRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateBackupDataDescResponse
+       */
+      Models::UpdateBackupDataDescResponse updateBackupDataDescWithOptions(const string &id, const Models::UpdateBackupDataDescRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新备份描述
+       *
+       * @param request UpdateBackupDataDescRequest
+       * @return UpdateBackupDataDescResponse
+       */
+      Models::UpdateBackupDataDescResponse updateBackupDataDesc(const string &id, const Models::UpdateBackupDataDescRequest &request);
+
+      /**
+       * @summary 修改holoweb登陆权限
+       *
+       * @param request UpdateHoloWebLoginSettingRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateHoloWebLoginSettingResponse
+       */
+      Models::UpdateHoloWebLoginSettingResponse updateHoloWebLoginSettingWithOptions(const string &instanceId, const Models::UpdateHoloWebLoginSettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改holoweb登陆权限
+       *
+       * @param request UpdateHoloWebLoginSettingRequest
+       * @return UpdateHoloWebLoginSettingResponse
+       */
+      Models::UpdateHoloWebLoginSettingResponse updateHoloWebLoginSetting(const string &instanceId, const Models::UpdateHoloWebLoginSettingRequest &request);
+
+      /**
        * @summary Changes the name of an instance.
        *
        * @param request UpdateInstanceNameRequest
@@ -1109,6 +1595,42 @@ namespace Hologram20220601
       Models::UpdateInstanceNetworkTypeResponse updateInstanceNetworkType(const string &instanceId, const Models::UpdateInstanceNetworkTypeRequest &request);
 
       /**
+       * @summary 修改端口号
+       *
+       * @param request UpdateInstancePortRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateInstancePortResponse
+       */
+      Models::UpdateInstancePortResponse updateInstancePortWithOptions(const string &instanceId, const Models::UpdateInstancePortRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改端口号
+       *
+       * @param request UpdateInstancePortRequest
+       * @return UpdateInstancePortResponse
+       */
+      Models::UpdateInstancePortResponse updateInstancePort(const string &instanceId, const Models::UpdateInstancePortRequest &request);
+
+      /**
+       * @summary 修改可维护时间窗口
+       *
+       * @param request UpdateMaintenanceWindowRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMaintenanceWindowResponse
+       */
+      Models::UpdateMaintenanceWindowResponse updateMaintenanceWindowWithOptions(const string &instanceId, const Models::UpdateMaintenanceWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改可维护时间窗口
+       *
+       * @param request UpdateMaintenanceWindowRequest
+       * @return UpdateMaintenanceWindowResponse
+       */
+      Models::UpdateMaintenanceWindowResponse updateMaintenanceWindow(const string &instanceId, const Models::UpdateMaintenanceWindowRequest &request);
+
+      /**
        * @summary 创建模型服务
        *
        * @param request UpdateModelServiceRequest
@@ -1127,6 +1649,42 @@ namespace Hologram20220601
       Models::UpdateModelServiceResponse updateModelService(const string &instanceId, const Models::UpdateModelServiceRequest &request);
 
       /**
+       * @summary 修改运维事件执行时间
+       *
+       * @param request UpdateOperationEventScheduleTimeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateOperationEventScheduleTimeResponse
+       */
+      Models::UpdateOperationEventScheduleTimeResponse updateOperationEventScheduleTimeWithOptions(const string &instanceId, const Models::UpdateOperationEventScheduleTimeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改运维事件执行时间
+       *
+       * @param request UpdateOperationEventScheduleTimeRequest
+       * @return UpdateOperationEventScheduleTimeResponse
+       */
+      Models::UpdateOperationEventScheduleTimeResponse updateOperationEventScheduleTime(const string &instanceId, const Models::UpdateOperationEventScheduleTimeRequest &request);
+
+      /**
+       * @summary 配置周期备份
+       *
+       * @param request UpdateScheduledBackupConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateScheduledBackupConfigResponse
+       */
+      Models::UpdateScheduledBackupConfigResponse updateScheduledBackupConfigWithOptions(const Models::UpdateScheduledBackupConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 配置周期备份
+       *
+       * @param request UpdateScheduledBackupConfigRequest
+       * @return UpdateScheduledBackupConfigResponse
+       */
+      Models::UpdateScheduledBackupConfigResponse updateScheduledBackupConfig(const Models::UpdateScheduledBackupConfigRequest &request);
+
+      /**
        * @summary 创建分时弹性计划
        *
        * @param request UpdateWarehouseScheduleTaskRequest
@@ -1143,6 +1701,24 @@ namespace Hologram20220601
        * @return UpdateWarehouseScheduleTaskResponse
        */
       Models::UpdateWarehouseScheduleTaskResponse updateWarehouseScheduleTask(const string &instanceId, const Models::UpdateWarehouseScheduleTaskRequest &request);
+
+      /**
+       * @summary 开始升级
+       *
+       * @param request UpgradeInstanceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpgradeInstanceResponse
+       */
+      Models::UpgradeInstanceResponse upgradeInstanceWithOptions(const string &instanceId, const Models::UpgradeInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 开始升级
+       *
+       * @param request UpgradeInstanceRequest
+       * @return UpgradeInstanceResponse
+       */
+      Models::UpgradeInstanceResponse upgradeInstance(const string &instanceId, const Models::UpgradeInstanceRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace Hologram20220601
