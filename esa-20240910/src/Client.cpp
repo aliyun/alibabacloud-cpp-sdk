@@ -14258,6 +14258,44 @@ ListPagesResponse Client::listPages(const ListPagesRequest &request) {
 }
 
 /**
+ * @summary Queries pay-as-you-go instances.
+ *
+ * @param request ListPostpaidRatePlanInstancesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPostpaidRatePlanInstancesResponse
+ */
+ListPostpaidRatePlanInstancesResponse Client::listPostpaidRatePlanInstancesWithOptions(const ListPostpaidRatePlanInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  map<string, string> query = Utils::Utils::query(request.toMap());
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPostpaidRatePlanInstances"},
+    {"version" , "2024-09-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPostpaidRatePlanInstancesResponse>();
+}
+
+/**
+ * @summary Queries pay-as-you-go instances.
+ *
+ * @param request ListPostpaidRatePlanInstancesRequest
+ * @return ListPostpaidRatePlanInstancesResponse
+ */
+ListPostpaidRatePlanInstancesResponse Client::listPostpaidRatePlanInstances(const ListPostpaidRatePlanInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPostpaidRatePlanInstancesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
  *
  * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.

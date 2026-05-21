@@ -875,6 +875,9 @@
 #include <alibabacloud/models/ListPagesShrinkRequest.hpp>
 #include <alibabacloud/models/ListPagesResponseBody.hpp>
 #include <alibabacloud/models/ListPagesResponse.hpp>
+#include <alibabacloud/models/ListPostpaidRatePlanInstancesRequest.hpp>
+#include <alibabacloud/models/ListPostpaidRatePlanInstancesResponseBody.hpp>
+#include <alibabacloud/models/ListPostpaidRatePlanInstancesResponse.hpp>
 #include <alibabacloud/models/ListRecordsRequest.hpp>
 #include <alibabacloud/models/ListRecordsResponseBody.hpp>
 #include <alibabacloud/models/ListRecordsResponse.hpp>

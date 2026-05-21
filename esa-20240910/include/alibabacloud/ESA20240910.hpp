@@ -5105,6 +5105,23 @@ namespace ESA20240910
       Models::ListPagesResponse listPages(const Models::ListPagesRequest &request);
 
       /**
+       * @summary Queries pay-as-you-go instances.
+       *
+       * @param request ListPostpaidRatePlanInstancesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPostpaidRatePlanInstancesResponse
+       */
+      Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstancesWithOptions(const Models::ListPostpaidRatePlanInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries pay-as-you-go instances.
+       *
+       * @param request ListPostpaidRatePlanInstancesRequest
+       * @return ListPostpaidRatePlanInstancesResponse
+       */
+      Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstances(const Models::ListPostpaidRatePlanInstancesRequest &request);
+
+      /**
        * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
        *
        * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
