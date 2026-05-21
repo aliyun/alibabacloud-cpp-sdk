@@ -835,6 +835,23 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterShareRuleResponse queryCostCenterShareRule(const Models::QueryCostCenterShareRuleRequest &request);
 
       /**
+       * @summary 查询SLA优惠券
+       *
+       * @param request QueryMonthlySlaListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryMonthlySlaListResponse
+       */
+      Models::QueryMonthlySlaListResponse queryMonthlySlaListWithOptions(const Models::QueryMonthlySlaListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SLA优惠券
+       *
+       * @param request QueryMonthlySlaListRequest
+       * @return QueryMonthlySlaListResponse
+       */
+      Models::QueryMonthlySlaListResponse queryMonthlySlaList(const Models::QueryMonthlySlaListRequest &request);
+
+      /**
        * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
        *
        * @param tmpReq SaveCostCenterShareRuleRequest
@@ -901,6 +918,23 @@ namespace BssOpenApi20230930
        * @return SetSavingPlanUserDeductRuleResponse
        */
       Models::SetSavingPlanUserDeductRuleResponse setSavingPlanUserDeductRule(const Models::SetSavingPlanUserDeductRuleRequest &request);
+
+      /**
+       * @summary SLA优惠券申领
+       *
+       * @param request SubmitSlaCouponApplyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitSlaCouponApplyResponse
+       */
+      Models::SubmitSlaCouponApplyResponse submitSlaCouponApplyWithOptions(const Models::SubmitSlaCouponApplyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SLA优惠券申领
+       *
+       * @param request SubmitSlaCouponApplyRequest
+       * @return SubmitSlaCouponApplyResponse
+       */
+      Models::SubmitSlaCouponApplyResponse submitSlaCouponApply(const Models::SubmitSlaCouponApplyRequest &request);
 
       /**
        * @summary 更新预算

@@ -172,6 +172,9 @@
 #include <alibabacloud/models/QueryCostCenterShareRuleRequest.hpp>
 #include <alibabacloud/models/QueryCostCenterShareRuleResponseBody.hpp>
 #include <alibabacloud/models/QueryCostCenterShareRuleResponse.hpp>
+#include <alibabacloud/models/QueryMonthlySlaListRequest.hpp>
+#include <alibabacloud/models/QueryMonthlySlaListResponseBody.hpp>
+#include <alibabacloud/models/QueryMonthlySlaListResponse.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleRequest.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleShrinkRequest.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleResponseBody.hpp>
@@ -186,6 +189,9 @@
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleShrinkRequest.hpp>
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleResponseBody.hpp>
 #include <alibabacloud/models/SetSavingPlanUserDeductRuleResponse.hpp>
+#include <alibabacloud/models/SubmitSlaCouponApplyRequest.hpp>
+#include <alibabacloud/models/SubmitSlaCouponApplyResponseBody.hpp>
+#include <alibabacloud/models/SubmitSlaCouponApplyResponse.hpp>
 #include <alibabacloud/models/UpdateBudgetRequest.hpp>
 #include <alibabacloud/models/UpdateBudgetShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateBudgetResponseBody.hpp>

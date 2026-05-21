@@ -3014,6 +3014,78 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRule(const QueryCos
 }
 
 /**
+ * @summary 查询SLA优惠券
+ *
+ * @param request QueryMonthlySlaListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryMonthlySlaListResponse
+ */
+QueryMonthlySlaListResponse Client::queryMonthlySlaListWithOptions(const QueryMonthlySlaListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasEcIdAccountIds()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  json body = {};
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasMonths()) {
+    body["Months"] = request.getMonths();
+  }
+
+  if (!!request.hasPayStatuses()) {
+    body["PayStatuses"] = request.getPayStatuses();
+  }
+
+  if (!!request.hasProductCodes()) {
+    body["ProductCodes"] = request.getProductCodes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryMonthlySlaList"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryMonthlySlaListResponse>();
+}
+
+/**
+ * @summary 查询SLA优惠券
+ *
+ * @param request QueryMonthlySlaListRequest
+ * @return QueryMonthlySlaListResponse
+ */
+QueryMonthlySlaListResponse Client::queryMonthlySlaList(const QueryMonthlySlaListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryMonthlySlaListWithOptions(request, runtime);
+}
+
+/**
  * @summary Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
  *
  * @param tmpReq SaveCostCenterShareRuleRequest
@@ -3245,6 +3317,62 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRuleWithOptio
 SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const SetSavingPlanUserDeductRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return setSavingPlanUserDeductRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary SLA优惠券申领
+ *
+ * @param request SubmitSlaCouponApplyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitSlaCouponApplyResponse
+ */
+SubmitSlaCouponApplyResponse Client::submitSlaCouponApplyWithOptions(const SubmitSlaCouponApplyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEcIdAccountIds()) {
+    query["EcIdAccountIds"] = request.getEcIdAccountIds();
+  }
+
+  if (!!request.hasNbid()) {
+    query["Nbid"] = request.getNbid();
+  }
+
+  json body = {};
+  if (!!request.hasDamagedIds()) {
+    body["DamagedIds"] = request.getDamagedIds();
+  }
+
+  if (!!request.hasMonth()) {
+    body["Month"] = request.getMonth();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitSlaCouponApply"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitSlaCouponApplyResponse>();
+}
+
+/**
+ * @summary SLA优惠券申领
+ *
+ * @param request SubmitSlaCouponApplyRequest
+ * @return SubmitSlaCouponApplyResponse
+ */
+SubmitSlaCouponApplyResponse Client::submitSlaCouponApply(const SubmitSlaCouponApplyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitSlaCouponApplyWithOptions(request, runtime);
 }
 
 /**
