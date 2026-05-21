@@ -249,7 +249,7 @@ AssociateProjectToImageResponse Client::associateProjectToImage(const AssociateP
 }
 
 /**
- * @summary Associates a resource group with a workspace.
+ * @summary Bind a resource group to a workspace.
  *
  * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
  * 2.  Your account must be assigned one of the following roles of the desired workspace:
@@ -288,7 +288,7 @@ AssociateProjectToResourceGroupResponse Client::associateProjectToResourceGroupW
 }
 
 /**
- * @summary Associates a resource group with a workspace.
+ * @summary Bind a resource group to a workspace.
  *
  * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
  * 2.  Your account must be assigned one of the following roles of the desired workspace:
@@ -12298,6 +12298,10 @@ ListWorkflowInstancesResponse Client::listWorkflowInstancesWithOptions(const Lis
   json body = {};
   if (!!request.hasBizDate()) {
     body["BizDate"] = request.getBizDate();
+  }
+
+  if (!!request.hasEnvType()) {
+    body["EnvType"] = request.getEnvType();
   }
 
   if (!!request.hasFilter()) {

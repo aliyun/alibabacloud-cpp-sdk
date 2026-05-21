@@ -77,7 +77,7 @@ namespace DataworksPublic20240518
       Models::AssociateProjectToImageResponse associateProjectToImage(const Models::AssociateProjectToImageRequest &request);
 
       /**
-       * @summary Associates a resource group with a workspace.
+       * @summary Bind a resource group to a workspace.
        *
        * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
        * 2.  Your account must be assigned one of the following roles of the desired workspace:
@@ -90,7 +90,7 @@ namespace DataworksPublic20240518
       Models::AssociateProjectToResourceGroupResponse associateProjectToResourceGroupWithOptions(const Models::AssociateProjectToResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Associates a resource group with a workspace.
+       * @summary Bind a resource group to a workspace.
        *
        * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
        * 2.  Your account must be assigned one of the following roles of the desired workspace:

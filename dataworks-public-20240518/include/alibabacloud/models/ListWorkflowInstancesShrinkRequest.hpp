@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListWorkflowInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_TO_JSON(EnvType, envType_);
       DARABONBA_PTR_TO_JSON(Filter, filter_);
       DARABONBA_PTR_TO_JSON(Ids, idsShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
@@ -29,6 +30,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListWorkflowInstancesShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizDate, bizDate_);
+      DARABONBA_PTR_FROM_JSON(EnvType, envType_);
       DARABONBA_PTR_FROM_JSON(Filter, filter_);
       DARABONBA_PTR_FROM_JSON(Ids, idsShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -54,14 +56,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizDate_ == nullptr
-        && this->filter_ == nullptr && this->idsShrink_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->sortBy_ == nullptr && this->tagsShrink_ == nullptr && this->type_ == nullptr
-        && this->unifiedWorkflowInstanceId_ == nullptr && this->workflowId_ == nullptr; };
+        && this->envType_ == nullptr && this->filter_ == nullptr && this->idsShrink_ == nullptr && this->name_ == nullptr && this->owner_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectId_ == nullptr && this->sortBy_ == nullptr && this->tagsShrink_ == nullptr
+        && this->type_ == nullptr && this->unifiedWorkflowInstanceId_ == nullptr && this->workflowId_ == nullptr; };
     // bizDate Field Functions 
     bool hasBizDate() const { return this->bizDate_ != nullptr;};
     void deleteBizDate() { this->bizDate_ = nullptr;};
     inline int64_t getBizDate() const { DARABONBA_PTR_GET_DEFAULT(bizDate_, 0L) };
     inline ListWorkflowInstancesShrinkRequest& setBizDate(int64_t bizDate) { DARABONBA_PTR_SET_VALUE(bizDate_, bizDate) };
+
+
+    // envType Field Functions 
+    bool hasEnvType() const { return this->envType_ != nullptr;};
+    void deleteEnvType() { this->envType_ = nullptr;};
+    inline string getEnvType() const { DARABONBA_PTR_GET_DEFAULT(envType_, "") };
+    inline ListWorkflowInstancesShrinkRequest& setEnvType(string envType) { DARABONBA_PTR_SET_VALUE(envType_, envType) };
 
 
     // filter Field Functions 
@@ -153,6 +162,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> bizDate_ {};
+    shared_ptr<string> envType_ {};
     shared_ptr<string> filter_ {};
     // The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
     shared_ptr<string> idsShrink_ {};
