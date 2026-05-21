@@ -24,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(builtinRouteNames, builtinRouteNames_);
       DARABONBA_PTR_TO_JSON(customDomainIds, customDomainIds_);
       DARABONBA_PTR_TO_JSON(customDomainInfos, customDomainInfos_);
+      DARABONBA_PTR_TO_JSON(envDomainIds, envDomainIds_);
+      DARABONBA_PTR_TO_JSON(envDomainInfos, envDomainInfos_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(gatewayInfo, gatewayInfo_);
@@ -40,6 +42,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(builtinRouteNames, builtinRouteNames_);
       DARABONBA_PTR_FROM_JSON(customDomainIds, customDomainIds_);
       DARABONBA_PTR_FROM_JSON(customDomainInfos, customDomainInfos_);
+      DARABONBA_PTR_FROM_JSON(envDomainIds, envDomainIds_);
+      DARABONBA_PTR_FROM_JSON(envDomainInfos, envDomainInfos_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_FROM_JSON(gatewayInfo, gatewayInfo_);
@@ -353,6 +357,58 @@ namespace Models
       shared_ptr<int64_t> weight_ {};
     };
 
+    class EnvDomainInfos : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const EnvDomainInfos& obj) { 
+        DARABONBA_PTR_TO_JSON(domainId, domainId_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(protocol, protocol_);
+      };
+      friend void from_json(const Darabonba::Json& j, EnvDomainInfos& obj) { 
+        DARABONBA_PTR_FROM_JSON(domainId, domainId_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(protocol, protocol_);
+      };
+      EnvDomainInfos() = default ;
+      EnvDomainInfos(const EnvDomainInfos &) = default ;
+      EnvDomainInfos(EnvDomainInfos &&) = default ;
+      EnvDomainInfos(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~EnvDomainInfos() = default ;
+      EnvDomainInfos& operator=(const EnvDomainInfos &) = default ;
+      EnvDomainInfos& operator=(EnvDomainInfos &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->domainId_ == nullptr
+        && this->name_ == nullptr && this->protocol_ == nullptr; };
+      // domainId Field Functions 
+      bool hasDomainId() const { return this->domainId_ != nullptr;};
+      void deleteDomainId() { this->domainId_ = nullptr;};
+      inline string getDomainId() const { DARABONBA_PTR_GET_DEFAULT(domainId_, "") };
+      inline EnvDomainInfos& setDomainId(string domainId) { DARABONBA_PTR_SET_VALUE(domainId_, domainId) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline EnvDomainInfos& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // protocol Field Functions 
+      bool hasProtocol() const { return this->protocol_ != nullptr;};
+      void deleteProtocol() { this->protocol_ = nullptr;};
+      inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+      inline EnvDomainInfos& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+    protected:
+      shared_ptr<string> domainId_ {};
+      shared_ptr<string> name_ {};
+      shared_ptr<string> protocol_ {};
+    };
+
     class CustomDomainInfos : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CustomDomainInfos& obj) { 
@@ -409,9 +465,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoDeploy_ == nullptr
-        && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->environmentId_ == nullptr
-        && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr && this->gatewayType_ == nullptr && this->mock_ == nullptr && this->policyConfigs_ == nullptr
-        && this->routeBackend_ == nullptr && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr; };
+        && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->envDomainIds_ == nullptr
+        && this->envDomainInfos_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr && this->gatewayType_ == nullptr
+        && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->routeBackend_ == nullptr && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr; };
     // autoDeploy Field Functions 
     bool hasAutoDeploy() const { return this->autoDeploy_ != nullptr;};
     void deleteAutoDeploy() { this->autoDeploy_ = nullptr;};
@@ -451,6 +507,24 @@ namespace Models
     inline vector<HttpApiDeployConfig::CustomDomainInfos> getCustomDomainInfos() { DARABONBA_PTR_GET(customDomainInfos_, vector<HttpApiDeployConfig::CustomDomainInfos>) };
     inline HttpApiDeployConfig& setCustomDomainInfos(const vector<HttpApiDeployConfig::CustomDomainInfos> & customDomainInfos) { DARABONBA_PTR_SET_VALUE(customDomainInfos_, customDomainInfos) };
     inline HttpApiDeployConfig& setCustomDomainInfos(vector<HttpApiDeployConfig::CustomDomainInfos> && customDomainInfos) { DARABONBA_PTR_SET_RVALUE(customDomainInfos_, customDomainInfos) };
+
+
+    // envDomainIds Field Functions 
+    bool hasEnvDomainIds() const { return this->envDomainIds_ != nullptr;};
+    void deleteEnvDomainIds() { this->envDomainIds_ = nullptr;};
+    inline const vector<string> & getEnvDomainIds() const { DARABONBA_PTR_GET_CONST(envDomainIds_, vector<string>) };
+    inline vector<string> getEnvDomainIds() { DARABONBA_PTR_GET(envDomainIds_, vector<string>) };
+    inline HttpApiDeployConfig& setEnvDomainIds(const vector<string> & envDomainIds) { DARABONBA_PTR_SET_VALUE(envDomainIds_, envDomainIds) };
+    inline HttpApiDeployConfig& setEnvDomainIds(vector<string> && envDomainIds) { DARABONBA_PTR_SET_RVALUE(envDomainIds_, envDomainIds) };
+
+
+    // envDomainInfos Field Functions 
+    bool hasEnvDomainInfos() const { return this->envDomainInfos_ != nullptr;};
+    void deleteEnvDomainInfos() { this->envDomainInfos_ = nullptr;};
+    inline const vector<HttpApiDeployConfig::EnvDomainInfos> & getEnvDomainInfos() const { DARABONBA_PTR_GET_CONST(envDomainInfos_, vector<HttpApiDeployConfig::EnvDomainInfos>) };
+    inline vector<HttpApiDeployConfig::EnvDomainInfos> getEnvDomainInfos() { DARABONBA_PTR_GET(envDomainInfos_, vector<HttpApiDeployConfig::EnvDomainInfos>) };
+    inline HttpApiDeployConfig& setEnvDomainInfos(const vector<HttpApiDeployConfig::EnvDomainInfos> & envDomainInfos) { DARABONBA_PTR_SET_VALUE(envDomainInfos_, envDomainInfos) };
+    inline HttpApiDeployConfig& setEnvDomainInfos(vector<HttpApiDeployConfig::EnvDomainInfos> && envDomainInfos) { DARABONBA_PTR_SET_RVALUE(envDomainInfos_, envDomainInfos) };
 
 
     // environmentId Field Functions 
@@ -538,6 +612,8 @@ namespace Models
     shared_ptr<vector<string>> customDomainIds_ {};
     // The information about the custom domain names.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
+    shared_ptr<vector<string>> envDomainIds_ {};
+    shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
     // The instance ID.

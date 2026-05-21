@@ -2,7 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_AIPLUGINSTATUS_HPP_
 #define ALIBABACLOUD_MODELS_AIPLUGINSTATUS_HPP_
 #include <darabonba/Core.hpp>
-#include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,10 +39,10 @@ namespace Models
     // errorLogs Field Functions 
     bool hasErrorLogs() const { return this->errorLogs_ != nullptr;};
     void deleteErrorLogs() { this->errorLogs_ = nullptr;};
-    inline const map<string, string> & getErrorLogs() const { DARABONBA_PTR_GET_CONST(errorLogs_, map<string, string>) };
-    inline map<string, string> getErrorLogs() { DARABONBA_PTR_GET(errorLogs_, map<string, string>) };
-    inline AiPluginStatus& setErrorLogs(const map<string, string> & errorLogs) { DARABONBA_PTR_SET_VALUE(errorLogs_, errorLogs) };
-    inline AiPluginStatus& setErrorLogs(map<string, string> && errorLogs) { DARABONBA_PTR_SET_RVALUE(errorLogs_, errorLogs) };
+    inline const vector<Darabonba::Json> & getErrorLogs() const { DARABONBA_PTR_GET_CONST(errorLogs_, vector<Darabonba::Json>) };
+    inline vector<Darabonba::Json> getErrorLogs() { DARABONBA_PTR_GET(errorLogs_, vector<Darabonba::Json>) };
+    inline AiPluginStatus& setErrorLogs(const vector<Darabonba::Json> & errorLogs) { DARABONBA_PTR_SET_VALUE(errorLogs_, errorLogs) };
+    inline AiPluginStatus& setErrorLogs(vector<Darabonba::Json> && errorLogs) { DARABONBA_PTR_SET_RVALUE(errorLogs_, errorLogs) };
 
 
     // pluginId Field Functions 
@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    shared_ptr<map<string, string>> errorLogs_ {};
+    shared_ptr<vector<Darabonba::Json>> errorLogs_ {};
     shared_ptr<string> pluginId_ {};
     shared_ptr<bool> serviceHealthy_ {};
   };
