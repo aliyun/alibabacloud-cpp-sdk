@@ -898,6 +898,12 @@
 #include <alibabacloud/models/GetUserIdShrinkRequest.hpp>
 #include <alibabacloud/models/GetUserIdResponseBody.hpp>
 #include <alibabacloud/models/GetUserIdResponse.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdHeaders.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdShrinkHeaders.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdRequest.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdShrinkRequest.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdResponseBody.hpp>
+#include <alibabacloud/models/GetUserIdByOpenDingtalkIdResponse.hpp>
 #include <alibabacloud/models/GetUserIdByOrgIdAndStaffIdHeaders.hpp>
 #include <alibabacloud/models/GetUserIdByOrgIdAndStaffIdShrinkHeaders.hpp>
 #include <alibabacloud/models/GetUserIdByOrgIdAndStaffIdRequest.hpp>

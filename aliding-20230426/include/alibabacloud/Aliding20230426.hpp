@@ -2815,6 +2815,24 @@ namespace Aliding20230426
       Models::GetUserIdResponse getUserId(const Models::GetUserIdRequest &request);
 
       /**
+       * @summary 根据操作人工号与 openDingtalkId 获取被查看用户工号
+       *
+       * @param tmpReq GetUserIdByOpenDingtalkIdRequest
+       * @param tmpHeader GetUserIdByOpenDingtalkIdHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUserIdByOpenDingtalkIdResponse
+       */
+      Models::GetUserIdByOpenDingtalkIdResponse getUserIdByOpenDingtalkIdWithOptions(const Models::GetUserIdByOpenDingtalkIdRequest &tmpReq, const Models::GetUserIdByOpenDingtalkIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据操作人工号与 openDingtalkId 获取被查看用户工号
+       *
+       * @param request GetUserIdByOpenDingtalkIdRequest
+       * @return GetUserIdByOpenDingtalkIdResponse
+       */
+      Models::GetUserIdByOpenDingtalkIdResponse getUserIdByOpenDingtalkId(const Models::GetUserIdByOpenDingtalkIdRequest &request);
+
+      /**
        * @summary 根据orgId和staffId获取用户userId
        *
        * @param tmpReq GetUserIdByOrgIdAndStaffIdRequest

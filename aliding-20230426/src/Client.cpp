@@ -12882,6 +12882,76 @@ GetUserIdResponse Client::getUserId(const GetUserIdRequest &request) {
 }
 
 /**
+ * @summary 根据操作人工号与 openDingtalkId 获取被查看用户工号
+ *
+ * @param tmpReq GetUserIdByOpenDingtalkIdRequest
+ * @param tmpHeader GetUserIdByOpenDingtalkIdHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetUserIdByOpenDingtalkIdResponse
+ */
+GetUserIdByOpenDingtalkIdResponse Client::getUserIdByOpenDingtalkIdWithOptions(const GetUserIdByOpenDingtalkIdRequest &tmpReq, const GetUserIdByOpenDingtalkIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetUserIdByOpenDingtalkIdShrinkRequest request = GetUserIdByOpenDingtalkIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  GetUserIdByOpenDingtalkIdShrinkHeaders headers = GetUserIdByOpenDingtalkIdShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasOpenDingtalkId()) {
+    body["openDingtalkId"] = request.getOpenDingtalkId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetUserIdByOpenDingtalkId"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/getUserIdByOpenDingtalkId")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetUserIdByOpenDingtalkIdResponse>();
+}
+
+/**
+ * @summary 根据操作人工号与 openDingtalkId 获取被查看用户工号
+ *
+ * @param request GetUserIdByOpenDingtalkIdRequest
+ * @return GetUserIdByOpenDingtalkIdResponse
+ */
+GetUserIdByOpenDingtalkIdResponse Client::getUserIdByOpenDingtalkId(const GetUserIdByOpenDingtalkIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  GetUserIdByOpenDingtalkIdHeaders headers = GetUserIdByOpenDingtalkIdHeaders();
+  return getUserIdByOpenDingtalkIdWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 根据orgId和staffId获取用户userId
  *
  * @param tmpReq GetUserIdByOrgIdAndStaffIdRequest
