@@ -35,43 +35,43 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->clientToken_ != nullptr && this->regionId_ != nullptr && this->repoId_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && this->clientToken_ == nullptr && this->regionId_ == nullptr && this->repoId_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline DeleteAcrImageRepositoriesRequest& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteAcrImageRepositoriesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteAcrImageRepositoriesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // repoId Field Functions 
     bool hasRepoId() const { return this->repoId_ != nullptr;};
     void deleteRepoId() { this->repoId_ = nullptr;};
-    inline string repoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
+    inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
     inline DeleteAcrImageRepositoriesRequest& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
 
 
   protected:
-    std::shared_ptr<string> artifactType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> artifactType_ {};
+    shared_ptr<string> clientToken_ {};
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> repoId_ = nullptr;
+    shared_ptr<string> repoId_ {};
   };
 
   } // namespace Models

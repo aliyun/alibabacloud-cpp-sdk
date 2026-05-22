@@ -45,87 +45,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactId_ != nullptr
-        && this->artifactProperty_ != nullptr && this->artifactType_ != nullptr && this->artifactVersion_ != nullptr && this->description_ != nullptr && this->gmtModified_ != nullptr
-        && this->requestId_ != nullptr && this->status_ != nullptr && this->versionName_ != nullptr; };
+    virtual bool empty() const override { return this->artifactId_ == nullptr
+        && this->artifactProperty_ == nullptr && this->artifactType_ == nullptr && this->artifactVersion_ == nullptr && this->description_ == nullptr && this->gmtModified_ == nullptr
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->versionName_ == nullptr; };
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
-    inline string artifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
+    inline string getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
     inline ReleaseArtifactResponseBody& setArtifactId(string artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
 
 
     // artifactProperty Field Functions 
     bool hasArtifactProperty() const { return this->artifactProperty_ != nullptr;};
     void deleteArtifactProperty() { this->artifactProperty_ = nullptr;};
-    inline string artifactProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactProperty_, "") };
+    inline string getArtifactProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactProperty_, "") };
     inline ReleaseArtifactResponseBody& setArtifactProperty(string artifactProperty) { DARABONBA_PTR_SET_VALUE(artifactProperty_, artifactProperty) };
 
 
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline ReleaseArtifactResponseBody& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // artifactVersion Field Functions 
     bool hasArtifactVersion() const { return this->artifactVersion_ != nullptr;};
     void deleteArtifactVersion() { this->artifactVersion_ = nullptr;};
-    inline string artifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
+    inline string getArtifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
     inline ReleaseArtifactResponseBody& setArtifactVersion(string artifactVersion) { DARABONBA_PTR_SET_VALUE(artifactVersion_, artifactVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ReleaseArtifactResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline ReleaseArtifactResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ReleaseArtifactResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ReleaseArtifactResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
-    inline string versionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+    inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
     inline ReleaseArtifactResponseBody& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
 
 
   protected:
     // The ID of the artifact.
-    std::shared_ptr<string> artifactId_ = nullptr;
+    shared_ptr<string> artifactId_ {};
     // The content of the artifact.
-    std::shared_ptr<string> artifactProperty_ = nullptr;
+    shared_ptr<string> artifactProperty_ {};
     // The type of the artifact.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The version of the artifact.
-    std::shared_ptr<string> artifactVersion_ = nullptr;
+    shared_ptr<string> artifactVersion_ {};
     // The description of the artifact.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The time when the artifact was modified.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The state of the artifact. Valid values:
     // 
     // *   Created: The artifact is created.
@@ -134,9 +134,9 @@ namespace Models
     // *   Delivering: The artifact is being distributed.
     // *   Available: The artifact is available.
     // *   Deleted: The artifact is deleted.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The version name of the artifact.
-    std::shared_ptr<string> versionName_ = nullptr;
+    shared_ptr<string> versionName_ {};
   };
 
   } // namespace Models

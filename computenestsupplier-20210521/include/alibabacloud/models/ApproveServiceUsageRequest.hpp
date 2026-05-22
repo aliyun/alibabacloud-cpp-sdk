@@ -39,67 +39,67 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->comments_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->type_ != nullptr && this->userAliUid_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->comments_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->type_ == nullptr && this->userAliUid_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ApproveServiceUsageRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // comments Field Functions 
     bool hasComments() const { return this->comments_ != nullptr;};
     void deleteComments() { this->comments_ = nullptr;};
-    inline string comments() const { DARABONBA_PTR_GET_DEFAULT(comments_, "") };
+    inline string getComments() const { DARABONBA_PTR_GET_DEFAULT(comments_, "") };
     inline ApproveServiceUsageRequest& setComments(string comments) { DARABONBA_PTR_SET_VALUE(comments_, comments) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ApproveServiceUsageRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline ApproveServiceUsageRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline ApproveServiceUsageRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // userAliUid Field Functions 
     bool hasUserAliUid() const { return this->userAliUid_ != nullptr;};
     void deleteUserAliUid() { this->userAliUid_ = nullptr;};
-    inline int64_t userAliUid() const { DARABONBA_PTR_GET_DEFAULT(userAliUid_, 0L) };
+    inline int64_t getUserAliUid() const { DARABONBA_PTR_GET_DEFAULT(userAliUid_, 0L) };
     inline ApproveServiceUsageRequest& setUserAliUid(int64_t userAliUid) { DARABONBA_PTR_SET_VALUE(userAliUid_, userAliUid) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Approval comments.
-    std::shared_ptr<string> comments_ = nullptr;
+    shared_ptr<string> comments_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // ServiceSharedAccountType，
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> type_ {};
     // User ali uid.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> userAliUid_ = nullptr;
+    shared_ptr<int64_t> userAliUid_ {};
   };
 
   } // namespace Models

@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSERVICETESTCASESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListServiceTestCasesRequestFilters.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -41,65 +40,115 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filters_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceVersion_ != nullptr; };
+    class Filters : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Filters& obj) { 
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Filters& obj) { 
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Filters() = default ;
+      Filters(const Filters &) = default ;
+      Filters(Filters &&) = default ;
+      Filters(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Filters() = default ;
+      Filters& operator=(const Filters &) = default ;
+      Filters& operator=(Filters &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->name_ == nullptr
+        && this->value_ == nullptr; };
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Filters& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline const vector<string> & getValue() const { DARABONBA_PTR_GET_CONST(value_, vector<string>) };
+      inline vector<string> getValue() { DARABONBA_PTR_GET(value_, vector<string>) };
+      inline Filters& setValue(const vector<string> & value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+      inline Filters& setValue(vector<string> && value) { DARABONBA_PTR_SET_RVALUE(value_, value) };
+
+
+    protected:
+      // The parameter name of the filter. You can specify one or more filters. Valid values:
+      // 
+      // **Status**
+      // 
+      // **TaskId**
+      shared_ptr<string> name_ {};
+      // The value of the filter condition.
+      shared_ptr<vector<string>> value_ {};
+    };
+
+    virtual bool empty() const override { return this->filters_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceVersion_ == nullptr; };
     // filters Field Functions 
     bool hasFilters() const { return this->filters_ != nullptr;};
     void deleteFilters() { this->filters_ = nullptr;};
-    inline const vector<ListServiceTestCasesRequestFilters> & filters() const { DARABONBA_PTR_GET_CONST(filters_, vector<ListServiceTestCasesRequestFilters>) };
-    inline vector<ListServiceTestCasesRequestFilters> filters() { DARABONBA_PTR_GET(filters_, vector<ListServiceTestCasesRequestFilters>) };
-    inline ListServiceTestCasesRequest& setFilters(const vector<ListServiceTestCasesRequestFilters> & filters) { DARABONBA_PTR_SET_VALUE(filters_, filters) };
-    inline ListServiceTestCasesRequest& setFilters(vector<ListServiceTestCasesRequestFilters> && filters) { DARABONBA_PTR_SET_RVALUE(filters_, filters) };
+    inline const vector<ListServiceTestCasesRequest::Filters> & getFilters() const { DARABONBA_PTR_GET_CONST(filters_, vector<ListServiceTestCasesRequest::Filters>) };
+    inline vector<ListServiceTestCasesRequest::Filters> getFilters() { DARABONBA_PTR_GET(filters_, vector<ListServiceTestCasesRequest::Filters>) };
+    inline ListServiceTestCasesRequest& setFilters(const vector<ListServiceTestCasesRequest::Filters> & filters) { DARABONBA_PTR_SET_VALUE(filters_, filters) };
+    inline ListServiceTestCasesRequest& setFilters(vector<ListServiceTestCasesRequest::Filters> && filters) { DARABONBA_PTR_SET_RVALUE(filters_, filters) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListServiceTestCasesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListServiceTestCasesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListServiceTestCasesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline ListServiceTestCasesRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline ListServiceTestCasesRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
   protected:
     // The filters.
-    std::shared_ptr<vector<ListServiceTestCasesRequestFilters>> filters_ = nullptr;
+    shared_ptr<vector<ListServiceTestCasesRequest::Filters>> filters_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->metering_ != nullptr
-        && this->serviceInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->metering_ == nullptr
+        && this->serviceInstanceId_ == nullptr; };
     // metering Field Functions 
     bool hasMetering() const { return this->metering_ != nullptr;};
     void deleteMetering() { this->metering_ = nullptr;};
-    inline string metering() const { DARABONBA_PTR_GET_DEFAULT(metering_, "") };
+    inline string getMetering() const { DARABONBA_PTR_GET_DEFAULT(metering_, "") };
     inline PushMeteringDataRequest& setMetering(string metering) { DARABONBA_PTR_SET_VALUE(metering_, metering) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline PushMeteringDataRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
@@ -81,11 +81,11 @@ namespace Models
     // *   In a request for pushing multiple metering data records, the values of InstanceId must indicate instances of the same commodity. You cannot push metering data of instances of multiple commodities at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> metering_ = nullptr;
+    shared_ptr<string> metering_ {};
     // The service instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
   };
 
   } // namespace Models

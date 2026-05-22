@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSERVICETESTTASKSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListServiceTestTasksResponseBodyServiceTestTasks.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,56 +38,133 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->count_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->requestId_ != nullptr && this->serviceTestTasks_ != nullptr; };
+    class ServiceTestTasks : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ServiceTestTasks& obj) { 
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+        DARABONBA_PTR_TO_JSON(TaskName, taskName_);
+        DARABONBA_PTR_TO_JSON(TaskRegionId, taskRegionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, ServiceTestTasks& obj) { 
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+        DARABONBA_PTR_FROM_JSON(TaskName, taskName_);
+        DARABONBA_PTR_FROM_JSON(TaskRegionId, taskRegionId_);
+      };
+      ServiceTestTasks() = default ;
+      ServiceTestTasks(const ServiceTestTasks &) = default ;
+      ServiceTestTasks(ServiceTestTasks &&) = default ;
+      ServiceTestTasks(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ServiceTestTasks() = default ;
+      ServiceTestTasks& operator=(const ServiceTestTasks &) = default ;
+      ServiceTestTasks& operator=(ServiceTestTasks &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->status_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskRegionId_ == nullptr; };
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline ServiceTestTasks& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline ServiceTestTasks& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+      inline ServiceTestTasks& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+      // taskName Field Functions 
+      bool hasTaskName() const { return this->taskName_ != nullptr;};
+      void deleteTaskName() { this->taskName_ = nullptr;};
+      inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+      inline ServiceTestTasks& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
+
+
+      // taskRegionId Field Functions 
+      bool hasTaskRegionId() const { return this->taskRegionId_ != nullptr;};
+      void deleteTaskRegionId() { this->taskRegionId_ = nullptr;};
+      inline string getTaskRegionId() const { DARABONBA_PTR_GET_DEFAULT(taskRegionId_, "") };
+      inline ServiceTestTasks& setTaskRegionId(string taskRegionId) { DARABONBA_PTR_SET_VALUE(taskRegionId_, taskRegionId) };
+
+
+    protected:
+      // The time when the task was created.
+      shared_ptr<string> createTime_ {};
+      // the status of service task.
+      shared_ptr<string> status_ {};
+      // The task ID.
+      shared_ptr<string> taskId_ {};
+      // The name of the task.
+      shared_ptr<string> taskName_ {};
+      // The task region id.
+      shared_ptr<string> taskRegionId_ {};
+    };
+
+    virtual bool empty() const override { return this->count_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->requestId_ == nullptr && this->serviceTestTasks_ == nullptr; };
     // count Field Functions 
     bool hasCount() const { return this->count_ != nullptr;};
     void deleteCount() { this->count_ = nullptr;};
-    inline int32_t count() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
+    inline int32_t getCount() const { DARABONBA_PTR_GET_DEFAULT(count_, 0) };
     inline ListServiceTestTasksResponseBody& setCount(int32_t count) { DARABONBA_PTR_SET_VALUE(count_, count) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListServiceTestTasksResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListServiceTestTasksResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListServiceTestTasksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // serviceTestTasks Field Functions 
     bool hasServiceTestTasks() const { return this->serviceTestTasks_ != nullptr;};
     void deleteServiceTestTasks() { this->serviceTestTasks_ = nullptr;};
-    inline const vector<ListServiceTestTasksResponseBodyServiceTestTasks> & serviceTestTasks() const { DARABONBA_PTR_GET_CONST(serviceTestTasks_, vector<ListServiceTestTasksResponseBodyServiceTestTasks>) };
-    inline vector<ListServiceTestTasksResponseBodyServiceTestTasks> serviceTestTasks() { DARABONBA_PTR_GET(serviceTestTasks_, vector<ListServiceTestTasksResponseBodyServiceTestTasks>) };
-    inline ListServiceTestTasksResponseBody& setServiceTestTasks(const vector<ListServiceTestTasksResponseBodyServiceTestTasks> & serviceTestTasks) { DARABONBA_PTR_SET_VALUE(serviceTestTasks_, serviceTestTasks) };
-    inline ListServiceTestTasksResponseBody& setServiceTestTasks(vector<ListServiceTestTasksResponseBodyServiceTestTasks> && serviceTestTasks) { DARABONBA_PTR_SET_RVALUE(serviceTestTasks_, serviceTestTasks) };
+    inline const vector<ListServiceTestTasksResponseBody::ServiceTestTasks> & getServiceTestTasks() const { DARABONBA_PTR_GET_CONST(serviceTestTasks_, vector<ListServiceTestTasksResponseBody::ServiceTestTasks>) };
+    inline vector<ListServiceTestTasksResponseBody::ServiceTestTasks> getServiceTestTasks() { DARABONBA_PTR_GET(serviceTestTasks_, vector<ListServiceTestTasksResponseBody::ServiceTestTasks>) };
+    inline ListServiceTestTasksResponseBody& setServiceTestTasks(const vector<ListServiceTestTasksResponseBody::ServiceTestTasks> & serviceTestTasks) { DARABONBA_PTR_SET_VALUE(serviceTestTasks_, serviceTestTasks) };
+    inline ListServiceTestTasksResponseBody& setServiceTestTasks(vector<ListServiceTestTasksResponseBody::ServiceTestTasks> && serviceTestTasks) { DARABONBA_PTR_SET_RVALUE(serviceTestTasks_, serviceTestTasks) };
 
 
   protected:
     // The total number of entries returned.
-    std::shared_ptr<int32_t> count_ = nullptr;
+    shared_ptr<int32_t> count_ {};
     // The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The service test tasks.
-    std::shared_ptr<vector<ListServiceTestTasksResponseBodyServiceTestTasks>> serviceTestTasks_ = nullptr;
+    shared_ptr<vector<ListServiceTestTasksResponseBody::ServiceTestTasks>> serviceTestTasks_ {};
   };
 
   } // namespace Models

@@ -37,40 +37,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->licenseDataShrink_ != nullptr && this->reason_ != nullptr && this->regionId_ != nullptr && this->serviceInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->licenseDataShrink_ == nullptr && this->reason_ == nullptr && this->regionId_ == nullptr && this->serviceInstanceId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateServiceInstanceAttributeShrinkRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // licenseDataShrink Field Functions 
     bool hasLicenseDataShrink() const { return this->licenseDataShrink_ != nullptr;};
     void deleteLicenseDataShrink() { this->licenseDataShrink_ = nullptr;};
-    inline string licenseDataShrink() const { DARABONBA_PTR_GET_DEFAULT(licenseDataShrink_, "") };
+    inline string getLicenseDataShrink() const { DARABONBA_PTR_GET_DEFAULT(licenseDataShrink_, "") };
     inline UpdateServiceInstanceAttributeShrinkRequest& setLicenseDataShrink(string licenseDataShrink) { DARABONBA_PTR_SET_VALUE(licenseDataShrink_, licenseDataShrink) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline UpdateServiceInstanceAttributeShrinkRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateServiceInstanceAttributeShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline UpdateServiceInstanceAttributeShrinkRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
@@ -78,19 +78,19 @@ namespace Models
     // The time when the service instance expires.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The License Data
-    std::shared_ptr<string> licenseDataShrink_ = nullptr;
+    shared_ptr<string> licenseDataShrink_ {};
     // Application reason, currently used for trial application extension.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
   };
 
   } // namespace Models

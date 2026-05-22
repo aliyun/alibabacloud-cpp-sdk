@@ -33,34 +33,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->serviceId_ != nullptr && this->serviceVersion_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->serviceId_ == nullptr && this->serviceVersion_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceTemplateCriterionIssuesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GetServiceTemplateCriterionIssuesRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GetServiceTemplateCriterionIssuesRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
   protected:
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceId_ {};
+    shared_ptr<string> serviceVersion_ {};
   };
 
   } // namespace Models

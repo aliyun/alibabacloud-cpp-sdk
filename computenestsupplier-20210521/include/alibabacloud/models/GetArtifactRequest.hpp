@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactId_ != nullptr
-        && this->artifactName_ != nullptr && this->artifactVersion_ != nullptr; };
+    virtual bool empty() const override { return this->artifactId_ == nullptr
+        && this->artifactName_ == nullptr && this->artifactVersion_ == nullptr; };
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
-    inline string artifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
+    inline string getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
     inline GetArtifactRequest& setArtifactId(string artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
 
 
     // artifactName Field Functions 
     bool hasArtifactName() const { return this->artifactName_ != nullptr;};
     void deleteArtifactName() { this->artifactName_ = nullptr;};
-    inline string artifactName() const { DARABONBA_PTR_GET_DEFAULT(artifactName_, "") };
+    inline string getArtifactName() const { DARABONBA_PTR_GET_DEFAULT(artifactName_, "") };
     inline GetArtifactRequest& setArtifactName(string artifactName) { DARABONBA_PTR_SET_VALUE(artifactName_, artifactName) };
 
 
     // artifactVersion Field Functions 
     bool hasArtifactVersion() const { return this->artifactVersion_ != nullptr;};
     void deleteArtifactVersion() { this->artifactVersion_ = nullptr;};
-    inline string artifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
+    inline string getArtifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
     inline GetArtifactRequest& setArtifactVersion(string artifactVersion) { DARABONBA_PTR_SET_VALUE(artifactVersion_, artifactVersion) };
 
 
   protected:
     // The ID of the deployment package.
-    std::shared_ptr<string> artifactId_ = nullptr;
+    shared_ptr<string> artifactId_ {};
     // The name of the deployment package.
-    std::shared_ptr<string> artifactName_ = nullptr;
+    shared_ptr<string> artifactName_ {};
     // The version of the deployment package.
-    std::shared_ptr<string> artifactVersion_ = nullptr;
+    shared_ptr<string> artifactVersion_ {};
   };
 
   } // namespace Models

@@ -39,53 +39,53 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->permission_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->type_ != nullptr && this->userAliUid_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->permission_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->type_ == nullptr && this->userAliUid_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateSharedAccountPermissionRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // permission Field Functions 
     bool hasPermission() const { return this->permission_ != nullptr;};
     void deletePermission() { this->permission_ = nullptr;};
-    inline string permission() const { DARABONBA_PTR_GET_DEFAULT(permission_, "") };
+    inline string getPermission() const { DARABONBA_PTR_GET_DEFAULT(permission_, "") };
     inline UpdateSharedAccountPermissionRequest& setPermission(string permission) { DARABONBA_PTR_SET_VALUE(permission_, permission) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateSharedAccountPermissionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline UpdateSharedAccountPermissionRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UpdateSharedAccountPermissionRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // userAliUid Field Functions 
     bool hasUserAliUid() const { return this->userAliUid_ != nullptr;};
     void deleteUserAliUid() { this->userAliUid_ = nullptr;};
-    inline int64_t userAliUid() const { DARABONBA_PTR_GET_DEFAULT(userAliUid_, 0L) };
+    inline int64_t getUserAliUid() const { DARABONBA_PTR_GET_DEFAULT(userAliUid_, 0L) };
     inline UpdateSharedAccountPermissionRequest& setUserAliUid(int64_t userAliUid) { DARABONBA_PTR_SET_VALUE(userAliUid_, userAliUid) };
 
 
   protected:
     // Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Permission type. Possible values:
     // - Deployable: Can be deployed.
     // - Accessible: Can be accessed.
@@ -95,25 +95,25 @@ namespace Models
     // - Unauthorized: Unauthorized (for reselling scenarios)
     // 
     // This parameter is required.
-    std::shared_ptr<string> permission_ = nullptr;
+    shared_ptr<string> permission_ {};
     // Region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // Service sharing type, with a default value of SharedAccount. Available options:
     // 
     // - SharedAccount: Regular sharing type.
     // 
     // - Reseller: Reselling sharing type.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // Whitelist account for service sharing.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> userAliUid_ = nullptr;
+    shared_ptr<int64_t> userAliUid_ {};
   };
 
   } // namespace Models

@@ -31,29 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->testCaseId_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->testCaseId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteServiceTestCaseRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // testCaseId Field Functions 
     bool hasTestCaseId() const { return this->testCaseId_ != nullptr;};
     void deleteTestCaseId() { this->testCaseId_ = nullptr;};
-    inline string testCaseId() const { DARABONBA_PTR_GET_DEFAULT(testCaseId_, "") };
+    inline string getTestCaseId() const { DARABONBA_PTR_GET_DEFAULT(testCaseId_, "") };
     inline DeleteServiceTestCaseRequest& setTestCaseId(string testCaseId) { DARABONBA_PTR_SET_VALUE(testCaseId_, testCaseId) };
 
 
   protected:
     // Region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service test case id.
     // 
     // This parameter is required.
-    std::shared_ptr<string> testCaseId_ = nullptr;
+    shared_ptr<string> testCaseId_ {};
   };
 
   } // namespace Models

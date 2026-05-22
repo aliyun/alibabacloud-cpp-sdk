@@ -35,51 +35,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceVersion_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceVersion_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline WithdrawServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline WithdrawServiceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline WithdrawServiceRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline WithdrawServiceRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
   protected:
     // Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // Service version.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
   };
 
   } // namespace Models

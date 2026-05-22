@@ -35,33 +35,33 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->repoName_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->repoName_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline ListAcrImageRepositoriesRequest& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListAcrImageRepositoriesRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListAcrImageRepositoriesRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // repoName Field Functions 
     bool hasRepoName() const { return this->repoName_ != nullptr;};
     void deleteRepoName() { this->repoName_ = nullptr;};
-    inline string repoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
+    inline string getRepoName() const { DARABONBA_PTR_GET_DEFAULT(repoName_, "") };
     inline ListAcrImageRepositoriesRequest& setRepoName(string repoName) { DARABONBA_PTR_SET_VALUE(repoName_, repoName) };
 
 
@@ -70,13 +70,13 @@ namespace Models
     // 
     // *   HelmChart: Helm chart image.
     // *   AcrImage: container image.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The number of entries per page. Valid values: 1 to 100. Default value: 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The name of the image repository.
-    std::shared_ptr<string> repoName_ = nullptr;
+    shared_ptr<string> repoName_ {};
   };
 
   } // namespace Models

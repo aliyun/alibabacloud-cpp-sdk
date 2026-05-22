@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactId_ != nullptr
-        && this->artifactVersion_ != nullptr; };
+    virtual bool empty() const override { return this->artifactId_ == nullptr
+        && this->artifactVersion_ == nullptr; };
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
-    inline string artifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
+    inline string getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
     inline ListArtifactRisksRequest& setArtifactId(string artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
 
 
     // artifactVersion Field Functions 
     bool hasArtifactVersion() const { return this->artifactVersion_ != nullptr;};
     void deleteArtifactVersion() { this->artifactVersion_ = nullptr;};
-    inline string artifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
+    inline string getArtifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
     inline ListArtifactRisksRequest& setArtifactVersion(string artifactVersion) { DARABONBA_PTR_SET_VALUE(artifactVersion_, artifactVersion) };
 
 
   protected:
     // Artifact ID.
-    std::shared_ptr<string> artifactId_ = nullptr;
+    shared_ptr<string> artifactId_ {};
     // Artifact version.
-    std::shared_ptr<string> artifactVersion_ = nullptr;
+    shared_ptr<string> artifactVersion_ {};
   };
 
   } // namespace Models

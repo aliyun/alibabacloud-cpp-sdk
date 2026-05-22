@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATESERVICEINSTANCEATTRIBUTEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATESERVICEINSTANCEATTRIBUTEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/UpdateServiceInstanceAttributeRequestLicenseData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,42 +37,143 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->endTime_ != nullptr
-        && this->licenseData_ != nullptr && this->reason_ != nullptr && this->regionId_ != nullptr && this->serviceInstanceId_ != nullptr; };
+    class LicenseData : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const LicenseData& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomData, customData_);
+        DARABONBA_PTR_TO_JSON(ResponseInfo, responseInfo_);
+      };
+      friend void from_json(const Darabonba::Json& j, LicenseData& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomData, customData_);
+        DARABONBA_PTR_FROM_JSON(ResponseInfo, responseInfo_);
+      };
+      LicenseData() = default ;
+      LicenseData(const LicenseData &) = default ;
+      LicenseData(LicenseData &&) = default ;
+      LicenseData(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~LicenseData() = default ;
+      LicenseData& operator=(const LicenseData &) = default ;
+      LicenseData& operator=(LicenseData &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ResponseInfo : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ResponseInfo& obj) { 
+          DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
+          DARABONBA_PTR_TO_JSON(UpdateResponse, updateResponse_);
+        };
+        friend void from_json(const Darabonba::Json& j, ResponseInfo& obj) { 
+          DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+          DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
+          DARABONBA_PTR_FROM_JSON(UpdateResponse, updateResponse_);
+        };
+        ResponseInfo() = default ;
+        ResponseInfo(const ResponseInfo &) = default ;
+        ResponseInfo(ResponseInfo &&) = default ;
+        ResponseInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ResponseInfo() = default ;
+        ResponseInfo& operator=(const ResponseInfo &) = default ;
+        ResponseInfo& operator=(ResponseInfo &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->errorCode_ == nullptr
+        && this->errorMessage_ == nullptr && this->updateResponse_ == nullptr; };
+        // errorCode Field Functions 
+        bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+        void deleteErrorCode() { this->errorCode_ = nullptr;};
+        inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
+        inline ResponseInfo& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+        // errorMessage Field Functions 
+        bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+        void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+        inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+        inline ResponseInfo& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+        // updateResponse Field Functions 
+        bool hasUpdateResponse() const { return this->updateResponse_ != nullptr;};
+        void deleteUpdateResponse() { this->updateResponse_ = nullptr;};
+        inline bool getUpdateResponse() const { DARABONBA_PTR_GET_DEFAULT(updateResponse_, false) };
+        inline ResponseInfo& setUpdateResponse(bool updateResponse) { DARABONBA_PTR_SET_VALUE(updateResponse_, updateResponse) };
+
+
+      protected:
+        // Mock error code.
+        shared_ptr<string> errorCode_ {};
+        // Mock error message.
+        shared_ptr<string> errorMessage_ {};
+        // if you want mock response, please open this option.
+        shared_ptr<bool> updateResponse_ {};
+      };
+
+      virtual bool empty() const override { return this->customData_ == nullptr
+        && this->responseInfo_ == nullptr; };
+      // customData Field Functions 
+      bool hasCustomData() const { return this->customData_ != nullptr;};
+      void deleteCustomData() { this->customData_ = nullptr;};
+      inline string getCustomData() const { DARABONBA_PTR_GET_DEFAULT(customData_, "") };
+      inline LicenseData& setCustomData(string customData) { DARABONBA_PTR_SET_VALUE(customData_, customData) };
+
+
+      // responseInfo Field Functions 
+      bool hasResponseInfo() const { return this->responseInfo_ != nullptr;};
+      void deleteResponseInfo() { this->responseInfo_ = nullptr;};
+      inline const LicenseData::ResponseInfo & getResponseInfo() const { DARABONBA_PTR_GET_CONST(responseInfo_, LicenseData::ResponseInfo) };
+      inline LicenseData::ResponseInfo getResponseInfo() { DARABONBA_PTR_GET(responseInfo_, LicenseData::ResponseInfo) };
+      inline LicenseData& setResponseInfo(const LicenseData::ResponseInfo & responseInfo) { DARABONBA_PTR_SET_VALUE(responseInfo_, responseInfo) };
+      inline LicenseData& setResponseInfo(LicenseData::ResponseInfo && responseInfo) { DARABONBA_PTR_SET_RVALUE(responseInfo_, responseInfo) };
+
+
+    protected:
+      // The Custom Data
+      shared_ptr<string> customData_ {};
+      // Mock response info.
+      shared_ptr<LicenseData::ResponseInfo> responseInfo_ {};
+    };
+
+    virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->licenseData_ == nullptr && this->reason_ == nullptr && this->regionId_ == nullptr && this->serviceInstanceId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline string endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+    inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
     inline UpdateServiceInstanceAttributeRequest& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // licenseData Field Functions 
     bool hasLicenseData() const { return this->licenseData_ != nullptr;};
     void deleteLicenseData() { this->licenseData_ = nullptr;};
-    inline const UpdateServiceInstanceAttributeRequestLicenseData & licenseData() const { DARABONBA_PTR_GET_CONST(licenseData_, UpdateServiceInstanceAttributeRequestLicenseData) };
-    inline UpdateServiceInstanceAttributeRequestLicenseData licenseData() { DARABONBA_PTR_GET(licenseData_, UpdateServiceInstanceAttributeRequestLicenseData) };
-    inline UpdateServiceInstanceAttributeRequest& setLicenseData(const UpdateServiceInstanceAttributeRequestLicenseData & licenseData) { DARABONBA_PTR_SET_VALUE(licenseData_, licenseData) };
-    inline UpdateServiceInstanceAttributeRequest& setLicenseData(UpdateServiceInstanceAttributeRequestLicenseData && licenseData) { DARABONBA_PTR_SET_RVALUE(licenseData_, licenseData) };
+    inline const UpdateServiceInstanceAttributeRequest::LicenseData & getLicenseData() const { DARABONBA_PTR_GET_CONST(licenseData_, UpdateServiceInstanceAttributeRequest::LicenseData) };
+    inline UpdateServiceInstanceAttributeRequest::LicenseData getLicenseData() { DARABONBA_PTR_GET(licenseData_, UpdateServiceInstanceAttributeRequest::LicenseData) };
+    inline UpdateServiceInstanceAttributeRequest& setLicenseData(const UpdateServiceInstanceAttributeRequest::LicenseData & licenseData) { DARABONBA_PTR_SET_VALUE(licenseData_, licenseData) };
+    inline UpdateServiceInstanceAttributeRequest& setLicenseData(UpdateServiceInstanceAttributeRequest::LicenseData && licenseData) { DARABONBA_PTR_SET_RVALUE(licenseData_, licenseData) };
 
 
     // reason Field Functions 
     bool hasReason() const { return this->reason_ != nullptr;};
     void deleteReason() { this->reason_ = nullptr;};
-    inline string reason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
     inline UpdateServiceInstanceAttributeRequest& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateServiceInstanceAttributeRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline UpdateServiceInstanceAttributeRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
@@ -81,19 +181,19 @@ namespace Models
     // The time when the service instance expires.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
-    std::shared_ptr<string> endTime_ = nullptr;
+    shared_ptr<string> endTime_ {};
     // The License Data
-    std::shared_ptr<UpdateServiceInstanceAttributeRequestLicenseData> licenseData_ = nullptr;
+    shared_ptr<UpdateServiceInstanceAttributeRequest::LicenseData> licenseData_ {};
     // Application reason, currently used for trial application extension.
-    std::shared_ptr<string> reason_ = nullptr;
+    shared_ptr<string> reason_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service instance ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
   };
 
   } // namespace Models

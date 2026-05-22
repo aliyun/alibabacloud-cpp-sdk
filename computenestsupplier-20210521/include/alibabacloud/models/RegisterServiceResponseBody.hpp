@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->registrationId_ != nullptr
-        && this->requestId_ != nullptr; };
+    virtual bool empty() const override { return this->registrationId_ == nullptr
+        && this->requestId_ == nullptr; };
     // registrationId Field Functions 
     bool hasRegistrationId() const { return this->registrationId_ != nullptr;};
     void deleteRegistrationId() { this->registrationId_ = nullptr;};
-    inline string registrationId() const { DARABONBA_PTR_GET_DEFAULT(registrationId_, "") };
+    inline string getRegistrationId() const { DARABONBA_PTR_GET_DEFAULT(registrationId_, "") };
     inline RegisterServiceResponseBody& setRegistrationId(string registrationId) { DARABONBA_PTR_SET_VALUE(registrationId_, registrationId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline RegisterServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The registration ID.
-    std::shared_ptr<string> registrationId_ = nullptr;
+    shared_ptr<string> registrationId_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

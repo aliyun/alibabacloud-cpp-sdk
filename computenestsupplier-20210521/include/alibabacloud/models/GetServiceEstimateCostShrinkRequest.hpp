@@ -45,93 +45,93 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->commodityShrink_ != nullptr && this->parametersShrink_ != nullptr && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceInstanceId_ != nullptr
-        && this->serviceVersion_ != nullptr && this->specificationName_ != nullptr && this->templateName_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->commodityShrink_ == nullptr && this->parametersShrink_ == nullptr && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceInstanceId_ == nullptr
+        && this->serviceVersion_ == nullptr && this->specificationName_ == nullptr && this->templateName_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetServiceEstimateCostShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // commodityShrink Field Functions 
     bool hasCommodityShrink() const { return this->commodityShrink_ != nullptr;};
     void deleteCommodityShrink() { this->commodityShrink_ = nullptr;};
-    inline string commodityShrink() const { DARABONBA_PTR_GET_DEFAULT(commodityShrink_, "") };
+    inline string getCommodityShrink() const { DARABONBA_PTR_GET_DEFAULT(commodityShrink_, "") };
     inline GetServiceEstimateCostShrinkRequest& setCommodityShrink(string commodityShrink) { DARABONBA_PTR_SET_VALUE(commodityShrink_, commodityShrink) };
 
 
     // parametersShrink Field Functions 
     bool hasParametersShrink() const { return this->parametersShrink_ != nullptr;};
     void deleteParametersShrink() { this->parametersShrink_ = nullptr;};
-    inline string parametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
+    inline string getParametersShrink() const { DARABONBA_PTR_GET_DEFAULT(parametersShrink_, "") };
     inline GetServiceEstimateCostShrinkRequest& setParametersShrink(string parametersShrink) { DARABONBA_PTR_SET_VALUE(parametersShrink_, parametersShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceEstimateCostShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GetServiceEstimateCostShrinkRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline GetServiceEstimateCostShrinkRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GetServiceEstimateCostShrinkRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // specificationName Field Functions 
     bool hasSpecificationName() const { return this->specificationName_ != nullptr;};
     void deleteSpecificationName() { this->specificationName_ = nullptr;};
-    inline string specificationName() const { DARABONBA_PTR_GET_DEFAULT(specificationName_, "") };
+    inline string getSpecificationName() const { DARABONBA_PTR_GET_DEFAULT(specificationName_, "") };
     inline GetServiceEstimateCostShrinkRequest& setSpecificationName(string specificationName) { DARABONBA_PTR_SET_VALUE(specificationName_, specificationName) };
 
 
     // templateName Field Functions 
     bool hasTemplateName() const { return this->templateName_ != nullptr;};
     void deleteTemplateName() { this->templateName_ = nullptr;};
-    inline string templateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+    inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
     inline GetServiceEstimateCostShrinkRequest& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
 
 
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
-    std::shared_ptr<string> commodityShrink_ = nullptr;
+    shared_ptr<string> commodityShrink_ {};
     // The parameters that are specified to deploy the service instance.
-    std::shared_ptr<string> parametersShrink_ = nullptr;
+    shared_ptr<string> parametersShrink_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The ID of the service instance.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
     // The package name.
-    std::shared_ptr<string> specificationName_ = nullptr;
+    shared_ptr<string> specificationName_ {};
     // The template name.
-    std::shared_ptr<string> templateName_ = nullptr;
+    shared_ptr<string> templateName_ {};
   };
 
   } // namespace Models

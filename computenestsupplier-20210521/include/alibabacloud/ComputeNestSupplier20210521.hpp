@@ -212,7 +212,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceUsageResponse createServiceUsage(const Models::CreateServiceUsageRequest &request);
 
       /**
-       * @summary 注册成为服务商
+       * @summary Register as a service provider
        *
        * @param request CreateSupplierRegistrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -221,7 +221,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateSupplierRegistrationResponse createSupplierRegistrationWithOptions(const Models::CreateSupplierRegistrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 注册成为服务商
+       * @summary Register as a service provider
        *
        * @param request CreateSupplierRegistrationRequest
        * @return CreateSupplierRegistrationResponse
@@ -365,7 +365,7 @@ namespace ComputeNestSupplier20210521
       Models::GenerateDefaultServiceTestConfigResponse generateDefaultServiceTestConfig(const Models::GenerateDefaultServiceTestConfigRequest &request);
 
       /**
-       * @summary 生成并校验服务创建stack所需要
+       * @summary Generate and validate the stack required for service creation
        *
        * @param request GenerateServicePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -374,7 +374,7 @@ namespace ComputeNestSupplier20210521
       Models::GenerateServicePolicyResponse generateServicePolicyWithOptions(const Models::GenerateServicePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成并校验服务创建stack所需要
+       * @summary Generate and validate the stack required for service creation
        *
        * @param request GenerateServicePolicyRequest
        * @return GenerateServicePolicyResponse
@@ -845,7 +845,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceLogsResponse listServiceInstanceLogs(const Models::ListServiceInstanceLogsRequest &request);
 
       /**
-       * @summary 查询服务实例资源
+       * @summary Query service instance resources
        *
        * @param request ListServiceInstanceResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -854,7 +854,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceResourcesResponse listServiceInstanceResourcesWithOptions(const Models::ListServiceInstanceResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询服务实例资源
+       * @summary Query service instance resources
        *
        * @param request ListServiceInstanceResourcesRequest
        * @return ListServiceInstanceResourcesResponse
@@ -964,7 +964,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTaskLogsResponse listServiceTestTaskLogs(const Models::ListServiceTestTaskLogsRequest &request);
 
       /**
-       * @summary 获取任务执行列表
+       * @summary Get task execution list
        *
        * @param request ListServiceTestTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -973,7 +973,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTasksResponse listServiceTestTasksWithOptions(const Models::ListServiceTestTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务执行列表
+       * @summary Get task execution list
        *
        * @param request ListServiceTestTasksRequest
        * @return ListServiceTestTasksResponse
@@ -1253,7 +1253,7 @@ namespace ComputeNestSupplier20210521
       Models::StartServiceInstanceResponse startServiceInstance(const Models::StartServiceInstanceRequest &request);
 
       /**
-       * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+       * @summary Stops a service instance that is in the Deployed or StopFailed state.
        *
        * @param request StopServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1262,7 +1262,7 @@ namespace ComputeNestSupplier20210521
       Models::StopServiceInstanceResponse stopServiceInstanceWithOptions(const Models::StopServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+       * @summary Stops a service instance that is in the Deployed or StopFailed state.
        *
        * @param request StopServiceInstanceRequest
        * @return StopServiceInstanceResponse

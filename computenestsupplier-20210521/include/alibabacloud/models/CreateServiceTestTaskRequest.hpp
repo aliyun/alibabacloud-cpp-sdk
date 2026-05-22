@@ -36,51 +36,51 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->taskName_ != nullptr && this->taskRegionId_ != nullptr && this->testCaseIds_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->taskName_ == nullptr && this->taskRegionId_ == nullptr && this->testCaseIds_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateServiceTestTaskRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // taskName Field Functions 
     bool hasTaskName() const { return this->taskName_ != nullptr;};
     void deleteTaskName() { this->taskName_ = nullptr;};
-    inline string taskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
+    inline string getTaskName() const { DARABONBA_PTR_GET_DEFAULT(taskName_, "") };
     inline CreateServiceTestTaskRequest& setTaskName(string taskName) { DARABONBA_PTR_SET_VALUE(taskName_, taskName) };
 
 
     // taskRegionId Field Functions 
     bool hasTaskRegionId() const { return this->taskRegionId_ != nullptr;};
     void deleteTaskRegionId() { this->taskRegionId_ = nullptr;};
-    inline string taskRegionId() const { DARABONBA_PTR_GET_DEFAULT(taskRegionId_, "") };
+    inline string getTaskRegionId() const { DARABONBA_PTR_GET_DEFAULT(taskRegionId_, "") };
     inline CreateServiceTestTaskRequest& setTaskRegionId(string taskRegionId) { DARABONBA_PTR_SET_VALUE(taskRegionId_, taskRegionId) };
 
 
     // testCaseIds Field Functions 
     bool hasTestCaseIds() const { return this->testCaseIds_ != nullptr;};
     void deleteTestCaseIds() { this->testCaseIds_ = nullptr;};
-    inline const vector<string> & testCaseIds() const { DARABONBA_PTR_GET_CONST(testCaseIds_, vector<string>) };
-    inline vector<string> testCaseIds() { DARABONBA_PTR_GET(testCaseIds_, vector<string>) };
+    inline const vector<string> & getTestCaseIds() const { DARABONBA_PTR_GET_CONST(testCaseIds_, vector<string>) };
+    inline vector<string> getTestCaseIds() { DARABONBA_PTR_GET(testCaseIds_, vector<string>) };
     inline CreateServiceTestTaskRequest& setTestCaseIds(const vector<string> & testCaseIds) { DARABONBA_PTR_SET_VALUE(testCaseIds_, testCaseIds) };
     inline CreateServiceTestTaskRequest& setTestCaseIds(vector<string> && testCaseIds) { DARABONBA_PTR_SET_RVALUE(testCaseIds_, testCaseIds) };
 
 
   protected:
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The name of the task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskName_ = nullptr;
+    shared_ptr<string> taskName_ {};
     // The Task Execution Region
-    std::shared_ptr<string> taskRegionId_ = nullptr;
+    shared_ptr<string> taskRegionId_ {};
     // The service test case ids.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> testCaseIds_ = nullptr;
+    shared_ptr<vector<string>> testCaseIds_ {};
   };
 
   } // namespace Models

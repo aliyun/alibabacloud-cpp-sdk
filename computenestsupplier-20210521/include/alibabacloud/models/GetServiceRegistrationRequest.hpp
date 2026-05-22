@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->registrationId_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->registrationId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceRegistrationRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // registrationId Field Functions 
     bool hasRegistrationId() const { return this->registrationId_ != nullptr;};
     void deleteRegistrationId() { this->registrationId_ = nullptr;};
-    inline string registrationId() const { DARABONBA_PTR_GET_DEFAULT(registrationId_, "") };
+    inline string getRegistrationId() const { DARABONBA_PTR_GET_DEFAULT(registrationId_, "") };
     inline GetServiceRegistrationRequest& setRegistrationId(string registrationId) { DARABONBA_PTR_SET_VALUE(registrationId_, registrationId) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // Region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Service registration ID.
-    std::shared_ptr<string> registrationId_ = nullptr;
+    shared_ptr<string> registrationId_ {};
   };
 
   } // namespace Models

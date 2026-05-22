@@ -43,62 +43,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->billingCycle_ != nullptr
-        && this->billingDate_ != nullptr && this->granularity_ != nullptr && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->serviceId_ != nullptr
-        && this->serviceInstanceId_ != nullptr && this->serviceVersion_ != nullptr; };
+    virtual bool empty() const override { return this->billingCycle_ == nullptr
+        && this->billingDate_ == nullptr && this->granularity_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->serviceId_ == nullptr
+        && this->serviceInstanceId_ == nullptr && this->serviceVersion_ == nullptr; };
     // billingCycle Field Functions 
     bool hasBillingCycle() const { return this->billingCycle_ != nullptr;};
     void deleteBillingCycle() { this->billingCycle_ = nullptr;};
-    inline string billingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
+    inline string getBillingCycle() const { DARABONBA_PTR_GET_DEFAULT(billingCycle_, "") };
     inline ListServiceInstanceBillRequest& setBillingCycle(string billingCycle) { DARABONBA_PTR_SET_VALUE(billingCycle_, billingCycle) };
 
 
     // billingDate Field Functions 
     bool hasBillingDate() const { return this->billingDate_ != nullptr;};
     void deleteBillingDate() { this->billingDate_ = nullptr;};
-    inline string billingDate() const { DARABONBA_PTR_GET_DEFAULT(billingDate_, "") };
+    inline string getBillingDate() const { DARABONBA_PTR_GET_DEFAULT(billingDate_, "") };
     inline ListServiceInstanceBillRequest& setBillingDate(string billingDate) { DARABONBA_PTR_SET_VALUE(billingDate_, billingDate) };
 
 
     // granularity Field Functions 
     bool hasGranularity() const { return this->granularity_ != nullptr;};
     void deleteGranularity() { this->granularity_ = nullptr;};
-    inline string granularity() const { DARABONBA_PTR_GET_DEFAULT(granularity_, "") };
+    inline string getGranularity() const { DARABONBA_PTR_GET_DEFAULT(granularity_, "") };
     inline ListServiceInstanceBillRequest& setGranularity(string granularity) { DARABONBA_PTR_SET_VALUE(granularity_, granularity) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListServiceInstanceBillRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListServiceInstanceBillRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline ListServiceInstanceBillRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline ListServiceInstanceBillRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline ListServiceInstanceBillRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
@@ -106,30 +106,30 @@ namespace Models
     // The billing cycle. Format: YYYY-MM.
     // 
     // This parameter is required.
-    std::shared_ptr<string> billingCycle_ = nullptr;
+    shared_ptr<string> billingCycle_ {};
     // The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
-    std::shared_ptr<string> billingDate_ = nullptr;
+    shared_ptr<string> billingDate_ {};
     // The granularity at which bills are queried. Valid values:
     // 
     // *   MONTHLY: queries bills by month. The data queried is consistent with the data that is displayed for the specified billing cycle on the Billing Details tab of the Bill Details page in User Center.
     // *   DAILY: queries bills by day. The data queried is consistent with the data that is displayed for the specified day on the Billing Details tab of the Bill Details page in User Center.
     // 
     // You must set the **BillingDate** parameter before you can set the Granularity parameter to DAILY.
-    std::shared_ptr<string> granularity_ = nullptr;
+    shared_ptr<string> granularity_ {};
     // The maximum number of entries per page.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 20.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The service ID.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The ID of the service instance.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
   };
 
   } // namespace Models

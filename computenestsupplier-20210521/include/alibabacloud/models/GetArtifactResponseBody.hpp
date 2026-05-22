@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_GETARTIFACTRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/GetArtifactResponseBodyTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -67,187 +66,231 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactBuildProperty_ != nullptr
-        && this->artifactBuildType_ != nullptr && this->artifactId_ != nullptr && this->artifactProperty_ != nullptr && this->artifactType_ != nullptr && this->artifactVersion_ != nullptr
-        && this->description_ != nullptr && this->gmtModified_ != nullptr && this->maxVersion_ != nullptr && this->name_ != nullptr && this->permissionType_ != nullptr
-        && this->progress_ != nullptr && this->requestId_ != nullptr && this->resourceGroupId_ != nullptr && this->status_ != nullptr && this->statusDetail_ != nullptr
-        && this->supportRegionIds_ != nullptr && this->tags_ != nullptr && this->versionName_ != nullptr; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key of the deployment package.
+      shared_ptr<string> key_ {};
+      // The tag value of the deployment package.
+      shared_ptr<string> value_ {};
+    };
+
+    virtual bool empty() const override { return this->artifactBuildProperty_ == nullptr
+        && this->artifactBuildType_ == nullptr && this->artifactId_ == nullptr && this->artifactProperty_ == nullptr && this->artifactType_ == nullptr && this->artifactVersion_ == nullptr
+        && this->description_ == nullptr && this->gmtModified_ == nullptr && this->maxVersion_ == nullptr && this->name_ == nullptr && this->permissionType_ == nullptr
+        && this->progress_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->statusDetail_ == nullptr
+        && this->supportRegionIds_ == nullptr && this->tags_ == nullptr && this->versionName_ == nullptr; };
     // artifactBuildProperty Field Functions 
     bool hasArtifactBuildProperty() const { return this->artifactBuildProperty_ != nullptr;};
     void deleteArtifactBuildProperty() { this->artifactBuildProperty_ = nullptr;};
-    inline string artifactBuildProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactBuildProperty_, "") };
+    inline string getArtifactBuildProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactBuildProperty_, "") };
     inline GetArtifactResponseBody& setArtifactBuildProperty(string artifactBuildProperty) { DARABONBA_PTR_SET_VALUE(artifactBuildProperty_, artifactBuildProperty) };
 
 
     // artifactBuildType Field Functions 
     bool hasArtifactBuildType() const { return this->artifactBuildType_ != nullptr;};
     void deleteArtifactBuildType() { this->artifactBuildType_ = nullptr;};
-    inline string artifactBuildType() const { DARABONBA_PTR_GET_DEFAULT(artifactBuildType_, "") };
+    inline string getArtifactBuildType() const { DARABONBA_PTR_GET_DEFAULT(artifactBuildType_, "") };
     inline GetArtifactResponseBody& setArtifactBuildType(string artifactBuildType) { DARABONBA_PTR_SET_VALUE(artifactBuildType_, artifactBuildType) };
 
 
     // artifactId Field Functions 
     bool hasArtifactId() const { return this->artifactId_ != nullptr;};
     void deleteArtifactId() { this->artifactId_ = nullptr;};
-    inline string artifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
+    inline string getArtifactId() const { DARABONBA_PTR_GET_DEFAULT(artifactId_, "") };
     inline GetArtifactResponseBody& setArtifactId(string artifactId) { DARABONBA_PTR_SET_VALUE(artifactId_, artifactId) };
 
 
     // artifactProperty Field Functions 
     bool hasArtifactProperty() const { return this->artifactProperty_ != nullptr;};
     void deleteArtifactProperty() { this->artifactProperty_ = nullptr;};
-    inline string artifactProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactProperty_, "") };
+    inline string getArtifactProperty() const { DARABONBA_PTR_GET_DEFAULT(artifactProperty_, "") };
     inline GetArtifactResponseBody& setArtifactProperty(string artifactProperty) { DARABONBA_PTR_SET_VALUE(artifactProperty_, artifactProperty) };
 
 
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline GetArtifactResponseBody& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // artifactVersion Field Functions 
     bool hasArtifactVersion() const { return this->artifactVersion_ != nullptr;};
     void deleteArtifactVersion() { this->artifactVersion_ = nullptr;};
-    inline string artifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
+    inline string getArtifactVersion() const { DARABONBA_PTR_GET_DEFAULT(artifactVersion_, "") };
     inline GetArtifactResponseBody& setArtifactVersion(string artifactVersion) { DARABONBA_PTR_SET_VALUE(artifactVersion_, artifactVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetArtifactResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // gmtModified Field Functions 
     bool hasGmtModified() const { return this->gmtModified_ != nullptr;};
     void deleteGmtModified() { this->gmtModified_ = nullptr;};
-    inline string gmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
+    inline string getGmtModified() const { DARABONBA_PTR_GET_DEFAULT(gmtModified_, "") };
     inline GetArtifactResponseBody& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
     // maxVersion Field Functions 
     bool hasMaxVersion() const { return this->maxVersion_ != nullptr;};
     void deleteMaxVersion() { this->maxVersion_ = nullptr;};
-    inline int64_t maxVersion() const { DARABONBA_PTR_GET_DEFAULT(maxVersion_, 0L) };
+    inline int64_t getMaxVersion() const { DARABONBA_PTR_GET_DEFAULT(maxVersion_, 0L) };
     inline GetArtifactResponseBody& setMaxVersion(int64_t maxVersion) { DARABONBA_PTR_SET_VALUE(maxVersion_, maxVersion) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetArtifactResponseBody& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // permissionType Field Functions 
     bool hasPermissionType() const { return this->permissionType_ != nullptr;};
     void deletePermissionType() { this->permissionType_ = nullptr;};
-    inline string permissionType() const { DARABONBA_PTR_GET_DEFAULT(permissionType_, "") };
+    inline string getPermissionType() const { DARABONBA_PTR_GET_DEFAULT(permissionType_, "") };
     inline GetArtifactResponseBody& setPermissionType(string permissionType) { DARABONBA_PTR_SET_VALUE(permissionType_, permissionType) };
 
 
     // progress Field Functions 
     bool hasProgress() const { return this->progress_ != nullptr;};
     void deleteProgress() { this->progress_ = nullptr;};
-    inline string progress() const { DARABONBA_PTR_GET_DEFAULT(progress_, "") };
+    inline string getProgress() const { DARABONBA_PTR_GET_DEFAULT(progress_, "") };
     inline GetArtifactResponseBody& setProgress(string progress) { DARABONBA_PTR_SET_VALUE(progress_, progress) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetArtifactResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline GetArtifactResponseBody& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline GetArtifactResponseBody& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // statusDetail Field Functions 
     bool hasStatusDetail() const { return this->statusDetail_ != nullptr;};
     void deleteStatusDetail() { this->statusDetail_ = nullptr;};
-    inline string statusDetail() const { DARABONBA_PTR_GET_DEFAULT(statusDetail_, "") };
+    inline string getStatusDetail() const { DARABONBA_PTR_GET_DEFAULT(statusDetail_, "") };
     inline GetArtifactResponseBody& setStatusDetail(string statusDetail) { DARABONBA_PTR_SET_VALUE(statusDetail_, statusDetail) };
 
 
     // supportRegionIds Field Functions 
     bool hasSupportRegionIds() const { return this->supportRegionIds_ != nullptr;};
     void deleteSupportRegionIds() { this->supportRegionIds_ = nullptr;};
-    inline string supportRegionIds() const { DARABONBA_PTR_GET_DEFAULT(supportRegionIds_, "") };
+    inline string getSupportRegionIds() const { DARABONBA_PTR_GET_DEFAULT(supportRegionIds_, "") };
     inline GetArtifactResponseBody& setSupportRegionIds(string supportRegionIds) { DARABONBA_PTR_SET_VALUE(supportRegionIds_, supportRegionIds) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<GetArtifactResponseBodyTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetArtifactResponseBodyTags>) };
-    inline vector<GetArtifactResponseBodyTags> tags() { DARABONBA_PTR_GET(tags_, vector<GetArtifactResponseBodyTags>) };
-    inline GetArtifactResponseBody& setTags(const vector<GetArtifactResponseBodyTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline GetArtifactResponseBody& setTags(vector<GetArtifactResponseBodyTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<GetArtifactResponseBody::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<GetArtifactResponseBody::Tags>) };
+    inline vector<GetArtifactResponseBody::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<GetArtifactResponseBody::Tags>) };
+    inline GetArtifactResponseBody& setTags(const vector<GetArtifactResponseBody::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline GetArtifactResponseBody& setTags(vector<GetArtifactResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
-    inline string versionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+    inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
     inline GetArtifactResponseBody& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
 
 
   protected:
     // The build properties of the artifact, utilized for hosting and building the deployment package.
-    std::shared_ptr<string> artifactBuildProperty_ = nullptr;
+    shared_ptr<string> artifactBuildProperty_ {};
     // The type of the deployment package to be built.
-    std::shared_ptr<string> artifactBuildType_ = nullptr;
+    shared_ptr<string> artifactBuildType_ {};
     // The ID of the deployment package.
-    std::shared_ptr<string> artifactId_ = nullptr;
+    shared_ptr<string> artifactId_ {};
     // The properties of the deployment package.
-    std::shared_ptr<string> artifactProperty_ = nullptr;
+    shared_ptr<string> artifactProperty_ {};
     // The type of the deployment package.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The version of the deployment package.
-    std::shared_ptr<string> artifactVersion_ = nullptr;
+    shared_ptr<string> artifactVersion_ {};
     // The description of the deployment package.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The time when the deployment package was modified.
-    std::shared_ptr<string> gmtModified_ = nullptr;
+    shared_ptr<string> gmtModified_ {};
     // The latest version of the deployment package.
-    std::shared_ptr<int64_t> maxVersion_ = nullptr;
+    shared_ptr<int64_t> maxVersion_ {};
     // The name of the deployment package.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
     // - Public
     // - Automatic
-    std::shared_ptr<string> permissionType_ = nullptr;
+    shared_ptr<string> permissionType_ {};
     // The distribution progress of the deployment package.
-    std::shared_ptr<string> progress_ = nullptr;
+    shared_ptr<string> progress_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The status of the deployment package. Valid values:
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
     // The description of the deployment package.
-    std::shared_ptr<string> statusDetail_ = nullptr;
+    shared_ptr<string> statusDetail_ {};
     // The ID of the region that supports the deployment package.
-    std::shared_ptr<string> supportRegionIds_ = nullptr;
+    shared_ptr<string> supportRegionIds_ {};
     // The tags of the deployment package.
-    std::shared_ptr<vector<GetArtifactResponseBodyTags>> tags_ = nullptr;
+    shared_ptr<vector<GetArtifactResponseBody::Tags>> tags_ {};
     // The version name of the deployment package.
-    std::shared_ptr<string> versionName_ = nullptr;
+    shared_ptr<string> versionName_ {};
   };
 
   } // namespace Models

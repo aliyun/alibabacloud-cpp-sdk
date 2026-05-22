@@ -44,87 +44,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filterAliUid_ != nullptr
-        && this->regionId_ != nullptr && this->serviceId_ != nullptr && this->serviceInstanceId_ != nullptr && this->serviceName_ != nullptr && this->serviceVersion_ != nullptr
-        && this->sharedAccountType_ != nullptr && this->showDetail_ != nullptr; };
+    virtual bool empty() const override { return this->filterAliUid_ == nullptr
+        && this->regionId_ == nullptr && this->serviceId_ == nullptr && this->serviceInstanceId_ == nullptr && this->serviceName_ == nullptr && this->serviceVersion_ == nullptr
+        && this->sharedAccountType_ == nullptr && this->showDetail_ == nullptr; };
     // filterAliUid Field Functions 
     bool hasFilterAliUid() const { return this->filterAliUid_ != nullptr;};
     void deleteFilterAliUid() { this->filterAliUid_ = nullptr;};
-    inline bool filterAliUid() const { DARABONBA_PTR_GET_DEFAULT(filterAliUid_, false) };
+    inline bool getFilterAliUid() const { DARABONBA_PTR_GET_DEFAULT(filterAliUid_, false) };
     inline GetServiceRequest& setFilterAliUid(bool filterAliUid) { DARABONBA_PTR_SET_VALUE(filterAliUid_, filterAliUid) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetServiceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline GetServiceRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline GetServiceRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline GetServiceRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
     // serviceVersion Field Functions 
     bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
     void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-    inline string serviceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
+    inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
     inline GetServiceRequest& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
     // sharedAccountType Field Functions 
     bool hasSharedAccountType() const { return this->sharedAccountType_ != nullptr;};
     void deleteSharedAccountType() { this->sharedAccountType_ = nullptr;};
-    inline string sharedAccountType() const { DARABONBA_PTR_GET_DEFAULT(sharedAccountType_, "") };
+    inline string getSharedAccountType() const { DARABONBA_PTR_GET_DEFAULT(sharedAccountType_, "") };
     inline GetServiceRequest& setSharedAccountType(string sharedAccountType) { DARABONBA_PTR_SET_VALUE(sharedAccountType_, sharedAccountType) };
 
 
     // showDetail Field Functions 
     bool hasShowDetail() const { return this->showDetail_ != nullptr;};
     void deleteShowDetail() { this->showDetail_ = nullptr;};
-    inline const vector<string> & showDetail() const { DARABONBA_PTR_GET_CONST(showDetail_, vector<string>) };
-    inline vector<string> showDetail() { DARABONBA_PTR_GET(showDetail_, vector<string>) };
+    inline const vector<string> & getShowDetail() const { DARABONBA_PTR_GET_CONST(showDetail_, vector<string>) };
+    inline vector<string> getShowDetail() { DARABONBA_PTR_GET(showDetail_, vector<string>) };
     inline GetServiceRequest& setShowDetail(const vector<string> & showDetail) { DARABONBA_PTR_SET_VALUE(showDetail_, showDetail) };
     inline GetServiceRequest& setShowDetail(vector<string> && showDetail) { DARABONBA_PTR_SET_RVALUE(showDetail_, showDetail) };
 
 
   protected:
     // Specifies whether to filter information based on Alibaba Cloud account IDs.
-    std::shared_ptr<bool> filterAliUid_ = nullptr;
+    shared_ptr<bool> filterAliUid_ {};
     // The region ID.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The service ID.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The Service Instance Id.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The Service Name.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
     // The service version.
-    std::shared_ptr<string> serviceVersion_ = nullptr;
+    shared_ptr<string> serviceVersion_ {};
     // The share type of the service. Default value: SharedAccount. Valid values:
     // 
     // *   SharedAccount: The service is shared by multiple accounts.
     // *   Resell: The service is distributed.
-    std::shared_ptr<string> sharedAccountType_ = nullptr;
+    shared_ptr<string> sharedAccountType_ {};
     // The information that you want to query.
-    std::shared_ptr<vector<string>> showDetail_ = nullptr;
+    shared_ptr<vector<string>> showDetail_ {};
   };
 
   } // namespace Models

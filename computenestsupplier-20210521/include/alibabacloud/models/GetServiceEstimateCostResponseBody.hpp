@@ -33,40 +33,40 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodity_ != nullptr
-        && this->requestId_ != nullptr && this->resources_ != nullptr; };
+    virtual bool empty() const override { return this->commodity_ == nullptr
+        && this->requestId_ == nullptr && this->resources_ == nullptr; };
     // commodity Field Functions 
     bool hasCommodity() const { return this->commodity_ != nullptr;};
     void deleteCommodity() { this->commodity_ = nullptr;};
-    inline     const Darabonba::Json & commodity() const { DARABONBA_GET(commodity_) };
-    Darabonba::Json & commodity() { DARABONBA_GET(commodity_) };
+    inline     const Darabonba::Json & getCommodity() const { DARABONBA_GET(commodity_) };
+    Darabonba::Json & getCommodity() { DARABONBA_GET(commodity_) };
     inline GetServiceEstimateCostResponseBody& setCommodity(const Darabonba::Json & commodity) { DARABONBA_SET_VALUE(commodity_, commodity) };
-    inline GetServiceEstimateCostResponseBody& setCommodity(Darabonba::Json & commodity) { DARABONBA_SET_RVALUE(commodity_, commodity) };
+    inline GetServiceEstimateCostResponseBody& setCommodity(Darabonba::Json && commodity) { DARABONBA_SET_RVALUE(commodity_, commodity) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetServiceEstimateCostResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline     const Darabonba::Json & resources() const { DARABONBA_GET(resources_) };
-    Darabonba::Json & resources() { DARABONBA_GET(resources_) };
+    inline     const Darabonba::Json & getResources() const { DARABONBA_GET(resources_) };
+    Darabonba::Json & getResources() { DARABONBA_GET(resources_) };
     inline GetServiceEstimateCostResponseBody& setResources(const Darabonba::Json & resources) { DARABONBA_SET_VALUE(resources_, resources) };
-    inline GetServiceEstimateCostResponseBody& setResources(Darabonba::Json & resources) { DARABONBA_SET_RVALUE(resources_, resources) };
+    inline GetServiceEstimateCostResponseBody& setResources(Darabonba::Json && resources) { DARABONBA_SET_RVALUE(resources_, resources) };
 
 
   protected:
     // The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
-    Darabonba::Json commodity_ = nullptr;
+    Darabonba::Json commodity_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The list of resources.
-    Darabonba::Json resources_ = nullptr;
+    Darabonba::Json resources_ {};
   };
 
   } // namespace Models

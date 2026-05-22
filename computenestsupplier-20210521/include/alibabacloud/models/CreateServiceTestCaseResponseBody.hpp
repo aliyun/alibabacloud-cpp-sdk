@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->testCaseId_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->testCaseId_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline CreateServiceTestCaseResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // testCaseId Field Functions 
     bool hasTestCaseId() const { return this->testCaseId_ != nullptr;};
     void deleteTestCaseId() { this->testCaseId_ = nullptr;};
-    inline string testCaseId() const { DARABONBA_PTR_GET_DEFAULT(testCaseId_, "") };
+    inline string getTestCaseId() const { DARABONBA_PTR_GET_DEFAULT(testCaseId_, "") };
     inline CreateServiceTestCaseResponseBody& setTestCaseId(string testCaseId) { DARABONBA_PTR_SET_VALUE(testCaseId_, testCaseId) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The test case Id
-    std::shared_ptr<string> testCaseId_ = nullptr;
+    shared_ptr<string> testCaseId_ {};
   };
 
   } // namespace Models

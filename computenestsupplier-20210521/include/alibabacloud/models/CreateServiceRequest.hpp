@@ -2,10 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATESERVICEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATESERVICEREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/CreateServiceRequestComplianceMetadata.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateServiceRequestServiceInfo.hpp>
-#include <alibabacloud/models/CreateServiceRequestTag.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -87,212 +84,489 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->alarmMetadata_ != nullptr
-        && this->approvalType_ != nullptr && this->buildParameters_ != nullptr && this->clientToken_ != nullptr && this->complianceMetadata_ != nullptr && this->deployMetadata_ != nullptr
-        && this->deployType_ != nullptr && this->dryRun_ != nullptr && this->duration_ != nullptr && this->isSupportOperated_ != nullptr && this->licenseMetadata_ != nullptr
-        && this->logMetadata_ != nullptr && this->operationMetadata_ != nullptr && this->policyNames_ != nullptr && this->regionId_ != nullptr && this->resellable_ != nullptr
-        && this->resourceGroupId_ != nullptr && this->serviceId_ != nullptr && this->serviceInfo_ != nullptr && this->serviceType_ != nullptr && this->shareType_ != nullptr
-        && this->sourceServiceId_ != nullptr && this->sourceServiceVersion_ != nullptr && this->tag_ != nullptr && this->tenantType_ != nullptr && this->trialDuration_ != nullptr
-        && this->upgradeMetadata_ != nullptr && this->versionName_ != nullptr; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
+    class ServiceInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ServiceInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(Agreements, agreements_);
+        DARABONBA_PTR_TO_JSON(Image, image_);
+        DARABONBA_PTR_TO_JSON(Locale, locale_);
+        DARABONBA_PTR_TO_JSON(LongDescriptionUrl, longDescriptionUrl_);
+        DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(ShortDescription, shortDescription_);
+        DARABONBA_PTR_TO_JSON(Softwares, softwares_);
+      };
+      friend void from_json(const Darabonba::Json& j, ServiceInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(Agreements, agreements_);
+        DARABONBA_PTR_FROM_JSON(Image, image_);
+        DARABONBA_PTR_FROM_JSON(Locale, locale_);
+        DARABONBA_PTR_FROM_JSON(LongDescriptionUrl, longDescriptionUrl_);
+        DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(ShortDescription, shortDescription_);
+        DARABONBA_PTR_FROM_JSON(Softwares, softwares_);
+      };
+      ServiceInfo() = default ;
+      ServiceInfo(const ServiceInfo &) = default ;
+      ServiceInfo(ServiceInfo &&) = default ;
+      ServiceInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ServiceInfo() = default ;
+      ServiceInfo& operator=(const ServiceInfo &) = default ;
+      ServiceInfo& operator=(ServiceInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Softwares : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Softwares& obj) { 
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Version, version_);
+        };
+        friend void from_json(const Darabonba::Json& j, Softwares& obj) { 
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Version, version_);
+        };
+        Softwares() = default ;
+        Softwares(const Softwares &) = default ;
+        Softwares(Softwares &&) = default ;
+        Softwares(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Softwares() = default ;
+        Softwares& operator=(const Softwares &) = default ;
+        Softwares& operator=(Softwares &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->version_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Softwares& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // version Field Functions 
+        bool hasVersion() const { return this->version_ != nullptr;};
+        void deleteVersion() { this->version_ = nullptr;};
+        inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+        inline Softwares& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+      protected:
+        // The name of the software.
+        shared_ptr<string> name_ {};
+        // The version of the software.
+        shared_ptr<string> version_ {};
+      };
+
+      class Agreements : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Agreements& obj) { 
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Url, url_);
+        };
+        friend void from_json(const Darabonba::Json& j, Agreements& obj) { 
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Url, url_);
+        };
+        Agreements() = default ;
+        Agreements(const Agreements &) = default ;
+        Agreements(Agreements &&) = default ;
+        Agreements(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Agreements() = default ;
+        Agreements& operator=(const Agreements &) = default ;
+        Agreements& operator=(Agreements &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->name_ == nullptr
+        && this->url_ == nullptr; };
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Agreements& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // url Field Functions 
+        bool hasUrl() const { return this->url_ != nullptr;};
+        void deleteUrl() { this->url_ = nullptr;};
+        inline string getUrl() const { DARABONBA_PTR_GET_DEFAULT(url_, "") };
+        inline Agreements& setUrl(string url) { DARABONBA_PTR_SET_VALUE(url_, url) };
+
+
+      protected:
+        // Protocol name.
+        shared_ptr<string> name_ {};
+        // Protocol url.
+        shared_ptr<string> url_ {};
+      };
+
+      virtual bool empty() const override { return this->agreements_ == nullptr
+        && this->image_ == nullptr && this->locale_ == nullptr && this->longDescriptionUrl_ == nullptr && this->name_ == nullptr && this->shortDescription_ == nullptr
+        && this->softwares_ == nullptr; };
+      // agreements Field Functions 
+      bool hasAgreements() const { return this->agreements_ != nullptr;};
+      void deleteAgreements() { this->agreements_ = nullptr;};
+      inline const vector<ServiceInfo::Agreements> & getAgreements() const { DARABONBA_PTR_GET_CONST(agreements_, vector<ServiceInfo::Agreements>) };
+      inline vector<ServiceInfo::Agreements> getAgreements() { DARABONBA_PTR_GET(agreements_, vector<ServiceInfo::Agreements>) };
+      inline ServiceInfo& setAgreements(const vector<ServiceInfo::Agreements> & agreements) { DARABONBA_PTR_SET_VALUE(agreements_, agreements) };
+      inline ServiceInfo& setAgreements(vector<ServiceInfo::Agreements> && agreements) { DARABONBA_PTR_SET_RVALUE(agreements_, agreements) };
+
+
+      // image Field Functions 
+      bool hasImage() const { return this->image_ != nullptr;};
+      void deleteImage() { this->image_ = nullptr;};
+      inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+      inline ServiceInfo& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
+
+
+      // locale Field Functions 
+      bool hasLocale() const { return this->locale_ != nullptr;};
+      void deleteLocale() { this->locale_ = nullptr;};
+      inline string getLocale() const { DARABONBA_PTR_GET_DEFAULT(locale_, "") };
+      inline ServiceInfo& setLocale(string locale) { DARABONBA_PTR_SET_VALUE(locale_, locale) };
+
+
+      // longDescriptionUrl Field Functions 
+      bool hasLongDescriptionUrl() const { return this->longDescriptionUrl_ != nullptr;};
+      void deleteLongDescriptionUrl() { this->longDescriptionUrl_ = nullptr;};
+      inline string getLongDescriptionUrl() const { DARABONBA_PTR_GET_DEFAULT(longDescriptionUrl_, "") };
+      inline ServiceInfo& setLongDescriptionUrl(string longDescriptionUrl) { DARABONBA_PTR_SET_VALUE(longDescriptionUrl_, longDescriptionUrl) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline ServiceInfo& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // shortDescription Field Functions 
+      bool hasShortDescription() const { return this->shortDescription_ != nullptr;};
+      void deleteShortDescription() { this->shortDescription_ = nullptr;};
+      inline string getShortDescription() const { DARABONBA_PTR_GET_DEFAULT(shortDescription_, "") };
+      inline ServiceInfo& setShortDescription(string shortDescription) { DARABONBA_PTR_SET_VALUE(shortDescription_, shortDescription) };
+
+
+      // softwares Field Functions 
+      bool hasSoftwares() const { return this->softwares_ != nullptr;};
+      void deleteSoftwares() { this->softwares_ = nullptr;};
+      inline const vector<ServiceInfo::Softwares> & getSoftwares() const { DARABONBA_PTR_GET_CONST(softwares_, vector<ServiceInfo::Softwares>) };
+      inline vector<ServiceInfo::Softwares> getSoftwares() { DARABONBA_PTR_GET(softwares_, vector<ServiceInfo::Softwares>) };
+      inline ServiceInfo& setSoftwares(const vector<ServiceInfo::Softwares> & softwares) { DARABONBA_PTR_SET_VALUE(softwares_, softwares) };
+      inline ServiceInfo& setSoftwares(vector<ServiceInfo::Softwares> && softwares) { DARABONBA_PTR_SET_RVALUE(softwares_, softwares) };
+
+
+    protected:
+      // Protocol document information about the service.
+      shared_ptr<vector<ServiceInfo::Agreements>> agreements_ {};
+      // The URL of the service icon.
+      shared_ptr<string> image_ {};
+      // The language of the service. Valid values:
+      // 
+      // *   zh-CN: Chinese
+      // *   en-US: English
+      // 
+      // This parameter is required.
+      shared_ptr<string> locale_ {};
+      // The URL of the detailed description of the service.
+      shared_ptr<string> longDescriptionUrl_ {};
+      // The service name.
+      // 
+      // This parameter is required.
+      shared_ptr<string> name_ {};
+      // The description of the service.
+      shared_ptr<string> shortDescription_ {};
+      // The list of the software in the service.
+      shared_ptr<vector<ServiceInfo::Softwares>> softwares_ {};
+    };
+
+    class ComplianceMetadata : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ComplianceMetadata& obj) { 
+        DARABONBA_PTR_TO_JSON(CompliancePacks, compliancePacks_);
+      };
+      friend void from_json(const Darabonba::Json& j, ComplianceMetadata& obj) { 
+        DARABONBA_PTR_FROM_JSON(CompliancePacks, compliancePacks_);
+      };
+      ComplianceMetadata() = default ;
+      ComplianceMetadata(const ComplianceMetadata &) = default ;
+      ComplianceMetadata(ComplianceMetadata &&) = default ;
+      ComplianceMetadata(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ComplianceMetadata() = default ;
+      ComplianceMetadata& operator=(const ComplianceMetadata &) = default ;
+      ComplianceMetadata& operator=(ComplianceMetadata &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->compliancePacks_ == nullptr; };
+      // compliancePacks Field Functions 
+      bool hasCompliancePacks() const { return this->compliancePacks_ != nullptr;};
+      void deleteCompliancePacks() { this->compliancePacks_ = nullptr;};
+      inline const vector<string> & getCompliancePacks() const { DARABONBA_PTR_GET_CONST(compliancePacks_, vector<string>) };
+      inline vector<string> getCompliancePacks() { DARABONBA_PTR_GET(compliancePacks_, vector<string>) };
+      inline ComplianceMetadata& setCompliancePacks(const vector<string> & compliancePacks) { DARABONBA_PTR_SET_VALUE(compliancePacks_, compliancePacks) };
+      inline ComplianceMetadata& setCompliancePacks(vector<string> && compliancePacks) { DARABONBA_PTR_SET_RVALUE(compliancePacks_, compliancePacks) };
+
+
+    protected:
+      // The compliance package selected.
+      shared_ptr<vector<string>> compliancePacks_ {};
+    };
+
+    virtual bool empty() const override { return this->alarmMetadata_ == nullptr
+        && this->approvalType_ == nullptr && this->buildParameters_ == nullptr && this->clientToken_ == nullptr && this->complianceMetadata_ == nullptr && this->deployMetadata_ == nullptr
+        && this->deployType_ == nullptr && this->dryRun_ == nullptr && this->duration_ == nullptr && this->isSupportOperated_ == nullptr && this->licenseMetadata_ == nullptr
+        && this->logMetadata_ == nullptr && this->operationMetadata_ == nullptr && this->policyNames_ == nullptr && this->regionId_ == nullptr && this->resellable_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->serviceId_ == nullptr && this->serviceInfo_ == nullptr && this->serviceType_ == nullptr && this->shareType_ == nullptr
+        && this->sourceServiceId_ == nullptr && this->sourceServiceVersion_ == nullptr && this->tag_ == nullptr && this->tenantType_ == nullptr && this->trialDuration_ == nullptr
+        && this->upgradeMetadata_ == nullptr && this->versionName_ == nullptr; };
     // alarmMetadata Field Functions 
     bool hasAlarmMetadata() const { return this->alarmMetadata_ != nullptr;};
     void deleteAlarmMetadata() { this->alarmMetadata_ = nullptr;};
-    inline string alarmMetadata() const { DARABONBA_PTR_GET_DEFAULT(alarmMetadata_, "") };
+    inline string getAlarmMetadata() const { DARABONBA_PTR_GET_DEFAULT(alarmMetadata_, "") };
     inline CreateServiceRequest& setAlarmMetadata(string alarmMetadata) { DARABONBA_PTR_SET_VALUE(alarmMetadata_, alarmMetadata) };
 
 
     // approvalType Field Functions 
     bool hasApprovalType() const { return this->approvalType_ != nullptr;};
     void deleteApprovalType() { this->approvalType_ = nullptr;};
-    inline string approvalType() const { DARABONBA_PTR_GET_DEFAULT(approvalType_, "") };
+    inline string getApprovalType() const { DARABONBA_PTR_GET_DEFAULT(approvalType_, "") };
     inline CreateServiceRequest& setApprovalType(string approvalType) { DARABONBA_PTR_SET_VALUE(approvalType_, approvalType) };
 
 
     // buildParameters Field Functions 
     bool hasBuildParameters() const { return this->buildParameters_ != nullptr;};
     void deleteBuildParameters() { this->buildParameters_ = nullptr;};
-    inline string buildParameters() const { DARABONBA_PTR_GET_DEFAULT(buildParameters_, "") };
+    inline string getBuildParameters() const { DARABONBA_PTR_GET_DEFAULT(buildParameters_, "") };
     inline CreateServiceRequest& setBuildParameters(string buildParameters) { DARABONBA_PTR_SET_VALUE(buildParameters_, buildParameters) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateServiceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // complianceMetadata Field Functions 
     bool hasComplianceMetadata() const { return this->complianceMetadata_ != nullptr;};
     void deleteComplianceMetadata() { this->complianceMetadata_ = nullptr;};
-    inline const CreateServiceRequestComplianceMetadata & complianceMetadata() const { DARABONBA_PTR_GET_CONST(complianceMetadata_, CreateServiceRequestComplianceMetadata) };
-    inline CreateServiceRequestComplianceMetadata complianceMetadata() { DARABONBA_PTR_GET(complianceMetadata_, CreateServiceRequestComplianceMetadata) };
-    inline CreateServiceRequest& setComplianceMetadata(const CreateServiceRequestComplianceMetadata & complianceMetadata) { DARABONBA_PTR_SET_VALUE(complianceMetadata_, complianceMetadata) };
-    inline CreateServiceRequest& setComplianceMetadata(CreateServiceRequestComplianceMetadata && complianceMetadata) { DARABONBA_PTR_SET_RVALUE(complianceMetadata_, complianceMetadata) };
+    inline const CreateServiceRequest::ComplianceMetadata & getComplianceMetadata() const { DARABONBA_PTR_GET_CONST(complianceMetadata_, CreateServiceRequest::ComplianceMetadata) };
+    inline CreateServiceRequest::ComplianceMetadata getComplianceMetadata() { DARABONBA_PTR_GET(complianceMetadata_, CreateServiceRequest::ComplianceMetadata) };
+    inline CreateServiceRequest& setComplianceMetadata(const CreateServiceRequest::ComplianceMetadata & complianceMetadata) { DARABONBA_PTR_SET_VALUE(complianceMetadata_, complianceMetadata) };
+    inline CreateServiceRequest& setComplianceMetadata(CreateServiceRequest::ComplianceMetadata && complianceMetadata) { DARABONBA_PTR_SET_RVALUE(complianceMetadata_, complianceMetadata) };
 
 
     // deployMetadata Field Functions 
     bool hasDeployMetadata() const { return this->deployMetadata_ != nullptr;};
     void deleteDeployMetadata() { this->deployMetadata_ = nullptr;};
-    inline string deployMetadata() const { DARABONBA_PTR_GET_DEFAULT(deployMetadata_, "") };
+    inline string getDeployMetadata() const { DARABONBA_PTR_GET_DEFAULT(deployMetadata_, "") };
     inline CreateServiceRequest& setDeployMetadata(string deployMetadata) { DARABONBA_PTR_SET_VALUE(deployMetadata_, deployMetadata) };
 
 
     // deployType Field Functions 
     bool hasDeployType() const { return this->deployType_ != nullptr;};
     void deleteDeployType() { this->deployType_ = nullptr;};
-    inline string deployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, "") };
+    inline string getDeployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, "") };
     inline CreateServiceRequest& setDeployType(string deployType) { DARABONBA_PTR_SET_VALUE(deployType_, deployType) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateServiceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // duration Field Functions 
     bool hasDuration() const { return this->duration_ != nullptr;};
     void deleteDuration() { this->duration_ = nullptr;};
-    inline int64_t duration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
+    inline int64_t getDuration() const { DARABONBA_PTR_GET_DEFAULT(duration_, 0L) };
     inline CreateServiceRequest& setDuration(int64_t duration) { DARABONBA_PTR_SET_VALUE(duration_, duration) };
 
 
     // isSupportOperated Field Functions 
     bool hasIsSupportOperated() const { return this->isSupportOperated_ != nullptr;};
     void deleteIsSupportOperated() { this->isSupportOperated_ = nullptr;};
-    inline bool isSupportOperated() const { DARABONBA_PTR_GET_DEFAULT(isSupportOperated_, false) };
+    inline bool getIsSupportOperated() const { DARABONBA_PTR_GET_DEFAULT(isSupportOperated_, false) };
     inline CreateServiceRequest& setIsSupportOperated(bool isSupportOperated) { DARABONBA_PTR_SET_VALUE(isSupportOperated_, isSupportOperated) };
 
 
     // licenseMetadata Field Functions 
     bool hasLicenseMetadata() const { return this->licenseMetadata_ != nullptr;};
     void deleteLicenseMetadata() { this->licenseMetadata_ = nullptr;};
-    inline string licenseMetadata() const { DARABONBA_PTR_GET_DEFAULT(licenseMetadata_, "") };
+    inline string getLicenseMetadata() const { DARABONBA_PTR_GET_DEFAULT(licenseMetadata_, "") };
     inline CreateServiceRequest& setLicenseMetadata(string licenseMetadata) { DARABONBA_PTR_SET_VALUE(licenseMetadata_, licenseMetadata) };
 
 
     // logMetadata Field Functions 
     bool hasLogMetadata() const { return this->logMetadata_ != nullptr;};
     void deleteLogMetadata() { this->logMetadata_ = nullptr;};
-    inline string logMetadata() const { DARABONBA_PTR_GET_DEFAULT(logMetadata_, "") };
+    inline string getLogMetadata() const { DARABONBA_PTR_GET_DEFAULT(logMetadata_, "") };
     inline CreateServiceRequest& setLogMetadata(string logMetadata) { DARABONBA_PTR_SET_VALUE(logMetadata_, logMetadata) };
 
 
     // operationMetadata Field Functions 
     bool hasOperationMetadata() const { return this->operationMetadata_ != nullptr;};
     void deleteOperationMetadata() { this->operationMetadata_ = nullptr;};
-    inline string operationMetadata() const { DARABONBA_PTR_GET_DEFAULT(operationMetadata_, "") };
+    inline string getOperationMetadata() const { DARABONBA_PTR_GET_DEFAULT(operationMetadata_, "") };
     inline CreateServiceRequest& setOperationMetadata(string operationMetadata) { DARABONBA_PTR_SET_VALUE(operationMetadata_, operationMetadata) };
 
 
     // policyNames Field Functions 
     bool hasPolicyNames() const { return this->policyNames_ != nullptr;};
     void deletePolicyNames() { this->policyNames_ = nullptr;};
-    inline string policyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
+    inline string getPolicyNames() const { DARABONBA_PTR_GET_DEFAULT(policyNames_, "") };
     inline CreateServiceRequest& setPolicyNames(string policyNames) { DARABONBA_PTR_SET_VALUE(policyNames_, policyNames) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateServiceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resellable Field Functions 
     bool hasResellable() const { return this->resellable_ != nullptr;};
     void deleteResellable() { this->resellable_ = nullptr;};
-    inline bool resellable() const { DARABONBA_PTR_GET_DEFAULT(resellable_, false) };
+    inline bool getResellable() const { DARABONBA_PTR_GET_DEFAULT(resellable_, false) };
     inline CreateServiceRequest& setResellable(bool resellable) { DARABONBA_PTR_SET_VALUE(resellable_, resellable) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateServiceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // serviceId Field Functions 
     bool hasServiceId() const { return this->serviceId_ != nullptr;};
     void deleteServiceId() { this->serviceId_ = nullptr;};
-    inline string serviceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+    inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
     inline CreateServiceRequest& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
     // serviceInfo Field Functions 
     bool hasServiceInfo() const { return this->serviceInfo_ != nullptr;};
     void deleteServiceInfo() { this->serviceInfo_ = nullptr;};
-    inline const vector<CreateServiceRequestServiceInfo> & serviceInfo() const { DARABONBA_PTR_GET_CONST(serviceInfo_, vector<CreateServiceRequestServiceInfo>) };
-    inline vector<CreateServiceRequestServiceInfo> serviceInfo() { DARABONBA_PTR_GET(serviceInfo_, vector<CreateServiceRequestServiceInfo>) };
-    inline CreateServiceRequest& setServiceInfo(const vector<CreateServiceRequestServiceInfo> & serviceInfo) { DARABONBA_PTR_SET_VALUE(serviceInfo_, serviceInfo) };
-    inline CreateServiceRequest& setServiceInfo(vector<CreateServiceRequestServiceInfo> && serviceInfo) { DARABONBA_PTR_SET_RVALUE(serviceInfo_, serviceInfo) };
+    inline const vector<CreateServiceRequest::ServiceInfo> & getServiceInfo() const { DARABONBA_PTR_GET_CONST(serviceInfo_, vector<CreateServiceRequest::ServiceInfo>) };
+    inline vector<CreateServiceRequest::ServiceInfo> getServiceInfo() { DARABONBA_PTR_GET(serviceInfo_, vector<CreateServiceRequest::ServiceInfo>) };
+    inline CreateServiceRequest& setServiceInfo(const vector<CreateServiceRequest::ServiceInfo> & serviceInfo) { DARABONBA_PTR_SET_VALUE(serviceInfo_, serviceInfo) };
+    inline CreateServiceRequest& setServiceInfo(vector<CreateServiceRequest::ServiceInfo> && serviceInfo) { DARABONBA_PTR_SET_RVALUE(serviceInfo_, serviceInfo) };
 
 
     // serviceType Field Functions 
     bool hasServiceType() const { return this->serviceType_ != nullptr;};
     void deleteServiceType() { this->serviceType_ = nullptr;};
-    inline string serviceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
     inline CreateServiceRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
     // shareType Field Functions 
     bool hasShareType() const { return this->shareType_ != nullptr;};
     void deleteShareType() { this->shareType_ = nullptr;};
-    inline string shareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
+    inline string getShareType() const { DARABONBA_PTR_GET_DEFAULT(shareType_, "") };
     inline CreateServiceRequest& setShareType(string shareType) { DARABONBA_PTR_SET_VALUE(shareType_, shareType) };
 
 
     // sourceServiceId Field Functions 
     bool hasSourceServiceId() const { return this->sourceServiceId_ != nullptr;};
     void deleteSourceServiceId() { this->sourceServiceId_ = nullptr;};
-    inline string sourceServiceId() const { DARABONBA_PTR_GET_DEFAULT(sourceServiceId_, "") };
+    inline string getSourceServiceId() const { DARABONBA_PTR_GET_DEFAULT(sourceServiceId_, "") };
     inline CreateServiceRequest& setSourceServiceId(string sourceServiceId) { DARABONBA_PTR_SET_VALUE(sourceServiceId_, sourceServiceId) };
 
 
     // sourceServiceVersion Field Functions 
     bool hasSourceServiceVersion() const { return this->sourceServiceVersion_ != nullptr;};
     void deleteSourceServiceVersion() { this->sourceServiceVersion_ = nullptr;};
-    inline string sourceServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(sourceServiceVersion_, "") };
+    inline string getSourceServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(sourceServiceVersion_, "") };
     inline CreateServiceRequest& setSourceServiceVersion(string sourceServiceVersion) { DARABONBA_PTR_SET_VALUE(sourceServiceVersion_, sourceServiceVersion) };
 
 
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
-    inline const vector<CreateServiceRequestTag> & tag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateServiceRequestTag>) };
-    inline vector<CreateServiceRequestTag> tag() { DARABONBA_PTR_GET(tag_, vector<CreateServiceRequestTag>) };
-    inline CreateServiceRequest& setTag(const vector<CreateServiceRequestTag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
-    inline CreateServiceRequest& setTag(vector<CreateServiceRequestTag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+    inline const vector<CreateServiceRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateServiceRequest::Tag>) };
+    inline vector<CreateServiceRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateServiceRequest::Tag>) };
+    inline CreateServiceRequest& setTag(const vector<CreateServiceRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateServiceRequest& setTag(vector<CreateServiceRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
 
 
     // tenantType Field Functions 
     bool hasTenantType() const { return this->tenantType_ != nullptr;};
     void deleteTenantType() { this->tenantType_ = nullptr;};
-    inline string tenantType() const { DARABONBA_PTR_GET_DEFAULT(tenantType_, "") };
+    inline string getTenantType() const { DARABONBA_PTR_GET_DEFAULT(tenantType_, "") };
     inline CreateServiceRequest& setTenantType(string tenantType) { DARABONBA_PTR_SET_VALUE(tenantType_, tenantType) };
 
 
     // trialDuration Field Functions 
     bool hasTrialDuration() const { return this->trialDuration_ != nullptr;};
     void deleteTrialDuration() { this->trialDuration_ = nullptr;};
-    inline int64_t trialDuration() const { DARABONBA_PTR_GET_DEFAULT(trialDuration_, 0L) };
+    inline int64_t getTrialDuration() const { DARABONBA_PTR_GET_DEFAULT(trialDuration_, 0L) };
     inline CreateServiceRequest& setTrialDuration(int64_t trialDuration) { DARABONBA_PTR_SET_VALUE(trialDuration_, trialDuration) };
 
 
     // upgradeMetadata Field Functions 
     bool hasUpgradeMetadata() const { return this->upgradeMetadata_ != nullptr;};
     void deleteUpgradeMetadata() { this->upgradeMetadata_ = nullptr;};
-    inline string upgradeMetadata() const { DARABONBA_PTR_GET_DEFAULT(upgradeMetadata_, "") };
+    inline string getUpgradeMetadata() const { DARABONBA_PTR_GET_DEFAULT(upgradeMetadata_, "") };
     inline CreateServiceRequest& setUpgradeMetadata(string upgradeMetadata) { DARABONBA_PTR_SET_VALUE(upgradeMetadata_, upgradeMetadata) };
 
 
     // versionName Field Functions 
     bool hasVersionName() const { return this->versionName_ != nullptr;};
     void deleteVersionName() { this->versionName_ = nullptr;};
-    inline string versionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
+    inline string getVersionName() const { DARABONBA_PTR_GET_DEFAULT(versionName_, "") };
     inline CreateServiceRequest& setVersionName(string versionName) { DARABONBA_PTR_SET_VALUE(versionName_, versionName) };
 
 
@@ -300,20 +574,20 @@ namespace Models
     // The alert configurations of the service.
     // 
     // >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
-    std::shared_ptr<string> alarmMetadata_ = nullptr;
+    shared_ptr<string> alarmMetadata_ {};
     // The approval type of the service usage application. Valid values:
     // 
     // *   Manual: The application is manually approved.
     // *   AutoPass: The application is automatically approved.
-    std::shared_ptr<string> approvalType_ = nullptr;
+    shared_ptr<string> approvalType_ {};
     // The parameters for building the service
-    std::shared_ptr<string> buildParameters_ = nullptr;
+    shared_ptr<string> buildParameters_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Compliance check metadata.
-    std::shared_ptr<CreateServiceRequestComplianceMetadata> complianceMetadata_ = nullptr;
+    shared_ptr<CreateServiceRequest::ComplianceMetadata> complianceMetadata_ {};
     // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
-    std::shared_ptr<string> deployMetadata_ = nullptr;
+    shared_ptr<string> deployMetadata_ {};
     // The deployment type of the service. Valid values:
     // 
     // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
@@ -323,48 +597,48 @@ namespace Models
     // *   operation: The service is deployed by using a hosted O\\&M service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deployType_ = nullptr;
+    shared_ptr<string> deployType_ {};
     // Specifies whether to perform only a dry run for the request to check information. Valid values:
     // 
     // *   true: performs a dry run for the request, but does not create a service.
     // *   false: performs a dry run for the request, and create a service if the request passes the dry run.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The duration for which hosted O\\&M is implemented. Unit: seconds.
-    std::shared_ptr<int64_t> duration_ = nullptr;
+    shared_ptr<int64_t> duration_ {};
     // Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
     // 
     // *   true
     // *   false
     // 
     // >  This parameter is required if you set **ServiceType** to **private**.
-    std::shared_ptr<bool> isSupportOperated_ = nullptr;
+    shared_ptr<bool> isSupportOperated_ {};
     // The license metadata.
-    std::shared_ptr<string> licenseMetadata_ = nullptr;
+    shared_ptr<string> licenseMetadata_ {};
     // The logging configurations.
-    std::shared_ptr<string> logMetadata_ = nullptr;
+    shared_ptr<string> logMetadata_ {};
     // The hosted O\\&M configurations.
-    std::shared_ptr<string> operationMetadata_ = nullptr;
+    shared_ptr<string> operationMetadata_ {};
     // The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
-    std::shared_ptr<string> policyNames_ = nullptr;
+    shared_ptr<string> policyNames_ {};
     // The region ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Whether resell is supported.
-    std::shared_ptr<bool> resellable_ = nullptr;
+    shared_ptr<bool> resellable_ {};
     // The ID of the resource group.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The service ID.
-    std::shared_ptr<string> serviceId_ = nullptr;
+    shared_ptr<string> serviceId_ {};
     // The service details.
-    std::shared_ptr<vector<CreateServiceRequestServiceInfo>> serviceInfo_ = nullptr;
+    shared_ptr<vector<CreateServiceRequest::ServiceInfo>> serviceInfo_ {};
     // The service type. Valid values:
     // 
     // *   private: The service is a private service and is deployed within the account of a customer.
     // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
     // *   operation: The service is a hosted O\\&M service.
     // *   poc: The service is a trial service.
-    std::shared_ptr<string> serviceType_ = nullptr;
+    shared_ptr<string> serviceType_ {};
     // The permission type of the deployment URL. Valid values:
     // 
     // *   Public: All users can go to the URL to create a service instance or a trial service instance.
@@ -372,24 +646,24 @@ namespace Models
     // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
     // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
     // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
-    std::shared_ptr<string> shareType_ = nullptr;
+    shared_ptr<string> shareType_ {};
     // The source service ID for resell。
-    std::shared_ptr<string> sourceServiceId_ = nullptr;
+    shared_ptr<string> sourceServiceId_ {};
     // The source service version for resell。
-    std::shared_ptr<string> sourceServiceVersion_ = nullptr;
+    shared_ptr<string> sourceServiceVersion_ {};
     // The custom tags.
-    std::shared_ptr<vector<CreateServiceRequestTag>> tag_ = nullptr;
+    shared_ptr<vector<CreateServiceRequest::Tag>> tag_ {};
     // The type of the tenant. Valid values:
     // 
     // *   SingleTenant
     // *   MultiTenant
-    std::shared_ptr<string> tenantType_ = nullptr;
+    shared_ptr<string> tenantType_ {};
     // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
-    std::shared_ptr<int64_t> trialDuration_ = nullptr;
+    shared_ptr<int64_t> trialDuration_ {};
     // The metadata about the upgrade.
-    std::shared_ptr<string> upgradeMetadata_ = nullptr;
+    shared_ptr<string> upgradeMetadata_ {};
     // The version name.
-    std::shared_ptr<string> versionName_ = nullptr;
+    shared_ptr<string> versionName_ {};
   };
 
   } // namespace Models

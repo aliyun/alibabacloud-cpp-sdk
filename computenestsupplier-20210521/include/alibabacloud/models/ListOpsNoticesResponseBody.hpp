@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTOPSNOTICESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListOpsNoticesResponseBodyOpsNotices.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,197 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->opsNotices_ != nullptr && this->requestId_ != nullptr && this->totalCount_ != nullptr; };
+    class OpsNotices : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const OpsNotices& obj) { 
+        DARABONBA_PTR_TO_JSON(Attributes, attributes_);
+        DARABONBA_PTR_TO_JSON(Category, category_);
+        DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(NoticeId, noticeId_);
+        DARABONBA_PTR_TO_JSON(ServiceId, serviceId_);
+        DARABONBA_PTR_TO_JSON(ServiceName, serviceName_);
+        DARABONBA_PTR_TO_JSON(ServiceVersions, serviceVersions_);
+        DARABONBA_PTR_TO_JSON(Severity, severity_);
+        DARABONBA_PTR_TO_JSON(Solutions, solutions_);
+        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        DARABONBA_PTR_TO_JSON(Success, success_);
+        DARABONBA_PTR_TO_JSON(Type, type_);
+      };
+      friend void from_json(const Darabonba::Json& j, OpsNotices& obj) { 
+        DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
+        DARABONBA_PTR_FROM_JSON(Category, category_);
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(NoticeId, noticeId_);
+        DARABONBA_PTR_FROM_JSON(ServiceId, serviceId_);
+        DARABONBA_PTR_FROM_JSON(ServiceName, serviceName_);
+        DARABONBA_PTR_FROM_JSON(ServiceVersions, serviceVersions_);
+        DARABONBA_PTR_FROM_JSON(Severity, severity_);
+        DARABONBA_PTR_FROM_JSON(Solutions, solutions_);
+        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        DARABONBA_PTR_FROM_JSON(Success, success_);
+        DARABONBA_PTR_FROM_JSON(Type, type_);
+      };
+      OpsNotices() = default ;
+      OpsNotices(const OpsNotices &) = default ;
+      OpsNotices(OpsNotices &&) = default ;
+      OpsNotices(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~OpsNotices() = default ;
+      OpsNotices& operator=(const OpsNotices &) = default ;
+      OpsNotices& operator=(OpsNotices &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->category_ == nullptr && this->content_ == nullptr && this->noticeId_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr
+        && this->serviceVersions_ == nullptr && this->severity_ == nullptr && this->solutions_ == nullptr && this->startTime_ == nullptr && this->success_ == nullptr
+        && this->type_ == nullptr; };
+      // attributes Field Functions 
+      bool hasAttributes() const { return this->attributes_ != nullptr;};
+      void deleteAttributes() { this->attributes_ = nullptr;};
+      inline string getAttributes() const { DARABONBA_PTR_GET_DEFAULT(attributes_, "") };
+      inline OpsNotices& setAttributes(string attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+
+
+      // category Field Functions 
+      bool hasCategory() const { return this->category_ != nullptr;};
+      void deleteCategory() { this->category_ = nullptr;};
+      inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+      inline OpsNotices& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline OpsNotices& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // noticeId Field Functions 
+      bool hasNoticeId() const { return this->noticeId_ != nullptr;};
+      void deleteNoticeId() { this->noticeId_ = nullptr;};
+      inline string getNoticeId() const { DARABONBA_PTR_GET_DEFAULT(noticeId_, "") };
+      inline OpsNotices& setNoticeId(string noticeId) { DARABONBA_PTR_SET_VALUE(noticeId_, noticeId) };
+
+
+      // serviceId Field Functions 
+      bool hasServiceId() const { return this->serviceId_ != nullptr;};
+      void deleteServiceId() { this->serviceId_ = nullptr;};
+      inline string getServiceId() const { DARABONBA_PTR_GET_DEFAULT(serviceId_, "") };
+      inline OpsNotices& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
+
+
+      // serviceName Field Functions 
+      bool hasServiceName() const { return this->serviceName_ != nullptr;};
+      void deleteServiceName() { this->serviceName_ = nullptr;};
+      inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+      inline OpsNotices& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+
+
+      // serviceVersions Field Functions 
+      bool hasServiceVersions() const { return this->serviceVersions_ != nullptr;};
+      void deleteServiceVersions() { this->serviceVersions_ = nullptr;};
+      inline const vector<string> & getServiceVersions() const { DARABONBA_PTR_GET_CONST(serviceVersions_, vector<string>) };
+      inline vector<string> getServiceVersions() { DARABONBA_PTR_GET(serviceVersions_, vector<string>) };
+      inline OpsNotices& setServiceVersions(const vector<string> & serviceVersions) { DARABONBA_PTR_SET_VALUE(serviceVersions_, serviceVersions) };
+      inline OpsNotices& setServiceVersions(vector<string> && serviceVersions) { DARABONBA_PTR_SET_RVALUE(serviceVersions_, serviceVersions) };
+
+
+      // severity Field Functions 
+      bool hasSeverity() const { return this->severity_ != nullptr;};
+      void deleteSeverity() { this->severity_ = nullptr;};
+      inline string getSeverity() const { DARABONBA_PTR_GET_DEFAULT(severity_, "") };
+      inline OpsNotices& setSeverity(string severity) { DARABONBA_PTR_SET_VALUE(severity_, severity) };
+
+
+      // solutions Field Functions 
+      bool hasSolutions() const { return this->solutions_ != nullptr;};
+      void deleteSolutions() { this->solutions_ = nullptr;};
+      inline string getSolutions() const { DARABONBA_PTR_GET_DEFAULT(solutions_, "") };
+      inline OpsNotices& setSolutions(string solutions) { DARABONBA_PTR_SET_VALUE(solutions_, solutions) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+      inline OpsNotices& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+      // success Field Functions 
+      bool hasSuccess() const { return this->success_ != nullptr;};
+      void deleteSuccess() { this->success_ = nullptr;};
+      inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
+      inline OpsNotices& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline OpsNotices& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+    protected:
+      shared_ptr<string> attributes_ {};
+      shared_ptr<string> category_ {};
+      shared_ptr<string> content_ {};
+      shared_ptr<string> noticeId_ {};
+      shared_ptr<string> serviceId_ {};
+      shared_ptr<string> serviceName_ {};
+      shared_ptr<vector<string>> serviceVersions_ {};
+      shared_ptr<string> severity_ {};
+      shared_ptr<string> solutions_ {};
+      shared_ptr<string> startTime_ {};
+      shared_ptr<string> success_ {};
+      shared_ptr<string> type_ {};
+    };
+
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->opsNotices_ == nullptr && this->requestId_ == nullptr && this->totalCount_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListOpsNoticesResponseBody& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListOpsNoticesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // opsNotices Field Functions 
     bool hasOpsNotices() const { return this->opsNotices_ != nullptr;};
     void deleteOpsNotices() { this->opsNotices_ = nullptr;};
-    inline const vector<ListOpsNoticesResponseBodyOpsNotices> & opsNotices() const { DARABONBA_PTR_GET_CONST(opsNotices_, vector<ListOpsNoticesResponseBodyOpsNotices>) };
-    inline vector<ListOpsNoticesResponseBodyOpsNotices> opsNotices() { DARABONBA_PTR_GET(opsNotices_, vector<ListOpsNoticesResponseBodyOpsNotices>) };
-    inline ListOpsNoticesResponseBody& setOpsNotices(const vector<ListOpsNoticesResponseBodyOpsNotices> & opsNotices) { DARABONBA_PTR_SET_VALUE(opsNotices_, opsNotices) };
-    inline ListOpsNoticesResponseBody& setOpsNotices(vector<ListOpsNoticesResponseBodyOpsNotices> && opsNotices) { DARABONBA_PTR_SET_RVALUE(opsNotices_, opsNotices) };
+    inline const vector<ListOpsNoticesResponseBody::OpsNotices> & getOpsNotices() const { DARABONBA_PTR_GET_CONST(opsNotices_, vector<ListOpsNoticesResponseBody::OpsNotices>) };
+    inline vector<ListOpsNoticesResponseBody::OpsNotices> getOpsNotices() { DARABONBA_PTR_GET(opsNotices_, vector<ListOpsNoticesResponseBody::OpsNotices>) };
+    inline ListOpsNoticesResponseBody& setOpsNotices(const vector<ListOpsNoticesResponseBody::OpsNotices> & opsNotices) { DARABONBA_PTR_SET_VALUE(opsNotices_, opsNotices) };
+    inline ListOpsNoticesResponseBody& setOpsNotices(vector<ListOpsNoticesResponseBody::OpsNotices> && opsNotices) { DARABONBA_PTR_SET_RVALUE(opsNotices_, opsNotices) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListOpsNoticesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListOpsNoticesResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<vector<ListOpsNoticesResponseBodyOpsNotices>> opsNotices_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<vector<ListOpsNoticesResponseBody::OpsNotices>> opsNotices_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

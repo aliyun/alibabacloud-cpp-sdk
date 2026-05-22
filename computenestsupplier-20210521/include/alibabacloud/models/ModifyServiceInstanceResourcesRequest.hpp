@@ -33,41 +33,41 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->resources_ != nullptr
-        && this->serviceInstanceId_ != nullptr && this->serviceInstanceResourcesAction_ != nullptr; };
+    virtual bool empty() const override { return this->resources_ == nullptr
+        && this->serviceInstanceId_ == nullptr && this->serviceInstanceResourcesAction_ == nullptr; };
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline string resources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
+    inline string getResources() const { DARABONBA_PTR_GET_DEFAULT(resources_, "") };
     inline ModifyServiceInstanceResourcesRequest& setResources(string resources) { DARABONBA_PTR_SET_VALUE(resources_, resources) };
 
 
     // serviceInstanceId Field Functions 
     bool hasServiceInstanceId() const { return this->serviceInstanceId_ != nullptr;};
     void deleteServiceInstanceId() { this->serviceInstanceId_ = nullptr;};
-    inline string serviceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
+    inline string getServiceInstanceId() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceId_, "") };
     inline ModifyServiceInstanceResourcesRequest& setServiceInstanceId(string serviceInstanceId) { DARABONBA_PTR_SET_VALUE(serviceInstanceId_, serviceInstanceId) };
 
 
     // serviceInstanceResourcesAction Field Functions 
     bool hasServiceInstanceResourcesAction() const { return this->serviceInstanceResourcesAction_ != nullptr;};
     void deleteServiceInstanceResourcesAction() { this->serviceInstanceResourcesAction_ = nullptr;};
-    inline string serviceInstanceResourcesAction() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceResourcesAction_, "") };
+    inline string getServiceInstanceResourcesAction() const { DARABONBA_PTR_GET_DEFAULT(serviceInstanceResourcesAction_, "") };
     inline ModifyServiceInstanceResourcesRequest& setServiceInstanceResourcesAction(string serviceInstanceResourcesAction) { DARABONBA_PTR_SET_VALUE(serviceInstanceResourcesAction_, serviceInstanceResourcesAction) };
 
 
   protected:
     // The imported resources.
-    std::shared_ptr<string> resources_ = nullptr;
+    shared_ptr<string> resources_ {};
     // The ID of the service instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceInstanceId_ = nullptr;
+    shared_ptr<string> serviceInstanceId_ {};
     // The type of operation performed on the service instance resource. Valid values:
     // 
     // *   Import: The resource is imported.
     // *   UnImport: The resource import is canceled.
-    std::shared_ptr<string> serviceInstanceResourcesAction_ = nullptr;
+    shared_ptr<string> serviceInstanceResourcesAction_ {};
   };
 
   } // namespace Models

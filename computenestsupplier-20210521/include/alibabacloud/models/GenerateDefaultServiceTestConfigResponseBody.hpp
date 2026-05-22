@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->requestId_ != nullptr
-        && this->testConfig_ != nullptr; };
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->testConfig_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateDefaultServiceTestConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // testConfig Field Functions 
     bool hasTestConfig() const { return this->testConfig_ != nullptr;};
     void deleteTestConfig() { this->testConfig_ = nullptr;};
-    inline string testConfig() const { DARABONBA_PTR_GET_DEFAULT(testConfig_, "") };
+    inline string getTestConfig() const { DARABONBA_PTR_GET_DEFAULT(testConfig_, "") };
     inline GenerateDefaultServiceTestConfigResponseBody& setTestConfig(string testConfig) { DARABONBA_PTR_SET_VALUE(testConfig_, testConfig) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The service test config
-    std::shared_ptr<string> testConfig_ = nullptr;
+    shared_ptr<string> testConfig_ {};
   };
 
   } // namespace Models

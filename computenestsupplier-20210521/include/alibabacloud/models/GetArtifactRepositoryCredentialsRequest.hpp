@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->artifactType_ != nullptr
-        && this->deployRegionId_ != nullptr; };
+    virtual bool empty() const override { return this->artifactType_ == nullptr
+        && this->deployRegionId_ == nullptr; };
     // artifactType Field Functions 
     bool hasArtifactType() const { return this->artifactType_ != nullptr;};
     void deleteArtifactType() { this->artifactType_ = nullptr;};
-    inline string artifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
+    inline string getArtifactType() const { DARABONBA_PTR_GET_DEFAULT(artifactType_, "") };
     inline GetArtifactRepositoryCredentialsRequest& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
     // deployRegionId Field Functions 
     bool hasDeployRegionId() const { return this->deployRegionId_ != nullptr;};
     void deleteDeployRegionId() { this->deployRegionId_ = nullptr;};
-    inline string deployRegionId() const { DARABONBA_PTR_GET_DEFAULT(deployRegionId_, "") };
+    inline string getDeployRegionId() const { DARABONBA_PTR_GET_DEFAULT(deployRegionId_, "") };
     inline GetArtifactRepositoryCredentialsRequest& setDeployRegionId(string deployRegionId) { DARABONBA_PTR_SET_VALUE(deployRegionId_, deployRegionId) };
 
 
@@ -54,9 +54,9 @@ namespace Models
     // *   AcrImage: container image.
     // 
     // This parameter is required.
-    std::shared_ptr<string> artifactType_ = nullptr;
+    shared_ptr<string> artifactType_ {};
     // The region ID.
-    std::shared_ptr<string> deployRegionId_ = nullptr;
+    shared_ptr<string> deployRegionId_ {};
   };
 
   } // namespace Models

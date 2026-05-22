@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTSERVICEBUILDLOGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListServiceBuildLogsResponseBodyBuildLogs.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,35 +34,87 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->buildLogs_ != nullptr
-        && this->nextToken_ != nullptr && this->requestId_ != nullptr; };
+    class BuildLogs : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const BuildLogs& obj) { 
+        DARABONBA_PTR_TO_JSON(BuildStep, buildStep_);
+        DARABONBA_PTR_TO_JSON(Content, content_);
+        DARABONBA_PTR_TO_JSON(Timestamp, timestamp_);
+      };
+      friend void from_json(const Darabonba::Json& j, BuildLogs& obj) { 
+        DARABONBA_PTR_FROM_JSON(BuildStep, buildStep_);
+        DARABONBA_PTR_FROM_JSON(Content, content_);
+        DARABONBA_PTR_FROM_JSON(Timestamp, timestamp_);
+      };
+      BuildLogs() = default ;
+      BuildLogs(const BuildLogs &) = default ;
+      BuildLogs(BuildLogs &&) = default ;
+      BuildLogs(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~BuildLogs() = default ;
+      BuildLogs& operator=(const BuildLogs &) = default ;
+      BuildLogs& operator=(BuildLogs &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->buildStep_ == nullptr
+        && this->content_ == nullptr && this->timestamp_ == nullptr; };
+      // buildStep Field Functions 
+      bool hasBuildStep() const { return this->buildStep_ != nullptr;};
+      void deleteBuildStep() { this->buildStep_ = nullptr;};
+      inline string getBuildStep() const { DARABONBA_PTR_GET_DEFAULT(buildStep_, "") };
+      inline BuildLogs& setBuildStep(string buildStep) { DARABONBA_PTR_SET_VALUE(buildStep_, buildStep) };
+
+
+      // content Field Functions 
+      bool hasContent() const { return this->content_ != nullptr;};
+      void deleteContent() { this->content_ = nullptr;};
+      inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+      inline BuildLogs& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+      // timestamp Field Functions 
+      bool hasTimestamp() const { return this->timestamp_ != nullptr;};
+      void deleteTimestamp() { this->timestamp_ = nullptr;};
+      inline string getTimestamp() const { DARABONBA_PTR_GET_DEFAULT(timestamp_, "") };
+      inline BuildLogs& setTimestamp(string timestamp) { DARABONBA_PTR_SET_VALUE(timestamp_, timestamp) };
+
+
+    protected:
+      shared_ptr<string> buildStep_ {};
+      shared_ptr<string> content_ {};
+      shared_ptr<string> timestamp_ {};
+    };
+
+    virtual bool empty() const override { return this->buildLogs_ == nullptr
+        && this->nextToken_ == nullptr && this->requestId_ == nullptr; };
     // buildLogs Field Functions 
     bool hasBuildLogs() const { return this->buildLogs_ != nullptr;};
     void deleteBuildLogs() { this->buildLogs_ = nullptr;};
-    inline const vector<ListServiceBuildLogsResponseBodyBuildLogs> & buildLogs() const { DARABONBA_PTR_GET_CONST(buildLogs_, vector<ListServiceBuildLogsResponseBodyBuildLogs>) };
-    inline vector<ListServiceBuildLogsResponseBodyBuildLogs> buildLogs() { DARABONBA_PTR_GET(buildLogs_, vector<ListServiceBuildLogsResponseBodyBuildLogs>) };
-    inline ListServiceBuildLogsResponseBody& setBuildLogs(const vector<ListServiceBuildLogsResponseBodyBuildLogs> & buildLogs) { DARABONBA_PTR_SET_VALUE(buildLogs_, buildLogs) };
-    inline ListServiceBuildLogsResponseBody& setBuildLogs(vector<ListServiceBuildLogsResponseBodyBuildLogs> && buildLogs) { DARABONBA_PTR_SET_RVALUE(buildLogs_, buildLogs) };
+    inline const vector<ListServiceBuildLogsResponseBody::BuildLogs> & getBuildLogs() const { DARABONBA_PTR_GET_CONST(buildLogs_, vector<ListServiceBuildLogsResponseBody::BuildLogs>) };
+    inline vector<ListServiceBuildLogsResponseBody::BuildLogs> getBuildLogs() { DARABONBA_PTR_GET(buildLogs_, vector<ListServiceBuildLogsResponseBody::BuildLogs>) };
+    inline ListServiceBuildLogsResponseBody& setBuildLogs(const vector<ListServiceBuildLogsResponseBody::BuildLogs> & buildLogs) { DARABONBA_PTR_SET_VALUE(buildLogs_, buildLogs) };
+    inline ListServiceBuildLogsResponseBody& setBuildLogs(vector<ListServiceBuildLogsResponseBody::BuildLogs> && buildLogs) { DARABONBA_PTR_SET_RVALUE(buildLogs_, buildLogs) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListServiceBuildLogsResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListServiceBuildLogsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    std::shared_ptr<vector<ListServiceBuildLogsResponseBodyBuildLogs>> buildLogs_ = nullptr;
-    std::shared_ptr<string> nextToken_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<vector<ListServiceBuildLogsResponseBody::BuildLogs>> buildLogs_ {};
+    shared_ptr<string> nextToken_ {};
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->fileName_ != nullptr
-        && this->visibility_ != nullptr; };
+    virtual bool empty() const override { return this->fileName_ == nullptr
+        && this->visibility_ == nullptr; };
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GetUploadCredentialsRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // visibility Field Functions 
     bool hasVisibility() const { return this->visibility_ != nullptr;};
     void deleteVisibility() { this->visibility_ = nullptr;};
-    inline string visibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
+    inline string getVisibility() const { DARABONBA_PTR_GET_DEFAULT(visibility_, "") };
     inline GetUploadCredentialsRequest& setVisibility(string visibility) { DARABONBA_PTR_SET_VALUE(visibility_, visibility) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The file name to upload.
     // 
     // This parameter is required.
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<string> fileName_ {};
     // Specifies whether the file is publicly accessible. Valid values: **public** or **private**. The default value is **private**.
-    std::shared_ptr<string> visibility_ = nullptr;
+    shared_ptr<string> visibility_ {};
   };
 
   } // namespace Models
