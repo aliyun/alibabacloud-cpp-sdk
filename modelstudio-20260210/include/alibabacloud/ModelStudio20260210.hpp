@@ -73,6 +73,42 @@ namespace ModelStudio20260210
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyId);
 
       /**
+       * @summary 禁用API Key
+       *
+       * @param request DisableApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableApiKeyResponse
+       */
+      Models::DisableApiKeyResponse disableApiKeyWithOptions(const string &apiKeyId, const Models::DisableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 禁用API Key
+       *
+       * @param request DisableApiKeyRequest
+       * @return DisableApiKeyResponse
+       */
+      Models::DisableApiKeyResponse disableApiKey(const string &apiKeyId, const Models::DisableApiKeyRequest &request);
+
+      /**
+       * @summary 启用API Key
+       *
+       * @param request EnableApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableApiKeyResponse
+       */
+      Models::EnableApiKeyResponse enableApiKeyWithOptions(const string &apiKeyId, const Models::EnableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用API Key
+       *
+       * @param request EnableApiKeyRequest
+       * @return EnableApiKeyResponse
+       */
+      Models::EnableApiKeyResponse enableApiKey(const string &apiKeyId, const Models::EnableApiKeyRequest &request);
+
+      /**
        * @summary 查询ApiKey详情
        *
        * @param headers map
@@ -123,6 +159,24 @@ namespace ModelStudio20260210
        * @return ListWorkspacesResponse
        */
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
+
+      /**
+       * @summary 重置API Key
+       *
+       * @param request ResetApiKeyRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetApiKeyResponse
+       */
+      Models::ResetApiKeyResponse resetApiKeyWithOptions(const string &apiKeyId, const Models::ResetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置API Key
+       *
+       * @param request ResetApiKeyRequest
+       * @return ResetApiKeyResponse
+       */
+      Models::ResetApiKeyResponse resetApiKey(const string &apiKeyId, const Models::ResetApiKeyRequest &request);
 
       /**
        * @summary 编辑apiKey的描述

@@ -10,6 +10,12 @@
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
+#include <alibabacloud/models/DisableApiKeyRequest.hpp>
+#include <alibabacloud/models/DisableApiKeyResponseBody.hpp>
+#include <alibabacloud/models/DisableApiKeyResponse.hpp>
+#include <alibabacloud/models/EnableApiKeyRequest.hpp>
+#include <alibabacloud/models/EnableApiKeyResponseBody.hpp>
+#include <alibabacloud/models/EnableApiKeyResponse.hpp>
 #include <alibabacloud/models/GetApiKeyResponseBody.hpp>
 #include <alibabacloud/models/GetApiKeyResponse.hpp>
 #include <alibabacloud/models/ListApiKeysRequest.hpp>
@@ -18,6 +24,9 @@
 #include <alibabacloud/models/ListWorkspacesRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkspacesResponse.hpp>
+#include <alibabacloud/models/ResetApiKeyRequest.hpp>
+#include <alibabacloud/models/ResetApiKeyResponseBody.hpp>
+#include <alibabacloud/models/ResetApiKeyResponse.hpp>
 #include <alibabacloud/models/UpdateApiKeyRequest.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponseBody.hpp>
 #include <alibabacloud/models/UpdateApiKeyResponse.hpp>

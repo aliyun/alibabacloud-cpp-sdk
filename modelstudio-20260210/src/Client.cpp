@@ -55,10 +55,16 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
     query["workspaceId"] = request.getWorkspaceId();
   }
 
+  json body = {};
+  if (!!request.hasAuth()) {
+    body["auth"] = request.getAuth();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "CreateApiKey"},
     {"version" , "2026-02-10"},
@@ -67,7 +73,7 @@ CreateApiKeyResponse Client::createApiKeyWithOptions(const CreateApiKeyRequest &
     {"method" , "POST"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "json"},
+    {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateApiKeyResponse>();
@@ -168,6 +174,84 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteApiKeyWithOptions(apiKeyId, headers, runtime);
+}
+
+/**
+ * @summary 禁用API Key
+ *
+ * @param request DisableApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableApiKeyResponse
+ */
+DisableApiKeyResponse Client::disableApiKeyWithOptions(const string &apiKeyId, const DisableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableApiKey"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId) , "/disable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableApiKeyResponse>();
+}
+
+/**
+ * @summary 禁用API Key
+ *
+ * @param request DisableApiKeyRequest
+ * @return DisableApiKeyResponse
+ */
+DisableApiKeyResponse Client::disableApiKey(const string &apiKeyId, const DisableApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableApiKeyWithOptions(apiKeyId, request, headers, runtime);
+}
+
+/**
+ * @summary 启用API Key
+ *
+ * @param request EnableApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableApiKeyResponse
+ */
+EnableApiKeyResponse Client::enableApiKeyWithOptions(const string &apiKeyId, const EnableApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableApiKey"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId) , "/enable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableApiKeyResponse>();
+}
+
+/**
+ * @summary 启用API Key
+ *
+ * @param request EnableApiKeyRequest
+ * @return EnableApiKeyResponse
+ */
+EnableApiKeyResponse Client::enableApiKey(const string &apiKeyId, const EnableApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableApiKeyWithOptions(apiKeyId, request, headers, runtime);
 }
 
 /**
@@ -325,6 +409,45 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary 重置API Key
+ *
+ * @param request ResetApiKeyRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetApiKeyResponse
+ */
+ResetApiKeyResponse Client::resetApiKeyWithOptions(const string &apiKeyId, const ResetApiKeyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ResetApiKey"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/apikeys/" , Darabonba::Encode::Encoder::percentEncode(apiKeyId) , "/reset")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetApiKeyResponse>();
+}
+
+/**
+ * @summary 重置API Key
+ *
+ * @param request ResetApiKeyRequest
+ * @return ResetApiKeyResponse
+ */
+ResetApiKeyResponse Client::resetApiKey(const string &apiKeyId, const ResetApiKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resetApiKeyWithOptions(apiKeyId, request, headers, runtime);
+}
+
+/**
  * @summary 编辑apiKey的描述
  *
  * @param request UpdateApiKeyRequest
@@ -339,10 +462,16 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, con
     query["description"] = request.getDescription();
   }
 
+  json body = {};
+  if (!!request.hasAuth()) {
+    body["auth"] = request.getAuth();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
   Params params = Params(json({
     {"action" , "UpdateApiKey"},
     {"version" , "2026-02-10"},
@@ -351,7 +480,7 @@ UpdateApiKeyResponse Client::updateApiKeyWithOptions(const string &apiKeyId, con
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
-    {"reqBodyType" , "json"},
+    {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<UpdateApiKeyResponse>();

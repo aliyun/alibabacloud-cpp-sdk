@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETAPIKEYRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETAPIKEYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -44,6 +45,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ApiKey& obj) { 
         DARABONBA_PTR_TO_JSON(apiKeyId, apiKeyId_);
         DARABONBA_PTR_TO_JSON(apiKeyValue, apiKeyValue_);
+        DARABONBA_PTR_TO_JSON(auth, auth_);
         DARABONBA_PTR_TO_JSON(createdBy, createdBy_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(disabled, disabled_);
@@ -53,6 +55,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ApiKey& obj) { 
         DARABONBA_PTR_FROM_JSON(apiKeyId, apiKeyId_);
         DARABONBA_PTR_FROM_JSON(apiKeyValue, apiKeyValue_);
+        DARABONBA_PTR_FROM_JSON(auth, auth_);
         DARABONBA_PTR_FROM_JSON(createdBy, createdBy_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(disabled, disabled_);
@@ -70,9 +73,53 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Auth : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Auth& obj) { 
+          DARABONBA_PTR_TO_JSON(accessIps, accessIps_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Auth& obj) { 
+          DARABONBA_PTR_FROM_JSON(accessIps, accessIps_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        Auth() = default ;
+        Auth(const Auth &) = default ;
+        Auth(Auth &&) = default ;
+        Auth(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Auth() = default ;
+        Auth& operator=(const Auth &) = default ;
+        Auth& operator=(Auth &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->accessIps_ == nullptr
+        && this->type_ == nullptr; };
+        // accessIps Field Functions 
+        bool hasAccessIps() const { return this->accessIps_ != nullptr;};
+        void deleteAccessIps() { this->accessIps_ = nullptr;};
+        inline const vector<string> & getAccessIps() const { DARABONBA_PTR_GET_CONST(accessIps_, vector<string>) };
+        inline vector<string> getAccessIps() { DARABONBA_PTR_GET(accessIps_, vector<string>) };
+        inline Auth& setAccessIps(const vector<string> & accessIps) { DARABONBA_PTR_SET_VALUE(accessIps_, accessIps) };
+        inline Auth& setAccessIps(vector<string> && accessIps) { DARABONBA_PTR_SET_RVALUE(accessIps_, accessIps) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Auth& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        shared_ptr<vector<string>> accessIps_ {};
+        shared_ptr<string> type_ {};
+      };
+
       virtual bool empty() const override { return this->apiKeyId_ == nullptr
-        && this->apiKeyValue_ == nullptr && this->createdBy_ == nullptr && this->description_ == nullptr && this->disabled_ == nullptr && this->gmtCreate_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->apiKeyValue_ == nullptr && this->auth_ == nullptr && this->createdBy_ == nullptr && this->description_ == nullptr && this->disabled_ == nullptr
+        && this->gmtCreate_ == nullptr && this->workspaceId_ == nullptr; };
       // apiKeyId Field Functions 
       bool hasApiKeyId() const { return this->apiKeyId_ != nullptr;};
       void deleteApiKeyId() { this->apiKeyId_ = nullptr;};
@@ -85,6 +132,15 @@ namespace Models
       void deleteApiKeyValue() { this->apiKeyValue_ = nullptr;};
       inline string getApiKeyValue() const { DARABONBA_PTR_GET_DEFAULT(apiKeyValue_, "") };
       inline ApiKey& setApiKeyValue(string apiKeyValue) { DARABONBA_PTR_SET_VALUE(apiKeyValue_, apiKeyValue) };
+
+
+      // auth Field Functions 
+      bool hasAuth() const { return this->auth_ != nullptr;};
+      void deleteAuth() { this->auth_ = nullptr;};
+      inline const ApiKey::Auth & getAuth() const { DARABONBA_PTR_GET_CONST(auth_, ApiKey::Auth) };
+      inline ApiKey::Auth getAuth() { DARABONBA_PTR_GET(auth_, ApiKey::Auth) };
+      inline ApiKey& setAuth(const ApiKey::Auth & auth) { DARABONBA_PTR_SET_VALUE(auth_, auth) };
+      inline ApiKey& setAuth(ApiKey::Auth && auth) { DARABONBA_PTR_SET_RVALUE(auth_, auth) };
 
 
       // createdBy Field Functions 
@@ -126,6 +182,7 @@ namespace Models
       // API Key ID。
       shared_ptr<int64_t> apiKeyId_ {};
       shared_ptr<string> apiKeyValue_ {};
+      shared_ptr<ApiKey::Auth> auth_ {};
       shared_ptr<string> createdBy_ {};
       shared_ptr<string> description_ {};
       shared_ptr<int32_t> disabled_ {};
