@@ -76,6 +76,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ruleName, ruleName_);
           DARABONBA_PTR_TO_JSON(ruleSnapshotId, ruleSnapshotId_);
           DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
+          DARABONBA_PTR_TO_JSON(ruleType, ruleType_);
         };
         friend void from_json(const Darabonba::Json& j, RuleHitRecords& obj) { 
           DARABONBA_PTR_FROM_JSON(cost, cost_);
@@ -86,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ruleName, ruleName_);
           DARABONBA_PTR_FROM_JSON(ruleSnapshotId, ruleSnapshotId_);
           DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
+          DARABONBA_PTR_FROM_JSON(ruleType, ruleType_);
         };
         RuleHitRecords() = default ;
         RuleHitRecords(const RuleHitRecords &) = default ;
@@ -100,7 +102,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cost_ == nullptr
         && this->hitSuccessful_ == nullptr && this->isShowDetail_ == nullptr && this->order_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr
-        && this->ruleSnapshotId_ == nullptr && this->ruleStatus_ == nullptr; };
+        && this->ruleSnapshotId_ == nullptr && this->ruleStatus_ == nullptr && this->ruleType_ == nullptr; };
         // cost Field Functions 
         bool hasCost() const { return this->cost_ != nullptr;};
         void deleteCost() { this->cost_ = nullptr;};
@@ -157,6 +159,13 @@ namespace Models
         inline RuleHitRecords& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
 
 
+        // ruleType Field Functions 
+        bool hasRuleType() const { return this->ruleType_ != nullptr;};
+        void deleteRuleType() { this->ruleType_ = nullptr;};
+        inline string getRuleType() const { DARABONBA_PTR_GET_DEFAULT(ruleType_, "") };
+        inline RuleHitRecords& setRuleType(string ruleType) { DARABONBA_PTR_SET_VALUE(ruleType_, ruleType) };
+
+
       protected:
         // Duration
         shared_ptr<int32_t> cost_ {};
@@ -174,6 +183,7 @@ namespace Models
         shared_ptr<string> ruleSnapshotId_ {};
         // Policy status
         shared_ptr<string> ruleStatus_ {};
+        shared_ptr<string> ruleType_ {};
       };
 
       virtual bool empty() const override { return this->eventCode_ == nullptr
