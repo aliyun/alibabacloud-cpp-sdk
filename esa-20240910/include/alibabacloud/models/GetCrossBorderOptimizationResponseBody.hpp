@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // Whether to enable Chinese mainland network access optimization. By default, it is disabled. Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> enable_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

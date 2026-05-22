@@ -125,19 +125,12 @@ namespace Models
 
 
     protected:
-      // Fuzzy search for values in IP access control.
       shared_ptr<string> configValueLike_ {};
-      // Whether to reverse the sorting result.
       shared_ptr<bool> desc_ {};
-      // Exact query for WAF rule ID.
       shared_ptr<int64_t> id_ {};
-      // Fuzzy query for WAF rule ID or name.
       shared_ptr<string> idNameLike_ {};
-      // Fuzzy query for WAF rule name.
       shared_ptr<string> nameLike_ {};
-      // Sort the returned list by the specified column.
       shared_ptr<string> orderBy_ {};
-      // Exact query for WAF rule status.
       shared_ptr<string> status_ {};
     };
 
@@ -196,25 +189,14 @@ namespace Models
 
 
   protected:
-    // Query page number, used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // Query page size, used for pagination.
     shared_ptr<int32_t> pageSize_ {};
-    // WAF rule type. Values:
-    // 
-    // - http_anti_scan: Scan protection
-    // - http_bot: Bots
-    // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Query filter conditions.
     shared_ptr<ListWafRulesRequest::QueryArgs> queryArgs_ {};
     shared_ptr<int64_t> rulesetId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

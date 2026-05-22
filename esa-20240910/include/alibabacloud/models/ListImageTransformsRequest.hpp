@@ -94,25 +94,13 @@ namespace Models
 
 
   protected:
-    // Configuration ID. Can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type, which can be used to query global or rule configurations. Possible values:
-    // - global: Query global configuration;
-    // - rule: Query rule configuration;
-    // 
-    // This parameter is optional. If not provided, it will not distinguish between global and rule configurations.
     shared_ptr<string> configType_ {};
-    // Page number. The default value is 1 if not provided.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of items per page. The maximum value is 500, and the default value is 500 if not provided.
     shared_ptr<int32_t> pageSize_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Site ID. Can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version number. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

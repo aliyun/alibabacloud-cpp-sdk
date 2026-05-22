@@ -51,9 +51,7 @@ namespace Models
 
 
   protected:
-    // The regions.
     shared_ptr<vector<string>> regions_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

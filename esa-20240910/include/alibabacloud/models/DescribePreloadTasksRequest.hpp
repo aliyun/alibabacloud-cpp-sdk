@@ -94,25 +94,12 @@ namespace Models
 
 
   protected:
-    // The content to prefetch. Exact match is supported.
     shared_ptr<string> content_ {};
-    // The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-    // 
-    // >  The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The page number. Valid values: **1** to **100000**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 20. Valid values: 1 to 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     shared_ptr<int64_t> siteId_ {};
-    // The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The task status. Valid values:
-    // 
-    // *   **Complete**: The task is complete.
-    // *   **Refreshing**: The task is running.
-    // *   **Failed**: The task failed.
     shared_ptr<string> status_ {};
   };
 

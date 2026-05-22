@@ -134,20 +134,10 @@ namespace Models
 
 
       protected:
-        // The access key required for private authentication.
         shared_ptr<string> accessKey_ {};
-        // The type of authentication.
-        // 
-        // - public: Public read/write, used when the origin is OSS or S3 and is set to public read/write;
-        // - private_same_account: Private same account, used when the origin is OSS and the authentication type is private within the same account;
-        // - private_cross_account: Private cross-account, used when the origin is OSS and the authentication type is private across accounts;
-        // - private: Used when the origin is S3 and the authentication type is private.
         shared_ptr<string> authType_ {};
-        // The region of the origin required when the origin is AWS S3.
         shared_ptr<string> region_ {};
-        // The secret key required for private authentication.
         shared_ptr<string> secretKey_ {};
-        // The signature version required when the origin is AWS S3.
         shared_ptr<string> version_ {};
       };
 
@@ -215,27 +205,13 @@ namespace Models
 
 
     protected:
-      // The address of the origin, e.g., www.example.com.
       shared_ptr<string> address_ {};
-      // Authentication information, required when the origin is OSS or S3 and needs authentication, including related configuration details.
       shared_ptr<Origins::AuthConf> authConf_ {};
-      // Whether the origin is enabled:
-      // 
-      // - true: Enabled;
-      // - false: Disabled.
       shared_ptr<bool> enabled_ {};
-      // The request header to be included when fetching from the origin, only Host is supported.
       Darabonba::Json header_ {};
       shared_ptr<string> ipVersionPolicy_ {};
-      // The name of the origin, which must be unique within an origin address.
       shared_ptr<string> name_ {};
-      // The type of the origin:
-      // 
-      // - ip_domain: IP or domain name type origin;
-      // - OSS: OSS address origin;
-      // - S3: AWS S3 origin.
       shared_ptr<string> type_ {};
-      // The weight, an integer between 0 and 100.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -272,19 +248,10 @@ namespace Models
 
 
   protected:
-    // Whether the origin address pool is enabled:
-    // 
-    // - true: Enabled;
-    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
-    // The name of the origin address pool, which must be unique within a site.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Information about the origins added to the origin address pool, with multiple origins passed as an array.
     shared_ptr<vector<CreateOriginPoolRequest::Origins>> origins_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

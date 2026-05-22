@@ -112,17 +112,11 @@ namespace Models
 
 
     protected:
-      // The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured.
       shared_ptr<string> recordCname_ {};
-      // The record name.
       shared_ptr<string> recordName_ {};
-      // The website ID.
       shared_ptr<int64_t> siteId_ {};
-      // The website name.
       shared_ptr<string> siteName_ {};
-      // The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -166,15 +160,10 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The records.
     shared_ptr<vector<ListEdgeContainerRecordsResponseBody::Records>> records_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of records returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

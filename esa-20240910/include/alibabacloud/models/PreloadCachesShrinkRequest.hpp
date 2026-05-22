@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The files to be prefetched.
     shared_ptr<string> contentShrink_ {};
-    // By default, prefetch requests include the Accept-Encoding:gzip header. If you want a prefetch request to include other headers or implement multi-replica prefetch, you can specify a custom prefetch header by configuring the Headers parameter.
     shared_ptr<string> headersShrink_ {};
-    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

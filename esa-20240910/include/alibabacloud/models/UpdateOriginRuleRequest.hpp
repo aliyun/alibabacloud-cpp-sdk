@@ -232,58 +232,28 @@ namespace Models
 
 
   protected:
-    // Configuration ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Rewrite the DNS resolution record of the origin request.
     shared_ptr<string> dnsRecord_ {};
     shared_ptr<string> follow302Enable_ {};
     shared_ptr<string> follow302MaxTries_ {};
     shared_ptr<string> follow302RetainArgs_ {};
     shared_ptr<string> follow302RetainHeader_ {};
     shared_ptr<string> follow302TargetHost_ {};
-    // The HOST carried in the origin request.
     shared_ptr<string> originHost_ {};
-    // Port of the origin server when using HTTP protocol for origin pull.
     shared_ptr<string> originHttpPort_ {};
-    // Port of the origin server when using HTTPS protocol for origin pull.
     shared_ptr<string> originHttpsPort_ {};
-    // mTLS switch. Valid values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> originMtls_ {};
     shared_ptr<string> originReadTimeout_ {};
-    // Protocol used for the origin request. Valid values:
-    // - http: Use HTTP protocol for origin pull.
-    // - https: Use HTTPS protocol for origin pull.
-    // - follow: Follow the client\\"s protocol for origin pull.
     shared_ptr<string> originScheme_ {};
-    // SNI carried in the origin request.
     shared_ptr<string> originSni_ {};
-    // Origin certificate verification switch. Valid values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> originVerify_ {};
-    // Use range chunking for origin pull file download. Valid values:
-    // - on: Enable.
-    // - off: Disable.
-    // - force: Force.
     shared_ptr<string> range_ {};
     shared_ptr<string> rangeChunkSize_ {};
-    // Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Valid values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

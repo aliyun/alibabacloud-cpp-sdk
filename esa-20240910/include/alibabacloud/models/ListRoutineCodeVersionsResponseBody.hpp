@@ -97,7 +97,6 @@ namespace Models
 
 
       protected:
-        // Code version configuration items NotFoundStrategy.
         shared_ptr<string> notFoundStrategy_ {};
       };
 
@@ -156,19 +155,12 @@ namespace Models
 
 
     protected:
-      // The ID of the code version build.
       shared_ptr<int64_t> buildId_ {};
-      // The description of the code version.
       shared_ptr<string> codeDescription_ {};
-      // The version of the code.
       shared_ptr<string> codeVersion_ {};
-      // Code version configuration items.
       shared_ptr<CodeVersions::ConfOptions> confOptions_ {};
-      // The time when the code version was created.
       shared_ptr<string> createTime_ {};
-      // Additional information about the code version.
       shared_ptr<string> extraInfo_ {};
-      // The status of the code version.
       shared_ptr<string> status_ {};
     };
 
@@ -212,15 +204,10 @@ namespace Models
 
 
   protected:
-    // The code versions of the routine.
     shared_ptr<vector<ListRoutineCodeVersionsResponseBody::CodeVersions>> codeVersions_ {};
-    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of code versions returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

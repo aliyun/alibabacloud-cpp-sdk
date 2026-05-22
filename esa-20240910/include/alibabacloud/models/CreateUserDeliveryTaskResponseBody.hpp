@@ -66,16 +66,9 @@ namespace Models
 
 
   protected:
-    // The data center. Valid values:
-    // 
-    // *   cn: the Chinese mainland.
-    // *   sg: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the delivery task.
     shared_ptr<string> status_ {};
-    // The name of the delivery task.
     shared_ptr<string> taskName_ {};
   };
 

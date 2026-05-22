@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can call the ListHttpIncomingResponseHeaderModificationRules operation to query the ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

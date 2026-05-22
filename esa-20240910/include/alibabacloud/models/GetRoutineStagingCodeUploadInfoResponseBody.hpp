@@ -59,11 +59,8 @@ namespace Models
 
 
   protected:
-    // The code version.
     shared_ptr<string> codeVersion_ {};
-    // The configuration information that can be used to upload to OSS.
     Darabonba::Json ossPostConfig_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

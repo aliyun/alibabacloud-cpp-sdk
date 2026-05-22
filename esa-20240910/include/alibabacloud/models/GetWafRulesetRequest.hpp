@@ -57,11 +57,8 @@ namespace Models
 
 
   protected:
-    // The ID of the WAF ruleset, which can be obtained by calling the ListWafRulesets interface.
     shared_ptr<int64_t> id_ {};
-    // The WAF operation phase, specifying the phase of the ruleset to query.
     shared_ptr<string> phase_ {};
-    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     shared_ptr<int64_t> siteId_ {};
   };
 

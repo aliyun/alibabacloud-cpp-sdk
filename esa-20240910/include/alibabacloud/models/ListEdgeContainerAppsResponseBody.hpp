@@ -194,28 +194,15 @@ namespace Models
 
 
       protected:
-        // The number of consecutive failed health checks for an application to be considered unhealthy.
         shared_ptr<int32_t> failTimes_ {};
-        // The domain name that is used for health checks.
         shared_ptr<string> host_ {};
-        // The range of health check status codes that indicate successful health checks.
         shared_ptr<string> httpCode_ {};
-        // The interval between health checks. Unit: seconds.
         shared_ptr<int32_t> interval_ {};
-        // The HTTP method used for health checks.
         shared_ptr<string> method_ {};
-        // The health check port.
         shared_ptr<int32_t> port_ {};
-        // The number of consecutive successful health checks for an application to be considered healthy.
         shared_ptr<int32_t> succTimes_ {};
-        // The timeout period of health checks. Unit: seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The type of health checks. Valid values:
-        // 
-        // *   l7
-        // *   l4
         shared_ptr<string> type_ {};
-        // The health check URL.
         shared_ptr<string> uri_ {};
       };
 
@@ -324,40 +311,19 @@ namespace Models
 
 
     protected:
-      // The application ID.
       shared_ptr<string> appId_ {};
-      // The time when the version was created.
       shared_ptr<string> createTime_ {};
-      // The domain name associated with the application.
       shared_ptr<string> domainName_ {};
-      // The type of the gateway. Valid values:
-      // 
-      // *   l7: Layer 7 gateway.
-      // *   l4: Layer 4 gateway.
       shared_ptr<string> gatewayType_ {};
-      // The information about health checks.
       shared_ptr<Apps::HealthCheck> healthCheck_ {};
-      // The application name.
       shared_ptr<string> name_ {};
-      // The progress of the application creation task in percentage.
       shared_ptr<int32_t> percentage_ {};
-      // Indicates whether QUIC is enabled.
       shared_ptr<string> quicCid_ {};
-      // The remarks.
       shared_ptr<string> remarks_ {};
-      // The server port. Valid values: 1 to 65535.
       shared_ptr<int32_t> servicePort_ {};
-      // The status of the application. Valid values:
-      // 
-      // *   creating: The application is being created.
-      // *   failed: The application failed to be created.
-      // *   created: The application is created.
       shared_ptr<string> status_ {};
-      // The backend port, which is also the service port of the application. Valid values: 1 to 65535.
       shared_ptr<int32_t> targetPort_ {};
-      // The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
-      // The number of versions of the application.
       shared_ptr<int32_t> versionCount_ {};
     };
 
@@ -401,15 +367,10 @@ namespace Models
 
 
   protected:
-    // The queried applications.
     shared_ptr<vector<ListEdgeContainerAppsResponseBody::Apps>> apps_ {};
-    // The page number. Default value: **1**. Valid values: 1 to 65535.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

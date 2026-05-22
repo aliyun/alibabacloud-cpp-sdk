@@ -139,21 +139,13 @@ namespace Models
 
 
     protected:
-      // List of match objects.
       shared_ptr<vector<string>> fields_ {};
-      // ID of the WAF rule set.
       shared_ptr<int64_t> id_ {};
-      // Name of the rule set.
       shared_ptr<string> name_ {};
-      // WAF operation phase.
       shared_ptr<string> phase_ {};
-      // Status of the rule set.
       shared_ptr<string> status_ {};
-      // Protection target type in http_bot.
       shared_ptr<string> target_ {};
-      // List of rule types.
       shared_ptr<vector<string>> types_ {};
-      // Last modification time of the rule set.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -212,19 +204,12 @@ namespace Models
 
 
   protected:
-    // Number of WAF rule sets used by the instance in this WAF operation phase.
     shared_ptr<int64_t> instanceUsage_ {};
-    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // List of rule set information, containing detailed information about the rule sets.
     shared_ptr<vector<ListWafRulesetsResponseBody::Rulesets>> rulesets_ {};
-    // Number of WAF rule sets used by the site in this WAF operation phase.
     shared_ptr<int64_t> siteUsage_ {};
-    // Total number of filtered records.
     shared_ptr<int64_t> totalCount_ {};
   };
 

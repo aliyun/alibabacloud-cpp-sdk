@@ -48,10 +48,7 @@ namespace Models
 
 
   protected:
-    // The certificate ID.
     shared_ptr<string> id_ {};
-    // The website ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -84,21 +84,13 @@ namespace Models
 
 
   protected:
-    // Rule configuration.
     shared_ptr<string> configShrink_ {};
-    // WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The position of the rule in the rule set.
     shared_ptr<int64_t> position_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
-    // Rule status.
     shared_ptr<string> status_ {};
   };
 

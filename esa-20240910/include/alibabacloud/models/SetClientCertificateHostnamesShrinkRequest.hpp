@@ -57,14 +57,9 @@ namespace Models
 
 
   protected:
-    // The domain names to associate.
-    // 
     // This parameter is required.
     shared_ptr<string> hostnamesShrink_ {};
-    // The ID of the client CA certificate.
     shared_ptr<string> id_ {};
-    // The website ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

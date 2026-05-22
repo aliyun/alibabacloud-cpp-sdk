@@ -75,12 +75,9 @@ namespace Models
 
 
   protected:
-    // The total quota.
     shared_ptr<string> quota_ {};
     shared_ptr<string> quota30Day_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The quota usage.
     shared_ptr<string> usage_ {};
     shared_ptr<string> usage30Day_ {};
   };

@@ -171,57 +171,26 @@ namespace Models
 
 
   protected:
-    // Configuration for failover across pools.
     shared_ptr<string> adaptiveRoutingShrink_ {};
-    // List of default pools.
-    // 
     // This parameter is required.
     shared_ptr<string> defaultPoolsShrink_ {};
-    // Detailed description of the load balancer, for easier management and identification.
     shared_ptr<string> description_ {};
-    // Whether the load balancer is enabled.
-    // 
-    // - true: Enabled.
-    // - false: Not enabled.
     shared_ptr<bool> enabled_ {};
-    // Fallback pool ID, where traffic will be directed when all other pools are unavailable.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> fallbackPool_ {};
-    // Monitor configuration, used for health checks.
-    // 
     // This parameter is required.
     shared_ptr<string> monitorShrink_ {};
-    // The name of the load balancer, which must meet the domain name format validation and be a subdomain under the site.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
     shared_ptr<string> randomSteeringShrink_ {};
-    // Address pools corresponding to primary regions.
     Darabonba::Json regionPools_ {};
-    // Rule information.
     shared_ptr<string> rulesShrink_ {};
-    // Session persistence, with possible values:
-    // - off: Not enabled.
-    // - ip: Session persistence by IP.
-    // - cookie: Session persistence by cookie.
     shared_ptr<string> sessionAffinity_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Load balancing strategy.
-    // 
-    // - geo: Geographical strategy.
-    // - random: Weighted round-robin.
-    // - order: Primary and backup method.
-    // 
     // This parameter is required.
     shared_ptr<string> steeringPolicy_ {};
-    // Address pools corresponding to secondary regions. When multiple secondary regions share the same set of address pools, the keys can be concatenated with commas.
     Darabonba::Json subRegionPools_ {};
-    // TTL value, the time-to-live for DNS records, with a default of 30 seconds. The value range is 10-600.
     shared_ptr<int32_t> ttl_ {};
   };
 

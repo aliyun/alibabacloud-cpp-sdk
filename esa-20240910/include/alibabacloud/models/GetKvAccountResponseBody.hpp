@@ -139,26 +139,13 @@ namespace Models
 
 
     protected:
-      // The available capacity of the namespace. Unit: bytes.
       shared_ptr<int64_t> capacity_ {};
-      // The available capacity of the namespace.
       shared_ptr<string> capacityString_ {};
-      // The used capacity of the namespace. Unit: bytes.
       shared_ptr<int64_t> capacityUsed_ {};
-      // The used capacity of the namespace.
       shared_ptr<string> capacityUsedString_ {};
-      // The description of the namespace.
       shared_ptr<string> description_ {};
-      // The name of the namespace.
       shared_ptr<string> namespace_ {};
-      // The ID of the namespace.
       shared_ptr<string> namespaceId_ {};
-      // The status of the namespace. Valid values:
-      // 
-      // *   **online**: normal.
-      // *   **delete**: pending deletion.
-      // *   **deleting**: being deleted.
-      // *   **deleted**: deleted.
       shared_ptr<string> status_ {};
     };
 
@@ -231,26 +218,14 @@ namespace Models
 
 
   protected:
-    // The available capacity of all namespaces in the account. Unit: bytes.
     shared_ptr<int64_t> capacity_ {};
-    // The available capacity of all namespaces in the account.
     shared_ptr<string> capacityString_ {};
-    // The used capacity of all namespaces in the account. Unit: bytes.
     shared_ptr<int64_t> capacityUsed_ {};
-    // The used capacity of all namespaces in the account.
     shared_ptr<string> capacityUsedString_ {};
-    // The namespaces in the account.
     shared_ptr<vector<GetKvAccountResponseBody::NamespaceList>> namespaceList_ {};
-    // The maximum number of namespaces that can be created in the account.
     shared_ptr<int32_t> namespaceQuota_ {};
-    // The number of created namespaces that store key-value data in the account.
     shared_ptr<int32_t> namespaceUsed_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether Edge KV is activated for the Alibaba Cloud account.
-    // 
-    // *   **online**
-    // *   **offline**
     shared_ptr<string> status_ {};
   };
 

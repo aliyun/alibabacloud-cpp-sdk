@@ -107,15 +107,10 @@ namespace Models
 
 
     protected:
-      // The time when the function was created.
       shared_ptr<string> createTime_ {};
-      // The default record name to access.
       shared_ptr<string> defaultRelatedRecord_ {};
-      // The function description.
       shared_ptr<string> description_ {};
-      // Specifies whether to include the Assets file tag.
       shared_ptr<bool> hasAssets_ {};
-      // The function name.
       shared_ptr<string> routineName_ {};
     };
 
@@ -174,19 +169,12 @@ namespace Models
 
 
   protected:
-    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The maximum number of functions supported by the billing plan.
     shared_ptr<int64_t> quotaRoutineNumber_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The functions.
     shared_ptr<vector<ListUserRoutinesResponseBody::Routines>> routines_ {};
-    // The total count.
     shared_ptr<int64_t> totalCount_ {};
-    // The number of functions that were already created.
     shared_ptr<int64_t> usedRoutineNumber_ {};
   };
 

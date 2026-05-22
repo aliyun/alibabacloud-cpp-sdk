@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // 标签键
       shared_ptr<string> key_ {};
-      // The tag value.
+      // 标签值
       shared_ptr<string> value_ {};
     };
 
@@ -143,24 +143,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of tags to return.
     shared_ptr<int32_t> maxItem_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
     shared_ptr<string> nextToken_ {};
-    // The ID of the region where the resources reside.
+    // 要创建并绑定标签的资源所在的地域ID。
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The website ID.
+    // 资源ID,最多 50个子项
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // A list of tags. You can enter up to 20 tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

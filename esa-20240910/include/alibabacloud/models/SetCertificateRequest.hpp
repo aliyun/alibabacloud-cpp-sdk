@@ -121,29 +121,16 @@ namespace Models
 
 
   protected:
-    // The certificate ID on Certificate Management Service.
     shared_ptr<int64_t> casId_ {};
-    // The certificate content.
     shared_ptr<string> certificate_ {};
-    // The certificate ID on ESA.
     shared_ptr<string> id_ {};
     shared_ptr<string> keyServerId_ {};
-    // The certificate name.
     shared_ptr<string> name_ {};
-    // The private key of the certificate.
     shared_ptr<string> privateKey_ {};
-    // The region.
     shared_ptr<string> region_ {};
     shared_ptr<string> securityToken_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The certificate type. Valid values:
-    // 
-    // *   cas: a certificate purchased by using Certificate Management Service.
-    // *   upload: a custom certificate that you upload.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

@@ -186,67 +186,22 @@ namespace Models
 
 
   protected:
-    // Custom cipher suite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
     shared_ptr<string> ciphersuite_ {};
-    // Cipher suite group, default is all cipher suites. Value range:
-    // 
-    // - all: All cipher suites.
-    // - strict: Strong cipher suites.
-    // - custom: Custom cipher suites.
     shared_ptr<string> ciphersuiteGroup_ {};
-    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type, which can be used to query global or rule configurations. Value range:
-    // - global: Query global configuration;
-    // - rule: Query rule configuration;
     shared_ptr<string> configType_ {};
-    // Whether to enable HTTP2, default is enabled. Value range:
-    // 
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> http2_ {};
-    // Whether to enable HTTP3, which is enabled by default. The value can be:
-    // - on: Enabled. 
-    // - off: Disabled.
     shared_ptr<string> http3_ {};
-    // Whether to enable HTTPS, default is enabled. Value range:
-    // 
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> https_ {};
-    // Whether to enable OCSP, default is disabled. Value range:
-    // 
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ocspStapling_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Matching rule content.
     shared_ptr<string> rule_ {};
-    // Rule switch. Value range:
-    // 
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name.
     shared_ptr<string> ruleName_ {};
-    // Rule execution sequence.
     shared_ptr<int32_t> sequence_ {};
-    // Whether to enable TLS1.0, default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> tls10_ {};
-    // Whether to enable TLS1.1, default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> tls11_ {};
-    // Whether to enable TLS1.2, default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> tls12_ {};
-    // Whether to enable TLS1.3, default is disabled. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> tls13_ {};
   };
 

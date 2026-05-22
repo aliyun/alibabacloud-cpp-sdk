@@ -207,7 +207,6 @@ namespace Models
 
     protected:
       shared_ptr<Envs::CodeDeploy> codeDeploy_ {};
-      // The environment type.
       shared_ptr<string> env_ {};
     };
 
@@ -258,16 +257,11 @@ namespace Models
 
 
   protected:
-    // The time when the routine was created.
     shared_ptr<string> createTime_ {};
-    // The default record name to access.
     shared_ptr<string> defaultRelatedRecord_ {};
-    // The description of the routine.
     shared_ptr<string> description_ {};
-    // The information about the environments.
     shared_ptr<vector<GetRoutineResponseBody::Envs>> envs_ {};
     shared_ptr<bool> hasAssets_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

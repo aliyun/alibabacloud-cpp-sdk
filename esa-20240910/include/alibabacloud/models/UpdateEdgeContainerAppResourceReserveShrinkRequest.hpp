@@ -75,15 +75,10 @@ namespace Models
 
 
   protected:
-    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
     shared_ptr<string> appId_ {};
-    // The end time of the reservation. The input time is UTC. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05, you need to enter "2006-01-02T14:04:05Z".
     shared_ptr<string> durationTime_ {};
-    // Whether to enable resource reservation.
     shared_ptr<bool> enable_ {};
-    // Whether to permanently enable the reservation. Once it is enabled, you are not allowed to set the reservation deadline.
     shared_ptr<bool> forever_ {};
-    // Reserved resource list.
     shared_ptr<string> reserveSetShrink_ {};
   };
 

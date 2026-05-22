@@ -115,26 +115,21 @@ namespace Models
 
 
   protected:
-    // Rule configuration.
     shared_ptr<WafRuleConfig> config_ {};
-    // The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+    // 自定义响应页面ID
     shared_ptr<int64_t> id_ {};
-    // Rule name.
+    // 自定义响应页面名称
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // WAF operation phase.
+    // 自定义响应页面内容类型
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // The position of the rule in the rule set.
     shared_ptr<int64_t> position_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<int64_t> rulesetId_ {};
-    // Rule status.
     shared_ptr<string> status_ {};
-    // The last modified time of the rule.
     shared_ptr<string> updateTime_ {};
   };
 

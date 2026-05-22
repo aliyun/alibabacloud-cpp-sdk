@@ -84,21 +84,11 @@ namespace Models
 
 
   protected:
-    // The name matching strategy when querying by name:
-    // 
-    // - fuzzy: Fuzzy match;
-    // - exact: Exact match, equivalent to an equality query.
     shared_ptr<string> matchType_ {};
-    // The name of the load balancer, which can be used to query by name.
     shared_ptr<string> name_ {};
-    // The sorting field. Currently, only sorting by id is supported. \\"id\\" indicates ascending order by id, and \\"-id\\" indicates descending order by id. The id size is positively correlated with the creation time. If not provided, it defaults to descending order by id.
     shared_ptr<string> orderBy_ {};
-    // The page number for paginated queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size for paginated queries, with a value range of 1-500.
     shared_ptr<int32_t> pageSize_ {};
-    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -57,19 +57,10 @@ namespace Models
 
 
   protected:
-    // SDK integration. Supported
-    // 
-    // *   **automatic**
-    // *   **manual**
-    // 
     // This parameter is required.
     shared_ptr<string> sdkType_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The URL of the web page to monitor.
-    // 
     // This parameter is required.
     shared_ptr<string> url_ {};
   };

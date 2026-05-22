@@ -166,15 +166,10 @@ namespace Models
 
 
       protected:
-        // The DCV ID.
         shared_ptr<string> id_ {};
-        // The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
         shared_ptr<string> key_ {};
-        // The verification status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: DNS and HTTP.
         shared_ptr<string> type_ {};
-        // The DCV content.
         shared_ptr<string> value_ {};
       };
 
@@ -341,48 +336,27 @@ namespace Models
 
 
     protected:
-      // The error code returned for certificate application.
       shared_ptr<int64_t> applyCode_ {};
-      // The error message returned for certificate application.
       shared_ptr<string> applyMessage_ {};
-      // Cloud certificate ID.
       shared_ptr<string> casId_ {};
-      // Common Name (CN) field of the certificate.
       shared_ptr<string> commonName_ {};
-      // Creation time.
       shared_ptr<string> createTime_ {};
-      // The Domain Control Validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
-      // SHA256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
-      // Certificate ID.
       shared_ptr<string> id_ {};
-      // Certificate issuer.
       shared_ptr<string> issuer_ {};
-      // Certificate issuing authority.
       shared_ptr<string> issuerCN_ {};
       shared_ptr<string> keyServerId_ {};
-      // Certificate name.
       shared_ptr<string> name_ {};
-      // End time of the certificate validity period.
       shared_ptr<string> notAfter_ {};
-      // Start time of the certificate validity period.
       shared_ptr<string> notBefore_ {};
-      // Certificate public key algorithm.
       shared_ptr<string> pubAlg_ {};
-      // Region.
       shared_ptr<string> region_ {};
-      // Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // Serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
-      // Certificate signature algorithm.
       shared_ptr<string> sigAlg_ {};
-      // Certificate status.
       shared_ptr<string> status_ {};
-      // Certificate type.
       shared_ptr<string> type_ {};
-      // Update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -433,17 +407,11 @@ namespace Models
 
 
   protected:
-    // Certificate content.
     shared_ptr<string> certificate_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The certificate information.
     shared_ptr<GetCertificateResponseBody::Result> result_ {};
-    // Site ID.
     shared_ptr<int64_t> siteId_ {};
-    // Site name.
     shared_ptr<string> siteName_ {};
-    // Certificate status.
     shared_ptr<string> status_ {};
   };
 

@@ -122,19 +122,12 @@ namespace Models
 
 
     protected:
-      // Attack bandwidth, in bps.
       shared_ptr<int64_t> attackBps_ {};
-      // Attack PPS.
       shared_ptr<int64_t> attackPps_ {};
-      // Normal business bandwidth, in bps.
       shared_ptr<int64_t> normalBps_ {};
-      // Normal business PPS.
       shared_ptr<int64_t> normalPps_ {};
-      // The timestamp of this data, in ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> timeStamp_ {};
-      // Total bandwidth, in bps.
       shared_ptr<int64_t> totalBps_ {};
-      // Total PPS.
       shared_ptr<int64_t> totalPps_ {};
     };
 
@@ -178,19 +171,10 @@ namespace Models
 
 
   protected:
-    // The interval between each piece of data, in seconds.
-    // 
-    // Generated based on the interval between StartTime and EndTime: less than 1 hour, 60s; 1 hour or more but less than 1 day, 300s; 1 day or more but less than a week, 1800s; 1 week or more, 3600s.
     shared_ptr<int32_t> dataInterval_ {};
-    // A list of network bandwidth data for each time interval.
     shared_ptr<vector<DescribeDDoSBpsListResponseBody::DataModule>> dataModule_ {};
-    // The end time for fetching data. In ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
-    // 
-    // The end time must be later than the start time, and the span between start and end times should not exceed 31 days.
     shared_ptr<string> endTime_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The start time for fetching data. In ISO8601 format, using UTC, formatted as: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

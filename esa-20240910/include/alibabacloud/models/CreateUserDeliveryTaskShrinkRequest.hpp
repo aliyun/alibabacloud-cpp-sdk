@@ -149,51 +149,21 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
-    // 
-    // *   dcdn_log_access_l1 (default): access logs.
-    // *   dcdn_log_er: Edge Routine logs.
-    // *   dcdn_log_waf: firewall logs.
-    // *   dcdn_log_ipa: TCP/UDP proxy logs.
-    // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
-    // The data center. Valid values:
-    // 
-    // *   cn: the Chinese mainland.
-    // *   sg: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
-    // 
-    // 1.  sls: Alibaba Cloud SLS.
-    // 2.  http: HTTP server.
-    // 3.  aws3: Amazon S3.
-    // 4.  oss: Alibaba Cloud OSS.
-    // 5.  kafka: Kafka.
-    // 6.  aws3cmpt: S3-compatible storage service.
-    // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
     shared_ptr<string> details_ {};
-    // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The log field. If you specify multiple fields, separate them with commas (,).
-    // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The configurations for delivery to an HTTP server.
     shared_ptr<string> httpDeliveryShrink_ {};
-    // The configurations for delivery to Kafka.
     shared_ptr<string> kafkaDeliveryShrink_ {};
-    // The configurations for delivery to OSS.
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The configurations for delivery to Amazon S3 or an S3-compatible service.
     shared_ptr<string> s3DeliveryShrink_ {};
-    // The configurations for delivery to SLS.
     shared_ptr<string> slsDeliveryShrink_ {};
-    // The task name.
-    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

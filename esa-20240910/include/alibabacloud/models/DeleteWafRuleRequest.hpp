@@ -57,15 +57,10 @@ namespace Models
 
 
   protected:
-    // ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

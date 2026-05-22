@@ -110,25 +110,20 @@ namespace Models
 
 
   protected:
-    // Ruleset ID.
+    // 自定义响应页面ID
     shared_ptr<int64_t> id_ {};
-    // Ruleset name.
+    // 自定义响应页面名称
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The WAF operation phase applicable to the ruleset.
+    // 自定义响应页面内容类型
     // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // List of rule configurations in the ruleset.
     shared_ptr<vector<WafRuleConfig>> rules_ {};
-    // Shared configurations for the rules in the ruleset.
     shared_ptr<WafBatchRuleShared> shared_ {};
-    // Ruleset status.
     shared_ptr<string> status_ {};
-    // The last modified time of the ruleset.
     shared_ptr<string> updateTime_ {};
   };
 

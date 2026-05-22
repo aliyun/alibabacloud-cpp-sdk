@@ -106,21 +106,11 @@ namespace Models
 
 
     protected:
-      // ID of the load balancer.
       shared_ptr<int64_t> loadBalancerId_ {};
-      // ID of the origin.
       shared_ptr<int64_t> originId_ {};
-      // ID of the source address pool.
       shared_ptr<int64_t> poolId_ {};
-      // The origin pool to which the source belongs, under this load balancer. Only \\"default_pool\\" (default address pool) will be displayed; other types will return an empty string.
       shared_ptr<string> poolType_ {};
-      // Reason for the probe failure.
       shared_ptr<string> reason_ {};
-      // Status of the origin:
-      // - Healthy(healthy): The probe result is available.
-      // - Unhealthy(unhealthy): The probe result is unavailable.
-      // - Unknown(unknown): Unknown, the monitor has not yet probed.
-      // - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
       shared_ptr<string> status_ {};
     };
 
@@ -143,9 +133,7 @@ namespace Models
 
 
   protected:
-    // List of origin statuses under the load balancer.
     shared_ptr<vector<ListLoadBalancerOriginStatusResponseBody::OriginStatus>> originStatus_ {};
-    // Request ID, used for tracking the request.
     shared_ptr<string> requestId_ {};
   };
 

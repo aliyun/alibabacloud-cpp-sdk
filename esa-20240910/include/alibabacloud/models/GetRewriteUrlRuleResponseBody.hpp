@@ -140,41 +140,17 @@ namespace Models
 
 
   protected:
-    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type. Possible values:
-    // - global: Global configuration;
-    // - rule: Rule-based configuration;
     shared_ptr<string> configType_ {};
-    // The rewritten query string.
     shared_ptr<string> queryString_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Query string rewrite type. Possible values:
-    // 
-    // - static: Static mode.
-    // - dynamic: Dynamic mode.
     shared_ptr<string> rewriteQueryStringType_ {};
-    // URI rewrite type. Possible values:
-    // 
-    // - static: Static mode.
-    // - dynamic: Dynamic mode.
     shared_ptr<string> rewriteUriType_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
-    // - on: Enabled.
-    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter does not need to be set when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Rule execution order. The smaller the value, the higher the priority for execution.
     shared_ptr<int32_t> sequence_ {};
-    // The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site, defaulting to version 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // The target URI after rewriting.
     shared_ptr<string> uri_ {};
   };
 

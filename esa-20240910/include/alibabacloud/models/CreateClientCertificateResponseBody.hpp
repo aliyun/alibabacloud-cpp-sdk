@@ -158,33 +158,19 @@ namespace Models
 
 
   protected:
-    // The ID of the CA certificate.
     shared_ptr<string> CACertificateId_ {};
-    // The certificate content.
     shared_ptr<string> certificate_ {};
-    // The Common Name of the certificate.
     shared_ptr<string> commonName_ {};
-    // The SHA-256 fingerprint of the certificate.
     shared_ptr<string> fingerprintSha256_ {};
-    // The certificate ID on ESA.
     shared_ptr<string> id_ {};
-    // The CA that issued the certificate.
     shared_ptr<string> issuer_ {};
-    // The time when the certificate expires.
     shared_ptr<string> notAfter_ {};
-    // The time when the certificate takes effect.
     shared_ptr<string> notBefore_ {};
-    // The private key of the certificate.
     shared_ptr<string> privateKey_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The serial number of the certificate.
     shared_ptr<string> serialNumber_ {};
-    // The signature algorithm of the certificate.
     shared_ptr<string> signatureAlgorithm_ {};
-    // The status of the certificate.
     shared_ptr<string> status_ {};
-    // The validity period of the certificate. Unit: day.
     shared_ptr<string> validityDays_ {};
   };
 

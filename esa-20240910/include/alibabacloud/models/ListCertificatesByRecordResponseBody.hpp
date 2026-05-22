@@ -259,42 +259,24 @@ namespace Models
 
 
       protected:
-        // The certificate ID on Certificate Management Service.
         shared_ptr<string> casId_ {};
-        // The Common Name of the certificate.
         shared_ptr<string> commonName_ {};
-        // The creation time.
         shared_ptr<string> createTime_ {};
-        // The SHA-256 fingerprint of the certificate.
         shared_ptr<string> fingerprintSha256_ {};
-        // The ID of the certificate.
         shared_ptr<string> id_ {};
-        // The certificate authority (CA) that issued the certificate.
         shared_ptr<string> issuer_ {};
-        // The Common Name of the certificate issuer.
         shared_ptr<string> issuerCN_ {};
         shared_ptr<string> keyServerId_ {};
-        // The certificate name.
         shared_ptr<string> name_ {};
-        // The time when the certificate expires.
         shared_ptr<string> notAfter_ {};
-        // The time when the certificate takes effect.
         shared_ptr<string> notBefore_ {};
-        // The public key algorithm of the certificate.
         shared_ptr<string> pubAlg_ {};
-        // The region where the certificate is stored.
         shared_ptr<string> region_ {};
-        // The Subject Alternative Name (SAN) of the certificate.
         shared_ptr<string> SAN_ {};
-        // The serial number of the certificate.
         shared_ptr<string> serialNumber_ {};
-        // The signature algorithm of the certificate.
         shared_ptr<string> sigAlg_ {};
-        // The status of the certificate.
         shared_ptr<string> status_ {};
-        // The type of the SSL certificate. Valid values:
         shared_ptr<string> type_ {};
-        // The update time.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -338,15 +320,10 @@ namespace Models
 
 
     protected:
-      // The number of certificates that are being requested.
       shared_ptr<int64_t> applylingCount_ {};
-      // The certificates that match the specified records.
       shared_ptr<vector<Result::Certificates>> certificates_ {};
-      // The number of certificates that match the specified records.
       shared_ptr<int64_t> count_ {};
-      // The name of the record.
       shared_ptr<string> recordName_ {};
-      // Certificate configuration status. Possible values: none; configured; applying; failed.
       shared_ptr<string> status_ {};
     };
 
@@ -390,15 +367,10 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried certificates.
     shared_ptr<vector<ListCertificatesByRecordResponseBody::Result>> result_ {};
-    // The website ID,
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
     shared_ptr<string> siteName_ {};
-    // The total number of records that you specified.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -122,30 +122,12 @@ namespace Models
 
 
     protected:
-      // The purged content.
       shared_ptr<string> content_ {};
-      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The error description returned when the purge task failed.
       shared_ptr<string> description_ {};
-      // The progress of the task, in percentage.
       shared_ptr<string> process_ {};
-      // The task status.
-      // 
-      // *   **Complete**: The task is complete.
-      // *   **Refreshing**: The task is in progress.
-      // *   **Failed**: The task failed.
       shared_ptr<string> status_ {};
-      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The type of the purge task. Valid values:
-      // 
-      // *   **file** (default): purges the cache by file.
-      // *   **cachetag**: purges the cache by cache tag.
-      // *   **directory**: purges the cache by directory.
-      // *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
-      // *   **hostname**: purges the cache by hostname.
-      // *   **purgeall**: purges all cache.
       shared_ptr<string> type_ {};
     };
 
@@ -189,15 +171,10 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
     shared_ptr<vector<DescribePurgeTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

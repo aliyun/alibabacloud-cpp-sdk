@@ -57,14 +57,9 @@ namespace Models
 
 
   protected:
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The ID of the waiting room event. This parameter is optional. You can specify this parameter to query a specific waiting room event.
     shared_ptr<int64_t> waitingRoomEventId_ {};
-    // The unique ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<string> waitingRoomId_ {};
   };

@@ -168,15 +168,10 @@ namespace Models
 
 
       protected:
-        // The DCV ID.
         shared_ptr<string> id_ {};
-        // The DCV name. It is a TXT record name if Type is DNS or URL if Type is HTTP.
         shared_ptr<string> key_ {};
-        // The verification status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: DNS and HTTP.
         shared_ptr<string> type_ {};
-        // The DCV content.
         shared_ptr<string> value_ {};
       };
 
@@ -343,60 +338,27 @@ namespace Models
 
 
     protected:
-      // The error code returned for certificate application.
       shared_ptr<int64_t> applyCode_ {};
-      // The error message returned for certificate application.
       shared_ptr<string> applyMessage_ {};
-      // The certificate ID on Certificate Management Service.
       shared_ptr<string> casId_ {};
-      // The Common Name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The time when the certificate was created.
       shared_ptr<string> createTime_ {};
-      // The Domain Control Validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
-      // The SHA-256 fingerprint of the certificate.
       shared_ptr<string> fingerprintSha256_ {};
-      // The certificate ID on ESA.
       shared_ptr<string> id_ {};
-      // The certificate authority (CA) that issued the certificate.
       shared_ptr<string> issuer_ {};
-      // The Common Name of the certificate issuer.
       shared_ptr<string> issuerCN_ {};
       shared_ptr<string> keyServerId_ {};
-      // The certificate name.
       shared_ptr<string> name_ {};
-      // The time when the certificate expires.
       shared_ptr<string> notAfter_ {};
-      // The time when the certificate takes effect.
       shared_ptr<string> notBefore_ {};
-      // The public key algorithm of the certificate.
       shared_ptr<string> pubAlg_ {};
-      // The region where the certificate is stored.
       shared_ptr<string> region_ {};
-      // The Subject Alternative Name (SAN) of the certificate.
       shared_ptr<string> SAN_ {};
-      // The serial number of the certificate.
       shared_ptr<string> serialNumber_ {};
-      // The signature algorithm of the certificate.
       shared_ptr<string> sigAlg_ {};
-      // The certificate status.
-      // 
-      // *   OK
-      // *   Expired
-      // *   Expiring
-      // *   Issued
-      // *   Applying
-      // *   ApplyFailed
-      // *   Canceled
       shared_ptr<string> status_ {};
-      // The certificate type.
-      // 
-      // *   cas: certificate that is purchased by using Certificate Management Service
-      // *   upload: custom certificate that you upload
-      // *   free: free certificate
       shared_ptr<string> type_ {};
-      // The time when the certificate was updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -455,19 +417,12 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The queried certificates.
     shared_ptr<vector<ListCertificatesResponseBody::Result>> result_ {};
-    // The website ID.
     shared_ptr<int64_t> siteId_ {};
-    // The website name.
     shared_ptr<string> siteName_ {};
-    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

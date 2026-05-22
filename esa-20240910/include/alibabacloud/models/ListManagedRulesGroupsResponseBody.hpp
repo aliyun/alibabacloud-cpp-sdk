@@ -76,9 +76,7 @@ namespace Models
 
 
     protected:
-      // Name of the managed rule group.
       shared_ptr<string> name_ {};
-      // Number of rules within the managed rule group.
       shared_ptr<int64_t> ruleCount_ {};
     };
 
@@ -122,15 +120,10 @@ namespace Models
 
 
   protected:
-    // List of managed rule group information.
     shared_ptr<vector<ListManagedRulesGroupsResponseBody::ManagedRulesGroups>> managedRulesGroups_ {};
-    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of records after filtering.
     shared_ptr<int32_t> totalCount_ {};
   };
 

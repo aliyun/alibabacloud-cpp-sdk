@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The exported DNS records.
     shared_ptr<string> content_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -802,9 +802,7 @@ namespace Models
 
 
     protected:
-      // The latest IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv4_ {};
-      // The latest IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv6_ {};
     };
 
@@ -873,9 +871,7 @@ namespace Models
 
 
       protected:
-        // The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -921,9 +917,7 @@ namespace Models
 
 
       protected:
-        // The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -969,9 +963,7 @@ namespace Models
 
 
       protected:
-        // The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv4_ {};
-        // The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
         shared_ptr<vector<string>> IPv6_ {};
       };
 
@@ -1005,11 +997,8 @@ namespace Models
 
 
     protected:
-      // The new IP whitelist for origin protection.
       shared_ptr<DiffIPWhitelist::AddedIPWhitelist> addedIPWhitelist_ {};
-      // The IP whitelist for origin protection that remains unchanged.
       shared_ptr<DiffIPWhitelist::NoChangeIpWhitelist> noChangeIpWhitelist_ {};
-      // The IP whitelist for origin protection that has been deleted.
       shared_ptr<DiffIPWhitelist::RemovedIPWhitelist> removedIPWhitelist_ {};
     };
 
@@ -1055,9 +1044,7 @@ namespace Models
 
 
     protected:
-      // The IP whitelist for origin protection used by the website, specified as IPv4 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv4_ {};
-      // The IP whitelist for origin protection used by the website, specified as IPv6 addresses or CIDR blocks.
       shared_ptr<vector<string>> IPv6_ {};
     };
 
@@ -1163,33 +1150,16 @@ namespace Models
 
   protected:
     shared_ptr<string> autoConfirmIPList_ {};
-    // The IP whitelist for origin protection used by the website.
     shared_ptr<GetOriginProtectionResponseBody::CurrentIPWhitelist> currentIPWhitelist_ {};
-    // The IP whitelist for origin protection that has been updated.
     shared_ptr<GetOriginProtectionResponseBody::DiffIPWhitelist> diffIPWhitelist_ {};
-    // The latest IP whitelist for origin protection.
     shared_ptr<GetOriginProtectionResponseBody::LatestIPWhitelist> latestIPWhitelist_ {};
-    // Indicates whether the IP whitelist for origin protection needs to be updated. If the currently used IP whitelist is different from the latest IP whitelist, it needs to be updated, and the value is true.
-    // 
-    // *   true: The update is required.
-    // *   false: No update is required.
     shared_ptr<bool> needUpdate_ {};
-    // Indicates whether IP convergence is enabled.
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> originConverge_ {};
-    // Indicates whether origin protection is enabled.
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> originProtection_ {};
     shared_ptr<GetOriginProtectionResponseBody::RegionalCurrentIPWhitelist> regionalCurrentIPWhitelist_ {};
     shared_ptr<GetOriginProtectionResponseBody::RegionalDiffIPWhitelist> regionalDiffIPWhitelist_ {};
     shared_ptr<GetOriginProtectionResponseBody::RegionalLatestIPWhitelist> regionalLatestIPWhitelist_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The website ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

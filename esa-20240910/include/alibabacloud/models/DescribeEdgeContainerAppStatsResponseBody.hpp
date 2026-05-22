@@ -218,22 +218,14 @@ namespace Models
 
 
   protected:
-    // Average CPU limit ratio
     shared_ptr<double> cpuUsageSecondsQuotaRateAvg_ {};
-    // Average number of CPU cores
     shared_ptr<double> cpuUsageSecondsTotalAvg_ {};
-    // Average read IO
     shared_ptr<double> fsReadsBytesAvgAvg_ {};
-    // Average write IO
     shared_ptr<double> fsWritesBytesAvgAvg_ {};
-    // Average memory usage
     shared_ptr<double> memoryRssAvg_ {};
-    // Average memory limit proportion
     shared_ptr<double> memoryRssQuotaRateAvg_ {};
-    // Average PodReady rate
     shared_ptr<double> podReadyRateAvg_ {};
     shared_ptr<vector<DescribeEdgeContainerAppStatsResponseBody::Points>> points_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -114,28 +114,13 @@ namespace Models
   protected:
     shared_ptr<string> autoAvif_ {};
     shared_ptr<string> autoWebp_ {};
-    // Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Indicates whether to enable image transformation. Possible values:
-    // 
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> enable_ {};
-    // Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true.
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

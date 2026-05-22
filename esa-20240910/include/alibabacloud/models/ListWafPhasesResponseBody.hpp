@@ -115,13 +115,9 @@ namespace Models
 
 
       protected:
-        // ID of the WAF ruleset.
         shared_ptr<int64_t> id_ {};
-        // Name of the WAF ruleset.
         shared_ptr<string> name_ {};
-        // List of rule configurations in the WAF ruleset.
         shared_ptr<vector<WafRuleConfig>> rules_ {};
-        // Shared configuration for rules in the WAF ruleset.
         shared_ptr<WafBatchRuleShared> shared_ {};
       };
 
@@ -144,9 +140,7 @@ namespace Models
 
 
     protected:
-      // Name of the WAF operation phase.
       shared_ptr<string> phase_ {};
-      // List of WAF rulesets.
       shared_ptr<vector<Phases::Rulesets>> rulesets_ {};
     };
 
@@ -169,9 +163,7 @@ namespace Models
 
 
   protected:
-    // List of WAF operation phases.
     shared_ptr<vector<ListWafPhasesResponseBody::Phases>> phases_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

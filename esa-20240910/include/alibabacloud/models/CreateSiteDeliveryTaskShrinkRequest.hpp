@@ -149,54 +149,22 @@ namespace Models
 
 
   protected:
-    // The log category. Valid values:
-    // 
-    // *   **dcdn_log_access_l1** (default): access logs.
-    // *   **dcdn_log_er**: Edge Routine logs.
-    // *   **dcdn_log_waf**: firewall logs.
-    // *   **dcdn_log_ipa**: TCP/UDP proxy logs.
-    // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
-    // The data center. Valid values:
-    // 
-    // *   cn: the Chinese mainland.
-    // *   oversea: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
-    // The destination of the delivery. Valid values:
-    // 
-    // *   sls: Alibaba Cloud Simple Log Service (SLS).
-    // *   http: HTTP server.
-    // *   aws3: Amazon Simple Storage Service (S3).
-    // *   oss: Alibaba Cloud Object Storage Service (OSS).
-    // *   kafka: Kafka.
-    // *   aws3cmpt: S3-compatible storage service.
-    // 
     // This parameter is required.
     shared_ptr<string> deliveryType_ {};
-    // The discard rate. Default value: 0.
     shared_ptr<float> discardRate_ {};
-    // The log fields, which are separated by commas (,).
-    // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
-    // The configurations for delivery to an HTTP server.
     shared_ptr<string> httpDeliveryShrink_ {};
-    // The configurations for delivery to Kafka.
     shared_ptr<string> kafkaDeliveryShrink_ {};
-    // The configurations for delivery to OSS.
     shared_ptr<string> ossDeliveryShrink_ {};
-    // The configurations for delivery to Amazon S3 or an S3-compatible service.
     shared_ptr<string> s3DeliveryShrink_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The configurations for delivery to SLS.
     shared_ptr<string> slsDeliveryShrink_ {};
-    // The name of the delivery task.
-    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

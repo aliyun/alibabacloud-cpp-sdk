@@ -172,7 +172,6 @@ namespace Models
     shared_ptr<int64_t> instanceUsage_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<ListUserWafRulesetsResponseBody::Rulesets>> rulesets_ {};
     shared_ptr<int64_t> totalCount_ {};

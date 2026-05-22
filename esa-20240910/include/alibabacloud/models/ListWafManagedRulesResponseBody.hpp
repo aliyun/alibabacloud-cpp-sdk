@@ -103,15 +103,10 @@ namespace Models
 
 
     protected:
-      // Protection action of the managed rule.
       shared_ptr<string> action_ {};
-      // ID of the managed rule.
       shared_ptr<int64_t> id_ {};
-      // Name of the managed rule.
       shared_ptr<string> name_ {};
-      // Protection level of the managed rule.
       shared_ptr<int32_t> protectionLevel_ {};
-      // Protection status of the managed rule.
       shared_ptr<string> status_ {};
     };
 
@@ -155,15 +150,10 @@ namespace Models
 
 
   protected:
-    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // List of managed rules.
     shared_ptr<vector<ListWafManagedRulesResponseBody::Rules>> rules_ {};
-    // Total number of rules after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

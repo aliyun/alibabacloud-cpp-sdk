@@ -101,9 +101,7 @@ namespace Models
 
 
       protected:
-        // The custom response code.
         shared_ptr<int32_t> code_ {};
-        // The ID of the custom response page.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -118,7 +116,6 @@ namespace Models
 
 
     protected:
-      // The custom response.
       shared_ptr<Actions::Response> response_ {};
     };
 
@@ -186,21 +183,13 @@ namespace Models
 
 
   protected:
-    // The action that you want WAF to perform on requests that match the rule.
     shared_ptr<string> action_ {};
-    // The extended action configurations.
     shared_ptr<WafBatchRuleShared::Actions> actions_ {};
-    // Specifies the cross-domain website ID.
     shared_ptr<int64_t> crossSiteId_ {};
-    // The expression.
     shared_ptr<string> expression_ {};
-    // The matching rule.
     shared_ptr<WafRuleMatch2> match_ {};
-    // Web SDK integration method: automatic integration (automatic) or manual integration (manual).
     shared_ptr<string> mode_ {};
-    // The ruleset name.
     shared_ptr<string> name_ {};
-    // Protection type: web or app.
     shared_ptr<string> target_ {};
   };
 

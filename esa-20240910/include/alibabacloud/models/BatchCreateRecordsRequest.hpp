@@ -213,33 +213,19 @@ namespace Models
 
 
       protected:
-        // The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
         shared_ptr<int32_t> algorithm_ {};
-        // The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
         shared_ptr<string> certificate_ {};
-        // The public key fingerprint of the record. Applicable to SSHFP records.
         shared_ptr<string> fingerprint_ {};
-        // The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255.
         shared_ptr<int32_t> flag_ {};
-        // The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
         shared_ptr<int32_t> keyTag_ {};
-        // The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA, and TLSA records.
         shared_ptr<int32_t> matchingType_ {};
-        // The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
         shared_ptr<int32_t> port_ {};
-        // The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
         shared_ptr<int32_t> priority_ {};
-        // The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
         shared_ptr<int32_t> selector_ {};
-        // The tag of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
         shared_ptr<string> tag_ {};
-        // The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
         shared_ptr<int32_t> type_ {};
-        // The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
         shared_ptr<int32_t> usage_ {};
-        // The record value or part of the record content. A/AAAA: the IP address being pointed to. CNAME: the target domain name being pointed to. MX: valid target mail server domain name. TXT: valid text string. CAA: valid certificate authority domain name. SRV: valid target host domain name. URI: valid URI string.
         shared_ptr<string> value_ {};
-        // The weight of the record. Valid values: 0 to 65,535. Applicable to SRV and URI records.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -380,43 +366,16 @@ namespace Models
 
     protected:
       shared_ptr<RecordList::AuthConf> authConf_ {};
-      // The business scenario of the record for acceleration. Valid values:
-      // 
-      // *   **image_video**
-      // *   **api**
-      // *   **web**
       shared_ptr<string> bizName_ {};
-      // The DNS information of the record. Enter fields based on the record type.
-      // 
       // This parameter is required.
       shared_ptr<RecordList::Data> data_ {};
-      // Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
-      // 
       // This parameter is required.
       shared_ptr<bool> proxied_ {};
-      // The record name.
-      // 
       // This parameter is required.
       shared_ptr<string> recordName_ {};
-      // The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
-      // 
-      // *   **OSS**: OSS bucket.
-      // *   **S3**: S3 bucket.
-      // *   **LB**: load balancer.
-      // *   **OP**: origin pool.
-      // *   **Domain**: domain name.
-      // 
-      // If you do not pass this parameter or if you leave its value empty, Domain is used by default.
       shared_ptr<string> sourceType_ {};
-      // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
-      // 
       // This parameter is required.
       shared_ptr<int32_t> ttl_ {};
-      // The DNS type of the record.
-      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -440,12 +399,8 @@ namespace Models
 
 
   protected:
-    // The list of DNS records to be created.
-    // 
     // This parameter is required.
     shared_ptr<vector<BatchCreateRecordsRequest::RecordList>> recordList_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

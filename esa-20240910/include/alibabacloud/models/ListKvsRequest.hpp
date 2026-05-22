@@ -66,15 +66,10 @@ namespace Models
 
 
   protected:
-    // The name of the namespace that you specify when you call the [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The page number. The product of PageNumber and PageSize cannot exceed 50,000.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 50. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The prefix to query.
     shared_ptr<string> prefix_ {};
   };
 

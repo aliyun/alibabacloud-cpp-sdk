@@ -75,28 +75,14 @@ namespace Models
 
 
   protected:
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq "video.example.com")
-    // 
     // This parameter is required.
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
-    // 
     // This parameter is required.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding global configuration.
-    // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The ID of the waiting room bypass rule to be updated, which can be obtained by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> waitingRoomRuleId_ {};
   };

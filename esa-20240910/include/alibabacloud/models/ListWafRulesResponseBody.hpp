@@ -211,35 +211,20 @@ namespace Models
 
 
     protected:
-      // The action corresponding to the rule.
       shared_ptr<string> action_ {};
-      // List of statistical objects for frequency control rules.
       shared_ptr<vector<string>> characteristicsFields_ {};
-      // Rule configuration.
       shared_ptr<WafRuleConfig> config_ {};
-      // List of fields for rule matching
       shared_ptr<vector<string>> fields_ {};
-      // Rule ID.
       shared_ptr<int64_t> id_ {};
-      // Rule name.
       shared_ptr<string> name_ {};
-      // WAF phase.
       shared_ptr<string> phase_ {};
-      // Position order of the rule in the corresponding ruleset.
       shared_ptr<int64_t> position_ {};
-      // Ruleset ID.
       shared_ptr<int64_t> rulesetId_ {};
-      // Skip attribute for whitelist rules.
       shared_ptr<string> skip_ {};
-      // Rule status.
       shared_ptr<string> status_ {};
-      // List of WAF phases to be skipped by whitelist rules.
       shared_ptr<vector<string>> tags_ {};
-      // Configuration for the effective time of the rule.
       shared_ptr<WafTimer> timer_ {};
-      // Rule type.
       shared_ptr<string> type_ {};
-      // Modification time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -298,19 +283,12 @@ namespace Models
 
 
   protected:
-    // Number of rules used in this WAF phase for the corresponding instance of the site.
     shared_ptr<int64_t> instanceUsage_ {};
-    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Returned list of rules.
     shared_ptr<vector<ListWafRulesResponseBody::Rules>> rules_ {};
-    // Site usage.
     shared_ptr<int64_t> siteUsage_ {};
-    // Total number of rules after filtering.
     shared_ptr<int64_t> totalCount_ {};
   };
 

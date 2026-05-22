@@ -106,11 +106,8 @@ namespace Models
 
 
       protected:
-        // The page number returned.
         shared_ptr<int32_t> pageIndex_ {};
-        // The number of entries per page. Default value: **300**. Valid values: **1 to 1000**.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries returned.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -179,17 +176,10 @@ namespace Models
 
 
       protected:
-        // The end time.
         shared_ptr<string> endTime_ {};
-        // The name of the log file.
         shared_ptr<string> logName_ {};
-        // The log path.
-        // 
-        // >  Take note of the Expires field (expiration timestamp) in this parameter. If the log download URL expires, you must reobtain the URL.
         shared_ptr<string> logPath_ {};
-        // The size of the log file. Unit: bytes.
         shared_ptr<int32_t> logSize_ {};
-        // The create time.
         shared_ptr<string> startTime_ {};
       };
 
@@ -235,15 +225,10 @@ namespace Models
 
 
     protected:
-      // The total number of entries returned on the current page.
       shared_ptr<int32_t> logCount_ {};
-      // The details of the website log files.
       shared_ptr<vector<SiteLogDetails::LogInfos>> logInfos_ {};
-      // Pagination information.
       shared_ptr<SiteLogDetails::PageInfos> pageInfos_ {};
-      // The website ID.
       shared_ptr<int64_t> siteId_ {};
-      // The website name.
       shared_ptr<string> siteName_ {};
     };
 
@@ -266,9 +251,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the website log files.
     shared_ptr<vector<DescribeSiteLogsResponseBody::SiteLogDetails>> siteLogDetails_ {};
   };
 

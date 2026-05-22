@@ -112,25 +112,11 @@ namespace Models
 
 
     protected:
-      // The prefetched content.
       shared_ptr<string> content_ {};
-      // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // The error message returned upon a prefetch task failure. Valid values:
-      // 
-      // *   **Internal Error**
-      // *   **Origin Timeout**
-      // *   **Origin Return StatusCode 5XX**
       shared_ptr<string> description_ {};
-      // The progress of the task, in percentage.
       shared_ptr<string> process_ {};
-      // The task status.
-      // 
-      // *   **Complete**: The task is complete.
-      // *   **Refreshing**: The task is in progress.
-      // *   **Failed**: The task failed.
       shared_ptr<string> status_ {};
-      // The ID of the queried task.
       shared_ptr<string> taskId_ {};
     };
 
@@ -174,15 +160,10 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tasks.
     shared_ptr<vector<DescribePreloadTasksResponseBody::Tasks>> tasks_ {};
-    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

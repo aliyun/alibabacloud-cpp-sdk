@@ -72,16 +72,6 @@ namespace Models
 
 
     protected:
-      // The security level value.
-      // 
-      // Enumerated values:
-      // 
-      // *   high: high.
-      // *   low: low.
-      // *   under_attack: I am under attack.
-      // *   medium: medium.
-      // *   essentially_off: essentially off.
-      // *   off: completely off.
       shared_ptr<string> value_ {};
     };
 
@@ -208,14 +198,7 @@ namespace Models
 
 
     protected:
-      // Specify headers.
       shared_ptr<vector<string>> headers_ {};
-      // Identifies the mode.
-      // 
-      // Enumerated values:
-      // 
-      // *   headers: specifies the headers.
-      // *   connection_ip: the IP address for establishing a connection.
       shared_ptr<string> mode_ {};
     };
 
@@ -284,9 +267,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
-        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -328,9 +309,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
-        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -362,7 +341,6 @@ namespace Models
 
 
       protected:
-        // Indicates whether the parameter is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -394,7 +372,6 @@ namespace Models
 
 
       protected:
-        // Indicates whether the parameter is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -436,9 +413,7 @@ namespace Models
 
 
       protected:
-        // The action that you want to perform on requests that match the rule.
         shared_ptr<string> action_ {};
-        // The rule ID.
         shared_ptr<int64_t> id_ {};
       };
 
@@ -490,15 +465,10 @@ namespace Models
 
 
     protected:
-      // Definite Bots
       shared_ptr<BotManagement::DefiniteBots> definiteBots_ {};
-      // Takes effect on static resource requests.
       shared_ptr<BotManagement::EffectOnStatic> effectOnStatic_ {};
-      // JavaScript detection.
       shared_ptr<BotManagement::JSDetection> JSDetection_ {};
-      // Likely Bots
       shared_ptr<BotManagement::LikelyBots> likelyBots_ {};
-      // Verified Bots
       shared_ptr<BotManagement::VerifiedBots> verifiedBots_ {};
     };
 
@@ -582,7 +552,6 @@ namespace Models
 
 
     protected:
-      // Indicates whether the parameter is enabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -614,7 +583,6 @@ namespace Models
 
 
     protected:
-      // Indicates whether the parameter is enabled.
       shared_ptr<bool> enable_ {};
     };
 
@@ -694,18 +662,13 @@ namespace Models
 
 
   protected:
-    // Adds a bot protection header.
     shared_ptr<WafSiteSettings::AddBotProtectionHeaders> addBotProtectionHeaders_ {};
-    // Adds security request header.
     shared_ptr<WafSiteSettings::AddSecurityHeaders> addSecurityHeaders_ {};
     shared_ptr<WafSiteSettings::BandwidthAbuseProtection> bandwidthAbuseProtection_ {};
-    // Bot management.
     shared_ptr<WafSiteSettings::BotManagement> botManagement_ {};
-    // Identifies the IP address of the client.
     shared_ptr<WafSiteSettings::ClientIpIdentifier> clientIpIdentifier_ {};
     shared_ptr<WafSiteSettings::DisableSecurityModule> disableSecurityModule_ {};
     shared_ptr<WafSiteSettings::RequestBodyInspection> requestBodyInspection_ {};
-    // The security level.
     shared_ptr<WafSiteSettings::SecurityLevel> securityLevel_ {};
   };
 

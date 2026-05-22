@@ -66,20 +66,12 @@ namespace Models
 
 
   protected:
-    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
-    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The container group to be deployed for this version, which contains information about images.\\
-    // The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
-    // 
     // This parameter is required.
     shared_ptr<string> containersShrink_ {};
-    // The version name, which must be 6 to 128 characters in length.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The description of the version.
     shared_ptr<string> remarks_ {};
   };
 

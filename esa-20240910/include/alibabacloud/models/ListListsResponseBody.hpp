@@ -116,17 +116,12 @@ namespace Models
 
 
     protected:
-      // The list description.
+      // 自定义响应页面描述
       shared_ptr<string> description_ {};
-      // The ID of the custom list.[](~~2850217~~)
       shared_ptr<int64_t> id_ {};
-      // The list type.
       shared_ptr<string> kind_ {};
-      // The length of the list information array, which indicates how many items the list contains.
       shared_ptr<int64_t> length_ {};
-      // The list name.
       shared_ptr<string> name_ {};
-      // The time when the list was last modified.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -186,17 +181,11 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> itemsUsage_ {};
-    // The array that contains list information, including list data after paging.
     shared_ptr<vector<ListListsResponseBody::Lists>> lists_ {};
-    // The page number returned.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of filtered lists.
     shared_ptr<int32_t> totalCount_ {};
-    // The number of created lists.
     shared_ptr<int64_t> usage_ {};
   };
 

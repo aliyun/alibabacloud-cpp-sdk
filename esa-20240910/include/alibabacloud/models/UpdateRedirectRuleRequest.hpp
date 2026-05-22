@@ -121,43 +121,17 @@ namespace Models
 
 
   protected:
-    // Configuration ID. It can be obtained by calling the [ListRedirectRules](https://help.aliyun.com/document_detail/2867474.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Preserve query string. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> reserveQueryString_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The response status code used by the node to respond with the redirect address to the client. Value range:
-    // 
-    // - 301
-    // - 302
-    // - 303
-    // - 307
-    // - 308
     shared_ptr<string> statusCode_ {};
-    // The target URL after redirection.
     shared_ptr<string> targetUrl_ {};
-    // Redirect type. Value range:
-    // 
-    // - static: Static mode.
-    // - dynamic: Dynamic mode.
     shared_ptr<string> type_ {};
   };
 

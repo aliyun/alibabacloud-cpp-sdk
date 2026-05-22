@@ -130,53 +130,25 @@ namespace Models
 
 
   protected:
-    // The origin authentication information of the CNAME record.
     shared_ptr<string> authConfShrink_ {};
-    // The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
-    // 
-    // *   **image_video**: video and image.
-    // *   **api**: API.
-    // *   **web**: web page.
+    // 业务场景
     shared_ptr<string> bizName_ {};
-    // The comment of the record. The maximum length is 100 characters.
     shared_ptr<string> comment_ {};
-    // The DNS record information. The format of this field varies based on the record type. For more information, see [References](https://www.alibabacloud.com/help/doc-detail/2708761.html) .
-    // 
     // This parameter is required.
     shared_ptr<string> dataShrink_ {};
-    // The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
-    // 
-    // *   follow_hostname: Follow the host record.
-    // *   follow_origin_domain: match the origin\\"s domain name.
     shared_ptr<string> hostPolicy_ {};
-    // Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // 是否代理加速
     shared_ptr<bool> proxied_ {};
-    // The record name.
+    // 记录名称
     // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
-    // 
-    // *   **OSS**: OSS bucket.
-    // *   **S3**: S3 bucket.
-    // *   **LB**: load balancer.
-    // *   **OP**: origin pool.
-    // *   **Domain**: domain name.
-    // 
-    // If you do not pass this parameter or if you leave its value empty, Domain is used by default.
     shared_ptr<string> sourceType_ {};
-    // The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> ttl_ {};
-    // The type of the DNS record. For example, A/AAAA, TXT, MX, or CNAME.
+    // 记录类型
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

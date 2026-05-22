@@ -183,7 +183,6 @@ namespace Models
   protected:
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<DescribeHttpDDoSAttackRulesResponseBody::RuleInfos>> ruleInfos_ {};
     shared_ptr<int32_t> totalCount_ {};

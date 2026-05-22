@@ -102,7 +102,6 @@ namespace Models
     shared_ptr<string> isp_ {};
     shared_ptr<string> locate_ {};
     shared_ptr<string> startTime_ {};
-    // The tenant ID.
     shared_ptr<string> tenant_ {};
   };
 

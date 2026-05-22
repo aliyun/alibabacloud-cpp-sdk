@@ -75,17 +75,11 @@ namespace Models
 
 
   protected:
-    // The keyword that is used for the search.
     shared_ptr<string> keyword_ {};
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Specifies whether to return only valid certificates.
     shared_ptr<bool> validOnly_ {};
   };
 

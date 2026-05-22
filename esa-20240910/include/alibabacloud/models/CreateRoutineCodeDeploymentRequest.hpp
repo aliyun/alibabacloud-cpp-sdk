@@ -74,12 +74,8 @@ namespace Models
 
 
     protected:
-      // The version of the code.
-      // 
       // This parameter is required.
       shared_ptr<string> codeVersion_ {};
-      // The phased release ratio of the code version. Valid values: 1 to 100.
-      // 
       // This parameter is required.
       shared_ptr<int64_t> percentage_ {};
     };
@@ -117,20 +113,12 @@ namespace Models
 
 
   protected:
-    // The configuration list of phased release version numbers. A maximum of two versions are supported, and the sum of the total proportions is equal to 100.
-    // 
     // This parameter is required.
     shared_ptr<vector<CreateRoutineCodeDeploymentRequest::CodeVersions>> codeVersions_ {};
-    // The name of the environment. Only supports test environment `staging` or production environment `production`.
-    // 
     // This parameter is required.
     shared_ptr<string> env_ {};
-    // The function name.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The deployment policy. Valid value: percentage.
-    // 
     // This parameter is required.
     shared_ptr<string> strategy_ {};
   };

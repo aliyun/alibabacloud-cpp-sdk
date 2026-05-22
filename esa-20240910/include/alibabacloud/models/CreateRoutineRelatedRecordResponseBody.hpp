@@ -58,9 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> recordId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful.
     shared_ptr<string> status_ {};
   };
 

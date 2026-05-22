@@ -101,9 +101,7 @@ namespace Models
 
 
       protected:
-        // The dimension value.
         shared_ptr<string> dimensionValue_ {};
-        // The queried numeric value.
         Darabonba::Json value_ {};
       };
 
@@ -133,11 +131,8 @@ namespace Models
 
 
     protected:
-      // The returned data.
       shared_ptr<vector<Data::DetailData>> detailData_ {};
-      // The dimension at which data was queried.
       shared_ptr<string> dimensionName_ {};
-      // The metric name.
       shared_ptr<string> fieldName_ {};
     };
 
@@ -181,19 +176,10 @@ namespace Models
 
 
   protected:
-    // The returned data.
     shared_ptr<vector<DescribeSiteTopDataResponseBody::Data>> data_ {};
-    // The end of the time range during which data was queried.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> endTime_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sampling rate.
     shared_ptr<float> samplingRate_ {};
-    // The beginning of the time range during which data was queried.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

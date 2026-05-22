@@ -98,20 +98,11 @@ namespace Models
 
 
     protected:
-      // Response header name.
-      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // Operation type. Possible values:
-      // 
-      // - add: Add.
-      // - del: Delete
-      // - modify: Modify.
-      // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
       shared_ptr<string> type_ {};
-      // Response header value.
       shared_ptr<string> value_ {};
     };
 
@@ -170,26 +161,14 @@ namespace Models
 
 
   protected:
-    // Modify response headers, supporting add, delete, and modify operations.
-    // 
     // This parameter is required.
     shared_ptr<vector<CreateHttpResponseHeaderModificationRuleRequest::ResponseHeaderModification>> responseHeaderModification_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID. You can obtain this by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site where the configuration will take effect. The default is version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

@@ -66,17 +66,11 @@ namespace Models
 
 
   protected:
-    // Rule name, optional, used for querying by the name of the waiting room bypass rule.
     shared_ptr<string> ruleName_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The ID of the waiting room to bypass, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<string> waitingRoomId_ {};
-    // The ID of the waiting room bypass rule to update, which can be obtained by calling the [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) interface.
     shared_ptr<int64_t> waitingRoomRuleId_ {};
   };
 

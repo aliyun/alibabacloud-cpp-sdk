@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // Number of forwarding rules contained in the transport layer acceleration application.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> applicationId_ {};
-    // Transport layer application ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

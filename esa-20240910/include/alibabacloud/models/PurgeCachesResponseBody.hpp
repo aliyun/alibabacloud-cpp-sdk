@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Task ID, which is returned when you create a refresh or preheat task.
     shared_ptr<string> taskId_ {};
   };
 

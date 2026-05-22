@@ -66,17 +66,11 @@ namespace Models
 
 
   protected:
-    // Ruleset name.
     shared_ptr<string> name_ {};
-    // WAF operation phase.
-    // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

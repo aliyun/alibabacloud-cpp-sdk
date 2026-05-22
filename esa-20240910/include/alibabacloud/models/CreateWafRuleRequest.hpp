@@ -78,19 +78,12 @@ namespace Models
 
 
   protected:
-    // Rule configuration, specifying the detailed configuration for creating a rule.
     shared_ptr<WafRuleConfig> config_ {};
-    // WAF operation phase.
-    // 
     // This parameter is required.
     shared_ptr<string> phase_ {};
-    // Ruleset ID.
     shared_ptr<int64_t> rulesetId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

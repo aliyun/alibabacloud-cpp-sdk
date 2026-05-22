@@ -84,14 +84,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto payment.
     shared_ptr<bool> autoPay_ {};
     shared_ptr<string> chargeType_ {};
     shared_ptr<string> instanceId_ {};
-    // The specification update type. Valid values:
-    // 
-    // *   DOWNGRADE
-    // *   UPGRADE
     shared_ptr<string> orderType_ {};
     shared_ptr<string> targetPlanCode_ {};
     shared_ptr<string> targetPlanName_ {};

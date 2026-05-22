@@ -69,7 +69,6 @@ namespace Models
     shared_ptr<string> actionType_ {};
     shared_ptr<string> enable_ {};
     shared_ptr<string> level_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

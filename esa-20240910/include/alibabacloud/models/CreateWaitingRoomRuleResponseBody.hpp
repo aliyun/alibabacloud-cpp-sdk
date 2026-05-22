@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Waiting room bypass rule ID.
     shared_ptr<int64_t> waitingRoomRuleId_ {};
   };
 

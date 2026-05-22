@@ -89,27 +89,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
-    // 
-    // Default value: **false**.
+    // 是否全部删除，只针对TagKey.N为空时有效
     shared_ptr<bool> all_ {};
-    // The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
+    // 要创建并绑定标签的资源所在的地域ID。
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of resource N. Valid values of N: **1** to **50**.
+    // 资源ID,最多 50个子项
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
     shared_ptr<string> securityToken_ {};
-    // The key of tag N to remove from the resource. Valid values of N: **1** to **20**.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

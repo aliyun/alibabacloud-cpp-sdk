@@ -57,15 +57,10 @@ namespace Models
 
 
   protected:
-    // The application ID.
-    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The associated domain name.
-    // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The website ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

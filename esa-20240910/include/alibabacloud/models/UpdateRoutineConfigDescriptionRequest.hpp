@@ -48,10 +48,7 @@ namespace Models
 
 
   protected:
-    // The routine description.
     shared_ptr<string> description_ {};
-    // The routine name.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

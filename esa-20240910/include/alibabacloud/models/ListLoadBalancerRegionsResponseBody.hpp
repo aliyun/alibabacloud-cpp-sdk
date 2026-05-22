@@ -112,11 +112,8 @@ namespace Models
 
 
       protected:
-        // Secondary region Chinese full name
         shared_ptr<string> subRegionCnName_ {};
-        // Secondary region code
         shared_ptr<string> subRegionCode_ {};
-        // Secondary region English full name
         shared_ptr<string> subRegionEnName_ {};
       };
 
@@ -153,13 +150,9 @@ namespace Models
 
 
     protected:
-      // Primary region Chinese full name
       shared_ptr<string> regionCnName_ {};
-      // Primary region code
       shared_ptr<string> regionCode_ {};
-      // Primary region English full name
       shared_ptr<string> regionEnName_ {};
-      // List of secondary region information
       shared_ptr<vector<Regions::SubRegions>> subRegions_ {};
     };
 
@@ -210,17 +203,11 @@ namespace Models
 
 
   protected:
-    // Page number
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
-    // List of region information
     shared_ptr<vector<ListLoadBalancerRegionsResponseBody::Regions>> regions_ {};
-    // Request ID
     shared_ptr<string> requestId_ {};
-    // Total number of records
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages
     shared_ptr<int32_t> totalPage_ {};
   };
 

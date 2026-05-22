@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether site hold is enabled. Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> enable_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

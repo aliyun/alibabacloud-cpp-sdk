@@ -48,13 +48,7 @@ namespace Models
 
 
   protected:
-    // Multi-level cache architecture mode. Possible values:
-    // - edge: Edge cache layer.
-    // - edge_smart: Edge cache layer + intelligent cache layer.
-    // - edge_regional: Edge cache layer + regional cache layer.
-    // - edge_regional_smart: Edge cache layer + regional cache layer + intelligent cache layer.
     shared_ptr<string> cacheArchitectureMode_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

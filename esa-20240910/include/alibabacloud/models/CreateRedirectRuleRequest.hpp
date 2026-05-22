@@ -121,49 +121,19 @@ namespace Models
 
 
   protected:
-    // Preserve query string. Value range:
-    // 
-    // - on: Enabled.
-    // - off: Disabled.
-    // 
     // This parameter is required.
     shared_ptr<string> reserveQueryString_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - To match all incoming requests: Set the value to true
-    // - To match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the version of the site for which the configuration will take effect. The default is version 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // Response status code used by the node to respond to the client with the redirect address. Value range:
-    // 
-    // - 301
-    // - 302
-    // - 303
-    // - 307
-    // - 308
-    // 
     // This parameter is required.
     shared_ptr<string> statusCode_ {};
-    // Target URL after redirection.
-    // 
     // This parameter is required.
     shared_ptr<string> targetUrl_ {};
-    // Redirect type. Value range:
-    // 
-    // - static: Static mode.
-    // - dynamic: Dynamic mode.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

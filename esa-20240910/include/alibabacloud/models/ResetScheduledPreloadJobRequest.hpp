@@ -38,7 +38,6 @@ namespace Models
 
 
   protected:
-    // The ID of the scheduled prefetch task.
     shared_ptr<string> id_ {};
   };
 

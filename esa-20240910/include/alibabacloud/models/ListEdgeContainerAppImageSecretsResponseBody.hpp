@@ -79,11 +79,8 @@ namespace Models
 
 
     protected:
-      // Name of the image secret.
       shared_ptr<string> name_ {};
-      // Registry address.
       shared_ptr<string> registry_ {};
-      // Username for the image repository
       shared_ptr<string> username_ {};
     };
 
@@ -106,9 +103,7 @@ namespace Models
 
 
   protected:
-    // List of image secrets.
     shared_ptr<vector<ListEdgeContainerAppImageSecretsResponseBody::ImageSecretList>> imageSecretList_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

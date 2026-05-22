@@ -97,21 +97,17 @@ namespace Models
 
 
   protected:
-    // The description of the custom list.
+    // 自定义响应页面描述
     shared_ptr<string> description_ {};
-    // The ID of the custom list.[](~~2850217~~)
+    // 自定义响应页面ID
     shared_ptr<int64_t> id_ {};
-    // The items in the custom list, which are displayed as an array.
     shared_ptr<vector<string>> items_ {};
-    // The type of the custom list.
     shared_ptr<string> kind_ {};
-    // The name of the custom list.
+    // 自定义响应页面名称
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The time when the custom list was last modified.
     shared_ptr<string> updateTime_ {};
   };
 

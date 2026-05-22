@@ -78,19 +78,10 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
     shared_ptr<string> content_ {};
-    // The Content-Type field in the HTTP header. Valid values:
-    // 
-    // *   text/html
-    // *   application/json
-    // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The description of the page.
     shared_ptr<string> description_ {};
-    // The name of the custom error page.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<vector<int64_t>> siteIds_ {};

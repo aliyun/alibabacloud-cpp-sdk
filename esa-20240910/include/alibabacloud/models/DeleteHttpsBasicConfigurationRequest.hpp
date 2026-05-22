@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // ConfigId of the configuration, which can be obtained by calling the [ListHttpsBasicConfigurations](~~ListHttpsBasicConfigurations~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

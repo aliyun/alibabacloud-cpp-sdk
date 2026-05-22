@@ -84,22 +84,12 @@ namespace Models
 
 
   protected:
-    // A list of configurations for each rule, specifying detailed configurations for each rule.
     shared_ptr<string> configsShrink_ {};
-    // WAF rule type, with values:
-    // 
-    // - **http_anti_scan**: Scan protection.
-    // - **http_bot**: Bots.
     shared_ptr<string> phase_ {};
-    // Ruleset ID.
     shared_ptr<int64_t> rulesetId_ {};
-    // Shared configuration for multiple rules, specifying common attributes of multiple rules.
     shared_ptr<string> sharedShrink_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

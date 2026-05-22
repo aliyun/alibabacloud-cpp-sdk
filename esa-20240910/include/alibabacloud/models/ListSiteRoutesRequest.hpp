@@ -84,23 +84,11 @@ namespace Models
 
 
   protected:
-    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // The configuration type. You can use this parameter to query global configurations or feature configurations. This parameter takes effect only if the functionName parameter is passed.
-    // 
-    // Valid values:
-    // 
-    // *   global
-    // *   rule
     shared_ptr<string> configType_ {};
-    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Maximum value: 500. Default value: 500.
     shared_ptr<int32_t> pageSize_ {};
-    // The rule name. This parameter takes effect only when parameter functionName is specified.
     shared_ptr<string> routeName_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

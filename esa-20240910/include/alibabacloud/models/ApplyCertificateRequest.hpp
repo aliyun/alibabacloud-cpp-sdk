@@ -57,15 +57,10 @@ namespace Models
 
 
   protected:
-    // List of domains, separated by commas.
-    // 
     // This parameter is required.
     shared_ptr<string> domains_ {};
-    // Site ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The certificate type. Valid values: lets_encrypt, digicert_single, and digicert_wildcard.
     shared_ptr<string> type_ {};
   };
 

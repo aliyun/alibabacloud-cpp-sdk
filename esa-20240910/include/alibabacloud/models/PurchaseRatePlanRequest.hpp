@@ -131,36 +131,15 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable auto payment.
     shared_ptr<bool> autoPay_ {};
-    // Auto-renewal:
-    // - true: Enable auto-renewal.
-    // - false: Disable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<string> channel_ {};
-    // The billing method. Valid values:
-    // 
-    // *   PREPAY: subscription.
-    // *   POSTPAY: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The service location. Valid values:
-    // 
-    // *   domestic: the Chinese mainland.
-    // *   global: global.
-    // *   overseas: outside the Chinese mainland.
     shared_ptr<string> coverage_ {};
-    // Subscription period (in months).
     shared_ptr<int32_t> period_ {};
-    // Package code.
     shared_ptr<string> planCode_ {};
-    // Package name.
     shared_ptr<string> planName_ {};
-    // Site name.
     shared_ptr<string> siteName_ {};
-    // The DNS setup option for the website. Valid values:
-    // 
-    // *   NS
-    // *   CNAME
     shared_ptr<string> type_ {};
   };
 

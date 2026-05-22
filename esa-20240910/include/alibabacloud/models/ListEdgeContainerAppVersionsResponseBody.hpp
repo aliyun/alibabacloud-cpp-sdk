@@ -232,27 +232,16 @@ namespace Models
 
 
         protected:
-          // The probe command.
           shared_ptr<string> command_ {};
-          // The number of consecutive failed health checks required for a container to be considered as unhealthy.
           shared_ptr<int32_t> failureThreshold_ {};
-          // The domain name that is used for health checks.
           shared_ptr<string> host_ {};
-          // The request headers that are included in the container health check request.
           shared_ptr<string> httpHeaders_ {};
-          // The latency for container probe initialization.
           shared_ptr<int32_t> initialDelaySeconds_ {};
-          // The path of the container health check.
           shared_ptr<string> path_ {};
-          // The interval between container health checks.
           shared_ptr<int32_t> periodSeconds_ {};
-          // The port of the container health check.
           shared_ptr<int32_t> port_ {};
-          // The protocol that the container health check request uses.
           shared_ptr<string> scheme_ {};
-          // The number of consecutive successful health checks required for a container to be considered as healthy.
           shared_ptr<int32_t> successThreshold_ {};
-          // The timeout period of the container health check.
           shared_ptr<int32_t> timeoutSeconds_ {};
         };
 
@@ -332,27 +321,15 @@ namespace Models
 
 
       protected:
-        // The arguments that are passed to the container startup command.
         shared_ptr<string> args_ {};
-        // The command that is used to start the container.
         shared_ptr<string> command_ {};
-        // The environment variables of the container.
         shared_ptr<string> envVariables_ {};
-        // The address of the container image.
         shared_ptr<string> image_ {};
-        // The container name.
         shared_ptr<string> name_ {};
-        // The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`.
-        // 
-        // If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
         shared_ptr<string> postStart_ {};
-        // The command that is run before the container is stopped.
         shared_ptr<string> preStop_ {};
-        // The container probe content.
         shared_ptr<Containers::ProbeContent> probeContent_ {};
-        // The probe type of the container.
         shared_ptr<string> probeType_ {};
-        // The compute specification of the container.
         shared_ptr<string> spec_ {};
       };
 
@@ -432,29 +409,15 @@ namespace Models
 
 
     protected:
-      // The application ID.
       shared_ptr<string> appId_ {};
-      // The containers in the version.
       shared_ptr<vector<Versions::Containers>> containers_ {};
-      // The time when the version was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
-      // The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> lastPublishTime_ {};
-      // The version name.
       shared_ptr<string> name_ {};
-      // The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> publishTime_ {};
-      // The remarks.
       shared_ptr<string> remarks_ {};
-      // The status of the current version. Valid values:
-      // 
-      // *   **created**
-      // *   **failed**
-      // *   **creating**
       shared_ptr<string> status_ {};
-      // The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
-      // The version ID.
       shared_ptr<string> versionId_ {};
     };
 
@@ -498,15 +461,10 @@ namespace Models
 
 
   protected:
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The versions.
     shared_ptr<vector<ListEdgeContainerAppVersionsResponseBody::Versions>> versions_ {};
   };
 

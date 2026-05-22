@@ -48,17 +48,8 @@ namespace Models
 
 
   protected:
-    // The level of HTTP DDoS attack protection. Valid values:
-    // 
-    // *   **very weak**: very loose.
-    // *   **weak**: loose.
-    // *   **default**: normal.
-    // *   **hard**: strict.
-    // 
     // This parameter is required.
     shared_ptr<string> globalMode_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

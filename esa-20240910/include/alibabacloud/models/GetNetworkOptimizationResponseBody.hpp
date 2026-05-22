@@ -149,47 +149,18 @@ namespace Models
 
 
   protected:
-    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
-    // Configuration type, which can be used to query global or rule configurations. Value range:
-    // 
-    // - global: Query global configuration.
-    // - rule: Query rule configuration.
     shared_ptr<string> configType_ {};
-    // Whether to enable GRPC, default is disabled. Value range:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> grpc_ {};
-    // Whether to enable HTTP2 origin, default is disabled. Value range:
-    // 
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> http2Origin_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Value range:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
-    // Rule execution order. The smaller the value, the higher the priority.
     shared_ptr<int32_t> sequence_ {};
-    // Site configuration version number. For sites with version management enabled, this parameter can specify the effective site version, defaulting to version 0.
     shared_ptr<int32_t> siteVersion_ {};
-    // Whether to enable smart routing service, default is disabled. Value range:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> smartRouting_ {};
-    // Maximum upload file size in MB, with a range from 100 to 500.
     shared_ptr<string> uploadMaxFilesize_ {};
-    // Whether to enable Websocket, default is enabled. Value range:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> websocket_ {};
   };
 

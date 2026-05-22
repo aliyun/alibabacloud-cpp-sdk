@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The name of the cipher suite group, which can be: all, strict, custom.
-    // 
     // This parameter is required.
     shared_ptr<string> ciphersGroup_ {};
   };

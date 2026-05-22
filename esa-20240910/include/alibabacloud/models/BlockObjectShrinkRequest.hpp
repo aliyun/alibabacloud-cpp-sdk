@@ -66,21 +66,11 @@ namespace Models
 
 
   protected:
-    // The content to block.
-    // 
     // This parameter is required.
     shared_ptr<string> contentShrink_ {};
-    // The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
     shared_ptr<int32_t> maxage_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The type. Valid values:
-    // 
-    // *   **block**
-    // *   **unblock**
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

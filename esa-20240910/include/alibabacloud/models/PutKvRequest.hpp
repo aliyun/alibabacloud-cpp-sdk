@@ -84,22 +84,13 @@ namespace Models
 
 
   protected:
-    // Specifies whether the content of the key is Base64-encoded. Set this parameter to true if you want to store the key content in binary format. When this parameter is set to true, the Value parameter must be Base64-encoded.
     shared_ptr<bool> base64_ {};
-    // The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
     shared_ptr<int64_t> expiration_ {};
-    // The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
     shared_ptr<int64_t> expirationTtl_ {};
-    // The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
-    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The content of the key, which can be up to 2 MB (2 × 1000 × 1000). If the content is larger than 2 MB, call [PutKvWithHighCapacity](https://help.aliyun.com/document_detail/2850486.html).
-    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

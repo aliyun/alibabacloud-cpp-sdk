@@ -66,24 +66,10 @@ namespace Models
 
 
   protected:
-    // Protection area, defaulting to global if not filled. When specified, the values are as follows:
-    // 
-    // - domestic: Mainland China.
-    // 
-    // - overseas: Global (excluding Mainland China).
-    // 
-    // - global: Global.
     shared_ptr<string> coverage_ {};
-    // The end time for fetching data. In ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
-    // 
-    // The end time must be later than the start time, and the span between start and end times should not exceed 31 days.
     shared_ptr<string> endTime_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The start time for fetching data, in ISO8601 format, using UTC+0, formatted as: yyyy-MM-ddTHH:mm:ssZ.
-    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

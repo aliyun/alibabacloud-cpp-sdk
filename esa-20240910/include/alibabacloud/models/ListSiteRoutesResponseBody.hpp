@@ -170,38 +170,16 @@ namespace Models
 
 
     protected:
-      // The bypass mode. Valid values:
-      // 
-      // *   on
-      // *   off
       shared_ptr<string> bypass_ {};
-      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // The configuration type to query. Valid values:
-      // 
-      // *   global: global configurations.
-      // *   rule: queries rule configurations.
       shared_ptr<string> configType_ {};
       shared_ptr<string> fallback_ {};
-      // The configuration mode. Specifies whether to check the image used by the instance supports hot migration. Valid values:
-      // 
-      // *   simple: Simple Mode
-      // *   custom: Custom Mode
       shared_ptr<string> mode_ {};
-      // The route switch. Valid values:
-      // 
-      // *   on
-      // *   off
       shared_ptr<string> routeEnable_ {};
-      // The route name.
       shared_ptr<string> routeName_ {};
-      // The function name.
       shared_ptr<string> routineName_ {};
-      // The rule content.
       shared_ptr<string> rule_ {};
-      // The order in which the rule is executed.
       shared_ptr<int32_t> sequence_ {};
-      // The version number of the website.
       shared_ptr<int32_t> siteVersion_ {};
       shared_ptr<string> timeout_ {};
     };
@@ -253,17 +231,11 @@ namespace Models
 
 
   protected:
-    // The returned configurations.
     shared_ptr<vector<ListSiteRoutesResponseBody::Configs>> configs_ {};
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

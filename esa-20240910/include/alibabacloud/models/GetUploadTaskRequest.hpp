@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
-    // The ID of the file upload task. This field is assigned after you call the [UploadFile](https://help.aliyun.com/document_detail/2850466.html) operation.
     shared_ptr<int64_t> uploadId_ {};
   };
 

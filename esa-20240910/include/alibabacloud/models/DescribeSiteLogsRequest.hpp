@@ -75,23 +75,11 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-    // 
-    // >  The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The page number. Pages start from page 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 300. Valid values: 1 to 1000.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the website. You can call the ListSites operation to obtain.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The beginning of the time range to query.
-    // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> startTime_ {};
   };
 

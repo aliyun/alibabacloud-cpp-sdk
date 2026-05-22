@@ -48,15 +48,8 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the feature. Valid values:
-    // 
-    // *   **on:**
-    // *   **off**
-    // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -115,28 +115,25 @@ namespace Models
 
 
   protected:
-    // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+    // 自定义响应页面内容BASE64编码
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
-    // The Content-Type field in the HTTP header.
+    // 自定义响应页面内容类型
     // 
     // This parameter is required.
     shared_ptr<string> contentType_ {};
-    // The description of the custom error page.
+    // 自定义响应页面描述
     shared_ptr<string> description_ {};
-    // The ID of the custom error page.[](~~2850223~~)
+    // 自定义响应页面ID
     shared_ptr<int64_t> id_ {};
-    // The type of the custom response page.
     shared_ptr<string> kind_ {};
-    // The name of the custom response page.
+    // 自定义响应页面名称
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<vector<int64_t>> siteIds_ {};
-    // The time when the custom error page was last modified.
     shared_ptr<string> updateTime_ {};
   };
 

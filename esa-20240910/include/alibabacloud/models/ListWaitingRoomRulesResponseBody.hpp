@@ -88,17 +88,9 @@ namespace Models
 
 
     protected:
-      // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configuration. There are two usage scenarios:
-      // - Match all incoming requests: set the value to true
-      // - Match specific requests: set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter does not need to be set when adding global configuration. Value range:
-      // - on: enabled.
-      // - off: disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter does not need to be set when adding global configuration.
       shared_ptr<string> ruleName_ {};
-      // Rule ID.
       shared_ptr<int64_t> waitingRoomRuleId_ {};
     };
 
@@ -121,9 +113,7 @@ namespace Models
 
 
   protected:
-    // Request ID, used for tracking the call status.
     shared_ptr<string> requestId_ {};
-    // List of waiting room bypass rules.
     shared_ptr<vector<ListWaitingRoomRulesResponseBody::WaitingRoomRules>> waitingRoomRules_ {};
   };
 

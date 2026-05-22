@@ -66,20 +66,12 @@ namespace Models
 
 
   protected:
-    // The routine name.
-    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The record ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> recordId_ {};
-    // The record name.
-    // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
-    // The website ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

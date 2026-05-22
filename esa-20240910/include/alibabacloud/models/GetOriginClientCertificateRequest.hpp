@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // The certificate ID.
-    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

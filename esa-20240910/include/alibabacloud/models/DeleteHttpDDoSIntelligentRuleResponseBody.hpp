@@ -66,13 +66,9 @@ namespace Models
 
 
   protected:
-    // Record name.
     shared_ptr<string> recordName_ {};
-    // ID of the request
     shared_ptr<string> requestId_ {};
-    // Rule ID.
     shared_ptr<int64_t> ruleId_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     shared_ptr<int64_t> siteId_ {};
   };
 

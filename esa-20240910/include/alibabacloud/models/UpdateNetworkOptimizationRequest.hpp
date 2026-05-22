@@ -130,42 +130,18 @@ namespace Models
 
 
   protected:
-    // Configuration ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // Whether to enable GRPC, default is disabled. Possible values:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> grpc_ {};
-    // Whether to enable HTTP2 origin, default is disabled. Possible values:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> http2Origin_ {};
-    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-    // - Match all incoming requests: Set the value to true
-    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
-    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
-    // - on: Enable.
-    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
-    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Whether to enable the smart routing service, default is disabled. Possible values:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> smartRouting_ {};
-    // Maximum upload file size, in MB, with a range of 100 to 500.
     shared_ptr<string> uploadMaxFilesize_ {};
-    // Whether to enable Websocket, default is enabled. Possible values:
-    // - on: Enable
-    // - off: Disable
     shared_ptr<string> websocket_ {};
   };
 

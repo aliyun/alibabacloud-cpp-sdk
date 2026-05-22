@@ -112,33 +112,14 @@ namespace Models
 
 
   protected:
-    // Bypass mode Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> bypass_ {};
-    // The exception origin fetch switch. After you turn on this switch, if a function exception occurs, such as CPU usage exceeding the upper limit, requests are sent back to the origin. Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> fallback_ {};
-    // The routing switch. Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> routeEnable_ {};
-    // The name of the route.
     shared_ptr<string> routeName_ {};
-    // The edge function name.
-    // 
     // This parameter is required.
     shared_ptr<string> routineName_ {};
-    // The content of the rule.
     shared_ptr<string> rule_ {};
-    // The order in which the rule is executed.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     shared_ptr<string> timeout_ {};

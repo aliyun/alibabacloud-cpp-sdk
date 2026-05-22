@@ -106,61 +106,11 @@ namespace Models
 
 
     protected:
-      // Whether smooth offline is being used.
       shared_ptr<bool> isOffline_ {};
-      // Whether it is a test environment.
       shared_ptr<bool> isStaging_ {};
-      // Supported ISPs are as follows. The parameter is left empty for regions outside the Chinese mainland. ISP:
-      // 
-      // *   China Mobile: cmcc
-      // *   China Telecom: chinanet
-      // *   China Unicom: unicom
       shared_ptr<string> isp_ {};
-      // The number of ready replicas.
       shared_ptr<int32_t> ready_ {};
-      // Chinese mainland:
-      // 
-      // *   East China: huadong
-      // *   South China: huanan
-      // *   Central China: huazhong
-      // *   North China: huabei
-      // *   Northwest China: xibei
-      // *   Southwest China: xinan
-      // *   Northeast China: dongbei
-      // 
-      // Special Administrative Regions and Overseas:
-      // 
-      // *   Taiwan, China: tw
-      // *   Macau, China: mo
-      // *   Hong Kong, China: hk
-      // *   Japan: jp
-      // *   United States: us
-      // *   Thailand: th
-      // *   Korea: kr
-      // *   Russia: ru
-      // *   Singapore: sg
-      // *   France: fr
-      // *   Spain: es
-      // *   Italy: it
-      // *   Sweden: se
-      // *   UAE: ae
-      // *   Indonesia: id
-      // *   Chile: cl
-      // *   Philippines: ph
-      // *   Malaysia: my
-      // *   Vietnam: vn
-      // *   Argentina: AR
-      // *   Australia: au
-      // *   Brazil: br
-      // *   Colombia: co
-      // *   Germany: de
-      // *   UK: GB
-      // *   Peru: pe
-      // *   Saudi Arabia: sa
-      // *   Netherlands: nl
-      // *   South Africa: za
       shared_ptr<string> region_ {};
-      // The number of replicas that are deployed.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -183,9 +133,7 @@ namespace Models
 
 
   protected:
-    // Queries the regions of deployment.
     shared_ptr<vector<GetEdgeContainerAppResourceStatusResponseBody::Regions>> regions_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -191,34 +191,13 @@ namespace Models
 
 
     protected:
-      // The domain name of the transport layer application.
       shared_ptr<string> clientIPPassThroughMode_ {};
-      // Switch for IP access rules. When turned on, the IP access rules in WAF take effect on the transport layer application.
-      // 
-      // - on: Turned on.
-      // - off: Turned off.
       shared_ptr<string> comment_ {};
-      // Comment information of the rule.
       shared_ptr<string> edgePort_ {};
-      // Client IP pass-through protocol, supporting:
-      // - **off**: No pass-through.
-      // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
-      // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
-      // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
       shared_ptr<string> protocol_ {};
-      // Status of the transport layer application
-      // 
-      // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
-      // - **active**: Active.
       shared_ptr<int64_t> ruleId_ {};
-      // Origin port. Supports:
-      // 
-      // - A single port, when the origin port is a single port, any valid edge port combination is supported.
-      // - Port range, only when the edge port is a port range, the origin port can be set as a port range and the size of the range must be consistent with the edge port. For example, if the edge port is 90-93, the origin port cannot be set to 81-85 because the origin port range is 5 and the edge port range is 3, which are inconsistent.
       shared_ptr<string> source_ {};
-      // The CNAME domain corresponding to the transport layer acceleration application. This field is not empty only when the site is accessed via CNAME.
       shared_ptr<string> sourcePort_ {};
-      // Rule ID.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -329,34 +308,16 @@ namespace Models
 
 
   protected:
-    // Specific value of the origin, which needs to match the type of the origin.
     shared_ptr<int64_t> applicationId_ {};
-    // Whether to enable China mainland network access optimization, default is off. Value range:
-    // - on: Enabled.
-    // - off: Disabled.
     shared_ptr<string> cname_ {};
     shared_ptr<string> crossBorderOptimization_ {};
-    // #/components/schemas/WafRuleMatch2
     shared_ptr<string> ipAccessRule_ {};
-    // Ipv6 switch
     shared_ptr<string> ipv6_ {};
     shared_ptr<string> keepAliveProtection_ {};
-    // Query Transport Layer Acceleration Application
     shared_ptr<string> recordName_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Edge port. Supports:
-    // 
-    // - A single port, such as 80.
-    // - Port range, such as 81-85, representing ports 81, 82, 83, 84, 85.
-    // - Combination of ports and port ranges, separated by commas, for example 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
     shared_ptr<vector<GetTransportLayerApplicationResponseBody::Rules>> rules_ {};
-    // Forwarding rule protocol, with values:
-    // 
-    // - TCP: TCP protocol.
-    // - UDP: UDP protocol.
     shared_ptr<int32_t> rulesCount_ {};
-    // Details of the forwarding rule.
     shared_ptr<int64_t> siteId_ {};
     shared_ptr<string> staticIp_ {};
     shared_ptr<vector<GetTransportLayerApplicationResponseBody::StaticIpV4List>> staticIpV4List_ {};

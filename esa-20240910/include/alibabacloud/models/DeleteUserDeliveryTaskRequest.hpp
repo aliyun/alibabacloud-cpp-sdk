@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The name of the delivery task.
-    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

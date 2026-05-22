@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};
   };

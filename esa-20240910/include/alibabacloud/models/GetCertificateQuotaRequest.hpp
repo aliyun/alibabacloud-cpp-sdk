@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Certificate Quota type.
-    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

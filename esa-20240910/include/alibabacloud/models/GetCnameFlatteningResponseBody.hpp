@@ -48,12 +48,7 @@ namespace Models
 
 
   protected:
-    // The CNAME flattening mode. Valid values:
-    // 
-    // *   flatten_all: flattens all CNAMEs.
-    // *   flatten_all (default): flattens only the root domain.
     shared_ptr<string> flattenMode_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

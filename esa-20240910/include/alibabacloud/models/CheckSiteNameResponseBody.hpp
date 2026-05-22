@@ -75,27 +75,10 @@ namespace Models
 
 
   protected:
-    // The description of the verification result. Valid values:
-    // 
-    // *   **success**: The verification is successful.
-    // *   **Site.AlreadyExist**: The website domain name has already been added.
-    // *   **Site.InvalidName**: Invalid website domain name.
-    // *   **Site.SubSiteUnavailable**: Subdomains are not allowed.
-    // *   **Site.InternalError**: An internal error occurs.
     shared_ptr<string> description_ {};
-    // Indicates whether a subdomain is specified. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
     shared_ptr<bool> isSubSite_ {};
-    // The verification message.
     shared_ptr<string> messeage_ {};
-    // Indicates whether the verification passed.
-    // 
-    // *   **true**
-    // *   **false**
     shared_ptr<bool> passed_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

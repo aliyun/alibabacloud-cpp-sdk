@@ -66,19 +66,10 @@ namespace Models
 
 
   protected:
-    // Whether the origin pool is enabled:
-    // 
-    // - true: Enabled;
-    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
-    // The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // Information about the origins added to the origin pool. Multiple origins are passed as an array.
     shared_ptr<string> originsShrink_ {};
-    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

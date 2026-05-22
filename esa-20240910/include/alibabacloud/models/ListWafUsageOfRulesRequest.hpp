@@ -58,9 +58,7 @@ namespace Models
 
   protected:
     shared_ptr<string> instanceId_ {};
-    // Name of the WAF operation phase.
     shared_ptr<string> phase_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     shared_ptr<int64_t> siteId_ {};
   };
 

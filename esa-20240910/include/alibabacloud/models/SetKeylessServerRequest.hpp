@@ -117,7 +117,6 @@ namespace Models
     shared_ptr<string> clientPrivateKey_ {};
     // This parameter is required.
     shared_ptr<string> host_ {};
-    // Keyless server ID。
     shared_ptr<string> id_ {};
     // This parameter is required.
     shared_ptr<string> name_ {};

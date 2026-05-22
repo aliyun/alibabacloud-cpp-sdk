@@ -38,8 +38,6 @@ namespace Models
 
 
   protected:
-    // The website name.
-    // 
     // This parameter is required.
     shared_ptr<string> siteName_ {};
   };

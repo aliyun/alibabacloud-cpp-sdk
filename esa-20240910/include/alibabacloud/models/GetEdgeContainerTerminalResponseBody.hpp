@@ -94,19 +94,12 @@ namespace Models
 
 
   protected:
-    // The cluster name.
     shared_ptr<string> cluster_ {};
-    // The container name.
     shared_ptr<string> container_ {};
-    // The name of the namespace.
     shared_ptr<string> namespace_ {};
-    // The name of the container group.
     shared_ptr<string> pod_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session ID.
     shared_ptr<string> sessionId_ {};
-    // The information about the shared token.
     shared_ptr<string> token_ {};
   };
 

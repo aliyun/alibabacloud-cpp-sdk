@@ -75,16 +75,11 @@ namespace Models
 
 
   protected:
-    // The application ID.
-    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     shared_ptr<int32_t> percentage_ {};
-    // The remarks.
     shared_ptr<string> remarks_ {};
     shared_ptr<bool> usedPercent_ {};
-    // The ID of version that you want to roll back.
-    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

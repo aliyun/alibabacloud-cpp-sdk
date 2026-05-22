@@ -135,31 +135,13 @@ namespace Models
 
 
     protected:
-      // The time when the policy expires.
-      // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> endTime_ {};
-      // The name of the scenario-specific policy.
       shared_ptr<string> name_ {};
-      // The IDs of websites that are associated with the policy.
       shared_ptr<vector<string>> objects_ {};
-      // The policy ID.
       shared_ptr<int64_t> policyId_ {};
       shared_ptr<string> siteIds_ {};
-      // The time when the policy takes effect.
-      // 
-      // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> startTime_ {};
-      // The status of the policy. Valid values:
-      // 
-      // *   **Disabled**
-      // *   **Pending**
-      // *   **Running**
-      // *   **Expired**
       shared_ptr<string> status_ {};
-      // The name of the policy template. Valid value:
-      // 
-      // *   **promotion**: major events.
       shared_ptr<string> template_ {};
     };
 
@@ -210,17 +192,11 @@ namespace Models
 
 
   protected:
-    // The scenario-specific policies.
     shared_ptr<vector<DescribeCustomScenePoliciesResponseBody::DataModule>> dataModule_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The policy quota.
     shared_ptr<int32_t> quota_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

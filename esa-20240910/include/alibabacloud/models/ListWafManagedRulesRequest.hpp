@@ -106,13 +106,9 @@ namespace Models
 
 
     protected:
-      // Action.
       shared_ptr<string> action_ {};
-      // Fuzzy search for rule ID or rule name.
       shared_ptr<string> idNameLike_ {};
-      // List of rule protection levels.
       shared_ptr<vector<int32_t>> protectionLevels_ {};
-      // Status.
       shared_ptr<string> status_ {};
     };
 
@@ -310,37 +306,16 @@ namespace Models
 
 
   protected:
-    // Attack type of the vulnerability protection event. Values:
-    // - SQL injection
-    // - Cross-site scripting
-    // - Code execution
-    // - CRLF
-    // - Local file inclusion
-    // - Remote file inclusion
-    // - Webshell
-    // - Cross-site request forgery
-    // - Other
-    // - SEMA
-    // 
     // This parameter is required.
     shared_ptr<int32_t> attackType_ {};
-    // ID of the WAF rule.
     shared_ptr<int64_t> id_ {};
     shared_ptr<string> instanceId_ {};
-    // Language type, which will be used to return the response. Value range:
-    // 
-    // - **en**: English.
-    // - **zh**: Chinese.
     shared_ptr<string> language_ {};
     shared_ptr<ListWafManagedRulesRequest::ManagedRuleset> managedRuleset_ {};
-    // Query page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Query page size.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> protectionLevel_ {};
-    // Query conditions.
     shared_ptr<ListWafManagedRulesRequest::QueryArgs> queryArgs_ {};
-    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     shared_ptr<int64_t> siteId_ {};
   };
 

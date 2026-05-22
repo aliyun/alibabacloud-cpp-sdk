@@ -75,27 +75,11 @@ namespace Models
 
 
   protected:
-    // The end time for obtaining data.
-    // 
-    // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
-    // 
-    // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // Query metrics.
-    // 
     // This parameter is required.
     shared_ptr<string> fieldsShrink_ {};
-    // The time granularity for querying data, in seconds.
-    // 
-    // Depending on the maximum time span of a single query, this parameter supports values of 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For details, see the **Supported Query Time Granularities**.
     shared_ptr<string> interval_ {};
-    // Site ID. Obtain the site ID by calling the [ListSites](~~ListSites~~) interface.
-    // 
-    // If this parameter is empty, user-level data will be queried.
     shared_ptr<string> siteId_ {};
-    // The start time for obtaining data.
-    // 
-    // The date format follows ISO8601 notation and uses UTC+0 time, in the format yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

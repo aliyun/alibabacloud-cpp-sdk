@@ -138,23 +138,14 @@ namespace Models
 
 
     protected:
-      // Measures the maximum layout mutation score for every unexpected layout change that occurs throughout the life of the page.
       shared_ptr<float> CLS_ {};
-      // The platform of the device.
       shared_ptr<string> clientPlatform_ {};
-      // The country or region to which the IP address belongs.
       shared_ptr<string> country_ {};
-      // Measures the time between when the page is loaded and when any part of the page\\"s content is rendered on the screen. Unit: ms.
       shared_ptr<float> FCP_ {};
-      // Measures the time between when the user first interacts with the page and when the browser is actually able to start processing an event handler in response to that interaction. Unit: ms.
       shared_ptr<float> FID_ {};
-      // Measures the responsiveness of the page, or how long it takes for the page to respond to user input visibly. Unit: ms.
       shared_ptr<float> INP_ {};
-      // Reports the rendering time of the largest image or text block visible in the viewport. Unit: ms.
       shared_ptr<float> LCP_ {};
-      // This metric measures the time between when a resource initiates a request and when the first byte of the response starts to arrive. Unit: ms.
       shared_ptr<float> TTFB_ {};
-      // The URL of the web page to monitor.
       shared_ptr<string> url_ {};
     };
 
@@ -191,15 +182,9 @@ namespace Models
 
 
   protected:
-    // The end of the time range during which data was queried.
-    // 
-    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The create time. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
     shared_ptr<string> startTime_ {};
-    // The objects that are returned.
     shared_ptr<vector<DescribeUrlObservationDataResponseBody::UrlDetailData>> urlDetailData_ {};
   };
 

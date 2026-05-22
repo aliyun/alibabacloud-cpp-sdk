@@ -59,7 +59,6 @@ namespace Models
   protected:
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> orderId_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

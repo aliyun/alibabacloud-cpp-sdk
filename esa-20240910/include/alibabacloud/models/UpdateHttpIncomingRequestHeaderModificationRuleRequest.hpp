@@ -98,24 +98,11 @@ namespace Models
 
 
     protected:
-      // The name of the request header.
-      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The action. Valid values:
-      // 
-      // *   add: adds a response header.
-      // *   del: deletes a response header.
-      // *   modify: modifies a response header.
-      // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
-      // The value type. Valid values:
-      // 
-      // *   static
-      // *   dynamic
       shared_ptr<string> type_ {};
-      // The value of the request header.
       shared_ptr<string> value_ {};
     };
 
@@ -174,28 +161,13 @@ namespace Models
 
 
   protected:
-    // The configuration ID. You can call the ListHttpIncomingRequestHeaderModificationRules operation to query the ID.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
-    // The configurations of modifying request headers. You can add, delete, or modify a request header.
     shared_ptr<vector<UpdateHttpIncomingRequestHeaderModificationRuleRequest::RequestHeaderModification>> requestHeaderModification_ {};
-    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configurations. Use cases:
-    // 
-    // *   true: Match all incoming requests.
-    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
     shared_ptr<string> rule_ {};
-    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configurations. Valid values:
-    // 
-    // *   on
-    // *   off
     shared_ptr<string> ruleEnable_ {};
-    // The rule name. You do not need to set this parameter when you add global configurations.
     shared_ptr<string> ruleName_ {};
-    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
-    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

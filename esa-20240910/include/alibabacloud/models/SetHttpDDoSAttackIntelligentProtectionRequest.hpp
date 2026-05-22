@@ -57,24 +57,10 @@ namespace Models
 
 
   protected:
-    // The mode of smart HTTP DDoS protection. Valid values:
-    // 
-    // *   **observe**: alert.
-    // *   **defense**: block.
-    // 
     // This parameter is required.
     shared_ptr<string> aiMode_ {};
-    // The level of smart HTTP DDoS protection. Valid values:
-    // 
-    // *   **level0**: very loose.
-    // *   **level30**: loose.
-    // *   **level60**: normal.
-    // *   **level90**: strict.
-    // 
     // This parameter is required.
     shared_ptr<string> aiTemplate_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

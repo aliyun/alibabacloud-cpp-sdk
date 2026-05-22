@@ -109,15 +109,10 @@ namespace Models
 
 
     protected:
-      // The aggregation method used.
       shared_ptr<string> aggMethod_ {};
-      // The dimension of the aggregated data being queried.
       shared_ptr<string> dimensionName_ {};
-      // The value of the aggregated dimension being queried.
       shared_ptr<string> dimensionValue_ {};
-      // The value of the aggregated metric being queried.
       shared_ptr<string> fieldName_ {};
-      // The aggregated value.
       Darabonba::Json value_ {};
     };
 
@@ -186,9 +181,7 @@ namespace Models
 
 
       protected:
-        // Start timestamp of the time slice.
         shared_ptr<string> timeStamp_ {};
-        // Value.
         Darabonba::Json value_ {};
       };
 
@@ -225,13 +218,9 @@ namespace Models
 
 
     protected:
-      // Returned data.
       shared_ptr<vector<Data::DetailData>> detailData_ {};
-      // Query dimension.
       shared_ptr<string> dimensionName_ {};
-      // Query dimension value.
       shared_ptr<string> dimensionValue_ {};
-      // Query metric value.
       shared_ptr<string> fieldName_ {};
     };
 
@@ -292,23 +281,12 @@ namespace Models
 
 
   protected:
-    // Returned data.
     shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBody::Data>> data_ {};
-    // The end time for fetching the data.
-    // 
-    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
-    // The granularity of the data, in seconds.
     shared_ptr<int64_t> interval_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sampling rate, in %.
     shared_ptr<float> samplingRate_ {};
-    // The start time for fetching the data.
-    // 
-    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
-    // Aggregated query data.
     shared_ptr<vector<DescribeSiteTimeSeriesDataResponseBody::SummarizedData>> summarizedData_ {};
   };
 

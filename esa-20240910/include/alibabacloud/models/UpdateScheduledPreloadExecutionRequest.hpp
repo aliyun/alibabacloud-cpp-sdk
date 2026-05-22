@@ -75,17 +75,11 @@ namespace Models
 
 
   protected:
-    // The end time of the prefetch plan.
     shared_ptr<string> endTime_ {};
-    // The ID of the prefetch plan.
-    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The time interval between each batch execution. Unit: seconds.
     shared_ptr<int32_t> interval_ {};
-    // The number of URLs prefetched in each batch.
     shared_ptr<int32_t> sliceLen_ {};
-    // The start time of the prefetch plan.
     shared_ptr<string> startTime_ {};
   };
 

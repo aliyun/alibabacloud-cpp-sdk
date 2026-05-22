@@ -160,42 +160,16 @@ namespace Models
 
 
     protected:
-      // Configuration ID.
       shared_ptr<int64_t> configId_ {};
-      // Configuration type. Possible values:
-      // - global: Global configuration.
-      // - rule: Rule configuration.
       shared_ptr<string> configType_ {};
-      // Preserve query string. Value range:
-      // - on: enabled.
-      // - off: disabled.
       shared_ptr<string> reserveQueryString_ {};
-      // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding a global configuration. There are two usage scenarios:
-      // - Match all incoming requests: Set the value to true
-      // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
-      // Rule switch. This parameter does not need to be set when adding a global configuration. Possible values:
-      // - on: Enabled.
-      // - off: Disabled.
       shared_ptr<string> ruleEnable_ {};
-      // Rule name. This parameter does not need to be set when adding a global configuration.
       shared_ptr<string> ruleName_ {};
-      // Rule execution order. The smaller the value, the higher the priority.
       shared_ptr<int32_t> sequence_ {};
-      // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the site configuration, with the default being version 0.
       shared_ptr<int32_t> siteVersion_ {};
-      // Response status code used by the node to respond to the client with the redirect address. Possible values:
-      // - 301
-      // - 302
-      // - 303
-      // - 307
-      // - 308
       shared_ptr<string> statusCode_ {};
-      // Target URL after redirection.
       shared_ptr<string> targetUrl_ {};
-      // Redirect type. Possible values:
-      // - static: Static mode.
-      // - dynamic: Dynamic mode.
       shared_ptr<string> type_ {};
     };
 
@@ -246,17 +220,11 @@ namespace Models
 
 
   protected:
-    // List of redirect configurations.
     shared_ptr<vector<ListRedirectRulesResponseBody::Configs>> configs_ {};
-    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of items.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

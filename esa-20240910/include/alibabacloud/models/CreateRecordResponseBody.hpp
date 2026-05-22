@@ -48,9 +48,7 @@ namespace Models
 
 
   protected:
-    // The record ID.
     shared_ptr<int64_t> recordId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

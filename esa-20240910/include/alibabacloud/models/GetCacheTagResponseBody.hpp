@@ -66,15 +66,9 @@ namespace Models
 
 
   protected:
-    // Whether to ignore case. Possible values:
-    // - on: Enabled, ignores case.
-    // - off: Disabled, does not ignore case.
     shared_ptr<string> caseInsensitive_ {};
-    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Version number of the site.
     shared_ptr<int32_t> siteVersion_ {};
-    // Custom CacheTag name.
     shared_ptr<string> tagName_ {};
   };
 

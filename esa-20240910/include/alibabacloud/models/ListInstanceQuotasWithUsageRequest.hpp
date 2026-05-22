@@ -57,23 +57,9 @@ namespace Models
 
 
   protected:
-    // The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
-    // The quota names in the plan. Separate the quota names with commas (,). You can query up to 10 quota names at a time. Valid values:
-    // 
-    // *   **customHttpCert**: the custom certificates.
-    // *   **transition_rule**: the transform rules.
-    // *   **waiting_room**: the waiting rooms.
-    // *   **https|rule_quota**: the SSL/TLS rules.
-    // *   **cache_rules|rule_quota**: the cache rules.
-    // *   **configuration_rules|rule_quota**: the configuration rules.
-    // *   **redirect_rules|rule_quota**: the redirect rules.
-    // *   **compression_rules|rule_quota**: the compression rules.
-    // *   **origin_rules|rule_quota**: the origin rules.
-    // 
     // This parameter is required.
     shared_ptr<string> quotaNames_ {};
-    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

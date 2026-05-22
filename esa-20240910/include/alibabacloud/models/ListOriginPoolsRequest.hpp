@@ -84,24 +84,11 @@ namespace Models
 
 
   protected:
-    // Type of name match query, supporting the following two types, with exact match as the default.
-    // 
-    // - fuzzy: Fuzzy query.
-    // - exact: Exact query.
     shared_ptr<string> matchType_ {};
-    // Name of the origin pool.
     shared_ptr<string> name_ {};
-    // Sorting, supports ascending and descending order by ID, default is descending by ID, which is positively correlated with creation time.
-    // 
-    // - -id: Sort by ID in descending order.
-    // - id: Sort by ID in ascending order.
     shared_ptr<string> orderBy_ {};
-    // Page number, default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, an integer greater than 0, with a maximum of 500. If the value exceeds 500, it will be set to 500.
     shared_ptr<int32_t> pageSize_ {};
-    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -124,23 +124,19 @@ namespace Models
 
 
     protected:
-      // The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+      // 自定义响应页面内容BASE64编码
       // 
       // This parameter is required.
       shared_ptr<string> content_ {};
-      // The Content-Type field in the HTTP header.
+      // 自定义响应页面内容类型
       // 
       // This parameter is required.
       shared_ptr<string> contentType_ {};
-      // The description of the custom error page.
+      // 自定义响应页面描述
       shared_ptr<string> description_ {};
-      // The ID of the custom error page.[](~~2850223~~)
       shared_ptr<int64_t> id_ {};
-      // The type of the custom error page.
       shared_ptr<string> kind_ {};
-      // The name of the custom error page.
       shared_ptr<string> name_ {};
-      // The time when the custom error page was last modified.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -191,17 +187,11 @@ namespace Models
 
 
   protected:
-    // The page number returned.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The custom error pages. Each element in the array contains error page-specific information.
     shared_ptr<vector<ListPagesResponseBody::Pages>> pages_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of custom error pages after filtering.
     shared_ptr<int32_t> totalCount_ {};
-    // The number of custom error pages that you created.
     shared_ptr<int64_t> usage_ {};
   };
 
