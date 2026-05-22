@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // The description of the namespace.
     shared_ptr<string> description_ {};
+    // The name of the namespace.
     shared_ptr<string> namespace_ {};
+    // The ID of the namespace.
     shared_ptr<string> namespaceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the namespace. Valid values:
+    // 
+    // *   **online**: working as expected.
+    // *   **delete**: pending deletion.
+    // *   **deleting**: being deleted.
+    // *   **deleted**: deleted.
     shared_ptr<string> status_ {};
   };
 

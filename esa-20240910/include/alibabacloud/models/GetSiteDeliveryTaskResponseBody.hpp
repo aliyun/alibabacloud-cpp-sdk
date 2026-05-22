@@ -160,19 +160,49 @@ namespace Models
 
 
   protected:
+    // The log category. Valid values:
+    // 
+    // *   dcdn_log_access_l1 (default): access logs.
+    // *   dcdn_log_er: Edge Routine logs.
+    // *   dcdn_log_waf: firewall logs.
+    // *   dcdn_log_ipa: TCP/UDP proxy logs.
     shared_ptr<string> businessType_ {};
+    // The data center. Valid values:
+    // 
+    // 1.  cn: the Chinese mainland.
+    // 2.  sg: outside the Chinese mainland.
     shared_ptr<string> dataCenter_ {};
+    // The destination of the delivery. Valid values:
+    // 
+    // 1.  sls: Alibaba Cloud Simple Log Service (SLS).
+    // 2.  http: HTTP server.
+    // 3.  aws3: Amazon Simple Storage Service (S3).
+    // 4.  oss: Alibaba Cloud Object Storage Service (OSS).
+    // 5.  kafka: Kafka.
+    // 6.  aws3cmpt: S3-compatible storage service.
     shared_ptr<string> deliveryType_ {};
+    // The discard rate.
     shared_ptr<float> discardRate_ {};
+    // The log fields.
     shared_ptr<string> fieldList_ {};
+    // The filtering rules.
     shared_ptr<string> filterRules_ {};
     shared_ptr<string> filterVer_ {};
     shared_ptr<string> rawRule_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The delivery configuration.
     Darabonba::Json sinkConfig_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
+    // The website name.
     shared_ptr<string> siteName_ {};
+    // The status of the delivery task.
+    // 
+    // *   **online**
+    // *   **offline**
     shared_ptr<string> status_ {};
+    // The name of the delivery task.
     shared_ptr<string> taskName_ {};
   };
 

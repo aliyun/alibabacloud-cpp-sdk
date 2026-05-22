@@ -95,9 +95,13 @@ namespace Models
 
 
     protected:
+      // Fuzzy search for rule set ID, rule set name, rule ID, and rule name.
       shared_ptr<string> anyLike_ {};
+      // Whether to sort in descending order.
       shared_ptr<bool> desc_ {};
+      // Fuzzy search for rule set name.
       shared_ptr<string> nameLike_ {};
+      // Specify the column to sort by.
       shared_ptr<string> orderBy_ {};
     };
 
@@ -148,11 +152,17 @@ namespace Models
 
 
   protected:
+    // Page number, specifying the current page number for paginated queries.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, specifying the number of records per page for paginated queries.
     shared_ptr<int32_t> pageSize_ {};
+    // WAF operation phase, specifying the rule set phase to query.
     shared_ptr<string> phase_ {};
+    // Query parameters, passed in JSON format, containing various filtering conditions.
     shared_ptr<ListWafRulesetsRequest::QueryArgs> queryArgs_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
     shared_ptr<int64_t> siteId_ {};
+    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

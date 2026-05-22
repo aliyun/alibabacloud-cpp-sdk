@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The website ID.
         shared_ptr<int64_t> siteId_ {};
+        // The website name.
         shared_ptr<string> siteName_ {};
+        // The quota usage of the website.
         shared_ptr<string> siteUsage_ {};
       };
 
@@ -146,9 +149,13 @@ namespace Models
 
 
     protected:
+      // The quota name.
       shared_ptr<string> quotaName_ {};
+      // The quota value.
       shared_ptr<string> quotaValue_ {};
+      // The usage of the quota in each website associated with the plan.
       shared_ptr<vector<Quotas::SiteUsage>> siteUsage_ {};
+      // The quota usage.
       shared_ptr<string> usage_ {};
     };
 
@@ -185,9 +192,17 @@ namespace Models
 
 
   protected:
+    // The plan ID.[](~~2850189~~)
     shared_ptr<string> instanceId_ {};
+    // The quotas and their actual usage in the plan.
     shared_ptr<vector<ListInstanceQuotasWithUsageResponseBody::Quotas>> quotas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The plan status. Valid values:
+    // 
+    // *   online: The plan is in service.
+    // *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+    // *   disable: The plan is released.
     shared_ptr<string> status_ {};
   };
 

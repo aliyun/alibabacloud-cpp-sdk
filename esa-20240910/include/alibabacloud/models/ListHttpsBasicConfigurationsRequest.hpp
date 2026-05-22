@@ -84,11 +84,22 @@ namespace Models
 
 
   protected:
+    // Configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // Configuration type, which can be used to query global or rule configurations. Value range:
+    // - global: Query global configuration.
+    // - rule: Query rule configuration.
+    // 
+    // This parameter is optional. If not provided, it does not distinguish between global and rule configurations.
     shared_ptr<string> configType_ {};
+    // Page number, default is 1 if not provided.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items per page, maximum is 500, default is 500 if not provided.
     shared_ptr<int32_t> pageSize_ {};
+    // Rule name, which can be used to find the rule with the specified name.
     shared_ptr<string> ruleName_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

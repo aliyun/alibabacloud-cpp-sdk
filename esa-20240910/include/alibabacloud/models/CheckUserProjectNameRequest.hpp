@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The name of the real-time log delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
   };

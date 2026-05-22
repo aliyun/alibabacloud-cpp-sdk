@@ -84,12 +84,24 @@ namespace Models
 
 
   protected:
+    // The log category. Valid values:
+    // 
+    // *   dcdn_log_access_l1 (default): access logs.
+    // *   dcdn_log_er: Edge Routine logs.
+    // *   dcdn_log_waf: firewall logs.
+    // *   dcdn_log_ipa: TCP/UDP proxy logs.
     shared_ptr<string> businessType_ {};
+    // The discard rate.
     shared_ptr<float> discardRate_ {};
+    // The log fields that you want to include in real-time logs to be delivered. Separate the log fields with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> fieldName_ {};
     shared_ptr<string> filterVer_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
+    // The name of the delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

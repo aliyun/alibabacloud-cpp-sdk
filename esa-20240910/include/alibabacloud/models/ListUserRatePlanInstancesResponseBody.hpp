@@ -154,8 +154,16 @@ namespace Models
 
 
       protected:
+        // The website ID.
         shared_ptr<int64_t> siteId_ {};
+        // The website name.
         shared_ptr<string> siteName_ {};
+        // The website status. Valid values:
+        // 
+        // *   pending: The website is to be configured.
+        // *   active: The website is active.
+        // *   offline: The website is suspended.
+        // *   moved: The website has been added and verified by another Alibaba Cloud account.
         shared_ptr<string> siteStatus_ {};
       };
 
@@ -343,29 +351,54 @@ namespace Models
 
 
     protected:
+      // The billing method. Valid values:
+      // 
+      // *   PREPAY: subscription.
+      // *   POSTPAY: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
       shared_ptr<string> botInstanceLevel_ {};
       shared_ptr<string> botRequest_ {};
+      // The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
+      // 
+      // *   domestic: the Chinese mainland.
+      // *   overseas: outside the Chinese mainland.
+      // *   global: global.
       shared_ptr<string> coverages_ {};
+      // The time when the plan was purchased.
       shared_ptr<string> createTime_ {};
       shared_ptr<string> crossborderTraffic_ {};
       shared_ptr<string> ddosBurstableDomesticProtection_ {};
       shared_ptr<string> ddosBurstableOverseasProtection_ {};
       shared_ptr<string> ddosInstanceLevel_ {};
+      // The subscription duration of the plan. Unit: month.
       shared_ptr<int32_t> duration_ {};
       shared_ptr<string> edgeRoutineRquest_ {};
       shared_ptr<string> edgeWafRequest_ {};
+      // The time when the plan expires.
       shared_ptr<string> expireTime_ {};
+      // The plan ID.
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> layer4Traffic_ {};
       shared_ptr<string> layer4TrafficIntl_ {};
+      // The plan name.
       shared_ptr<string> planName_ {};
       shared_ptr<string> planTraffic_ {};
+      // The plan type. Valid values:
+      // 
+      // *   normal
+      // *   enterprise
       shared_ptr<string> planType_ {};
+      // The maximum number of websites that can be associated with the plan.
       shared_ptr<string> siteQuota_ {};
+      // The websites that have been associated with the plan.
       shared_ptr<vector<InstanceInfo::Sites>> sites_ {};
       shared_ptr<string> smartRoutingRequest_ {};
       shared_ptr<string> staticRequest_ {};
+      // The plan status. Valid values:
+      // 
+      // *   online: The plan is in service.
+      // *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+      // *   disable: The plan is released.
       shared_ptr<string> status_ {};
       shared_ptr<string> subscribeType_ {};
     };
@@ -417,11 +450,17 @@ namespace Models
 
 
   protected:
+    // The queried plans.
     shared_ptr<vector<ListUserRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

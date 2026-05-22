@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

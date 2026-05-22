@@ -48,6 +48,8 @@ namespace Models
 
 
   protected:
+    // Keyless server ID。
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
     // This parameter is required.

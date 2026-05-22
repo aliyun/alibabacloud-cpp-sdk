@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The switch for the type of item in the custom list.
     shared_ptr<bool> enable_ {};
+    // Format restrictions for the type of item in the custom list.
     shared_ptr<WafQuotaString> value_ {};
   };
 

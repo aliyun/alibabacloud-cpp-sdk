@@ -116,12 +116,19 @@ namespace Models
 
 
     protected:
+      // The field name.
       shared_ptr<string> fieldName_ {};
+      // The description of the field in English.
       shared_ptr<string> description_ {};
+      // The description of the field in Chinese.
       shared_ptr<string> descriptionCn_ {};
+      // The category of the field.
       shared_ptr<string> category_ {};
+      // The data type of the field.
       shared_ptr<string> dataType_ {};
+      // The sequence number of the field.
       shared_ptr<int64_t> sortOrder_ {};
+      // Indicates whether the field is available by default.
       shared_ptr<bool> isDefault_ {};
     };
 
@@ -144,7 +151,9 @@ namespace Models
 
 
   protected:
+    // The sequence number of the fields.
     shared_ptr<int64_t> sortOrder_ {};
+    // The fields.
     shared_ptr<vector<FieldContentValue::FieldList>> fieldList_ {};
   };
 

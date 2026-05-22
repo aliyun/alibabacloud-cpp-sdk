@@ -324,6 +324,7 @@ namespace Models
     shared_ptr<int64_t> expireTime_ {};
     shared_ptr<int64_t> remainDiagnoseTimes_ {};
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::Report> report_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> state_ {};
     shared_ptr<int64_t> status_ {};

@@ -57,8 +57,20 @@ namespace Models
 
 
   protected:
+    // The billing mode. Valid values:
+    // 
+    // *   er_paymode: billed for customers on the China site.
+    // *   er_freemode: free for customers on the China site.
+    // *   er_paymodeintl: billed for customers on the International site.
+    // *   err_freemodeintl: free for customers on the International site
     shared_ptr<string> planName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The service status. Valid values:
+    // 
+    // *   Creating
+    // *   Running
+    // *   NotOpened
     shared_ptr<string> status_ {};
   };
 

@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Indicates whether ESA is paused on the website. Valid values:
+    // 
+    // *   true
+    // *   false
     shared_ptr<bool> paused_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

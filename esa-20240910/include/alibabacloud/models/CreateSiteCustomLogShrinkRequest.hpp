@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The cookie fields.
     shared_ptr<string> cookiesShrink_ {};
+    // The request header fields.
     shared_ptr<string> requestHeadersShrink_ {};
+    // The response header fields.
     shared_ptr<string> responseHeadersShrink_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

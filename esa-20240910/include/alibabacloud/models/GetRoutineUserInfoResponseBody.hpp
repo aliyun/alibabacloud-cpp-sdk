@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The time when the routine was created.
       shared_ptr<string> createTime_ {};
+      // The routine description, which is Base64-encoded.
       shared_ptr<string> description_ {};
+      // The routine name.
       shared_ptr<string> routineName_ {};
     };
 
@@ -114,8 +117,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The routines.
     shared_ptr<vector<GetRoutineUserInfoResponseBody::Routines>> routines_ {};
+    // The subdomains.
     shared_ptr<vector<string>> subdomains_ {};
   };
 

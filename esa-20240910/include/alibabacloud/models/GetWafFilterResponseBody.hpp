@@ -150,7 +150,9 @@ namespace Models
 
 
           protected:
+            // The label of the data.
             shared_ptr<string> label_ {};
+            // The value of the data.
             shared_ptr<string> value_ {};
           };
 
@@ -173,7 +175,9 @@ namespace Models
 
 
         protected:
+          // The data. This parameter is available only when the value of the Kind parameter is data.
           shared_ptr<vector<Selector::Data>> data_ {};
+          // The type of selector. Valid values: data and others.
           shared_ptr<string> kind_ {};
         };
 
@@ -274,9 +278,13 @@ namespace Models
 
 
           protected:
+            // The error message when the validation fails.
             shared_ptr<string> errMsg_ {};
+            // The length of the value.
             shared_ptr<WafQuotaInteger> length_ {};
+            // The regular expression pattern of the value, which is used to validate strings.
             shared_ptr<string> pattern_ {};
+            // The range of the value, which is used to validate numbers.
             shared_ptr<WafQuotaInteger> range_ {};
           };
 
@@ -356,15 +364,33 @@ namespace Models
 
 
         protected:
+          // A custom attribute. For example, this parameter can specify whether the value is case-sensitive.
           shared_ptr<int32_t> attributes_ {};
           shared_ptr<bool> enable_ {};
+          // The type of the value input box. Valid values:
+          // 
+          // *   select:single
+          // *   select:multi
+          // *   input:single
+          // *   input:multi
           shared_ptr<string> kind_ {};
           shared_ptr<string> minPlan_ {};
+          // Indicates whether the match result is inverted.
           shared_ptr<bool> negative_ {};
+          // The displayed matching characters.
           shared_ptr<string> operator_ {};
+          // The matching characters in the system.
           shared_ptr<string> symbol_ {};
+          // The tip on how to enter a valid value that is required by the rules.
           shared_ptr<string> tip_ {};
+          // The type of the value. Valid values:
+          // 
+          // *   integer
+          // *   integer_slice
+          // *   string
+          // *   string_slice
           shared_ptr<string> type_ {};
+          // The validator, which defines the validation rules for a value.
           shared_ptr<Logics::Validator> validator_ {};
         };
 
@@ -433,12 +459,18 @@ namespace Models
 
       protected:
         shared_ptr<bool> enable_ {};
+        // The field for matched objects in the system.
         shared_ptr<string> key_ {};
+        // The label of the matched object.
         shared_ptr<string> label_ {};
+        // The logical conditions.
         shared_ptr<vector<Fields::Logics>> logics_ {};
         shared_ptr<string> minPlan_ {};
+        // The selector, which defines how to select a matched object.
         shared_ptr<Fields::Selector> selector_ {};
+        // Indicates whether the matched object contains a subfield.
         shared_ptr<bool> sub_ {};
+        // The tip on how to enter a subfield.
         shared_ptr<string> subTip_ {};
       };
 
@@ -475,9 +507,13 @@ namespace Models
 
 
     protected:
+      // The matched objects and related properties.
       shared_ptr<vector<Filter::Fields>> fields_ {};
+      // The WAF rule category.
       shared_ptr<string> phase_ {};
+      // The condition for matching incoming requests.
       shared_ptr<string> target_ {};
+      // The rule type.
       shared_ptr<string> type_ {};
     };
 
@@ -500,7 +536,9 @@ namespace Models
 
 
   protected:
+    // The returned match conditions.
     shared_ptr<GetWafFilterResponseBody::Filter> filter_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,8 +57,18 @@ namespace Models
 
 
   protected:
+    // The error message returned when the file upload task failed.
     shared_ptr<string> description_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task status.
+    // 
+    // *   **INIT**: The task is being initialized.
+    // *   **activacted**: The task is activated.
+    // *   **running**: The task is running.
+    // *   **success**: The task is successful.
+    // *   **partial**: The task is partially successful.
+    // *   **fail**: The task failed.
     shared_ptr<string> status_ {};
   };
 

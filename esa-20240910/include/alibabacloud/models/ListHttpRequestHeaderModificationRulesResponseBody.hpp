@@ -129,9 +129,16 @@ namespace Models
 
 
       protected:
+        // The name of the request header.
         shared_ptr<string> name_ {};
+        // The operation type. The value range is as follows:
+        // 
+        // - add: Add.
+        // - del: Delete.
+        // - modify: Modify.
         shared_ptr<string> operation_ {};
         shared_ptr<string> type_ {};
+        // The value of the request header.
         shared_ptr<string> value_ {};
       };
 
@@ -197,13 +204,27 @@ namespace Models
 
 
     protected:
+      // Configuration ID.
       shared_ptr<int64_t> configId_ {};
+      // Configuration type. Possible values:
+      // - global: Global configuration;
+      // - rule: Rule configuration;
       shared_ptr<string> configType_ {};
+      // Modify request headers, supporting add, delete, and modify operations.
       shared_ptr<vector<Configs::RequestHeaderModification>> requestHeaderModification_ {};
+      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+      // - Match all incoming requests: Set the value to true
+      // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
+      // Rule switch. This parameter is not required when adding a global configuration. Possible values:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> ruleEnable_ {};
+      // Rule name. This parameter is not required when adding a global configuration.
       shared_ptr<string> ruleName_ {};
+      // Rule execution order. The smaller the value, the higher the priority.
       shared_ptr<int32_t> sequence_ {};
+      // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -254,11 +275,17 @@ namespace Models
 
 
   protected:
+    // List of HTTP request header modification configurations.
     shared_ptr<vector<ListHttpRequestHeaderModificationRulesResponseBody::Configs>> configs_ {};
+    // Page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, default **500**, with a range of **1~500**.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of items.
     shared_ptr<int32_t> totalCount_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

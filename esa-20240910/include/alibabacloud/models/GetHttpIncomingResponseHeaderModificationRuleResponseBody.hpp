@@ -102,9 +102,20 @@ namespace Models
 
 
     protected:
+      // The name of the response header.
       shared_ptr<string> name_ {};
+      // The action. Valid values:
+      // 
+      // *   add: adds a response header.
+      // *   del: deletes a response header.
+      // *   modify: modifies a response header.
       shared_ptr<string> operation_ {};
+      // The value type. Valid values:
+      // 
+      // *   static
+      // *   dynamic
       shared_ptr<string> type_ {};
+      // The value of the response header.
       shared_ptr<string> value_ {};
     };
 
@@ -177,14 +188,32 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // The configuration type. Valid values:
+    // 
+    // *   global: global configurations.
+    // *   rule: rule configurations.
     shared_ptr<string> configType_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The configurations of modifying response headers. You can add, delete, or modify a response header.
     shared_ptr<vector<GetHttpIncomingResponseHeaderModificationRuleResponseBody::ResponseHeaderModification>> responseHeaderModification_ {};
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
     shared_ptr<string> rule_ {};
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The rule name. You do not need to set this parameter when you add global configuration.
     shared_ptr<string> ruleName_ {};
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
+    // The version number of the configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

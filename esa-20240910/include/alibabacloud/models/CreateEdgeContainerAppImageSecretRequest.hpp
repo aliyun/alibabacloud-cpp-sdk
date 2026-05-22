@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Image repository password.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // Image repository address.
+    // 
     // This parameter is required.
     shared_ptr<string> registry_ {};
+    // Image repository username.
+    // 
     // This parameter is required.
     shared_ptr<string> username_ {};
   };

@@ -158,19 +158,45 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // The type of the configuration. Valid values:
+    // 
+    // *   global: global configuration.
+    // *   rule: rule configuration.
     shared_ptr<string> configType_ {};
+    // The custom end parameter for FLV files.
     shared_ptr<string> flvSeekEnd_ {};
+    // The custom start parameter for FLV files.
     shared_ptr<string> flvSeekStart_ {};
+    // FLV Seeking Valid values:
+    // 
+    // *   by_byte: Seek by byte.
+    // *   by_time: Seek by time.
     shared_ptr<string> flvVideoSeekMode_ {};
+    // Customize the mp4 end parameter.
     shared_ptr<string> mp4SeekEnd_ {};
+    // Customize the mp4 start parameter.
     shared_ptr<string> mp4SeekStart_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The rule content.
     shared_ptr<string> rule_ {};
+    // Indicates whether the rule is enabled. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The name of the scaling rule.
     shared_ptr<string> ruleName_ {};
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
+    // The version number of the website configurations.
     shared_ptr<int32_t> siteVersion_ {};
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> videoSeekEnable_ {};
   };
 

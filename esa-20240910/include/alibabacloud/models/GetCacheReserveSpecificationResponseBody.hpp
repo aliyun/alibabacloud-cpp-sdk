@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // List of cache retention capacity specifications.
     shared_ptr<vector<string>> cacheReserveCapacity_ {};
+    // List of cache retention region specifications.
     shared_ptr<vector<string>> cacheReserveRegion_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

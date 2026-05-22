@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
+    // The name of the delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

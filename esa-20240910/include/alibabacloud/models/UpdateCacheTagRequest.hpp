@@ -66,10 +66,18 @@ namespace Models
 
 
   protected:
+    // Specifies whether to ignore case sensitivity. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> caseInsensitive_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     shared_ptr<int32_t> siteVersion_ {};
+    // The name of the custom cache tag.
     shared_ptr<string> tagName_ {};
   };
 

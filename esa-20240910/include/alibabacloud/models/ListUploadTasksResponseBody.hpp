@@ -116,12 +116,33 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> createTime_ {};
+      // The error message returned when the file upload task failed.
       shared_ptr<string> description_ {};
+      // The error code. Multiple error codes are separated by commas (,).
+      // 
+      // *   **InvalidUrl**: The URL format is incorrect.
+      // *   **InvalidDomain**: The domain ownership fails to be verified.
+      // *   **QuotaExcess**: The quota limit has been reached.
+      // *   **OtherErrors**: Other errors.
       shared_ptr<string> errorCode_ {};
+      // The task status.
+      // 
+      // *   **Complete**: The task is complete.
+      // *   **Refreshing**: The task is in progress.
+      // *   **Failed**: The task failed.
       shared_ptr<string> status_ {};
+      // The task type. Valid values:
+      // 
+      // *   **file**: purges the cache by file URL.
+      // *   **preload**: prefetches files.
+      // *   **directory**: purges the cache by directory.
+      // *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
       shared_ptr<string> type_ {};
+      // The ID of the file upload task.
       shared_ptr<string> uploadId_ {};
+      // The name of the file upload task.
       shared_ptr<string> uploadTaskName_ {};
     };
 
@@ -144,7 +165,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The file upload tasks.
     shared_ptr<vector<ListUploadTasksResponseBody::Tasks>> tasks_ {};
   };
 

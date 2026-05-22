@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the delivery task.
     shared_ptr<string> status_ {};
+    // The name of the delivery task.
     shared_ptr<string> taskName_ {};
   };
 

@@ -94,14 +94,29 @@ namespace Models
 
 
   protected:
+    // The configurations of modifying request headers. You can add, delete, or modify a request header.
+    // 
     // This parameter is required.
     shared_ptr<string> requestHeaderModificationShrink_ {};
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
     shared_ptr<string> rule_ {};
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The rule name. You do not need to set this parameter when you add global configuration.
     shared_ptr<string> ruleName_ {};
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

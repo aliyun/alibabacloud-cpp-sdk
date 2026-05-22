@@ -250,29 +250,90 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     shared_ptr<int64_t> configId_ {};
+    // The configuration type to query. Valid values:
+    // 
+    // *   global: global configurations.
+    // *   rule: rule configurations.
     shared_ptr<string> configType_ {};
+    // The hostname that overrides the resolved hostname of an incoming request.
     shared_ptr<string> dnsRecord_ {};
+    // 302 follow switch. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> follow302Enable_ {};
+    // The maximum number of 302 follow times. Valid values: 1 to 5.
     shared_ptr<string> follow302MaxTries_ {};
+    // Retains the original request parameters switch. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> follow302RetainArgs_ {};
+    // Retain the original request header switch. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> follow302RetainHeader_ {};
+    // Target Host
     shared_ptr<string> follow302TargetHost_ {};
+    // The Host header in origin requests.
     shared_ptr<string> originHost_ {};
+    // The origin port that is accessed when the HTTP protocol is used to back to the origin.
     shared_ptr<string> originHttpPort_ {};
+    // The origin port that is accessed when the HTTPS protocol is used to back to the origin.
     shared_ptr<string> originHttpsPort_ {};
+    // The MTLS switch. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> originMtls_ {};
+    // The read timeout period (in seconds) on the origin.
     shared_ptr<string> originReadTimeout_ {};
+    // The protocol used for origin requests. Valid values:
+    // 
+    // *   http: HTTP.
+    // *   https: HTTPS.
+    // *   follow: follows the protocol used by the client.
     shared_ptr<string> originScheme_ {};
+    // The SNI in origin requests.
     shared_ptr<string> originSni_ {};
+    // The origin certificate verification switch. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> originVerify_ {};
+    // Use range requests to download an object from the source. Valid values:
+    // 
+    // *   on
+    // *   off
+    // *   force: enables range origin fetch by force.
     shared_ptr<string> range_ {};
+    // The size of the range part. Valid values:
+    // 
+    // *   512KB
+    // *   1MB
+    // *   2MB
+    // *   4MB
     shared_ptr<string> rangeChunkSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
     shared_ptr<string> rule_ {};
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The rule name. You do not need to set this parameter when you add global configurations.
     shared_ptr<string> ruleName_ {};
+    // The rule execution order. The smaller the value, the higher the priority.
     shared_ptr<int32_t> sequence_ {};
+    // The version number of the configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

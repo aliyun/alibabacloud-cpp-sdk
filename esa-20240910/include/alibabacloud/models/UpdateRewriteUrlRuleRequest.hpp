@@ -121,17 +121,36 @@ namespace Models
 
 
   protected:
+    // Configuration ID. It can be obtained by calling the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // The query string after rewriting.
     shared_ptr<string> queryString_ {};
+    // Query string rewrite type. Value range:
+    // - static: Static mode.
+    // - dynamic: Dynamic mode.
     shared_ptr<string> rewriteQueryStringType_ {};
+    // URI rewrite type. Value range:
+    // - static: Static mode.
+    // - dynamic: Dynamic mode.
     shared_ptr<string> rewriteUriType_ {};
+    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true
+    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
+    // Rule switch. This parameter is not required when adding a global configuration. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
+    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The target URI after rewriting.
     shared_ptr<string> uri_ {};
   };
 

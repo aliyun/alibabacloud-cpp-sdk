@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The website ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

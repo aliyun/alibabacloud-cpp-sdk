@@ -75,11 +75,30 @@ namespace Models
 
 
   protected:
+    // Content to be refreshed.
     shared_ptr<string> contentShrink_ {};
+    // Used for refreshing cached resources in edge computing, such as allowing the refresh of content cached using the CacheAPI interface of an edge function.
     shared_ptr<bool> edgeComputePurge_ {};
+    // Indicates whether to refresh all resources under the directory when the content from the origin and the source resource are inconsistent. The default is false.
+    // - **true**: Refreshes all resources under the specified directory.
+    // - **false**: Refreshes only the changed resources under the specified directory.
+    // 
+    // > 
+    // >  Applies to: Directory refresh, cachetag refresh, ignoreParams refresh, hostname refresh, and purge all cache of the site.
     shared_ptr<bool> force_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The type of refresh task. Possible values:
+    // - **file** (default): File refresh.
+    // - **cachekey**: Cachekey refresh.
+    // - **cachetag**: Cachetag refresh.
+    // - **directory**: Directory refresh.
+    // - **ignoreParams**: Ignore parameters refresh. Ignoring parameters means removing the ? and everything after it in the request URL. When performing an ignore parameters refresh, the user first submits the URL without parameters through the interface. The submitted URLs to be refreshed will then be matched against the cached resource URLs with the parameters removed. If the cached resource URL, after removing the parameters, matches the URL to be refreshed, the CDN node will refresh the cached resources.
+    // - **hostname**: Hostname refresh.
+    // - **purgeall**: Purge all cache under the site.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

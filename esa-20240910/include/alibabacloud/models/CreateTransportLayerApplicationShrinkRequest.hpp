@@ -103,14 +103,28 @@ namespace Models
 
 
   protected:
+    // Whether to enable China mainland network access optimization, default is disabled. Value range:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> crossBorderOptimization_ {};
+    // IP access rule switch. When enabled, the WAF\\"s IP access rules apply to the transport layer application.
+    // 
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ipAccessRule_ {};
+    // IPv6 switch.
     shared_ptr<string> ipv6_ {};
     shared_ptr<string> keepAliveProtection_ {};
+    // Domain name of the transport layer application.
+    // 
     // This parameter is required.
     shared_ptr<string> recordName_ {};
+    // List of forwarding rules.
+    // 
     // This parameter is required.
     shared_ptr<string> rulesShrink_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     shared_ptr<string> staticIp_ {};

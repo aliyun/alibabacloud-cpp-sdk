@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

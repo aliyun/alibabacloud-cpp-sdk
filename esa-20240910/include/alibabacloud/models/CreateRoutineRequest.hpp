@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The routine description.
     shared_ptr<string> description_ {};
     shared_ptr<bool> hasAssets_ {};
+    // The routine name, which must be unique in the same account.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

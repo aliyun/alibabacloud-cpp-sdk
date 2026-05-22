@@ -98,11 +98,20 @@ namespace Models
 
 
     protected:
+      // Request header name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Operation method. Possible values:
+      // 
+      // - add: Add.
+      // - del: Delete
+      // - modify: Modify.
+      // 
       // This parameter is required.
       shared_ptr<string> operation_ {};
       shared_ptr<string> type_ {};
+      // Request header value.
       shared_ptr<string> value_ {};
     };
 
@@ -161,13 +170,25 @@ namespace Models
 
 
   protected:
+    // Configuration ID. It can be obtained by calling the [ListHttpRequestHeaderModificationRules](https://help.aliyun.com/document_detail/2867483.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // Modify request headers, supporting add, delete, and modify operations.
     shared_ptr<vector<UpdateHttpRequestHeaderModificationRuleRequest::RequestHeaderModification>> requestHeaderModification_ {};
+    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+    // - To match all incoming requests: Set the value to true
+    // - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
+    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
+    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

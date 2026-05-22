@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Certificate ID.
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

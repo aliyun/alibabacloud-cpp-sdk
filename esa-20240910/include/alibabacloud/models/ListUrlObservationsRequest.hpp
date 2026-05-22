@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The configuration ID,
     shared_ptr<int64_t> configId_ {};
+    // The page number. Page starts from page 1. Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
     shared_ptr<int32_t> pageSize_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

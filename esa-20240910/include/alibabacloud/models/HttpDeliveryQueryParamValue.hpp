@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The static variable.
     shared_ptr<string> staticValue_ {};
   };
 

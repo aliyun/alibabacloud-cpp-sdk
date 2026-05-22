@@ -84,11 +84,25 @@ namespace Models
 
 
   protected:
+    // Whether to automatically pay. The default value is false.
+    // - true: Automatically pay.
+    // - false: Do not automatically pay.
     shared_ptr<bool> autoPay_ {};
+    // Whether to auto-renew:
+    // - true: Auto-renew.
+    // - false: Do not auto-renew.
     shared_ptr<bool> autoRenew_ {};
+    // Billing type
+    // - PREPAY: Prepaid.
+    // - POSTPAY: Postpaid.
     shared_ptr<string> chargeType_ {};
+    // Cache retention region
+    // - HK: Hong Kong, China
+    // - CN-beijing: Mainland China - Beijing
     shared_ptr<string> crRegion_ {};
+    // Purchase period (unit: month).
     shared_ptr<int32_t> period_ {};
+    // Cache retention specification (unit: GB).
     shared_ptr<int64_t> quotaGb_ {};
   };
 

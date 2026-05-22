@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The number of log entries to output.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> lines_ {};
   };

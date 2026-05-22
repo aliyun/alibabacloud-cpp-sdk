@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The cookie fields.
       shared_ptr<vector<string>> cookies_ {};
+      // The request header fields.
       shared_ptr<vector<string>> requestHeaders_ {};
+      // The response header fields.
       shared_ptr<vector<string>> responseHeaders_ {};
     };
 
@@ -136,10 +139,15 @@ namespace Models
 
 
   protected:
+    // The ID of the custom log field configuration.
     shared_ptr<int64_t> configId_ {};
+    // Indicates whether the custom configuration exists.
     shared_ptr<bool> isExist_ {};
+    // The custom fields.
     shared_ptr<GetSiteCustomLogResponseBody::LogCustomField> logCustomField_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

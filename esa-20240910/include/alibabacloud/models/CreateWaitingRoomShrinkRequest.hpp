@@ -186,32 +186,88 @@ namespace Models
 
 
   protected:
+    // The name of the custom cookie.
+    // 
     // This parameter is required.
     shared_ptr<string> cookieName_ {};
+    // The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
     shared_ptr<string> customPageHtml_ {};
+    // The description of the waiting room.
     shared_ptr<string> description_ {};
+    // Specifies whether to disable session renewal. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> disableSessionRenewalEnable_ {};
+    // Specifies whether to enable the waiting room. Valid values:
+    // 
+    // *   on
+    // *   off
+    // 
     // This parameter is required.
     shared_ptr<string> enable_ {};
+    // The hostname and path.
+    // 
     // This parameter is required.
     shared_ptr<string> hostNameAndPathShrink_ {};
+    // Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> jsonResponseEnable_ {};
+    // The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+    // 
+    // *   enus: English.
+    // *   zhcn: Simplified Chinese.
+    // *   zhhk: Traditional Chinese.
     shared_ptr<string> language_ {};
+    // The name of the waiting room.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The maximum number of new users per minute.
+    // 
     // This parameter is required.
     shared_ptr<string> newUsersPerMinute_ {};
+    // Specifies whether to queue all requests. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> queueAllEnable_ {};
+    // The queuing method. Valid values:
+    // 
+    // *   random: Users gain access to the origin randomly, regardless of the arrival time.
+    // *   fifo: Users gain access to the origin in order of arrival.
+    // *   passthrough: Users pass through the waiting room and go straight to the origin.
+    // *   reject-all: Users are blocked from reaching the origin.
+    // 
     // This parameter is required.
     shared_ptr<string> queuingMethod_ {};
+    // The HTTP status code to return while a user is in the queue. Valid values:
+    // 
+    // *   200
+    // *   202
+    // *   429
+    // 
     // This parameter is required.
     shared_ptr<string> queuingStatusCode_ {};
+    // The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionDuration_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The maximum number of active users.
+    // 
     // This parameter is required.
     shared_ptr<string> totalActiveUsers_ {};
+    // The type of the waiting room. Valid values:
+    // 
+    // *   default
+    // *   custom
+    // 
     // This parameter is required.
     shared_ptr<string> waitingRoomType_ {};
   };

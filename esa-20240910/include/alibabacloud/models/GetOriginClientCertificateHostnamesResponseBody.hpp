@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The domain names to associate.
     shared_ptr<vector<string>> hostnames_ {};
+    // The ID of the client certificate.
     shared_ptr<string> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
+    // The website name.
     shared_ptr<string> siteName_ {};
   };
 

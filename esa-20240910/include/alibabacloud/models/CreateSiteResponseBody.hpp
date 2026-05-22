@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The nameservers assigned by ESA. The values are separated by commas (,). This parameter is returned if you set AccessType to NS. In this case, you must change the nameservers of your domain to the assigned ones. Then, you can verify the domain ownership and activate your website.
     shared_ptr<string> nameServerList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
+    // The verification code for the website. If you set AccessType to CNAME, you need to add a TXT record whose hostname is **_esaauth.[websiteDomainName]** and record value is the value of VerifyCode to the DNS records of your domain. ****Then, you can verify the domain ownership and activate your website.
     shared_ptr<string> verifyCode_ {};
   };
 

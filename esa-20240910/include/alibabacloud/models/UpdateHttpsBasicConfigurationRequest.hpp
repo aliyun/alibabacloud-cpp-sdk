@@ -176,23 +176,63 @@ namespace Models
 
 
   protected:
+    // Custom cipher suite, indicating the specific encryption algorithm selected when CiphersuiteGroup is set to custom.
     shared_ptr<string> ciphersuite_ {};
+    // Cipher suite group. Default is all cipher suites. Value range:
+    // - all: All cipher suites.
+    // - strict: Strong cipher suites.
+    // - custom: Custom cipher suites.
     shared_ptr<string> ciphersuiteGroup_ {};
+    // Configuration ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // Whether to enable HTTP2. Default is enabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> http2_ {};
+    // Whether to enable HTTP3. Default is enabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> http3_ {};
+    // Whether to enable HTTPS. Default is enabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> https_ {};
+    // Whether to enable OCSP. Default is disabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> ocspStapling_ {};
+    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true
+    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
+    // Rule switch. This parameter is not required when adding a global configuration. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> ruleEnable_ {};
+    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Whether to enable TLS1.0. Default is disabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> tls10_ {};
+    // Whether to enable TLS1.1. Default is disabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> tls11_ {};
+    // Whether to enable TLS1.2. Default is disabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> tls12_ {};
+    // Whether to enable TLS1.3. Default is disabled. Value range:
+    // - on: Enable.
+    // - off: Disable.
     shared_ptr<string> tls13_ {};
   };
 

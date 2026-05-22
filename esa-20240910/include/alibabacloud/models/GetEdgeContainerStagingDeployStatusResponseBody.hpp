@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The reason for the last restart.
       shared_ptr<string> lastTerminatedReason_ {};
+      // The number of times that the container restarted.
       shared_ptr<int32_t> restartCount_ {};
     };
 
@@ -159,14 +161,39 @@ namespace Models
 
 
   protected:
+    // Indicates whether the container is ready.
+    // 
+    // *   ok
+    // *   unready
     shared_ptr<string> containersReady_ {};
+    // The time when the container was created. The value is a timestamp.
     shared_ptr<string> creationTimestamp_ {};
+    // The initialization status of the container.
+    // 
+    // *   ok
+    // *   unready
     shared_ptr<string> initialized_ {};
+    // The status of the container in the staging environment.
+    // 
+    // *   NoContainer: created.
+    // *   Running: running.
+    // *   Failed: abnormal.
     shared_ptr<string> phase_ {};
+    // The details of container restart.
     shared_ptr<GetEdgeContainerStagingDeployStatusResponseBody::PodRestartState> podRestartState_ {};
+    // Indicates whether domain names are associated with the container.
+    // 
+    // *   ok
+    // *   unready
     shared_ptr<string> ready_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scheduling status of the container.
+    // 
+    // *   ok
+    // *   unready
     shared_ptr<string> scheduled_ {};
+    // The virtual IP addresses.
     shared_ptr<vector<string>> VIPs_ {};
   };
 

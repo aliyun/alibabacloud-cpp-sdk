@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The name of the real-time log delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
   };
 

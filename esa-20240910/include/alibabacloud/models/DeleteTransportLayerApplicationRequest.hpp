@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> applicationId_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

@@ -154,6 +154,7 @@ namespace Models
     shared_ptr<string> clientPrivateKey_ {};
     shared_ptr<string> createTime_ {};
     shared_ptr<string> host_ {};
+    // Keyless server ID。
     shared_ptr<string> id_ {};
     shared_ptr<string> name_ {};
     shared_ptr<int64_t> port_ {};

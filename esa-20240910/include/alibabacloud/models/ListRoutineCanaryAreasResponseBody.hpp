@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The regions for canary release.
     shared_ptr<vector<string>> canaryAreas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

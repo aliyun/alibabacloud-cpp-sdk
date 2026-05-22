@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> method_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
+    // The name of the delivery task.
+    // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
   };

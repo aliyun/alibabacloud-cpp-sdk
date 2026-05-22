@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of the page to return. Valid values: **1 to 100000**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: **10**. Valid values: **5**, **10**, or **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // The rule ID.
     shared_ptr<int64_t> policyId_ {};
   };
 

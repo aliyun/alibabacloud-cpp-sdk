@@ -140,19 +140,45 @@ namespace Models
 
 
   protected:
+    // The ID of the configuration. You can call the [ListVideoProcessings](~~ListVideoProcessings~~) operation to obtain the ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // The custom end parameter for FLV files.
     shared_ptr<string> flvSeekEnd_ {};
+    // The custom start parameter for FLV files.
     shared_ptr<string> flvSeekStart_ {};
+    // FLV Seeking Valid values:
+    // 
+    // *   by_byte: Seek by byte.
+    // *   by_time: Seek by time.
     shared_ptr<string> flvVideoSeekMode_ {};
+    // Customize the mp4 end parameter.
     shared_ptr<string> mp4SeekEnd_ {};
+    // Customize the mp4 start parameter.
     shared_ptr<string> mp4SeekStart_ {};
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Two scenarios:
+    // 
+    // *   true: Match all incoming requests
+    // *   Set the value to a custom expression, for example: (http.host eq "video.example.com"): Match the specified request
     shared_ptr<string> rule_ {};
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The rule name. You do not need to set this parameter when you add global configuration.
     shared_ptr<string> ruleName_ {};
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> videoSeekEnable_ {};
   };
 

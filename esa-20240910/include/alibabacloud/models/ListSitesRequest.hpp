@@ -90,7 +90,9 @@ namespace Models
 
 
     protected:
+      // The tag key. This parameter specifies a filter condition for the query.
       shared_ptr<string> key_ {};
+      // The tag value. This parameter specifies a filter condition for the query.
       shared_ptr<string> value_ {};
     };
 
@@ -185,17 +187,48 @@ namespace Models
 
 
   protected:
+    // The DNS setup. Valid values:
+    // 
+    // *   **NS**
+    // *   **CNAME**
     shared_ptr<string> accessType_ {};
+    // The service location. Valid values:
+    // 
+    // *   **domestic**: the Chinese mainland
+    // *   **global**: global
+    // *   **overseas**: outside the Chinese mainland
     shared_ptr<string> coverage_ {};
+    // Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
     shared_ptr<bool> onlyEnterprise_ {};
+    // Sorting field. By default, it sorts by creation time, supporting the following options:
+    // - gmtCreate: website creation time
+    // - visitTime: website visit time
     shared_ptr<string> orderBy_ {};
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
+    // The plan type. Valid values:
+    // 
+    // *   **basicplan**: Entrance
+    // *   **standardplan**: Pro
+    // *   **advancedplan**: Premium
+    // *   **enterpriseplan**: Enterprise
     shared_ptr<string> planSubscribeType_ {};
+    // The ID of the resource group. This parameter specifies a filter condition for the query.
     shared_ptr<string> resourceGroupId_ {};
+    // The website name. This parameter specifies a filter condition for the query.
     shared_ptr<string> siteName_ {};
+    // The match mode to search for the website name. Default value: exact. Valid values:
+    // 
+    // *   **prefix**: match by prefix.
+    // *   **suffix**: match by suffix.
+    // *   **exact**: exact match.
+    // *   **fuzzy**: fuzzy match.
     shared_ptr<string> siteSearchType_ {};
+    // The website status. This parameter specifies a filter condition for the query.
     shared_ptr<string> status_ {};
+    // The tag filtering rule.
     shared_ptr<vector<ListSitesRequest::TagFilter>> tagFilter_ {};
   };
 

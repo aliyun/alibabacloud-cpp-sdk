@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // Automatic payment.
     shared_ptr<bool> autoPay_ {};
+    // Billing type. Valid values:
+    // - PREPAY
+    // - POSTPAY
     shared_ptr<string> chargeType_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Cache requested size, in GB.
     shared_ptr<int64_t> targetQuotaGb_ {};
   };
 

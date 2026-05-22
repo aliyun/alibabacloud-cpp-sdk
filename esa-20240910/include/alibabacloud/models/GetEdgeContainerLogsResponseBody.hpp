@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The logs.
     shared_ptr<vector<string>> items_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

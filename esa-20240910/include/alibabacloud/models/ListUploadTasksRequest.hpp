@@ -66,9 +66,18 @@ namespace Models
 
 
   protected:
+    // The time when the task ends. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> endTime_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<int64_t> siteId_ {};
+    // The time when the task starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
     shared_ptr<string> startTime_ {};
+    // The task type. Valid values:
+    // 
+    // *   **file**: purges the cache by file URL.
+    // *   **preload**: prefetches files.
+    // *   **directory**: purges the cache by directory.
+    // *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
     shared_ptr<string> type_ {};
   };
 

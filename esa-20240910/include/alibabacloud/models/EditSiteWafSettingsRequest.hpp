@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // WAF configuration information for the site, passed in JSON format.
     shared_ptr<WafSiteSettings> settings_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
     shared_ptr<int64_t> siteId_ {};
+    // Site version.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

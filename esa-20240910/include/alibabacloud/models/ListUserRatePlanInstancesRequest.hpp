@@ -130,15 +130,36 @@ namespace Models
 
 
   protected:
+    // Specifies whether to query only the plans that have remaining quota for associating websites. Valid values:
+    // 
+    // *   true: queries only the plans that have remaining quota for associating websites.
+    // *   false: queries all plans in your account.
     shared_ptr<string> checkRemainingSiteQuota_ {};
+    // The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     shared_ptr<string> instanceId_ {};
+    // The page number. Valid values: **1** to **100000**. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> planNameEn_ {};
     shared_ptr<string> planType_ {};
     shared_ptr<int32_t> remainingExpireDays_ {};
+    // The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
+    // 
+    // *   CreateTime: the time when the plans were purchased.
+    // *   ExpireTime: the time when the plans expire.
     shared_ptr<string> sortBy_ {};
+    // The order in which you want to sort the query results. Default value: desc. Valid values:
+    // 
+    // *   asc: in ascending order.
+    // *   desc: in descending order.
     shared_ptr<string> sortOrder_ {};
+    // The plan status. Valid values:
+    // 
+    // *   online: The plan is in service.
+    // *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+    // *   disable: The plan is released.
+    // *   overdue: The plan is stopped due to overdue payments.
     shared_ptr<string> status_ {};
     shared_ptr<string> subscribeType_ {};
   };

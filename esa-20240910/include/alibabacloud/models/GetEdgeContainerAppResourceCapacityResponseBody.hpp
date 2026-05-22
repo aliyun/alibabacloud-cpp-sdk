@@ -79,8 +79,55 @@ namespace Models
 
 
     protected:
+      // Supported ISPs are as follows. The parameter is left empty for regions outside the Chinese mainland. ISP:
+      // 
+      // *   China Mobile: cmcc
+      // *   China Telecom: chinanet
+      // *   China Unicom: unicom
       shared_ptr<string> isp_ {};
+      // Chinese mainland:
+      // 
+      // *   East China: huadong
+      // *   South China: huanan
+      // *   Central China: huazhong
+      // *   North China: huabei
+      // *   Northwest China: xibei
+      // *   Southwest China: xinan
+      // *   Northeast China: dongbei
+      // 
+      // Special Administrative Regions and Overseas:
+      // 
+      // *   Taiwan, China: tw
+      // *   Macau, China: mo
+      // *   Hong Kong, China: hk
+      // *   Japan: jp
+      // *   United States: us
+      // *   Thailand: th
+      // *   Korea: kr
+      // *   Russia: ru
+      // *   Singapore: sg
+      // *   France: fr
+      // *   Spain: es
+      // *   Italy: it
+      // *   Sweden: se
+      // *   UAE: ae
+      // *   Indonesia: id
+      // *   Chile: cl
+      // *   Philippines: ph
+      // *   Malaysia: my
+      // *   Vietnam: vn
+      // *   Argentina: AR
+      // *   Australia: au
+      // *   Brazil: br
+      // *   Colombia: co
+      // *   Germany: de
+      // *   UK: GB
+      // *   Peru: pe
+      // *   Saudi Arabia: sa
+      // *   Netherlands: nl
+      // *   South Africa: za
       shared_ptr<string> region_ {};
+      // The number of container replicas that can be deployed.
       shared_ptr<int32_t> replicas_ {};
     };
 
@@ -103,7 +150,9 @@ namespace Models
 
 
   protected:
+    // The queried region.
     shared_ptr<vector<GetEdgeContainerAppResourceCapacityResponseBody::Regions>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

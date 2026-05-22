@@ -103,10 +103,33 @@ namespace Models
 
 
     protected:
+      // The log category. Valid values:
+      // 
+      // *   dcdn_log_access_l1 (default): access logs.
+      // *   dcdn_log_er: Edge Routine logs.
+      // *   dcdn_log_waf: firewall logs.
+      // *   dcdn_log_ipa: TCP/UDP proxy logs.
       shared_ptr<string> businessType_ {};
+      // The data center. Valid values:
+      // 
+      // *   cn: the Chinese mainland.
+      // *   sg: outside the Chinese mainland.
       shared_ptr<string> dataCenter_ {};
+      // The destination of the delivery. Valid values:
+      // 
+      // 1.  sls: Alibaba Cloud Simple Log Service (SLS).
+      // 2.  http: HTTP server.
+      // 3.  aws3: Amazon Simple Storage Service (S3).
+      // 4.  oss: Alibaba Cloud Object Storage Service (OSS).
+      // 5.  kafka: Kafka.
+      // 6.  aws3cmpt: S3-compatible storage service.
       shared_ptr<string> deliveryType_ {};
+      // The status of the delivery task.
+      // 
+      // *   **online**
+      // *   **offline**
       shared_ptr<string> status_ {};
+      // The name of the delivery task.
       shared_ptr<string> taskName_ {};
     };
 
@@ -150,10 +173,15 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 0.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The delivery tasks.
     shared_ptr<vector<ListSiteDeliveryTasksResponseBody::Tasks>> tasks_ {};
+    // The total number of log delivery tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

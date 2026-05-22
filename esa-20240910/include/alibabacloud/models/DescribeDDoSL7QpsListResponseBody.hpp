@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // Attack QPS.
       shared_ptr<int64_t> attack_ {};
+      // Normal QPS.
       shared_ptr<int64_t> normal_ {};
+      // Data time, following ISO8601 notation and using UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> timeStamp_ {};
+      // Total QPS.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -159,12 +163,23 @@ namespace Models
 
 
   protected:
+    // The time granularity of the queried data, in seconds.
     shared_ptr<int32_t> dataInterval_ {};
+    // Application layer time trend data list.
     shared_ptr<vector<DescribeDDoSL7QpsListResponseBody::DataModule>> dataModule_ {};
+    // The end time of the query.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
+    // Record ID.
     shared_ptr<int64_t> recordId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Site ID.
     shared_ptr<int64_t> siteId_ {};
+    // The start time of the query.
+    // 
+    // The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
   };
 

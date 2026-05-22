@@ -88,10 +88,16 @@ namespace Models
 
 
     protected:
+      // The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
       shared_ptr<int64_t> expiration_ {};
+      // The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
       shared_ptr<int64_t> expirationTtl_ {};
+      // The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+      // 
       // This parameter is required.
       shared_ptr<string> key_ {};
+      // The key content.
+      // 
       // This parameter is required.
       shared_ptr<string> value_ {};
     };
@@ -115,8 +121,12 @@ namespace Models
 
 
   protected:
+    // The key-value pairs that you want to configure at a time. The total size can be up to 2 MB (2 × 1000 × 1000).
+    // 
     // This parameter is required.
     shared_ptr<vector<BatchPutKvRequest::KvList>> kvList_ {};
+    // The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
   };

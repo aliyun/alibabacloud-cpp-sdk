@@ -148,7 +148,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether the scene protection feature is enabled.
         shared_ptr<bool> enable_ {};
+        // The total number quota for scene protection rules.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -203,8 +205,11 @@ namespace Models
 
 
       protected:
+        // An object containing quota information for each Content-Type in custom response pages.
         shared_ptr<map<string, QuotaPageContentTypesValue>> contentTypes_ {};
+        // Indicates whether the custom response page is enabled.
         shared_ptr<bool> enable_ {};
+        // The total number quota allowed for custom response pages.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -248,7 +253,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether the WAF managed rules group is enabled.
         shared_ptr<bool> enable_ {};
+        // The total number quota allowed for the WAF managed rules group.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -325,10 +332,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether the custom list is enabled.
         shared_ptr<bool> enable_ {};
+        // An object containing quota information for each type of item in the custom list.
         shared_ptr<map<string, QuotaListItemsValue>> items_ {};
+        // The number quota allowed per custom list.
         shared_ptr<WafQuotaInteger> numberItemsPerList_ {};
+        // The total number quota allowed for items in all custom lists.
         shared_ptr<WafQuotaInteger> numberItemsTotal_ {};
+        // The total number quota allowed for custom lists.
         shared_ptr<WafQuotaInteger> numberTotal_ {};
       };
 
@@ -434,9 +446,13 @@ namespace Models
 
     protected:
       shared_ptr<Quota::Captcha> captcha_ {};
+      // Quota information related to custom lists.
       shared_ptr<Quota::List> list_ {};
+      // Quota information related to the WAF managed rules group.
       shared_ptr<Quota::ManagedRulesGroup> managedRulesGroup_ {};
+      // Quota information related to custom response pages.
       shared_ptr<Quota::Page> page_ {};
+      // Quota information related to scene protection.
       shared_ptr<Quota::ScenePolicy> scenePolicy_ {};
       shared_ptr<Quota::SliderCaptchaPage> sliderCaptchaPage_ {};
     };
@@ -460,7 +476,9 @@ namespace Models
 
 
   protected:
+    // Returned quota information.
     shared_ptr<GetWafQuotaResponseBody::Quota> quota_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

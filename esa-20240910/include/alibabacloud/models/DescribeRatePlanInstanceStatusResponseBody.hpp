@@ -57,8 +57,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance status. Valid values:
+    // 
+    // *   running: The instance is running.
+    // *   renewing: The instance is being renewed.
+    // *   upgrading: The configuration of the instance is being upgraded.
+    // *   releasePrepaidService: The instance is released due to expiration.
+    // *   creating: The instance is being created.
+    // *   downgrading: The configuration of the instance is being downgraded.
+    // *   ceasePrepaidService: The instance has expired.
     shared_ptr<string> instanceStatus_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

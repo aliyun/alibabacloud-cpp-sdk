@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
     shared_ptr<vector<int64_t>> ids_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) interface.
     shared_ptr<int64_t> rulesetId_ {};
   };
 

@@ -85,8 +85,55 @@ namespace Models
 
 
     protected:
+      // The following ISPs are supported. You do not need to enter this field for overseas and special administrative regions. ISP:
+      // 
+      // *   China Mobile: cmcc
+      // *   China Telecom: chinanet
+      // *   China Unicom: unicom
       shared_ptr<string> isp_ {};
+      // Chinese mainland:
+      // 
+      // *   East China: huadong
+      // *   South China: huanan
+      // *   Central China: huazhong
+      // *   North China: huabei
+      // *   Northwest: xibei
+      // *   Southwest: xinan
+      // *   Northeast China: dongbei
+      // 
+      // Special Administrative Regions and Overseas:
+      // 
+      // *   Taiwan, China: tw
+      // *   Macau China: mo
+      // *   Hong Kong, China: hk
+      // *   Japan: jp
+      // *   United States: us
+      // *   Thailand: th
+      // *   Korea: kr
+      // *   Russia: ru
+      // *   Singapore: sg
+      // *   France: fr
+      // *   Spain: es
+      // *   Italy: it
+      // *   Sweden: se
+      // *   UAE: ae
+      // *   Indonesia: id
+      // *   Chile: cl
+      // *   Philippines: ph
+      // *   Malaysia: my
+      // *   Vietnam: vn
+      // *   Argentina: ar
+      // *   Australia: au
+      // *   Brazil: br
+      // *   Colombia: co
+      // *   Germany: de
+      // *   UK: gb
+      // *   Peru: pe
+      // *   Saudi Arabia: sa
+      // *   Netherlands: nl
+      // *   South Africa: za
       shared_ptr<string> region_ {};
+      // The number of container replicas.
       shared_ptr<int32_t> replicas_ {};
     };
 
@@ -130,10 +177,15 @@ namespace Models
 
 
   protected:
+    // The end time of the reservation. The input is UTC time. It takes +8 hours to enter Beijing time. For example, if the current time is 2006-01-02 06:04:05 , you need to enter "2006-01-02T14:04:05Z".
     shared_ptr<string> durationTime_ {};
+    // Whether to enable resource reservation.
     shared_ptr<bool> enable_ {};
+    // Whether to enable resource reservation permanently.
     shared_ptr<bool> forever_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Reserved resource list.
     shared_ptr<vector<GetEdgeContainerAppResourceReserveResponseBody::ReserveSet>> reserveSet_ {};
   };
 

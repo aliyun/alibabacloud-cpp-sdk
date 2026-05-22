@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // Indicates whether the name is valid. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> check_ {};
+    // The reason why the name passed or failed the check.
     shared_ptr<string> description_ {};
+    // The name of the real-time log delivery task.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

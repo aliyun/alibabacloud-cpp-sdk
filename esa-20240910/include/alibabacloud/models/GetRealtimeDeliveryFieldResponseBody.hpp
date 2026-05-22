@@ -52,7 +52,9 @@ namespace Models
 
 
   protected:
+    // The fields returned.
     shared_ptr<map<string, FieldContentValue>> fieldContent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

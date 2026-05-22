@@ -503,6 +503,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRatePlanPriceResponseBody::PriceModel> priceModel_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

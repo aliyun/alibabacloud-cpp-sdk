@@ -70,7 +70,12 @@ namespace Models
 
 
     protected:
+      // Whether the IP address in the parameter belongs to ESA POPs.
+      // 
+      // *   **true**
+      // *   **false**
       shared_ptr<string> cdnIp_ {};
+      // The IP addresses.
       shared_ptr<string> ip_ {};
     };
 
@@ -93,7 +98,11 @@ namespace Models
 
 
   protected:
+    // The objects that are returned.
     shared_ptr<vector<ListESAIPInfoResponseBody::Content>> content_ {};
+    // The request ID.
+    // 
+    // Example D03F9502-6653-127C-8A5F-0647197\\*\\*\\*\\*\\*
     shared_ptr<string> requestId_ {};
   };
 

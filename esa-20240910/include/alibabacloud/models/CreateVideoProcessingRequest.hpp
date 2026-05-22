@@ -140,18 +140,43 @@ namespace Models
 
 
   protected:
+    // Set custom end parameters for FLV files.
     shared_ptr<string> flvSeekEnd_ {};
+    // The custom start parameter for FLV files.
     shared_ptr<string> flvSeekStart_ {};
+    // FLV seeking. Valid values:
+    // 
+    // *   by_byte: seek by byte
+    // *   by_time: seek by time.
     shared_ptr<string> flvVideoSeekMode_ {};
+    // Customize the mp4 end parameter.
     shared_ptr<string> mp4SeekEnd_ {};
+    // Customize the mp4 start parameter.
     shared_ptr<string> mp4SeekStart_ {};
+    // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+    // 
+    // *   true: Match all incoming requests.
+    // *   Set the value to a custom expression, for example:(http.host eq "video.example.com"): Match the specified request.
     shared_ptr<string> rule_ {};
+    // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Specifies whether to check the image used by the instance supports hot migration. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> ruleEnable_ {};
+    // The name of the scheduling rule. You do not need to set this parameter when you add global configuration.
     shared_ptr<string> ruleName_ {};
+    // The order in which the rule is executed. A smaller value gives priority to the rule.
     shared_ptr<int32_t> sequence_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
     shared_ptr<int32_t> siteVersion_ {};
+    // Video seeking. Valid values:
+    // 
+    // *   on
+    // *   off
     shared_ptr<string> videoSeekEnable_ {};
   };
 

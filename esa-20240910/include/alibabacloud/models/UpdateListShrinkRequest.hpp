@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The new description of the list.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The items in the updated list. The value is a JSON array.
+    // 
     // This parameter is required.
     shared_ptr<string> itemsShrink_ {};
+    // The new name of the list.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

@@ -199,16 +199,27 @@ namespace Models
 
 
       protected:
+        // The command of the exec type probe.
         shared_ptr<string> command_ {};
+        // The number of consecutive failed health checks required for a container to be considered as unhealthy.
         shared_ptr<int32_t> failureThreshold_ {};
+        // The domain name that is used for health checks.
         shared_ptr<string> host_ {};
+        // The request headers that are included in the container health check request.
         shared_ptr<string> httpHeaders_ {};
+        // The latency for container probe initialization.
         shared_ptr<int32_t> initialDelaySeconds_ {};
+        // The health check path.
         shared_ptr<string> path_ {};
+        // The interval between container health checks.
         shared_ptr<int32_t> periodSeconds_ {};
+        // The health check port.
         shared_ptr<int32_t> port_ {};
+        // The protocol that the container health check request uses.
         shared_ptr<string> scheme_ {};
+        // The number of consecutive successful health checks required for a container to be considered as healthy.
         shared_ptr<int32_t> successThreshold_ {};
+        // The timeout period of the container health check.
         shared_ptr<int32_t> timeoutSeconds_ {};
       };
 
@@ -314,14 +325,23 @@ namespace Models
 
 
       protected:
+        // The domain name of the Container Registry image.
         shared_ptr<string> domain_ {};
+        // The ID of the Container Registry instance.
         shared_ptr<string> instanceId_ {};
+        // Specifies whether the image is an enterprise-level Container Registry image.
         shared_ptr<bool> isEnterpriseRegistry_ {};
+        // The regions in which the Container Registry instance resides.
         shared_ptr<string> regionId_ {};
+        // The ID of the image repository.
         shared_ptr<string> repoId_ {};
+        // The name of the image repository.
         shared_ptr<string> repoName_ {};
+        // The namespace to which the image repository belongs.
         shared_ptr<string> repoNamespace_ {};
+        // The tag of the Container Registry image.
         shared_ptr<string> tag_ {};
+        // The URL of the Container Registry image tag.
         shared_ptr<string> tagUrl_ {};
       };
 
@@ -425,24 +445,48 @@ namespace Models
 
 
     protected:
+      // The information about the Container Registry image.
       shared_ptr<Containers::ACRImageInfo> ACRImageInfo_ {};
+      // The arguments that are passed to the container startup command. Separate the parameters with spaces.
       shared_ptr<string> args_ {};
+      // The command that is used to start the container. Separate the arguments with spaces.
       shared_ptr<string> command_ {};
+      // The environment variables. Separate the environment variables with commas (,).
       shared_ptr<string> envVariables_ {};
+      // The address of the image.
+      // 
       // This parameter is required.
       shared_ptr<string> image_ {};
+      // Specifies whether the image is a Container Registry image.
+      // 
       // This parameter is required.
       shared_ptr<bool> isACRImage_ {};
+      // The name of the container. The name must be unique in the same container group.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The command that is run before the container is started. Separate the arguments with spaces.
       shared_ptr<string> postStart_ {};
+      // The command that is run before the container is stopped. Separate the arguments with spaces.
       shared_ptr<string> preStop_ {};
+      // The content of the container health probe.
+      // 
       // This parameter is required.
       shared_ptr<Containers::ProbeContent> probeContent_ {};
+      // The type of the probe. Valid values:
+      // 
+      // *   exec: the command type.
+      // *   tcpSocket: the TCP probe type.
+      // *   httpGet: the HTTP access type.
+      // 
       // This parameter is required.
       shared_ptr<string> probeType_ {};
+      // The compute specification of the container. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+      // 
       // This parameter is required.
       shared_ptr<string> spec_ {};
+      // The storage capacity. Valid values: 0.5G, 10G, 20G, and 30G.
+      // 
       // This parameter is required.
       shared_ptr<string> storage_ {};
     };
@@ -480,12 +524,20 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The container group to be deployed for this version, which contains information about images.\\
+    // The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateEdgeContainerAppVersionRequest::Containers>> containers_ {};
+    // The version name, which must be 6 to 128 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The description of the version.
     shared_ptr<string> remarks_ {};
   };
 

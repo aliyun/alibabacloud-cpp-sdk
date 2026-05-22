@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

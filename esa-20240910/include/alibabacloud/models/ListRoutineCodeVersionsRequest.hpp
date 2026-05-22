@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The function name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The page number of the returned page. Default value: 1. Valid values: 1 and 2.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 20.
     shared_ptr<int64_t> pageSize_ {};
+    // The keyword used for fuzzy search.
     shared_ptr<string> searchKeyWord_ {};
   };
 

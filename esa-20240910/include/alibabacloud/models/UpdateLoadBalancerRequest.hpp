@@ -146,9 +146,13 @@ namespace Models
 
 
       protected:
+        // Content-Type field in the HTTP Header.
         shared_ptr<string> contentType_ {};
+        // Location field in the HTTP response.
         shared_ptr<string> location_ {};
+        // Response body value.
         shared_ptr<string> messageBody_ {};
+        // Response status code.
         shared_ptr<int32_t> statusCode_ {};
       };
 
@@ -209,12 +213,25 @@ namespace Models
 
 
     protected:
+      // Execute a specified response after matching the rule.
       shared_ptr<Rules::FixedResponse> fixedResponse_ {};
+      // Modify the corresponding load balancing configuration after matching the rule. The fields in the configuration will override the corresponding fields in the load balancer configuration.
       Darabonba::Json overrides_ {};
+      // Rule content, using conditional expressions to match user requests. This parameter does not need to be set when adding global configurations. There are two usage scenarios:
+      // - Match all incoming requests: Set the value to true
+      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
+      // Rule switch. This parameter does not need to be set when adding global configurations. Value range:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> ruleEnable_ {};
+      // Rule name. This parameter does not need to be set when adding global configurations.
       shared_ptr<string> ruleName_ {};
+      // The execution order of the rule. It can be left blank, in which case the rules will be executed in the order they appear in the list. If specified, it must be a positive integer, with higher values indicating higher priority.
       shared_ptr<int32_t> sequence_ {};
+      // Whether to terminate the execution of subsequent rules.
+      // - true: Yes.
+      // - false: No, default value.
       shared_ptr<bool> terminates_ {};
     };
 
@@ -258,7 +275,9 @@ namespace Models
 
 
     protected:
+      // Default round-robin weight, used for all pools that do not have a separately specified weight. Value range: integers between 0-100.
       shared_ptr<int32_t> defaultWeight_ {};
+      // Weight configuration for each backend server pool, where the key is the pool ID and the value is the weight factor. The weight factor represents the proportion of relative traffic distribution.
       shared_ptr<map<string, int32_t>> poolWeights_ {};
     };
 
@@ -394,17 +413,31 @@ namespace Models
 
 
     protected:
+      // Number of consecutive failed probes required to consider the target unhealthy, such as 5.
       shared_ptr<int32_t> consecutiveDown_ {};
+      // Number of consecutive successful probes required to consider the target healthy, such as 3.
       shared_ptr<int32_t> consecutiveUp_ {};
+      // Expected status codes, such as 200,202, which indicate successful HTTP responses.
       shared_ptr<string> expectedCodes_ {};
+      // Whether to follow redirects.
+      // 
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> followRedirects_ {};
+      // Monitor request header configuration.
       Darabonba::Json header_ {};
+      // Monitor interval, such as 60 seconds, which is the frequency of checks.
       shared_ptr<int32_t> interval_ {};
+      // Monitor request method, such as GET, which is a method in the HTTP protocol.
       shared_ptr<string> method_ {};
       shared_ptr<string> monitoringRegion_ {};
+      // Monitor check path, such as /healthcheck, which is the HTTP request path.
       shared_ptr<string> path_ {};
+      // Origin server port.
       shared_ptr<int32_t> port_ {};
+      // Application health check timeout, in seconds, with a range of 1-10.
       shared_ptr<int32_t> timeout_ {};
+      // Monitor protocol type, such as HTTP, used for health checks. When set to \\"off\\", no checks are performed.
       shared_ptr<string> type_ {};
     };
 
@@ -446,6 +479,10 @@ namespace Models
 
 
     protected:
+      // Whether to fallback across pools.
+      // 
+      // - true: Yes.
+      // - false: No.
       shared_ptr<bool> failoverAcrossPools_ {};
       shared_ptr<bool> originLevelRetry_ {};
     };
@@ -574,22 +611,45 @@ namespace Models
 
 
   protected:
+    // Configuration for fallback across pools.
     shared_ptr<UpdateLoadBalancerRequest::AdaptiveRouting> adaptiveRouting_ {};
+    // List of default pool IDs.
     shared_ptr<vector<int64_t>> defaultPools_ {};
+    // Detailed description of the load balancer, for easier management and identification.
     shared_ptr<string> description_ {};
+    // Whether the load balancer is enabled.
+    // 
+    // - true: Enabled.
+    // - false: Not enabled.
     shared_ptr<bool> enabled_ {};
+    // Fallback pool ID, where traffic will be directed when all other pools are unavailable.
     shared_ptr<int64_t> fallbackPool_ {};
+    // Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Monitor configuration for health checks.
     shared_ptr<UpdateLoadBalancerRequest::Monitor> monitor_ {};
+    // Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
     shared_ptr<UpdateLoadBalancerRequest::RandomSteering> randomSteering_ {};
+    // Address pool corresponding to the primary region.
     Darabonba::Json regionPools_ {};
+    // Rule configuration list, used to define behavior overrides under specific conditions.
     shared_ptr<vector<UpdateLoadBalancerRequest::Rules>> rules_ {};
+    // Session persistence, with possible values:
+    // - off: Not enabled.
+    // - ip: Session persistence by IP.
+    // - cookie: Session persistence by cookie.
     shared_ptr<string> sessionAffinity_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Load balancing policy.
     shared_ptr<string> steeringPolicy_ {};
+    // Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the regions can be concatenated with commas as the key.
     Darabonba::Json subRegionPools_ {};
+    // TTL value, the time-to-live for DNS records, with a default of 30 and a range of 10-600.
     shared_ptr<int32_t> ttl_ {};
   };
 

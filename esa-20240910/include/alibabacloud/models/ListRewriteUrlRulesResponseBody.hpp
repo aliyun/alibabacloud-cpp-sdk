@@ -160,16 +160,37 @@ namespace Models
 
 
     protected:
+      // Configuration ID.
       shared_ptr<int64_t> configId_ {};
+      // Configuration type. Value range:
+      // - global: Global configuration;
+      // - rule: Rule configuration;
       shared_ptr<string> configType_ {};
+      // The rewritten query string.
       shared_ptr<string> queryString_ {};
+      // Query string rewrite type. Value range:
+      // - static: Static mode.
+      // - dynamic: Dynamic mode.
       shared_ptr<string> rewriteQueryStringType_ {};
+      // URI rewrite type. Value range:
+      // - static: Static mode.
+      // - dynamic: Dynamic mode.
       shared_ptr<string> rewriteUriType_ {};
+      // Rule content, using conditional expressions to match user requests. Not required when adding a global configuration. There are two usage scenarios:
+      // - Match all incoming requests: Set the value to true
+      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
+      // Rule switch. Not required when adding a global configuration. Value range:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> ruleEnable_ {};
+      // Rule name. Not required when adding a global configuration.
       shared_ptr<string> ruleName_ {};
+      // Rule execution order. The smaller the value, the higher the priority.
       shared_ptr<int32_t> sequence_ {};
+      // Version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
       shared_ptr<int32_t> siteVersion_ {};
+      // Target URI after rewriting.
       shared_ptr<string> uri_ {};
     };
 
@@ -220,11 +241,17 @@ namespace Models
 
 
   protected:
+    // List of rewrite URL configurations.
     shared_ptr<vector<ListRewriteUrlRulesResponseBody::Configs>> configs_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The size of the page.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of items.
     shared_ptr<int32_t> totalCount_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

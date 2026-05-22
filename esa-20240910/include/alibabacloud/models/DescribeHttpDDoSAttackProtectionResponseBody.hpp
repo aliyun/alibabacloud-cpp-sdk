@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The level of HTTP DDoS attack protection. Valid values:
+    // 
+    // *   **very weak**: very loose.
+    // *   **weak**: loose.
+    // *   **default**: normal.
+    // *   **hard**: strict.
     shared_ptr<string> globalMode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
   };
 

@@ -75,13 +75,26 @@ namespace Models
 
 
   protected:
+    // The method to submit URLs to be prefetched.
+    // 
+    // Valid values:
+    // 
+    // *   **textBox**
+    // *   **oss**
+    // 
     // This parameter is required.
     shared_ptr<string> insertWay_ {};
+    // The name of the scheduled prefetch task.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The URL of the OSS object that stores the URLs to be prefetched.
     shared_ptr<string> ossUrl_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The URLs to be prefetched. This parameter is required if you set InsertWay to textBox.
     shared_ptr<string> urlList_ {};
   };
 

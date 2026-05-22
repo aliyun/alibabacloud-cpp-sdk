@@ -128,12 +128,38 @@ namespace Models
 
 
     protected:
+      // Client IP pass-through protocol, supports:
+      // - **off**: No pass-through.
+      // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
+      // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
+      // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
       shared_ptr<string> clientIPPassThroughMode_ {};
+      // Comment information for the rule.
       shared_ptr<string> comment_ {};
+      // Edge port. Supports:
+      // 
+      // - A single port, e.g., 80.
+      // - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
+      // - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
+      // - Edge ports within a single rule and between multiple rules must not overlap.
       shared_ptr<string> edgePort_ {};
+      // Forwarding rule protocol, supports:
+      // 
+      // - TCP: TCP protocol.
+      // - UDP: UDP protocol.
       shared_ptr<string> protocol_ {};
+      // Specific value of the source.
       shared_ptr<string> source_ {};
+      // Source port. Supports:
+      // 
+      // - A single port, when the source port is a single port, any valid edge port combination is supported.
+      // - Port range, only when the edge port is a port range, the source port can be set as a port range, and the size of the range must match that of the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which do not match.
       shared_ptr<string> sourcePort_ {};
+      // Source type, supports:
+      // - **ip**: IP address.
+      // - **domain**: Domain name.
+      // - **OP**: Origin pool.
+      // - **LB**: Load balancer.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -199,13 +225,27 @@ namespace Models
 
 
   protected:
+    // Transport layer application ID, which can be obtained by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> applicationId_ {};
+    // Whether to enable China mainland network access optimization, default is disabled. Value range:
+    // 
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> crossBorderOptimization_ {};
+    // IP access rule switch. When enabled, the IP access rules in WAF will take effect on the transport layer application.
+    // 
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ipAccessRule_ {};
+    // IPv6 switch.
     shared_ptr<string> ipv6_ {};
     shared_ptr<string> keepAliveProtection_ {};
+    // Forwarding rule list. Details of each rule. Except for the comment, all other parameters are required.
     shared_ptr<vector<UpdateTransportLayerApplicationRequest::Rules>> rules_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
     shared_ptr<string> staticIp_ {};

@@ -204,25 +204,63 @@ namespace Models
 
 
   protected:
+    // Alt-Svc feature switch, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> altSvc_ {};
+    // Whether the Alt-Svc header includes the clear parameter, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> altSvcClear_ {};
+    // Alt-Svc validity period in seconds, default is 86400 seconds.
     shared_ptr<string> altSvcMa_ {};
+    // Whether the Alt-Svc header includes the persist parameter, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> altSvcPersist_ {};
+    // Whether to enable HSTS, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> hsts_ {};
+    // Whether to include subdomains in HSTS, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> hstsIncludeSubdomains_ {};
+    // HSTS expiration time in seconds.
     shared_ptr<string> hstsMaxAge_ {};
+    // Whether to enable HSTS preload, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> hstsPreload_ {};
+    // Whether to enable forced HTTPS, default is disabled. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> httpsForce_ {};
+    // Forced HTTPS redirect status code. Possible values:
+    // - 301
+    // - 302
+    // - 307
+    // - 308
     shared_ptr<string> httpsForceCode_ {};
     shared_ptr<string> httpsNoSniDeny_ {};
     shared_ptr<string> httpsSniVerify_ {};
     shared_ptr<string> httpsSniWhitelist_ {};
+    // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+    // - Match all incoming requests: Set the value to true
+    // - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
     shared_ptr<string> rule_ {};
+    // Rule switch. This parameter is not required when adding a global configuration. Possible values:
+    // - on: Enabled.
+    // - off: Disabled.
     shared_ptr<string> ruleEnable_ {};
+    // Rule name. This parameter is not required when adding a global configuration.
     shared_ptr<string> ruleName_ {};
     shared_ptr<int32_t> sequence_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
     shared_ptr<int32_t> siteVersion_ {};
   };
 

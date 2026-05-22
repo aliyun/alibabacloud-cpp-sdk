@@ -94,16 +94,33 @@ namespace Models
 
 
   protected:
+    // The time when the policy expires.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The policy name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
     shared_ptr<string> objects_ {};
+    // The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};
     shared_ptr<string> siteIds_ {};
+    // The time when the policy takes effect.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The name of the policy template. Valid value:
+    // 
+    // *   **promotion**: major events.
+    // 
     // This parameter is required.
     shared_ptr<string> template_ {};
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the custom error page.[](~~2850223~~)
     shared_ptr<int64_t> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -112,15 +112,43 @@ namespace Models
 
 
   protected:
+    // The business scenario of the record for acceleration. Valid values:
+    // 
+    // *   **image_video**: video and image.
+    // *   **api**: API.
+    // *   **web**: web page.
     shared_ptr<string> bizName_ {};
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: **500**.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters by whether the record is proxied. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> proxied_ {};
+    // The match mode to search for the record name. Default value: exact. Valid values:
+    // 
+    // *   **prefix**: match by prefix.
+    // *   **suffix**: match by suffix.
+    // *   **exact**: exact match.
+    // *   **fuzzy**: fuzzy match.
     shared_ptr<string> recordMatchType_ {};
+    // The record name. This parameter specifies a filter condition for the query.
     shared_ptr<string> recordName_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The origin type of the record. Only CNAME records can be filtered by using this field. Valid values:
+    // 
+    // *   **OSS**: OSS bucket.
+    // *   **S3**: S3 bucket.
+    // *   **LB**: load balancer.
+    // *   **OP**: origin pool.
+    // *   **Domain**: domain name.
     shared_ptr<string> sourceType_ {};
+    // The DNS record type.
     shared_ptr<string> type_ {};
   };
 

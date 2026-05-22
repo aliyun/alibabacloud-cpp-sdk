@@ -66,12 +66,25 @@ namespace Models
 
 
   protected:
+    // The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The type of the purge or prefetch task. Valid values:
+    // 
+    // *   **file** (default): purges the cache by file.
+    // *   **preload**: prefetches the file.
+    // *   **directory**: purges the cache by directory.
+    // *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The name of the upload task.
+    // 
     // This parameter is required.
     shared_ptr<string> uploadTaskName_ {};
+    // The OSS URL of the file that contains resources to be purged or prefetched.
+    // 
     // This parameter is required.
     shared_ptr<Darabonba::IStream> urlObject_ {};
   };

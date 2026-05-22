@@ -84,11 +84,14 @@ namespace Models
 
 
   protected:
+    // List of expressions.
     shared_ptr<string> expressionsShrink_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> kind_ {};
+    // WAF Phase
     shared_ptr<string> phase_ {};
     shared_ptr<string> planNameEn_ {};
+    // Site ID
     shared_ptr<int64_t> siteId_ {};
   };
 

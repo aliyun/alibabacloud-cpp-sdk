@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The log category. Valid values:
+    // 
+    // *   dcdn_log_access_l1 (default): access logs.
+    // *   dcdn_log_er: Edge Routine logs.
+    // *   dcdn_log_waf: firewall logs.
+    // *   dcdn_log_ipa: TCP/UDP proxy logs.
     shared_ptr<string> businessType_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

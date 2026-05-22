@@ -133,13 +133,25 @@ namespace Models
 
 
     protected:
+      // Cache reserve capacity. Unit: GB.
       shared_ptr<int64_t> cacheReserveCapacity_ {};
+      // Cache reserve usage region.
       shared_ptr<string> cacheReserveRegion_ {};
       shared_ptr<string> chargeType_ {};
+      // Instance purchase time.
       shared_ptr<string> createTime_ {};
+      // Duration of the instance purchase, unit: months.
       shared_ptr<int32_t> duration_ {};
+      // Instance expiration time.
       shared_ptr<string> expireTime_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // The status of the cache reserve instance. Valid values:
+      // 
+      // *   **online**: The instance is in service.
+      // *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
+      // *   **disable**: The instance has been released.
+      // *   **overdue**: The instance has been stopped due to overdue payments.
       shared_ptr<string> status_ {};
     };
 
@@ -190,11 +202,17 @@ namespace Models
 
 
   protected:
+    // The cache reserve instances.
     shared_ptr<vector<ListCacheReserveInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
+    // Page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, default **500**, range: **1~500**.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total count.
     shared_ptr<int32_t> totalCount_ {};
+    // Total pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

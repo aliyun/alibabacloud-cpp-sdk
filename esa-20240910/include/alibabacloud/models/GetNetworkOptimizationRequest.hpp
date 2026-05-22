@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Configuration ConfigId, which can be obtained by calling the [ListNetworkOptimizations](https://help.aliyun.com/document_detail/2869051.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

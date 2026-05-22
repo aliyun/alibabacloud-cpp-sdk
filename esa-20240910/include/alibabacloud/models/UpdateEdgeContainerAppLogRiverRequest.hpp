@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The application ID, which can be obtained by calling the [ListEdgeContainerApps](https://help.aliyun.com/document_detail/2852396.html) operation.
     shared_ptr<string> appId_ {};
+    // The log path of the container.
     shared_ptr<string> path_ {};
+    // Specifies whether to collect the standard output of the container.
     shared_ptr<bool> stdout_ {};
   };
 

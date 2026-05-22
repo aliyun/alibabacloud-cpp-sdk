@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the origin address pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

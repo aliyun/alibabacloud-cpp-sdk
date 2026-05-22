@@ -112,16 +112,38 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
     shared_ptr<bool> fullRelease_ {};
+    // The release percentage. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int32_t> percentage_ {};
+    // The environment to which you want to release the version. Valid values:
+    // 
+    // *   prod: the production environment.
+    // *   staging: the staging environment.
+    // 
     // This parameter is required.
     shared_ptr<string> publishEnv_ {};
+    // Specifies how the version is released. Valid values:
+    // 
+    // *   percentage: releases the version by percentage.
+    // *   region: releases the version by region.
+    // 
+    // If you do not specify this parameter, the version is released by percentage by default.
     shared_ptr<string> publishType_ {};
+    // The regions to which the version is released.
     shared_ptr<string> regionsShrink_ {};
+    // The remarks. This parameter is empty by default.
     shared_ptr<string> remarks_ {};
+    // The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+    // 
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
+    // The version ID.
+    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

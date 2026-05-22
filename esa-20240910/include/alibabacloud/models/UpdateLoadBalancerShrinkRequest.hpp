@@ -171,22 +171,45 @@ namespace Models
 
 
   protected:
+    // Configuration for fallback across pools.
     shared_ptr<string> adaptiveRoutingShrink_ {};
+    // List of default pool IDs.
     shared_ptr<string> defaultPoolsShrink_ {};
+    // Detailed description of the load balancer, for easier management and identification.
     shared_ptr<string> description_ {};
+    // Whether the load balancer is enabled.
+    // 
+    // - true: Enabled.
+    // - false: Not enabled.
     shared_ptr<bool> enabled_ {};
+    // Fallback pool ID, where traffic will be directed when all other pools are unavailable.
     shared_ptr<int64_t> fallbackPool_ {};
+    // Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Monitor configuration for health checks.
     shared_ptr<string> monitorShrink_ {};
+    // Weighted round-robin configuration, used to control the traffic distribution weights among different pools.
     shared_ptr<string> randomSteeringShrink_ {};
+    // Address pool corresponding to the primary region.
     Darabonba::Json regionPools_ {};
+    // Rule configuration list, used to define behavior overrides under specific conditions.
     shared_ptr<string> rulesShrink_ {};
+    // Session persistence, with possible values:
+    // - off: Not enabled.
+    // - ip: Session persistence by IP.
+    // - cookie: Session persistence by cookie.
     shared_ptr<string> sessionAffinity_ {};
+    // Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Load balancing policy.
     shared_ptr<string> steeringPolicy_ {};
+    // Address pool corresponding to the secondary region. When multiple secondary regions share the same address pool, the regions can be concatenated with commas as the key.
     Darabonba::Json subRegionPools_ {};
+    // TTL value, the time-to-live for DNS records, with a default of 30 and a range of 10-600.
     shared_ptr<int32_t> ttl_ {};
   };
 

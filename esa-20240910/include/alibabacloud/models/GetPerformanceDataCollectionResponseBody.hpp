@@ -49,6 +49,7 @@ namespace Models
 
   protected:
     shared_ptr<string> enable_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

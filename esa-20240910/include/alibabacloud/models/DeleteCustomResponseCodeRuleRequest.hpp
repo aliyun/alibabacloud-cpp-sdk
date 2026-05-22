@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> configId_ {};
+    // The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

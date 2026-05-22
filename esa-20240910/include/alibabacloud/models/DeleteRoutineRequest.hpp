@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The routine name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

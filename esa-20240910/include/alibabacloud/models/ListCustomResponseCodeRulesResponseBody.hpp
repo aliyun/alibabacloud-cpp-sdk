@@ -142,14 +142,32 @@ namespace Models
 
 
     protected:
+      // The configuration ID.
       shared_ptr<int64_t> configId_ {};
+      // The configuration type. Valid values:
+      // 
+      // *   global: global configuration.
+      // *   rule: rule configuration.
       shared_ptr<string> configType_ {};
+      // Response page.
       shared_ptr<string> pageId_ {};
+      // Response code
       shared_ptr<string> returnCode_ {};
+      // The content of the rule. A conditional expression is used to match a user request. You do not need to set this parameter when you add global configuration. Use cases:
+      // 
+      // *   true: Match all incoming requests.
+      // *   Set the value to a custom expression, for example, (http.host eq "video.example.com"): Match the specified request.
       shared_ptr<string> rule_ {};
+      // Specifies whether to enable the rule. Valid values: You do not need to set this parameter when you add global configuration. Valid values:
+      // 
+      // *   on
+      // *   off
       shared_ptr<string> ruleEnable_ {};
+      // The rule name. You do not need to set this parameter when you add global configuration.
       shared_ptr<string> ruleName_ {};
+      // The order in which the rule is executed. A smaller value gives priority to the rule.
       shared_ptr<int32_t> sequence_ {};
+      // The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
       shared_ptr<int32_t> siteVersion_ {};
     };
 
@@ -200,11 +218,17 @@ namespace Models
 
 
   protected:
+    // Modifies the list of response code configurations.
     shared_ptr<vector<ListCustomResponseCodeRulesResponseBody::Configs>> configs_ {};
+    // The number of the returned page. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 500. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

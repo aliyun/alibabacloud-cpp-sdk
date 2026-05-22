@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -83,8 +83,17 @@ namespace Models
 
 
     protected:
+      // The quota name.
       shared_ptr<string> quotaName_ {};
+      // The quota value.
       shared_ptr<string> quotaValue_ {};
+      // The threshold type of the quota. Valid values:
+      // 
+      // *   value: enumerates the values of the quota.
+      // *   bool: specifies whether the quota is available.
+      // *   num: the upper limit of the quota.
+      // *   range: the value range for the quota.
+      // *   custom: other types than the preceding four quota threshold types.
       shared_ptr<string> quotaValueType_ {};
     };
 
@@ -121,9 +130,17 @@ namespace Models
 
 
   protected:
+    // The plan ID.
     shared_ptr<string> instanceId_ {};
+    // The quotas in the plan.
     shared_ptr<vector<ListInstanceQuotasResponseBody::Quotas>> quotas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The plan status. Valid values:
+    // 
+    // *   online: The plan is in service.
+    // *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+    // *   disable: The plan is released.
     shared_ptr<string> status_ {};
   };
 

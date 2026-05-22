@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // Query type for the transport layer application host record, supporting the following 4 types, with exact query as the default.
+    // 
+    // - fuzzy: Fuzzy query.
+    // - exact: Exact query.
+    // - prefix: Prefix match query.
+    // - suffix: Suffix match query.
     shared_ptr<string> matchType_ {};
+    // Page number set for pagination. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size. The maximum value is 500.
     shared_ptr<int32_t> pageSize_ {};
+    // Host record of the transport layer application.
     shared_ptr<string> recordName_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
   };

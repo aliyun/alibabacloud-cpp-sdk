@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Indicates whether the verification passed. Valid values:
+    // 
+    // *   **true**
+    // *   **false**
     shared_ptr<bool> passed_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

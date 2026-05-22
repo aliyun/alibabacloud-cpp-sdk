@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The IPv4 addresses.
     shared_ptr<vector<string>> IPV4_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

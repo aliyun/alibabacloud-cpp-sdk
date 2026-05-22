@@ -216,22 +216,50 @@ namespace Models
 
 
     protected:
+      // The DNS setup for the website. Valid values:
+      // 
+      // *   **NS**
+      // *   **CNAME**
       shared_ptr<string> accessType_ {};
+      // The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
       shared_ptr<string> cnameZone_ {};
+      // The service location for the website. Valid values:
+      // 
+      // *   **domestic**: the Chinese mainland
+      // *   **global**: global
+      // *   **overseas**: outside the Chinese mainland
       shared_ptr<string> coverage_ {};
+      // The time when the website was added. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
+      // The ID of the plan associated with the website.
       shared_ptr<string> instanceId_ {};
+      // The nameservers assigned to the website domain, which are separated by commas (,).
       shared_ptr<string> nameServerList_ {};
       shared_ptr<string> offlineReason_ {};
+      // The plan name.
       shared_ptr<string> planName_ {};
+      // The plan associated with the website.
       shared_ptr<string> planSpecName_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The website ID.
       shared_ptr<int64_t> siteId_ {};
+      // The website name.
       shared_ptr<string> siteName_ {};
+      // The website status. Valid values:
+      // 
+      // *   **pending**: The website is to be configured.
+      // *   **active**: The website is active.
+      // *   **offline**: The website is suspended.
+      // *   **moved**: The website has been added and verified by another Alibaba Cloud account.
       shared_ptr<string> status_ {};
+      // The tags of the website.
       Darabonba::Json tags_ {};
+      // The time when the website was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
+      // The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
       shared_ptr<string> verifyCode_ {};
+      // The website visit time is represented in the ISO 8601 date format using UTC time, formatted as yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> visitTime_ {};
     };
 
@@ -275,10 +303,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of websites per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The queried websites.
     shared_ptr<vector<ListSitesResponseBody::Sites>> sites_ {};
+    // The total number of websites.
     shared_ptr<int32_t> totalCount_ {};
   };
 

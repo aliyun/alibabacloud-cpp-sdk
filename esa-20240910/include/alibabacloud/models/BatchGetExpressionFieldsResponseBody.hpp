@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // List of match fields for a single expression.
       shared_ptr<vector<string>> fields_ {};
+      // ID of the expression, corresponding to the ID in the input parameters.
       shared_ptr<string> id_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // List of match fields.
     shared_ptr<vector<BatchGetExpressionFieldsResponseBody::Fields>> fields_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -73,9 +73,13 @@ namespace Models
 
 
   protected:
+    // The cookie fields.
     shared_ptr<vector<string>> cookies_ {};
+    // The request header fields.
     shared_ptr<vector<string>> requestHeaders_ {};
+    // The response header fields.
     shared_ptr<vector<string>> responseHeaders_ {};
+    // site id
     shared_ptr<int64_t> siteId_ {};
   };
 

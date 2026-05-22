@@ -23,7 +23,7 @@ namespace ESA20240910
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 激活客户端证书
+       * @summary Activates the client based on the certificate ID.
        *
        * @param request ActivateClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -32,7 +32,7 @@ namespace ESA20240910
       Models::ActivateClientCertificateResponse activateClientCertificateWithOptions(const Models::ActivateClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 激活客户端证书
+       * @summary Activates the client based on the certificate ID.
        *
        * @param request ActivateClientCertificateRequest
        * @return ActivateClientCertificateResponse
@@ -40,7 +40,7 @@ namespace ESA20240910
       Models::ActivateClientCertificateResponse activateClientCertificate(const Models::ActivateClientCertificateRequest &request);
 
       /**
-       * @summary 开启版本管理
+       * @summary Enable Version Management
        *
        * @param request ActivateVersionManagementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -49,7 +49,7 @@ namespace ESA20240910
       Models::ActivateVersionManagementResponse activateVersionManagementWithOptions(const Models::ActivateVersionManagementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启版本管理
+       * @summary Enable Version Management
        *
        * @param request ActivateVersionManagementRequest
        * @return ActivateVersionManagementResponse
@@ -57,7 +57,7 @@ namespace ESA20240910
       Models::ActivateVersionManagementResponse activateVersionManagement(const Models::ActivateVersionManagementRequest &request);
 
       /**
-       * @summary 申请免费证书
+       * @summary Applies for a free SSL certificate.
        *
        * @param request ApplyCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,7 +66,7 @@ namespace ESA20240910
       Models::ApplyCertificateResponse applyCertificateWithOptions(const Models::ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请免费证书
+       * @summary Applies for a free SSL certificate.
        *
        * @param request ApplyCertificateRequest
        * @return ApplyCertificateResponse
@@ -91,7 +91,10 @@ namespace ESA20240910
       Models::ApplyCustomHostnameCertificateResponse applyCustomHostnameCertificate(const Models::ApplyCustomHostnameCertificateRequest &request);
 
       /**
-       * @summary 批量创建记录
+       * @summary Adds DNS records of different record types at a time..
+       *
+       * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+       * Successful and failed records along with error messages are listed in the response.
        *
        * @param tmpReq BatchCreateRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -100,7 +103,10 @@ namespace ESA20240910
       Models::BatchCreateRecordsResponse batchCreateRecordsWithOptions(const Models::BatchCreateRecordsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量创建记录
+       * @summary Adds DNS records of different record types at a time..
+       *
+       * @description This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+       * Successful and failed records along with error messages are listed in the response.
        *
        * @param request BatchCreateRecordsRequest
        * @return BatchCreateRecordsResponse
@@ -108,7 +114,7 @@ namespace ESA20240910
       Models::BatchCreateRecordsResponse batchCreateRecords(const Models::BatchCreateRecordsRequest &request);
 
       /**
-       * @summary 批量创建WAF规则
+       * @summary Batch Create WAF Rules
        *
        * @param tmpReq BatchCreateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -117,7 +123,7 @@ namespace ESA20240910
       Models::BatchCreateWafRulesResponse batchCreateWafRulesWithOptions(const Models::BatchCreateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量创建WAF规则
+       * @summary Batch Create WAF Rules
        *
        * @param request BatchCreateWafRulesRequest
        * @return BatchCreateWafRulesResponse
@@ -125,7 +131,7 @@ namespace ESA20240910
       Models::BatchCreateWafRulesResponse batchCreateWafRules(const Models::BatchCreateWafRulesRequest &request);
 
       /**
-       * @summary 批量删除Namespace的key-value对
+       * @summary Deletes key-value pairs from a namespace at a time based on keys.
        *
        * @param tmpReq BatchDeleteKvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -134,7 +140,7 @@ namespace ESA20240910
       Models::BatchDeleteKvResponse batchDeleteKvWithOptions(const Models::BatchDeleteKvRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除Namespace的key-value对
+       * @summary Deletes key-value pairs from a namespace at a time based on keys.
        *
        * @param request BatchDeleteKvRequest
        * @return BatchDeleteKvResponse
@@ -142,7 +148,43 @@ namespace ESA20240910
       Models::BatchDeleteKvResponse batchDeleteKv(const Models::BatchDeleteKvRequest &request);
 
       /**
-       * @summary 批量删除Namespace下的KV队，支持大body的上传，上限100M
+       * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+       *     func TestBatchDeleteWithHighCapacity() error {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for deleting key-value pairs at a time.
+       *     	namespace := "test_batch_put"
+       *     	rawReq := BatchDeleteKvRequest{
+       *     		Namespace: &namespace,
+       *     	}
+       *     	for i := 0; i < 10000; i++ {
+       *     		key := fmt.Sprintf("test_key_%d", i)
+       *     		rawReq.Keys = append(rawReq.Keys, &key)
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+       *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		UrlObject: bytes.NewReader(payload),
+       *     	}
+       *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request BatchDeleteKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -151,7 +193,43 @@ namespace ESA20240910
       Models::BatchDeleteKvWithHighCapacityResponse batchDeleteKvWithHighCapacityWithOptions(const Models::BatchDeleteKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除Namespace下的KV队，支持大body的上传，上限100M
+       * @summary Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+       *     func TestBatchDeleteWithHighCapacity() error {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for deleting key-value pairs at a time.
+       *     	namespace := "test_batch_put"
+       *     	rawReq := BatchDeleteKvRequest{
+       *     		Namespace: &namespace,
+       *     	}
+       *     	for i := 0; i < 10000; i++ {
+       *     		key := fmt.Sprintf("test_key_%d", i)
+       *     		rawReq.Keys = append(rawReq.Keys, &key)
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+       *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		UrlObject: bytes.NewReader(payload),
+       *     	}
+       *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request BatchDeleteKvWithHighCapacityRequest
        * @return BatchDeleteKvWithHighCapacityResponse
@@ -161,7 +239,7 @@ namespace ESA20240910
       Models::BatchDeleteKvWithHighCapacityResponse batchDeleteKvWithHighCapacityAdvance(const Models::BatchDeleteKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取表达式的匹配项
+       * @summary Batch Get Expression Matches
        *
        * @param tmpReq BatchGetExpressionFieldsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +248,7 @@ namespace ESA20240910
       Models::BatchGetExpressionFieldsResponse batchGetExpressionFieldsWithOptions(const Models::BatchGetExpressionFieldsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取表达式的匹配项
+       * @summary Batch Get Expression Matches
        *
        * @param request BatchGetExpressionFieldsRequest
        * @return BatchGetExpressionFieldsResponse
@@ -178,7 +256,7 @@ namespace ESA20240910
       Models::BatchGetExpressionFieldsResponse batchGetExpressionFields(const Models::BatchGetExpressionFieldsRequest &request);
 
       /**
-       * @summary 批量配置Namespace的key-value对
+       * @summary Configures key-value pairs for a namespace at a time based on specified keys.
        *
        * @param tmpReq BatchPutKvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +265,7 @@ namespace ESA20240910
       Models::BatchPutKvResponse batchPutKvWithOptions(const Models::BatchPutKvRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量配置Namespace的key-value对
+       * @summary Configures key-value pairs for a namespace at a time based on specified keys.
        *
        * @param request BatchPutKvRequest
        * @return BatchPutKvResponse
@@ -195,7 +273,51 @@ namespace ESA20240910
       Models::BatchPutKvResponse batchPutKv(const Models::BatchPutKvRequest &request);
 
       /**
-       * @summary 批量设置Namespace的key-value对，支持最大100M的请求体
+       * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+       *     func TestBatchPutKvWithHighCapacity() error {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for uploading key-value pairs at a time.
+       *     	namespace := "test_batch_put"
+       *     	numKv := 10000
+       *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+       *     	test_value := strings.Repeat("a", 10*1024)
+       *     	for i := 0; i < numKv; i++ {
+       *     		key := fmt.Sprintf("test_key_%d", i)
+       *     		value := test_value
+       *     		kvList[i] = &BatchPutKvRequestKvList{
+       *     			Key:   &key,
+       *     			Value: &value,
+       *     		}
+       *     	}
+       *     	rawReq := BatchPutKvRequest{
+       *     		Namespace: &namespace,
+       *     		KvList:    kvList,
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+       *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		UrlObject: bytes.NewReader(payload),
+       *     	}
+       *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request BatchPutKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +326,51 @@ namespace ESA20240910
       Models::BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityWithOptions(const Models::BatchPutKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量设置Namespace的key-value对，支持最大100M的请求体
+       * @summary Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+       *     func TestBatchPutKvWithHighCapacity() error {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for uploading key-value pairs at a time.
+       *     	namespace := "test_batch_put"
+       *     	numKv := 10000
+       *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+       *     	test_value := strings.Repeat("a", 10*1024)
+       *     	for i := 0; i < numKv; i++ {
+       *     		key := fmt.Sprintf("test_key_%d", i)
+       *     		value := test_value
+       *     		kvList[i] = &BatchPutKvRequestKvList{
+       *     			Key:   &key,
+       *     			Value: &value,
+       *     		}
+       *     	}
+       *     	rawReq := BatchPutKvRequest{
+       *     		Namespace: &namespace,
+       *     		KvList:    kvList,
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+       *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		UrlObject: bytes.NewReader(payload),
+       *     	}
+       *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request BatchPutKvWithHighCapacityRequest
        * @return BatchPutKvWithHighCapacityResponse
@@ -214,7 +380,7 @@ namespace ESA20240910
       Models::BatchPutKvWithHighCapacityResponse batchPutKvWithHighCapacityAdvance(const Models::BatchPutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量修改WAF规则
+       * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
        *
        * @param tmpReq BatchUpdateWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -223,7 +389,7 @@ namespace ESA20240910
       Models::BatchUpdateWafRulesResponse batchUpdateWafRulesWithOptions(const Models::BatchUpdateWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量修改WAF规则
+       * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
        *
        * @param request BatchUpdateWafRulesRequest
        * @return BatchUpdateWafRulesResponse
@@ -231,7 +397,7 @@ namespace ESA20240910
       Models::BatchUpdateWafRulesResponse batchUpdateWafRules(const Models::BatchUpdateWafRulesRequest &request);
 
       /**
-       * @summary URL封禁
+       * @summary Blocks URLs.
        *
        * @param tmpReq BlockObjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -240,7 +406,7 @@ namespace ESA20240910
       Models::BlockObjectResponse blockObjectWithOptions(const Models::BlockObjectRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary URL封禁
+       * @summary Blocks URLs.
        *
        * @param request BlockObjectRequest
        * @return BlockObjectResponse
@@ -263,7 +429,7 @@ namespace ESA20240910
       Models::CheckAssumeSlrRoleResponse checkAssumeSlrRole();
 
       /**
-       * @summary 校验站点名称是否可用
+       * @summary Checks whether a specified website name is available.
        *
        * @param request CheckSiteNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +438,7 @@ namespace ESA20240910
       Models::CheckSiteNameResponse checkSiteNameWithOptions(const Models::CheckSiteNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验站点名称是否可用
+       * @summary Checks whether a specified website name is available.
        *
        * @param request CheckSiteNameRequest
        * @return CheckSiteNameResponse
@@ -280,7 +446,7 @@ namespace ESA20240910
       Models::CheckSiteNameResponse checkSiteName(const Models::CheckSiteNameRequest &request);
 
       /**
-       * @summary 实时日志任务投递名检查
+       * @summary Checks the name of a real-time log delivery task.
        *
        * @param request CheckSiteProjectNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -289,7 +455,7 @@ namespace ESA20240910
       Models::CheckSiteProjectNameResponse checkSiteProjectNameWithOptions(const Models::CheckSiteProjectNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实时日志任务投递名检查
+       * @summary Checks the name of a real-time log delivery task.
        *
        * @param request CheckSiteProjectNameRequest
        * @return CheckSiteProjectNameResponse
@@ -297,7 +463,7 @@ namespace ESA20240910
       Models::CheckSiteProjectNameResponse checkSiteProjectName(const Models::CheckSiteProjectNameRequest &request);
 
       /**
-       * @summary 实时日志用户任务投递名检查
+       * @summary Checks the name of a real-time log delivery task by account.
        *
        * @param request CheckUserProjectNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -306,7 +472,7 @@ namespace ESA20240910
       Models::CheckUserProjectNameResponse checkUserProjectNameWithOptions(const Models::CheckUserProjectNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实时日志用户任务投递名检查
+       * @summary Checks the name of a real-time log delivery task by account.
        *
        * @param request CheckUserProjectNameRequest
        * @return CheckUserProjectNameResponse
@@ -314,7 +480,7 @@ namespace ESA20240910
       Models::CheckUserProjectNameResponse checkUserProjectName(const Models::CheckUserProjectNameRequest &request);
 
       /**
-       * @summary 提交Routine测试版本代码
+       * @summary Commits the unstable code in the staging environment to generate an official code version.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -323,7 +489,7 @@ namespace ESA20240910
       Models::CommitRoutineStagingCodeResponse commitRoutineStagingCodeWithOptions(const Models::CommitRoutineStagingCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交Routine测试版本代码
+       * @summary Commits the unstable code in the staging environment to generate an official code version.
        *
        * @param request CommitRoutineStagingCodeRequest
        * @return CommitRoutineStagingCodeResponse
@@ -331,7 +497,7 @@ namespace ESA20240910
       Models::CommitRoutineStagingCodeResponse commitRoutineStagingCode(const Models::CommitRoutineStagingCodeRequest &request);
 
       /**
-       * @summary 新增站点缓存配置
+       * @summary Create a new site cache configuration
        *
        * @param request CreateCacheRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -340,7 +506,7 @@ namespace ESA20240910
       Models::CreateCacheRuleResponse createCacheRuleWithOptions(const Models::CreateCacheRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点缓存配置
+       * @summary Create a new site cache configuration
        *
        * @param request CreateCacheRuleRequest
        * @return CreateCacheRuleResponse
@@ -348,7 +514,7 @@ namespace ESA20240910
       Models::CreateCacheRuleResponse createCacheRule(const Models::CreateCacheRuleRequest &request);
 
       /**
-       * @summary 创建客户端证书
+       * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
        *
        * @param request CreateClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +523,7 @@ namespace ESA20240910
       Models::CreateClientCertificateResponse createClientCertificateWithOptions(const Models::CreateClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建客户端证书
+       * @summary Uses the ESA-managed certificate authority (CA) to issue client certificates.
        *
        * @param request CreateClientCertificateRequest
        * @return CreateClientCertificateResponse
@@ -365,7 +531,7 @@ namespace ESA20240910
       Models::CreateClientCertificateResponse createClientCertificate(const Models::CreateClientCertificateRequest &request);
 
       /**
-       * @summary 新增压缩规则
+       * @summary Add a compression rule
        *
        * @param request CreateCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -374,7 +540,7 @@ namespace ESA20240910
       Models::CreateCompressionRuleResponse createCompressionRuleWithOptions(const Models::CreateCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增压缩规则
+       * @summary Add a compression rule
        *
        * @param request CreateCompressionRuleRequest
        * @return CreateCompressionRuleResponse
@@ -399,7 +565,7 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostname(const Models::CreateCustomHostnameRequest &request);
 
       /**
-       * @summary 新增修改响应码规则
+       * @summary Add configurations for modifying the response code.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +574,7 @@ namespace ESA20240910
       Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRuleWithOptions(const Models::CreateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增修改响应码规则
+       * @summary Add configurations for modifying the response code.
        *
        * @param request CreateCustomResponseCodeRuleRequest
        * @return CreateCustomResponseCodeRuleResponse
@@ -416,7 +582,7 @@ namespace ESA20240910
       Models::CreateCustomResponseCodeRuleResponse createCustomResponseCodeRule(const Models::CreateCustomResponseCodeRuleRequest &request);
 
       /**
-       * @summary 创建定制场景策略
+       * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
        *
        * @param request CreateCustomScenePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -425,7 +591,7 @@ namespace ESA20240910
       Models::CreateCustomScenePolicyResponse createCustomScenePolicyWithOptions(const Models::CreateCustomScenePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建定制场景策略
+       * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
        *
        * @param request CreateCustomScenePolicyRequest
        * @return CreateCustomScenePolicyResponse
@@ -433,7 +599,7 @@ namespace ESA20240910
       Models::CreateCustomScenePolicyResponse createCustomScenePolicy(const Models::CreateCustomScenePolicyRequest &request);
 
       /**
-       * @summary 创建边缘容器的应用
+       * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
        *
        * @param request CreateEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +608,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerAppWithOptions(const Models::CreateEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘容器的应用
+       * @summary Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
        *
        * @param request CreateEdgeContainerAppRequest
        * @return CreateEdgeContainerAppResponse
@@ -450,7 +616,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppResponse createEdgeContainerApp(const Models::CreateEdgeContainerAppRequest &request);
 
       /**
-       * @summary 创建边缘容器应用的镜像秘钥
+       * @summary Create an image secret for the edge container application
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +625,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecretWithOptions(const Models::CreateEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘容器应用的镜像秘钥
+       * @summary Create an image secret for the edge container application
        *
        * @param request CreateEdgeContainerAppImageSecretRequest
        * @return CreateEdgeContainerAppImageSecretResponse
@@ -467,7 +633,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppImageSecretResponse createEdgeContainerAppImageSecret(const Models::CreateEdgeContainerAppImageSecretRequest &request);
 
       /**
-       * @summary 创建一个边缘容器应用的域名记录
+       * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,7 +642,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecordWithOptions(const Models::CreateEdgeContainerAppRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个边缘容器应用的域名记录
+       * @summary Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
        *
        * @param request CreateEdgeContainerAppRecordRequest
        * @return CreateEdgeContainerAppRecordResponse
@@ -484,7 +650,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppRecordResponse createEdgeContainerAppRecord(const Models::CreateEdgeContainerAppRecordRequest &request);
 
       /**
-       * @summary 创建边缘容器应用的版本
+       * @summary Creates a version for a containerized application. You can iterate the application based on the version.
        *
        * @param tmpReq CreateEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +659,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersionWithOptions(const Models::CreateEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘容器应用的版本
+       * @summary Creates a version for a containerized application. You can iterate the application based on the version.
        *
        * @param request CreateEdgeContainerAppVersionRequest
        * @return CreateEdgeContainerAppVersionResponse
@@ -501,7 +667,7 @@ namespace ESA20240910
       Models::CreateEdgeContainerAppVersionResponse createEdgeContainerAppVersion(const Models::CreateEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 新增HTTP入站请求头规则
+       * @summary Adds the configuration of modifying HTTP request headers for a website.
        *
        * @param tmpReq CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,7 +676,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP入站请求头规则
+       * @summary Adds the configuration of modifying HTTP request headers for a website.
        *
        * @param request CreateHttpIncomingRequestHeaderModificationRuleRequest
        * @return CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -518,7 +684,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingRequestHeaderModificationRuleResponse createHttpIncomingRequestHeaderModificationRule(const Models::CreateHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 新增HTTP入站响应头规则
+       * @summary Adds the configuration of modifying HTTP response headers for a website.
        *
        * @param tmpReq CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +693,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP入站响应头规则
+       * @summary Adds the configuration of modifying HTTP response headers for a website.
        *
        * @param request CreateHttpIncomingResponseHeaderModificationRuleRequest
        * @return CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -535,7 +701,7 @@ namespace ESA20240910
       Models::CreateHttpIncomingResponseHeaderModificationRuleResponse createHttpIncomingResponseHeaderModificationRule(const Models::CreateHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 新增HTTP请求头规则
+       * @summary Add HTTP Request Header Rule
        *
        * @param tmpReq CreateHttpRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -544,7 +710,7 @@ namespace ESA20240910
       Models::CreateHttpRequestHeaderModificationRuleResponse createHttpRequestHeaderModificationRuleWithOptions(const Models::CreateHttpRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP请求头规则
+       * @summary Add HTTP Request Header Rule
        *
        * @param request CreateHttpRequestHeaderModificationRuleRequest
        * @return CreateHttpRequestHeaderModificationRuleResponse
@@ -552,7 +718,7 @@ namespace ESA20240910
       Models::CreateHttpRequestHeaderModificationRuleResponse createHttpRequestHeaderModificationRule(const Models::CreateHttpRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 新增HTTP响应头规则
+       * @summary Add HTTP Response Header Rule
        *
        * @param tmpReq CreateHttpResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -561,7 +727,7 @@ namespace ESA20240910
       Models::CreateHttpResponseHeaderModificationRuleResponse createHttpResponseHeaderModificationRuleWithOptions(const Models::CreateHttpResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增HTTP响应头规则
+       * @summary Add HTTP Response Header Rule
        *
        * @param request CreateHttpResponseHeaderModificationRuleRequest
        * @return CreateHttpResponseHeaderModificationRuleResponse
@@ -569,7 +735,7 @@ namespace ESA20240910
       Models::CreateHttpResponseHeaderModificationRuleResponse createHttpResponseHeaderModificationRule(const Models::CreateHttpResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 创建站点HTTPS应用配置
+       * @summary Create a new site HTTPS application configuration
        *
        * @param request CreateHttpsApplicationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,7 +744,7 @@ namespace ESA20240910
       Models::CreateHttpsApplicationConfigurationResponse createHttpsApplicationConfigurationWithOptions(const Models::CreateHttpsApplicationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建站点HTTPS应用配置
+       * @summary Create a new site HTTPS application configuration
        *
        * @param request CreateHttpsApplicationConfigurationRequest
        * @return CreateHttpsApplicationConfigurationResponse
@@ -586,7 +752,7 @@ namespace ESA20240910
       Models::CreateHttpsApplicationConfigurationResponse createHttpsApplicationConfiguration(const Models::CreateHttpsApplicationConfigurationRequest &request);
 
       /**
-       * @summary 新增站点HTTPS基础配置
+       * @summary Create a new site HTTPS basic configuration
        *
        * @param request CreateHttpsBasicConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -595,7 +761,7 @@ namespace ESA20240910
       Models::CreateHttpsBasicConfigurationResponse createHttpsBasicConfigurationWithOptions(const Models::CreateHttpsBasicConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点HTTPS基础配置
+       * @summary Create a new site HTTPS basic configuration
        *
        * @param request CreateHttpsBasicConfigurationRequest
        * @return CreateHttpsBasicConfigurationResponse
@@ -603,7 +769,7 @@ namespace ESA20240910
       Models::CreateHttpsBasicConfigurationResponse createHttpsBasicConfiguration(const Models::CreateHttpsBasicConfigurationRequest &request);
 
       /**
-       * @summary 新增站点图片转换配置
+       * @summary Add Site Image Transformation Configuration
        *
        * @param request CreateImageTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +778,7 @@ namespace ESA20240910
       Models::CreateImageTransformResponse createImageTransformWithOptions(const Models::CreateImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点图片转换配置
+       * @summary Add Site Image Transformation Configuration
        *
        * @param request CreateImageTransformRequest
        * @return CreateImageTransformResponse
@@ -620,7 +786,7 @@ namespace ESA20240910
       Models::CreateImageTransformResponse createImageTransform(const Models::CreateImageTransformRequest &request);
 
       /**
-       * @summary 新增Namespace
+       * @summary Create a namespace in your Alibaba Cloud account.
        *
        * @param request CreateKvNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -629,7 +795,7 @@ namespace ESA20240910
       Models::CreateKvNamespaceResponse createKvNamespaceWithOptions(const Models::CreateKvNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增Namespace
+       * @summary Create a namespace in your Alibaba Cloud account.
        *
        * @param request CreateKvNamespaceRequest
        * @return CreateKvNamespaceResponse
@@ -637,7 +803,7 @@ namespace ESA20240910
       Models::CreateKvNamespaceResponse createKvNamespace(const Models::CreateKvNamespaceRequest &request);
 
       /**
-       * @summary 创建自定义列表
+       * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
        *
        * @param tmpReq CreateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -646,7 +812,7 @@ namespace ESA20240910
       Models::CreateListResponse createListWithOptions(const Models::CreateListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义列表
+       * @summary Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
        *
        * @param request CreateListRequest
        * @return CreateListResponse
@@ -654,7 +820,9 @@ namespace ESA20240910
       Models::CreateListResponse createList(const Models::CreateListRequest &request);
 
       /**
-       * @summary 新增负载均衡器
+       * @summary Add a New Load Balancer
+       *
+       * @description Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
        *
        * @param tmpReq CreateLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -663,7 +831,9 @@ namespace ESA20240910
       Models::CreateLoadBalancerResponse createLoadBalancerWithOptions(const Models::CreateLoadBalancerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增负载均衡器
+       * @summary Add a New Load Balancer
+       *
+       * @description Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
        *
        * @param request CreateLoadBalancerRequest
        * @return CreateLoadBalancerResponse
@@ -671,7 +841,7 @@ namespace ESA20240910
       Models::CreateLoadBalancerResponse createLoadBalancer(const Models::CreateLoadBalancerRequest &request);
 
       /**
-       * @summary 新增站点网络优化配置
+       * @summary Create a new site network optimization configuration
        *
        * @param request CreateNetworkOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -680,7 +850,7 @@ namespace ESA20240910
       Models::CreateNetworkOptimizationResponse createNetworkOptimizationWithOptions(const Models::CreateNetworkOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点网络优化配置
+       * @summary Create a new site network optimization configuration
        *
        * @param request CreateNetworkOptimizationRequest
        * @return CreateNetworkOptimizationResponse
@@ -688,7 +858,9 @@ namespace ESA20240910
       Models::CreateNetworkOptimizationResponse createNetworkOptimization(const Models::CreateNetworkOptimizationRequest &request);
 
       /**
-       * @summary 新增源地址池
+       * @summary Add a new origin address pool
+       *
+       * @description Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
        *
        * @param tmpReq CreateOriginPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,7 +869,9 @@ namespace ESA20240910
       Models::CreateOriginPoolResponse createOriginPoolWithOptions(const Models::CreateOriginPoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增源地址池
+       * @summary Add a new origin address pool
+       *
+       * @description Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
        *
        * @param request CreateOriginPoolRequest
        * @return CreateOriginPoolResponse
@@ -705,7 +879,7 @@ namespace ESA20240910
       Models::CreateOriginPoolResponse createOriginPool(const Models::CreateOriginPoolRequest &request);
 
       /**
-       * @summary 开启源站防护
+       * @summary Enables origin protection.
        *
        * @param request CreateOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -714,7 +888,7 @@ namespace ESA20240910
       Models::CreateOriginProtectionResponse createOriginProtectionWithOptions(const Models::CreateOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启源站防护
+       * @summary Enables origin protection.
        *
        * @param request CreateOriginProtectionRequest
        * @return CreateOriginProtectionResponse
@@ -722,7 +896,7 @@ namespace ESA20240910
       Models::CreateOriginProtectionResponse createOriginProtection(const Models::CreateOriginProtectionRequest &request);
 
       /**
-       * @summary 创建站点回源规则配置
+       * @summary Create a new origin rule configuration for the site
        *
        * @param request CreateOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -731,7 +905,7 @@ namespace ESA20240910
       Models::CreateOriginRuleResponse createOriginRuleWithOptions(const Models::CreateOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建站点回源规则配置
+       * @summary Create a new origin rule configuration for the site
        *
        * @param request CreateOriginRuleRequest
        * @return CreateOriginRuleResponse
@@ -739,7 +913,7 @@ namespace ESA20240910
       Models::CreateOriginRuleResponse createOriginRule(const Models::CreateOriginRuleRequest &request);
 
       /**
-       * @summary 调用CreatePage创建自定义响应页面
+       * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
        *
        * @param tmpReq CreatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -748,7 +922,7 @@ namespace ESA20240910
       Models::CreatePageResponse createPageWithOptions(const Models::CreatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用CreatePage创建自定义响应页面
+       * @summary Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
        *
        * @param request CreatePageRequest
        * @return CreatePageResponse
@@ -756,7 +930,7 @@ namespace ESA20240910
       Models::CreatePageResponse createPage(const Models::CreatePageRequest &request);
 
       /**
-       * @summary 创建记录
+       * @summary Creates a DNS record for a specific website.
        *
        * @param tmpReq CreateRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -765,7 +939,7 @@ namespace ESA20240910
       Models::CreateRecordResponse createRecordWithOptions(const Models::CreateRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建记录
+       * @summary Creates a DNS record for a specific website.
        *
        * @param request CreateRecordRequest
        * @return CreateRecordResponse
@@ -773,7 +947,7 @@ namespace ESA20240910
       Models::CreateRecordResponse createRecord(const Models::CreateRecordRequest &request);
 
       /**
-       * @summary 新增重定向规则
+       * @summary Add a Redirect Rule
        *
        * @param request CreateRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -782,7 +956,7 @@ namespace ESA20240910
       Models::CreateRedirectRuleResponse createRedirectRuleWithOptions(const Models::CreateRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增重定向规则
+       * @summary Add a Redirect Rule
        *
        * @param request CreateRedirectRuleRequest
        * @return CreateRedirectRuleResponse
@@ -790,7 +964,7 @@ namespace ESA20240910
       Models::CreateRedirectRuleResponse createRedirectRule(const Models::CreateRedirectRuleRequest &request);
 
       /**
-       * @summary 新增重写Url规则
+       * @summary Add Rewrite URL Rule
        *
        * @param request CreateRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -799,7 +973,7 @@ namespace ESA20240910
       Models::CreateRewriteUrlRuleResponse createRewriteUrlRuleWithOptions(const Models::CreateRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增重写Url规则
+       * @summary Add Rewrite URL Rule
        *
        * @param request CreateRewriteUrlRuleRequest
        * @return CreateRewriteUrlRuleResponse
@@ -807,7 +981,7 @@ namespace ESA20240910
       Models::CreateRewriteUrlRuleResponse createRewriteUrlRule(const Models::CreateRewriteUrlRuleRequest &request);
 
       /**
-       * @summary 创建routine
+       * @summary Creates a routine.
        *
        * @param request CreateRoutineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -816,7 +990,7 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutineWithOptions(const Models::CreateRoutineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建routine
+       * @summary Creates a routine.
        *
        * @param request CreateRoutineRequest
        * @return CreateRoutineResponse
@@ -824,7 +998,11 @@ namespace ESA20240910
       Models::CreateRoutineResponse createRoutine(const Models::CreateRoutineRequest &request);
 
       /**
-       * @summary 发布Routine某个版本代码
+       * @summary Release the version of the function code in proportion to the specified environment.
+       *
+       * @description ## [](#)Request description
+       * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+       * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
        *
        * @param tmpReq CreateRoutineCodeDeploymentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -833,7 +1011,11 @@ namespace ESA20240910
       Models::CreateRoutineCodeDeploymentResponse createRoutineCodeDeploymentWithOptions(const Models::CreateRoutineCodeDeploymentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布Routine某个版本代码
+       * @summary Release the version of the function code in proportion to the specified environment.
+       *
+       * @description ## [](#)Request description
+       * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
+       * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
        *
        * @param request CreateRoutineCodeDeploymentRequest
        * @return CreateRoutineCodeDeploymentResponse
@@ -841,7 +1023,7 @@ namespace ESA20240910
       Models::CreateRoutineCodeDeploymentResponse createRoutineCodeDeployment(const Models::CreateRoutineCodeDeploymentRequest &request);
 
       /**
-       * @summary 新增Routine关联域名
+       * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
        *
        * @param request CreateRoutineRelatedRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -850,7 +1032,7 @@ namespace ESA20240910
       Models::CreateRoutineRelatedRecordResponse createRoutineRelatedRecordWithOptions(const Models::CreateRoutineRelatedRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增Routine关联域名
+       * @summary Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
        *
        * @param request CreateRoutineRelatedRecordRequest
        * @return CreateRoutineRelatedRecordResponse
@@ -858,7 +1040,7 @@ namespace ESA20240910
       Models::CreateRoutineRelatedRecordResponse createRoutineRelatedRecord(const Models::CreateRoutineRelatedRecordRequest &request);
 
       /**
-       * @summary 创建边缘函数路由配置
+       * @summary Adds edge function routing configurations.
        *
        * @param request CreateRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +1049,7 @@ namespace ESA20240910
       Models::CreateRoutineRouteResponse createRoutineRouteWithOptions(const Models::CreateRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建边缘函数路由配置
+       * @summary Adds edge function routing configurations.
        *
        * @param request CreateRoutineRouteRequest
        * @return CreateRoutineRouteResponse
@@ -892,7 +1074,7 @@ namespace ESA20240910
       Models::CreateRoutineWithAssetsCodeVersionResponse createRoutineWithAssetsCodeVersion(const Models::CreateRoutineWithAssetsCodeVersionRequest &request);
 
       /**
-       * @summary 批量新增定时预热任务的计划
+       * @summary Creates scheduled prefetch plans.
        *
        * @param tmpReq CreateScheduledPreloadExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -901,7 +1083,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadExecutionsResponse createScheduledPreloadExecutionsWithOptions(const Models::CreateScheduledPreloadExecutionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量新增定时预热任务的计划
+       * @summary Creates scheduled prefetch plans.
        *
        * @param request CreateScheduledPreloadExecutionsRequest
        * @return CreateScheduledPreloadExecutionsResponse
@@ -909,7 +1091,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadExecutionsResponse createScheduledPreloadExecutions(const Models::CreateScheduledPreloadExecutionsRequest &request);
 
       /**
-       * @summary 新增定时预热任务
+       * @summary Adds a scheduled prefetch task.
        *
        * @param request CreateScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -918,7 +1100,7 @@ namespace ESA20240910
       Models::CreateScheduledPreloadJobResponse createScheduledPreloadJobWithOptions(const Models::CreateScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增定时预热任务
+       * @summary Adds a scheduled prefetch task.
        *
        * @param request CreateScheduledPreloadJobRequest
        * @return CreateScheduledPreloadJobResponse
@@ -926,7 +1108,10 @@ namespace ESA20240910
       Models::CreateScheduledPreloadJobResponse createScheduledPreloadJob(const Models::CreateScheduledPreloadJobRequest &request);
 
       /**
-       * @summary 新建站点
+       * @summary Adds a website.
+       *
+       * @description *   Make sure that you have an available plan before you add a website.
+       * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
        *
        * @param request CreateSiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -935,7 +1120,10 @@ namespace ESA20240910
       Models::CreateSiteResponse createSiteWithOptions(const Models::CreateSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建站点
+       * @summary Adds a website.
+       *
+       * @description *   Make sure that you have an available plan before you add a website.
+       * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
        *
        * @param request CreateSiteRequest
        * @return CreateSiteResponse
@@ -943,7 +1131,11 @@ namespace ESA20240910
       Models::CreateSiteResponse createSite(const Models::CreateSiteRequest &request);
 
       /**
-       * @summary 新建自定义字段
+       * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+       *
+       * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+       * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+       * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
        *
        * @param tmpReq CreateSiteCustomLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -952,7 +1144,11 @@ namespace ESA20240910
       Models::CreateSiteCustomLogResponse createSiteCustomLogWithOptions(const Models::CreateSiteCustomLogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建自定义字段
+       * @summary Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+       *
+       * @description *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+       * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+       * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
        *
        * @param request CreateSiteCustomLogRequest
        * @return CreateSiteCustomLogResponse
@@ -960,7 +1156,7 @@ namespace ESA20240910
       Models::CreateSiteCustomLogResponse createSiteCustomLog(const Models::CreateSiteCustomLogRequest &request);
 
       /**
-       * @summary 新建一个任务投递
+       * @summary Creates a real-time log delivery task.
        *
        * @param tmpReq CreateSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -969,7 +1165,7 @@ namespace ESA20240910
       Models::CreateSiteDeliveryTaskResponse createSiteDeliveryTaskWithOptions(const Models::CreateSiteDeliveryTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建一个任务投递
+       * @summary Creates a real-time log delivery task.
        *
        * @param request CreateSiteDeliveryTaskRequest
        * @return CreateSiteDeliveryTaskResponse
@@ -992,7 +1188,7 @@ namespace ESA20240910
       Models::CreateSlrRoleForRealtimeLogResponse createSlrRoleForRealtimeLog();
 
       /**
-       * @summary 创建四层应用
+       * @summary Create Transport Layer Application
        *
        * @param tmpReq CreateTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1001,7 +1197,7 @@ namespace ESA20240910
       Models::CreateTransportLayerApplicationResponse createTransportLayerApplicationWithOptions(const Models::CreateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建四层应用
+       * @summary Create Transport Layer Application
        *
        * @param request CreateTransportLayerApplicationRequest
        * @return CreateTransportLayerApplicationResponse
@@ -1009,7 +1205,7 @@ namespace ESA20240910
       Models::CreateTransportLayerApplicationResponse createTransportLayerApplication(const Models::CreateTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 新增网页监测配置
+       * @summary Create a web page monitoring configuration.
        *
        * @param request CreateUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1018,7 +1214,7 @@ namespace ESA20240910
       Models::CreateUrlObservationResponse createUrlObservationWithOptions(const Models::CreateUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增网页监测配置
+       * @summary Create a web page monitoring configuration.
        *
        * @param request CreateUrlObservationRequest
        * @return CreateUrlObservationResponse
@@ -1026,7 +1222,17 @@ namespace ESA20240910
       Models::CreateUrlObservationResponse createUrlObservation(const Models::CreateUrlObservationRequest &request);
 
       /**
-       * @summary 新建一个用户粒度任务投递
+       * @summary Creates a log delivery task to ship logs to the specified destination.
+       *
+       * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+       * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+       * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+       * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+       * ## [](#)Precautions
+       * *   Make sure that you have sufficient permissions to perform delivery tasks.
+       * *   If you enable encryption or authentication, properly configure corresponding parameters.
+       * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+       * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
        *
        * @param tmpReq CreateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1035,7 +1241,17 @@ namespace ESA20240910
       Models::CreateUserDeliveryTaskResponse createUserDeliveryTaskWithOptions(const Models::CreateUserDeliveryTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建一个用户粒度任务投递
+       * @summary Creates a log delivery task to ship logs to the specified destination.
+       *
+       * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+       * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+       * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+       * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+       * ## [](#)Precautions
+       * *   Make sure that you have sufficient permissions to perform delivery tasks.
+       * *   If you enable encryption or authentication, properly configure corresponding parameters.
+       * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+       * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
        *
        * @param request CreateUserDeliveryTaskRequest
        * @return CreateUserDeliveryTaskResponse
@@ -1080,7 +1296,7 @@ namespace ESA20240910
       Models::CreateUserWafRulesetResponse createUserWafRuleset(const Models::CreateUserWafRulesetRequest &request);
 
       /**
-       * @summary 新增站点视频处理配置
+       * @summary Add video processing configurations for a website.
        *
        * @param request CreateVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1089,7 +1305,7 @@ namespace ESA20240910
       Models::CreateVideoProcessingResponse createVideoProcessingWithOptions(const Models::CreateVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增站点视频处理配置
+       * @summary Add video processing configurations for a website.
        *
        * @param request CreateVideoProcessingRequest
        * @return CreateVideoProcessingResponse
@@ -1097,7 +1313,7 @@ namespace ESA20240910
       Models::CreateVideoProcessingResponse createVideoProcessing(const Models::CreateVideoProcessingRequest &request);
 
       /**
-       * @summary 创建WAF规则
+       * @summary Create WAF Rule
        *
        * @param tmpReq CreateWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1106,7 +1322,7 @@ namespace ESA20240910
       Models::CreateWafRuleResponse createWafRuleWithOptions(const Models::CreateWafRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建WAF规则
+       * @summary Create WAF Rule
        *
        * @param request CreateWafRuleRequest
        * @return CreateWafRuleResponse
@@ -1114,7 +1330,7 @@ namespace ESA20240910
       Models::CreateWafRuleResponse createWafRule(const Models::CreateWafRuleRequest &request);
 
       /**
-       * @summary 创建WAF规则集
+       * @summary Create WAF Ruleset
        *
        * @param request CreateWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1339,7 @@ namespace ESA20240910
       Models::CreateWafRulesetResponse createWafRulesetWithOptions(const Models::CreateWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建WAF规则集
+       * @summary Create WAF Ruleset
        *
        * @param request CreateWafRulesetRequest
        * @return CreateWafRulesetResponse
@@ -1131,7 +1347,7 @@ namespace ESA20240910
       Models::CreateWafRulesetResponse createWafRuleset(const Models::CreateWafRulesetRequest &request);
 
       /**
-       * @summary 创建等候室
+       * @summary Creates a waiting room for a website.
        *
        * @param tmpReq CreateWaitingRoomRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1140,7 +1356,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomResponse createWaitingRoomWithOptions(const Models::CreateWaitingRoomRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建等候室
+       * @summary Creates a waiting room for a website.
        *
        * @param request CreateWaitingRoomRequest
        * @return CreateWaitingRoomResponse
@@ -1148,7 +1364,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomResponse createWaitingRoom(const Models::CreateWaitingRoomRequest &request);
 
       /**
-       * @summary 创建等候室事件
+       * @summary Creates a waiting room event.
        *
        * @param request CreateWaitingRoomEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1157,7 +1373,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomEventResponse createWaitingRoomEventWithOptions(const Models::CreateWaitingRoomEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建等候室事件
+       * @summary Creates a waiting room event.
        *
        * @param request CreateWaitingRoomEventRequest
        * @return CreateWaitingRoomEventResponse
@@ -1165,7 +1381,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomEventResponse createWaitingRoomEvent(const Models::CreateWaitingRoomEventRequest &request);
 
       /**
-       * @summary 创建等候室规则
+       * @summary Create Waiting Room Rule
        *
        * @param request CreateWaitingRoomRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1174,7 +1390,7 @@ namespace ESA20240910
       Models::CreateWaitingRoomRuleResponse createWaitingRoomRuleWithOptions(const Models::CreateWaitingRoomRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建等候室规则
+       * @summary Create Waiting Room Rule
        *
        * @param request CreateWaitingRoomRuleRequest
        * @return CreateWaitingRoomRuleResponse
@@ -1182,7 +1398,9 @@ namespace ESA20240910
       Models::CreateWaitingRoomRuleResponse createWaitingRoomRule(const Models::CreateWaitingRoomRuleRequest &request);
 
       /**
-       * @summary 关闭版本管理
+       * @summary Disables version management for a website.
+       *
+       * @description You can disable version management only when the default environment and version 0 exist.
        *
        * @param request DeactivateVersionManagementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1191,7 +1409,9 @@ namespace ESA20240910
       Models::DeactivateVersionManagementResponse deactivateVersionManagementWithOptions(const Models::DeactivateVersionManagementRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭版本管理
+       * @summary Disables version management for a website.
+       *
+       * @description You can disable version management only when the default environment and version 0 exist.
        *
        * @param request DeactivateVersionManagementRequest
        * @return DeactivateVersionManagementResponse
@@ -1199,7 +1419,7 @@ namespace ESA20240910
       Models::DeactivateVersionManagementResponse deactivateVersionManagement(const Models::DeactivateVersionManagementRequest &request);
 
       /**
-       * @summary 删除缓存配置
+       * @summary Delete Cache Configuration
        *
        * @param request DeleteCacheRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1208,7 +1428,7 @@ namespace ESA20240910
       Models::DeleteCacheRuleResponse deleteCacheRuleWithOptions(const Models::DeleteCacheRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除缓存配置
+       * @summary Delete Cache Configuration
        *
        * @param request DeleteCacheRuleRequest
        * @return DeleteCacheRuleResponse
@@ -1216,7 +1436,7 @@ namespace ESA20240910
       Models::DeleteCacheRuleResponse deleteCacheRule(const Models::DeleteCacheRuleRequest &request);
 
       /**
-       * @summary 删除证书
+       * @summary Deletes a certificate for a website.
        *
        * @param request DeleteCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1225,7 +1445,7 @@ namespace ESA20240910
       Models::DeleteCertificateResponse deleteCertificateWithOptions(const Models::DeleteCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除证书
+       * @summary Deletes a certificate for a website.
        *
        * @param request DeleteCertificateRequest
        * @return DeleteCertificateResponse
@@ -1233,7 +1453,7 @@ namespace ESA20240910
       Models::DeleteCertificateResponse deleteCertificate(const Models::DeleteCertificateRequest &request);
 
       /**
-       * @summary 删除客户端CA证书
+       * @summary Deletes a client CA certificate.
        *
        * @param request DeleteClientCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1242,7 +1462,7 @@ namespace ESA20240910
       Models::DeleteClientCaCertificateResponse deleteClientCaCertificateWithOptions(const Models::DeleteClientCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除客户端CA证书
+       * @summary Deletes a client CA certificate.
        *
        * @param request DeleteClientCaCertificateRequest
        * @return DeleteClientCaCertificateResponse
@@ -1250,7 +1470,7 @@ namespace ESA20240910
       Models::DeleteClientCaCertificateResponse deleteClientCaCertificate(const Models::DeleteClientCaCertificateRequest &request);
 
       /**
-       * @summary 删除客户端证书
+       * @summary Deletes a revoked client certificate.
        *
        * @param request DeleteClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1479,7 @@ namespace ESA20240910
       Models::DeleteClientCertificateResponse deleteClientCertificateWithOptions(const Models::DeleteClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除客户端证书
+       * @summary Deletes a revoked client certificate.
        *
        * @param request DeleteClientCertificateRequest
        * @return DeleteClientCertificateResponse
@@ -1267,7 +1487,7 @@ namespace ESA20240910
       Models::DeleteClientCertificateResponse deleteClientCertificate(const Models::DeleteClientCertificateRequest &request);
 
       /**
-       * @summary 删除压缩规则
+       * @summary Delete compression rule
        *
        * @param request DeleteCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1276,7 +1496,7 @@ namespace ESA20240910
       Models::DeleteCompressionRuleResponse deleteCompressionRuleWithOptions(const Models::DeleteCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除压缩规则
+       * @summary Delete compression rule
        *
        * @param request DeleteCompressionRuleRequest
        * @return DeleteCompressionRuleResponse
@@ -1301,7 +1521,7 @@ namespace ESA20240910
       Models::DeleteCustomHostnameResponse deleteCustomHostname(const Models::DeleteCustomHostnameRequest &request);
 
       /**
-       * @summary 删除修改响应码规则
+       * @summary Deletes the configuration of response code modification for a website.
        *
        * @param request DeleteCustomResponseCodeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1310,7 +1530,7 @@ namespace ESA20240910
       Models::DeleteCustomResponseCodeRuleResponse deleteCustomResponseCodeRuleWithOptions(const Models::DeleteCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除修改响应码规则
+       * @summary Deletes the configuration of response code modification for a website.
        *
        * @param request DeleteCustomResponseCodeRuleRequest
        * @return DeleteCustomResponseCodeRuleResponse
@@ -1318,7 +1538,7 @@ namespace ESA20240910
       Models::DeleteCustomResponseCodeRuleResponse deleteCustomResponseCodeRule(const Models::DeleteCustomResponseCodeRuleRequest &request);
 
       /**
-       * @summary 删除定制场景策略
+       * @summary Deletes a scenario-specific custom policy.
        *
        * @param request DeleteCustomScenePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1327,7 +1547,7 @@ namespace ESA20240910
       Models::DeleteCustomScenePolicyResponse deleteCustomScenePolicyWithOptions(const Models::DeleteCustomScenePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除定制场景策略
+       * @summary Deletes a scenario-specific custom policy.
        *
        * @param request DeleteCustomScenePolicyRequest
        * @return DeleteCustomScenePolicyResponse
@@ -1335,7 +1555,7 @@ namespace ESA20240910
       Models::DeleteCustomScenePolicyResponse deleteCustomScenePolicy(const Models::DeleteCustomScenePolicyRequest &request);
 
       /**
-       * @summary 删除边缘容器的应用
+       * @summary Deletes a containerized application.
        *
        * @param request DeleteEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1344,7 +1564,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppResponse deleteEdgeContainerAppWithOptions(const Models::DeleteEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘容器的应用
+       * @summary Deletes a containerized application.
        *
        * @param request DeleteEdgeContainerAppRequest
        * @return DeleteEdgeContainerAppResponse
@@ -1352,7 +1572,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppResponse deleteEdgeContainerApp(const Models::DeleteEdgeContainerAppRequest &request);
 
       /**
-       * @summary 删除边缘容器应用的镜像秘钥
+       * @summary Delete the image secret of an edge container application
        *
        * @param request DeleteEdgeContainerAppImageSecretRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1361,7 +1581,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecretWithOptions(const Models::DeleteEdgeContainerAppImageSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘容器应用的镜像秘钥
+       * @summary Delete the image secret of an edge container application
        *
        * @param request DeleteEdgeContainerAppImageSecretRequest
        * @return DeleteEdgeContainerAppImageSecretResponse
@@ -1369,7 +1589,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppImageSecretResponse deleteEdgeContainerAppImageSecret(const Models::DeleteEdgeContainerAppImageSecretRequest &request);
 
       /**
-       * @summary 删除一个边缘容器应用的域名记录
+       * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1378,7 +1598,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppRecordResponse deleteEdgeContainerAppRecordWithOptions(const Models::DeleteEdgeContainerAppRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个边缘容器应用的域名记录
+       * @summary Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
        *
        * @param request DeleteEdgeContainerAppRecordRequest
        * @return DeleteEdgeContainerAppRecordResponse
@@ -1386,7 +1606,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppRecordResponse deleteEdgeContainerAppRecord(const Models::DeleteEdgeContainerAppRecordRequest &request);
 
       /**
-       * @summary 删除边缘容器应用的版本
+       * @summary Deletes a version of a containerized application.
        *
        * @param request DeleteEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1395,7 +1615,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersionWithOptions(const Models::DeleteEdgeContainerAppVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘容器应用的版本
+       * @summary Deletes a version of a containerized application.
        *
        * @param request DeleteEdgeContainerAppVersionRequest
        * @return DeleteEdgeContainerAppVersionResponse
@@ -1403,7 +1623,7 @@ namespace ESA20240910
       Models::DeleteEdgeContainerAppVersionResponse deleteEdgeContainerAppVersion(const Models::DeleteEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 删除深度学习和防护下发的规则
+       * @summary Delete rules for deep learning and protection distribution
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1412,7 +1632,7 @@ namespace ESA20240910
       Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRuleWithOptions(const Models::DeleteHttpDDoSIntelligentRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除深度学习和防护下发的规则
+       * @summary Delete rules for deep learning and protection distribution
        *
        * @param request DeleteHttpDDoSIntelligentRuleRequest
        * @return DeleteHttpDDoSIntelligentRuleResponse
@@ -1420,7 +1640,7 @@ namespace ESA20240910
       Models::DeleteHttpDDoSIntelligentRuleResponse deleteHttpDDoSIntelligentRule(const Models::DeleteHttpDDoSIntelligentRuleRequest &request);
 
       /**
-       * @summary 删除HTTP入站请求头规则
+       * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
        *
        * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1429,7 +1649,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP入站请求头规则
+       * @summary Deletes the configuration of modifying incoming HTTP request headers for a website.
        *
        * @param request DeleteHttpIncomingRequestHeaderModificationRuleRequest
        * @return DeleteHttpIncomingRequestHeaderModificationRuleResponse
@@ -1437,7 +1657,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingRequestHeaderModificationRuleResponse deleteHttpIncomingRequestHeaderModificationRule(const Models::DeleteHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 删除HTTP入站响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1446,7 +1666,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingResponseHeaderModificationRuleResponse deleteHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::DeleteHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP入站响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpIncomingResponseHeaderModificationRuleRequest
        * @return DeleteHttpIncomingResponseHeaderModificationRuleResponse
@@ -1454,7 +1674,7 @@ namespace ESA20240910
       Models::DeleteHttpIncomingResponseHeaderModificationRuleResponse deleteHttpIncomingResponseHeaderModificationRule(const Models::DeleteHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 删除HTTP请求头规则
+       * @summary Deletes the configuration of modifying HTTP request headers for a website.
        *
        * @param request DeleteHttpRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1463,7 +1683,7 @@ namespace ESA20240910
       Models::DeleteHttpRequestHeaderModificationRuleResponse deleteHttpRequestHeaderModificationRuleWithOptions(const Models::DeleteHttpRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP请求头规则
+       * @summary Deletes the configuration of modifying HTTP request headers for a website.
        *
        * @param request DeleteHttpRequestHeaderModificationRuleRequest
        * @return DeleteHttpRequestHeaderModificationRuleResponse
@@ -1471,7 +1691,7 @@ namespace ESA20240910
       Models::DeleteHttpRequestHeaderModificationRuleResponse deleteHttpRequestHeaderModificationRule(const Models::DeleteHttpRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 删除HTTP响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1480,7 +1700,7 @@ namespace ESA20240910
       Models::DeleteHttpResponseHeaderModificationRuleResponse deleteHttpResponseHeaderModificationRuleWithOptions(const Models::DeleteHttpResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTP响应头规则
+       * @summary Deletes the configuration of modifying HTTP response headers for a website.
        *
        * @param request DeleteHttpResponseHeaderModificationRuleRequest
        * @return DeleteHttpResponseHeaderModificationRuleResponse
@@ -1488,7 +1708,7 @@ namespace ESA20240910
       Models::DeleteHttpResponseHeaderModificationRuleResponse deleteHttpResponseHeaderModificationRule(const Models::DeleteHttpResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 删除HTTPS应用配置
+       * @summary Delete HTTPS Application Configuration
        *
        * @param request DeleteHttpsApplicationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1717,7 @@ namespace ESA20240910
       Models::DeleteHttpsApplicationConfigurationResponse deleteHttpsApplicationConfigurationWithOptions(const Models::DeleteHttpsApplicationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTPS应用配置
+       * @summary Delete HTTPS Application Configuration
        *
        * @param request DeleteHttpsApplicationConfigurationRequest
        * @return DeleteHttpsApplicationConfigurationResponse
@@ -1505,7 +1725,7 @@ namespace ESA20240910
       Models::DeleteHttpsApplicationConfigurationResponse deleteHttpsApplicationConfiguration(const Models::DeleteHttpsApplicationConfigurationRequest &request);
 
       /**
-       * @summary 删除HTTPS基础配置
+       * @summary Delete HTTPS Basic Configuration
        *
        * @param request DeleteHttpsBasicConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1514,7 +1734,7 @@ namespace ESA20240910
       Models::DeleteHttpsBasicConfigurationResponse deleteHttpsBasicConfigurationWithOptions(const Models::DeleteHttpsBasicConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除HTTPS基础配置
+       * @summary Delete HTTPS Basic Configuration
        *
        * @param request DeleteHttpsBasicConfigurationRequest
        * @return DeleteHttpsBasicConfigurationResponse
@@ -1522,7 +1742,7 @@ namespace ESA20240910
       Models::DeleteHttpsBasicConfigurationResponse deleteHttpsBasicConfiguration(const Models::DeleteHttpsBasicConfigurationRequest &request);
 
       /**
-       * @summary 删除站点图片转换配置
+       * @summary Delete Site Image Transformation Configuration
        *
        * @param request DeleteImageTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1531,7 +1751,7 @@ namespace ESA20240910
       Models::DeleteImageTransformResponse deleteImageTransformWithOptions(const Models::DeleteImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除站点图片转换配置
+       * @summary Delete Site Image Transformation Configuration
        *
        * @param request DeleteImageTransformRequest
        * @return DeleteImageTransformResponse
@@ -1556,7 +1776,7 @@ namespace ESA20240910
       Models::DeleteKeylessServerResponse deleteKeylessServer(const Models::DeleteKeylessServerRequest &request);
 
       /**
-       * @summary 删除Namespace的Key-Value对
+       * @summary Deletes a key-value pair from a namespace.
        *
        * @param request DeleteKvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1565,7 +1785,7 @@ namespace ESA20240910
       Models::DeleteKvResponse deleteKvWithOptions(const Models::DeleteKvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Namespace的Key-Value对
+       * @summary Deletes a key-value pair from a namespace.
        *
        * @param request DeleteKvRequest
        * @return DeleteKvResponse
@@ -1573,7 +1793,7 @@ namespace ESA20240910
       Models::DeleteKvResponse deleteKv(const Models::DeleteKvRequest &request);
 
       /**
-       * @summary 删除Namespace
+       * @summary Deletes a namespace from an Alibaba Cloud account.
        *
        * @param request DeleteKvNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1582,7 +1802,7 @@ namespace ESA20240910
       Models::DeleteKvNamespaceResponse deleteKvNamespaceWithOptions(const Models::DeleteKvNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Namespace
+       * @summary Deletes a namespace from an Alibaba Cloud account.
        *
        * @param request DeleteKvNamespaceRequest
        * @return DeleteKvNamespaceResponse
@@ -1590,7 +1810,7 @@ namespace ESA20240910
       Models::DeleteKvNamespaceResponse deleteKvNamespace(const Models::DeleteKvNamespaceRequest &request);
 
       /**
-       * @summary 删除自定义列表
+       * @summary Deletes a custom list that is no longer needed.
        *
        * @param request DeleteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1819,7 @@ namespace ESA20240910
       Models::DeleteListResponse deleteListWithOptions(const Models::DeleteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义列表
+       * @summary Deletes a custom list that is no longer needed.
        *
        * @param request DeleteListRequest
        * @return DeleteListResponse
@@ -1607,7 +1827,9 @@ namespace ESA20240910
       Models::DeleteListResponse deleteList(const Models::DeleteListRequest &request);
 
       /**
-       * @summary 删除负载均衡器
+       * @summary Delete Load Balancer
+       *
+       * @description Delete a load balancer by its ID, only one can be deleted at a time.
        *
        * @param request DeleteLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1616,7 +1838,9 @@ namespace ESA20240910
       Models::DeleteLoadBalancerResponse deleteLoadBalancerWithOptions(const Models::DeleteLoadBalancerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除负载均衡器
+       * @summary Delete Load Balancer
+       *
+       * @description Delete a load balancer by its ID, only one can be deleted at a time.
        *
        * @param request DeleteLoadBalancerRequest
        * @return DeleteLoadBalancerResponse
@@ -1624,7 +1848,7 @@ namespace ESA20240910
       Models::DeleteLoadBalancerResponse deleteLoadBalancer(const Models::DeleteLoadBalancerRequest &request);
 
       /**
-       * @summary 删除网络优化配置
+       * @summary Delete Network Optimization Configuration
        *
        * @param request DeleteNetworkOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1633,7 +1857,7 @@ namespace ESA20240910
       Models::DeleteNetworkOptimizationResponse deleteNetworkOptimizationWithOptions(const Models::DeleteNetworkOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网络优化配置
+       * @summary Delete Network Optimization Configuration
        *
        * @param request DeleteNetworkOptimizationRequest
        * @return DeleteNetworkOptimizationResponse
@@ -1675,7 +1899,7 @@ namespace ESA20240910
       Models::DeleteOriginClientCertificateResponse deleteOriginClientCertificate(const Models::DeleteOriginClientCertificateRequest &request);
 
       /**
-       * @summary 删除源地址池
+       * @summary Delete Origin Address Pool
        *
        * @param request DeleteOriginPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1684,7 +1908,7 @@ namespace ESA20240910
       Models::DeleteOriginPoolResponse deleteOriginPoolWithOptions(const Models::DeleteOriginPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除源地址池
+       * @summary Delete Origin Address Pool
        *
        * @param request DeleteOriginPoolRequest
        * @return DeleteOriginPoolResponse
@@ -1692,7 +1916,7 @@ namespace ESA20240910
       Models::DeleteOriginPoolResponse deleteOriginPool(const Models::DeleteOriginPoolRequest &request);
 
       /**
-       * @summary 关闭源站防护功能
+       * @summary Disables origin protection.
        *
        * @param request DeleteOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1701,7 +1925,7 @@ namespace ESA20240910
       Models::DeleteOriginProtectionResponse deleteOriginProtectionWithOptions(const Models::DeleteOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 关闭源站防护功能
+       * @summary Disables origin protection.
        *
        * @param request DeleteOriginProtectionRequest
        * @return DeleteOriginProtectionResponse
@@ -1709,7 +1933,7 @@ namespace ESA20240910
       Models::DeleteOriginProtectionResponse deleteOriginProtection(const Models::DeleteOriginProtectionRequest &request);
 
       /**
-       * @summary 删除回源规则配置
+       * @summary Delete Origin Rule Configuration
        *
        * @param request DeleteOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1718,7 +1942,7 @@ namespace ESA20240910
       Models::DeleteOriginRuleResponse deleteOriginRuleWithOptions(const Models::DeleteOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除回源规则配置
+       * @summary Delete Origin Rule Configuration
        *
        * @param request DeleteOriginRuleRequest
        * @return DeleteOriginRuleResponse
@@ -1726,7 +1950,7 @@ namespace ESA20240910
       Models::DeleteOriginRuleResponse deleteOriginRule(const Models::DeleteOriginRuleRequest &request);
 
       /**
-       * @summary 删除自定义响应页面
+       * @summary Deletes a custom error page that is no longer needed.
        *
        * @param request DeletePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1735,7 +1959,7 @@ namespace ESA20240910
       Models::DeletePageResponse deletePageWithOptions(const Models::DeletePageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义响应页面
+       * @summary Deletes a custom error page that is no longer needed.
        *
        * @param request DeletePageRequest
        * @return DeletePageResponse
@@ -1743,7 +1967,7 @@ namespace ESA20240910
       Models::DeletePageResponse deletePage(const Models::DeletePageRequest &request);
 
       /**
-       * @summary 删除记录
+       * @summary Deletes a DNS record of a website based on the specified RecordId.
        *
        * @param request DeleteRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1752,7 +1976,7 @@ namespace ESA20240910
       Models::DeleteRecordResponse deleteRecordWithOptions(const Models::DeleteRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除记录
+       * @summary Deletes a DNS record of a website based on the specified RecordId.
        *
        * @param request DeleteRecordRequest
        * @return DeleteRecordResponse
@@ -1760,7 +1984,7 @@ namespace ESA20240910
       Models::DeleteRecordResponse deleteRecord(const Models::DeleteRecordRequest &request);
 
       /**
-       * @summary 删除重定向规则
+       * @summary Deletes a URL redirect rule for a website.
        *
        * @param request DeleteRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1769,7 +1993,7 @@ namespace ESA20240910
       Models::DeleteRedirectRuleResponse deleteRedirectRuleWithOptions(const Models::DeleteRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除重定向规则
+       * @summary Deletes a URL redirect rule for a website.
        *
        * @param request DeleteRedirectRuleRequest
        * @return DeleteRedirectRuleResponse
@@ -1777,7 +2001,7 @@ namespace ESA20240910
       Models::DeleteRedirectRuleResponse deleteRedirectRule(const Models::DeleteRedirectRuleRequest &request);
 
       /**
-       * @summary 删除重写Url规则
+       * @summary Deletes a URL rewrite rule for a website.
        *
        * @param request DeleteRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1786,7 +2010,7 @@ namespace ESA20240910
       Models::DeleteRewriteUrlRuleResponse deleteRewriteUrlRuleWithOptions(const Models::DeleteRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除重写Url规则
+       * @summary Deletes a URL rewrite rule for a website.
        *
        * @param request DeleteRewriteUrlRuleRequest
        * @return DeleteRewriteUrlRuleResponse
@@ -1794,7 +2018,7 @@ namespace ESA20240910
       Models::DeleteRewriteUrlRuleResponse deleteRewriteUrlRule(const Models::DeleteRewriteUrlRuleRequest &request);
 
       /**
-       * @summary 删除Routine
+       * @summary Deletes a routine in Edge Routine.
        *
        * @param request DeleteRoutineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1803,7 +2027,7 @@ namespace ESA20240910
       Models::DeleteRoutineResponse deleteRoutineWithOptions(const Models::DeleteRoutineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Routine
+       * @summary Deletes a routine in Edge Routine.
        *
        * @param request DeleteRoutineRequest
        * @return DeleteRoutineResponse
@@ -1811,7 +2035,7 @@ namespace ESA20240910
       Models::DeleteRoutineResponse deleteRoutine(const Models::DeleteRoutineRequest &request);
 
       /**
-       * @summary 删除Routine某版本代码
+       * @summary Deletes a code version of a routine.
        *
        * @param request DeleteRoutineCodeVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1820,7 +2044,7 @@ namespace ESA20240910
       Models::DeleteRoutineCodeVersionResponse deleteRoutineCodeVersionWithOptions(const Models::DeleteRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Routine某版本代码
+       * @summary Deletes a code version of a routine.
        *
        * @param request DeleteRoutineCodeVersionRequest
        * @return DeleteRoutineCodeVersionResponse
@@ -1828,7 +2052,7 @@ namespace ESA20240910
       Models::DeleteRoutineCodeVersionResponse deleteRoutineCodeVersion(const Models::DeleteRoutineCodeVersionRequest &request);
 
       /**
-       * @summary 删除Routine关联域名
+       * @summary Deletes a record that is associated with a routine.
        *
        * @param request DeleteRoutineRelatedRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1837,7 +2061,7 @@ namespace ESA20240910
       Models::DeleteRoutineRelatedRecordResponse deleteRoutineRelatedRecordWithOptions(const Models::DeleteRoutineRelatedRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Routine关联域名
+       * @summary Deletes a record that is associated with a routine.
        *
        * @param request DeleteRoutineRelatedRecordRequest
        * @return DeleteRoutineRelatedRecordResponse
@@ -1845,7 +2069,7 @@ namespace ESA20240910
       Models::DeleteRoutineRelatedRecordResponse deleteRoutineRelatedRecord(const Models::DeleteRoutineRelatedRecordRequest &request);
 
       /**
-       * @summary 删除边缘函数路由配置
+       * @summary Deletes the route configuration of an edge function.
        *
        * @param request DeleteRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1854,7 +2078,7 @@ namespace ESA20240910
       Models::DeleteRoutineRouteResponse deleteRoutineRouteWithOptions(const Models::DeleteRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除边缘函数路由配置
+       * @summary Deletes the route configuration of an edge function.
        *
        * @param request DeleteRoutineRouteRequest
        * @return DeleteRoutineRouteResponse
@@ -1862,7 +2086,7 @@ namespace ESA20240910
       Models::DeleteRoutineRouteResponse deleteRoutineRoute(const Models::DeleteRoutineRouteRequest &request);
 
       /**
-       * @summary 删除单个定时预热计划
+       * @summary Deletes a scheduled prefetch plan based on the plan ID.
        *
        * @param request DeleteScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1871,7 +2095,7 @@ namespace ESA20240910
       Models::DeleteScheduledPreloadExecutionResponse deleteScheduledPreloadExecutionWithOptions(const Models::DeleteScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除单个定时预热计划
+       * @summary Deletes a scheduled prefetch plan based on the plan ID.
        *
        * @param request DeleteScheduledPreloadExecutionRequest
        * @return DeleteScheduledPreloadExecutionResponse
@@ -1879,7 +2103,7 @@ namespace ESA20240910
       Models::DeleteScheduledPreloadExecutionResponse deleteScheduledPreloadExecution(const Models::DeleteScheduledPreloadExecutionRequest &request);
 
       /**
-       * @summary 删除指定定时预热任务
+       * @summary Deletes a specified scheduled prefetch task based on the task ID.
        *
        * @param request DeleteScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1888,7 +2112,7 @@ namespace ESA20240910
       Models::DeleteScheduledPreloadJobResponse deleteScheduledPreloadJobWithOptions(const Models::DeleteScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定定时预热任务
+       * @summary Deletes a specified scheduled prefetch task based on the task ID.
        *
        * @param request DeleteScheduledPreloadJobRequest
        * @return DeleteScheduledPreloadJobResponse
@@ -1896,7 +2120,7 @@ namespace ESA20240910
       Models::DeleteScheduledPreloadJobResponse deleteScheduledPreloadJob(const Models::DeleteScheduledPreloadJobRequest &request);
 
       /**
-       * @summary 删除站点
+       * @summary Deletes a website based on the specified website ID.
        *
        * @param request DeleteSiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1905,7 +2129,7 @@ namespace ESA20240910
       Models::DeleteSiteResponse deleteSiteWithOptions(const Models::DeleteSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除站点
+       * @summary Deletes a website based on the specified website ID.
        *
        * @param request DeleteSiteRequest
        * @return DeleteSiteResponse
@@ -1913,7 +2137,7 @@ namespace ESA20240910
       Models::DeleteSiteResponse deleteSite(const Models::DeleteSiteRequest &request);
 
       /**
-       * @summary 删除一个任务投递
+       * @summary Deletes a real-time log delivery task.
        *
        * @param request DeleteSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1922,7 +2146,7 @@ namespace ESA20240910
       Models::DeleteSiteDeliveryTaskResponse deleteSiteDeliveryTaskWithOptions(const Models::DeleteSiteDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个任务投递
+       * @summary Deletes a real-time log delivery task.
        *
        * @param request DeleteSiteDeliveryTaskRequest
        * @return DeleteSiteDeliveryTaskResponse
@@ -1947,7 +2171,7 @@ namespace ESA20240910
       Models::DeleteSiteOriginClientCertificateResponse deleteSiteOriginClientCertificate(const Models::DeleteSiteOriginClientCertificateRequest &request);
 
       /**
-       * @summary 删除四层应用接口
+       * @summary Delete Transport Layer Application
        *
        * @param request DeleteTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +2180,7 @@ namespace ESA20240910
       Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplicationWithOptions(const Models::DeleteTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除四层应用接口
+       * @summary Delete Transport Layer Application
        *
        * @param request DeleteTransportLayerApplicationRequest
        * @return DeleteTransportLayerApplicationResponse
@@ -1964,7 +2188,7 @@ namespace ESA20240910
       Models::DeleteTransportLayerApplicationResponse deleteTransportLayerApplication(const Models::DeleteTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 删除网页监测配置
+       * @summary Deletes page monitoring configurations.
        *
        * @param request DeleteUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +2197,7 @@ namespace ESA20240910
       Models::DeleteUrlObservationResponse deleteUrlObservationWithOptions(const Models::DeleteUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除网页监测配置
+       * @summary Deletes page monitoring configurations.
        *
        * @param request DeleteUrlObservationRequest
        * @return DeleteUrlObservationResponse
@@ -1981,7 +2205,12 @@ namespace ESA20240910
       Models::DeleteUrlObservationResponse deleteUrlObservation(const Models::DeleteUrlObservationRequest &request);
 
       /**
-       * @summary 删除一个用户任务投递
+       * @summary Deletes a log delivery task from your Alibaba Cloud account.
+       *
+       * @description ******> 
+       * *   Deleted tasks cannot be restored. Proceed with caution.
+       * *   To call this operation, you must have an account that has the required permissions.
+       * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1990,7 +2219,12 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTaskWithOptions(const Models::DeleteUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除一个用户任务投递
+       * @summary Deletes a log delivery task from your Alibaba Cloud account.
+       *
+       * @description ******> 
+       * *   Deleted tasks cannot be restored. Proceed with caution.
+       * *   To call this operation, you must have an account that has the required permissions.
+       * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
        *
        * @param request DeleteUserDeliveryTaskRequest
        * @return DeleteUserDeliveryTaskResponse
@@ -1998,17 +2232,10 @@ namespace ESA20240910
       Models::DeleteUserDeliveryTaskResponse deleteUserDeliveryTask(const Models::DeleteUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       * @summary Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
        *
-       * @description ## 请求说明
-       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       * @description ## Request Description
+       * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
        *
        * @param request DeleteUserWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2017,17 +2244,10 @@ namespace ESA20240910
       Models::DeleteUserWafRulesetResponse deleteUserWafRulesetWithOptions(const Models::DeleteUserWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于删除实例级别的Web应用防火墙规则集。
+       * @summary Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
        *
-       * @description ## 请求说明
-       * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
-       * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
-       * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
-       * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
-       * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
-       * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
-       * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
-       * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
+       * @description ## Request Description
+       * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
        *
        * @param request DeleteUserWafRulesetRequest
        * @return DeleteUserWafRulesetResponse
@@ -2035,7 +2255,7 @@ namespace ESA20240910
       Models::DeleteUserWafRulesetResponse deleteUserWafRuleset(const Models::DeleteUserWafRulesetRequest &request);
 
       /**
-       * @summary 删除站点视频处理配置
+       * @summary Deletes a video processing configuration.
        *
        * @param request DeleteVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2044,7 +2264,7 @@ namespace ESA20240910
       Models::DeleteVideoProcessingResponse deleteVideoProcessingWithOptions(const Models::DeleteVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除站点视频处理配置
+       * @summary Deletes a video processing configuration.
        *
        * @param request DeleteVideoProcessingRequest
        * @return DeleteVideoProcessingResponse
@@ -2052,7 +2272,7 @@ namespace ESA20240910
       Models::DeleteVideoProcessingResponse deleteVideoProcessing(const Models::DeleteVideoProcessingRequest &request);
 
       /**
-       * @summary 删除WAF规则
+       * @summary Delete WAF Rule
        *
        * @param request DeleteWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2061,7 +2281,7 @@ namespace ESA20240910
       Models::DeleteWafRuleResponse deleteWafRuleWithOptions(const Models::DeleteWafRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除WAF规则
+       * @summary Delete WAF Rule
        *
        * @param request DeleteWafRuleRequest
        * @return DeleteWafRuleResponse
@@ -2069,7 +2289,7 @@ namespace ESA20240910
       Models::DeleteWafRuleResponse deleteWafRule(const Models::DeleteWafRuleRequest &request);
 
       /**
-       * @summary 删除WAF规则集
+       * @summary Delete WAF Ruleset
        *
        * @param request DeleteWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2078,7 +2298,7 @@ namespace ESA20240910
       Models::DeleteWafRulesetResponse deleteWafRulesetWithOptions(const Models::DeleteWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除WAF规则集
+       * @summary Delete WAF Ruleset
        *
        * @param request DeleteWafRulesetRequest
        * @return DeleteWafRulesetResponse
@@ -2086,7 +2306,7 @@ namespace ESA20240910
       Models::DeleteWafRulesetResponse deleteWafRuleset(const Models::DeleteWafRulesetRequest &request);
 
       /**
-       * @summary 删除等候室
+       * @summary Deletes a waiting room.
        *
        * @param request DeleteWaitingRoomRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2095,7 +2315,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomResponse deleteWaitingRoomWithOptions(const Models::DeleteWaitingRoomRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除等候室
+       * @summary Deletes a waiting room.
        *
        * @param request DeleteWaitingRoomRequest
        * @return DeleteWaitingRoomResponse
@@ -2103,7 +2323,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomResponse deleteWaitingRoom(const Models::DeleteWaitingRoomRequest &request);
 
       /**
-       * @summary 删除等候室事件
+       * @summary Deletes a waiting room event.
        *
        * @param request DeleteWaitingRoomEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2112,7 +2332,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomEventResponse deleteWaitingRoomEventWithOptions(const Models::DeleteWaitingRoomEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除等候室事件
+       * @summary Deletes a waiting room event.
        *
        * @param request DeleteWaitingRoomEventRequest
        * @return DeleteWaitingRoomEventResponse
@@ -2120,7 +2340,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomEventResponse deleteWaitingRoomEvent(const Models::DeleteWaitingRoomEventRequest &request);
 
       /**
-       * @summary 删除等候室规则
+       * @summary Deletes a waiting room bypass rule.
        *
        * @param request DeleteWaitingRoomRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2129,7 +2349,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomRuleResponse deleteWaitingRoomRuleWithOptions(const Models::DeleteWaitingRoomRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除等候室规则
+       * @summary Deletes a waiting room bypass rule.
        *
        * @param request DeleteWaitingRoomRuleRequest
        * @return DeleteWaitingRoomRuleResponse
@@ -2137,7 +2357,7 @@ namespace ESA20240910
       Models::DeleteWaitingRoomRuleResponse deleteWaitingRoomRule(const Models::DeleteWaitingRoomRuleRequest &request);
 
       /**
-       * @summary 查询定制场景策略配置
+       * @summary Queries the configurations of a scenario-specific policy.
        *
        * @param request DescribeCustomScenePoliciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2146,7 +2366,7 @@ namespace ESA20240910
       Models::DescribeCustomScenePoliciesResponse describeCustomScenePoliciesWithOptions(const Models::DescribeCustomScenePoliciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询定制场景策略配置
+       * @summary Queries the configurations of a scenario-specific policy.
        *
        * @param request DescribeCustomScenePoliciesRequest
        * @return DescribeCustomScenePoliciesResponse
@@ -2154,7 +2374,7 @@ namespace ESA20240910
       Models::DescribeCustomScenePoliciesResponse describeCustomScenePolicies(const Models::DescribeCustomScenePoliciesRequest &request);
 
       /**
-       * @summary 攻击分析-查询攻击事件列表
+       * @summary Queries DDoS attack events.
        *
        * @param request DescribeDDoSAllEventListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2163,7 +2383,7 @@ namespace ESA20240910
       Models::DescribeDDoSAllEventListResponse describeDDoSAllEventListWithOptions(const Models::DescribeDDoSAllEventListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 攻击分析-查询攻击事件列表
+       * @summary Queries DDoS attack events.
        *
        * @param request DescribeDDoSAllEventListRequest
        * @return DescribeDDoSAllEventListResponse
@@ -2171,7 +2391,7 @@ namespace ESA20240910
       Models::DescribeDDoSAllEventListResponse describeDDoSAllEventList(const Models::DescribeDDoSAllEventListRequest &request);
 
       /**
-       * @summary 查询DCDN DDoS用户bps、pps数据
+       * @summary Query DCDN DDoS user bps and pps data
        *
        * @param request DescribeDDoSBpsListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2180,7 +2400,7 @@ namespace ESA20240910
       Models::DescribeDDoSBpsListResponse describeDDoSBpsListWithOptions(const Models::DescribeDDoSBpsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询DCDN DDoS用户bps、pps数据
+       * @summary Query DCDN DDoS user bps and pps data
        *
        * @param request DescribeDDoSBpsListRequest
        * @return DescribeDDoSBpsListResponse
@@ -2188,7 +2408,7 @@ namespace ESA20240910
       Models::DescribeDDoSBpsListResponse describeDDoSBpsList(const Models::DescribeDDoSBpsListRequest &request);
 
       /**
-       * @summary ddos分析七层qps走势图接口
+       * @summary DDoS Analysis Layer 7 QPS Trend Chart API
        *
        * @param request DescribeDDoSL7QpsListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2197,7 +2417,7 @@ namespace ESA20240910
       Models::DescribeDDoSL7QpsListResponse describeDDoSL7QpsListWithOptions(const Models::DescribeDDoSL7QpsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ddos分析七层qps走势图接口
+       * @summary DDoS Analysis Layer 7 QPS Trend Chart API
        *
        * @param request DescribeDDoSL7QpsListRequest
        * @return DescribeDDoSL7QpsListResponse
@@ -2222,7 +2442,7 @@ namespace ESA20240910
       Models::DescribeDdosMaxBurstGbpsResponse describeDdosMaxBurstGbps(const Models::DescribeDdosMaxBurstGbpsRequest &request);
 
       /**
-       * @summary 边缘容器的监控
+       * @summary Provides monitoring data for metrics of ESA edge containers.
        *
        * @param request DescribeEdgeContainerAppStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2451,7 @@ namespace ESA20240910
       Models::DescribeEdgeContainerAppStatsResponse describeEdgeContainerAppStatsWithOptions(const Models::DescribeEdgeContainerAppStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 边缘容器的监控
+       * @summary Provides monitoring data for metrics of ESA edge containers.
        *
        * @param request DescribeEdgeContainerAppStatsRequest
        * @return DescribeEdgeContainerAppStatsResponse
@@ -2239,7 +2459,7 @@ namespace ESA20240910
       Models::DescribeEdgeContainerAppStatsResponse describeEdgeContainerAppStats(const Models::DescribeEdgeContainerAppStatsRequest &request);
 
       /**
-       * @summary 查询HTTP DDoS智能防护配置信息
+       * @summary Queries the configuration of smart HTTP DDoS protection for a website.
        *
        * @param request DescribeHttpDDoSAttackIntelligentProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2248,7 +2468,7 @@ namespace ESA20240910
       Models::DescribeHttpDDoSAttackIntelligentProtectionResponse describeHttpDDoSAttackIntelligentProtectionWithOptions(const Models::DescribeHttpDDoSAttackIntelligentProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP DDoS智能防护配置信息
+       * @summary Queries the configuration of smart HTTP DDoS protection for a website.
        *
        * @param request DescribeHttpDDoSAttackIntelligentProtectionRequest
        * @return DescribeHttpDDoSAttackIntelligentProtectionResponse
@@ -2256,7 +2476,7 @@ namespace ESA20240910
       Models::DescribeHttpDDoSAttackIntelligentProtectionResponse describeHttpDDoSAttackIntelligentProtection(const Models::DescribeHttpDDoSAttackIntelligentProtectionRequest &request);
 
       /**
-       * @summary 查询HTTP DDoS攻击防护配置信息
+       * @summary Queries the configurations of HTTP DDoS attack protection.
        *
        * @param request DescribeHttpDDoSAttackProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2265,7 +2485,7 @@ namespace ESA20240910
       Models::DescribeHttpDDoSAttackProtectionResponse describeHttpDDoSAttackProtectionWithOptions(const Models::DescribeHttpDDoSAttackProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP DDoS攻击防护配置信息
+       * @summary Queries the configurations of HTTP DDoS attack protection.
        *
        * @param request DescribeHttpDDoSAttackProtectionRequest
        * @return DescribeHttpDDoSAttackProtectionResponse
@@ -2324,7 +2544,7 @@ namespace ESA20240910
       Models::DescribeHttpDDoSIntelligentRateLimitRulesResponse describeHttpDDoSIntelligentRateLimitRules(const Models::DescribeHttpDDoSIntelligentRateLimitRulesRequest &request);
 
       /**
-       * @summary 查询账户的KV状态信
+       * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeKvAccountStatusResponse
@@ -2332,14 +2552,14 @@ namespace ESA20240910
       Models::DescribeKvAccountStatusResponse describeKvAccountStatusWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询账户的KV状态信
+       * @summary Queries whether Edge KV is activated in your Alibaba Cloud account.
        *
        * @return DescribeKvAccountStatusResponse
        */
       Models::DescribeKvAccountStatusResponse describeKvAccountStatus();
 
       /**
-       * @summary 预热任务查询接口
+       * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
        *
        * @param request DescribePreloadTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2348,7 +2568,7 @@ namespace ESA20240910
       Models::DescribePreloadTasksResponse describePreloadTasksWithOptions(const Models::DescribePreloadTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 预热任务查询接口
+       * @summary Queries the details of prefetch tasks by time, task status, or prefetch URL.
        *
        * @param request DescribePreloadTasksRequest
        * @return DescribePreloadTasksResponse
@@ -2356,7 +2576,7 @@ namespace ESA20240910
       Models::DescribePreloadTasksResponse describePreloadTasks(const Models::DescribePreloadTasksRequest &request);
 
       /**
-       * @summary 刷新任务查询接口
+       * @summary Queries the details of purge tasks.
        *
        * @param request DescribePurgeTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2365,7 +2585,7 @@ namespace ESA20240910
       Models::DescribePurgeTasksResponse describePurgeTasksWithOptions(const Models::DescribePurgeTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 刷新任务查询接口
+       * @summary Queries the details of purge tasks.
        *
        * @param request DescribePurgeTasksRequest
        * @return DescribePurgeTasksResponse
@@ -2373,7 +2593,9 @@ namespace ESA20240910
       Models::DescribePurgeTasksResponse describePurgeTasks(const Models::DescribePurgeTasksRequest &request);
 
       /**
-       * @summary 查询套餐实例状态
+       * @summary Queries the status of an instance that uses a plan.
+       *
+       * @description You can query the status of an instance after you purchase a plan for the instance.
        *
        * @param request DescribeRatePlanInstanceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2382,7 +2604,9 @@ namespace ESA20240910
       Models::DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatusWithOptions(const Models::DescribeRatePlanInstanceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询套餐实例状态
+       * @summary Queries the status of an instance that uses a plan.
+       *
+       * @description You can query the status of an instance after you purchase a plan for the instance.
        *
        * @param request DescribeRatePlanInstanceStatusRequest
        * @return DescribeRatePlanInstanceStatusResponse
@@ -2390,7 +2614,7 @@ namespace ESA20240910
       Models::DescribeRatePlanInstanceStatusResponse describeRatePlanInstanceStatus(const Models::DescribeRatePlanInstanceStatusRequest &request);
 
       /**
-       * @summary 套餐询价
+       * @summary Queries the prices, types, and status of plans.
        *
        * @param request DescribeRatePlanPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2399,7 +2623,7 @@ namespace ESA20240910
       Models::DescribeRatePlanPriceResponse describeRatePlanPriceWithOptions(const Models::DescribeRatePlanPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 套餐询价
+       * @summary Queries the prices, types, and status of plans.
        *
        * @param request DescribeRatePlanPriceRequest
        * @return DescribeRatePlanPriceResponse
@@ -2407,7 +2631,12 @@ namespace ESA20240910
       Models::DescribeRatePlanPriceResponse describeRatePlanPrice(const Models::DescribeRatePlanPriceRequest &request);
 
       /**
-       * @summary 查询站点离线日志
+       * @summary Queries the URLs from which you can download the raw access logs of a website.
+       *
+       * @description *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+       * *   The log data is collected every hour.
+       * *   You can call this operation up to 50 times per second per account.
+       * *   You can query only logs in the last month. The time range cannot exceed 31 days.
        *
        * @param request DescribeSiteLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2416,7 +2645,12 @@ namespace ESA20240910
       Models::DescribeSiteLogsResponse describeSiteLogsWithOptions(const Models::DescribeSiteLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点离线日志
+       * @summary Queries the URLs from which you can download the raw access logs of a website.
+       *
+       * @description *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
+       * *   The log data is collected every hour.
+       * *   You can call this operation up to 50 times per second per account.
+       * *   You can query only logs in the last month. The time range cannot exceed 31 days.
        *
        * @param request DescribeSiteLogsRequest
        * @return DescribeSiteLogsResponse
@@ -2424,7 +2658,16 @@ namespace ESA20240910
       Models::DescribeSiteLogsResponse describeSiteLogs(const Models::DescribeSiteLogsRequest &request);
 
       /**
-       * @summary 查询时序数据
+       * @summary Query traffic analysis time series data
+       *
+       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
        *
        * @param tmpReq DescribeSiteTimeSeriesDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2433,7 +2676,16 @@ namespace ESA20240910
       Models::DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesDataWithOptions(const Models::DescribeSiteTimeSeriesDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询时序数据
+       * @summary Query traffic analysis time series data
+       *
+       * @description - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
+       * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
+       *   * For a span of 3 hours or less, it returns 1-minute granularity data.
+       *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
+       *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
+       *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
+       *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
+       * - Due to the high number of accesses during the query period, the data analysis may be sampled.
        *
        * @param request DescribeSiteTimeSeriesDataRequest
        * @return DescribeSiteTimeSeriesDataResponse
@@ -2441,7 +2693,9 @@ namespace ESA20240910
       Models::DescribeSiteTimeSeriesDataResponse describeSiteTimeSeriesData(const Models::DescribeSiteTimeSeriesDataRequest &request);
 
       /**
-       * @summary 获取TOP数据
+       * @summary Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+       *
+       * @description *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
        *
        * @param tmpReq DescribeSiteTopDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2450,7 +2704,9 @@ namespace ESA20240910
       Models::DescribeSiteTopDataResponse describeSiteTopDataWithOptions(const Models::DescribeSiteTopDataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取TOP数据
+       * @summary Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
+       *
+       * @description *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
        *
        * @param request DescribeSiteTopDataRequest
        * @return DescribeSiteTopDataResponse
@@ -2475,7 +2731,9 @@ namespace ESA20240910
       Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReport(const Models::DescribeTraceDiagnoseReportRequest &request);
 
       /**
-       * @summary 查询网页观测质量数据
+       * @summary Queries the page monitoring data.
+       *
+       * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2484,7 +2742,9 @@ namespace ESA20240910
       Models::DescribeUrlObservationDataResponse describeUrlObservationDataWithOptions(const Models::DescribeUrlObservationDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网页观测质量数据
+       * @summary Queries the page monitoring data.
+       *
+       * @description If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
        *
        * @param request DescribeUrlObservationDataRequest
        * @return DescribeUrlObservationDataResponse
@@ -2492,7 +2752,7 @@ namespace ESA20240910
       Models::DescribeUrlObservationDataResponse describeUrlObservationData(const Models::DescribeUrlObservationDataRequest &request);
 
       /**
-       * @summary 禁用定制场景策略
+       * @summary Disables a scenario-specific policy.
        *
        * @param request DisableCustomScenePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2501,7 +2761,7 @@ namespace ESA20240910
       Models::DisableCustomScenePolicyResponse disableCustomScenePolicyWithOptions(const Models::DisableCustomScenePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用定制场景策略
+       * @summary Disables a scenario-specific policy.
        *
        * @param request DisableCustomScenePolicyRequest
        * @return DisableCustomScenePolicyResponse
@@ -2509,7 +2769,7 @@ namespace ESA20240910
       Models::DisableCustomScenePolicyResponse disableCustomScenePolicy(const Models::DisableCustomScenePolicyRequest &request);
 
       /**
-       * @summary 编辑站点WAF配置
+       * @summary Edit WAF Configuration for a Site
        *
        * @param tmpReq EditSiteWafSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2518,7 +2778,7 @@ namespace ESA20240910
       Models::EditSiteWafSettingsResponse editSiteWafSettingsWithOptions(const Models::EditSiteWafSettingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑站点WAF配置
+       * @summary Edit WAF Configuration for a Site
        *
        * @param request EditSiteWafSettingsRequest
        * @return EditSiteWafSettingsResponse
@@ -2526,7 +2786,7 @@ namespace ESA20240910
       Models::EditSiteWafSettingsResponse editSiteWafSettings(const Models::EditSiteWafSettingsRequest &request);
 
       /**
-       * @summary 启动定制场景策略
+       * @summary Enables a scenario-specific policy.
        *
        * @param request EnableCustomScenePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2535,7 +2795,7 @@ namespace ESA20240910
       Models::EnableCustomScenePolicyResponse enableCustomScenePolicyWithOptions(const Models::EnableCustomScenePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动定制场景策略
+       * @summary Enables a scenario-specific policy.
        *
        * @param request EnableCustomScenePolicyRequest
        * @return EnableCustomScenePolicyResponse
@@ -2543,7 +2803,7 @@ namespace ESA20240910
       Models::EnableCustomScenePolicyResponse enableCustomScenePolicy(const Models::EnableCustomScenePolicyRequest &request);
 
       /**
-       * @summary 导出记录
+       * @summary Exports all DNS records of a website domain as a TXT file.
        *
        * @param request ExportRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2552,7 +2812,7 @@ namespace ESA20240910
       Models::ExportRecordsResponse exportRecordsWithOptions(const Models::ExportRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出记录
+       * @summary Exports all DNS records of a website domain as a TXT file.
        *
        * @param request ExportRecordsRequest
        * @return ExportRecordsResponse
@@ -2577,7 +2837,7 @@ namespace ESA20240910
       Models::GenerateTraceDiagnoseResponse generateTraceDiagnose(const Models::GenerateTraceDiagnoseRequest &request);
 
       /**
-       * @summary 获取架构文件套餐使用情况
+       * @summary Queries the usage of the upload file quota for API security schema verification.
        *
        * @param request GetApiSchemaUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2586,7 +2846,7 @@ namespace ESA20240910
       Models::GetApiSchemaUsageResponse getApiSchemaUsageWithOptions(const Models::GetApiSchemaUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取架构文件套餐使用情况
+       * @summary Queries the usage of the upload file quota for API security schema verification.
        *
        * @param request GetApiSchemaUsageRequest
        * @return GetApiSchemaUsageResponse
@@ -2611,7 +2871,7 @@ namespace ESA20240910
       Models::GetAutomaticFrequencyControlConfigResponse getAutomaticFrequencyControlConfig(const Models::GetAutomaticFrequencyControlConfigRequest &request);
 
       /**
-       * @summary 查询缓存保持实例规格
+       * @summary Queries the available specifications of cache reserve instances.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCacheReserveSpecificationResponse
@@ -2619,14 +2879,14 @@ namespace ESA20240910
       Models::GetCacheReserveSpecificationResponse getCacheReserveSpecificationWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询缓存保持实例规格
+       * @summary Queries the available specifications of cache reserve instances.
        *
        * @return GetCacheReserveSpecificationResponse
        */
       Models::GetCacheReserveSpecificationResponse getCacheReserveSpecification();
 
       /**
-       * @summary 查询单条缓存配置
+       * @summary Query a single cache configuration
        *
        * @param request GetCacheRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2635,7 +2895,7 @@ namespace ESA20240910
       Models::GetCacheRuleResponse getCacheRuleWithOptions(const Models::GetCacheRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条缓存配置
+       * @summary Query a single cache configuration
        *
        * @param request GetCacheRuleRequest
        * @return GetCacheRuleResponse
@@ -2643,7 +2903,7 @@ namespace ESA20240910
       Models::GetCacheRuleResponse getCacheRule(const Models::GetCacheRuleRequest &request);
 
       /**
-       * @summary 查询站点缓存Tag配置
+       * @summary Query Site Cache Tag Configuration
        *
        * @param request GetCacheTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2652,7 +2912,7 @@ namespace ESA20240910
       Models::GetCacheTagResponse getCacheTagWithOptions(const Models::GetCacheTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点缓存Tag配置
+       * @summary Query Site Cache Tag Configuration
        *
        * @param request GetCacheTagRequest
        * @return GetCacheTagResponse
@@ -2660,7 +2920,7 @@ namespace ESA20240910
       Models::GetCacheTagResponse getCacheTag(const Models::GetCacheTagRequest &request);
 
       /**
-       * @summary 获取证书和私钥以及证书信息
+       * @summary Retrieve the certificate, private key, and certificate information
        *
        * @param request GetCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2669,7 +2929,7 @@ namespace ESA20240910
       Models::GetCertificateResponse getCertificateWithOptions(const Models::GetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取证书和私钥以及证书信息
+       * @summary Retrieve the certificate, private key, and certificate information
        *
        * @param request GetCertificateRequest
        * @return GetCertificateResponse
@@ -2677,7 +2937,7 @@ namespace ESA20240910
       Models::GetCertificateResponse getCertificate(const Models::GetCertificateRequest &request);
 
       /**
-       * @summary 查询证书quota及用量
+       * @summary Query certificate quota and usage
        *
        * @param request GetCertificateQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2686,7 +2946,7 @@ namespace ESA20240910
       Models::GetCertificateQuotaResponse getCertificateQuotaWithOptions(const Models::GetCertificateQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询证书quota及用量
+       * @summary Query certificate quota and usage
        *
        * @param request GetCertificateQuotaRequest
        * @return GetCertificateQuotaResponse
@@ -2694,7 +2954,7 @@ namespace ESA20240910
       Models::GetCertificateQuotaResponse getCertificateQuota(const Models::GetCertificateQuotaRequest &request);
 
       /**
-       * @summary 获取客户端CA证书信息
+       * @summary Queries a client CA certificate.
        *
        * @param request GetClientCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2703,7 +2963,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateResponse getClientCaCertificateWithOptions(const Models::GetClientCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取客户端CA证书信息
+       * @summary Queries a client CA certificate.
        *
        * @param request GetClientCaCertificateRequest
        * @return GetClientCaCertificateResponse
@@ -2728,7 +2988,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateHostnamesResponse getClientCaCertificateHostnames(const Models::GetClientCaCertificateHostnamesRequest &request);
 
       /**
-       * @summary 获取客户端证书以及证书信息
+       * @summary Queries information about a client certificate.
        *
        * @param request GetClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2737,7 +2997,7 @@ namespace ESA20240910
       Models::GetClientCertificateResponse getClientCertificateWithOptions(const Models::GetClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取客户端证书以及证书信息
+       * @summary Queries information about a client certificate.
        *
        * @param request GetClientCertificateRequest
        * @return GetClientCertificateResponse
@@ -2745,7 +3005,7 @@ namespace ESA20240910
       Models::GetClientCertificateResponse getClientCertificate(const Models::GetClientCertificateRequest &request);
 
       /**
-       * @summary 获取客户端证书绑定的域名列表
+       * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
        *
        * @param request GetClientCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2754,7 +3014,7 @@ namespace ESA20240910
       Models::GetClientCertificateHostnamesResponse getClientCertificateHostnamesWithOptions(const Models::GetClientCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取客户端证书绑定的域名列表
+       * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
        *
        * @param request GetClientCertificateHostnamesRequest
        * @return GetClientCertificateHostnamesResponse
@@ -2762,7 +3022,7 @@ namespace ESA20240910
       Models::GetClientCertificateHostnamesResponse getClientCertificateHostnames(const Models::GetClientCertificateHostnamesRequest &request);
 
       /**
-       * @summary 查询站点cname拉平配置
+       * @summary Queries the CNAME flattening configuration of a website
        *
        * @param request GetCnameFlatteningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2771,7 +3031,7 @@ namespace ESA20240910
       Models::GetCnameFlatteningResponse getCnameFlatteningWithOptions(const Models::GetCnameFlatteningRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点cname拉平配置
+       * @summary Queries the CNAME flattening configuration of a website
        *
        * @param request GetCnameFlatteningRequest
        * @return GetCnameFlatteningResponse
@@ -2779,7 +3039,7 @@ namespace ESA20240910
       Models::GetCnameFlatteningResponse getCnameFlattening(const Models::GetCnameFlatteningRequest &request);
 
       /**
-       * @summary 查询压缩规则详情
+       * @summary Query Compression Rule Details
        *
        * @param request GetCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2788,7 +3048,7 @@ namespace ESA20240910
       Models::GetCompressionRuleResponse getCompressionRuleWithOptions(const Models::GetCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询压缩规则详情
+       * @summary Query Compression Rule Details
        *
        * @param request GetCompressionRuleRequest
        * @return GetCompressionRuleResponse
@@ -2796,7 +3056,7 @@ namespace ESA20240910
       Models::GetCompressionRuleResponse getCompressionRule(const Models::GetCompressionRuleRequest &request);
 
       /**
-       * @summary 查询站点中国大陆网络接入优化配置
+       * @summary Queries the configuration of Chinese mainland access optimization.
        *
        * @param request GetCrossBorderOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2805,7 +3065,7 @@ namespace ESA20240910
       Models::GetCrossBorderOptimizationResponse getCrossBorderOptimizationWithOptions(const Models::GetCrossBorderOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点中国大陆网络接入优化配置
+       * @summary Queries the configuration of Chinese mainland access optimization.
        *
        * @param request GetCrossBorderOptimizationRequest
        * @return GetCrossBorderOptimizationResponse
@@ -2847,7 +3107,7 @@ namespace ESA20240910
       Models::GetCustomResponseCodeRuleResponse getCustomResponseCodeRule(const Models::GetCustomResponseCodeRuleRequest &request);
 
       /**
-       * @summary 查询站点开发者模式配置
+       * @summary Query Site Developer Mode Configuration
        *
        * @param request GetDevelopmentModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2856,7 +3116,7 @@ namespace ESA20240910
       Models::GetDevelopmentModeResponse getDevelopmentModeWithOptions(const Models::GetDevelopmentModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点开发者模式配置
+       * @summary Query Site Developer Mode Configuration
        *
        * @param request GetDevelopmentModeRequest
        * @return GetDevelopmentModeResponse
@@ -2864,7 +3124,7 @@ namespace ESA20240910
       Models::GetDevelopmentModeResponse getDevelopmentMode(const Models::GetDevelopmentModeRequest &request);
 
       /**
-       * @summary 获取边缘容器应用信息
+       * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
        *
        * @param request GetEdgeContainerAppRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2873,7 +3133,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResponse getEdgeContainerAppWithOptions(const Models::GetEdgeContainerAppRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用信息
+       * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
        *
        * @param request GetEdgeContainerAppRequest
        * @return GetEdgeContainerAppResponse
@@ -2881,7 +3141,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResponse getEdgeContainerApp(const Models::GetEdgeContainerAppRequest &request);
 
       /**
-       * @summary 获取边缘容器应用日志采集配置
+       * @summary Queries the log collection configuration of a containerized application.
        *
        * @param request GetEdgeContainerAppLogRiverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2890,7 +3150,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppLogRiverResponse getEdgeContainerAppLogRiverWithOptions(const Models::GetEdgeContainerAppLogRiverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用日志采集配置
+       * @summary Queries the log collection configuration of a containerized application.
        *
        * @param request GetEdgeContainerAppLogRiverRequest
        * @return GetEdgeContainerAppLogRiverResponse
@@ -2915,7 +3175,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceCapacityResponse getEdgeContainerAppResourceCapacity(const Models::GetEdgeContainerAppResourceCapacityRequest &request);
 
       /**
-       * @summary 获取边缘容器资源预留配置
+       * @summary Obtain the resource reservation configuration of the edge container.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2924,7 +3184,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserveWithOptions(const Models::GetEdgeContainerAppResourceReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器资源预留配置
+       * @summary Obtain the resource reservation configuration of the edge container.
        *
        * @param request GetEdgeContainerAppResourceReserveRequest
        * @return GetEdgeContainerAppResourceReserveResponse
@@ -2932,7 +3192,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceReserveResponse getEdgeContainerAppResourceReserve(const Models::GetEdgeContainerAppResourceReserveRequest &request);
 
       /**
-       * @summary 获取边缘容器应用资源分布
+       * @summary Obtains the distribution of edge container application resources.
        *
        * @param request GetEdgeContainerAppResourceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2941,7 +3201,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatusWithOptions(const Models::GetEdgeContainerAppResourceStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用资源分布
+       * @summary Obtains the distribution of edge container application resources.
        *
        * @param request GetEdgeContainerAppResourceStatusRequest
        * @return GetEdgeContainerAppResourceStatusResponse
@@ -2949,7 +3209,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppResourceStatusResponse getEdgeContainerAppResourceStatus(const Models::GetEdgeContainerAppResourceStatusRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的状态信息
+       * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
        *
        * @param request GetEdgeContainerAppStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2958,7 +3218,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppStatusResponse getEdgeContainerAppStatusWithOptions(const Models::GetEdgeContainerAppStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的状态信息
+       * @summary Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
        *
        * @param request GetEdgeContainerAppStatusRequest
        * @return GetEdgeContainerAppStatusResponse
@@ -2966,7 +3226,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppStatusResponse getEdgeContainerAppStatus(const Models::GetEdgeContainerAppStatusRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的某个版本信息
+       * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
        *
        * @param request GetEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2975,7 +3235,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppVersionResponse getEdgeContainerAppVersionWithOptions(const Models::GetEdgeContainerAppVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的某个版本信息
+       * @summary Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
        *
        * @param request GetEdgeContainerAppVersionRequest
        * @return GetEdgeContainerAppVersionResponse
@@ -2983,7 +3243,7 @@ namespace ESA20240910
       Models::GetEdgeContainerAppVersionResponse getEdgeContainerAppVersion(const Models::GetEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 获取边缘容器应用部署区域
+       * @summary Queries regions where a containerized application is deployed based on the application ID.
        *
        * @param request GetEdgeContainerDeployRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2992,7 +3252,7 @@ namespace ESA20240910
       Models::GetEdgeContainerDeployRegionsResponse getEdgeContainerDeployRegionsWithOptions(const Models::GetEdgeContainerDeployRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用部署区域
+       * @summary Queries regions where a containerized application is deployed based on the application ID.
        *
        * @param request GetEdgeContainerDeployRegionsRequest
        * @return GetEdgeContainerDeployRegionsResponse
@@ -3000,7 +3260,7 @@ namespace ESA20240910
       Models::GetEdgeContainerDeployRegionsResponse getEdgeContainerDeployRegions(const Models::GetEdgeContainerDeployRegionsRequest &request);
 
       /**
-       * @summary 获取边缘容器日志信息
+       * @summary Queries Edge Container logs.
        *
        * @param request GetEdgeContainerLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3009,7 +3269,7 @@ namespace ESA20240910
       Models::GetEdgeContainerLogsResponse getEdgeContainerLogsWithOptions(const Models::GetEdgeContainerLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器日志信息
+       * @summary Queries Edge Container logs.
        *
        * @param request GetEdgeContainerLogsRequest
        * @return GetEdgeContainerLogsResponse
@@ -3017,7 +3277,7 @@ namespace ESA20240910
       Models::GetEdgeContainerLogsResponse getEdgeContainerLogs(const Models::GetEdgeContainerLogsRequest &request);
 
       /**
-       * @summary 获取应用测试环境部署状态
+       * @summary Queries the deployment status of an application in the staging environment by using the application ID.
        *
        * @param request GetEdgeContainerStagingDeployStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3026,7 +3286,7 @@ namespace ESA20240910
       Models::GetEdgeContainerStagingDeployStatusResponse getEdgeContainerStagingDeployStatusWithOptions(const Models::GetEdgeContainerStagingDeployStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取应用测试环境部署状态
+       * @summary Queries the deployment status of an application in the staging environment by using the application ID.
        *
        * @param request GetEdgeContainerStagingDeployStatusRequest
        * @return GetEdgeContainerStagingDeployStatusResponse
@@ -3034,7 +3294,7 @@ namespace ESA20240910
       Models::GetEdgeContainerStagingDeployStatusResponse getEdgeContainerStagingDeployStatus(const Models::GetEdgeContainerStagingDeployStatusRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的终端信息
+       * @summary Queries the terminal information of a containerized application.
        *
        * @param request GetEdgeContainerTerminalRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3043,7 +3303,7 @@ namespace ESA20240910
       Models::GetEdgeContainerTerminalResponse getEdgeContainerTerminalWithOptions(const Models::GetEdgeContainerTerminalRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的终端信息
+       * @summary Queries the terminal information of a containerized application.
        *
        * @param request GetEdgeContainerTerminalRequest
        * @return GetEdgeContainerTerminalResponse
@@ -3051,7 +3311,7 @@ namespace ESA20240910
       Models::GetEdgeContainerTerminalResponse getEdgeContainerTerminal(const Models::GetEdgeContainerTerminalRequest &request);
 
       /**
-       * @summary GetErService
+       * @summary Checks the status of Edge Routine.
        *
        * @param request GetErServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3060,7 +3320,7 @@ namespace ESA20240910
       Models::GetErServiceResponse getErServiceWithOptions(const Models::GetErServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetErService
+       * @summary Checks the status of Edge Routine.
        *
        * @param request GetErServiceRequest
        * @return GetErServiceResponse
@@ -3068,7 +3328,7 @@ namespace ESA20240910
       Models::GetErServiceResponse getErService(const Models::GetErServiceRequest &request);
 
       /**
-       * @summary 查询HTTP入站请求头规则详情
+       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3077,7 +3337,7 @@ namespace ESA20240910
       Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站请求头规则详情
+       * @summary Queries the configuration details of an HTTP request header modification rule for a website.
        *
        * @param request GetHttpIncomingRequestHeaderModificationRuleRequest
        * @return GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -3085,7 +3345,7 @@ namespace ESA20240910
       Models::GetHttpIncomingRequestHeaderModificationRuleResponse getHttpIncomingRequestHeaderModificationRule(const Models::GetHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 查询HTTP入站响应头规则
+       * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
        *
        * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3094,7 +3354,7 @@ namespace ESA20240910
       Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站响应头规则
+       * @summary Queries the configuration details of an incoming HTTP response header modification rule for a website.
        *
        * @param request GetHttpIncomingResponseHeaderModificationRuleRequest
        * @return GetHttpIncomingResponseHeaderModificationRuleResponse
@@ -3102,7 +3362,7 @@ namespace ESA20240910
       Models::GetHttpIncomingResponseHeaderModificationRuleResponse getHttpIncomingResponseHeaderModificationRule(const Models::GetHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 查询HTTP请求头规则详情
+       * @summary Query HTTP Request Header Rule Details
        *
        * @param request GetHttpRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3111,7 +3371,7 @@ namespace ESA20240910
       Models::GetHttpRequestHeaderModificationRuleResponse getHttpRequestHeaderModificationRuleWithOptions(const Models::GetHttpRequestHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP请求头规则详情
+       * @summary Query HTTP Request Header Rule Details
        *
        * @param request GetHttpRequestHeaderModificationRuleRequest
        * @return GetHttpRequestHeaderModificationRuleResponse
@@ -3119,7 +3379,7 @@ namespace ESA20240910
       Models::GetHttpRequestHeaderModificationRuleResponse getHttpRequestHeaderModificationRule(const Models::GetHttpRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 查询HTTP响应头规则
+       * @summary Query HTTP Response Header Rules
        *
        * @param request GetHttpResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3128,7 +3388,7 @@ namespace ESA20240910
       Models::GetHttpResponseHeaderModificationRuleResponse getHttpResponseHeaderModificationRuleWithOptions(const Models::GetHttpResponseHeaderModificationRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP响应头规则
+       * @summary Query HTTP Response Header Rules
        *
        * @param request GetHttpResponseHeaderModificationRuleRequest
        * @return GetHttpResponseHeaderModificationRuleResponse
@@ -3136,7 +3396,7 @@ namespace ESA20240910
       Models::GetHttpResponseHeaderModificationRuleResponse getHttpResponseHeaderModificationRule(const Models::GetHttpResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 查询单条HTTPS应用的配置
+       * @summary Query a Single HTTPS Application Configuration
        *
        * @param request GetHttpsApplicationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3145,7 +3405,7 @@ namespace ESA20240910
       Models::GetHttpsApplicationConfigurationResponse getHttpsApplicationConfigurationWithOptions(const Models::GetHttpsApplicationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条HTTPS应用的配置
+       * @summary Query a Single HTTPS Application Configuration
        *
        * @param request GetHttpsApplicationConfigurationRequest
        * @return GetHttpsApplicationConfigurationResponse
@@ -3153,7 +3413,7 @@ namespace ESA20240910
       Models::GetHttpsApplicationConfigurationResponse getHttpsApplicationConfiguration(const Models::GetHttpsApplicationConfigurationRequest &request);
 
       /**
-       * @summary 查询单条HTTPS基础配置
+       * @summary Query a Single HTTPS Basic Configuration
        *
        * @param request GetHttpsBasicConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3162,7 +3422,7 @@ namespace ESA20240910
       Models::GetHttpsBasicConfigurationResponse getHttpsBasicConfigurationWithOptions(const Models::GetHttpsBasicConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条HTTPS基础配置
+       * @summary Query a Single HTTPS Basic Configuration
        *
        * @param request GetHttpsBasicConfigurationRequest
        * @return GetHttpsBasicConfigurationResponse
@@ -3170,7 +3430,7 @@ namespace ESA20240910
       Models::GetHttpsBasicConfigurationResponse getHttpsBasicConfiguration(const Models::GetHttpsBasicConfigurationRequest &request);
 
       /**
-       * @summary 查询站点IPv6配置
+       * @summary Queries the IPv6 configuration of a website.
        *
        * @param request GetIPv6Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -3179,7 +3439,7 @@ namespace ESA20240910
       Models::GetIPv6Response getIPv6WithOptions(const Models::GetIPv6Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点IPv6配置
+       * @summary Queries the IPv6 configuration of a website.
        *
        * @param request GetIPv6Request
        * @return GetIPv6Response
@@ -3187,7 +3447,7 @@ namespace ESA20240910
       Models::GetIPv6Response getIPv6(const Models::GetIPv6Request &request);
 
       /**
-       * @summary 查询单条站点图片转换配置
+       * @summary Query Single Site Image Transformation Configuration
        *
        * @param request GetImageTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3196,7 +3456,7 @@ namespace ESA20240910
       Models::GetImageTransformResponse getImageTransformWithOptions(const Models::GetImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条站点图片转换配置
+       * @summary Query Single Site Image Transformation Configuration
        *
        * @param request GetImageTransformRequest
        * @return GetImageTransformResponse
@@ -3221,7 +3481,7 @@ namespace ESA20240910
       Models::GetKeylessServerResponse getKeylessServer(const Models::GetKeylessServerRequest &request);
 
       /**
-       * @summary 查询Key-Value对的某个Key值
+       * @summary Queries the value of a key in a key-value pair.
        *
        * @param request GetKvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3230,7 +3490,7 @@ namespace ESA20240910
       Models::GetKvResponse getKvWithOptions(const Models::GetKvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Key-Value对的某个Key值
+       * @summary Queries the value of a key in a key-value pair.
        *
        * @param request GetKvRequest
        * @return GetKvResponse
@@ -3238,7 +3498,7 @@ namespace ESA20240910
       Models::GetKvResponse getKv(const Models::GetKvRequest &request);
 
       /**
-       * @summary 列出账号下的NS
+       * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetKvAccountResponse
@@ -3246,14 +3506,14 @@ namespace ESA20240910
       Models::GetKvAccountResponse getKvAccountWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出账号下的NS
+       * @summary Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
        *
        * @return GetKvAccountResponse
        */
       Models::GetKvAccountResponse getKvAccount();
 
       /**
-       * @summary 查询Key-Value对的某个Key的详情
+       * @summary Queries the value and time to live (TTL) of a key.
        *
        * @param request GetKvDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3262,7 +3522,7 @@ namespace ESA20240910
       Models::GetKvDetailResponse getKvDetailWithOptions(const Models::GetKvDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Key-Value对的某个Key的详情
+       * @summary Queries the value and time to live (TTL) of a key.
        *
        * @param request GetKvDetailRequest
        * @return GetKvDetailResponse
@@ -3270,7 +3530,7 @@ namespace ESA20240910
       Models::GetKvDetailResponse getKvDetail(const Models::GetKvDetailRequest &request);
 
       /**
-       * @summary 查询Namespace信息
+       * @summary Queries the information about a namespace in your Alibaba Cloud account.
        *
        * @param request GetKvNamespaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3279,7 +3539,7 @@ namespace ESA20240910
       Models::GetKvNamespaceResponse getKvNamespaceWithOptions(const Models::GetKvNamespaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Namespace信息
+       * @summary Queries the information about a namespace in your Alibaba Cloud account.
        *
        * @param request GetKvNamespaceRequest
        * @return GetKvNamespaceResponse
@@ -3287,7 +3547,7 @@ namespace ESA20240910
       Models::GetKvNamespaceResponse getKvNamespace(const Models::GetKvNamespaceRequest &request);
 
       /**
-       * @summary 获取单个自定义列表
+       * @summary Queries the details of a custom list, such as the name, description, type, and content.
        *
        * @param request GetListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3296,7 +3556,7 @@ namespace ESA20240910
       Models::GetListResponse getListWithOptions(const Models::GetListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取单个自定义列表
+       * @summary Queries the details of a custom list, such as the name, description, type, and content.
        *
        * @param request GetListRequest
        * @return GetListResponse
@@ -3304,7 +3564,9 @@ namespace ESA20240910
       Models::GetListResponse getList(const Models::GetListRequest &request);
 
       /**
-       * @summary 查询特定的负载均衡器
+       * @summary Query a Specific Load Balancer
+       *
+       * @description This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
        *
        * @param request GetLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3313,7 +3575,9 @@ namespace ESA20240910
       Models::GetLoadBalancerResponse getLoadBalancerWithOptions(const Models::GetLoadBalancerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询特定的负载均衡器
+       * @summary Query a Specific Load Balancer
+       *
+       * @description This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
        *
        * @param request GetLoadBalancerRequest
        * @return GetLoadBalancerResponse
@@ -3321,7 +3585,7 @@ namespace ESA20240910
       Models::GetLoadBalancerResponse getLoadBalancer(const Models::GetLoadBalancerRequest &request);
 
       /**
-       * @summary 查询站点托管转换配置
+       * @summary Query Managed Transform Configuration
        *
        * @param request GetManagedTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3330,7 +3594,7 @@ namespace ESA20240910
       Models::GetManagedTransformResponse getManagedTransformWithOptions(const Models::GetManagedTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点托管转换配置
+       * @summary Query Managed Transform Configuration
        *
        * @param request GetManagedTransformRequest
        * @return GetManagedTransformResponse
@@ -3338,7 +3602,7 @@ namespace ESA20240910
       Models::GetManagedTransformResponse getManagedTransform(const Models::GetManagedTransformRequest &request);
 
       /**
-       * @summary 查询单条网络优化配置
+       * @summary Query a single network optimization configuration
        *
        * @param request GetNetworkOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3347,7 +3611,7 @@ namespace ESA20240910
       Models::GetNetworkOptimizationResponse getNetworkOptimizationWithOptions(const Models::GetNetworkOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条网络优化配置
+       * @summary Query a single network optimization configuration
        *
        * @param request GetNetworkOptimizationRequest
        * @return GetNetworkOptimizationResponse
@@ -3406,7 +3670,7 @@ namespace ESA20240910
       Models::GetOriginClientCertificateHostnamesResponse getOriginClientCertificateHostnames(const Models::GetOriginClientCertificateHostnamesRequest &request);
 
       /**
-       * @summary 查询特定源地址池
+       * @summary Query a specific origin pool
        *
        * @param request GetOriginPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3415,7 +3679,7 @@ namespace ESA20240910
       Models::GetOriginPoolResponse getOriginPoolWithOptions(const Models::GetOriginPoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询特定源地址池
+       * @summary Query a specific origin pool
        *
        * @param request GetOriginPoolRequest
        * @return GetOriginPoolResponse
@@ -3423,7 +3687,7 @@ namespace ESA20240910
       Models::GetOriginPoolResponse getOriginPool(const Models::GetOriginPoolRequest &request);
 
       /**
-       * @summary 查询站点源站防护相关配置，查看回源IP白名单的信息
+       * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3432,7 +3696,7 @@ namespace ESA20240910
       Models::GetOriginProtectionResponse getOriginProtectionWithOptions(const Models::GetOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点源站防护相关配置，查看回源IP白名单的信息
+       * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
        *
        * @param request GetOriginProtectionRequest
        * @return GetOriginProtectionResponse
@@ -3440,7 +3704,7 @@ namespace ESA20240910
       Models::GetOriginProtectionResponse getOriginProtection(const Models::GetOriginProtectionRequest &request);
 
       /**
-       * @summary 查询单条回源规则的配置
+       * @summary Queries the configurations of a single origin rule.
        *
        * @param request GetOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3449,7 +3713,7 @@ namespace ESA20240910
       Models::GetOriginRuleResponse getOriginRuleWithOptions(const Models::GetOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条回源规则的配置
+       * @summary Queries the configurations of a single origin rule.
        *
        * @param request GetOriginRuleRequest
        * @return GetOriginRuleResponse
@@ -3457,7 +3721,7 @@ namespace ESA20240910
       Models::GetOriginRuleResponse getOriginRule(const Models::GetOriginRuleRequest &request);
 
       /**
-       * @summary 获取单个自定义响应页面详情
+       * @summary Queries the details of a custom error page based on the error page ID.
        *
        * @param request GetPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3466,7 +3730,7 @@ namespace ESA20240910
       Models::GetPageResponse getPageWithOptions(const Models::GetPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取单个自定义响应页面详情
+       * @summary Queries the details of a custom error page based on the error page ID.
        *
        * @param request GetPageRequest
        * @return GetPageResponse
@@ -3491,7 +3755,7 @@ namespace ESA20240910
       Models::GetPerformanceDataCollectionResponse getPerformanceDataCollection(const Models::GetPerformanceDataCollectionRequest &request);
 
       /**
-       * @summary 获取刷新Quota
+       * @summary Queries the quotas and quota usage for different cache purge options.
        *
        * @param request GetPurgeQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3500,7 +3764,7 @@ namespace ESA20240910
       Models::GetPurgeQuotaResponse getPurgeQuotaWithOptions(const Models::GetPurgeQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取刷新Quota
+       * @summary Queries the quotas and quota usage for different cache purge options.
        *
        * @param request GetPurgeQuotaRequest
        * @return GetPurgeQuotaResponse
@@ -3508,7 +3772,7 @@ namespace ESA20240910
       Models::GetPurgeQuotaResponse getPurgeQuota(const Models::GetPurgeQuotaRequest &request);
 
       /**
-       * @summary ub日志字段列表接口
+       * @summary Queries the fields in real-time logs based on the log category.
        *
        * @param request GetRealtimeDeliveryFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3517,7 +3781,7 @@ namespace ESA20240910
       Models::GetRealtimeDeliveryFieldResponse getRealtimeDeliveryFieldWithOptions(const Models::GetRealtimeDeliveryFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ub日志字段列表接口
+       * @summary Queries the fields in real-time logs based on the log category.
        *
        * @param request GetRealtimeDeliveryFieldRequest
        * @return GetRealtimeDeliveryFieldResponse
@@ -3525,7 +3789,7 @@ namespace ESA20240910
       Models::GetRealtimeDeliveryFieldResponse getRealtimeDeliveryField(const Models::GetRealtimeDeliveryFieldRequest &request);
 
       /**
-       * @summary 查询单条记录信息
+       * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
        *
        * @param request GetRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3534,7 +3798,7 @@ namespace ESA20240910
       Models::GetRecordResponse getRecordWithOptions(const Models::GetRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条记录信息
+       * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
        *
        * @param request GetRecordRequest
        * @return GetRecordResponse
@@ -3542,7 +3806,7 @@ namespace ESA20240910
       Models::GetRecordResponse getRecord(const Models::GetRecordRequest &request);
 
       /**
-       * @summary 查询重定向规则详情
+       * @summary Query Redirect Rule Details
        *
        * @param request GetRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3551,7 +3815,7 @@ namespace ESA20240910
       Models::GetRedirectRuleResponse getRedirectRuleWithOptions(const Models::GetRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询重定向规则详情
+       * @summary Query Redirect Rule Details
        *
        * @param request GetRedirectRuleRequest
        * @return GetRedirectRuleResponse
@@ -3559,7 +3823,7 @@ namespace ESA20240910
       Models::GetRedirectRuleResponse getRedirectRule(const Models::GetRedirectRuleRequest &request);
 
       /**
-       * @summary 查询重写URL规则详情
+       * @summary Query details of the rewrite URL rule
        *
        * @param request GetRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3568,7 +3832,7 @@ namespace ESA20240910
       Models::GetRewriteUrlRuleResponse getRewriteUrlRuleWithOptions(const Models::GetRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询重写URL规则详情
+       * @summary Query details of the rewrite URL rule
        *
        * @param request GetRewriteUrlRuleRequest
        * @return GetRewriteUrlRuleResponse
@@ -3576,7 +3840,7 @@ namespace ESA20240910
       Models::GetRewriteUrlRuleResponse getRewriteUrlRule(const Models::GetRewriteUrlRuleRequest &request);
 
       /**
-       * @summary 查询Routine配置信息
+       * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
        *
        * @param request GetRoutineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3585,7 +3849,7 @@ namespace ESA20240910
       Models::GetRoutineResponse getRoutineWithOptions(const Models::GetRoutineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine配置信息
+       * @summary Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
        *
        * @param request GetRoutineRequest
        * @return GetRoutineResponse
@@ -3610,7 +3874,7 @@ namespace ESA20240910
       Models::GetRoutineAccessTokenResponse getRoutineAccessToken(const Models::GetRoutineAccessTokenRequest &request);
 
       /**
-       * @summary 查询Routine某版本代码
+       * @summary Queries information about a code version of a routine.
        *
        * @param request GetRoutineCodeVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3619,7 +3883,7 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersionWithOptions(const Models::GetRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine某版本代码
+       * @summary Queries information about a code version of a routine.
        *
        * @param request GetRoutineCodeVersionRequest
        * @return GetRoutineCodeVersionResponse
@@ -3627,7 +3891,7 @@ namespace ESA20240910
       Models::GetRoutineCodeVersionResponse getRoutineCodeVersion(const Models::GetRoutineCodeVersionRequest &request);
 
       /**
-       * @summary 查询单条边缘函数路由的配置
+       * @summary Queries the route configurations of a single edge function.
        *
        * @param request GetRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3636,7 +3900,7 @@ namespace ESA20240910
       Models::GetRoutineRouteResponse getRoutineRouteWithOptions(const Models::GetRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单条边缘函数路由的配置
+       * @summary Queries the route configurations of a single edge function.
        *
        * @param request GetRoutineRouteRequest
        * @return GetRoutineRouteResponse
@@ -3644,7 +3908,10 @@ namespace ESA20240910
       Models::GetRoutineRouteResponse getRoutineRoute(const Models::GetRoutineRouteRequest &request);
 
       /**
-       * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+       * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+       *
+       * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+       * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
        *
        * @param request GetRoutineStagingCodeUploadInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3653,7 +3920,10 @@ namespace ESA20240910
       Models::GetRoutineStagingCodeUploadInfoResponse getRoutineStagingCodeUploadInfoWithOptions(const Models::GetRoutineStagingCodeUploadInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+       * @summary Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+       *
+       * @description *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+       * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
        *
        * @param request GetRoutineStagingCodeUploadInfoRequest
        * @return GetRoutineStagingCodeUploadInfoResponse
@@ -3661,7 +3931,7 @@ namespace ESA20240910
       Models::GetRoutineStagingCodeUploadInfoResponse getRoutineStagingCodeUploadInfo(const Models::GetRoutineStagingCodeUploadInfoRequest &request);
 
       /**
-       * @summary 查询边缘函数测试环境IP
+       * @summary Queries the IP addresses of staging environments for Edge Routine.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRoutineStagingEnvIpResponse
@@ -3669,14 +3939,14 @@ namespace ESA20240910
       Models::GetRoutineStagingEnvIpResponse getRoutineStagingEnvIpWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询边缘函数测试环境IP
+       * @summary Queries the IP addresses of staging environments for Edge Routine.
        *
        * @return GetRoutineStagingEnvIpResponse
        */
       Models::GetRoutineStagingEnvIpResponse getRoutineStagingEnvIp();
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetRoutineUserInfoResponse
@@ -3684,14 +3954,14 @@ namespace ESA20240910
       Models::GetRoutineUserInfoResponse getRoutineUserInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
        *
        * @return GetRoutineUserInfoResponse
        */
       Models::GetRoutineUserInfoResponse getRoutineUserInfo();
 
       /**
-       * @summary 查询单个定时预热任务
+       * @summary Queries a specified scheduled prefetch task based on the task ID.
        *
        * @param request GetScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3700,7 +3970,7 @@ namespace ESA20240910
       Models::GetScheduledPreloadJobResponse getScheduledPreloadJobWithOptions(const Models::GetScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单个定时预热任务
+       * @summary Queries a specified scheduled prefetch task based on the task ID.
        *
        * @param request GetScheduledPreloadJobRequest
        * @return GetScheduledPreloadJobResponse
@@ -3708,7 +3978,7 @@ namespace ESA20240910
       Models::GetScheduledPreloadJobResponse getScheduledPreloadJob(const Models::GetScheduledPreloadJobRequest &request);
 
       /**
-       * @summary 查询站点放行搜索引擎爬虫配置
+       * @summary Queries the configuration for search engine crawler of a website.
        *
        * @param request GetSeoBypassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3717,7 +3987,7 @@ namespace ESA20240910
       Models::GetSeoBypassResponse getSeoBypassWithOptions(const Models::GetSeoBypassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点放行搜索引擎爬虫配置
+       * @summary Queries the configuration for search engine crawler of a website.
        *
        * @param request GetSeoBypassRequest
        * @return GetSeoBypassResponse
@@ -3725,7 +3995,7 @@ namespace ESA20240910
       Models::GetSeoBypassResponse getSeoBypass(const Models::GetSeoBypassRequest &request);
 
       /**
-       * @summary 查询单个站点的信息
+       * @summary Queries information about a website based on the website ID.
        *
        * @param request GetSiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3734,7 +4004,7 @@ namespace ESA20240910
       Models::GetSiteResponse getSiteWithOptions(const Models::GetSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询单个站点的信息
+       * @summary Queries information about a website based on the website ID.
        *
        * @param request GetSiteRequest
        * @return GetSiteResponse
@@ -3742,7 +4012,7 @@ namespace ESA20240910
       Models::GetSiteResponse getSite(const Models::GetSiteRequest &request);
 
       /**
-       * @summary 查询当前NS列表
+       * @summary Queries the nameservers configured for a website.
        *
        * @param request GetSiteCurrentNSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3751,7 +4021,7 @@ namespace ESA20240910
       Models::GetSiteCurrentNSResponse getSiteCurrentNSWithOptions(const Models::GetSiteCurrentNSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询当前NS列表
+       * @summary Queries the nameservers configured for a website.
        *
        * @param request GetSiteCurrentNSRequest
        * @return GetSiteCurrentNSResponse
@@ -3759,7 +4029,11 @@ namespace ESA20240910
       Models::GetSiteCurrentNSResponse getSiteCurrentNS(const Models::GetSiteCurrentNSRequest &request);
 
       /**
-       * @summary 获取自定义字段
+       * @summary Queries the configuration of custom log fields for a website.
+       *
+       * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+       * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+       * *   ****
        *
        * @param request GetSiteCustomLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3768,7 +4042,11 @@ namespace ESA20240910
       Models::GetSiteCustomLogResponse getSiteCustomLogWithOptions(const Models::GetSiteCustomLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义字段
+       * @summary Queries the configuration of custom log fields for a website.
+       *
+       * @description *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+       * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+       * *   ****
        *
        * @param request GetSiteCustomLogRequest
        * @return GetSiteCustomLogResponse
@@ -3776,7 +4054,7 @@ namespace ESA20240910
       Models::GetSiteCustomLogResponse getSiteCustomLog(const Models::GetSiteCustomLogRequest &request);
 
       /**
-       * @summary 获取一个实时日志任务投递
+       * @summary Queries a real-time log delivery task.
        *
        * @param request GetSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3785,7 +4063,7 @@ namespace ESA20240910
       Models::GetSiteDeliveryTaskResponse getSiteDeliveryTaskWithOptions(const Models::GetSiteDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一个实时日志任务投递
+       * @summary Queries a real-time log delivery task.
        *
        * @param request GetSiteDeliveryTaskRequest
        * @return GetSiteDeliveryTaskResponse
@@ -3793,7 +4071,15 @@ namespace ESA20240910
       Models::GetSiteDeliveryTaskResponse getSiteDeliveryTask(const Models::GetSiteDeliveryTaskRequest &request);
 
       /**
-       * @summary 获取日志投递任务quota数
+       * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+       *
+       * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+       * **Take note of the following parameters:**
+       * *   ``
+       * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+       * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+       * **Response:**
+       * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
        *
        * @param request GetSiteLogDeliveryQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3802,7 +4088,15 @@ namespace ESA20240910
       Models::GetSiteLogDeliveryQuotaResponse getSiteLogDeliveryQuotaWithOptions(const Models::GetSiteLogDeliveryQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取日志投递任务quota数
+       * @summary Queries the remaining quota for delivering a specific category of real-time logs in a website.
+       *
+       * @description You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+       * **Take note of the following parameters:**
+       * *   ``
+       * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+       * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+       * **Response:**
+       * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
        *
        * @param request GetSiteLogDeliveryQuotaRequest
        * @return GetSiteLogDeliveryQuotaResponse
@@ -3810,7 +4104,7 @@ namespace ESA20240910
       Models::GetSiteLogDeliveryQuotaResponse getSiteLogDeliveryQuota(const Models::GetSiteLogDeliveryQuotaRequest &request);
 
       /**
-       * @summary 查询站点名称独占配置
+       * @summary Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
        *
        * @param request GetSiteNameExclusiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3819,7 +4113,7 @@ namespace ESA20240910
       Models::GetSiteNameExclusiveResponse getSiteNameExclusiveWithOptions(const Models::GetSiteNameExclusiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点名称独占配置
+       * @summary Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
        *
        * @param request GetSiteNameExclusiveRequest
        * @return GetSiteNameExclusiveResponse
@@ -3844,7 +4138,7 @@ namespace ESA20240910
       Models::GetSiteOriginClientCertificateResponse getSiteOriginClientCertificate(const Models::GetSiteOriginClientCertificateRequest &request);
 
       /**
-       * @summary 查询站点暂停配置
+       * @summary Queries the ESA proxy configuration of a website.
        *
        * @param request GetSitePauseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3853,7 +4147,7 @@ namespace ESA20240910
       Models::GetSitePauseResponse getSitePauseWithOptions(const Models::GetSitePauseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点暂停配置
+       * @summary Queries the ESA proxy configuration of a website.
        *
        * @param request GetSitePauseRequest
        * @return GetSitePauseResponse
@@ -3861,7 +4155,7 @@ namespace ESA20240910
       Models::GetSitePauseResponse getSitePause(const Models::GetSitePauseRequest &request);
 
       /**
-       * @summary 获取站点WAF配置
+       * @summary Get WAF Configuration for a Site
        *
        * @param request GetSiteWafSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3870,7 +4164,7 @@ namespace ESA20240910
       Models::GetSiteWafSettingsResponse getSiteWafSettingsWithOptions(const Models::GetSiteWafSettingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取站点WAF配置
+       * @summary Get WAF Configuration for a Site
        *
        * @param request GetSiteWafSettingsRequest
        * @return GetSiteWafSettingsResponse
@@ -3878,7 +4172,7 @@ namespace ESA20240910
       Models::GetSiteWafSettingsResponse getSiteWafSettings(const Models::GetSiteWafSettingsRequest &request);
 
       /**
-       * @summary 查询站点多级缓存配置
+       * @summary Query Multi-level Cache Configuration for Site
        *
        * @param request GetTieredCacheRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3887,7 +4181,7 @@ namespace ESA20240910
       Models::GetTieredCacheResponse getTieredCacheWithOptions(const Models::GetTieredCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点多级缓存配置
+       * @summary Query Multi-level Cache Configuration for Site
        *
        * @param request GetTieredCacheRequest
        * @return GetTieredCacheResponse
@@ -3895,7 +4189,7 @@ namespace ESA20240910
       Models::GetTieredCacheResponse getTieredCache(const Models::GetTieredCacheRequest &request);
 
       /**
-       * @summary 查询四层应用的详情
+       * @summary Query details of the transport layer application
        *
        * @param request GetTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3904,7 +4198,7 @@ namespace ESA20240910
       Models::GetTransportLayerApplicationResponse getTransportLayerApplicationWithOptions(const Models::GetTransportLayerApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询四层应用的详情
+       * @summary Query details of the transport layer application
        *
        * @param request GetTransportLayerApplicationRequest
        * @return GetTransportLayerApplicationResponse
@@ -3912,7 +4206,7 @@ namespace ESA20240910
       Models::GetTransportLayerApplicationResponse getTransportLayerApplication(const Models::GetTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 文件上传任务查询接口
+       * @summary Queries the execution status and running information of a file upload task based on the task ID.
        *
        * @param request GetUploadTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3921,7 +4215,7 @@ namespace ESA20240910
       Models::GetUploadTaskResponse getUploadTaskWithOptions(const Models::GetUploadTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 文件上传任务查询接口
+       * @summary Queries the execution status and running information of a file upload task based on the task ID.
        *
        * @param request GetUploadTaskRequest
        * @return GetUploadTaskResponse
@@ -3929,7 +4223,11 @@ namespace ESA20240910
       Models::GetUploadTaskResponse getUploadTask(const Models::GetUploadTaskRequest &request);
 
       /**
-       * @summary 获取用户粒度任务投递
+       * @summary Queries the information about a log delivery task by account.
+       *
+       * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+       * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+       * *   ****````
        *
        * @param request GetUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3938,7 +4236,11 @@ namespace ESA20240910
       Models::GetUserDeliveryTaskResponse getUserDeliveryTaskWithOptions(const Models::GetUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户粒度任务投递
+       * @summary Queries the information about a log delivery task by account.
+       *
+       * @description *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+       * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+       * *   ****````
        *
        * @param request GetUserDeliveryTaskRequest
        * @return GetUserDeliveryTaskResponse
@@ -3946,7 +4248,9 @@ namespace ESA20240910
       Models::GetUserDeliveryTaskResponse getUserDeliveryTask(const Models::GetUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 获取日志投递任务用户quota数
+       * @summary Queries the remaining log delivery quota of each log category in your account.
+       *
+       * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
        *
        * @param request GetUserLogDeliveryQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3955,7 +4259,9 @@ namespace ESA20240910
       Models::GetUserLogDeliveryQuotaResponse getUserLogDeliveryQuotaWithOptions(const Models::GetUserLogDeliveryQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取日志投递任务用户quota数
+       * @summary Queries the remaining log delivery quota of each log category in your account.
+       *
+       * @description This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
        *
        * @param request GetUserLogDeliveryQuotaRequest
        * @return GetUserLogDeliveryQuotaResponse
@@ -3980,7 +4286,7 @@ namespace ESA20240910
       Models::GetUserWafRulesetResponse getUserWafRuleset(const Models::GetUserWafRulesetRequest &request);
 
       /**
-       * @summary 查询站点视频处理配置详情
+       * @summary Queries the video processing configuration details of a site.
        *
        * @param request GetVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3989,7 +4295,7 @@ namespace ESA20240910
       Models::GetVideoProcessingResponse getVideoProcessingWithOptions(const Models::GetVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点视频处理配置详情
+       * @summary Queries the video processing configuration details of a site.
        *
        * @param request GetVideoProcessingRequest
        * @return GetVideoProcessingResponse
@@ -3997,7 +4303,7 @@ namespace ESA20240910
       Models::GetVideoProcessingResponse getVideoProcessing(const Models::GetVideoProcessingRequest &request);
 
       /**
-       * @summary 获取WAF中BOT阶段的APP key
+       * @summary This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetWafBotAppKeyResponse
@@ -4005,14 +4311,14 @@ namespace ESA20240910
       Models::GetWafBotAppKeyResponse getWafBotAppKeyWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取WAF中BOT阶段的APP key
+       * @summary This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
        *
        * @return GetWafBotAppKeyResponse
        */
       Models::GetWafBotAppKeyResponse getWafBotAppKey();
 
       /**
-       * @summary 将匹配项转换为表达式
+       * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
        *
        * @param request GetWafFilterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4021,7 +4327,7 @@ namespace ESA20240910
       Models::GetWafFilterResponse getWafFilterWithOptions(const Models::GetWafFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将匹配项转换为表达式
+       * @summary Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
        *
        * @param request GetWafFilterRequest
        * @return GetWafFilterResponse
@@ -4029,7 +4335,7 @@ namespace ESA20240910
       Models::GetWafFilterResponse getWafFilter(const Models::GetWafFilterRequest &request);
 
       /**
-       * @summary 获取WAF配额详情
+       * @summary Get WAF Quota Details
        *
        * @param request GetWafQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4038,7 +4344,7 @@ namespace ESA20240910
       Models::GetWafQuotaResponse getWafQuotaWithOptions(const Models::GetWafQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取WAF配额详情
+       * @summary Get WAF Quota Details
        *
        * @param request GetWafQuotaRequest
        * @return GetWafQuotaResponse
@@ -4046,7 +4352,7 @@ namespace ESA20240910
       Models::GetWafQuotaResponse getWafQuota(const Models::GetWafQuotaRequest &request);
 
       /**
-       * @summary 获取单个WAF规则详情
+       * @summary Get Details of a Single WAF Rule
        *
        * @param request GetWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4055,7 +4361,7 @@ namespace ESA20240910
       Models::GetWafRuleResponse getWafRuleWithOptions(const Models::GetWafRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取单个WAF规则详情
+       * @summary Get Details of a Single WAF Rule
        *
        * @param request GetWafRuleRequest
        * @return GetWafRuleResponse
@@ -4063,7 +4369,7 @@ namespace ESA20240910
       Models::GetWafRuleResponse getWafRule(const Models::GetWafRuleRequest &request);
 
       /**
-       * @summary 获取WAF规则集详情
+       * @summary Get WAF Ruleset Details
        *
        * @param request GetWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4072,7 +4378,7 @@ namespace ESA20240910
       Models::GetWafRulesetResponse getWafRulesetWithOptions(const Models::GetWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取WAF规则集详情
+       * @summary Get WAF Ruleset Details
        *
        * @param request GetWafRulesetRequest
        * @return GetWafRulesetResponse
@@ -4080,7 +4386,7 @@ namespace ESA20240910
       Models::GetWafRulesetResponse getWafRuleset(const Models::GetWafRulesetRequest &request);
 
       /**
-       * @summary 查询缓存保持实例列表
+       * @summary Query Cache Reserve Instance List
        *
        * @param request ListCacheReserveInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4089,7 +4395,7 @@ namespace ESA20240910
       Models::ListCacheReserveInstancesResponse listCacheReserveInstancesWithOptions(const Models::ListCacheReserveInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询缓存保持实例列表
+       * @summary Query Cache Reserve Instance List
        *
        * @param request ListCacheReserveInstancesRequest
        * @return ListCacheReserveInstancesResponse
@@ -4097,7 +4403,7 @@ namespace ESA20240910
       Models::ListCacheReserveInstancesResponse listCacheReserveInstances(const Models::ListCacheReserveInstancesRequest &request);
 
       /**
-       * @summary 查询多条缓存配置
+       * @summary Query multiple cache configurations
        *
        * @param request ListCacheRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4106,7 +4412,7 @@ namespace ESA20240910
       Models::ListCacheRulesResponse listCacheRulesWithOptions(const Models::ListCacheRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条缓存配置
+       * @summary Query multiple cache configurations
        *
        * @param request ListCacheRulesRequest
        * @return ListCacheRulesResponse
@@ -4114,7 +4420,7 @@ namespace ESA20240910
       Models::ListCacheRulesResponse listCacheRules(const Models::ListCacheRulesRequest &request);
 
       /**
-       * @summary 查询站点下证书列表
+       * @summary Lists certificates of a website.
        *
        * @param request ListCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4123,7 +4429,7 @@ namespace ESA20240910
       Models::ListCertificatesResponse listCertificatesWithOptions(const Models::ListCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点下证书列表
+       * @summary Lists certificates of a website.
        *
        * @param request ListCertificatesRequest
        * @return ListCertificatesResponse
@@ -4131,7 +4437,7 @@ namespace ESA20240910
       Models::ListCertificatesResponse listCertificates(const Models::ListCertificatesRequest &request);
 
       /**
-       * @summary 查询匹配记录名的站点证书列表
+       * @summary Lists certificates that match specified records for a website. You can specify multiple records at a time.
        *
        * @param request ListCertificatesByRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4140,7 +4446,7 @@ namespace ESA20240910
       Models::ListCertificatesByRecordResponse listCertificatesByRecordWithOptions(const Models::ListCertificatesByRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询匹配记录名的站点证书列表
+       * @summary Lists certificates that match specified records for a website. You can specify multiple records at a time.
        *
        * @param request ListCertificatesByRecordRequest
        * @return ListCertificatesByRecordResponse
@@ -4148,7 +4454,7 @@ namespace ESA20240910
       Models::ListCertificatesByRecordResponse listCertificatesByRecord(const Models::ListCertificatesByRecordRequest &request);
 
       /**
-       * @summary 查询TLS密码套件列表
+       * @summary Query TLS Cipher Suite List
        *
        * @param request ListCiphersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4157,7 +4463,7 @@ namespace ESA20240910
       Models::ListCiphersResponse listCiphersWithOptions(const Models::ListCiphersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询TLS密码套件列表
+       * @summary Query TLS Cipher Suite List
        *
        * @param request ListCiphersRequest
        * @return ListCiphersResponse
@@ -4165,7 +4471,7 @@ namespace ESA20240910
       Models::ListCiphersResponse listCiphers(const Models::ListCiphersRequest &request);
 
       /**
-       * @summary 查询站点下客户端CA证书列表
+       * @summary Queries a list of client certificate authority (CA) certificates for a website.
        *
        * @param request ListClientCaCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4174,7 +4480,7 @@ namespace ESA20240910
       Models::ListClientCaCertificatesResponse listClientCaCertificatesWithOptions(const Models::ListClientCaCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点下客户端CA证书列表
+       * @summary Queries a list of client certificate authority (CA) certificates for a website.
        *
        * @param request ListClientCaCertificatesRequest
        * @return ListClientCaCertificatesResponse
@@ -4182,7 +4488,7 @@ namespace ESA20240910
       Models::ListClientCaCertificatesResponse listClientCaCertificates(const Models::ListClientCaCertificatesRequest &request);
 
       /**
-       * @summary 查询站点下客户端证书列表
+       * @summary Queries client certificates configured for a website.
        *
        * @param request ListClientCertificatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4191,7 +4497,7 @@ namespace ESA20240910
       Models::ListClientCertificatesResponse listClientCertificatesWithOptions(const Models::ListClientCertificatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点下客户端证书列表
+       * @summary Queries client certificates configured for a website.
        *
        * @param request ListClientCertificatesRequest
        * @return ListClientCertificatesResponse
@@ -4199,7 +4505,7 @@ namespace ESA20240910
       Models::ListClientCertificatesResponse listClientCertificates(const Models::ListClientCertificatesRequest &request);
 
       /**
-       * @summary 查询压缩规则列表
+       * @summary Query the list of compression rules
        *
        * @param request ListCompressionRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4514,7 @@ namespace ESA20240910
       Models::ListCompressionRulesResponse listCompressionRulesWithOptions(const Models::ListCompressionRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询压缩规则列表
+       * @summary Query the list of compression rules
        *
        * @param request ListCompressionRulesRequest
        * @return ListCompressionRulesResponse
@@ -4233,7 +4539,7 @@ namespace ESA20240910
       Models::ListCustomHostnamesResponse listCustomHostnames(const Models::ListCustomHostnamesRequest &request);
 
       /**
-       * @summary 查询修改响应码规则列表
+       * @summary Queries the configuration list of an HTTP response header modification rule for a website.
        *
        * @param request ListCustomResponseCodeRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4242,7 +4548,7 @@ namespace ESA20240910
       Models::ListCustomResponseCodeRulesResponse listCustomResponseCodeRulesWithOptions(const Models::ListCustomResponseCodeRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询修改响应码规则列表
+       * @summary Queries the configuration list of an HTTP response header modification rule for a website.
        *
        * @param request ListCustomResponseCodeRulesRequest
        * @return ListCustomResponseCodeRulesResponse
@@ -4267,7 +4573,9 @@ namespace ESA20240910
       Models::ListDDoSInstancesResponse listDDoSInstances(const Models::ListDDoSInstancesRequest &request);
 
       /**
-       * @summary 批量查询IP是否为VIP
+       * @summary Batch query whether the IP address is included in the ESA resolution result.
+       *
+       * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
        *
        * @param request ListESAIPInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4276,7 +4584,9 @@ namespace ESA20240910
       Models::ListESAIPInfoResponse listESAIPInfoWithOptions(const Models::ListESAIPInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量查询IP是否为VIP
+       * @summary Batch query whether the IP address is included in the ESA resolution result.
+       *
+       * @description This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
        *
        * @param request ListESAIPInfoRequest
        * @return ListESAIPInfoResponse
@@ -4284,7 +4594,7 @@ namespace ESA20240910
       Models::ListESAIPInfoResponse listESAIPInfo(const Models::ListESAIPInfoRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的镜像秘钥列表
+       * @summary Retrieve the list of image secrets for edge container applications
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4293,7 +4603,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecretsWithOptions(const Models::ListEdgeContainerAppImageSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的镜像秘钥列表
+       * @summary Retrieve the list of image secrets for edge container applications
        *
        * @param request ListEdgeContainerAppImageSecretsRequest
        * @return ListEdgeContainerAppImageSecretsResponse
@@ -4301,7 +4611,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppImageSecretsResponse listEdgeContainerAppImageSecrets(const Models::ListEdgeContainerAppImageSecretsRequest &request);
 
       /**
-       * @summary 获取一个边缘容器应用的全部域名记录
+       * @summary Lists domain names that are associated with a containerized application.
        *
        * @param request ListEdgeContainerAppRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4310,7 +4620,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppRecordsResponse listEdgeContainerAppRecordsWithOptions(const Models::ListEdgeContainerAppRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一个边缘容器应用的全部域名记录
+       * @summary Lists domain names that are associated with a containerized application.
        *
        * @param request ListEdgeContainerAppRecordsRequest
        * @return ListEdgeContainerAppRecordsResponse
@@ -4318,7 +4628,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppRecordsResponse listEdgeContainerAppRecords(const Models::ListEdgeContainerAppRecordsRequest &request);
 
       /**
-       * @summary 获取边缘容器应用的全部版本信息
+       * @summary Lists versions of all containerized applications.
        *
        * @param request ListEdgeContainerAppVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4327,7 +4637,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppVersionsResponse listEdgeContainerAppVersionsWithOptions(const Models::ListEdgeContainerAppVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取边缘容器应用的全部版本信息
+       * @summary Lists versions of all containerized applications.
        *
        * @param request ListEdgeContainerAppVersionsRequest
        * @return ListEdgeContainerAppVersionsResponse
@@ -4335,7 +4645,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppVersionsResponse listEdgeContainerAppVersions(const Models::ListEdgeContainerAppVersionsRequest &request);
 
       /**
-       * @summary 获取用户全部边缘容器应用
+       * @summary Queries all containerized applications in your Alibaba Cloud account.
        *
        * @param request ListEdgeContainerAppsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4344,7 +4654,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppsResponse listEdgeContainerAppsWithOptions(const Models::ListEdgeContainerAppsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取用户全部边缘容器应用
+       * @summary Queries all containerized applications in your Alibaba Cloud account.
        *
        * @param request ListEdgeContainerAppsRequest
        * @return ListEdgeContainerAppsResponse
@@ -4352,7 +4662,7 @@ namespace ESA20240910
       Models::ListEdgeContainerAppsResponse listEdgeContainerApps(const Models::ListEdgeContainerAppsRequest &request);
 
       /**
-       * @summary 查询站点的边缘容器记录
+       * @summary Queries the records that are associated with Edge Container for a website.
        *
        * @param request ListEdgeContainerRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4361,7 +4671,7 @@ namespace ESA20240910
       Models::ListEdgeContainerRecordsResponse listEdgeContainerRecordsWithOptions(const Models::ListEdgeContainerRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点的边缘容器记录
+       * @summary Queries the records that are associated with Edge Container for a website.
        *
        * @param request ListEdgeContainerRecordsRequest
        * @return ListEdgeContainerRecordsResponse
@@ -4369,7 +4679,7 @@ namespace ESA20240910
       Models::ListEdgeContainerRecordsResponse listEdgeContainerRecords(const Models::ListEdgeContainerRecordsRequest &request);
 
       /**
-       * @summary 查询用户可购买的边缘函数的套餐
+       * @summary Queries Edge Routine plans.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListEdgeRoutinePlansResponse
@@ -4377,14 +4687,16 @@ namespace ESA20240910
       Models::ListEdgeRoutinePlansResponse listEdgeRoutinePlansWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户可购买的边缘函数的套餐
+       * @summary Queries Edge Routine plans.
        *
        * @return ListEdgeRoutinePlansResponse
        */
       Models::ListEdgeRoutinePlansResponse listEdgeRoutinePlans();
 
       /**
-       * @summary 查询站点的边缘路由记录
+       * @summary Queries the records that are associated with Edge Routine routes for a website.
+       *
+       * @description >  You can call this operation 100 times per second.
        *
        * @param request ListEdgeRoutineRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4393,7 +4705,9 @@ namespace ESA20240910
       Models::ListEdgeRoutineRecordsResponse listEdgeRoutineRecordsWithOptions(const Models::ListEdgeRoutineRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点的边缘路由记录
+       * @summary Queries the records that are associated with Edge Routine routes for a website.
+       *
+       * @description >  You can call this operation 100 times per second.
        *
        * @param request ListEdgeRoutineRecordsRequest
        * @return ListEdgeRoutineRecordsResponse
@@ -4401,7 +4715,7 @@ namespace ESA20240910
       Models::ListEdgeRoutineRecordsResponse listEdgeRoutineRecords(const Models::ListEdgeRoutineRecordsRequest &request);
 
       /**
-       * @summary 查询HTTP入站请求头规则列表
+       * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
        *
        * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4410,7 +4724,7 @@ namespace ESA20240910
       Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRulesWithOptions(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站请求头规则列表
+       * @summary Queries the configuration details of an incoming HTTP request header modification rule for a website.
        *
        * @param request ListHttpIncomingRequestHeaderModificationRulesRequest
        * @return ListHttpIncomingRequestHeaderModificationRulesResponse
@@ -4418,7 +4732,7 @@ namespace ESA20240910
       Models::ListHttpIncomingRequestHeaderModificationRulesResponse listHttpIncomingRequestHeaderModificationRules(const Models::ListHttpIncomingRequestHeaderModificationRulesRequest &request);
 
       /**
-       * @summary 查询HTTP入站响应头规则列表
+       * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
        *
        * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4427,7 +4741,7 @@ namespace ESA20240910
       Models::ListHttpIncomingResponseHeaderModificationRulesResponse listHttpIncomingResponseHeaderModificationRulesWithOptions(const Models::ListHttpIncomingResponseHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP入站响应头规则列表
+       * @summary Queries the configurations of an incoming HTTP response header modification rule for a website.
        *
        * @param request ListHttpIncomingResponseHeaderModificationRulesRequest
        * @return ListHttpIncomingResponseHeaderModificationRulesResponse
@@ -4435,7 +4749,7 @@ namespace ESA20240910
       Models::ListHttpIncomingResponseHeaderModificationRulesResponse listHttpIncomingResponseHeaderModificationRules(const Models::ListHttpIncomingResponseHeaderModificationRulesRequest &request);
 
       /**
-       * @summary 查询HTTP请求头规则列表
+       * @summary List of HTTP Request Header Rules
        *
        * @param request ListHttpRequestHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4444,7 +4758,7 @@ namespace ESA20240910
       Models::ListHttpRequestHeaderModificationRulesResponse listHttpRequestHeaderModificationRulesWithOptions(const Models::ListHttpRequestHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP请求头规则列表
+       * @summary List of HTTP Request Header Rules
        *
        * @param request ListHttpRequestHeaderModificationRulesRequest
        * @return ListHttpRequestHeaderModificationRulesResponse
@@ -4452,7 +4766,7 @@ namespace ESA20240910
       Models::ListHttpRequestHeaderModificationRulesResponse listHttpRequestHeaderModificationRules(const Models::ListHttpRequestHeaderModificationRulesRequest &request);
 
       /**
-       * @summary 查询HTTP响应头规则列表
+       * @summary List of HTTP Response Header Rules
        *
        * @param request ListHttpResponseHeaderModificationRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4461,7 +4775,7 @@ namespace ESA20240910
       Models::ListHttpResponseHeaderModificationRulesResponse listHttpResponseHeaderModificationRulesWithOptions(const Models::ListHttpResponseHeaderModificationRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询HTTP响应头规则列表
+       * @summary List of HTTP Response Header Rules
        *
        * @param request ListHttpResponseHeaderModificationRulesRequest
        * @return ListHttpResponseHeaderModificationRulesResponse
@@ -4469,7 +4783,7 @@ namespace ESA20240910
       Models::ListHttpResponseHeaderModificationRulesResponse listHttpResponseHeaderModificationRules(const Models::ListHttpResponseHeaderModificationRulesRequest &request);
 
       /**
-       * @summary 查询多条HTTPS应用的配置
+       * @summary Query multiple HTTPS application configurations
        *
        * @param request ListHttpsApplicationConfigurationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4478,7 +4792,7 @@ namespace ESA20240910
       Models::ListHttpsApplicationConfigurationsResponse listHttpsApplicationConfigurationsWithOptions(const Models::ListHttpsApplicationConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条HTTPS应用的配置
+       * @summary Query multiple HTTPS application configurations
        *
        * @param request ListHttpsApplicationConfigurationsRequest
        * @return ListHttpsApplicationConfigurationsResponse
@@ -4486,7 +4800,7 @@ namespace ESA20240910
       Models::ListHttpsApplicationConfigurationsResponse listHttpsApplicationConfigurations(const Models::ListHttpsApplicationConfigurationsRequest &request);
 
       /**
-       * @summary 查询多条HTTPS基础配置
+       * @summary Query multiple HTTPS basic configurations
        *
        * @param request ListHttpsBasicConfigurationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4495,7 +4809,7 @@ namespace ESA20240910
       Models::ListHttpsBasicConfigurationsResponse listHttpsBasicConfigurationsWithOptions(const Models::ListHttpsBasicConfigurationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条HTTPS基础配置
+       * @summary Query multiple HTTPS basic configurations
        *
        * @param request ListHttpsBasicConfigurationsRequest
        * @return ListHttpsBasicConfigurationsResponse
@@ -4503,7 +4817,7 @@ namespace ESA20240910
       Models::ListHttpsBasicConfigurationsResponse listHttpsBasicConfigurations(const Models::ListHttpsBasicConfigurationsRequest &request);
 
       /**
-       * @summary 查询多条站点图片转换配置
+       * @summary Query Multiple Site Image Transformation Configurations
        *
        * @param request ListImageTransformsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4512,7 +4826,7 @@ namespace ESA20240910
       Models::ListImageTransformsResponse listImageTransformsWithOptions(const Models::ListImageTransformsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条站点图片转换配置
+       * @summary Query Multiple Site Image Transformation Configurations
        *
        * @param request ListImageTransformsRequest
        * @return ListImageTransformsResponse
@@ -4520,7 +4834,7 @@ namespace ESA20240910
       Models::ListImageTransformsResponse listImageTransforms(const Models::ListImageTransformsRequest &request);
 
       /**
-       * @summary 查询实例或者站点的quota值
+       * @summary Queries the quota details in a subscription plan.
        *
        * @param request ListInstanceQuotasRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4529,7 +4843,7 @@ namespace ESA20240910
       Models::ListInstanceQuotasResponse listInstanceQuotasWithOptions(const Models::ListInstanceQuotasRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询实例或者站点的quota值
+       * @summary Queries the quota details in a subscription plan.
        *
        * @param request ListInstanceQuotasRequest
        * @return ListInstanceQuotasResponse
@@ -4537,7 +4851,7 @@ namespace ESA20240910
       Models::ListInstanceQuotasResponse listInstanceQuotas(const Models::ListInstanceQuotasRequest &request);
 
       /**
-       * @summary 查询功能quota和用量
+       * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
        *
        * @param request ListInstanceQuotasWithUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4546,7 +4860,7 @@ namespace ESA20240910
       Models::ListInstanceQuotasWithUsageResponse listInstanceQuotasWithUsageWithOptions(const Models::ListInstanceQuotasWithUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询功能quota和用量
+       * @summary Queries quotas and the actual usage in a plan based on the website or plan ID.
        *
        * @param request ListInstanceQuotasWithUsageRequest
        * @return ListInstanceQuotasWithUsageResponse
@@ -4571,7 +4885,7 @@ namespace ESA20240910
       Models::ListKeylessServersResponse listKeylessServers(const Models::ListKeylessServersRequest &request);
 
       /**
-       * @summary 遍历Namespace的Key值
+       * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
        *
        * @param request ListKvsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4580,7 +4894,7 @@ namespace ESA20240910
       Models::ListKvsResponse listKvsWithOptions(const Models::ListKvsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 遍历Namespace的Key值
+       * @summary Lists all key-value pairs in a namespace in your Alibaba Cloud account.
        *
        * @param request ListKvsRequest
        * @return ListKvsResponse
@@ -4588,7 +4902,7 @@ namespace ESA20240910
       Models::ListKvsResponse listKvs(const Models::ListKvsRequest &request);
 
       /**
-       * @summary 列举自定义列表
+       * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
        *
        * @param tmpReq ListListsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4597,7 +4911,7 @@ namespace ESA20240910
       Models::ListListsResponse listListsWithOptions(const Models::ListListsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举自定义列表
+       * @summary Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
        *
        * @param request ListListsRequest
        * @return ListListsResponse
@@ -4605,7 +4919,13 @@ namespace ESA20240910
       Models::ListListsResponse listLists(const Models::ListListsRequest &request);
 
       /**
-       * @summary 查询负载均衡器里各源站状态
+       * @summary Query the status of origins in load balancers
+       *
+       * @description Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
+       * - Healthy(healthy): The probe result is available.
+       * - Unhealthy(unhealthy): The probe result is unavailable.
+       * - Unknown(unknown): Unknown, the monitor has not yet probed.
+       * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
        *
        * @param request ListLoadBalancerOriginStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4614,7 +4934,13 @@ namespace ESA20240910
       Models::ListLoadBalancerOriginStatusResponse listLoadBalancerOriginStatusWithOptions(const Models::ListLoadBalancerOriginStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询负载均衡器里各源站状态
+       * @summary Query the status of origins in load balancers
+       *
+       * @description Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
+       * - Healthy(healthy): The probe result is available.
+       * - Unhealthy(unhealthy): The probe result is unavailable.
+       * - Unknown(unknown): Unknown, the monitor has not yet probed.
+       * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
        *
        * @param request ListLoadBalancerOriginStatusRequest
        * @return ListLoadBalancerOriginStatusResponse
@@ -4622,7 +4948,9 @@ namespace ESA20240910
       Models::ListLoadBalancerOriginStatusResponse listLoadBalancerOriginStatus(const Models::ListLoadBalancerOriginStatusRequest &request);
 
       /**
-       * @summary 查询负载均衡区域列表
+       * @summary Query Load Balancer Region List
+       *
+       * @description When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
        *
        * @param request ListLoadBalancerRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4631,7 +4959,9 @@ namespace ESA20240910
       Models::ListLoadBalancerRegionsResponse listLoadBalancerRegionsWithOptions(const Models::ListLoadBalancerRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询负载均衡区域列表
+       * @summary Query Load Balancer Region List
+       *
+       * @description When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
        *
        * @param request ListLoadBalancerRegionsRequest
        * @return ListLoadBalancerRegionsResponse
@@ -4639,7 +4969,7 @@ namespace ESA20240910
       Models::ListLoadBalancerRegionsResponse listLoadBalancerRegions(const Models::ListLoadBalancerRegionsRequest &request);
 
       /**
-       * @summary 查询负载均衡器列表
+       * @summary Query the list of load balancers
        *
        * @param request ListLoadBalancersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4648,7 +4978,7 @@ namespace ESA20240910
       Models::ListLoadBalancersResponse listLoadBalancersWithOptions(const Models::ListLoadBalancersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询负载均衡器列表
+       * @summary Query the list of load balancers
        *
        * @param request ListLoadBalancersRequest
        * @return ListLoadBalancersResponse
@@ -4656,7 +4986,7 @@ namespace ESA20240910
       Models::ListLoadBalancersResponse listLoadBalancers(const Models::ListLoadBalancersRequest &request);
 
       /**
-       * @summary 列举自定义托管规则组
+       * @summary List Custom Managed Rule Groups
        *
        * @param request ListManagedRulesGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4665,7 +4995,7 @@ namespace ESA20240910
       Models::ListManagedRulesGroupsResponse listManagedRulesGroupsWithOptions(const Models::ListManagedRulesGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举自定义托管规则组
+       * @summary List Custom Managed Rule Groups
        *
        * @param request ListManagedRulesGroupsRequest
        * @return ListManagedRulesGroupsResponse
@@ -4673,7 +5003,7 @@ namespace ESA20240910
       Models::ListManagedRulesGroupsResponse listManagedRulesGroups(const Models::ListManagedRulesGroupsRequest &request);
 
       /**
-       * @summary 查询多条网络优化配置
+       * @summary Query multiple network optimization configurations
        *
        * @param request ListNetworkOptimizationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4682,7 +5012,7 @@ namespace ESA20240910
       Models::ListNetworkOptimizationsResponse listNetworkOptimizationsWithOptions(const Models::ListNetworkOptimizationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条网络优化配置
+       * @summary Query multiple network optimization configurations
        *
        * @param request ListNetworkOptimizationsRequest
        * @return ListNetworkOptimizationsResponse
@@ -4724,7 +5054,7 @@ namespace ESA20240910
       Models::ListOriginClientCertificatesResponse listOriginClientCertificates(const Models::ListOriginClientCertificatesRequest &request);
 
       /**
-       * @summary 查询源地址池的列表
+       * @summary List Origin Pools
        *
        * @param request ListOriginPoolsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4733,7 +5063,7 @@ namespace ESA20240910
       Models::ListOriginPoolsResponse listOriginPoolsWithOptions(const Models::ListOriginPoolsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询源地址池的列表
+       * @summary List Origin Pools
        *
        * @param request ListOriginPoolsRequest
        * @return ListOriginPoolsResponse
@@ -4741,7 +5071,7 @@ namespace ESA20240910
       Models::ListOriginPoolsResponse listOriginPools(const Models::ListOriginPoolsRequest &request);
 
       /**
-       * @summary 查询多条回源规则配置
+       * @summary Query multiple origin rule configurations
        *
        * @param request ListOriginRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4750,7 +5080,7 @@ namespace ESA20240910
       Models::ListOriginRulesResponse listOriginRulesWithOptions(const Models::ListOriginRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询多条回源规则配置
+       * @summary Query multiple origin rule configurations
        *
        * @param request ListOriginRulesRequest
        * @return ListOriginRulesResponse
@@ -4758,7 +5088,7 @@ namespace ESA20240910
       Models::ListOriginRulesResponse listOriginRules(const Models::ListOriginRulesRequest &request);
 
       /**
-       * @summary 列举自定义响应页面
+       * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
        *
        * @param tmpReq ListPagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4767,7 +5097,7 @@ namespace ESA20240910
       Models::ListPagesResponse listPagesWithOptions(const Models::ListPagesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举自定义响应页面
+       * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
        *
        * @param request ListPagesRequest
        * @return ListPagesResponse
@@ -4775,7 +5105,7 @@ namespace ESA20240910
       Models::ListPagesResponse listPages(const Models::ListPagesRequest &request);
 
       /**
-       * @summary 查询该用户下已购的后付费站点套餐实例
+       * @summary Queries pay-as-you-go instances.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4784,7 +5114,7 @@ namespace ESA20240910
       Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstancesWithOptions(const Models::ListPostpaidRatePlanInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询该用户下已购的后付费站点套餐实例
+       * @summary Queries pay-as-you-go instances.
        *
        * @param request ListPostpaidRatePlanInstancesRequest
        * @return ListPostpaidRatePlanInstancesResponse
@@ -4792,7 +5122,9 @@ namespace ESA20240910
       Models::ListPostpaidRatePlanInstancesResponse listPostpaidRatePlanInstances(const Models::ListPostpaidRatePlanInstancesRequest &request);
 
       /**
-       * @summary 查询站点下记录列表
+       * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+       *
+       * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
        *
        * @param request ListRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4801,7 +5133,9 @@ namespace ESA20240910
       Models::ListRecordsResponse listRecordsWithOptions(const Models::ListRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点下记录列表
+       * @summary Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+       *
+       * @description The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
        *
        * @param request ListRecordsRequest
        * @return ListRecordsResponse
@@ -4809,7 +5143,7 @@ namespace ESA20240910
       Models::ListRecordsResponse listRecords(const Models::ListRecordsRequest &request);
 
       /**
-       * @summary 查询重定向规则列表
+       * @summary Query Redirect Rule List
        *
        * @param request ListRedirectRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4818,7 +5152,7 @@ namespace ESA20240910
       Models::ListRedirectRulesResponse listRedirectRulesWithOptions(const Models::ListRedirectRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询重定向规则列表
+       * @summary Query Redirect Rule List
        *
        * @param request ListRedirectRulesRequest
        * @return ListRedirectRulesResponse
@@ -4826,7 +5160,7 @@ namespace ESA20240910
       Models::ListRedirectRulesResponse listRedirectRules(const Models::ListRedirectRulesRequest &request);
 
       /**
-       * @summary 查询重写Url规则列表
+       * @summary List of Rewrite URL Rules
        *
        * @param request ListRewriteUrlRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4835,7 +5169,7 @@ namespace ESA20240910
       Models::ListRewriteUrlRulesResponse listRewriteUrlRulesWithOptions(const Models::ListRewriteUrlRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询重写Url规则列表
+       * @summary List of Rewrite URL Rules
        *
        * @param request ListRewriteUrlRulesRequest
        * @return ListRewriteUrlRulesResponse
@@ -4843,7 +5177,7 @@ namespace ESA20240910
       Models::ListRewriteUrlRulesResponse listRewriteUrlRules(const Models::ListRewriteUrlRulesRequest &request);
 
       /**
-       * @summary 查询Routine灰度环境列表
+       * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRoutineCanaryAreasResponse
@@ -4851,14 +5185,18 @@ namespace ESA20240910
       Models::ListRoutineCanaryAreasResponse listRoutineCanaryAreasWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine灰度环境列表
+       * @summary Lists the regions to which Edge Routine code can be released for canary deployment.
        *
        * @return ListRoutineCanaryAreasResponse
        */
       Models::ListRoutineCanaryAreasResponse listRoutineCanaryAreas();
 
       /**
-       * @summary 查询Routine的代码版本列表
+       * @summary Queries the code versions of a function (routine) by page.
+       *
+       * @description Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+       * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+       * The response includes the number, description, and creation time of each code version.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4867,7 +5205,11 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersionsWithOptions(const Models::ListRoutineCodeVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询Routine的代码版本列表
+       * @summary Queries the code versions of a function (routine) by page.
+       *
+       * @description Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
+       * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
+       * The response includes the number, description, and creation time of each code version.
        *
        * @param request ListRoutineCodeVersionsRequest
        * @return ListRoutineCodeVersionsResponse
@@ -4875,7 +5217,9 @@ namespace ESA20240910
       Models::ListRoutineCodeVersionsResponse listRoutineCodeVersions(const Models::ListRoutineCodeVersionsRequest &request);
 
       /**
-       * @summary 查询函数关联域名列表
+       * @summary The records associated with the function.
+       *
+       * @description You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4884,7 +5228,9 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecordsWithOptions(const Models::ListRoutineRelatedRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询函数关联域名列表
+       * @summary The records associated with the function.
+       *
+       * @description You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
        *
        * @param request ListRoutineRelatedRecordsRequest
        * @return ListRoutineRelatedRecordsResponse
@@ -4892,7 +5238,7 @@ namespace ESA20240910
       Models::ListRoutineRelatedRecordsResponse listRoutineRelatedRecords(const Models::ListRoutineRelatedRecordsRequest &request);
 
       /**
-       * @summary 查询边缘程序的函数路由列表
+       * @summary Queries the routes of an edge function.
        *
        * @param request ListRoutineRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4901,7 +5247,7 @@ namespace ESA20240910
       Models::ListRoutineRoutesResponse listRoutineRoutesWithOptions(const Models::ListRoutineRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询边缘程序的函数路由列表
+       * @summary Queries the routes of an edge function.
        *
        * @param request ListRoutineRoutesRequest
        * @return ListRoutineRoutesResponse
@@ -4909,7 +5255,7 @@ namespace ESA20240910
       Models::ListRoutineRoutesResponse listRoutineRoutes(const Models::ListRoutineRoutesRequest &request);
 
       /**
-       * @summary 列出指定任务下的执行计划
+       * @summary Lists the plans in a scheduled prefetch task by task ID.
        *
        * @param request ListScheduledPreloadExecutionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4918,7 +5264,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadExecutionsResponse listScheduledPreloadExecutionsWithOptions(const Models::ListScheduledPreloadExecutionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出指定任务下的执行计划
+       * @summary Lists the plans in a scheduled prefetch task by task ID.
        *
        * @param request ListScheduledPreloadExecutionsRequest
        * @return ListScheduledPreloadExecutionsResponse
@@ -4926,7 +5272,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadExecutionsResponse listScheduledPreloadExecutions(const Models::ListScheduledPreloadExecutionsRequest &request);
 
       /**
-       * @summary 列出定时预热任务列表
+       * @summary Queries the scheduled prefetch tasks for a website.
        *
        * @param request ListScheduledPreloadJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4935,7 +5281,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadJobsResponse listScheduledPreloadJobsWithOptions(const Models::ListScheduledPreloadJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出定时预热任务列表
+       * @summary Queries the scheduled prefetch tasks for a website.
        *
        * @param request ListScheduledPreloadJobsRequest
        * @return ListScheduledPreloadJobsResponse
@@ -4943,7 +5289,7 @@ namespace ESA20240910
       Models::ListScheduledPreloadJobsResponse listScheduledPreloadJobs(const Models::ListScheduledPreloadJobsRequest &request);
 
       /**
-       * @summary 列出全部任务投递
+       * @summary Lists all log delivery tasks that are in progress.
        *
        * @param request ListSiteDeliveryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4952,7 +5298,7 @@ namespace ESA20240910
       Models::ListSiteDeliveryTasksResponse listSiteDeliveryTasksWithOptions(const Models::ListSiteDeliveryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出全部任务投递
+       * @summary Lists all log delivery tasks that are in progress.
        *
        * @param request ListSiteDeliveryTasksRequest
        * @return ListSiteDeliveryTasksResponse
@@ -4977,7 +5323,7 @@ namespace ESA20240910
       Models::ListSiteOriginClientCertificatesResponse listSiteOriginClientCertificates(const Models::ListSiteOriginClientCertificatesRequest &request);
 
       /**
-       * @summary 查询站点的函数路由列表
+       * @summary Queries the edge function routes for a website.
        *
        * @param request ListSiteRoutesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4986,7 +5332,7 @@ namespace ESA20240910
       Models::ListSiteRoutesResponse listSiteRoutesWithOptions(const Models::ListSiteRoutesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点的函数路由列表
+       * @summary Queries the edge function routes for a website.
        *
        * @param request ListSiteRoutesRequest
        * @return ListSiteRoutesResponse
@@ -4994,7 +5340,7 @@ namespace ESA20240910
       Models::ListSiteRoutesResponse listSiteRoutes(const Models::ListSiteRoutesRequest &request);
 
       /**
-       * @summary 查询站点列表
+       * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
        *
        * @param tmpReq ListSitesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5003,7 +5349,7 @@ namespace ESA20240910
       Models::ListSitesResponse listSitesWithOptions(const Models::ListSitesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点列表
+       * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
        *
        * @param request ListSitesRequest
        * @return ListSitesResponse
@@ -5011,7 +5357,7 @@ namespace ESA20240910
       Models::ListSitesResponse listSites(const Models::ListSitesRequest &request);
 
       /**
-       * @summary 查询云资源已经绑定标签列表
+       * @summary Queries tags based on the region ID and resource type.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5020,7 +5366,7 @@ namespace ESA20240910
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询云资源已经绑定标签列表
+       * @summary Queries tags based on the region ID and resource type.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -5045,7 +5391,7 @@ namespace ESA20240910
       Models::ListTraceTasksResponse listTraceTasks(const Models::ListTraceTasksRequest &request);
 
       /**
-       * @summary 查询四层应用列表
+       * @summary List of Transport Layer Applications
        *
        * @param request ListTransportLayerApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5054,7 +5400,7 @@ namespace ESA20240910
       Models::ListTransportLayerApplicationsResponse listTransportLayerApplicationsWithOptions(const Models::ListTransportLayerApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询四层应用列表
+       * @summary List of Transport Layer Applications
        *
        * @param request ListTransportLayerApplicationsRequest
        * @return ListTransportLayerApplicationsResponse
@@ -5062,7 +5408,7 @@ namespace ESA20240910
       Models::ListTransportLayerApplicationsResponse listTransportLayerApplications(const Models::ListTransportLayerApplicationsRequest &request);
 
       /**
-       * @summary 获取文件上传任务
+       * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
        *
        * @param request ListUploadTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5071,7 +5417,7 @@ namespace ESA20240910
       Models::ListUploadTasksResponse listUploadTasksWithOptions(const Models::ListUploadTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件上传任务
+       * @summary Queries the execution status and running information of file upload tasks based on the task time and type.
        *
        * @param request ListUploadTasksRequest
        * @return ListUploadTasksResponse
@@ -5079,7 +5425,7 @@ namespace ESA20240910
       Models::ListUploadTasksResponse listUploadTasks(const Models::ListUploadTasksRequest &request);
 
       /**
-       * @summary 查询网页观测配置列表
+       * @summary Queries the list of page monitoring configurations.
        *
        * @param request ListUrlObservationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5088,7 +5434,7 @@ namespace ESA20240910
       Models::ListUrlObservationsResponse listUrlObservationsWithOptions(const Models::ListUrlObservationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询网页观测配置列表
+       * @summary Queries the list of page monitoring configurations.
        *
        * @param request ListUrlObservationsRequest
        * @return ListUrlObservationsResponse
@@ -5096,7 +5442,7 @@ namespace ESA20240910
       Models::ListUrlObservationsResponse listUrlObservations(const Models::ListUrlObservationsRequest &request);
 
       /**
-       * @summary 列出用户全部任务投递
+       * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
        *
        * @param request ListUserDeliveryTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5105,7 +5451,7 @@ namespace ESA20240910
       Models::ListUserDeliveryTasksResponse listUserDeliveryTasksWithOptions(const Models::ListUserDeliveryTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出用户全部任务投递
+       * @summary Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
        *
        * @param request ListUserDeliveryTasksRequest
        * @return ListUserDeliveryTasksResponse
@@ -5113,7 +5459,7 @@ namespace ESA20240910
       Models::ListUserDeliveryTasksResponse listUserDeliveryTasks(const Models::ListUserDeliveryTasksRequest &request);
 
       /**
-       * @summary 查询该用户下可用的已购套餐实例
+       * @summary Queries the plans that you purchased and the details of the plans.
        *
        * @param request ListUserRatePlanInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5122,7 +5468,7 @@ namespace ESA20240910
       Models::ListUserRatePlanInstancesResponse listUserRatePlanInstancesWithOptions(const Models::ListUserRatePlanInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询该用户下可用的已购套餐实例
+       * @summary Queries the plans that you purchased and the details of the plans.
        *
        * @param request ListUserRatePlanInstancesRequest
        * @return ListUserRatePlanInstancesResponse
@@ -5130,7 +5476,9 @@ namespace ESA20240910
       Models::ListUserRatePlanInstancesResponse listUserRatePlanInstances(const Models::ListUserRatePlanInstancesRequest &request);
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+       *
+       * @description You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
        *
        * @param request ListUserRoutinesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5139,7 +5487,9 @@ namespace ESA20240910
       Models::ListUserRoutinesResponse listUserRoutinesWithOptions(const Models::ListUserRoutinesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户的Routine列表
+       * @summary Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
+       *
+       * @description You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
        *
        * @param request ListUserRoutinesRequest
        * @return ListUserRoutinesResponse
@@ -5164,7 +5514,7 @@ namespace ESA20240910
       Models::ListUserWafRulesetsResponse listUserWafRulesets(const Models::ListUserWafRulesetsRequest &request);
 
       /**
-       * @summary 查询站点视频处理配置列表
+       * @summary Queries the video processing configurations of a site.
        *
        * @param request ListVideoProcessingsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5173,7 +5523,7 @@ namespace ESA20240910
       Models::ListVideoProcessingsResponse listVideoProcessingsWithOptions(const Models::ListVideoProcessingsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询站点视频处理配置列表
+       * @summary Queries the video processing configurations of a site.
        *
        * @param request ListVideoProcessingsRequest
        * @return ListVideoProcessingsResponse
@@ -5181,7 +5531,7 @@ namespace ESA20240910
       Models::ListVideoProcessingsResponse listVideoProcessings(const Models::ListVideoProcessingsRequest &request);
 
       /**
-       * @summary 列举WAF的托管规则
+       * @summary List WAF Managed Rules
        *
        * @param tmpReq ListWafManagedRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5190,7 +5540,7 @@ namespace ESA20240910
       Models::ListWafManagedRulesResponse listWafManagedRulesWithOptions(const Models::ListWafManagedRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF的托管规则
+       * @summary List WAF Managed Rules
        *
        * @param request ListWafManagedRulesRequest
        * @return ListWafManagedRulesResponse
@@ -5198,7 +5548,7 @@ namespace ESA20240910
       Models::ListWafManagedRulesResponse listWafManagedRules(const Models::ListWafManagedRulesRequest &request);
 
       /**
-       * @summary 列举WAF阶段
+       * @summary List WAF Phases
        *
        * @param request ListWafPhasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5207,7 +5557,7 @@ namespace ESA20240910
       Models::ListWafPhasesResponse listWafPhasesWithOptions(const Models::ListWafPhasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF阶段
+       * @summary List WAF Phases
        *
        * @param request ListWafPhasesRequest
        * @return ListWafPhasesResponse
@@ -5215,7 +5565,7 @@ namespace ESA20240910
       Models::ListWafPhasesResponse listWafPhases(const Models::ListWafPhasesRequest &request);
 
       /**
-       * @summary 列举WAF规则
+       * @summary List WAF Rules
        *
        * @param tmpReq ListWafRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5224,7 +5574,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRulesWithOptions(const Models::ListWafRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF规则
+       * @summary List WAF Rules
        *
        * @param request ListWafRulesRequest
        * @return ListWafRulesResponse
@@ -5232,7 +5582,7 @@ namespace ESA20240910
       Models::ListWafRulesResponse listWafRules(const Models::ListWafRulesRequest &request);
 
       /**
-       * @summary 列举WAF规则集
+       * @summary List WAF Rule Sets
        *
        * @param tmpReq ListWafRulesetsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5241,7 +5591,7 @@ namespace ESA20240910
       Models::ListWafRulesetsResponse listWafRulesetsWithOptions(const Models::ListWafRulesetsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF规则集
+       * @summary List WAF Rule Sets
        *
        * @param request ListWafRulesetsRequest
        * @return ListWafRulesetsResponse
@@ -5249,7 +5599,7 @@ namespace ESA20240910
       Models::ListWafRulesetsResponse listWafRulesets(const Models::ListWafRulesetsRequest &request);
 
       /**
-       * @summary 列举WAF模板规则
+       * @summary List WAF Template Rules
        *
        * @param tmpReq ListWafTemplateRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5258,7 +5608,7 @@ namespace ESA20240910
       Models::ListWafTemplateRulesResponse listWafTemplateRulesWithOptions(const Models::ListWafTemplateRulesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF模板规则
+       * @summary List WAF Template Rules
        *
        * @param request ListWafTemplateRulesRequest
        * @return ListWafTemplateRulesResponse
@@ -5266,7 +5616,7 @@ namespace ESA20240910
       Models::ListWafTemplateRulesResponse listWafTemplateRules(const Models::ListWafTemplateRulesRequest &request);
 
       /**
-       * @summary 列举WAF规则的使用情况
+       * @summary List WAF Rule Usage
        *
        * @param request ListWafUsageOfRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5275,7 +5625,7 @@ namespace ESA20240910
       Models::ListWafUsageOfRulesResponse listWafUsageOfRulesWithOptions(const Models::ListWafUsageOfRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列举WAF规则的使用情况
+       * @summary List WAF Rule Usage
        *
        * @param request ListWafUsageOfRulesRequest
        * @return ListWafUsageOfRulesResponse
@@ -5283,7 +5633,9 @@ namespace ESA20240910
       Models::ListWafUsageOfRulesResponse listWafUsageOfRules(const Models::ListWafUsageOfRulesRequest &request);
 
       /**
-       * @summary 查询等候室事件
+       * @summary Queries the information about waiting room events for a waiting room.
+       *
+       * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
        *
        * @param request ListWaitingRoomEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5292,7 +5644,9 @@ namespace ESA20240910
       Models::ListWaitingRoomEventsResponse listWaitingRoomEventsWithOptions(const Models::ListWaitingRoomEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询等候室事件
+       * @summary Queries the information about waiting room events for a waiting room.
+       *
+       * @description You can call this operation to query details of all waiting room events related to a waiting room in a website.
        *
        * @param request ListWaitingRoomEventsRequest
        * @return ListWaitingRoomEventsResponse
@@ -5300,7 +5654,9 @@ namespace ESA20240910
       Models::ListWaitingRoomEventsResponse listWaitingRoomEvents(const Models::ListWaitingRoomEventsRequest &request);
 
       /**
-       * @summary 查询等候室绕过规则
+       * @summary Query Waiting Room Bypass Rules
+       *
+       * @description This API allows users to query the list of waiting room bypass rules associated with a specific site.
        *
        * @param request ListWaitingRoomRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5309,7 +5665,9 @@ namespace ESA20240910
       Models::ListWaitingRoomRulesResponse listWaitingRoomRulesWithOptions(const Models::ListWaitingRoomRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询等候室绕过规则
+       * @summary Query Waiting Room Bypass Rules
+       *
+       * @description This API allows users to query the list of waiting room bypass rules associated with a specific site.
        *
        * @param request ListWaitingRoomRulesRequest
        * @return ListWaitingRoomRulesResponse
@@ -5317,7 +5675,9 @@ namespace ESA20240910
       Models::ListWaitingRoomRulesResponse listWaitingRoomRules(const Models::ListWaitingRoomRulesRequest &request);
 
       /**
-       * @summary 查询等候室
+       * @summary Queries the information about all waiting rooms in a website.
+       *
+       * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
        *
        * @param request ListWaitingRoomsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5326,7 +5686,9 @@ namespace ESA20240910
       Models::ListWaitingRoomsResponse listWaitingRoomsWithOptions(const Models::ListWaitingRoomsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询等候室
+       * @summary Queries the information about all waiting rooms in a website.
+       *
+       * @description You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
        *
        * @param request ListWaitingRoomsRequest
        * @return ListWaitingRoomsResponse
@@ -5351,7 +5713,7 @@ namespace ESA20240910
       Models::OpenErServiceResponse openErService(const Models::OpenErServiceRequest &request);
 
       /**
-       * @summary 缓存预热
+       * @summary Prefetches cache.
        *
        * @param tmpReq PreloadCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5360,7 +5722,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCachesWithOptions(const Models::PreloadCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缓存预热
+       * @summary Prefetches cache.
        *
        * @param request PreloadCachesRequest
        * @return PreloadCachesResponse
@@ -5368,7 +5730,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCaches(const Models::PreloadCachesRequest &request);
 
       /**
-       * @summary 发布边缘容器应用的某个版本
+       * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
        *
        * @param tmpReq PublishEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5377,7 +5739,7 @@ namespace ESA20240910
       Models::PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersionWithOptions(const Models::PublishEdgeContainerAppVersionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布边缘容器应用的某个版本
+       * @summary Releases a specific version of a containerized application. You can call this operation to iterate an application.
        *
        * @param request PublishEdgeContainerAppVersionRequest
        * @return PublishEdgeContainerAppVersionResponse
@@ -5385,7 +5747,7 @@ namespace ESA20240910
       Models::PublishEdgeContainerAppVersionResponse publishEdgeContainerAppVersion(const Models::PublishEdgeContainerAppVersionRequest &request);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
        *
        * @param request PublishRoutineCodeVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5394,7 +5756,7 @@ namespace ESA20240910
       Models::PublishRoutineCodeVersionResponse publishRoutineCodeVersionWithOptions(const Models::PublishRoutineCodeVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布Routine某版本代码
+       * @summary Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
        *
        * @param request PublishRoutineCodeVersionRequest
        * @return PublishRoutineCodeVersionResponse
@@ -5402,7 +5764,7 @@ namespace ESA20240910
       Models::PublishRoutineCodeVersionResponse publishRoutineCodeVersion(const Models::PublishRoutineCodeVersionRequest &request);
 
       /**
-       * @summary 新购缓存保持
+       * @summary New Purchase of Cache Retention
        *
        * @param request PurchaseCacheReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5411,7 +5773,7 @@ namespace ESA20240910
       Models::PurchaseCacheReserveResponse purchaseCacheReserveWithOptions(const Models::PurchaseCacheReserveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新购缓存保持
+       * @summary New Purchase of Cache Retention
        *
        * @param request PurchaseCacheReserveRequest
        * @return PurchaseCacheReserveResponse
@@ -5419,7 +5781,10 @@ namespace ESA20240910
       Models::PurchaseCacheReserveResponse purchaseCacheReserve(const Models::PurchaseCacheReserveRequest &request);
 
       /**
-       * @summary 新购套餐
+       * @summary Purchase New Package
+       *
+       * @description 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
+       * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
        *
        * @param request PurchaseRatePlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5428,7 +5793,10 @@ namespace ESA20240910
       Models::PurchaseRatePlanResponse purchaseRatePlanWithOptions(const Models::PurchaseRatePlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新购套餐
+       * @summary Purchase New Package
+       *
+       * @description 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
+       * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
        *
        * @param request PurchaseRatePlanRequest
        * @return PurchaseRatePlanResponse
@@ -5436,7 +5804,7 @@ namespace ESA20240910
       Models::PurchaseRatePlanResponse purchaseRatePlan(const Models::PurchaseRatePlanRequest &request);
 
       /**
-       * @summary 缓存刷新
+       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
        *
        * @param tmpReq PurgeCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5445,7 +5813,7 @@ namespace ESA20240910
       Models::PurgeCachesResponse purgeCachesWithOptions(const Models::PurgeCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缓存刷新
+       * @summary Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
        *
        * @param request PurgeCachesRequest
        * @return PurgeCachesResponse
@@ -5453,7 +5821,7 @@ namespace ESA20240910
       Models::PurgeCachesResponse purgeCaches(const Models::PurgeCachesRequest &request);
 
       /**
-       * @summary 设置Namespace的Key-Value对
+       * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
        *
        * @param request PutKvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5462,7 +5830,7 @@ namespace ESA20240910
       Models::PutKvResponse putKvWithOptions(const Models::PutKvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置Namespace的Key-Value对
+       * @summary Configures a key-value pair for a namespace. The request body can be up to 2 MB.
        *
        * @param request PutKvRequest
        * @return PutKvResponse
@@ -5470,7 +5838,44 @@ namespace ESA20240910
       Models::PutKvResponse putKv(const Models::PutKvRequest &request);
 
       /**
-       * @summary 设置Namespace的Key-Value对，支持最大25M的Body
+       * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+       *     func TestPutKvWithHighCapacity() {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for uploading key-value pairs.
+       *     	namespace := "test-put-kv"
+       *     	key := "test_PutKvWithHighCapacity_0"
+       *     	value := strings.Repeat("t", 10*1024*1024)
+       *     	rawReq := &PutKvRequest{
+       *     		Namespace: &namespace,
+       *     		Key:       &key,
+       *     		Value:     &value,
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+       *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		Key:       &key,
+       *     		UrlObject: bytes.NewReader([]byte(payload)),
+       *     	}
+       *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request PutKvWithHighCapacityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5479,7 +5884,44 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityWithOptions(const Models::PutKvWithHighCapacityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置Namespace的Key-Value对，支持最大25M的Body
+       * @summary Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+       *
+       * @description This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+       *     func TestPutKvWithHighCapacity() {
+       *     	// Initialize the configurations.
+       *     	cfg := new(openapi.Config)
+       *     	cfg.SetAccessKeyId("xxxxxxxxx")
+       *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+       *     	cli, err := NewClient(cfg)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	runtime := &util.RuntimeOptions{}
+       *     	// Construct a request for uploading key-value pairs.
+       *     	namespace := "test-put-kv"
+       *     	key := "test_PutKvWithHighCapacity_0"
+       *     	value := strings.Repeat("t", 10*1024*1024)
+       *     	rawReq := &PutKvRequest{
+       *     		Namespace: &namespace,
+       *     		Key:       &key,
+       *     		Value:     &value,
+       *     	}
+       *     	payload, err := json.Marshal(rawReq)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+       *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+       *     		Namespace: &namespace,
+       *     		Key:       &key,
+       *     		UrlObject: bytes.NewReader([]byte(payload)),
+       *     	}
+       *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+       *     	if err != nil {
+       *     		return err
+       *     	}
+       *     	return nil
+       *     }
        *
        * @param request PutKvWithHighCapacityRequest
        * @return PutKvWithHighCapacityResponse
@@ -5489,7 +5931,7 @@ namespace ESA20240910
       Models::PutKvWithHighCapacityResponse putKvWithHighCapacityAdvance(const Models::PutKvWithHighCapacityAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重建边缘容器应用的测试环境
+       * @summary Rebuilds the staging environment for containerized applications.
        *
        * @param request RebuildEdgeContainerAppStagingEnvRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5498,7 +5940,7 @@ namespace ESA20240910
       Models::RebuildEdgeContainerAppStagingEnvResponse rebuildEdgeContainerAppStagingEnvWithOptions(const Models::RebuildEdgeContainerAppStagingEnvRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重建边缘容器应用的测试环境
+       * @summary Rebuilds the staging environment for containerized applications.
        *
        * @param request RebuildEdgeContainerAppStagingEnvRequest
        * @return RebuildEdgeContainerAppStagingEnvResponse
@@ -5523,7 +5965,7 @@ namespace ESA20240910
       Models::ReleaseInstanceResponse releaseInstance(const Models::ReleaseInstanceRequest &request);
 
       /**
-       * @summary 重置定时预热任务的进度，从头开始预热
+       * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
        *
        * @param request ResetScheduledPreloadJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5532,7 +5974,7 @@ namespace ESA20240910
       Models::ResetScheduledPreloadJobResponse resetScheduledPreloadJobWithOptions(const Models::ResetScheduledPreloadJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置定时预热任务的进度，从头开始预热
+       * @summary Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
        *
        * @param request ResetScheduledPreloadJobRequest
        * @return ResetScheduledPreloadJobResponse
@@ -5540,7 +5982,7 @@ namespace ESA20240910
       Models::ResetScheduledPreloadJobResponse resetScheduledPreloadJob(const Models::ResetScheduledPreloadJobRequest &request);
 
       /**
-       * @summary 吊销客户端证书
+       * @summary Revokes an activated client certificate.
        *
        * @param request RevokeClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5549,7 +5991,7 @@ namespace ESA20240910
       Models::RevokeClientCertificateResponse revokeClientCertificateWithOptions(const Models::RevokeClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 吊销客户端证书
+       * @summary Revokes an activated client certificate.
        *
        * @param request RevokeClientCertificateRequest
        * @return RevokeClientCertificateResponse
@@ -5557,7 +5999,7 @@ namespace ESA20240910
       Models::RevokeClientCertificateResponse revokeClientCertificate(const Models::RevokeClientCertificateRequest &request);
 
       /**
-       * @summary 回滚边缘容器应用的某个版本
+       * @summary Rolls back a version of a containerized application.
        *
        * @param request RollbackEdgeContainerAppVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5566,7 +6008,7 @@ namespace ESA20240910
       Models::RollbackEdgeContainerAppVersionResponse rollbackEdgeContainerAppVersionWithOptions(const Models::RollbackEdgeContainerAppVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 回滚边缘容器应用的某个版本
+       * @summary Rolls back a version of a containerized application.
        *
        * @param request RollbackEdgeContainerAppVersionRequest
        * @return RollbackEdgeContainerAppVersionResponse
@@ -5591,7 +6033,7 @@ namespace ESA20240910
       Models::SetAutomaticFrequencyControlConfigResponse setAutomaticFrequencyControlConfig(const Models::SetAutomaticFrequencyControlConfigRequest &request);
 
       /**
-       * @summary 设置证书
+       * @summary Configures whether to enable certificates and update certificate information for a website.
        *
        * @param request SetCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5600,7 +6042,7 @@ namespace ESA20240910
       Models::SetCertificateResponse setCertificateWithOptions(const Models::SetCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置证书
+       * @summary Configures whether to enable certificates and update certificate information for a website.
        *
        * @param request SetCertificateRequest
        * @return SetCertificateResponse
@@ -5625,7 +6067,7 @@ namespace ESA20240910
       Models::SetClientCaCertificateHostnamesResponse setClientCaCertificateHostnames(const Models::SetClientCaCertificateHostnamesRequest &request);
 
       /**
-       * @summary 为客户端证书绑定域名
+       * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
        *
        * @param tmpReq SetClientCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5634,7 +6076,7 @@ namespace ESA20240910
       Models::SetClientCertificateHostnamesResponse setClientCertificateHostnamesWithOptions(const Models::SetClientCertificateHostnamesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为客户端证书绑定域名
+       * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
        *
        * @param request SetClientCertificateHostnamesRequest
        * @return SetClientCertificateHostnamesResponse
@@ -5659,7 +6101,7 @@ namespace ESA20240910
       Models::SetDdosMaxBurstGbpsResponse setDdosMaxBurstGbps(const Models::SetDdosMaxBurstGbpsRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS智能防护配置信息
+       * @summary Configures smart HTTP DDoS protection.
        *
        * @param request SetHttpDDoSAttackIntelligentProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5668,7 +6110,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackIntelligentProtectionResponse setHttpDDoSAttackIntelligentProtectionWithOptions(const Models::SetHttpDDoSAttackIntelligentProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS智能防护配置信息
+       * @summary Configures smart HTTP DDoS protection.
        *
        * @param request SetHttpDDoSAttackIntelligentProtectionRequest
        * @return SetHttpDDoSAttackIntelligentProtectionResponse
@@ -5676,7 +6118,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackIntelligentProtectionResponse setHttpDDoSAttackIntelligentProtection(const Models::SetHttpDDoSAttackIntelligentProtectionRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护配置信息
+       * @summary Configures HTTP DDoS attack protection for a website.
        *
        * @param request SetHttpDDoSAttackProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5685,7 +6127,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackProtectionResponse setHttpDDoSAttackProtectionWithOptions(const Models::SetHttpDDoSAttackProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护配置信息
+       * @summary Configures HTTP DDoS attack protection for a website.
        *
        * @param request SetHttpDDoSAttackProtectionRequest
        * @return SetHttpDDoSAttackProtectionResponse
@@ -5693,7 +6135,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackProtectionResponse setHttpDDoSAttackProtection(const Models::SetHttpDDoSAttackProtectionRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       * @summary Set the Protection Action for Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleActionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5702,7 +6144,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleActionWithOptions(const Models::SetHttpDDoSAttackRuleActionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护动作
+       * @summary Set the Protection Action for Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleActionRequest
        * @return SetHttpDDoSAttackRuleActionResponse
@@ -5710,7 +6152,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleActionResponse setHttpDDoSAttackRuleAction(const Models::SetHttpDDoSAttackRuleActionRequest &request);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       * @summary Set the Protection Status of Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5719,7 +6161,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatusWithOptions(const Models::SetHttpDDoSAttackRuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置HTTP DDoS攻击防护指定规则防护状态
+       * @summary Set the Protection Status of Specified HTTP DDoS Attack Rules
        *
        * @param request SetHttpDDoSAttackRuleStatusRequest
        * @return SetHttpDDoSAttackRuleStatusResponse
@@ -5761,7 +6203,7 @@ namespace ESA20240910
       Models::SetOriginClientCertificateHostnamesResponse setOriginClientCertificateHostnames(const Models::SetOriginClientCertificateHostnamesRequest &request);
 
       /**
-       * @summary 开始单个定时预热计划
+       * @summary Starts a scheduled prefetch plan based on the plan ID.
        *
        * @param request StartScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5770,7 +6212,7 @@ namespace ESA20240910
       Models::StartScheduledPreloadExecutionResponse startScheduledPreloadExecutionWithOptions(const Models::StartScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开始单个定时预热计划
+       * @summary Starts a scheduled prefetch plan based on the plan ID.
        *
        * @param request StartScheduledPreloadExecutionRequest
        * @return StartScheduledPreloadExecutionResponse
@@ -5778,7 +6220,7 @@ namespace ESA20240910
       Models::StartScheduledPreloadExecutionResponse startScheduledPreloadExecution(const Models::StartScheduledPreloadExecutionRequest &request);
 
       /**
-       * @summary 停止单个定时预热计划
+       * @summary Stops a scheduled prefetch plan based on the plan ID.
        *
        * @param request StopScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5787,7 +6229,7 @@ namespace ESA20240910
       Models::StopScheduledPreloadExecutionResponse stopScheduledPreloadExecutionWithOptions(const Models::StopScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止单个定时预热计划
+       * @summary Stops a scheduled prefetch plan based on the plan ID.
        *
        * @param request StopScheduledPreloadExecutionRequest
        * @return StopScheduledPreloadExecutionResponse
@@ -5795,7 +6237,7 @@ namespace ESA20240910
       Models::StopScheduledPreloadExecutionResponse stopScheduledPreloadExecution(const Models::StopScheduledPreloadExecutionRequest &request);
 
       /**
-       * @summary 为指定的资源统一创建并绑定标签
+       * @summary Adds one or more tags to resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5804,7 +6246,7 @@ namespace ESA20240910
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为指定的资源统一创建并绑定标签
+       * @summary Adds one or more tags to resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -5812,7 +6254,7 @@ namespace ESA20240910
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary 为资源列表统一解绑标签
+       * @summary Deletes a resource tag based on a specified resource ID.
        *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5821,7 +6263,7 @@ namespace ESA20240910
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为资源列表统一解绑标签
+       * @summary Deletes a resource tag based on a specified resource ID.
        *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
@@ -5829,7 +6271,7 @@ namespace ESA20240910
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary 缓存保持变配
+       * @summary Cache Reserve Specification Change
        *
        * @param request UpdateCacheReserveSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5838,7 +6280,7 @@ namespace ESA20240910
       Models::UpdateCacheReserveSpecResponse updateCacheReserveSpecWithOptions(const Models::UpdateCacheReserveSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缓存保持变配
+       * @summary Cache Reserve Specification Change
        *
        * @param request UpdateCacheReserveSpecRequest
        * @return UpdateCacheReserveSpecResponse
@@ -5846,7 +6288,7 @@ namespace ESA20240910
       Models::UpdateCacheReserveSpecResponse updateCacheReserveSpec(const Models::UpdateCacheReserveSpecRequest &request);
 
       /**
-       * @summary 修改缓存配置
+       * @summary Modify cache configuration
        *
        * @param request UpdateCacheRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5855,7 +6297,7 @@ namespace ESA20240910
       Models::UpdateCacheRuleResponse updateCacheRuleWithOptions(const Models::UpdateCacheRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改缓存配置
+       * @summary Modify cache configuration
        *
        * @param request UpdateCacheRuleRequest
        * @return UpdateCacheRuleResponse
@@ -5863,7 +6305,7 @@ namespace ESA20240910
       Models::UpdateCacheRuleResponse updateCacheRule(const Models::UpdateCacheRuleRequest &request);
 
       /**
-       * @summary 修改站点缓存Tag配置
+       * @summary Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
        *
        * @param request UpdateCacheTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5872,7 +6314,7 @@ namespace ESA20240910
       Models::UpdateCacheTagResponse updateCacheTagWithOptions(const Models::UpdateCacheTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点缓存Tag配置
+       * @summary Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
        *
        * @param request UpdateCacheTagRequest
        * @return UpdateCacheTagResponse
@@ -5880,7 +6322,7 @@ namespace ESA20240910
       Models::UpdateCacheTagResponse updateCacheTag(const Models::UpdateCacheTagRequest &request);
 
       /**
-       * @summary 修改站点cname拉平配置
+       * @summary Modifies the CNAME flattening configuration of a website.
        *
        * @param request UpdateCnameFlatteningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5889,7 +6331,7 @@ namespace ESA20240910
       Models::UpdateCnameFlatteningResponse updateCnameFlatteningWithOptions(const Models::UpdateCnameFlatteningRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点cname拉平配置
+       * @summary Modifies the CNAME flattening configuration of a website.
        *
        * @param request UpdateCnameFlatteningRequest
        * @return UpdateCnameFlatteningResponse
@@ -5897,7 +6339,7 @@ namespace ESA20240910
       Models::UpdateCnameFlatteningResponse updateCnameFlattening(const Models::UpdateCnameFlatteningRequest &request);
 
       /**
-       * @summary 修改压缩规则
+       * @summary Modify compression rule
        *
        * @param request UpdateCompressionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5906,7 +6348,7 @@ namespace ESA20240910
       Models::UpdateCompressionRuleResponse updateCompressionRuleWithOptions(const Models::UpdateCompressionRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改压缩规则
+       * @summary Modify compression rule
        *
        * @param request UpdateCompressionRuleRequest
        * @return UpdateCompressionRuleResponse
@@ -5914,7 +6356,7 @@ namespace ESA20240910
       Models::UpdateCompressionRuleResponse updateCompressionRule(const Models::UpdateCompressionRuleRequest &request);
 
       /**
-       * @summary 修改站点中国大陆网络接入优化的配置
+       * @summary Modifies the configuration of the Chinese mainland network access optimization.
        *
        * @param request UpdateCrossBorderOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5923,7 +6365,7 @@ namespace ESA20240910
       Models::UpdateCrossBorderOptimizationResponse updateCrossBorderOptimizationWithOptions(const Models::UpdateCrossBorderOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点中国大陆网络接入优化的配置
+       * @summary Modifies the configuration of the Chinese mainland network access optimization.
        *
        * @param request UpdateCrossBorderOptimizationRequest
        * @return UpdateCrossBorderOptimizationResponse
@@ -5948,7 +6390,7 @@ namespace ESA20240910
       Models::UpdateCustomHostnameResponse updateCustomHostname(const Models::UpdateCustomHostnameRequest &request);
 
       /**
-       * @summary 修改修改响应码规则
+       * @summary Modify the response code configurations for a website.
        *
        * @param request UpdateCustomResponseCodeRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5957,7 +6399,7 @@ namespace ESA20240910
       Models::UpdateCustomResponseCodeRuleResponse updateCustomResponseCodeRuleWithOptions(const Models::UpdateCustomResponseCodeRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改修改响应码规则
+       * @summary Modify the response code configurations for a website.
        *
        * @param request UpdateCustomResponseCodeRuleRequest
        * @return UpdateCustomResponseCodeRuleResponse
@@ -5965,7 +6407,7 @@ namespace ESA20240910
       Models::UpdateCustomResponseCodeRuleResponse updateCustomResponseCodeRule(const Models::UpdateCustomResponseCodeRuleRequest &request);
 
       /**
-       * @summary 修改定制场景策略
+       * @summary Modifies the configurations of a custom scenario-specific policy.
        *
        * @param request UpdateCustomScenePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5974,7 +6416,7 @@ namespace ESA20240910
       Models::UpdateCustomScenePolicyResponse updateCustomScenePolicyWithOptions(const Models::UpdateCustomScenePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改定制场景策略
+       * @summary Modifies the configurations of a custom scenario-specific policy.
        *
        * @param request UpdateCustomScenePolicyRequest
        * @return UpdateCustomScenePolicyResponse
@@ -5982,7 +6424,7 @@ namespace ESA20240910
       Models::UpdateCustomScenePolicyResponse updateCustomScenePolicy(const Models::UpdateCustomScenePolicyRequest &request);
 
       /**
-       * @summary 修改站点开发者模式配置
+       * @summary Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
        *
        * @param request UpdateDevelopmentModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5991,7 +6433,7 @@ namespace ESA20240910
       Models::UpdateDevelopmentModeResponse updateDevelopmentModeWithOptions(const Models::UpdateDevelopmentModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点开发者模式配置
+       * @summary Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
        *
        * @param request UpdateDevelopmentModeRequest
        * @return UpdateDevelopmentModeResponse
@@ -5999,7 +6441,7 @@ namespace ESA20240910
       Models::UpdateDevelopmentModeResponse updateDevelopmentMode(const Models::UpdateDevelopmentModeRequest &request);
 
       /**
-       * @summary 更新边缘容器应用日志采集配置
+       * @summary Updates the log collection configuration of a containerized application.
        *
        * @param request UpdateEdgeContainerAppLogRiverRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6008,7 +6450,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiverWithOptions(const Models::UpdateEdgeContainerAppLogRiverRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新边缘容器应用日志采集配置
+       * @summary Updates the log collection configuration of a containerized application.
        *
        * @param request UpdateEdgeContainerAppLogRiverRequest
        * @return UpdateEdgeContainerAppLogRiverResponse
@@ -6016,7 +6458,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppLogRiverResponse updateEdgeContainerAppLogRiver(const Models::UpdateEdgeContainerAppLogRiverRequest &request);
 
       /**
-       * @summary 更新边缘容器资源预留配置
+       * @summary Updates the resource reservation configuration of an edge container.
        *
        * @param tmpReq UpdateEdgeContainerAppResourceReserveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6025,7 +6467,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserveWithOptions(const Models::UpdateEdgeContainerAppResourceReserveRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新边缘容器资源预留配置
+       * @summary Updates the resource reservation configuration of an edge container.
        *
        * @param request UpdateEdgeContainerAppResourceReserveRequest
        * @return UpdateEdgeContainerAppResourceReserveResponse
@@ -6033,7 +6475,7 @@ namespace ESA20240910
       Models::UpdateEdgeContainerAppResourceReserveResponse updateEdgeContainerAppResourceReserve(const Models::UpdateEdgeContainerAppResourceReserveRequest &request);
 
       /**
-       * @summary 修改HTTP入站请求头规则
+       * @summary Updates the HTTP incoming request header modification rule.
        *
        * @param tmpReq UpdateHttpIncomingRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6042,7 +6484,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP入站请求头规则
+       * @summary Updates the HTTP incoming request header modification rule.
        *
        * @param request UpdateHttpIncomingRequestHeaderModificationRuleRequest
        * @return UpdateHttpIncomingRequestHeaderModificationRuleResponse
@@ -6050,7 +6492,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingRequestHeaderModificationRuleResponse updateHttpIncomingRequestHeaderModificationRule(const Models::UpdateHttpIncomingRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 修改HTTP入站响应头规则
+       * @summary Updates the configuration of modifying HTTP response headers for a website.
        *
        * @param tmpReq UpdateHttpIncomingResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6059,7 +6501,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingResponseHeaderModificationRuleResponse updateHttpIncomingResponseHeaderModificationRuleWithOptions(const Models::UpdateHttpIncomingResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP入站响应头规则
+       * @summary Updates the configuration of modifying HTTP response headers for a website.
        *
        * @param request UpdateHttpIncomingResponseHeaderModificationRuleRequest
        * @return UpdateHttpIncomingResponseHeaderModificationRuleResponse
@@ -6067,7 +6509,7 @@ namespace ESA20240910
       Models::UpdateHttpIncomingResponseHeaderModificationRuleResponse updateHttpIncomingResponseHeaderModificationRule(const Models::UpdateHttpIncomingResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 修改HTTP请求头规则
+       * @summary Modify HTTP Request Header Rules
        *
        * @param tmpReq UpdateHttpRequestHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6076,7 +6518,7 @@ namespace ESA20240910
       Models::UpdateHttpRequestHeaderModificationRuleResponse updateHttpRequestHeaderModificationRuleWithOptions(const Models::UpdateHttpRequestHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP请求头规则
+       * @summary Modify HTTP Request Header Rules
        *
        * @param request UpdateHttpRequestHeaderModificationRuleRequest
        * @return UpdateHttpRequestHeaderModificationRuleResponse
@@ -6084,7 +6526,7 @@ namespace ESA20240910
       Models::UpdateHttpRequestHeaderModificationRuleResponse updateHttpRequestHeaderModificationRule(const Models::UpdateHttpRequestHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 修改HTTP响应头规则
+       * @summary Modify HTTP response header rules
        *
        * @param tmpReq UpdateHttpResponseHeaderModificationRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6093,7 +6535,7 @@ namespace ESA20240910
       Models::UpdateHttpResponseHeaderModificationRuleResponse updateHttpResponseHeaderModificationRuleWithOptions(const Models::UpdateHttpResponseHeaderModificationRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTP响应头规则
+       * @summary Modify HTTP response header rules
        *
        * @param request UpdateHttpResponseHeaderModificationRuleRequest
        * @return UpdateHttpResponseHeaderModificationRuleResponse
@@ -6101,7 +6543,7 @@ namespace ESA20240910
       Models::UpdateHttpResponseHeaderModificationRuleResponse updateHttpResponseHeaderModificationRule(const Models::UpdateHttpResponseHeaderModificationRuleRequest &request);
 
       /**
-       * @summary 修改HTTPS应用配置
+       * @summary Modify HTTPS Application Configuration
        *
        * @param request UpdateHttpsApplicationConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6110,7 +6552,7 @@ namespace ESA20240910
       Models::UpdateHttpsApplicationConfigurationResponse updateHttpsApplicationConfigurationWithOptions(const Models::UpdateHttpsApplicationConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTPS应用配置
+       * @summary Modify HTTPS Application Configuration
        *
        * @param request UpdateHttpsApplicationConfigurationRequest
        * @return UpdateHttpsApplicationConfigurationResponse
@@ -6118,7 +6560,7 @@ namespace ESA20240910
       Models::UpdateHttpsApplicationConfigurationResponse updateHttpsApplicationConfiguration(const Models::UpdateHttpsApplicationConfigurationRequest &request);
 
       /**
-       * @summary 修改HTTPS基础配置
+       * @summary Modify HTTPS Basic Configuration
        *
        * @param request UpdateHttpsBasicConfigurationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6127,7 +6569,7 @@ namespace ESA20240910
       Models::UpdateHttpsBasicConfigurationResponse updateHttpsBasicConfigurationWithOptions(const Models::UpdateHttpsBasicConfigurationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改HTTPS基础配置
+       * @summary Modify HTTPS Basic Configuration
        *
        * @param request UpdateHttpsBasicConfigurationRequest
        * @return UpdateHttpsBasicConfigurationResponse
@@ -6135,7 +6577,7 @@ namespace ESA20240910
       Models::UpdateHttpsBasicConfigurationResponse updateHttpsBasicConfiguration(const Models::UpdateHttpsBasicConfigurationRequest &request);
 
       /**
-       * @summary 修改站点IPv6配置
+       * @summary Modifies the IPv6 configuration of a website.
        *
        * @param request UpdateIPv6Request
        * @param runtime runtime options for this request RuntimeOptions
@@ -6144,7 +6586,7 @@ namespace ESA20240910
       Models::UpdateIPv6Response updateIPv6WithOptions(const Models::UpdateIPv6Request &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点IPv6配置
+       * @summary Modifies the IPv6 configuration of a website.
        *
        * @param request UpdateIPv6Request
        * @return UpdateIPv6Response
@@ -6152,7 +6594,7 @@ namespace ESA20240910
       Models::UpdateIPv6Response updateIPv6(const Models::UpdateIPv6Request &request);
 
       /**
-       * @summary 修改站点的图片转换配置
+       * @summary Modify Site Image Transformation Configuration
        *
        * @param request UpdateImageTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6161,7 +6603,7 @@ namespace ESA20240910
       Models::UpdateImageTransformResponse updateImageTransformWithOptions(const Models::UpdateImageTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点的图片转换配置
+       * @summary Modify Site Image Transformation Configuration
        *
        * @param request UpdateImageTransformRequest
        * @return UpdateImageTransformResponse
@@ -6169,7 +6611,7 @@ namespace ESA20240910
       Models::UpdateImageTransformResponse updateImageTransform(const Models::UpdateImageTransformRequest &request);
 
       /**
-       * @summary 更新自定义列表
+       * @summary Updates a custom list.
        *
        * @param tmpReq UpdateListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6178,7 +6620,7 @@ namespace ESA20240910
       Models::UpdateListResponse updateListWithOptions(const Models::UpdateListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义列表
+       * @summary Updates a custom list.
        *
        * @param request UpdateListRequest
        * @return UpdateListResponse
@@ -6186,7 +6628,9 @@ namespace ESA20240910
       Models::UpdateListResponse updateList(const Models::UpdateListRequest &request);
 
       /**
-       * @summary 修改负载均衡器
+       * @summary Modify Load Balancer
+       *
+       * @description Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
        *
        * @param tmpReq UpdateLoadBalancerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6195,7 +6639,9 @@ namespace ESA20240910
       Models::UpdateLoadBalancerResponse updateLoadBalancerWithOptions(const Models::UpdateLoadBalancerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改负载均衡器
+       * @summary Modify Load Balancer
+       *
+       * @description Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
        *
        * @param request UpdateLoadBalancerRequest
        * @return UpdateLoadBalancerResponse
@@ -6203,7 +6649,7 @@ namespace ESA20240910
       Models::UpdateLoadBalancerResponse updateLoadBalancer(const Models::UpdateLoadBalancerRequest &request);
 
       /**
-       * @summary 修改站点托管转换的配置
+       * @summary Modifies the configuration of managed transforms for your website.
        *
        * @param request UpdateManagedTransformRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6212,7 +6658,7 @@ namespace ESA20240910
       Models::UpdateManagedTransformResponse updateManagedTransformWithOptions(const Models::UpdateManagedTransformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点托管转换的配置
+       * @summary Modifies the configuration of managed transforms for your website.
        *
        * @param request UpdateManagedTransformRequest
        * @return UpdateManagedTransformResponse
@@ -6220,7 +6666,7 @@ namespace ESA20240910
       Models::UpdateManagedTransformResponse updateManagedTransform(const Models::UpdateManagedTransformRequest &request);
 
       /**
-       * @summary 修改网络优化配置
+       * @summary Modify network optimization configuration
        *
        * @param request UpdateNetworkOptimizationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6229,7 +6675,7 @@ namespace ESA20240910
       Models::UpdateNetworkOptimizationResponse updateNetworkOptimizationWithOptions(const Models::UpdateNetworkOptimizationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改网络优化配置
+       * @summary Modify network optimization configuration
        *
        * @param request UpdateNetworkOptimizationRequest
        * @return UpdateNetworkOptimizationResponse
@@ -6237,7 +6683,7 @@ namespace ESA20240910
       Models::UpdateNetworkOptimizationResponse updateNetworkOptimization(const Models::UpdateNetworkOptimizationRequest &request);
 
       /**
-       * @summary 修改源地址池
+       * @summary Modify the Monitor
        *
        * @param tmpReq UpdateOriginPoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6246,7 +6692,7 @@ namespace ESA20240910
       Models::UpdateOriginPoolResponse updateOriginPoolWithOptions(const Models::UpdateOriginPoolRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改源地址池
+       * @summary Modify the Monitor
        *
        * @param request UpdateOriginPoolRequest
        * @return UpdateOriginPoolResponse
@@ -6254,7 +6700,7 @@ namespace ESA20240910
       Models::UpdateOriginPoolResponse updateOriginPool(const Models::UpdateOriginPoolRequest &request);
 
       /**
-       * @summary 修改源站防护
+       * @summary Enables or disables IP convergence.
        *
        * @param request UpdateOriginProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6263,7 +6709,7 @@ namespace ESA20240910
       Models::UpdateOriginProtectionResponse updateOriginProtectionWithOptions(const Models::UpdateOriginProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改源站防护
+       * @summary Enables or disables IP convergence.
        *
        * @param request UpdateOriginProtectionRequest
        * @return UpdateOriginProtectionResponse
@@ -6271,7 +6717,7 @@ namespace ESA20240910
       Models::UpdateOriginProtectionResponse updateOriginProtection(const Models::UpdateOriginProtectionRequest &request);
 
       /**
-       * @summary 确认更新站点回源IP白名单到最新版本
+       * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
        *
        * @param request UpdateOriginProtectionIpWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6280,7 +6726,7 @@ namespace ESA20240910
       Models::UpdateOriginProtectionIpWhiteListResponse updateOriginProtectionIpWhiteListWithOptions(const Models::UpdateOriginProtectionIpWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 确认更新站点回源IP白名单到最新版本
+       * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
        *
        * @param request UpdateOriginProtectionIpWhiteListRequest
        * @return UpdateOriginProtectionIpWhiteListResponse
@@ -6288,7 +6734,7 @@ namespace ESA20240910
       Models::UpdateOriginProtectionIpWhiteListResponse updateOriginProtectionIpWhiteList(const Models::UpdateOriginProtectionIpWhiteListRequest &request);
 
       /**
-       * @summary 修改站点的回源规则配置
+       * @summary Modify Origin Rule Configuration for Site
        *
        * @param request UpdateOriginRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6297,7 +6743,7 @@ namespace ESA20240910
       Models::UpdateOriginRuleResponse updateOriginRuleWithOptions(const Models::UpdateOriginRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点的回源规则配置
+       * @summary Modify Origin Rule Configuration for Site
        *
        * @param request UpdateOriginRuleRequest
        * @return UpdateOriginRuleResponse
@@ -6305,7 +6751,7 @@ namespace ESA20240910
       Models::UpdateOriginRuleResponse updateOriginRule(const Models::UpdateOriginRuleRequest &request);
 
       /**
-       * @summary 更新自定义响应页面
+       * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
        *
        * @param tmpReq UpdatePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6314,7 +6760,7 @@ namespace ESA20240910
       Models::UpdatePageResponse updatePageWithOptions(const Models::UpdatePageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义响应页面
+       * @summary Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
        *
        * @param request UpdatePageRequest
        * @return UpdatePageResponse
@@ -6339,7 +6785,7 @@ namespace ESA20240910
       Models::UpdatePerformanceDataCollectionResponse updatePerformanceDataCollection(const Models::UpdatePerformanceDataCollectionRequest &request);
 
       /**
-       * @summary 套餐变配
+       * @summary Plan Adjustment
        *
        * @param request UpdateRatePlanSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6348,7 +6794,7 @@ namespace ESA20240910
       Models::UpdateRatePlanSpecResponse updateRatePlanSpecWithOptions(const Models::UpdateRatePlanSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 套餐变配
+       * @summary Plan Adjustment
        *
        * @param request UpdateRatePlanSpecRequest
        * @return UpdateRatePlanSpecResponse
@@ -6356,7 +6802,15 @@ namespace ESA20240910
       Models::UpdateRatePlanSpecResponse updateRatePlanSpec(const Models::UpdateRatePlanSpecRequest &request);
 
       /**
-       * @summary 更新记录
+       * @summary Updates multiple types of DNS records and origin authentication configurations.
+       *
+       * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+       * ### [](#)Usage notes
+       * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+       * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+       * *   You must specify specific fields such as Flag and Tag for CAA records.
+       * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+       * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
        *
        * @param tmpReq UpdateRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6365,7 +6819,15 @@ namespace ESA20240910
       Models::UpdateRecordResponse updateRecordWithOptions(const Models::UpdateRecordRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新记录
+       * @summary Updates multiple types of DNS records and origin authentication configurations.
+       *
+       * @description This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+       * ### [](#)Usage notes
+       * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+       * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+       * *   You must specify specific fields such as Flag and Tag for CAA records.
+       * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+       * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
        *
        * @param request UpdateRecordRequest
        * @return UpdateRecordResponse
@@ -6373,7 +6835,7 @@ namespace ESA20240910
       Models::UpdateRecordResponse updateRecord(const Models::UpdateRecordRequest &request);
 
       /**
-       * @summary 更新重定向规则
+       * @summary Update Redirect Rule
        *
        * @param request UpdateRedirectRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6382,7 +6844,7 @@ namespace ESA20240910
       Models::UpdateRedirectRuleResponse updateRedirectRuleWithOptions(const Models::UpdateRedirectRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新重定向规则
+       * @summary Update Redirect Rule
        *
        * @param request UpdateRedirectRuleRequest
        * @return UpdateRedirectRuleResponse
@@ -6390,7 +6852,7 @@ namespace ESA20240910
       Models::UpdateRedirectRuleResponse updateRedirectRule(const Models::UpdateRedirectRuleRequest &request);
 
       /**
-       * @summary 修改重写Url规则
+       * @summary Modify Rewrite URL Rule
        *
        * @param request UpdateRewriteUrlRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6399,7 +6861,7 @@ namespace ESA20240910
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRuleWithOptions(const Models::UpdateRewriteUrlRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改重写Url规则
+       * @summary Modify Rewrite URL Rule
        *
        * @param request UpdateRewriteUrlRuleRequest
        * @return UpdateRewriteUrlRuleResponse
@@ -6407,7 +6869,7 @@ namespace ESA20240910
       Models::UpdateRewriteUrlRuleResponse updateRewriteUrlRule(const Models::UpdateRewriteUrlRuleRequest &request);
 
       /**
-       * @summary 修改Routine描述信息
+       * @summary Modifies the description of a routine.
        *
        * @param request UpdateRoutineConfigDescriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6416,7 +6878,7 @@ namespace ESA20240910
       Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescriptionWithOptions(const Models::UpdateRoutineConfigDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改Routine描述信息
+       * @summary Modifies the description of a routine.
        *
        * @param request UpdateRoutineConfigDescriptionRequest
        * @return UpdateRoutineConfigDescriptionResponse
@@ -6424,7 +6886,7 @@ namespace ESA20240910
       Models::UpdateRoutineConfigDescriptionResponse updateRoutineConfigDescription(const Models::UpdateRoutineConfigDescriptionRequest &request);
 
       /**
-       * @summary 修改边缘函数路由的配置
+       * @summary Modifies the route configuration of an edge function.
        *
        * @param request UpdateRoutineRouteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6433,7 +6895,7 @@ namespace ESA20240910
       Models::UpdateRoutineRouteResponse updateRoutineRouteWithOptions(const Models::UpdateRoutineRouteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改边缘函数路由的配置
+       * @summary Modifies the route configuration of an edge function.
        *
        * @param request UpdateRoutineRouteRequest
        * @return UpdateRoutineRouteResponse
@@ -6441,7 +6903,7 @@ namespace ESA20240910
       Models::UpdateRoutineRouteResponse updateRoutineRoute(const Models::UpdateRoutineRouteRequest &request);
 
       /**
-       * @summary 更新单个定时预热计划
+       * @summary Updates a scheduled prefetch plan based on the plan ID.
        *
        * @param request UpdateScheduledPreloadExecutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6450,7 +6912,7 @@ namespace ESA20240910
       Models::UpdateScheduledPreloadExecutionResponse updateScheduledPreloadExecutionWithOptions(const Models::UpdateScheduledPreloadExecutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新单个定时预热计划
+       * @summary Updates a scheduled prefetch plan based on the plan ID.
        *
        * @param request UpdateScheduledPreloadExecutionRequest
        * @return UpdateScheduledPreloadExecutionResponse
@@ -6458,7 +6920,7 @@ namespace ESA20240910
       Models::UpdateScheduledPreloadExecutionResponse updateScheduledPreloadExecution(const Models::UpdateScheduledPreloadExecutionRequest &request);
 
       /**
-       * @summary 修改站点放行搜索引擎爬虫配置
+       * @summary Modifies the search engine crawler configuration for a website.
        *
        * @param request UpdateSeoBypassRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6467,7 +6929,7 @@ namespace ESA20240910
       Models::UpdateSeoBypassResponse updateSeoBypassWithOptions(const Models::UpdateSeoBypassRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点放行搜索引擎爬虫配置
+       * @summary Modifies the search engine crawler configuration for a website.
        *
        * @param request UpdateSeoBypassRequest
        * @return UpdateSeoBypassResponse
@@ -6475,7 +6937,11 @@ namespace ESA20240910
       Models::UpdateSeoBypassResponse updateSeoBypass(const Models::UpdateSeoBypassRequest &request);
 
       /**
-       * @summary 修改站点接入方式
+       * @summary Converts the DNS setup option of a website.
+       *
+       * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+       * *   The website only has proxied A/AAAA and CNAME records.
+       * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
        *
        * @param request UpdateSiteAccessTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6484,7 +6950,11 @@ namespace ESA20240910
       Models::UpdateSiteAccessTypeResponse updateSiteAccessTypeWithOptions(const Models::UpdateSiteAccessTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点接入方式
+       * @summary Converts the DNS setup option of a website.
+       *
+       * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+       * *   The website only has proxied A/AAAA and CNAME records.
+       * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
        *
        * @param request UpdateSiteAccessTypeRequest
        * @return UpdateSiteAccessTypeResponse
@@ -6492,7 +6962,7 @@ namespace ESA20240910
       Models::UpdateSiteAccessTypeResponse updateSiteAccessType(const Models::UpdateSiteAccessTypeRequest &request);
 
       /**
-       * @summary 修改站点加速区域
+       * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
        *
        * @param request UpdateSiteCoverageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6501,7 +6971,7 @@ namespace ESA20240910
       Models::UpdateSiteCoverageResponse updateSiteCoverageWithOptions(const Models::UpdateSiteCoverageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点加速区域
+       * @summary Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
        *
        * @param request UpdateSiteCoverageRequest
        * @return UpdateSiteCoverageResponse
@@ -6509,7 +6979,7 @@ namespace ESA20240910
       Models::UpdateSiteCoverageResponse updateSiteCoverage(const Models::UpdateSiteCoverageRequest &request);
 
       /**
-       * @summary 修改自定义字段
+       * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
        *
        * @param tmpReq UpdateSiteCustomLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6518,7 +6988,7 @@ namespace ESA20240910
       Models::UpdateSiteCustomLogResponse updateSiteCustomLogWithOptions(const Models::UpdateSiteCustomLogRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改自定义字段
+       * @summary Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
        *
        * @param request UpdateSiteCustomLogRequest
        * @return UpdateSiteCustomLogResponse
@@ -6526,7 +6996,7 @@ namespace ESA20240910
       Models::UpdateSiteCustomLogResponse updateSiteCustomLog(const Models::UpdateSiteCustomLogRequest &request);
 
       /**
-       * @summary 修改一个任务投递
+       * @summary Modifies a real-time log delivery task.
        *
        * @param request UpdateSiteDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6535,7 +7005,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskResponse updateSiteDeliveryTaskWithOptions(const Models::UpdateSiteDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改一个任务投递
+       * @summary Modifies a real-time log delivery task.
        *
        * @param request UpdateSiteDeliveryTaskRequest
        * @return UpdateSiteDeliveryTaskResponse
@@ -6543,7 +7013,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskResponse updateSiteDeliveryTask(const Models::UpdateSiteDeliveryTaskRequest &request);
 
       /**
-       * @summary 上下线一个任务投递
+       * @summary Changes the status of a real-time log delivery task.
        *
        * @param request UpdateSiteDeliveryTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6552,7 +7022,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatusWithOptions(const Models::UpdateSiteDeliveryTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上下线一个任务投递
+       * @summary Changes the status of a real-time log delivery task.
        *
        * @param request UpdateSiteDeliveryTaskStatusRequest
        * @return UpdateSiteDeliveryTaskStatusResponse
@@ -6560,7 +7030,7 @@ namespace ESA20240910
       Models::UpdateSiteDeliveryTaskStatusResponse updateSiteDeliveryTaskStatus(const Models::UpdateSiteDeliveryTaskStatusRequest &request);
 
       /**
-       * @summary 修改站点名称独占配置
+       * @summary Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
        *
        * @param request UpdateSiteNameExclusiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6569,7 +7039,7 @@ namespace ESA20240910
       Models::UpdateSiteNameExclusiveResponse updateSiteNameExclusiveWithOptions(const Models::UpdateSiteNameExclusiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点名称独占配置
+       * @summary Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
        *
        * @param request UpdateSiteNameExclusiveRequest
        * @return UpdateSiteNameExclusiveResponse
@@ -6577,7 +7047,7 @@ namespace ESA20240910
       Models::UpdateSiteNameExclusiveResponse updateSiteNameExclusive(const Models::UpdateSiteNameExclusiveRequest &request);
 
       /**
-       * @summary 修改站点暂停配置
+       * @summary Modifies the ESA proxy configuration of a website.
        *
        * @param request UpdateSitePauseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6586,7 +7056,7 @@ namespace ESA20240910
       Models::UpdateSitePauseResponse updateSitePauseWithOptions(const Models::UpdateSitePauseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点暂停配置
+       * @summary Modifies the ESA proxy configuration of a website.
        *
        * @param request UpdateSitePauseRequest
        * @return UpdateSitePauseResponse
@@ -6594,7 +7064,7 @@ namespace ESA20240910
       Models::UpdateSitePauseResponse updateSitePause(const Models::UpdateSitePauseRequest &request);
 
       /**
-       * @summary 修改站点自定义NS
+       * @summary Updates the custom nameserver names for a single website.
        *
        * @param request UpdateSiteVanityNSRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6603,7 +7073,7 @@ namespace ESA20240910
       Models::UpdateSiteVanityNSResponse updateSiteVanityNSWithOptions(const Models::UpdateSiteVanityNSRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点自定义NS
+       * @summary Updates the custom nameserver names for a single website.
        *
        * @param request UpdateSiteVanityNSRequest
        * @return UpdateSiteVanityNSResponse
@@ -6611,7 +7081,7 @@ namespace ESA20240910
       Models::UpdateSiteVanityNSResponse updateSiteVanityNS(const Models::UpdateSiteVanityNSRequest &request);
 
       /**
-       * @summary 修改站点多级缓存配置
+       * @summary Modifies the tiered cache configuration of your website.
        *
        * @param request UpdateTieredCacheRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6620,7 +7090,7 @@ namespace ESA20240910
       Models::UpdateTieredCacheResponse updateTieredCacheWithOptions(const Models::UpdateTieredCacheRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点多级缓存配置
+       * @summary Modifies the tiered cache configuration of your website.
        *
        * @param request UpdateTieredCacheRequest
        * @return UpdateTieredCacheResponse
@@ -6628,7 +7098,7 @@ namespace ESA20240910
       Models::UpdateTieredCacheResponse updateTieredCache(const Models::UpdateTieredCacheRequest &request);
 
       /**
-       * @summary 修改四层应用
+       * @summary Modify Transport Layer Application
        *
        * @param tmpReq UpdateTransportLayerApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6637,7 +7107,7 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplicationWithOptions(const Models::UpdateTransportLayerApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改四层应用
+       * @summary Modify Transport Layer Application
        *
        * @param request UpdateTransportLayerApplicationRequest
        * @return UpdateTransportLayerApplicationResponse
@@ -6645,7 +7115,7 @@ namespace ESA20240910
       Models::UpdateTransportLayerApplicationResponse updateTransportLayerApplication(const Models::UpdateTransportLayerApplicationRequest &request);
 
       /**
-       * @summary 更新网页监测配置
+       * @summary Updates the webpage monitoring configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6654,7 +7124,7 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservationWithOptions(const Models::UpdateUrlObservationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新网页监测配置
+       * @summary Updates the webpage monitoring configuration.
        *
        * @param request UpdateUrlObservationRequest
        * @return UpdateUrlObservationResponse
@@ -6662,7 +7132,7 @@ namespace ESA20240910
       Models::UpdateUrlObservationResponse updateUrlObservation(const Models::UpdateUrlObservationRequest &request);
 
       /**
-       * @summary 修改一个用户粒度任务投递
+       * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6671,7 +7141,7 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskResponse updateUserDeliveryTaskWithOptions(const Models::UpdateUserDeliveryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改一个用户粒度任务投递
+       * @summary Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
        *
        * @param request UpdateUserDeliveryTaskRequest
        * @return UpdateUserDeliveryTaskResponse
@@ -6679,7 +7149,10 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskResponse updateUserDeliveryTask(const Models::UpdateUserDeliveryTaskRequest &request);
 
       /**
-       * @summary 上下线一个用户任务投递
+       * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+       *
+       * @description ## [](#)
+       * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
        *
        * @param request UpdateUserDeliveryTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6688,7 +7161,10 @@ namespace ESA20240910
       Models::UpdateUserDeliveryTaskStatusResponse updateUserDeliveryTaskStatusWithOptions(const Models::UpdateUserDeliveryTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上下线一个用户任务投递
+       * @summary Changes the status of a delivery task in your Alibaba Cloud account.
+       *
+       * @description ## [](#)
+       * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
        *
        * @param request UpdateUserDeliveryTaskStatusRequest
        * @return UpdateUserDeliveryTaskStatusResponse
@@ -6733,7 +7209,7 @@ namespace ESA20240910
       Models::UpdateUserWafRulesetResponse updateUserWafRuleset(const Models::UpdateUserWafRulesetRequest &request);
 
       /**
-       * @summary 修改站点的视频处理配置
+       * @summary Modifies the video processing configuration of the site.
        *
        * @param request UpdateVideoProcessingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6742,7 +7218,7 @@ namespace ESA20240910
       Models::UpdateVideoProcessingResponse updateVideoProcessingWithOptions(const Models::UpdateVideoProcessingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改站点的视频处理配置
+       * @summary Modifies the video processing configuration of the site.
        *
        * @param request UpdateVideoProcessingRequest
        * @return UpdateVideoProcessingResponse
@@ -6750,7 +7226,7 @@ namespace ESA20240910
       Models::UpdateVideoProcessingResponse updateVideoProcessing(const Models::UpdateVideoProcessingRequest &request);
 
       /**
-       * @summary 更新WAF规则页面
+       * @summary Update WAF Rule Page
        *
        * @param tmpReq UpdateWafRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6759,7 +7235,7 @@ namespace ESA20240910
       Models::UpdateWafRuleResponse updateWafRuleWithOptions(const Models::UpdateWafRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新WAF规则页面
+       * @summary Update WAF Rule Page
        *
        * @param request UpdateWafRuleRequest
        * @return UpdateWafRuleResponse
@@ -6767,7 +7243,7 @@ namespace ESA20240910
       Models::UpdateWafRuleResponse updateWafRule(const Models::UpdateWafRuleRequest &request);
 
       /**
-       * @summary 更新WAF规则集
+       * @summary Update WAF Ruleset
        *
        * @param request UpdateWafRulesetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6776,7 +7252,7 @@ namespace ESA20240910
       Models::UpdateWafRulesetResponse updateWafRulesetWithOptions(const Models::UpdateWafRulesetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新WAF规则集
+       * @summary Update WAF Ruleset
        *
        * @param request UpdateWafRulesetRequest
        * @return UpdateWafRulesetResponse
@@ -6784,7 +7260,7 @@ namespace ESA20240910
       Models::UpdateWafRulesetResponse updateWafRuleset(const Models::UpdateWafRulesetRequest &request);
 
       /**
-       * @summary 修改等候室
+       * @summary Modifies the configurations of a waiting room.
        *
        * @param tmpReq UpdateWaitingRoomRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6793,7 +7269,7 @@ namespace ESA20240910
       Models::UpdateWaitingRoomResponse updateWaitingRoomWithOptions(const Models::UpdateWaitingRoomRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改等候室
+       * @summary Modifies the configurations of a waiting room.
        *
        * @param request UpdateWaitingRoomRequest
        * @return UpdateWaitingRoomResponse
@@ -6801,7 +7277,7 @@ namespace ESA20240910
       Models::UpdateWaitingRoomResponse updateWaitingRoom(const Models::UpdateWaitingRoomRequest &request);
 
       /**
-       * @summary 修改等候室事件
+       * @summary Modifies the configurations of a waiting room event.
        *
        * @param request UpdateWaitingRoomEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6810,7 +7286,7 @@ namespace ESA20240910
       Models::UpdateWaitingRoomEventResponse updateWaitingRoomEventWithOptions(const Models::UpdateWaitingRoomEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改等候室事件
+       * @summary Modifies the configurations of a waiting room event.
        *
        * @param request UpdateWaitingRoomEventRequest
        * @return UpdateWaitingRoomEventResponse
@@ -6818,7 +7294,9 @@ namespace ESA20240910
       Models::UpdateWaitingRoomEventResponse updateWaitingRoomEvent(const Models::UpdateWaitingRoomEventRequest &request);
 
       /**
-       * @summary 修改等候室规则
+       * @summary Modify Waiting Room Rule
+       *
+       * @description This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
        *
        * @param request UpdateWaitingRoomRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6827,7 +7305,9 @@ namespace ESA20240910
       Models::UpdateWaitingRoomRuleResponse updateWaitingRoomRuleWithOptions(const Models::UpdateWaitingRoomRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改等候室规则
+       * @summary Modify Waiting Room Rule
+       *
+       * @description This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
        *
        * @param request UpdateWaitingRoomRuleRequest
        * @return UpdateWaitingRoomRuleResponse
@@ -6835,7 +7315,7 @@ namespace ESA20240910
       Models::UpdateWaitingRoomRuleResponse updateWaitingRoomRule(const Models::UpdateWaitingRoomRuleRequest &request);
 
       /**
-       * @summary 上传客户端CA证书
+       * @summary Uploads a client certificate authority (CA) certificate.
        *
        * @param request UploadClientCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6844,7 +7324,7 @@ namespace ESA20240910
       Models::UploadClientCaCertificateResponse uploadClientCaCertificateWithOptions(const Models::UploadClientCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传客户端CA证书
+       * @summary Uploads a client certificate authority (CA) certificate.
        *
        * @param request UploadClientCaCertificateRequest
        * @return UploadClientCaCertificateResponse
@@ -6852,7 +7332,10 @@ namespace ESA20240910
       Models::UploadClientCaCertificateResponse uploadClientCaCertificate(const Models::UploadClientCaCertificateRequest &request);
 
       /**
-       * @summary 缓存刷新文件上传
+       * @summary Uploads the file that contains resources to be purged or prefetched.
+       *
+       * @description > 
+       * *   The file can be up to 10 MB in size.
        *
        * @param request UploadFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6861,7 +7344,10 @@ namespace ESA20240910
       Models::UploadFileResponse uploadFileWithOptions(const Models::UploadFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 缓存刷新文件上传
+       * @summary Uploads the file that contains resources to be purged or prefetched.
+       *
+       * @description > 
+       * *   The file can be up to 10 MB in size.
        *
        * @param request UploadFileRequest
        * @return UploadFileResponse
@@ -6905,7 +7391,7 @@ namespace ESA20240910
       Models::UploadOriginClientCertificateResponse uploadOriginClientCertificate(const Models::UploadOriginClientCertificateRequest &request);
 
       /**
-       * @summary 上传站点回源客户端证书
+       * @summary Upload site origin client certificate
        *
        * @param request UploadSiteOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6914,7 +7400,7 @@ namespace ESA20240910
       Models::UploadSiteOriginClientCertificateResponse uploadSiteOriginClientCertificateWithOptions(const Models::UploadSiteOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传站点回源客户端证书
+       * @summary Upload site origin client certificate
        *
        * @param request UploadSiteOriginClientCertificateRequest
        * @return UploadSiteOriginClientCertificateResponse
@@ -6939,7 +7425,10 @@ namespace ESA20240910
       Models::VerifyCustomHostnameResponse verifyCustomHostname(const Models::VerifyCustomHostnameRequest &request);
 
       /**
-       * @summary 校验站点的归属
+       * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+       *
+       * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+       * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
        *
        * @param request VerifySiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6948,7 +7437,10 @@ namespace ESA20240910
       Models::VerifySiteResponse verifySiteWithOptions(const Models::VerifySiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验站点的归属
+       * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+       *
+       * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+       * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
        *
        * @param request VerifySiteRequest
        * @return VerifySiteResponse

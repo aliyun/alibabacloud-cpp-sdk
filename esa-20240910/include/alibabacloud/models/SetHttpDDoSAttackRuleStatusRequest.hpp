@@ -57,10 +57,20 @@ namespace Models
 
 
   protected:
+    // List of rule IDs to be operated on, separated by English commas (,).
+    // > You can call the [DescribeHttpDDoSAttackRules](~~DescribeHttpDDoSAttackRules~~) interface to get this parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleIds_ {};
+    // Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // Rule status
+    // 
+    // - **on**: Enable.
+    // - **off**: Disable.
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

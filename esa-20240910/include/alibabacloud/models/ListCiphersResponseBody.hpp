@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Name of the cipher suite group.
     shared_ptr<string> ciphersGroup_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Returned result.
     shared_ptr<vector<string>> result_ {};
+    // Total number of cipher suites.
     shared_ptr<int64_t> totalCount_ {};
   };
 

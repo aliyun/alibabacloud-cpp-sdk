@@ -335,35 +335,95 @@ namespace Models
 
 
     protected:
+      // Enable caching on specified ports. Value range: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, 2096.
       shared_ptr<string> additionalCacheablePorts_ {};
+      // Browser cache mode. Possible values:
+      // - no_cache: Do not cache.
+      // - follow_origin: Follow origin cache policy.
+      // - override_origin: Override origin cache policy.
       shared_ptr<string> browserCacheMode_ {};
+      // Browser cache expiration time, in seconds.
       shared_ptr<string> browserCacheTtl_ {};
+      // Set bypass cache mode. Possible values:
+      // - cache_all: Cache all requests.
+      // - bypass_all: Bypass cache for all requests.
       shared_ptr<string> bypassCache_ {};
+      // Cache deception defense. Used to defend against web cache deception attacks; only verified cache content will be cached. Value range:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> cacheDeceptionArmor_ {};
+      // Cache reserve eligibility. This is used to control whether user requests bypass the cache reserve node when returning to the origin. The value range is as follows:
+      // - bypass_cache_reserve: Requests bypass the cache reserve.
+      // - eligible_for_cache_reserve: Eligible for cache reserve.
       shared_ptr<string> cacheReserveEligibility_ {};
+      // When generating the cache key, check if the cookie exists. If it does, add the cookie name (case-insensitive) to the cache key. Multiple cookie names are supported, separated by spaces.
       shared_ptr<string> checkPresenceCookie_ {};
+      // When generating the cache key, check if the header exists. If it does, add the header name (case-insensitive) to the cache key. Multiple header names are supported, separated by spaces.
       shared_ptr<string> checkPresenceHeader_ {};
+      // Configuration ID.
       shared_ptr<int64_t> configId_ {};
+      // Configuration type, which can be used to query global or rule-based configurations. Possible values:
+      // - global: Query global configuration.
+      // - rule: Query rule-based configuration.
       shared_ptr<string> configType_ {};
+      // Edge cache mode. The value range is as follows:
+      // - follow_origin: Follow the origin server\\"s cache policy (if it exists), otherwise use the default cache policy.
+      // - no_cache: Do not cache.
+      // - override_origin: Override the origin server\\"s cache policy.
+      // - follow_origin_bypass: Follow the origin server\\"s cache policy (if it exists), otherwise do not cache.
       shared_ptr<string> edgeCacheMode_ {};
+      // Edge cache expiration time, in seconds.
       shared_ptr<string> edgeCacheTtl_ {};
+      // Edge cache expiration time, in seconds.
       shared_ptr<string> edgeStatusCodeCacheTtl_ {};
+      // Include the specified cookie names and their values when generating the cache key. Multiple values are supported, separated by spaces.
       shared_ptr<string> includeCookie_ {};
+      // Include the specified header names and their values when generating the cache key. Multiple values are supported, separated by spaces.
       shared_ptr<string> includeHeader_ {};
       shared_ptr<string> postBodyCacheKey_ {};
       shared_ptr<string> postBodySizeLimit_ {};
       shared_ptr<string> postCache_ {};
+      // The query strings to be reserved or excluded. Multiple values are supported, separated by spaces.
       shared_ptr<string> queryString_ {};
+      // The processing mode for query strings when generating the cache key. The value range is as follows:
+      // - ignore_all: Ignore all query strings.
+      // - exclude_query_string: Exclude specified query strings.
+      // - reserve_all: Default, reserve all query strings.
+      // - include_query_string: Include specified query strings.
       shared_ptr<string> queryStringMode_ {};
+      // Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
+      // - Match all incoming requests: Set the value to true
+      // - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
       shared_ptr<string> rule_ {};
+      // Rule switch. This parameter is not required when adding a global configuration. Possible values:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> ruleEnable_ {};
+      // Rule name. This parameter is not required when adding a global configuration.
       shared_ptr<string> ruleName_ {};
+      // Rule execution order. The smaller the value, the higher the priority.
       shared_ptr<int32_t> sequence_ {};
+      // Serve stale cache. When enabled, the node can still respond to user requests with expired cached files even when the origin server is unavailable. Value range:
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> serveStale_ {};
+      // Site configuration version number. For sites with version management enabled, this parameter can specify the site version for which the configuration takes effect, defaulting to version 0.
       shared_ptr<int32_t> siteVersion_ {};
+      // Query string sorting. The value range is as follows:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> sortQueryStringForCache_ {};
+      // Include the client device type when generating the cache key. The value range is as follows:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> userDeviceType_ {};
+      // Include the client\\"s geographic location when generating the cache key. The value range is as follows:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> userGeo_ {};
+      // Include the client\\"s language type when generating the cache key. The value range is as follows:
+      // - on: Enable.
+      // - off: Disable.
       shared_ptr<string> userLanguage_ {};
     };
 
@@ -414,11 +474,17 @@ namespace Models
 
 
   protected:
+    // Response body configuration.
     shared_ptr<vector<ListCacheRulesResponseBody::Configs>> configs_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

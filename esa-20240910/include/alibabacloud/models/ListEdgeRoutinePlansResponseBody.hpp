@@ -114,11 +114,23 @@ namespace Models
 
 
     protected:
+      // The billing method. Valid values:
+      // 
+      // *   PREPAY: subscription.
+      // *   POSTPAY: pay-as-you-go.
       shared_ptr<string> billingMode_ {};
+      // The maximum number of versions that each routine supports.
       shared_ptr<string> erRoutineCodeVersionQuota_ {};
+      // The maximum of routines that can be created.
       shared_ptr<string> erRoutineQuota_ {};
+      // The maximum number of websites with which each routine can be associated.
       shared_ptr<string> erRoutineRouteSiteCountQuota_ {};
+      // The payment method. Valid values:
+      // 
+      // *   er_free
+      // *   er_pay
       shared_ptr<string> paymentMethod_ {};
+      // The plan name.
       shared_ptr<string> planName_ {};
     };
 
@@ -169,11 +181,17 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 500.
     shared_ptr<int32_t> pageSize_ {};
+    // The plans.
     shared_ptr<vector<ListEdgeRoutinePlansResponseBody::PlanInfo>> planInfo_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // The total number of pages returned.
     shared_ptr<int32_t> totalPage_ {};
   };
 

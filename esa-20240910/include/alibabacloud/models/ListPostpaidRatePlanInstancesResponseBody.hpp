@@ -288,6 +288,7 @@ namespace Models
     shared_ptr<vector<ListPostpaidRatePlanInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<int32_t> totalPage_ {};

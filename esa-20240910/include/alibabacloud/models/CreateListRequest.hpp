@@ -69,9 +69,14 @@ namespace Models
 
 
   protected:
+    // The description of the list that you want to create.
     shared_ptr<string> description_ {};
+    // The items in the list that you want to create.
     shared_ptr<vector<string>> items_ {};
+    // The type of the list that you want to create.
     shared_ptr<string> kind_ {};
+    // The name of the list that you want to create.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

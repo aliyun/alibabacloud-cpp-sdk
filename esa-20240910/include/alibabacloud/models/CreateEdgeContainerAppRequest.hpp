@@ -158,21 +158,51 @@ namespace Models
 
 
   protected:
+    // The number of consecutive failed health checks required for an application to be considered as unhealthy. Valid values: 1 to 10. Default value: 5.
     shared_ptr<int32_t> healthCheckFailTimes_ {};
+    // The domain name that is used for health checks. This parameter is empty by default.
     shared_ptr<string> healthCheckHost_ {};
+    // The HTTP status code returned for a successful health check. Valid values:
+    // 
+    // *   **http_2xx** (default)
+    // *   **http_3xx**
     shared_ptr<string> healthCheckHttpCode_ {};
+    // The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**. Default value: **5**.
     shared_ptr<int32_t> healthCheckInterval_ {};
+    // The HTTP request method for health checks. Valid values:
+    // 
+    // *   **HEAD** (default): requests the headers of the resource.
+    // *   **GET**: requests the specified resource and returns both the headers and entity body.
     shared_ptr<string> healthCheckMethod_ {};
+    // The port used for health checks. Valid values: 1 to 65535. Default value: 80.
     shared_ptr<int32_t> healthCheckPort_ {};
+    // The number of consecutive successful health checks required for an application to be considered as healthy. Valid values: 1 to 10. Default value: 2.
     shared_ptr<int32_t> healthCheckSuccTimes_ {};
+    // The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds.\\
+    // Valid values: **1** to **100**.\\
+    // Default value: **3**.
     shared_ptr<int32_t> healthCheckTimeout_ {};
+    // The health check type. By default, this parameter is left empty.
+    // 
+    // Valid values:
+    // 
+    // *   **l4**: Layer 4 health check.
+    // *   **l7**: Layer 7 health check.
     shared_ptr<string> healthCheckType_ {};
+    // The URI used for health checks. The URI must be **1** to **80** characters in length. Default value: "/".
     shared_ptr<string> healthCheckURI_ {};
+    // The name of the application. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The remarks. This parameter is empty by default.
     shared_ptr<string> remarks_ {};
+    // The server port. Valid values: 1 to 65535.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> servicePort_ {};
+    // The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> targetPort_ {};
   };

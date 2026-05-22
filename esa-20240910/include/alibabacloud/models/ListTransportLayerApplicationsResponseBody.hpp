@@ -216,13 +216,39 @@ namespace Models
 
 
       protected:
+        // Client IP pass-through protocol, supports:
+        // - **off**: No pass-through.
+        // - **PPv1**: PROXY Protocol v1, supports client IP pass-through for TCP protocol.
+        // - **PPv2**: PROXY Protocol v2, supports client IP pass-through for TCP and UDP protocols.
+        // - **SPP**: Simple Proxy Protocol, supports client IP pass-through for UDP protocol.
         shared_ptr<string> clientIPPassThroughMode_ {};
+        // Comment information for the rule.
         shared_ptr<string> comment_ {};
+        // Edge port. Supports:
+        // 
+        // - A single port, e.g., 80.
+        // - Port range, e.g., 81-85, representing ports 81, 82, 83, 84, 85.
+        // - Combination of ports and port ranges, separated by commas, e.g., 80,81-85,90, representing ports 80, 81, 82, 83, 84, 85, 90.
         shared_ptr<string> edgePort_ {};
+        // Forwarding rule protocol, with values:
+        // 
+        // - TCP: TCP protocol.
+        // - UDP: UDP protocol.
         shared_ptr<string> protocol_ {};
+        // Layer 4 acceleration rule ID.
         shared_ptr<int64_t> ruleId_ {};
+        // Specific value of the source, which needs to match the source type.
         shared_ptr<string> source_ {};
+        // Source port. Supports:
+        // 
+        // - A single port, when the source port is a single port, any valid combination of edge ports is supported.
+        // - Port range, only when the edge port is a port range, the source port can be set to a port range, and the range size must be consistent with the edge port. For example, if the edge port is 90-93, the source port cannot be set to 81-85 because the source port range is 5 and the edge port range is 3, which are inconsistent.
         shared_ptr<string> sourcePort_ {};
+        // Source type, supports:
+        // - **ip**: IP.
+        // - **domain**: Domain name.
+        // - **OP**: Origin pool.
+        // - **LB**: Load balancer.
         shared_ptr<string> sourceType_ {};
       };
 
@@ -326,19 +352,38 @@ namespace Models
 
 
     protected:
+      // Layer 4 application ID.
       shared_ptr<int64_t> applicationId_ {};
+      // CNAME domain name corresponding to the Layer 4 acceleration application. This field is not empty only when the site is accessed via CNAME.
       shared_ptr<string> cname_ {};
+      // Whether to enable China mainland network access optimization. It is disabled by default. The value range is:
+      // 
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> crossBorderOptimization_ {};
+      // IP access rule switch. When enabled, the IP access rules in WAF take effect on the Layer 4 application.
+      // 
+      // - on: Enabled.
+      // - off: Disabled.
       shared_ptr<string> ipAccessRule_ {};
+      // IPv6 switch.
       shared_ptr<string> ipv6_ {};
       shared_ptr<string> keepAliveProtection_ {};
+      // Domain name of the Layer 4 application.
       shared_ptr<string> recordName_ {};
+      // List of forwarding rules.
       shared_ptr<vector<Applications::Rules>> rules_ {};
+      // Number of forwarding rules contained in the Layer 4 acceleration application.
       shared_ptr<int32_t> rulesCount_ {};
+      // Site ID.
       shared_ptr<int64_t> siteId_ {};
       shared_ptr<string> staticIp_ {};
       // This parameter is required.
       shared_ptr<vector<Applications::StaticIpV4List>> staticIpV4List_ {};
+      // Status of the Layer 4 application
+      // 
+      // - **deploying**: Deploying. In this state, modification and deletion are not allowed.
+      // - **active**: Active.
       shared_ptr<string> status_ {};
     };
 
@@ -382,10 +427,15 @@ namespace Models
 
 
   protected:
+    // List of transport layer applications.
     shared_ptr<vector<ListTransportLayerApplicationsResponseBody::Applications>> applications_ {};
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of transport layer applications.
     shared_ptr<int32_t> totalCount_ {};
   };
 

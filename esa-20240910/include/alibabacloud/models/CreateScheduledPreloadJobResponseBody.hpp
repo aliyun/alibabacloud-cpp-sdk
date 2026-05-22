@@ -167,20 +167,40 @@ namespace Models
 
 
   protected:
+    // The ID of the Alibaba Cloud account.
     shared_ptr<string> aliUid_ {};
+    // The time when the task was created.
     shared_ptr<string> createdAt_ {};
+    // The domain names to be prefetched.
     shared_ptr<string> domains_ {};
+    // The error message. Multiple error messages are separated by commas (,). Valid values:
+    // 
+    // *   **InvalidUrl**: The URL format is invalid.
+    // *   **InvalidDomain**: The domain name fails the domain ownership verification.
+    // *   **QuotaExcess**: the quota limit has been reached.
+    // *   **OtherErrors**: other errors.
     shared_ptr<string> errorInfo_ {};
+    // The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
     shared_ptr<string> failedFileOss_ {};
+    // The ID of the URL list file, which can be used during downloads.
     shared_ptr<string> fileId_ {};
+    // The ID of the scheduled prefetch task.
     shared_ptr<string> id_ {};
+    // The method to submit the URLs to be prefetched.
     shared_ptr<string> insertWay_ {};
+    // The task name.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The website ID.
     shared_ptr<int64_t> siteId_ {};
+    // The number of submitted prefetch tasks.
     shared_ptr<int32_t> taskSubmitted_ {};
+    // The task type (refresh or preload).
     shared_ptr<string> taskType_ {};
+    // The total number of URLs.
     shared_ptr<int32_t> urlCount_ {};
+    // The number of submitted URLs.
     shared_ptr<int32_t> urlSubmitted_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // WAF ruleset ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

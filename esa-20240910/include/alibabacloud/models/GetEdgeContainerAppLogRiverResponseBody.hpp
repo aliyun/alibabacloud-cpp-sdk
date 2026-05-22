@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The log path of the container. It must be an absolute path that starts with a forward slash (/). You can use asterisks (\\*) and question marks (?) as wildcards.
     shared_ptr<string> path_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the standard output of the container is collected.
     shared_ptr<bool> stdout_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the custom list.[](~~2850217~~)
     shared_ptr<int64_t> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

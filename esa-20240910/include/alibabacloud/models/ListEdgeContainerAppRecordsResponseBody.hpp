@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The CNAME of the associated domain name.
       shared_ptr<string> cname_ {};
+      // The configuration ID of the associated domain name.
       shared_ptr<int64_t> configId_ {};
+      // The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> createTime_ {};
+      // The record ID of the associated domain name.
       shared_ptr<int64_t> recordId_ {};
+      // The associated domain name.
       shared_ptr<string> recordName_ {};
+      // The scheduling domain ID of the associated domain name.
       shared_ptr<int32_t> schemdId_ {};
+      // The website ID.
       shared_ptr<int64_t> siteId_ {};
+      // The time when the scheduling domain ID or CNAME was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The details about the associated domain names.
     shared_ptr<vector<ListEdgeContainerAppRecordsResponseBody::Records>> records_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of domain names that are associated with the specified application.
     shared_ptr<int32_t> totalCount_ {};
   };
 

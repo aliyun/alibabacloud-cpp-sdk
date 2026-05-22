@@ -57,8 +57,16 @@ namespace Models
 
 
   protected:
+    // The log category. Valid values:
+    // 
+    // 1.  dcdn_log_access_l1 (default): access logs.
+    // 2.  dcdn_log_er: Edge Routine logs.
+    // 3.  dcdn_log_waf: firewall logs.
+    // 4.  dcdn_log_ipa: TCP/UDP proxy logs.
     shared_ptr<string> businessType_ {};
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries per page. Default value: 20.
     shared_ptr<int64_t> pageSize_ {};
   };
 

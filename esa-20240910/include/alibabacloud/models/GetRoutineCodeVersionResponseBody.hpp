@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The description of the code version.
     shared_ptr<string> codeDescription_ {};
+    // The time when the version was created.
     shared_ptr<string> createTime_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The code content.
     shared_ptr<string> routineCode_ {};
   };
 

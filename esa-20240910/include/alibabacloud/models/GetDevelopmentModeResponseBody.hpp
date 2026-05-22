@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Switch. Values:
+    // 
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     shared_ptr<string> enable_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

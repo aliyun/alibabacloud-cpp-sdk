@@ -91,12 +91,19 @@ namespace Models
 
 
   protected:
+    // The configurations of rules.
     shared_ptr<vector<WafRuleConfig>> configs_ {};
+    // The WAF rule category.
     shared_ptr<string> phase_ {};
+    // The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
     shared_ptr<int64_t> rulesetId_ {};
+    // The configurations shared by multiple rules.
     shared_ptr<WafBatchRuleShared> shared_ {};
+    // The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    // The version of the website.
     shared_ptr<int32_t> siteVersion_ {};
   };
 
