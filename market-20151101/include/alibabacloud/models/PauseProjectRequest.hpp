@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->instanceId_ != nullptr
-        && this->nodeId_ != nullptr && this->remark_ != nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->nodeId_ == nullptr && this->remark_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string instanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline PauseProjectRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // nodeId Field Functions 
     bool hasNodeId() const { return this->nodeId_ != nullptr;};
     void deleteNodeId() { this->nodeId_ = nullptr;};
-    inline int64_t nodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
+    inline int64_t getNodeId() const { DARABONBA_PTR_GET_DEFAULT(nodeId_, 0L) };
     inline PauseProjectRequest& setNodeId(int64_t nodeId) { DARABONBA_PTR_SET_VALUE(nodeId_, nodeId) };
 
 
     // remark Field Functions 
     bool hasRemark() const { return this->remark_ != nullptr;};
     void deleteRemark() { this->remark_ = nullptr;};
-    inline string remark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
+    inline string getRemark() const { DARABONBA_PTR_GET_DEFAULT(remark_, "") };
     inline PauseProjectRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> instanceId_ = nullptr;
+    shared_ptr<string> instanceId_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> nodeId_ = nullptr;
-    std::shared_ptr<string> remark_ = nullptr;
+    shared_ptr<int64_t> nodeId_ {};
+    shared_ptr<string> remark_ {};
   };
 
   } // namespace Models

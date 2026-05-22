@@ -33,34 +33,34 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->pageNum_ != nullptr
-        && this->productCode_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->pageNum_ == nullptr
+        && this->productCode_ == nullptr && this->type_ == nullptr; };
     // pageNum Field Functions 
     bool hasPageNum() const { return this->pageNum_ != nullptr;};
     void deletePageNum() { this->pageNum_ = nullptr;};
-    inline int32_t pageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
+    inline int32_t getPageNum() const { DARABONBA_PTR_GET_DEFAULT(pageNum_, 0) };
     inline DescribeApiMeteringRequest& setPageNum(int32_t pageNum) { DARABONBA_PTR_SET_VALUE(pageNum_, pageNum) };
 
 
     // productCode Field Functions 
     bool hasProductCode() const { return this->productCode_ != nullptr;};
     void deleteProductCode() { this->productCode_ = nullptr;};
-    inline string productCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
     inline DescribeApiMeteringRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline DescribeApiMeteringRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int32_t> pageNum_ = nullptr;
-    std::shared_ptr<string> productCode_ = nullptr;
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> pageNum_ {};
+    shared_ptr<string> productCode_ {};
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

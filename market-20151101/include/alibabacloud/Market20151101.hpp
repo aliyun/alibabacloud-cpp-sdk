@@ -38,6 +38,8 @@ namespace Market20151101
       Models::ActivateLicenseResponse activateLicense(const Models::ActivateLicenseRequest &request);
 
       /**
+       * @summary 设置自动续费
+       *
        * @param request AutoRenewInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AutoRenewInstanceResponse
@@ -45,6 +47,8 @@ namespace Market20151101
       Models::AutoRenewInstanceResponse autoRenewInstanceWithOptions(const Models::AutoRenewInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 设置自动续费
+       *
        * @param request AutoRenewInstanceRequest
        * @return AutoRenewInstanceResponse
        */
@@ -68,6 +72,8 @@ namespace Market20151101
       Models::ConfirmNotificationResponse confirmNotification(const Models::ConfirmNotificationRequest &request);
 
       /**
+       * @summary 创建订单
+       *
        * @param request CreateOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateOrderResponse
@@ -75,12 +81,16 @@ namespace Market20151101
       Models::CreateOrderResponse createOrderWithOptions(const Models::CreateOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 创建订单
+       *
        * @param request CreateOrderRequest
        * @return CreateOrderResponse
        */
       Models::CreateOrderResponse createOrder(const Models::CreateOrderRequest &request);
 
       /**
+       * @summary 跨账号角色授权，根据token获取用户信息
+       *
        * @param request CrossAccountVerifyTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CrossAccountVerifyTokenResponse
@@ -88,6 +98,8 @@ namespace Market20151101
       Models::CrossAccountVerifyTokenResponse crossAccountVerifyTokenWithOptions(const Models::CrossAccountVerifyTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 跨账号角色授权，根据token获取用户信息
+       *
        * @param request CrossAccountVerifyTokenRequest
        * @return CrossAccountVerifyTokenResponse
        */
@@ -111,6 +123,8 @@ namespace Market20151101
       Models::DescribeApiMeteringResponse describeApiMetering(const Models::DescribeApiMeteringRequest &request);
 
       /**
+       * @summary 工作流当前节点信息
+       *
        * @param request DescribeCurrentNodeInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeCurrentNodeInfoResponse
@@ -118,6 +132,8 @@ namespace Market20151101
       Models::DescribeCurrentNodeInfoResponse describeCurrentNodeInfoWithOptions(const Models::DescribeCurrentNodeInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 工作流当前节点信息
+       *
        * @param request DescribeCurrentNodeInfoRequest
        * @return DescribeCurrentNodeInfoResponse
        */
@@ -192,6 +208,8 @@ namespace Market20151101
       Models::DescribeImageInstanceForIsvResponse describeImageInstanceForIsv(const Models::DescribeImageInstanceForIsvRequest &request);
 
       /**
+       * @summary 查询实例
+       *
        * @param request DescribeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstanceResponse
@@ -199,6 +217,8 @@ namespace Market20151101
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例
+       *
        * @param request DescribeInstanceRequest
        * @return DescribeInstanceResponse
        */
@@ -222,6 +242,8 @@ namespace Market20151101
       Models::DescribeInstanceForIsvResponse describeInstanceForIsv(const Models::DescribeInstanceForIsvRequest &request);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request DescribeInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeInstancesResponse
@@ -229,6 +251,8 @@ namespace Market20151101
       Models::DescribeInstancesResponse describeInstancesWithOptions(const Models::DescribeInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询实例列表
+       *
        * @param request DescribeInstancesRequest
        * @return DescribeInstancesResponse
        */
@@ -269,6 +293,8 @@ namespace Market20151101
       Models::DescribeLicenseResponse describeLicense(const Models::DescribeLicenseRequest &request);
 
       /**
+       * @summary 查询订单
+       *
        * @param request DescribeOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeOrderResponse
@@ -276,6 +302,8 @@ namespace Market20151101
       Models::DescribeOrderResponse describeOrderWithOptions(const Models::DescribeOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询订单
+       *
        * @param request DescribeOrderRequest
        * @return DescribeOrderResponse
        */
@@ -299,6 +327,8 @@ namespace Market20151101
       Models::DescribeOrderForIsvResponse describeOrderForIsv(const Models::DescribeOrderForIsvRequest &request);
 
       /**
+       * @summary 查询价格
+       *
        * @param request DescribePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribePriceResponse
@@ -306,6 +336,8 @@ namespace Market20151101
       Models::DescribePriceResponse describePriceWithOptions(const Models::DescribePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询价格
+       *
        * @param request DescribePriceRequest
        * @return DescribePriceResponse
        */
@@ -338,6 +370,8 @@ namespace Market20151101
       Models::DescribeProductsResponse describeProducts(const Models::DescribeProductsRequest &request);
 
       /**
+       * @summary 附件信息
+       *
        * @param request DescribeProjectAttachmentsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProjectAttachmentsResponse
@@ -345,12 +379,16 @@ namespace Market20151101
       Models::DescribeProjectAttachmentsResponse describeProjectAttachmentsWithOptions(const Models::DescribeProjectAttachmentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 附件信息
+       *
        * @param request DescribeProjectAttachmentsRequest
        * @return DescribeProjectAttachmentsResponse
        */
       Models::DescribeProjectAttachmentsResponse describeProjectAttachments(const Models::DescribeProjectAttachmentsRequest &request);
 
       /**
+       * @summary 项目信息
+       *
        * @param request DescribeProjectInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProjectInfoResponse
@@ -358,12 +396,16 @@ namespace Market20151101
       Models::DescribeProjectInfoResponse describeProjectInfoWithOptions(const Models::DescribeProjectInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 项目信息
+       *
        * @param request DescribeProjectInfoRequest
        * @return DescribeProjectInfoResponse
        */
       Models::DescribeProjectInfoResponse describeProjectInfo(const Models::DescribeProjectInfoRequest &request);
 
       /**
+       * @summary 查询项目留言信息
+       *
        * @param request DescribeProjectMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProjectMessagesResponse
@@ -371,12 +413,16 @@ namespace Market20151101
       Models::DescribeProjectMessagesResponse describeProjectMessagesWithOptions(const Models::DescribeProjectMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询项目留言信息
+       *
        * @param request DescribeProjectMessagesRequest
        * @return DescribeProjectMessagesResponse
        */
       Models::DescribeProjectMessagesResponse describeProjectMessages(const Models::DescribeProjectMessagesRequest &request);
 
       /**
+       * @summary 查询项目流程节点list
+       *
        * @description **
        * **
        *
@@ -387,6 +433,8 @@ namespace Market20151101
       Models::DescribeProjectNodesResponse describeProjectNodesWithOptions(const Models::DescribeProjectNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询项目流程节点list
+       *
        * @description **
        * **
        *
@@ -396,6 +444,8 @@ namespace Market20151101
       Models::DescribeProjectNodesResponse describeProjectNodes(const Models::DescribeProjectNodesRequest &request);
 
       /**
+       * @summary 查询项目操作记录列表
+       *
        * @param request DescribeProjectOperateLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeProjectOperateLogsResponse
@@ -403,12 +453,16 @@ namespace Market20151101
       Models::DescribeProjectOperateLogsResponse describeProjectOperateLogsWithOptions(const Models::DescribeProjectOperateLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 查询项目操作记录列表
+       *
        * @param request DescribeProjectOperateLogsRequest
        * @return DescribeProjectOperateLogsResponse
        */
       Models::DescribeProjectOperateLogsResponse describeProjectOperateLogs(const Models::DescribeProjectOperateLogsRequest &request);
 
       /**
+       * @summary 完成当前流程节点
+       *
        * @param request FinishCurrentProjectNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return FinishCurrentProjectNodeResponse
@@ -416,6 +470,8 @@ namespace Market20151101
       Models::FinishCurrentProjectNodeResponse finishCurrentProjectNodeWithOptions(const Models::FinishCurrentProjectNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 完成当前流程节点
+       *
        * @param request FinishCurrentProjectNodeRequest
        * @return FinishCurrentProjectNodeResponse
        */
@@ -439,6 +495,8 @@ namespace Market20151101
       Models::ModifyInvoiceForIsvResponse modifyInvoiceForIsv(const Models::ModifyInvoiceForIsvRequest &request);
 
       /**
+       * @summary 暂停项目
+       *
        * @param request PauseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PauseProjectResponse
@@ -446,12 +504,16 @@ namespace Market20151101
       Models::PauseProjectResponse pauseProjectWithOptions(const Models::PauseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 暂停项目
+       *
        * @param request PauseProjectRequest
        * @return PauseProjectResponse
        */
       Models::PauseProjectResponse pauseProject(const Models::PauseProjectRequest &request);
 
       /**
+       * @summary 云市场计量推送接口
+       *
        * @param request PushMeteringDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PushMeteringDataResponse
@@ -459,12 +521,33 @@ namespace Market20151101
       Models::PushMeteringDataResponse pushMeteringDataWithOptions(const Models::PushMeteringDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 云市场计量推送接口
+       *
        * @param request PushMeteringDataRequest
        * @return PushMeteringDataResponse
        */
       Models::PushMeteringDataResponse pushMeteringData(const Models::PushMeteringDataRequest &request);
 
       /**
+       * @summary 按次售卖按量计费
+       *
+       * @param request PushTimesUsageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PushTimesUsageResponse
+       */
+      Models::PushTimesUsageResponse pushTimesUsageWithOptions(const Models::PushTimesUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按次售卖按量计费
+       *
+       * @param request PushTimesUsageRequest
+       * @return PushTimesUsageResponse
+       */
+      Models::PushTimesUsageResponse pushTimesUsage(const Models::PushTimesUsageRequest &request);
+
+      /**
+       * @summary 恢复已暂停的项目
+       *
        * @param request ResumeProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ResumeProjectResponse
@@ -472,12 +555,16 @@ namespace Market20151101
       Models::ResumeProjectResponse resumeProjectWithOptions(const Models::ResumeProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 恢复已暂停的项目
+       *
        * @param request ResumeProjectRequest
        * @return ResumeProjectResponse
        */
       Models::ResumeProjectResponse resumeProject(const Models::ResumeProjectRequest &request);
 
       /**
+       * @summary 当前流程节点回滚到上一步
+       *
        * @param request RollbackCurrentProjectNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RollbackCurrentProjectNodeResponse
@@ -485,6 +572,8 @@ namespace Market20151101
       Models::RollbackCurrentProjectNodeResponse rollbackCurrentProjectNodeWithOptions(const Models::RollbackCurrentProjectNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 当前流程节点回滚到上一步
+       *
        * @param request RollbackCurrentProjectNodeRequest
        * @return RollbackCurrentProjectNodeResponse
        */

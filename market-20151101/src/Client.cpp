@@ -71,11 +71,11 @@ ActivateLicenseResponse Client::activateLicenseWithOptions(const ActivateLicense
   request.validate();
   json query = {};
   if (!!request.hasIdentification()) {
-    query["Identification"] = request.identification();
+    query["Identification"] = request.getIdentification();
   }
 
   if (!!request.hasLicenseCode()) {
-    query["LicenseCode"] = request.licenseCode();
+    query["LicenseCode"] = request.getLicenseCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -107,6 +107,8 @@ ActivateLicenseResponse Client::activateLicense(const ActivateLicenseRequest &re
 }
 
 /**
+ * @summary 设置自动续费
+ *
  * @param request AutoRenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AutoRenewInstanceResponse
@@ -115,23 +117,23 @@ AutoRenewInstanceResponse Client::autoRenewInstanceWithOptions(const AutoRenewIn
   request.validate();
   json body = {};
   if (!!request.hasAutoRenewCycle()) {
-    body["AutoRenewCycle"] = request.autoRenewCycle();
+    body["AutoRenewCycle"] = request.getAutoRenewCycle();
   }
 
   if (!!request.hasAutoRenewDuration()) {
-    body["AutoRenewDuration"] = request.autoRenewDuration();
+    body["AutoRenewDuration"] = request.getAutoRenewDuration();
   }
 
   if (!!request.hasOrderBizId()) {
-    body["OrderBizId"] = request.orderBizId();
+    body["OrderBizId"] = request.getOrderBizId();
   }
 
   if (!!request.hasOwnerId()) {
-    body["OwnerId"] = request.ownerId();
+    body["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -152,6 +154,8 @@ AutoRenewInstanceResponse Client::autoRenewInstanceWithOptions(const AutoRenewIn
 }
 
 /**
+ * @summary 设置自动续费
+ *
  * @param request AutoRenewInstanceRequest
  * @return AutoRenewInstanceResponse
  */
@@ -171,7 +175,7 @@ ConfirmNotificationResponse Client::confirmNotificationWithOptions(const Confirm
   request.validate();
   json query = {};
   if (!!request.hasNotificationRequestId()) {
-    query["NotificationRequestId"] = request.notificationRequestId();
+    query["NotificationRequestId"] = request.getNotificationRequestId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -203,6 +207,8 @@ ConfirmNotificationResponse Client::confirmNotification(const ConfirmNotificatio
 }
 
 /**
+ * @summary 创建订单
+ *
  * @param request CreateOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateOrderResponse
@@ -211,27 +217,27 @@ CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &req
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["ClientToken"] = request.clientToken();
+    query["ClientToken"] = request.getClientToken();
   }
 
   if (!!request.hasCommodity()) {
-    query["Commodity"] = request.commodity();
+    query["Commodity"] = request.getCommodity();
   }
 
   if (!!request.hasOrderSouce()) {
-    query["OrderSouce"] = request.orderSouce();
+    query["OrderSouce"] = request.getOrderSouce();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   if (!!request.hasPaymentType()) {
-    query["PaymentType"] = request.paymentType();
+    query["PaymentType"] = request.getPaymentType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -252,6 +258,8 @@ CreateOrderResponse Client::createOrderWithOptions(const CreateOrderRequest &req
 }
 
 /**
+ * @summary 创建订单
+ *
  * @param request CreateOrderRequest
  * @return CreateOrderResponse
  */
@@ -261,6 +269,8 @@ CreateOrderResponse Client::createOrder(const CreateOrderRequest &request) {
 }
 
 /**
+ * @summary 跨账号角色授权，根据token获取用户信息
+ *
  * @param request CrossAccountVerifyTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CrossAccountVerifyTokenResponse
@@ -269,7 +279,7 @@ CrossAccountVerifyTokenResponse Client::crossAccountVerifyTokenWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasToken()) {
-    body["Token"] = request.token();
+    body["Token"] = request.getToken();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -290,6 +300,8 @@ CrossAccountVerifyTokenResponse Client::crossAccountVerifyTokenWithOptions(const
 }
 
 /**
+ * @summary 跨账号角色授权，根据token获取用户信息
+ *
  * @param request CrossAccountVerifyTokenRequest
  * @return CrossAccountVerifyTokenResponse
  */
@@ -337,6 +349,8 @@ DescribeApiMeteringResponse Client::describeApiMetering(const DescribeApiMeterin
 }
 
 /**
+ * @summary 工作流当前节点信息
+ *
  * @param request DescribeCurrentNodeInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeCurrentNodeInfoResponse
@@ -345,7 +359,7 @@ DescribeCurrentNodeInfoResponse Client::describeCurrentNodeInfoWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -366,6 +380,8 @@ DescribeCurrentNodeInfoResponse Client::describeCurrentNodeInfoWithOptions(const
 }
 
 /**
+ * @summary 工作流当前节点信息
+ *
  * @param request DescribeCurrentNodeInfoRequest
  * @return DescribeCurrentNodeInfoResponse
  */
@@ -424,12 +440,12 @@ DescribeDistributionProductsLinkResponse Client::describeDistributionProductsLin
   DescribeDistributionProductsLinkShrinkRequest request = DescribeDistributionProductsLinkShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasCodes()) {
-    request.setCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.codes(), "Codes", "json"));
+    request.setCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCodes(), "Codes", "json"));
   }
 
   json query = {};
   if (!!request.hasCodesShrink()) {
-    query["Codes"] = request.codesShrink();
+    query["Codes"] = request.getCodesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -471,11 +487,11 @@ DescribeFailedNotificationsResponse Client::describeFailedNotificationsWithOptio
   request.validate();
   json query = {};
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -517,11 +533,11 @@ DescribeImageInstanceForIsvResponse Client::describeImageInstanceForIsvWithOptio
   request.validate();
   json query = {};
   if (!!request.hasCustomerPk()) {
-    query["CustomerPk"] = request.customerPk();
+    query["CustomerPk"] = request.getCustomerPk();
   }
 
   if (!!request.hasEcsInstanceId()) {
-    query["EcsInstanceId"] = request.ecsInstanceId();
+    query["EcsInstanceId"] = request.getEcsInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -553,6 +569,8 @@ DescribeImageInstanceForIsvResponse Client::describeImageInstanceForIsv(const De
 }
 
 /**
+ * @summary 查询实例
+ *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstanceResponse
@@ -561,15 +579,15 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOwnerId()) {
-    query["OwnerId"] = request.ownerId();
+    query["OwnerId"] = request.getOwnerId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -590,6 +608,8 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
+ * @summary 查询实例
+ *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
  */
@@ -609,7 +629,7 @@ DescribeInstanceForIsvResponse Client::describeInstanceForIsvWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -641,6 +661,8 @@ DescribeInstanceForIsvResponse Client::describeInstanceForIsv(const DescribeInst
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstancesResponse
@@ -649,23 +671,23 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
   request.validate();
   json query = {};
   if (!!request.hasCodes()) {
-    query["Codes"] = request.codes();
+    query["Codes"] = request.getCodes();
   }
 
   if (!!request.hasExceptCodes()) {
-    query["ExceptCodes"] = request.exceptCodes();
+    query["ExceptCodes"] = request.getExceptCodes();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasProductType()) {
-    query["ProductType"] = request.productType();
+    query["ProductType"] = request.getProductType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -686,6 +708,8 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 }
 
 /**
+ * @summary 查询实例列表
+ *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse
  */
@@ -705,43 +729,43 @@ DescribeInvoiceForIsvResponse Client::describeInvoiceForIsvWithOptions(const Des
   request.validate();
   json query = {};
   if (!!request.hasCreateTimeEnd()) {
-    query["CreateTimeEnd"] = request.createTimeEnd();
+    query["CreateTimeEnd"] = request.getCreateTimeEnd();
   }
 
   if (!!request.hasCreateTimeStart()) {
-    query["CreateTimeStart"] = request.createTimeStart();
+    query["CreateTimeStart"] = request.getCreateTimeStart();
   }
 
   if (!!request.hasInvoiceId()) {
-    query["InvoiceId"] = request.invoiceId();
+    query["InvoiceId"] = request.getInvoiceId();
   }
 
   if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.maxResults();
+    query["MaxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["NextToken"] = request.nextToken();
+    query["NextToken"] = request.getNextToken();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    query["Status"] = request.status();
+    query["Status"] = request.getStatus();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasUserId()) {
-    query["UserId"] = request.userId();
+    query["UserId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -783,7 +807,7 @@ DescribeLicenseResponse Client::describeLicenseWithOptions(const DescribeLicense
   request.validate();
   json query = {};
   if (!!request.hasLicenseCode()) {
-    query["LicenseCode"] = request.licenseCode();
+    query["LicenseCode"] = request.getLicenseCode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -815,6 +839,8 @@ DescribeLicenseResponse Client::describeLicense(const DescribeLicenseRequest &re
 }
 
 /**
+ * @summary 查询订单
+ *
  * @param request DescribeOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeOrderResponse
@@ -823,7 +849,7 @@ DescribeOrderResponse Client::describeOrderWithOptions(const DescribeOrderReques
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["OrderId"] = request.orderId();
+    query["OrderId"] = request.getOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -844,6 +870,8 @@ DescribeOrderResponse Client::describeOrderWithOptions(const DescribeOrderReques
 }
 
 /**
+ * @summary 查询订单
+ *
  * @param request DescribeOrderRequest
  * @return DescribeOrderResponse
  */
@@ -863,7 +891,7 @@ DescribeOrderForIsvResponse Client::describeOrderForIsvWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasOrderId()) {
-    query["OrderId"] = request.orderId();
+    query["OrderId"] = request.getOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -895,6 +923,8 @@ DescribeOrderForIsvResponse Client::describeOrderForIsv(const DescribeOrderForIs
 }
 
 /**
+ * @summary 查询价格
+ *
  * @param request DescribePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribePriceResponse
@@ -903,11 +933,11 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
   request.validate();
   json query = {};
   if (!!request.hasCommodity()) {
-    query["Commodity"] = request.commodity();
+    query["Commodity"] = request.getCommodity();
   }
 
   if (!!request.hasOrderType()) {
-    query["OrderType"] = request.orderType();
+    query["OrderType"] = request.getOrderType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -928,6 +958,8 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
 }
 
 /**
+ * @summary 查询价格
+ *
  * @param request DescribePriceRequest
  * @return DescribePriceResponse
  */
@@ -945,15 +977,15 @@ DescribeProductResponse Client::describeProductWithOptions(const DescribeProduct
   request.validate();
   json query = {};
   if (!!request.hasAliUid()) {
-    query["AliUid"] = request.aliUid();
+    query["AliUid"] = request.getAliUid();
   }
 
   if (!!request.hasCode()) {
-    query["Code"] = request.code();
+    query["Code"] = request.getCode();
   }
 
   if (!!request.hasQueryDraft()) {
-    query["QueryDraft"] = request.queryDraft();
+    query["QueryDraft"] = request.getQueryDraft();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -991,19 +1023,19 @@ DescribeProductsResponse Client::describeProductsWithOptions(const DescribeProdu
   request.validate();
   json query = {};
   if (!!request.hasFilter()) {
-    query["Filter"] = request.filter();
+    query["Filter"] = request.getFilter();
   }
 
   if (!!request.hasPageNumber()) {
-    query["PageNumber"] = request.pageNumber();
+    query["PageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasSearchTerm()) {
-    query["SearchTerm"] = request.searchTerm();
+    query["SearchTerm"] = request.getSearchTerm();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1033,6 +1065,8 @@ DescribeProductsResponse Client::describeProducts(const DescribeProductsRequest 
 }
 
 /**
+ * @summary 附件信息
+ *
  * @param request DescribeProjectAttachmentsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProjectAttachmentsResponse
@@ -1041,7 +1075,7 @@ DescribeProjectAttachmentsResponse Client::describeProjectAttachmentsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1062,6 +1096,8 @@ DescribeProjectAttachmentsResponse Client::describeProjectAttachmentsWithOptions
 }
 
 /**
+ * @summary 附件信息
+ *
  * @param request DescribeProjectAttachmentsRequest
  * @return DescribeProjectAttachmentsResponse
  */
@@ -1071,6 +1107,8 @@ DescribeProjectAttachmentsResponse Client::describeProjectAttachments(const Desc
 }
 
 /**
+ * @summary 项目信息
+ *
  * @param request DescribeProjectInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProjectInfoResponse
@@ -1079,7 +1117,7 @@ DescribeProjectInfoResponse Client::describeProjectInfoWithOptions(const Describ
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1100,6 +1138,8 @@ DescribeProjectInfoResponse Client::describeProjectInfoWithOptions(const Describ
 }
 
 /**
+ * @summary 项目信息
+ *
  * @param request DescribeProjectInfoRequest
  * @return DescribeProjectInfoResponse
  */
@@ -1109,6 +1149,8 @@ DescribeProjectInfoResponse Client::describeProjectInfo(const DescribeProjectInf
 }
 
 /**
+ * @summary 查询项目留言信息
+ *
  * @param request DescribeProjectMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProjectMessagesResponse
@@ -1117,11 +1159,11 @@ DescribeProjectMessagesResponse Client::describeProjectMessagesWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasPageIndex()) {
-    query["PageIndex"] = request.pageIndex();
+    query["PageIndex"] = request.getPageIndex();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1142,6 +1184,8 @@ DescribeProjectMessagesResponse Client::describeProjectMessagesWithOptions(const
 }
 
 /**
+ * @summary 查询项目留言信息
+ *
  * @param request DescribeProjectMessagesRequest
  * @return DescribeProjectMessagesResponse
  */
@@ -1151,6 +1195,8 @@ DescribeProjectMessagesResponse Client::describeProjectMessages(const DescribePr
 }
 
 /**
+ * @summary 查询项目流程节点list
+ *
  * @description **
  * **
  *
@@ -1162,7 +1208,7 @@ DescribeProjectNodesResponse Client::describeProjectNodesWithOptions(const Descr
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1183,6 +1229,8 @@ DescribeProjectNodesResponse Client::describeProjectNodesWithOptions(const Descr
 }
 
 /**
+ * @summary 查询项目流程节点list
+ *
  * @description **
  * **
  *
@@ -1195,6 +1243,8 @@ DescribeProjectNodesResponse Client::describeProjectNodes(const DescribeProjectN
 }
 
 /**
+ * @summary 查询项目操作记录列表
+ *
  * @param request DescribeProjectOperateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeProjectOperateLogsResponse
@@ -1203,7 +1253,7 @@ DescribeProjectOperateLogsResponse Client::describeProjectOperateLogsWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1224,6 +1274,8 @@ DescribeProjectOperateLogsResponse Client::describeProjectOperateLogsWithOptions
 }
 
 /**
+ * @summary 查询项目操作记录列表
+ *
  * @param request DescribeProjectOperateLogsRequest
  * @return DescribeProjectOperateLogsResponse
  */
@@ -1233,6 +1285,8 @@ DescribeProjectOperateLogsResponse Client::describeProjectOperateLogs(const Desc
 }
 
 /**
+ * @summary 完成当前流程节点
+ *
  * @param request FinishCurrentProjectNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return FinishCurrentProjectNodeResponse
@@ -1241,19 +1295,19 @@ FinishCurrentProjectNodeResponse Client::finishCurrentProjectNodeWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   if (!!request.hasTemplateForm()) {
-    query["TemplateForm"] = request.templateForm();
+    query["TemplateForm"] = request.getTemplateForm();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1274,6 +1328,8 @@ FinishCurrentProjectNodeResponse Client::finishCurrentProjectNodeWithOptions(con
 }
 
 /**
+ * @summary 完成当前流程节点
+ *
  * @param request FinishCurrentProjectNodeRequest
  * @return FinishCurrentProjectNodeResponse
  */
@@ -1293,27 +1349,27 @@ ModifyInvoiceForIsvResponse Client::modifyInvoiceForIsvWithOptions(const ModifyI
   request.validate();
   json query = {};
   if (!!request.hasCheckNotice()) {
-    query["CheckNotice"] = request.checkNotice();
+    query["CheckNotice"] = request.getCheckNotice();
   }
 
   if (!!request.hasElectronUrl()) {
-    query["ElectronUrl"] = request.electronUrl();
+    query["ElectronUrl"] = request.getElectronUrl();
   }
 
   if (!!request.hasInvoiceId()) {
-    query["InvoiceId"] = request.invoiceId();
+    query["InvoiceId"] = request.getInvoiceId();
   }
 
   if (!!request.hasNumber()) {
-    query["Number"] = request.number();
+    query["Number"] = request.getNumber();
   }
 
   if (!!request.hasOperateType()) {
-    query["OperateType"] = request.operateType();
+    query["OperateType"] = request.getOperateType();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1345,6 +1401,8 @@ ModifyInvoiceForIsvResponse Client::modifyInvoiceForIsv(const ModifyInvoiceForIs
 }
 
 /**
+ * @summary 暂停项目
+ *
  * @param request PauseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PauseProjectResponse
@@ -1353,15 +1411,15 @@ PauseProjectResponse Client::pauseProjectWithOptions(const PauseProjectRequest &
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1382,6 +1440,8 @@ PauseProjectResponse Client::pauseProjectWithOptions(const PauseProjectRequest &
 }
 
 /**
+ * @summary 暂停项目
+ *
  * @param request PauseProjectRequest
  * @return PauseProjectResponse
  */
@@ -1391,6 +1451,8 @@ PauseProjectResponse Client::pauseProject(const PauseProjectRequest &request) {
 }
 
 /**
+ * @summary 云市场计量推送接口
+ *
  * @param request PushMeteringDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PushMeteringDataResponse
@@ -1399,7 +1461,7 @@ PushMeteringDataResponse Client::pushMeteringDataWithOptions(const PushMeteringD
   request.validate();
   json query = {};
   if (!!request.hasMetering()) {
-    query["Metering"] = request.metering();
+    query["Metering"] = request.getMetering();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1420,6 +1482,8 @@ PushMeteringDataResponse Client::pushMeteringDataWithOptions(const PushMeteringD
 }
 
 /**
+ * @summary 云市场计量推送接口
+ *
  * @param request PushMeteringDataRequest
  * @return PushMeteringDataResponse
  */
@@ -1429,6 +1493,58 @@ PushMeteringDataResponse Client::pushMeteringData(const PushMeteringDataRequest 
 }
 
 /**
+ * @summary 按次售卖按量计费
+ *
+ * @param request PushTimesUsageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PushTimesUsageResponse
+ */
+PushTimesUsageResponse Client::pushTimesUsageWithOptions(const PushTimesUsageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTimes()) {
+    query["Times"] = request.getTimes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PushTimesUsage"},
+    {"version" , "2015-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PushTimesUsageResponse>();
+}
+
+/**
+ * @summary 按次售卖按量计费
+ *
+ * @param request PushTimesUsageRequest
+ * @return PushTimesUsageResponse
+ */
+PushTimesUsageResponse Client::pushTimesUsage(const PushTimesUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return pushTimesUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 恢复已暂停的项目
+ *
  * @param request ResumeProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResumeProjectResponse
@@ -1437,15 +1553,15 @@ ResumeProjectResponse Client::resumeProjectWithOptions(const ResumeProjectReques
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1466,6 +1582,8 @@ ResumeProjectResponse Client::resumeProjectWithOptions(const ResumeProjectReques
 }
 
 /**
+ * @summary 恢复已暂停的项目
+ *
  * @param request ResumeProjectRequest
  * @return ResumeProjectResponse
  */
@@ -1475,6 +1593,8 @@ ResumeProjectResponse Client::resumeProject(const ResumeProjectRequest &request)
 }
 
 /**
+ * @summary 当前流程节点回滚到上一步
+ *
  * @param request RollbackCurrentProjectNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RollbackCurrentProjectNodeResponse
@@ -1483,15 +1603,15 @@ RollbackCurrentProjectNodeResponse Client::rollbackCurrentProjectNodeWithOptions
   request.validate();
   json query = {};
   if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.instanceId();
+    query["InstanceId"] = request.getInstanceId();
   }
 
   if (!!request.hasNodeId()) {
-    query["NodeId"] = request.nodeId();
+    query["NodeId"] = request.getNodeId();
   }
 
   if (!!request.hasRemark()) {
-    query["Remark"] = request.remark();
+    query["Remark"] = request.getRemark();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1512,6 +1632,8 @@ RollbackCurrentProjectNodeResponse Client::rollbackCurrentProjectNodeWithOptions
 }
 
 /**
+ * @summary 当前流程节点回滚到上一步
+ *
  * @param request RollbackCurrentProjectNodeRequest
  * @return RollbackCurrentProjectNodeResponse
  */

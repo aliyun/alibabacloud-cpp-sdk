@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->token_ != nullptr; };
+    virtual bool empty() const override { return this->token_ == nullptr; };
     // token Field Functions 
     bool hasToken() const { return this->token_ != nullptr;};
     void deleteToken() { this->token_ = nullptr;};
-    inline string token() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
+    inline string getToken() const { DARABONBA_PTR_GET_DEFAULT(token_, "") };
     inline CrossAccountVerifyTokenRequest& setToken(string token) { DARABONBA_PTR_SET_VALUE(token_, token) };
 
 
   protected:
-    std::shared_ptr<string> token_ = nullptr;
+    shared_ptr<string> token_ {};
   };
 
   } // namespace Models

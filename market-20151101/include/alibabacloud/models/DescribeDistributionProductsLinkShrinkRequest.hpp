@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->codesShrink_ == nullptr; };
     // codesShrink Field Functions 
     bool hasCodesShrink() const { return this->codesShrink_ != nullptr;};
     void deleteCodesShrink() { this->codesShrink_ = nullptr;};
-    inline string codesShrink() const { DARABONBA_PTR_GET_DEFAULT(codesShrink_, "") };
+    inline string getCodesShrink() const { DARABONBA_PTR_GET_DEFAULT(codesShrink_, "") };
     inline DescribeDistributionProductsLinkShrinkRequest& setCodesShrink(string codesShrink) { DARABONBA_PTR_SET_VALUE(codesShrink_, codesShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> codesShrink_ = nullptr;
+    shared_ptr<string> codesShrink_ {};
   };
 
   } // namespace Models

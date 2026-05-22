@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->aliUid_ != nullptr
-        && this->code_ != nullptr && this->queryDraft_ != nullptr; };
+    virtual bool empty() const override { return this->aliUid_ == nullptr
+        && this->code_ == nullptr && this->queryDraft_ == nullptr; };
     // aliUid Field Functions 
     bool hasAliUid() const { return this->aliUid_ != nullptr;};
     void deleteAliUid() { this->aliUid_ = nullptr;};
-    inline string aliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, "") };
+    inline string getAliUid() const { DARABONBA_PTR_GET_DEFAULT(aliUid_, "") };
     inline DescribeProductRequest& setAliUid(string aliUid) { DARABONBA_PTR_SET_VALUE(aliUid_, aliUid) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeProductRequest& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // queryDraft Field Functions 
     bool hasQueryDraft() const { return this->queryDraft_ != nullptr;};
     void deleteQueryDraft() { this->queryDraft_ = nullptr;};
-    inline bool queryDraft() const { DARABONBA_PTR_GET_DEFAULT(queryDraft_, false) };
+    inline bool getQueryDraft() const { DARABONBA_PTR_GET_DEFAULT(queryDraft_, false) };
     inline DescribeProductRequest& setQueryDraft(bool queryDraft) { DARABONBA_PTR_SET_VALUE(queryDraft_, queryDraft) };
 
 
   protected:
     // AliUid
-    std::shared_ptr<string> aliUid_ = nullptr;
+    shared_ptr<string> aliUid_ {};
     // This parameter is required.
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<bool> queryDraft_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<bool> queryDraft_ {};
   };
 
   } // namespace Models

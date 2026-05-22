@@ -31,25 +31,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->customerPk_ != nullptr
-        && this->ecsInstanceId_ != nullptr; };
+    virtual bool empty() const override { return this->customerPk_ == nullptr
+        && this->ecsInstanceId_ == nullptr; };
     // customerPk Field Functions 
     bool hasCustomerPk() const { return this->customerPk_ != nullptr;};
     void deleteCustomerPk() { this->customerPk_ = nullptr;};
-    inline int64_t customerPk() const { DARABONBA_PTR_GET_DEFAULT(customerPk_, 0L) };
+    inline int64_t getCustomerPk() const { DARABONBA_PTR_GET_DEFAULT(customerPk_, 0L) };
     inline DescribeImageInstanceForIsvRequest& setCustomerPk(int64_t customerPk) { DARABONBA_PTR_SET_VALUE(customerPk_, customerPk) };
 
 
     // ecsInstanceId Field Functions 
     bool hasEcsInstanceId() const { return this->ecsInstanceId_ != nullptr;};
     void deleteEcsInstanceId() { this->ecsInstanceId_ = nullptr;};
-    inline string ecsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
+    inline string getEcsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
     inline DescribeImageInstanceForIsvRequest& setEcsInstanceId(string ecsInstanceId) { DARABONBA_PTR_SET_VALUE(ecsInstanceId_, ecsInstanceId) };
 
 
   protected:
-    std::shared_ptr<int64_t> customerPk_ = nullptr;
-    std::shared_ptr<string> ecsInstanceId_ = nullptr;
+    shared_ptr<int64_t> customerPk_ {};
+    shared_ptr<string> ecsInstanceId_ {};
   };
 
   } // namespace Models

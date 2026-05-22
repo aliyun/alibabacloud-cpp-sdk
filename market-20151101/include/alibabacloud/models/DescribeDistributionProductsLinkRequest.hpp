@@ -30,19 +30,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->codes_ != nullptr; };
+    virtual bool empty() const override { return this->codes_ == nullptr; };
     // codes Field Functions 
     bool hasCodes() const { return this->codes_ != nullptr;};
     void deleteCodes() { this->codes_ = nullptr;};
-    inline const vector<string> & codes() const { DARABONBA_PTR_GET_CONST(codes_, vector<string>) };
-    inline vector<string> codes() { DARABONBA_PTR_GET(codes_, vector<string>) };
+    inline const vector<string> & getCodes() const { DARABONBA_PTR_GET_CONST(codes_, vector<string>) };
+    inline vector<string> getCodes() { DARABONBA_PTR_GET(codes_, vector<string>) };
     inline DescribeDistributionProductsLinkRequest& setCodes(const vector<string> & codes) { DARABONBA_PTR_SET_VALUE(codes_, codes) };
     inline DescribeDistributionProductsLinkRequest& setCodes(vector<string> && codes) { DARABONBA_PTR_SET_RVALUE(codes_, codes) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<vector<string>> codes_ = nullptr;
+    shared_ptr<vector<string>> codes_ {};
   };
 
   } // namespace Models

@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->notificationRequestId_ != nullptr; };
+    virtual bool empty() const override { return this->notificationRequestId_ == nullptr; };
     // notificationRequestId Field Functions 
     bool hasNotificationRequestId() const { return this->notificationRequestId_ != nullptr;};
     void deleteNotificationRequestId() { this->notificationRequestId_ = nullptr;};
-    inline string notificationRequestId() const { DARABONBA_PTR_GET_DEFAULT(notificationRequestId_, "") };
+    inline string getNotificationRequestId() const { DARABONBA_PTR_GET_DEFAULT(notificationRequestId_, "") };
     inline ConfirmNotificationRequest& setNotificationRequestId(string notificationRequestId) { DARABONBA_PTR_SET_VALUE(notificationRequestId_, notificationRequestId) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> notificationRequestId_ = nullptr;
+    shared_ptr<string> notificationRequestId_ {};
   };
 
   } // namespace Models

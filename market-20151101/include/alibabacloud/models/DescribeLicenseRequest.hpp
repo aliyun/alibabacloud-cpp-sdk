@@ -29,17 +29,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->licenseCode_ != nullptr; };
+    virtual bool empty() const override { return this->licenseCode_ == nullptr; };
     // licenseCode Field Functions 
     bool hasLicenseCode() const { return this->licenseCode_ != nullptr;};
     void deleteLicenseCode() { this->licenseCode_ = nullptr;};
-    inline string licenseCode() const { DARABONBA_PTR_GET_DEFAULT(licenseCode_, "") };
+    inline string getLicenseCode() const { DARABONBA_PTR_GET_DEFAULT(licenseCode_, "") };
     inline DescribeLicenseRequest& setLicenseCode(string licenseCode) { DARABONBA_PTR_SET_VALUE(licenseCode_, licenseCode) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> licenseCode_ = nullptr;
+    shared_ptr<string> licenseCode_ {};
   };
 
   } // namespace Models

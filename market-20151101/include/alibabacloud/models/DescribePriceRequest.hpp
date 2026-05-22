@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commodity_ != nullptr
-        && this->orderType_ != nullptr; };
+    virtual bool empty() const override { return this->commodity_ == nullptr
+        && this->orderType_ == nullptr; };
     // commodity Field Functions 
     bool hasCommodity() const { return this->commodity_ != nullptr;};
     void deleteCommodity() { this->commodity_ = nullptr;};
-    inline string commodity() const { DARABONBA_PTR_GET_DEFAULT(commodity_, "") };
+    inline string getCommodity() const { DARABONBA_PTR_GET_DEFAULT(commodity_, "") };
     inline DescribePriceRequest& setCommodity(string commodity) { DARABONBA_PTR_SET_VALUE(commodity_, commodity) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline DescribePriceRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> commodity_ = nullptr;
+    shared_ptr<string> commodity_ {};
     // This parameter is required.
-    std::shared_ptr<string> orderType_ = nullptr;
+    shared_ptr<string> orderType_ {};
   };
 
   } // namespace Models

@@ -39,58 +39,58 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->checkNotice_ != nullptr
-        && this->electronUrl_ != nullptr && this->invoiceId_ != nullptr && this->number_ != nullptr && this->operateType_ != nullptr && this->type_ != nullptr; };
+    virtual bool empty() const override { return this->checkNotice_ == nullptr
+        && this->electronUrl_ == nullptr && this->invoiceId_ == nullptr && this->number_ == nullptr && this->operateType_ == nullptr && this->type_ == nullptr; };
     // checkNotice Field Functions 
     bool hasCheckNotice() const { return this->checkNotice_ != nullptr;};
     void deleteCheckNotice() { this->checkNotice_ = nullptr;};
-    inline string checkNotice() const { DARABONBA_PTR_GET_DEFAULT(checkNotice_, "") };
+    inline string getCheckNotice() const { DARABONBA_PTR_GET_DEFAULT(checkNotice_, "") };
     inline ModifyInvoiceForIsvRequest& setCheckNotice(string checkNotice) { DARABONBA_PTR_SET_VALUE(checkNotice_, checkNotice) };
 
 
     // electronUrl Field Functions 
     bool hasElectronUrl() const { return this->electronUrl_ != nullptr;};
     void deleteElectronUrl() { this->electronUrl_ = nullptr;};
-    inline string electronUrl() const { DARABONBA_PTR_GET_DEFAULT(electronUrl_, "") };
+    inline string getElectronUrl() const { DARABONBA_PTR_GET_DEFAULT(electronUrl_, "") };
     inline ModifyInvoiceForIsvRequest& setElectronUrl(string electronUrl) { DARABONBA_PTR_SET_VALUE(electronUrl_, electronUrl) };
 
 
     // invoiceId Field Functions 
     bool hasInvoiceId() const { return this->invoiceId_ != nullptr;};
     void deleteInvoiceId() { this->invoiceId_ = nullptr;};
-    inline int64_t invoiceId() const { DARABONBA_PTR_GET_DEFAULT(invoiceId_, 0L) };
+    inline int64_t getInvoiceId() const { DARABONBA_PTR_GET_DEFAULT(invoiceId_, 0L) };
     inline ModifyInvoiceForIsvRequest& setInvoiceId(int64_t invoiceId) { DARABONBA_PTR_SET_VALUE(invoiceId_, invoiceId) };
 
 
     // number Field Functions 
     bool hasNumber() const { return this->number_ != nullptr;};
     void deleteNumber() { this->number_ = nullptr;};
-    inline string number() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
+    inline string getNumber() const { DARABONBA_PTR_GET_DEFAULT(number_, "") };
     inline ModifyInvoiceForIsvRequest& setNumber(string number) { DARABONBA_PTR_SET_VALUE(number_, number) };
 
 
     // operateType Field Functions 
     bool hasOperateType() const { return this->operateType_ != nullptr;};
     void deleteOperateType() { this->operateType_ = nullptr;};
-    inline int32_t operateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, 0) };
+    inline int32_t getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, 0) };
     inline ModifyInvoiceForIsvRequest& setOperateType(int32_t operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline int32_t type() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+    inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
     inline ModifyInvoiceForIsvRequest& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> checkNotice_ = nullptr;
-    std::shared_ptr<string> electronUrl_ = nullptr;
-    std::shared_ptr<int64_t> invoiceId_ = nullptr;
-    std::shared_ptr<string> number_ = nullptr;
+    shared_ptr<string> checkNotice_ {};
+    shared_ptr<string> electronUrl_ {};
+    shared_ptr<int64_t> invoiceId_ {};
+    shared_ptr<string> number_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> operateType_ = nullptr;
-    std::shared_ptr<int32_t> type_ = nullptr;
+    shared_ptr<int32_t> operateType_ {};
+    shared_ptr<int32_t> type_ {};
   };
 
   } // namespace Models

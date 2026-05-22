@@ -29,16 +29,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->metering_ != nullptr; };
+    virtual bool empty() const override { return this->metering_ == nullptr; };
     // metering Field Functions 
     bool hasMetering() const { return this->metering_ != nullptr;};
     void deleteMetering() { this->metering_ = nullptr;};
-    inline string metering() const { DARABONBA_PTR_GET_DEFAULT(metering_, "") };
+    inline string getMetering() const { DARABONBA_PTR_GET_DEFAULT(metering_, "") };
     inline PushMeteringDataRequest& setMetering(string metering) { DARABONBA_PTR_SET_VALUE(metering_, metering) };
 
 
   protected:
-    std::shared_ptr<string> metering_ = nullptr;
+    shared_ptr<string> metering_ {};
   };
 
   } // namespace Models

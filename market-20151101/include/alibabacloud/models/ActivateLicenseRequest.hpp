@@ -31,26 +31,26 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->identification_ != nullptr
-        && this->licenseCode_ != nullptr; };
+    virtual bool empty() const override { return this->identification_ == nullptr
+        && this->licenseCode_ == nullptr; };
     // identification Field Functions 
     bool hasIdentification() const { return this->identification_ != nullptr;};
     void deleteIdentification() { this->identification_ = nullptr;};
-    inline string identification() const { DARABONBA_PTR_GET_DEFAULT(identification_, "") };
+    inline string getIdentification() const { DARABONBA_PTR_GET_DEFAULT(identification_, "") };
     inline ActivateLicenseRequest& setIdentification(string identification) { DARABONBA_PTR_SET_VALUE(identification_, identification) };
 
 
     // licenseCode Field Functions 
     bool hasLicenseCode() const { return this->licenseCode_ != nullptr;};
     void deleteLicenseCode() { this->licenseCode_ = nullptr;};
-    inline string licenseCode() const { DARABONBA_PTR_GET_DEFAULT(licenseCode_, "") };
+    inline string getLicenseCode() const { DARABONBA_PTR_GET_DEFAULT(licenseCode_, "") };
     inline ActivateLicenseRequest& setLicenseCode(string licenseCode) { DARABONBA_PTR_SET_VALUE(licenseCode_, licenseCode) };
 
 
   protected:
-    std::shared_ptr<string> identification_ = nullptr;
+    shared_ptr<string> identification_ {};
     // This parameter is required.
-    std::shared_ptr<string> licenseCode_ = nullptr;
+    shared_ptr<string> licenseCode_ {};
   };
 
   } // namespace Models
