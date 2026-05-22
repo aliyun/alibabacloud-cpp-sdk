@@ -34,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
       DARABONBA_PTR_TO_JSON(credentialName, credentialName_);
       DARABONBA_PTR_TO_JSON(description, description_);
+      DARABONBA_PTR_TO_JSON(disableSessionAffinity, disableSessionAffinity_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(edition, edition_);
       DARABONBA_PTR_TO_JSON(enableSessionIsolation, enableSessionIsolation_);
@@ -69,6 +70,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
       DARABONBA_PTR_FROM_JSON(credentialName, credentialName_);
       DARABONBA_PTR_FROM_JSON(description, description_);
+      DARABONBA_PTR_FROM_JSON(disableSessionAffinity, disableSessionAffinity_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(edition, edition_);
       DARABONBA_PTR_FROM_JSON(enableSessionIsolation, enableSessionIsolation_);
@@ -106,11 +108,11 @@ namespace Models
     virtual bool empty() const override { return this->agentRuntimeArn_ == nullptr
         && this->agentRuntimeId_ == nullptr && this->agentRuntimeName_ == nullptr && this->agentRuntimeVersion_ == nullptr && this->artifactType_ == nullptr && this->codeConfiguration_ == nullptr
         && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->createdAt_ == nullptr && this->credentialName_ == nullptr && this->description_ == nullptr
-        && this->diskSize_ == nullptr && this->edition_ == nullptr && this->enableSessionIsolation_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr
-        && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr && this->memory_ == nullptr
-        && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr && this->protocolConfiguration_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
-        && this->systemTags_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->disableSessionAffinity_ == nullptr && this->diskSize_ == nullptr && this->edition_ == nullptr && this->enableSessionIsolation_ == nullptr && this->environmentVariables_ == nullptr
+        && this->executionRoleArn_ == nullptr && this->externalAgentEndpointUrl_ == nullptr && this->healthCheckConfiguration_ == nullptr && this->lastUpdatedAt_ == nullptr && this->logConfiguration_ == nullptr
+        && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossMountConfig_ == nullptr && this->port_ == nullptr
+        && this->protocolConfiguration_ == nullptr && this->resourceGroupId_ == nullptr && this->sessionConcurrencyLimitPerInstance_ == nullptr && this->sessionIdleTimeoutSeconds_ == nullptr && this->status_ == nullptr
+        && this->statusReason_ == nullptr && this->systemTags_ == nullptr && this->workspaceId_ == nullptr; };
     // agentRuntimeArn Field Functions 
     bool hasAgentRuntimeArn() const { return this->agentRuntimeArn_ != nullptr;};
     void deleteAgentRuntimeArn() { this->agentRuntimeArn_ = nullptr;};
@@ -190,6 +192,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline AgentRuntime& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // disableSessionAffinity Field Functions 
+    bool hasDisableSessionAffinity() const { return this->disableSessionAffinity_ != nullptr;};
+    void deleteDisableSessionAffinity() { this->disableSessionAffinity_ = nullptr;};
+    inline bool getDisableSessionAffinity() const { DARABONBA_PTR_GET_DEFAULT(disableSessionAffinity_, false) };
+    inline AgentRuntime& setDisableSessionAffinity(bool disableSessionAffinity) { DARABONBA_PTR_SET_VALUE(disableSessionAffinity_, disableSessionAffinity) };
 
 
     // diskSize Field Functions 
@@ -385,6 +394,8 @@ namespace Models
     shared_ptr<string> credentialName_ {};
     // 智能体运行时的描述信息，说明该运行时的用途和功能
     shared_ptr<string> description_ {};
+    // 是否禁用会话亲和性。默认为 false（即默认启用会话亲和），设置为 true 时关闭会话亲和
+    shared_ptr<bool> disableSessionAffinity_ {};
     shared_ptr<int32_t> diskSize_ {};
     shared_ptr<string> edition_ {};
     // 是否启用会话隔离，启用后每个会话将在独立的环境中运行
