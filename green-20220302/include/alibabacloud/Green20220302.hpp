@@ -309,6 +309,40 @@ namespace Green20220302
       Models::MultiModalGuardResponse multiModalGuard(const Models::MultiModalGuardRequest &request);
 
       /**
+       * @summary 视频检测任务提交
+       *
+       * @param request MultiModalGuardAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalGuardAsyncResponse
+       */
+      Models::MultiModalGuardAsyncResponse multiModalGuardAsyncWithOptions(const Models::MultiModalGuardAsyncRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 视频检测任务提交
+       *
+       * @param request MultiModalGuardAsyncRequest
+       * @return MultiModalGuardAsyncResponse
+       */
+      Models::MultiModalGuardAsyncResponse multiModalGuardAsync(const Models::MultiModalGuardAsyncRequest &request);
+
+      /**
+       * @summary 获取视频检测结果
+       *
+       * @param request MultiModalGuardAsyncResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MultiModalGuardAsyncResultResponse
+       */
+      Models::MultiModalGuardAsyncResultResponse multiModalGuardAsyncResultWithOptions(const Models::MultiModalGuardAsyncResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取视频检测结果
+       *
+       * @param request MultiModalGuardAsyncResultRequest
+       * @return MultiModalGuardAsyncResultResponse
+       */
+      Models::MultiModalGuardAsyncResultResponse multiModalGuardAsyncResult(const Models::MultiModalGuardAsyncResultRequest &request);
+
+      /**
        * @summary 多模态同步检测接口，支持图片base64字符串
        *
        * @param request MultiModalGuardForBase64Request

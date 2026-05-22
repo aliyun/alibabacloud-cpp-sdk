@@ -796,6 +796,98 @@ MultiModalGuardResponse Client::multiModalGuard(const MultiModalGuardRequest &re
 }
 
 /**
+ * @summary 视频检测任务提交
+ *
+ * @param request MultiModalGuardAsyncRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalGuardAsyncResponse
+ */
+MultiModalGuardAsyncResponse Client::multiModalGuardAsyncWithOptions(const MultiModalGuardAsyncRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasService()) {
+    body["Service"] = request.getService();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.getServiceParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MultiModalGuardAsync"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultiModalGuardAsyncResponse>();
+}
+
+/**
+ * @summary 视频检测任务提交
+ *
+ * @param request MultiModalGuardAsyncRequest
+ * @return MultiModalGuardAsyncResponse
+ */
+MultiModalGuardAsyncResponse Client::multiModalGuardAsync(const MultiModalGuardAsyncRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalGuardAsyncWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取视频检测结果
+ *
+ * @param request MultiModalGuardAsyncResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MultiModalGuardAsyncResultResponse
+ */
+MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResultWithOptions(const MultiModalGuardAsyncResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasService()) {
+    body["Service"] = request.getService();
+  }
+
+  if (!!request.hasServiceParameters()) {
+    body["ServiceParameters"] = request.getServiceParameters();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MultiModalGuardAsyncResult"},
+    {"version" , "2022-03-02"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MultiModalGuardAsyncResultResponse>();
+}
+
+/**
+ * @summary 获取视频检测结果
+ *
+ * @param request MultiModalGuardAsyncResultRequest
+ * @return MultiModalGuardAsyncResultResponse
+ */
+MultiModalGuardAsyncResultResponse Client::multiModalGuardAsyncResult(const MultiModalGuardAsyncResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return multiModalGuardAsyncResultWithOptions(request, runtime);
+}
+
+/**
  * @summary 多模态同步检测接口，支持图片base64字符串
  *
  * @param request MultiModalGuardForBase64Request
