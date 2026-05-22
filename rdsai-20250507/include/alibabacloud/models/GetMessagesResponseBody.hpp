@@ -44,9 +44,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_TO_JSON(Events, events_);
         DARABONBA_PTR_TO_JSON(Feedback, feedback_);
+        DARABONBA_PTR_TO_JSON(GenerationFinishedAt, generationFinishedAt_);
+        DARABONBA_PTR_TO_JSON(GenerationStartedAt, generationStartedAt_);
+        DARABONBA_PTR_TO_JSON(GenerationStatus, generationStatus_);
         DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(LastSentEntryId, lastSentEntryId_);
         DARABONBA_PTR_TO_JSON(Query, query_);
         DARABONBA_PTR_TO_JSON(RetrieverResources, retrieverResources_);
+        DARABONBA_PTR_TO_JSON(StreamKey, streamKey_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(Answer, answer_);
@@ -54,9 +59,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(Events, events_);
         DARABONBA_PTR_FROM_JSON(Feedback, feedback_);
+        DARABONBA_PTR_FROM_JSON(GenerationFinishedAt, generationFinishedAt_);
+        DARABONBA_PTR_FROM_JSON(GenerationStartedAt, generationStartedAt_);
+        DARABONBA_PTR_FROM_JSON(GenerationStatus, generationStatus_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(LastSentEntryId, lastSentEntryId_);
         DARABONBA_PTR_FROM_JSON(Query, query_);
         DARABONBA_PTR_FROM_JSON(RetrieverResources, retrieverResources_);
+        DARABONBA_PTR_FROM_JSON(StreamKey, streamKey_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -112,8 +122,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->answer_ == nullptr
-        && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->events_ == nullptr && this->feedback_ == nullptr && this->id_ == nullptr
-        && this->query_ == nullptr && this->retrieverResources_ == nullptr; };
+        && this->conversationId_ == nullptr && this->createdAt_ == nullptr && this->events_ == nullptr && this->feedback_ == nullptr && this->generationFinishedAt_ == nullptr
+        && this->generationStartedAt_ == nullptr && this->generationStatus_ == nullptr && this->id_ == nullptr && this->lastSentEntryId_ == nullptr && this->query_ == nullptr
+        && this->retrieverResources_ == nullptr && this->streamKey_ == nullptr; };
       // answer Field Functions 
       bool hasAnswer() const { return this->answer_ != nullptr;};
       void deleteAnswer() { this->answer_ = nullptr;};
@@ -151,11 +162,39 @@ namespace Models
       inline Data& setFeedback(string feedback) { DARABONBA_PTR_SET_VALUE(feedback_, feedback) };
 
 
+      // generationFinishedAt Field Functions 
+      bool hasGenerationFinishedAt() const { return this->generationFinishedAt_ != nullptr;};
+      void deleteGenerationFinishedAt() { this->generationFinishedAt_ = nullptr;};
+      inline string getGenerationFinishedAt() const { DARABONBA_PTR_GET_DEFAULT(generationFinishedAt_, "") };
+      inline Data& setGenerationFinishedAt(string generationFinishedAt) { DARABONBA_PTR_SET_VALUE(generationFinishedAt_, generationFinishedAt) };
+
+
+      // generationStartedAt Field Functions 
+      bool hasGenerationStartedAt() const { return this->generationStartedAt_ != nullptr;};
+      void deleteGenerationStartedAt() { this->generationStartedAt_ = nullptr;};
+      inline string getGenerationStartedAt() const { DARABONBA_PTR_GET_DEFAULT(generationStartedAt_, "") };
+      inline Data& setGenerationStartedAt(string generationStartedAt) { DARABONBA_PTR_SET_VALUE(generationStartedAt_, generationStartedAt) };
+
+
+      // generationStatus Field Functions 
+      bool hasGenerationStatus() const { return this->generationStatus_ != nullptr;};
+      void deleteGenerationStatus() { this->generationStatus_ = nullptr;};
+      inline string getGenerationStatus() const { DARABONBA_PTR_GET_DEFAULT(generationStatus_, "") };
+      inline Data& setGenerationStatus(string generationStatus) { DARABONBA_PTR_SET_VALUE(generationStatus_, generationStatus) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
       inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
       inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // lastSentEntryId Field Functions 
+      bool hasLastSentEntryId() const { return this->lastSentEntryId_ != nullptr;};
+      void deleteLastSentEntryId() { this->lastSentEntryId_ = nullptr;};
+      inline string getLastSentEntryId() const { DARABONBA_PTR_GET_DEFAULT(lastSentEntryId_, "") };
+      inline Data& setLastSentEntryId(string lastSentEntryId) { DARABONBA_PTR_SET_VALUE(lastSentEntryId_, lastSentEntryId) };
 
 
       // query Field Functions 
@@ -174,6 +213,13 @@ namespace Models
       inline Data& setRetrieverResources(vector<Darabonba::Json> && retrieverResources) { DARABONBA_PTR_SET_RVALUE(retrieverResources_, retrieverResources) };
 
 
+      // streamKey Field Functions 
+      bool hasStreamKey() const { return this->streamKey_ != nullptr;};
+      void deleteStreamKey() { this->streamKey_ = nullptr;};
+      inline string getStreamKey() const { DARABONBA_PTR_GET_DEFAULT(streamKey_, "") };
+      inline Data& setStreamKey(string streamKey) { DARABONBA_PTR_SET_VALUE(streamKey_, streamKey) };
+
+
     protected:
       // The response to the query.
       shared_ptr<string> answer_ {};
@@ -184,12 +230,17 @@ namespace Models
       shared_ptr<vector<Data::Events>> events_ {};
       // The feedback.
       shared_ptr<string> feedback_ {};
+      shared_ptr<string> generationFinishedAt_ {};
+      shared_ptr<string> generationStartedAt_ {};
+      shared_ptr<string> generationStatus_ {};
       // The message ID.
       shared_ptr<string> id_ {};
+      shared_ptr<string> lastSentEntryId_ {};
       // The query statement.
       shared_ptr<string> query_ {};
       // The retriever resources.
       shared_ptr<vector<Darabonba::Json>> retrieverResources_ {};
+      shared_ptr<string> streamKey_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
