@@ -1609,7 +1609,7 @@ CreateStructureImportTaskResponse Client::createStructureImportTask(const Create
 }
 
 /**
- * @summary 开通CN子实例
+ * @summary 创建自定义地址
  *
  * @description ****
  *
@@ -1654,7 +1654,7 @@ CreateSubCNInstanceResponse Client::createSubCNInstanceWithOptions(const CreateS
 }
 
 /**
- * @summary 开通CN子实例
+ * @summary 创建自定义地址
  *
  * @description ****
  *
@@ -2105,7 +2105,7 @@ DeleteMem0Response Client::deleteMem0(const DeleteMem0Request &request) {
 }
 
 /**
- * @summary 删除CN子实例
+ * @summary 删除自定义地址
  *
  * @description ****
  *
@@ -2118,6 +2118,10 @@ DeleteSubCNInstanceResponse Client::deleteSubCNInstanceWithOptions(const DeleteS
   json query = {};
   if (!!request.hasDBInstanceName()) {
     query["DBInstanceName"] = request.getDBInstanceName();
+  }
+
+  if (!!request.hasInstanceClusterName()) {
+    query["InstanceClusterName"] = request.getInstanceClusterName();
   }
 
   if (!!request.hasRegionId()) {
@@ -2142,7 +2146,7 @@ DeleteSubCNInstanceResponse Client::deleteSubCNInstanceWithOptions(const DeleteS
 }
 
 /**
- * @summary 删除CN子实例
+ * @summary 删除自定义地址
  *
  * @description ****
  *

@@ -384,7 +384,7 @@ namespace Polardbx20200202
       Models::CreateStructureImportTaskResponse createStructureImportTask(const Models::CreateStructureImportTaskRequest &request);
 
       /**
-       * @summary 开通CN子实例
+       * @summary 创建自定义地址
        *
        * @description ****
        *
@@ -395,7 +395,7 @@ namespace Polardbx20200202
       Models::CreateSubCNInstanceResponse createSubCNInstanceWithOptions(const Models::CreateSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开通CN子实例
+       * @summary 创建自定义地址
        *
        * @description ****
        *
@@ -546,7 +546,7 @@ namespace Polardbx20200202
       Models::DeleteMem0Response deleteMem0(const Models::DeleteMem0Request &request);
 
       /**
-       * @summary 删除CN子实例
+       * @summary 删除自定义地址
        *
        * @description ****
        *
@@ -557,7 +557,7 @@ namespace Polardbx20200202
       Models::DeleteSubCNInstanceResponse deleteSubCNInstanceWithOptions(const Models::DeleteSubCNInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除CN子实例
+       * @summary 删除自定义地址
        *
        * @description ****
        *
