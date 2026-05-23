@@ -14,14 +14,18 @@ namespace Models
   class Attachment : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const Attachment& obj) { 
+      DARABONBA_PTR_TO_JSON(attachResourceId, attachResourceId_);
       DARABONBA_PTR_TO_JSON(attachResourceIds, attachResourceIds_);
+      DARABONBA_PTR_TO_JSON(attachResourceParentIds, attachResourceParentIds_);
       DARABONBA_PTR_TO_JSON(attachResourceType, attachResourceType_);
       DARABONBA_PTR_TO_JSON(environmentId, environmentId_);
       DARABONBA_PTR_TO_JSON(gatewayId, gatewayId_);
       DARABONBA_PTR_TO_JSON(policyAttachmentId, policyAttachmentId_);
     };
     friend void from_json(const Darabonba::Json& j, Attachment& obj) { 
+      DARABONBA_PTR_FROM_JSON(attachResourceId, attachResourceId_);
       DARABONBA_PTR_FROM_JSON(attachResourceIds, attachResourceIds_);
+      DARABONBA_PTR_FROM_JSON(attachResourceParentIds, attachResourceParentIds_);
       DARABONBA_PTR_FROM_JSON(attachResourceType, attachResourceType_);
       DARABONBA_PTR_FROM_JSON(environmentId, environmentId_);
       DARABONBA_PTR_FROM_JSON(gatewayId, gatewayId_);
@@ -38,8 +42,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->attachResourceIds_ == nullptr
-        && this->attachResourceType_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->policyAttachmentId_ == nullptr; };
+    virtual bool empty() const override { return this->attachResourceId_ == nullptr
+        && this->attachResourceIds_ == nullptr && this->attachResourceParentIds_ == nullptr && this->attachResourceType_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr
+        && this->policyAttachmentId_ == nullptr; };
+    // attachResourceId Field Functions 
+    bool hasAttachResourceId() const { return this->attachResourceId_ != nullptr;};
+    void deleteAttachResourceId() { this->attachResourceId_ = nullptr;};
+    inline string getAttachResourceId() const { DARABONBA_PTR_GET_DEFAULT(attachResourceId_, "") };
+    inline Attachment& setAttachResourceId(string attachResourceId) { DARABONBA_PTR_SET_VALUE(attachResourceId_, attachResourceId) };
+
+
     // attachResourceIds Field Functions 
     bool hasAttachResourceIds() const { return this->attachResourceIds_ != nullptr;};
     void deleteAttachResourceIds() { this->attachResourceIds_ = nullptr;};
@@ -47,6 +59,15 @@ namespace Models
     inline vector<string> getAttachResourceIds() { DARABONBA_PTR_GET(attachResourceIds_, vector<string>) };
     inline Attachment& setAttachResourceIds(const vector<string> & attachResourceIds) { DARABONBA_PTR_SET_VALUE(attachResourceIds_, attachResourceIds) };
     inline Attachment& setAttachResourceIds(vector<string> && attachResourceIds) { DARABONBA_PTR_SET_RVALUE(attachResourceIds_, attachResourceIds) };
+
+
+    // attachResourceParentIds Field Functions 
+    bool hasAttachResourceParentIds() const { return this->attachResourceParentIds_ != nullptr;};
+    void deleteAttachResourceParentIds() { this->attachResourceParentIds_ = nullptr;};
+    inline const vector<string> & getAttachResourceParentIds() const { DARABONBA_PTR_GET_CONST(attachResourceParentIds_, vector<string>) };
+    inline vector<string> getAttachResourceParentIds() { DARABONBA_PTR_GET(attachResourceParentIds_, vector<string>) };
+    inline Attachment& setAttachResourceParentIds(const vector<string> & attachResourceParentIds) { DARABONBA_PTR_SET_VALUE(attachResourceParentIds_, attachResourceParentIds) };
+    inline Attachment& setAttachResourceParentIds(vector<string> && attachResourceParentIds) { DARABONBA_PTR_SET_RVALUE(attachResourceParentIds_, attachResourceParentIds) };
 
 
     // attachResourceType Field Functions 
@@ -78,8 +99,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> attachResourceId_ {};
     // The resource IDs.
     shared_ptr<vector<string>> attachResourceIds_ {};
+    shared_ptr<vector<string>> attachResourceParentIds_ {};
     // The supported mount point type. Valid values:
     // 
     // *   HttpApi: an HTTP API
