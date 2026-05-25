@@ -759,6 +759,9 @@
 #include <alibabacloud/models/QueryHistoryMetricDistributionRequest.hpp>
 #include <alibabacloud/models/QueryHistoryMetricDistributionResponseBody.hpp>
 #include <alibabacloud/models/QueryHistoryMetricDistributionResponse.hpp>
+#include <alibabacloud/models/QueryHistoryUsageDurationRankRequest.hpp>
+#include <alibabacloud/models/QueryHistoryUsageDurationRankResponseBody.hpp>
+#include <alibabacloud/models/QueryHistoryUsageDurationRankResponse.hpp>
 #include <alibabacloud/models/RebootDesktopsRequest.hpp>
 #include <alibabacloud/models/RebootDesktopsResponseBody.hpp>
 #include <alibabacloud/models/RebootDesktopsResponse.hpp>

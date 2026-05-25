@@ -4707,6 +4707,23 @@ namespace Ecd20200930
       Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistribution(const Models::QueryHistoryMetricDistributionRequest &request);
 
       /**
+       * @summary 查询桌面历史使用时长排行榜
+       *
+       * @param request QueryHistoryUsageDurationRankRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryHistoryUsageDurationRankResponse
+       */
+      Models::QueryHistoryUsageDurationRankResponse queryHistoryUsageDurationRankWithOptions(const Models::QueryHistoryUsageDurationRankRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面历史使用时长排行榜
+       *
+       * @param request QueryHistoryUsageDurationRankRequest
+       * @return QueryHistoryUsageDurationRankResponse
+       */
+      Models::QueryHistoryUsageDurationRankResponse queryHistoryUsageDurationRank(const Models::QueryHistoryUsageDurationRankRequest &request);
+
+      /**
        * @summary Restart cloud computers.
        *
        * @description The cloud computers that you want to restart must be in the Running state.

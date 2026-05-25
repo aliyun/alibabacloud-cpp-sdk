@@ -18256,6 +18256,64 @@ QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistribution(co
 }
 
 /**
+ * @summary 查询桌面历史使用时长排行榜
+ *
+ * @param request QueryHistoryUsageDurationRankRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryHistoryUsageDurationRankResponse
+ */
+QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRankWithOptions(const QueryHistoryUsageDurationRankRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasLimit()) {
+    query["Limit"] = request.getLimit();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryHistoryUsageDurationRank"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryHistoryUsageDurationRankResponse>();
+}
+
+/**
+ * @summary 查询桌面历史使用时长排行榜
+ *
+ * @param request QueryHistoryUsageDurationRankRequest
+ * @return QueryHistoryUsageDurationRankResponse
+ */
+QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRank(const QueryHistoryUsageDurationRankRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryHistoryUsageDurationRankWithOptions(request, runtime);
+}
+
+/**
  * @summary Restart cloud computers.
  *
  * @description The cloud computers that you want to restart must be in the Running state.
