@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RecordType, recordType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RecordType, recordType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
     };
@@ -53,8 +55,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
         && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->fileName_ == nullptr && this->orderBy_ == nullptr && this->orderSort_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->recordType_ == nullptr && this->regionId_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->recordType_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
+        && this->startTime_ == nullptr && this->status_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -125,6 +127,13 @@ namespace Models
     inline DescribeRecordFileRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceType Field Functions 
+    bool hasResourceType() const { return this->resourceType_ != nullptr;};
+    void deleteResourceType() { this->resourceType_ = nullptr;};
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline DescribeRecordFileRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
@@ -151,6 +160,7 @@ namespace Models
     shared_ptr<string> recordType_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceType_ {};
     shared_ptr<string> startTime_ {};
     shared_ptr<int32_t> status_ {};
   };

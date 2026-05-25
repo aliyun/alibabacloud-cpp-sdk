@@ -11069,6 +11069,10 @@ DescribeRecordFileResponse Client::describeRecordFileWithOptions(const DescribeR
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
   if (!!request.hasStartTime()) {
     query["StartTime"] = request.getStartTime();
   }
