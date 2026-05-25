@@ -94,6 +94,9 @@
 #include <alibabacloud/models/CreateSignatureRequest.hpp>
 #include <alibabacloud/models/CreateSignatureResponseBody.hpp>
 #include <alibabacloud/models/CreateSignatureResponse.hpp>
+#include <alibabacloud/models/CreateStageModelRequest.hpp>
+#include <alibabacloud/models/CreateStageModelResponseBody.hpp>
+#include <alibabacloud/models/CreateStageModelResponse.hpp>
 #include <alibabacloud/models/CreateTrafficControlRequest.hpp>
 #include <alibabacloud/models/CreateTrafficControlResponseBody.hpp>
 #include <alibabacloud/models/CreateTrafficControlResponse.hpp>
@@ -166,6 +169,9 @@
 #include <alibabacloud/models/DeleteSignatureRequest.hpp>
 #include <alibabacloud/models/DeleteSignatureResponseBody.hpp>
 #include <alibabacloud/models/DeleteSignatureResponse.hpp>
+#include <alibabacloud/models/DeleteStageModelRequest.hpp>
+#include <alibabacloud/models/DeleteStageModelResponseBody.hpp>
+#include <alibabacloud/models/DeleteStageModelResponse.hpp>
 #include <alibabacloud/models/DeleteTrafficControlRequest.hpp>
 #include <alibabacloud/models/DeleteTrafficControlResponseBody.hpp>
 #include <alibabacloud/models/DeleteTrafficControlResponse.hpp>
@@ -415,6 +421,9 @@
 #include <alibabacloud/models/DescribeSignaturesByApiRequest.hpp>
 #include <alibabacloud/models/DescribeSignaturesByApiResponseBody.hpp>
 #include <alibabacloud/models/DescribeSignaturesByApiResponse.hpp>
+#include <alibabacloud/models/DescribeStageModelsRequest.hpp>
+#include <alibabacloud/models/DescribeStageModelsResponseBody.hpp>
+#include <alibabacloud/models/DescribeStageModelsResponse.hpp>
 #include <alibabacloud/models/DescribeSummaryDataRequest.hpp>
 #include <alibabacloud/models/DescribeSummaryDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeSummaryDataResponse.hpp>
@@ -543,6 +552,9 @@
 #include <alibabacloud/models/ModifySignatureRequest.hpp>
 #include <alibabacloud/models/ModifySignatureResponseBody.hpp>
 #include <alibabacloud/models/ModifySignatureResponse.hpp>
+#include <alibabacloud/models/ModifyStageModelRequest.hpp>
+#include <alibabacloud/models/ModifyStageModelResponseBody.hpp>
+#include <alibabacloud/models/ModifyStageModelResponse.hpp>
 #include <alibabacloud/models/ModifyTrafficControlRequest.hpp>
 #include <alibabacloud/models/ModifyTrafficControlResponseBody.hpp>
 #include <alibabacloud/models/ModifyTrafficControlResponse.hpp>

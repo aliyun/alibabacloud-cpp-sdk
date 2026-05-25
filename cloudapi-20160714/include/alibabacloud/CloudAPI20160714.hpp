@@ -639,6 +639,23 @@ namespace CloudAPI20160714
       Models::CreateSignatureResponse createSignature(const Models::CreateSignatureRequest &request);
 
       /**
+       * @summary 创建环境模型
+       *
+       * @param request CreateStageModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateStageModelResponse
+       */
+      Models::CreateStageModelResponse createStageModelWithOptions(const Models::CreateStageModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建环境模型
+       *
+       * @param request CreateStageModelRequest
+       * @return CreateStageModelResponse
+       */
+      Models::CreateStageModelResponse createStageModel(const Models::CreateStageModelRequest &request);
+
+      /**
        * @summary Creates a custom throttling policy.
        *
        * @description *   This API is intended for API providers.
@@ -1121,6 +1138,23 @@ namespace CloudAPI20160714
        * @return DeleteSignatureResponse
        */
       Models::DeleteSignatureResponse deleteSignature(const Models::DeleteSignatureRequest &request);
+
+      /**
+       * @summary 删除环境
+       *
+       * @param request DeleteStageModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteStageModelResponse
+       */
+      Models::DeleteStageModelResponse deleteStageModelWithOptions(const Models::DeleteStageModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除环境
+       *
+       * @param request DeleteStageModelRequest
+       * @return DeleteStageModelResponse
+       */
+      Models::DeleteStageModelResponse deleteStageModel(const Models::DeleteStageModelRequest &request);
 
       /**
        * @summary Deletes a custom throttling policy and the special throttling rules in the policy.
@@ -2744,6 +2778,23 @@ namespace CloudAPI20160714
       Models::DescribeSignaturesByApiResponse describeSignaturesByApi(const Models::DescribeSignaturesByApiRequest &request);
 
       /**
+       * @summary 查询环境列表
+       *
+       * @param request DescribeStageModelsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeStageModelsResponse
+       */
+      Models::DescribeStageModelsResponse describeStageModelsWithOptions(const Models::DescribeStageModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询环境列表
+       *
+       * @param request DescribeStageModelsRequest
+       * @return DescribeStageModelsResponse
+       */
+      Models::DescribeStageModelsResponse describeStageModels(const Models::DescribeStageModelsRequest &request);
+
+      /**
        * @summary Queries the number of API Gateway resources in a region.
        *
        * @param request DescribeSummaryDataRequest
@@ -3539,6 +3590,23 @@ namespace CloudAPI20160714
        * @return ModifySignatureResponse
        */
       Models::ModifySignatureResponse modifySignature(const Models::ModifySignatureRequest &request);
+
+      /**
+       * @summary 修改环境模型
+       *
+       * @param request ModifyStageModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyStageModelResponse
+       */
+      Models::ModifyStageModelResponse modifyStageModelWithOptions(const Models::ModifyStageModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改环境模型
+       *
+       * @param request ModifyStageModelRequest
+       * @return ModifyStageModelResponse
+       */
+      Models::ModifyStageModelResponse modifyStageModel(const Models::ModifyStageModelRequest &request);
 
       /**
        * @summary Modifies the settings of a custom throttling policy.

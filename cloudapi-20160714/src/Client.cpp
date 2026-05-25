@@ -2034,6 +2034,60 @@ CreateSignatureResponse Client::createSignature(const CreateSignatureRequest &re
 }
 
 /**
+ * @summary 创建环境模型
+ *
+ * @param request CreateStageModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateStageModelResponse
+ */
+CreateStageModelResponse Client::createStageModelWithOptions(const CreateStageModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStageAlias()) {
+    query["StageAlias"] = request.getStageAlias();
+  }
+
+  if (!!request.hasStageName()) {
+    query["StageName"] = request.getStageName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateStageModel"},
+    {"version" , "2016-07-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateStageModelResponse>();
+}
+
+/**
+ * @summary 创建环境模型
+ *
+ * @param request CreateStageModelRequest
+ * @return CreateStageModelResponse
+ */
+CreateStageModelResponse Client::createStageModel(const CreateStageModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createStageModelWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a custom throttling policy.
  *
  * @description *   This API is intended for API providers.
@@ -3291,6 +3345,52 @@ DeleteSignatureResponse Client::deleteSignatureWithOptions(const DeleteSignature
 DeleteSignatureResponse Client::deleteSignature(const DeleteSignatureRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteSignatureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除环境
+ *
+ * @param request DeleteStageModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteStageModelResponse
+ */
+DeleteStageModelResponse Client::deleteStageModelWithOptions(const DeleteStageModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStageModelId()) {
+    query["StageModelId"] = request.getStageModelId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteStageModel"},
+    {"version" , "2016-07-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteStageModelResponse>();
+}
+
+/**
+ * @summary 删除环境
+ *
+ * @param request DeleteStageModelRequest
+ * @return DeleteStageModelResponse
+ */
+DeleteStageModelResponse Client::deleteStageModel(const DeleteStageModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteStageModelWithOptions(request, runtime);
 }
 
 /**
@@ -8294,6 +8394,64 @@ DescribeSignaturesByApiResponse Client::describeSignaturesByApi(const DescribeSi
 }
 
 /**
+ * @summary 查询环境列表
+ *
+ * @param request DescribeStageModelsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeStageModelsResponse
+ */
+DescribeStageModelsResponse Client::describeStageModelsWithOptions(const DescribeStageModelsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStageAlias()) {
+    query["StageAlias"] = request.getStageAlias();
+  }
+
+  if (!!request.hasStageName()) {
+    query["StageName"] = request.getStageName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeStageModels"},
+    {"version" , "2016-07-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeStageModelsResponse>();
+}
+
+/**
+ * @summary 查询环境列表
+ *
+ * @param request DescribeStageModelsRequest
+ * @return DescribeStageModelsResponse
+ */
+DescribeStageModelsResponse Client::describeStageModels(const DescribeStageModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeStageModelsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the number of API Gateway resources in a region.
  *
  * @param request DescribeSummaryDataRequest
@@ -11089,6 +11247,60 @@ ModifySignatureResponse Client::modifySignatureWithOptions(const ModifySignature
 ModifySignatureResponse Client::modifySignature(const ModifySignatureRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return modifySignatureWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改环境模型
+ *
+ * @param request ModifyStageModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyStageModelResponse
+ */
+ModifyStageModelResponse Client::modifyStageModelWithOptions(const ModifyStageModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasSecurityToken()) {
+    query["SecurityToken"] = request.getSecurityToken();
+  }
+
+  if (!!request.hasStageAlias()) {
+    query["StageAlias"] = request.getStageAlias();
+  }
+
+  if (!!request.hasStageModelId()) {
+    query["StageModelId"] = request.getStageModelId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyStageModel"},
+    {"version" , "2016-07-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyStageModelResponse>();
+}
+
+/**
+ * @summary 修改环境模型
+ *
+ * @param request ModifyStageModelRequest
+ * @return ModifyStageModelResponse
+ */
+ModifyStageModelResponse Client::modifyStageModel(const ModifyStageModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyStageModelWithOptions(request, runtime);
 }
 
 /**
