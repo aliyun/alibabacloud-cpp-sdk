@@ -382,6 +382,9 @@
 #include <alibabacloud/models/ListTaskDetailRequest.hpp>
 #include <alibabacloud/models/ListTaskDetailResponseBody.hpp>
 #include <alibabacloud/models/ListTaskDetailResponse.hpp>
+#include <alibabacloud/models/LlmFullDuplexCallOperateRequest.hpp>
+#include <alibabacloud/models/LlmFullDuplexCallOperateResponseBody.hpp>
+#include <alibabacloud/models/LlmFullDuplexCallOperateResponse.hpp>
 #include <alibabacloud/models/LlmSmartCallRequest.hpp>
 #include <alibabacloud/models/LlmSmartCallShrinkRequest.hpp>
 #include <alibabacloud/models/LlmSmartCallResponseBody.hpp>
@@ -390,6 +393,10 @@
 #include <alibabacloud/models/LlmSmartCallEncryptShrinkRequest.hpp>
 #include <alibabacloud/models/LlmSmartCallEncryptResponseBody.hpp>
 #include <alibabacloud/models/LlmSmartCallEncryptResponse.hpp>
+#include <alibabacloud/models/LlmSmartCallFullDuplexRequest.hpp>
+#include <alibabacloud/models/LlmSmartCallFullDuplexShrinkRequest.hpp>
+#include <alibabacloud/models/LlmSmartCallFullDuplexResponseBody.hpp>
+#include <alibabacloud/models/LlmSmartCallFullDuplexResponse.hpp>
 #include <alibabacloud/models/MakeCallRequest.hpp>
 #include <alibabacloud/models/MakeCallResponseBody.hpp>
 #include <alibabacloud/models/MakeCallResponse.hpp>

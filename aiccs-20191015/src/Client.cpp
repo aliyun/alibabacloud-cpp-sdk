@@ -6384,6 +6384,56 @@ ListTaskDetailResponse Client::listTaskDetail(const ListTaskDetailRequest &reque
 }
 
 /**
+ * @summary 高德全双工
+ *
+ * @param request LlmFullDuplexCallOperateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LlmFullDuplexCallOperateResponse
+ */
+LlmFullDuplexCallOperateResponse Client::llmFullDuplexCallOperateWithOptions(const LlmFullDuplexCallOperateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallId()) {
+    query["CallId"] = request.getCallId();
+  }
+
+  if (!!request.hasCommand()) {
+    query["Command"] = request.getCommand();
+  }
+
+  if (!!request.hasParam()) {
+    query["Param"] = request.getParam();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LlmFullDuplexCallOperate"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LlmFullDuplexCallOperateResponse>();
+}
+
+/**
+ * @summary 高德全双工
+ *
+ * @param request LlmFullDuplexCallOperateRequest
+ * @return LlmFullDuplexCallOperateResponse
+ */
+LlmFullDuplexCallOperateResponse Client::llmFullDuplexCallOperate(const LlmFullDuplexCallOperateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return llmFullDuplexCallOperateWithOptions(request, runtime);
+}
+
+/**
  * @summary 基于大模型的智能外呼
  *
  * @param tmpReq LlmSmartCallRequest
@@ -6569,6 +6619,86 @@ LlmSmartCallEncryptResponse Client::llmSmartCallEncryptWithOptions(const LlmSmar
 LlmSmartCallEncryptResponse Client::llmSmartCallEncrypt(const LlmSmartCallEncryptRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return llmSmartCallEncryptWithOptions(request, runtime);
+}
+
+/**
+ * @summary 基于大模型的智能外呼
+ *
+ * @param tmpReq LlmSmartCallFullDuplexRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return LlmSmartCallFullDuplexResponse
+ */
+LlmSmartCallFullDuplexResponse Client::llmSmartCallFullDuplexWithOptions(const LlmSmartCallFullDuplexRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  LlmSmartCallFullDuplexShrinkRequest request = LlmSmartCallFullDuplexShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasStartWordParam()) {
+    request.setStartWordParamShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStartWordParam(), "StartWordParam", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationCode()) {
+    query["ApplicationCode"] = request.getApplicationCode();
+  }
+
+  if (!!request.hasCalledNumber()) {
+    query["CalledNumber"] = request.getCalledNumber();
+  }
+
+  if (!!request.hasCallerNumber()) {
+    query["CallerNumber"] = request.getCallerNumber();
+  }
+
+  if (!!request.hasOutId()) {
+    query["OutId"] = request.getOutId();
+  }
+
+  if (!!request.hasSessionTimeout()) {
+    query["SessionTimeout"] = request.getSessionTimeout();
+  }
+
+  if (!!request.hasStartWordParamShrink()) {
+    query["StartWordParam"] = request.getStartWordParamShrink();
+  }
+
+  if (!!request.hasTtsSpeed()) {
+    query["TtsSpeed"] = request.getTtsSpeed();
+  }
+
+  if (!!request.hasTtsVoiceCode()) {
+    query["TtsVoiceCode"] = request.getTtsVoiceCode();
+  }
+
+  if (!!request.hasTtsVolume()) {
+    query["TtsVolume"] = request.getTtsVolume();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "LlmSmartCallFullDuplex"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<LlmSmartCallFullDuplexResponse>();
+}
+
+/**
+ * @summary 基于大模型的智能外呼
+ *
+ * @param request LlmSmartCallFullDuplexRequest
+ * @return LlmSmartCallFullDuplexResponse
+ */
+LlmSmartCallFullDuplexResponse Client::llmSmartCallFullDuplex(const LlmSmartCallFullDuplexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return llmSmartCallFullDuplexWithOptions(request, runtime);
 }
 
 /**

@@ -1828,6 +1828,23 @@ namespace Aiccs20191015
       Models::ListTaskDetailResponse listTaskDetail(const Models::ListTaskDetailRequest &request);
 
       /**
+       * @summary 高德全双工
+       *
+       * @param request LlmFullDuplexCallOperateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LlmFullDuplexCallOperateResponse
+       */
+      Models::LlmFullDuplexCallOperateResponse llmFullDuplexCallOperateWithOptions(const Models::LlmFullDuplexCallOperateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 高德全双工
+       *
+       * @param request LlmFullDuplexCallOperateRequest
+       * @return LlmFullDuplexCallOperateResponse
+       */
+      Models::LlmFullDuplexCallOperateResponse llmFullDuplexCallOperate(const Models::LlmFullDuplexCallOperateRequest &request);
+
+      /**
        * @summary 基于大模型的智能外呼
        *
        * @param tmpReq LlmSmartCallRequest
@@ -1860,6 +1877,23 @@ namespace Aiccs20191015
        * @return LlmSmartCallEncryptResponse
        */
       Models::LlmSmartCallEncryptResponse llmSmartCallEncrypt(const Models::LlmSmartCallEncryptRequest &request);
+
+      /**
+       * @summary 基于大模型的智能外呼
+       *
+       * @param tmpReq LlmSmartCallFullDuplexRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return LlmSmartCallFullDuplexResponse
+       */
+      Models::LlmSmartCallFullDuplexResponse llmSmartCallFullDuplexWithOptions(const Models::LlmSmartCallFullDuplexRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 基于大模型的智能外呼
+       *
+       * @param request LlmSmartCallFullDuplexRequest
+       * @return LlmSmartCallFullDuplexResponse
+       */
+      Models::LlmSmartCallFullDuplexResponse llmSmartCallFullDuplex(const Models::LlmSmartCallFullDuplexRequest &request);
 
       /**
        * @param request MakeCallRequest
