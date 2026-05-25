@@ -55,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolicySizeQuota, policySizeQuota_);
         DARABONBA_PTR_TO_JSON(Roles, roles_);
         DARABONBA_PTR_TO_JSON(RolesQuota, rolesQuota_);
+        DARABONBA_PTR_TO_JSON(ServiceCredentialsPerUserPerServiceQuota, serviceCredentialsPerUserPerServiceQuota_);
         DARABONBA_PTR_TO_JSON(Users, users_);
         DARABONBA_PTR_TO_JSON(UsersQuota, usersQuota_);
         DARABONBA_PTR_TO_JSON(VersionsPerPolicyQuota, versionsPerPolicyQuota_);
@@ -82,6 +83,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolicySizeQuota, policySizeQuota_);
         DARABONBA_PTR_FROM_JSON(Roles, roles_);
         DARABONBA_PTR_FROM_JSON(RolesQuota, rolesQuota_);
+        DARABONBA_PTR_FROM_JSON(ServiceCredentialsPerUserPerServiceQuota, serviceCredentialsPerUserPerServiceQuota_);
         DARABONBA_PTR_FROM_JSON(Users, users_);
         DARABONBA_PTR_FROM_JSON(UsersQuota, usersQuota_);
         DARABONBA_PTR_FROM_JSON(VersionsPerPolicyQuota, versionsPerPolicyQuota_);
@@ -103,7 +105,7 @@ namespace Models
         && this->attachedSystemPoliciesPerRoleQuota_ == nullptr && this->attachedSystemPoliciesPerUserQuota_ == nullptr && this->authorizedClientPerUserQuota_ == nullptr && this->conditionsPerAKPolicyQuota_ == nullptr && this->groups_ == nullptr
         && this->groupsPerUserQuota_ == nullptr && this->groupsQuota_ == nullptr && this->IPItemsPerAKPolicyQuota_ == nullptr && this->MFADevices_ == nullptr && this->MFADevicesInUse_ == nullptr
         && this->policies_ == nullptr && this->policiesQuota_ == nullptr && this->policySizeQuota_ == nullptr && this->roles_ == nullptr && this->rolesQuota_ == nullptr
-        && this->users_ == nullptr && this->usersQuota_ == nullptr && this->versionsPerPolicyQuota_ == nullptr && this->virtualMFADevicesQuota_ == nullptr; };
+        && this->serviceCredentialsPerUserPerServiceQuota_ == nullptr && this->users_ == nullptr && this->usersQuota_ == nullptr && this->versionsPerPolicyQuota_ == nullptr && this->virtualMFADevicesQuota_ == nullptr; };
       // accessKeysPerUserQuota Field Functions 
       bool hasAccessKeysPerUserQuota() const { return this->accessKeysPerUserQuota_ != nullptr;};
       void deleteAccessKeysPerUserQuota() { this->accessKeysPerUserQuota_ = nullptr;};
@@ -251,6 +253,13 @@ namespace Models
       inline SummaryMap& setRolesQuota(int32_t rolesQuota) { DARABONBA_PTR_SET_VALUE(rolesQuota_, rolesQuota) };
 
 
+      // serviceCredentialsPerUserPerServiceQuota Field Functions 
+      bool hasServiceCredentialsPerUserPerServiceQuota() const { return this->serviceCredentialsPerUserPerServiceQuota_ != nullptr;};
+      void deleteServiceCredentialsPerUserPerServiceQuota() { this->serviceCredentialsPerUserPerServiceQuota_ = nullptr;};
+      inline int32_t getServiceCredentialsPerUserPerServiceQuota() const { DARABONBA_PTR_GET_DEFAULT(serviceCredentialsPerUserPerServiceQuota_, 0) };
+      inline SummaryMap& setServiceCredentialsPerUserPerServiceQuota(int32_t serviceCredentialsPerUserPerServiceQuota) { DARABONBA_PTR_SET_VALUE(serviceCredentialsPerUserPerServiceQuota_, serviceCredentialsPerUserPerServiceQuota) };
+
+
       // users Field Functions 
       bool hasUsers() const { return this->users_ != nullptr;};
       void deleteUsers() { this->users_ = nullptr;};
@@ -320,6 +329,7 @@ namespace Models
       shared_ptr<int32_t> roles_ {};
       // The maximum number of RAM roles that can be created.
       shared_ptr<int32_t> rolesQuota_ {};
+      shared_ptr<int32_t> serviceCredentialsPerUserPerServiceQuota_ {};
       // The number of RAM users.
       shared_ptr<int32_t> users_ {};
       // The maximum number of RAM users that can be created.

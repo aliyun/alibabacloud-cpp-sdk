@@ -1468,7 +1468,6 @@ DisableVirtualMFAResponse Client::disableVirtualMFA(const DisableVirtualMFAReque
 /**
  * @summary Generates the user credential report of an Alibaba Cloud account.
  *
- * @param request GenerateCredentialReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateCredentialReportResponse
  */
@@ -1501,7 +1500,6 @@ GenerateCredentialReportResponse Client::generateCredentialReport() {
 /**
  * @summary Generates a check report for Cloud Governance.
  *
- * @param request GenerateGovernanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateGovernanceReportResponse
  */
@@ -1622,7 +1620,6 @@ GetAccessKeyLastUsedResponse Client::getAccessKeyLastUsed(const GetAccessKeyLast
 /**
  * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
  *
- * @param request GetAccountMFAInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountMFAInfoResponse
  */
@@ -1655,7 +1652,6 @@ GetAccountMFAInfoResponse Client::getAccountMFAInfo() {
 /**
  * @summary Queries the security report of an Alibaba Cloud account.
  *
- * @param request GetAccountSecurityPracticeReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountSecurityPracticeReportResponse
  */
@@ -1688,7 +1684,6 @@ GetAccountSecurityPracticeReportResponse Client::getAccountSecurityPracticeRepor
 /**
  * @summary Queries the overview information about an Alibaba Cloud account.
  *
- * @param request GetAccountSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountSummaryResponse
  */
@@ -1901,7 +1896,6 @@ GetCredentialReportResponse Client::getCredentialReport(const GetCredentialRepor
 /**
  * @summary Queries the default domain name of an Alibaba Cloud account.
  *
- * @param request GetDefaultDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDefaultDomainResponse
  */
@@ -2026,7 +2020,6 @@ GetGovernanceItemReportResponse Client::getGovernanceItemReport(const GetGoverna
 /**
  * @summary 查询成熟度报告状态
  *
- * @param request GetGovernanceReportStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetGovernanceReportStatusResponse
  */
@@ -2191,7 +2184,6 @@ GetOIDCProviderResponse Client::getOIDCProvider(const GetOIDCProviderRequest &re
 /**
  * @summary Queries the details of the password policy for RAM users.
  *
- * @param request GetPasswordPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetPasswordPolicyResponse
  */
@@ -2266,7 +2258,6 @@ GetSAMLProviderResponse Client::getSAMLProvider(const GetSAMLProviderRequest &re
 /**
  * @summary Queries the security preferences for RAM users.
  *
- * @param request GetSecurityPreferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSecurityPreferenceResponse
  */
@@ -2437,7 +2428,6 @@ GetUserMFAInfoResponse Client::getUserMFAInfo(const GetUserMFAInfoRequest &reque
 /**
  * @summary Queries the configurations of user-based single sign-on (SSO).
  *
- * @param request GetUserSsoSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetUserSsoSettingsResponse
  */
@@ -2682,7 +2672,6 @@ ListApplicationProvisionInfosResponse Client::listApplicationProvisionInfos(cons
  *
  * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
  *
- * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListApplicationsResponse
  */
@@ -2717,7 +2706,6 @@ ListApplicationsResponse Client::listApplications() {
 /**
  * @summary Queries information about all installed external applications.
  *
- * @param request ListExternalApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListExternalApplicationsResponse
  */
@@ -2974,7 +2962,6 @@ ListPredefinedScopesResponse Client::listPredefinedScopes(const ListPredefinedSc
 /**
  * @summary Queries all metric values in the most recent governance check.
  *
- * @param request ListRecentGovernanceMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRecentGovernanceMetricsResponse
  */
@@ -3895,6 +3882,10 @@ SetSecurityPreferenceResponse Client::setSecurityPreferenceWithOptions(const Set
 
   if (!!request.hasAllowUserToManagePersonalDingTalk()) {
     query["AllowUserToManagePersonalDingTalk"] = request.getAllowUserToManagePersonalDingTalk();
+  }
+
+  if (!!request.hasAllowUserToManageServiceCredentials()) {
+    query["AllowUserToManageServiceCredentials"] = request.getAllowUserToManageServiceCredentials();
   }
 
   if (!!request.hasEnableSaveMFATicket()) {

@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllowUserToManageAccessKeys, allowUserToManageAccessKeys_);
       DARABONBA_PTR_TO_JSON(AllowUserToManageMFADevices, allowUserToManageMFADevices_);
       DARABONBA_PTR_TO_JSON(AllowUserToManagePersonalDingTalk, allowUserToManagePersonalDingTalk_);
+      DARABONBA_PTR_TO_JSON(AllowUserToManageServiceCredentials, allowUserToManageServiceCredentials_);
       DARABONBA_PTR_TO_JSON(EnableSaveMFATicket, enableSaveMFATicket_);
       DARABONBA_PTR_TO_JSON(LoginNetworkMasks, loginNetworkMasks_);
       DARABONBA_PTR_TO_JSON(LoginSessionDuration, loginSessionDuration_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AllowUserToManageAccessKeys, allowUserToManageAccessKeys_);
       DARABONBA_PTR_FROM_JSON(AllowUserToManageMFADevices, allowUserToManageMFADevices_);
       DARABONBA_PTR_FROM_JSON(AllowUserToManagePersonalDingTalk, allowUserToManagePersonalDingTalk_);
+      DARABONBA_PTR_FROM_JSON(AllowUserToManageServiceCredentials, allowUserToManageServiceCredentials_);
       DARABONBA_PTR_FROM_JSON(EnableSaveMFATicket, enableSaveMFATicket_);
       DARABONBA_PTR_FROM_JSON(LoginNetworkMasks, loginNetworkMasks_);
       DARABONBA_PTR_FROM_JSON(LoginSessionDuration, loginSessionDuration_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowUserToChangePassword_ == nullptr
-        && this->allowUserToLoginWithPasskey_ == nullptr && this->allowUserToManageAccessKeys_ == nullptr && this->allowUserToManageMFADevices_ == nullptr && this->allowUserToManagePersonalDingTalk_ == nullptr && this->enableSaveMFATicket_ == nullptr
-        && this->loginNetworkMasks_ == nullptr && this->loginSessionDuration_ == nullptr && this->MFAOperationForLogin_ == nullptr && this->maxIdleDaysForAccessKeys_ == nullptr && this->maxIdleDaysForUsers_ == nullptr
-        && this->operationForRiskLogin_ == nullptr && this->verificationTypes_ == nullptr; };
+        && this->allowUserToLoginWithPasskey_ == nullptr && this->allowUserToManageAccessKeys_ == nullptr && this->allowUserToManageMFADevices_ == nullptr && this->allowUserToManagePersonalDingTalk_ == nullptr && this->allowUserToManageServiceCredentials_ == nullptr
+        && this->enableSaveMFATicket_ == nullptr && this->loginNetworkMasks_ == nullptr && this->loginSessionDuration_ == nullptr && this->MFAOperationForLogin_ == nullptr && this->maxIdleDaysForAccessKeys_ == nullptr
+        && this->maxIdleDaysForUsers_ == nullptr && this->operationForRiskLogin_ == nullptr && this->verificationTypes_ == nullptr; };
     // allowUserToChangePassword Field Functions 
     bool hasAllowUserToChangePassword() const { return this->allowUserToChangePassword_ != nullptr;};
     void deleteAllowUserToChangePassword() { this->allowUserToChangePassword_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
     void deleteAllowUserToManagePersonalDingTalk() { this->allowUserToManagePersonalDingTalk_ = nullptr;};
     inline bool getAllowUserToManagePersonalDingTalk() const { DARABONBA_PTR_GET_DEFAULT(allowUserToManagePersonalDingTalk_, false) };
     inline SetSecurityPreferenceRequest& setAllowUserToManagePersonalDingTalk(bool allowUserToManagePersonalDingTalk) { DARABONBA_PTR_SET_VALUE(allowUserToManagePersonalDingTalk_, allowUserToManagePersonalDingTalk) };
+
+
+    // allowUserToManageServiceCredentials Field Functions 
+    bool hasAllowUserToManageServiceCredentials() const { return this->allowUserToManageServiceCredentials_ != nullptr;};
+    void deleteAllowUserToManageServiceCredentials() { this->allowUserToManageServiceCredentials_ = nullptr;};
+    inline bool getAllowUserToManageServiceCredentials() const { DARABONBA_PTR_GET_DEFAULT(allowUserToManageServiceCredentials_, false) };
+    inline SetSecurityPreferenceRequest& setAllowUserToManageServiceCredentials(bool allowUserToManageServiceCredentials) { DARABONBA_PTR_SET_VALUE(allowUserToManageServiceCredentials_, allowUserToManageServiceCredentials) };
 
 
     // enableSaveMFATicket Field Functions 
@@ -177,6 +186,7 @@ namespace Models
     // *   true (default)
     // *   false
     shared_ptr<bool> allowUserToManagePersonalDingTalk_ {};
+    shared_ptr<bool> allowUserToManageServiceCredentials_ {};
     // Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
     // 
     // *   true

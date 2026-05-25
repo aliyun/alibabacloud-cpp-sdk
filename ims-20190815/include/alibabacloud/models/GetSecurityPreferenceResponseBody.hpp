@@ -329,9 +329,11 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const AccessKeyPreference& obj) { 
           DARABONBA_PTR_TO_JSON(AllowUserToManageAccessKeys, allowUserToManageAccessKeys_);
+          DARABONBA_PTR_TO_JSON(AllowUserToManageServiceCredentials, allowUserToManageServiceCredentials_);
         };
         friend void from_json(const Darabonba::Json& j, AccessKeyPreference& obj) { 
           DARABONBA_PTR_FROM_JSON(AllowUserToManageAccessKeys, allowUserToManageAccessKeys_);
+          DARABONBA_PTR_FROM_JSON(AllowUserToManageServiceCredentials, allowUserToManageServiceCredentials_);
         };
         AccessKeyPreference() = default ;
         AccessKeyPreference(const AccessKeyPreference &) = default ;
@@ -344,12 +346,20 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->allowUserToManageAccessKeys_ == nullptr; };
+        virtual bool empty() const override { return this->allowUserToManageAccessKeys_ == nullptr
+        && this->allowUserToManageServiceCredentials_ == nullptr; };
         // allowUserToManageAccessKeys Field Functions 
         bool hasAllowUserToManageAccessKeys() const { return this->allowUserToManageAccessKeys_ != nullptr;};
         void deleteAllowUserToManageAccessKeys() { this->allowUserToManageAccessKeys_ = nullptr;};
         inline bool getAllowUserToManageAccessKeys() const { DARABONBA_PTR_GET_DEFAULT(allowUserToManageAccessKeys_, false) };
         inline AccessKeyPreference& setAllowUserToManageAccessKeys(bool allowUserToManageAccessKeys) { DARABONBA_PTR_SET_VALUE(allowUserToManageAccessKeys_, allowUserToManageAccessKeys) };
+
+
+        // allowUserToManageServiceCredentials Field Functions 
+        bool hasAllowUserToManageServiceCredentials() const { return this->allowUserToManageServiceCredentials_ != nullptr;};
+        void deleteAllowUserToManageServiceCredentials() { this->allowUserToManageServiceCredentials_ = nullptr;};
+        inline bool getAllowUserToManageServiceCredentials() const { DARABONBA_PTR_GET_DEFAULT(allowUserToManageServiceCredentials_, false) };
+        inline AccessKeyPreference& setAllowUserToManageServiceCredentials(bool allowUserToManageServiceCredentials) { DARABONBA_PTR_SET_VALUE(allowUserToManageServiceCredentials_, allowUserToManageServiceCredentials) };
 
 
       protected:
@@ -358,6 +368,7 @@ namespace Models
         // *   true
         // *   false
         shared_ptr<bool> allowUserToManageAccessKeys_ {};
+        shared_ptr<bool> allowUserToManageServiceCredentials_ {};
       };
 
       virtual bool empty() const override { return this->accessKeyPreference_ == nullptr

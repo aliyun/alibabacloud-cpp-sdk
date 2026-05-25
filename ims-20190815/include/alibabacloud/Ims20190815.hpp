@@ -564,7 +564,6 @@ namespace Ims20190815
       /**
        * @summary Generates the user credential report of an Alibaba Cloud account.
        *
-       * @param request GenerateCredentialReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateCredentialReportResponse
        */
@@ -580,7 +579,6 @@ namespace Ims20190815
       /**
        * @summary Generates a check report for Cloud Governance.
        *
-       * @param request GenerateGovernanceReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateGovernanceReportResponse
        */
@@ -630,7 +628,6 @@ namespace Ims20190815
       /**
        * @summary Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
        *
-       * @param request GetAccountMFAInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAccountMFAInfoResponse
        */
@@ -646,7 +643,6 @@ namespace Ims20190815
       /**
        * @summary Queries the security report of an Alibaba Cloud account.
        *
-       * @param request GetAccountSecurityPracticeReportRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAccountSecurityPracticeReportResponse
        */
@@ -662,7 +658,6 @@ namespace Ims20190815
       /**
        * @summary Queries the overview information about an Alibaba Cloud account.
        *
-       * @param request GetAccountSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAccountSummaryResponse
        */
@@ -750,7 +745,6 @@ namespace Ims20190815
       /**
        * @summary Queries the default domain name of an Alibaba Cloud account.
        *
-       * @param request GetDefaultDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDefaultDomainResponse
        */
@@ -800,7 +794,6 @@ namespace Ims20190815
       /**
        * @summary 查询成熟度报告状态
        *
-       * @param request GetGovernanceReportStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetGovernanceReportStatusResponse
        */
@@ -873,7 +866,6 @@ namespace Ims20190815
       /**
        * @summary Queries the details of the password policy for RAM users.
        *
-       * @param request GetPasswordPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetPasswordPolicyResponse
        */
@@ -906,7 +898,6 @@ namespace Ims20190815
       /**
        * @summary Queries the security preferences for RAM users.
        *
-       * @param request GetSecurityPreferenceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSecurityPreferenceResponse
        */
@@ -973,7 +964,6 @@ namespace Ims20190815
       /**
        * @summary Queries the configurations of user-based single sign-on (SSO).
        *
-       * @param request GetUserSsoSettingsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetUserSsoSettingsResponse
        */
@@ -1076,7 +1066,6 @@ namespace Ims20190815
        *
        * @description This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
        *
-       * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListApplicationsResponse
        */
@@ -1094,7 +1083,6 @@ namespace Ims20190815
       /**
        * @summary Queries information about all installed external applications.
        *
-       * @param request ListExternalApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListExternalApplicationsResponse
        */
@@ -1201,7 +1189,6 @@ namespace Ims20190815
       /**
        * @summary Queries all metric values in the most recent governance check.
        *
-       * @param request ListRecentGovernanceMetricsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRecentGovernanceMetricsResponse
        */
