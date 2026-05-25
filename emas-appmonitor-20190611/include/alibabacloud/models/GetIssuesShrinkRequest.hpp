@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GETISSUESSHRINKREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_GETISSUESSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GetIssuesShrinkRequestTimeRange.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -50,103 +49,165 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appKey_ != nullptr
-        && this->bizModule_ != nullptr && this->filterShrink_ != nullptr && this->name_ != nullptr && this->orderBy_ != nullptr && this->orderType_ != nullptr
-        && this->os_ != nullptr && this->pageIndex_ != nullptr && this->pageSize_ != nullptr && this->status_ != nullptr && this->timeRange_ != nullptr; };
+    class TimeRange : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const TimeRange& obj) { 
+        DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(Granularity, granularity_);
+        DARABONBA_PTR_TO_JSON(GranularityUnit, granularityUnit_);
+        DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      };
+      friend void from_json(const Darabonba::Json& j, TimeRange& obj) { 
+        DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(Granularity, granularity_);
+        DARABONBA_PTR_FROM_JSON(GranularityUnit, granularityUnit_);
+        DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      };
+      TimeRange() = default ;
+      TimeRange(const TimeRange &) = default ;
+      TimeRange(TimeRange &&) = default ;
+      TimeRange(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~TimeRange() = default ;
+      TimeRange& operator=(const TimeRange &) = default ;
+      TimeRange& operator=(TimeRange &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->granularity_ == nullptr && this->granularityUnit_ == nullptr && this->startTime_ == nullptr; };
+      // endTime Field Functions 
+      bool hasEndTime() const { return this->endTime_ != nullptr;};
+      void deleteEndTime() { this->endTime_ = nullptr;};
+      inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+      inline TimeRange& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // granularity Field Functions 
+      bool hasGranularity() const { return this->granularity_ != nullptr;};
+      void deleteGranularity() { this->granularity_ = nullptr;};
+      inline int32_t getGranularity() const { DARABONBA_PTR_GET_DEFAULT(granularity_, 0) };
+      inline TimeRange& setGranularity(int32_t granularity) { DARABONBA_PTR_SET_VALUE(granularity_, granularity) };
+
+
+      // granularityUnit Field Functions 
+      bool hasGranularityUnit() const { return this->granularityUnit_ != nullptr;};
+      void deleteGranularityUnit() { this->granularityUnit_ = nullptr;};
+      inline string getGranularityUnit() const { DARABONBA_PTR_GET_DEFAULT(granularityUnit_, "") };
+      inline TimeRange& setGranularityUnit(string granularityUnit) { DARABONBA_PTR_SET_VALUE(granularityUnit_, granularityUnit) };
+
+
+      // startTime Field Functions 
+      bool hasStartTime() const { return this->startTime_ != nullptr;};
+      void deleteStartTime() { this->startTime_ = nullptr;};
+      inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+      inline TimeRange& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    protected:
+      shared_ptr<int64_t> endTime_ {};
+      shared_ptr<int32_t> granularity_ {};
+      shared_ptr<string> granularityUnit_ {};
+      shared_ptr<int64_t> startTime_ {};
+    };
+
+    virtual bool empty() const override { return this->appKey_ == nullptr
+        && this->bizModule_ == nullptr && this->filterShrink_ == nullptr && this->name_ == nullptr && this->orderBy_ == nullptr && this->orderType_ == nullptr
+        && this->os_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr && this->timeRange_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline GetIssuesShrinkRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // bizModule Field Functions 
     bool hasBizModule() const { return this->bizModule_ != nullptr;};
     void deleteBizModule() { this->bizModule_ = nullptr;};
-    inline string bizModule() const { DARABONBA_PTR_GET_DEFAULT(bizModule_, "") };
+    inline string getBizModule() const { DARABONBA_PTR_GET_DEFAULT(bizModule_, "") };
     inline GetIssuesShrinkRequest& setBizModule(string bizModule) { DARABONBA_PTR_SET_VALUE(bizModule_, bizModule) };
 
 
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline GetIssuesShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline GetIssuesShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // orderBy Field Functions 
     bool hasOrderBy() const { return this->orderBy_ != nullptr;};
     void deleteOrderBy() { this->orderBy_ = nullptr;};
-    inline string orderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
+    inline string getOrderBy() const { DARABONBA_PTR_GET_DEFAULT(orderBy_, "") };
     inline GetIssuesShrinkRequest& setOrderBy(string orderBy) { DARABONBA_PTR_SET_VALUE(orderBy_, orderBy) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline GetIssuesShrinkRequest& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline GetIssuesShrinkRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline GetIssuesShrinkRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetIssuesShrinkRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline int32_t status() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
+    inline int32_t getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, 0) };
     inline GetIssuesShrinkRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
     // timeRange Field Functions 
     bool hasTimeRange() const { return this->timeRange_ != nullptr;};
     void deleteTimeRange() { this->timeRange_ = nullptr;};
-    inline const GetIssuesShrinkRequestTimeRange & timeRange() const { DARABONBA_PTR_GET_CONST(timeRange_, GetIssuesShrinkRequestTimeRange) };
-    inline GetIssuesShrinkRequestTimeRange timeRange() { DARABONBA_PTR_GET(timeRange_, GetIssuesShrinkRequestTimeRange) };
-    inline GetIssuesShrinkRequest& setTimeRange(const GetIssuesShrinkRequestTimeRange & timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
-    inline GetIssuesShrinkRequest& setTimeRange(GetIssuesShrinkRequestTimeRange && timeRange) { DARABONBA_PTR_SET_RVALUE(timeRange_, timeRange) };
+    inline const GetIssuesShrinkRequest::TimeRange & getTimeRange() const { DARABONBA_PTR_GET_CONST(timeRange_, GetIssuesShrinkRequest::TimeRange) };
+    inline GetIssuesShrinkRequest::TimeRange getTimeRange() { DARABONBA_PTR_GET(timeRange_, GetIssuesShrinkRequest::TimeRange) };
+    inline GetIssuesShrinkRequest& setTimeRange(const GetIssuesShrinkRequest::TimeRange & timeRange) { DARABONBA_PTR_SET_VALUE(timeRange_, timeRange) };
+    inline GetIssuesShrinkRequest& setTimeRange(GetIssuesShrinkRequest::TimeRange && timeRange) { DARABONBA_PTR_SET_RVALUE(timeRange_, timeRange) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> bizModule_ = nullptr;
-    std::shared_ptr<string> filterShrink_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> orderBy_ = nullptr;
-    std::shared_ptr<string> orderType_ = nullptr;
-    std::shared_ptr<string> os_ = nullptr;
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int32_t> status_ = nullptr;
+    shared_ptr<string> bizModule_ {};
+    shared_ptr<string> filterShrink_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> orderBy_ {};
+    shared_ptr<string> orderType_ {};
+    shared_ptr<string> os_ {};
+    shared_ptr<int32_t> pageIndex_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int32_t> status_ {};
     // This parameter is required.
-    std::shared_ptr<GetIssuesShrinkRequestTimeRange> timeRange_ = nullptr;
+    shared_ptr<GetIssuesShrinkRequest::TimeRange> timeRange_ {};
   };
 
   } // namespace Models

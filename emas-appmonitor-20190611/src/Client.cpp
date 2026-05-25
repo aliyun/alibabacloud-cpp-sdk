@@ -36,6 +36,124 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary CreateTlogTask
+ *
+ * @param request CreateTlogTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTlogTaskResponse
+ */
+CreateTlogTaskResponse Client::createTlogTaskWithOptions(const CreateTlogTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAliYunCurrentPk()) {
+    body["AliYunCurrentPk"] = request.getAliYunCurrentPk();
+  }
+
+  if (!!request.hasAliYunMainPk()) {
+    body["AliYunMainPk"] = request.getAliYunMainPk();
+  }
+
+  if (!!request.hasAliYunName()) {
+    body["AliYunName"] = request.getAliYunName();
+  }
+
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasAppVersion()) {
+    body["AppVersion"] = request.getAppVersion();
+  }
+
+  if (!!request.hasBeginDate()) {
+    body["BeginDate"] = request.getBeginDate();
+  }
+
+  if (!!request.hasBrand()) {
+    body["Brand"] = request.getBrand();
+  }
+
+  if (!!request.hasCity()) {
+    body["City"] = request.getCity();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCollectionNums()) {
+    body["CollectionNums"] = request.getCollectionNums();
+  }
+
+  if (!!request.hasDays()) {
+    body["Days"] = request.getDays();
+  }
+
+  if (!!request.hasDeviceJson()) {
+    body["DeviceJson"] = request.getDeviceJson();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasErrorType()) {
+    body["ErrorType"] = request.getErrorType();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasNotifySettingJson()) {
+    body["NotifySettingJson"] = request.getNotifySettingJson();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasOsVersion()) {
+    body["OsVersion"] = request.getOsVersion();
+  }
+
+  if (!!request.hasSourceType()) {
+    body["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasTaskName()) {
+    body["TaskName"] = request.getTaskName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateTlogTask"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTlogTaskResponse>();
+}
+
+/**
+ * @summary CreateTlogTask
+ *
+ * @param request CreateTlogTaskRequest
+ * @return CreateTlogTaskResponse
+ */
+CreateTlogTaskResponse Client::createTlogTask(const CreateTlogTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTlogTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 获取错误事件详情
  *
  * @param request GetErrorRequest
@@ -46,35 +164,35 @@ GetErrorResponse Client::getErrorWithOptions(const GetErrorRequest &request, con
   request.validate();
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBizModule()) {
-    body["BizModule"] = request.bizModule();
+    body["BizModule"] = request.getBizModule();
   }
 
   if (!!request.hasClientTime()) {
-    body["ClientTime"] = request.clientTime();
+    body["ClientTime"] = request.getClientTime();
   }
 
   if (!!request.hasDid()) {
-    body["Did"] = request.did();
+    body["Did"] = request.getDid();
   }
 
   if (!!request.hasDigestHash()) {
-    body["DigestHash"] = request.digestHash();
+    body["DigestHash"] = request.getDigestHash();
   }
 
   if (!!request.hasForce()) {
-    body["Force"] = request.force();
+    body["Force"] = request.getForce();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -117,45 +235,45 @@ GetErrorsResponse Client::getErrorsWithOptions(const GetErrorsRequest &tmpReq, c
   GetErrorsShrinkRequest request = GetErrorsShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBizModule()) {
-    body["BizModule"] = request.bizModule();
+    body["BizModule"] = request.getBizModule();
   }
 
   if (!!request.hasDigestHash()) {
-    body["DigestHash"] = request.digestHash();
+    body["DigestHash"] = request.getDigestHash();
   }
 
   if (!!request.hasFilterShrink()) {
-    body["Filter"] = request.filterShrink();
+    body["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   if (!!request.hasPageIndex()) {
-    body["PageIndex"] = request.pageIndex();
+    body["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   json bodyFlat = {};
   if (!!request.hasTimeRange()) {
-    bodyFlat["TimeRange"] = request.timeRange();
+    bodyFlat["TimeRange"] = request.getTimeRange();
   }
 
   if (!!request.hasUtdid()) {
-    body["Utdid"] = request.utdid();
+    body["Utdid"] = request.getUtdid();
   }
 
   body = Darabonba::Core::merge(body,
@@ -201,33 +319,33 @@ GetIssueResponse Client::getIssueWithOptions(const GetIssueRequest &tmpReq, cons
   GetIssueShrinkRequest request = GetIssueShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBizModule()) {
-    body["BizModule"] = request.bizModule();
+    body["BizModule"] = request.getBizModule();
   }
 
   if (!!request.hasDigestHash()) {
-    body["DigestHash"] = request.digestHash();
+    body["DigestHash"] = request.getDigestHash();
   }
 
   if (!!request.hasFilterShrink()) {
-    body["Filter"] = request.filterShrink();
+    body["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   json bodyFlat = {};
   if (!!request.hasTimeRange()) {
-    bodyFlat["TimeRange"] = request.timeRange();
+    bodyFlat["TimeRange"] = request.getTimeRange();
   }
 
   body = Darabonba::Core::merge(body,
@@ -273,53 +391,53 @@ GetIssuesResponse Client::getIssuesWithOptions(const GetIssuesRequest &tmpReq, c
   GetIssuesShrinkRequest request = GetIssuesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "Filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "Filter", "json"));
   }
 
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasBizModule()) {
-    body["BizModule"] = request.bizModule();
+    body["BizModule"] = request.getBizModule();
   }
 
   if (!!request.hasFilterShrink()) {
-    body["Filter"] = request.filterShrink();
+    body["Filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasOrderBy()) {
-    body["OrderBy"] = request.orderBy();
+    body["OrderBy"] = request.getOrderBy();
   }
 
   if (!!request.hasOrderType()) {
-    body["OrderType"] = request.orderType();
+    body["OrderType"] = request.getOrderType();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   if (!!request.hasPageIndex()) {
-    body["PageIndex"] = request.pageIndex();
+    body["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStatus()) {
-    body["Status"] = request.status();
+    body["Status"] = request.getStatus();
   }
 
   json bodyFlat = {};
   if (!!request.hasTimeRange()) {
-    bodyFlat["TimeRange"] = request.timeRange();
+    bodyFlat["TimeRange"] = request.getTimeRange();
   }
 
   body = Darabonba::Core::merge(body,
@@ -364,51 +482,51 @@ GetSymbolicFilesResponse Client::getSymbolicFilesWithOptions(const GetSymbolicFi
   request.validate();
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasAppVersion()) {
-    body["AppVersion"] = request.appVersion();
+    body["AppVersion"] = request.getAppVersion();
   }
 
   if (!!request.hasBuildId()) {
-    body["BuildId"] = request.buildId();
+    body["BuildId"] = request.getBuildId();
   }
 
   if (!!request.hasEndTime()) {
-    body["EndTime"] = request.endTime();
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasExportStatus()) {
-    body["ExportStatus"] = request.exportStatus();
+    body["ExportStatus"] = request.getExportStatus();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFileType()) {
-    body["FileType"] = request.fileType();
+    body["FileType"] = request.getFileType();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   if (!!request.hasPageIndex()) {
-    body["PageIndex"] = request.pageIndex();
+    body["PageIndex"] = request.getPageIndex();
   }
 
   if (!!request.hasPageSize()) {
-    body["PageSize"] = request.pageSize();
+    body["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasStartTime()) {
-    body["StartTime"] = request.startTime();
+    body["StartTime"] = request.getStartTime();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -440,6 +558,392 @@ GetSymbolicFilesResponse Client::getSymbolicFiles(const GetSymbolicFilesRequest 
 }
 
 /**
+ * @summary GetTlogCollectList
+ *
+ * @param request GetTlogCollectListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlogCollectListResponse
+ */
+GetTlogCollectListResponse Client::getTlogCollectListWithOptions(const GetTlogCollectListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasAppVersion()) {
+    body["AppVersion"] = request.getAppVersion();
+  }
+
+  if (!!request.hasAuthor()) {
+    body["Author"] = request.getAuthor();
+  }
+
+  if (!!request.hasBeginDate()) {
+    body["BeginDate"] = request.getBeginDate();
+  }
+
+  if (!!request.hasCity()) {
+    body["City"] = request.getCity();
+  }
+
+  if (!!request.hasCreateBeginDate()) {
+    body["CreateBeginDate"] = request.getCreateBeginDate();
+  }
+
+  if (!!request.hasCreateEndDate()) {
+    body["CreateEndDate"] = request.getCreateEndDate();
+  }
+
+  if (!!request.hasDeviceId()) {
+    body["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasOsVersion()) {
+    body["OsVersion"] = request.getOsVersion();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["PageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPositiveComment()) {
+    body["PositiveComment"] = request.getPositiveComment();
+  }
+
+  if (!!request.hasSourceType()) {
+    body["SourceType"] = request.getSourceType();
+  }
+
+  if (!!request.hasStatus()) {
+    body["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUpdateBeginDate()) {
+    body["UpdateBeginDate"] = request.getUpdateBeginDate();
+  }
+
+  if (!!request.hasUpdateEndDate()) {
+    body["UpdateEndDate"] = request.getUpdateEndDate();
+  }
+
+  if (!!request.hasUserNick()) {
+    body["UserNick"] = request.getUserNick();
+  }
+
+  if (!!request.hasUtdid()) {
+    body["Utdid"] = request.getUtdid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTlogCollectList"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlogCollectListResponse>();
+}
+
+/**
+ * @summary GetTlogCollectList
+ *
+ * @param request GetTlogCollectListRequest
+ * @return GetTlogCollectListResponse
+ */
+GetTlogCollectListResponse Client::getTlogCollectList(const GetTlogCollectListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlogCollectListWithOptions(request, runtime);
+}
+
+/**
+ * @summary TlogDeviceInfo
+ *
+ * @param request GetTlogDeviceInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlogDeviceInfoResponse
+ */
+GetTlogDeviceInfoResponse Client::getTlogDeviceInfoWithOptions(const GetTlogDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasDeviceId()) {
+    body["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTlogDeviceInfo"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlogDeviceInfoResponse>();
+}
+
+/**
+ * @summary TlogDeviceInfo
+ *
+ * @param request GetTlogDeviceInfoRequest
+ * @return GetTlogDeviceInfoResponse
+ */
+GetTlogDeviceInfoResponse Client::getTlogDeviceInfo(const GetTlogDeviceInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlogDeviceInfoWithOptions(request, runtime);
+}
+
+/**
+ * @summary GetTlogDeviceList
+ *
+ * @param request GetTlogDeviceListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlogDeviceListResponse
+ */
+GetTlogDeviceListResponse Client::getTlogDeviceListWithOptions(const GetTlogDeviceListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasAppVersion()) {
+    body["AppVersion"] = request.getAppVersion();
+  }
+
+  if (!!request.hasBeginDate()) {
+    body["BeginDate"] = request.getBeginDate();
+  }
+
+  if (!!request.hasBrand()) {
+    body["Brand"] = request.getBrand();
+  }
+
+  if (!!request.hasCity()) {
+    body["City"] = request.getCity();
+  }
+
+  if (!!request.hasCreateBeginDate()) {
+    body["CreateBeginDate"] = request.getCreateBeginDate();
+  }
+
+  if (!!request.hasCreateEndDate()) {
+    body["CreateEndDate"] = request.getCreateEndDate();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasOsVersion()) {
+    body["OsVersion"] = request.getOsVersion();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["PageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasUpdateBeginDate()) {
+    body["UpdateBeginDate"] = request.getUpdateBeginDate();
+  }
+
+  if (!!request.hasUpdateEndDate()) {
+    body["UpdateEndDate"] = request.getUpdateEndDate();
+  }
+
+  if (!!request.hasUserNick()) {
+    body["UserNick"] = request.getUserNick();
+  }
+
+  if (!!request.hasUtdid()) {
+    body["Utdid"] = request.getUtdid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTlogDeviceList"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlogDeviceListResponse>();
+}
+
+/**
+ * @summary GetTlogDeviceList
+ *
+ * @param request GetTlogDeviceListRequest
+ * @return GetTlogDeviceListResponse
+ */
+GetTlogDeviceListResponse Client::getTlogDeviceList(const GetTlogDeviceListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlogDeviceListWithOptions(request, runtime);
+}
+
+/**
+ * @summary GetTlogTaskCollections
+ *
+ * @param request GetTlogTaskCollectionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlogTaskCollectionsResponse
+ */
+GetTlogTaskCollectionsResponse Client::getTlogTaskCollectionsWithOptions(const GetTlogTaskCollectionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTlogTaskCollections"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlogTaskCollectionsResponse>();
+}
+
+/**
+ * @summary GetTlogTaskCollections
+ *
+ * @param request GetTlogTaskCollectionsRequest
+ * @return GetTlogTaskCollectionsResponse
+ */
+GetTlogTaskCollectionsResponse Client::getTlogTaskCollections(const GetTlogTaskCollectionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlogTaskCollectionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary GetTlogTaskInfo
+ *
+ * @param request GetTlogTaskInfoRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTlogTaskInfoResponse
+ */
+GetTlogTaskInfoResponse Client::getTlogTaskInfoWithOptions(const GetTlogTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTlogTaskInfo"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTlogTaskInfoResponse>();
+}
+
+/**
+ * @summary GetTlogTaskInfo
+ *
+ * @param request GetTlogTaskInfoRequest
+ * @return GetTlogTaskInfoResponse
+ */
+GetTlogTaskInfoResponse Client::getTlogTaskInfo(const GetTlogTaskInfoRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTlogTaskInfoWithOptions(request, runtime);
+}
+
+/**
  * @summary RequestUploadToken
  *
  * @param request RequestUploadTokenRequest
@@ -450,11 +954,11 @@ RequestUploadTokenResponse Client::requestUploadTokenWithOptions(const RequestUp
   request.validate();
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -486,6 +990,80 @@ RequestUploadTokenResponse Client::requestUploadToken(const RequestUploadTokenRe
 }
 
 /**
+ * @summary SearchTlog
+ *
+ * @param request SearchTlogRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchTlogResponse
+ */
+SearchTlogResponse Client::searchTlogWithOptions(const SearchTlogRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAppKey()) {
+    body["AppKey"] = request.getAppKey();
+  }
+
+  if (!!request.hasBeginDate()) {
+    body["BeginDate"] = request.getBeginDate();
+  }
+
+  if (!!request.hasDeviceId()) {
+    body["DeviceId"] = request.getDeviceId();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasKeyword()) {
+    body["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasLevelJson()) {
+    body["LevelJson"] = request.getLevelJson();
+  }
+
+  if (!!request.hasOs()) {
+    body["Os"] = request.getOs();
+  }
+
+  if (!!request.hasPageIndex()) {
+    body["PageIndex"] = request.getPageIndex();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "SearchTlog"},
+    {"version" , "2019-06-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchTlogResponse>();
+}
+
+/**
+ * @summary SearchTlog
+ *
+ * @param request SearchTlogRequest
+ * @return SearchTlogResponse
+ */
+SearchTlogResponse Client::searchTlog(const SearchTlogRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchTlogWithOptions(request, runtime);
+}
+
+/**
  * @summary SubmitSymbolic
  *
  * @param request SubmitSymbolicRequest
@@ -496,35 +1074,35 @@ SubmitSymbolicResponse Client::submitSymbolicWithOptions(const SubmitSymbolicReq
   request.validate();
   json body = {};
   if (!!request.hasAppKey()) {
-    body["AppKey"] = request.appKey();
+    body["AppKey"] = request.getAppKey();
   }
 
   if (!!request.hasAppVersion()) {
-    body["AppVersion"] = request.appVersion();
+    body["AppVersion"] = request.getAppVersion();
   }
 
   if (!!request.hasBuildId()) {
-    body["BuildId"] = request.buildId();
+    body["BuildId"] = request.getBuildId();
   }
 
   if (!!request.hasFileName()) {
-    body["FileName"] = request.fileName();
+    body["FileName"] = request.getFileName();
   }
 
   if (!!request.hasFilePath()) {
-    body["FilePath"] = request.filePath();
+    body["FilePath"] = request.getFilePath();
   }
 
   if (!!request.hasFileType()) {
-    body["FileType"] = request.fileType();
+    body["FileType"] = request.getFileType();
   }
 
   if (!!request.hasOs()) {
-    body["Os"] = request.os();
+    body["Os"] = request.getOs();
   }
 
   if (!!request.hasUuid()) {
-    body["Uuid"] = request.uuid();
+    body["Uuid"] = request.getUuid();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

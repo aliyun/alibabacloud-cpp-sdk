@@ -37,27 +37,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->key_ != nullptr
-        && this->operator_ != nullptr && this->subFilters_ != nullptr && this->values_ != nullptr; };
+    virtual bool empty() const override { return this->key_ == nullptr
+        && this->operator_ == nullptr && this->subFilters_ == nullptr && this->values_ == nullptr; };
     // key Field Functions 
     bool hasKey() const { return this->key_ != nullptr;};
     void deleteKey() { this->key_ = nullptr;};
-    inline string key() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
     inline Filter& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline Filter& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
     // subFilters Field Functions 
     bool hasSubFilters() const { return this->subFilters_ != nullptr;};
     void deleteSubFilters() { this->subFilters_ = nullptr;};
-    inline const vector<Filter> & subFilters() const { DARABONBA_PTR_GET_CONST(subFilters_, vector<Filter>) };
-    inline vector<Filter> subFilters() { DARABONBA_PTR_GET(subFilters_, vector<Filter>) };
+    inline const vector<Filter> & getSubFilters() const { DARABONBA_PTR_GET_CONST(subFilters_, vector<Filter>) };
+    inline vector<Filter> getSubFilters() { DARABONBA_PTR_GET(subFilters_, vector<Filter>) };
     inline Filter& setSubFilters(const vector<Filter> & subFilters) { DARABONBA_PTR_SET_VALUE(subFilters_, subFilters) };
     inline Filter& setSubFilters(vector<Filter> && subFilters) { DARABONBA_PTR_SET_RVALUE(subFilters_, subFilters) };
 
@@ -65,17 +65,21 @@ namespace Models
     // values Field Functions 
     bool hasValues() const { return this->values_ != nullptr;};
     void deleteValues() { this->values_ = nullptr;};
-    inline     const Darabonba::Json & values() const { DARABONBA_GET(values_) };
-    Darabonba::Json & values() { DARABONBA_GET(values_) };
+    inline     const Darabonba::Json & getValues() const { DARABONBA_GET(values_) };
+    Darabonba::Json & getValues() { DARABONBA_GET(values_) };
     inline Filter& setValues(const Darabonba::Json & values) { DARABONBA_SET_VALUE(values_, values) };
-    inline Filter& setValues(Darabonba::Json & values) { DARABONBA_SET_RVALUE(values_, values) };
+    inline Filter& setValues(Darabonba::Json && values) { DARABONBA_SET_RVALUE(values_, values) };
 
 
   protected:
-    std::shared_ptr<string> key_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
-    std::shared_ptr<vector<Filter>> subFilters_ = nullptr;
-    Darabonba::Json values_ = nullptr;
+    // key
+    shared_ptr<string> key_ {};
+    // operator
+    shared_ptr<string> operator_ {};
+    // subFillter
+    shared_ptr<vector<Filter>> subFilters_ {};
+    // values
+    Darabonba::Json values_ {};
   };
 
   } // namespace Models

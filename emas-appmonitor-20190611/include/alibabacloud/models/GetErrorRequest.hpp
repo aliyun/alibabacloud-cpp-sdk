@@ -43,62 +43,62 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appKey_ != nullptr
-        && this->bizModule_ != nullptr && this->clientTime_ != nullptr && this->did_ != nullptr && this->digestHash_ != nullptr && this->force_ != nullptr
-        && this->os_ != nullptr && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->appKey_ == nullptr
+        && this->bizModule_ == nullptr && this->clientTime_ == nullptr && this->did_ == nullptr && this->digestHash_ == nullptr && this->force_ == nullptr
+        && this->os_ == nullptr && this->uuid_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline GetErrorRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // bizModule Field Functions 
     bool hasBizModule() const { return this->bizModule_ != nullptr;};
     void deleteBizModule() { this->bizModule_ = nullptr;};
-    inline string bizModule() const { DARABONBA_PTR_GET_DEFAULT(bizModule_, "") };
+    inline string getBizModule() const { DARABONBA_PTR_GET_DEFAULT(bizModule_, "") };
     inline GetErrorRequest& setBizModule(string bizModule) { DARABONBA_PTR_SET_VALUE(bizModule_, bizModule) };
 
 
     // clientTime Field Functions 
     bool hasClientTime() const { return this->clientTime_ != nullptr;};
     void deleteClientTime() { this->clientTime_ = nullptr;};
-    inline int64_t clientTime() const { DARABONBA_PTR_GET_DEFAULT(clientTime_, 0L) };
+    inline int64_t getClientTime() const { DARABONBA_PTR_GET_DEFAULT(clientTime_, 0L) };
     inline GetErrorRequest& setClientTime(int64_t clientTime) { DARABONBA_PTR_SET_VALUE(clientTime_, clientTime) };
 
 
     // did Field Functions 
     bool hasDid() const { return this->did_ != nullptr;};
     void deleteDid() { this->did_ = nullptr;};
-    inline string did() const { DARABONBA_PTR_GET_DEFAULT(did_, "") };
+    inline string getDid() const { DARABONBA_PTR_GET_DEFAULT(did_, "") };
     inline GetErrorRequest& setDid(string did) { DARABONBA_PTR_SET_VALUE(did_, did) };
 
 
     // digestHash Field Functions 
     bool hasDigestHash() const { return this->digestHash_ != nullptr;};
     void deleteDigestHash() { this->digestHash_ = nullptr;};
-    inline string digestHash() const { DARABONBA_PTR_GET_DEFAULT(digestHash_, "") };
+    inline string getDigestHash() const { DARABONBA_PTR_GET_DEFAULT(digestHash_, "") };
     inline GetErrorRequest& setDigestHash(string digestHash) { DARABONBA_PTR_SET_VALUE(digestHash_, digestHash) };
 
 
     // force Field Functions 
     bool hasForce() const { return this->force_ != nullptr;};
     void deleteForce() { this->force_ = nullptr;};
-    inline bool force() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
+    inline bool getForce() const { DARABONBA_PTR_GET_DEFAULT(force_, false) };
     inline GetErrorRequest& setForce(bool force) { DARABONBA_PTR_SET_VALUE(force_, force) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline GetErrorRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline GetErrorRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -106,15 +106,15 @@ namespace Models
     // appKey
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
-    std::shared_ptr<string> bizModule_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
+    shared_ptr<string> bizModule_ {};
     // This parameter is required.
-    std::shared_ptr<int64_t> clientTime_ = nullptr;
-    std::shared_ptr<string> did_ = nullptr;
-    std::shared_ptr<string> digestHash_ = nullptr;
-    std::shared_ptr<bool> force_ = nullptr;
-    std::shared_ptr<string> os_ = nullptr;
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<int64_t> clientTime_ {};
+    shared_ptr<string> did_ {};
+    shared_ptr<string> digestHash_ {};
+    shared_ptr<bool> force_ {};
+    shared_ptr<string> os_ {};
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

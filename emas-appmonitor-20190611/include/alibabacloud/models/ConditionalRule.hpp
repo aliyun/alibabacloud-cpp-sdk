@@ -38,13 +38,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filter_ != nullptr
-        && this->modifyTime_ != nullptr && this->name_ != nullptr && this->operator_ != nullptr && this->sampleRate_ != nullptr; };
+    virtual bool empty() const override { return this->filter_ == nullptr
+        && this->modifyTime_ == nullptr && this->name_ == nullptr && this->operator_ == nullptr && this->sampleRate_ == nullptr; };
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline const EventFilter & filter() const { DARABONBA_PTR_GET_CONST(filter_, EventFilter) };
-    inline EventFilter filter() { DARABONBA_PTR_GET(filter_, EventFilter) };
+    inline const EventFilter & getFilter() const { DARABONBA_PTR_GET_CONST(filter_, EventFilter) };
+    inline EventFilter getFilter() { DARABONBA_PTR_GET(filter_, EventFilter) };
     inline ConditionalRule& setFilter(const EventFilter & filter) { DARABONBA_PTR_SET_VALUE(filter_, filter) };
     inline ConditionalRule& setFilter(EventFilter && filter) { DARABONBA_PTR_SET_RVALUE(filter_, filter) };
 
@@ -52,37 +52,37 @@ namespace Models
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline ConditionalRule& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline ConditionalRule& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline ConditionalRule& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
     // sampleRate Field Functions 
     bool hasSampleRate() const { return this->sampleRate_ != nullptr;};
     void deleteSampleRate() { this->sampleRate_ = nullptr;};
-    inline float sampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
+    inline float getSampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
     inline ConditionalRule& setSampleRate(float sampleRate) { DARABONBA_PTR_SET_VALUE(sampleRate_, sampleRate) };
 
 
   protected:
-    std::shared_ptr<EventFilter> filter_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
-    std::shared_ptr<float> sampleRate_ = nullptr;
+    shared_ptr<EventFilter> filter_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> name_ {};
+    shared_ptr<string> operator_ {};
+    shared_ptr<float> sampleRate_ {};
   };
 
   } // namespace Models

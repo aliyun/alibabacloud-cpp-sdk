@@ -51,91 +51,91 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appKey_ != nullptr
-        && this->appVersion_ != nullptr && this->buildId_ != nullptr && this->endTime_ != nullptr && this->exportStatus_ != nullptr && this->fileName_ != nullptr
-        && this->fileType_ != nullptr && this->os_ != nullptr && this->pageIndex_ != nullptr && this->pageSize_ != nullptr && this->startTime_ != nullptr
-        && this->uuid_ != nullptr; };
+    virtual bool empty() const override { return this->appKey_ == nullptr
+        && this->appVersion_ == nullptr && this->buildId_ == nullptr && this->endTime_ == nullptr && this->exportStatus_ == nullptr && this->fileName_ == nullptr
+        && this->fileType_ == nullptr && this->os_ == nullptr && this->pageIndex_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr
+        && this->uuid_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline GetSymbolicFilesRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // appVersion Field Functions 
     bool hasAppVersion() const { return this->appVersion_ != nullptr;};
     void deleteAppVersion() { this->appVersion_ = nullptr;};
-    inline string appVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
+    inline string getAppVersion() const { DARABONBA_PTR_GET_DEFAULT(appVersion_, "") };
     inline GetSymbolicFilesRequest& setAppVersion(string appVersion) { DARABONBA_PTR_SET_VALUE(appVersion_, appVersion) };
 
 
     // buildId Field Functions 
     bool hasBuildId() const { return this->buildId_ != nullptr;};
     void deleteBuildId() { this->buildId_ = nullptr;};
-    inline string buildId() const { DARABONBA_PTR_GET_DEFAULT(buildId_, "") };
+    inline string getBuildId() const { DARABONBA_PTR_GET_DEFAULT(buildId_, "") };
     inline GetSymbolicFilesRequest& setBuildId(string buildId) { DARABONBA_PTR_SET_VALUE(buildId_, buildId) };
 
 
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
-    inline int64_t endTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
     inline GetSymbolicFilesRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // exportStatus Field Functions 
     bool hasExportStatus() const { return this->exportStatus_ != nullptr;};
     void deleteExportStatus() { this->exportStatus_ = nullptr;};
-    inline string exportStatus() const { DARABONBA_PTR_GET_DEFAULT(exportStatus_, "") };
+    inline string getExportStatus() const { DARABONBA_PTR_GET_DEFAULT(exportStatus_, "") };
     inline GetSymbolicFilesRequest& setExportStatus(string exportStatus) { DARABONBA_PTR_SET_VALUE(exportStatus_, exportStatus) };
 
 
     // fileName Field Functions 
     bool hasFileName() const { return this->fileName_ != nullptr;};
     void deleteFileName() { this->fileName_ = nullptr;};
-    inline string fileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
+    inline string getFileName() const { DARABONBA_PTR_GET_DEFAULT(fileName_, "") };
     inline GetSymbolicFilesRequest& setFileName(string fileName) { DARABONBA_PTR_SET_VALUE(fileName_, fileName) };
 
 
     // fileType Field Functions 
     bool hasFileType() const { return this->fileType_ != nullptr;};
     void deleteFileType() { this->fileType_ = nullptr;};
-    inline string fileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
+    inline string getFileType() const { DARABONBA_PTR_GET_DEFAULT(fileType_, "") };
     inline GetSymbolicFilesRequest& setFileType(string fileType) { DARABONBA_PTR_SET_VALUE(fileType_, fileType) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline GetSymbolicFilesRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
     // pageIndex Field Functions 
     bool hasPageIndex() const { return this->pageIndex_ != nullptr;};
     void deletePageIndex() { this->pageIndex_ = nullptr;};
-    inline int32_t pageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
+    inline int32_t getPageIndex() const { DARABONBA_PTR_GET_DEFAULT(pageIndex_, 0) };
     inline GetSymbolicFilesRequest& setPageIndex(int32_t pageIndex) { DARABONBA_PTR_SET_VALUE(pageIndex_, pageIndex) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetSymbolicFilesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int64_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
     inline GetSymbolicFilesRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
-    inline string uuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
+    inline string getUuid() const { DARABONBA_PTR_GET_DEFAULT(uuid_, "") };
     inline GetSymbolicFilesRequest& setUuid(string uuid) { DARABONBA_PTR_SET_VALUE(uuid_, uuid) };
 
 
@@ -143,23 +143,23 @@ namespace Models
     // appKey
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
-    std::shared_ptr<string> appVersion_ = nullptr;
-    std::shared_ptr<string> buildId_ = nullptr;
-    std::shared_ptr<int64_t> endTime_ = nullptr;
-    std::shared_ptr<string> exportStatus_ = nullptr;
-    std::shared_ptr<string> fileName_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
+    shared_ptr<string> appVersion_ {};
+    shared_ptr<string> buildId_ {};
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> exportStatus_ {};
+    shared_ptr<string> fileName_ {};
     // This parameter is required.
-    std::shared_ptr<string> fileType_ = nullptr;
+    shared_ptr<string> fileType_ {};
     // This parameter is required.
-    std::shared_ptr<string> os_ = nullptr;
+    shared_ptr<string> os_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageIndex_ = nullptr;
+    shared_ptr<int32_t> pageIndex_ {};
     // This parameter is required.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    std::shared_ptr<int64_t> startTime_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> startTime_ {};
     // uuid
-    std::shared_ptr<string> uuid_ = nullptr;
+    shared_ptr<string> uuid_ {};
   };
 
   } // namespace Models

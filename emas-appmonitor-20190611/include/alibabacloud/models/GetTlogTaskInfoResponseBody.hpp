@@ -1,0 +1,90 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETTLOGTASKINFORESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETTLOGTASKINFORESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace EmasAppmonitor20190611
+{
+namespace Models
+{
+  class GetTlogTaskInfoResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetTlogTaskInfoResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_ANY_TO_JSON(Model, model_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetTlogTaskInfoResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_ANY_FROM_JSON(Model, model_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    GetTlogTaskInfoResponseBody() = default ;
+    GetTlogTaskInfoResponseBody(const GetTlogTaskInfoResponseBody &) = default ;
+    GetTlogTaskInfoResponseBody(GetTlogTaskInfoResponseBody &&) = default ;
+    GetTlogTaskInfoResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetTlogTaskInfoResponseBody() = default ;
+    GetTlogTaskInfoResponseBody& operator=(const GetTlogTaskInfoResponseBody &) = default ;
+    GetTlogTaskInfoResponseBody& operator=(GetTlogTaskInfoResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->errorCode_ == nullptr
+        && this->message_ == nullptr && this->model_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // errorCode Field Functions 
+    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
+    void deleteErrorCode() { this->errorCode_ = nullptr;};
+    inline int64_t getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, 0L) };
+    inline GetTlogTaskInfoResponseBody& setErrorCode(int64_t errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline GetTlogTaskInfoResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // model Field Functions 
+    bool hasModel() const { return this->model_ != nullptr;};
+    void deleteModel() { this->model_ = nullptr;};
+    inline     const Darabonba::Json & getModel() const { DARABONBA_GET(model_) };
+    Darabonba::Json & getModel() { DARABONBA_GET(model_) };
+    inline GetTlogTaskInfoResponseBody& setModel(const Darabonba::Json & model) { DARABONBA_SET_VALUE(model_, model) };
+    inline GetTlogTaskInfoResponseBody& setModel(Darabonba::Json && model) { DARABONBA_SET_RVALUE(model_, model) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GetTlogTaskInfoResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline GetTlogTaskInfoResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    shared_ptr<int64_t> errorCode_ {};
+    shared_ptr<string> message_ {};
+    Darabonba::Json model_ {};
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace EmasAppmonitor20190611
+#endif

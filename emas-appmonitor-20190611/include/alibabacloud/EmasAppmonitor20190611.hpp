@@ -21,6 +21,23 @@ namespace EmasAppmonitor20190611
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary CreateTlogTask
+       *
+       * @param request CreateTlogTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTlogTaskResponse
+       */
+      Models::CreateTlogTaskResponse createTlogTaskWithOptions(const Models::CreateTlogTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary CreateTlogTask
+       *
+       * @param request CreateTlogTaskRequest
+       * @return CreateTlogTaskResponse
+       */
+      Models::CreateTlogTaskResponse createTlogTask(const Models::CreateTlogTaskRequest &request);
+
+      /**
        * @summary 获取错误事件详情
        *
        * @param request GetErrorRequest
@@ -106,6 +123,91 @@ namespace EmasAppmonitor20190611
       Models::GetSymbolicFilesResponse getSymbolicFiles(const Models::GetSymbolicFilesRequest &request);
 
       /**
+       * @summary GetTlogCollectList
+       *
+       * @param request GetTlogCollectListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlogCollectListResponse
+       */
+      Models::GetTlogCollectListResponse getTlogCollectListWithOptions(const Models::GetTlogCollectListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTlogCollectList
+       *
+       * @param request GetTlogCollectListRequest
+       * @return GetTlogCollectListResponse
+       */
+      Models::GetTlogCollectListResponse getTlogCollectList(const Models::GetTlogCollectListRequest &request);
+
+      /**
+       * @summary TlogDeviceInfo
+       *
+       * @param request GetTlogDeviceInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlogDeviceInfoResponse
+       */
+      Models::GetTlogDeviceInfoResponse getTlogDeviceInfoWithOptions(const Models::GetTlogDeviceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TlogDeviceInfo
+       *
+       * @param request GetTlogDeviceInfoRequest
+       * @return GetTlogDeviceInfoResponse
+       */
+      Models::GetTlogDeviceInfoResponse getTlogDeviceInfo(const Models::GetTlogDeviceInfoRequest &request);
+
+      /**
+       * @summary GetTlogDeviceList
+       *
+       * @param request GetTlogDeviceListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlogDeviceListResponse
+       */
+      Models::GetTlogDeviceListResponse getTlogDeviceListWithOptions(const Models::GetTlogDeviceListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTlogDeviceList
+       *
+       * @param request GetTlogDeviceListRequest
+       * @return GetTlogDeviceListResponse
+       */
+      Models::GetTlogDeviceListResponse getTlogDeviceList(const Models::GetTlogDeviceListRequest &request);
+
+      /**
+       * @summary GetTlogTaskCollections
+       *
+       * @param request GetTlogTaskCollectionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlogTaskCollectionsResponse
+       */
+      Models::GetTlogTaskCollectionsResponse getTlogTaskCollectionsWithOptions(const Models::GetTlogTaskCollectionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTlogTaskCollections
+       *
+       * @param request GetTlogTaskCollectionsRequest
+       * @return GetTlogTaskCollectionsResponse
+       */
+      Models::GetTlogTaskCollectionsResponse getTlogTaskCollections(const Models::GetTlogTaskCollectionsRequest &request);
+
+      /**
+       * @summary GetTlogTaskInfo
+       *
+       * @param request GetTlogTaskInfoRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTlogTaskInfoResponse
+       */
+      Models::GetTlogTaskInfoResponse getTlogTaskInfoWithOptions(const Models::GetTlogTaskInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetTlogTaskInfo
+       *
+       * @param request GetTlogTaskInfoRequest
+       * @return GetTlogTaskInfoResponse
+       */
+      Models::GetTlogTaskInfoResponse getTlogTaskInfo(const Models::GetTlogTaskInfoRequest &request);
+
+      /**
        * @summary RequestUploadToken
        *
        * @param request RequestUploadTokenRequest
@@ -121,6 +223,23 @@ namespace EmasAppmonitor20190611
        * @return RequestUploadTokenResponse
        */
       Models::RequestUploadTokenResponse requestUploadToken(const Models::RequestUploadTokenRequest &request);
+
+      /**
+       * @summary SearchTlog
+       *
+       * @param request SearchTlogRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchTlogResponse
+       */
+      Models::SearchTlogResponse searchTlogWithOptions(const Models::SearchTlogRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SearchTlog
+       *
+       * @param request SearchTlogRequest
+       * @return SearchTlogResponse
+       */
+      Models::SearchTlogResponse searchTlog(const Models::SearchTlogRequest &request);
 
       /**
        * @summary SubmitSymbolic

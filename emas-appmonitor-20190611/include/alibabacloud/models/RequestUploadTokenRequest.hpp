@@ -31,19 +31,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->appKey_ != nullptr
-        && this->os_ != nullptr; };
+    virtual bool empty() const override { return this->appKey_ == nullptr
+        && this->os_ == nullptr; };
     // appKey Field Functions 
     bool hasAppKey() const { return this->appKey_ != nullptr;};
     void deleteAppKey() { this->appKey_ = nullptr;};
-    inline int64_t appKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
+    inline int64_t getAppKey() const { DARABONBA_PTR_GET_DEFAULT(appKey_, 0L) };
     inline RequestUploadTokenRequest& setAppKey(int64_t appKey) { DARABONBA_PTR_SET_VALUE(appKey_, appKey) };
 
 
     // os Field Functions 
     bool hasOs() const { return this->os_ != nullptr;};
     void deleteOs() { this->os_ = nullptr;};
-    inline string os() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
+    inline string getOs() const { DARABONBA_PTR_GET_DEFAULT(os_, "") };
     inline RequestUploadTokenRequest& setOs(string os) { DARABONBA_PTR_SET_VALUE(os_, os) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // appKey
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> appKey_ = nullptr;
+    shared_ptr<int64_t> appKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> os_ = nullptr;
+    shared_ptr<string> os_ {};
   };
 
   } // namespace Models

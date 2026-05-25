@@ -41,13 +41,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->conditional_ != nullptr
-        && this->enable_ != nullptr && this->eventId_ != nullptr && this->modifyTime_ != nullptr && this->operator_ != nullptr && this->sampleRate_ != nullptr; };
+    virtual bool empty() const override { return this->conditional_ == nullptr
+        && this->enable_ == nullptr && this->eventId_ == nullptr && this->modifyTime_ == nullptr && this->operator_ == nullptr && this->sampleRate_ == nullptr; };
     // conditional Field Functions 
     bool hasConditional() const { return this->conditional_ != nullptr;};
     void deleteConditional() { this->conditional_ = nullptr;};
-    inline const vector<ConditionalRule> & conditional() const { DARABONBA_PTR_GET_CONST(conditional_, vector<ConditionalRule>) };
-    inline vector<ConditionalRule> conditional() { DARABONBA_PTR_GET(conditional_, vector<ConditionalRule>) };
+    inline const vector<ConditionalRule> & getConditional() const { DARABONBA_PTR_GET_CONST(conditional_, vector<ConditionalRule>) };
+    inline vector<ConditionalRule> getConditional() { DARABONBA_PTR_GET(conditional_, vector<ConditionalRule>) };
     inline EventRule& setConditional(const vector<ConditionalRule> & conditional) { DARABONBA_PTR_SET_VALUE(conditional_, conditional) };
     inline EventRule& setConditional(vector<ConditionalRule> && conditional) { DARABONBA_PTR_SET_RVALUE(conditional_, conditional) };
 
@@ -55,45 +55,45 @@ namespace Models
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
-    inline bool enable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+    inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline EventRule& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
 
 
     // eventId Field Functions 
     bool hasEventId() const { return this->eventId_ != nullptr;};
     void deleteEventId() { this->eventId_ = nullptr;};
-    inline string eventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
+    inline string getEventId() const { DARABONBA_PTR_GET_DEFAULT(eventId_, "") };
     inline EventRule& setEventId(string eventId) { DARABONBA_PTR_SET_VALUE(eventId_, eventId) };
 
 
     // modifyTime Field Functions 
     bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
     void deleteModifyTime() { this->modifyTime_ = nullptr;};
-    inline string modifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+    inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
     inline EventRule& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
     // operator Field Functions 
     bool hasOperator() const { return this->operator_ != nullptr;};
     void deleteOperator() { this->operator_ = nullptr;};
-    inline string _operator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+    inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
     inline EventRule& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
 
 
     // sampleRate Field Functions 
     bool hasSampleRate() const { return this->sampleRate_ != nullptr;};
     void deleteSampleRate() { this->sampleRate_ = nullptr;};
-    inline float sampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
+    inline float getSampleRate() const { DARABONBA_PTR_GET_DEFAULT(sampleRate_, 0.0) };
     inline EventRule& setSampleRate(float sampleRate) { DARABONBA_PTR_SET_VALUE(sampleRate_, sampleRate) };
 
 
   protected:
-    std::shared_ptr<vector<ConditionalRule>> conditional_ = nullptr;
-    std::shared_ptr<bool> enable_ = nullptr;
-    std::shared_ptr<string> eventId_ = nullptr;
-    std::shared_ptr<string> modifyTime_ = nullptr;
-    std::shared_ptr<string> operator_ = nullptr;
-    std::shared_ptr<float> sampleRate_ = nullptr;
+    shared_ptr<vector<ConditionalRule>> conditional_ {};
+    shared_ptr<bool> enable_ {};
+    shared_ptr<string> eventId_ {};
+    shared_ptr<string> modifyTime_ {};
+    shared_ptr<string> operator_ {};
+    shared_ptr<float> sampleRate_ {};
   };
 
   } // namespace Models
