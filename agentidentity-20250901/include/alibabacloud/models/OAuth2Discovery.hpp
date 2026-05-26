@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationServerMetadata_ == nullptr
-        && return this->discoveryURL_ == nullptr; };
+        && this->discoveryURL_ == nullptr; };
     // authorizationServerMetadata Field Functions 
     bool hasAuthorizationServerMetadata() const { return this->authorizationServerMetadata_ != nullptr;};
     void deleteAuthorizationServerMetadata() { this->authorizationServerMetadata_ = nullptr;};
-    inline const AuthorizationServerMetadata & authorizationServerMetadata() const { DARABONBA_PTR_GET_CONST(authorizationServerMetadata_, AuthorizationServerMetadata) };
-    inline AuthorizationServerMetadata authorizationServerMetadata() { DARABONBA_PTR_GET(authorizationServerMetadata_, AuthorizationServerMetadata) };
+    inline const AuthorizationServerMetadata & getAuthorizationServerMetadata() const { DARABONBA_PTR_GET_CONST(authorizationServerMetadata_, AuthorizationServerMetadata) };
+    inline AuthorizationServerMetadata getAuthorizationServerMetadata() { DARABONBA_PTR_GET(authorizationServerMetadata_, AuthorizationServerMetadata) };
     inline OAuth2Discovery& setAuthorizationServerMetadata(const AuthorizationServerMetadata & authorizationServerMetadata) { DARABONBA_PTR_SET_VALUE(authorizationServerMetadata_, authorizationServerMetadata) };
     inline OAuth2Discovery& setAuthorizationServerMetadata(AuthorizationServerMetadata && authorizationServerMetadata) { DARABONBA_PTR_SET_RVALUE(authorizationServerMetadata_, authorizationServerMetadata) };
 
@@ -46,13 +46,13 @@ namespace Models
     // discoveryURL Field Functions 
     bool hasDiscoveryURL() const { return this->discoveryURL_ != nullptr;};
     void deleteDiscoveryURL() { this->discoveryURL_ = nullptr;};
-    inline string discoveryURL() const { DARABONBA_PTR_GET_DEFAULT(discoveryURL_, "") };
+    inline string getDiscoveryURL() const { DARABONBA_PTR_GET_DEFAULT(discoveryURL_, "") };
     inline OAuth2Discovery& setDiscoveryURL(string discoveryURL) { DARABONBA_PTR_SET_VALUE(discoveryURL_, discoveryURL) };
 
 
   protected:
-    std::shared_ptr<AuthorizationServerMetadata> authorizationServerMetadata_ = nullptr;
-    std::shared_ptr<string> discoveryURL_ = nullptr;
+    shared_ptr<AuthorizationServerMetadata> authorizationServerMetadata_ {};
+    shared_ptr<string> discoveryURL_ {};
   };
 
   } // namespace Models

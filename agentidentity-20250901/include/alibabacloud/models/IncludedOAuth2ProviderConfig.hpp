@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationEndpoint_ == nullptr
-        && return this->clientId_ == nullptr && return this->clientSecret_ == nullptr && return this->tokenEndpoint_ == nullptr; };
+        && this->clientId_ == nullptr && this->clientSecret_ == nullptr && this->tokenEndpoint_ == nullptr; };
     // authorizationEndpoint Field Functions 
     bool hasAuthorizationEndpoint() const { return this->authorizationEndpoint_ != nullptr;};
     void deleteAuthorizationEndpoint() { this->authorizationEndpoint_ = nullptr;};
-    inline string authorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
+    inline string getAuthorizationEndpoint() const { DARABONBA_PTR_GET_DEFAULT(authorizationEndpoint_, "") };
     inline IncludedOAuth2ProviderConfig& setAuthorizationEndpoint(string authorizationEndpoint) { DARABONBA_PTR_SET_VALUE(authorizationEndpoint_, authorizationEndpoint) };
 
 
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline IncludedOAuth2ProviderConfig& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientSecret Field Functions 
     bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
     void deleteClientSecret() { this->clientSecret_ = nullptr;};
-    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline string getClientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
     inline IncludedOAuth2ProviderConfig& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
 
 
     // tokenEndpoint Field Functions 
     bool hasTokenEndpoint() const { return this->tokenEndpoint_ != nullptr;};
     void deleteTokenEndpoint() { this->tokenEndpoint_ = nullptr;};
-    inline string tokenEndpoint() const { DARABONBA_PTR_GET_DEFAULT(tokenEndpoint_, "") };
+    inline string getTokenEndpoint() const { DARABONBA_PTR_GET_DEFAULT(tokenEndpoint_, "") };
     inline IncludedOAuth2ProviderConfig& setTokenEndpoint(string tokenEndpoint) { DARABONBA_PTR_SET_VALUE(tokenEndpoint_, tokenEndpoint) };
 
 
   protected:
-    std::shared_ptr<string> authorizationEndpoint_ = nullptr;
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientSecret_ = nullptr;
-    std::shared_ptr<string> tokenEndpoint_ = nullptr;
+    shared_ptr<string> authorizationEndpoint_ {};
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientSecret_ {};
+    shared_ptr<string> tokenEndpoint_ {};
   };
 
   } // namespace Models

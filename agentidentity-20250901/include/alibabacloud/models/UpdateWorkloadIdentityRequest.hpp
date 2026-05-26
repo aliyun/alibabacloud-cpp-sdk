@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(IdentityProviderName, identityProviderName_);
       DARABONBA_PTR_TO_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_TO_JSON(SessionBindingEnabled, sessionBindingEnabled_);
       DARABONBA_PTR_TO_JSON(WorkloadIdentityName, workloadIdentityName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateWorkloadIdentityRequest& obj) { 
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(IdentityProviderName, identityProviderName_);
       DARABONBA_PTR_FROM_JSON(RoleArn, roleArn_);
+      DARABONBA_PTR_FROM_JSON(SessionBindingEnabled, sessionBindingEnabled_);
       DARABONBA_PTR_FROM_JSON(WorkloadIdentityName, workloadIdentityName_);
     };
     UpdateWorkloadIdentityRequest() = default ;
@@ -39,12 +41,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowedResourceOAuth2ReturnURLs_ == nullptr
-        && return this->description_ == nullptr && return this->identityProviderName_ == nullptr && return this->roleArn_ == nullptr && return this->workloadIdentityName_ == nullptr; };
+        && this->description_ == nullptr && this->identityProviderName_ == nullptr && this->roleArn_ == nullptr && this->sessionBindingEnabled_ == nullptr && this->workloadIdentityName_ == nullptr; };
     // allowedResourceOAuth2ReturnURLs Field Functions 
     bool hasAllowedResourceOAuth2ReturnURLs() const { return this->allowedResourceOAuth2ReturnURLs_ != nullptr;};
     void deleteAllowedResourceOAuth2ReturnURLs() { this->allowedResourceOAuth2ReturnURLs_ = nullptr;};
-    inline const vector<string> & allowedResourceOAuth2ReturnURLs() const { DARABONBA_PTR_GET_CONST(allowedResourceOAuth2ReturnURLs_, vector<string>) };
-    inline vector<string> allowedResourceOAuth2ReturnURLs() { DARABONBA_PTR_GET(allowedResourceOAuth2ReturnURLs_, vector<string>) };
+    inline const vector<string> & getAllowedResourceOAuth2ReturnURLs() const { DARABONBA_PTR_GET_CONST(allowedResourceOAuth2ReturnURLs_, vector<string>) };
+    inline vector<string> getAllowedResourceOAuth2ReturnURLs() { DARABONBA_PTR_GET(allowedResourceOAuth2ReturnURLs_, vector<string>) };
     inline UpdateWorkloadIdentityRequest& setAllowedResourceOAuth2ReturnURLs(const vector<string> & allowedResourceOAuth2ReturnURLs) { DARABONBA_PTR_SET_VALUE(allowedResourceOAuth2ReturnURLs_, allowedResourceOAuth2ReturnURLs) };
     inline UpdateWorkloadIdentityRequest& setAllowedResourceOAuth2ReturnURLs(vector<string> && allowedResourceOAuth2ReturnURLs) { DARABONBA_PTR_SET_RVALUE(allowedResourceOAuth2ReturnURLs_, allowedResourceOAuth2ReturnURLs) };
 
@@ -52,37 +54,45 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateWorkloadIdentityRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // identityProviderName Field Functions 
     bool hasIdentityProviderName() const { return this->identityProviderName_ != nullptr;};
     void deleteIdentityProviderName() { this->identityProviderName_ = nullptr;};
-    inline string identityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
+    inline string getIdentityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
     inline UpdateWorkloadIdentityRequest& setIdentityProviderName(string identityProviderName) { DARABONBA_PTR_SET_VALUE(identityProviderName_, identityProviderName) };
 
 
     // roleArn Field Functions 
     bool hasRoleArn() const { return this->roleArn_ != nullptr;};
     void deleteRoleArn() { this->roleArn_ = nullptr;};
-    inline string roleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
+    inline string getRoleArn() const { DARABONBA_PTR_GET_DEFAULT(roleArn_, "") };
     inline UpdateWorkloadIdentityRequest& setRoleArn(string roleArn) { DARABONBA_PTR_SET_VALUE(roleArn_, roleArn) };
+
+
+    // sessionBindingEnabled Field Functions 
+    bool hasSessionBindingEnabled() const { return this->sessionBindingEnabled_ != nullptr;};
+    void deleteSessionBindingEnabled() { this->sessionBindingEnabled_ = nullptr;};
+    inline string getSessionBindingEnabled() const { DARABONBA_PTR_GET_DEFAULT(sessionBindingEnabled_, "") };
+    inline UpdateWorkloadIdentityRequest& setSessionBindingEnabled(string sessionBindingEnabled) { DARABONBA_PTR_SET_VALUE(sessionBindingEnabled_, sessionBindingEnabled) };
 
 
     // workloadIdentityName Field Functions 
     bool hasWorkloadIdentityName() const { return this->workloadIdentityName_ != nullptr;};
     void deleteWorkloadIdentityName() { this->workloadIdentityName_ = nullptr;};
-    inline string workloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
+    inline string getWorkloadIdentityName() const { DARABONBA_PTR_GET_DEFAULT(workloadIdentityName_, "") };
     inline UpdateWorkloadIdentityRequest& setWorkloadIdentityName(string workloadIdentityName) { DARABONBA_PTR_SET_VALUE(workloadIdentityName_, workloadIdentityName) };
 
 
   protected:
-    std::shared_ptr<vector<string>> allowedResourceOAuth2ReturnURLs_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> identityProviderName_ = nullptr;
-    std::shared_ptr<string> roleArn_ = nullptr;
-    std::shared_ptr<string> workloadIdentityName_ = nullptr;
+    shared_ptr<vector<string>> allowedResourceOAuth2ReturnURLs_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> identityProviderName_ {};
+    shared_ptr<string> roleArn_ {};
+    shared_ptr<string> sessionBindingEnabled_ {};
+    shared_ptr<string> workloadIdentityName_ {};
   };
 
   } // namespace Models

@@ -37,12 +37,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowedAudience_ == nullptr
-        && return this->description_ == nullptr && return this->discoveryURL_ == nullptr && return this->identityProviderName_ == nullptr; };
+        && this->description_ == nullptr && this->discoveryURL_ == nullptr && this->identityProviderName_ == nullptr; };
     // allowedAudience Field Functions 
     bool hasAllowedAudience() const { return this->allowedAudience_ != nullptr;};
     void deleteAllowedAudience() { this->allowedAudience_ = nullptr;};
-    inline const vector<string> & allowedAudience() const { DARABONBA_PTR_GET_CONST(allowedAudience_, vector<string>) };
-    inline vector<string> allowedAudience() { DARABONBA_PTR_GET(allowedAudience_, vector<string>) };
+    inline const vector<string> & getAllowedAudience() const { DARABONBA_PTR_GET_CONST(allowedAudience_, vector<string>) };
+    inline vector<string> getAllowedAudience() { DARABONBA_PTR_GET(allowedAudience_, vector<string>) };
     inline UpdateIdentityProviderRequest& setAllowedAudience(const vector<string> & allowedAudience) { DARABONBA_PTR_SET_VALUE(allowedAudience_, allowedAudience) };
     inline UpdateIdentityProviderRequest& setAllowedAudience(vector<string> && allowedAudience) { DARABONBA_PTR_SET_RVALUE(allowedAudience_, allowedAudience) };
 
@@ -50,29 +50,29 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateIdentityProviderRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // discoveryURL Field Functions 
     bool hasDiscoveryURL() const { return this->discoveryURL_ != nullptr;};
     void deleteDiscoveryURL() { this->discoveryURL_ = nullptr;};
-    inline string discoveryURL() const { DARABONBA_PTR_GET_DEFAULT(discoveryURL_, "") };
+    inline string getDiscoveryURL() const { DARABONBA_PTR_GET_DEFAULT(discoveryURL_, "") };
     inline UpdateIdentityProviderRequest& setDiscoveryURL(string discoveryURL) { DARABONBA_PTR_SET_VALUE(discoveryURL_, discoveryURL) };
 
 
     // identityProviderName Field Functions 
     bool hasIdentityProviderName() const { return this->identityProviderName_ != nullptr;};
     void deleteIdentityProviderName() { this->identityProviderName_ = nullptr;};
-    inline string identityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
+    inline string getIdentityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
     inline UpdateIdentityProviderRequest& setIdentityProviderName(string identityProviderName) { DARABONBA_PTR_SET_VALUE(identityProviderName_, identityProviderName) };
 
 
   protected:
-    std::shared_ptr<vector<string>> allowedAudience_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<string> discoveryURL_ = nullptr;
-    std::shared_ptr<string> identityProviderName_ = nullptr;
+    shared_ptr<vector<string>> allowedAudience_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<string> discoveryURL_ {};
+    shared_ptr<string> identityProviderName_ {};
   };
 
   } // namespace Models

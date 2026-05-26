@@ -35,34 +35,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientId_ == nullptr
-        && return this->clientSecret_ == nullptr && return this->OAuth2Discovery_ == nullptr; };
+        && this->clientSecret_ == nullptr && this->OAuth2Discovery_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
-    inline string clientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
+    inline string getClientId() const { DARABONBA_PTR_GET_DEFAULT(clientId_, "") };
     inline CustomOAuth2ProviderConfig& setClientId(string clientId) { DARABONBA_PTR_SET_VALUE(clientId_, clientId) };
 
 
     // clientSecret Field Functions 
     bool hasClientSecret() const { return this->clientSecret_ != nullptr;};
     void deleteClientSecret() { this->clientSecret_ = nullptr;};
-    inline string clientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
+    inline string getClientSecret() const { DARABONBA_PTR_GET_DEFAULT(clientSecret_, "") };
     inline CustomOAuth2ProviderConfig& setClientSecret(string clientSecret) { DARABONBA_PTR_SET_VALUE(clientSecret_, clientSecret) };
 
 
     // OAuth2Discovery Field Functions 
     bool hasOAuth2Discovery() const { return this->OAuth2Discovery_ != nullptr;};
     void deleteOAuth2Discovery() { this->OAuth2Discovery_ = nullptr;};
-    inline const OAuth2Discovery & OAuth2Discovery() const { DARABONBA_PTR_GET_CONST(OAuth2Discovery_, OAuth2Discovery) };
-    inline OAuth2Discovery OAuth2Discovery() { DARABONBA_PTR_GET(OAuth2Discovery_, OAuth2Discovery) };
+    inline const OAuth2Discovery & getOAuth2Discovery() const { DARABONBA_PTR_GET_CONST(OAuth2Discovery_, OAuth2Discovery) };
+    inline OAuth2Discovery getOAuth2Discovery() { DARABONBA_PTR_GET(OAuth2Discovery_, OAuth2Discovery) };
     inline CustomOAuth2ProviderConfig& setOAuth2Discovery(const OAuth2Discovery & OAuth2Discovery) { DARABONBA_PTR_SET_VALUE(OAuth2Discovery_, OAuth2Discovery) };
     inline CustomOAuth2ProviderConfig& setOAuth2Discovery(OAuth2Discovery && OAuth2Discovery) { DARABONBA_PTR_SET_RVALUE(OAuth2Discovery_, OAuth2Discovery) };
 
 
   protected:
-    std::shared_ptr<string> clientId_ = nullptr;
-    std::shared_ptr<string> clientSecret_ = nullptr;
-    std::shared_ptr<OAuth2Discovery> OAuth2Discovery_ = nullptr;
+    shared_ptr<string> clientId_ {};
+    shared_ptr<string> clientSecret_ {};
+    shared_ptr<OAuth2Discovery> OAuth2Discovery_ {};
   };
 
   } // namespace Models

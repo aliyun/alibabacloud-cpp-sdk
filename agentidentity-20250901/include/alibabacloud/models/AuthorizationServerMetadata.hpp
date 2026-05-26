@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authorizationRequest_ == nullptr
-        && return this->issuer_ == nullptr && return this->PKCE_ == nullptr && return this->tokenRequest_ == nullptr; };
+        && this->issuer_ == nullptr && this->PKCE_ == nullptr && this->tokenRequest_ == nullptr; };
     // authorizationRequest Field Functions 
     bool hasAuthorizationRequest() const { return this->authorizationRequest_ != nullptr;};
     void deleteAuthorizationRequest() { this->authorizationRequest_ = nullptr;};
-    inline const AuthorizationRequest & authorizationRequest() const { DARABONBA_PTR_GET_CONST(authorizationRequest_, AuthorizationRequest) };
-    inline AuthorizationRequest authorizationRequest() { DARABONBA_PTR_GET(authorizationRequest_, AuthorizationRequest) };
+    inline const AuthorizationRequest & getAuthorizationRequest() const { DARABONBA_PTR_GET_CONST(authorizationRequest_, AuthorizationRequest) };
+    inline AuthorizationRequest getAuthorizationRequest() { DARABONBA_PTR_GET(authorizationRequest_, AuthorizationRequest) };
     inline AuthorizationServerMetadata& setAuthorizationRequest(const AuthorizationRequest & authorizationRequest) { DARABONBA_PTR_SET_VALUE(authorizationRequest_, authorizationRequest) };
     inline AuthorizationServerMetadata& setAuthorizationRequest(AuthorizationRequest && authorizationRequest) { DARABONBA_PTR_SET_RVALUE(authorizationRequest_, authorizationRequest) };
 
@@ -52,15 +52,15 @@ namespace Models
     // issuer Field Functions 
     bool hasIssuer() const { return this->issuer_ != nullptr;};
     void deleteIssuer() { this->issuer_ = nullptr;};
-    inline string issuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
+    inline string getIssuer() const { DARABONBA_PTR_GET_DEFAULT(issuer_, "") };
     inline AuthorizationServerMetadata& setIssuer(string issuer) { DARABONBA_PTR_SET_VALUE(issuer_, issuer) };
 
 
     // PKCE Field Functions 
     bool hasPKCE() const { return this->PKCE_ != nullptr;};
     void deletePKCE() { this->PKCE_ = nullptr;};
-    inline const PKCE & PKCE() const { DARABONBA_PTR_GET_CONST(PKCE_, PKCE) };
-    inline PKCE PKCE() { DARABONBA_PTR_GET(PKCE_, PKCE) };
+    inline const PKCE & getPKCE() const { DARABONBA_PTR_GET_CONST(PKCE_, PKCE) };
+    inline PKCE getPKCE() { DARABONBA_PTR_GET(PKCE_, PKCE) };
     inline AuthorizationServerMetadata& setPKCE(const PKCE & PKCE) { DARABONBA_PTR_SET_VALUE(PKCE_, PKCE) };
     inline AuthorizationServerMetadata& setPKCE(PKCE && PKCE) { DARABONBA_PTR_SET_RVALUE(PKCE_, PKCE) };
 
@@ -68,17 +68,17 @@ namespace Models
     // tokenRequest Field Functions 
     bool hasTokenRequest() const { return this->tokenRequest_ != nullptr;};
     void deleteTokenRequest() { this->tokenRequest_ = nullptr;};
-    inline const TokenReqeust & tokenRequest() const { DARABONBA_PTR_GET_CONST(tokenRequest_, TokenReqeust) };
-    inline TokenReqeust tokenRequest() { DARABONBA_PTR_GET(tokenRequest_, TokenReqeust) };
+    inline const TokenReqeust & getTokenRequest() const { DARABONBA_PTR_GET_CONST(tokenRequest_, TokenReqeust) };
+    inline TokenReqeust getTokenRequest() { DARABONBA_PTR_GET(tokenRequest_, TokenReqeust) };
     inline AuthorizationServerMetadata& setTokenRequest(const TokenReqeust & tokenRequest) { DARABONBA_PTR_SET_VALUE(tokenRequest_, tokenRequest) };
     inline AuthorizationServerMetadata& setTokenRequest(TokenReqeust && tokenRequest) { DARABONBA_PTR_SET_RVALUE(tokenRequest_, tokenRequest) };
 
 
   protected:
-    std::shared_ptr<AuthorizationRequest> authorizationRequest_ = nullptr;
-    std::shared_ptr<string> issuer_ = nullptr;
-    std::shared_ptr<PKCE> PKCE_ = nullptr;
-    std::shared_ptr<TokenReqeust> tokenRequest_ = nullptr;
+    shared_ptr<AuthorizationRequest> authorizationRequest_ {};
+    shared_ptr<string> issuer_ {};
+    shared_ptr<PKCE> PKCE_ {};
+    shared_ptr<TokenReqeust> tokenRequest_ {};
   };
 
   } // namespace Models

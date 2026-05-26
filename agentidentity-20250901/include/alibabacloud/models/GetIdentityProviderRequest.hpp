@@ -33,12 +33,12 @@ namespace Models
     // identityProviderName Field Functions 
     bool hasIdentityProviderName() const { return this->identityProviderName_ != nullptr;};
     void deleteIdentityProviderName() { this->identityProviderName_ = nullptr;};
-    inline string identityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
+    inline string getIdentityProviderName() const { DARABONBA_PTR_GET_DEFAULT(identityProviderName_, "") };
     inline GetIdentityProviderRequest& setIdentityProviderName(string identityProviderName) { DARABONBA_PTR_SET_VALUE(identityProviderName_, identityProviderName) };
 
 
   protected:
-    std::shared_ptr<string> identityProviderName_ = nullptr;
+    shared_ptr<string> identityProviderName_ {};
   };
 
   } // namespace Models

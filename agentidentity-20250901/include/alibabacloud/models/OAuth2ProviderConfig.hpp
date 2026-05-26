@@ -34,12 +34,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->customOAuth2ProviderConfig_ == nullptr
-        && return this->includedOAuth2ProviderConfig_ == nullptr; };
+        && this->includedOAuth2ProviderConfig_ == nullptr; };
     // customOAuth2ProviderConfig Field Functions 
     bool hasCustomOAuth2ProviderConfig() const { return this->customOAuth2ProviderConfig_ != nullptr;};
     void deleteCustomOAuth2ProviderConfig() { this->customOAuth2ProviderConfig_ = nullptr;};
-    inline const CustomOAuth2ProviderConfig & customOAuth2ProviderConfig() const { DARABONBA_PTR_GET_CONST(customOAuth2ProviderConfig_, CustomOAuth2ProviderConfig) };
-    inline CustomOAuth2ProviderConfig customOAuth2ProviderConfig() { DARABONBA_PTR_GET(customOAuth2ProviderConfig_, CustomOAuth2ProviderConfig) };
+    inline const CustomOAuth2ProviderConfig & getCustomOAuth2ProviderConfig() const { DARABONBA_PTR_GET_CONST(customOAuth2ProviderConfig_, CustomOAuth2ProviderConfig) };
+    inline CustomOAuth2ProviderConfig getCustomOAuth2ProviderConfig() { DARABONBA_PTR_GET(customOAuth2ProviderConfig_, CustomOAuth2ProviderConfig) };
     inline OAuth2ProviderConfig& setCustomOAuth2ProviderConfig(const CustomOAuth2ProviderConfig & customOAuth2ProviderConfig) { DARABONBA_PTR_SET_VALUE(customOAuth2ProviderConfig_, customOAuth2ProviderConfig) };
     inline OAuth2ProviderConfig& setCustomOAuth2ProviderConfig(CustomOAuth2ProviderConfig && customOAuth2ProviderConfig) { DARABONBA_PTR_SET_RVALUE(customOAuth2ProviderConfig_, customOAuth2ProviderConfig) };
 
@@ -47,15 +47,15 @@ namespace Models
     // includedOAuth2ProviderConfig Field Functions 
     bool hasIncludedOAuth2ProviderConfig() const { return this->includedOAuth2ProviderConfig_ != nullptr;};
     void deleteIncludedOAuth2ProviderConfig() { this->includedOAuth2ProviderConfig_ = nullptr;};
-    inline const IncludedOAuth2ProviderConfig & includedOAuth2ProviderConfig() const { DARABONBA_PTR_GET_CONST(includedOAuth2ProviderConfig_, IncludedOAuth2ProviderConfig) };
-    inline IncludedOAuth2ProviderConfig includedOAuth2ProviderConfig() { DARABONBA_PTR_GET(includedOAuth2ProviderConfig_, IncludedOAuth2ProviderConfig) };
+    inline const IncludedOAuth2ProviderConfig & getIncludedOAuth2ProviderConfig() const { DARABONBA_PTR_GET_CONST(includedOAuth2ProviderConfig_, IncludedOAuth2ProviderConfig) };
+    inline IncludedOAuth2ProviderConfig getIncludedOAuth2ProviderConfig() { DARABONBA_PTR_GET(includedOAuth2ProviderConfig_, IncludedOAuth2ProviderConfig) };
     inline OAuth2ProviderConfig& setIncludedOAuth2ProviderConfig(const IncludedOAuth2ProviderConfig & includedOAuth2ProviderConfig) { DARABONBA_PTR_SET_VALUE(includedOAuth2ProviderConfig_, includedOAuth2ProviderConfig) };
     inline OAuth2ProviderConfig& setIncludedOAuth2ProviderConfig(IncludedOAuth2ProviderConfig && includedOAuth2ProviderConfig) { DARABONBA_PTR_SET_RVALUE(includedOAuth2ProviderConfig_, includedOAuth2ProviderConfig) };
 
 
   protected:
-    std::shared_ptr<CustomOAuth2ProviderConfig> customOAuth2ProviderConfig_ = nullptr;
-    std::shared_ptr<IncludedOAuth2ProviderConfig> includedOAuth2ProviderConfig_ = nullptr;
+    shared_ptr<CustomOAuth2ProviderConfig> customOAuth2ProviderConfig_ {};
+    shared_ptr<IncludedOAuth2ProviderConfig> includedOAuth2ProviderConfig_ {};
   };
 
   } // namespace Models
