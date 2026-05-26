@@ -199,7 +199,7 @@ namespace Dytnsapi20200217
       Models::DescribeMobileOperatorAttributeResponse describeMobileOperatorAttribute(const Models::DescribeMobileOperatorAttributeRequest &request);
 
       /**
-       * @summary 号码分析实时查询蚂蚁
+       * @summary Obtains the analysis results of a number.
        *
        * @param request DescribePhoneNumberAnalysisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -208,7 +208,7 @@ namespace Dytnsapi20200217
       Models::DescribePhoneNumberAnalysisResponse describePhoneNumberAnalysisWithOptions(const Models::DescribePhoneNumberAnalysisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 号码分析实时查询蚂蚁
+       * @summary Obtains the analysis results of a number.
        *
        * @param request DescribePhoneNumberAnalysisRequest
        * @return DescribePhoneNumberAnalysisResponse
@@ -440,7 +440,7 @@ namespace Dytnsapi20200217
       Models::DescribePhoneTwiceTelVerifyResponse describePhoneTwiceTelVerify(const Models::DescribePhoneTwiceTelVerifyRequest &request);
 
       /**
-       * @summary 获取UAID申请Token所需的签名字段
+       * @summary Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
        *
        * @param request GetUAIDApplyTokenSignRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -449,7 +449,7 @@ namespace Dytnsapi20200217
       Models::GetUAIDApplyTokenSignResponse getUAIDApplyTokenSignWithOptions(const Models::GetUAIDApplyTokenSignRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取UAID申请Token所需的签名字段
+       * @summary Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
        *
        * @param request GetUAIDApplyTokenSignRequest
        * @return GetUAIDApplyTokenSignResponse
@@ -472,6 +472,23 @@ namespace Dytnsapi20200217
        * @return GetUAIDConversionSignResponse
        */
       Models::GetUAIDConversionSignResponse getUAIDConversionSign(const Models::GetUAIDConversionSignRequest &request);
+
+      /**
+       * @summary 历史三要素
+       *
+       * @param request HistoryThreeElementsVerificationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return HistoryThreeElementsVerificationResponse
+       */
+      Models::HistoryThreeElementsVerificationResponse historyThreeElementsVerificationWithOptions(const Models::HistoryThreeElementsVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 历史三要素
+       *
+       * @param request HistoryThreeElementsVerificationRequest
+       * @return HistoryThreeElementsVerificationResponse
+       */
+      Models::HistoryThreeElementsVerificationResponse historyThreeElementsVerification(const Models::HistoryThreeElementsVerificationRequest &request);
 
       /**
        * @summary Filters invalid phone numbers.
@@ -961,7 +978,7 @@ namespace Dytnsapi20200217
       Models::UAIDConversionResponse uAIDConversion(const Models::UAIDConversionRequest &request);
 
       /**
-       * @summary 获取UAID
+       * @summary Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
        *
        * @param request UAIDVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -970,7 +987,7 @@ namespace Dytnsapi20200217
       Models::UAIDVerificationResponse uAIDVerificationWithOptions(const Models::UAIDVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取UAID
+       * @summary Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
        *
        * @param request UAIDVerificationRequest
        * @return UAIDVerificationResponse

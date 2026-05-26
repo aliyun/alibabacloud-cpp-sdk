@@ -586,7 +586,7 @@ DescribeMobileOperatorAttributeResponse Client::describeMobileOperatorAttribute(
 }
 
 /**
- * @summary 号码分析实时查询蚂蚁
+ * @summary Obtains the analysis results of a number.
  *
  * @param request DescribePhoneNumberAnalysisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -645,7 +645,7 @@ DescribePhoneNumberAnalysisResponse Client::describePhoneNumberAnalysisWithOptio
 }
 
 /**
- * @summary 号码分析实时查询蚂蚁
+ * @summary Obtains the analysis results of a number.
  *
  * @param request DescribePhoneNumberAnalysisRequest
  * @return DescribePhoneNumberAnalysisResponse
@@ -1326,7 +1326,7 @@ DescribePhoneTwiceTelVerifyResponse Client::describePhoneTwiceTelVerify(const De
 }
 
 /**
- * @summary 获取UAID申请Token所需的签名字段
+ * @summary Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
  *
  * @param request GetUAIDApplyTokenSignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1397,7 @@ GetUAIDApplyTokenSignResponse Client::getUAIDApplyTokenSignWithOptions(const Get
 }
 
 /**
- * @summary 获取UAID申请Token所需的签名字段
+ * @summary Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
  *
  * @param request GetUAIDApplyTokenSignRequest
  * @return GetUAIDApplyTokenSignResponse
@@ -1487,6 +1487,72 @@ GetUAIDConversionSignResponse Client::getUAIDConversionSignWithOptions(const Get
 GetUAIDConversionSignResponse Client::getUAIDConversionSign(const GetUAIDConversionSignRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getUAIDConversionSignWithOptions(request, runtime);
+}
+
+/**
+ * @summary 历史三要素
+ *
+ * @param request HistoryThreeElementsVerificationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return HistoryThreeElementsVerificationResponse
+ */
+HistoryThreeElementsVerificationResponse Client::historyThreeElementsVerificationWithOptions(const HistoryThreeElementsVerificationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthCode()) {
+    query["AuthCode"] = request.getAuthCode();
+  }
+
+  if (!!request.hasCarrier()) {
+    query["Carrier"] = request.getCarrier();
+  }
+
+  if (!!request.hasCertCode()) {
+    query["CertCode"] = request.getCertCode();
+  }
+
+  if (!!request.hasInputNumber()) {
+    query["InputNumber"] = request.getInputNumber();
+  }
+
+  if (!!request.hasMask()) {
+    query["Mask"] = request.getMask();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasVerificationTime()) {
+    query["VerificationTime"] = request.getVerificationTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "HistoryThreeElementsVerification"},
+    {"version" , "2020-02-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<HistoryThreeElementsVerificationResponse>();
+}
+
+/**
+ * @summary 历史三要素
+ *
+ * @param request HistoryThreeElementsVerificationRequest
+ * @return HistoryThreeElementsVerificationResponse
+ */
+HistoryThreeElementsVerificationResponse Client::historyThreeElementsVerification(const HistoryThreeElementsVerificationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return historyThreeElementsVerificationWithOptions(request, runtime);
 }
 
 /**
@@ -3074,7 +3140,7 @@ UAIDConversionResponse Client::uAIDConversion(const UAIDConversionRequest &reque
 }
 
 /**
- * @summary 获取UAID
+ * @summary Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
  *
  * @param request UAIDVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3141,7 +3207,7 @@ UAIDVerificationResponse Client::uAIDVerificationWithOptions(const UAIDVerificat
 }
 
 /**
- * @summary 获取UAID
+ * @summary Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
  *
  * @param request UAIDVerificationRequest
  * @return UAIDVerificationResponse
