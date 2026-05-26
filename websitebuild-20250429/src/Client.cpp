@@ -49,6 +49,10 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(con
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
   if (!!request.hasOrderColumn()) {
     query["OrderColumn"] = request.getOrderColumn();
   }
@@ -2733,6 +2737,10 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
   if (!!request.hasExecuteSql()) {
     query["ExecuteSql"] = request.getExecuteSql();
   }
@@ -3467,6 +3475,10 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
   if (!!request.hasOrderColumn()) {
     query["OrderColumn"] = request.getOrderColumn();
   }
@@ -3527,6 +3539,10 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdminWithOpt
   json query = {};
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
   }
 
   if (!!request.hasOrderColumn()) {

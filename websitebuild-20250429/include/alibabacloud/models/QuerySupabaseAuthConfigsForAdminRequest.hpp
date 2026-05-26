@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const QuerySupabaseAuthConfigsForAdminRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AuthType, authType_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(OrderColumn, orderColumn_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
@@ -24,6 +25,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, QuerySupabaseAuthConfigsForAdminRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AuthType, authType_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(OrderColumn, orderColumn_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authType_ == nullptr
-        && this->bizId_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->bizId_ == nullptr && this->env_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->userId_ == nullptr; };
     // authType Field Functions 
     bool hasAuthType() const { return this->authType_ != nullptr;};
     void deleteAuthType() { this->authType_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline QuerySupabaseAuthConfigsForAdminRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // env Field Functions 
+    bool hasEnv() const { return this->env_ != nullptr;};
+    void deleteEnv() { this->env_ = nullptr;};
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline QuerySupabaseAuthConfigsForAdminRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // orderColumn Field Functions 
@@ -98,6 +107,7 @@ namespace Models
     shared_ptr<string> authType_ {};
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> env_ {};
     shared_ptr<string> orderColumn_ {};
     shared_ptr<string> orderType_ {};
     shared_ptr<int32_t> pageNum_ {};

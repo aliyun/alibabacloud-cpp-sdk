@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const OperateSupabaseForAdminRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(Env, env_);
       DARABONBA_PTR_TO_JSON(ExecuteSql, executeSql_);
       DARABONBA_PTR_TO_JSON(OperateType, operateType_);
       DARABONBA_PTR_TO_JSON(OrderByClause, orderByClause_);
@@ -27,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, OperateSupabaseForAdminRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(Env, env_);
       DARABONBA_PTR_FROM_JSON(ExecuteSql, executeSql_);
       DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
       DARABONBA_PTR_FROM_JSON(OrderByClause, orderByClause_);
@@ -50,13 +52,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->executeSql_ == nullptr && this->operateType_ == nullptr && this->orderByClause_ == nullptr && this->orderColumn_ == nullptr && this->orderType_ == nullptr
-        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->tableName_ == nullptr && this->userId_ == nullptr && this->whereClause_ == nullptr; };
+        && this->env_ == nullptr && this->executeSql_ == nullptr && this->operateType_ == nullptr && this->orderByClause_ == nullptr && this->orderColumn_ == nullptr
+        && this->orderType_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->tableName_ == nullptr && this->userId_ == nullptr
+        && this->whereClause_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline OperateSupabaseForAdminRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // env Field Functions 
+    bool hasEnv() const { return this->env_ != nullptr;};
+    void deleteEnv() { this->env_ = nullptr;};
+    inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+    inline OperateSupabaseForAdminRequest& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
     // executeSql Field Functions 
@@ -132,6 +142,7 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> env_ {};
     shared_ptr<string> executeSql_ {};
     shared_ptr<string> operateType_ {};
     shared_ptr<string> orderByClause_ {};
