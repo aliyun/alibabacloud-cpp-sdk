@@ -189,7 +189,9 @@ namespace Models
 
 
   protected:
+    // This parameter is required.
     shared_ptr<string> appId_ {};
+    // This parameter is required.
     shared_ptr<QaChatRequest::Message> message_ {};
     Darabonba::Json options_ {};
     shared_ptr<string> sessionId_ {};
