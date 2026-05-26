@@ -582,7 +582,7 @@ namespace Domain20180129
       Models::QueryDomainByDomainNameResponse queryDomainByDomainName(const Models::QueryDomainByDomainNameRequest &request);
 
       /**
-       * @summary 根据实例id查询域名信息
+       * @summary Queries the basic information about a domain name based on the instance ID.
        *
        * @param request QueryDomainByInstanceIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +591,7 @@ namespace Domain20180129
       Models::QueryDomainByInstanceIdResponse queryDomainByInstanceIdWithOptions(const Models::QueryDomainByInstanceIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据实例id查询域名信息
+       * @summary Queries the basic information about a domain name based on the instance ID.
        *
        * @param request QueryDomainByInstanceIdRequest
        * @return QueryDomainByInstanceIdResponse

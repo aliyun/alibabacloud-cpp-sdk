@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentExpirationDate, currentExpirationDate_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(PermitPremiumRenew, permitPremiumRenew_);
       DARABONBA_PTR_TO_JSON(PromotionNo, promotionNo_);
       DARABONBA_PTR_TO_JSON(SubscriptionDuration, subscriptionDuration_);
       DARABONBA_PTR_TO_JSON(UseCoupon, useCoupon_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentExpirationDate, currentExpirationDate_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(PermitPremiumRenew, permitPremiumRenew_);
       DARABONBA_PTR_FROM_JSON(PromotionNo, promotionNo_);
       DARABONBA_PTR_FROM_JSON(SubscriptionDuration, subscriptionDuration_);
       DARABONBA_PTR_FROM_JSON(UseCoupon, useCoupon_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->couponNo_ == nullptr
-        && this->currentExpirationDate_ == nullptr && this->domainName_ == nullptr && this->lang_ == nullptr && this->promotionNo_ == nullptr && this->subscriptionDuration_ == nullptr
-        && this->useCoupon_ == nullptr && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr; };
+        && this->currentExpirationDate_ == nullptr && this->domainName_ == nullptr && this->lang_ == nullptr && this->permitPremiumRenew_ == nullptr && this->promotionNo_ == nullptr
+        && this->subscriptionDuration_ == nullptr && this->useCoupon_ == nullptr && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr; };
     // couponNo Field Functions 
     bool hasCouponNo() const { return this->couponNo_ != nullptr;};
     void deleteCouponNo() { this->couponNo_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveSingleTaskForCreatingOrderRenewRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // permitPremiumRenew Field Functions 
+    bool hasPermitPremiumRenew() const { return this->permitPremiumRenew_ != nullptr;};
+    void deletePermitPremiumRenew() { this->permitPremiumRenew_ = nullptr;};
+    inline bool getPermitPremiumRenew() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumRenew_, false) };
+    inline SaveSingleTaskForCreatingOrderRenewRequest& setPermitPremiumRenew(bool permitPremiumRenew) { DARABONBA_PTR_SET_VALUE(permitPremiumRenew_, permitPremiumRenew) };
 
 
     // promotionNo Field Functions 
@@ -118,6 +127,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> domainName_ {};
     shared_ptr<string> lang_ {};
+    shared_ptr<bool> permitPremiumRenew_ {};
     shared_ptr<string> promotionNo_ {};
     // This parameter is required.
     shared_ptr<int32_t> subscriptionDuration_ {};

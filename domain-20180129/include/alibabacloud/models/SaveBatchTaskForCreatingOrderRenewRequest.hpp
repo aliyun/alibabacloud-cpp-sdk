@@ -47,11 +47,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const OrderRenewParam& obj) { 
         DARABONBA_PTR_TO_JSON(CurrentExpirationDate, currentExpirationDate_);
         DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+        DARABONBA_PTR_TO_JSON(PermitPremiumRenew, permitPremiumRenew_);
         DARABONBA_PTR_TO_JSON(SubscriptionDuration, subscriptionDuration_);
       };
       friend void from_json(const Darabonba::Json& j, OrderRenewParam& obj) { 
         DARABONBA_PTR_FROM_JSON(CurrentExpirationDate, currentExpirationDate_);
         DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+        DARABONBA_PTR_FROM_JSON(PermitPremiumRenew, permitPremiumRenew_);
         DARABONBA_PTR_FROM_JSON(SubscriptionDuration, subscriptionDuration_);
       };
       OrderRenewParam() = default ;
@@ -66,7 +68,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->currentExpirationDate_ == nullptr
-        && this->domainName_ == nullptr && this->subscriptionDuration_ == nullptr; };
+        && this->domainName_ == nullptr && this->permitPremiumRenew_ == nullptr && this->subscriptionDuration_ == nullptr; };
       // currentExpirationDate Field Functions 
       bool hasCurrentExpirationDate() const { return this->currentExpirationDate_ != nullptr;};
       void deleteCurrentExpirationDate() { this->currentExpirationDate_ = nullptr;};
@@ -81,6 +83,13 @@ namespace Models
       inline OrderRenewParam& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
 
 
+      // permitPremiumRenew Field Functions 
+      bool hasPermitPremiumRenew() const { return this->permitPremiumRenew_ != nullptr;};
+      void deletePermitPremiumRenew() { this->permitPremiumRenew_ = nullptr;};
+      inline bool getPermitPremiumRenew() const { DARABONBA_PTR_GET_DEFAULT(permitPremiumRenew_, false) };
+      inline OrderRenewParam& setPermitPremiumRenew(bool permitPremiumRenew) { DARABONBA_PTR_SET_VALUE(permitPremiumRenew_, permitPremiumRenew) };
+
+
       // subscriptionDuration Field Functions 
       bool hasSubscriptionDuration() const { return this->subscriptionDuration_ != nullptr;};
       void deleteSubscriptionDuration() { this->subscriptionDuration_ = nullptr;};
@@ -91,6 +100,7 @@ namespace Models
     protected:
       shared_ptr<int64_t> currentExpirationDate_ {};
       shared_ptr<string> domainName_ {};
+      shared_ptr<bool> permitPremiumRenew_ {};
       shared_ptr<int32_t> subscriptionDuration_ {};
     };
 

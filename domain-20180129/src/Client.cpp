@@ -2028,7 +2028,7 @@ QueryDomainByDomainNameResponse Client::queryDomainByDomainName(const QueryDomai
 }
 
 /**
- * @summary 根据实例id查询域名信息
+ * @summary Queries the basic information about a domain name based on the instance ID.
  *
  * @param request QueryDomainByInstanceIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2067,7 +2067,7 @@ QueryDomainByInstanceIdResponse Client::queryDomainByInstanceIdWithOptions(const
 }
 
 /**
- * @summary 根据实例id查询域名信息
+ * @summary Queries the basic information about a domain name based on the instance ID.
  *
  * @param request QueryDomainByInstanceIdRequest
  * @return QueryDomainByInstanceIdResponse
@@ -5629,6 +5629,10 @@ SaveSingleTaskForCreatingOrderRenewResponse Client::saveSingleTaskForCreatingOrd
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasPermitPremiumRenew()) {
+    query["PermitPremiumRenew"] = request.getPermitPremiumRenew();
   }
 
   if (!!request.hasPromotionNo()) {
