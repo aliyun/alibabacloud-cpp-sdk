@@ -13,6 +13,7 @@ namespace Models
   class GetYikeStoryboardJobResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetYikeStoryboardJobResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(JobCredit, jobCredit_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobParams, jobParams_);
       DARABONBA_PTR_TO_JSON(JobResult, jobResult_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, GetYikeStoryboardJobResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(JobCredit, jobCredit_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobParams, jobParams_);
       DARABONBA_PTR_FROM_JSON(JobResult, jobResult_);
@@ -263,8 +265,79 @@ namespace Models
       shared_ptr<string> videoModel_ {};
     };
 
-    virtual bool empty() const override { return this->jobId_ == nullptr
-        && this->jobParams_ == nullptr && this->jobResult_ == nullptr && this->jobStatus_ == nullptr && this->requestId_ == nullptr; };
+    class JobCredit : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const JobCredit& obj) { 
+        DARABONBA_PTR_TO_JSON(ElementImageGeneration, elementImageGeneration_);
+        DARABONBA_PTR_TO_JSON(TotalCreditCost, totalCreditCost_);
+        DARABONBA_PTR_TO_JSON(VideoComposition, videoComposition_);
+        DARABONBA_PTR_TO_JSON(VideoGeneration, videoGeneration_);
+      };
+      friend void from_json(const Darabonba::Json& j, JobCredit& obj) { 
+        DARABONBA_PTR_FROM_JSON(ElementImageGeneration, elementImageGeneration_);
+        DARABONBA_PTR_FROM_JSON(TotalCreditCost, totalCreditCost_);
+        DARABONBA_PTR_FROM_JSON(VideoComposition, videoComposition_);
+        DARABONBA_PTR_FROM_JSON(VideoGeneration, videoGeneration_);
+      };
+      JobCredit() = default ;
+      JobCredit(const JobCredit &) = default ;
+      JobCredit(JobCredit &&) = default ;
+      JobCredit(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~JobCredit() = default ;
+      JobCredit& operator=(const JobCredit &) = default ;
+      JobCredit& operator=(JobCredit &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->elementImageGeneration_ == nullptr
+        && this->totalCreditCost_ == nullptr && this->videoComposition_ == nullptr && this->videoGeneration_ == nullptr; };
+      // elementImageGeneration Field Functions 
+      bool hasElementImageGeneration() const { return this->elementImageGeneration_ != nullptr;};
+      void deleteElementImageGeneration() { this->elementImageGeneration_ = nullptr;};
+      inline string getElementImageGeneration() const { DARABONBA_PTR_GET_DEFAULT(elementImageGeneration_, "") };
+      inline JobCredit& setElementImageGeneration(string elementImageGeneration) { DARABONBA_PTR_SET_VALUE(elementImageGeneration_, elementImageGeneration) };
+
+
+      // totalCreditCost Field Functions 
+      bool hasTotalCreditCost() const { return this->totalCreditCost_ != nullptr;};
+      void deleteTotalCreditCost() { this->totalCreditCost_ = nullptr;};
+      inline string getTotalCreditCost() const { DARABONBA_PTR_GET_DEFAULT(totalCreditCost_, "") };
+      inline JobCredit& setTotalCreditCost(string totalCreditCost) { DARABONBA_PTR_SET_VALUE(totalCreditCost_, totalCreditCost) };
+
+
+      // videoComposition Field Functions 
+      bool hasVideoComposition() const { return this->videoComposition_ != nullptr;};
+      void deleteVideoComposition() { this->videoComposition_ = nullptr;};
+      inline string getVideoComposition() const { DARABONBA_PTR_GET_DEFAULT(videoComposition_, "") };
+      inline JobCredit& setVideoComposition(string videoComposition) { DARABONBA_PTR_SET_VALUE(videoComposition_, videoComposition) };
+
+
+      // videoGeneration Field Functions 
+      bool hasVideoGeneration() const { return this->videoGeneration_ != nullptr;};
+      void deleteVideoGeneration() { this->videoGeneration_ = nullptr;};
+      inline string getVideoGeneration() const { DARABONBA_PTR_GET_DEFAULT(videoGeneration_, "") };
+      inline JobCredit& setVideoGeneration(string videoGeneration) { DARABONBA_PTR_SET_VALUE(videoGeneration_, videoGeneration) };
+
+
+    protected:
+      shared_ptr<string> elementImageGeneration_ {};
+      shared_ptr<string> totalCreditCost_ {};
+      shared_ptr<string> videoComposition_ {};
+      shared_ptr<string> videoGeneration_ {};
+    };
+
+    virtual bool empty() const override { return this->jobCredit_ == nullptr
+        && this->jobId_ == nullptr && this->jobParams_ == nullptr && this->jobResult_ == nullptr && this->jobStatus_ == nullptr && this->requestId_ == nullptr; };
+    // jobCredit Field Functions 
+    bool hasJobCredit() const { return this->jobCredit_ != nullptr;};
+    void deleteJobCredit() { this->jobCredit_ = nullptr;};
+    inline const GetYikeStoryboardJobResponseBody::JobCredit & getJobCredit() const { DARABONBA_PTR_GET_CONST(jobCredit_, GetYikeStoryboardJobResponseBody::JobCredit) };
+    inline GetYikeStoryboardJobResponseBody::JobCredit getJobCredit() { DARABONBA_PTR_GET(jobCredit_, GetYikeStoryboardJobResponseBody::JobCredit) };
+    inline GetYikeStoryboardJobResponseBody& setJobCredit(const GetYikeStoryboardJobResponseBody::JobCredit & jobCredit) { DARABONBA_PTR_SET_VALUE(jobCredit_, jobCredit) };
+    inline GetYikeStoryboardJobResponseBody& setJobCredit(GetYikeStoryboardJobResponseBody::JobCredit && jobCredit) { DARABONBA_PTR_SET_RVALUE(jobCredit_, jobCredit) };
+
+
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -305,6 +378,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<GetYikeStoryboardJobResponseBody::JobCredit> jobCredit_ {};
     shared_ptr<string> jobId_ {};
     shared_ptr<GetYikeStoryboardJobResponseBody::JobParams> jobParams_ {};
     shared_ptr<GetYikeStoryboardJobResponseBody::JobResult> jobResult_ {};
