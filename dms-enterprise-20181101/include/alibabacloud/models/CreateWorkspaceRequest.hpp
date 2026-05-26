@@ -15,16 +15,16 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateWorkspaceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
-      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_TO_JSON(WorkspaceRegion, workspaceRegion_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkspaceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
-      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(WorkspaceName, workspaceName_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceRegion, workspaceRegion_);
     };
     CreateWorkspaceRequest() = default ;
     CreateWorkspaceRequest(const CreateWorkspaceRequest &) = default ;
@@ -38,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->description_ == nullptr && this->regionId_ == nullptr && this->vpcId_ == nullptr && this->workspaceName_ == nullptr; };
+        && this->description_ == nullptr && this->vpcId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceRegion_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -51,13 +51,6 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateWorkspaceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-    // regionId Field Functions 
-    bool hasRegionId() const { return this->regionId_ != nullptr;};
-    void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
-    inline CreateWorkspaceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // vpcId Field Functions 
@@ -74,6 +67,13 @@ namespace Models
     inline CreateWorkspaceRequest& setWorkspaceName(string workspaceName) { DARABONBA_PTR_SET_VALUE(workspaceName_, workspaceName) };
 
 
+    // workspaceRegion Field Functions 
+    bool hasWorkspaceRegion() const { return this->workspaceRegion_ != nullptr;};
+    void deleteWorkspaceRegion() { this->workspaceRegion_ = nullptr;};
+    inline string getWorkspaceRegion() const { DARABONBA_PTR_GET_DEFAULT(workspaceRegion_, "") };
+    inline CreateWorkspaceRequest& setWorkspaceRegion(string workspaceRegion) { DARABONBA_PTR_SET_VALUE(workspaceRegion_, workspaceRegion) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
@@ -81,10 +81,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The region to which the workspace belongs.
-    // 
-    // This parameter is required.
-    shared_ptr<string> regionId_ {};
     // The VPC ID.
     // 
     // This parameter is required.
@@ -93,6 +89,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
+    // This parameter is required.
+    shared_ptr<string> workspaceRegion_ {};
   };
 
   } // namespace Models

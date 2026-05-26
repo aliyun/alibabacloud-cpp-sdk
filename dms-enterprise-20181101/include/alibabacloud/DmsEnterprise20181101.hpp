@@ -1957,7 +1957,7 @@ namespace DmsEnterprise20181101
       Models::FixSqlByMetaAgentResponse fixSqlByMetaAgent(const Models::FixSqlByMetaAgentRequest &request);
 
       /**
-       * @summary 数据库知识库补数据接口
+       * @summary Database knowledge base data supplementation interface
        *
        * @param request GenMetaKnowledgeAssetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1966,7 +1966,7 @@ namespace DmsEnterprise20181101
       Models::GenMetaKnowledgeAssetResponse genMetaKnowledgeAssetWithOptions(const Models::GenMetaKnowledgeAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 数据库知识库补数据接口
+       * @summary Database knowledge base data supplementation interface
        *
        * @param request GenMetaKnowledgeAssetRequest
        * @return GenMetaKnowledgeAssetResponse
@@ -2457,7 +2457,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakePartitionResponse getDataLakePartition(const Models::GetDataLakePartitionRequest &request);
 
       /**
-       * @summary Queries basic information about tables in the data lake.
+       * @summary Invokes this API to obtain table info in the data lake.
        *
        * @param request GetDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2466,7 +2466,7 @@ namespace DmsEnterprise20181101
       Models::GetDataLakeTableResponse getDataLakeTableWithOptions(const Models::GetDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries basic information about tables in the data lake.
+       * @summary Invokes this API to obtain table info in the data lake.
        *
        * @param request GetDataLakeTableRequest
        * @return GetDataLakeTableResponse
@@ -4026,6 +4026,27 @@ namespace DmsEnterprise20181101
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
+       * @summary 分页查询资产盘点任务历史列表
+       *
+       * @description 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+       *
+       * @param request ListInventoryJobsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInventoryJobsResponse
+       */
+      Models::ListInventoryJobsResponse listInventoryJobsWithOptions(const Models::ListInventoryJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询资产盘点任务历史列表
+       *
+       * @description 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+       *
+       * @param request ListInventoryJobsRequest
+       * @return ListInventoryJobsResponse
+       */
+      Models::ListInventoryJobsResponse listInventoryJobs(const Models::ListInventoryJobsRequest &request);
+
+      /**
        * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
        *
        * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -5240,6 +5261,27 @@ namespace DmsEnterprise20181101
        * @return SearchDatabaseResponse
        */
       Models::SearchDatabaseResponse searchDatabase(const Models::SearchDatabaseRequest &request);
+
+      /**
+       * @summary 分页查询盘点任务下的表资产列表
+       *
+       * @description 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+       *
+       * @param request SearchInventoryAssetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchInventoryAssetResponse
+       */
+      Models::SearchInventoryAssetResponse searchInventoryAssetWithOptions(const Models::SearchInventoryAssetRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询盘点任务下的表资产列表
+       *
+       * @description 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+       *
+       * @param request SearchInventoryAssetRequest
+       * @return SearchInventoryAssetResponse
+       */
+      Models::SearchInventoryAssetResponse searchInventoryAsset(const Models::SearchInventoryAssetRequest &request);
 
       /**
        * @summary 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选

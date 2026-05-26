@@ -4587,16 +4587,16 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
     query["Description"] = request.getDescription();
   }
 
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
   if (!!request.hasVpcId()) {
     query["VpcId"] = request.getVpcId();
   }
 
   if (!!request.hasWorkspaceName()) {
     query["WorkspaceName"] = request.getWorkspaceName();
+  }
+
+  if (!!request.hasWorkspaceRegion()) {
+    query["WorkspaceRegion"] = request.getWorkspaceRegion();
   }
 
   json body = {};
@@ -6676,7 +6676,7 @@ FixSqlByMetaAgentResponse Client::fixSqlByMetaAgent(const FixSqlByMetaAgentReque
 }
 
 /**
- * @summary 数据库知识库补数据接口
+ * @summary Database knowledge base data supplementation interface
  *
  * @param request GenMetaKnowledgeAssetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6707,7 +6707,7 @@ GenMetaKnowledgeAssetResponse Client::genMetaKnowledgeAssetWithOptions(const Gen
 }
 
 /**
- * @summary 数据库知识库补数据接口
+ * @summary Database knowledge base data supplementation interface
  *
  * @param request GenMetaKnowledgeAssetRequest
  * @return GenMetaKnowledgeAssetResponse
@@ -8121,7 +8121,7 @@ GetDataLakePartitionResponse Client::getDataLakePartition(const GetDataLakeParti
 }
 
 /**
- * @summary Queries basic information about tables in the data lake.
+ * @summary Invokes this API to obtain table info in the data lake.
  *
  * @param request GetDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8172,7 +8172,7 @@ GetDataLakeTableResponse Client::getDataLakeTableWithOptions(const GetDataLakeTa
 }
 
 /**
- * @summary Queries basic information about tables in the data lake.
+ * @summary Invokes this API to obtain table info in the data lake.
  *
  * @param request GetDataLakeTableRequest
  * @return GetDataLakeTableResponse
@@ -12881,6 +12881,72 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
+ * @summary 分页查询资产盘点任务历史列表
+ *
+ * @description 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+ *
+ * @param request ListInventoryJobsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInventoryJobsResponse
+ */
+ListInventoryJobsResponse Client::listInventoryJobsWithOptions(const ListInventoryJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInventoryJobs"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInventoryJobsResponse>();
+}
+
+/**
+ * @summary 分页查询资产盘点任务历史列表
+ *
+ * @description 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+ *
+ * @param request ListInventoryJobsRequest
+ * @return ListInventoryJobsResponse
+ */
+ListInventoryJobsResponse Client::listInventoryJobs(const ListInventoryJobsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInventoryJobsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
  *
  * @description *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](https://help.aliyun.com/document_detail/424759.html) operation can be called to add a workspace member.
@@ -16956,6 +17022,72 @@ SearchDatabaseResponse Client::searchDatabaseWithOptions(const SearchDatabaseReq
 SearchDatabaseResponse Client::searchDatabase(const SearchDatabaseRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return searchDatabaseWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询盘点任务下的表资产列表
+ *
+ * @description 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+ *
+ * @param request SearchInventoryAssetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SearchInventoryAssetResponse
+ */
+SearchInventoryAssetResponse Client::searchInventoryAssetWithOptions(const SearchInventoryAssetRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOffset()) {
+    query["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasQuery()) {
+    query["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasSize()) {
+    query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasSortOrder()) {
+    query["SortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SearchInventoryAsset"},
+    {"version" , "2018-11-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SearchInventoryAssetResponse>();
+}
+
+/**
+ * @summary 分页查询盘点任务下的表资产列表
+ *
+ * @description 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+ *
+ * @param request SearchInventoryAssetRequest
+ * @return SearchInventoryAssetResponse
+ */
+SearchInventoryAssetResponse Client::searchInventoryAsset(const SearchInventoryAssetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return searchInventoryAssetWithOptions(request, runtime);
 }
 
 /**

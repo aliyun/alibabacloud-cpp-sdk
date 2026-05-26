@@ -703,6 +703,9 @@
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
+#include <alibabacloud/models/ListInventoryJobsRequest.hpp>
+#include <alibabacloud/models/ListInventoryJobsResponseBody.hpp>
+#include <alibabacloud/models/ListInventoryJobsResponse.hpp>
 #include <alibabacloud/models/ListLhTaskFlowAndScenarioRequest.hpp>
 #include <alibabacloud/models/ListLhTaskFlowAndScenarioResponseBody.hpp>
 #include <alibabacloud/models/ListLhTaskFlowAndScenarioResponse.hpp>
@@ -910,6 +913,9 @@
 #include <alibabacloud/models/SearchDatabaseRequest.hpp>
 #include <alibabacloud/models/SearchDatabaseResponseBody.hpp>
 #include <alibabacloud/models/SearchDatabaseResponse.hpp>
+#include <alibabacloud/models/SearchInventoryAssetRequest.hpp>
+#include <alibabacloud/models/SearchInventoryAssetResponseBody.hpp>
+#include <alibabacloud/models/SearchInventoryAssetResponse.hpp>
 #include <alibabacloud/models/SearchInventoryKnowledgeRequest.hpp>
 #include <alibabacloud/models/SearchInventoryKnowledgeResponseBody.hpp>
 #include <alibabacloud/models/SearchInventoryKnowledgeResponse.hpp>
