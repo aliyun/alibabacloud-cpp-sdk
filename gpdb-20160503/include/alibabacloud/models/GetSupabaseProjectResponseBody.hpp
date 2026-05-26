@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
       DARABONBA_PTR_TO_JSON(PrivateConnectUrl, privateConnectUrl_);
+      DARABONBA_PTR_TO_JSON(ProjectDescription, projectDescription_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(ProjectSpec, projectSpec_);
@@ -52,6 +53,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceVersion, instanceVersion_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
       DARABONBA_PTR_FROM_JSON(PrivateConnectUrl, privateConnectUrl_);
+      DARABONBA_PTR_FROM_JSON(ProjectDescription, projectDescription_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(ProjectSpec, projectSpec_);
@@ -80,9 +82,9 @@ namespace Models
     virtual bool empty() const override { return this->autoScale_ == nullptr
         && this->createTime_ == nullptr && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr && this->diskPerformanceLevel_ == nullptr
         && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->payType_ == nullptr
-        && this->privateConnectUrl_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr
-        && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr
-        && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->privateConnectUrl_ == nullptr && this->projectDescription_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr && this->projectSpec_ == nullptr
+        && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr && this->status_ == nullptr
+        && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
     // autoScale Field Functions 
     bool hasAutoScale() const { return this->autoScale_ != nullptr;};
     void deleteAutoScale() { this->autoScale_ = nullptr;};
@@ -165,6 +167,13 @@ namespace Models
     void deletePrivateConnectUrl() { this->privateConnectUrl_ = nullptr;};
     inline string getPrivateConnectUrl() const { DARABONBA_PTR_GET_DEFAULT(privateConnectUrl_, "") };
     inline GetSupabaseProjectResponseBody& setPrivateConnectUrl(string privateConnectUrl) { DARABONBA_PTR_SET_VALUE(privateConnectUrl_, privateConnectUrl) };
+
+
+    // projectDescription Field Functions 
+    bool hasProjectDescription() const { return this->projectDescription_ != nullptr;};
+    void deleteProjectDescription() { this->projectDescription_ = nullptr;};
+    inline string getProjectDescription() const { DARABONBA_PTR_GET_DEFAULT(projectDescription_, "") };
+    inline GetSupabaseProjectResponseBody& setProjectDescription(string projectDescription) { DARABONBA_PTR_SET_VALUE(projectDescription_, projectDescription) };
 
 
     // projectId Field Functions 
@@ -281,6 +290,7 @@ namespace Models
     shared_ptr<string> payType_ {};
     // The private (VPC) connection URL for the Supabase Dashboard.
     shared_ptr<string> privateConnectUrl_ {};
+    shared_ptr<string> projectDescription_ {};
     // The Supabase instance ID.
     shared_ptr<string> projectId_ {};
     // The name of the Supabase project.
