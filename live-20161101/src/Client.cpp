@@ -2145,10 +2145,6 @@ AddLiveRecordVodConfigResponse Client::addLiveRecordVodConfigWithOptions(const A
     query["DomainName"] = request.getDomainName();
   }
 
-  if (!!request.hasFormatConfig()) {
-    query["FormatConfig"] = request.getFormatConfig();
-  }
-
   if (!!request.hasOnDemand()) {
     query["OnDemand"] = request.getOnDemand();
   }
@@ -29608,10 +29604,6 @@ UpdateLiveRecordVodConfigResponse Client::updateLiveRecordVodConfigWithOptions(c
 
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
-  }
-
-  if (!!request.hasFormatConfig()) {
-    query["FormatConfig"] = request.getFormatConfig();
   }
 
   if (!!request.hasOnDemand()) {

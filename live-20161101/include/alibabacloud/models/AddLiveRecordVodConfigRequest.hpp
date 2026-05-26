@@ -20,7 +20,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CycleDuration, cycleDuration_);
       DARABONBA_PTR_TO_JSON(DelayTime, delayTime_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
-      DARABONBA_PTR_TO_JSON(FormatConfig, formatConfig_);
       DARABONBA_PTR_TO_JSON(OnDemand, onDemand_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RecordContent, recordContent_);
@@ -39,7 +38,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CycleDuration, cycleDuration_);
       DARABONBA_PTR_FROM_JSON(DelayTime, delayTime_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
-      DARABONBA_PTR_FROM_JSON(FormatConfig, formatConfig_);
       DARABONBA_PTR_FROM_JSON(OnDemand, onDemand_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RecordContent, recordContent_);
@@ -157,9 +155,8 @@ namespace Models
 
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->autoCompose_ == nullptr && this->composeVodTranscodeGroupId_ == nullptr && this->cycleDuration_ == nullptr && this->delayTime_ == nullptr && this->domainName_ == nullptr
-        && this->formatConfig_ == nullptr && this->onDemand_ == nullptr && this->ownerId_ == nullptr && this->recordContent_ == nullptr && this->recordFormat_ == nullptr
-        && this->regionId_ == nullptr && this->spaceId_ == nullptr && this->storageLocation_ == nullptr && this->streamName_ == nullptr && this->transcodeTemplates_ == nullptr
-        && this->vodTranscodeGroupId_ == nullptr; };
+        && this->onDemand_ == nullptr && this->ownerId_ == nullptr && this->recordContent_ == nullptr && this->recordFormat_ == nullptr && this->regionId_ == nullptr
+        && this->spaceId_ == nullptr && this->storageLocation_ == nullptr && this->streamName_ == nullptr && this->transcodeTemplates_ == nullptr && this->vodTranscodeGroupId_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -200,13 +197,6 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline AddLiveRecordVodConfigRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
-
-
-    // formatConfig Field Functions 
-    bool hasFormatConfig() const { return this->formatConfig_ != nullptr;};
-    void deleteFormatConfig() { this->formatConfig_ = nullptr;};
-    inline bool getFormatConfig() const { DARABONBA_PTR_GET_DEFAULT(formatConfig_, false) };
-    inline AddLiveRecordVodConfigRequest& setFormatConfig(bool formatConfig) { DARABONBA_PTR_SET_VALUE(formatConfig_, formatConfig) };
 
 
     // onDemand Field Functions 
@@ -311,7 +301,6 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    shared_ptr<bool> formatConfig_ {};
     // Specifies whether to enable on-demand recording. Valid values:
     // 
     // *   **0** (default): disables on-demand recording.
