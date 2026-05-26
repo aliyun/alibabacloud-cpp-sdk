@@ -48,7 +48,10 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BindingResourceId, bindingResourceId_);
         DARABONBA_PTR_TO_JSON(BindingResourceType, bindingResourceType_);
         DARABONBA_PTR_TO_JSON(Bytes, bytes_);
+        DARABONBA_PTR_TO_JSON(BytesIncrease, bytesIncrease_);
+        DARABONBA_PTR_TO_JSON(BytesIncreaseRatio, bytesIncreaseRatio_);
         DARABONBA_PTR_TO_JSON(BytesRate, bytesRate_);
+        DARABONBA_PTR_TO_JSON(CenId, cenId_);
         DARABONBA_PTR_TO_JSON(ClientAsn, clientAsn_);
         DARABONBA_PTR_TO_JSON(ClientCity, clientCity_);
         DARABONBA_PTR_TO_JSON(ClientCountry, clientCountry_);
@@ -94,7 +97,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BindingResourceId, bindingResourceId_);
         DARABONBA_PTR_FROM_JSON(BindingResourceType, bindingResourceType_);
         DARABONBA_PTR_FROM_JSON(Bytes, bytes_);
+        DARABONBA_PTR_FROM_JSON(BytesIncrease, bytesIncrease_);
+        DARABONBA_PTR_FROM_JSON(BytesIncreaseRatio, bytesIncreaseRatio_);
         DARABONBA_PTR_FROM_JSON(BytesRate, bytesRate_);
+        DARABONBA_PTR_FROM_JSON(CenId, cenId_);
         DARABONBA_PTR_FROM_JSON(ClientAsn, clientAsn_);
         DARABONBA_PTR_FROM_JSON(ClientCity, clientCity_);
         DARABONBA_PTR_FROM_JSON(ClientCountry, clientCountry_);
@@ -148,15 +154,16 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bindingResourceId_ == nullptr
-        && this->bindingResourceType_ == nullptr && this->bytes_ == nullptr && this->bytesRate_ == nullptr && this->clientAsn_ == nullptr && this->clientCity_ == nullptr
-        && this->clientCountry_ == nullptr && this->clientIsp_ == nullptr && this->clientProvince_ == nullptr && this->destinationIp_ == nullptr && this->destinationPort_ == nullptr
-        && this->destinationRegionNo_ == nullptr && this->direction_ == nullptr && this->dscp_ == nullptr && this->ecsId_ == nullptr && this->instanceId_ == nullptr
-        && this->networkInterfaceId_ == nullptr && this->packets_ == nullptr && this->packetsLostBlackhole_ == nullptr && this->packetsLostNoRoute_ == nullptr && this->packetsLostTTLExpired_ == nullptr
-        && this->protocol_ == nullptr && this->publicIpAddress_ == nullptr && this->regionId_ == nullptr && this->roundTripTime_ == nullptr && this->sourceIp_ == nullptr
-        && this->sourcePort_ == nullptr && this->sourceRegionNo_ == nullptr && this->trafficPath_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterDestinationAccountId_ == nullptr
-        && this->transitRouterDestinationAvailableZone_ == nullptr && this->transitRouterDestinationNetworkInterface_ == nullptr && this->transitRouterDestinationResourceId_ == nullptr && this->transitRouterDestinationVSwitchId_ == nullptr && this->transitRouterId_ == nullptr
-        && this->transitRouterPairAttachmentId_ == nullptr && this->transitRouterSourceAccountId_ == nullptr && this->transitRouterSourceAvailableZone_ == nullptr && this->transitRouterSourceNetworkInterface_ == nullptr && this->transitRouterSourceResourceId_ == nullptr
-        && this->transitRouterSourceVSwitchId_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr; };
+        && this->bindingResourceType_ == nullptr && this->bytes_ == nullptr && this->bytesIncrease_ == nullptr && this->bytesIncreaseRatio_ == nullptr && this->bytesRate_ == nullptr
+        && this->cenId_ == nullptr && this->clientAsn_ == nullptr && this->clientCity_ == nullptr && this->clientCountry_ == nullptr && this->clientIsp_ == nullptr
+        && this->clientProvince_ == nullptr && this->destinationIp_ == nullptr && this->destinationPort_ == nullptr && this->destinationRegionNo_ == nullptr && this->direction_ == nullptr
+        && this->dscp_ == nullptr && this->ecsId_ == nullptr && this->instanceId_ == nullptr && this->networkInterfaceId_ == nullptr && this->packets_ == nullptr
+        && this->packetsLostBlackhole_ == nullptr && this->packetsLostNoRoute_ == nullptr && this->packetsLostTTLExpired_ == nullptr && this->protocol_ == nullptr && this->publicIpAddress_ == nullptr
+        && this->regionId_ == nullptr && this->roundTripTime_ == nullptr && this->sourceIp_ == nullptr && this->sourcePort_ == nullptr && this->sourceRegionNo_ == nullptr
+        && this->trafficPath_ == nullptr && this->transitRouterAttachmentId_ == nullptr && this->transitRouterDestinationAccountId_ == nullptr && this->transitRouterDestinationAvailableZone_ == nullptr && this->transitRouterDestinationNetworkInterface_ == nullptr
+        && this->transitRouterDestinationResourceId_ == nullptr && this->transitRouterDestinationVSwitchId_ == nullptr && this->transitRouterId_ == nullptr && this->transitRouterPairAttachmentId_ == nullptr && this->transitRouterSourceAccountId_ == nullptr
+        && this->transitRouterSourceAvailableZone_ == nullptr && this->transitRouterSourceNetworkInterface_ == nullptr && this->transitRouterSourceResourceId_ == nullptr && this->transitRouterSourceVSwitchId_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr; };
       // bindingResourceId Field Functions 
       bool hasBindingResourceId() const { return this->bindingResourceId_ != nullptr;};
       void deleteBindingResourceId() { this->bindingResourceId_ = nullptr;};
@@ -178,11 +185,32 @@ namespace Models
       inline FlowRankingList& setBytes(double bytes) { DARABONBA_PTR_SET_VALUE(bytes_, bytes) };
 
 
+      // bytesIncrease Field Functions 
+      bool hasBytesIncrease() const { return this->bytesIncrease_ != nullptr;};
+      void deleteBytesIncrease() { this->bytesIncrease_ = nullptr;};
+      inline double getBytesIncrease() const { DARABONBA_PTR_GET_DEFAULT(bytesIncrease_, 0.0) };
+      inline FlowRankingList& setBytesIncrease(double bytesIncrease) { DARABONBA_PTR_SET_VALUE(bytesIncrease_, bytesIncrease) };
+
+
+      // bytesIncreaseRatio Field Functions 
+      bool hasBytesIncreaseRatio() const { return this->bytesIncreaseRatio_ != nullptr;};
+      void deleteBytesIncreaseRatio() { this->bytesIncreaseRatio_ = nullptr;};
+      inline double getBytesIncreaseRatio() const { DARABONBA_PTR_GET_DEFAULT(bytesIncreaseRatio_, 0.0) };
+      inline FlowRankingList& setBytesIncreaseRatio(double bytesIncreaseRatio) { DARABONBA_PTR_SET_VALUE(bytesIncreaseRatio_, bytesIncreaseRatio) };
+
+
       // bytesRate Field Functions 
       bool hasBytesRate() const { return this->bytesRate_ != nullptr;};
       void deleteBytesRate() { this->bytesRate_ = nullptr;};
       inline double getBytesRate() const { DARABONBA_PTR_GET_DEFAULT(bytesRate_, 0.0) };
       inline FlowRankingList& setBytesRate(double bytesRate) { DARABONBA_PTR_SET_VALUE(bytesRate_, bytesRate) };
+
+
+      // cenId Field Functions 
+      bool hasCenId() const { return this->cenId_ != nullptr;};
+      void deleteCenId() { this->cenId_ = nullptr;};
+      inline string getCenId() const { DARABONBA_PTR_GET_DEFAULT(cenId_, "") };
+      inline FlowRankingList& setCenId(string cenId) { DARABONBA_PTR_SET_VALUE(cenId_, cenId) };
 
 
       // clientAsn Field Functions 
@@ -469,7 +497,10 @@ namespace Models
       shared_ptr<string> bindingResourceId_ {};
       shared_ptr<string> bindingResourceType_ {};
       shared_ptr<double> bytes_ {};
+      shared_ptr<double> bytesIncrease_ {};
+      shared_ptr<double> bytesIncreaseRatio_ {};
       shared_ptr<double> bytesRate_ {};
+      shared_ptr<string> cenId_ {};
       shared_ptr<string> clientAsn_ {};
       shared_ptr<string> clientCity_ {};
       shared_ptr<string> clientCountry_ {};

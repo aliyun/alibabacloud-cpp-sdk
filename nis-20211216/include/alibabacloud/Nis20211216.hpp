@@ -42,7 +42,7 @@ namespace Nis20211216
       Models::CreateAndAnalyzeNetworkPathResponse createAndAnalyzeNetworkPath(const Models::CreateAndAnalyzeNetworkPathRequest &request);
 
       /**
-       * @summary Creates a network path in the cloud for reachability analysis.
+       * @summary Creates a network path for reachability analysis.
        *
        * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
        * *   You can create up to 100 network paths within one Alibaba Cloud account.
@@ -54,7 +54,7 @@ namespace Nis20211216
       Models::CreateNetworkPathResponse createNetworkPathWithOptions(const Models::CreateNetworkPathRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a network path in the cloud for reachability analysis.
+       * @summary Creates a network path for reachability analysis.
        *
        * @description *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
        * *   You can create up to 100 network paths within one Alibaba Cloud account.
@@ -405,7 +405,6 @@ namespace Nis20211216
       /**
        * @summary 巡检资源类型列表
        *
-       * @param request ListNisInspectionResourceTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListNisInspectionResourceTypeResponse
        */
