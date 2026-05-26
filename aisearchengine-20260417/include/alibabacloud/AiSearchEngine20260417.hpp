@@ -39,6 +39,42 @@ namespace AiSearchEngine20260417
       Models::EngineSearchResponse engineSearch(const Models::EngineSearchRequest &request);
 
       /**
+       * @summary 获取数据集资源 OSS 访问地址
+       *
+       * @param request GetDatasetResourceUrlRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDatasetResourceUrlResponse
+       */
+      Models::GetDatasetResourceUrlResponse getDatasetResourceUrlWithOptions(const Models::GetDatasetResourceUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取数据集资源 OSS 访问地址
+       *
+       * @param request GetDatasetResourceUrlRequest
+       * @return GetDatasetResourceUrlResponse
+       */
+      Models::GetDatasetResourceUrlResponse getDatasetResourceUrl(const Models::GetDatasetResourceUrlRequest &request);
+
+      /**
+       * @summary 提交单条记录导入任务
+       *
+       * @param request ImportDatasetDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ImportDatasetDataResponse
+       */
+      Models::ImportDatasetDataResponse importDatasetDataWithOptions(const Models::ImportDatasetDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交单条记录导入任务
+       *
+       * @param request ImportDatasetDataRequest
+       * @return ImportDatasetDataResponse
+       */
+      Models::ImportDatasetDataResponse importDatasetData(const Models::ImportDatasetDataRequest &request);
+
+      /**
        * @summary AI问答对话
        *
        * @param request QaChatRequest

@@ -110,6 +110,104 @@ EngineSearchResponse Client::engineSearch(const EngineSearchRequest &request) {
 }
 
 /**
+ * @summary 获取数据集资源 OSS 访问地址
+ *
+ * @param request GetDatasetResourceUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDatasetResourceUrlResponse
+ */
+GetDatasetResourceUrlResponse Client::getDatasetResourceUrlWithOptions(const GetDatasetResourceUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasPrimaryKey()) {
+    body["primaryKey"] = request.getPrimaryKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDatasetResourceUrl"},
+    {"version" , "2026-04-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/dataset/open/resources")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDatasetResourceUrlResponse>();
+}
+
+/**
+ * @summary 获取数据集资源 OSS 访问地址
+ *
+ * @param request GetDatasetResourceUrlRequest
+ * @return GetDatasetResourceUrlResponse
+ */
+GetDatasetResourceUrlResponse Client::getDatasetResourceUrl(const GetDatasetResourceUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDatasetResourceUrlWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 提交单条记录导入任务
+ *
+ * @param request ImportDatasetDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ImportDatasetDataResponse
+ */
+ImportDatasetDataResponse Client::importDatasetDataWithOptions(const ImportDatasetDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDatasetId()) {
+    body["datasetId"] = request.getDatasetId();
+  }
+
+  if (!!request.hasRecords()) {
+    body["records"] = request.getRecords();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ImportDatasetData"},
+    {"version" , "2026-04-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/dataset/open/upsert")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ImportDatasetDataResponse>();
+}
+
+/**
+ * @summary 提交单条记录导入任务
+ *
+ * @param request ImportDatasetDataRequest
+ * @return ImportDatasetDataResponse
+ */
+ImportDatasetDataResponse Client::importDatasetData(const ImportDatasetDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return importDatasetDataWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary AI问答对话
  *
  * @param request QaChatRequest
