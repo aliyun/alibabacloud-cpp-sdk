@@ -129,6 +129,24 @@ namespace Eas20210701
       Models::CreateBenchmarkTaskResponse createBenchmarkTask(const Models::CreateBenchmarkTaskRequest &request);
 
       /**
+       * @summary 创建单个配置
+       *
+       * @param request CreateConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateConfigResponse
+       */
+      Models::CreateConfigResponse createConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::CreateConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建单个配置
+       *
+       * @param request CreateConfigRequest
+       * @return CreateConfigResponse
+       */
+      Models::CreateConfigResponse createConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::CreateConfigRequest &request);
+
+      /**
        * @summary 创建故障注入任务
        *
        * @param request CreateFaultInjectionRequest
@@ -439,6 +457,24 @@ namespace Eas20210701
        * @return DeleteBenchmarkTaskResponse
        */
       Models::DeleteBenchmarkTaskResponse deleteBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::DeleteBenchmarkTaskRequest &request);
+
+      /**
+       * @summary 删除单个配置项
+       *
+       * @param request DeleteConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConfigResponse
+       */
+      Models::DeleteConfigResponse deleteConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::DeleteConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除单个配置项
+       *
+       * @param request DeleteConfigRequest
+       * @return DeleteConfigResponse
+       */
+      Models::DeleteConfigResponse deleteConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::DeleteConfigRequest &request);
 
       /**
        * @summary 删除故障注入任务
@@ -1283,6 +1319,24 @@ namespace Eas20210701
       Models::ListBenchmarkTaskResponse listBenchmarkTask(const Models::ListBenchmarkTaskRequest &request);
 
       /**
+       * @summary 查询服务的所有配置项（支持分页）
+       *
+       * @param request ListConfigsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListConfigsResponse
+       */
+      Models::ListConfigsResponse listConfigsWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const Models::ListConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询服务的所有配置项（支持分页）
+       *
+       * @param request ListConfigsRequest
+       * @return ListConfigsResponse
+       */
+      Models::ListConfigsResponse listConfigs(const string &ClusterId, const string &ConfigType, const string &Name, const Models::ListConfigsRequest &request);
+
+      /**
        * @summary Queries a list of private gateways.
        *
        * @param tmpReq ListGatewayRequest
@@ -1787,6 +1841,24 @@ namespace Eas20210701
        * @return UpdateBenchmarkTaskResponse
        */
       Models::UpdateBenchmarkTaskResponse updateBenchmarkTask(const string &ClusterId, const string &TaskName, const Models::UpdateBenchmarkTaskRequest &request);
+
+      /**
+       * @summary 更新单个配置项
+       *
+       * @param request UpdateConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConfigResponse
+       */
+      Models::UpdateConfigResponse updateConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::UpdateConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新单个配置项
+       *
+       * @param request UpdateConfigRequest
+       * @return UpdateConfigResponse
+       */
+      Models::UpdateConfigResponse updateConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const Models::UpdateConfigRequest &request);
 
       /**
        * @summary Update a private gateway.

@@ -366,6 +366,51 @@ CreateBenchmarkTaskResponse Client::createBenchmarkTask(const CreateBenchmarkTas
 }
 
 /**
+ * @summary 创建单个配置
+ *
+ * @param request CreateConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateConfigResponse
+ */
+CreateConfigResponse Client::createConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const CreateConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasValue()) {
+    body["Value"] = request.getValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateConfig"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/configs/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigType) , "/" , Darabonba::Encode::Encoder::percentEncode(Name) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigKey))},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateConfigResponse>();
+}
+
+/**
+ * @summary 创建单个配置
+ *
+ * @param request CreateConfigRequest
+ * @return CreateConfigResponse
+ */
+CreateConfigResponse Client::createConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const CreateConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
+}
+
+/**
  * @summary 创建故障注入任务
  *
  * @param request CreateFaultInjectionRequest
@@ -1298,6 +1343,45 @@ DeleteBenchmarkTaskResponse Client::deleteBenchmarkTask(const string &ClusterId,
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
+}
+
+/**
+ * @summary 删除单个配置项
+ *
+ * @param request DeleteConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConfigResponse
+ */
+DeleteConfigResponse Client::deleteConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const DeleteConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteConfig"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/configs/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigType) , "/" , Darabonba::Encode::Encoder::percentEncode(Name) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigKey))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConfigResponse>();
+}
+
+/**
+ * @summary 删除单个配置项
+ *
+ * @param request DeleteConfigRequest
+ * @return DeleteConfigResponse
+ */
+DeleteConfigResponse Client::deleteConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const DeleteConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
 }
 
 /**
@@ -3381,6 +3465,55 @@ ListBenchmarkTaskResponse Client::listBenchmarkTask(const ListBenchmarkTaskReque
 }
 
 /**
+ * @summary 查询服务的所有配置项（支持分页）
+ *
+ * @param request ListConfigsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConfigsResponse
+ */
+ListConfigsResponse Client::listConfigsWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const ListConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConfigs"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/configs/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigType) , "/" , Darabonba::Encode::Encoder::percentEncode(Name))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConfigsResponse>();
+}
+
+/**
+ * @summary 查询服务的所有配置项（支持分页）
+ *
+ * @param request ListConfigsRequest
+ * @return ListConfigsResponse
+ */
+ListConfigsResponse Client::listConfigs(const string &ClusterId, const string &ConfigType, const string &Name, const ListConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConfigsWithOptions(ClusterId, ConfigType, Name, request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of private gateways.
  *
  * @param tmpReq ListGatewayRequest
@@ -4994,6 +5127,51 @@ UpdateBenchmarkTaskResponse Client::updateBenchmarkTask(const string &ClusterId,
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新单个配置项
+ *
+ * @param request UpdateConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConfigResponse
+ */
+UpdateConfigResponse Client::updateConfigWithOptions(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const UpdateConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasValue()) {
+    body["Value"] = request.getValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateConfig"},
+    {"version" , "2021-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/configs/" , Darabonba::Encode::Encoder::percentEncode(ClusterId) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigType) , "/" , Darabonba::Encode::Encoder::percentEncode(Name) , "/" , Darabonba::Encode::Encoder::percentEncode(ConfigKey))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConfigResponse>();
+}
+
+/**
+ * @summary 更新单个配置项
+ *
+ * @param request UpdateConfigRequest
+ * @return UpdateConfigResponse
+ */
+UpdateConfigResponse Client::updateConfig(const string &ClusterId, const string &ConfigType, const string &Name, const string &ConfigKey, const UpdateConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
 }
 
 /**

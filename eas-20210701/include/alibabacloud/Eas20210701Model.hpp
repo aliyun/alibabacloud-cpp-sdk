@@ -30,6 +30,9 @@
 #include <alibabacloud/models/CreateBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/CreateBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/CreateConfigRequest.hpp>
+#include <alibabacloud/models/CreateConfigResponseBody.hpp>
+#include <alibabacloud/models/CreateConfigResponse.hpp>
 #include <alibabacloud/models/CreateFaultInjectionRequest.hpp>
 #include <alibabacloud/models/CreateFaultInjectionResponseBody.hpp>
 #include <alibabacloud/models/CreateFaultInjectionResponse.hpp>
@@ -81,6 +84,9 @@
 #include <alibabacloud/models/DeleteBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/DeleteBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/DeleteConfigRequest.hpp>
+#include <alibabacloud/models/DeleteConfigResponseBody.hpp>
+#include <alibabacloud/models/DeleteConfigResponse.hpp>
 #include <alibabacloud/models/DeleteFaultInjectionRequest.hpp>
 #include <alibabacloud/models/DeleteFaultInjectionResponseBody.hpp>
 #include <alibabacloud/models/DeleteFaultInjectionResponse.hpp>
@@ -219,6 +225,9 @@
 #include <alibabacloud/models/ListBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/ListBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/ListBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/ListConfigsRequest.hpp>
+#include <alibabacloud/models/ListConfigsResponseBody.hpp>
+#include <alibabacloud/models/ListConfigsResponse.hpp>
 #include <alibabacloud/models/ListGatewayRequest.hpp>
 #include <alibabacloud/models/ListGatewayShrinkRequest.hpp>
 #include <alibabacloud/models/ListGatewayResponseBody.hpp>
@@ -305,6 +314,9 @@
 #include <alibabacloud/models/UpdateBenchmarkTaskRequest.hpp>
 #include <alibabacloud/models/UpdateBenchmarkTaskResponseBody.hpp>
 #include <alibabacloud/models/UpdateBenchmarkTaskResponse.hpp>
+#include <alibabacloud/models/UpdateConfigRequest.hpp>
+#include <alibabacloud/models/UpdateConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateConfigResponse.hpp>
 #include <alibabacloud/models/UpdateGatewayRequest.hpp>
 #include <alibabacloud/models/UpdateGatewayResponseBody.hpp>
 #include <alibabacloud/models/UpdateGatewayResponse.hpp>

@@ -1,0 +1,82 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_UPDATECONFIGRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATECONFIGRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Eas20210701
+{
+namespace Models
+{
+  class UpdateConfigResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const UpdateConfigResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
+      DARABONBA_PTR_TO_JSON(Key, key_);
+      DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
+      DARABONBA_PTR_TO_JSON(Value, value_);
+    };
+    friend void from_json(const Darabonba::Json& j, UpdateConfigResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
+      DARABONBA_PTR_FROM_JSON(Key, key_);
+      DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
+      DARABONBA_PTR_FROM_JSON(Value, value_);
+    };
+    UpdateConfigResponseBody() = default ;
+    UpdateConfigResponseBody(const UpdateConfigResponseBody &) = default ;
+    UpdateConfigResponseBody(UpdateConfigResponseBody &&) = default ;
+    UpdateConfigResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateConfigResponseBody() = default ;
+    UpdateConfigResponseBody& operator=(const UpdateConfigResponseBody &) = default ;
+    UpdateConfigResponseBody& operator=(UpdateConfigResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->createdAt_ == nullptr
+        && this->key_ == nullptr && this->updatedAt_ == nullptr && this->value_ == nullptr; };
+    // createdAt Field Functions 
+    bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
+    void deleteCreatedAt() { this->createdAt_ = nullptr;};
+    inline string getCreatedAt() const { DARABONBA_PTR_GET_DEFAULT(createdAt_, "") };
+    inline UpdateConfigResponseBody& setCreatedAt(string createdAt) { DARABONBA_PTR_SET_VALUE(createdAt_, createdAt) };
+
+
+    // key Field Functions 
+    bool hasKey() const { return this->key_ != nullptr;};
+    void deleteKey() { this->key_ = nullptr;};
+    inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+    inline UpdateConfigResponseBody& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+    // updatedAt Field Functions 
+    bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
+    void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
+    inline string getUpdatedAt() const { DARABONBA_PTR_GET_DEFAULT(updatedAt_, "") };
+    inline UpdateConfigResponseBody& setUpdatedAt(string updatedAt) { DARABONBA_PTR_SET_VALUE(updatedAt_, updatedAt) };
+
+
+    // value Field Functions 
+    bool hasValue() const { return this->value_ != nullptr;};
+    void deleteValue() { this->value_ = nullptr;};
+    inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+    inline UpdateConfigResponseBody& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+  protected:
+    // 创建时间
+    shared_ptr<string> createdAt_ {};
+    // 配置键名
+    shared_ptr<string> key_ {};
+    // 更新时间
+    shared_ptr<string> updatedAt_ {};
+    // 配置值
+    shared_ptr<string> value_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Eas20210701
+#endif
