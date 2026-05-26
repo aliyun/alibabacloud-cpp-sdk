@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DetectImageCroppingShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AspectRatios, aspectRatios_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfigShrink_);
+      DARABONBA_PTR_TO_JSON(InclusionHints, inclusionHintsShrink_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(SourceURI, sourceURI_);
     };
     friend void from_json(const Darabonba::Json& j, DetectImageCroppingShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AspectRatios, aspectRatios_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(InclusionHints, inclusionHintsShrink_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(SourceURI, sourceURI_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aspectRatios_ == nullptr
-        && this->credentialConfigShrink_ == nullptr && this->projectName_ == nullptr && this->sourceURI_ == nullptr; };
+        && this->credentialConfigShrink_ == nullptr && this->inclusionHintsShrink_ == nullptr && this->projectName_ == nullptr && this->sourceURI_ == nullptr; };
     // aspectRatios Field Functions 
     bool hasAspectRatios() const { return this->aspectRatios_ != nullptr;};
     void deleteAspectRatios() { this->aspectRatios_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteCredentialConfigShrink() { this->credentialConfigShrink_ = nullptr;};
     inline string getCredentialConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(credentialConfigShrink_, "") };
     inline DetectImageCroppingShrinkRequest& setCredentialConfigShrink(string credentialConfigShrink) { DARABONBA_PTR_SET_VALUE(credentialConfigShrink_, credentialConfigShrink) };
+
+
+    // inclusionHintsShrink Field Functions 
+    bool hasInclusionHintsShrink() const { return this->inclusionHintsShrink_ != nullptr;};
+    void deleteInclusionHintsShrink() { this->inclusionHintsShrink_ = nullptr;};
+    inline string getInclusionHintsShrink() const { DARABONBA_PTR_GET_DEFAULT(inclusionHintsShrink_, "") };
+    inline DetectImageCroppingShrinkRequest& setInclusionHintsShrink(string inclusionHintsShrink) { DARABONBA_PTR_SET_VALUE(inclusionHintsShrink_, inclusionHintsShrink) };
 
 
     // projectName Field Functions 
@@ -82,6 +91,7 @@ namespace Models
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     shared_ptr<string> credentialConfigShrink_ {};
+    shared_ptr<string> inclusionHintsShrink_ {};
     // The name of the project.
     // 
     // This parameter is required.

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DETECTIMAGECROPPINGREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/CredentialConfig.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,12 +17,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DetectImageCroppingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AspectRatios, aspectRatios_);
       DARABONBA_PTR_TO_JSON(CredentialConfig, credentialConfig_);
+      DARABONBA_PTR_TO_JSON(InclusionHints, inclusionHints_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
       DARABONBA_PTR_TO_JSON(SourceURI, sourceURI_);
     };
     friend void from_json(const Darabonba::Json& j, DetectImageCroppingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AspectRatios, aspectRatios_);
       DARABONBA_PTR_FROM_JSON(CredentialConfig, credentialConfig_);
+      DARABONBA_PTR_FROM_JSON(InclusionHints, inclusionHints_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
       DARABONBA_PTR_FROM_JSON(SourceURI, sourceURI_);
     };
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aspectRatios_ == nullptr
-        && this->credentialConfig_ == nullptr && this->projectName_ == nullptr && this->sourceURI_ == nullptr; };
+        && this->credentialConfig_ == nullptr && this->inclusionHints_ == nullptr && this->projectName_ == nullptr && this->sourceURI_ == nullptr; };
     // aspectRatios Field Functions 
     bool hasAspectRatios() const { return this->aspectRatios_ != nullptr;};
     void deleteAspectRatios() { this->aspectRatios_ = nullptr;};
@@ -52,6 +55,15 @@ namespace Models
     inline CredentialConfig getCredentialConfig() { DARABONBA_PTR_GET(credentialConfig_, CredentialConfig) };
     inline DetectImageCroppingRequest& setCredentialConfig(const CredentialConfig & credentialConfig) { DARABONBA_PTR_SET_VALUE(credentialConfig_, credentialConfig) };
     inline DetectImageCroppingRequest& setCredentialConfig(CredentialConfig && credentialConfig) { DARABONBA_PTR_SET_RVALUE(credentialConfig_, credentialConfig) };
+
+
+    // inclusionHints Field Functions 
+    bool hasInclusionHints() const { return this->inclusionHints_ != nullptr;};
+    void deleteInclusionHints() { this->inclusionHints_ = nullptr;};
+    inline const vector<string> & getInclusionHints() const { DARABONBA_PTR_GET_CONST(inclusionHints_, vector<string>) };
+    inline vector<string> getInclusionHints() { DARABONBA_PTR_GET(inclusionHints_, vector<string>) };
+    inline DetectImageCroppingRequest& setInclusionHints(const vector<string> & inclusionHints) { DARABONBA_PTR_SET_VALUE(inclusionHints_, inclusionHints) };
+    inline DetectImageCroppingRequest& setInclusionHints(vector<string> && inclusionHints) { DARABONBA_PTR_SET_RVALUE(inclusionHints_, inclusionHints) };
 
 
     // projectName Field Functions 
@@ -85,6 +97,7 @@ namespace Models
     // 
     // The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
     shared_ptr<CredentialConfig> credentialConfig_ {};
+    shared_ptr<vector<string>> inclusionHints_ {};
     // The name of the project.
     // 
     // This parameter is required.

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_INSIGHTSCONFIG_HPP_
 #define ALIBABACLOUD_MODELS_INSIGHTSCONFIG_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/VideoInsightsConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const InsightsConfig& obj) { 
       DARABONBA_PTR_TO_JSON(Language, language_);
+      DARABONBA_PTR_TO_JSON(Video, video_);
     };
     friend void from_json(const Darabonba::Json& j, InsightsConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(Language, language_);
+      DARABONBA_PTR_FROM_JSON(Video, video_);
     };
     InsightsConfig() = default ;
     InsightsConfig(const InsightsConfig &) = default ;
@@ -29,7 +32,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->language_ == nullptr; };
+    virtual bool empty() const override { return this->language_ == nullptr
+        && this->video_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
@@ -37,8 +41,18 @@ namespace Models
     inline InsightsConfig& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
+    // video Field Functions 
+    bool hasVideo() const { return this->video_ != nullptr;};
+    void deleteVideo() { this->video_ = nullptr;};
+    inline const VideoInsightsConfig & getVideo() const { DARABONBA_PTR_GET_CONST(video_, VideoInsightsConfig) };
+    inline VideoInsightsConfig getVideo() { DARABONBA_PTR_GET(video_, VideoInsightsConfig) };
+    inline InsightsConfig& setVideo(const VideoInsightsConfig & video) { DARABONBA_PTR_SET_VALUE(video_, video) };
+    inline InsightsConfig& setVideo(VideoInsightsConfig && video) { DARABONBA_PTR_SET_RVALUE(video_, video) };
+
+
   protected:
     shared_ptr<string> language_ {};
+    shared_ptr<VideoInsightsConfig> video_ {};
   };
 
   } // namespace Models

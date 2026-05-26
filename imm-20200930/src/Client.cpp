@@ -4217,6 +4217,10 @@ DetectImageCroppingResponse Client::detectImageCroppingWithOptions(const DetectI
     request.setCredentialConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCredentialConfig(), "CredentialConfig", "json"));
   }
 
+  if (!!tmpReq.hasInclusionHints()) {
+    request.setInclusionHintsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInclusionHints(), "InclusionHints", "json"));
+  }
+
   json query = {};
   if (!!request.hasAspectRatios()) {
     query["AspectRatios"] = request.getAspectRatios();
@@ -4224,6 +4228,10 @@ DetectImageCroppingResponse Client::detectImageCroppingWithOptions(const DetectI
 
   if (!!request.hasCredentialConfigShrink()) {
     query["CredentialConfig"] = request.getCredentialConfigShrink();
+  }
+
+  if (!!request.hasInclusionHintsShrink()) {
+    query["InclusionHints"] = request.getInclusionHintsShrink();
   }
 
   if (!!request.hasProjectName()) {

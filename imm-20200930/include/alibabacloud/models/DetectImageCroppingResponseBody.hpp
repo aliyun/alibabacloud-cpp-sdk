@@ -16,10 +16,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DetectImageCroppingResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Croppings, croppings_);
+      DARABONBA_PTR_TO_JSON(MatchedInclusionHints, matchedInclusionHints_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, DetectImageCroppingResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Croppings, croppings_);
+      DARABONBA_PTR_FROM_JSON(MatchedInclusionHints, matchedInclusionHints_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     DetectImageCroppingResponseBody() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->croppings_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->matchedInclusionHints_ == nullptr && this->requestId_ == nullptr; };
     // croppings Field Functions 
     bool hasCroppings() const { return this->croppings_ != nullptr;};
     void deleteCroppings() { this->croppings_ = nullptr;};
@@ -42,6 +44,15 @@ namespace Models
     inline vector<CroppingSuggestion> getCroppings() { DARABONBA_PTR_GET(croppings_, vector<CroppingSuggestion>) };
     inline DetectImageCroppingResponseBody& setCroppings(const vector<CroppingSuggestion> & croppings) { DARABONBA_PTR_SET_VALUE(croppings_, croppings) };
     inline DetectImageCroppingResponseBody& setCroppings(vector<CroppingSuggestion> && croppings) { DARABONBA_PTR_SET_RVALUE(croppings_, croppings) };
+
+
+    // matchedInclusionHints Field Functions 
+    bool hasMatchedInclusionHints() const { return this->matchedInclusionHints_ != nullptr;};
+    void deleteMatchedInclusionHints() { this->matchedInclusionHints_ = nullptr;};
+    inline const vector<string> & getMatchedInclusionHints() const { DARABONBA_PTR_GET_CONST(matchedInclusionHints_, vector<string>) };
+    inline vector<string> getMatchedInclusionHints() { DARABONBA_PTR_GET(matchedInclusionHints_, vector<string>) };
+    inline DetectImageCroppingResponseBody& setMatchedInclusionHints(const vector<string> & matchedInclusionHints) { DARABONBA_PTR_SET_VALUE(matchedInclusionHints_, matchedInclusionHints) };
+    inline DetectImageCroppingResponseBody& setMatchedInclusionHints(vector<string> && matchedInclusionHints) { DARABONBA_PTR_SET_RVALUE(matchedInclusionHints_, matchedInclusionHints) };
 
 
     // requestId Field Functions 
@@ -54,6 +65,7 @@ namespace Models
   protected:
     // The image cropping suggestions.
     shared_ptr<vector<CroppingSuggestion>> croppings_ {};
+    shared_ptr<vector<string>> matchedInclusionHints_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

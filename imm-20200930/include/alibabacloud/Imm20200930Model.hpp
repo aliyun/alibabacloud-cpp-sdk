@@ -42,7 +42,12 @@
 #include <alibabacloud/models/InputOSS.hpp>
 #include <alibabacloud/models/Input.hpp>
 #include <alibabacloud/models/DataIngestion.hpp>
+#include <alibabacloud/models/PersonReferenceConfig.hpp>
+#include <alibabacloud/models/VideoInsightsCaptionConfig.hpp>
+#include <alibabacloud/models/VideoInsightsConfig.hpp>
 #include <alibabacloud/models/InsightsConfig.hpp>
+#include <alibabacloud/models/FigureClusterConfig.hpp>
+#include <alibabacloud/models/SmartClusterConfig.hpp>
 #include <alibabacloud/models/DatasetConfig.hpp>
 #include <alibabacloud/models/WorkflowParameter.hpp>
 #include <alibabacloud/models/Dataset.hpp>

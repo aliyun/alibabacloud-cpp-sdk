@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_DATASETCONFIG_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/InsightsConfig.hpp>
+#include <alibabacloud/models/SmartClusterConfig.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,9 +16,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DatasetConfig& obj) { 
       DARABONBA_PTR_TO_JSON(Insights, insights_);
+      DARABONBA_PTR_TO_JSON(SmartCluster, smartCluster_);
     };
     friend void from_json(const Darabonba::Json& j, DatasetConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(Insights, insights_);
+      DARABONBA_PTR_FROM_JSON(SmartCluster, smartCluster_);
     };
     DatasetConfig() = default ;
     DatasetConfig(const DatasetConfig &) = default ;
@@ -30,7 +33,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->insights_ == nullptr; };
+    virtual bool empty() const override { return this->insights_ == nullptr
+        && this->smartCluster_ == nullptr; };
     // insights Field Functions 
     bool hasInsights() const { return this->insights_ != nullptr;};
     void deleteInsights() { this->insights_ = nullptr;};
@@ -40,8 +44,18 @@ namespace Models
     inline DatasetConfig& setInsights(InsightsConfig && insights) { DARABONBA_PTR_SET_RVALUE(insights_, insights) };
 
 
+    // smartCluster Field Functions 
+    bool hasSmartCluster() const { return this->smartCluster_ != nullptr;};
+    void deleteSmartCluster() { this->smartCluster_ = nullptr;};
+    inline const SmartClusterConfig & getSmartCluster() const { DARABONBA_PTR_GET_CONST(smartCluster_, SmartClusterConfig) };
+    inline SmartClusterConfig getSmartCluster() { DARABONBA_PTR_GET(smartCluster_, SmartClusterConfig) };
+    inline DatasetConfig& setSmartCluster(const SmartClusterConfig & smartCluster) { DARABONBA_PTR_SET_VALUE(smartCluster_, smartCluster) };
+    inline DatasetConfig& setSmartCluster(SmartClusterConfig && smartCluster) { DARABONBA_PTR_SET_RVALUE(smartCluster_, smartCluster) };
+
+
   protected:
     shared_ptr<InsightsConfig> insights_ {};
+    shared_ptr<SmartClusterConfig> smartCluster_ {};
   };
 
   } // namespace Models

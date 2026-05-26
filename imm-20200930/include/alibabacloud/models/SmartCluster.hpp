@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_SMARTCLUSTER_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/SmartClusterRule.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,6 +15,7 @@ namespace Models
   class SmartCluster : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SmartCluster& obj) { 
+      DARABONBA_PTR_TO_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -23,10 +25,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ObjectType, objectType_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(ProjectName, projectName_);
+      DARABONBA_PTR_TO_JSON(Reason, reason_);
       DARABONBA_PTR_TO_JSON(Rule, rule_);
+      DARABONBA_PTR_TO_JSON(Rules, rules_);
       DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
     };
     friend void from_json(const Darabonba::Json& j, SmartCluster& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClusterType, clusterType_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DatasetName, datasetName_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -36,7 +41,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ObjectType, objectType_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ProjectName, projectName_);
+      DARABONBA_PTR_FROM_JSON(Reason, reason_);
       DARABONBA_PTR_FROM_JSON(Rule, rule_);
+      DARABONBA_PTR_FROM_JSON(Rules, rules_);
       DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
     };
     SmartCluster() = default ;
@@ -50,9 +57,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->datasetName_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->objectId_ == nullptr && this->objectStatus_ == nullptr
-        && this->objectType_ == nullptr && this->ownerId_ == nullptr && this->projectName_ == nullptr && this->rule_ == nullptr && this->updateTime_ == nullptr; };
+    virtual bool empty() const override { return this->clusterType_ == nullptr
+        && this->createTime_ == nullptr && this->datasetName_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->objectId_ == nullptr
+        && this->objectStatus_ == nullptr && this->objectType_ == nullptr && this->ownerId_ == nullptr && this->projectName_ == nullptr && this->reason_ == nullptr
+        && this->rule_ == nullptr && this->rules_ == nullptr && this->updateTime_ == nullptr; };
+    // clusterType Field Functions 
+    bool hasClusterType() const { return this->clusterType_ != nullptr;};
+    void deleteClusterType() { this->clusterType_ = nullptr;};
+    inline string getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, "") };
+    inline SmartCluster& setClusterType(string clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
+
+
     // createTime Field Functions 
     bool hasCreateTime() const { return this->createTime_ != nullptr;};
     void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -116,6 +131,13 @@ namespace Models
     inline SmartCluster& setProjectName(string projectName) { DARABONBA_PTR_SET_VALUE(projectName_, projectName) };
 
 
+    // reason Field Functions 
+    bool hasReason() const { return this->reason_ != nullptr;};
+    void deleteReason() { this->reason_ = nullptr;};
+    inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+    inline SmartCluster& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
     // rule Field Functions 
     bool hasRule() const { return this->rule_ != nullptr;};
     void deleteRule() { this->rule_ = nullptr;};
@@ -123,6 +145,15 @@ namespace Models
     inline SmartClusterRule getRule() { DARABONBA_PTR_GET(rule_, SmartClusterRule) };
     inline SmartCluster& setRule(const SmartClusterRule & rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
     inline SmartCluster& setRule(SmartClusterRule && rule) { DARABONBA_PTR_SET_RVALUE(rule_, rule) };
+
+
+    // rules Field Functions 
+    bool hasRules() const { return this->rules_ != nullptr;};
+    void deleteRules() { this->rules_ = nullptr;};
+    inline const vector<SmartClusterRule> & getRules() const { DARABONBA_PTR_GET_CONST(rules_, vector<SmartClusterRule>) };
+    inline vector<SmartClusterRule> getRules() { DARABONBA_PTR_GET(rules_, vector<SmartClusterRule>) };
+    inline SmartCluster& setRules(const vector<SmartClusterRule> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
+    inline SmartCluster& setRules(vector<SmartClusterRule> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
 
 
     // updateTime Field Functions 
@@ -133,6 +164,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clusterType_ {};
     // The time when the cluster was created.
     shared_ptr<string> createTime_ {};
     // The name of the dataset.
@@ -151,8 +183,10 @@ namespace Models
     shared_ptr<string> ownerId_ {};
     // The name of the project.
     shared_ptr<string> projectName_ {};
+    shared_ptr<string> reason_ {};
     // The clustering rule.
     shared_ptr<SmartClusterRule> rule_ {};
+    shared_ptr<vector<SmartClusterRule>> rules_ {};
     // The time when the cluster was updated.
     shared_ptr<string> updateTime_ {};
   };
