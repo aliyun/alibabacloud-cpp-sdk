@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
+        DARABONBA_PTR_TO_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -60,6 +61,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OfficeSiteType, officeSiteType_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(PolicyGroupIdList, policyGroupIdList_);
+        DARABONBA_PTR_TO_JSON(PrivateIpSets, privateIpSets_);
         DARABONBA_PTR_TO_JSON(ResourceSessionStatus, resourceSessionStatus_);
         DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_TO_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
@@ -74,6 +76,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Users, users_);
         DARABONBA_PTR_TO_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
+        DARABONBA_PTR_TO_JSON(VkUpgradeNeeded, vkUpgradeNeeded_);
+        DARABONBA_PTR_TO_JSON(VkVersion, vkVersion_);
         DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
       };
@@ -85,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
+        DARABONBA_PTR_FROM_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -97,6 +102,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OfficeSiteType, officeSiteType_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupIdList, policyGroupIdList_);
+        DARABONBA_PTR_FROM_JSON(PrivateIpSets, privateIpSets_);
         DARABONBA_PTR_FROM_JSON(ResourceSessionStatus, resourceSessionStatus_);
         DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
         DARABONBA_PTR_FROM_JSON(ServerInstanceTypeInfo, serverInstanceTypeInfo_);
@@ -111,6 +117,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Users, users_);
         DARABONBA_PTR_FROM_JSON(VirtualKubeletIp, virtualKubeletIp_);
         DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
+        DARABONBA_PTR_FROM_JSON(VkUpgradeNeeded, vkUpgradeNeeded_);
+        DARABONBA_PTR_FROM_JSON(VkVersion, vkVersion_);
         DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
         DARABONBA_PTR_FROM_JSON(WuyingServerName, wuyingServerName_);
       };
@@ -254,6 +262,48 @@ namespace Models
         shared_ptr<string> serverInstanceType_ {};
       };
 
+      class PrivateIpSets : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const PrivateIpSets& obj) { 
+          DARABONBA_PTR_TO_JSON(Primary, primary_);
+          DARABONBA_PTR_TO_JSON(PrivateIpAddress, privateIpAddress_);
+        };
+        friend void from_json(const Darabonba::Json& j, PrivateIpSets& obj) { 
+          DARABONBA_PTR_FROM_JSON(Primary, primary_);
+          DARABONBA_PTR_FROM_JSON(PrivateIpAddress, privateIpAddress_);
+        };
+        PrivateIpSets() = default ;
+        PrivateIpSets(const PrivateIpSets &) = default ;
+        PrivateIpSets(PrivateIpSets &&) = default ;
+        PrivateIpSets(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~PrivateIpSets() = default ;
+        PrivateIpSets& operator=(const PrivateIpSets &) = default ;
+        PrivateIpSets& operator=(PrivateIpSets &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->primary_ == nullptr
+        && this->privateIpAddress_ == nullptr; };
+        // primary Field Functions 
+        bool hasPrimary() const { return this->primary_ != nullptr;};
+        void deletePrimary() { this->primary_ = nullptr;};
+        inline bool getPrimary() const { DARABONBA_PTR_GET_DEFAULT(primary_, false) };
+        inline PrivateIpSets& setPrimary(bool primary) { DARABONBA_PTR_SET_VALUE(primary_, primary) };
+
+
+        // privateIpAddress Field Functions 
+        bool hasPrivateIpAddress() const { return this->privateIpAddress_ != nullptr;};
+        void deletePrivateIpAddress() { this->privateIpAddress_ = nullptr;};
+        inline string getPrivateIpAddress() const { DARABONBA_PTR_GET_DEFAULT(privateIpAddress_, "") };
+        inline PrivateIpSets& setPrivateIpAddress(string privateIpAddress) { DARABONBA_PTR_SET_VALUE(privateIpAddress_, privateIpAddress) };
+
+
+      protected:
+        shared_ptr<bool> primary_ {};
+        shared_ptr<string> privateIpAddress_ {};
+      };
+
       class InstanceInfoList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const InstanceInfoList& obj) { 
@@ -375,12 +425,13 @@ namespace Models
 
       virtual bool empty() const override { return this->addVirtualNodePoolStatus_ == nullptr
         && this->aliUid_ == nullptr && this->bandwidth_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr
-        && this->dataDisk_ == nullptr && this->expiredTime_ == nullptr && this->fotaVersion_ == nullptr && this->imageId_ == nullptr && this->imageName_ == nullptr
-        && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->policyGroupIdList_ == nullptr && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr
-        && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr && this->status_ == nullptr && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr
-        && this->systemDiskId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->timerGroupId_ == nullptr && this->users_ == nullptr
-        && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+        && this->dataDisk_ == nullptr && this->eniPrivateIpAddressQuantity_ == nullptr && this->expiredTime_ == nullptr && this->fotaVersion_ == nullptr && this->imageId_ == nullptr
+        && this->imageName_ == nullptr && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr
+        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->policyGroupIdList_ == nullptr && this->privateIpSets_ == nullptr
+        && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr && this->status_ == nullptr
+        && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->timerGroupId_ == nullptr && this->users_ == nullptr && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->vkUpgradeNeeded_ == nullptr
+        && this->vkVersion_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
       // addVirtualNodePoolStatus Field Functions 
       bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
       void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
@@ -430,6 +481,13 @@ namespace Models
       inline vector<WuyingServerList::DataDisk> getDataDisk() { DARABONBA_PTR_GET(dataDisk_, vector<WuyingServerList::DataDisk>) };
       inline WuyingServerList& setDataDisk(const vector<WuyingServerList::DataDisk> & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
       inline WuyingServerList& setDataDisk(vector<WuyingServerList::DataDisk> && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
+
+
+      // eniPrivateIpAddressQuantity Field Functions 
+      bool hasEniPrivateIpAddressQuantity() const { return this->eniPrivateIpAddressQuantity_ != nullptr;};
+      void deleteEniPrivateIpAddressQuantity() { this->eniPrivateIpAddressQuantity_ = nullptr;};
+      inline int32_t getEniPrivateIpAddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(eniPrivateIpAddressQuantity_, 0) };
+      inline WuyingServerList& setEniPrivateIpAddressQuantity(int32_t eniPrivateIpAddressQuantity) { DARABONBA_PTR_SET_VALUE(eniPrivateIpAddressQuantity_, eniPrivateIpAddressQuantity) };
 
 
       // expiredTime Field Functions 
@@ -518,6 +576,15 @@ namespace Models
       inline vector<string> getPolicyGroupIdList() { DARABONBA_PTR_GET(policyGroupIdList_, vector<string>) };
       inline WuyingServerList& setPolicyGroupIdList(const vector<string> & policyGroupIdList) { DARABONBA_PTR_SET_VALUE(policyGroupIdList_, policyGroupIdList) };
       inline WuyingServerList& setPolicyGroupIdList(vector<string> && policyGroupIdList) { DARABONBA_PTR_SET_RVALUE(policyGroupIdList_, policyGroupIdList) };
+
+
+      // privateIpSets Field Functions 
+      bool hasPrivateIpSets() const { return this->privateIpSets_ != nullptr;};
+      void deletePrivateIpSets() { this->privateIpSets_ = nullptr;};
+      inline const vector<WuyingServerList::PrivateIpSets> & getPrivateIpSets() const { DARABONBA_PTR_GET_CONST(privateIpSets_, vector<WuyingServerList::PrivateIpSets>) };
+      inline vector<WuyingServerList::PrivateIpSets> getPrivateIpSets() { DARABONBA_PTR_GET(privateIpSets_, vector<WuyingServerList::PrivateIpSets>) };
+      inline WuyingServerList& setPrivateIpSets(const vector<WuyingServerList::PrivateIpSets> & privateIpSets) { DARABONBA_PTR_SET_VALUE(privateIpSets_, privateIpSets) };
+      inline WuyingServerList& setPrivateIpSets(vector<WuyingServerList::PrivateIpSets> && privateIpSets) { DARABONBA_PTR_SET_RVALUE(privateIpSets_, privateIpSets) };
 
 
       // resourceSessionStatus Field Functions 
@@ -626,6 +693,20 @@ namespace Models
       inline WuyingServerList& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
 
 
+      // vkUpgradeNeeded Field Functions 
+      bool hasVkUpgradeNeeded() const { return this->vkUpgradeNeeded_ != nullptr;};
+      void deleteVkUpgradeNeeded() { this->vkUpgradeNeeded_ = nullptr;};
+      inline bool getVkUpgradeNeeded() const { DARABONBA_PTR_GET_DEFAULT(vkUpgradeNeeded_, false) };
+      inline WuyingServerList& setVkUpgradeNeeded(bool vkUpgradeNeeded) { DARABONBA_PTR_SET_VALUE(vkUpgradeNeeded_, vkUpgradeNeeded) };
+
+
+      // vkVersion Field Functions 
+      bool hasVkVersion() const { return this->vkVersion_ != nullptr;};
+      void deleteVkVersion() { this->vkVersion_ = nullptr;};
+      inline string getVkVersion() const { DARABONBA_PTR_GET_DEFAULT(vkVersion_, "") };
+      inline WuyingServerList& setVkVersion(string vkVersion) { DARABONBA_PTR_SET_VALUE(vkVersion_, vkVersion) };
+
+
       // wuyingServerId Field Functions 
       bool hasWuyingServerId() const { return this->wuyingServerId_ != nullptr;};
       void deleteWuyingServerId() { this->wuyingServerId_ = nullptr;};
@@ -652,6 +733,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The data disks.
       shared_ptr<vector<WuyingServerList::DataDisk>> dataDisk_ {};
+      shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
       // The time when the subscription instance expires.
       shared_ptr<string> expiredTime_ {};
       shared_ptr<string> fotaVersion_ {};
@@ -673,6 +755,7 @@ namespace Models
       // The OS type.
       shared_ptr<string> osType_ {};
       shared_ptr<vector<string>> policyGroupIdList_ {};
+      shared_ptr<vector<WuyingServerList::PrivateIpSets>> privateIpSets_ {};
       shared_ptr<string> resourceSessionStatus_ {};
       shared_ptr<vector<string>> securityGroupIds_ {};
       // The specifications.
@@ -692,6 +775,8 @@ namespace Models
       shared_ptr<vector<string>> users_ {};
       shared_ptr<string> virtualKubeletIp_ {};
       shared_ptr<string> virtualNodePoolId_ {};
+      shared_ptr<bool> vkUpgradeNeeded_ {};
+      shared_ptr<string> vkVersion_ {};
       // The ID of the workstation.
       shared_ptr<string> wuyingServerId_ {};
       // The name of the workstation.

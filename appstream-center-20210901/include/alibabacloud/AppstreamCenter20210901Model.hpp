@@ -5,6 +5,9 @@
 #include <alibabacloud/models/ApproveOtaTaskRequest.hpp>
 #include <alibabacloud/models/ApproveOtaTaskResponseBody.hpp>
 #include <alibabacloud/models/ApproveOtaTaskResponse.hpp>
+#include <alibabacloud/models/AssignWuyingServerPrivateAddressesRequest.hpp>
+#include <alibabacloud/models/AssignWuyingServerPrivateAddressesResponseBody.hpp>
+#include <alibabacloud/models/AssignWuyingServerPrivateAddressesResponse.hpp>
 #include <alibabacloud/models/AuthorizeInstanceGroupRequest.hpp>
 #include <alibabacloud/models/AuthorizeInstanceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/AuthorizeInstanceGroupResponseBody.hpp>
@@ -213,6 +216,9 @@
 #include <alibabacloud/models/TagCloudResourcesRequest.hpp>
 #include <alibabacloud/models/TagCloudResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagCloudResourcesResponse.hpp>
+#include <alibabacloud/models/UnassignWuyingServerPrivateAddressesRequest.hpp>
+#include <alibabacloud/models/UnassignWuyingServerPrivateAddressesResponseBody.hpp>
+#include <alibabacloud/models/UnassignWuyingServerPrivateAddressesResponse.hpp>
 #include <alibabacloud/models/UnbindRequest.hpp>
 #include <alibabacloud/models/UnbindResponseBody.hpp>
 #include <alibabacloud/models/UnbindResponse.hpp>

@@ -38,6 +38,23 @@ namespace AppstreamCenter20210901
       Models::ApproveOtaTaskResponse approveOtaTask(const Models::ApproveOtaTaskRequest &request);
 
       /**
+       * @summary 为研发主机分配辅助私有IP
+       *
+       * @param request AssignWuyingServerPrivateAddressesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AssignWuyingServerPrivateAddressesResponse
+       */
+      Models::AssignWuyingServerPrivateAddressesResponse assignWuyingServerPrivateAddressesWithOptions(const Models::AssignWuyingServerPrivateAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 为研发主机分配辅助私有IP
+       *
+       * @param request AssignWuyingServerPrivateAddressesRequest
+       * @return AssignWuyingServerPrivateAddressesResponse
+       */
+      Models::AssignWuyingServerPrivateAddressesResponse assignWuyingServerPrivateAddresses(const Models::AssignWuyingServerPrivateAddressesRequest &request);
+
+      /**
        * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
        *
        * @param tmpReq AuthorizeInstanceGroupRequest
@@ -1234,6 +1251,23 @@ namespace AppstreamCenter20210901
        * @return TagCloudResourcesResponse
        */
       Models::TagCloudResourcesResponse tagCloudResources(const Models::TagCloudResourcesRequest &request);
+
+      /**
+       * @summary 解绑研发主机的辅助私有IP
+       *
+       * @param request UnassignWuyingServerPrivateAddressesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UnassignWuyingServerPrivateAddressesResponse
+       */
+      Models::UnassignWuyingServerPrivateAddressesResponse unassignWuyingServerPrivateAddressesWithOptions(const Models::UnassignWuyingServerPrivateAddressesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 解绑研发主机的辅助私有IP
+       *
+       * @param request UnassignWuyingServerPrivateAddressesRequest
+       * @return UnassignWuyingServerPrivateAddressesResponse
+       */
+      Models::UnassignWuyingServerPrivateAddressesResponse unassignWuyingServerPrivateAddresses(const Models::UnassignWuyingServerPrivateAddressesRequest &request);
 
       /**
        * @summary Unbinds a user and a session.

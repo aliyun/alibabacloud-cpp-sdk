@@ -94,6 +94,52 @@ ApproveOtaTaskResponse Client::approveOtaTask(const ApproveOtaTaskRequest &reque
 }
 
 /**
+ * @summary 为研发主机分配辅助私有IP
+ *
+ * @param request AssignWuyingServerPrivateAddressesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AssignWuyingServerPrivateAddressesResponse
+ */
+AssignWuyingServerPrivateAddressesResponse Client::assignWuyingServerPrivateAddressesWithOptions(const AssignWuyingServerPrivateAddressesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasSecondaryPrivateIpAddressCount()) {
+    body["SecondaryPrivateIpAddressCount"] = request.getSecondaryPrivateIpAddressCount();
+  }
+
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.getWuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "AssignWuyingServerPrivateAddresses"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AssignWuyingServerPrivateAddressesResponse>();
+}
+
+/**
+ * @summary 为研发主机分配辅助私有IP
+ *
+ * @param request AssignWuyingServerPrivateAddressesRequest
+ * @return AssignWuyingServerPrivateAddressesResponse
+ */
+AssignWuyingServerPrivateAddressesResponse Client::assignWuyingServerPrivateAddresses(const AssignWuyingServerPrivateAddressesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return assignWuyingServerPrivateAddressesWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
  *
  * @param tmpReq AuthorizeInstanceGroupRequest
@@ -4435,6 +4481,52 @@ TagCloudResourcesResponse Client::tagCloudResourcesWithOptions(const TagCloudRes
 TagCloudResourcesResponse Client::tagCloudResources(const TagCloudResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return tagCloudResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 解绑研发主机的辅助私有IP
+ *
+ * @param request UnassignWuyingServerPrivateAddressesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UnassignWuyingServerPrivateAddressesResponse
+ */
+UnassignWuyingServerPrivateAddressesResponse Client::unassignWuyingServerPrivateAddressesWithOptions(const UnassignWuyingServerPrivateAddressesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasPrivateIpAddresses()) {
+    body["PrivateIpAddresses"] = request.getPrivateIpAddresses();
+  }
+
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.getWuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UnassignWuyingServerPrivateAddresses"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UnassignWuyingServerPrivateAddressesResponse>();
+}
+
+/**
+ * @summary 解绑研发主机的辅助私有IP
+ *
+ * @param request UnassignWuyingServerPrivateAddressesRequest
+ * @return UnassignWuyingServerPrivateAddressesResponse
+ */
+UnassignWuyingServerPrivateAddressesResponse Client::unassignWuyingServerPrivateAddresses(const UnassignWuyingServerPrivateAddressesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return unassignWuyingServerPrivateAddressesWithOptions(request, runtime);
 }
 
 /**
