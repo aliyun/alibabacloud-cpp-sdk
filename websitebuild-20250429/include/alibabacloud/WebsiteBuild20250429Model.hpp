@@ -94,6 +94,9 @@
 #include <alibabacloud/models/ExportMaterialFileShrinkRequest.hpp>
 #include <alibabacloud/models/ExportMaterialFileResponseBody.hpp>
 #include <alibabacloud/models/ExportMaterialFileResponse.hpp>
+#include <alibabacloud/models/GetAIStaffPreviewUrlRequest.hpp>
+#include <alibabacloud/models/GetAIStaffPreviewUrlResponseBody.hpp>
+#include <alibabacloud/models/GetAIStaffPreviewUrlResponse.hpp>
 #include <alibabacloud/models/GetAppInstanceRequest.hpp>
 #include <alibabacloud/models/GetAppInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetAppInstanceResponse.hpp>

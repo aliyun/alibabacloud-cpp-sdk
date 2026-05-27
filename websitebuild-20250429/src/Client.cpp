@@ -1244,6 +1244,52 @@ ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRe
 }
 
 /**
+ * @summary 获取AI员工站点预览地址
+ *
+ * @param request GetAIStaffPreviewUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAIStaffPreviewUrlResponse
+ */
+GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrlWithOptions(const GetAIStaffPreviewUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasRestart()) {
+    body["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAIStaffPreviewUrl"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAIStaffPreviewUrlResponse>();
+}
+
+/**
+ * @summary 获取AI员工站点预览地址
+ *
+ * @param request GetAIStaffPreviewUrlRequest
+ * @return GetAIStaffPreviewUrlResponse
+ */
+GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPreviewUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAIStaffPreviewUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Application Instance Details
  *
  * @param request GetAppInstanceRequest

@@ -395,6 +395,23 @@ namespace WebsiteBuild20250429
       Models::ExportMaterialFileResponse exportMaterialFile(const Models::ExportMaterialFileRequest &request);
 
       /**
+       * @summary 获取AI员工站点预览地址
+       *
+       * @param request GetAIStaffPreviewUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAIStaffPreviewUrlResponse
+       */
+      Models::GetAIStaffPreviewUrlResponse getAIStaffPreviewUrlWithOptions(const Models::GetAIStaffPreviewUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取AI员工站点预览地址
+       *
+       * @param request GetAIStaffPreviewUrlRequest
+       * @return GetAIStaffPreviewUrlResponse
+       */
+      Models::GetAIStaffPreviewUrlResponse getAIStaffPreviewUrl(const Models::GetAIStaffPreviewUrlRequest &request);
+
+      /**
        * @summary Query Application Instance Details
        *
        * @param request GetAppInstanceRequest
