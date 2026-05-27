@@ -37,8 +37,8 @@ namespace Models
     // datasetId Field Functions 
     bool hasDatasetId() const { return this->datasetId_ != nullptr;};
     void deleteDatasetId() { this->datasetId_ = nullptr;};
-    inline int64_t getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, 0L) };
-    inline ImportDatasetDataRequest& setDatasetId(int64_t datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
+    inline string getDatasetId() const { DARABONBA_PTR_GET_DEFAULT(datasetId_, "") };
+    inline ImportDatasetDataRequest& setDatasetId(string datasetId) { DARABONBA_PTR_SET_VALUE(datasetId_, datasetId) };
 
 
     // records Field Functions 
@@ -51,8 +51,7 @@ namespace Models
 
 
   protected:
-    // This parameter is required.
-    shared_ptr<int64_t> datasetId_ {};
+    shared_ptr<string> datasetId_ {};
     // This parameter is required.
     shared_ptr<vector<Darabonba::Json>> records_ {};
   };
