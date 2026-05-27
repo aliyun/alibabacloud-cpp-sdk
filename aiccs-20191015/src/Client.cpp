@@ -124,6 +124,162 @@ AddHotlineNumberResponse Client::addHotlineNumber(const AddHotlineNumberRequest 
 }
 
 /**
+ * @summary 添加呼入号码
+ *
+ * @param tmpReq AddInboundNumberRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddInboundNumberResponse
+ */
+AddInboundNumberResponse Client::addInboundNumberWithOptions(const AddInboundNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddInboundNumberShrinkRequest request = AddInboundNumberShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInboundNumbers()) {
+    request.setInboundNumbersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInboundNumbers(), "InboundNumbers", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationCode()) {
+    query["ApplicationCode"] = request.getApplicationCode();
+  }
+
+  if (!!request.hasInboundNumbersShrink()) {
+    query["InboundNumbers"] = request.getInboundNumbersShrink();
+  }
+
+  if (!!request.hasInboundType()) {
+    query["InboundType"] = request.getInboundType();
+  }
+
+  if (!!request.hasLineCode()) {
+    query["LineCode"] = request.getLineCode();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddInboundNumber"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddInboundNumberResponse>();
+}
+
+/**
+ * @summary 添加呼入号码
+ *
+ * @param request AddInboundNumberRequest
+ * @return AddInboundNumberResponse
+ */
+AddInboundNumberResponse Client::addInboundNumber(const AddInboundNumberRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addInboundNumberWithOptions(request, runtime);
+}
+
+/**
+ * @summary AddLargeModel
+ *
+ * @param tmpReq AddLargeModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddLargeModelResponse
+ */
+AddLargeModelResponse Client::addLargeModelWithOptions(const AddLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddLargeModelShrinkRequest request = AddLargeModelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBaseModel()) {
+    request.setBaseModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseModel(), "BaseModel", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAuthCode()) {
+    query["AuthCode"] = request.getAuthCode();
+  }
+
+  if (!!request.hasBaseModelShrink()) {
+    query["BaseModel"] = request.getBaseModelShrink();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelUrl()) {
+    query["ModelUrl"] = request.getModelUrl();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTemperature()) {
+    query["Temperature"] = request.getTemperature();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  if (!!request.hasTopP()) {
+    query["TopP"] = request.getTopP();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddLargeModel"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddLargeModelResponse>();
+}
+
+/**
+ * @summary AddLargeModel
+ *
+ * @param request AddLargeModelRequest
+ * @return AddLargeModelResponse
+ */
+AddLargeModelResponse Client::addLargeModel(const AddLargeModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addLargeModelWithOptions(request, runtime);
+}
+
+/**
  * @param request AddOuterAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddOuterAccountResponse
@@ -9342,6 +9498,74 @@ TerminateAiOutboundTaskResponse Client::terminateAiOutboundTask(const TerminateA
 }
 
 /**
+ * @summary TestLargeModel
+ *
+ * @param tmpReq TestLargeModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TestLargeModelResponse
+ */
+TestLargeModelResponse Client::testLargeModelWithOptions(const TestLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  TestLargeModelShrinkRequest request = TestLargeModelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBaseModel()) {
+    request.setBaseModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseModel(), "BaseModel", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBaseModelShrink()) {
+    query["BaseModel"] = request.getBaseModelShrink();
+  }
+
+  if (!!request.hasModelCode()) {
+    query["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasUserDialogContent()) {
+    query["UserDialogContent"] = request.getUserDialogContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TestLargeModel"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TestLargeModelResponse>();
+}
+
+/**
+ * @summary TestLargeModel
+ *
+ * @param request TestLargeModelRequest
+ * @return TestLargeModelResponse
+ */
+TestLargeModelResponse Client::testLargeModel(const TestLargeModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return testLargeModelWithOptions(request, runtime);
+}
+
+/**
  * @param request TransferCallToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferCallToSkillGroupResponse
@@ -9741,6 +9965,94 @@ UpdateDepartmentResponse Client::updateDepartmentWithOptions(const UpdateDepartm
 UpdateDepartmentResponse Client::updateDepartment(const UpdateDepartmentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateDepartmentWithOptions(request, runtime);
+}
+
+/**
+ * @summary UpdateLargeModel
+ *
+ * @param tmpReq UpdateLargeModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateLargeModelResponse
+ */
+UpdateLargeModelResponse Client::updateLargeModelWithOptions(const UpdateLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateLargeModelShrinkRequest request = UpdateLargeModelShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBaseModel()) {
+    request.setBaseModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBaseModel(), "BaseModel", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAuthCode()) {
+    query["AuthCode"] = request.getAuthCode();
+  }
+
+  if (!!request.hasBaseModelShrink()) {
+    query["BaseModel"] = request.getBaseModelShrink();
+  }
+
+  if (!!request.hasModelCode()) {
+    query["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasModelUrl()) {
+    query["ModelUrl"] = request.getModelUrl();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasTemperature()) {
+    query["Temperature"] = request.getTemperature();
+  }
+
+  if (!!request.hasTopK()) {
+    query["TopK"] = request.getTopK();
+  }
+
+  if (!!request.hasTopP()) {
+    query["TopP"] = request.getTopP();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateLargeModel"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateLargeModelResponse>();
+}
+
+/**
+ * @summary UpdateLargeModel
+ *
+ * @param request UpdateLargeModelRequest
+ * @return UpdateLargeModelResponse
+ */
+UpdateLargeModelResponse Client::updateLargeModel(const UpdateLargeModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateLargeModelWithOptions(request, runtime);
 }
 
 /**

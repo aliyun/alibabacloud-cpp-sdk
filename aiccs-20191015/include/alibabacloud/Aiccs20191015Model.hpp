@@ -6,6 +6,14 @@
 #include <alibabacloud/models/AddHotlineNumberShrinkRequest.hpp>
 #include <alibabacloud/models/AddHotlineNumberResponseBody.hpp>
 #include <alibabacloud/models/AddHotlineNumberResponse.hpp>
+#include <alibabacloud/models/AddInboundNumberRequest.hpp>
+#include <alibabacloud/models/AddInboundNumberShrinkRequest.hpp>
+#include <alibabacloud/models/AddInboundNumberResponseBody.hpp>
+#include <alibabacloud/models/AddInboundNumberResponse.hpp>
+#include <alibabacloud/models/AddLargeModelRequest.hpp>
+#include <alibabacloud/models/AddLargeModelShrinkRequest.hpp>
+#include <alibabacloud/models/AddLargeModelResponseBody.hpp>
+#include <alibabacloud/models/AddLargeModelResponse.hpp>
 #include <alibabacloud/models/AddOuterAccountRequest.hpp>
 #include <alibabacloud/models/AddOuterAccountResponseBody.hpp>
 #include <alibabacloud/models/AddOuterAccountResponse.hpp>
@@ -525,6 +533,10 @@
 #include <alibabacloud/models/TerminateAiOutboundTaskRequest.hpp>
 #include <alibabacloud/models/TerminateAiOutboundTaskResponseBody.hpp>
 #include <alibabacloud/models/TerminateAiOutboundTaskResponse.hpp>
+#include <alibabacloud/models/TestLargeModelRequest.hpp>
+#include <alibabacloud/models/TestLargeModelShrinkRequest.hpp>
+#include <alibabacloud/models/TestLargeModelResponseBody.hpp>
+#include <alibabacloud/models/TestLargeModelResponse.hpp>
 #include <alibabacloud/models/TransferCallToSkillGroupRequest.hpp>
 #include <alibabacloud/models/TransferCallToSkillGroupResponseBody.hpp>
 #include <alibabacloud/models/TransferCallToSkillGroupResponse.hpp>
@@ -542,6 +554,10 @@
 #include <alibabacloud/models/UpdateDepartmentRequest.hpp>
 #include <alibabacloud/models/UpdateDepartmentResponseBody.hpp>
 #include <alibabacloud/models/UpdateDepartmentResponse.hpp>
+#include <alibabacloud/models/UpdateLargeModelRequest.hpp>
+#include <alibabacloud/models/UpdateLargeModelShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateLargeModelResponseBody.hpp>
+#include <alibabacloud/models/UpdateLargeModelResponse.hpp>
 #include <alibabacloud/models/UpdateOuterAccountRequest.hpp>
 #include <alibabacloud/models/UpdateOuterAccountResponseBody.hpp>
 #include <alibabacloud/models/UpdateOuterAccountResponse.hpp>

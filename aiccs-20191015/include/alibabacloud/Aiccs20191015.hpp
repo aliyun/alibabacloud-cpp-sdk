@@ -38,6 +38,40 @@ namespace Aiccs20191015
       Models::AddHotlineNumberResponse addHotlineNumber(const Models::AddHotlineNumberRequest &request);
 
       /**
+       * @summary 添加呼入号码
+       *
+       * @param tmpReq AddInboundNumberRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddInboundNumberResponse
+       */
+      Models::AddInboundNumberResponse addInboundNumberWithOptions(const Models::AddInboundNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加呼入号码
+       *
+       * @param request AddInboundNumberRequest
+       * @return AddInboundNumberResponse
+       */
+      Models::AddInboundNumberResponse addInboundNumber(const Models::AddInboundNumberRequest &request);
+
+      /**
+       * @summary AddLargeModel
+       *
+       * @param tmpReq AddLargeModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddLargeModelResponse
+       */
+      Models::AddLargeModelResponse addLargeModelWithOptions(const Models::AddLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary AddLargeModel
+       *
+       * @param request AddLargeModelRequest
+       * @return AddLargeModelResponse
+       */
+      Models::AddLargeModelResponse addLargeModel(const Models::AddLargeModelRequest &request);
+
+      /**
        * @param request AddOuterAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddOuterAccountResponse
@@ -2517,6 +2551,23 @@ namespace Aiccs20191015
       Models::TerminateAiOutboundTaskResponse terminateAiOutboundTask(const Models::TerminateAiOutboundTaskRequest &request);
 
       /**
+       * @summary TestLargeModel
+       *
+       * @param tmpReq TestLargeModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TestLargeModelResponse
+       */
+      Models::TestLargeModelResponse testLargeModelWithOptions(const Models::TestLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TestLargeModel
+       *
+       * @param request TestLargeModelRequest
+       * @return TestLargeModelResponse
+       */
+      Models::TestLargeModelResponse testLargeModel(const Models::TestLargeModelRequest &request);
+
+      /**
        * @param request TransferCallToSkillGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TransferCallToSkillGroupResponse
@@ -2592,6 +2643,23 @@ namespace Aiccs20191015
        * @return UpdateDepartmentResponse
        */
       Models::UpdateDepartmentResponse updateDepartment(const Models::UpdateDepartmentRequest &request);
+
+      /**
+       * @summary UpdateLargeModel
+       *
+       * @param tmpReq UpdateLargeModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateLargeModelResponse
+       */
+      Models::UpdateLargeModelResponse updateLargeModelWithOptions(const Models::UpdateLargeModelRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateLargeModel
+       *
+       * @param request UpdateLargeModelRequest
+       * @return UpdateLargeModelResponse
+       */
+      Models::UpdateLargeModelResponse updateLargeModel(const Models::UpdateLargeModelRequest &request);
 
       /**
        * @param request UpdateOuterAccountRequest
