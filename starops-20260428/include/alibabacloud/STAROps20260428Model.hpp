@@ -12,6 +12,9 @@
 #include <alibabacloud/models/CreateDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/CreateDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/CreateMcpServiceRequest.hpp>
+#include <alibabacloud/models/CreateMcpServiceResponseBody.hpp>
+#include <alibabacloud/models/CreateMcpServiceResponse.hpp>
 #include <alibabacloud/models/CreateThreadRequest.hpp>
 #include <alibabacloud/models/CreateThreadResponseBody.hpp>
 #include <alibabacloud/models/CreateThreadResponse.hpp>
@@ -24,9 +27,15 @@
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/DeleteMcpServiceRequest.hpp>
+#include <alibabacloud/models/DeleteMcpServiceResponseBody.hpp>
+#include <alibabacloud/models/DeleteMcpServiceResponse.hpp>
 #include <alibabacloud/models/DeleteThreadRequest.hpp>
 #include <alibabacloud/models/DeleteThreadResponseBody.hpp>
 #include <alibabacloud/models/DeleteThreadResponse.hpp>
+#include <alibabacloud/models/FetchRemoteMcpToolsRequest.hpp>
+#include <alibabacloud/models/FetchRemoteMcpToolsResponseBody.hpp>
+#include <alibabacloud/models/FetchRemoteMcpToolsResponse.hpp>
 #include <alibabacloud/models/GetArtifactRequest.hpp>
 #include <alibabacloud/models/GetArtifactResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeRequest.hpp>
@@ -35,6 +44,9 @@
 #include <alibabacloud/models/GetDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/GetMcpServiceRequest.hpp>
+#include <alibabacloud/models/GetMcpServiceResponseBody.hpp>
+#include <alibabacloud/models/GetMcpServiceResponse.hpp>
 #include <alibabacloud/models/GetThreadRequest.hpp>
 #include <alibabacloud/models/GetThreadResponseBody.hpp>
 #include <alibabacloud/models/GetThreadResponse.hpp>
@@ -54,6 +66,9 @@
 #include <alibabacloud/models/ListDigitalEmployeesShrinkRequest.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesResponseBody.hpp>
 #include <alibabacloud/models/ListDigitalEmployeesResponse.hpp>
+#include <alibabacloud/models/ListMcpServicesRequest.hpp>
+#include <alibabacloud/models/ListMcpServicesResponseBody.hpp>
+#include <alibabacloud/models/ListMcpServicesResponse.hpp>
 #include <alibabacloud/models/ListThreadsRequest.hpp>
 #include <alibabacloud/models/ListThreadsShrinkRequest.hpp>
 #include <alibabacloud/models/ListThreadsResponseBody.hpp>
@@ -64,6 +79,9 @@
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/UpdateMcpServiceRequest.hpp>
+#include <alibabacloud/models/UpdateMcpServiceResponseBody.hpp>
+#include <alibabacloud/models/UpdateMcpServiceResponse.hpp>
 #include <alibabacloud/models/UpdateThreadRequest.hpp>
 #include <alibabacloud/models/UpdateThreadResponseBody.hpp>
 #include <alibabacloud/models/UpdateThreadResponse.hpp>

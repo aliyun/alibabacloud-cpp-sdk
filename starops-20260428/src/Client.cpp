@@ -306,6 +306,75 @@ CreateDigitalEmployeeSkillResponse Client::createDigitalEmployeeSkill(const stri
 }
 
 /**
+ * @summary 创建 MCP 服务
+ *
+ * @param request CreateMcpServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMcpServiceResponse
+ */
+CreateMcpServiceResponse Client::createMcpServiceWithOptions(const string &name, const CreateMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnection()) {
+    body["connection"] = request.getConnection();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasMcpServiceName()) {
+    body["mcpServiceName"] = request.getMcpServiceName();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["network"] = request.getNetwork();
+  }
+
+  if (!!request.hasTools()) {
+    body["tools"] = request.getTools();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMcpService"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/mcpService")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMcpServiceResponse>();
+}
+
+/**
+ * @summary 创建 MCP 服务
+ *
+ * @param request CreateMcpServiceRequest
+ * @return CreateMcpServiceResponse
+ */
+CreateMcpServiceResponse Client::createMcpService(const string &name, const CreateMcpServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMcpServiceWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary 创建会话
  *
  * @param request CreateThreadRequest
@@ -486,6 +555,45 @@ DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const stri
 }
 
 /**
+ * @summary 删除 MCP 服务
+ *
+ * @param request DeleteMcpServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMcpServiceResponse
+ */
+DeleteMcpServiceResponse Client::deleteMcpServiceWithOptions(const string &name, const string &mcpServiceName, const DeleteMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMcpService"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/mcpService/" , Darabonba::Encode::Encoder::percentEncode(mcpServiceName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMcpServiceResponse>();
+}
+
+/**
+ * @summary 删除 MCP 服务
+ *
+ * @param request DeleteMcpServiceRequest
+ * @return DeleteMcpServiceResponse
+ */
+DeleteMcpServiceResponse Client::deleteMcpService(const string &name, const string &mcpServiceName, const DeleteMcpServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
+}
+
+/**
  * @summary 删除会话
  *
  * @param request DeleteThreadRequest
@@ -525,7 +633,56 @@ DeleteThreadResponse Client::deleteThread(const string &name, const string &thre
 }
 
 /**
- * @summary 下载产物文件
+ * @summary 预览远端 MCP 工具列表
+ *
+ * @param request FetchRemoteMcpToolsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FetchRemoteMcpToolsResponse
+ */
+FetchRemoteMcpToolsResponse Client::fetchRemoteMcpToolsWithOptions(const FetchRemoteMcpToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnection()) {
+    body["connection"] = request.getConnection();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["network"] = request.getNetwork();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "FetchRemoteMcpTools"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/mcptools")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FetchRemoteMcpToolsResponse>();
+}
+
+/**
+ * @summary 预览远端 MCP 工具列表
+ *
+ * @param request FetchRemoteMcpToolsRequest
+ * @return FetchRemoteMcpToolsResponse
+ */
+FetchRemoteMcpToolsResponse Client::fetchRemoteMcpTools(const FetchRemoteMcpToolsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return fetchRemoteMcpToolsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 下载小型产物文件
  *
  * @param request GetArtifactRequest
  * @param headers map
@@ -575,7 +732,7 @@ GetArtifactResponse Client::getArtifactWithOptions(const string &name, const Get
 }
 
 /**
- * @summary 下载产物文件
+ * @summary 下载小型产物文件
  *
  * @param request GetArtifactRequest
  * @return GetArtifactResponse
@@ -668,6 +825,45 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkill(const string &na
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary 查询 MCP 服务
+ *
+ * @param request GetMcpServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMcpServiceResponse
+ */
+GetMcpServiceResponse Client::getMcpServiceWithOptions(const string &name, const string &mcpServiceName, const GetMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMcpService"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/mcpService/" , Darabonba::Encode::Encoder::percentEncode(mcpServiceName))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMcpServiceResponse>();
+}
+
+/**
+ * @summary 查询 MCP 服务
+ *
+ * @param request GetMcpServiceRequest
+ * @return GetMcpServiceResponse
+ */
+GetMcpServiceResponse Client::getMcpService(const string &name, const string &mcpServiceName, const GetMcpServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
 }
 
 /**
@@ -979,6 +1175,55 @@ ListDigitalEmployeesResponse Client::listDigitalEmployees(const ListDigitalEmplo
 }
 
 /**
+ * @summary 查询数字员工下的 MCP 服务列表
+ *
+ * @param request ListMcpServicesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMcpServicesResponse
+ */
+ListMcpServicesResponse Client::listMcpServicesWithOptions(const string &name, const ListMcpServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMcpServices"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/mcpServices")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMcpServicesResponse>();
+}
+
+/**
+ * @summary 查询数字员工下的 MCP 服务列表
+ *
+ * @param request ListMcpServicesRequest
+ * @return ListMcpServicesResponse
+ */
+ListMcpServicesResponse Client::listMcpServices(const string &name, const ListMcpServicesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMcpServicesWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary 列出会话
  *
  * @param tmpReq ListThreadsRequest
@@ -1173,6 +1418,71 @@ UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkill(const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary 更新 MCP 服务
+ *
+ * @param request UpdateMcpServiceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMcpServiceResponse
+ */
+UpdateMcpServiceResponse Client::updateMcpServiceWithOptions(const string &name, const string &mcpServiceName, const UpdateMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnection()) {
+    body["connection"] = request.getConnection();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["displayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasNetwork()) {
+    body["network"] = request.getNetwork();
+  }
+
+  if (!!request.hasTools()) {
+    body["tools"] = request.getTools();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMcpService"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/mcpService/" , Darabonba::Encode::Encoder::percentEncode(mcpServiceName))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMcpServiceResponse>();
+}
+
+/**
+ * @summary 更新 MCP 服务
+ *
+ * @param request UpdateMcpServiceRequest
+ * @return UpdateMcpServiceResponse
+ */
+UpdateMcpServiceResponse Client::updateMcpService(const string &name, const string &mcpServiceName, const UpdateMcpServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
 }
 
 /**

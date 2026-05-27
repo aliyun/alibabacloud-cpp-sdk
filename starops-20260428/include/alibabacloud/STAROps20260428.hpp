@@ -85,6 +85,24 @@ namespace STAROps20260428
       Models::CreateDigitalEmployeeSkillResponse createDigitalEmployeeSkill(const string &name, const Models::CreateDigitalEmployeeSkillRequest &request);
 
       /**
+       * @summary 创建 MCP 服务
+       *
+       * @param request CreateMcpServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcpServiceResponse
+       */
+      Models::CreateMcpServiceResponse createMcpServiceWithOptions(const string &name, const Models::CreateMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 MCP 服务
+       *
+       * @param request CreateMcpServiceRequest
+       * @return CreateMcpServiceResponse
+       */
+      Models::CreateMcpServiceResponse createMcpService(const string &name, const Models::CreateMcpServiceRequest &request);
+
+      /**
        * @summary 创建会话
        *
        * @param request CreateThreadRequest
@@ -157,6 +175,24 @@ namespace STAROps20260428
       Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName, const Models::DeleteDigitalEmployeeSkillRequest &request);
 
       /**
+       * @summary 删除 MCP 服务
+       *
+       * @param request DeleteMcpServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMcpServiceResponse
+       */
+      Models::DeleteMcpServiceResponse deleteMcpServiceWithOptions(const string &name, const string &mcpServiceName, const Models::DeleteMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 MCP 服务
+       *
+       * @param request DeleteMcpServiceRequest
+       * @return DeleteMcpServiceResponse
+       */
+      Models::DeleteMcpServiceResponse deleteMcpService(const string &name, const string &mcpServiceName, const Models::DeleteMcpServiceRequest &request);
+
+      /**
        * @summary 删除会话
        *
        * @param request DeleteThreadRequest
@@ -175,7 +211,25 @@ namespace STAROps20260428
       Models::DeleteThreadResponse deleteThread(const string &name, const string &threadId, const Models::DeleteThreadRequest &request);
 
       /**
-       * @summary 下载产物文件
+       * @summary 预览远端 MCP 工具列表
+       *
+       * @param request FetchRemoteMcpToolsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FetchRemoteMcpToolsResponse
+       */
+      Models::FetchRemoteMcpToolsResponse fetchRemoteMcpToolsWithOptions(const Models::FetchRemoteMcpToolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 预览远端 MCP 工具列表
+       *
+       * @param request FetchRemoteMcpToolsRequest
+       * @return FetchRemoteMcpToolsResponse
+       */
+      Models::FetchRemoteMcpToolsResponse fetchRemoteMcpTools(const Models::FetchRemoteMcpToolsRequest &request);
+
+      /**
+       * @summary 下载小型产物文件
        *
        * @param request GetArtifactRequest
        * @param headers map
@@ -185,7 +239,7 @@ namespace STAROps20260428
       Models::GetArtifactResponse getArtifactWithOptions(const string &name, const Models::GetArtifactRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 下载产物文件
+       * @summary 下载小型产物文件
        *
        * @param request GetArtifactRequest
        * @return GetArtifactResponse
@@ -227,6 +281,24 @@ namespace STAROps20260428
        * @return GetDigitalEmployeeSkillResponse
        */
       Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkill(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request);
+
+      /**
+       * @summary 查询 MCP 服务
+       *
+       * @param request GetMcpServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMcpServiceResponse
+       */
+      Models::GetMcpServiceResponse getMcpServiceWithOptions(const string &name, const string &mcpServiceName, const Models::GetMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 MCP 服务
+       *
+       * @param request GetMcpServiceRequest
+       * @return GetMcpServiceResponse
+       */
+      Models::GetMcpServiceResponse getMcpService(const string &name, const string &mcpServiceName, const Models::GetMcpServiceRequest &request);
 
       /**
        * @summary 获取会话
@@ -337,6 +409,24 @@ namespace STAROps20260428
       Models::ListDigitalEmployeesResponse listDigitalEmployees(const Models::ListDigitalEmployeesRequest &request);
 
       /**
+       * @summary 查询数字员工下的 MCP 服务列表
+       *
+       * @param request ListMcpServicesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcpServicesResponse
+       */
+      Models::ListMcpServicesResponse listMcpServicesWithOptions(const string &name, const Models::ListMcpServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数字员工下的 MCP 服务列表
+       *
+       * @param request ListMcpServicesRequest
+       * @return ListMcpServicesResponse
+       */
+      Models::ListMcpServicesResponse listMcpServices(const string &name, const Models::ListMcpServicesRequest &request);
+
+      /**
        * @summary 列出会话
        *
        * @param tmpReq ListThreadsRequest
@@ -389,6 +479,24 @@ namespace STAROps20260428
        * @return UpdateDigitalEmployeeSkillResponse
        */
       Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkill(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request);
+
+      /**
+       * @summary 更新 MCP 服务
+       *
+       * @param request UpdateMcpServiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMcpServiceResponse
+       */
+      Models::UpdateMcpServiceResponse updateMcpServiceWithOptions(const string &name, const string &mcpServiceName, const Models::UpdateMcpServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 MCP 服务
+       *
+       * @param request UpdateMcpServiceRequest
+       * @return UpdateMcpServiceResponse
+       */
+      Models::UpdateMcpServiceResponse updateMcpService(const string &name, const string &mcpServiceName, const Models::UpdateMcpServiceRequest &request);
 
       /**
        * @summary 更新会话
