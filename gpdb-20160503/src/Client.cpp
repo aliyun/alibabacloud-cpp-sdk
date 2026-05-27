@@ -11886,6 +11886,64 @@ ListStreamingJobsResponse Client::listStreamingJobs(const ListStreamingJobsReque
 }
 
 /**
+ * @summary Query the label List of Supabase instances
+ *
+ * @param request ListSupabaseProjectTagsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSupabaseProjectTagsResponse
+ */
+ListSupabaseProjectTagsResponse Client::listSupabaseProjectTagsWithOptions(const ListSupabaseProjectTagsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSupabaseProjectTags"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSupabaseProjectTagsResponse>();
+}
+
+/**
+ * @summary Query the label List of Supabase instances
+ *
+ * @param request ListSupabaseProjectTagsRequest
+ * @return ListSupabaseProjectTagsResponse
+ */
+ListSupabaseProjectTagsResponse Client::listSupabaseProjectTags(const ListSupabaseProjectTagsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSupabaseProjectTagsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
  *
  * @description *   You can call this operation to query Supabase instances.
@@ -13812,6 +13870,56 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicy(cons
 }
 
 /**
+ * @summary Modify the Supabase project description
+ *
+ * @param request ModifySupabaseProjectDescriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifySupabaseProjectDescriptionResponse
+ */
+ModifySupabaseProjectDescriptionResponse Client::modifySupabaseProjectDescriptionWithOptions(const ModifySupabaseProjectDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectDescription()) {
+    query["ProjectDescription"] = request.getProjectDescription();
+  }
+
+  if (!!request.hasProjectId()) {
+    query["ProjectId"] = request.getProjectId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifySupabaseProjectDescription"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifySupabaseProjectDescriptionResponse>();
+}
+
+/**
+ * @summary Modify the Supabase project description
+ *
+ * @param request ModifySupabaseProjectDescriptionRequest
+ * @return ModifySupabaseProjectDescriptionResponse
+ */
+ModifySupabaseProjectDescriptionResponse Client::modifySupabaseProjectDescription(const ModifySupabaseProjectDescriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifySupabaseProjectDescriptionWithOptions(request, runtime);
+}
+
+/**
  * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
  *
  * @param request ModifySupabaseProjectResourceRequest
@@ -15404,6 +15512,60 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
+ * @summary Supabase project labeling
+ *
+ * @param request TagSupabaseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TagSupabaseProjectResponse
+ */
+TagSupabaseProjectResponse Client::tagSupabaseProjectWithOptions(const TagSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TagSupabaseProject"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TagSupabaseProjectResponse>();
+}
+
+/**
+ * @summary Supabase project labeling
+ *
+ * @param request TagSupabaseProjectRequest
+ * @return TagSupabaseProjectResponse
+ */
+TagSupabaseProjectResponse Client::tagSupabaseProject(const TagSupabaseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return tagSupabaseProjectWithOptions(request, runtime);
+}
+
+/**
  * @summary Generates text embeddings using an embedding model.
  *
  * @param tmpReq TextEmbeddingRequest
@@ -15659,6 +15821,64 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Detach labels from a Supabase instance
+ *
+ * @param request UntagSupabaseProjectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UntagSupabaseProjectResponse
+ */
+UntagSupabaseProjectResponse Client::untagSupabaseProjectWithOptions(const UntagSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAll()) {
+    query["All"] = request.getAll();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
+  if (!!request.hasTagKey()) {
+    query["TagKey"] = request.getTagKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UntagSupabaseProject"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UntagSupabaseProjectResponse>();
+}
+
+/**
+ * @summary Detach labels from a Supabase instance
+ *
+ * @param request UntagSupabaseProjectRequest
+ * @return UntagSupabaseProjectResponse
+ */
+UntagSupabaseProjectResponse Client::untagSupabaseProject(const UntagSupabaseProjectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return untagSupabaseProjectWithOptions(request, runtime);
 }
 
 /**

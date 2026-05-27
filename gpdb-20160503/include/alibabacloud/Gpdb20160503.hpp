@@ -3588,6 +3588,23 @@ namespace Gpdb20160503
       Models::ListStreamingJobsResponse listStreamingJobs(const Models::ListStreamingJobsRequest &request);
 
       /**
+       * @summary Query the label List of Supabase instances
+       *
+       * @param request ListSupabaseProjectTagsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSupabaseProjectTagsResponse
+       */
+      Models::ListSupabaseProjectTagsResponse listSupabaseProjectTagsWithOptions(const Models::ListSupabaseProjectTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Query the label List of Supabase instances
+       *
+       * @param request ListSupabaseProjectTagsRequest
+       * @return ListSupabaseProjectTagsResponse
+       */
+      Models::ListSupabaseProjectTagsResponse listSupabaseProjectTags(const Models::ListSupabaseProjectTagsRequest &request);
+
+      /**
        * @summary Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
        *
        * @description *   You can call this operation to query Supabase instances.
@@ -4164,6 +4181,23 @@ namespace Gpdb20160503
       Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicy(const Models::ModifySupabaseAutoScalePolicyRequest &request);
 
       /**
+       * @summary Modify the Supabase project description
+       *
+       * @param request ModifySupabaseProjectDescriptionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifySupabaseProjectDescriptionResponse
+       */
+      Models::ModifySupabaseProjectDescriptionResponse modifySupabaseProjectDescriptionWithOptions(const Models::ModifySupabaseProjectDescriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Modify the Supabase project description
+       *
+       * @param request ModifySupabaseProjectDescriptionRequest
+       * @return ModifySupabaseProjectDescriptionResponse
+       */
+      Models::ModifySupabaseProjectDescriptionResponse modifySupabaseProjectDescription(const Models::ModifySupabaseProjectDescriptionRequest &request);
+
+      /**
        * @summary Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
        *
        * @param request ModifySupabaseProjectResourceRequest
@@ -4617,6 +4651,23 @@ namespace Gpdb20160503
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
+       * @summary Supabase project labeling
+       *
+       * @param request TagSupabaseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TagSupabaseProjectResponse
+       */
+      Models::TagSupabaseProjectResponse tagSupabaseProjectWithOptions(const Models::TagSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Supabase project labeling
+       *
+       * @param request TagSupabaseProjectRequest
+       * @return TagSupabaseProjectResponse
+       */
+      Models::TagSupabaseProjectResponse tagSupabaseProject(const Models::TagSupabaseProjectRequest &request);
+
+      /**
        * @summary Generates text embeddings using an embedding model.
        *
        * @param tmpReq TextEmbeddingRequest
@@ -4691,6 +4742,23 @@ namespace Gpdb20160503
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
+
+      /**
+       * @summary Detach labels from a Supabase instance
+       *
+       * @param request UntagSupabaseProjectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UntagSupabaseProjectResponse
+       */
+      Models::UntagSupabaseProjectResponse untagSupabaseProjectWithOptions(const Models::UntagSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Detach labels from a Supabase instance
+       *
+       * @param request UntagSupabaseProjectRequest
+       * @return UntagSupabaseProjectResponse
+       */
+      Models::UntagSupabaseProjectResponse untagSupabaseProject(const Models::UntagSupabaseProjectRequest &request);
 
       /**
        * @summary Update Metadata of Collection Data

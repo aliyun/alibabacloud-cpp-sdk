@@ -566,6 +566,9 @@
 #include <alibabacloud/models/ListStreamingJobsRequest.hpp>
 #include <alibabacloud/models/ListStreamingJobsResponseBody.hpp>
 #include <alibabacloud/models/ListStreamingJobsResponse.hpp>
+#include <alibabacloud/models/ListSupabaseProjectTagsRequest.hpp>
+#include <alibabacloud/models/ListSupabaseProjectTagsResponseBody.hpp>
+#include <alibabacloud/models/ListSupabaseProjectTagsResponse.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsRequest.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsResponseBody.hpp>
 #include <alibabacloud/models/ListSupabaseProjectsResponse.hpp>
@@ -658,6 +661,9 @@
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyRequest.hpp>
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponseBody.hpp>
 #include <alibabacloud/models/ModifySupabaseAutoScalePolicyResponse.hpp>
+#include <alibabacloud/models/ModifySupabaseProjectDescriptionRequest.hpp>
+#include <alibabacloud/models/ModifySupabaseProjectDescriptionResponseBody.hpp>
+#include <alibabacloud/models/ModifySupabaseProjectDescriptionResponse.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectResourceRequest.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectResourceResponseBody.hpp>
 #include <alibabacloud/models/ModifySupabaseProjectResourceResponse.hpp>
@@ -733,6 +739,9 @@
 #include <alibabacloud/models/TagResourcesRequest.hpp>
 #include <alibabacloud/models/TagResourcesResponseBody.hpp>
 #include <alibabacloud/models/TagResourcesResponse.hpp>
+#include <alibabacloud/models/TagSupabaseProjectRequest.hpp>
+#include <alibabacloud/models/TagSupabaseProjectResponseBody.hpp>
+#include <alibabacloud/models/TagSupabaseProjectResponse.hpp>
 #include <alibabacloud/models/TextEmbeddingRequest.hpp>
 #include <alibabacloud/models/TextEmbeddingShrinkRequest.hpp>
 #include <alibabacloud/models/TextEmbeddingResponseBody.hpp>
@@ -747,6 +756,9 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UntagSupabaseProjectRequest.hpp>
+#include <alibabacloud/models/UntagSupabaseProjectResponseBody.hpp>
+#include <alibabacloud/models/UntagSupabaseProjectResponse.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataRequest.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCollectionDataMetadataResponseBody.hpp>
