@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const SaveBatchTaskForDomainNameProxyServiceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(UserClientIp, userClientIp_);
     };
     friend void from_json(const Darabonba::Json& j, SaveBatchTaskForDomainNameProxyServiceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(UserClientIp, userClientIp_);
     };
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->domainName_ == nullptr
-        && this->lang_ == nullptr && this->status_ == nullptr && this->userClientIp_ == nullptr; };
+        && this->lang_ == nullptr && this->serviceType_ == nullptr && this->status_ == nullptr && this->userClientIp_ == nullptr; };
     // domainName Field Functions 
     bool hasDomainName() const { return this->domainName_ != nullptr;};
     void deleteDomainName() { this->domainName_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     void deleteLang() { this->lang_ = nullptr;};
     inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline SaveBatchTaskForDomainNameProxyServiceRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // serviceType Field Functions 
+    bool hasServiceType() const { return this->serviceType_ != nullptr;};
+    void deleteServiceType() { this->serviceType_ = nullptr;};
+    inline string getServiceType() const { DARABONBA_PTR_GET_DEFAULT(serviceType_, "") };
+    inline SaveBatchTaskForDomainNameProxyServiceRequest& setServiceType(string serviceType) { DARABONBA_PTR_SET_VALUE(serviceType_, serviceType) };
 
 
     // status Field Functions 
@@ -72,6 +81,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
     shared_ptr<string> lang_ {};
+    shared_ptr<string> serviceType_ {};
     // This parameter is required.
     shared_ptr<bool> status_ {};
     shared_ptr<string> userClientIp_ {};

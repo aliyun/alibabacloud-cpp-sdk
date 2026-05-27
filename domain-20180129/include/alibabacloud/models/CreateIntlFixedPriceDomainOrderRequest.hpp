@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ContactId, contactId_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(ExpectedPrice, expectedPrice_);
+      DARABONBA_PTR_TO_JSON(ProductType, productType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateIntlFixedPriceDomainOrderRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(ContactId, contactId_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(ExpectedPrice, expectedPrice_);
+      DARABONBA_PTR_FROM_JSON(ProductType, productType_);
     };
     CreateIntlFixedPriceDomainOrderRequest() = default ;
     CreateIntlFixedPriceDomainOrderRequest(const CreateIntlFixedPriceDomainOrderRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->contactId_ == nullptr && this->domain_ == nullptr && this->expectedPrice_ == nullptr; };
+        && this->contactId_ == nullptr && this->domain_ == nullptr && this->expectedPrice_ == nullptr && this->productType_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -65,11 +67,19 @@ namespace Models
     inline CreateIntlFixedPriceDomainOrderRequest& setExpectedPrice(int64_t expectedPrice) { DARABONBA_PTR_SET_VALUE(expectedPrice_, expectedPrice) };
 
 
+    // productType Field Functions 
+    bool hasProductType() const { return this->productType_ != nullptr;};
+    void deleteProductType() { this->productType_ = nullptr;};
+    inline int32_t getProductType() const { DARABONBA_PTR_GET_DEFAULT(productType_, 0) };
+    inline CreateIntlFixedPriceDomainOrderRequest& setProductType(int32_t productType) { DARABONBA_PTR_SET_VALUE(productType_, productType) };
+
+
   protected:
     shared_ptr<bool> autoPay_ {};
     shared_ptr<int64_t> contactId_ {};
     shared_ptr<string> domain_ {};
     shared_ptr<int64_t> expectedPrice_ {};
+    shared_ptr<int32_t> productType_ {};
   };
 
   } // namespace Models

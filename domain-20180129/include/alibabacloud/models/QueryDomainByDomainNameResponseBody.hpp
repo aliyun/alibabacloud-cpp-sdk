@@ -14,6 +14,7 @@ namespace Models
   class QueryDomainByDomainNameResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const QueryDomainByDomainNameResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(CnnicPrivacyServiceStatus, cnnicPrivacyServiceStatus_);
       DARABONBA_PTR_TO_JSON(DnsList, dnsList_);
       DARABONBA_PTR_TO_JSON(DomainGroupId, domainGroupId_);
       DARABONBA_PTR_TO_JSON(DomainGroupName, domainGroupName_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ExpirationDateStatus, expirationDateStatus_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Premium, premium_);
+      DARABONBA_PTR_TO_JSON(PrivacyServiceStatus, privacyServiceStatus_);
       DARABONBA_PTR_TO_JSON(RealNameStatus, realNameStatus_);
       DARABONBA_PTR_TO_JSON(RegistrantName, registrantName_);
       DARABONBA_PTR_TO_JSON(RegistrantOrganization, registrantOrganization_);
@@ -51,6 +53,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZhRegistrantOrganization, zhRegistrantOrganization_);
     };
     friend void from_json(const Darabonba::Json& j, QueryDomainByDomainNameResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(CnnicPrivacyServiceStatus, cnnicPrivacyServiceStatus_);
       DARABONBA_PTR_FROM_JSON(DnsList, dnsList_);
       DARABONBA_PTR_FROM_JSON(DomainGroupId, domainGroupId_);
       DARABONBA_PTR_FROM_JSON(DomainGroupName, domainGroupName_);
@@ -68,6 +71,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ExpirationDateStatus, expirationDateStatus_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Premium, premium_);
+      DARABONBA_PTR_FROM_JSON(PrivacyServiceStatus, privacyServiceStatus_);
       DARABONBA_PTR_FROM_JSON(RealNameStatus, realNameStatus_);
       DARABONBA_PTR_FROM_JSON(RegistrantName, registrantName_);
       DARABONBA_PTR_FROM_JSON(RegistrantOrganization, registrantOrganization_);
@@ -206,14 +210,22 @@ namespace Models
       shared_ptr<vector<string>> dns_ {};
     };
 
-    virtual bool empty() const override { return this->dnsList_ == nullptr
-        && this->domainGroupId_ == nullptr && this->domainGroupName_ == nullptr && this->domainName_ == nullptr && this->domainNameProxyService_ == nullptr && this->domainNameVerificationStatus_ == nullptr
-        && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->email_ == nullptr && this->emailVerificationClientHold_ == nullptr && this->emailVerificationStatus_ == nullptr
-        && this->expirationCurrDateDiff_ == nullptr && this->expirationDate_ == nullptr && this->expirationDateLong_ == nullptr && this->expirationDateStatus_ == nullptr && this->instanceId_ == nullptr
-        && this->premium_ == nullptr && this->realNameStatus_ == nullptr && this->registrantName_ == nullptr && this->registrantOrganization_ == nullptr && this->registrantType_ == nullptr
-        && this->registrantUpdatingStatus_ == nullptr && this->registrar_ == nullptr && this->registrationDate_ == nullptr && this->registrationDateLong_ == nullptr && this->remark_ == nullptr
-        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr && this->transferOutStatus_ == nullptr && this->transferProhibitionLock_ == nullptr
-        && this->updateProhibitionLock_ == nullptr && this->userId_ == nullptr && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
+    virtual bool empty() const override { return this->cnnicPrivacyServiceStatus_ == nullptr
+        && this->dnsList_ == nullptr && this->domainGroupId_ == nullptr && this->domainGroupName_ == nullptr && this->domainName_ == nullptr && this->domainNameProxyService_ == nullptr
+        && this->domainNameVerificationStatus_ == nullptr && this->domainStatus_ == nullptr && this->domainType_ == nullptr && this->email_ == nullptr && this->emailVerificationClientHold_ == nullptr
+        && this->emailVerificationStatus_ == nullptr && this->expirationCurrDateDiff_ == nullptr && this->expirationDate_ == nullptr && this->expirationDateLong_ == nullptr && this->expirationDateStatus_ == nullptr
+        && this->instanceId_ == nullptr && this->premium_ == nullptr && this->privacyServiceStatus_ == nullptr && this->realNameStatus_ == nullptr && this->registrantName_ == nullptr
+        && this->registrantOrganization_ == nullptr && this->registrantType_ == nullptr && this->registrantUpdatingStatus_ == nullptr && this->registrar_ == nullptr && this->registrationDate_ == nullptr
+        && this->registrationDateLong_ == nullptr && this->remark_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->tag_ == nullptr
+        && this->transferOutStatus_ == nullptr && this->transferProhibitionLock_ == nullptr && this->updateProhibitionLock_ == nullptr && this->userId_ == nullptr && this->zhRegistrantName_ == nullptr
+        && this->zhRegistrantOrganization_ == nullptr; };
+    // cnnicPrivacyServiceStatus Field Functions 
+    bool hasCnnicPrivacyServiceStatus() const { return this->cnnicPrivacyServiceStatus_ != nullptr;};
+    void deleteCnnicPrivacyServiceStatus() { this->cnnicPrivacyServiceStatus_ = nullptr;};
+    inline string getCnnicPrivacyServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(cnnicPrivacyServiceStatus_, "") };
+    inline QueryDomainByDomainNameResponseBody& setCnnicPrivacyServiceStatus(string cnnicPrivacyServiceStatus) { DARABONBA_PTR_SET_VALUE(cnnicPrivacyServiceStatus_, cnnicPrivacyServiceStatus) };
+
+
     // dnsList Field Functions 
     bool hasDnsList() const { return this->dnsList_ != nullptr;};
     void deleteDnsList() { this->dnsList_ = nullptr;};
@@ -333,6 +345,13 @@ namespace Models
     void deletePremium() { this->premium_ = nullptr;};
     inline bool getPremium() const { DARABONBA_PTR_GET_DEFAULT(premium_, false) };
     inline QueryDomainByDomainNameResponseBody& setPremium(bool premium) { DARABONBA_PTR_SET_VALUE(premium_, premium) };
+
+
+    // privacyServiceStatus Field Functions 
+    bool hasPrivacyServiceStatus() const { return this->privacyServiceStatus_ != nullptr;};
+    void deletePrivacyServiceStatus() { this->privacyServiceStatus_ = nullptr;};
+    inline string getPrivacyServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(privacyServiceStatus_, "") };
+    inline QueryDomainByDomainNameResponseBody& setPrivacyServiceStatus(string privacyServiceStatus) { DARABONBA_PTR_SET_VALUE(privacyServiceStatus_, privacyServiceStatus) };
 
 
     // realNameStatus Field Functions 
@@ -464,6 +483,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> cnnicPrivacyServiceStatus_ {};
     shared_ptr<QueryDomainByDomainNameResponseBody::DnsList> dnsList_ {};
     // The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to query the ID of the domain name group.
     shared_ptr<int64_t> domainGroupId_ {};
@@ -516,6 +536,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // Indicates whether the domain name is a premium domain name.
     shared_ptr<bool> premium_ {};
+    shared_ptr<string> privacyServiceStatus_ {};
     // The status of real-name verification for the domain name. Valid values:
     // 
     // *   **NONAUDIT**: The real-name verification is not performed.

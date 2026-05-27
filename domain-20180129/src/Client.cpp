@@ -761,6 +761,10 @@ CreateIntlFixedPriceDomainOrderResponse Client::createIntlFixedPriceDomainOrderW
     query["ExpectedPrice"] = request.getExpectedPrice();
   }
 
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -4153,6 +4157,10 @@ SaveBatchTaskForDomainNameProxyServiceResponse Client::saveBatchTaskForDomainNam
 
   if (!!request.hasLang()) {
     query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasServiceType()) {
+    query["ServiceType"] = request.getServiceType();
   }
 
   if (!!request.hasStatus()) {
