@@ -5,9 +5,9 @@
 #include <alibabacloud/Xtee20210910Model.hpp>
 #include <alibabacloud/Openapi.hpp>
 #include <alibabacloud/Utils.hpp>
+#include <darabonba/Runtime.hpp>
 #include <map>
 #include <alibabacloud/Xtee20210910.hpp>
-#include <darabonba/Runtime.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -18,6 +18,8 @@ namespace Xtee20210910
     public:
 
       Client(AlibabaCloud::OpenApi::Utils::Models::Config &config);
+
+      Darabonba::Json _postOSSObject(const string &bucketName, const Darabonba::Json &form, const Darabonba::RuntimeOptions &runtime);
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
@@ -393,6 +395,25 @@ namespace Xtee20210910
        * @return CreateFieldResponse
        */
       Models::CreateFieldResponse createField(const Models::CreateFieldRequest &request);
+
+      /**
+       * @summary 创建样本记录对客
+       *
+       * @param request CreateForeignPocSampleRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateForeignPocSampleResponse
+       */
+      Models::CreateForeignPocSampleResponse createForeignPocSampleWithOptions(const Models::CreateForeignPocSampleRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建样本记录对客
+       *
+       * @param request CreateForeignPocSampleRequest
+       * @return CreateForeignPocSampleResponse
+       */
+      Models::CreateForeignPocSampleResponse createForeignPocSample(const Models::CreateForeignPocSampleRequest &request);
+
+      Models::CreateForeignPocSampleResponse createForeignPocSampleAdvance(const Models::CreateForeignPocSampleAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Submit Task
@@ -5003,6 +5024,25 @@ namespace Xtee20210910
        * @return UploadFileCheckResponse
        */
       Models::UploadFileCheckResponse uploadFileCheck(const Models::UploadFileCheckRequest &request);
+
+      /**
+       * @summary 上传并校验样本文件
+       *
+       * @param request UploadForeignSampleFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadForeignSampleFileResponse
+       */
+      Models::UploadForeignSampleFileResponse uploadForeignSampleFileWithOptions(const Models::UploadForeignSampleFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传并校验样本文件
+       *
+       * @param request UploadForeignSampleFileRequest
+       * @return UploadForeignSampleFileResponse
+       */
+      Models::UploadForeignSampleFileResponse uploadForeignSampleFile(const Models::UploadForeignSampleFileRequest &request);
+
+      Models::UploadForeignSampleFileResponse uploadForeignSampleFileAdvance(const Models::UploadForeignSampleFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary 上传并校验样本文件

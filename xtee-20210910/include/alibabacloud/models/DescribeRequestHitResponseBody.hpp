@@ -183,6 +183,7 @@ namespace Models
         shared_ptr<string> ruleSnapshotId_ {};
         // Policy status
         shared_ptr<string> ruleStatus_ {};
+        // Rule Type
         shared_ptr<string> ruleType_ {};
       };
 

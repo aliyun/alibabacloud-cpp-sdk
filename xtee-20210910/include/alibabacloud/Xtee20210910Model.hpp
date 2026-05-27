@@ -68,6 +68,10 @@
 #include <alibabacloud/models/CreateFieldRequest.hpp>
 #include <alibabacloud/models/CreateFieldResponseBody.hpp>
 #include <alibabacloud/models/CreateFieldResponse.hpp>
+#include <alibabacloud/models/CreateForeignPocSampleRequest.hpp>
+#include <alibabacloud/models/CreateForeignPocSampleAdvanceRequest.hpp>
+#include <alibabacloud/models/CreateForeignPocSampleResponseBody.hpp>
+#include <alibabacloud/models/CreateForeignPocSampleResponse.hpp>
 #include <alibabacloud/models/CreateModelRequest.hpp>
 #include <alibabacloud/models/CreateModelResponseBody.hpp>
 #include <alibabacloud/models/CreateModelResponse.hpp>
@@ -878,6 +882,10 @@
 #include <alibabacloud/models/UploadFileCheckRequest.hpp>
 #include <alibabacloud/models/UploadFileCheckResponseBody.hpp>
 #include <alibabacloud/models/UploadFileCheckResponse.hpp>
+#include <alibabacloud/models/UploadForeignSampleFileRequest.hpp>
+#include <alibabacloud/models/UploadForeignSampleFileAdvanceRequest.hpp>
+#include <alibabacloud/models/UploadForeignSampleFileResponseBody.hpp>
+#include <alibabacloud/models/UploadForeignSampleFileResponse.hpp>
 #include <alibabacloud/models/UploadSampleFileRequest.hpp>
 #include <alibabacloud/models/UploadSampleFileResponseBody.hpp>
 #include <alibabacloud/models/UploadSampleFileResponse.hpp>
