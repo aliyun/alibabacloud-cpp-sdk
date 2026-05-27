@@ -14,7 +14,9 @@ namespace Models
   class GetYikeAgentJobResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetYikeAgentJobResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(JobParams, jobParams_);
       DARABONBA_PTR_TO_JSON(JobResult, jobResult_);
@@ -24,7 +26,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UserData, userData_);
     };
     friend void from_json(const Darabonba::Json& j, GetYikeAgentJobResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
+      DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(JobParams, jobParams_);
       DARABONBA_PTR_FROM_JSON(JobResult, jobResult_);
@@ -106,14 +110,28 @@ namespace Models
       shared_ptr<string> outputUrl_ {};
     };
 
-    virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->jobId_ == nullptr && this->jobParams_ == nullptr && this->jobResult_ == nullptr && this->jobStatus_ == nullptr && this->jobType_ == nullptr
-        && this->requestId_ == nullptr && this->userData_ == nullptr; };
+    virtual bool empty() const override { return this->createTime_ == nullptr
+        && this->errorCode_ == nullptr && this->finishTime_ == nullptr && this->jobId_ == nullptr && this->jobParams_ == nullptr && this->jobResult_ == nullptr
+        && this->jobStatus_ == nullptr && this->jobType_ == nullptr && this->requestId_ == nullptr && this->userData_ == nullptr; };
+    // createTime Field Functions 
+    bool hasCreateTime() const { return this->createTime_ != nullptr;};
+    void deleteCreateTime() { this->createTime_ = nullptr;};
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline GetYikeAgentJobResponseBody& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
     // errorCode Field Functions 
     bool hasErrorCode() const { return this->errorCode_ != nullptr;};
     void deleteErrorCode() { this->errorCode_ = nullptr;};
     inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
     inline GetYikeAgentJobResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
+
+
+    // finishTime Field Functions 
+    bool hasFinishTime() const { return this->finishTime_ != nullptr;};
+    void deleteFinishTime() { this->finishTime_ = nullptr;};
+    inline string getFinishTime() const { DARABONBA_PTR_GET_DEFAULT(finishTime_, "") };
+    inline GetYikeAgentJobResponseBody& setFinishTime(string finishTime) { DARABONBA_PTR_SET_VALUE(finishTime_, finishTime) };
 
 
     // jobId Field Functions 
@@ -168,7 +186,9 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> createTime_ {};
     shared_ptr<string> errorCode_ {};
+    shared_ptr<string> finishTime_ {};
     shared_ptr<string> jobId_ {};
     shared_ptr<string> jobParams_ {};
     shared_ptr<vector<GetYikeAgentJobResponseBody::JobResult>> jobResult_ {};
