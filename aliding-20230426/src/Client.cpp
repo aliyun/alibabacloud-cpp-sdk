@@ -1234,6 +1234,80 @@ BatchGetFormDataByIdListResponse Client::batchGetFormDataByIdList(const BatchGet
 }
 
 /**
+ * @summary 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+ *
+ * @param tmpReq BatchGetUserIdByOpenDingtalkIdRequest
+ * @param tmpHeader BatchGetUserIdByOpenDingtalkIdHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchGetUserIdByOpenDingtalkIdResponse
+ */
+BatchGetUserIdByOpenDingtalkIdResponse Client::batchGetUserIdByOpenDingtalkIdWithOptions(const BatchGetUserIdByOpenDingtalkIdRequest &tmpReq, const BatchGetUserIdByOpenDingtalkIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchGetUserIdByOpenDingtalkIdShrinkRequest request = BatchGetUserIdByOpenDingtalkIdShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  BatchGetUserIdByOpenDingtalkIdShrinkHeaders headers = BatchGetUserIdByOpenDingtalkIdShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  if (!!tmpReq.hasOpenDingtalkIds()) {
+    request.setOpenDingtalkIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOpenDingtalkIds(), "openDingtalkIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasOpenDingtalkIdsShrink()) {
+    body["openDingtalkIds"] = request.getOpenDingtalkIdsShrink();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchGetUserIdByOpenDingtalkId"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/im/batchGetUserIdByOpenDingtalkId")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchGetUserIdByOpenDingtalkIdResponse>();
+}
+
+/**
+ * @summary 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+ *
+ * @param request BatchGetUserIdByOpenDingtalkIdRequest
+ * @return BatchGetUserIdByOpenDingtalkIdResponse
+ */
+BatchGetUserIdByOpenDingtalkIdResponse Client::batchGetUserIdByOpenDingtalkId(const BatchGetUserIdByOpenDingtalkIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  BatchGetUserIdByOpenDingtalkIdHeaders headers = BatchGetUserIdByOpenDingtalkIdHeaders();
+  return batchGetUserIdByOpenDingtalkIdWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 查询群成员
  *
  * @param tmpReq BatchQueryGroupMemberRequest

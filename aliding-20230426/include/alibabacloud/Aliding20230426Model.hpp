@@ -93,6 +93,12 @@
 #include <alibabacloud/models/BatchGetFormDataByIdListShrinkRequest.hpp>
 #include <alibabacloud/models/BatchGetFormDataByIdListResponseBody.hpp>
 #include <alibabacloud/models/BatchGetFormDataByIdListResponse.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdHeaders.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdShrinkHeaders.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdRequest.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdShrinkRequest.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdResponseBody.hpp>
+#include <alibabacloud/models/BatchGetUserIdByOpenDingtalkIdResponse.hpp>
 #include <alibabacloud/models/BatchQueryGroupMemberHeaders.hpp>
 #include <alibabacloud/models/BatchQueryGroupMemberShrinkHeaders.hpp>
 #include <alibabacloud/models/BatchQueryGroupMemberRequest.hpp>

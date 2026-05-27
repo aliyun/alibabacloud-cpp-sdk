@@ -291,6 +291,24 @@ namespace Aliding20230426
       Models::BatchGetFormDataByIdListResponse batchGetFormDataByIdList(const Models::BatchGetFormDataByIdListRequest &request);
 
       /**
+       * @summary 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+       *
+       * @param tmpReq BatchGetUserIdByOpenDingtalkIdRequest
+       * @param tmpHeader BatchGetUserIdByOpenDingtalkIdHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchGetUserIdByOpenDingtalkIdResponse
+       */
+      Models::BatchGetUserIdByOpenDingtalkIdResponse batchGetUserIdByOpenDingtalkIdWithOptions(const Models::BatchGetUserIdByOpenDingtalkIdRequest &tmpReq, const Models::BatchGetUserIdByOpenDingtalkIdHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+       *
+       * @param request BatchGetUserIdByOpenDingtalkIdRequest
+       * @return BatchGetUserIdByOpenDingtalkIdResponse
+       */
+      Models::BatchGetUserIdByOpenDingtalkIdResponse batchGetUserIdByOpenDingtalkId(const Models::BatchGetUserIdByOpenDingtalkIdRequest &request);
+
+      /**
        * @summary 查询群成员
        *
        * @param tmpReq BatchQueryGroupMemberRequest
