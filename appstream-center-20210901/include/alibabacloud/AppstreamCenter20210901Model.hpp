@@ -67,6 +67,9 @@
 #include <alibabacloud/models/DeliverToUserSlsRequest.hpp>
 #include <alibabacloud/models/DeliverToUserSlsResponseBody.hpp>
 #include <alibabacloud/models/DeliverToUserSlsResponse.hpp>
+#include <alibabacloud/models/DescribeWuyingServerRequest.hpp>
+#include <alibabacloud/models/DescribeWuyingServerResponseBody.hpp>
+#include <alibabacloud/models/DescribeWuyingServerResponse.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoRequest.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoResponseBody.hpp>
 #include <alibabacloud/models/DescribeWuyingServerEipInfoResponse.hpp>

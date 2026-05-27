@@ -1456,6 +1456,48 @@ DeliverToUserSlsResponse Client::deliverToUserSls(const DeliverToUserSlsRequest 
 }
 
 /**
+ * @summary 查询研发主机详情
+ *
+ * @param request DescribeWuyingServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeWuyingServerResponse
+ */
+DescribeWuyingServerResponse Client::describeWuyingServerWithOptions(const DescribeWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasWuyingServerId()) {
+    body["WuyingServerId"] = request.getWuyingServerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeWuyingServer"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeWuyingServerResponse>();
+}
+
+/**
+ * @summary 查询研发主机详情
+ *
+ * @param request DescribeWuyingServerRequest
+ * @return DescribeWuyingServerResponse
+ */
+DescribeWuyingServerResponse Client::describeWuyingServer(const DescribeWuyingServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeWuyingServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
  *
  * @param request DescribeWuyingServerEipInfoRequest

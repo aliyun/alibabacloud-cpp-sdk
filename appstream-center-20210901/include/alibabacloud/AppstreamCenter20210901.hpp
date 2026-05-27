@@ -420,6 +420,23 @@ namespace AppstreamCenter20210901
       Models::DeliverToUserSlsResponse deliverToUserSls(const Models::DeliverToUserSlsRequest &request);
 
       /**
+       * @summary 查询研发主机详情
+       *
+       * @param request DescribeWuyingServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeWuyingServerResponse
+       */
+      Models::DescribeWuyingServerResponse describeWuyingServerWithOptions(const Models::DescribeWuyingServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询研发主机详情
+       *
+       * @param request DescribeWuyingServerRequest
+       * @return DescribeWuyingServerResponse
+       */
+      Models::DescribeWuyingServerResponse describeWuyingServer(const Models::DescribeWuyingServerRequest &request);
+
+      /**
        * @summary Queries the Elastic IP Addresses (EIPs) of workstations.
        *
        * @param request DescribeWuyingServerEipInfoRequest
