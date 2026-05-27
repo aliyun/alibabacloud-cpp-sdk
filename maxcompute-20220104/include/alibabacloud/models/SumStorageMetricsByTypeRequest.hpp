@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SUMSTORAGEMETRICSBYDATEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_SUMSTORAGEMETRICSBYDATEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_SUMSTORAGEMETRICSBYTYPEREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_SUMSTORAGEMETRICSBYTYPEREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,27 +11,27 @@ namespace MaxCompute20220104
 {
 namespace Models
 {
-  class SumStorageMetricsByDateRequest : public Darabonba::Model {
+  class SumStorageMetricsByTypeRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SumStorageMetricsByDateRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const SumStorageMetricsByTypeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(endDate, endDate_);
       DARABONBA_PTR_TO_JSON(projectNames, projectNames_);
       DARABONBA_PTR_TO_JSON(startDate, startDate_);
       DARABONBA_PTR_TO_JSON(statsType, statsType_);
     };
-    friend void from_json(const Darabonba::Json& j, SumStorageMetricsByDateRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, SumStorageMetricsByTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(endDate, endDate_);
       DARABONBA_PTR_FROM_JSON(projectNames, projectNames_);
       DARABONBA_PTR_FROM_JSON(startDate, startDate_);
       DARABONBA_PTR_FROM_JSON(statsType, statsType_);
     };
-    SumStorageMetricsByDateRequest() = default ;
-    SumStorageMetricsByDateRequest(const SumStorageMetricsByDateRequest &) = default ;
-    SumStorageMetricsByDateRequest(SumStorageMetricsByDateRequest &&) = default ;
-    SumStorageMetricsByDateRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SumStorageMetricsByDateRequest() = default ;
-    SumStorageMetricsByDateRequest& operator=(const SumStorageMetricsByDateRequest &) = default ;
-    SumStorageMetricsByDateRequest& operator=(SumStorageMetricsByDateRequest &&) = default ;
+    SumStorageMetricsByTypeRequest() = default ;
+    SumStorageMetricsByTypeRequest(const SumStorageMetricsByTypeRequest &) = default ;
+    SumStorageMetricsByTypeRequest(SumStorageMetricsByTypeRequest &&) = default ;
+    SumStorageMetricsByTypeRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SumStorageMetricsByTypeRequest() = default ;
+    SumStorageMetricsByTypeRequest& operator=(const SumStorageMetricsByTypeRequest &) = default ;
+    SumStorageMetricsByTypeRequest& operator=(SumStorageMetricsByTypeRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,7 +42,7 @@ namespace Models
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
     inline int64_t getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
-    inline SumStorageMetricsByDateRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+    inline SumStorageMetricsByTypeRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // projectNames Field Functions 
@@ -50,22 +50,22 @@ namespace Models
     void deleteProjectNames() { this->projectNames_ = nullptr;};
     inline const vector<string> & getProjectNames() const { DARABONBA_PTR_GET_CONST(projectNames_, vector<string>) };
     inline vector<string> getProjectNames() { DARABONBA_PTR_GET(projectNames_, vector<string>) };
-    inline SumStorageMetricsByDateRequest& setProjectNames(const vector<string> & projectNames) { DARABONBA_PTR_SET_VALUE(projectNames_, projectNames) };
-    inline SumStorageMetricsByDateRequest& setProjectNames(vector<string> && projectNames) { DARABONBA_PTR_SET_RVALUE(projectNames_, projectNames) };
+    inline SumStorageMetricsByTypeRequest& setProjectNames(const vector<string> & projectNames) { DARABONBA_PTR_SET_VALUE(projectNames_, projectNames) };
+    inline SumStorageMetricsByTypeRequest& setProjectNames(vector<string> && projectNames) { DARABONBA_PTR_SET_RVALUE(projectNames_, projectNames) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
     inline int64_t getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
-    inline SumStorageMetricsByDateRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
+    inline SumStorageMetricsByTypeRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // statsType Field Functions 
     bool hasStatsType() const { return this->statsType_ != nullptr;};
     void deleteStatsType() { this->statsType_ = nullptr;};
     inline string getStatsType() const { DARABONBA_PTR_GET_DEFAULT(statsType_, "") };
-    inline SumStorageMetricsByDateRequest& setStatsType(string statsType) { DARABONBA_PTR_SET_VALUE(statsType_, statsType) };
+    inline SumStorageMetricsByTypeRequest& setStatsType(string statsType) { DARABONBA_PTR_SET_VALUE(statsType_, statsType) };
 
 
   protected:

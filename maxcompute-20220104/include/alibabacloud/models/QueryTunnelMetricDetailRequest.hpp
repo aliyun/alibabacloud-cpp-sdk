@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const QueryTunnelMetricDetailRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ascOrder, ascOrder_);
+      DARABONBA_PTR_TO_JSON(codeList, codeList_);
       DARABONBA_PTR_TO_JSON(groupList, groupList_);
       DARABONBA_PTR_TO_JSON(limit, limit_);
       DARABONBA_PTR_TO_JSON(operationList, operationList_);
@@ -27,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, QueryTunnelMetricDetailRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ascOrder, ascOrder_);
+      DARABONBA_PTR_FROM_JSON(codeList, codeList_);
       DARABONBA_PTR_FROM_JSON(groupList, groupList_);
       DARABONBA_PTR_FROM_JSON(limit, limit_);
       DARABONBA_PTR_FROM_JSON(operationList, operationList_);
@@ -49,13 +51,22 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ascOrder_ == nullptr
-        && this->groupList_ == nullptr && this->limit_ == nullptr && this->operationList_ == nullptr && this->orderColumn_ == nullptr && this->project_ == nullptr
-        && this->quotaNickname_ == nullptr && this->tableList_ == nullptr && this->endTime_ == nullptr && this->startTime_ == nullptr; };
+        && this->codeList_ == nullptr && this->groupList_ == nullptr && this->limit_ == nullptr && this->operationList_ == nullptr && this->orderColumn_ == nullptr
+        && this->project_ == nullptr && this->quotaNickname_ == nullptr && this->tableList_ == nullptr && this->endTime_ == nullptr && this->startTime_ == nullptr; };
     // ascOrder Field Functions 
     bool hasAscOrder() const { return this->ascOrder_ != nullptr;};
     void deleteAscOrder() { this->ascOrder_ = nullptr;};
     inline bool getAscOrder() const { DARABONBA_PTR_GET_DEFAULT(ascOrder_, false) };
     inline QueryTunnelMetricDetailRequest& setAscOrder(bool ascOrder) { DARABONBA_PTR_SET_VALUE(ascOrder_, ascOrder) };
+
+
+    // codeList Field Functions 
+    bool hasCodeList() const { return this->codeList_ != nullptr;};
+    void deleteCodeList() { this->codeList_ = nullptr;};
+    inline const vector<int64_t> & getCodeList() const { DARABONBA_PTR_GET_CONST(codeList_, vector<int64_t>) };
+    inline vector<int64_t> getCodeList() { DARABONBA_PTR_GET(codeList_, vector<int64_t>) };
+    inline QueryTunnelMetricDetailRequest& setCodeList(const vector<int64_t> & codeList) { DARABONBA_PTR_SET_VALUE(codeList_, codeList) };
+    inline QueryTunnelMetricDetailRequest& setCodeList(vector<int64_t> && codeList) { DARABONBA_PTR_SET_RVALUE(codeList_, codeList) };
 
 
     // groupList Field Functions 
@@ -129,6 +140,7 @@ namespace Models
 
   protected:
     shared_ptr<bool> ascOrder_ {};
+    shared_ptr<vector<int64_t>> codeList_ {};
     shared_ptr<vector<string>> groupList_ {};
     shared_ptr<int64_t> limit_ {};
     shared_ptr<vector<string>> operationList_ {};

@@ -15,15 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListComputeMetricsByInstanceResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(data, data_);
-      DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
-      DARABONBA_PTR_TO_JSON(errorMsg, errorMsg_);
       DARABONBA_PTR_TO_JSON(httpCode, httpCode_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, ListComputeMetricsByInstanceResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
-      DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
-      DARABONBA_PTR_FROM_JSON(errorMsg, errorMsg_);
       DARABONBA_PTR_FROM_JSON(httpCode, httpCode_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
@@ -258,7 +254,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
+        && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -266,20 +262,6 @@ namespace Models
     inline ListComputeMetricsByInstanceResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ListComputeMetricsByInstanceResponseBody::Data) };
     inline ListComputeMetricsByInstanceResponseBody& setData(const ListComputeMetricsByInstanceResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline ListComputeMetricsByInstanceResponseBody& setData(ListComputeMetricsByInstanceResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
-
-
-    // errorCode Field Functions 
-    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
-    void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
-    inline ListComputeMetricsByInstanceResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
-
-
-    // errorMsg Field Functions 
-    bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
-    void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
-    inline ListComputeMetricsByInstanceResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // httpCode Field Functions 
@@ -299,10 +281,6 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<ListComputeMetricsByInstanceResponseBody::Data> data_ {};
-    // The error code.
-    shared_ptr<string> errorCode_ {};
-    // The error message.
-    shared_ptr<string> errorMsg_ {};
     // The HTTP status code.
     // 
     // - 1xx: informational response. The request is received and is being processed.

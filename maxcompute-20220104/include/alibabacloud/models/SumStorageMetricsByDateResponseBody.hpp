@@ -15,15 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SumStorageMetricsByDateResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(data, data_);
-      DARABONBA_PTR_TO_JSON(errorCode, errorCode_);
-      DARABONBA_PTR_TO_JSON(errorMsg, errorMsg_);
       DARABONBA_PTR_TO_JSON(httpCode, httpCode_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, SumStorageMetricsByDateResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
-      DARABONBA_PTR_FROM_JSON(errorCode, errorCode_);
-      DARABONBA_PTR_FROM_JSON(errorMsg, errorMsg_);
       DARABONBA_PTR_FROM_JSON(httpCode, httpCode_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
@@ -165,7 +161,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
-        && this->errorCode_ == nullptr && this->errorMsg_ == nullptr && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
+        && this->httpCode_ == nullptr && this->requestId_ == nullptr; };
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
@@ -173,20 +169,6 @@ namespace Models
     inline vector<SumStorageMetricsByDateResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<SumStorageMetricsByDateResponseBody::Data>) };
     inline SumStorageMetricsByDateResponseBody& setData(const vector<SumStorageMetricsByDateResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
     inline SumStorageMetricsByDateResponseBody& setData(vector<SumStorageMetricsByDateResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
-
-
-    // errorCode Field Functions 
-    bool hasErrorCode() const { return this->errorCode_ != nullptr;};
-    void deleteErrorCode() { this->errorCode_ = nullptr;};
-    inline string getErrorCode() const { DARABONBA_PTR_GET_DEFAULT(errorCode_, "") };
-    inline SumStorageMetricsByDateResponseBody& setErrorCode(string errorCode) { DARABONBA_PTR_SET_VALUE(errorCode_, errorCode) };
-
-
-    // errorMsg Field Functions 
-    bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
-    void deleteErrorMsg() { this->errorMsg_ = nullptr;};
-    inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
-    inline SumStorageMetricsByDateResponseBody& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
 
 
     // httpCode Field Functions 
@@ -205,8 +187,6 @@ namespace Models
 
   protected:
     shared_ptr<vector<SumStorageMetricsByDateResponseBody::Data>> data_ {};
-    shared_ptr<string> errorCode_ {};
-    shared_ptr<string> errorMsg_ {};
     shared_ptr<int32_t> httpCode_ {};
     shared_ptr<string> requestId_ {};
   };

@@ -2432,10 +2432,6 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstanceWithOpt
     body["projectNames"] = request.getProjectNames();
   }
 
-  if (!!request.hasRegion()) {
-    body["region"] = request.getRegion();
-  }
-
   if (!!request.hasSignature()) {
     body["signature"] = request.getSignature();
   }
@@ -2480,6 +2476,83 @@ ListComputeMetricsByInstanceResponse Client::listComputeMetricsByInstance(const 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listComputeMetricsByInstanceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按Signature查看作业计算使用量明细
+ *
+ * @param request ListComputeMetricsBySignatureRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListComputeMetricsBySignatureResponse
+ */
+ListComputeMetricsBySignatureResponse Client::listComputeMetricsBySignatureWithOptions(const ListComputeMetricsBySignatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasJobOwner()) {
+    body["jobOwner"] = request.getJobOwner();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasSignature()) {
+    body["signature"] = request.getSignature();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasTypes()) {
+    body["types"] = request.getTypes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListComputeMetricsBySignature"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/computeMetrics/listBySignature")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListComputeMetricsBySignatureResponse>();
+}
+
+/**
+ * @summary 按Signature查看作业计算使用量明细
+ *
+ * @param request ListComputeMetricsBySignatureRequest
+ * @return ListComputeMetricsBySignatureResponse
+ */
+ListComputeMetricsBySignatureResponse Client::listComputeMetricsBySignature(const ListComputeMetricsBySignatureRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listComputeMetricsBySignatureWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2573,6 +2646,55 @@ ListFunctionsResponse Client::listFunctions(const string &projectName, const Lis
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listFunctionsWithOptions(projectName, request, headers, runtime);
+}
+
+/**
+ * @summary 获取需要进行成本分析的项目或者实例
+ *
+ * @param request ListInstancesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstancesResponse
+ */
+ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndDate()) {
+    query["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["startDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstances"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/bills/instances")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstancesResponse>();
+}
+
+/**
+ * @summary 获取需要进行成本分析的项目或者实例
+ *
+ * @param request ListInstancesRequest
+ * @return ListInstancesResponse
+ */
+ListInstancesResponse Client::listInstances(const ListInstancesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listInstancesWithOptions(request, headers, runtime);
 }
 
 /**
@@ -3535,6 +3657,71 @@ ListMmsTimerLogsResponse Client::listMmsTimerLogs(const string &sourceId, const 
 }
 
 /**
+ * @summary ListMmsTimers
+ *
+ * @param request ListMmsTimersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMmsTimersResponse
+ */
+ListMmsTimersResponse Client::listMmsTimersWithOptions(const string &sourceId, const ListMmsTimersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["pageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSrcDbName()) {
+    query["srcDbName"] = request.getSrcDbName();
+  }
+
+  if (!!request.hasSrcTableName()) {
+    query["srcTableName"] = request.getSrcTableName();
+  }
+
+  if (!!request.hasStopped()) {
+    query["stopped"] = request.getStopped();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMmsTimers"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMmsTimersResponse>();
+}
+
+/**
+ * @summary ListMmsTimers
+ *
+ * @param request ListMmsTimersRequest
+ * @return ListMmsTimersResponse
+ */
+ListMmsTimersResponse Client::listMmsTimers(const string &sourceId, const ListMmsTimersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMmsTimersWithOptions(sourceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the packages in a MaxCompute project.
  *
  * @param headers map
@@ -3911,7 +4098,7 @@ ListStoragePartitionsInfoResponse Client::listStoragePartitionsInfoWithOptions(c
   ListStoragePartitionsInfoShrinkRequest request = ListStoragePartitionsInfoShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasTypes()) {
-    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "types", "json"));
+    request.setTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTypes(), "types", "simple"));
   }
 
   json query = {};
@@ -4625,6 +4812,10 @@ QueryTunnelMetricDetailResponse Client::queryTunnelMetricDetailWithOptions(const
     body["ascOrder"] = request.getAscOrder();
   }
 
+  if (!!request.hasCodeList()) {
+    body["codeList"] = request.getCodeList();
+  }
+
   if (!!request.hasGroupList()) {
     body["groupList"] = request.getGroupList();
   }
@@ -4721,6 +4912,45 @@ RetryMmsJobResponse Client::retryMmsJob(const string &sourceId, const string &jo
 }
 
 /**
+ * @summary RetryMmsTask
+ *
+ * @param request RetryMmsTaskRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetryMmsTaskResponse
+ */
+RetryMmsTaskResponse Client::retryMmsTaskWithOptions(const string &sourceId, const string &taskId, const RetryMmsTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RetryMmsTask"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/retry")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetryMmsTaskResponse>();
+}
+
+/**
+ * @summary RetryMmsTask
+ *
+ * @param request RetryMmsTaskRequest
+ * @return RetryMmsTaskResponse
+ */
+RetryMmsTaskResponse Client::retryMmsTask(const string &sourceId, const string &taskId, const RetryMmsTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return retryMmsTaskWithOptions(sourceId, taskId, request, headers, runtime);
+}
+
+/**
  * @summary Starts a migration job.
  *
  * @param headers map
@@ -4793,6 +5023,309 @@ StopMmsJobResponse Client::stopMmsJob(const string &sourceId, const string &jobI
 }
 
 /**
+ * @summary 按实例统计或者按计费项统计费用信息
+ *
+ * @param request SumBillsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumBillsResponse
+ */
+SumBillsResponse Client::sumBillsWithOptions(const SumBillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasStatsType()) {
+    body["statsType"] = request.getStatsType();
+  }
+
+  if (!!request.hasTopN()) {
+    body["topN"] = request.getTopN();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumBills"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/bills/sum")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumBillsResponse>();
+}
+
+/**
+ * @summary 按实例统计或者按计费项统计费用信息
+ *
+ * @param request SumBillsRequest
+ * @return SumBillsResponse
+ */
+SumBillsResponse Client::sumBills(const SumBillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumBillsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按实例统计或者按计费项逐日进行费用统计
+ *
+ * @param request SumBillsByDateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumBillsByDateResponse
+ */
+SumBillsByDateResponse Client::sumBillsByDateWithOptions(const SumBillsByDateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasStatsType()) {
+    body["statsType"] = request.getStatsType();
+  }
+
+  if (!!request.hasTopN()) {
+    body["topN"] = request.getTopN();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumBillsByDate"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/bills/sumByDate")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumBillsByDateResponse>();
+}
+
+/**
+ * @summary 按实例统计或者按计费项逐日进行费用统计
+ *
+ * @param request SumBillsByDateRequest
+ * @return SumBillsByDateResponse
+ */
+SumBillsByDateResponse Client::sumBillsByDate(const SumBillsByDateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumBillsByDateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按项目或者实例统计计算用量
+ *
+ * @param request SumComputeMetricsByRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumComputeMetricsByRecordResponse
+ */
+SumComputeMetricsByRecordResponse Client::sumComputeMetricsByRecordWithOptions(const SumComputeMetricsByRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumComputeMetricsByRecord"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/computeMetrics/sumByRecord")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumComputeMetricsByRecordResponse>();
+}
+
+/**
+ * @summary 按项目或者实例统计计算用量
+ *
+ * @param request SumComputeMetricsByRecordRequest
+ * @return SumComputeMetricsByRecordResponse
+ */
+SumComputeMetricsByRecordResponse Client::sumComputeMetricsByRecord(const SumComputeMetricsByRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumComputeMetricsByRecordWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 统计扫描量计算类的使用量或者CU时计算类使用量
+ *
+ * @param request SumComputeMetricsByUsageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumComputeMetricsByUsageResponse
+ */
+SumComputeMetricsByUsageResponse Client::sumComputeMetricsByUsageWithOptions(const SumComputeMetricsByUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasUsageType()) {
+    body["usageType"] = request.getUsageType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumComputeMetricsByUsage"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/computeMetrics/sumByUsage")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumComputeMetricsByUsageResponse>();
+}
+
+/**
+ * @summary 统计扫描量计算类的使用量或者CU时计算类使用量
+ *
+ * @param request SumComputeMetricsByUsageRequest
+ * @return SumComputeMetricsByUsageResponse
+ */
+SumComputeMetricsByUsageResponse Client::sumComputeMetricsByUsage(const SumComputeMetricsByUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumComputeMetricsByUsageWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按实例统或者按计费项统计的明细信息
+ *
+ * @param request SumDailyBillsByItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumDailyBillsByItemResponse
+ */
+SumDailyBillsByItemResponse Client::sumDailyBillsByItemWithOptions(const SumDailyBillsByItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasStatsType()) {
+    body["statsType"] = request.getStatsType();
+  }
+
+  if (!!request.hasTypes()) {
+    body["types"] = request.getTypes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumDailyBillsByItem"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/dailyBills/sumByItem")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumDailyBillsByItemResponse>();
+}
+
+/**
+ * @summary 按实例统或者按计费项统计的明细信息
+ *
+ * @param request SumDailyBillsByItemRequest
+ * @return SumDailyBillsByItemResponse
+ */
+SumDailyBillsByItemResponse Client::sumDailyBillsByItem(const SumDailyBillsByItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumDailyBillsByItemWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按照project或者存储类型按天统计存储用量
+ *
  * @param request SumStorageMetricsByDateRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4809,20 +5342,12 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
     body["projectNames"] = request.getProjectNames();
   }
 
-  if (!!request.hasRegion()) {
-    body["region"] = request.getRegion();
-  }
-
   if (!!request.hasStartDate()) {
     body["startDate"] = request.getStartDate();
   }
 
   if (!!request.hasStatsType()) {
     body["statsType"] = request.getStatsType();
-  }
-
-  if (!!request.hasUserId()) {
-    body["userId"] = request.getUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4844,6 +5369,8 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDateWithOptions(const
 }
 
 /**
+ * @summary 按照project或者存储类型按天统计存储用量
+ *
  * @param request SumStorageMetricsByDateRequest
  * @return SumStorageMetricsByDateResponse
  */
@@ -4851,6 +5378,102 @@ SumStorageMetricsByDateResponse Client::sumStorageMetricsByDate(const SumStorage
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return sumStorageMetricsByDateWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 按项目统计各种类型存储使用量统计
+ *
+ * @param request SumStorageMetricsByTypeRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SumStorageMetricsByTypeResponse
+ */
+SumStorageMetricsByTypeResponse Client::sumStorageMetricsByTypeWithOptions(const SumStorageMetricsByTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasProjectNames()) {
+    body["projectNames"] = request.getProjectNames();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  if (!!request.hasStatsType()) {
+    body["statsType"] = request.getStatsType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SumStorageMetricsByType"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/storageMetrics/sumByType")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SumStorageMetricsByTypeResponse>();
+}
+
+/**
+ * @summary 按项目统计各种类型存储使用量统计
+ *
+ * @param request SumStorageMetricsByTypeRequest
+ * @return SumStorageMetricsByTypeResponse
+ */
+SumStorageMetricsByTypeResponse Client::sumStorageMetricsByType(const SumStorageMetricsByTypeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return sumStorageMetricsByTypeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary TriggerMmsTimer
+ *
+ * @param request TriggerMmsTimerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return TriggerMmsTimerResponse
+ */
+TriggerMmsTimerResponse Client::triggerMmsTimerWithOptions(const string &sourceId, const string &timerId, const TriggerMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "TriggerMmsTimer"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers/" , Darabonba::Encode::Encoder::percentEncode(timerId) , "/trigger")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<TriggerMmsTimerResponse>();
+}
+
+/**
+ * @summary TriggerMmsTimer
+ *
+ * @param request TriggerMmsTimerRequest
+ * @return TriggerMmsTimerResponse
+ */
+TriggerMmsTimerResponse Client::triggerMmsTimer(const string &sourceId, const string &timerId, const TriggerMmsTimerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return triggerMmsTimerWithOptions(sourceId, timerId, request, headers, runtime);
 }
 
 /**
@@ -5060,6 +5683,234 @@ UpdateMmsDataSourceResponse Client::updateMmsDataSource(const string &sourceId, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateMmsDataSourceWithOptions(sourceId, request, headers, runtime);
+}
+
+/**
+ * @summary 功能：
+ *
+ * @param request UpdateMmsDbRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmsDbResponse
+ */
+UpdateMmsDbResponse Client::updateMmsDbWithOptions(const string &sourceId, const string &dbId, const UpdateMmsDbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDstName()) {
+    body["dstName"] = request.getDstName();
+  }
+
+  if (!!request.hasDstProjectName()) {
+    body["dstProjectName"] = request.getDstProjectName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMmsDb"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/dbs/" , Darabonba::Encode::Encoder::percentEncode(dbId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmsDbResponse>();
+}
+
+/**
+ * @summary 功能：
+ *
+ * @param request UpdateMmsDbRequest
+ * @return UpdateMmsDbResponse
+ */
+UpdateMmsDbResponse Client::updateMmsDb(const string &sourceId, const string &dbId, const UpdateMmsDbRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMmsDbWithOptions(sourceId, dbId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新表元数据
+ *
+ * @param request UpdateMmsTableRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmsTableResponse
+ */
+UpdateMmsTableResponse Client::updateMmsTableWithOptions(const string &sourceId, const string &tableId, const UpdateMmsTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDstName()) {
+    body["dstName"] = request.getDstName();
+  }
+
+  if (!!request.hasDstProjectName()) {
+    body["dstProjectName"] = request.getDstProjectName();
+  }
+
+  if (!!request.hasDstSchemaName()) {
+    body["dstSchemaName"] = request.getDstSchemaName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMmsTable"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tables/" , Darabonba::Encode::Encoder::percentEncode(tableId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmsTableResponse>();
+}
+
+/**
+ * @summary 更新表元数据
+ *
+ * @param request UpdateMmsTableRequest
+ * @return UpdateMmsTableResponse
+ */
+UpdateMmsTableResponse Client::updateMmsTable(const string &sourceId, const string &tableId, const UpdateMmsTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMmsTableWithOptions(sourceId, tableId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新表元数据
+ *
+ * @param request UpdateMmsTablesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmsTablesResponse
+ */
+UpdateMmsTablesResponse Client::updateMmsTablesWithOptions(const string &sourceId, const UpdateMmsTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDbName()) {
+    body["dbName"] = request.getDbName();
+  }
+
+  if (!!request.hasDstProjectName()) {
+    body["dstProjectName"] = request.getDstProjectName();
+  }
+
+  if (!!request.hasDstSchemaName()) {
+    body["dstSchemaName"] = request.getDstSchemaName();
+  }
+
+  if (!!request.hasStatus()) {
+    body["status"] = request.getStatus();
+  }
+
+  if (!!request.hasTableNames()) {
+    body["tableNames"] = request.getTableNames();
+  }
+
+  if (!!request.hasTables()) {
+    body["tables"] = request.getTables();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMmsTables"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/tables")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmsTablesResponse>();
+}
+
+/**
+ * @summary 更新表元数据
+ *
+ * @param request UpdateMmsTablesRequest
+ * @return UpdateMmsTablesResponse
+ */
+UpdateMmsTablesResponse Client::updateMmsTables(const string &sourceId, const UpdateMmsTablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMmsTablesWithOptions(sourceId, request, headers, runtime);
+}
+
+/**
+ * @summary UpdateMmsTimer
+ *
+ * @param request UpdateMmsTimerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMmsTimerResponse
+ */
+UpdateMmsTimerResponse Client::updateMmsTimerWithOptions(const string &sourceId, const string &timerId, const UpdateMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasScheduleType()) {
+    body["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasStopped()) {
+    body["stopped"] = request.getStopped();
+  }
+
+  if (!!request.hasValue()) {
+    body["value"] = request.getValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMmsTimer"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/mms/datasources/" , Darabonba::Encode::Encoder::percentEncode(sourceId) , "/timers/" , Darabonba::Encode::Encoder::percentEncode(timerId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMmsTimerResponse>();
+}
+
+/**
+ * @summary UpdateMmsTimer
+ *
+ * @param request UpdateMmsTimerRequest
+ * @return UpdateMmsTimerResponse
+ */
+UpdateMmsTimerResponse Client::updateMmsTimer(const string &sourceId, const string &timerId, const UpdateMmsTimerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMmsTimerWithOptions(sourceId, timerId, request, headers, runtime);
 }
 
 /**

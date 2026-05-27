@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_LISTCOMPUTEMETRICSBYINSTANCEREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_LISTCOMPUTEMETRICSBYINSTANCEREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_LISTCOMPUTEMETRICSBYSIGNATUREREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTCOMPUTEMETRICSBYSIGNATUREREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,9 +11,9 @@ namespace MaxCompute20220104
 {
 namespace Models
 {
-  class ListComputeMetricsByInstanceRequest : public Darabonba::Model {
+  class ListComputeMetricsBySignatureRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ListComputeMetricsByInstanceRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ListComputeMetricsBySignatureRequest& obj) { 
       DARABONBA_PTR_TO_JSON(endDate, endDate_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(jobOwner, jobOwner_);
@@ -21,11 +21,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(projectNames, projectNames_);
       DARABONBA_PTR_TO_JSON(signature, signature_);
-      DARABONBA_PTR_TO_JSON(specCodes, specCodes_);
       DARABONBA_PTR_TO_JSON(startDate, startDate_);
       DARABONBA_PTR_TO_JSON(types, types_);
     };
-    friend void from_json(const Darabonba::Json& j, ListComputeMetricsByInstanceRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ListComputeMetricsBySignatureRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(endDate, endDate_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(jobOwner, jobOwner_);
@@ -33,57 +32,56 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(pageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(projectNames, projectNames_);
       DARABONBA_PTR_FROM_JSON(signature, signature_);
-      DARABONBA_PTR_FROM_JSON(specCodes, specCodes_);
       DARABONBA_PTR_FROM_JSON(startDate, startDate_);
       DARABONBA_PTR_FROM_JSON(types, types_);
     };
-    ListComputeMetricsByInstanceRequest() = default ;
-    ListComputeMetricsByInstanceRequest(const ListComputeMetricsByInstanceRequest &) = default ;
-    ListComputeMetricsByInstanceRequest(ListComputeMetricsByInstanceRequest &&) = default ;
-    ListComputeMetricsByInstanceRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ListComputeMetricsByInstanceRequest() = default ;
-    ListComputeMetricsByInstanceRequest& operator=(const ListComputeMetricsByInstanceRequest &) = default ;
-    ListComputeMetricsByInstanceRequest& operator=(ListComputeMetricsByInstanceRequest &&) = default ;
+    ListComputeMetricsBySignatureRequest() = default ;
+    ListComputeMetricsBySignatureRequest(const ListComputeMetricsBySignatureRequest &) = default ;
+    ListComputeMetricsBySignatureRequest(ListComputeMetricsBySignatureRequest &&) = default ;
+    ListComputeMetricsBySignatureRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListComputeMetricsBySignatureRequest() = default ;
+    ListComputeMetricsBySignatureRequest& operator=(const ListComputeMetricsBySignatureRequest &) = default ;
+    ListComputeMetricsBySignatureRequest& operator=(ListComputeMetricsBySignatureRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endDate_ == nullptr
         && this->instanceId_ == nullptr && this->jobOwner_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->projectNames_ == nullptr
-        && this->signature_ == nullptr && this->specCodes_ == nullptr && this->startDate_ == nullptr && this->types_ == nullptr; };
+        && this->signature_ == nullptr && this->startDate_ == nullptr && this->types_ == nullptr; };
     // endDate Field Functions 
     bool hasEndDate() const { return this->endDate_ != nullptr;};
     void deleteEndDate() { this->endDate_ = nullptr;};
     inline int64_t getEndDate() const { DARABONBA_PTR_GET_DEFAULT(endDate_, 0L) };
-    inline ListComputeMetricsByInstanceRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
+    inline ListComputeMetricsBySignatureRequest& setEndDate(int64_t endDate) { DARABONBA_PTR_SET_VALUE(endDate_, endDate) };
 
 
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline ListComputeMetricsByInstanceRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+    inline ListComputeMetricsBySignatureRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
     // jobOwner Field Functions 
     bool hasJobOwner() const { return this->jobOwner_ != nullptr;};
     void deleteJobOwner() { this->jobOwner_ = nullptr;};
     inline string getJobOwner() const { DARABONBA_PTR_GET_DEFAULT(jobOwner_, "") };
-    inline ListComputeMetricsByInstanceRequest& setJobOwner(string jobOwner) { DARABONBA_PTR_SET_VALUE(jobOwner_, jobOwner) };
+    inline ListComputeMetricsBySignatureRequest& setJobOwner(string jobOwner) { DARABONBA_PTR_SET_VALUE(jobOwner_, jobOwner) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
     inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
-    inline ListComputeMetricsByInstanceRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+    inline ListComputeMetricsBySignatureRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
     inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
-    inline ListComputeMetricsByInstanceRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+    inline ListComputeMetricsBySignatureRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // projectNames Field Functions 
@@ -91,31 +89,22 @@ namespace Models
     void deleteProjectNames() { this->projectNames_ = nullptr;};
     inline const vector<string> & getProjectNames() const { DARABONBA_PTR_GET_CONST(projectNames_, vector<string>) };
     inline vector<string> getProjectNames() { DARABONBA_PTR_GET(projectNames_, vector<string>) };
-    inline ListComputeMetricsByInstanceRequest& setProjectNames(const vector<string> & projectNames) { DARABONBA_PTR_SET_VALUE(projectNames_, projectNames) };
-    inline ListComputeMetricsByInstanceRequest& setProjectNames(vector<string> && projectNames) { DARABONBA_PTR_SET_RVALUE(projectNames_, projectNames) };
+    inline ListComputeMetricsBySignatureRequest& setProjectNames(const vector<string> & projectNames) { DARABONBA_PTR_SET_VALUE(projectNames_, projectNames) };
+    inline ListComputeMetricsBySignatureRequest& setProjectNames(vector<string> && projectNames) { DARABONBA_PTR_SET_RVALUE(projectNames_, projectNames) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
     inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
-    inline ListComputeMetricsByInstanceRequest& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
-
-
-    // specCodes Field Functions 
-    bool hasSpecCodes() const { return this->specCodes_ != nullptr;};
-    void deleteSpecCodes() { this->specCodes_ = nullptr;};
-    inline const vector<string> & getSpecCodes() const { DARABONBA_PTR_GET_CONST(specCodes_, vector<string>) };
-    inline vector<string> getSpecCodes() { DARABONBA_PTR_GET(specCodes_, vector<string>) };
-    inline ListComputeMetricsByInstanceRequest& setSpecCodes(const vector<string> & specCodes) { DARABONBA_PTR_SET_VALUE(specCodes_, specCodes) };
-    inline ListComputeMetricsByInstanceRequest& setSpecCodes(vector<string> && specCodes) { DARABONBA_PTR_SET_RVALUE(specCodes_, specCodes) };
+    inline ListComputeMetricsBySignatureRequest& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
     // startDate Field Functions 
     bool hasStartDate() const { return this->startDate_ != nullptr;};
     void deleteStartDate() { this->startDate_ = nullptr;};
     inline int64_t getStartDate() const { DARABONBA_PTR_GET_DEFAULT(startDate_, 0L) };
-    inline ListComputeMetricsByInstanceRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
+    inline ListComputeMetricsBySignatureRequest& setStartDate(int64_t startDate) { DARABONBA_PTR_SET_VALUE(startDate_, startDate) };
 
 
     // types Field Functions 
@@ -123,30 +112,19 @@ namespace Models
     void deleteTypes() { this->types_ = nullptr;};
     inline const vector<string> & getTypes() const { DARABONBA_PTR_GET_CONST(types_, vector<string>) };
     inline vector<string> getTypes() { DARABONBA_PTR_GET(types_, vector<string>) };
-    inline ListComputeMetricsByInstanceRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
-    inline ListComputeMetricsByInstanceRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
+    inline ListComputeMetricsBySignatureRequest& setTypes(const vector<string> & types) { DARABONBA_PTR_SET_VALUE(types_, types) };
+    inline ListComputeMetricsBySignatureRequest& setTypes(vector<string> && types) { DARABONBA_PTR_SET_RVALUE(types_, types) };
 
 
   protected:
-    // The end time for the period.
     shared_ptr<int64_t> endDate_ {};
-    // The job(instance) ID.
     shared_ptr<string> instanceId_ {};
-    // The Alibaba Cloud account that is used to run the MaxCompute job.
     shared_ptr<string> jobOwner_ {};
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The name of MaxCompute project.
     shared_ptr<vector<string>> projectNames_ {};
-    // The signature of the SQL job.
     shared_ptr<string> signature_ {};
-    // Specification types.
-    shared_ptr<vector<string>> specCodes_ {};
-    // The start time for the period.
     shared_ptr<int64_t> startDate_ {};
-    // Metering types.
     shared_ptr<vector<string>> types_ {};
   };
 

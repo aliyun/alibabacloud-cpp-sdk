@@ -847,6 +847,24 @@ namespace MaxCompute20220104
       Models::ListComputeMetricsByInstanceResponse listComputeMetricsByInstance(const Models::ListComputeMetricsByInstanceRequest &request);
 
       /**
+       * @summary 按Signature查看作业计算使用量明细
+       *
+       * @param request ListComputeMetricsBySignatureRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListComputeMetricsBySignatureResponse
+       */
+      Models::ListComputeMetricsBySignatureResponse listComputeMetricsBySignatureWithOptions(const Models::ListComputeMetricsBySignatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按Signature查看作业计算使用量明细
+       *
+       * @param request ListComputeMetricsBySignatureRequest
+       * @return ListComputeMetricsBySignatureResponse
+       */
+      Models::ListComputeMetricsBySignatureResponse listComputeMetricsBySignature(const Models::ListComputeMetricsBySignatureRequest &request);
+
+      /**
        * @summary Get computeQuotaPlan list.
        *
        * @param headers map
@@ -879,6 +897,24 @@ namespace MaxCompute20220104
        * @return ListFunctionsResponse
        */
       Models::ListFunctionsResponse listFunctions(const string &projectName, const Models::ListFunctionsRequest &request);
+
+      /**
+       * @summary 获取需要进行成本分析的项目或者实例
+       *
+       * @param request ListInstancesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstancesResponse
+       */
+      Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取需要进行成本分析的项目或者实例
+       *
+       * @param request ListInstancesRequest
+       * @return ListInstancesResponse
+       */
+      Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
        * @summary Views a list of jobs.
@@ -1093,6 +1129,24 @@ namespace MaxCompute20220104
        * @return ListMmsTimerLogsResponse
        */
       Models::ListMmsTimerLogsResponse listMmsTimerLogs(const string &sourceId, const string &timerId, const Models::ListMmsTimerLogsRequest &request);
+
+      /**
+       * @summary ListMmsTimers
+       *
+       * @param request ListMmsTimersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMmsTimersResponse
+       */
+      Models::ListMmsTimersResponse listMmsTimersWithOptions(const string &sourceId, const Models::ListMmsTimersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListMmsTimers
+       *
+       * @param request ListMmsTimersRequest
+       * @return ListMmsTimersResponse
+       */
+      Models::ListMmsTimersResponse listMmsTimers(const string &sourceId, const Models::ListMmsTimersRequest &request);
 
       /**
        * @summary Queries the packages in a MaxCompute project.
@@ -1439,6 +1493,24 @@ namespace MaxCompute20220104
       Models::RetryMmsJobResponse retryMmsJob(const string &sourceId, const string &jobId);
 
       /**
+       * @summary RetryMmsTask
+       *
+       * @param request RetryMmsTaskRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetryMmsTaskResponse
+       */
+      Models::RetryMmsTaskResponse retryMmsTaskWithOptions(const string &sourceId, const string &taskId, const Models::RetryMmsTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary RetryMmsTask
+       *
+       * @param request RetryMmsTaskRequest
+       * @return RetryMmsTaskResponse
+       */
+      Models::RetryMmsTaskResponse retryMmsTask(const string &sourceId, const string &taskId, const Models::RetryMmsTaskRequest &request);
+
+      /**
        * @summary Starts a migration job.
        *
        * @param headers map
@@ -1471,6 +1543,98 @@ namespace MaxCompute20220104
       Models::StopMmsJobResponse stopMmsJob(const string &sourceId, const string &jobId);
 
       /**
+       * @summary 按实例统计或者按计费项统计费用信息
+       *
+       * @param request SumBillsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumBillsResponse
+       */
+      Models::SumBillsResponse sumBillsWithOptions(const Models::SumBillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按实例统计或者按计费项统计费用信息
+       *
+       * @param request SumBillsRequest
+       * @return SumBillsResponse
+       */
+      Models::SumBillsResponse sumBills(const Models::SumBillsRequest &request);
+
+      /**
+       * @summary 按实例统计或者按计费项逐日进行费用统计
+       *
+       * @param request SumBillsByDateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumBillsByDateResponse
+       */
+      Models::SumBillsByDateResponse sumBillsByDateWithOptions(const Models::SumBillsByDateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按实例统计或者按计费项逐日进行费用统计
+       *
+       * @param request SumBillsByDateRequest
+       * @return SumBillsByDateResponse
+       */
+      Models::SumBillsByDateResponse sumBillsByDate(const Models::SumBillsByDateRequest &request);
+
+      /**
+       * @summary 按项目或者实例统计计算用量
+       *
+       * @param request SumComputeMetricsByRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumComputeMetricsByRecordResponse
+       */
+      Models::SumComputeMetricsByRecordResponse sumComputeMetricsByRecordWithOptions(const Models::SumComputeMetricsByRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按项目或者实例统计计算用量
+       *
+       * @param request SumComputeMetricsByRecordRequest
+       * @return SumComputeMetricsByRecordResponse
+       */
+      Models::SumComputeMetricsByRecordResponse sumComputeMetricsByRecord(const Models::SumComputeMetricsByRecordRequest &request);
+
+      /**
+       * @summary 统计扫描量计算类的使用量或者CU时计算类使用量
+       *
+       * @param request SumComputeMetricsByUsageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumComputeMetricsByUsageResponse
+       */
+      Models::SumComputeMetricsByUsageResponse sumComputeMetricsByUsageWithOptions(const Models::SumComputeMetricsByUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 统计扫描量计算类的使用量或者CU时计算类使用量
+       *
+       * @param request SumComputeMetricsByUsageRequest
+       * @return SumComputeMetricsByUsageResponse
+       */
+      Models::SumComputeMetricsByUsageResponse sumComputeMetricsByUsage(const Models::SumComputeMetricsByUsageRequest &request);
+
+      /**
+       * @summary 按实例统或者按计费项统计的明细信息
+       *
+       * @param request SumDailyBillsByItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumDailyBillsByItemResponse
+       */
+      Models::SumDailyBillsByItemResponse sumDailyBillsByItemWithOptions(const Models::SumDailyBillsByItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按实例统或者按计费项统计的明细信息
+       *
+       * @param request SumDailyBillsByItemRequest
+       * @return SumDailyBillsByItemResponse
+       */
+      Models::SumDailyBillsByItemResponse sumDailyBillsByItem(const Models::SumDailyBillsByItemRequest &request);
+
+      /**
+       * @summary 按照project或者存储类型按天统计存储用量
+       *
        * @param request SumStorageMetricsByDateRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1479,10 +1643,48 @@ namespace MaxCompute20220104
       Models::SumStorageMetricsByDateResponse sumStorageMetricsByDateWithOptions(const Models::SumStorageMetricsByDateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 按照project或者存储类型按天统计存储用量
+       *
        * @param request SumStorageMetricsByDateRequest
        * @return SumStorageMetricsByDateResponse
        */
       Models::SumStorageMetricsByDateResponse sumStorageMetricsByDate(const Models::SumStorageMetricsByDateRequest &request);
+
+      /**
+       * @summary 按项目统计各种类型存储使用量统计
+       *
+       * @param request SumStorageMetricsByTypeRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SumStorageMetricsByTypeResponse
+       */
+      Models::SumStorageMetricsByTypeResponse sumStorageMetricsByTypeWithOptions(const Models::SumStorageMetricsByTypeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按项目统计各种类型存储使用量统计
+       *
+       * @param request SumStorageMetricsByTypeRequest
+       * @return SumStorageMetricsByTypeResponse
+       */
+      Models::SumStorageMetricsByTypeResponse sumStorageMetricsByType(const Models::SumStorageMetricsByTypeRequest &request);
+
+      /**
+       * @summary TriggerMmsTimer
+       *
+       * @param request TriggerMmsTimerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TriggerMmsTimerResponse
+       */
+      Models::TriggerMmsTimerResponse triggerMmsTimerWithOptions(const string &sourceId, const string &timerId, const Models::TriggerMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary TriggerMmsTimer
+       *
+       * @param request TriggerMmsTimerRequest
+       * @return TriggerMmsTimerResponse
+       */
+      Models::TriggerMmsTimerResponse triggerMmsTimer(const string &sourceId, const string &timerId, const Models::TriggerMmsTimerRequest &request);
 
       /**
        * @summary Update the ComputeQuotaPlan.
@@ -1567,6 +1769,78 @@ namespace MaxCompute20220104
        * @return UpdateMmsDataSourceResponse
        */
       Models::UpdateMmsDataSourceResponse updateMmsDataSource(const string &sourceId, const Models::UpdateMmsDataSourceRequest &request);
+
+      /**
+       * @summary 功能：
+       *
+       * @param request UpdateMmsDbRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmsDbResponse
+       */
+      Models::UpdateMmsDbResponse updateMmsDbWithOptions(const string &sourceId, const string &dbId, const Models::UpdateMmsDbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 功能：
+       *
+       * @param request UpdateMmsDbRequest
+       * @return UpdateMmsDbResponse
+       */
+      Models::UpdateMmsDbResponse updateMmsDb(const string &sourceId, const string &dbId, const Models::UpdateMmsDbRequest &request);
+
+      /**
+       * @summary 更新表元数据
+       *
+       * @param request UpdateMmsTableRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmsTableResponse
+       */
+      Models::UpdateMmsTableResponse updateMmsTableWithOptions(const string &sourceId, const string &tableId, const Models::UpdateMmsTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新表元数据
+       *
+       * @param request UpdateMmsTableRequest
+       * @return UpdateMmsTableResponse
+       */
+      Models::UpdateMmsTableResponse updateMmsTable(const string &sourceId, const string &tableId, const Models::UpdateMmsTableRequest &request);
+
+      /**
+       * @summary 更新表元数据
+       *
+       * @param request UpdateMmsTablesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmsTablesResponse
+       */
+      Models::UpdateMmsTablesResponse updateMmsTablesWithOptions(const string &sourceId, const Models::UpdateMmsTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新表元数据
+       *
+       * @param request UpdateMmsTablesRequest
+       * @return UpdateMmsTablesResponse
+       */
+      Models::UpdateMmsTablesResponse updateMmsTables(const string &sourceId, const Models::UpdateMmsTablesRequest &request);
+
+      /**
+       * @summary UpdateMmsTimer
+       *
+       * @param request UpdateMmsTimerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMmsTimerResponse
+       */
+      Models::UpdateMmsTimerResponse updateMmsTimerWithOptions(const string &sourceId, const string &timerId, const Models::UpdateMmsTimerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary UpdateMmsTimer
+       *
+       * @param request UpdateMmsTimerRequest
+       * @return UpdateMmsTimerResponse
+       */
+      Models::UpdateMmsTimerResponse updateMmsTimer(const string &sourceId, const string &timerId, const Models::UpdateMmsTimerRequest &request);
 
       /**
        * @summary Updates the objects in a package and projects in which the package can be installed.
