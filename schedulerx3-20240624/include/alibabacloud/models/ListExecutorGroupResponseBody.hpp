@@ -72,26 +72,36 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Records& obj) { 
           DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
           DARABONBA_PTR_TO_JSON(AuthType, authType_);
+          DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
           DARABONBA_PTR_TO_JSON(CiteList, citeList_);
+          DARABONBA_PTR_TO_JSON(CmsWorkspaceId, cmsWorkspaceId_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(IntegrationType, integrationType_);
           DARABONBA_PTR_TO_JSON(Name, name_);
           DARABONBA_PTR_TO_JSON(Network, network_);
           DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+          DARABONBA_PTR_TO_JSON(ResolvedWorkers, resolvedWorkers_);
           DARABONBA_PTR_TO_JSON(WorkerId, workerId_);
           DARABONBA_PTR_TO_JSON(WorkerType, workerType_);
           DARABONBA_PTR_TO_JSON(Workers, workers_);
+          DARABONBA_PTR_TO_JSON(XAttrs, XAttrs_);
         };
         friend void from_json(const Darabonba::Json& j, Records& obj) { 
           DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
           DARABONBA_PTR_FROM_JSON(AuthType, authType_);
+          DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
           DARABONBA_PTR_FROM_JSON(CiteList, citeList_);
+          DARABONBA_PTR_FROM_JSON(CmsWorkspaceId, cmsWorkspaceId_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(IntegrationType, integrationType_);
           DARABONBA_PTR_FROM_JSON(Name, name_);
           DARABONBA_PTR_FROM_JSON(Network, network_);
           DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+          DARABONBA_PTR_FROM_JSON(ResolvedWorkers, resolvedWorkers_);
           DARABONBA_PTR_FROM_JSON(WorkerId, workerId_);
           DARABONBA_PTR_FROM_JSON(WorkerType, workerType_);
           DARABONBA_PTR_FROM_JSON(Workers, workers_);
+          DARABONBA_PTR_FROM_JSON(XAttrs, XAttrs_);
         };
         Records() = default ;
         Records(const Records &) = default ;
@@ -147,8 +157,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->apiKey_ == nullptr
-        && this->authType_ == nullptr && this->citeList_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
-        && this->protocol_ == nullptr && this->workerId_ == nullptr && this->workerType_ == nullptr && this->workers_ == nullptr; };
+        && this->authType_ == nullptr && this->autoScale_ == nullptr && this->citeList_ == nullptr && this->cmsWorkspaceId_ == nullptr && this->description_ == nullptr
+        && this->integrationType_ == nullptr && this->name_ == nullptr && this->network_ == nullptr && this->protocol_ == nullptr && this->resolvedWorkers_ == nullptr
+        && this->workerId_ == nullptr && this->workerType_ == nullptr && this->workers_ == nullptr && this->XAttrs_ == nullptr; };
         // apiKey Field Functions 
         bool hasApiKey() const { return this->apiKey_ != nullptr;};
         void deleteApiKey() { this->apiKey_ = nullptr;};
@@ -163,6 +174,13 @@ namespace Models
         inline Records& setAuthType(string authType) { DARABONBA_PTR_SET_VALUE(authType_, authType) };
 
 
+        // autoScale Field Functions 
+        bool hasAutoScale() const { return this->autoScale_ != nullptr;};
+        void deleteAutoScale() { this->autoScale_ = nullptr;};
+        inline bool getAutoScale() const { DARABONBA_PTR_GET_DEFAULT(autoScale_, false) };
+        inline Records& setAutoScale(bool autoScale) { DARABONBA_PTR_SET_VALUE(autoScale_, autoScale) };
+
+
         // citeList Field Functions 
         bool hasCiteList() const { return this->citeList_ != nullptr;};
         void deleteCiteList() { this->citeList_ = nullptr;};
@@ -172,11 +190,25 @@ namespace Models
         inline Records& setCiteList(vector<Records::CiteList> && citeList) { DARABONBA_PTR_SET_RVALUE(citeList_, citeList) };
 
 
+        // cmsWorkspaceId Field Functions 
+        bool hasCmsWorkspaceId() const { return this->cmsWorkspaceId_ != nullptr;};
+        void deleteCmsWorkspaceId() { this->cmsWorkspaceId_ = nullptr;};
+        inline string getCmsWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(cmsWorkspaceId_, "") };
+        inline Records& setCmsWorkspaceId(string cmsWorkspaceId) { DARABONBA_PTR_SET_VALUE(cmsWorkspaceId_, cmsWorkspaceId) };
+
+
         // description Field Functions 
         bool hasDescription() const { return this->description_ != nullptr;};
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Records& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // integrationType Field Functions 
+        bool hasIntegrationType() const { return this->integrationType_ != nullptr;};
+        void deleteIntegrationType() { this->integrationType_ = nullptr;};
+        inline string getIntegrationType() const { DARABONBA_PTR_GET_DEFAULT(integrationType_, "") };
+        inline Records& setIntegrationType(string integrationType) { DARABONBA_PTR_SET_VALUE(integrationType_, integrationType) };
 
 
         // name Field Functions 
@@ -200,6 +232,13 @@ namespace Models
         inline Records& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
 
 
+        // resolvedWorkers Field Functions 
+        bool hasResolvedWorkers() const { return this->resolvedWorkers_ != nullptr;};
+        void deleteResolvedWorkers() { this->resolvedWorkers_ = nullptr;};
+        inline string getResolvedWorkers() const { DARABONBA_PTR_GET_DEFAULT(resolvedWorkers_, "") };
+        inline Records& setResolvedWorkers(string resolvedWorkers) { DARABONBA_PTR_SET_VALUE(resolvedWorkers_, resolvedWorkers) };
+
+
         // workerId Field Functions 
         bool hasWorkerId() const { return this->workerId_ != nullptr;};
         void deleteWorkerId() { this->workerId_ = nullptr;};
@@ -221,17 +260,29 @@ namespace Models
         inline Records& setWorkers(string workers) { DARABONBA_PTR_SET_VALUE(workers_, workers) };
 
 
+        // XAttrs Field Functions 
+        bool hasXAttrs() const { return this->XAttrs_ != nullptr;};
+        void deleteXAttrs() { this->XAttrs_ = nullptr;};
+        inline string getXAttrs() const { DARABONBA_PTR_GET_DEFAULT(XAttrs_, "") };
+        inline Records& setXAttrs(string XAttrs) { DARABONBA_PTR_SET_VALUE(XAttrs_, XAttrs) };
+
+
       protected:
         shared_ptr<string> apiKey_ {};
         shared_ptr<string> authType_ {};
+        shared_ptr<bool> autoScale_ {};
         shared_ptr<vector<Records::CiteList>> citeList_ {};
+        shared_ptr<string> cmsWorkspaceId_ {};
         shared_ptr<string> description_ {};
+        shared_ptr<string> integrationType_ {};
         shared_ptr<string> name_ {};
         shared_ptr<string> network_ {};
         shared_ptr<string> protocol_ {};
+        shared_ptr<string> resolvedWorkers_ {};
         shared_ptr<int64_t> workerId_ {};
         shared_ptr<string> workerType_ {};
         shared_ptr<string> workers_ {};
+        shared_ptr<string> XAttrs_ {};
       };
 
       virtual bool empty() const override { return this->pageNumber_ == nullptr

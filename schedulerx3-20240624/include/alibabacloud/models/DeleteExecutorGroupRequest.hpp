@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DeleteExecutorGroupRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(Id, id_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteExecutorGroupRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
     };
     DeleteExecutorGroupRequest() = default ;
     DeleteExecutorGroupRequest(const DeleteExecutorGroupRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && this->id_ == nullptr; };
+        && this->id_ == nullptr && this->name_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     inline DeleteExecutorGroupRequest& setId(int32_t id) { DARABONBA_PTR_SET_VALUE(id_, id) };
 
 
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline DeleteExecutorGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
   protected:
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
@@ -54,6 +63,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> id_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Label, label_);
         DARABONBA_PTR_TO_JSON(Online, online_);
         DARABONBA_PTR_TO_JSON(Port, port_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Version, version_);
         DARABONBA_PTR_TO_JSON(Weight, weight_);
       };
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Label, label_);
         DARABONBA_PTR_FROM_JSON(Online, online_);
         DARABONBA_PTR_FROM_JSON(Port, port_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
         DARABONBA_PTR_FROM_JSON(Weight, weight_);
       };
@@ -73,7 +75,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->address_ == nullptr
         && this->ip_ == nullptr && this->isDesignated_ == nullptr && this->label_ == nullptr && this->online_ == nullptr && this->port_ == nullptr
-        && this->version_ == nullptr && this->weight_ == nullptr; };
+        && this->status_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
       // address Field Functions 
       bool hasAddress() const { return this->address_ != nullptr;};
       void deleteAddress() { this->address_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
       inline Data& setPort(int32_t port) { DARABONBA_PTR_SET_VALUE(port_, port) };
 
 
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       // version Field Functions 
       bool hasVersion() const { return this->version_ != nullptr;};
       void deleteVersion() { this->version_ = nullptr;};
@@ -137,6 +146,7 @@ namespace Models
       shared_ptr<string> label_ {};
       shared_ptr<bool> online_ {};
       shared_ptr<int32_t> port_ {};
+      shared_ptr<string> status_ {};
       shared_ptr<string> version_ {};
       shared_ptr<int32_t> weight_ {};
     };

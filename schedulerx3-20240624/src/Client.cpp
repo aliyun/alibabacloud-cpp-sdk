@@ -329,12 +329,24 @@ CreateExecutorGroupResponse Client::createExecutorGroupWithOptions(const CreateE
     body["AuthType"] = request.getAuthType();
   }
 
+  if (!!request.hasAutoScale()) {
+    body["AutoScale"] = request.getAutoScale();
+  }
+
   if (!!request.hasClusterId()) {
     body["ClusterId"] = request.getClusterId();
   }
 
+  if (!!request.hasCmsWorkspaceId()) {
+    body["CmsWorkspaceId"] = request.getCmsWorkspaceId();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasIntegrationType()) {
+    body["IntegrationType"] = request.getIntegrationType();
   }
 
   if (!!request.hasName()) {
@@ -355,6 +367,10 @@ CreateExecutorGroupResponse Client::createExecutorGroupWithOptions(const CreateE
 
   if (!!request.hasWorkers()) {
     body["Workers"] = request.getWorkers();
+  }
+
+  if (!!request.hasXAttrs()) {
+    body["XAttrs"] = request.getXAttrs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -885,6 +901,10 @@ DeleteExecutorGroupResponse Client::deleteExecutorGroupWithOptions(const DeleteE
 
   if (!!request.hasId()) {
     body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4703,8 +4723,16 @@ UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateE
     body["AuthType"] = request.getAuthType();
   }
 
+  if (!!request.hasAutoScale()) {
+    body["AutoScale"] = request.getAutoScale();
+  }
+
   if (!!request.hasClusterId()) {
     body["ClusterId"] = request.getClusterId();
+  }
+
+  if (!!request.hasCmsWorkspaceId()) {
+    body["CmsWorkspaceId"] = request.getCmsWorkspaceId();
   }
 
   if (!!request.hasDescription()) {
@@ -4713,6 +4741,10 @@ UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateE
 
   if (!!request.hasId()) {
     body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNetwork()) {
@@ -4729,6 +4761,10 @@ UpdateExecutorGroupResponse Client::updateExecutorGroupWithOptions(const UpdateE
 
   if (!!request.hasWorkers()) {
     body["Workers"] = request.getWorkers();
+  }
+
+  if (!!request.hasXAttrs()) {
+    body["XAttrs"] = request.getXAttrs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
