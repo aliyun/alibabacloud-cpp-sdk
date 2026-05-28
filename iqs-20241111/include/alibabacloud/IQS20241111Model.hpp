@@ -40,6 +40,10 @@
 #include <alibabacloud/models/ReadPageItem.hpp>
 #include <alibabacloud/models/ReadPageScrapeBody.hpp>
 #include <alibabacloud/models/RequestContents.hpp>
+#include <alibabacloud/models/ScanFileInfo.hpp>
+#include <alibabacloud/models/ScanFileInputConfig.hpp>
+#include <alibabacloud/models/ScanFileInput.hpp>
+#include <alibabacloud/models/ScanFileOutput.hpp>
 #include <alibabacloud/models/SearchCredits.hpp>
 #include <alibabacloud/models/ValueAddedCredits.hpp>
 #include <alibabacloud/models/UnifiedCostCredits.hpp>
@@ -78,6 +82,8 @@
 #include <alibabacloud/models/ReadPageScrapeRequest.hpp>
 #include <alibabacloud/models/ReadPageScrapeResponseBody.hpp>
 #include <alibabacloud/models/ReadPageScrapeResponse.hpp>
+#include <alibabacloud/models/ScanFileRequest.hpp>
+#include <alibabacloud/models/ScanFileResponse.hpp>
 #include <alibabacloud/models/UnifiedSearchRequest.hpp>
 #include <alibabacloud/models/UnifiedSearchResponse.hpp>
 

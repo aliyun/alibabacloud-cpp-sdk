@@ -257,6 +257,24 @@ namespace IQS20241111
       Models::ReadPageScrapeResponse readPageScrape(const Models::ReadPageScrapeRequest &request);
 
       /**
+       * @summary 扫描文件
+       *
+       * @param request ScanFileRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ScanFileResponse
+       */
+      Models::ScanFileResponse scanFileWithOptions(const Models::ScanFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 扫描文件
+       *
+       * @param request ScanFileRequest
+       * @return ScanFileResponse
+       */
+      Models::ScanFileResponse scanFile(const Models::ScanFileRequest &request);
+
+      /**
        * @summary 通晓统一搜索API
        *
        * @param request UnifiedSearchRequest

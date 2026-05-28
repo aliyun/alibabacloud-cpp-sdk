@@ -606,7 +606,7 @@ FutureGenerator<OmniAnswerResponse> Client::omniAnswerWithSSE(const OmniAnswerRe
   FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
   for (SSEResponse resp : sseResp) {
     if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
-      json data = json(json::parse(resp.getEvent().getData()));
+      string data = resp.getEvent().getData();
 json       __retrun = json(json({
         {"statusCode" , resp.getStatusCode()},
         {"headers" , resp.getHeaders()},
@@ -738,6 +738,46 @@ ReadPageScrapeResponse Client::readPageScrape(const ReadPageScrapeRequest &reque
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return readPageScrapeWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 扫描文件
+ *
+ * @param request ScanFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ScanFileResponse
+ */
+ScanFileResponse Client::scanFileWithOptions(const ScanFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "ScanFile"},
+    {"version" , "2024-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/scan/file")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ScanFileResponse>();
+}
+
+/**
+ * @summary 扫描文件
+ *
+ * @param request ScanFileRequest
+ * @return ScanFileResponse
+ */
+ScanFileResponse Client::scanFile(const ScanFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return scanFileWithOptions(request, headers, runtime);
 }
 
 /**
