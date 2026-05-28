@@ -14,6 +14,10 @@
 #include <alibabacloud/models/AddLargeModelShrinkRequest.hpp>
 #include <alibabacloud/models/AddLargeModelResponseBody.hpp>
 #include <alibabacloud/models/AddLargeModelResponse.hpp>
+#include <alibabacloud/models/AddModelApplicationRequest.hpp>
+#include <alibabacloud/models/AddModelApplicationShrinkRequest.hpp>
+#include <alibabacloud/models/AddModelApplicationResponseBody.hpp>
+#include <alibabacloud/models/AddModelApplicationResponse.hpp>
 #include <alibabacloud/models/AddOuterAccountRequest.hpp>
 #include <alibabacloud/models/AddOuterAccountResponseBody.hpp>
 #include <alibabacloud/models/AddOuterAccountResponse.hpp>
@@ -558,6 +562,10 @@
 #include <alibabacloud/models/UpdateLargeModelShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateLargeModelResponseBody.hpp>
 #include <alibabacloud/models/UpdateLargeModelResponse.hpp>
+#include <alibabacloud/models/UpdateModelApplicationRequest.hpp>
+#include <alibabacloud/models/UpdateModelApplicationShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateModelApplicationResponseBody.hpp>
+#include <alibabacloud/models/UpdateModelApplicationResponse.hpp>
 #include <alibabacloud/models/UpdateOuterAccountRequest.hpp>
 #include <alibabacloud/models/UpdateOuterAccountResponseBody.hpp>
 #include <alibabacloud/models/UpdateOuterAccountResponse.hpp>

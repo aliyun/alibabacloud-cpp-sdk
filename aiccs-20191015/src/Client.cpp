@@ -280,6 +280,142 @@ AddLargeModelResponse Client::addLargeModel(const AddLargeModelRequest &request)
 }
 
 /**
+ * @summary 新增模型应用
+ *
+ * @param tmpReq AddModelApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddModelApplicationResponse
+ */
+AddModelApplicationResponse Client::addModelApplicationWithOptions(const AddModelApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddModelApplicationShrinkRequest request = AddModelApplicationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTtsConfig()) {
+    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTtsConfig(), "TtsConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationCps()) {
+    query["ApplicationCps"] = request.getApplicationCps();
+  }
+
+  if (!!request.hasApplicationName()) {
+    query["ApplicationName"] = request.getApplicationName();
+  }
+
+  if (!!request.hasCallConnectedTriggerModel()) {
+    query["CallConnectedTriggerModel"] = request.getCallConnectedTriggerModel();
+  }
+
+  if (!!request.hasDyvmsSceneName()) {
+    query["DyvmsSceneName"] = request.getDyvmsSceneName();
+  }
+
+  if (!!request.hasModelCode()) {
+    query["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasModelVersion()) {
+    query["ModelVersion"] = request.getModelVersion();
+  }
+
+  if (!!request.hasMuteActive()) {
+    query["MuteActive"] = request.getMuteActive();
+  }
+
+  if (!!request.hasMuteDuration()) {
+    query["MuteDuration"] = request.getMuteDuration();
+  }
+
+  if (!!request.hasMuteHangupNum()) {
+    query["MuteHangupNum"] = request.getMuteHangupNum();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPrompt()) {
+    query["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasQualificationId()) {
+    query["QualificationId"] = request.getQualificationId();
+  }
+
+  if (!!request.hasQualificationName()) {
+    query["QualificationName"] = request.getQualificationName();
+  }
+
+  if (!!request.hasRecordingFile()) {
+    query["RecordingFile"] = request.getRecordingFile();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasSpeechContent()) {
+    query["SpeechContent"] = request.getSpeechContent();
+  }
+
+  if (!!request.hasSpeechId()) {
+    query["SpeechId"] = request.getSpeechId();
+  }
+
+  if (!!request.hasStartWord()) {
+    query["StartWord"] = request.getStartWord();
+  }
+
+  if (!!request.hasStartWordType()) {
+    query["StartWordType"] = request.getStartWordType();
+  }
+
+  if (!!request.hasTtsConfigShrink()) {
+    query["TtsConfig"] = request.getTtsConfigShrink();
+  }
+
+  if (!!request.hasUsageDesc()) {
+    query["UsageDesc"] = request.getUsageDesc();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddModelApplication"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddModelApplicationResponse>();
+}
+
+/**
+ * @summary 新增模型应用
+ *
+ * @param request AddModelApplicationRequest
+ * @return AddModelApplicationResponse
+ */
+AddModelApplicationResponse Client::addModelApplication(const AddModelApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addModelApplicationWithOptions(request, runtime);
+}
+
+/**
  * @param request AddOuterAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddOuterAccountResponse
@@ -10053,6 +10189,202 @@ UpdateLargeModelResponse Client::updateLargeModelWithOptions(const UpdateLargeMo
 UpdateLargeModelResponse Client::updateLargeModel(const UpdateLargeModelRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateLargeModelWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改模型应用
+ *
+ * @param tmpReq UpdateModelApplicationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateModelApplicationResponse
+ */
+UpdateModelApplicationResponse Client::updateModelApplicationWithOptions(const UpdateModelApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateModelApplicationShrinkRequest request = UpdateModelApplicationShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInterruptConfig()) {
+    request.setInterruptConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInterruptConfig(), "InterruptConfig", "json"));
+  }
+
+  if (!!tmpReq.hasTtsConfig()) {
+    request.setTtsConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTtsConfig(), "TtsConfig", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationCode()) {
+    query["ApplicationCode"] = request.getApplicationCode();
+  }
+
+  if (!!request.hasApplicationCps()) {
+    query["ApplicationCps"] = request.getApplicationCps();
+  }
+
+  if (!!request.hasApplicationName()) {
+    query["ApplicationName"] = request.getApplicationName();
+  }
+
+  if (!!request.hasCallAssistantHangup()) {
+    query["CallAssistantHangup"] = request.getCallAssistantHangup();
+  }
+
+  if (!!request.hasCallAssistantRecognize()) {
+    query["CallAssistantRecognize"] = request.getCallAssistantRecognize();
+  }
+
+  if (!!request.hasCallConnectedTriggerModel()) {
+    query["CallConnectedTriggerModel"] = request.getCallConnectedTriggerModel();
+  }
+
+  if (!!request.hasDtmfAllowedDigits()) {
+    query["DtmfAllowedDigits"] = request.getDtmfAllowedDigits();
+  }
+
+  if (!!request.hasDtmfAutoValidateEnable()) {
+    query["DtmfAutoValidateEnable"] = request.getDtmfAutoValidateEnable();
+  }
+
+  if (!!request.hasDtmfDigitCount()) {
+    query["DtmfDigitCount"] = request.getDtmfDigitCount();
+  }
+
+  if (!!request.hasDtmfInputTimeout()) {
+    query["DtmfInputTimeout"] = request.getDtmfInputTimeout();
+  }
+
+  if (!!request.hasDtmfOutOfRangeAction()) {
+    query["DtmfOutOfRangeAction"] = request.getDtmfOutOfRangeAction();
+  }
+
+  if (!!request.hasDtmfRetryPlayTimes()) {
+    query["DtmfRetryPlayTimes"] = request.getDtmfRetryPlayTimes();
+  }
+
+  if (!!request.hasDtmfRetryPromptText()) {
+    query["DtmfRetryPromptText"] = request.getDtmfRetryPromptText();
+  }
+
+  if (!!request.hasDyvmsSceneName()) {
+    query["DyvmsSceneName"] = request.getDyvmsSceneName();
+  }
+
+  if (!!request.hasEnableDtmfReceive()) {
+    query["EnableDtmfReceive"] = request.getEnableDtmfReceive();
+  }
+
+  if (!!request.hasEnableMorse()) {
+    query["EnableMorse"] = request.getEnableMorse();
+  }
+
+  if (!!request.hasInterruptConfigShrink()) {
+    query["InterruptConfig"] = request.getInterruptConfigShrink();
+  }
+
+  if (!!request.hasModelCode()) {
+    query["ModelCode"] = request.getModelCode();
+  }
+
+  if (!!request.hasModelVersion()) {
+    query["ModelVersion"] = request.getModelVersion();
+  }
+
+  if (!!request.hasMuteActive()) {
+    query["MuteActive"] = request.getMuteActive();
+  }
+
+  if (!!request.hasMuteDuration()) {
+    query["MuteDuration"] = request.getMuteDuration();
+  }
+
+  if (!!request.hasMuteHangupNum()) {
+    query["MuteHangupNum"] = request.getMuteHangupNum();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  if (!!request.hasPrompt()) {
+    query["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasQualificationId()) {
+    query["QualificationId"] = request.getQualificationId();
+  }
+
+  if (!!request.hasQualificationName()) {
+    query["QualificationName"] = request.getQualificationName();
+  }
+
+  if (!!request.hasRecordingFile()) {
+    query["RecordingFile"] = request.getRecordingFile();
+  }
+
+  if (!!request.hasResourceOwnerAccount()) {
+    query["ResourceOwnerAccount"] = request.getResourceOwnerAccount();
+  }
+
+  if (!!request.hasResourceOwnerId()) {
+    query["ResourceOwnerId"] = request.getResourceOwnerId();
+  }
+
+  if (!!request.hasSessionTimeout()) {
+    query["SessionTimeout"] = request.getSessionTimeout();
+  }
+
+  if (!!request.hasSource()) {
+    query["Source"] = request.getSource();
+  }
+
+  if (!!request.hasSpeechContent()) {
+    query["SpeechContent"] = request.getSpeechContent();
+  }
+
+  if (!!request.hasSpeechId()) {
+    query["SpeechId"] = request.getSpeechId();
+  }
+
+  if (!!request.hasStartWord()) {
+    query["StartWord"] = request.getStartWord();
+  }
+
+  if (!!request.hasStartWordType()) {
+    query["StartWordType"] = request.getStartWordType();
+  }
+
+  if (!!request.hasTtsConfigShrink()) {
+    query["TtsConfig"] = request.getTtsConfigShrink();
+  }
+
+  if (!!request.hasUsageDesc()) {
+    query["UsageDesc"] = request.getUsageDesc();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateModelApplication"},
+    {"version" , "2019-10-15"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateModelApplicationResponse>();
+}
+
+/**
+ * @summary 修改模型应用
+ *
+ * @param request UpdateModelApplicationRequest
+ * @return UpdateModelApplicationResponse
+ */
+UpdateModelApplicationResponse Client::updateModelApplication(const UpdateModelApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateModelApplicationWithOptions(request, runtime);
 }
 
 /**

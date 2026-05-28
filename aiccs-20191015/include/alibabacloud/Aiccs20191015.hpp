@@ -72,6 +72,23 @@ namespace Aiccs20191015
       Models::AddLargeModelResponse addLargeModel(const Models::AddLargeModelRequest &request);
 
       /**
+       * @summary 新增模型应用
+       *
+       * @param tmpReq AddModelApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddModelApplicationResponse
+       */
+      Models::AddModelApplicationResponse addModelApplicationWithOptions(const Models::AddModelApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增模型应用
+       *
+       * @param request AddModelApplicationRequest
+       * @return AddModelApplicationResponse
+       */
+      Models::AddModelApplicationResponse addModelApplication(const Models::AddModelApplicationRequest &request);
+
+      /**
        * @param request AddOuterAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddOuterAccountResponse
@@ -2660,6 +2677,23 @@ namespace Aiccs20191015
        * @return UpdateLargeModelResponse
        */
       Models::UpdateLargeModelResponse updateLargeModel(const Models::UpdateLargeModelRequest &request);
+
+      /**
+       * @summary 修改模型应用
+       *
+       * @param tmpReq UpdateModelApplicationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateModelApplicationResponse
+       */
+      Models::UpdateModelApplicationResponse updateModelApplicationWithOptions(const Models::UpdateModelApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改模型应用
+       *
+       * @param request UpdateModelApplicationRequest
+       * @return UpdateModelApplicationResponse
+       */
+      Models::UpdateModelApplicationResponse updateModelApplication(const Models::UpdateModelApplicationRequest &request);
 
       /**
        * @param request UpdateOuterAccountRequest
