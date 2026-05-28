@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_MODIFYDESKTOPHOSTNAMEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_MODIFYDESKTOPHOSTNAMEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDesktopHostNameRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
+      DARABONBA_PTR_TO_JSON(DesktopIds, desktopIds_);
       DARABONBA_PTR_TO_JSON(NewHostName, newHostName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDesktopHostNameRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
+      DARABONBA_PTR_FROM_JSON(DesktopIds, desktopIds_);
       DARABONBA_PTR_FROM_JSON(NewHostName, newHostName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +37,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->newHostName_ == nullptr && this->regionId_ == nullptr; };
+        && this->desktopIds_ == nullptr && this->newHostName_ == nullptr && this->regionId_ == nullptr; };
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
     inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
     inline ModifyDesktopHostNameRequest& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
+
+
+    // desktopIds Field Functions 
+    bool hasDesktopIds() const { return this->desktopIds_ != nullptr;};
+    void deleteDesktopIds() { this->desktopIds_ = nullptr;};
+    inline const vector<string> & getDesktopIds() const { DARABONBA_PTR_GET_CONST(desktopIds_, vector<string>) };
+    inline vector<string> getDesktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
+    inline ModifyDesktopHostNameRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
+    inline ModifyDesktopHostNameRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
 
 
     // newHostName Field Functions 
@@ -58,9 +70,8 @@ namespace Models
 
   protected:
     // The ID of the cloud computer.
-    // 
-    // This parameter is required.
     shared_ptr<string> desktopId_ {};
+    shared_ptr<vector<string>> desktopIds_ {};
     // The new hostname of the cloud computer. The hostname must meet the following requirements:
     // 
     // *   The hostname must be 2 to 15 characters in length.

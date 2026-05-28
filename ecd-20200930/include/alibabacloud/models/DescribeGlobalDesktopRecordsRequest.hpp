@@ -14,6 +14,7 @@ namespace Models
   class DescribeGlobalDesktopRecordsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeGlobalDesktopRecordsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
       DARABONBA_PTR_TO_JSON(DesktopStatusList, desktopStatusList_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGlobalDesktopRecordsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BusinessChannel, businessChannel_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
       DARABONBA_PTR_FROM_JSON(DesktopStatusList, desktopStatusList_);
@@ -62,11 +64,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr
-        && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr && this->sortType_ == nullptr && this->startTime_ == nullptr
-        && this->subPayType_ == nullptr; };
+    virtual bool empty() const override { return this->businessChannel_ == nullptr
+        && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->desktopStatusList_ == nullptr && this->desktopType_ == nullptr && this->endTime_ == nullptr
+        && this->endUserId_ == nullptr && this->excludeDesktopStatusList_ == nullptr && this->officeSiteId_ == nullptr && this->orderBy_ == nullptr && this->pageNumber_ == nullptr
+        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->scope_ == nullptr && this->sortType_ == nullptr
+        && this->startTime_ == nullptr && this->subPayType_ == nullptr; };
+    // businessChannel Field Functions 
+    bool hasBusinessChannel() const { return this->businessChannel_ != nullptr;};
+    void deleteBusinessChannel() { this->businessChannel_ = nullptr;};
+    inline string getBusinessChannel() const { DARABONBA_PTR_GET_DEFAULT(businessChannel_, "") };
+    inline DescribeGlobalDesktopRecordsRequest& setBusinessChannel(string businessChannel) { DARABONBA_PTR_SET_VALUE(businessChannel_, businessChannel) };
+
+
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -193,6 +202,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> businessChannel_ {};
     // The cloud computer IDs. You can specify 1 to 100 office network IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The name of the cloud computer.

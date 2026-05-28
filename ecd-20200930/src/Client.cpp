@@ -9524,6 +9524,10 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOptions(const DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBusinessChannel()) {
+    query["BusinessChannel"] = request.getBusinessChannel();
+  }
+
   if (!!request.hasDesktopId()) {
     query["DesktopId"] = request.getDesktopId();
   }
@@ -15919,6 +15923,10 @@ ModifyDesktopHostNameResponse Client::modifyDesktopHostNameWithOptions(const Mod
     query["DesktopId"] = request.getDesktopId();
   }
 
+  if (!!request.hasDesktopIds()) {
+    query["DesktopIds"] = request.getDesktopIds();
+  }
+
   if (!!request.hasNewHostName()) {
     query["NewHostName"] = request.getNewHostName();
   }
@@ -15971,12 +15979,20 @@ ModifyDesktopNameResponse Client::modifyDesktopNameWithOptions(const ModifyDeskt
     query["DesktopId"] = request.getDesktopId();
   }
 
+  if (!!request.hasDesktopIds()) {
+    query["DesktopIds"] = request.getDesktopIds();
+  }
+
   if (!!request.hasNewDesktopName()) {
     query["NewDesktopName"] = request.getNewDesktopName();
   }
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasUserAssignMode()) {
+    query["UserAssignMode"] = request.getUserAssignMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -18260,7 +18276,7 @@ QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistribution(co
 }
 
 /**
- * @summary 查询桌面历史使用时长排行榜
+ * @summary Query and sort historical usage duration by user or desktop dimension.
  *
  * @param request QueryHistoryUsageDurationRankRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18307,7 +18323,7 @@ QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRankWithO
 }
 
 /**
- * @summary 查询桌面历史使用时长排行榜
+ * @summary Query and sort historical usage duration by user or desktop dimension.
  *
  * @param request QueryHistoryUsageDurationRankRequest
  * @return QueryHistoryUsageDurationRankResponse

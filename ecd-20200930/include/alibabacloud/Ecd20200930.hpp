@@ -4707,7 +4707,7 @@ namespace Ecd20200930
       Models::QueryHistoryMetricDistributionResponse queryHistoryMetricDistribution(const Models::QueryHistoryMetricDistributionRequest &request);
 
       /**
-       * @summary 查询桌面历史使用时长排行榜
+       * @summary Query and sort historical usage duration by user or desktop dimension.
        *
        * @param request QueryHistoryUsageDurationRankRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4716,7 +4716,7 @@ namespace Ecd20200930
       Models::QueryHistoryUsageDurationRankResponse queryHistoryUsageDurationRankWithOptions(const Models::QueryHistoryUsageDurationRankRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询桌面历史使用时长排行榜
+       * @summary Query and sort historical usage duration by user or desktop dimension.
        *
        * @param request QueryHistoryUsageDurationRankRequest
        * @return QueryHistoryUsageDurationRankResponse
