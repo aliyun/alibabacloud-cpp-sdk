@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionIdList, bizRegionIdList_);
       DARABONBA_PTR_TO_JSON(BizType, bizType_);
       DARABONBA_PTR_TO_JSON(BizTypeList, bizTypeList_);
+      DARABONBA_PTR_TO_JSON(Distro, distro_);
       DARABONBA_PTR_TO_JSON(FeatureList, featureList_);
       DARABONBA_PTR_TO_JSON(FotaVersion, fotaVersion_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionIdList, bizRegionIdList_);
       DARABONBA_PTR_FROM_JSON(BizType, bizType_);
       DARABONBA_PTR_FROM_JSON(BizTypeList, bizTypeList_);
+      DARABONBA_PTR_FROM_JSON(Distro, distro_);
       DARABONBA_PTR_FROM_JSON(FeatureList, featureList_);
       DARABONBA_PTR_FROM_JSON(FotaVersion, fotaVersion_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -115,10 +117,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bizRegionIdList_ == nullptr
-        && this->bizType_ == nullptr && this->bizTypeList_ == nullptr && this->featureList_ == nullptr && this->fotaVersion_ == nullptr && this->imageId_ == nullptr
-        && this->imageName_ == nullptr && this->imageType_ == nullptr && this->languageType_ == nullptr && this->osType_ == nullptr && this->packageType_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platformName_ == nullptr && this->platformNameList_ == nullptr && this->productType_ == nullptr
-        && this->productTypeList_ == nullptr && this->protocolType_ == nullptr && this->resourceInstanceType_ == nullptr && this->status_ == nullptr && this->tagList_ == nullptr; };
+        && this->bizType_ == nullptr && this->bizTypeList_ == nullptr && this->distro_ == nullptr && this->featureList_ == nullptr && this->fotaVersion_ == nullptr
+        && this->imageId_ == nullptr && this->imageName_ == nullptr && this->imageType_ == nullptr && this->languageType_ == nullptr && this->osType_ == nullptr
+        && this->packageType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->platformName_ == nullptr && this->platformNameList_ == nullptr
+        && this->productType_ == nullptr && this->productTypeList_ == nullptr && this->protocolType_ == nullptr && this->resourceInstanceType_ == nullptr && this->status_ == nullptr
+        && this->tagList_ == nullptr; };
     // bizRegionIdList Field Functions 
     bool hasBizRegionIdList() const { return this->bizRegionIdList_ != nullptr;};
     void deleteBizRegionIdList() { this->bizRegionIdList_ = nullptr;};
@@ -142,6 +145,13 @@ namespace Models
     inline vector<int32_t> getBizTypeList() { DARABONBA_PTR_GET(bizTypeList_, vector<int32_t>) };
     inline ListImageRequest& setBizTypeList(const vector<int32_t> & bizTypeList) { DARABONBA_PTR_SET_VALUE(bizTypeList_, bizTypeList) };
     inline ListImageRequest& setBizTypeList(vector<int32_t> && bizTypeList) { DARABONBA_PTR_SET_RVALUE(bizTypeList_, bizTypeList) };
+
+
+    // distro Field Functions 
+    bool hasDistro() const { return this->distro_ != nullptr;};
+    void deleteDistro() { this->distro_ = nullptr;};
+    inline string getDistro() const { DARABONBA_PTR_GET_DEFAULT(distro_, "") };
+    inline ListImageRequest& setDistro(string distro) { DARABONBA_PTR_SET_VALUE(distro_, distro) };
 
 
     // featureList Field Functions 
@@ -289,6 +299,7 @@ namespace Models
     shared_ptr<int32_t> bizType_ {};
     // The list of all service types. It is not available publicly.
     shared_ptr<vector<int32_t>> bizTypeList_ {};
+    shared_ptr<string> distro_ {};
     // The features supported by the image.
     shared_ptr<vector<string>> featureList_ {};
     // The image version.

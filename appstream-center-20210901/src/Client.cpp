@@ -2481,6 +2481,10 @@ ListDesktopAgentRuntimeResponse Client::listDesktopAgentRuntime(const ListDeskto
 ListImageResponse Client::listImageWithOptions(const ListImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDistro()) {
+    query["Distro"] = request.getDistro();
+  }
+
   if (!!request.hasTagList()) {
     query["TagList"] = request.getTagList();
   }
