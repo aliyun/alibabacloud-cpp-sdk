@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::WuyingAI20260311::Models;
@@ -33,6 +34,181 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
   }
 
   return Utils::Utils::getEndpointRules(productId, regionId, endpointRule, network, suffix);
+}
+
+/**
+ * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ *
+ * @param tmpReq ChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatResponse
+ */
+FutureGenerator<ChatResponse> Client::chatWithSSE(const ChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatShrinkRequest request = ChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInput()) {
+    request.setInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInput(), "Input", "json"));
+  }
+
+  if (!!tmpReq.hasSettings()) {
+    request.setSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSettings(), "Settings", "json"));
+  }
+
+  if (!!tmpReq.hasStreamOptions()) {
+    request.setStreamOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamOptions(), "StreamOptions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAuthorization()) {
+    query["Authorization"] = request.getAuthorization();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasInputShrink()) {
+    body["Input"] = request.getInputShrink();
+  }
+
+  if (!!request.hasRoutingKey()) {
+    body["RoutingKey"] = request.getRoutingKey();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSettingsShrink()) {
+    body["Settings"] = request.getSettingsShrink();
+  }
+
+  if (!!request.hasStreamOptionsShrink()) {
+    body["StreamOptions"] = request.getStreamOptionsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "Chat"},
+    {"version" , "2026-03-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ *
+ * @param tmpReq ChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatResponse
+ */
+ChatResponse Client::chatWithOptions(const ChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ChatShrinkRequest request = ChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInput()) {
+    request.setInputShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInput(), "Input", "json"));
+  }
+
+  if (!!tmpReq.hasSettings()) {
+    request.setSettingsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSettings(), "Settings", "json"));
+  }
+
+  if (!!tmpReq.hasStreamOptions()) {
+    request.setStreamOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStreamOptions(), "StreamOptions", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasAuthorization()) {
+    query["Authorization"] = request.getAuthorization();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  json body = {};
+  if (!!request.hasExternalUserId()) {
+    body["ExternalUserId"] = request.getExternalUserId();
+  }
+
+  if (!!request.hasInputShrink()) {
+    body["Input"] = request.getInputShrink();
+  }
+
+  if (!!request.hasRoutingKey()) {
+    body["RoutingKey"] = request.getRoutingKey();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSettingsShrink()) {
+    body["Settings"] = request.getSettingsShrink();
+  }
+
+  if (!!request.hasStreamOptionsShrink()) {
+    body["StreamOptions"] = request.getStreamOptionsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "Chat"},
+    {"version" , "2026-03-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ChatResponse>();
+}
+
+/**
+ * @summary 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+ *
+ * @param request ChatRequest
+ * @return ChatResponse
+ */
+ChatResponse Client::chat(const ChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithOptions(request, runtime);
 }
 
 /**
