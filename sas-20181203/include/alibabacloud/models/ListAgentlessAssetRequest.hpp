@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTAGENTLESSASSETREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTAGENTLESSASSETREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(DiskType, diskType_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
@@ -26,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(DiskType, diskType_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
@@ -44,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->diskType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->pageSize_ == nullptr && this->platform_ == nullptr
-        && this->scanRegionId_ == nullptr && this->targetType_ == nullptr; };
+        && this->diskType_ == nullptr && this->instanceId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr && this->pageSize_ == nullptr
+        && this->platform_ == nullptr && this->scanRegionId_ == nullptr && this->targetType_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -65,6 +68,15 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline ListAgentlessAssetRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // instanceIds Field Functions 
+    bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
+    void deleteInstanceIds() { this->instanceIds_ = nullptr;};
+    inline const vector<string> & getInstanceIds() const { DARABONBA_PTR_GET_CONST(instanceIds_, vector<string>) };
+    inline vector<string> getInstanceIds() { DARABONBA_PTR_GET(instanceIds_, vector<string>) };
+    inline ListAgentlessAssetRequest& setInstanceIds(const vector<string> & instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
+    inline ListAgentlessAssetRequest& setInstanceIds(vector<string> && instanceIds) { DARABONBA_PTR_SET_RVALUE(instanceIds_, instanceIds) };
 
 
     // instanceName Field Functions 
@@ -113,6 +125,7 @@ namespace Models
     shared_ptr<string> diskType_ {};
     // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<vector<string>> instanceIds_ {};
     // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
     // The maximum number of items to return per page in a paginated query.

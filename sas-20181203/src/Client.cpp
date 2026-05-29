@@ -33778,6 +33778,10 @@ ListAgentlessAssetResponse Client::listAgentlessAssetWithOptions(const ListAgent
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
