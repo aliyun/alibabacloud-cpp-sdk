@@ -734,6 +734,23 @@ namespace AppstreamCenter20210901
       Models::ListLlmTemplatesResponse listLlmTemplates(const Models::ListLlmTemplatesRequest &request);
 
       /**
+       * @summary 查询模型提供商 Endpoint 列表
+       *
+       * @param request ListModelProviderEndpointsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListModelProviderEndpointsResponse
+       */
+      Models::ListModelProviderEndpointsResponse listModelProviderEndpointsWithOptions(const Models::ListModelProviderEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询模型提供商 Endpoint 列表
+       *
+       * @param request ListModelProviderEndpointsRequest
+       * @return ListModelProviderEndpointsResponse
+       */
+      Models::ListModelProviderEndpointsResponse listModelProviderEndpoints(const Models::ListModelProviderEndpointsRequest &request);
+
+      /**
        * @summary 查询模型提供商模板列表
        *
        * @param tmpReq ListModelProviderTemplatesRequest

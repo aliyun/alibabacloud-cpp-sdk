@@ -38,6 +38,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AvatarUrl, avatarUrl_);
+        DARABONBA_PTR_TO_JSON(ChannelType, channelType_);
         DARABONBA_PTR_TO_JSON(Code, code_);
         DARABONBA_PTR_TO_JSON(Config, config_);
         DARABONBA_PTR_TO_JSON(ConfigMode, configMode_);
@@ -48,6 +49,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AvatarUrl, avatarUrl_);
+        DARABONBA_PTR_FROM_JSON(ChannelType, channelType_);
         DARABONBA_PTR_FROM_JSON(Code, code_);
         DARABONBA_PTR_FROM_JSON(Config, config_);
         DARABONBA_PTR_FROM_JSON(ConfigMode, configMode_);
@@ -68,13 +70,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->avatarUrl_ == nullptr
-        && this->code_ == nullptr && this->config_ == nullptr && this->configMode_ == nullptr && this->qrCodeNotifyUrl_ == nullptr && this->qrCodeStatus_ == nullptr
-        && this->riskType_ == nullptr && this->status_ == nullptr; };
+        && this->channelType_ == nullptr && this->code_ == nullptr && this->config_ == nullptr && this->configMode_ == nullptr && this->qrCodeNotifyUrl_ == nullptr
+        && this->qrCodeStatus_ == nullptr && this->riskType_ == nullptr && this->status_ == nullptr; };
       // avatarUrl Field Functions 
       bool hasAvatarUrl() const { return this->avatarUrl_ != nullptr;};
       void deleteAvatarUrl() { this->avatarUrl_ = nullptr;};
       inline string getAvatarUrl() const { DARABONBA_PTR_GET_DEFAULT(avatarUrl_, "") };
       inline Data& setAvatarUrl(string avatarUrl) { DARABONBA_PTR_SET_VALUE(avatarUrl_, avatarUrl) };
+
+
+      // channelType Field Functions 
+      bool hasChannelType() const { return this->channelType_ != nullptr;};
+      void deleteChannelType() { this->channelType_ = nullptr;};
+      inline string getChannelType() const { DARABONBA_PTR_GET_DEFAULT(channelType_, "") };
+      inline Data& setChannelType(string channelType) { DARABONBA_PTR_SET_VALUE(channelType_, channelType) };
 
 
       // code Field Functions 
@@ -128,6 +137,7 @@ namespace Models
 
     protected:
       shared_ptr<string> avatarUrl_ {};
+      shared_ptr<string> channelType_ {};
       shared_ptr<string> code_ {};
       shared_ptr<string> config_ {};
       shared_ptr<string> configMode_ {};

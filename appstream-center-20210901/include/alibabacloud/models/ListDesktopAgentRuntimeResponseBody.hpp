@@ -51,9 +51,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_TO_JSON(HasAuthUser, hasAuthUser_);
         DARABONBA_PTR_TO_JSON(ModelConfigure, modelConfigure_);
+        DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
+        DARABONBA_PTR_TO_JSON(ModelTemplateName, modelTemplateName_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(QrCodeConfiguringList, qrCodeConfiguringList_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(RegionLocation, regionLocation_);
         DARABONBA_PTR_TO_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_TO_JSON(RiskInfo, riskInfo_);
@@ -69,9 +72,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_FROM_JSON(HasAuthUser, hasAuthUser_);
         DARABONBA_PTR_FROM_JSON(ModelConfigure, modelConfigure_);
+        DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
+        DARABONBA_PTR_FROM_JSON(ModelTemplateName, modelTemplateName_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(QrCodeConfiguringList, qrCodeConfiguringList_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(RegionLocation, regionLocation_);
         DARABONBA_PTR_FROM_JSON(ResourceGroup, resourceGroup_);
         DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
         DARABONBA_PTR_FROM_JSON(RiskInfo, riskInfo_);
@@ -320,8 +326,9 @@ namespace Models
 
       virtual bool empty() const override { return this->agentImInfo_ == nullptr
         && this->agentInstanceInfoList_ == nullptr && this->authUsers_ == nullptr && this->channelConfigure_ == nullptr && this->channelConfiguredList_ == nullptr && this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->modelConfigure_ == nullptr && this->osType_ == nullptr
-        && this->qrCodeConfiguringList_ == nullptr && this->regionId_ == nullptr && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
+        && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->hasAuthUser_ == nullptr && this->modelConfigure_ == nullptr && this->modelTemplateId_ == nullptr
+        && this->modelTemplateName_ == nullptr && this->osType_ == nullptr && this->qrCodeConfiguringList_ == nullptr && this->regionId_ == nullptr && this->regionLocation_ == nullptr
+        && this->resourceGroup_ == nullptr && this->resourceId_ == nullptr && this->riskInfo_ == nullptr; };
       // agentImInfo Field Functions 
       bool hasAgentImInfo() const { return this->agentImInfo_ != nullptr;};
       void deleteAgentImInfo() { this->agentImInfo_ = nullptr;};
@@ -400,6 +407,20 @@ namespace Models
       inline Data& setModelConfigure(bool modelConfigure) { DARABONBA_PTR_SET_VALUE(modelConfigure_, modelConfigure) };
 
 
+      // modelTemplateId Field Functions 
+      bool hasModelTemplateId() const { return this->modelTemplateId_ != nullptr;};
+      void deleteModelTemplateId() { this->modelTemplateId_ = nullptr;};
+      inline string getModelTemplateId() const { DARABONBA_PTR_GET_DEFAULT(modelTemplateId_, "") };
+      inline Data& setModelTemplateId(string modelTemplateId) { DARABONBA_PTR_SET_VALUE(modelTemplateId_, modelTemplateId) };
+
+
+      // modelTemplateName Field Functions 
+      bool hasModelTemplateName() const { return this->modelTemplateName_ != nullptr;};
+      void deleteModelTemplateName() { this->modelTemplateName_ = nullptr;};
+      inline string getModelTemplateName() const { DARABONBA_PTR_GET_DEFAULT(modelTemplateName_, "") };
+      inline Data& setModelTemplateName(string modelTemplateName) { DARABONBA_PTR_SET_VALUE(modelTemplateName_, modelTemplateName) };
+
+
       // osType Field Functions 
       bool hasOsType() const { return this->osType_ != nullptr;};
       void deleteOsType() { this->osType_ = nullptr;};
@@ -421,6 +442,13 @@ namespace Models
       void deleteRegionId() { this->regionId_ = nullptr;};
       inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
       inline Data& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+      // regionLocation Field Functions 
+      bool hasRegionLocation() const { return this->regionLocation_ != nullptr;};
+      void deleteRegionLocation() { this->regionLocation_ = nullptr;};
+      inline string getRegionLocation() const { DARABONBA_PTR_GET_DEFAULT(regionLocation_, "") };
+      inline Data& setRegionLocation(string regionLocation) { DARABONBA_PTR_SET_VALUE(regionLocation_, regionLocation) };
 
 
       // resourceGroup Field Functions 
@@ -459,9 +487,12 @@ namespace Models
       shared_ptr<string> desktopStatus_ {};
       shared_ptr<bool> hasAuthUser_ {};
       shared_ptr<bool> modelConfigure_ {};
+      shared_ptr<string> modelTemplateId_ {};
+      shared_ptr<string> modelTemplateName_ {};
       shared_ptr<string> osType_ {};
       shared_ptr<vector<string>> qrCodeConfiguringList_ {};
       shared_ptr<string> regionId_ {};
+      shared_ptr<string> regionLocation_ {};
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};
       shared_ptr<string> resourceId_ {};
       shared_ptr<Data::RiskInfo> riskInfo_ {};

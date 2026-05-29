@@ -122,6 +122,9 @@
 #include <alibabacloud/models/ListLlmTemplatesShrinkRequest.hpp>
 #include <alibabacloud/models/ListLlmTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListLlmTemplatesResponse.hpp>
+#include <alibabacloud/models/ListModelProviderEndpointsRequest.hpp>
+#include <alibabacloud/models/ListModelProviderEndpointsResponseBody.hpp>
+#include <alibabacloud/models/ListModelProviderEndpointsResponse.hpp>
 #include <alibabacloud/models/ListModelProviderTemplatesRequest.hpp>
 #include <alibabacloud/models/ListModelProviderTemplatesShrinkRequest.hpp>
 #include <alibabacloud/models/ListModelProviderTemplatesResponseBody.hpp>

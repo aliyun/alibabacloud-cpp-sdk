@@ -2668,6 +2668,60 @@ ListLlmTemplatesResponse Client::listLlmTemplates(const ListLlmTemplatesRequest 
 }
 
 /**
+ * @summary 查询模型提供商 Endpoint 列表
+ *
+ * @param request ListModelProviderEndpointsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListModelProviderEndpointsResponse
+ */
+ListModelProviderEndpointsResponse Client::listModelProviderEndpointsWithOptions(const ListModelProviderEndpointsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentPlatform()) {
+    query["AgentPlatform"] = request.getAgentPlatform();
+  }
+
+  if (!!request.hasAgentProvider()) {
+    query["AgentProvider"] = request.getAgentProvider();
+  }
+
+  if (!!request.hasBizType()) {
+    query["BizType"] = request.getBizType();
+  }
+
+  if (!!request.hasProviderName()) {
+    query["ProviderName"] = request.getProviderName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListModelProviderEndpoints"},
+    {"version" , "2021-09-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListModelProviderEndpointsResponse>();
+}
+
+/**
+ * @summary 查询模型提供商 Endpoint 列表
+ *
+ * @param request ListModelProviderEndpointsRequest
+ * @return ListModelProviderEndpointsResponse
+ */
+ListModelProviderEndpointsResponse Client::listModelProviderEndpoints(const ListModelProviderEndpointsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listModelProviderEndpointsWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询模型提供商模板列表
  *
  * @param tmpReq ListModelProviderTemplatesRequest

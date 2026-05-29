@@ -39,12 +39,16 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ModelProviderList, modelProviderList_);
         DARABONBA_PTR_TO_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_TO_JSON(ModelTemplateName, modelTemplateName_);
+        DARABONBA_PTR_TO_JSON(ModelTemplateRefType, modelTemplateRefType_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(DefaultModel, defaultModel_);
         DARABONBA_PTR_FROM_JSON(ModelProviderList, modelProviderList_);
         DARABONBA_PTR_FROM_JSON(ModelTemplateId, modelTemplateId_);
         DARABONBA_PTR_FROM_JSON(ModelTemplateName, modelTemplateName_);
+        DARABONBA_PTR_FROM_JSON(ModelTemplateRefType, modelTemplateRefType_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -265,7 +269,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->defaultModel_ == nullptr
-        && this->modelProviderList_ == nullptr && this->modelTemplateId_ == nullptr && this->modelTemplateName_ == nullptr; };
+        && this->modelProviderList_ == nullptr && this->modelTemplateId_ == nullptr && this->modelTemplateName_ == nullptr && this->modelTemplateRefType_ == nullptr && this->resourceGroupId_ == nullptr; };
       // defaultModel Field Functions 
       bool hasDefaultModel() const { return this->defaultModel_ != nullptr;};
       void deleteDefaultModel() { this->defaultModel_ = nullptr;};
@@ -296,11 +300,27 @@ namespace Models
       inline Data& setModelTemplateName(string modelTemplateName) { DARABONBA_PTR_SET_VALUE(modelTemplateName_, modelTemplateName) };
 
 
+      // modelTemplateRefType Field Functions 
+      bool hasModelTemplateRefType() const { return this->modelTemplateRefType_ != nullptr;};
+      void deleteModelTemplateRefType() { this->modelTemplateRefType_ = nullptr;};
+      inline string getModelTemplateRefType() const { DARABONBA_PTR_GET_DEFAULT(modelTemplateRefType_, "") };
+      inline Data& setModelTemplateRefType(string modelTemplateRefType) { DARABONBA_PTR_SET_VALUE(modelTemplateRefType_, modelTemplateRefType) };
+
+
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Data& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     protected:
       shared_ptr<string> defaultModel_ {};
       shared_ptr<vector<Data::ModelProviderList>> modelProviderList_ {};
       shared_ptr<string> modelTemplateId_ {};
       shared_ptr<string> modelTemplateName_ {};
+      shared_ptr<string> modelTemplateRefType_ {};
+      shared_ptr<string> resourceGroupId_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
