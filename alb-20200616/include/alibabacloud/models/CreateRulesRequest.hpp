@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // The key of the tag. It can contain a maximum of 128 characters, cannot start with aliyun or acs:, and cannot contain http:// or https://.
         shared_ptr<string> key_ {};
+        // The value of the tag. It can contain a maximum of 128 characters, cannot start with aliyun or acs:, and cannot contain http:// or https://.
         shared_ptr<string> value_ {};
       };
 
@@ -174,6 +176,7 @@ namespace Models
 
 
         protected:
+          // The condition that matches requests based on source IP addresses.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -207,6 +210,7 @@ namespace Models
 
 
         protected:
+          // The response status codes.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -250,7 +254,13 @@ namespace Models
 
 
         protected:
+          // The key of the HTTP response header.
+          // 
+          // *   Contain a maximum of 40 characters.
+          // *   Support letters, digits, hyphens (-), and underscores (_).
+          // *   Do not support Cookie or Host.
           shared_ptr<string> key_ {};
+          // The values of the HTTP response header.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -311,7 +321,15 @@ namespace Models
 
 
           protected:
+            // The key of the query string.
+            // 
+            // *   Contain a maximum of 100 characters.
+            // *   Support asterisks (\\*) and question marks (?) as wildcard characters. Support printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > & "`.
             shared_ptr<string> key_ {};
+            // The value of the query string.
+            // 
+            // *   Contain a maximum of 128 characters.
+            // *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > & "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
             shared_ptr<string> value_ {};
           };
 
@@ -326,6 +344,7 @@ namespace Models
 
 
         protected:
+          // The key-value pairs in query strings.
           shared_ptr<vector<QueryStringConfig::Values>> values_ {};
         };
 
@@ -359,6 +378,7 @@ namespace Models
 
 
         protected:
+          // The paths to which requests are forwarded.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -392,6 +412,7 @@ namespace Models
 
 
         protected:
+          // The HTTP request methods.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -425,6 +446,7 @@ namespace Models
 
 
         protected:
+          // The hostnames.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -468,7 +490,13 @@ namespace Models
 
 
         protected:
+          // The key of the HTTP header.
+          // 
+          // *   Contain a maximum of 40 characters.
+          // *   Support letters, digits, hyphens (-), and underscores (_).
+          // *   Do not support Cookie or Host.
           shared_ptr<string> key_ {};
+          // The values of the HTTP header.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -529,7 +557,17 @@ namespace Models
 
 
           protected:
+            // The cookie key.
+            // 
+            // *   Contain a maximum of 100 characters.
+            // *   Support asterisks (\\*) and question marks (?) as wildcard characters.
+            // *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `; # [ ] { } \\ | < > & "`.
             shared_ptr<string> key_ {};
+            // The cookie value.
+            // 
+            // *   Contain a maximum of 100 characters.
+            // *   Support asterisks (\\*) and question marks (?) as wildcard characters.
+            // *   Support printable characters, excluding uppercase letters, space characters, and the following special characters: `; # [ ] { } \\ | < > & "`.
             shared_ptr<string> value_ {};
           };
 
@@ -544,6 +582,7 @@ namespace Models
 
 
         protected:
+          // The key-value pairs in cookies.
           shared_ptr<vector<CookieConfig::Values>> values_ {};
         };
 
@@ -639,15 +678,36 @@ namespace Models
 
 
       protected:
+        // The configuration of the cookie condition.
         shared_ptr<RuleConditions::CookieConfig> cookieConfig_ {};
+        // The configuration of the HTTP header condition.
         shared_ptr<RuleConditions::HeaderConfig> headerConfig_ {};
+        // The configuration of the hostname condition.
         shared_ptr<RuleConditions::HostConfig> hostConfig_ {};
+        // The configuration of the HTTP request method condition.
         shared_ptr<RuleConditions::MethodConfig> methodConfig_ {};
+        // The configuration of the path condition.
         shared_ptr<RuleConditions::PathConfig> pathConfig_ {};
+        // The configurations of the query string condition.
         shared_ptr<RuleConditions::QueryStringConfig> queryStringConfig_ {};
+        // The configuration of the HTTP response header condition.
         shared_ptr<RuleConditions::ResponseHeaderConfig> responseHeaderConfig_ {};
+        // The configuration of the response status code condition.
         shared_ptr<RuleConditions::ResponseStatusCodeConfig> responseStatusCodeConfig_ {};
+        // The configuration of the condition that matches requests based on source IP addresses.
         shared_ptr<RuleConditions::SourceIpConfig> sourceIpConfig_ {};
+        // The type of the condition. Valid values:
+        // 
+        // *   Host: forwards requests based on hosts.
+        // *   Path: forwards requests based on paths.
+        // *   Header: forwards requests based on HTTP headers.
+        // *   QueryString: forwards requests based on query strings.
+        // *   Method: forwards requests based on HTTP request methods.
+        // *   Cookie: forwards requests based on cookies.
+        // *   SourceIp: forwards requests based on source IP addresses.
+        // *   ResponseHeader: forwards requests based on HTTP response headers.
+        // *   ResponseStatusCode: forwards requests based on response status codes.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -759,6 +819,7 @@ namespace Models
 
 
             protected:
+              // The ID of the server group.
               shared_ptr<string> serverGroupId_ {};
             };
 
@@ -773,6 +834,7 @@ namespace Models
 
 
           protected:
+            // The server group to which traffic is mirrored.
             shared_ptr<vector<MirrorGroupConfig::ServerGroupTuples>> serverGroupTuples_ {};
           };
 
@@ -795,7 +857,11 @@ namespace Models
 
 
         protected:
+          // The configuration of the server group to which traffic is mirrored.
           shared_ptr<TrafficMirrorConfig::MirrorGroupConfig> mirrorGroupConfig_ {};
+          // The type of destination to which network traffic is mirrored. Valid value:
+          // 
+          // *   **ForwardGroupMirror**: a server group
           shared_ptr<string> targetType_ {};
         };
 
@@ -837,7 +903,11 @@ namespace Models
 
 
         protected:
+          // QPS per IP address. Valid values: **1 to 1000000**.
+          // 
+          // >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter must be smaller than that of the PerIpQps parameter.
           shared_ptr<int32_t> perIpQps_ {};
+          // Queries per second (QPS). Valid values: **1** to **1000000**.
           shared_ptr<int32_t> QPS_ {};
         };
 
@@ -888,8 +958,34 @@ namespace Models
 
 
         protected:
+          // The hostname to which requests are rewritten. Valid values are:
+          // 
+          // *   **${host}** (default): This value cannot be concatenated with any other characters.
+          // 
+          // *   A custom hostname, which must meet the following requirements:
+          // 
+          //     *   Contain 3 to 128 characters. Supported characters include lowercase letters, digits, and the following characters: - . \\* (as wildcard characters) = ~ _ + \\ ^ ! $ & | ( ) [ ] ?
+          //     *   Contain at least one period (.) but cannot start or end with a period (.).
+          //     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
+          //     *   The other domain labels do not start or end with hyphens (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
           shared_ptr<string> host_ {};
+          // The path to which requests are rewritten. Valid values are:
+          // 
+          // *   **${path}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
+          // 
+          // *   A custom path, which must meet the following requirements:
+          // 
+          //     *   Contain a maximum of 128 characters and is case-sensitive. Support asterisks (\\*) and question marks (?) as wildcard characters.
+          //     *   Start with a forward slash (/), and can contain letters, digits, and the following special characters: `$-_.+/&~@:\\"*?`. It cannot contain the following special characters: `“%#;!()[]^,”\\"`. Support asterisks (\\*) and question marks (?) as wildcard characters.
           shared_ptr<string> path_ {};
+          // The query string of the URL to which requests are rewritten.
+          // 
+          // *   **${query}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
+          // 
+          // *   A custom query string, which must meet the following requirements:
+          // 
+          //     *   Contain a maximum of 128 characters.
+          //     *   Contain printable characters, excluding space characters, the special characters `#[]{}\\|<>"`, and uppercase letters.
           shared_ptr<string> query_ {};
         };
 
@@ -921,6 +1017,10 @@ namespace Models
 
 
         protected:
+          // The key of the header to be removed. It can contain a maximum of 40 characters and supports letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
+          // 
+          // *   If Direction is set to Request, the following request headers cannot be removed: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, and `x-forwarded-host`.
+          // *   If Direction is set to Response, the following response headers (case-insensitive) cannot be removed: `connection`, `upgrade`, `content-length`, and `transfer-encoding`.
           shared_ptr<string> key_ {};
         };
 
@@ -998,11 +1098,54 @@ namespace Models
 
 
         protected:
+          // The hostname to which requests are redirected. Valid values are:
+          // 
+          // *   **${host}** (default): This value cannot be concatenated with any other characters.
+          // 
+          // *   A custom hostname, which must meet the following requirements:
+          // 
+          //     *   Contain 3 to 128 characters. Supported characters include lowercase letters, digits, and the following characters: - . \\* (as wildcard characters) = ~ _ + \\ ^ ! $ & | ( ) [ ] ?
+          //     *   Contain at least one period (.) but cannot start or end with a period (.).
+          //     *   The rightmost domain label can contain only letters and wildcard characters, and cannot contain digits or hyphens (-). The leftmost `domain label` can be an asterisk (\\*).
+          //     *   The other domain labels do not start or end with hyphens (-).
+          //     *   Support asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
           shared_ptr<string> host_ {};
+          // The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
           shared_ptr<string> httpCode_ {};
+          // The path to which requests are redirected. Valid values are:
+          // 
+          // *   **${path}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
+          // 
+          // *   A custom path, which must meet the following requirements:
+          // 
+          //     *   Contain a maximum of 128 characters and is case-sensitive. Support asterisks (\\*) and question marks (?) as wildcard characters.
+          //     *   Start with a forward slash (/), and can contain letters, digits, and the following special characters: `$-_.+/&~@:\\"*?`. It cannot contain the following special characters: `“%#;!()[]^,”\\"`. Support asterisks (\\*) and question marks (?) as wildcard characters.
           shared_ptr<string> path_ {};
+          // The port to which requests are redirected. Valid values are:
+          // 
+          // *   **${port}** (default): This value cannot be concatenated with any other characters.
+          // *   A custom port number. Valid values: **1 to 63335**.
           shared_ptr<string> port_ {};
+          // The redirect protocol. Valid values are:
+          // 
+          // *   **${protocol}** (default): This value cannot be modified or concatenated with any other characters.
+          // *   **HTTP**
+          // *   **HTTPS**
+          // 
+          // > 
+          // 
+          // *   For HTTPS listeners, you can only redirect HTTPS to HTTPS.
+          // 
+          // *   For HTTP listeners, you can redirect HTTP to either HTTP or HTTPS.
           shared_ptr<string> protocol_ {};
+          // The query string to which requests are redirected.
+          // 
+          // *   **${query}** (default): You can reference **${host}**, **${protocol}**, and **${port}**, with each appearing only once. You can also concatenate any preceding variable with strings that meet the following requirements.
+          // 
+          // *   A custom query string, which must meet the following requirements:
+          // 
+          //     *   Contain a maximum of 128 characters.
+          //     *   Contain printable characters, excluding space characters, the special characters `#[]{}\\|<>"`, and uppercase letters.
           shared_ptr<string> query_ {};
         };
 
@@ -1053,8 +1196,29 @@ namespace Models
 
 
         protected:
+          // The key of the header, which can contain a maximum of 40 characters. Supported characters include letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
+          // 
+          // >  You cannot specify the following header keys: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, `authority`, and `x-forwarded-host`. The header keys are case-insensitive.
           shared_ptr<string> key_ {};
+          // The value of the header.
+          // 
+          // *   If **ValueType** is set to **SystemDefined**, you can set this parameter to one of the following values:
+          // 
+          //     *   **ClientSrcPort**: the client port.
+          //     *   **ClientSrcIp**: the client IP address.
+          //     *   **Protocol**: the request protocol (HTTP or HTTPS).
+          //     *   **SLBId**: the ID of the ALB instance.
+          //     *   **SLBPort**: the listener port of the ALB instance.
+          // 
+          // *   If **ValueType** is set to **UserDefined**, specify a custom header value. The header value can contain a maximum of 128 characters, and supports printable characters whose ASCII values are `greater than or equal to 32 and lower than 127` and asterisks (\\*) and question marks (?) as wildcard characters. Quotation marks (`"`) are not supported. The header value cannot start or end with a space or end with a backslash (`\\`).
+          // 
+          // *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value can contain a maximum of 128 characters. Supported characters include lowercase letters, digits, hyphens (-), and underscores (_).
           shared_ptr<string> value_ {};
+          // The type of the header value. Valid values are:
+          // 
+          // *   **UserDefined**: a custom header value
+          // *   **ReferenceHeader**: a header value that references one of the request headers
+          // *   **SystemDefined**: a system-defined header value
           shared_ptr<string> valueType_ {};
         };
 
@@ -1117,7 +1281,12 @@ namespace Models
 
 
           protected:
+            // The ID of the server group.
             shared_ptr<string> serverGroupId_ {};
+            // The weight of the server group. A larger value indicates a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**
+            // 
+            // *   If the number of destination server groups is 1, the default weight of the server group is **100**. You can specify another value.
+            // *   If the number of destination server groups is larger than 1, you must specify weights for the server groups.
             shared_ptr<int32_t> weight_ {};
           };
 
@@ -1159,7 +1328,12 @@ namespace Models
 
 
           protected:
+            // Enables session persistence. Valid values:
+            // 
+            // *   **true**
+            // *   **false** (default)
             shared_ptr<bool> enabled_ {};
+            // The timeout period for sessions. Unit: seconds. Valid values: **1** to **86400**. Default value: **1000**.
             shared_ptr<int32_t> timeout_ {};
           };
 
@@ -1184,7 +1358,9 @@ namespace Models
 
 
         protected:
+          // The configuration of session persistence.
           shared_ptr<ForwardGroupConfig::ServerGroupStickySession> serverGroupStickySession_ {};
+          // The server groups to which requests are forwarded.
           shared_ptr<vector<ForwardGroupConfig::ServerGroupTuples>> serverGroupTuples_ {};
         };
 
@@ -1235,8 +1411,13 @@ namespace Models
 
 
         protected:
+          // The content of the custom response. The content cannot exceed 1 KB in size, and can contain only ASCII characters.
           shared_ptr<string> content_ {};
+          // The format of the custom response.
+          // 
+          // Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**
           shared_ptr<string> contentType_ {};
+          // The HTTP status code in responses. Valid values: **2xx**, **4xx**, and **5xx**. The value must be a numeric string. **x** can be any digit.
           shared_ptr<string> httpCode_ {};
         };
 
@@ -1322,11 +1503,22 @@ namespace Models
 
 
         protected:
+          // Include credentials in CORS requests. Valid values:
+          // 
+          // *   **on**
+          // *   **off**
           shared_ptr<string> allowCredentials_ {};
+          // The trusted header of CORS requests.
           shared_ptr<vector<string>> allowHeaders_ {};
+          // The trusted HTTP methods of CORS requests.
           shared_ptr<vector<string>> allowMethods_ {};
+          // The trusted origins of CORS requests.
           shared_ptr<vector<string>> allowOrigin_ {};
+          // The headers that can be exposed.
           shared_ptr<vector<string>> exposeHeaders_ {};
+          // The maximum cache time for preflight requests in the browser. Unit: seconds.
+          // 
+          // Valid values: **-1** to **172800**.
           shared_ptr<int64_t> maxAge_ {};
         };
 
@@ -1429,17 +1621,49 @@ namespace Models
 
 
       protected:
+        // The CORS configuration.
         shared_ptr<RuleActions::CorsConfig> corsConfig_ {};
+        // The configuration of the action to return a fixed response.
         shared_ptr<RuleActions::FixedResponseConfig> fixedResponseConfig_ {};
+        // The configuration of the action to forward requests to server groups.
         shared_ptr<RuleActions::ForwardGroupConfig> forwardGroupConfig_ {};
+        // The configuration of the action to insert a header.
         shared_ptr<RuleActions::InsertHeaderConfig> insertHeaderConfig_ {};
+        // The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter is required. The priority of each action within a forwarding rule must be unique.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> order_ {};
+        // The configuration of the redirect action.
+        // 
+        // >  Do not set all parameters in **RedirectConfig** to default values, excluding **httpCode**.
         shared_ptr<RuleActions::RedirectConfig> redirectConfig_ {};
+        // The configuration of the action to remove a header.
         shared_ptr<RuleActions::RemoveHeaderConfig> removeHeaderConfig_ {};
+        // The configuration of the rewrite action.
+        // 
+        // >  If you specify a **Rewrite** action along with other types of actions in a forwarding rule, you must also specify a **ForwardGroup** action.
         shared_ptr<RuleActions::RewriteConfig> rewriteConfig_ {};
+        // The configuration of the action to throttle traffic.
         shared_ptr<RuleActions::TrafficLimitConfig> trafficLimitConfig_ {};
+        // The configuration of the action to mirror traffic.
         shared_ptr<RuleActions::TrafficMirrorConfig> trafficMirrorConfig_ {};
+        // The type of the action. Valid values are:
+        // 
+        // *   **ForwardGroup**: forwards requests to multiple vServer groups.
+        // *   **Redirect**: redirects requests.
+        // *   **FixedResponse**: returns a fixed response.
+        // *   **Rewrite**: rewrites requests.
+        // *   **InsertHeader**: inserts a header.
+        // *   **RemoveHeader**: deletes a header.
+        // *   **TrafficLimit**: throttles traffic.
+        // *   **trafficMirror**: mirrors network traffic.
+        // *   **Cors**: forwards requests based on CORS.
+        // 
+        // Actions in each forwarding rule must meet the following requirements:
+        // 
+        // *   **Each forwarding rule must include one and only one of the following actions: **ForwardGroup**, **Redirect**, or **FixedResponse**, and this action must be performed last.**
+        // *   **Each forwarding rule may contain none, one, or more actions of other types.************** You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -1495,15 +1719,30 @@ namespace Models
 
 
     protected:
+      // The traffic direction to which the forwarding rule is applied.
+      // 
+      // Valid values:
+      // 
+      // *   Response
+      // *   Request
       shared_ptr<string> direction_ {};
+      // The priority of the forwarding rule.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> priority_ {};
+      // The actions of the forwarding rule.
+      // 
       // This parameter is required.
       shared_ptr<vector<Rules::RuleActions>> ruleActions_ {};
+      // The conditions of the forwarding rule.
+      // 
       // This parameter is required.
       shared_ptr<vector<Rules::RuleConditions>> ruleConditions_ {};
+      // The name of the forwarding rule.
+      // 
       // This parameter is required.
       shared_ptr<string> ruleName_ {};
+      // The tags.
       shared_ptr<vector<Rules::Tag>> tag_ {};
     };
 
@@ -1555,6 +1794,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> listenerId_ {};
+    // The details about the forwarding rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateRulesRequest::Rules>> rules_ {};
   };

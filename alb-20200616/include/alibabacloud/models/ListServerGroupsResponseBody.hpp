@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CrossZoneEnabled, crossZoneEnabled_);
         DARABONBA_PTR_TO_JSON(HealthCheckConfig, healthCheckConfig_);
+        DARABONBA_PTR_TO_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
         DARABONBA_PTR_TO_JSON(Ipv6Enabled, ipv6Enabled_);
         DARABONBA_PTR_TO_JSON(Protocol, protocol_);
         DARABONBA_PTR_TO_JSON(RelatedLoadBalancerIds, relatedLoadBalancerIds_);
@@ -70,6 +71,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CrossZoneEnabled, crossZoneEnabled_);
         DARABONBA_PTR_FROM_JSON(HealthCheckConfig, healthCheckConfig_);
+        DARABONBA_PTR_FROM_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
         DARABONBA_PTR_FROM_JSON(Ipv6Enabled, ipv6Enabled_);
         DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
         DARABONBA_PTR_FROM_JSON(RelatedLoadBalancerIds, relatedLoadBalancerIds_);
@@ -548,11 +550,11 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->configManagedEnabled_ == nullptr
-        && this->connectionDrainConfig_ == nullptr && this->createTime_ == nullptr && this->crossZoneEnabled_ == nullptr && this->healthCheckConfig_ == nullptr && this->ipv6Enabled_ == nullptr
-        && this->protocol_ == nullptr && this->relatedLoadBalancerIds_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduler_ == nullptr && this->serverCount_ == nullptr
-        && this->serverGroupId_ == nullptr && this->serverGroupName_ == nullptr && this->serverGroupStatus_ == nullptr && this->serverGroupType_ == nullptr && this->serviceName_ == nullptr
-        && this->slowStartConfig_ == nullptr && this->stickySessionConfig_ == nullptr && this->tags_ == nullptr && this->uchConfig_ == nullptr && this->upstreamKeepaliveEnabled_ == nullptr
-        && this->vpcId_ == nullptr; };
+        && this->connectionDrainConfig_ == nullptr && this->createTime_ == nullptr && this->crossZoneEnabled_ == nullptr && this->healthCheckConfig_ == nullptr && this->ipVersionAffinityMode_ == nullptr
+        && this->ipv6Enabled_ == nullptr && this->protocol_ == nullptr && this->relatedLoadBalancerIds_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduler_ == nullptr
+        && this->serverCount_ == nullptr && this->serverGroupId_ == nullptr && this->serverGroupName_ == nullptr && this->serverGroupStatus_ == nullptr && this->serverGroupType_ == nullptr
+        && this->serviceName_ == nullptr && this->slowStartConfig_ == nullptr && this->stickySessionConfig_ == nullptr && this->tags_ == nullptr && this->uchConfig_ == nullptr
+        && this->upstreamKeepaliveEnabled_ == nullptr && this->vpcId_ == nullptr; };
       // configManagedEnabled Field Functions 
       bool hasConfigManagedEnabled() const { return this->configManagedEnabled_ != nullptr;};
       void deleteConfigManagedEnabled() { this->configManagedEnabled_ = nullptr;};
@@ -590,6 +592,13 @@ namespace Models
       inline ServerGroups::HealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, ServerGroups::HealthCheckConfig) };
       inline ServerGroups& setHealthCheckConfig(const ServerGroups::HealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
       inline ServerGroups& setHealthCheckConfig(ServerGroups::HealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
+
+
+      // ipVersionAffinityMode Field Functions 
+      bool hasIpVersionAffinityMode() const { return this->ipVersionAffinityMode_ != nullptr;};
+      void deleteIpVersionAffinityMode() { this->ipVersionAffinityMode_ = nullptr;};
+      inline string getIpVersionAffinityMode() const { DARABONBA_PTR_GET_DEFAULT(ipVersionAffinityMode_, "") };
+      inline ServerGroups& setIpVersionAffinityMode(string ipVersionAffinityMode) { DARABONBA_PTR_SET_VALUE(ipVersionAffinityMode_, ipVersionAffinityMode) };
 
 
       // ipv6Enabled Field Functions 
@@ -743,6 +752,7 @@ namespace Models
       shared_ptr<bool> crossZoneEnabled_ {};
       // The health check configurations.
       shared_ptr<ServerGroups::HealthCheckConfig> healthCheckConfig_ {};
+      shared_ptr<string> ipVersionAffinityMode_ {};
       // Indicates whether IPv6 is supported. Valid values:
       // 
       // *   **true**

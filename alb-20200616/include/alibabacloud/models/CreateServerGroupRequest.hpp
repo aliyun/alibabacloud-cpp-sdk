@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CrossZoneEnabled, crossZoneEnabled_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_TO_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_TO_JSON(Ipv6Enabled, ipv6Enabled_);
       DARABONBA_PTR_TO_JSON(Protocol, protocol_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CrossZoneEnabled, crossZoneEnabled_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_FROM_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_FROM_JSON(Ipv6Enabled, ipv6Enabled_);
       DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
@@ -558,10 +560,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->connectionDrainConfig_ == nullptr && this->crossZoneEnabled_ == nullptr && this->dryRun_ == nullptr && this->healthCheckConfig_ == nullptr && this->ipv6Enabled_ == nullptr
-        && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduler_ == nullptr && this->serverGroupName_ == nullptr && this->serverGroupType_ == nullptr
-        && this->serviceName_ == nullptr && this->slowStartConfig_ == nullptr && this->stickySessionConfig_ == nullptr && this->tag_ == nullptr && this->uchConfig_ == nullptr
-        && this->upstreamKeepaliveEnabled_ == nullptr && this->vpcId_ == nullptr; };
+        && this->connectionDrainConfig_ == nullptr && this->crossZoneEnabled_ == nullptr && this->dryRun_ == nullptr && this->healthCheckConfig_ == nullptr && this->ipVersionAffinityMode_ == nullptr
+        && this->ipv6Enabled_ == nullptr && this->protocol_ == nullptr && this->resourceGroupId_ == nullptr && this->scheduler_ == nullptr && this->serverGroupName_ == nullptr
+        && this->serverGroupType_ == nullptr && this->serviceName_ == nullptr && this->slowStartConfig_ == nullptr && this->stickySessionConfig_ == nullptr && this->tag_ == nullptr
+        && this->uchConfig_ == nullptr && this->upstreamKeepaliveEnabled_ == nullptr && this->vpcId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -599,6 +601,13 @@ namespace Models
     inline CreateServerGroupRequest::HealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, CreateServerGroupRequest::HealthCheckConfig) };
     inline CreateServerGroupRequest& setHealthCheckConfig(const CreateServerGroupRequest::HealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
     inline CreateServerGroupRequest& setHealthCheckConfig(CreateServerGroupRequest::HealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
+
+
+    // ipVersionAffinityMode Field Functions 
+    bool hasIpVersionAffinityMode() const { return this->ipVersionAffinityMode_ != nullptr;};
+    void deleteIpVersionAffinityMode() { this->ipVersionAffinityMode_ = nullptr;};
+    inline string getIpVersionAffinityMode() const { DARABONBA_PTR_GET_DEFAULT(ipVersionAffinityMode_, "") };
+    inline CreateServerGroupRequest& setIpVersionAffinityMode(string ipVersionAffinityMode) { DARABONBA_PTR_SET_VALUE(ipVersionAffinityMode_, ipVersionAffinityMode) };
 
 
     // ipv6Enabled Field Functions 
@@ -733,6 +742,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateServerGroupRequest::HealthCheckConfig> healthCheckConfig_ {};
+    shared_ptr<string> ipVersionAffinityMode_ {};
     // Specifies whether to enable Ipv6.
     shared_ptr<bool> ipv6Enabled_ {};
     // The backend protocol. Valid values:

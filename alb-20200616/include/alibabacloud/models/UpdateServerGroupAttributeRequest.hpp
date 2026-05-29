@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CrossZoneEnabled, crossZoneEnabled_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_TO_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_TO_JSON(Scheduler, scheduler_);
       DARABONBA_PTR_TO_JSON(ServerGroupId, serverGroupId_);
       DARABONBA_PTR_TO_JSON(ServerGroupName, serverGroupName_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CrossZoneEnabled, crossZoneEnabled_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(HealthCheckConfig, healthCheckConfig_);
+      DARABONBA_PTR_FROM_JSON(IpVersionAffinityMode, ipVersionAffinityMode_);
       DARABONBA_PTR_FROM_JSON(Scheduler, scheduler_);
       DARABONBA_PTR_FROM_JSON(ServerGroupId, serverGroupId_);
       DARABONBA_PTR_FROM_JSON(ServerGroupName, serverGroupName_);
@@ -497,9 +499,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->connectionDrainConfig_ == nullptr && this->crossZoneEnabled_ == nullptr && this->dryRun_ == nullptr && this->healthCheckConfig_ == nullptr && this->scheduler_ == nullptr
-        && this->serverGroupId_ == nullptr && this->serverGroupName_ == nullptr && this->serviceName_ == nullptr && this->slowStartConfig_ == nullptr && this->stickySessionConfig_ == nullptr
-        && this->uchConfig_ == nullptr && this->upstreamKeepaliveEnabled_ == nullptr; };
+        && this->connectionDrainConfig_ == nullptr && this->crossZoneEnabled_ == nullptr && this->dryRun_ == nullptr && this->healthCheckConfig_ == nullptr && this->ipVersionAffinityMode_ == nullptr
+        && this->scheduler_ == nullptr && this->serverGroupId_ == nullptr && this->serverGroupName_ == nullptr && this->serviceName_ == nullptr && this->slowStartConfig_ == nullptr
+        && this->stickySessionConfig_ == nullptr && this->uchConfig_ == nullptr && this->upstreamKeepaliveEnabled_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -537,6 +539,13 @@ namespace Models
     inline UpdateServerGroupAttributeRequest::HealthCheckConfig getHealthCheckConfig() { DARABONBA_PTR_GET(healthCheckConfig_, UpdateServerGroupAttributeRequest::HealthCheckConfig) };
     inline UpdateServerGroupAttributeRequest& setHealthCheckConfig(const UpdateServerGroupAttributeRequest::HealthCheckConfig & healthCheckConfig) { DARABONBA_PTR_SET_VALUE(healthCheckConfig_, healthCheckConfig) };
     inline UpdateServerGroupAttributeRequest& setHealthCheckConfig(UpdateServerGroupAttributeRequest::HealthCheckConfig && healthCheckConfig) { DARABONBA_PTR_SET_RVALUE(healthCheckConfig_, healthCheckConfig) };
+
+
+    // ipVersionAffinityMode Field Functions 
+    bool hasIpVersionAffinityMode() const { return this->ipVersionAffinityMode_ != nullptr;};
+    void deleteIpVersionAffinityMode() { this->ipVersionAffinityMode_ = nullptr;};
+    inline string getIpVersionAffinityMode() const { DARABONBA_PTR_GET_DEFAULT(ipVersionAffinityMode_, "") };
+    inline UpdateServerGroupAttributeRequest& setIpVersionAffinityMode(string ipVersionAffinityMode) { DARABONBA_PTR_SET_VALUE(ipVersionAffinityMode_, ipVersionAffinityMode) };
 
 
     // scheduler Field Functions 
@@ -631,6 +640,7 @@ namespace Models
     shared_ptr<bool> dryRun_ {};
     // The configuration of health checks.
     shared_ptr<UpdateServerGroupAttributeRequest::HealthCheckConfig> healthCheckConfig_ {};
+    shared_ptr<string> ipVersionAffinityMode_ {};
     // The scheduling algorithm. Valid values:
     // 
     // *   **Wrr**: the weighted round robin algorithm. Backend servers that have higher weights receive more requests than those that have lower weights.

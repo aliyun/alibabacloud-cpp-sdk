@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DELETELOADBALANCERREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DELETELOADBALANCERREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_TO_JSON(RetainResourceType, retainResourceType_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteLoadBalancerRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_FROM_JSON(RetainResourceType, retainResourceType_);
     };
     DeleteLoadBalancerRequest() = default ;
     DeleteLoadBalancerRequest(const DeleteLoadBalancerRequest &) = default ;
@@ -34,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr; };
+        && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->retainResourceType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -56,6 +59,15 @@ namespace Models
     inline DeleteLoadBalancerRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
 
 
+    // retainResourceType Field Functions 
+    bool hasRetainResourceType() const { return this->retainResourceType_ != nullptr;};
+    void deleteRetainResourceType() { this->retainResourceType_ = nullptr;};
+    inline const vector<string> & getRetainResourceType() const { DARABONBA_PTR_GET_CONST(retainResourceType_, vector<string>) };
+    inline vector<string> getRetainResourceType() { DARABONBA_PTR_GET(retainResourceType_, vector<string>) };
+    inline DeleteLoadBalancerRequest& setRetainResourceType(const vector<string> & retainResourceType) { DARABONBA_PTR_SET_VALUE(retainResourceType_, retainResourceType) };
+    inline DeleteLoadBalancerRequest& setRetainResourceType(vector<string> && retainResourceType) { DARABONBA_PTR_SET_RVALUE(retainResourceType_, retainResourceType) };
+
+
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
@@ -70,6 +82,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
+    shared_ptr<vector<string>> retainResourceType_ {};
   };
 
   } // namespace Models

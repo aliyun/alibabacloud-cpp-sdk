@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_TO_JSON(RetainResourceType, retainResourceType_);
       DARABONBA_PTR_TO_JSON(ZoneMappings, zoneMappings_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLoadBalancerZonesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_FROM_JSON(RetainResourceType, retainResourceType_);
       DARABONBA_PTR_FROM_JSON(ZoneMappings, zoneMappings_);
     };
     UpdateLoadBalancerZonesRequest() = default ;
@@ -112,7 +114,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->zoneMappings_ == nullptr; };
+        && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->retainResourceType_ == nullptr && this->zoneMappings_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -132,6 +134,15 @@ namespace Models
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
     inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline UpdateLoadBalancerZonesRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+    // retainResourceType Field Functions 
+    bool hasRetainResourceType() const { return this->retainResourceType_ != nullptr;};
+    void deleteRetainResourceType() { this->retainResourceType_ = nullptr;};
+    inline const vector<string> & getRetainResourceType() const { DARABONBA_PTR_GET_CONST(retainResourceType_, vector<string>) };
+    inline vector<string> getRetainResourceType() { DARABONBA_PTR_GET(retainResourceType_, vector<string>) };
+    inline UpdateLoadBalancerZonesRequest& setRetainResourceType(const vector<string> & retainResourceType) { DARABONBA_PTR_SET_VALUE(retainResourceType_, retainResourceType) };
+    inline UpdateLoadBalancerZonesRequest& setRetainResourceType(vector<string> && retainResourceType) { DARABONBA_PTR_SET_RVALUE(retainResourceType_, retainResourceType) };
 
 
     // zoneMappings Field Functions 
@@ -159,6 +170,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
+    shared_ptr<vector<string>> retainResourceType_ {};
     // The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service. The specified zones and vSwitches overwrite the existing configurations.
     // 
     // This parameter is required.

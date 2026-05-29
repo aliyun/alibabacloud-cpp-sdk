@@ -128,6 +128,7 @@ namespace Models
 
 
         protected:
+          // You can add one or more IP addresses, including CIDR blocks.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -161,6 +162,7 @@ namespace Models
 
 
         protected:
+          // The match conditions.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -204,7 +206,9 @@ namespace Models
 
 
         protected:
+          // The key of the response header.
           shared_ptr<string> key_ {};
+          // The values of the response header.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -265,7 +269,9 @@ namespace Models
 
 
           protected:
+            // The key of the query string.
             shared_ptr<string> key_ {};
+            // The value of the query string.
             shared_ptr<string> value_ {};
           };
 
@@ -280,6 +286,7 @@ namespace Models
 
 
         protected:
+          // The key-value pairs of query strings.
           shared_ptr<vector<QueryStringConfig::Values>> values_ {};
         };
 
@@ -313,6 +320,7 @@ namespace Models
 
 
         protected:
+          // The paths to which requests are forwarded.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -346,6 +354,7 @@ namespace Models
 
 
         protected:
+          // The HTTP request methods.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -379,6 +388,7 @@ namespace Models
 
 
         protected:
+          // The hostnames.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -422,7 +432,9 @@ namespace Models
 
 
         protected:
+          // The key of the header.
           shared_ptr<string> key_ {};
+          // The values of the HTTP header.
           shared_ptr<vector<string>> values_ {};
         };
 
@@ -483,7 +495,9 @@ namespace Models
 
 
           protected:
+            // The cookie key.
             shared_ptr<string> key_ {};
+            // The cookie value.
             shared_ptr<string> value_ {};
           };
 
@@ -498,6 +512,7 @@ namespace Models
 
 
         protected:
+          // The key-value pairs of cookies.
           shared_ptr<vector<CookieConfig::Values>> values_ {};
         };
 
@@ -593,15 +608,25 @@ namespace Models
 
 
       protected:
+        // The configuration of the cookie.
         shared_ptr<RuleConditions::CookieConfig> cookieConfig_ {};
+        // The configuration of the HTTP header.
         shared_ptr<RuleConditions::HeaderConfig> headerConfig_ {};
+        // The match conditions for hostnames.
         shared_ptr<RuleConditions::HostConfig> hostConfig_ {};
+        // The configuration of the HTTP request method.
         shared_ptr<RuleConditions::MethodConfig> methodConfig_ {};
+        // The match conditions for query strings.
         shared_ptr<RuleConditions::PathConfig> pathConfig_ {};
+        // The match conditions for query strings.
         shared_ptr<RuleConditions::QueryStringConfig> queryStringConfig_ {};
+        // The HTTP response headers.
         shared_ptr<RuleConditions::ResponseHeaderConfig> responseHeaderConfig_ {};
+        // The match conditions for response status codes.
         shared_ptr<RuleConditions::ResponseStatusCodeConfig> responseStatusCodeConfig_ {};
+        // Traffic matching based on source IP addresses.
         shared_ptr<RuleConditions::SourceIpConfig> sourceIpConfig_ {};
+        // The condition type of the forwarding rule.
         shared_ptr<string> type_ {};
       };
 
@@ -712,6 +737,7 @@ namespace Models
 
 
             protected:
+              // The server group ID.
               shared_ptr<string> serverGroupId_ {};
             };
 
@@ -726,6 +752,7 @@ namespace Models
 
 
           protected:
+            // The server group to which traffic is mirrored.
             shared_ptr<vector<MirrorGroupConfig::ServerGroupTuples>> serverGroupTuples_ {};
           };
 
@@ -748,7 +775,9 @@ namespace Models
 
 
         protected:
+          // The configuration of the server group to which traffic is mirrored.
           shared_ptr<TrafficMirrorConfig::MirrorGroupConfig> mirrorGroupConfig_ {};
+          // The type of the target to which network traffic is mirrored.
           shared_ptr<string> targetType_ {};
         };
 
@@ -790,7 +819,9 @@ namespace Models
 
 
         protected:
+          // The number of requests per IP address.
           shared_ptr<int32_t> perIpQps_ {};
+          // The number of queries per second (QPS).
           shared_ptr<int32_t> QPS_ {};
         };
 
@@ -841,8 +872,11 @@ namespace Models
 
 
         protected:
+          // The hostname of the destination to which requests are forwarded.
           shared_ptr<string> host_ {};
+          // The path to which requests are forwarded.
           shared_ptr<string> path_ {};
+          // The query string of the URL to which requests are forwarded.
           shared_ptr<string> query_ {};
         };
 
@@ -874,6 +908,7 @@ namespace Models
 
 
         protected:
+          // The key of the header.
           shared_ptr<string> key_ {};
         };
 
@@ -951,11 +986,17 @@ namespace Models
 
 
         protected:
+          // The hostname to which requests are redirected.
           shared_ptr<string> host_ {};
+          // The HTTP status code that indicates the redirect type.
           shared_ptr<string> httpCode_ {};
+          // The path of the destination to which requests are forwarded.
           shared_ptr<string> path_ {};
+          // The port to which requests are forwarded.
           shared_ptr<string> port_ {};
+          // The protocol of the destination to which requests are forwarded.
           shared_ptr<string> protocol_ {};
+          // The query string to which requests are redirected.
           shared_ptr<string> query_ {};
         };
 
@@ -1015,9 +1056,13 @@ namespace Models
 
 
         protected:
+          // Specifies whether to overwrite the header in the request.
           shared_ptr<bool> coverEnabled_ {};
+          // The key of the HTTP header.
           shared_ptr<string> key_ {};
+          // The value of the HTTP header.
           shared_ptr<string> value_ {};
+          // The type of the header value.
           shared_ptr<string> valueType_ {};
         };
 
@@ -1080,7 +1125,9 @@ namespace Models
 
 
           protected:
+            // The ID of the server group.
             shared_ptr<string> serverGroupId_ {};
+            // The weight of the server group.
             shared_ptr<int32_t> weight_ {};
           };
 
@@ -1122,7 +1169,9 @@ namespace Models
 
 
           protected:
+            // Specifies whether to enable session persistence.
             shared_ptr<bool> enabled_ {};
+            // The timeout period for sessions.
             shared_ptr<int32_t> timeout_ {};
           };
 
@@ -1147,7 +1196,9 @@ namespace Models
 
 
         protected:
+          // The configuration of session persistence for server groups.
           shared_ptr<ForwardGroupConfig::ServerGroupStickySession> serverGroupStickySession_ {};
+          // The server groups to which requests are forwarded.
           shared_ptr<vector<ForwardGroupConfig::ServerGroupTuples>> serverGroupTuples_ {};
         };
 
@@ -1198,8 +1249,11 @@ namespace Models
 
 
         protected:
+          // The content of the response.
           shared_ptr<string> content_ {};
+          // The content type of the response.
           shared_ptr<string> contentType_ {};
+          // The HTTP status code in the response.
           shared_ptr<string> httpCode_ {};
         };
 
@@ -1285,11 +1339,17 @@ namespace Models
 
 
         protected:
+          // Specifies whether to allow credentials to be carried in CORS requests.
           shared_ptr<string> allowCredentials_ {};
+          // The trusted headers of CORS requests.
           shared_ptr<vector<string>> allowHeaders_ {};
+          // The trusted HTTP methods of CORS requests.
           shared_ptr<vector<string>> allowMethods_ {};
+          // The trusted origins.
           shared_ptr<vector<string>> allowOrigin_ {};
+          // The headers that can be exposed.
           shared_ptr<vector<string>> exposeHeaders_ {};
+          // The maximum cache time for dry runs in the browser.
           shared_ptr<int64_t> maxAge_ {};
         };
 
@@ -1392,17 +1452,30 @@ namespace Models
 
 
       protected:
+        // The cross-origin resource sharing (CORS) configuration.
         shared_ptr<RuleActions::CorsConfig> corsConfig_ {};
+        // The configuration of the action to return a custom response.
         shared_ptr<RuleActions::FixedResponseConfig> fixedResponseConfig_ {};
+        // The configuration of the action to forward requests to server groups.
         shared_ptr<RuleActions::ForwardGroupConfig> forwardGroupConfig_ {};
+        // The configuration of the action to insert a header.
         shared_ptr<RuleActions::InsertHeaderConfig> insertHeaderConfig_ {};
+        // The priority of the action.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> order_ {};
+        // The configuration of the redirect action.
         shared_ptr<RuleActions::RedirectConfig> redirectConfig_ {};
+        // The configuration of the HTTP header to be removed.
         shared_ptr<RuleActions::RemoveHeaderConfig> removeHeaderConfig_ {};
+        // The configuration of the rewrite action.
         shared_ptr<RuleActions::RewriteConfig> rewriteConfig_ {};
+        // The configuration of traffic throttling.
         shared_ptr<RuleActions::TrafficLimitConfig> trafficLimitConfig_ {};
+        // The configuration of traffic mirroring.
         shared_ptr<RuleActions::TrafficMirrorConfig> trafficMirrorConfig_ {};
+        // The type of action.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -1449,11 +1522,17 @@ namespace Models
 
 
     protected:
+      // The priority of the forwarding rule.
       shared_ptr<int32_t> priority_ {};
+      // The forwarding rules.
       shared_ptr<vector<Rules::RuleActions>> ruleActions_ {};
+      // The match conditions of the forwarding rule.
       shared_ptr<vector<Rules::RuleConditions>> ruleConditions_ {};
+      // The ID of the forwarding rule.
+      // 
       // This parameter is required.
       shared_ptr<string> ruleId_ {};
+      // The name of the forwarding rule.
       shared_ptr<string> ruleName_ {};
     };
 
@@ -1494,6 +1573,8 @@ namespace Models
     // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
     shared_ptr<bool> dryRun_ {};
+    // The forwarding rules.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateRulesAttributeRequest::Rules>> rules_ {};
   };

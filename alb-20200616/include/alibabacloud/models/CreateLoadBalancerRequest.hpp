@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LoadBalancerName, loadBalancerName_);
       DARABONBA_PTR_TO_JSON(ModificationProtectionConfig, modificationProtectionConfig_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       DARABONBA_PTR_TO_JSON(ZoneMappings, zoneMappings_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LoadBalancerName, loadBalancerName_);
       DARABONBA_PTR_FROM_JSON(ModificationProtectionConfig, modificationProtectionConfig_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupIds, securityGroupIds_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       DARABONBA_PTR_FROM_JSON(ZoneMappings, zoneMappings_);
@@ -186,6 +188,37 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
+    class SecurityGroupIds : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const SecurityGroupIds& obj) { 
+        DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
+      };
+      friend void from_json(const Darabonba::Json& j, SecurityGroupIds& obj) { 
+        DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
+      };
+      SecurityGroupIds() = default ;
+      SecurityGroupIds(const SecurityGroupIds &) = default ;
+      SecurityGroupIds(SecurityGroupIds &&) = default ;
+      SecurityGroupIds(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~SecurityGroupIds() = default ;
+      SecurityGroupIds& operator=(const SecurityGroupIds &) = default ;
+      SecurityGroupIds& operator=(SecurityGroupIds &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->securityGroupId_ == nullptr; };
+      // securityGroupId Field Functions 
+      bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+      void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+      inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+      inline SecurityGroupIds& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
+    protected:
+      shared_ptr<string> securityGroupId_ {};
+    };
+
     class ModificationProtectionConfig : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ModificationProtectionConfig& obj) { 
@@ -290,7 +323,7 @@ namespace Models
     virtual bool empty() const override { return this->addressAllocatedMode_ == nullptr
         && this->addressIpVersion_ == nullptr && this->addressType_ == nullptr && this->clientToken_ == nullptr && this->deletionProtectionEnabled_ == nullptr && this->dryRun_ == nullptr
         && this->loadBalancerBillingConfig_ == nullptr && this->loadBalancerEdition_ == nullptr && this->loadBalancerName_ == nullptr && this->modificationProtectionConfig_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->tag_ == nullptr && this->vpcId_ == nullptr && this->zoneMappings_ == nullptr; };
+        && this->securityGroupIds_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr && this->zoneMappings_ == nullptr; };
     // addressAllocatedMode Field Functions 
     bool hasAddressAllocatedMode() const { return this->addressAllocatedMode_ != nullptr;};
     void deleteAddressAllocatedMode() { this->addressAllocatedMode_ = nullptr;};
@@ -370,6 +403,15 @@ namespace Models
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
     inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateLoadBalancerRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
+    // securityGroupIds Field Functions 
+    bool hasSecurityGroupIds() const { return this->securityGroupIds_ != nullptr;};
+    void deleteSecurityGroupIds() { this->securityGroupIds_ = nullptr;};
+    inline const vector<CreateLoadBalancerRequest::SecurityGroupIds> & getSecurityGroupIds() const { DARABONBA_PTR_GET_CONST(securityGroupIds_, vector<CreateLoadBalancerRequest::SecurityGroupIds>) };
+    inline vector<CreateLoadBalancerRequest::SecurityGroupIds> getSecurityGroupIds() { DARABONBA_PTR_GET(securityGroupIds_, vector<CreateLoadBalancerRequest::SecurityGroupIds>) };
+    inline CreateLoadBalancerRequest& setSecurityGroupIds(const vector<CreateLoadBalancerRequest::SecurityGroupIds> & securityGroupIds) { DARABONBA_PTR_SET_VALUE(securityGroupIds_, securityGroupIds) };
+    inline CreateLoadBalancerRequest& setSecurityGroupIds(vector<CreateLoadBalancerRequest::SecurityGroupIds> && securityGroupIds) { DARABONBA_PTR_SET_RVALUE(securityGroupIds_, securityGroupIds) };
 
 
     // tag Field Functions 
@@ -453,6 +495,7 @@ namespace Models
     shared_ptr<CreateLoadBalancerRequest::ModificationProtectionConfig> modificationProtectionConfig_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    shared_ptr<vector<CreateLoadBalancerRequest::SecurityGroupIds>> securityGroupIds_ {};
     // The tags.
     shared_ptr<vector<CreateLoadBalancerRequest::Tag>> tag_ {};
     // The ID of the virtual private cloud (VPC) in which you want to create the ALB instance.

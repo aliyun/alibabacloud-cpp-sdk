@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_TO_JSON(RetainResourceType, retainResourceType_);
       DARABONBA_PTR_TO_JSON(ZoneMappings, zoneMappings_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLoadBalancerAddressTypeConfigRequest& obj) { 
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(LoadBalancerId, loadBalancerId_);
+      DARABONBA_PTR_FROM_JSON(RetainResourceType, retainResourceType_);
       DARABONBA_PTR_FROM_JSON(ZoneMappings, zoneMappings_);
     };
     UpdateLoadBalancerAddressTypeConfigRequest() = default ;
@@ -114,7 +116,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->addressType_ == nullptr
-        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->zoneMappings_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->loadBalancerId_ == nullptr && this->retainResourceType_ == nullptr && this->zoneMappings_ == nullptr; };
     // addressType Field Functions 
     bool hasAddressType() const { return this->addressType_ != nullptr;};
     void deleteAddressType() { this->addressType_ = nullptr;};
@@ -141,6 +143,15 @@ namespace Models
     void deleteLoadBalancerId() { this->loadBalancerId_ = nullptr;};
     inline string getLoadBalancerId() const { DARABONBA_PTR_GET_DEFAULT(loadBalancerId_, "") };
     inline UpdateLoadBalancerAddressTypeConfigRequest& setLoadBalancerId(string loadBalancerId) { DARABONBA_PTR_SET_VALUE(loadBalancerId_, loadBalancerId) };
+
+
+    // retainResourceType Field Functions 
+    bool hasRetainResourceType() const { return this->retainResourceType_ != nullptr;};
+    void deleteRetainResourceType() { this->retainResourceType_ = nullptr;};
+    inline const vector<string> & getRetainResourceType() const { DARABONBA_PTR_GET_CONST(retainResourceType_, vector<string>) };
+    inline vector<string> getRetainResourceType() { DARABONBA_PTR_GET(retainResourceType_, vector<string>) };
+    inline UpdateLoadBalancerAddressTypeConfigRequest& setRetainResourceType(const vector<string> & retainResourceType) { DARABONBA_PTR_SET_VALUE(retainResourceType_, retainResourceType) };
+    inline UpdateLoadBalancerAddressTypeConfigRequest& setRetainResourceType(vector<string> && retainResourceType) { DARABONBA_PTR_SET_RVALUE(retainResourceType_, retainResourceType) };
 
 
     // zoneMappings Field Functions 
@@ -175,6 +186,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> loadBalancerId_ {};
+    shared_ptr<vector<string>> retainResourceType_ {};
     // The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service.
     shared_ptr<vector<UpdateLoadBalancerAddressTypeConfigRequest::ZoneMappings>> zoneMappings_ {};
   };

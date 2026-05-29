@@ -362,7 +362,7 @@ AssociateAdditionalCertificatesWithListenerResponse Client::associateAdditionalC
 }
 
 /**
- * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+ * @summary Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
  *
  * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
  * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
@@ -413,7 +413,7 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Client::attachCommonBandwidth
 }
 
 /**
- * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+ * @summary Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
  *
  * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
  * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
@@ -901,6 +901,10 @@ CreateLoadBalancerResponse Client::createLoadBalancerWithOptions(const CreateLoa
     query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
+  if (!!request.hasSecurityGroupIds()) {
+    query["SecurityGroupIds"] = request.getSecurityGroupIds();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.getTag();
   }
@@ -1217,6 +1221,10 @@ CreateServerGroupResponse Client::createServerGroupWithOptions(const CreateServe
 
   if (!!request.hasHealthCheckConfig()) {
     query["HealthCheckConfig"] = request.getHealthCheckConfig();
+  }
+
+  if (!!request.hasIpVersionAffinityMode()) {
+    query["IpVersionAffinityMode"] = request.getIpVersionAffinityMode();
   }
 
   if (!!request.hasIpv6Enabled()) {
@@ -1551,6 +1559,10 @@ DeleteLoadBalancerResponse Client::deleteLoadBalancerWithOptions(const DeleteLoa
 
   if (!!request.hasLoadBalancerId()) {
     query["LoadBalancerId"] = request.getLoadBalancerId();
+  }
+
+  if (!!request.hasRetainResourceType()) {
+    query["RetainResourceType"] = request.getRetainResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1936,7 +1948,7 @@ DescribeZonesResponse Client::describeZones(const DescribeZonesRequest &request)
 }
 
 /**
- * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+ * @summary Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
  *
  * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
  * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
@@ -1987,7 +1999,7 @@ DetachCommonBandwidthPackageFromLoadBalancerResponse Client::detachCommonBandwid
 }
 
 /**
- * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+ * @summary Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
  *
  * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
  * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
@@ -2052,7 +2064,7 @@ DisableDeletionProtectionResponse Client::disableDeletionProtection(const Disabl
 }
 
 /**
- * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
+ * @summary Disables the access log feature for a Application Load Balancer (ALB) instance.
  *
  * @param request DisableLoadBalancerAccessLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2091,7 +2103,7 @@ DisableLoadBalancerAccessLogResponse Client::disableLoadBalancerAccessLogWithOpt
 }
 
 /**
- * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
+ * @summary Disables the access log feature for a Application Load Balancer (ALB) instance.
  *
  * @param request DisableLoadBalancerAccessLogRequest
  * @return DisableLoadBalancerAccessLogResponse
@@ -3516,7 +3528,6 @@ ListServerGroupsResponse Client::listServerGroups(const ListServerGroupsRequest 
 /**
  * @summary Queries system security policies in a region.
  *
- * @param request ListSystemSecurityPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSystemSecurityPoliciesResponse
  */
@@ -4872,6 +4883,10 @@ UpdateLoadBalancerAddressTypeConfigResponse Client::updateLoadBalancerAddressTyp
     query["LoadBalancerId"] = request.getLoadBalancerId();
   }
 
+  if (!!request.hasRetainResourceType()) {
+    query["RetainResourceType"] = request.getRetainResourceType();
+  }
+
   if (!!request.hasZoneMappings()) {
     query["ZoneMappings"] = request.getZoneMappings();
   }
@@ -5067,6 +5082,10 @@ UpdateLoadBalancerZonesResponse Client::updateLoadBalancerZonesWithOptions(const
 
   if (!!request.hasLoadBalancerId()) {
     query["LoadBalancerId"] = request.getLoadBalancerId();
+  }
+
+  if (!!request.hasRetainResourceType()) {
+    query["RetainResourceType"] = request.getRetainResourceType();
   }
 
   if (!!request.hasZoneMappings()) {
@@ -5329,7 +5348,7 @@ UpdateSecurityPolicyAttributeResponse Client::updateSecurityPolicyAttribute(cons
 }
 
 /**
- * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+ * @summary Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
  *
  * @description ## Description
  * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
@@ -5361,6 +5380,10 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
 
   if (!!request.hasHealthCheckConfig()) {
     query["HealthCheckConfig"] = request.getHealthCheckConfig();
+  }
+
+  if (!!request.hasIpVersionAffinityMode()) {
+    query["IpVersionAffinityMode"] = request.getIpVersionAffinityMode();
   }
 
   if (!!request.hasScheduler()) {
@@ -5413,7 +5436,7 @@ UpdateServerGroupAttributeResponse Client::updateServerGroupAttributeWithOptions
 }
 
 /**
- * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+ * @summary Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
  *
  * @description ## Description
  * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
