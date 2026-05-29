@@ -6055,6 +6055,10 @@ ListAvailableTtsResponse Client::listAvailableTtsWithOptions(const ListAvailable
     query["TtsVoiceCode"] = request.getTtsVoiceCode();
   }
 
+  if (!!request.hasVoiceType()) {
+    query["VoiceType"] = request.getVoiceType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());

@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_TO_JSON(TtsVoiceCode, ttsVoiceCode_);
+      DARABONBA_PTR_TO_JSON(VoiceType, voiceType_);
     };
     friend void from_json(const Darabonba::Json& j, ListAvailableTtsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
       DARABONBA_PTR_FROM_JSON(TtsVoiceCode, ttsVoiceCode_);
+      DARABONBA_PTR_FROM_JSON(VoiceType, voiceType_);
     };
     ListAvailableTtsRequest() = default ;
     ListAvailableTtsRequest(const ListAvailableTtsRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->ttsVoiceCode_ == nullptr; };
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->ttsVoiceCode_ == nullptr && this->voiceType_ == nullptr; };
     // ownerId Field Functions 
     bool hasOwnerId() const { return this->ownerId_ != nullptr;};
     void deleteOwnerId() { this->ownerId_ = nullptr;};
@@ -65,12 +67,20 @@ namespace Models
     inline ListAvailableTtsRequest& setTtsVoiceCode(string ttsVoiceCode) { DARABONBA_PTR_SET_VALUE(ttsVoiceCode_, ttsVoiceCode) };
 
 
+    // voiceType Field Functions 
+    bool hasVoiceType() const { return this->voiceType_ != nullptr;};
+    void deleteVoiceType() { this->voiceType_ = nullptr;};
+    inline string getVoiceType() const { DARABONBA_PTR_GET_DEFAULT(voiceType_, "") };
+    inline ListAvailableTtsRequest& setVoiceType(string voiceType) { DARABONBA_PTR_SET_VALUE(voiceType_, voiceType) };
+
+
   protected:
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // 复刻音色编码
     shared_ptr<string> ttsVoiceCode_ {};
+    shared_ptr<string> voiceType_ {};
   };
 
   } // namespace Models
