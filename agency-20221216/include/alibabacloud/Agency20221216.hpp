@@ -21,6 +21,23 @@ namespace Agency20221216
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 设置自动销账
+       *
+       * @param request AutomaticWriteOffRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AutomaticWriteOffResponse
+       */
+      Models::AutomaticWriteOffResponse automaticWriteOffWithOptions(const Models::AutomaticWriteOffRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设置自动销账
+       *
+       * @param request AutomaticWriteOffRequest
+       * @return AutomaticWriteOffResponse
+       */
+      Models::AutomaticWriteOffResponse automaticWriteOff(const Models::AutomaticWriteOffRequest &request);
+
+      /**
        * @summary 作废优惠券
        *
        * @param request CancelCouponRequest
@@ -657,6 +674,23 @@ namespace Agency20221216
        * @return ProcessApprovalResponse
        */
       Models::ProcessApprovalResponse processApproval(const Models::ProcessApprovalRequest &request);
+
+      /**
+       * @summary 查询自动销账变更记录
+       *
+       * @param request QueryAutomaticWriteOffChangeRecordsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAutomaticWriteOffChangeRecordsResponse
+       */
+      Models::QueryAutomaticWriteOffChangeRecordsResponse queryAutomaticWriteOffChangeRecordsWithOptions(const Models::QueryAutomaticWriteOffChangeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自动销账变更记录
+       *
+       * @param request QueryAutomaticWriteOffChangeRecordsRequest
+       * @return QueryAutomaticWriteOffChangeRecordsResponse
+       */
+      Models::QueryAutomaticWriteOffChangeRecordsResponse queryAutomaticWriteOffChangeRecords(const Models::QueryAutomaticWriteOffChangeRecordsRequest &request);
 
       /**
        * @summary 额度冲减明细列表

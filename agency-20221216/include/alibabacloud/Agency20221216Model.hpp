@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_AGENCY20221216MODEL_HPP_
 #define ALIBABACLOUD_AGENCY20221216MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AutomaticWriteOffRequest.hpp>
+#include <alibabacloud/models/AutomaticWriteOffResponseBody.hpp>
+#include <alibabacloud/models/AutomaticWriteOffResponse.hpp>
 #include <alibabacloud/models/CancelCouponRequest.hpp>
 #include <alibabacloud/models/CancelCouponResponseBody.hpp>
 #include <alibabacloud/models/CancelCouponResponse.hpp>
@@ -105,6 +108,9 @@
 #include <alibabacloud/models/ProcessApprovalRequest.hpp>
 #include <alibabacloud/models/ProcessApprovalResponseBody.hpp>
 #include <alibabacloud/models/ProcessApprovalResponse.hpp>
+#include <alibabacloud/models/QueryAutomaticWriteOffChangeRecordsRequest.hpp>
+#include <alibabacloud/models/QueryAutomaticWriteOffChangeRecordsResponseBody.hpp>
+#include <alibabacloud/models/QueryAutomaticWriteOffChangeRecordsResponse.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryRequest.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryResponseBody.hpp>
 #include <alibabacloud/models/QueryReversedDeductionHistoryResponse.hpp>

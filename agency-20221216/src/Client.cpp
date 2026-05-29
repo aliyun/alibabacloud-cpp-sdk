@@ -94,6 +94,60 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 设置自动销账
+ *
+ * @param request AutomaticWriteOffRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AutomaticWriteOffResponse
+ */
+AutomaticWriteOffResponse Client::automaticWriteOffWithOptions(const AutomaticWriteOffRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutomaticWriteOffAmount()) {
+    query["AutomaticWriteOffAmount"] = request.getAutomaticWriteOffAmount();
+  }
+
+  if (!!request.hasAutomaticWriteOffEnabled()) {
+    query["AutomaticWriteOffEnabled"] = request.getAutomaticWriteOffEnabled();
+  }
+
+  if (!!request.hasCustomerUid()) {
+    query["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AutomaticWriteOff"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AutomaticWriteOffResponse>();
+}
+
+/**
+ * @summary 设置自动销账
+ *
+ * @param request AutomaticWriteOffRequest
+ * @return AutomaticWriteOffResponse
+ */
+AutomaticWriteOffResponse Client::automaticWriteOff(const AutomaticWriteOffRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return automaticWriteOffWithOptions(request, runtime);
+}
+
+/**
  * @summary 作废优惠券
  *
  * @param request CancelCouponRequest
@@ -1831,6 +1885,68 @@ ProcessApprovalResponse Client::processApprovalWithOptions(const ProcessApproval
 ProcessApprovalResponse Client::processApproval(const ProcessApprovalRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return processApprovalWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询自动销账变更记录
+ *
+ * @param request QueryAutomaticWriteOffChangeRecordsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAutomaticWriteOffChangeRecordsResponse
+ */
+QueryAutomaticWriteOffChangeRecordsResponse Client::queryAutomaticWriteOffChangeRecordsWithOptions(const QueryAutomaticWriteOffChangeRecordsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomerUid()) {
+    query["CustomerUid"] = request.getCustomerUid();
+  }
+
+  if (!!request.hasEndDate()) {
+    query["EndDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasPageNo()) {
+    query["PageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartDate()) {
+    query["StartDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAutomaticWriteOffChangeRecords"},
+    {"version" , "2022-12-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAutomaticWriteOffChangeRecordsResponse>();
+}
+
+/**
+ * @summary 查询自动销账变更记录
+ *
+ * @param request QueryAutomaticWriteOffChangeRecordsRequest
+ * @return QueryAutomaticWriteOffChangeRecordsResponse
+ */
+QueryAutomaticWriteOffChangeRecordsResponse Client::queryAutomaticWriteOffChangeRecords(const QueryAutomaticWriteOffChangeRecordsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAutomaticWriteOffChangeRecordsWithOptions(request, runtime);
 }
 
 /**
