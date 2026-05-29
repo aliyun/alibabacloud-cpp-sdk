@@ -514,6 +514,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(IdPSsoUrl, idPSsoUrl_);
         DARABONBA_PTR_TO_JSON(MaxClockSkew, maxClockSkew_);
         DARABONBA_PTR_TO_JSON(RequireRequestSigned, requireRequestSigned_);
+        DARABONBA_PTR_TO_JSON(WantAssertionsSigned, wantAssertionsSigned_);
+        DARABONBA_PTR_TO_JSON(WantResponseSigned, wantResponseSigned_);
       };
       friend void from_json(const Darabonba::Json& j, SamlConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(BindingMethod, bindingMethod_);
@@ -522,6 +524,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(IdPSsoUrl, idPSsoUrl_);
         DARABONBA_PTR_FROM_JSON(MaxClockSkew, maxClockSkew_);
         DARABONBA_PTR_FROM_JSON(RequireRequestSigned, requireRequestSigned_);
+        DARABONBA_PTR_FROM_JSON(WantAssertionsSigned, wantAssertionsSigned_);
+        DARABONBA_PTR_FROM_JSON(WantResponseSigned, wantResponseSigned_);
       };
       SamlConfig() = default ;
       SamlConfig(const SamlConfig &) = default ;
@@ -566,7 +570,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->bindingMethod_ == nullptr
-        && this->certificates_ == nullptr && this->idPEntityId_ == nullptr && this->idPSsoUrl_ == nullptr && this->maxClockSkew_ == nullptr && this->requireRequestSigned_ == nullptr; };
+        && this->certificates_ == nullptr && this->idPEntityId_ == nullptr && this->idPSsoUrl_ == nullptr && this->maxClockSkew_ == nullptr && this->requireRequestSigned_ == nullptr
+        && this->wantAssertionsSigned_ == nullptr && this->wantResponseSigned_ == nullptr; };
       // bindingMethod Field Functions 
       bool hasBindingMethod() const { return this->bindingMethod_ != nullptr;};
       void deleteBindingMethod() { this->bindingMethod_ = nullptr;};
@@ -611,6 +616,20 @@ namespace Models
       inline SamlConfig& setRequireRequestSigned(bool requireRequestSigned) { DARABONBA_PTR_SET_VALUE(requireRequestSigned_, requireRequestSigned) };
 
 
+      // wantAssertionsSigned Field Functions 
+      bool hasWantAssertionsSigned() const { return this->wantAssertionsSigned_ != nullptr;};
+      void deleteWantAssertionsSigned() { this->wantAssertionsSigned_ = nullptr;};
+      inline bool getWantAssertionsSigned() const { DARABONBA_PTR_GET_DEFAULT(wantAssertionsSigned_, false) };
+      inline SamlConfig& setWantAssertionsSigned(bool wantAssertionsSigned) { DARABONBA_PTR_SET_VALUE(wantAssertionsSigned_, wantAssertionsSigned) };
+
+
+      // wantResponseSigned Field Functions 
+      bool hasWantResponseSigned() const { return this->wantResponseSigned_ != nullptr;};
+      void deleteWantResponseSigned() { this->wantResponseSigned_ = nullptr;};
+      inline bool getWantResponseSigned() const { DARABONBA_PTR_GET_DEFAULT(wantResponseSigned_, false) };
+      inline SamlConfig& setWantResponseSigned(bool wantResponseSigned) { DARABONBA_PTR_SET_VALUE(wantResponseSigned_, wantResponseSigned) };
+
+
     protected:
       shared_ptr<string> bindingMethod_ {};
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
@@ -618,6 +637,8 @@ namespace Models
       shared_ptr<string> idPSsoUrl_ {};
       shared_ptr<int64_t> maxClockSkew_ {};
       shared_ptr<bool> requireRequestSigned_ {};
+      shared_ptr<bool> wantAssertionsSigned_ {};
+      shared_ptr<bool> wantResponseSigned_ {};
     };
 
     class OidcConfig : public Darabonba::Model {
