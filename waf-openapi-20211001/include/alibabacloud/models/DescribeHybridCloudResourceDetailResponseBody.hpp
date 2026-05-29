@@ -68,6 +68,7 @@ namespace Models
       class Redirect : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Redirect& obj) { 
+          DARABONBA_PTR_TO_JSON(BackendPorts, backendPorts_);
           DARABONBA_PTR_TO_JSON(Backends, backends_);
           DARABONBA_PTR_TO_JSON(CnameEnabled, cnameEnabled_);
           DARABONBA_PTR_TO_JSON(ConnectTimeout, connectTimeout_);
@@ -76,6 +77,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(KeepaliveRequests, keepaliveRequests_);
           DARABONBA_PTR_TO_JSON(KeepaliveTimeout, keepaliveTimeout_);
           DARABONBA_PTR_TO_JSON(Loadbalance, loadbalance_);
+          DARABONBA_PTR_TO_JSON(ProxyProtocol, proxyProtocol_);
           DARABONBA_PTR_TO_JSON(ReadTimeout, readTimeout_);
           DARABONBA_PTR_TO_JSON(RequestHeaders, requestHeaders_);
           DARABONBA_PTR_TO_JSON(Retry, retry_);
@@ -85,6 +87,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WriteTimeout, writeTimeout_);
         };
         friend void from_json(const Darabonba::Json& j, Redirect& obj) { 
+          DARABONBA_PTR_FROM_JSON(BackendPorts, backendPorts_);
           DARABONBA_PTR_FROM_JSON(Backends, backends_);
           DARABONBA_PTR_FROM_JSON(CnameEnabled, cnameEnabled_);
           DARABONBA_PTR_FROM_JSON(ConnectTimeout, connectTimeout_);
@@ -93,6 +96,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(KeepaliveRequests, keepaliveRequests_);
           DARABONBA_PTR_FROM_JSON(KeepaliveTimeout, keepaliveTimeout_);
           DARABONBA_PTR_FROM_JSON(Loadbalance, loadbalance_);
+          DARABONBA_PTR_FROM_JSON(ProxyProtocol, proxyProtocol_);
           DARABONBA_PTR_FROM_JSON(ReadTimeout, readTimeout_);
           DARABONBA_PTR_FROM_JSON(RequestHeaders, requestHeaders_);
           DARABONBA_PTR_FROM_JSON(Retry, retry_);
@@ -154,10 +158,72 @@ namespace Models
           shared_ptr<string> value_ {};
         };
 
-        virtual bool empty() const override { return this->backends_ == nullptr
-        && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr && this->keepalive_ == nullptr && this->keepaliveRequests_ == nullptr
-        && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->readTimeout_ == nullptr && this->requestHeaders_ == nullptr && this->retry_ == nullptr
-        && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr && this->writeTimeout_ == nullptr; };
+        class BackendPorts : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const BackendPorts& obj) { 
+            DARABONBA_PTR_TO_JSON(BackendPort, backendPort_);
+            DARABONBA_PTR_TO_JSON(ListenPort, listenPort_);
+            DARABONBA_PTR_TO_JSON(Protocol, protocol_);
+          };
+          friend void from_json(const Darabonba::Json& j, BackendPorts& obj) { 
+            DARABONBA_PTR_FROM_JSON(BackendPort, backendPort_);
+            DARABONBA_PTR_FROM_JSON(ListenPort, listenPort_);
+            DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
+          };
+          BackendPorts() = default ;
+          BackendPorts(const BackendPorts &) = default ;
+          BackendPorts(BackendPorts &&) = default ;
+          BackendPorts(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~BackendPorts() = default ;
+          BackendPorts& operator=(const BackendPorts &) = default ;
+          BackendPorts& operator=(BackendPorts &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->backendPort_ == nullptr
+        && this->listenPort_ == nullptr && this->protocol_ == nullptr; };
+          // backendPort Field Functions 
+          bool hasBackendPort() const { return this->backendPort_ != nullptr;};
+          void deleteBackendPort() { this->backendPort_ = nullptr;};
+          inline int32_t getBackendPort() const { DARABONBA_PTR_GET_DEFAULT(backendPort_, 0) };
+          inline BackendPorts& setBackendPort(int32_t backendPort) { DARABONBA_PTR_SET_VALUE(backendPort_, backendPort) };
+
+
+          // listenPort Field Functions 
+          bool hasListenPort() const { return this->listenPort_ != nullptr;};
+          void deleteListenPort() { this->listenPort_ = nullptr;};
+          inline int32_t getListenPort() const { DARABONBA_PTR_GET_DEFAULT(listenPort_, 0) };
+          inline BackendPorts& setListenPort(int32_t listenPort) { DARABONBA_PTR_SET_VALUE(listenPort_, listenPort) };
+
+
+          // protocol Field Functions 
+          bool hasProtocol() const { return this->protocol_ != nullptr;};
+          void deleteProtocol() { this->protocol_ = nullptr;};
+          inline string getProtocol() const { DARABONBA_PTR_GET_DEFAULT(protocol_, "") };
+          inline BackendPorts& setProtocol(string protocol) { DARABONBA_PTR_SET_VALUE(protocol_, protocol) };
+
+
+        protected:
+          shared_ptr<int32_t> backendPort_ {};
+          shared_ptr<int32_t> listenPort_ {};
+          shared_ptr<string> protocol_ {};
+        };
+
+        virtual bool empty() const override { return this->backendPorts_ == nullptr
+        && this->backends_ == nullptr && this->cnameEnabled_ == nullptr && this->connectTimeout_ == nullptr && this->focusHttpBackend_ == nullptr && this->keepalive_ == nullptr
+        && this->keepaliveRequests_ == nullptr && this->keepaliveTimeout_ == nullptr && this->loadbalance_ == nullptr && this->proxyProtocol_ == nullptr && this->readTimeout_ == nullptr
+        && this->requestHeaders_ == nullptr && this->retry_ == nullptr && this->routingRules_ == nullptr && this->sniEnabled_ == nullptr && this->sniHost_ == nullptr
+        && this->writeTimeout_ == nullptr; };
+        // backendPorts Field Functions 
+        bool hasBackendPorts() const { return this->backendPorts_ != nullptr;};
+        void deleteBackendPorts() { this->backendPorts_ = nullptr;};
+        inline const vector<Redirect::BackendPorts> & getBackendPorts() const { DARABONBA_PTR_GET_CONST(backendPorts_, vector<Redirect::BackendPorts>) };
+        inline vector<Redirect::BackendPorts> getBackendPorts() { DARABONBA_PTR_GET(backendPorts_, vector<Redirect::BackendPorts>) };
+        inline Redirect& setBackendPorts(const vector<Redirect::BackendPorts> & backendPorts) { DARABONBA_PTR_SET_VALUE(backendPorts_, backendPorts) };
+        inline Redirect& setBackendPorts(vector<Redirect::BackendPorts> && backendPorts) { DARABONBA_PTR_SET_RVALUE(backendPorts_, backendPorts) };
+
+
         // backends Field Functions 
         bool hasBackends() const { return this->backends_ != nullptr;};
         void deleteBackends() { this->backends_ = nullptr;};
@@ -216,6 +282,13 @@ namespace Models
         inline Redirect& setLoadbalance(string loadbalance) { DARABONBA_PTR_SET_VALUE(loadbalance_, loadbalance) };
 
 
+        // proxyProtocol Field Functions 
+        bool hasProxyProtocol() const { return this->proxyProtocol_ != nullptr;};
+        void deleteProxyProtocol() { this->proxyProtocol_ = nullptr;};
+        inline bool getProxyProtocol() const { DARABONBA_PTR_GET_DEFAULT(proxyProtocol_, false) };
+        inline Redirect& setProxyProtocol(bool proxyProtocol) { DARABONBA_PTR_SET_VALUE(proxyProtocol_, proxyProtocol) };
+
+
         // readTimeout Field Functions 
         bool hasReadTimeout() const { return this->readTimeout_ != nullptr;};
         void deleteReadTimeout() { this->readTimeout_ = nullptr;};
@@ -268,6 +341,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<vector<Redirect::BackendPorts>> backendPorts_ {};
         shared_ptr<vector<string>> backends_ {};
         shared_ptr<bool> cnameEnabled_ {};
         shared_ptr<int64_t> connectTimeout_ {};
@@ -276,6 +350,7 @@ namespace Models
         shared_ptr<int64_t> keepaliveRequests_ {};
         shared_ptr<int64_t> keepaliveTimeout_ {};
         shared_ptr<string> loadbalance_ {};
+        shared_ptr<bool> proxyProtocol_ {};
         shared_ptr<int64_t> readTimeout_ {};
         shared_ptr<vector<Redirect::RequestHeaders>> requestHeaders_ {};
         shared_ptr<bool> retry_ {};

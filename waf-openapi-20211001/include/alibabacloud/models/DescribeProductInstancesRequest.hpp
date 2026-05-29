@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceDomain, resourceDomain_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceAccessStatus, resourceInstanceAccessStatus_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceIp, resourceInstanceIp_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDomain, resourceDomain_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceAccessStatus, resourceInstanceAccessStatus_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceIp, resourceInstanceIp_);
@@ -56,9 +58,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->ownerUserId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceInstanceAccessStatus_ == nullptr
-        && this->resourceInstanceId_ == nullptr && this->resourceInstanceIp_ == nullptr && this->resourceInstanceName_ == nullptr && this->resourceIp_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
-        && this->resourceName_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr; };
+        && this->ownerUserId_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceDomain_ == nullptr
+        && this->resourceInstanceAccessStatus_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceInstanceIp_ == nullptr && this->resourceInstanceName_ == nullptr && this->resourceIp_ == nullptr
+        && this->resourceManagerResourceGroupId_ == nullptr && this->resourceName_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -92,6 +94,13 @@ namespace Models
     void deleteRegionId() { this->regionId_ = nullptr;};
     inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DescribeProductInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // resourceDomain Field Functions 
+    bool hasResourceDomain() const { return this->resourceDomain_ != nullptr;};
+    void deleteResourceDomain() { this->resourceDomain_ = nullptr;};
+    inline string getResourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
+    inline DescribeProductInstancesRequest& setResourceDomain(string resourceDomain) { DARABONBA_PTR_SET_VALUE(resourceDomain_, resourceDomain) };
 
 
     // resourceInstanceAccessStatus Field Functions 
@@ -175,6 +184,7 @@ namespace Models
     // *   **cn-hangzhou**: Chinese mainland.
     // *   **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceDomain_ {};
     shared_ptr<string> resourceInstanceAccessStatus_ {};
     // The ID of the instance.
     shared_ptr<string> resourceInstanceId_ {};

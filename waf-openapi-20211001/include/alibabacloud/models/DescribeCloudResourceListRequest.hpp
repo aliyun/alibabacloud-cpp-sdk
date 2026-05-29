@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
       DARABONBA_PTR_TO_JSON(Port, port_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceDomain, resourceDomain_);
       DARABONBA_PTR_TO_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceProduct, resourceProduct_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
       DARABONBA_PTR_FROM_JSON(Port, port_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceDomain, resourceDomain_);
       DARABONBA_PTR_FROM_JSON(ResourceInstanceId, resourceInstanceId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceProduct, resourceProduct_);
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cloudResourceId_ == nullptr
         && this->instanceId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->ownerUserId_ == nullptr && this->port_ == nullptr
-        && this->regionId_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceProduct_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceDomain_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->resourceProduct_ == nullptr; };
     // cloudResourceId Field Functions 
     bool hasCloudResourceId() const { return this->cloudResourceId_ != nullptr;};
     void deleteCloudResourceId() { this->cloudResourceId_ = nullptr;};
@@ -99,6 +101,13 @@ namespace Models
     inline DescribeCloudResourceListRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceDomain Field Functions 
+    bool hasResourceDomain() const { return this->resourceDomain_ != nullptr;};
+    void deleteResourceDomain() { this->resourceDomain_ = nullptr;};
+    inline string getResourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
+    inline DescribeCloudResourceListRequest& setResourceDomain(string resourceDomain) { DARABONBA_PTR_SET_VALUE(resourceDomain_, resourceDomain) };
+
+
     // resourceInstanceId Field Functions 
     bool hasResourceInstanceId() const { return this->resourceInstanceId_ != nullptr;};
     void deleteResourceInstanceId() { this->resourceInstanceId_ = nullptr;};
@@ -129,6 +138,7 @@ namespace Models
     shared_ptr<string> ownerUserId_ {};
     shared_ptr<string> port_ {};
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceDomain_ {};
     shared_ptr<string> resourceInstanceId_ {};
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     shared_ptr<string> resourceProduct_ {};

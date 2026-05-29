@@ -4979,6 +4979,10 @@ DescribeCloudResourceListResponse Client::describeCloudResourceListWithOptions(c
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceDomain()) {
+    query["ResourceDomain"] = request.getResourceDomain();
+  }
+
   if (!!request.hasResourceInstanceId()) {
     query["ResourceInstanceId"] = request.getResourceInstanceId();
   }
@@ -8941,6 +8945,10 @@ DescribeProductInstancesResponse Client::describeProductInstancesWithOptions(con
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceDomain()) {
+    query["ResourceDomain"] = request.getResourceDomain();
   }
 
   if (!!request.hasResourceInstanceAccessStatus()) {

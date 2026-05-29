@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AccessPortAndProtocols, accessPortAndProtocols_);
         DARABONBA_PTR_TO_JSON(AccessPorts, accessPorts_);
         DARABONBA_PTR_TO_JSON(OwnerUserId, ownerUserId_);
+        DARABONBA_PTR_TO_JSON(ResourceDomain, resourceDomain_);
         DARABONBA_PTR_TO_JSON(ResourceInstanceAccessStatus, resourceInstanceAccessStatus_);
         DARABONBA_PTR_TO_JSON(ResourceInstanceEdition, resourceInstanceEdition_);
         DARABONBA_PTR_TO_JSON(ResourceInstanceId, resourceInstanceId_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AccessPortAndProtocols, accessPortAndProtocols_);
         DARABONBA_PTR_FROM_JSON(AccessPorts, accessPorts_);
         DARABONBA_PTR_FROM_JSON(OwnerUserId, ownerUserId_);
+        DARABONBA_PTR_FROM_JSON(ResourceDomain, resourceDomain_);
         DARABONBA_PTR_FROM_JSON(ResourceInstanceAccessStatus, resourceInstanceAccessStatus_);
         DARABONBA_PTR_FROM_JSON(ResourceInstanceEdition, resourceInstanceEdition_);
         DARABONBA_PTR_FROM_JSON(ResourceInstanceId, resourceInstanceId_);
@@ -258,9 +260,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->accessInstanceId_ == nullptr
-        && this->accessPortAndProtocols_ == nullptr && this->accessPorts_ == nullptr && this->ownerUserId_ == nullptr && this->resourceInstanceAccessStatus_ == nullptr && this->resourceInstanceEdition_ == nullptr
-        && this->resourceInstanceId_ == nullptr && this->resourceInstanceIp_ == nullptr && this->resourceInstanceName_ == nullptr && this->resourceIp_ == nullptr && this->resourceName_ == nullptr
-        && this->resourcePorts_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr; };
+        && this->accessPortAndProtocols_ == nullptr && this->accessPorts_ == nullptr && this->ownerUserId_ == nullptr && this->resourceDomain_ == nullptr && this->resourceInstanceAccessStatus_ == nullptr
+        && this->resourceInstanceEdition_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceInstanceIp_ == nullptr && this->resourceInstanceName_ == nullptr && this->resourceIp_ == nullptr
+        && this->resourceName_ == nullptr && this->resourcePorts_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr; };
       // accessInstanceId Field Functions 
       bool hasAccessInstanceId() const { return this->accessInstanceId_ != nullptr;};
       void deleteAccessInstanceId() { this->accessInstanceId_ = nullptr;};
@@ -291,6 +293,13 @@ namespace Models
       void deleteOwnerUserId() { this->ownerUserId_ = nullptr;};
       inline string getOwnerUserId() const { DARABONBA_PTR_GET_DEFAULT(ownerUserId_, "") };
       inline ProductInstances& setOwnerUserId(string ownerUserId) { DARABONBA_PTR_SET_VALUE(ownerUserId_, ownerUserId) };
+
+
+      // resourceDomain Field Functions 
+      bool hasResourceDomain() const { return this->resourceDomain_ != nullptr;};
+      void deleteResourceDomain() { this->resourceDomain_ = nullptr;};
+      inline string getResourceDomain() const { DARABONBA_PTR_GET_DEFAULT(resourceDomain_, "") };
+      inline ProductInstances& setResourceDomain(string resourceDomain) { DARABONBA_PTR_SET_VALUE(resourceDomain_, resourceDomain) };
 
 
       // resourceInstanceAccessStatus Field Functions 
@@ -371,6 +380,7 @@ namespace Models
       shared_ptr<vector<int32_t>> accessPorts_ {};
       // The ID of the Alibaba Cloud account to which the resource belongs.
       shared_ptr<string> ownerUserId_ {};
+      shared_ptr<string> resourceDomain_ {};
       shared_ptr<string> resourceInstanceAccessStatus_ {};
       shared_ptr<string> resourceInstanceEdition_ {};
       // The ID of the instance.

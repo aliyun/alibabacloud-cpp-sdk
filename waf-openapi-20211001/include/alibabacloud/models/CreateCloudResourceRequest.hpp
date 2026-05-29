@@ -290,6 +290,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Certificates, certificates_);
         DARABONBA_PTR_TO_JSON(CipherSuite, cipherSuite_);
         DARABONBA_PTR_TO_JSON(CustomCiphers, customCiphers_);
+        DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(EnableTLSv3, enableTLSv3_);
         DARABONBA_PTR_TO_JSON(Http2Enabled, http2Enabled_);
         DARABONBA_PTR_TO_JSON(Port, port_);
@@ -303,6 +304,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Certificates, certificates_);
         DARABONBA_PTR_FROM_JSON(CipherSuite, cipherSuite_);
         DARABONBA_PTR_FROM_JSON(CustomCiphers, customCiphers_);
+        DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(EnableTLSv3, enableTLSv3_);
         DARABONBA_PTR_FROM_JSON(Http2Enabled, http2Enabled_);
         DARABONBA_PTR_FROM_JSON(Port, port_);
@@ -373,8 +375,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->certificates_ == nullptr
-        && this->cipherSuite_ == nullptr && this->customCiphers_ == nullptr && this->enableTLSv3_ == nullptr && this->http2Enabled_ == nullptr && this->port_ == nullptr
-        && this->protocol_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr && this->TLSVersion_ == nullptr; };
+        && this->cipherSuite_ == nullptr && this->customCiphers_ == nullptr && this->domain_ == nullptr && this->enableTLSv3_ == nullptr && this->http2Enabled_ == nullptr
+        && this->port_ == nullptr && this->protocol_ == nullptr && this->resourceInstanceId_ == nullptr && this->resourceProduct_ == nullptr && this->resourceRegionId_ == nullptr
+        && this->TLSVersion_ == nullptr; };
       // certificates Field Functions 
       bool hasCertificates() const { return this->certificates_ != nullptr;};
       void deleteCertificates() { this->certificates_ = nullptr;};
@@ -398,6 +401,13 @@ namespace Models
       inline vector<string> getCustomCiphers() { DARABONBA_PTR_GET(customCiphers_, vector<string>) };
       inline Listen& setCustomCiphers(const vector<string> & customCiphers) { DARABONBA_PTR_SET_VALUE(customCiphers_, customCiphers) };
       inline Listen& setCustomCiphers(vector<string> && customCiphers) { DARABONBA_PTR_SET_RVALUE(customCiphers_, customCiphers) };
+
+
+      // domain Field Functions 
+      bool hasDomain() const { return this->domain_ != nullptr;};
+      void deleteDomain() { this->domain_ = nullptr;};
+      inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+      inline Listen& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
       // enableTLSv3 Field Functions 
@@ -467,6 +477,7 @@ namespace Models
       shared_ptr<int32_t> cipherSuite_ {};
       // The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
       shared_ptr<vector<string>> customCiphers_ {};
+      shared_ptr<string> domain_ {};
       // Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
       // 
       // *   **true**
@@ -478,19 +489,13 @@ namespace Models
       // *   **false** (default)
       shared_ptr<bool> http2Enabled_ {};
       // The port of the cloud service.
-      // 
-      // This parameter is required.
       shared_ptr<int32_t> port_ {};
       // The protocol type. Valid values:
       // 
       // *   **http**
       // *   **https**
-      // 
-      // This parameter is required.
       shared_ptr<string> protocol_ {};
       // The instance ID of the cloud service.
-      // 
-      // This parameter is required.
       shared_ptr<string> resourceInstanceId_ {};
       // The type of the cloud service that you want to add. Valid values:
       // 
