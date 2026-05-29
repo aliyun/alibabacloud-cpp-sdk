@@ -36,6 +36,62 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 增加实例白名单
+ *
+ * @param tmpReq AddInstanceWhiteListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddInstanceWhiteListResponse
+ */
+AddInstanceWhiteListResponse Client::addInstanceWhiteListWithOptions(const AddInstanceWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddInstanceWhiteListShrinkRequest request = AddInstanceWhiteListShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasWhiteListItem()) {
+    request.setWhiteListItemShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWhiteListItem(), "WhiteListItem", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasWhiteListItemShrink()) {
+    query["WhiteListItem"] = request.getWhiteListItemShrink();
+  }
+
+  if (!!request.hasWhiteListType()) {
+    query["WhiteListType"] = request.getWhiteListType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddInstanceWhiteList"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddInstanceWhiteListResponse>();
+}
+
+/**
+ * @summary 增加实例白名单
+ *
+ * @param request AddInstanceWhiteListRequest
+ * @return AddInstanceWhiteListResponse
+ */
+AddInstanceWhiteListResponse Client::addInstanceWhiteList(const AddInstanceWhiteListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addInstanceWhiteListWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
  *
  * @param request CreateAccountRequest
@@ -1078,6 +1134,52 @@ ListExchangesResponse Client::listExchanges(const ListExchangesRequest &request)
 }
 
 /**
+ * @summary 查询实例ip/vpc白名单
+ *
+ * @param request ListInstanceWhiteListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListInstanceWhiteListResponse
+ */
+ListInstanceWhiteListResponse Client::listInstanceWhiteListWithOptions(const ListInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasWhiteListType()) {
+    query["whiteListType"] = request.getWhiteListType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListInstanceWhiteList"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListInstanceWhiteListResponse>();
+}
+
+/**
+ * @summary 查询实例ip/vpc白名单
+ *
+ * @param request ListInstanceWhiteListRequest
+ * @return ListInstanceWhiteListResponse
+ */
+ListInstanceWhiteListResponse Client::listInstanceWhiteList(const ListInstanceWhiteListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listInstanceWhiteListWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
  *
  * @param request ListInstancesRequest
@@ -1269,6 +1371,56 @@ ListVirtualHostsResponse Client::listVirtualHostsWithOptions(const ListVirtualHo
 ListVirtualHostsResponse Client::listVirtualHosts(const ListVirtualHostsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listVirtualHostsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除实例ip/vpc白名单
+ *
+ * @param request RemoveInstanceWhiteListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveInstanceWhiteListResponse
+ */
+RemoveInstanceWhiteListResponse Client::removeInstanceWhiteListWithOptions(const RemoveInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasWhiteListItemId()) {
+    query["whiteListItemId"] = request.getWhiteListItemId();
+  }
+
+  if (!!request.hasWhiteListType()) {
+    query["whiteListType"] = request.getWhiteListType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveInstanceWhiteList"},
+    {"version" , "2019-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveInstanceWhiteListResponse>();
+}
+
+/**
+ * @summary 删除实例ip/vpc白名单
+ *
+ * @param request RemoveInstanceWhiteListRequest
+ * @return RemoveInstanceWhiteListResponse
+ */
+RemoveInstanceWhiteListResponse Client::removeInstanceWhiteList(const RemoveInstanceWhiteListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeInstanceWhiteListWithOptions(request, runtime);
 }
 
 /**

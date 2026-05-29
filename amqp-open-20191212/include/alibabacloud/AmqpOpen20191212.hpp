@@ -21,6 +21,23 @@ namespace AmqpOpen20191212
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 增加实例白名单
+       *
+       * @param tmpReq AddInstanceWhiteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddInstanceWhiteListResponse
+       */
+      Models::AddInstanceWhiteListResponse addInstanceWhiteListWithOptions(const Models::AddInstanceWhiteListRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 增加实例白名单
+       *
+       * @param request AddInstanceWhiteListRequest
+       * @return AddInstanceWhiteListResponse
+       */
+      Models::AddInstanceWhiteListResponse addInstanceWhiteList(const Models::AddInstanceWhiteListRequest &request);
+
+      /**
        * @summary Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
        *
        * @param request CreateAccountRequest
@@ -343,6 +360,23 @@ namespace AmqpOpen20191212
       Models::ListExchangesResponse listExchanges(const Models::ListExchangesRequest &request);
 
       /**
+       * @summary 查询实例ip/vpc白名单
+       *
+       * @param request ListInstanceWhiteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListInstanceWhiteListResponse
+       */
+      Models::ListInstanceWhiteListResponse listInstanceWhiteListWithOptions(const Models::ListInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询实例ip/vpc白名单
+       *
+       * @param request ListInstanceWhiteListRequest
+       * @return ListInstanceWhiteListResponse
+       */
+      Models::ListInstanceWhiteListResponse listInstanceWhiteList(const Models::ListInstanceWhiteListRequest &request);
+
+      /**
        * @summary Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
        *
        * @param request ListInstancesRequest
@@ -430,6 +464,23 @@ namespace AmqpOpen20191212
        * @return ListVirtualHostsResponse
        */
       Models::ListVirtualHostsResponse listVirtualHosts(const Models::ListVirtualHostsRequest &request);
+
+      /**
+       * @summary 删除实例ip/vpc白名单
+       *
+       * @param request RemoveInstanceWhiteListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveInstanceWhiteListResponse
+       */
+      Models::RemoveInstanceWhiteListResponse removeInstanceWhiteListWithOptions(const Models::RemoveInstanceWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除实例ip/vpc白名单
+       *
+       * @param request RemoveInstanceWhiteListRequest
+       * @return RemoveInstanceWhiteListResponse
+       */
+      Models::RemoveInstanceWhiteListResponse removeInstanceWhiteList(const Models::RemoveInstanceWhiteListRequest &request);
 
       /**
        * @summary Upgrades or downgrades the configurations of an ApsaraMQ for RabbitMQ instance.

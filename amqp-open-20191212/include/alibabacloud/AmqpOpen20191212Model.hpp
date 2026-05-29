@@ -3,6 +3,10 @@
 #define ALIBABACLOUD_AMQPOPEN20191212MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DataValue.hpp>
+#include <alibabacloud/models/AddInstanceWhiteListRequest.hpp>
+#include <alibabacloud/models/AddInstanceWhiteListShrinkRequest.hpp>
+#include <alibabacloud/models/AddInstanceWhiteListResponseBody.hpp>
+#include <alibabacloud/models/AddInstanceWhiteListResponse.hpp>
 #include <alibabacloud/models/CreateAccountRequest.hpp>
 #include <alibabacloud/models/CreateAccountResponseBody.hpp>
 #include <alibabacloud/models/CreateAccountResponse.hpp>
@@ -58,6 +62,9 @@
 #include <alibabacloud/models/ListExchangesRequest.hpp>
 #include <alibabacloud/models/ListExchangesResponseBody.hpp>
 #include <alibabacloud/models/ListExchangesResponse.hpp>
+#include <alibabacloud/models/ListInstanceWhiteListRequest.hpp>
+#include <alibabacloud/models/ListInstanceWhiteListResponseBody.hpp>
+#include <alibabacloud/models/ListInstanceWhiteListResponse.hpp>
 #include <alibabacloud/models/ListInstancesRequest.hpp>
 #include <alibabacloud/models/ListInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListInstancesResponse.hpp>
@@ -73,6 +80,9 @@
 #include <alibabacloud/models/ListVirtualHostsRequest.hpp>
 #include <alibabacloud/models/ListVirtualHostsResponseBody.hpp>
 #include <alibabacloud/models/ListVirtualHostsResponse.hpp>
+#include <alibabacloud/models/RemoveInstanceWhiteListRequest.hpp>
+#include <alibabacloud/models/RemoveInstanceWhiteListResponseBody.hpp>
+#include <alibabacloud/models/RemoveInstanceWhiteListResponse.hpp>
 #include <alibabacloud/models/UpdateInstanceRequest.hpp>
 #include <alibabacloud/models/UpdateInstanceResponseBody.hpp>
 #include <alibabacloud/models/UpdateInstanceResponse.hpp>
