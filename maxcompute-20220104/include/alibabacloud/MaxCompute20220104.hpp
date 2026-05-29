@@ -329,6 +329,20 @@ namespace MaxCompute20220104
       Models::DeleteQuotaPlanResponse deleteQuotaPlan(const string &nickname, const string &planName, const Models::DeleteQuotaPlanRequest &request);
 
       /**
+       * @param request DeleteRoleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRoleResponse
+       */
+      Models::DeleteRoleResponse deleteRoleWithOptions(const string &projectName, const string &roleName, const Models::DeleteRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @param request DeleteRoleRequest
+       * @return DeleteRoleResponse
+       */
+      Models::DeleteRoleResponse deleteRole(const string &projectName, const string &roleName, const Models::DeleteRoleRequest &request);
+
+      /**
        * @summary GetComputeEffectivePlan.
        *
        * @param headers map

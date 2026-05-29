@@ -1001,6 +1001,41 @@ DeleteQuotaPlanResponse Client::deleteQuotaPlan(const string &nickname, const st
 }
 
 /**
+ * @param request DeleteRoleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRoleResponse
+ */
+DeleteRoleResponse Client::deleteRoleWithOptions(const string &projectName, const string &roleName, const DeleteRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRole"},
+    {"version" , "2022-01-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/projects/" , Darabonba::Encode::Encoder::percentEncode(projectName) , "/roles/" , Darabonba::Encode::Encoder::percentEncode(roleName))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRoleResponse>();
+}
+
+/**
+ * @param request DeleteRoleRequest
+ * @return DeleteRoleResponse
+ */
+DeleteRoleResponse Client::deleteRole(const string &projectName, const string &roleName, const DeleteRoleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRoleWithOptions(projectName, roleName, request, headers, runtime);
+}
+
+/**
  * @summary GetComputeEffectivePlan.
  *
  * @param headers map

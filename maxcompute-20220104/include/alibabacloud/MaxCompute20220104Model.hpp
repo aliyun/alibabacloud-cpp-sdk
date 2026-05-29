@@ -48,6 +48,9 @@
 #include <alibabacloud/models/DeleteQuotaPlanRequest.hpp>
 #include <alibabacloud/models/DeleteQuotaPlanResponseBody.hpp>
 #include <alibabacloud/models/DeleteQuotaPlanResponse.hpp>
+#include <alibabacloud/models/DeleteRoleRequest.hpp>
+#include <alibabacloud/models/DeleteRoleResponseBody.hpp>
+#include <alibabacloud/models/DeleteRoleResponse.hpp>
 #include <alibabacloud/models/GetComputeEffectivePlanResponseBody.hpp>
 #include <alibabacloud/models/GetComputeEffectivePlanResponse.hpp>
 #include <alibabacloud/models/GetComputeQuotaPlanResponseBody.hpp>
