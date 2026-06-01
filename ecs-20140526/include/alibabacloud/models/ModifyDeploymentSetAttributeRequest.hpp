@@ -13,6 +13,7 @@ namespace Models
   class ModifyDeploymentSetAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDeploymentSetAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Affinity, affinity_);
       DARABONBA_PTR_TO_JSON(DeploymentSetId, deploymentSetId_);
       DARABONBA_PTR_TO_JSON(DeploymentSetName, deploymentSetName_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDeploymentSetAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
       DARABONBA_PTR_FROM_JSON(DeploymentSetId, deploymentSetId_);
       DARABONBA_PTR_FROM_JSON(DeploymentSetName, deploymentSetName_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->deploymentSetId_ == nullptr
-        && this->deploymentSetName_ == nullptr && this->description_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    virtual bool empty() const override { return this->affinity_ == nullptr
+        && this->deploymentSetId_ == nullptr && this->deploymentSetName_ == nullptr && this->description_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    // affinity Field Functions 
+    bool hasAffinity() const { return this->affinity_ != nullptr;};
+    void deleteAffinity() { this->affinity_ = nullptr;};
+    inline int64_t getAffinity() const { DARABONBA_PTR_GET_DEFAULT(affinity_, 0L) };
+    inline ModifyDeploymentSetAttributeRequest& setAffinity(int64_t affinity) { DARABONBA_PTR_SET_VALUE(affinity_, affinity) };
+
+
     // deploymentSetId Field Functions 
     bool hasDeploymentSetId() const { return this->deploymentSetId_ != nullptr;};
     void deleteDeploymentSetId() { this->deploymentSetId_ = nullptr;};
@@ -103,6 +112,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int64_t> affinity_ {};
     // The ID of the deployment set.
     // 
     // This parameter is required.

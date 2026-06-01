@@ -3700,6 +3700,10 @@ CreateDedicatedHostClusterResponse Client::createDedicatedHostCluster(const Crea
 CreateDeploymentSetResponse Client::createDeploymentSetWithOptions(const CreateDeploymentSetRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAffinity()) {
+    query["Affinity"] = request.getAffinity();
+  }
+
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
   }
@@ -25244,6 +25248,10 @@ ModifyDedicatedHostsChargeTypeResponse Client::modifyDedicatedHostsChargeType(co
 ModifyDeploymentSetAttributeResponse Client::modifyDeploymentSetAttributeWithOptions(const ModifyDeploymentSetAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAffinity()) {
+    query["Affinity"] = request.getAffinity();
+  }
+
   if (!!request.hasDeploymentSetId()) {
     query["DeploymentSetId"] = request.getDeploymentSetId();
   }

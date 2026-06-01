@@ -63,6 +63,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const DeploymentSet& obj) { 
           DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+          DARABONBA_PTR_TO_JSON(Affinity, affinity_);
           DARABONBA_PTR_TO_JSON(Capacities, capacities_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(DeploymentSetDescription, deploymentSetDescription_);
@@ -79,6 +80,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, DeploymentSet& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+          DARABONBA_PTR_FROM_JSON(Affinity, affinity_);
           DARABONBA_PTR_FROM_JSON(Capacities, capacities_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(DeploymentSetDescription, deploymentSetDescription_);
@@ -223,14 +225,21 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->capacities_ == nullptr && this->creationTime_ == nullptr && this->deploymentSetDescription_ == nullptr && this->deploymentSetId_ == nullptr && this->deploymentSetName_ == nullptr
-        && this->deploymentStrategy_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr && this->instanceAmount_ == nullptr
-        && this->instanceIds_ == nullptr && this->strategy_ == nullptr && this->type_ == nullptr; };
+        && this->affinity_ == nullptr && this->capacities_ == nullptr && this->creationTime_ == nullptr && this->deploymentSetDescription_ == nullptr && this->deploymentSetId_ == nullptr
+        && this->deploymentSetName_ == nullptr && this->deploymentStrategy_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr
+        && this->instanceAmount_ == nullptr && this->instanceIds_ == nullptr && this->strategy_ == nullptr && this->type_ == nullptr; };
         // accountId Field Functions 
         bool hasAccountId() const { return this->accountId_ != nullptr;};
         void deleteAccountId() { this->accountId_ = nullptr;};
         inline int64_t getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, 0L) };
         inline DeploymentSet& setAccountId(int64_t accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+        // affinity Field Functions 
+        bool hasAffinity() const { return this->affinity_ != nullptr;};
+        void deleteAffinity() { this->affinity_ = nullptr;};
+        inline int64_t getAffinity() const { DARABONBA_PTR_GET_DEFAULT(affinity_, 0L) };
+        inline DeploymentSet& setAffinity(int64_t affinity) { DARABONBA_PTR_SET_VALUE(affinity_, affinity) };
 
 
         // capacities Field Functions 
@@ -330,6 +339,7 @@ namespace Models
 
       protected:
         shared_ptr<int64_t> accountId_ {};
+        shared_ptr<int64_t> affinity_ {};
         shared_ptr<DeploymentSet::Capacities> capacities_ {};
         shared_ptr<string> creationTime_ {};
         shared_ptr<string> deploymentSetDescription_ {};
