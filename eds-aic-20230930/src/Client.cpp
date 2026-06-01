@@ -1146,6 +1146,92 @@ CreateKeyPairResponse Client::createKeyPair(const CreateKeyPairRequest &request)
 }
 
 /**
+ * @summary 创建套餐包
+ *
+ * @param request CreateMobileAgentPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMobileAgentPackageResponse
+ */
+CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(const CreateMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAmount()) {
+    query["Amount"] = request.getAmount();
+  }
+
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasBizRegionId()) {
+    query["BizRegionId"] = request.getBizRegionId();
+  }
+
+  if (!!request.hasCreditAmount()) {
+    query["CreditAmount"] = request.getCreditAmount();
+  }
+
+  if (!!request.hasCreditConfig()) {
+    query["CreditConfig"] = request.getCreditConfig();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasMobileAgentPackageSpec()) {
+    query["MobileAgentPackageSpec"] = request.getMobileAgentPackageSpec();
+  }
+
+  if (!!request.hasPaidCallbackUrl()) {
+    query["PaidCallbackUrl"] = request.getPaidCallbackUrl();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateMobileAgentPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMobileAgentPackageResponse>();
+}
+
+/**
+ * @summary 创建套餐包
+ *
+ * @param request CreateMobileAgentPackageRequest
+ * @return CreateMobileAgentPackageResponse
+ */
+CreateMobileAgentPackageResponse Client::createMobileAgentPackage(const CreateMobileAgentPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMobileAgentPackageWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a policy.
  *
  * @param tmpReq CreatePolicyGroupRequest
@@ -2757,6 +2843,68 @@ DescribeMetricTopResponse Client::describeMetricTopWithOptions(const DescribeMet
 DescribeMetricTopResponse Client::describeMetricTop(const DescribeMetricTopRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeMetricTopWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询节点套餐详细信息
+ *
+ * @param request DescribeMobileAgentPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeMobileAgentPackageResponse
+ */
+DescribeMobileAgentPackageResponse Client::describeMobileAgentPackageWithOptions(const DescribeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasPackageIds()) {
+    query["PackageIds"] = request.getPackageIds();
+  }
+
+  if (!!request.hasPackageSpec()) {
+    query["PackageSpec"] = request.getPackageSpec();
+  }
+
+  if (!!request.hasPackageStatus()) {
+    query["PackageStatus"] = request.getPackageStatus();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeMobileAgentPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeMobileAgentPackageResponse>();
+}
+
+/**
+ * @summary 查询节点套餐详细信息
+ *
+ * @param request DescribeMobileAgentPackageRequest
+ * @return DescribeMobileAgentPackageResponse
+ */
+DescribeMobileAgentPackageResponse Client::describeMobileAgentPackage(const DescribeMobileAgentPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeMobileAgentPackageWithOptions(request, runtime);
 }
 
 /**
@@ -5107,6 +5255,72 @@ RenewCloudPhoneNodesResponse Client::renewCloudPhoneNodesWithOptions(const Renew
 RenewCloudPhoneNodesResponse Client::renewCloudPhoneNodes(const RenewCloudPhoneNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return renewCloudPhoneNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 续费MobileAgent套餐包
+ *
+ * @param request RenewMobileAgentPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenewMobileAgentPackageResponse
+ */
+RenewMobileAgentPackageResponse Client::renewMobileAgentPackageWithOptions(const RenewMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasMobileAgentPackageIds()) {
+    query["MobileAgentPackageIds"] = request.getMobileAgentPackageIds();
+  }
+
+  if (!!request.hasPaidCallbackUrl()) {
+    query["PaidCallbackUrl"] = request.getPaidCallbackUrl();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenewMobileAgentPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenewMobileAgentPackageResponse>();
+}
+
+/**
+ * @summary 续费MobileAgent套餐包
+ *
+ * @param request RenewMobileAgentPackageRequest
+ * @return RenewMobileAgentPackageResponse
+ */
+RenewMobileAgentPackageResponse Client::renewMobileAgentPackage(const RenewMobileAgentPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renewMobileAgentPackageWithOptions(request, runtime);
 }
 
 /**

@@ -48,6 +48,9 @@
 #include <alibabacloud/models/CreateKeyPairRequest.hpp>
 #include <alibabacloud/models/CreateKeyPairResponseBody.hpp>
 #include <alibabacloud/models/CreateKeyPairResponse.hpp>
+#include <alibabacloud/models/CreateMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/CreateMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/CreateMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/CreatePolicyGroupRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreatePolicyGroupResponseBody.hpp>
@@ -129,6 +132,9 @@
 #include <alibabacloud/models/DescribeMetricTopRequest.hpp>
 #include <alibabacloud/models/DescribeMetricTopResponseBody.hpp>
 #include <alibabacloud/models/DescribeMetricTopResponse.hpp>
+#include <alibabacloud/models/DescribeMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/DescribeMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/DescribeMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRegionsResponse.hpp>
@@ -255,6 +261,9 @@
 #include <alibabacloud/models/RenewCloudPhoneNodesRequest.hpp>
 #include <alibabacloud/models/RenewCloudPhoneNodesResponseBody.hpp>
 #include <alibabacloud/models/RenewCloudPhoneNodesResponse.hpp>
+#include <alibabacloud/models/RenewMobileAgentPackageRequest.hpp>
+#include <alibabacloud/models/RenewMobileAgentPackageResponseBody.hpp>
+#include <alibabacloud/models/RenewMobileAgentPackageResponse.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupRequest.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponseBody.hpp>
 #include <alibabacloud/models/ResetAndroidInstancesInGroupResponse.hpp>

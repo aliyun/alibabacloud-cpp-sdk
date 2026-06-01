@@ -313,6 +313,23 @@ namespace EdsAic20230930
       Models::CreateKeyPairResponse createKeyPair(const Models::CreateKeyPairRequest &request);
 
       /**
+       * @summary 创建套餐包
+       *
+       * @param request CreateMobileAgentPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMobileAgentPackageResponse
+       */
+      Models::CreateMobileAgentPackageResponse createMobileAgentPackageWithOptions(const Models::CreateMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建套餐包
+       *
+       * @param request CreateMobileAgentPackageRequest
+       * @return CreateMobileAgentPackageResponse
+       */
+      Models::CreateMobileAgentPackageResponse createMobileAgentPackage(const Models::CreateMobileAgentPackageRequest &request);
+
+      /**
        * @summary Creates a policy.
        *
        * @param tmpReq CreatePolicyGroupRequest
@@ -781,6 +798,23 @@ namespace EdsAic20230930
        * @return DescribeMetricTopResponse
        */
       Models::DescribeMetricTopResponse describeMetricTop(const Models::DescribeMetricTopRequest &request);
+
+      /**
+       * @summary 查询节点套餐详细信息
+       *
+       * @param request DescribeMobileAgentPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeMobileAgentPackageResponse
+       */
+      Models::DescribeMobileAgentPackageResponse describeMobileAgentPackageWithOptions(const Models::DescribeMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询节点套餐详细信息
+       *
+       * @param request DescribeMobileAgentPackageRequest
+       * @return DescribeMobileAgentPackageResponse
+       */
+      Models::DescribeMobileAgentPackageResponse describeMobileAgentPackage(const Models::DescribeMobileAgentPackageRequest &request);
 
       /**
        * @summary Query available regions.
@@ -1530,6 +1564,23 @@ namespace EdsAic20230930
        * @return RenewCloudPhoneNodesResponse
        */
       Models::RenewCloudPhoneNodesResponse renewCloudPhoneNodes(const Models::RenewCloudPhoneNodesRequest &request);
+
+      /**
+       * @summary 续费MobileAgent套餐包
+       *
+       * @param request RenewMobileAgentPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewMobileAgentPackageResponse
+       */
+      Models::RenewMobileAgentPackageResponse renewMobileAgentPackageWithOptions(const Models::RenewMobileAgentPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 续费MobileAgent套餐包
+       *
+       * @param request RenewMobileAgentPackageRequest
+       * @return RenewMobileAgentPackageResponse
+       */
+      Models::RenewMobileAgentPackageResponse renewMobileAgentPackage(const Models::RenewMobileAgentPackageRequest &request);
 
       /**
        * @summary Resets one or more cloud phone instances.
