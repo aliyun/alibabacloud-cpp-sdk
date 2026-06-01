@@ -61,6 +61,24 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplate(const Models::CreateJobTemplateRequest &request);
 
       /**
+       * @summary 创建 RayHistoryServer
+       *
+       * @param request CreateRayHistoryServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateRayHistoryServerResponse
+       */
+      Models::CreateRayHistoryServerResponse createRayHistoryServerWithOptions(const Models::CreateRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 RayHistoryServer
+       *
+       * @param request CreateRayHistoryServerRequest
+       * @return CreateRayHistoryServerResponse
+       */
+      Models::CreateRayHistoryServerResponse createRayHistoryServer(const Models::CreateRayHistoryServerRequest &request);
+
+      /**
        * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
        *
        * @param request CreateTensorboardRequest
@@ -111,6 +129,24 @@ namespace PaiDlc20201203
        * @return DeleteJobTemplateResponse
        */
       Models::DeleteJobTemplateResponse deleteJobTemplate(const string &TemplateId, const Models::DeleteJobTemplateRequest &request);
+
+      /**
+       * @summary 删除RayHistoryServer
+       *
+       * @param request DeleteRayHistoryServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteRayHistoryServerResponse
+       */
+      Models::DeleteRayHistoryServerResponse deleteRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除RayHistoryServer
+       *
+       * @param request DeleteRayHistoryServerRequest
+       * @return DeleteRayHistoryServerResponse
+       */
+      Models::DeleteRayHistoryServerResponse deleteRayHistoryServer(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request);
 
       /**
        * @summary Deletes a stopped TensorBoard.
@@ -301,6 +337,24 @@ namespace PaiDlc20201203
       Models::GetRayDashboardResponse getRayDashboard(const string &jobId, const Models::GetRayDashboardRequest &request);
 
       /**
+       * @summary 查询 RayHistoryServer
+       *
+       * @param request GetRayHistoryServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRayHistoryServerResponse
+       */
+      Models::GetRayHistoryServerResponse getRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询 RayHistoryServer
+       *
+       * @param request GetRayHistoryServerRequest
+       * @return GetRayHistoryServerResponse
+       */
+      Models::GetRayHistoryServerResponse getRayHistoryServer(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request);
+
+      /**
        * @summary Queries the information of a TensorBoard instance.
        *
        * @param request GetTensorboardRequest
@@ -445,6 +499,24 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
+       * @summary 列出资源RayHistoryServer
+       *
+       * @param request ListRayHistoryServersRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListRayHistoryServersResponse
+       */
+      Models::ListRayHistoryServersResponse listRayHistoryServersWithOptions(const Models::ListRayHistoryServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出资源RayHistoryServer
+       *
+       * @param request ListRayHistoryServersRequest
+       * @return ListRayHistoryServersResponse
+       */
+      Models::ListRayHistoryServersResponse listRayHistoryServers(const Models::ListRayHistoryServersRequest &request);
+
+      /**
        * @summary Queries a list of TensorBoard instances.
        *
        * @param request ListTensorboardsRequest
@@ -481,6 +553,24 @@ namespace PaiDlc20201203
       Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersion(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request);
 
       /**
+       * @summary 启动 Ray History Server
+       *
+       * @param request StartRayHistoryServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartRayHistoryServerResponse
+       */
+      Models::StartRayHistoryServerResponse startRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StartRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动 Ray History Server
+       *
+       * @param request StartRayHistoryServerRequest
+       * @return StartRayHistoryServerResponse
+       */
+      Models::StartRayHistoryServerResponse startRayHistoryServer(const string &RayHistoryServerId, const Models::StartRayHistoryServerRequest &request);
+
+      /**
        * @summary Starts a TensorBoard instance.
        *
        * @param request StartTensorboardRequest
@@ -513,6 +603,24 @@ namespace PaiDlc20201203
        * @return StopJobResponse
        */
       Models::StopJobResponse stopJob(const string &JobId);
+
+      /**
+       * @summary 停止 Ray History Server
+       *
+       * @param request StopRayHistoryServerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopRayHistoryServerResponse
+       */
+      Models::StopRayHistoryServerResponse stopRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StopRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停止 Ray History Server
+       *
+       * @param request StopRayHistoryServerRequest
+       * @return StopRayHistoryServerResponse
+       */
+      Models::StopRayHistoryServerResponse stopRayHistoryServer(const string &RayHistoryServerId, const Models::StopRayHistoryServerRequest &request);
 
       /**
        * @summary Stops a TensorBoard instance.

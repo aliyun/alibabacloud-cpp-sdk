@@ -296,6 +296,75 @@ CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateReque
 }
 
 /**
+ * @summary 创建 RayHistoryServer
+ *
+ * @param request CreateRayHistoryServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateRayHistoryServerResponse
+ */
+CreateRayHistoryServerResponse Client::createRayHistoryServerWithOptions(const CreateRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAccessibility()) {
+    body["Accessibility"] = request.getAccessibility();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEcsSpec()) {
+    body["EcsSpec"] = request.getEcsSpec();
+  }
+
+  if (!!request.hasMaxRuntimeMinutes()) {
+    body["MaxRuntimeMinutes"] = request.getMaxRuntimeMinutes();
+  }
+
+  if (!!request.hasResourceId()) {
+    body["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasStoragePath()) {
+    body["StoragePath"] = request.getStoragePath();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateRayHistoryServer"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateRayHistoryServerResponse>();
+}
+
+/**
+ * @summary 创建 RayHistoryServer
+ *
+ * @param request CreateRayHistoryServerRequest
+ * @return CreateRayHistoryServerResponse
+ */
+CreateRayHistoryServerResponse Client::createRayHistoryServer(const CreateRayHistoryServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createRayHistoryServerWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
  *
  * @param request CreateTensorboardRequest
@@ -489,6 +558,45 @@ DeleteJobTemplateResponse Client::deleteJobTemplate(const string &TemplateId, co
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteJobTemplateWithOptions(TemplateId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除RayHistoryServer
+ *
+ * @param request DeleteRayHistoryServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteRayHistoryServerResponse
+ */
+DeleteRayHistoryServerResponse Client::deleteRayHistoryServerWithOptions(const string &RayHistoryServerId, const DeleteRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteRayHistoryServer"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers/" , Darabonba::Encode::Encoder::percentEncode(RayHistoryServerId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteRayHistoryServerResponse>();
+}
+
+/**
+ * @summary 删除RayHistoryServer
+ *
+ * @param request DeleteRayHistoryServerRequest
+ * @return DeleteRayHistoryServerResponse
+ */
+DeleteRayHistoryServerResponse Client::deleteRayHistoryServer(const string &RayHistoryServerId, const DeleteRayHistoryServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
 }
 
 /**
@@ -1015,6 +1123,45 @@ GetRayDashboardResponse Client::getRayDashboard(const string &jobId, const GetRa
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getRayDashboardWithOptions(jobId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询 RayHistoryServer
+ *
+ * @param request GetRayHistoryServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRayHistoryServerResponse
+ */
+GetRayHistoryServerResponse Client::getRayHistoryServerWithOptions(const string &RayHistoryServerId, const GetRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRayHistoryServer"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers/" , Darabonba::Encode::Encoder::percentEncode(RayHistoryServerId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRayHistoryServerResponse>();
+}
+
+/**
+ * @summary 查询 RayHistoryServer
+ *
+ * @param request GetRayHistoryServerRequest
+ * @return GetRayHistoryServerResponse
+ */
+GetRayHistoryServerResponse Client::getRayHistoryServer(const string &RayHistoryServerId, const GetRayHistoryServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
 }
 
 /**
@@ -1596,6 +1743,111 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
+ * @summary 列出资源RayHistoryServer
+ *
+ * @param request ListRayHistoryServersRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRayHistoryServersResponse
+ */
+ListRayHistoryServersResponse Client::listRayHistoryServersWithOptions(const ListRayHistoryServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasIdPrefix()) {
+    query["IdPrefix"] = request.getIdPrefix();
+  }
+
+  if (!!request.hasModifiedAfter()) {
+    query["ModifiedAfter"] = request.getModifiedAfter();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.getPaymentType();
+  }
+
+  if (!!request.hasResourceId()) {
+    query["ResourceId"] = request.getResourceId();
+  }
+
+  if (!!request.hasShowOwn()) {
+    query["ShowOwn"] = request.getShowOwn();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUserIdForFilter()) {
+    query["UserIdForFilter"] = request.getUserIdForFilter();
+  }
+
+  if (!!request.hasUsername()) {
+    query["Username"] = request.getUsername();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRayHistoryServers"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRayHistoryServersResponse>();
+}
+
+/**
+ * @summary 列出资源RayHistoryServer
+ *
+ * @param request ListRayHistoryServersRequest
+ * @return ListRayHistoryServersResponse
+ */
+ListRayHistoryServersResponse Client::listRayHistoryServers(const ListRayHistoryServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRayHistoryServersWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries a list of TensorBoard instances.
  *
  * @param request ListTensorboardsRequest
@@ -1762,6 +2014,45 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersion(const 
 }
 
 /**
+ * @summary 启动 Ray History Server
+ *
+ * @param request StartRayHistoryServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartRayHistoryServerResponse
+ */
+StartRayHistoryServerResponse Client::startRayHistoryServerWithOptions(const string &RayHistoryServerId, const StartRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartRayHistoryServer"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers/" , Darabonba::Encode::Encoder::percentEncode(RayHistoryServerId) , "/start")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartRayHistoryServerResponse>();
+}
+
+/**
+ * @summary 启动 Ray History Server
+ *
+ * @param request StartRayHistoryServerRequest
+ * @return StartRayHistoryServerResponse
+ */
+StartRayHistoryServerResponse Client::startRayHistoryServer(const string &RayHistoryServerId, const StartRayHistoryServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return startRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
+}
+
+/**
  * @summary Starts a TensorBoard instance.
  *
  * @param request StartTensorboardRequest
@@ -1840,6 +2131,45 @@ StopJobResponse Client::stopJob(const string &JobId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return stopJobWithOptions(JobId, headers, runtime);
+}
+
+/**
+ * @summary 停止 Ray History Server
+ *
+ * @param request StopRayHistoryServerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopRayHistoryServerResponse
+ */
+StopRayHistoryServerResponse Client::stopRayHistoryServerWithOptions(const string &RayHistoryServerId, const StopRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopRayHistoryServer"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/rayhistoryservers/" , Darabonba::Encode::Encoder::percentEncode(RayHistoryServerId) , "/stop")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopRayHistoryServerResponse>();
+}
+
+/**
+ * @summary 停止 Ray History Server
+ *
+ * @param request StopRayHistoryServerRequest
+ * @return StopRayHistoryServerResponse
+ */
+StopRayHistoryServerResponse Client::stopRayHistoryServer(const string &RayHistoryServerId, const StopRayHistoryServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
 }
 
 /**
