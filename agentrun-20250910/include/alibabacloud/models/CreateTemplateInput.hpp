@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(diskSize, diskSize_);
       DARABONBA_PTR_TO_JSON(enableAgent, enableAgent_);
+      DARABONBA_PTR_TO_JSON(enablePreStop, enablePreStop_);
       DARABONBA_PTR_TO_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_TO_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_TO_JSON(logConfiguration, logConfiguration_);
@@ -38,6 +39,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_TO_JSON(ossConfiguration, ossConfiguration_);
+      DARABONBA_PTR_TO_JSON(preStopTimeoutInSeconds, preStopTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_TO_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
       DARABONBA_PTR_TO_JSON(scalingConfig, scalingConfig_);
@@ -55,6 +57,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(diskSize, diskSize_);
       DARABONBA_PTR_FROM_JSON(enableAgent, enableAgent_);
+      DARABONBA_PTR_FROM_JSON(enablePreStop, enablePreStop_);
       DARABONBA_PTR_FROM_JSON(environmentVariables, environmentVariables_);
       DARABONBA_PTR_FROM_JSON(executionRoleArn, executionRoleArn_);
       DARABONBA_PTR_FROM_JSON(logConfiguration, logConfiguration_);
@@ -62,6 +65,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(nasConfig, nasConfig_);
       DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
       DARABONBA_PTR_FROM_JSON(ossConfiguration, ossConfiguration_);
+      DARABONBA_PTR_FROM_JSON(preStopTimeoutInSeconds, preStopTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxIdleTimeoutInSeconds, sandboxIdleTimeoutInSeconds_);
       DARABONBA_PTR_FROM_JSON(sandboxTTLInSeconds, sandboxTTLInSeconds_);
       DARABONBA_PTR_FROM_JSON(scalingConfig, scalingConfig_);
@@ -83,10 +87,10 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allowAnonymousManage_ == nullptr
         && this->armsConfiguration_ == nullptr && this->containerConfiguration_ == nullptr && this->cpu_ == nullptr && this->credentialConfiguration_ == nullptr && this->description_ == nullptr
-        && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr && this->logConfiguration_ == nullptr
-        && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr
-        && this->sandboxTTLInSeconds_ == nullptr && this->scalingConfig_ == nullptr && this->templateConfiguration_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->diskSize_ == nullptr && this->enableAgent_ == nullptr && this->enablePreStop_ == nullptr && this->environmentVariables_ == nullptr && this->executionRoleArn_ == nullptr
+        && this->logConfiguration_ == nullptr && this->memory_ == nullptr && this->nasConfig_ == nullptr && this->networkConfiguration_ == nullptr && this->ossConfiguration_ == nullptr
+        && this->preStopTimeoutInSeconds_ == nullptr && this->sandboxIdleTimeoutInSeconds_ == nullptr && this->sandboxTTLInSeconds_ == nullptr && this->scalingConfig_ == nullptr && this->templateConfiguration_ == nullptr
+        && this->templateName_ == nullptr && this->templateType_ == nullptr && this->workspaceId_ == nullptr; };
     // allowAnonymousManage Field Functions 
     bool hasAllowAnonymousManage() const { return this->allowAnonymousManage_ != nullptr;};
     void deleteAllowAnonymousManage() { this->allowAnonymousManage_ = nullptr;};
@@ -149,6 +153,13 @@ namespace Models
     inline CreateTemplateInput& setEnableAgent(bool enableAgent) { DARABONBA_PTR_SET_VALUE(enableAgent_, enableAgent) };
 
 
+    // enablePreStop Field Functions 
+    bool hasEnablePreStop() const { return this->enablePreStop_ != nullptr;};
+    void deleteEnablePreStop() { this->enablePreStop_ = nullptr;};
+    inline bool getEnablePreStop() const { DARABONBA_PTR_GET_DEFAULT(enablePreStop_, false) };
+    inline CreateTemplateInput& setEnablePreStop(bool enablePreStop) { DARABONBA_PTR_SET_VALUE(enablePreStop_, enablePreStop) };
+
+
     // environmentVariables Field Functions 
     bool hasEnvironmentVariables() const { return this->environmentVariables_ != nullptr;};
     void deleteEnvironmentVariables() { this->environmentVariables_ = nullptr;};
@@ -206,6 +217,13 @@ namespace Models
     inline vector<OssConfiguration> getOssConfiguration() { DARABONBA_PTR_GET(ossConfiguration_, vector<OssConfiguration>) };
     inline CreateTemplateInput& setOssConfiguration(const vector<OssConfiguration> & ossConfiguration) { DARABONBA_PTR_SET_VALUE(ossConfiguration_, ossConfiguration) };
     inline CreateTemplateInput& setOssConfiguration(vector<OssConfiguration> && ossConfiguration) { DARABONBA_PTR_SET_RVALUE(ossConfiguration_, ossConfiguration) };
+
+
+    // preStopTimeoutInSeconds Field Functions 
+    bool hasPreStopTimeoutInSeconds() const { return this->preStopTimeoutInSeconds_ != nullptr;};
+    void deletePreStopTimeoutInSeconds() { this->preStopTimeoutInSeconds_ = nullptr;};
+    inline int32_t getPreStopTimeoutInSeconds() const { DARABONBA_PTR_GET_DEFAULT(preStopTimeoutInSeconds_, 0) };
+    inline CreateTemplateInput& setPreStopTimeoutInSeconds(int32_t preStopTimeoutInSeconds) { DARABONBA_PTR_SET_VALUE(preStopTimeoutInSeconds_, preStopTimeoutInSeconds) };
 
 
     // sandboxIdleTimeoutInSeconds Field Functions 
@@ -274,6 +292,7 @@ namespace Models
     shared_ptr<string> description_ {};
     shared_ptr<int32_t> diskSize_ {};
     shared_ptr<bool> enableAgent_ {};
+    shared_ptr<bool> enablePreStop_ {};
     shared_ptr<map<string, string>> environmentVariables_ {};
     shared_ptr<string> executionRoleArn_ {};
     shared_ptr<LogConfiguration> logConfiguration_ {};
@@ -285,6 +304,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<NetworkConfiguration> networkConfiguration_ {};
     shared_ptr<vector<OssConfiguration>> ossConfiguration_ {};
+    shared_ptr<int32_t> preStopTimeoutInSeconds_ {};
     // 沙箱空闲超时时间（秒）
     shared_ptr<int32_t> sandboxIdleTimeoutInSeconds_ {};
     // 沙箱存活时间（秒）
