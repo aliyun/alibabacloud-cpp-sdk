@@ -99,22 +99,28 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(EffectDays, effectDays_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_TO_JSON(IntranetIp, intranetIp_);
+        DARABONBA_PTR_TO_JSON(PluginStatus, pluginStatus_);
         DARABONBA_PTR_TO_JSON(ProcessCount, processCount_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StudyMode, studyMode_);
+        DARABONBA_PTR_TO_JSON(StudyRemainDays, studyRemainDays_);
         DARABONBA_PTR_TO_JSON(StudyStartTime, studyStartTime_);
         DARABONBA_PTR_TO_JSON(Uuid, uuid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(EffectDays, effectDays_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
         DARABONBA_PTR_FROM_JSON(IntranetIp, intranetIp_);
+        DARABONBA_PTR_FROM_JSON(PluginStatus, pluginStatus_);
         DARABONBA_PTR_FROM_JSON(ProcessCount, processCount_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StudyMode, studyMode_);
+        DARABONBA_PTR_FROM_JSON(StudyRemainDays, studyRemainDays_);
         DARABONBA_PTR_FROM_JSON(StudyStartTime, studyStartTime_);
         DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
       };
@@ -129,9 +135,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->instanceName_ == nullptr
-        && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->processCount_ == nullptr && this->status_ == nullptr && this->studyMode_ == nullptr
-        && this->studyStartTime_ == nullptr && this->uuid_ == nullptr; };
+      virtual bool empty() const override { return this->effectDays_ == nullptr
+        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->pluginStatus_ == nullptr && this->processCount_ == nullptr
+        && this->status_ == nullptr && this->studyMode_ == nullptr && this->studyRemainDays_ == nullptr && this->studyStartTime_ == nullptr && this->uuid_ == nullptr; };
+      // effectDays Field Functions 
+      bool hasEffectDays() const { return this->effectDays_ != nullptr;};
+      void deleteEffectDays() { this->effectDays_ = nullptr;};
+      inline int64_t getEffectDays() const { DARABONBA_PTR_GET_DEFAULT(effectDays_, 0L) };
+      inline Data& setEffectDays(int64_t effectDays) { DARABONBA_PTR_SET_VALUE(effectDays_, effectDays) };
+
+
       // instanceName Field Functions 
       bool hasInstanceName() const { return this->instanceName_ != nullptr;};
       void deleteInstanceName() { this->instanceName_ = nullptr;};
@@ -151,6 +164,13 @@ namespace Models
       void deleteIntranetIp() { this->intranetIp_ = nullptr;};
       inline string getIntranetIp() const { DARABONBA_PTR_GET_DEFAULT(intranetIp_, "") };
       inline Data& setIntranetIp(string intranetIp) { DARABONBA_PTR_SET_VALUE(intranetIp_, intranetIp) };
+
+
+      // pluginStatus Field Functions 
+      bool hasPluginStatus() const { return this->pluginStatus_ != nullptr;};
+      void deletePluginStatus() { this->pluginStatus_ = nullptr;};
+      inline string getPluginStatus() const { DARABONBA_PTR_GET_DEFAULT(pluginStatus_, "") };
+      inline Data& setPluginStatus(string pluginStatus) { DARABONBA_PTR_SET_VALUE(pluginStatus_, pluginStatus) };
 
 
       // processCount Field Functions 
@@ -174,6 +194,13 @@ namespace Models
       inline Data& setStudyMode(string studyMode) { DARABONBA_PTR_SET_VALUE(studyMode_, studyMode) };
 
 
+      // studyRemainDays Field Functions 
+      bool hasStudyRemainDays() const { return this->studyRemainDays_ != nullptr;};
+      void deleteStudyRemainDays() { this->studyRemainDays_ = nullptr;};
+      inline int64_t getStudyRemainDays() const { DARABONBA_PTR_GET_DEFAULT(studyRemainDays_, 0L) };
+      inline Data& setStudyRemainDays(int64_t studyRemainDays) { DARABONBA_PTR_SET_VALUE(studyRemainDays_, studyRemainDays) };
+
+
       // studyStartTime Field Functions 
       bool hasStudyStartTime() const { return this->studyStartTime_ != nullptr;};
       void deleteStudyStartTime() { this->studyStartTime_ = nullptr;};
@@ -189,12 +216,15 @@ namespace Models
 
 
     protected:
+      shared_ptr<int64_t> effectDays_ {};
       shared_ptr<string> instanceName_ {};
       shared_ptr<string> internetIp_ {};
       shared_ptr<string> intranetIp_ {};
+      shared_ptr<string> pluginStatus_ {};
       shared_ptr<int32_t> processCount_ {};
       shared_ptr<string> status_ {};
       shared_ptr<string> studyMode_ {};
+      shared_ptr<int64_t> studyRemainDays_ {};
       shared_ptr<int64_t> studyStartTime_ {};
       shared_ptr<string> uuid_ {};
     };

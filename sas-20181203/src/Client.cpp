@@ -378,6 +378,10 @@ AddClientUserDefineRuleResponse Client::addClientUserDefineRuleWithOptions(const
     query["RegistryKey"] = request.getRegistryKey();
   }
 
+  if (!!request.hasTargetDefault()) {
+    query["TargetDefault"] = request.getTargetDefault();
+  }
+
   if (!!request.hasType()) {
     query["Type"] = request.getType();
   }
@@ -39745,12 +39749,20 @@ ListUninstallAegisMachinesResponse Client::listUninstallAegisMachines(const List
 ListUnknownThreatDetectEventResponse Client::listUnknownThreatDetectEventWithOptions(const ListUnknownThreatDetectEventRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAnalyzeResult()) {
+    query["AnalyzeResult"] = request.getAnalyzeResult();
+  }
+
   if (!!request.hasCurrentPage()) {
     query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasHashKey()) {
     query["HashKey"] = request.getHashKey();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
   }
 
   if (!!request.hasPageSize()) {

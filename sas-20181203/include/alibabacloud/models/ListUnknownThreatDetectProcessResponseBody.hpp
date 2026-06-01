@@ -100,6 +100,8 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AnalyzeResult, analyzeResult_);
+        DARABONBA_PTR_TO_JSON(ExplanationEn, explanationEn_);
+        DARABONBA_PTR_TO_JSON(ExplanationZh, explanationZh_);
         DARABONBA_PTR_TO_JSON(FirstTime, firstTime_);
         DARABONBA_PTR_TO_JSON(Md5, md5_);
         DARABONBA_PTR_TO_JSON(ProcessId, processId_);
@@ -109,6 +111,8 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AnalyzeResult, analyzeResult_);
+        DARABONBA_PTR_FROM_JSON(ExplanationEn, explanationEn_);
+        DARABONBA_PTR_FROM_JSON(ExplanationZh, explanationZh_);
         DARABONBA_PTR_FROM_JSON(FirstTime, firstTime_);
         DARABONBA_PTR_FROM_JSON(Md5, md5_);
         DARABONBA_PTR_FROM_JSON(ProcessId, processId_);
@@ -128,13 +132,27 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->analyzeResult_ == nullptr
-        && this->firstTime_ == nullptr && this->md5_ == nullptr && this->processId_ == nullptr && this->processPath_ == nullptr && this->remark_ == nullptr
-        && this->sha256_ == nullptr; };
+        && this->explanationEn_ == nullptr && this->explanationZh_ == nullptr && this->firstTime_ == nullptr && this->md5_ == nullptr && this->processId_ == nullptr
+        && this->processPath_ == nullptr && this->remark_ == nullptr && this->sha256_ == nullptr; };
       // analyzeResult Field Functions 
       bool hasAnalyzeResult() const { return this->analyzeResult_ != nullptr;};
       void deleteAnalyzeResult() { this->analyzeResult_ = nullptr;};
       inline string getAnalyzeResult() const { DARABONBA_PTR_GET_DEFAULT(analyzeResult_, "") };
       inline Data& setAnalyzeResult(string analyzeResult) { DARABONBA_PTR_SET_VALUE(analyzeResult_, analyzeResult) };
+
+
+      // explanationEn Field Functions 
+      bool hasExplanationEn() const { return this->explanationEn_ != nullptr;};
+      void deleteExplanationEn() { this->explanationEn_ = nullptr;};
+      inline string getExplanationEn() const { DARABONBA_PTR_GET_DEFAULT(explanationEn_, "") };
+      inline Data& setExplanationEn(string explanationEn) { DARABONBA_PTR_SET_VALUE(explanationEn_, explanationEn) };
+
+
+      // explanationZh Field Functions 
+      bool hasExplanationZh() const { return this->explanationZh_ != nullptr;};
+      void deleteExplanationZh() { this->explanationZh_ = nullptr;};
+      inline string getExplanationZh() const { DARABONBA_PTR_GET_DEFAULT(explanationZh_, "") };
+      inline Data& setExplanationZh(string explanationZh) { DARABONBA_PTR_SET_VALUE(explanationZh_, explanationZh) };
 
 
       // firstTime Field Functions 
@@ -181,6 +199,8 @@ namespace Models
 
     protected:
       shared_ptr<string> analyzeResult_ {};
+      shared_ptr<string> explanationEn_ {};
+      shared_ptr<string> explanationZh_ {};
       shared_ptr<int64_t> firstTime_ {};
       shared_ptr<string> md5_ {};
       shared_ptr<string> processId_ {};

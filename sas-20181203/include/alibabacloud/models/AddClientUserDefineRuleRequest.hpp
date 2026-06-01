@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProcPath, procPath_);
       DARABONBA_PTR_TO_JSON(RegistryContent, registryContent_);
       DARABONBA_PTR_TO_JSON(RegistryKey, registryKey_);
+      DARABONBA_PTR_TO_JSON(TargetDefault, targetDefault_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, AddClientUserDefineRuleRequest& obj) { 
@@ -48,6 +49,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProcPath, procPath_);
       DARABONBA_PTR_FROM_JSON(RegistryContent, registryContent_);
       DARABONBA_PTR_FROM_JSON(RegistryKey, registryKey_);
+      DARABONBA_PTR_FROM_JSON(TargetDefault, targetDefault_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     AddClientUserDefineRuleRequest() = default ;
@@ -65,7 +67,7 @@ namespace Models
         && this->cmdline_ == nullptr && this->domain_ == nullptr && this->filePath_ == nullptr && this->IP_ == nullptr && this->md5List_ == nullptr
         && this->name_ == nullptr && this->newFilePath_ == nullptr && this->parentCmdline_ == nullptr && this->parentProcPath_ == nullptr && this->platform_ == nullptr
         && this->port_ == nullptr && this->portStr_ == nullptr && this->procPath_ == nullptr && this->registryContent_ == nullptr && this->registryKey_ == nullptr
-        && this->type_ == nullptr; };
+        && this->targetDefault_ == nullptr && this->type_ == nullptr; };
     // actionType Field Functions 
     bool hasActionType() const { return this->actionType_ != nullptr;};
     void deleteActionType() { this->actionType_ = nullptr;};
@@ -178,6 +180,13 @@ namespace Models
     inline AddClientUserDefineRuleRequest& setRegistryKey(string registryKey) { DARABONBA_PTR_SET_VALUE(registryKey_, registryKey) };
 
 
+    // targetDefault Field Functions 
+    bool hasTargetDefault() const { return this->targetDefault_ != nullptr;};
+    void deleteTargetDefault() { this->targetDefault_ = nullptr;};
+    inline string getTargetDefault() const { DARABONBA_PTR_GET_DEFAULT(targetDefault_, "") };
+    inline AddClientUserDefineRuleRequest& setTargetDefault(string targetDefault) { DARABONBA_PTR_SET_VALUE(targetDefault_, targetDefault) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -229,6 +238,7 @@ namespace Models
     shared_ptr<string> registryContent_ {};
     // The registry key.
     shared_ptr<string> registryKey_ {};
+    shared_ptr<string> targetDefault_ {};
     // The type of the custom defense rule. Valid values:
     // 
     // *   **1**: Process hash

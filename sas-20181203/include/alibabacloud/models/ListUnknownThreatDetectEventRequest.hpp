@@ -13,8 +13,10 @@ namespace Models
   class ListUnknownThreatDetectEventRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListUnknownThreatDetectEventRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AnalyzeResult, analyzeResult_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(HashKey, hashKey_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ParentProcessPath, parentProcessPath_);
       DARABONBA_PTR_TO_JSON(ProcessPath, processPath_);
@@ -23,8 +25,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, ListUnknownThreatDetectEventRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AnalyzeResult, analyzeResult_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(HashKey, hashKey_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ParentProcessPath, parentProcessPath_);
       DARABONBA_PTR_FROM_JSON(ProcessPath, processPath_);
@@ -43,9 +47,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->hashKey_ == nullptr && this->pageSize_ == nullptr && this->parentProcessPath_ == nullptr && this->processPath_ == nullptr && this->remark_ == nullptr
-        && this->status_ == nullptr && this->uuid_ == nullptr; };
+    virtual bool empty() const override { return this->analyzeResult_ == nullptr
+        && this->currentPage_ == nullptr && this->hashKey_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->parentProcessPath_ == nullptr
+        && this->processPath_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+    // analyzeResult Field Functions 
+    bool hasAnalyzeResult() const { return this->analyzeResult_ != nullptr;};
+    void deleteAnalyzeResult() { this->analyzeResult_ = nullptr;};
+    inline string getAnalyzeResult() const { DARABONBA_PTR_GET_DEFAULT(analyzeResult_, "") };
+    inline ListUnknownThreatDetectEventRequest& setAnalyzeResult(string analyzeResult) { DARABONBA_PTR_SET_VALUE(analyzeResult_, analyzeResult) };
+
+
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -58,6 +69,13 @@ namespace Models
     void deleteHashKey() { this->hashKey_ = nullptr;};
     inline string getHashKey() const { DARABONBA_PTR_GET_DEFAULT(hashKey_, "") };
     inline ListUnknownThreatDetectEventRequest& setHashKey(string hashKey) { DARABONBA_PTR_SET_VALUE(hashKey_, hashKey) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline ListUnknownThreatDetectEventRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // pageSize Field Functions 
@@ -103,8 +121,10 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> analyzeResult_ {};
     shared_ptr<int32_t> currentPage_ {};
     shared_ptr<string> hashKey_ {};
+    shared_ptr<string> lang_ {};
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> parentProcessPath_ {};
     shared_ptr<string> processPath_ {};

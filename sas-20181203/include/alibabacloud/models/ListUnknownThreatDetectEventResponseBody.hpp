@@ -99,6 +99,8 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(AnalyzeDesc, analyzeDesc_);
+        DARABONBA_PTR_TO_JSON(AnalyzeResult, analyzeResult_);
         DARABONBA_PTR_TO_JSON(CmdChain, cmdChain_);
         DARABONBA_PTR_TO_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_TO_JSON(Count, count_);
@@ -120,6 +122,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Uuid, uuid_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(AnalyzeDesc, analyzeDesc_);
+        DARABONBA_PTR_FROM_JSON(AnalyzeResult, analyzeResult_);
         DARABONBA_PTR_FROM_JSON(CmdChain, cmdChain_);
         DARABONBA_PTR_FROM_JSON(Cmdline, cmdline_);
         DARABONBA_PTR_FROM_JSON(Count, count_);
@@ -151,11 +155,25 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->cmdChain_ == nullptr
-        && this->cmdline_ == nullptr && this->count_ == nullptr && this->firstTime_ == nullptr && this->hashKey_ == nullptr && this->id_ == nullptr
-        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->lastTime_ == nullptr && this->md5_ == nullptr
-        && this->parentCmdline_ == nullptr && this->parentPid_ == nullptr && this->parentProcessPath_ == nullptr && this->pid_ == nullptr && this->processPath_ == nullptr
-        && this->sha256_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+      virtual bool empty() const override { return this->analyzeDesc_ == nullptr
+        && this->analyzeResult_ == nullptr && this->cmdChain_ == nullptr && this->cmdline_ == nullptr && this->count_ == nullptr && this->firstTime_ == nullptr
+        && this->hashKey_ == nullptr && this->id_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr
+        && this->lastTime_ == nullptr && this->md5_ == nullptr && this->parentCmdline_ == nullptr && this->parentPid_ == nullptr && this->parentProcessPath_ == nullptr
+        && this->pid_ == nullptr && this->processPath_ == nullptr && this->sha256_ == nullptr && this->status_ == nullptr && this->uuid_ == nullptr; };
+      // analyzeDesc Field Functions 
+      bool hasAnalyzeDesc() const { return this->analyzeDesc_ != nullptr;};
+      void deleteAnalyzeDesc() { this->analyzeDesc_ = nullptr;};
+      inline string getAnalyzeDesc() const { DARABONBA_PTR_GET_DEFAULT(analyzeDesc_, "") };
+      inline Data& setAnalyzeDesc(string analyzeDesc) { DARABONBA_PTR_SET_VALUE(analyzeDesc_, analyzeDesc) };
+
+
+      // analyzeResult Field Functions 
+      bool hasAnalyzeResult() const { return this->analyzeResult_ != nullptr;};
+      void deleteAnalyzeResult() { this->analyzeResult_ = nullptr;};
+      inline string getAnalyzeResult() const { DARABONBA_PTR_GET_DEFAULT(analyzeResult_, "") };
+      inline Data& setAnalyzeResult(string analyzeResult) { DARABONBA_PTR_SET_VALUE(analyzeResult_, analyzeResult) };
+
+
       // cmdChain Field Functions 
       bool hasCmdChain() const { return this->cmdChain_ != nullptr;};
       void deleteCmdChain() { this->cmdChain_ = nullptr;};
@@ -290,6 +308,8 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> analyzeDesc_ {};
+      shared_ptr<string> analyzeResult_ {};
       shared_ptr<string> cmdChain_ {};
       shared_ptr<string> cmdline_ {};
       shared_ptr<int32_t> count_ {};
