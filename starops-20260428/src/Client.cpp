@@ -210,6 +210,10 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
     body["tags"] = request.getTags();
   }
 
+  if (!!request.hasToolPolicy()) {
+    body["toolPolicy"] = request.getToolPolicy();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -1327,6 +1331,10 @@ UpdateDigitalEmployeeResponse Client::updateDigitalEmployeeWithOptions(const str
 
   if (!!request.hasRoleArn()) {
     body["roleArn"] = request.getRoleArn();
+  }
+
+  if (!!request.hasToolPolicy()) {
+    body["toolPolicy"] = request.getToolPolicy();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
