@@ -15990,6 +15990,84 @@ MeetingFlashMinutesResponse Client::meetingFlashMinutes(const MeetingFlashMinute
 }
 
 /**
+ * @summary 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+ *
+ * @param tmpReq MeetingFlashMinutesTextRequest
+ * @param tmpHeader MeetingFlashMinutesTextHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MeetingFlashMinutesTextResponse
+ */
+MeetingFlashMinutesTextResponse Client::meetingFlashMinutesTextWithOptions(const MeetingFlashMinutesTextRequest &tmpReq, const MeetingFlashMinutesTextHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MeetingFlashMinutesTextShrinkRequest request = MeetingFlashMinutesTextShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  MeetingFlashMinutesTextShrinkHeaders headers = MeetingFlashMinutesTextShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  if (!!tmpReq.hasTenantContext()) {
+    request.setTenantContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTenantContext(), "TenantContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTenantContextShrink()) {
+    body["TenantContext"] = request.getTenantContextShrink();
+  }
+
+  if (!!request.hasConferenceId()) {
+    body["conferenceId"] = request.getConferenceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["nextToken"] = request.getNextToken();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MeetingFlashMinutesText"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/dingtalk/v1/minutes/meetingFlashMinutesText")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MeetingFlashMinutesTextResponse>();
+}
+
+/**
+ * @summary 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+ *
+ * @param request MeetingFlashMinutesTextRequest
+ * @return MeetingFlashMinutesTextResponse
+ */
+MeetingFlashMinutesTextResponse Client::meetingFlashMinutesText(const MeetingFlashMinutesTextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  MeetingFlashMinutesTextHeaders headers = MeetingFlashMinutesTextHeaders();
+  return meetingFlashMinutesTextWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 全员静音或全员取消静音
  *
  * @param tmpReq MuteAllRequest

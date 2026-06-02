@@ -1104,6 +1104,12 @@
 #include <alibabacloud/models/MeetingFlashMinutesShrinkRequest.hpp>
 #include <alibabacloud/models/MeetingFlashMinutesResponseBody.hpp>
 #include <alibabacloud/models/MeetingFlashMinutesResponse.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextHeaders.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextShrinkHeaders.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextRequest.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextShrinkRequest.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextResponseBody.hpp>
+#include <alibabacloud/models/MeetingFlashMinutesTextResponse.hpp>
 #include <alibabacloud/models/MuteAllHeaders.hpp>
 #include <alibabacloud/models/MuteAllShrinkHeaders.hpp>
 #include <alibabacloud/models/MuteAllRequest.hpp>

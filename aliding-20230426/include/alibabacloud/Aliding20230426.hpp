@@ -3483,6 +3483,24 @@ namespace Aliding20230426
       Models::MeetingFlashMinutesResponse meetingFlashMinutes(const Models::MeetingFlashMinutesRequest &request);
 
       /**
+       * @summary 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+       *
+       * @param tmpReq MeetingFlashMinutesTextRequest
+       * @param tmpHeader MeetingFlashMinutesTextHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MeetingFlashMinutesTextResponse
+       */
+      Models::MeetingFlashMinutesTextResponse meetingFlashMinutesTextWithOptions(const Models::MeetingFlashMinutesTextRequest &tmpReq, const Models::MeetingFlashMinutesTextHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+       *
+       * @param request MeetingFlashMinutesTextRequest
+       * @return MeetingFlashMinutesTextResponse
+       */
+      Models::MeetingFlashMinutesTextResponse meetingFlashMinutesText(const Models::MeetingFlashMinutesTextRequest &request);
+
+      /**
        * @summary 全员静音或全员取消静音
        *
        * @param tmpReq MuteAllRequest
