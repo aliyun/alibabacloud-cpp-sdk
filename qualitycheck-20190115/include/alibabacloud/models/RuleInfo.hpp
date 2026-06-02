@@ -485,8 +485,8 @@ namespace Models
     // scoreNum Field Functions 
     bool hasScoreNum() const { return this->scoreNum_ != nullptr;};
     void deleteScoreNum() { this->scoreNum_ = nullptr;};
-    inline int32_t getScoreNum() const { DARABONBA_PTR_GET_DEFAULT(scoreNum_, 0) };
-    inline RuleInfo& setScoreNum(int32_t scoreNum) { DARABONBA_PTR_SET_VALUE(scoreNum_, scoreNum) };
+    inline float getScoreNum() const { DARABONBA_PTR_GET_DEFAULT(scoreNum_, 0.0) };
+    inline RuleInfo& setScoreNum(float scoreNum) { DARABONBA_PTR_SET_VALUE(scoreNum_, scoreNum) };
 
 
     // scoreNumType Field Functions 
@@ -631,7 +631,7 @@ namespace Models
     shared_ptr<bool> scoreDeleted_ {};
     shared_ptr<int64_t> scoreId_ {};
     shared_ptr<string> scoreName_ {};
-    shared_ptr<int32_t> scoreNum_ {};
+    shared_ptr<float> scoreNum_ {};
     shared_ptr<int32_t> scoreNumType_ {};
     shared_ptr<int32_t> scoreRuleHitType_ {};
     shared_ptr<int64_t> scoreSubId_ {};
