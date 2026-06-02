@@ -384,6 +384,8 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
+ * @summary 测试窗开启文本对话
+ *
  * @param request DebugBeginDialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DebugBeginDialogueResponse
@@ -411,6 +413,10 @@ DebugBeginDialogueResponse Client::debugBeginDialogueWithOptions(const DebugBegi
     query["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasShouldUseSandBox()) {
+    query["ShouldUseSandBox"] = request.getShouldUseSandBox();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -429,6 +435,8 @@ DebugBeginDialogueResponse Client::debugBeginDialogueWithOptions(const DebugBegi
 }
 
 /**
+ * @summary 测试窗开启文本对话
+ *
  * @param request DebugBeginDialogueRequest
  * @return DebugBeginDialogueResponse
  */

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_TO_JSON(InitialContext, initialContext_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(ShouldUseSandBox, shouldUseSandBox_);
     };
     friend void from_json(const Darabonba::Json& j, DebugBeginDialogueRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(InitialContext, initialContext_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(ShouldUseSandBox, shouldUseSandBox_);
     };
     DebugBeginDialogueRequest() = default ;
     DebugBeginDialogueRequest(const DebugBeginDialogueRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->calledNumber_ == nullptr
-        && this->callingNumber_ == nullptr && this->conversationId_ == nullptr && this->initialContext_ == nullptr && this->instanceId_ == nullptr; };
+        && this->callingNumber_ == nullptr && this->conversationId_ == nullptr && this->initialContext_ == nullptr && this->instanceId_ == nullptr && this->shouldUseSandBox_ == nullptr; };
     // calledNumber Field Functions 
     bool hasCalledNumber() const { return this->calledNumber_ != nullptr;};
     void deleteCalledNumber() { this->calledNumber_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
     inline DebugBeginDialogueRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // shouldUseSandBox Field Functions 
+    bool hasShouldUseSandBox() const { return this->shouldUseSandBox_ != nullptr;};
+    void deleteShouldUseSandBox() { this->shouldUseSandBox_ = nullptr;};
+    inline bool getShouldUseSandBox() const { DARABONBA_PTR_GET_DEFAULT(shouldUseSandBox_, false) };
+    inline DebugBeginDialogueRequest& setShouldUseSandBox(bool shouldUseSandBox) { DARABONBA_PTR_SET_VALUE(shouldUseSandBox_, shouldUseSandBox) };
+
+
   protected:
     shared_ptr<string> calledNumber_ {};
     // This parameter is required.
@@ -83,6 +92,7 @@ namespace Models
     shared_ptr<string> initialContext_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    shared_ptr<bool> shouldUseSandBox_ {};
   };
 
   } // namespace Models

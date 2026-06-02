@@ -111,6 +111,8 @@ namespace VoiceNavigator20180612
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
+       * @summary 测试窗开启文本对话
+       *
        * @param request DebugBeginDialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DebugBeginDialogueResponse
@@ -118,6 +120,8 @@ namespace VoiceNavigator20180612
       Models::DebugBeginDialogueResponse debugBeginDialogueWithOptions(const Models::DebugBeginDialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 测试窗开启文本对话
+       *
        * @param request DebugBeginDialogueRequest
        * @return DebugBeginDialogueResponse
        */
