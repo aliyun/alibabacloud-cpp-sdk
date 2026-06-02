@@ -699,6 +699,45 @@ CreateTrainPicAvatarResponse Client::createTrainPicAvatar(const CreateTrainPicAv
 }
 
 /**
+ * @summary 删除播报贴图
+ *
+ * @param request DeleteBroadcastStickerRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteBroadcastStickerResponse
+ */
+DeleteBroadcastStickerResponse Client::deleteBroadcastStickerWithOptions(const string &stickerId, const DeleteBroadcastStickerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteBroadcastSticker"},
+    {"version" , "2025-05-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/broadcast/materials/stickers/" , Darabonba::Encode::Encoder::percentEncode(stickerId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteBroadcastStickerResponse>();
+}
+
+/**
+ * @summary 删除播报贴图
+ *
+ * @param request DeleteBroadcastStickerRequest
+ * @return DeleteBroadcastStickerResponse
+ */
+DeleteBroadcastStickerResponse Client::deleteBroadcastSticker(const string &stickerId, const DeleteBroadcastStickerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteBroadcastStickerWithOptions(stickerId, request, headers, runtime);
+}
+
+/**
  * @summary 查询播报模板详情
  *
  * @param request GetBroadcastTemplateRequest

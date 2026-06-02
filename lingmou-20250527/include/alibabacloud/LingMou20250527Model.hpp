@@ -46,6 +46,9 @@
 #include <alibabacloud/models/CreateTrainPicAvatarRequest.hpp>
 #include <alibabacloud/models/CreateTrainPicAvatarResponseBody.hpp>
 #include <alibabacloud/models/CreateTrainPicAvatarResponse.hpp>
+#include <alibabacloud/models/DeleteBroadcastStickerRequest.hpp>
+#include <alibabacloud/models/DeleteBroadcastStickerResponseBody.hpp>
+#include <alibabacloud/models/DeleteBroadcastStickerResponse.hpp>
 #include <alibabacloud/models/GetBroadcastTemplateRequest.hpp>
 #include <alibabacloud/models/GetBroadcastTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetBroadcastTemplateResponse.hpp>

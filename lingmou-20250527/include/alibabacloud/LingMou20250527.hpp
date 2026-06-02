@@ -237,6 +237,24 @@ namespace LingMou20250527
       Models::CreateTrainPicAvatarResponse createTrainPicAvatar(const Models::CreateTrainPicAvatarRequest &request);
 
       /**
+       * @summary 删除播报贴图
+       *
+       * @param request DeleteBroadcastStickerRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteBroadcastStickerResponse
+       */
+      Models::DeleteBroadcastStickerResponse deleteBroadcastStickerWithOptions(const string &stickerId, const Models::DeleteBroadcastStickerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除播报贴图
+       *
+       * @param request DeleteBroadcastStickerRequest
+       * @return DeleteBroadcastStickerResponse
+       */
+      Models::DeleteBroadcastStickerResponse deleteBroadcastSticker(const string &stickerId, const Models::DeleteBroadcastStickerRequest &request);
+
+      /**
        * @summary 查询播报模板详情
        *
        * @param request GetBroadcastTemplateRequest
