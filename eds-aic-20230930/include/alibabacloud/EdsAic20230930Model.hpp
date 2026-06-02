@@ -42,6 +42,9 @@
 #include <alibabacloud/models/CreateCloudPhoneNodeShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCloudPhoneNodeResponseBody.hpp>
 #include <alibabacloud/models/CreateCloudPhoneNodeResponse.hpp>
+#include <alibabacloud/models/CreateCreditPackageRequest.hpp>
+#include <alibabacloud/models/CreateCreditPackageResponseBody.hpp>
+#include <alibabacloud/models/CreateCreditPackageResponse.hpp>
 #include <alibabacloud/models/CreateCustomImageRequest.hpp>
 #include <alibabacloud/models/CreateCustomImageResponseBody.hpp>
 #include <alibabacloud/models/CreateCustomImageResponse.hpp>
@@ -108,6 +111,9 @@
 #include <alibabacloud/models/DescribeCloudPhoneNodesRequest.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponseBody.hpp>
 #include <alibabacloud/models/DescribeCloudPhoneNodesResponse.hpp>
+#include <alibabacloud/models/DescribeCreditPackageRequest.hpp>
+#include <alibabacloud/models/DescribeCreditPackageResponseBody.hpp>
+#include <alibabacloud/models/DescribeCreditPackageResponse.hpp>
 #include <alibabacloud/models/DescribeDisplayConfigRequest.hpp>
 #include <alibabacloud/models/DescribeDisplayConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeDisplayConfigResponse.hpp>

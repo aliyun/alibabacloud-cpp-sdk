@@ -273,6 +273,23 @@ namespace EdsAic20230930
       Models::CreateCloudPhoneNodeResponse createCloudPhoneNode(const Models::CreateCloudPhoneNodeRequest &request);
 
       /**
+       * @summary 创建积分包
+       *
+       * @param request CreateCreditPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCreditPackageResponse
+       */
+      Models::CreateCreditPackageResponse createCreditPackageWithOptions(const Models::CreateCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建积分包
+       *
+       * @param request CreateCreditPackageRequest
+       * @return CreateCreditPackageResponse
+       */
+      Models::CreateCreditPackageResponse createCreditPackage(const Models::CreateCreditPackageRequest &request);
+
+      /**
        * @summary Creates a custom image from a cloud phone instance.
        *
        * @param request CreateCustomImageRequest
@@ -662,6 +679,23 @@ namespace EdsAic20230930
        * @return DescribeCloudPhoneNodesResponse
        */
       Models::DescribeCloudPhoneNodesResponse describeCloudPhoneNodes(const Models::DescribeCloudPhoneNodesRequest &request);
+
+      /**
+       * @summary 查询积分包
+       *
+       * @param request DescribeCreditPackageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCreditPackageResponse
+       */
+      Models::DescribeCreditPackageResponse describeCreditPackageWithOptions(const Models::DescribeCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询积分包
+       *
+       * @param request DescribeCreditPackageRequest
+       * @return DescribeCreditPackageResponse
+       */
+      Models::DescribeCreditPackageResponse describeCreditPackage(const Models::DescribeCreditPackageRequest &request);
 
       /**
        * @summary 查询显示设置

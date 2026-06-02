@@ -1044,6 +1044,64 @@ CreateCloudPhoneNodeResponse Client::createCloudPhoneNode(const CreateCloudPhone
 }
 
 /**
+ * @summary 创建积分包
+ *
+ * @param request CreateCreditPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCreditPackageResponse
+ */
+CreateCreditPackageResponse Client::createCreditPackageWithOptions(const CreateCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
+  if (!!request.hasCreditAmount()) {
+    query["CreditAmount"] = request.getCreditAmount();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCreditPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCreditPackageResponse>();
+}
+
+/**
+ * @summary 创建积分包
+ *
+ * @param request CreateCreditPackageRequest
+ * @return CreateCreditPackageResponse
+ */
+CreateCreditPackageResponse Client::createCreditPackage(const CreateCreditPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCreditPackageWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a custom image from a cloud phone instance.
  *
  * @param request CreateCustomImageRequest
@@ -2355,6 +2413,52 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
 DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodes(const DescribeCloudPhoneNodesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeCloudPhoneNodesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询积分包
+ *
+ * @param request DescribeCreditPackageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeCreditPackageResponse
+ */
+DescribeCreditPackageResponse Client::describeCreditPackageWithOptions(const DescribeCreditPackageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCreditPackageId()) {
+    query["CreditPackageId"] = request.getCreditPackageId();
+  }
+
+  if (!!request.hasCreditPackageStatus()) {
+    query["CreditPackageStatus"] = request.getCreditPackageStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeCreditPackage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeCreditPackageResponse>();
+}
+
+/**
+ * @summary 查询积分包
+ *
+ * @param request DescribeCreditPackageRequest
+ * @return DescribeCreditPackageResponse
+ */
+DescribeCreditPackageResponse Client::describeCreditPackage(const DescribeCreditPackageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeCreditPackageWithOptions(request, runtime);
 }
 
 /**
