@@ -75,6 +75,34 @@ namespace PaiRecService20221213
       Models::ChangeRecallManagementServiceVersionResponse changeRecallManagementServiceVersion(const string &RecallManagementServiceId, const Models::ChangeRecallManagementServiceVersionRequest &request);
 
       /**
+       * @summary 向智能体发送对话消息
+       *
+       * @param request ChatConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatConversationResponse
+       */
+      FutureGenerator<Models::ChatConversationResponse> chatConversationWithSSE(const Models::ChatConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 向智能体发送对话消息
+       *
+       * @param request ChatConversationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatConversationResponse
+       */
+      Models::ChatConversationResponse chatConversationWithOptions(const Models::ChatConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 向智能体发送对话消息
+       *
+       * @param request ChatConversationRequest
+       * @return ChatConversationResponse
+       */
+      Models::ChatConversationResponse chatConversation(const Models::ChatConversationRequest &request);
+
+      /**
        * @summary 检测实例下配置的资源的连接状态。
        *
        * @param request CheckInstanceResourcesRequest

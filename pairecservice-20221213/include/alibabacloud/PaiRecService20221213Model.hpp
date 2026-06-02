@@ -14,6 +14,9 @@
 #include <alibabacloud/models/ChangeRecallManagementServiceVersionRequest.hpp>
 #include <alibabacloud/models/ChangeRecallManagementServiceVersionResponseBody.hpp>
 #include <alibabacloud/models/ChangeRecallManagementServiceVersionResponse.hpp>
+#include <alibabacloud/models/ChatConversationRequest.hpp>
+#include <alibabacloud/models/ChatConversationResponseBody.hpp>
+#include <alibabacloud/models/ChatConversationResponse.hpp>
 #include <alibabacloud/models/CheckInstanceResourcesRequest.hpp>
 #include <alibabacloud/models/CheckInstanceResourcesResponseBody.hpp>
 #include <alibabacloud/models/CheckInstanceResourcesResponse.hpp>

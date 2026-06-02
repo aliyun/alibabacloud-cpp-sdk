@@ -9,6 +9,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::PaiRecService20221213::Models;
@@ -213,6 +214,122 @@ ChangeRecallManagementServiceVersionResponse Client::changeRecallManagementServi
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return changeRecallManagementServiceVersionWithOptions(RecallManagementServiceId, request, headers, runtime);
+}
+
+/**
+ * @summary 向智能体发送对话消息
+ *
+ * @param request ChatConversationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatConversationResponse
+ */
+FutureGenerator<ChatConversationResponse> Client::chatConversationWithSSE(const ChatConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatConversation"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/conversations/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatConversationResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 向智能体发送对话消息
+ *
+ * @param request ChatConversationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatConversationResponse
+ */
+ChatConversationResponse Client::chatConversationWithOptions(const ChatConversationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConfig()) {
+    body["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasContent()) {
+    body["Content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ChatConversation"},
+    {"version" , "2022-12-13"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/conversations/chat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatConversationResponse>();
+}
+
+/**
+ * @summary 向智能体发送对话消息
+ *
+ * @param request ChatConversationRequest
+ * @return ChatConversationResponse
+ */
+ChatConversationResponse Client::chatConversation(const ChatConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return chatConversationWithOptions(request, headers, runtime);
 }
 
 /**
