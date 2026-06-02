@@ -151,6 +151,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Contact, contact_);
             DARABONBA_PTR_TO_JSON(DialExceptionCodes, dialExceptionCodes_);
             DARABONBA_PTR_TO_JSON(Extras, extras_);
+            DARABONBA_PTR_TO_JSON(HangUpDirection, hangUpDirection_);
             DARABONBA_PTR_TO_JSON(HasAnswered, hasAnswered_);
             DARABONBA_PTR_TO_JSON(HasHangUpByRejection, hasHangUpByRejection_);
             DARABONBA_PTR_TO_JSON(HasLastPlaybackCompleted, hasLastPlaybackCompleted_);
@@ -167,6 +168,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(Contact, contact_);
             DARABONBA_PTR_FROM_JSON(DialExceptionCodes, dialExceptionCodes_);
             DARABONBA_PTR_FROM_JSON(Extras, extras_);
+            DARABONBA_PTR_FROM_JSON(HangUpDirection, hangUpDirection_);
             DARABONBA_PTR_FROM_JSON(HasAnswered, hasAnswered_);
             DARABONBA_PTR_FROM_JSON(HasHangUpByRejection, hasHangUpByRejection_);
             DARABONBA_PTR_FROM_JSON(HasLastPlaybackCompleted, hasLastPlaybackCompleted_);
@@ -440,8 +442,8 @@ namespace Models
 
           virtual bool empty() const override { return this->callDuration_ == nullptr
         && this->callDurationDisplay_ == nullptr && this->callTime_ == nullptr && this->contact_ == nullptr && this->dialExceptionCodes_ == nullptr && this->extras_ == nullptr
-        && this->hasAnswered_ == nullptr && this->hasHangUpByRejection_ == nullptr && this->hasLastPlaybackCompleted_ == nullptr && this->hasReachedEndOfFlow_ == nullptr && this->status_ == nullptr
-        && this->statusName_ == nullptr && this->tagHits_ == nullptr && this->taskEndReason_ == nullptr; };
+        && this->hangUpDirection_ == nullptr && this->hasAnswered_ == nullptr && this->hasHangUpByRejection_ == nullptr && this->hasLastPlaybackCompleted_ == nullptr && this->hasReachedEndOfFlow_ == nullptr
+        && this->status_ == nullptr && this->statusName_ == nullptr && this->tagHits_ == nullptr && this->taskEndReason_ == nullptr; };
           // callDuration Field Functions 
           bool hasCallDuration() const { return this->callDuration_ != nullptr;};
           void deleteCallDuration() { this->callDuration_ = nullptr;};
@@ -488,6 +490,13 @@ namespace Models
           inline vector<LatestTask::Extras> getExtras() { DARABONBA_PTR_GET(extras_, vector<LatestTask::Extras>) };
           inline LatestTask& setExtras(const vector<LatestTask::Extras> & extras) { DARABONBA_PTR_SET_VALUE(extras_, extras) };
           inline LatestTask& setExtras(vector<LatestTask::Extras> && extras) { DARABONBA_PTR_SET_RVALUE(extras_, extras) };
+
+
+          // hangUpDirection Field Functions 
+          bool hasHangUpDirection() const { return this->hangUpDirection_ != nullptr;};
+          void deleteHangUpDirection() { this->hangUpDirection_ = nullptr;};
+          inline string getHangUpDirection() const { DARABONBA_PTR_GET_DEFAULT(hangUpDirection_, "") };
+          inline LatestTask& setHangUpDirection(string hangUpDirection) { DARABONBA_PTR_SET_VALUE(hangUpDirection_, hangUpDirection) };
 
 
           // hasAnswered Field Functions 
@@ -555,6 +564,7 @@ namespace Models
           shared_ptr<LatestTask::Contact> contact_ {};
           shared_ptr<vector<LatestTask::DialExceptionCodes>> dialExceptionCodes_ {};
           shared_ptr<vector<LatestTask::Extras>> extras_ {};
+          shared_ptr<string> hangUpDirection_ {};
           shared_ptr<bool> hasAnswered_ {};
           shared_ptr<bool> hasHangUpByRejection_ {};
           shared_ptr<bool> hasLastPlaybackCompleted_ {};

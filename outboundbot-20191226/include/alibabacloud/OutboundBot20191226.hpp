@@ -400,7 +400,6 @@ namespace OutboundBot20191226
       /**
        * @summary 清空归属地号码库
        *
-       * @param request DeleteAllNumberDistrictInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAllNumberDistrictInfoResponse
        */
@@ -1076,7 +1075,6 @@ namespace OutboundBot20191226
       Models::GetBaseStrategyPeriodResponse getBaseStrategyPeriod(const Models::GetBaseStrategyPeriodRequest &request);
 
       /**
-       * @param request GetConcurrentConversationQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetConcurrentConversationQuotaResponse
        */
@@ -1188,7 +1186,6 @@ namespace OutboundBot20191226
       /**
        * @summary 获取号码库模板下载链接
        *
-       * @param request GetNumberDistrictInfoTemplateDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
        */
@@ -1255,7 +1252,6 @@ namespace OutboundBot20191226
       /**
        * @summary GetVersion
        *
-       * @param request GetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetVersionResponse
        */
@@ -1314,7 +1310,6 @@ namespace OutboundBot20191226
       /**
        * @summary 租户绑定号码列表
        *
-       * @param request ListAllTenantBindNumberBindingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAllTenantBindNumberBindingResponse
        */

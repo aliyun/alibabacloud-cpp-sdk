@@ -1612,7 +1612,6 @@ DeleteAgentProfilesResponse Client::deleteAgentProfiles(const DeleteAgentProfile
 /**
  * @summary 清空归属地号码库
  *
- * @param request DeleteAllNumberDistrictInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAllNumberDistrictInfoResponse
  */
@@ -3799,7 +3798,6 @@ GetBaseStrategyPeriodResponse Client::getBaseStrategyPeriod(const GetBaseStrateg
 }
 
 /**
- * @param request GetConcurrentConversationQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetConcurrentConversationQuotaResponse
  */
@@ -4126,7 +4124,6 @@ GetMaxAttemptsPerDayResponse Client::getMaxAttemptsPerDay(const GetMaxAttemptsPe
 /**
  * @summary 获取号码库模板下载链接
  *
- * @param request GetNumberDistrictInfoTemplateDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
  */
@@ -4277,7 +4274,6 @@ GetTaskByUuidResponse Client::getTaskByUuid(const GetTaskByUuidRequest &request)
 /**
  * @summary GetVersion
  *
- * @param request GetVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetVersionResponse
  */
@@ -4452,7 +4448,6 @@ ListAgentProfilesResponse Client::listAgentProfiles(const ListAgentProfilesReque
 /**
  * @summary 租户绑定号码列表
  *
- * @param request ListAllTenantBindNumberBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAllTenantBindNumberBindingResponse
  */

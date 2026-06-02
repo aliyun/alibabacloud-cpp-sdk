@@ -123,6 +123,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(SipDuration, sipDuration_);
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+          DARABONBA_PTR_TO_JSON(TotalDuration, totalDuration_);
         };
         friend void from_json(const Darabonba::Json& j, Tasks& obj) { 
           DARABONBA_PTR_FROM_JSON(ActualTime, actualTime_);
@@ -146,6 +147,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(SipDuration, sipDuration_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+          DARABONBA_PTR_FROM_JSON(TotalDuration, totalDuration_);
         };
         Tasks() = default ;
         Tasks(const Tasks &) = default ;
@@ -412,7 +414,8 @@ namespace Models
         && this->brief_ == nullptr && this->callId_ == nullptr && this->calledNumber_ == nullptr && this->callingNumber_ == nullptr && this->chatbotId_ == nullptr
         && this->contact_ == nullptr && this->conversation_ == nullptr && this->duration_ == nullptr && this->endReason_ == nullptr && this->endTime_ == nullptr
         && this->hangUpDirection_ == nullptr && this->jobId_ == nullptr && this->planedTime_ == nullptr && this->realRingingDuration_ == nullptr && this->ringingDuration_ == nullptr
-        && this->scenarioId_ == nullptr && this->sipCode_ == nullptr && this->sipDuration_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr; };
+        && this->scenarioId_ == nullptr && this->sipCode_ == nullptr && this->sipDuration_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr
+        && this->totalDuration_ == nullptr; };
         // actualTime Field Functions 
         bool hasActualTime() const { return this->actualTime_ != nullptr;};
         void deleteActualTime() { this->actualTime_ = nullptr;};
@@ -564,6 +567,13 @@ namespace Models
         inline Tasks& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+        // totalDuration Field Functions 
+        bool hasTotalDuration() const { return this->totalDuration_ != nullptr;};
+        void deleteTotalDuration() { this->totalDuration_ = nullptr;};
+        inline int64_t getTotalDuration() const { DARABONBA_PTR_GET_DEFAULT(totalDuration_, 0L) };
+        inline Tasks& setTotalDuration(int64_t totalDuration) { DARABONBA_PTR_SET_VALUE(totalDuration_, totalDuration) };
+
+
       protected:
         shared_ptr<int64_t> actualTime_ {};
         shared_ptr<string> brief_ {};
@@ -586,6 +596,7 @@ namespace Models
         shared_ptr<int64_t> sipDuration_ {};
         shared_ptr<string> status_ {};
         shared_ptr<string> taskId_ {};
+        shared_ptr<int64_t> totalDuration_ {};
       };
 
       class Summary : public Darabonba::Model {
