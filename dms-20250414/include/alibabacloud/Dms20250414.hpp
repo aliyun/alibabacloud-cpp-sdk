@@ -463,6 +463,23 @@ namespace Dms20250414
       Models::DeleteFileUploadResponse deleteFileUpload(const Models::DeleteFileUploadRequest &request);
 
       /**
+       * @summary 删除工作空间代码以及目录
+       *
+       * @param request DeleteWorkspaceCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkspaceCodeResponse
+       */
+      Models::DeleteWorkspaceCodeResponse deleteWorkspaceCodeWithOptions(const Models::DeleteWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除工作空间代码以及目录
+       *
+       * @param request DeleteWorkspaceCodeRequest
+       * @return DeleteWorkspaceCodeResponse
+       */
+      Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
+
+      /**
        * @summary DescribeCustomAgent
        *
        * @param request DescribeCustomAgentRequest
@@ -776,6 +793,23 @@ namespace Dms20250414
        * @return GetNotebookTaskStatusResponse
        */
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
+
+      /**
+       * @summary 读取工作空间的代码文件内容
+       *
+       * @param request GetWorkspaceCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetWorkspaceCodeResponse
+       */
+      Models::GetWorkspaceCodeResponse getWorkspaceCodeWithOptions(const Models::GetWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取工作空间的代码文件内容
+       *
+       * @param request GetWorkspaceCodeRequest
+       * @return GetWorkspaceCodeResponse
+       */
+      Models::GetWorkspaceCodeResponse getWorkspaceCode(const Models::GetWorkspaceCodeRequest &request);
 
       /**
        * @summary 获取工作空间发布配置
@@ -1186,6 +1220,23 @@ namespace Dms20250414
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
+       * @summary 列出工作空间目录下的code文件
+       *
+       * @param request ListWorkspaceCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListWorkspaceCodeResponse
+       */
+      Models::ListWorkspaceCodeResponse listWorkspaceCodeWithOptions(const Models::ListWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列出工作空间目录下的code文件
+       *
+       * @param request ListWorkspaceCodeRequest
+       * @return ListWorkspaceCodeResponse
+       */
+      Models::ListWorkspaceCodeResponse listWorkspaceCode(const Models::ListWorkspaceCodeRequest &request);
+
+      /**
        * @summary ModifyCustomAgent
        *
        * @param tmpReq ModifyCustomAgentRequest
@@ -1252,6 +1303,23 @@ namespace Dms20250414
        * @return RemoveUserToDataAgentWorkspaceResponse
        */
       Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspace(const Models::RemoveUserToDataAgentWorkspaceRequest &request);
+
+      /**
+       * @summary 保存工作空间代码，如果文件不存在则自动新建
+       *
+       * @param request SaveWorkspaceCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveWorkspaceCodeResponse
+       */
+      Models::SaveWorkspaceCodeResponse saveWorkspaceCodeWithOptions(const Models::SaveWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 保存工作空间代码，如果文件不存在则自动新建
+       *
+       * @param request SaveWorkspaceCodeRequest
+       * @return SaveWorkspaceCodeResponse
+       */
+      Models::SaveWorkspaceCodeResponse saveWorkspaceCode(const Models::SaveWorkspaceCodeRequest &request);
 
       /**
        * @summary SendChatMessage

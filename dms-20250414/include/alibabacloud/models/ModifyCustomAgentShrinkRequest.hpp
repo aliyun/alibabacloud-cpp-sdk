@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_TO_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
       DARABONBA_PTR_TO_JSON(TextReportConfig, textReportConfig_);
       DARABONBA_PTR_TO_JSON(WebReportConfig, webReportConfig_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Knowledge, knowledge_);
       DARABONBA_PTR_FROM_JSON(KnowledgeConfigList, knowledgeConfigListShrink_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
       DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfigShrink_);
       DARABONBA_PTR_FROM_JSON(TextReportConfig, textReportConfig_);
       DARABONBA_PTR_FROM_JSON(WebReportConfig, webReportConfig_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callbackConfigShrink_ == nullptr
         && this->customAgentId_ == nullptr && this->DMSUnit_ == nullptr && this->dataJson_ == nullptr && this->description_ == nullptr && this->executionConfigShrink_ == nullptr
-        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->name_ == nullptr && this->scheduleTaskConfigShrink_ == nullptr
-        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->instruction_ == nullptr && this->knowledge_ == nullptr && this->knowledgeConfigListShrink_ == nullptr && this->name_ == nullptr && this->relatedSessionId_ == nullptr
+        && this->scheduleTaskConfigShrink_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
     // callbackConfigShrink Field Functions 
     bool hasCallbackConfigShrink() const { return this->callbackConfigShrink_ != nullptr;};
     void deleteCallbackConfigShrink() { this->callbackConfigShrink_ = nullptr;};
@@ -129,6 +131,13 @@ namespace Models
     inline ModifyCustomAgentShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // relatedSessionId Field Functions 
+    bool hasRelatedSessionId() const { return this->relatedSessionId_ != nullptr;};
+    void deleteRelatedSessionId() { this->relatedSessionId_ = nullptr;};
+    inline string getRelatedSessionId() const { DARABONBA_PTR_GET_DEFAULT(relatedSessionId_, "") };
+    inline ModifyCustomAgentShrinkRequest& setRelatedSessionId(string relatedSessionId) { DARABONBA_PTR_SET_VALUE(relatedSessionId_, relatedSessionId) };
+
+
     // scheduleTaskConfigShrink Field Functions 
     bool hasScheduleTaskConfigShrink() const { return this->scheduleTaskConfigShrink_ != nullptr;};
     void deleteScheduleTaskConfigShrink() { this->scheduleTaskConfigShrink_ = nullptr;};
@@ -169,6 +178,7 @@ namespace Models
     shared_ptr<string> knowledge_ {};
     shared_ptr<string> knowledgeConfigListShrink_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<string> relatedSessionId_ {};
     shared_ptr<string> scheduleTaskConfigShrink_ {};
     shared_ptr<string> textReportConfig_ {};
     shared_ptr<string> webReportConfig_ {};

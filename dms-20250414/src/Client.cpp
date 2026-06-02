@@ -590,6 +590,10 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasRelatedSessionId()) {
+    query["RelatedSessionId"] = request.getRelatedSessionId();
+  }
+
   if (!!request.hasScheduleTaskConfigShrink()) {
     query["ScheduleTaskConfig"] = request.getScheduleTaskConfigShrink();
   }
@@ -1679,6 +1683,60 @@ DeleteFileUploadResponse Client::deleteFileUpload(const DeleteFileUploadRequest 
 }
 
 /**
+ * @summary 删除工作空间代码以及目录
+ *
+ * @param request DeleteWorkspaceCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceCodeResponse
+ */
+DeleteWorkspaceCodeResponse Client::deleteWorkspaceCodeWithOptions(const DeleteWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRepo()) {
+    query["Repo"] = request.getRepo();
+  }
+
+  if (!!request.hasSymlink()) {
+    query["Symlink"] = request.getSymlink();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspaceCode"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceCodeResponse>();
+}
+
+/**
+ * @summary 删除工作空间代码以及目录
+ *
+ * @param request DeleteWorkspaceCodeRequest
+ * @return DeleteWorkspaceCodeResponse
+ */
+DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteWorkspaceCodeWithOptions(request, runtime);
+}
+
+/**
  * @summary DescribeCustomAgent
  *
  * @param request DescribeCustomAgentRequest
@@ -2657,6 +2715,56 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatusWithOptions(const Get
 GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTaskStatusRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getNotebookTaskStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 读取工作空间的代码文件内容
+ *
+ * @param request GetWorkspaceCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceCodeResponse
+ */
+GetWorkspaceCodeResponse Client::getWorkspaceCodeWithOptions(const GetWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasIac()) {
+    query["Iac"] = request.getIac();
+  }
+
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceCode"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceCodeResponse>();
+}
+
+/**
+ * @summary 读取工作空间的代码文件内容
+ *
+ * @param request GetWorkspaceCodeRequest
+ * @return GetWorkspaceCodeResponse
+ */
+GetWorkspaceCodeResponse Client::getWorkspaceCode(const GetWorkspaceCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getWorkspaceCodeWithOptions(request, runtime);
 }
 
 /**
@@ -4206,6 +4314,52 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
+ * @summary 列出工作空间目录下的code文件
+ *
+ * @param request ListWorkspaceCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListWorkspaceCodeResponse
+ */
+ListWorkspaceCodeResponse Client::listWorkspaceCodeWithOptions(const ListWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListWorkspaceCode"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListWorkspaceCodeResponse>();
+}
+
+/**
+ * @summary 列出工作空间目录下的code文件
+ *
+ * @param request ListWorkspaceCodeRequest
+ * @return ListWorkspaceCodeResponse
+ */
+ListWorkspaceCodeResponse Client::listWorkspaceCode(const ListWorkspaceCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listWorkspaceCodeWithOptions(request, runtime);
+}
+
+/**
  * @summary ModifyCustomAgent
  *
  * @param tmpReq ModifyCustomAgentRequest
@@ -4271,6 +4425,10 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 
   if (!!request.hasName()) {
     query["Name"] = request.getName();
+  }
+
+  if (!!request.hasRelatedSessionId()) {
+    query["RelatedSessionId"] = request.getRelatedSessionId();
   }
 
   if (!!request.hasScheduleTaskConfigShrink()) {
@@ -4461,6 +4619,74 @@ RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspaceWit
 RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspace(const RemoveUserToDataAgentWorkspaceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeUserToDataAgentWorkspaceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 保存工作空间代码，如果文件不存在则自动新建
+ *
+ * @param request SaveWorkspaceCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveWorkspaceCodeResponse
+ */
+SaveWorkspaceCodeResponse Client::saveWorkspaceCodeWithOptions(const SaveWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasForce()) {
+    query["Force"] = request.getForce();
+  }
+
+  if (!!request.hasIac()) {
+    query["Iac"] = request.getIac();
+  }
+
+  if (!!request.hasMtime()) {
+    query["Mtime"] = request.getMtime();
+  }
+
+  if (!!request.hasRepo()) {
+    query["Repo"] = request.getRepo();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  json body = {};
+  if (!!request.hasPath()) {
+    body["Path"] = request.getPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveWorkspaceCode"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveWorkspaceCodeResponse>();
+}
+
+/**
+ * @summary 保存工作空间代码，如果文件不存在则自动新建
+ *
+ * @param request SaveWorkspaceCodeRequest
+ * @return SaveWorkspaceCodeResponse
+ */
+SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveWorkspaceCodeWithOptions(request, runtime);
 }
 
 /**

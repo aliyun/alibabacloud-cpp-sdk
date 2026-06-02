@@ -64,6 +64,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NextRuntime, nextRuntime_);
         DARABONBA_PTR_TO_JSON(OfflineTime, offlineTime_);
         DARABONBA_PTR_TO_JSON(Region, region_);
+        DARABONBA_PTR_TO_JSON(RelatedSessionId, relatedSessionId_);
         DARABONBA_PTR_TO_JSON(ReleaseTime, releaseTime_);
         DARABONBA_PTR_TO_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -95,6 +96,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NextRuntime, nextRuntime_);
         DARABONBA_PTR_FROM_JSON(OfflineTime, offlineTime_);
         DARABONBA_PTR_FROM_JSON(Region, region_);
+        DARABONBA_PTR_FROM_JSON(RelatedSessionId, relatedSessionId_);
         DARABONBA_PTR_FROM_JSON(ReleaseTime, releaseTime_);
         DARABONBA_PTR_FROM_JSON(ScheduleTaskConfig, scheduleTaskConfig_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -356,8 +358,8 @@ namespace Models
         && this->dataJson_ == nullptr && this->defaultAgent_ == nullptr && this->description_ == nullptr && this->dmsUnit_ == nullptr && this->executionConfig_ == nullptr
         && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->instruction_ == nullptr && this->isScheduleTask_ == nullptr && this->knowledge_ == nullptr
         && this->knowledgeConfigList_ == nullptr && this->modifier_ == nullptr && this->modifierUserName_ == nullptr && this->name_ == nullptr && this->nextRuntime_ == nullptr
-        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr && this->status_ == nullptr
-        && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->offlineTime_ == nullptr && this->region_ == nullptr && this->relatedSessionId_ == nullptr && this->releaseTime_ == nullptr && this->scheduleTaskConfig_ == nullptr
+        && this->status_ == nullptr && this->textReportConfig_ == nullptr && this->webReportConfig_ == nullptr && this->workspaceId_ == nullptr; };
       // aliyunParentUid Field Functions 
       bool hasAliyunParentUid() const { return this->aliyunParentUid_ != nullptr;};
       void deleteAliyunParentUid() { this->aliyunParentUid_ = nullptr;};
@@ -525,6 +527,13 @@ namespace Models
       inline Data& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+      // relatedSessionId Field Functions 
+      bool hasRelatedSessionId() const { return this->relatedSessionId_ != nullptr;};
+      void deleteRelatedSessionId() { this->relatedSessionId_ = nullptr;};
+      inline string getRelatedSessionId() const { DARABONBA_PTR_GET_DEFAULT(relatedSessionId_, "") };
+      inline Data& setRelatedSessionId(string relatedSessionId) { DARABONBA_PTR_SET_VALUE(relatedSessionId_, relatedSessionId) };
+
+
       // releaseTime Field Functions 
       bool hasReleaseTime() const { return this->releaseTime_ != nullptr;};
       void deleteReleaseTime() { this->releaseTime_ = nullptr;};
@@ -593,6 +602,7 @@ namespace Models
       shared_ptr<int64_t> nextRuntime_ {};
       shared_ptr<string> offlineTime_ {};
       shared_ptr<string> region_ {};
+      shared_ptr<string> relatedSessionId_ {};
       shared_ptr<string> releaseTime_ {};
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
       shared_ptr<string> status_ {};

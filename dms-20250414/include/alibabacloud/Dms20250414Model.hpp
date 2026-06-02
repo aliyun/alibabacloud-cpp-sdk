@@ -32,6 +32,8 @@
 #include <alibabacloud/models/DmsKnowledgeSearchOrderInfoDO.hpp>
 #include <alibabacloud/models/ForeignInstance.hpp>
 #include <alibabacloud/models/ForeignInstanceCredInfo.hpp>
+#include <alibabacloud/models/OneMetaDatabaseEngineMeta.hpp>
+#include <alibabacloud/models/OneMetaDatabase.hpp>
 #include <alibabacloud/models/OneMetaDatabaseObject.hpp>
 #include <alibabacloud/models/OneMetaKnowledgeBase.hpp>
 #include <alibabacloud/models/OneMetaKnowledgeBaseChunk.hpp>
@@ -135,6 +137,9 @@
 #include <alibabacloud/models/DeleteFileUploadRequest.hpp>
 #include <alibabacloud/models/DeleteFileUploadResponseBody.hpp>
 #include <alibabacloud/models/DeleteFileUploadResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceCodeRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceCodeResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceCodeResponse.hpp>
 #include <alibabacloud/models/DescribeCustomAgentRequest.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponse.hpp>
@@ -190,6 +195,9 @@
 #include <alibabacloud/models/GetNotebookTaskStatusRequest.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponseBody.hpp>
 #include <alibabacloud/models/GetNotebookTaskStatusResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceCodeRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceCodeResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceCodeResponse.hpp>
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceCodePublishSettingResponse.hpp>
@@ -263,6 +271,9 @@
 #include <alibabacloud/models/ListKnowledgeBasesRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponseBody.hpp>
 #include <alibabacloud/models/ListKnowledgeBasesResponse.hpp>
+#include <alibabacloud/models/ListWorkspaceCodeRequest.hpp>
+#include <alibabacloud/models/ListWorkspaceCodeResponseBody.hpp>
+#include <alibabacloud/models/ListWorkspaceCodeResponse.hpp>
 #include <alibabacloud/models/ModifyCustomAgentRequest.hpp>
 #include <alibabacloud/models/ModifyCustomAgentShrinkRequest.hpp>
 #include <alibabacloud/models/ModifyCustomAgentResponseBody.hpp>
@@ -276,6 +287,9 @@
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponse.hpp>
+#include <alibabacloud/models/SaveWorkspaceCodeRequest.hpp>
+#include <alibabacloud/models/SaveWorkspaceCodeResponseBody.hpp>
+#include <alibabacloud/models/SaveWorkspaceCodeResponse.hpp>
 #include <alibabacloud/models/SendChatMessageRequest.hpp>
 #include <alibabacloud/models/SendChatMessageShrinkRequest.hpp>
 #include <alibabacloud/models/SendChatMessageResponseBody.hpp>
