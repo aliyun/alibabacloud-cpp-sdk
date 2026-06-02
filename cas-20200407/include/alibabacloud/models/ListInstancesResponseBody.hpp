@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AutoReissue, autoReissue_);
         DARABONBA_PTR_TO_JSON(Brand, brand_);
         DARABONBA_PTR_TO_JSON(CertIdentifier, certIdentifier_);
+        DARABONBA_PTR_TO_JSON(CertificateDomain, certificateDomain_);
         DARABONBA_PTR_TO_JSON(CertificateId, certificateId_);
         DARABONBA_PTR_TO_JSON(CertificateName, certificateName_);
         DARABONBA_PTR_TO_JSON(CertificateNotAfter, certificateNotAfter_);
@@ -60,14 +61,17 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OrderEndTime, orderEndTime_);
         DARABONBA_PTR_TO_JSON(OrderStartTime, orderStartTime_);
         DARABONBA_PTR_TO_JSON(PendingResult, pendingResult_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(Spec, spec_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(UsingProductList, usingProductList_);
         DARABONBA_PTR_TO_JSON(WildcardDomainCount, wildcardDomainCount_);
       };
       friend void from_json(const Darabonba::Json& j, InstanceList& obj) { 
         DARABONBA_PTR_FROM_JSON(AutoReissue, autoReissue_);
         DARABONBA_PTR_FROM_JSON(Brand, brand_);
         DARABONBA_PTR_FROM_JSON(CertIdentifier, certIdentifier_);
+        DARABONBA_PTR_FROM_JSON(CertificateDomain, certificateDomain_);
         DARABONBA_PTR_FROM_JSON(CertificateId, certificateId_);
         DARABONBA_PTR_FROM_JSON(CertificateName, certificateName_);
         DARABONBA_PTR_FROM_JSON(CertificateNotAfter, certificateNotAfter_);
@@ -84,8 +88,10 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OrderEndTime, orderEndTime_);
         DARABONBA_PTR_FROM_JSON(OrderStartTime, orderStartTime_);
         DARABONBA_PTR_FROM_JSON(PendingResult, pendingResult_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(Spec, spec_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(UsingProductList, usingProductList_);
         DARABONBA_PTR_FROM_JSON(WildcardDomainCount, wildcardDomainCount_);
       };
       InstanceList() = default ;
@@ -100,11 +106,11 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoReissue_ == nullptr
-        && this->brand_ == nullptr && this->certIdentifier_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr && this->certificateNotAfter_ == nullptr
-        && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr && this->domain_ == nullptr && this->fullDomainCount_ == nullptr
-        && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr
-        && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->spec_ == nullptr && this->status_ == nullptr
-        && this->wildcardDomainCount_ == nullptr; };
+        && this->brand_ == nullptr && this->certIdentifier_ == nullptr && this->certificateDomain_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr
+        && this->certificateNotAfter_ == nullptr && this->certificateRevokeTime_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr && this->domain_ == nullptr
+        && this->fullDomainCount_ == nullptr && this->instanceEndTime_ == nullptr && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr
+        && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->spec_ == nullptr && this->status_ == nullptr && this->usingProductList_ == nullptr && this->wildcardDomainCount_ == nullptr; };
       // autoReissue Field Functions 
       bool hasAutoReissue() const { return this->autoReissue_ != nullptr;};
       void deleteAutoReissue() { this->autoReissue_ = nullptr;};
@@ -124,6 +130,13 @@ namespace Models
       void deleteCertIdentifier() { this->certIdentifier_ = nullptr;};
       inline string getCertIdentifier() const { DARABONBA_PTR_GET_DEFAULT(certIdentifier_, "") };
       inline InstanceList& setCertIdentifier(string certIdentifier) { DARABONBA_PTR_SET_VALUE(certIdentifier_, certIdentifier) };
+
+
+      // certificateDomain Field Functions 
+      bool hasCertificateDomain() const { return this->certificateDomain_ != nullptr;};
+      void deleteCertificateDomain() { this->certificateDomain_ = nullptr;};
+      inline string getCertificateDomain() const { DARABONBA_PTR_GET_DEFAULT(certificateDomain_, "") };
+      inline InstanceList& setCertificateDomain(string certificateDomain) { DARABONBA_PTR_SET_VALUE(certificateDomain_, certificateDomain) };
 
 
       // certificateId Field Functions 
@@ -238,6 +251,13 @@ namespace Models
       inline InstanceList& setPendingResult(string pendingResult) { DARABONBA_PTR_SET_VALUE(pendingResult_, pendingResult) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline InstanceList& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // spec Field Functions 
       bool hasSpec() const { return this->spec_ != nullptr;};
       void deleteSpec() { this->spec_ = nullptr;};
@@ -252,6 +272,15 @@ namespace Models
       inline InstanceList& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // usingProductList Field Functions 
+      bool hasUsingProductList() const { return this->usingProductList_ != nullptr;};
+      void deleteUsingProductList() { this->usingProductList_ = nullptr;};
+      inline const vector<string> & getUsingProductList() const { DARABONBA_PTR_GET_CONST(usingProductList_, vector<string>) };
+      inline vector<string> getUsingProductList() { DARABONBA_PTR_GET(usingProductList_, vector<string>) };
+      inline InstanceList& setUsingProductList(const vector<string> & usingProductList) { DARABONBA_PTR_SET_VALUE(usingProductList_, usingProductList) };
+      inline InstanceList& setUsingProductList(vector<string> && usingProductList) { DARABONBA_PTR_SET_RVALUE(usingProductList_, usingProductList) };
+
+
       // wildcardDomainCount Field Functions 
       bool hasWildcardDomainCount() const { return this->wildcardDomainCount_ != nullptr;};
       void deleteWildcardDomainCount() { this->wildcardDomainCount_ = nullptr;};
@@ -263,6 +292,7 @@ namespace Models
       shared_ptr<string> autoReissue_ {};
       shared_ptr<string> brand_ {};
       shared_ptr<string> certIdentifier_ {};
+      shared_ptr<string> certificateDomain_ {};
       shared_ptr<int64_t> certificateId_ {};
       shared_ptr<string> certificateName_ {};
       shared_ptr<int64_t> certificateNotAfter_ {};
@@ -279,8 +309,10 @@ namespace Models
       shared_ptr<int64_t> orderEndTime_ {};
       shared_ptr<int64_t> orderStartTime_ {};
       shared_ptr<string> pendingResult_ {};
+      shared_ptr<string> resourceGroupId_ {};
       shared_ptr<string> spec_ {};
       shared_ptr<string> status_ {};
+      shared_ptr<vector<string>> usingProductList_ {};
       shared_ptr<int32_t> wildcardDomainCount_ {};
     };
 

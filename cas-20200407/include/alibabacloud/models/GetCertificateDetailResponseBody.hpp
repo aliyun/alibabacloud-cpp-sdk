@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommonName, commonName_);
       DARABONBA_PTR_TO_JSON(CompanyId, companyId_);
       DARABONBA_PTR_TO_JSON(ContactId, contactId_);
+      DARABONBA_PTR_TO_JSON(Csr, csr_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(ExistPrivateKey, existPrivateKey_);
       DARABONBA_PTR_TO_JSON(FingerPrint, fingerPrint_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommonName, commonName_);
       DARABONBA_PTR_FROM_JSON(CompanyId, companyId_);
       DARABONBA_PTR_FROM_JSON(ContactId, contactId_);
+      DARABONBA_PTR_FROM_JSON(Csr, csr_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(ExistPrivateKey, existPrivateKey_);
       DARABONBA_PTR_FROM_JSON(FingerPrint, fingerPrint_);
@@ -190,10 +192,10 @@ namespace Models
 
     virtual bool empty() const override { return this->algorithm_ == nullptr
         && this->certIdentifier_ == nullptr && this->certificateChainList_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr && this->certificateSource_ == nullptr
-        && this->certificateStatus_ == nullptr && this->commonName_ == nullptr && this->companyId_ == nullptr && this->contactId_ == nullptr && this->domain_ == nullptr
-        && this->existPrivateKey_ == nullptr && this->fingerPrint_ == nullptr && this->instanceId_ == nullptr && this->issuer_ == nullptr && this->keySize_ == nullptr
-        && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->requestId_ == nullptr && this->serial_ == nullptr && this->subjectAlternativeNames_ == nullptr
-        && this->tags_ == nullptr && this->usingProductList_ == nullptr; };
+        && this->certificateStatus_ == nullptr && this->commonName_ == nullptr && this->companyId_ == nullptr && this->contactId_ == nullptr && this->csr_ == nullptr
+        && this->domain_ == nullptr && this->existPrivateKey_ == nullptr && this->fingerPrint_ == nullptr && this->instanceId_ == nullptr && this->issuer_ == nullptr
+        && this->keySize_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->requestId_ == nullptr && this->serial_ == nullptr
+        && this->subjectAlternativeNames_ == nullptr && this->tags_ == nullptr && this->usingProductList_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -264,6 +266,13 @@ namespace Models
     void deleteContactId() { this->contactId_ = nullptr;};
     inline int64_t getContactId() const { DARABONBA_PTR_GET_DEFAULT(contactId_, 0L) };
     inline GetCertificateDetailResponseBody& setContactId(int64_t contactId) { DARABONBA_PTR_SET_VALUE(contactId_, contactId) };
+
+
+    // csr Field Functions 
+    bool hasCsr() const { return this->csr_ != nullptr;};
+    void deleteCsr() { this->csr_ = nullptr;};
+    inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
+    inline GetCertificateDetailResponseBody& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
 
 
     // domain Field Functions 
@@ -374,6 +383,7 @@ namespace Models
     shared_ptr<string> commonName_ {};
     shared_ptr<int64_t> companyId_ {};
     shared_ptr<int64_t> contactId_ {};
+    shared_ptr<string> csr_ {};
     shared_ptr<string> domain_ {};
     shared_ptr<bool> existPrivateKey_ {};
     shared_ptr<string> fingerPrint_ {};

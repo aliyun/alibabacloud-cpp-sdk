@@ -48,6 +48,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Spec, spec_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Tags, tags_);
+      DARABONBA_PTR_TO_JSON(UpgradeStatus, upgradeStatus_);
       DARABONBA_PTR_TO_JSON(ValidationMethod, validationMethod_);
       DARABONBA_PTR_TO_JSON(WildcardDomainCount, wildcardDomainCount_);
     };
@@ -86,6 +87,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Spec, spec_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
+      DARABONBA_PTR_FROM_JSON(UpgradeStatus, upgradeStatus_);
       DARABONBA_PTR_FROM_JSON(ValidationMethod, validationMethod_);
       DARABONBA_PTR_FROM_JSON(WildcardDomainCount, wildcardDomainCount_);
     };
@@ -146,6 +148,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const DomainValidationList& obj) { 
         DARABONBA_PTR_TO_JSON(Cname, cname_);
+        DARABONBA_PTR_TO_JSON(CnameKey, cnameKey_);
         DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(RootDomain, rootDomain_);
         DARABONBA_PTR_TO_JSON(ValidationKey, validationKey_);
@@ -154,6 +157,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, DomainValidationList& obj) { 
         DARABONBA_PTR_FROM_JSON(Cname, cname_);
+        DARABONBA_PTR_FROM_JSON(CnameKey, cnameKey_);
         DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(RootDomain, rootDomain_);
         DARABONBA_PTR_FROM_JSON(ValidationKey, validationKey_);
@@ -172,12 +176,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cname_ == nullptr
-        && this->domain_ == nullptr && this->rootDomain_ == nullptr && this->validationKey_ == nullptr && this->validationType_ == nullptr && this->validationValue_ == nullptr; };
+        && this->cnameKey_ == nullptr && this->domain_ == nullptr && this->rootDomain_ == nullptr && this->validationKey_ == nullptr && this->validationType_ == nullptr
+        && this->validationValue_ == nullptr; };
       // cname Field Functions 
       bool hasCname() const { return this->cname_ != nullptr;};
       void deleteCname() { this->cname_ = nullptr;};
       inline string getCname() const { DARABONBA_PTR_GET_DEFAULT(cname_, "") };
       inline DomainValidationList& setCname(string cname) { DARABONBA_PTR_SET_VALUE(cname_, cname) };
+
+
+      // cnameKey Field Functions 
+      bool hasCnameKey() const { return this->cnameKey_ != nullptr;};
+      void deleteCnameKey() { this->cnameKey_ = nullptr;};
+      inline string getCnameKey() const { DARABONBA_PTR_GET_DEFAULT(cnameKey_, "") };
+      inline DomainValidationList& setCnameKey(string cnameKey) { DARABONBA_PTR_SET_VALUE(cnameKey_, cnameKey) };
 
 
       // domain Field Functions 
@@ -217,6 +229,7 @@ namespace Models
 
     protected:
       shared_ptr<string> cname_ {};
+      shared_ptr<string> cnameKey_ {};
       shared_ptr<string> domain_ {};
       shared_ptr<string> rootDomain_ {};
       shared_ptr<string> validationKey_ {};
@@ -293,7 +306,8 @@ namespace Models
         && this->domain_ == nullptr && this->domainValidationList_ == nullptr && this->fullDomainCount_ == nullptr && this->generateCsrMethod_ == nullptr && this->instanceEndTime_ == nullptr
         && this->instanceId_ == nullptr && this->instanceStartTime_ == nullptr && this->instanceType_ == nullptr && this->keyAlgorithm_ == nullptr && this->orderEndTime_ == nullptr
         && this->orderStartTime_ == nullptr && this->pendingResult_ == nullptr && this->province_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->validationMethod_ == nullptr && this->wildcardDomainCount_ == nullptr; };
+        && this->spec_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->upgradeStatus_ == nullptr && this->validationMethod_ == nullptr
+        && this->wildcardDomainCount_ == nullptr; };
     // autoReissue Field Functions 
     bool hasAutoReissue() const { return this->autoReissue_ != nullptr;};
     void deleteAutoReissue() { this->autoReissue_ = nullptr;};
@@ -540,6 +554,13 @@ namespace Models
     inline GetInstanceDetailResponseBody& setTags(vector<GetInstanceDetailResponseBody::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+    // upgradeStatus Field Functions 
+    bool hasUpgradeStatus() const { return this->upgradeStatus_ != nullptr;};
+    void deleteUpgradeStatus() { this->upgradeStatus_ = nullptr;};
+    inline string getUpgradeStatus() const { DARABONBA_PTR_GET_DEFAULT(upgradeStatus_, "") };
+    inline GetInstanceDetailResponseBody& setUpgradeStatus(string upgradeStatus) { DARABONBA_PTR_SET_VALUE(upgradeStatus_, upgradeStatus) };
+
+
     // validationMethod Field Functions 
     bool hasValidationMethod() const { return this->validationMethod_ != nullptr;};
     void deleteValidationMethod() { this->validationMethod_ = nullptr;};
@@ -589,6 +610,7 @@ namespace Models
     shared_ptr<string> spec_ {};
     shared_ptr<string> status_ {};
     shared_ptr<vector<GetInstanceDetailResponseBody::Tags>> tags_ {};
+    shared_ptr<string> upgradeStatus_ {};
     shared_ptr<string> validationMethod_ {};
     shared_ptr<int32_t> wildcardDomainCount_ {};
   };
