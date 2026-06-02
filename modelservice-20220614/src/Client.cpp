@@ -91,8 +91,12 @@ GetMonthAmountResponse Client::getMonthAmount(const GetMonthAmountRequest &reque
 GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasSceneType()) {
-    query["scene_type"] = request.getSceneType();
+  if (!!request.hasChannel()) {
+    query["channel"] = request.getChannel();
+  }
+
+  if (!!request.hasRegion()) {
+    query["region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

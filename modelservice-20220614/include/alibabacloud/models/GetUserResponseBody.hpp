@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Host, host_);
+      DARABONBA_PTR_TO_JSON(InnerToken, innerToken_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Token, token_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Host, host_);
+      DARABONBA_PTR_FROM_JSON(InnerToken, innerToken_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Token, token_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->code_ == nullptr && this->host_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
+        && this->code_ == nullptr && this->host_ == nullptr && this->innerToken_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
+        && this->token_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteHost() { this->host_ = nullptr;};
     inline string getHost() const { DARABONBA_PTR_GET_DEFAULT(host_, "") };
     inline GetUserResponseBody& setHost(string host) { DARABONBA_PTR_SET_VALUE(host_, host) };
+
+
+    // innerToken Field Functions 
+    bool hasInnerToken() const { return this->innerToken_ != nullptr;};
+    void deleteInnerToken() { this->innerToken_ = nullptr;};
+    inline string getInnerToken() const { DARABONBA_PTR_GET_DEFAULT(innerToken_, "") };
+    inline GetUserResponseBody& setInnerToken(string innerToken) { DARABONBA_PTR_SET_VALUE(innerToken_, innerToken) };
 
 
     // message Field Functions 
@@ -87,6 +97,7 @@ namespace Models
     shared_ptr<string> appId_ {};
     shared_ptr<string> code_ {};
     shared_ptr<string> host_ {};
+    shared_ptr<string> innerToken_ {};
     shared_ptr<string> message_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<string> token_ {};
