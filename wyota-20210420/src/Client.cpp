@@ -252,65 +252,217 @@ BindPasswordFreeLoginUserResponse Client::bindPasswordFreeLoginUser(const BindPa
 }
 
 /**
- * @summary 查询设备座位
+ * @summary 解除桌面端、移动端纳管
  *
- * @param request DescribeDeviceSeatsRequest
+ * @param request DeleteClientsRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeDeviceSeatsResponse
+ * @return DeleteClientsResponse
  */
-DescribeDeviceSeatsResponse Client::describeDeviceSeatsWithOptions(const DescribeDeviceSeatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+DeleteClientsResponse Client::deleteClientsWithOptions(const DeleteClientsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallerAliUid()) {
+    query["CallerAliUid"] = request.getCallerAliUid();
+  }
+
+  json body = {};
+  if (!!request.hasInManage()) {
+    body["InManage"] = request.getInManage();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUuids()) {
+    bodyFlat["Uuids"] = request.getUuids();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteClients"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteClientsResponse>();
+}
+
+/**
+ * @summary 解除桌面端、移动端纳管
+ *
+ * @param request DeleteClientsRequest
+ * @return DeleteClientsResponse
+ */
+DeleteClientsResponse Client::deleteClients(const DeleteClientsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteClientsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询桌面端、移动端详细信息
+ *
+ * @param request DescribeClientsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeClientsResponse
+ */
+DescribeClientsResponse Client::describeClientsWithOptions(const DescribeClientsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCallerAliUid()) {
+    query["CallerAliUid"] = request.getCallerAliUid();
+  }
+
+  json body = {};
+  if (!!request.hasClientType()) {
+    body["ClientType"] = request.getClientType();
+  }
+
+  if (!!request.hasCustomResourceId()) {
+    body["CustomResourceId"] = request.getCustomResourceId();
+  }
+
+  if (!!request.hasCustomResourceStatus()) {
+    body["CustomResourceStatus"] = request.getCustomResourceStatus();
+  }
+
+  if (!!request.hasInManage()) {
+    body["InManage"] = request.getInManage();
+  }
+
+  if (!!request.hasIncludeSubGroups()) {
+    body["IncludeSubGroups"] = request.getIncludeSubGroups();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasModel()) {
+    body["Model"] = request.getModel();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOnlineStatus()) {
+    body["OnlineStatus"] = request.getOnlineStatus();
+  }
+
+  if (!!request.hasPlatform()) {
+    body["Platform"] = request.getPlatform();
+  }
+
+  if (!!request.hasSearchKeyword()) {
+    body["SearchKeyword"] = request.getSearchKeyword();
+  }
+
+  if (!!request.hasTerminalGroupId()) {
+    body["TerminalGroupId"] = request.getTerminalGroupId();
+  }
+
+  json bodyFlat = {};
+  if (!!request.hasUuids()) {
+    bodyFlat["Uuids"] = request.getUuids();
+  }
+
+  if (!!request.hasWithBindUser()) {
+    body["WithBindUser"] = request.getWithBindUser();
+  }
+
+  body = Darabonba::Core::merge(body,
+    Utils::Utils::query(bodyFlat)
+  );
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DescribeClients"},
+    {"version" , "2021-04-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeClientsResponse>();
+}
+
+/**
+ * @summary 查询桌面端、移动端详细信息
+ *
+ * @param request DescribeClientsRequest
+ * @return DescribeClientsResponse
+ */
+DescribeClientsResponse Client::describeClients(const DescribeClientsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeClientsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取桌面端纳管邀请码
+ *
+ * @param request GetOrCreateInvitationCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOrCreateInvitationCodeResponse
+ */
+GetOrCreateInvitationCodeResponse Client::getOrCreateInvitationCodeWithOptions(const GetOrCreateInvitationCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
-  if (!!request.hasPageNumber()) {
-    body["PageNumber"] = request.getPageNumber();
+  if (!!request.hasExpireDays()) {
+    body["ExpireDays"] = request.getExpireDays();
   }
 
-  if (!!request.hasPageSize()) {
-    body["PageSize"] = request.getPageSize();
+  if (!!request.hasExpireMinutes()) {
+    body["ExpireMinutes"] = request.getExpireMinutes();
   }
 
-  if (!!request.hasSerialNo()) {
-    body["SerialNo"] = request.getSerialNo();
+  if (!!request.hasTerminalGroupId()) {
+    body["TerminalGroupId"] = request.getTerminalGroupId();
   }
 
-  if (!!request.hasSerialNoList()) {
-    body["SerialNoList"] = request.getSerialNoList();
-  }
-
-  if (!!request.hasSiteId()) {
-    body["SiteId"] = request.getSiteId();
-  }
-
-  if (!!request.hasTenantId()) {
-    body["TenantId"] = request.getTenantId();
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"body" , Utils::Utils::parseToMap(body)}
   }).get<map<string, json>>());
   Params params = Params(json({
-    {"action" , "DescribeDeviceSeats"},
+    {"action" , "GetOrCreateInvitationCode"},
     {"version" , "2021-04-20"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
     {"method" , "POST"},
-    {"authType" , "Anonymous"},
+    {"authType" , "AK"},
     {"style" , "RPC"},
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<DescribeDeviceSeatsResponse>();
+  return json(callApi(params, req, runtime)).get<GetOrCreateInvitationCodeResponse>();
 }
 
 /**
- * @summary 查询设备座位
+ * @summary 获取桌面端纳管邀请码
  *
- * @param request DescribeDeviceSeatsRequest
- * @return DescribeDeviceSeatsResponse
+ * @param request GetOrCreateInvitationCodeRequest
+ * @return GetOrCreateInvitationCodeResponse
  */
-DescribeDeviceSeatsResponse Client::describeDeviceSeats(const DescribeDeviceSeatsRequest &request) {
+GetOrCreateInvitationCodeResponse Client::getOrCreateInvitationCode(const GetOrCreateInvitationCodeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeDeviceSeatsWithOptions(request, runtime);
+  return getOrCreateInvitationCodeWithOptions(request, runtime);
 }
 
 /**
@@ -511,54 +663,6 @@ UnbindAccountLessLoginUserResponse Client::unbindAccountLessLoginUserWithOptions
 UnbindAccountLessLoginUserResponse Client::unbindAccountLessLoginUser(const UnbindAccountLessLoginUserRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unbindAccountLessLoginUserWithOptions(request, runtime);
-}
-
-/**
- * @summary 解绑设备座位
- *
- * @param tmpReq UnbindDeviceSeatsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return UnbindDeviceSeatsResponse
- */
-UnbindDeviceSeatsResponse Client::unbindDeviceSeatsWithOptions(const UnbindDeviceSeatsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  UnbindDeviceSeatsShrinkRequest request = UnbindDeviceSeatsShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasSerialNoList()) {
-    request.setSerialNoListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSerialNoList(), "SerialNoList", "json"));
-  }
-
-  json body = {};
-  if (!!request.hasSerialNoListShrink()) {
-    body["SerialNoList"] = request.getSerialNoListShrink();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"body" , Utils::Utils::parseToMap(body)}
-  }).get<map<string, json>>());
-  Params params = Params(json({
-    {"action" , "UnbindDeviceSeats"},
-    {"version" , "2021-04-20"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UnbindDeviceSeatsResponse>();
-}
-
-/**
- * @summary 解绑设备座位
- *
- * @param request UnbindDeviceSeatsRequest
- * @return UnbindDeviceSeatsResponse
- */
-UnbindDeviceSeatsResponse Client::unbindDeviceSeats(const UnbindDeviceSeatsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return unbindDeviceSeatsWithOptions(request, runtime);
 }
 
 /**

@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UNBINDDEVICESEATSRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_UNBINDDEVICESEATSRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETECLIENTSRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_DELETECLIENTSRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/UnbindDeviceSeatsResponseBody.hpp>
+#include <alibabacloud/models/DeleteClientsResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace Wyota20210420
 {
 namespace Models
 {
-  class UnbindDeviceSeatsResponse : public Darabonba::Model {
+  class DeleteClientsResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UnbindDeviceSeatsResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteClientsResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, UnbindDeviceSeatsResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteClientsResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    UnbindDeviceSeatsResponse() = default ;
-    UnbindDeviceSeatsResponse(const UnbindDeviceSeatsResponse &) = default ;
-    UnbindDeviceSeatsResponse(UnbindDeviceSeatsResponse &&) = default ;
-    UnbindDeviceSeatsResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UnbindDeviceSeatsResponse() = default ;
-    UnbindDeviceSeatsResponse& operator=(const UnbindDeviceSeatsResponse &) = default ;
-    UnbindDeviceSeatsResponse& operator=(UnbindDeviceSeatsResponse &&) = default ;
+    DeleteClientsResponse() = default ;
+    DeleteClientsResponse(const DeleteClientsResponse &) = default ;
+    DeleteClientsResponse(DeleteClientsResponse &&) = default ;
+    DeleteClientsResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteClientsResponse() = default ;
+    DeleteClientsResponse& operator=(const DeleteClientsResponse &) = default ;
+    DeleteClientsResponse& operator=(DeleteClientsResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline UnbindDeviceSeatsResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline UnbindDeviceSeatsResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline DeleteClientsResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline DeleteClientsResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline UnbindDeviceSeatsResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline DeleteClientsResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UnbindDeviceSeatsResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, UnbindDeviceSeatsResponseBody) };
-    inline UnbindDeviceSeatsResponseBody getBody() { DARABONBA_PTR_GET(body_, UnbindDeviceSeatsResponseBody) };
-    inline UnbindDeviceSeatsResponse& setBody(const UnbindDeviceSeatsResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline UnbindDeviceSeatsResponse& setBody(UnbindDeviceSeatsResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const DeleteClientsResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, DeleteClientsResponseBody) };
+    inline DeleteClientsResponseBody getBody() { DARABONBA_PTR_GET(body_, DeleteClientsResponseBody) };
+    inline DeleteClientsResponse& setBody(const DeleteClientsResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline DeleteClientsResponse& setBody(DeleteClientsResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
-    shared_ptr<UnbindDeviceSeatsResponseBody> body_ {};
+    shared_ptr<DeleteClientsResponseBody> body_ {};
   };
 
   } // namespace Models

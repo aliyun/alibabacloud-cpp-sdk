@@ -89,21 +89,55 @@ namespace Wyota20210420
       Models::BindPasswordFreeLoginUserResponse bindPasswordFreeLoginUser(const Models::BindPasswordFreeLoginUserRequest &request);
 
       /**
-       * @summary 查询设备座位
+       * @summary 解除桌面端、移动端纳管
        *
-       * @param request DescribeDeviceSeatsRequest
+       * @param request DeleteClientsRequest
        * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDeviceSeatsResponse
+       * @return DeleteClientsResponse
        */
-      Models::DescribeDeviceSeatsResponse describeDeviceSeatsWithOptions(const Models::DescribeDeviceSeatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::DeleteClientsResponse deleteClientsWithOptions(const Models::DeleteClientsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询设备座位
+       * @summary 解除桌面端、移动端纳管
        *
-       * @param request DescribeDeviceSeatsRequest
-       * @return DescribeDeviceSeatsResponse
+       * @param request DeleteClientsRequest
+       * @return DeleteClientsResponse
        */
-      Models::DescribeDeviceSeatsResponse describeDeviceSeats(const Models::DescribeDeviceSeatsRequest &request);
+      Models::DeleteClientsResponse deleteClients(const Models::DeleteClientsRequest &request);
+
+      /**
+       * @summary 查询桌面端、移动端详细信息
+       *
+       * @param request DescribeClientsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeClientsResponse
+       */
+      Models::DescribeClientsResponse describeClientsWithOptions(const Models::DescribeClientsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询桌面端、移动端详细信息
+       *
+       * @param request DescribeClientsRequest
+       * @return DescribeClientsResponse
+       */
+      Models::DescribeClientsResponse describeClients(const Models::DescribeClientsRequest &request);
+
+      /**
+       * @summary 获取桌面端纳管邀请码
+       *
+       * @param request GetOrCreateInvitationCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOrCreateInvitationCodeResponse
+       */
+      Models::GetOrCreateInvitationCodeResponse getOrCreateInvitationCodeWithOptions(const Models::GetOrCreateInvitationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取桌面端纳管邀请码
+       *
+       * @param request GetOrCreateInvitationCodeRequest
+       * @return GetOrCreateInvitationCodeResponse
+       */
+      Models::GetOrCreateInvitationCodeResponse getOrCreateInvitationCode(const Models::GetOrCreateInvitationCodeRequest &request);
 
       /**
        * @summary 查询终端列表
@@ -155,23 +189,6 @@ namespace Wyota20210420
        * @return UnbindAccountLessLoginUserResponse
        */
       Models::UnbindAccountLessLoginUserResponse unbindAccountLessLoginUser(const Models::UnbindAccountLessLoginUserRequest &request);
-
-      /**
-       * @summary 解绑设备座位
-       *
-       * @param tmpReq UnbindDeviceSeatsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UnbindDeviceSeatsResponse
-       */
-      Models::UnbindDeviceSeatsResponse unbindDeviceSeatsWithOptions(const Models::UnbindDeviceSeatsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary 解绑设备座位
-       *
-       * @param request UnbindDeviceSeatsRequest
-       * @return UnbindDeviceSeatsResponse
-       */
-      Models::UnbindDeviceSeatsResponse unbindDeviceSeats(const Models::UnbindDeviceSeatsRequest &request);
 
       /**
        * @summary 解绑免密登录用户
