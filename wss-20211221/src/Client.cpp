@@ -51,6 +51,10 @@ CreateMultiOrderResponse Client::createMultiOrderWithOptions(const CreateMultiOr
   }
 
   json query = {};
+  if (!!request.hasChannelCookie()) {
+    query["ChannelCookie"] = request.getChannelCookie();
+  }
+
   if (!!request.hasOrderItems()) {
     query["OrderItems"] = request.getOrderItems();
   }

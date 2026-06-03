@@ -14,12 +14,14 @@ namespace Models
   class CreateMultiOrderShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateMultiOrderShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_TO_JSON(OrderItems, orderItems_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
       DARABONBA_PTR_TO_JSON(Properties, propertiesShrink_);
       DARABONBA_PTR_TO_JSON(ResellerOwnerUid, resellerOwnerUid_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMultiOrderShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ChannelCookie, channelCookie_);
       DARABONBA_PTR_FROM_JSON(OrderItems, orderItems_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
       DARABONBA_PTR_FROM_JSON(Properties, propertiesShrink_);
@@ -218,8 +220,15 @@ namespace Models
       shared_ptr<string> resourceType_ {};
     };
 
-    virtual bool empty() const override { return this->orderItems_ == nullptr
-        && this->orderType_ == nullptr && this->propertiesShrink_ == nullptr && this->resellerOwnerUid_ == nullptr; };
+    virtual bool empty() const override { return this->channelCookie_ == nullptr
+        && this->orderItems_ == nullptr && this->orderType_ == nullptr && this->propertiesShrink_ == nullptr && this->resellerOwnerUid_ == nullptr; };
+    // channelCookie Field Functions 
+    bool hasChannelCookie() const { return this->channelCookie_ != nullptr;};
+    void deleteChannelCookie() { this->channelCookie_ = nullptr;};
+    inline string getChannelCookie() const { DARABONBA_PTR_GET_DEFAULT(channelCookie_, "") };
+    inline CreateMultiOrderShrinkRequest& setChannelCookie(string channelCookie) { DARABONBA_PTR_SET_VALUE(channelCookie_, channelCookie) };
+
+
     // orderItems Field Functions 
     bool hasOrderItems() const { return this->orderItems_ != nullptr;};
     void deleteOrderItems() { this->orderItems_ = nullptr;};
@@ -251,6 +260,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> channelCookie_ {};
     shared_ptr<vector<CreateMultiOrderShrinkRequest::OrderItems>> orderItems_ {};
     shared_ptr<string> orderType_ {};
     shared_ptr<string> propertiesShrink_ {};
