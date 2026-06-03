@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const CapacityReservationItem& obj) { 
           DARABONBA_PTR_TO_JSON(AllocatedResources, allocatedResources_);
           DARABONBA_PTR_TO_JSON(CapacityReservationOwnerId, capacityReservationOwnerId_);
+          DARABONBA_PTR_TO_JSON(DeliveryTime, deliveryTime_);
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(EndTimeType, endTimeType_);
@@ -79,10 +80,12 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Status, status_);
           DARABONBA_PTR_TO_JSON(Tags, tags_);
           DARABONBA_PTR_TO_JSON(TimeSlot, timeSlot_);
+          DARABONBA_PTR_TO_JSON(UnlockedTime, unlockedTime_);
         };
         friend void from_json(const Darabonba::Json& j, CapacityReservationItem& obj) { 
           DARABONBA_PTR_FROM_JSON(AllocatedResources, allocatedResources_);
           DARABONBA_PTR_FROM_JSON(CapacityReservationOwnerId, capacityReservationOwnerId_);
+          DARABONBA_PTR_FROM_JSON(DeliveryTime, deliveryTime_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(EndTimeType, endTimeType_);
@@ -100,6 +103,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Status, status_);
           DARABONBA_PTR_FROM_JSON(Tags, tags_);
           DARABONBA_PTR_FROM_JSON(TimeSlot, timeSlot_);
+          DARABONBA_PTR_FROM_JSON(UnlockedTime, unlockedTime_);
         };
         CapacityReservationItem() = default ;
         CapacityReservationItem(const CapacityReservationItem &) = default ;
@@ -411,10 +415,10 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->allocatedResources_ == nullptr
-        && this->capacityReservationOwnerId_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->endTimeType_ == nullptr && this->instanceChargeType_ == nullptr
-        && this->platform_ == nullptr && this->privatePoolOptionsId_ == nullptr && this->privatePoolOptionsMatchCriteria_ == nullptr && this->privatePoolOptionsName_ == nullptr && this->regionId_ == nullptr
-        && this->reservedInstanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->startTime_ == nullptr && this->startTimeType_ == nullptr
-        && this->status_ == nullptr && this->tags_ == nullptr && this->timeSlot_ == nullptr; };
+        && this->capacityReservationOwnerId_ == nullptr && this->deliveryTime_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->endTimeType_ == nullptr
+        && this->instanceChargeType_ == nullptr && this->platform_ == nullptr && this->privatePoolOptionsId_ == nullptr && this->privatePoolOptionsMatchCriteria_ == nullptr && this->privatePoolOptionsName_ == nullptr
+        && this->regionId_ == nullptr && this->reservedInstanceId_ == nullptr && this->resourceGroupId_ == nullptr && this->savingPlanId_ == nullptr && this->startTime_ == nullptr
+        && this->startTimeType_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->timeSlot_ == nullptr && this->unlockedTime_ == nullptr; };
         // allocatedResources Field Functions 
         bool hasAllocatedResources() const { return this->allocatedResources_ != nullptr;};
         void deleteAllocatedResources() { this->allocatedResources_ = nullptr;};
@@ -429,6 +433,13 @@ namespace Models
         void deleteCapacityReservationOwnerId() { this->capacityReservationOwnerId_ = nullptr;};
         inline string getCapacityReservationOwnerId() const { DARABONBA_PTR_GET_DEFAULT(capacityReservationOwnerId_, "") };
         inline CapacityReservationItem& setCapacityReservationOwnerId(string capacityReservationOwnerId) { DARABONBA_PTR_SET_VALUE(capacityReservationOwnerId_, capacityReservationOwnerId) };
+
+
+        // deliveryTime Field Functions 
+        bool hasDeliveryTime() const { return this->deliveryTime_ != nullptr;};
+        void deleteDeliveryTime() { this->deliveryTime_ = nullptr;};
+        inline string getDeliveryTime() const { DARABONBA_PTR_GET_DEFAULT(deliveryTime_, "") };
+        inline CapacityReservationItem& setDeliveryTime(string deliveryTime) { DARABONBA_PTR_SET_VALUE(deliveryTime_, deliveryTime) };
 
 
         // description Field Functions 
@@ -552,9 +563,17 @@ namespace Models
         inline CapacityReservationItem& setTimeSlot(string timeSlot) { DARABONBA_PTR_SET_VALUE(timeSlot_, timeSlot) };
 
 
+        // unlockedTime Field Functions 
+        bool hasUnlockedTime() const { return this->unlockedTime_ != nullptr;};
+        void deleteUnlockedTime() { this->unlockedTime_ = nullptr;};
+        inline string getUnlockedTime() const { DARABONBA_PTR_GET_DEFAULT(unlockedTime_, "") };
+        inline CapacityReservationItem& setUnlockedTime(string unlockedTime) { DARABONBA_PTR_SET_VALUE(unlockedTime_, unlockedTime) };
+
+
       protected:
         shared_ptr<CapacityReservationItem::AllocatedResources> allocatedResources_ {};
         shared_ptr<string> capacityReservationOwnerId_ {};
+        shared_ptr<string> deliveryTime_ {};
         shared_ptr<string> description_ {};
         shared_ptr<string> endTime_ {};
         shared_ptr<string> endTimeType_ {};
@@ -572,6 +591,7 @@ namespace Models
         shared_ptr<string> status_ {};
         shared_ptr<CapacityReservationItem::Tags> tags_ {};
         shared_ptr<string> timeSlot_ {};
+        shared_ptr<string> unlockedTime_ {};
       };
 
       virtual bool empty() const override { return this->capacityReservationItem_ == nullptr; };

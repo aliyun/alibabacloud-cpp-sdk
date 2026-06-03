@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndTimeType, endTimeType_);
       DARABONBA_PTR_TO_JSON(InstanceAmount, instanceAmount_);
+      DARABONBA_PTR_TO_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_TO_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndTimeType, endTimeType_);
       DARABONBA_PTR_FROM_JSON(InstanceAmount, instanceAmount_);
+      DARABONBA_PTR_FROM_JSON(InstanceChargeType, instanceChargeType_);
       DARABONBA_PTR_FROM_JSON(InstanceType, instanceType_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -157,9 +159,9 @@ namespace Models
 
     virtual bool empty() const override { return this->privatePoolOptions_ == nullptr
         && this->clientToken_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->endTimeType_ == nullptr && this->instanceAmount_ == nullptr
-        && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->platform_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr && this->tag_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->instanceChargeType_ == nullptr && this->instanceType_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->platform_ == nullptr
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->startTime_ == nullptr
+        && this->tag_ == nullptr && this->zoneId_ == nullptr; };
     // privatePoolOptions Field Functions 
     bool hasPrivatePoolOptions() const { return this->privatePoolOptions_ != nullptr;};
     void deletePrivatePoolOptions() { this->privatePoolOptions_ = nullptr;};
@@ -202,6 +204,13 @@ namespace Models
     void deleteInstanceAmount() { this->instanceAmount_ = nullptr;};
     inline int32_t getInstanceAmount() const { DARABONBA_PTR_GET_DEFAULT(instanceAmount_, 0) };
     inline CreateCapacityReservationRequest& setInstanceAmount(int32_t instanceAmount) { DARABONBA_PTR_SET_VALUE(instanceAmount_, instanceAmount) };
+
+
+    // instanceChargeType Field Functions 
+    bool hasInstanceChargeType() const { return this->instanceChargeType_ != nullptr;};
+    void deleteInstanceChargeType() { this->instanceChargeType_ = nullptr;};
+    inline string getInstanceChargeType() const { DARABONBA_PTR_GET_DEFAULT(instanceChargeType_, "") };
+    inline CreateCapacityReservationRequest& setInstanceChargeType(string instanceChargeType) { DARABONBA_PTR_SET_VALUE(instanceChargeType_, instanceChargeType) };
 
 
     // instanceType Field Functions 
@@ -304,6 +313,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> instanceAmount_ {};
+    shared_ptr<string> instanceChargeType_ {};
     // The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the instance types provided by ECS.
     // 
     // This parameter is required.

@@ -3385,6 +3385,10 @@ CreateCapacityReservationResponse Client::createCapacityReservationWithOptions(c
     query["InstanceAmount"] = request.getInstanceAmount();
   }
 
+  if (!!request.hasInstanceChargeType()) {
+    query["InstanceChargeType"] = request.getInstanceChargeType();
+  }
+
   if (!!request.hasInstanceType()) {
     query["InstanceType"] = request.getInstanceType();
   }

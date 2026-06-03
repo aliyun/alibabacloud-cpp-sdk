@@ -1057,11 +1057,13 @@ namespace Models
             DARABONBA_PTR_TO_JSON(HttpEndpoint, httpEndpoint_);
             DARABONBA_PTR_TO_JSON(HttpPutResponseHopLimit, httpPutResponseHopLimit_);
             DARABONBA_PTR_TO_JSON(HttpTokens, httpTokens_);
+            DARABONBA_PTR_TO_JSON(InstanceMetadataTags, instanceMetadataTags_);
           };
           friend void from_json(const Darabonba::Json& j, MetadataOptions& obj) { 
             DARABONBA_PTR_FROM_JSON(HttpEndpoint, httpEndpoint_);
             DARABONBA_PTR_FROM_JSON(HttpPutResponseHopLimit, httpPutResponseHopLimit_);
             DARABONBA_PTR_FROM_JSON(HttpTokens, httpTokens_);
+            DARABONBA_PTR_FROM_JSON(InstanceMetadataTags, instanceMetadataTags_);
           };
           MetadataOptions() = default ;
           MetadataOptions(const MetadataOptions &) = default ;
@@ -1075,7 +1077,7 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->httpEndpoint_ == nullptr
-        && this->httpPutResponseHopLimit_ == nullptr && this->httpTokens_ == nullptr; };
+        && this->httpPutResponseHopLimit_ == nullptr && this->httpTokens_ == nullptr && this->instanceMetadataTags_ == nullptr; };
           // httpEndpoint Field Functions 
           bool hasHttpEndpoint() const { return this->httpEndpoint_ != nullptr;};
           void deleteHttpEndpoint() { this->httpEndpoint_ = nullptr;};
@@ -1097,10 +1099,18 @@ namespace Models
           inline MetadataOptions& setHttpTokens(string httpTokens) { DARABONBA_PTR_SET_VALUE(httpTokens_, httpTokens) };
 
 
+          // instanceMetadataTags Field Functions 
+          bool hasInstanceMetadataTags() const { return this->instanceMetadataTags_ != nullptr;};
+          void deleteInstanceMetadataTags() { this->instanceMetadataTags_ = nullptr;};
+          inline string getInstanceMetadataTags() const { DARABONBA_PTR_GET_DEFAULT(instanceMetadataTags_, "") };
+          inline MetadataOptions& setInstanceMetadataTags(string instanceMetadataTags) { DARABONBA_PTR_SET_VALUE(instanceMetadataTags_, instanceMetadataTags) };
+
+
         protected:
           shared_ptr<string> httpEndpoint_ {};
           shared_ptr<int32_t> httpPutResponseHopLimit_ {};
           shared_ptr<string> httpTokens_ {};
+          shared_ptr<string> instanceMetadataTags_ {};
         };
 
         class InnerIpAddress : public Darabonba::Model {
