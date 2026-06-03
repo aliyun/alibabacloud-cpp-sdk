@@ -1,0 +1,205 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SAVEBATCHTASKFORUPDATINGCONTACTINFOBYNEWCONTACTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_SAVEBATCHTASKFORUPDATINGCONTACTINFOBYNEWCONTACTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DomainIntl20171218
+{
+namespace Models
+{
+  class SaveBatchTaskForUpdatingContactInfoByNewContactRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SaveBatchTaskForUpdatingContactInfoByNewContactRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Address, address_);
+      DARABONBA_PTR_TO_JSON(City, city_);
+      DARABONBA_PTR_TO_JSON(ContactType, contactType_);
+      DARABONBA_PTR_TO_JSON(Country, country_);
+      DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+      DARABONBA_PTR_TO_JSON(Email, email_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(PostalCode, postalCode_);
+      DARABONBA_PTR_TO_JSON(Province, province_);
+      DARABONBA_PTR_TO_JSON(RegistrantName, registrantName_);
+      DARABONBA_PTR_TO_JSON(RegistrantOrganization, registrantOrganization_);
+      DARABONBA_PTR_TO_JSON(TelArea, telArea_);
+      DARABONBA_PTR_TO_JSON(TelExt, telExt_);
+      DARABONBA_PTR_TO_JSON(Telephone, telephone_);
+      DARABONBA_PTR_TO_JSON(TransferOutProhibited, transferOutProhibited_);
+      DARABONBA_PTR_TO_JSON(UserClientIp, userClientIp_);
+    };
+    friend void from_json(const Darabonba::Json& j, SaveBatchTaskForUpdatingContactInfoByNewContactRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Address, address_);
+      DARABONBA_PTR_FROM_JSON(City, city_);
+      DARABONBA_PTR_FROM_JSON(ContactType, contactType_);
+      DARABONBA_PTR_FROM_JSON(Country, country_);
+      DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(Email, email_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(PostalCode, postalCode_);
+      DARABONBA_PTR_FROM_JSON(Province, province_);
+      DARABONBA_PTR_FROM_JSON(RegistrantName, registrantName_);
+      DARABONBA_PTR_FROM_JSON(RegistrantOrganization, registrantOrganization_);
+      DARABONBA_PTR_FROM_JSON(TelArea, telArea_);
+      DARABONBA_PTR_FROM_JSON(TelExt, telExt_);
+      DARABONBA_PTR_FROM_JSON(Telephone, telephone_);
+      DARABONBA_PTR_FROM_JSON(TransferOutProhibited, transferOutProhibited_);
+      DARABONBA_PTR_FROM_JSON(UserClientIp, userClientIp_);
+    };
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest() = default ;
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest(const SaveBatchTaskForUpdatingContactInfoByNewContactRequest &) = default ;
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest(SaveBatchTaskForUpdatingContactInfoByNewContactRequest &&) = default ;
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SaveBatchTaskForUpdatingContactInfoByNewContactRequest() = default ;
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest& operator=(const SaveBatchTaskForUpdatingContactInfoByNewContactRequest &) = default ;
+    SaveBatchTaskForUpdatingContactInfoByNewContactRequest& operator=(SaveBatchTaskForUpdatingContactInfoByNewContactRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->address_ == nullptr
+        && this->city_ == nullptr && this->contactType_ == nullptr && this->country_ == nullptr && this->domainName_ == nullptr && this->email_ == nullptr
+        && this->lang_ == nullptr && this->postalCode_ == nullptr && this->province_ == nullptr && this->registrantName_ == nullptr && this->registrantOrganization_ == nullptr
+        && this->telArea_ == nullptr && this->telExt_ == nullptr && this->telephone_ == nullptr && this->transferOutProhibited_ == nullptr && this->userClientIp_ == nullptr; };
+    // address Field Functions 
+    bool hasAddress() const { return this->address_ != nullptr;};
+    void deleteAddress() { this->address_ = nullptr;};
+    inline string getAddress() const { DARABONBA_PTR_GET_DEFAULT(address_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setAddress(string address) { DARABONBA_PTR_SET_VALUE(address_, address) };
+
+
+    // city Field Functions 
+    bool hasCity() const { return this->city_ != nullptr;};
+    void deleteCity() { this->city_ = nullptr;};
+    inline string getCity() const { DARABONBA_PTR_GET_DEFAULT(city_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setCity(string city) { DARABONBA_PTR_SET_VALUE(city_, city) };
+
+
+    // contactType Field Functions 
+    bool hasContactType() const { return this->contactType_ != nullptr;};
+    void deleteContactType() { this->contactType_ = nullptr;};
+    inline string getContactType() const { DARABONBA_PTR_GET_DEFAULT(contactType_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setContactType(string contactType) { DARABONBA_PTR_SET_VALUE(contactType_, contactType) };
+
+
+    // country Field Functions 
+    bool hasCountry() const { return this->country_ != nullptr;};
+    void deleteCountry() { this->country_ = nullptr;};
+    inline string getCountry() const { DARABONBA_PTR_GET_DEFAULT(country_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setCountry(string country) { DARABONBA_PTR_SET_VALUE(country_, country) };
+
+
+    // domainName Field Functions 
+    bool hasDomainName() const { return this->domainName_ != nullptr;};
+    void deleteDomainName() { this->domainName_ = nullptr;};
+    inline const vector<string> & getDomainName() const { DARABONBA_PTR_GET_CONST(domainName_, vector<string>) };
+    inline vector<string> getDomainName() { DARABONBA_PTR_GET(domainName_, vector<string>) };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setDomainName(const vector<string> & domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setDomainName(vector<string> && domainName) { DARABONBA_PTR_SET_RVALUE(domainName_, domainName) };
+
+
+    // email Field Functions 
+    bool hasEmail() const { return this->email_ != nullptr;};
+    void deleteEmail() { this->email_ = nullptr;};
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // postalCode Field Functions 
+    bool hasPostalCode() const { return this->postalCode_ != nullptr;};
+    void deletePostalCode() { this->postalCode_ = nullptr;};
+    inline string getPostalCode() const { DARABONBA_PTR_GET_DEFAULT(postalCode_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setPostalCode(string postalCode) { DARABONBA_PTR_SET_VALUE(postalCode_, postalCode) };
+
+
+    // province Field Functions 
+    bool hasProvince() const { return this->province_ != nullptr;};
+    void deleteProvince() { this->province_ = nullptr;};
+    inline string getProvince() const { DARABONBA_PTR_GET_DEFAULT(province_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setProvince(string province) { DARABONBA_PTR_SET_VALUE(province_, province) };
+
+
+    // registrantName Field Functions 
+    bool hasRegistrantName() const { return this->registrantName_ != nullptr;};
+    void deleteRegistrantName() { this->registrantName_ = nullptr;};
+    inline string getRegistrantName() const { DARABONBA_PTR_GET_DEFAULT(registrantName_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setRegistrantName(string registrantName) { DARABONBA_PTR_SET_VALUE(registrantName_, registrantName) };
+
+
+    // registrantOrganization Field Functions 
+    bool hasRegistrantOrganization() const { return this->registrantOrganization_ != nullptr;};
+    void deleteRegistrantOrganization() { this->registrantOrganization_ = nullptr;};
+    inline string getRegistrantOrganization() const { DARABONBA_PTR_GET_DEFAULT(registrantOrganization_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setRegistrantOrganization(string registrantOrganization) { DARABONBA_PTR_SET_VALUE(registrantOrganization_, registrantOrganization) };
+
+
+    // telArea Field Functions 
+    bool hasTelArea() const { return this->telArea_ != nullptr;};
+    void deleteTelArea() { this->telArea_ = nullptr;};
+    inline string getTelArea() const { DARABONBA_PTR_GET_DEFAULT(telArea_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setTelArea(string telArea) { DARABONBA_PTR_SET_VALUE(telArea_, telArea) };
+
+
+    // telExt Field Functions 
+    bool hasTelExt() const { return this->telExt_ != nullptr;};
+    void deleteTelExt() { this->telExt_ = nullptr;};
+    inline string getTelExt() const { DARABONBA_PTR_GET_DEFAULT(telExt_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setTelExt(string telExt) { DARABONBA_PTR_SET_VALUE(telExt_, telExt) };
+
+
+    // telephone Field Functions 
+    bool hasTelephone() const { return this->telephone_ != nullptr;};
+    void deleteTelephone() { this->telephone_ = nullptr;};
+    inline string getTelephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setTelephone(string telephone) { DARABONBA_PTR_SET_VALUE(telephone_, telephone) };
+
+
+    // transferOutProhibited Field Functions 
+    bool hasTransferOutProhibited() const { return this->transferOutProhibited_ != nullptr;};
+    void deleteTransferOutProhibited() { this->transferOutProhibited_ = nullptr;};
+    inline bool getTransferOutProhibited() const { DARABONBA_PTR_GET_DEFAULT(transferOutProhibited_, false) };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setTransferOutProhibited(bool transferOutProhibited) { DARABONBA_PTR_SET_VALUE(transferOutProhibited_, transferOutProhibited) };
+
+
+    // userClientIp Field Functions 
+    bool hasUserClientIp() const { return this->userClientIp_ != nullptr;};
+    void deleteUserClientIp() { this->userClientIp_ = nullptr;};
+    inline string getUserClientIp() const { DARABONBA_PTR_GET_DEFAULT(userClientIp_, "") };
+    inline SaveBatchTaskForUpdatingContactInfoByNewContactRequest& setUserClientIp(string userClientIp) { DARABONBA_PTR_SET_VALUE(userClientIp_, userClientIp) };
+
+
+  protected:
+    shared_ptr<string> address_ {};
+    shared_ptr<string> city_ {};
+    // This parameter is required.
+    shared_ptr<string> contactType_ {};
+    shared_ptr<string> country_ {};
+    // This parameter is required.
+    shared_ptr<vector<string>> domainName_ {};
+    shared_ptr<string> email_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<string> postalCode_ {};
+    shared_ptr<string> province_ {};
+    shared_ptr<string> registrantName_ {};
+    shared_ptr<string> registrantOrganization_ {};
+    shared_ptr<string> telArea_ {};
+    shared_ptr<string> telExt_ {};
+    shared_ptr<string> telephone_ {};
+    shared_ptr<bool> transferOutProhibited_ {};
+    shared_ptr<string> userClientIp_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DomainIntl20171218
+#endif
