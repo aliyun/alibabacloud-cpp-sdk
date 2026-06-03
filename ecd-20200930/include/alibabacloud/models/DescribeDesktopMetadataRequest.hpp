@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeDesktopMetadataRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CreationTimeStart, creationTimeStart_);
       DARABONBA_PTR_TO_JSON(DesktopIds, desktopIds_);
+      DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_TO_JSON(GroupId, groupId_);
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -31,6 +32,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeDesktopMetadataRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CreationTimeStart, creationTimeStart_);
       DARABONBA_PTR_FROM_JSON(DesktopIds, desktopIds_);
+      DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
       DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->creationTimeStart_ == nullptr
-        && this->desktopIds_ == nullptr && this->groupId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr && this->includeDesktopGroup_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr && this->operationTimeStart_ == nullptr
-        && this->regionId_ == nullptr && this->searchRegionId_ == nullptr; };
+        && this->desktopIds_ == nullptr && this->endUserId_ == nullptr && this->groupId_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr
+        && this->includeDesktopGroup_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->officeSiteId_ == nullptr
+        && this->operationTimeStart_ == nullptr && this->regionId_ == nullptr && this->searchRegionId_ == nullptr; };
     // creationTimeStart Field Functions 
     bool hasCreationTimeStart() const { return this->creationTimeStart_ != nullptr;};
     void deleteCreationTimeStart() { this->creationTimeStart_ = nullptr;};
@@ -72,6 +74,13 @@ namespace Models
     inline vector<string> getDesktopIds() { DARABONBA_PTR_GET(desktopIds_, vector<string>) };
     inline DescribeDesktopMetadataRequest& setDesktopIds(const vector<string> & desktopIds) { DARABONBA_PTR_SET_VALUE(desktopIds_, desktopIds) };
     inline DescribeDesktopMetadataRequest& setDesktopIds(vector<string> && desktopIds) { DARABONBA_PTR_SET_RVALUE(desktopIds_, desktopIds) };
+
+
+    // endUserId Field Functions 
+    bool hasEndUserId() const { return this->endUserId_ != nullptr;};
+    void deleteEndUserId() { this->endUserId_ = nullptr;};
+    inline string getEndUserId() const { DARABONBA_PTR_GET_DEFAULT(endUserId_, "") };
+    inline DescribeDesktopMetadataRequest& setEndUserId(string endUserId) { DARABONBA_PTR_SET_VALUE(endUserId_, endUserId) };
 
 
     // groupId Field Functions 
@@ -154,6 +163,7 @@ namespace Models
   protected:
     shared_ptr<string> creationTimeStart_ {};
     shared_ptr<vector<string>> desktopIds_ {};
+    shared_ptr<string> endUserId_ {};
     shared_ptr<string> groupId_ {};
     shared_ptr<string> hostName_ {};
     shared_ptr<string> imageId_ {};

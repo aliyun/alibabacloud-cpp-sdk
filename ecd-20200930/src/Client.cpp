@@ -8177,6 +8177,10 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
     query["DesktopIds"] = request.getDesktopIds();
   }
 
+  if (!!request.hasEndUserId()) {
+    query["EndUserId"] = request.getEndUserId();
+  }
+
   if (!!request.hasGroupId()) {
     query["GroupId"] = request.getGroupId();
   }
