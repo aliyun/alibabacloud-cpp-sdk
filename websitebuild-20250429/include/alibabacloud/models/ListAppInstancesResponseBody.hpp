@@ -32,6 +32,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResultLimit, resultLimit_);
       DARABONBA_PTR_TO_JSON(RootErrorCode, rootErrorCode_);
       DARABONBA_PTR_TO_JSON(RootErrorMsg, rootErrorMsg_);
+      DARABONBA_PTR_TO_JSON(StartPosition, startPosition_);
       DARABONBA_PTR_TO_JSON(Synchro, synchro_);
       DARABONBA_PTR_TO_JSON(TotalPageNum, totalPageNum_);
     };
@@ -53,6 +54,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResultLimit, resultLimit_);
       DARABONBA_PTR_FROM_JSON(RootErrorCode, rootErrorCode_);
       DARABONBA_PTR_FROM_JSON(RootErrorMsg, rootErrorMsg_);
+      DARABONBA_PTR_FROM_JSON(StartPosition, startPosition_);
       DARABONBA_PTR_FROM_JSON(Synchro, synchro_);
       DARABONBA_PTR_FROM_JSON(TotalPageNum, totalPageNum_);
     };
@@ -71,7 +73,7 @@ namespace Models
         && this->allowRetry_ == nullptr && this->appName_ == nullptr && this->currentPageNum_ == nullptr && this->data_ == nullptr && this->dynamicCode_ == nullptr
         && this->dynamicMessage_ == nullptr && this->errorArgs_ == nullptr && this->maxResults_ == nullptr && this->nextPage_ == nullptr && this->nextToken_ == nullptr
         && this->pageSize_ == nullptr && this->prePage_ == nullptr && this->requestId_ == nullptr && this->resultLimit_ == nullptr && this->rootErrorCode_ == nullptr
-        && this->rootErrorMsg_ == nullptr && this->synchro_ == nullptr && this->totalPageNum_ == nullptr; };
+        && this->rootErrorMsg_ == nullptr && this->startPosition_ == nullptr && this->synchro_ == nullptr && this->totalPageNum_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
@@ -195,6 +197,13 @@ namespace Models
     inline ListAppInstancesResponseBody& setRootErrorMsg(string rootErrorMsg) { DARABONBA_PTR_SET_VALUE(rootErrorMsg_, rootErrorMsg) };
 
 
+    // startPosition Field Functions 
+    bool hasStartPosition() const { return this->startPosition_ != nullptr;};
+    void deleteStartPosition() { this->startPosition_ = nullptr;};
+    inline string getStartPosition() const { DARABONBA_PTR_GET_DEFAULT(startPosition_, "") };
+    inline ListAppInstancesResponseBody& setStartPosition(string startPosition) { DARABONBA_PTR_SET_VALUE(startPosition_, startPosition) };
+
+
     // synchro Field Functions 
     bool hasSynchro() const { return this->synchro_ != nullptr;};
     void deleteSynchro() { this->synchro_ = nullptr;};
@@ -246,6 +255,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // Error message
     shared_ptr<string> rootErrorMsg_ {};
+    shared_ptr<string> startPosition_ {};
     // Reserved parameter.
     shared_ptr<bool> synchro_ {};
     // Total number of pages.

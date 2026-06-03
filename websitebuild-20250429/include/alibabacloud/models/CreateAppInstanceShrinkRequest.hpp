@@ -16,29 +16,37 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(CreateAction, createAction_);
       DARABONBA_PTR_TO_JSON(DeployArea, deployArea_);
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
+      DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(PricingCycle, pricingCycle_);
       DARABONBA_PTR_TO_JSON(Quantity, quantity_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_TO_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAppInstanceShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(CreateAction, createAction_);
       DARABONBA_PTR_FROM_JSON(DeployArea, deployArea_);
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
+      DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PaymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(PricingCycle, pricingCycle_);
       DARABONBA_PTR_FROM_JSON(Quantity, quantity_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_FROM_JSON(Tags, tagsShrink_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     CreateAppInstanceShrinkRequest() = default ;
     CreateAppInstanceShrinkRequest(const CreateAppInstanceShrinkRequest &) = default ;
@@ -52,9 +60,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->autoRenew_ == nullptr && this->clientToken_ == nullptr && this->deployArea_ == nullptr && this->duration_ == nullptr && this->extend_ == nullptr
-        && this->paymentType_ == nullptr && this->pricingCycle_ == nullptr && this->quantity_ == nullptr && this->resourceGroupId_ == nullptr && this->siteVersion_ == nullptr
-        && this->tagsShrink_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->clientToken_ == nullptr && this->createAction_ == nullptr && this->deployArea_ == nullptr && this->description_ == nullptr
+        && this->duration_ == nullptr && this->extend_ == nullptr && this->name_ == nullptr && this->paymentType_ == nullptr && this->pricingCycle_ == nullptr
+        && this->quantity_ == nullptr && this->resourceGroupId_ == nullptr && this->siteVersion_ == nullptr && this->tagsShrink_ == nullptr && this->version_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -76,11 +84,25 @@ namespace Models
     inline CreateAppInstanceShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
+    // createAction Field Functions 
+    bool hasCreateAction() const { return this->createAction_ != nullptr;};
+    void deleteCreateAction() { this->createAction_ = nullptr;};
+    inline string getCreateAction() const { DARABONBA_PTR_GET_DEFAULT(createAction_, "") };
+    inline CreateAppInstanceShrinkRequest& setCreateAction(string createAction) { DARABONBA_PTR_SET_VALUE(createAction_, createAction) };
+
+
     // deployArea Field Functions 
     bool hasDeployArea() const { return this->deployArea_ != nullptr;};
     void deleteDeployArea() { this->deployArea_ = nullptr;};
     inline string getDeployArea() const { DARABONBA_PTR_GET_DEFAULT(deployArea_, "") };
     inline CreateAppInstanceShrinkRequest& setDeployArea(string deployArea) { DARABONBA_PTR_SET_VALUE(deployArea_, deployArea) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline CreateAppInstanceShrinkRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // duration Field Functions 
@@ -95,6 +117,13 @@ namespace Models
     void deleteExtend() { this->extend_ = nullptr;};
     inline string getExtend() const { DARABONBA_PTR_GET_DEFAULT(extend_, "") };
     inline CreateAppInstanceShrinkRequest& setExtend(string extend) { DARABONBA_PTR_SET_VALUE(extend_, extend) };
+
+
+    // name Field Functions 
+    bool hasName() const { return this->name_ != nullptr;};
+    void deleteName() { this->name_ = nullptr;};
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline CreateAppInstanceShrinkRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // paymentType Field Functions 
@@ -139,6 +168,13 @@ namespace Models
     inline CreateAppInstanceShrinkRequest& setTagsShrink(string tagsShrink) { DARABONBA_PTR_SET_VALUE(tagsShrink_, tagsShrink) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CreateAppInstanceShrinkRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     // Application type
     shared_ptr<string> applicationType_ {};
@@ -146,12 +182,15 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // Ensures idempotence of the request. Generate a unique value from your client to ensure that it is unique across different requests. ClientToken only supports ASCII characters and cannot exceed 64 characters
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> createAction_ {};
     // Deployment area
     shared_ptr<string> deployArea_ {};
+    shared_ptr<string> description_ {};
     // Required. The number of subscription periods
     shared_ptr<int32_t> duration_ {};
     // Extended information
     shared_ptr<string> extend_ {};
+    shared_ptr<string> name_ {};
     // Payment type
     shared_ptr<string> paymentType_ {};
     // Required. The unit of the subscription period, Year: Year, Month: Month, Day: Day, Hour: Hour
@@ -162,6 +201,7 @@ namespace Models
     // Site version
     shared_ptr<string> siteVersion_ {};
     shared_ptr<string> tagsShrink_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

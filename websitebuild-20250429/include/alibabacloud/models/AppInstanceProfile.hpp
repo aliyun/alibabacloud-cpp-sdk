@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(OrdTime, ordTime_);
       DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(PayTime, payTime_);
+      DARABONBA_PTR_TO_JSON(PreviewUrl, previewUrl_);
       DARABONBA_PTR_TO_JSON(SeoSite, seoSite_);
       DARABONBA_PTR_TO_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_TO_JSON(SiteVersionText, siteVersionText_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(OrdTime, ordTime_);
       DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(PayTime, payTime_);
+      DARABONBA_PTR_FROM_JSON(PreviewUrl, previewUrl_);
       DARABONBA_PTR_FROM_JSON(SeoSite, seoSite_);
       DARABONBA_PTR_FROM_JSON(SiteVersion, siteVersion_);
       DARABONBA_PTR_FROM_JSON(SiteVersionText, siteVersionText_);
@@ -61,8 +63,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationType_ == nullptr
         && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->commodityCode_ == nullptr && this->customerService_ == nullptr && this->deployArea_ == nullptr
-        && this->instanceId_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->seoSite_ == nullptr
-        && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
+        && this->seoSite_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr
+        && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -133,6 +136,13 @@ namespace Models
     inline AppInstanceProfile& setPayTime(string payTime) { DARABONBA_PTR_SET_VALUE(payTime_, payTime) };
 
 
+    // previewUrl Field Functions 
+    bool hasPreviewUrl() const { return this->previewUrl_ != nullptr;};
+    void deletePreviewUrl() { this->previewUrl_ = nullptr;};
+    inline string getPreviewUrl() const { DARABONBA_PTR_GET_DEFAULT(previewUrl_, "") };
+    inline AppInstanceProfile& setPreviewUrl(string previewUrl) { DARABONBA_PTR_SET_VALUE(previewUrl_, previewUrl) };
+
+
     // seoSite Field Functions 
     bool hasSeoSite() const { return this->seoSite_ != nullptr;};
     void deleteSeoSite() { this->seoSite_ = nullptr;};
@@ -186,6 +196,7 @@ namespace Models
     shared_ptr<string> ordTime_ {};
     shared_ptr<string> orderId_ {};
     shared_ptr<string> payTime_ {};
+    shared_ptr<string> previewUrl_ {};
     shared_ptr<string> seoSite_ {};
     shared_ptr<string> siteVersion_ {};
     shared_ptr<string> siteVersionText_ {};

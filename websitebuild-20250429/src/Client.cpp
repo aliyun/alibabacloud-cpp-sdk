@@ -581,8 +581,16 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasCreateAction()) {
+    query["CreateAction"] = request.getCreateAction();
+  }
+
   if (!!request.hasDeployArea()) {
     query["DeployArea"] = request.getDeployArea();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasDuration()) {
@@ -591,6 +599,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasExtend()) {
     query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPaymentType()) {
@@ -607,6 +619,10 @@ CreateAppInstanceResponse Client::createAppInstanceWithOptions(const CreateAppIn
 
   if (!!request.hasSiteVersion()) {
     query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  if (!!request.hasVersion()) {
+    query["Version"] = request.getVersion();
   }
 
   json body = {};
