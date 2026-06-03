@@ -109,7 +109,6 @@ AddDiskReplicaPairResponse Client::addDiskReplicaPair(const AddDiskReplicaPairRe
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
  *
- * @param request ApplyLensServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ApplyLensServiceResponse
  */
@@ -202,7 +201,6 @@ BindEnterpriseSnapshotPolicyResponse Client::bindEnterpriseSnapshotPolicy(const 
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
  *
- * @param request CancelLensServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelLensServiceResponse
  */
@@ -1486,82 +1484,6 @@ DescribeDiagnoseReportResponse Client::describeDiagnoseReport(const DescribeDiag
 }
 
 /**
- * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
- *
- * @description ## Usage notes
- * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
- *
- * @param request DescribeDiskEventsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeDiskEventsResponse
- */
-DescribeDiskEventsResponse Client::describeDiskEventsWithOptions(const DescribeDiskEventsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDiskCategory()) {
-    query["DiskCategory"] = request.getDiskCategory();
-  }
-
-  if (!!request.hasDiskId()) {
-    query["DiskId"] = request.getDiskId();
-  }
-
-  if (!!request.hasEndTime()) {
-    query["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.getMaxResults();
-  }
-
-  if (!!request.hasNextToken()) {
-    query["NextToken"] = request.getNextToken();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasStartTime()) {
-    query["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasType()) {
-    query["Type"] = request.getType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeDiskEvents"},
-    {"version" , "2021-07-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeDiskEventsResponse>();
-}
-
-/**
- * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
- *
- * @description ## Usage notes
- * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
- *
- * @param request DescribeDiskEventsRequest
- * @return DescribeDiskEventsResponse
- */
-DescribeDiskEventsResponse Client::describeDiskEvents(const DescribeDiskEventsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeDiskEventsWithOptions(request, runtime);
-}
-
-/**
  * @summary Queries fine-grained monitoring data of a disk.
  *
  * @description ## Usage notes
@@ -1631,78 +1553,6 @@ DescribeDiskMonitorDataResponse Client::describeDiskMonitorDataWithOptions(const
 DescribeDiskMonitorDataResponse Client::describeDiskMonitorData(const DescribeDiskMonitorDataRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDiskMonitorDataWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
- *
- * @description ## Usage notes
- * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
- *
- * @param request DescribeDiskMonitorDataListRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeDiskMonitorDataListResponse
- */
-DescribeDiskMonitorDataListResponse Client::describeDiskMonitorDataListWithOptions(const DescribeDiskMonitorDataListRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasDiskIds()) {
-    query["DiskIds"] = request.getDiskIds();
-  }
-
-  if (!!request.hasEndTime()) {
-    query["EndTime"] = request.getEndTime();
-  }
-
-  if (!!request.hasMaxResults()) {
-    query["MaxResults"] = request.getMaxResults();
-  }
-
-  if (!!request.hasNextToken()) {
-    query["NextToken"] = request.getNextToken();
-  }
-
-  if (!!request.hasRegionId()) {
-    query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasStartTime()) {
-    query["StartTime"] = request.getStartTime();
-  }
-
-  if (!!request.hasType()) {
-    query["Type"] = request.getType();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "DescribeDiskMonitorDataList"},
-    {"version" , "2021-07-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeDiskMonitorDataListResponse>();
-}
-
-/**
- * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
- *
- * @description ## Usage notes
- * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
- *
- * @param request DescribeDiskMonitorDataListRequest
- * @return DescribeDiskMonitorDataListResponse
- */
-DescribeDiskMonitorDataListResponse Client::describeDiskMonitorDataList(const DescribeDiskMonitorDataListRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeDiskMonitorDataListWithOptions(request, runtime);
 }
 
 /**
@@ -2157,7 +2007,6 @@ DescribeLensMonitorDisksResponse Client::describeLensMonitorDisks(const Describe
  * @description ## Usage notes
  * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
  *
- * @param request DescribeLensServiceStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeLensServiceStatusResponse
  */

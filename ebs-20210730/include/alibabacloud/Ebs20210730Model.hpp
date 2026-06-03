@@ -64,15 +64,9 @@
 #include <alibabacloud/models/DescribeDiagnoseReportRequest.hpp>
 #include <alibabacloud/models/DescribeDiagnoseReportResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiagnoseReportResponse.hpp>
-#include <alibabacloud/models/DescribeDiskEventsRequest.hpp>
-#include <alibabacloud/models/DescribeDiskEventsResponseBody.hpp>
-#include <alibabacloud/models/DescribeDiskEventsResponse.hpp>
 #include <alibabacloud/models/DescribeDiskMonitorDataRequest.hpp>
 #include <alibabacloud/models/DescribeDiskMonitorDataResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiskMonitorDataResponse.hpp>
-#include <alibabacloud/models/DescribeDiskMonitorDataListRequest.hpp>
-#include <alibabacloud/models/DescribeDiskMonitorDataListResponseBody.hpp>
-#include <alibabacloud/models/DescribeDiskMonitorDataListResponse.hpp>
 #include <alibabacloud/models/DescribeDiskReplicaGroupsRequest.hpp>
 #include <alibabacloud/models/DescribeDiskReplicaGroupsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDiskReplicaGroupsResponse.hpp>

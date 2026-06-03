@@ -57,7 +57,6 @@ namespace Ebs20210730
        * @description ## Usage notes
        * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
        *
-       * @param request ApplyLensServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ApplyLensServiceResponse
        */
@@ -96,7 +95,6 @@ namespace Ebs20210730
        * @description ## Usage notes
        * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
        *
-       * @param request CancelLensServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelLensServiceResponse
        */
@@ -490,29 +488,6 @@ namespace Ebs20210730
       Models::DescribeDiagnoseReportResponse describeDiagnoseReport(const Models::DescribeDiagnoseReportRequest &request);
 
       /**
-       * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-       *
-       * @description ## Usage notes
-       * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-       *
-       * @param request DescribeDiskEventsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDiskEventsResponse
-       */
-      Models::DescribeDiskEventsResponse describeDiskEventsWithOptions(const Models::DescribeDiskEventsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-       *
-       * @description ## Usage notes
-       * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-       *
-       * @param request DescribeDiskEventsRequest
-       * @return DescribeDiskEventsResponse
-       */
-      Models::DescribeDiskEventsResponse describeDiskEvents(const Models::DescribeDiskEventsRequest &request);
-
-      /**
        * @summary Queries fine-grained monitoring data of a disk.
        *
        * @description ## Usage notes
@@ -538,29 +513,6 @@ namespace Ebs20210730
        * @return DescribeDiskMonitorDataResponse
        */
       Models::DescribeDiskMonitorDataResponse describeDiskMonitorData(const Models::DescribeDiskMonitorDataRequest &request);
-
-      /**
-       * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-       *
-       * @description ## Usage notes
-       * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-       *
-       * @param request DescribeDiskMonitorDataListRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeDiskMonitorDataListResponse
-       */
-      Models::DescribeDiskMonitorDataListResponse describeDiskMonitorDataListWithOptions(const Models::DescribeDiskMonitorDataListRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-       *
-       * @description ## Usage notes
-       * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-       *
-       * @param request DescribeDiskMonitorDataListRequest
-       * @return DescribeDiskMonitorDataListResponse
-       */
-      Models::DescribeDiskMonitorDataListResponse describeDiskMonitorDataList(const Models::DescribeDiskMonitorDataListRequest &request);
 
       /**
        * @summary Queries the details of replication pair-consistent groups in a specific region.
@@ -688,7 +640,6 @@ namespace Ebs20210730
        * @description ## Usage notes
        * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
        *
-       * @param request DescribeLensServiceStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeLensServiceStatusResponse
        */
