@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_TO_JSON(createdTime, createdTime_);
       DARABONBA_PTR_TO_JSON(domainName, domainName_);
+      DARABONBA_PTR_TO_JSON(isE2B, isE2B_);
       DARABONBA_PTR_TO_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(routeConfig, routeConfig_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_FROM_JSON(createdTime, createdTime_);
       DARABONBA_PTR_FROM_JSON(domainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(isE2B, isE2B_);
       DARABONBA_PTR_FROM_JSON(lastModifiedTime, lastModifiedTime_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(routeConfig, routeConfig_);
@@ -61,8 +63,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountId_ == nullptr
         && this->apiVersion_ == nullptr && this->authConfig_ == nullptr && this->certConfig_ == nullptr && this->corsConfig_ == nullptr && this->createdTime_ == nullptr
-        && this->domainName_ == nullptr && this->lastModifiedTime_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr && this->subdomainCount_ == nullptr
-        && this->tlsConfig_ == nullptr && this->wafConfig_ == nullptr; };
+        && this->domainName_ == nullptr && this->isE2B_ == nullptr && this->lastModifiedTime_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr
+        && this->subdomainCount_ == nullptr && this->tlsConfig_ == nullptr && this->wafConfig_ == nullptr; };
     // accountId Field Functions 
     bool hasAccountId() const { return this->accountId_ != nullptr;};
     void deleteAccountId() { this->accountId_ = nullptr;};
@@ -116,6 +118,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CustomDomain& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // isE2B Field Functions 
+    bool hasIsE2B() const { return this->isE2B_ != nullptr;};
+    void deleteIsE2B() { this->isE2B_ = nullptr;};
+    inline bool getIsE2B() const { DARABONBA_PTR_GET_DEFAULT(isE2B_, false) };
+    inline CustomDomain& setIsE2B(bool isE2B) { DARABONBA_PTR_SET_VALUE(isE2B_, isE2B) };
 
 
     // lastModifiedTime Field Functions 
@@ -180,6 +189,7 @@ namespace Models
     shared_ptr<string> createdTime_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
+    shared_ptr<bool> isE2B_ {};
     // The time when the custom domain name was last updated.
     shared_ptr<string> lastModifiedTime_ {};
     // The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS

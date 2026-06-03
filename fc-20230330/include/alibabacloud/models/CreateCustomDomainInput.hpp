@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(certConfig, certConfig_);
       DARABONBA_PTR_TO_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_TO_JSON(domainName, domainName_);
+      DARABONBA_PTR_TO_JSON(isE2B, isE2B_);
       DARABONBA_PTR_TO_JSON(protocol, protocol_);
       DARABONBA_PTR_TO_JSON(routeConfig, routeConfig_);
       DARABONBA_PTR_TO_JSON(tlsConfig, tlsConfig_);
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(certConfig, certConfig_);
       DARABONBA_PTR_FROM_JSON(corsConfig, corsConfig_);
       DARABONBA_PTR_FROM_JSON(domainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(isE2B, isE2B_);
       DARABONBA_PTR_FROM_JSON(protocol, protocol_);
       DARABONBA_PTR_FROM_JSON(routeConfig, routeConfig_);
       DARABONBA_PTR_FROM_JSON(tlsConfig, tlsConfig_);
@@ -50,8 +52,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authConfig_ == nullptr
-        && this->certConfig_ == nullptr && this->corsConfig_ == nullptr && this->domainName_ == nullptr && this->protocol_ == nullptr && this->routeConfig_ == nullptr
-        && this->tlsConfig_ == nullptr && this->wafConfig_ == nullptr; };
+        && this->certConfig_ == nullptr && this->corsConfig_ == nullptr && this->domainName_ == nullptr && this->isE2B_ == nullptr && this->protocol_ == nullptr
+        && this->routeConfig_ == nullptr && this->tlsConfig_ == nullptr && this->wafConfig_ == nullptr; };
     // authConfig Field Functions 
     bool hasAuthConfig() const { return this->authConfig_ != nullptr;};
     void deleteAuthConfig() { this->authConfig_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateCustomDomainInput& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // isE2B Field Functions 
+    bool hasIsE2B() const { return this->isE2B_ != nullptr;};
+    void deleteIsE2B() { this->isE2B_ = nullptr;};
+    inline bool getIsE2B() const { DARABONBA_PTR_GET_DEFAULT(isE2B_, false) };
+    inline CreateCustomDomainInput& setIsE2B(bool isE2B) { DARABONBA_PTR_SET_VALUE(isE2B_, isE2B) };
 
 
     // protocol Field Functions 
@@ -130,6 +139,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    shared_ptr<bool> isE2B_ {};
     // The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
     shared_ptr<string> protocol_ {};
     // The route table that maps paths to functions when the function is invoked by using the custom domain name.
