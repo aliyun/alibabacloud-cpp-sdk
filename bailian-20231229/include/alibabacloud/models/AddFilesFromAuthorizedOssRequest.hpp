@@ -47,10 +47,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const FileDetails& obj) { 
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(OssKey, ossKey_);
+        DARABONBA_PTR_TO_JSON(Parser, parser_);
+        DARABONBA_PTR_TO_JSON(ParserConfig, parserConfig_);
       };
       friend void from_json(const Darabonba::Json& j, FileDetails& obj) { 
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(OssKey, ossKey_);
+        DARABONBA_PTR_FROM_JSON(Parser, parser_);
+        DARABONBA_PTR_FROM_JSON(ParserConfig, parserConfig_);
       };
       FileDetails() = default ;
       FileDetails(const FileDetails &) = default ;
@@ -63,8 +67,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class ParserConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ParserConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(ModelName, modelName_);
+          DARABONBA_PTR_TO_JSON(ModelPrompt, modelPrompt_);
+        };
+        friend void from_json(const Darabonba::Json& j, ParserConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(ModelPrompt, modelPrompt_);
+        };
+        ParserConfig() = default ;
+        ParserConfig(const ParserConfig &) = default ;
+        ParserConfig(ParserConfig &&) = default ;
+        ParserConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ParserConfig() = default ;
+        ParserConfig& operator=(const ParserConfig &) = default ;
+        ParserConfig& operator=(ParserConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->modelName_ == nullptr
+        && this->modelPrompt_ == nullptr; };
+        // modelName Field Functions 
+        bool hasModelName() const { return this->modelName_ != nullptr;};
+        void deleteModelName() { this->modelName_ = nullptr;};
+        inline string getModelName() const { DARABONBA_PTR_GET_DEFAULT(modelName_, "") };
+        inline ParserConfig& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
+
+
+        // modelPrompt Field Functions 
+        bool hasModelPrompt() const { return this->modelPrompt_ != nullptr;};
+        void deleteModelPrompt() { this->modelPrompt_ = nullptr;};
+        inline string getModelPrompt() const { DARABONBA_PTR_GET_DEFAULT(modelPrompt_, "") };
+        inline ParserConfig& setModelPrompt(string modelPrompt) { DARABONBA_PTR_SET_VALUE(modelPrompt_, modelPrompt) };
+
+
+      protected:
+        shared_ptr<string> modelName_ {};
+        shared_ptr<string> modelPrompt_ {};
+      };
+
       virtual bool empty() const override { return this->fileName_ == nullptr
-        && this->ossKey_ == nullptr; };
+        && this->ossKey_ == nullptr && this->parser_ == nullptr && this->parserConfig_ == nullptr; };
       // fileName Field Functions 
       bool hasFileName() const { return this->fileName_ != nullptr;};
       void deleteFileName() { this->fileName_ = nullptr;};
@@ -79,11 +125,29 @@ namespace Models
       inline FileDetails& setOssKey(string ossKey) { DARABONBA_PTR_SET_VALUE(ossKey_, ossKey) };
 
 
+      // parser Field Functions 
+      bool hasParser() const { return this->parser_ != nullptr;};
+      void deleteParser() { this->parser_ = nullptr;};
+      inline string getParser() const { DARABONBA_PTR_GET_DEFAULT(parser_, "") };
+      inline FileDetails& setParser(string parser) { DARABONBA_PTR_SET_VALUE(parser_, parser) };
+
+
+      // parserConfig Field Functions 
+      bool hasParserConfig() const { return this->parserConfig_ != nullptr;};
+      void deleteParserConfig() { this->parserConfig_ = nullptr;};
+      inline const FileDetails::ParserConfig & getParserConfig() const { DARABONBA_PTR_GET_CONST(parserConfig_, FileDetails::ParserConfig) };
+      inline FileDetails::ParserConfig getParserConfig() { DARABONBA_PTR_GET(parserConfig_, FileDetails::ParserConfig) };
+      inline FileDetails& setParserConfig(const FileDetails::ParserConfig & parserConfig) { DARABONBA_PTR_SET_VALUE(parserConfig_, parserConfig) };
+      inline FileDetails& setParserConfig(FileDetails::ParserConfig && parserConfig) { DARABONBA_PTR_SET_RVALUE(parserConfig_, parserConfig) };
+
+
     protected:
       // This parameter is required.
       shared_ptr<string> fileName_ {};
       // This parameter is required.
       shared_ptr<string> ossKey_ {};
+      shared_ptr<string> parser_ {};
+      shared_ptr<FileDetails::ParserConfig> parserConfig_ {};
     };
 
     virtual bool empty() const override { return this->categoryId_ == nullptr

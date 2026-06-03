@@ -403,6 +403,24 @@ namespace Bailian20231229
       Models::DeleteChunkResponse deleteChunk(const string &WorkspaceId, const Models::DeleteChunkRequest &request);
 
       /**
+       * @summary 删除连接器
+       *
+       * @param request DeleteConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteConnectorResponse
+       */
+      Models::DeleteConnectorResponse deleteConnectorWithOptions(const string &ConnectorId, const string &WorkspaceId, const Models::DeleteConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除连接器
+       *
+       * @param request DeleteConnectorRequest
+       * @return DeleteConnectorResponse
+       */
+      Models::DeleteConnectorResponse deleteConnector(const string &ConnectorId, const string &WorkspaceId, const Models::DeleteConnectorRequest &request);
+
+      /**
        * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
        *
        * @param request DeleteFileRequest
@@ -1145,6 +1163,24 @@ namespace Bailian20231229
        * @return UpdateChunkResponse
        */
       Models::UpdateChunkResponse updateChunk(const string &WorkspaceId, const Models::UpdateChunkRequest &request);
+
+      /**
+       * @summary 编辑连接器
+       *
+       * @param request UpdateConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnectorWithOptions(const string &WorkspaceId, const string &ConnectorId, const Models::UpdateConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑连接器
+       *
+       * @param request UpdateConnectorRequest
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnector(const string &WorkspaceId, const string &ConnectorId, const Models::UpdateConnectorRequest &request);
 
       /**
        * @summary Updates the tags of a specified document.

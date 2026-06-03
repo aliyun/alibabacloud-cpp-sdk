@@ -62,6 +62,9 @@
 #include <alibabacloud/models/DeleteChunkShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteChunkResponseBody.hpp>
 #include <alibabacloud/models/DeleteChunkResponse.hpp>
+#include <alibabacloud/models/DeleteConnectorRequest.hpp>
+#include <alibabacloud/models/DeleteConnectorResponseBody.hpp>
+#include <alibabacloud/models/DeleteConnectorResponse.hpp>
 #include <alibabacloud/models/DeleteFileRequest.hpp>
 #include <alibabacloud/models/DeleteFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteFileResponse.hpp>
@@ -173,6 +176,9 @@
 #include <alibabacloud/models/UpdateChunkRequest.hpp>
 #include <alibabacloud/models/UpdateChunkResponseBody.hpp>
 #include <alibabacloud/models/UpdateChunkResponse.hpp>
+#include <alibabacloud/models/UpdateConnectorRequest.hpp>
+#include <alibabacloud/models/UpdateConnectorResponseBody.hpp>
+#include <alibabacloud/models/UpdateConnectorResponse.hpp>
 #include <alibabacloud/models/UpdateFileTagRequest.hpp>
 #include <alibabacloud/models/UpdateFileTagShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateFileTagResponseBody.hpp>

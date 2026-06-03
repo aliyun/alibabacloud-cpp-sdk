@@ -1220,6 +1220,45 @@ DeleteChunkResponse Client::deleteChunk(const string &WorkspaceId, const DeleteC
 }
 
 /**
+ * @summary 删除连接器
+ *
+ * @param request DeleteConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteConnectorResponse
+ */
+DeleteConnectorResponse Client::deleteConnectorWithOptions(const string &ConnectorId, const string &WorkspaceId, const DeleteConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteConnector"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/connector/" , Darabonba::Encode::Encoder::percentEncode(ConnectorId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteConnectorResponse>();
+}
+
+/**
+ * @summary 删除连接器
+ *
+ * @param request DeleteConnectorRequest
+ * @return DeleteConnectorResponse
+ */
+DeleteConnectorResponse Client::deleteConnector(const string &ConnectorId, const string &WorkspaceId, const DeleteConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteConnectorWithOptions(ConnectorId, WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
  *
  * @param request DeleteFileRequest
@@ -3252,6 +3291,55 @@ UpdateChunkResponse Client::updateChunk(const string &WorkspaceId, const UpdateC
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateChunkWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 编辑连接器
+ *
+ * @param request UpdateConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnectorWithOptions(const string &WorkspaceId, const string &ConnectorId, const UpdateConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConnectorName()) {
+    body["ConnectorName"] = request.getConnectorName();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateConnector"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/connector/" , Darabonba::Encode::Encoder::percentEncode(ConnectorId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConnectorResponse>();
+}
+
+/**
+ * @summary 编辑连接器
+ *
+ * @param request UpdateConnectorRequest
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnector(const string &WorkspaceId, const string &ConnectorId, const UpdateConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateConnectorWithOptions(WorkspaceId, ConnectorId, request, headers, runtime);
 }
 
 /**
