@@ -1562,6 +1562,41 @@ CreateTaskExportTaskResponse Client::createTaskExportTask(const CreateTaskExport
 }
 
 /**
+ * @summary 创建密钥
+ *
+ * @param request CreateTenantKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateTenantKeyResponse
+ */
+CreateTenantKeyResponse Client::createTenantKeyWithOptions(const CreateTenantKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "CreateTenantKey"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateTenantKeyResponse>();
+}
+
+/**
+ * @summary 创建密钥
+ *
+ * @param request CreateTenantKeyRequest
+ * @return CreateTenantKeyResponse
+ */
+CreateTenantKeyResponse Client::createTenantKey(const CreateTenantKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createTenantKeyWithOptions(request, runtime);
+}
+
+/**
  * @param tmpReq DeleteAgentProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAgentProfilesResponse
@@ -4154,6 +4189,41 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
+ * @summary 获取非对称加密算法公钥
+ *
+ * @param request GetPublicKeyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetPublicKeyResponse
+ */
+GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetPublicKey"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetPublicKeyResponse>();
+}
+
+/**
+ * @summary 获取非对称加密算法公钥
+ *
+ * @param request GetPublicKeyRequest
+ * @return GetPublicKeyResponse
+ */
+GetPublicKeyResponse Client::getPublicKey(const GetPublicKeyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getPublicKeyWithOptions(request, runtime);
+}
+
+/**
  * @summary GetRealtimeConcurrencyReport
  *
  * @param request GetRealtimeConcurrencyReportRequest
@@ -5647,6 +5717,56 @@ ListScriptRecordingResponse Client::listScriptRecordingWithOptions(const ListScr
 ListScriptRecordingResponse Client::listScriptRecording(const ListScriptRecordingRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listScriptRecordingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取场景中当前使用的变量
+ *
+ * @param request ListScriptVariablesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListScriptVariablesResponse
+ */
+ListScriptVariablesResponse Client::listScriptVariablesWithOptions(const ListScriptVariablesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSandbox()) {
+    query["Sandbox"] = request.getSandbox();
+  }
+
+  if (!!request.hasScriptId()) {
+    query["ScriptId"] = request.getScriptId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListScriptVariables"},
+    {"version" , "2019-12-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListScriptVariablesResponse>();
+}
+
+/**
+ * @summary 获取场景中当前使用的变量
+ *
+ * @param request ListScriptVariablesRequest
+ * @return ListScriptVariablesResponse
+ */
+ListScriptVariablesResponse Client::listScriptVariables(const ListScriptVariablesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listScriptVariablesWithOptions(request, runtime);
 }
 
 /**

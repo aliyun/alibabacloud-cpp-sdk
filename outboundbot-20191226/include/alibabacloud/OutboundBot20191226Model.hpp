@@ -79,6 +79,9 @@
 #include <alibabacloud/models/CreateTaskExportTaskRequest.hpp>
 #include <alibabacloud/models/CreateTaskExportTaskResponseBody.hpp>
 #include <alibabacloud/models/CreateTaskExportTaskResponse.hpp>
+#include <alibabacloud/models/CreateTenantKeyRequest.hpp>
+#include <alibabacloud/models/CreateTenantKeyResponseBody.hpp>
+#include <alibabacloud/models/CreateTenantKeyResponse.hpp>
 #include <alibabacloud/models/DeleteAgentProfilesRequest.hpp>
 #include <alibabacloud/models/DeleteAgentProfilesShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteAgentProfilesResponseBody.hpp>
@@ -245,6 +248,9 @@
 #include <alibabacloud/models/GetMaxAttemptsPerDayResponse.hpp>
 #include <alibabacloud/models/GetNumberDistrictInfoTemplateDownloadUrlResponseBody.hpp>
 #include <alibabacloud/models/GetNumberDistrictInfoTemplateDownloadUrlResponse.hpp>
+#include <alibabacloud/models/GetPublicKeyRequest.hpp>
+#include <alibabacloud/models/GetPublicKeyResponseBody.hpp>
+#include <alibabacloud/models/GetPublicKeyResponse.hpp>
 #include <alibabacloud/models/GetRealtimeConcurrencyReportRequest.hpp>
 #include <alibabacloud/models/GetRealtimeConcurrencyReportResponseBody.hpp>
 #include <alibabacloud/models/GetRealtimeConcurrencyReportResponse.hpp>
@@ -333,6 +339,9 @@
 #include <alibabacloud/models/ListScriptRecordingRequest.hpp>
 #include <alibabacloud/models/ListScriptRecordingResponseBody.hpp>
 #include <alibabacloud/models/ListScriptRecordingResponse.hpp>
+#include <alibabacloud/models/ListScriptVariablesRequest.hpp>
+#include <alibabacloud/models/ListScriptVariablesResponseBody.hpp>
+#include <alibabacloud/models/ListScriptVariablesResponse.hpp>
 #include <alibabacloud/models/ListScriptVoiceConfigsRequest.hpp>
 #include <alibabacloud/models/ListScriptVoiceConfigsResponseBody.hpp>
 #include <alibabacloud/models/ListScriptVoiceConfigsResponse.hpp>

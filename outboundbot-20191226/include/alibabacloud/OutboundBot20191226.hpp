@@ -385,6 +385,23 @@ namespace OutboundBot20191226
       Models::CreateTaskExportTaskResponse createTaskExportTask(const Models::CreateTaskExportTaskRequest &request);
 
       /**
+       * @summary 创建密钥
+       *
+       * @param request CreateTenantKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTenantKeyResponse
+       */
+      Models::CreateTenantKeyResponse createTenantKeyWithOptions(const Models::CreateTenantKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建密钥
+       *
+       * @param request CreateTenantKeyRequest
+       * @return CreateTenantKeyResponse
+       */
+      Models::CreateTenantKeyResponse createTenantKey(const Models::CreateTenantKeyRequest &request);
+
+      /**
        * @param tmpReq DeleteAgentProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAgentProfilesResponse
@@ -1199,6 +1216,23 @@ namespace OutboundBot20191226
       Models::GetNumberDistrictInfoTemplateDownloadUrlResponse getNumberDistrictInfoTemplateDownloadUrl();
 
       /**
+       * @summary 获取非对称加密算法公钥
+       *
+       * @param request GetPublicKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetPublicKeyResponse
+       */
+      Models::GetPublicKeyResponse getPublicKeyWithOptions(const Models::GetPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取非对称加密算法公钥
+       *
+       * @param request GetPublicKeyRequest
+       * @return GetPublicKeyResponse
+       */
+      Models::GetPublicKeyResponse getPublicKey(const Models::GetPublicKeyRequest &request);
+
+      /**
        * @summary GetRealtimeConcurrencyReport
        *
        * @param request GetRealtimeConcurrencyReportRequest
@@ -1635,6 +1669,23 @@ namespace OutboundBot20191226
        * @return ListScriptRecordingResponse
        */
       Models::ListScriptRecordingResponse listScriptRecording(const Models::ListScriptRecordingRequest &request);
+
+      /**
+       * @summary 获取场景中当前使用的变量
+       *
+       * @param request ListScriptVariablesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScriptVariablesResponse
+       */
+      Models::ListScriptVariablesResponse listScriptVariablesWithOptions(const Models::ListScriptVariablesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取场景中当前使用的变量
+       *
+       * @param request ListScriptVariablesRequest
+       * @return ListScriptVariablesResponse
+       */
+      Models::ListScriptVariablesResponse listScriptVariables(const Models::ListScriptVariablesRequest &request);
 
       /**
        * @param request ListScriptVoiceConfigsRequest
