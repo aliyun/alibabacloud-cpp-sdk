@@ -116,25 +116,5 @@
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
-#include <alibabacloud/models/CreateExpressConnectRouterRequestTag.hpp>
-#include <alibabacloud/models/CreateFlowLogRequestTag.hpp>
-#include <alibabacloud/models/DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisabledRouteEntryList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterRequestTag.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterResponseBodyEcrListTags.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterResponseBodyEcrList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterAllowedPrefixHistoryResponseBodyAllowedPrefixHistoryList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterAssociationResponseBodyAssociationList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList.hpp>
-#include <alibabacloud/models/DescribeExpressConnectRouterRouteEntriesResponseBodyRouteEntriesList.hpp>
-#include <alibabacloud/models/DescribeFlowLogsRequestTag.hpp>
-#include <alibabacloud/models/DescribeFlowLogsResponseBodyFlowLogsTags.hpp>
-#include <alibabacloud/models/DescribeFlowLogsResponseBodyFlowLogs.hpp>
-#include <alibabacloud/models/DescribeInstanceGrantedToExpressConnectRouterRequestTagModels.hpp>
-#include <alibabacloud/models/DescribeInstanceGrantedToExpressConnectRouterResponseBodyEcrGrantedInstanceList.hpp>
-#include <alibabacloud/models/ListTagResourcesRequestTag.hpp>
-#include <alibabacloud/models/ListTagResourcesResponseBodyTagResources.hpp>
-#include <alibabacloud/models/ModifyExpressConnectRouterInterRegionTransitModeRequestTransitModeList.hpp>
-#include <alibabacloud/models/TagResourcesRequestTag.hpp>
 
 #endif

@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->destinationCidrBlock_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr && return this->nexthopInstanceId_ == nullptr && return this->version_ == nullptr; };
+        && this->destinationCidrBlock_ == nullptr && this->dryRun_ == nullptr && this->ecrId_ == nullptr && this->nexthopInstanceId_ == nullptr && this->version_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline EnableExpressConnectRouterRouteEntriesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // destinationCidrBlock Field Functions 
     bool hasDestinationCidrBlock() const { return this->destinationCidrBlock_ != nullptr;};
     void deleteDestinationCidrBlock() { this->destinationCidrBlock_ = nullptr;};
-    inline string destinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
+    inline string getDestinationCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(destinationCidrBlock_, "") };
     inline EnableExpressConnectRouterRouteEntriesRequest& setDestinationCidrBlock(string destinationCidrBlock) { DARABONBA_PTR_SET_VALUE(destinationCidrBlock_, destinationCidrBlock) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline EnableExpressConnectRouterRouteEntriesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // ecrId Field Functions 
     bool hasEcrId() const { return this->ecrId_ != nullptr;};
     void deleteEcrId() { this->ecrId_ = nullptr;};
-    inline string ecrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
+    inline string getEcrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
     inline EnableExpressConnectRouterRouteEntriesRequest& setEcrId(string ecrId) { DARABONBA_PTR_SET_VALUE(ecrId_, ecrId) };
 
 
     // nexthopInstanceId Field Functions 
     bool hasNexthopInstanceId() const { return this->nexthopInstanceId_ != nullptr;};
     void deleteNexthopInstanceId() { this->nexthopInstanceId_ = nullptr;};
-    inline string nexthopInstanceId() const { DARABONBA_PTR_GET_DEFAULT(nexthopInstanceId_, "") };
+    inline string getNexthopInstanceId() const { DARABONBA_PTR_GET_DEFAULT(nexthopInstanceId_, "") };
     inline EnableExpressConnectRouterRouteEntriesRequest& setNexthopInstanceId(string nexthopInstanceId) { DARABONBA_PTR_SET_VALUE(nexthopInstanceId_, nexthopInstanceId) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline EnableExpressConnectRouterRouteEntriesRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
@@ -89,25 +89,25 @@ namespace Models
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The destination CIDR block of the route entry in the route table of the ECR.
     // 
     // This parameter is required.
-    std::shared_ptr<string> destinationCidrBlock_ = nullptr;
+    shared_ptr<string> destinationCidrBlock_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs only a dry run.
     // *   **false** (default): performs a dry run and performs the actual request.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The ECR ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ecrId_ = nullptr;
+    shared_ptr<string> ecrId_ {};
     // The ID of the next-hop instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> nexthopInstanceId_ = nullptr;
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> nexthopInstanceId_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

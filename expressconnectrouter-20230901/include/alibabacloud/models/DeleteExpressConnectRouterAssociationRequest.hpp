@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->associationId_ == nullptr
-        && return this->clientToken_ == nullptr && return this->deleteAttachment_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr && return this->version_ == nullptr; };
+        && this->clientToken_ == nullptr && this->deleteAttachment_ == nullptr && this->dryRun_ == nullptr && this->ecrId_ == nullptr && this->version_ == nullptr; };
     // associationId Field Functions 
     bool hasAssociationId() const { return this->associationId_ != nullptr;};
     void deleteAssociationId() { this->associationId_ = nullptr;};
-    inline string associationId() const { DARABONBA_PTR_GET_DEFAULT(associationId_, "") };
+    inline string getAssociationId() const { DARABONBA_PTR_GET_DEFAULT(associationId_, "") };
     inline DeleteExpressConnectRouterAssociationRequest& setAssociationId(string associationId) { DARABONBA_PTR_SET_VALUE(associationId_, associationId) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteExpressConnectRouterAssociationRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deleteAttachment Field Functions 
     bool hasDeleteAttachment() const { return this->deleteAttachment_ != nullptr;};
     void deleteDeleteAttachment() { this->deleteAttachment_ = nullptr;};
-    inline bool deleteAttachment() const { DARABONBA_PTR_GET_DEFAULT(deleteAttachment_, false) };
+    inline bool getDeleteAttachment() const { DARABONBA_PTR_GET_DEFAULT(deleteAttachment_, false) };
     inline DeleteExpressConnectRouterAssociationRequest& setDeleteAttachment(bool deleteAttachment) { DARABONBA_PTR_SET_VALUE(deleteAttachment_, deleteAttachment) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline DeleteExpressConnectRouterAssociationRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // ecrId Field Functions 
     bool hasEcrId() const { return this->ecrId_ != nullptr;};
     void deleteEcrId() { this->ecrId_ = nullptr;};
-    inline string ecrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
+    inline string getEcrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
     inline DeleteExpressConnectRouterAssociationRequest& setEcrId(string ecrId) { DARABONBA_PTR_SET_VALUE(ecrId_, ecrId) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline DeleteExpressConnectRouterAssociationRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
@@ -87,28 +87,28 @@ namespace Models
     // The ID of the association between the ECR and the VPC or TR.
     // 
     // This parameter is required.
-    std::shared_ptr<string> associationId_ = nullptr;
+    shared_ptr<string> associationId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
     // >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // Specifies whether to delete the association between the ECR and the VPC or TR. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> deleteAttachment_ = nullptr;
+    shared_ptr<bool> deleteAttachment_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
     // *   **true**: performs only a dry run.
     // *   **false** (default): performs a dry run and performs the actual request.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
     // The ECR ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ecrId_ = nullptr;
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> ecrId_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

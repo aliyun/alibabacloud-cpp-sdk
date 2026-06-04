@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DESCRIBEEXPRESSCONNECTROUTERINTERREGIONTRANSITMODERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,98 +46,145 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class InterRegionTransitModeList : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const InterRegionTransitModeList& obj) { 
+        DARABONBA_PTR_TO_JSON(Mode, mode_);
+        DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      };
+      friend void from_json(const Darabonba::Json& j, InterRegionTransitModeList& obj) { 
+        DARABONBA_PTR_FROM_JSON(Mode, mode_);
+        DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      };
+      InterRegionTransitModeList() = default ;
+      InterRegionTransitModeList(const InterRegionTransitModeList &) = default ;
+      InterRegionTransitModeList(InterRegionTransitModeList &&) = default ;
+      InterRegionTransitModeList(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~InterRegionTransitModeList() = default ;
+      InterRegionTransitModeList& operator=(const InterRegionTransitModeList &) = default ;
+      InterRegionTransitModeList& operator=(InterRegionTransitModeList &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->mode_ == nullptr
+        && this->regionId_ == nullptr; };
+      // mode Field Functions 
+      bool hasMode() const { return this->mode_ != nullptr;};
+      void deleteMode() { this->mode_ = nullptr;};
+      inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+      inline InterRegionTransitModeList& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+      // regionId Field Functions 
+      bool hasRegionId() const { return this->regionId_ != nullptr;};
+      void deleteRegionId() { this->regionId_ = nullptr;};
+      inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+      inline InterRegionTransitModeList& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    protected:
+      // The cross-region forwarding mode of the ECR. Valid values:
+      // 
+      // *   **ECMP**: the load balancing mode.
+      // *   **NearBy**: the nearby forwarding mode.
+      shared_ptr<string> mode_ {};
+      // The region ID of the ECR.
+      shared_ptr<string> regionId_ {};
+    };
+
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
-        && return this->code_ == nullptr && return this->dynamicCode_ == nullptr && return this->dynamicMessage_ == nullptr && return this->httpStatusCode_ == nullptr && return this->interRegionTransitModeList_ == nullptr
-        && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->code_ == nullptr && this->dynamicCode_ == nullptr && this->dynamicMessage_ == nullptr && this->httpStatusCode_ == nullptr && this->interRegionTransitModeList_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // accessDeniedDetail Field Functions 
     bool hasAccessDeniedDetail() const { return this->accessDeniedDetail_ != nullptr;};
     void deleteAccessDeniedDetail() { this->accessDeniedDetail_ = nullptr;};
-    inline string accessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
+    inline string getAccessDeniedDetail() const { DARABONBA_PTR_GET_DEFAULT(accessDeniedDetail_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setAccessDeniedDetail(string accessDeniedDetail) { DARABONBA_PTR_SET_VALUE(accessDeniedDetail_, accessDeniedDetail) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // dynamicCode Field Functions 
     bool hasDynamicCode() const { return this->dynamicCode_ != nullptr;};
     void deleteDynamicCode() { this->dynamicCode_ = nullptr;};
-    inline string dynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
+    inline string getDynamicCode() const { DARABONBA_PTR_GET_DEFAULT(dynamicCode_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setDynamicCode(string dynamicCode) { DARABONBA_PTR_SET_VALUE(dynamicCode_, dynamicCode) };
 
 
     // dynamicMessage Field Functions 
     bool hasDynamicMessage() const { return this->dynamicMessage_ != nullptr;};
     void deleteDynamicMessage() { this->dynamicMessage_ = nullptr;};
-    inline string dynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
+    inline string getDynamicMessage() const { DARABONBA_PTR_GET_DEFAULT(dynamicMessage_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setDynamicMessage(string dynamicMessage) { DARABONBA_PTR_SET_VALUE(dynamicMessage_, dynamicMessage) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // interRegionTransitModeList Field Functions 
     bool hasInterRegionTransitModeList() const { return this->interRegionTransitModeList_ != nullptr;};
     void deleteInterRegionTransitModeList() { this->interRegionTransitModeList_ = nullptr;};
-    inline const vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList> & interRegionTransitModeList() const { DARABONBA_PTR_GET_CONST(interRegionTransitModeList_, vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList>) };
-    inline vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList> interRegionTransitModeList() { DARABONBA_PTR_GET(interRegionTransitModeList_, vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList>) };
-    inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setInterRegionTransitModeList(const vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList> & interRegionTransitModeList) { DARABONBA_PTR_SET_VALUE(interRegionTransitModeList_, interRegionTransitModeList) };
-    inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setInterRegionTransitModeList(vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList> && interRegionTransitModeList) { DARABONBA_PTR_SET_RVALUE(interRegionTransitModeList_, interRegionTransitModeList) };
+    inline const vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList> & getInterRegionTransitModeList() const { DARABONBA_PTR_GET_CONST(interRegionTransitModeList_, vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList>) };
+    inline vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList> getInterRegionTransitModeList() { DARABONBA_PTR_GET(interRegionTransitModeList_, vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList>) };
+    inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setInterRegionTransitModeList(const vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList> & interRegionTransitModeList) { DARABONBA_PTR_SET_VALUE(interRegionTransitModeList_, interRegionTransitModeList) };
+    inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setInterRegionTransitModeList(vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList> && interRegionTransitModeList) { DARABONBA_PTR_SET_RVALUE(interRegionTransitModeList_, interRegionTransitModeList) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DescribeExpressConnectRouterInterRegionTransitModeResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
     // The details about the access denial.
-    std::shared_ptr<string> accessDeniedDetail_ = nullptr;
+    shared_ptr<string> accessDeniedDetail_ {};
     // The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed. For more information, see Error codes.
-    std::shared_ptr<string> code_ = nullptr;
+    shared_ptr<string> code_ {};
     // The dynamic error code.
-    std::shared_ptr<string> dynamicCode_ = nullptr;
+    shared_ptr<string> dynamicCode_ {};
     // The dynamic part in the error message. This parameter is used to replace the `%s` variable in **ErrMessage**.
     // 
     // >  For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the request parameter **DtsJobId** is invalid.
-    std::shared_ptr<string> dynamicMessage_ = nullptr;
+    shared_ptr<string> dynamicMessage_ {};
     // The HTTP status code.
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
+    shared_ptr<int32_t> httpStatusCode_ {};
     // The cross-region forwarding modes.
-    std::shared_ptr<vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList>> interRegionTransitModeList_ = nullptr;
+    shared_ptr<vector<DescribeExpressConnectRouterInterRegionTransitModeResponseBody::InterRegionTransitModeList>> interRegionTransitModeList_ {};
     // The returned message.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

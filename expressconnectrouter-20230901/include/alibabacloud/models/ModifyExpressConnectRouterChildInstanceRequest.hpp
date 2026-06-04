@@ -42,68 +42,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->childInstanceId_ == nullptr
-        && return this->childInstanceType_ == nullptr && return this->clientToken_ == nullptr && return this->description_ == nullptr && return this->dryRun_ == nullptr && return this->ecrId_ == nullptr
-        && return this->version_ == nullptr; };
+        && this->childInstanceType_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->dryRun_ == nullptr && this->ecrId_ == nullptr
+        && this->version_ == nullptr; };
     // childInstanceId Field Functions 
     bool hasChildInstanceId() const { return this->childInstanceId_ != nullptr;};
     void deleteChildInstanceId() { this->childInstanceId_ = nullptr;};
-    inline string childInstanceId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceId_, "") };
+    inline string getChildInstanceId() const { DARABONBA_PTR_GET_DEFAULT(childInstanceId_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setChildInstanceId(string childInstanceId) { DARABONBA_PTR_SET_VALUE(childInstanceId_, childInstanceId) };
 
 
     // childInstanceType Field Functions 
     bool hasChildInstanceType() const { return this->childInstanceType_ != nullptr;};
     void deleteChildInstanceType() { this->childInstanceType_ = nullptr;};
-    inline string childInstanceType() const { DARABONBA_PTR_GET_DEFAULT(childInstanceType_, "") };
+    inline string getChildInstanceType() const { DARABONBA_PTR_GET_DEFAULT(childInstanceType_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setChildInstanceType(string childInstanceType) { DARABONBA_PTR_SET_VALUE(childInstanceType_, childInstanceType) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyExpressConnectRouterChildInstanceRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // ecrId Field Functions 
     bool hasEcrId() const { return this->ecrId_ != nullptr;};
     void deleteEcrId() { this->ecrId_ = nullptr;};
-    inline string ecrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
+    inline string getEcrId() const { DARABONBA_PTR_GET_DEFAULT(ecrId_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setEcrId(string ecrId) { DARABONBA_PTR_SET_VALUE(ecrId_, ecrId) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline string version() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
     inline ModifyExpressConnectRouterChildInstanceRequest& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> childInstanceId_ = nullptr;
+    shared_ptr<string> childInstanceId_ {};
     // This parameter is required.
-    std::shared_ptr<string> childInstanceType_ = nullptr;
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<string> childInstanceType_ {};
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<bool> dryRun_ {};
     // This parameter is required.
-    std::shared_ptr<string> ecrId_ = nullptr;
-    std::shared_ptr<string> version_ = nullptr;
+    shared_ptr<string> ecrId_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models
