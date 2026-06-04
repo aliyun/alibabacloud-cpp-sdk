@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATETABLEBUSINESSMETADATAREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATETABLEBUSINESSMETADATAREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +15,12 @@ namespace Models
   class UpdateTableBusinessMetadataRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateTableBusinessMetadataRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomAttributes, customAttributes_);
       DARABONBA_PTR_TO_JSON(Id, id_);
       DARABONBA_PTR_TO_JSON(Readme, readme_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateTableBusinessMetadataRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomAttributes, customAttributes_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
       DARABONBA_PTR_FROM_JSON(Readme, readme_);
     };
@@ -31,8 +35,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->id_ == nullptr
-        && this->readme_ == nullptr; };
+    virtual bool empty() const override { return this->customAttributes_ == nullptr
+        && this->id_ == nullptr && this->readme_ == nullptr; };
+    // customAttributes Field Functions 
+    bool hasCustomAttributes() const { return this->customAttributes_ != nullptr;};
+    void deleteCustomAttributes() { this->customAttributes_ = nullptr;};
+    inline const map<string, vector<string>> & getCustomAttributes() const { DARABONBA_PTR_GET_CONST(customAttributes_, map<string, vector<string>>) };
+    inline map<string, vector<string>> getCustomAttributes() { DARABONBA_PTR_GET(customAttributes_, map<string, vector<string>>) };
+    inline UpdateTableBusinessMetadataRequest& setCustomAttributes(const map<string, vector<string>> & customAttributes) { DARABONBA_PTR_SET_VALUE(customAttributes_, customAttributes) };
+    inline UpdateTableBusinessMetadataRequest& setCustomAttributes(map<string, vector<string>> && customAttributes) { DARABONBA_PTR_SET_RVALUE(customAttributes_, customAttributes) };
+
+
     // id Field Functions 
     bool hasId() const { return this->id_ != nullptr;};
     void deleteId() { this->id_ = nullptr;};
@@ -48,6 +61,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, vector<string>>> customAttributes_ {};
     // The table ID. You can refer to the format of the table ID returned by the ListTables operation.
     // 
     // This parameter is required.

@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATECOLUMNBUSINESSMETADATAREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATECOLUMNBUSINESSMETADATAREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +15,12 @@ namespace Models
   class UpdateColumnBusinessMetadataRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateColumnBusinessMetadataRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CustomAttributes, customAttributes_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Id, id_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateColumnBusinessMetadataRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CustomAttributes, customAttributes_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Id, id_);
     };
@@ -31,8 +35,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->id_ == nullptr; };
+    virtual bool empty() const override { return this->customAttributes_ == nullptr
+        && this->description_ == nullptr && this->id_ == nullptr; };
+    // customAttributes Field Functions 
+    bool hasCustomAttributes() const { return this->customAttributes_ != nullptr;};
+    void deleteCustomAttributes() { this->customAttributes_ = nullptr;};
+    inline const map<string, vector<string>> & getCustomAttributes() const { DARABONBA_PTR_GET_CONST(customAttributes_, map<string, vector<string>>) };
+    inline map<string, vector<string>> getCustomAttributes() { DARABONBA_PTR_GET(customAttributes_, map<string, vector<string>>) };
+    inline UpdateColumnBusinessMetadataRequest& setCustomAttributes(const map<string, vector<string>> & customAttributes) { DARABONBA_PTR_SET_VALUE(customAttributes_, customAttributes) };
+    inline UpdateColumnBusinessMetadataRequest& setCustomAttributes(map<string, vector<string>> && customAttributes) { DARABONBA_PTR_SET_RVALUE(customAttributes_, customAttributes) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -48,6 +61,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<map<string, vector<string>>> customAttributes_ {};
     // The field business description.
     shared_ptr<string> description_ {};
     // The field ID. You can refer to the response from the ListColumns operation. You can also refer to the [Concepts related to metadata entities](https://help.aliyun.com/document_detail/2880092.html).

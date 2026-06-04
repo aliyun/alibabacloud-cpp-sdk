@@ -363,6 +363,102 @@ AttachDataQualityRulesToEvaluationTaskResponse Client::attachDataQualityRulesToE
 }
 
 /**
+ * @summary 批量创建自定义实体
+ *
+ * @param tmpReq BatchCreateMetaEntitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCreateMetaEntitiesResponse
+ */
+BatchCreateMetaEntitiesResponse Client::batchCreateMetaEntitiesWithOptions(const BatchCreateMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCreateMetaEntitiesShrinkRequest request = BatchCreateMetaEntitiesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntities()) {
+    request.setEntitiesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntities(), "Entities", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasEntitiesShrink()) {
+    body["Entities"] = request.getEntitiesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchCreateMetaEntities"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCreateMetaEntitiesResponse>();
+}
+
+/**
+ * @summary 批量创建自定义实体
+ *
+ * @param request BatchCreateMetaEntitiesRequest
+ * @return BatchCreateMetaEntitiesResponse
+ */
+BatchCreateMetaEntitiesResponse Client::batchCreateMetaEntities(const BatchCreateMetaEntitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchCreateMetaEntitiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量删除自定义实体
+ *
+ * @param tmpReq BatchDeleteMetaEntitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchDeleteMetaEntitiesResponse
+ */
+BatchDeleteMetaEntitiesResponse Client::batchDeleteMetaEntitiesWithOptions(const BatchDeleteMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchDeleteMetaEntitiesShrinkRequest request = BatchDeleteMetaEntitiesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasIds()) {
+    request.setIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIds(), "Ids", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasIdsShrink()) {
+    body["Ids"] = request.getIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "BatchDeleteMetaEntities"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchDeleteMetaEntitiesResponse>();
+}
+
+/**
+ * @summary 批量删除自定义实体
+ *
+ * @param request BatchDeleteMetaEntitiesRequest
+ * @return BatchDeleteMetaEntitiesResponse
+ */
+BatchDeleteMetaEntitiesResponse Client::batchDeleteMetaEntities(const BatchDeleteMetaEntitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchDeleteMetaEntitiesWithOptions(request, runtime);
+}
+
+/**
  * @summary Performs incremental updates on multiple tasks at a time.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -824,6 +920,86 @@ CreateComputeResourceResponse Client::createComputeResourceWithOptions(const Cre
 CreateComputeResourceResponse Client::createComputeResource(const CreateComputeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createComputeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建自定义属性定义
+ *
+ * @param tmpReq CreateCustomAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCustomAttributeResponse
+ */
+CreateCustomAttributeResponse Client::createCustomAttributeWithOptions(const CreateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateCustomAttributeShrinkRequest request = CreateCustomAttributeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntityTypes()) {
+    request.setEntityTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityTypes(), "EntityTypes", "simple"));
+  }
+
+  if (!!tmpReq.hasValueEnums()) {
+    request.setValueEnumsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValueEnums(), "ValueEnums", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasDisplayEnabled()) {
+    body["DisplayEnabled"] = request.getDisplayEnabled();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEntityTypesShrink()) {
+    body["EntityTypes"] = request.getEntityTypesShrink();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasSearchFilterEnabled()) {
+    body["SearchFilterEnabled"] = request.getSearchFilterEnabled();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  if (!!request.hasValueEnumsShrink()) {
+    body["ValueEnums"] = request.getValueEnumsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateCustomAttribute"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCustomAttributeResponse>();
+}
+
+/**
+ * @summary 创建自定义属性定义
+ *
+ * @param request CreateCustomAttributeRequest
+ * @return CreateCustomAttributeResponse
+ */
+CreateCustomAttributeResponse Client::createCustomAttribute(const CreateCustomAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCustomAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -2441,6 +2617,70 @@ CreateMetaCollectionResponse Client::createMetaCollection(const CreateMetaCollec
 }
 
 /**
+ * @summary 创建自定义实体定义
+ *
+ * @param tmpReq CreateMetaEntityDefRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMetaEntityDefResponse
+ */
+CreateMetaEntityDefResponse Client::createMetaEntityDefWithOptions(const CreateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMetaEntityDefShrinkRequest request = CreateMetaEntityDefShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttributeDefs()) {
+    request.setAttributeDefsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttributeDefs(), "AttributeDefs", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAttributeDefsShrink()) {
+    body["AttributeDefs"] = request.getAttributeDefsShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasExtend()) {
+    body["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateMetaEntityDef"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMetaEntityDefResponse>();
+}
+
+/**
+ * @summary 创建自定义实体定义
+ *
+ * @param request CreateMetaEntityDefRequest
+ * @return CreateMetaEntityDefResponse
+ */
+CreateMetaEntityDefResponse Client::createMetaEntityDef(const CreateMetaEntityDefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMetaEntityDefWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a network and associates the network with a general resource group.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -3849,6 +4089,48 @@ DeleteComputeResourceResponse Client::deleteComputeResource(const DeleteComputeR
 }
 
 /**
+ * @summary 删除自定义属性定义
+ *
+ * @param request DeleteCustomAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteCustomAttributeResponse
+ */
+DeleteCustomAttributeResponse Client::deleteCustomAttributeWithOptions(const DeleteCustomAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteCustomAttribute"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteCustomAttributeResponse>();
+}
+
+/**
+ * @summary 删除自定义属性定义
+ *
+ * @param request DeleteCustomAttributeRequest
+ * @return DeleteCustomAttributeResponse
+ */
+DeleteCustomAttributeResponse Client::deleteCustomAttribute(const DeleteCustomAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteCustomAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an alert rule configured for a synchronization task.
  *
  * @param request DeleteDIAlarmRuleRequest
@@ -4686,6 +4968,52 @@ DeleteMetaCollectionResponse Client::deleteMetaCollectionWithOptions(const Delet
 DeleteMetaCollectionResponse Client::deleteMetaCollection(const DeleteMetaCollectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteMetaCollectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除自定义实体定义
+ *
+ * @param request DeleteMetaEntityDefRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMetaEntityDefResponse
+ */
+DeleteMetaEntityDefResponse Client::deleteMetaEntityDefWithOptions(const DeleteMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEntityType()) {
+    body["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasForce()) {
+    body["Force"] = request.getForce();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteMetaEntityDef"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMetaEntityDefResponse>();
+}
+
+/**
+ * @summary 删除自定义实体定义
+ *
+ * @param request DeleteMetaEntityDefRequest
+ * @return DeleteMetaEntityDefResponse
+ */
+DeleteMetaEntityDefResponse Client::deleteMetaEntityDef(const DeleteMetaEntityDefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMetaEntityDefWithOptions(request, runtime);
 }
 
 /**
@@ -6129,6 +6457,48 @@ GetCreateWorkflowInstancesResultResponse Client::getCreateWorkflowInstancesResul
 }
 
 /**
+ * @summary Obtain custom property definition details
+ *
+ * @param request GetCustomAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCustomAttributeResponse
+ */
+GetCustomAttributeResponse Client::getCustomAttributeWithOptions(const GetCustomAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCustomAttribute"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCustomAttributeResponse>();
+}
+
+/**
+ * @summary Obtain custom property definition details
+ *
+ * @param request GetCustomAttributeRequest
+ * @return GetCustomAttributeResponse
+ */
+GetCustomAttributeResponse Client::getCustomAttribute(const GetCustomAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCustomAttributeWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a synchronization task.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -7244,6 +7614,90 @@ GetMetaCollectionResponse Client::getMetaCollectionWithOptions(const GetMetaColl
 GetMetaCollectionResponse Client::getMetaCollection(const GetMetaCollectionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getMetaCollectionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取自定义实体详情
+ *
+ * @param request GetMetaEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetaEntityResponse
+ */
+GetMetaEntityResponse Client::getMetaEntityWithOptions(const GetMetaEntityRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetMetaEntity"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetaEntityResponse>();
+}
+
+/**
+ * @summary 获取自定义实体详情
+ *
+ * @param request GetMetaEntityRequest
+ * @return GetMetaEntityResponse
+ */
+GetMetaEntityResponse Client::getMetaEntity(const GetMetaEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMetaEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取自定义实体定义详情
+ *
+ * @param request GetMetaEntityDefRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetaEntityDefResponse
+ */
+GetMetaEntityDefResponse Client::getMetaEntityDefWithOptions(const GetMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEntityType()) {
+    body["EntityType"] = request.getEntityType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetMetaEntityDef"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetaEntityDefResponse>();
+}
+
+/**
+ * @summary 获取自定义实体定义详情
+ *
+ * @param request GetMetaEntityDefRequest
+ * @return GetMetaEntityDefResponse
+ */
+GetMetaEntityDefResponse Client::getMetaEntityDef(const GetMetaEntityDefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMetaEntityDefWithOptions(request, runtime);
 }
 
 /**
@@ -8928,6 +9382,72 @@ ListCrawlerTypesResponse Client::listCrawlerTypesWithOptions(const Darabonba::Ru
 ListCrawlerTypesResponse Client::listCrawlerTypes() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCrawlerTypesWithOptions(runtime);
+}
+
+/**
+ * @summary Querying a Custom Attribute Definition List
+ *
+ * @param request ListCustomAttributesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomAttributesResponse
+ */
+ListCustomAttributesResponse Client::listCustomAttributesWithOptions(const ListCustomAttributesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasDisplayName()) {
+    query["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEntityTypes()) {
+    query["EntityTypes"] = request.getEntityTypes();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    query["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListCustomAttributes"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomAttributesResponse>();
+}
+
+/**
+ * @summary Querying a Custom Attribute Definition List
+ *
+ * @param request ListCustomAttributesRequest
+ * @return ListCustomAttributesResponse
+ */
+ListCustomAttributesResponse Client::listCustomAttributes(const ListCustomAttributesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomAttributesWithOptions(request, runtime);
 }
 
 /**
@@ -10886,6 +11406,156 @@ ListMetaCollectionsResponse Client::listMetaCollectionsWithOptions(const ListMet
 ListMetaCollectionsResponse Client::listMetaCollections(const ListMetaCollectionsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listMetaCollectionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询自定义实体列表
+ *
+ * @param tmpReq ListMetaEntitiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaEntitiesResponse
+ */
+ListMetaEntitiesResponse Client::listMetaEntitiesWithOptions(const ListMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMetaEntitiesShrinkRequest request = ListMetaEntitiesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttributeFilters()) {
+    request.setAttributeFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttributeFilters(), "AttributeFilters", "json"));
+  }
+
+  if (!!tmpReq.hasCustomAttributeFilters()) {
+    request.setCustomAttributeFiltersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomAttributeFilters(), "CustomAttributeFilters", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAttributeFiltersShrink()) {
+    body["AttributeFilters"] = request.getAttributeFiltersShrink();
+  }
+
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasCustomAttributeFiltersShrink()) {
+    body["CustomAttributeFilters"] = request.getCustomAttributeFiltersShrink();
+  }
+
+  if (!!request.hasEntityType()) {
+    body["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    body["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    body["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMetaEntities"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaEntitiesResponse>();
+}
+
+/**
+ * @summary 查询自定义实体列表
+ *
+ * @param request ListMetaEntitiesRequest
+ * @return ListMetaEntitiesResponse
+ */
+ListMetaEntitiesResponse Client::listMetaEntities(const ListMetaEntitiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMetaEntitiesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询自定义实体定义列表
+ *
+ * @param request ListMetaEntityDefsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMetaEntityDefsResponse
+ */
+ListMetaEntityDefsResponse Client::listMetaEntityDefsWithOptions(const ListMetaEntityDefsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasExtend()) {
+    body["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasOrder()) {
+    body["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortBy()) {
+    body["SortBy"] = request.getSortBy();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMetaEntityDefs"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMetaEntityDefsResponse>();
+}
+
+/**
+ * @summary 查询自定义实体定义列表
+ *
+ * @param request ListMetaEntityDefsRequest
+ * @return ListMetaEntityDefsResponse
+ */
+ListMetaEntityDefsResponse Client::listMetaEntityDefs(const ListMetaEntityDefsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMetaEntityDefsWithOptions(request, runtime);
 }
 
 /**
@@ -14389,13 +15059,23 @@ UpdateBusinessResponse Client::updateBusiness(const UpdateBusinessRequest &reque
 /**
  * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
  *
- * @param request UpdateColumnBusinessMetadataRequest
+ * @param tmpReq UpdateColumnBusinessMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateColumnBusinessMetadataResponse
  */
-UpdateColumnBusinessMetadataResponse Client::updateColumnBusinessMetadataWithOptions(const UpdateColumnBusinessMetadataRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateColumnBusinessMetadataResponse Client::updateColumnBusinessMetadataWithOptions(const UpdateColumnBusinessMetadataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateColumnBusinessMetadataShrinkRequest request = UpdateColumnBusinessMetadataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCustomAttributes()) {
+    request.setCustomAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomAttributes(), "CustomAttributes", "json"));
+  }
+
   json body = {};
+  if (!!request.hasCustomAttributesShrink()) {
+    body["CustomAttributes"] = request.getCustomAttributesShrink();
+  }
+
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
   }
@@ -14544,6 +15224,82 @@ UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const Upd
 UpdateComputeResourceResponse Client::updateComputeResource(const UpdateComputeResourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateComputeResourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新自定义属性定义
+ *
+ * @param tmpReq UpdateCustomAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCustomAttributeResponse
+ */
+UpdateCustomAttributeResponse Client::updateCustomAttributeWithOptions(const UpdateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateCustomAttributeShrinkRequest request = UpdateCustomAttributeShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasEntityTypes()) {
+    request.setEntityTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEntityTypes(), "EntityTypes", "simple"));
+  }
+
+  if (!!tmpReq.hasValueEnums()) {
+    request.setValueEnumsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getValueEnums(), "ValueEnums", "simple"));
+  }
+
+  json body = {};
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasDisplayEnabled()) {
+    body["DisplayEnabled"] = request.getDisplayEnabled();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEntityTypesShrink()) {
+    body["EntityTypes"] = request.getEntityTypesShrink();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasSearchFilterEnabled()) {
+    body["SearchFilterEnabled"] = request.getSearchFilterEnabled();
+  }
+
+  if (!!request.hasValueEnumsShrink()) {
+    body["ValueEnums"] = request.getValueEnumsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateCustomAttribute"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCustomAttributeResponse>();
+}
+
+/**
+ * @summary 更新自定义属性定义
+ *
+ * @param request UpdateCustomAttributeRequest
+ * @return UpdateCustomAttributeResponse
+ */
+UpdateCustomAttributeResponse Client::updateCustomAttribute(const UpdateCustomAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCustomAttributeWithOptions(request, runtime);
 }
 
 /**
@@ -15843,6 +16599,138 @@ UpdateMetaCollectionResponse Client::updateMetaCollection(const UpdateMetaCollec
 }
 
 /**
+ * @summary 更新自定义实体
+ *
+ * @param tmpReq UpdateMetaEntityRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMetaEntityResponse
+ */
+UpdateMetaEntityResponse Client::updateMetaEntityWithOptions(const UpdateMetaEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMetaEntityShrinkRequest request = UpdateMetaEntityShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAttributes()) {
+    request.setAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAttributes(), "Attributes", "json"));
+  }
+
+  if (!!tmpReq.hasCustomAttributes()) {
+    request.setCustomAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomAttributes(), "CustomAttributes", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAttributesShrink()) {
+    body["Attributes"] = request.getAttributesShrink();
+  }
+
+  if (!!request.hasComment()) {
+    body["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasCustomAttributesShrink()) {
+    body["CustomAttributes"] = request.getCustomAttributesShrink();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateMetaEntity"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMetaEntityResponse>();
+}
+
+/**
+ * @summary 更新自定义实体
+ *
+ * @param request UpdateMetaEntityRequest
+ * @return UpdateMetaEntityResponse
+ */
+UpdateMetaEntityResponse Client::updateMetaEntity(const UpdateMetaEntityRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMetaEntityWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新自定义实体定义
+ *
+ * @param tmpReq UpdateMetaEntityDefRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMetaEntityDefResponse
+ */
+UpdateMetaEntityDefResponse Client::updateMetaEntityDefWithOptions(const UpdateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMetaEntityDefShrinkRequest request = UpdateMetaEntityDefShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasNewAttributeDefs()) {
+    request.setNewAttributeDefsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNewAttributeDefs(), "NewAttributeDefs", "json"));
+  }
+
+  if (!!tmpReq.hasUpdateAttributeDefs()) {
+    request.setUpdateAttributeDefsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateAttributeDefs(), "UpdateAttributeDefs", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasEntityType()) {
+    body["EntityType"] = request.getEntityType();
+  }
+
+  if (!!request.hasNewAttributeDefsShrink()) {
+    body["NewAttributeDefs"] = request.getNewAttributeDefsShrink();
+  }
+
+  if (!!request.hasUpdateAttributeDefsShrink()) {
+    body["UpdateAttributeDefs"] = request.getUpdateAttributeDefsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateMetaEntityDef"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMetaEntityDefResponse>();
+}
+
+/**
+ * @summary 更新自定义实体定义
+ *
+ * @param request UpdateMetaEntityDefRequest
+ * @return UpdateMetaEntityDefResponse
+ */
+UpdateMetaEntityDefResponse Client::updateMetaEntityDef(const UpdateMetaEntityDefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMetaEntityDefWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateNodeRequest
@@ -16331,13 +17219,23 @@ UpdateRouteResponse Client::updateRoute(const UpdateRouteRequest &request) {
 /**
  * @summary Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
  *
- * @param request UpdateTableBusinessMetadataRequest
+ * @param tmpReq UpdateTableBusinessMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateTableBusinessMetadataResponse
  */
-UpdateTableBusinessMetadataResponse Client::updateTableBusinessMetadataWithOptions(const UpdateTableBusinessMetadataRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateTableBusinessMetadataResponse Client::updateTableBusinessMetadataWithOptions(const UpdateTableBusinessMetadataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateTableBusinessMetadataShrinkRequest request = UpdateTableBusinessMetadataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCustomAttributes()) {
+    request.setCustomAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomAttributes(), "CustomAttributes", "json"));
+  }
+
   json body = {};
+  if (!!request.hasCustomAttributesShrink()) {
+    body["CustomAttributes"] = request.getCustomAttributesShrink();
+  }
+
   if (!!request.hasId()) {
     body["Id"] = request.getId();
   }

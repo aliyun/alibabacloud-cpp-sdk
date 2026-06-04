@@ -123,6 +123,40 @@ namespace DataworksPublic20240518
       Models::AttachDataQualityRulesToEvaluationTaskResponse attachDataQualityRulesToEvaluationTask(const Models::AttachDataQualityRulesToEvaluationTaskRequest &request);
 
       /**
+       * @summary 批量创建自定义实体
+       *
+       * @param tmpReq BatchCreateMetaEntitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCreateMetaEntitiesResponse
+       */
+      Models::BatchCreateMetaEntitiesResponse batchCreateMetaEntitiesWithOptions(const Models::BatchCreateMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量创建自定义实体
+       *
+       * @param request BatchCreateMetaEntitiesRequest
+       * @return BatchCreateMetaEntitiesResponse
+       */
+      Models::BatchCreateMetaEntitiesResponse batchCreateMetaEntities(const Models::BatchCreateMetaEntitiesRequest &request);
+
+      /**
+       * @summary 批量删除自定义实体
+       *
+       * @param tmpReq BatchDeleteMetaEntitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchDeleteMetaEntitiesResponse
+       */
+      Models::BatchDeleteMetaEntitiesResponse batchDeleteMetaEntitiesWithOptions(const Models::BatchDeleteMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除自定义实体
+       *
+       * @param request BatchDeleteMetaEntitiesRequest
+       * @return BatchDeleteMetaEntitiesResponse
+       */
+      Models::BatchDeleteMetaEntitiesResponse batchDeleteMetaEntities(const Models::BatchDeleteMetaEntitiesRequest &request);
+
+      /**
        * @summary Performs incremental updates on multiple tasks at a time.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -269,6 +303,23 @@ namespace DataworksPublic20240518
        * @return CreateComputeResourceResponse
        */
       Models::CreateComputeResourceResponse createComputeResource(const Models::CreateComputeResourceRequest &request);
+
+      /**
+       * @summary 创建自定义属性定义
+       *
+       * @param tmpReq CreateCustomAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCustomAttributeResponse
+       */
+      Models::CreateCustomAttributeResponse createCustomAttributeWithOptions(const Models::CreateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义属性定义
+       *
+       * @param request CreateCustomAttributeRequest
+       * @return CreateCustomAttributeResponse
+       */
+      Models::CreateCustomAttributeResponse createCustomAttribute(const Models::CreateCustomAttributeRequest &request);
 
       /**
        * @summary Creates an alert rule for a synchronization task.
@@ -698,6 +749,23 @@ namespace DataworksPublic20240518
       Models::CreateMetaCollectionResponse createMetaCollection(const Models::CreateMetaCollectionRequest &request);
 
       /**
+       * @summary 创建自定义实体定义
+       *
+       * @param tmpReq CreateMetaEntityDefRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMetaEntityDefResponse
+       */
+      Models::CreateMetaEntityDefResponse createMetaEntityDefWithOptions(const Models::CreateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建自定义实体定义
+       *
+       * @param request CreateMetaEntityDefRequest
+       * @return CreateMetaEntityDefResponse
+       */
+      Models::CreateMetaEntityDefResponse createMetaEntityDef(const Models::CreateMetaEntityDefRequest &request);
+
+      /**
        * @summary Creates a network and associates the network with a general resource group.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -1079,6 +1147,23 @@ namespace DataworksPublic20240518
       Models::DeleteComputeResourceResponse deleteComputeResource(const Models::DeleteComputeResourceRequest &request);
 
       /**
+       * @summary 删除自定义属性定义
+       *
+       * @param request DeleteCustomAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteCustomAttributeResponse
+       */
+      Models::DeleteCustomAttributeResponse deleteCustomAttributeWithOptions(const Models::DeleteCustomAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自定义属性定义
+       *
+       * @param request DeleteCustomAttributeRequest
+       * @return DeleteCustomAttributeResponse
+       */
+      Models::DeleteCustomAttributeResponse deleteCustomAttribute(const Models::DeleteCustomAttributeRequest &request);
+
+      /**
        * @summary Deletes an alert rule configured for a synchronization task.
        *
        * @param request DeleteDIAlarmRuleRequest
@@ -1433,6 +1518,23 @@ namespace DataworksPublic20240518
        * @return DeleteMetaCollectionResponse
        */
       Models::DeleteMetaCollectionResponse deleteMetaCollection(const Models::DeleteMetaCollectionRequest &request);
+
+      /**
+       * @summary 删除自定义实体定义
+       *
+       * @param request DeleteMetaEntityDefRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMetaEntityDefResponse
+       */
+      Models::DeleteMetaEntityDefResponse deleteMetaEntityDefWithOptions(const Models::DeleteMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除自定义实体定义
+       *
+       * @param request DeleteMetaEntityDefRequest
+       * @return DeleteMetaEntityDefResponse
+       */
+      Models::DeleteMetaEntityDefResponse deleteMetaEntityDef(const Models::DeleteMetaEntityDefRequest &request);
 
       /**
        * @summary Disassociates and deletes a network from a general resource group.
@@ -2002,6 +2104,23 @@ namespace DataworksPublic20240518
       Models::GetCreateWorkflowInstancesResultResponse getCreateWorkflowInstancesResult(const Models::GetCreateWorkflowInstancesResultRequest &request);
 
       /**
+       * @summary Obtain custom property definition details
+       *
+       * @param request GetCustomAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCustomAttributeResponse
+       */
+      Models::GetCustomAttributeResponse getCustomAttributeWithOptions(const Models::GetCustomAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Obtain custom property definition details
+       *
+       * @param request GetCustomAttributeRequest
+       * @return GetCustomAttributeResponse
+       */
+      Models::GetCustomAttributeResponse getCustomAttribute(const Models::GetCustomAttributeRequest &request);
+
+      /**
        * @summary Queries the information about a synchronization task.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -2485,6 +2604,40 @@ namespace DataworksPublic20240518
        * @return GetMetaCollectionResponse
        */
       Models::GetMetaCollectionResponse getMetaCollection(const Models::GetMetaCollectionRequest &request);
+
+      /**
+       * @summary 获取自定义实体详情
+       *
+       * @param request GetMetaEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetaEntityResponse
+       */
+      Models::GetMetaEntityResponse getMetaEntityWithOptions(const Models::GetMetaEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取自定义实体详情
+       *
+       * @param request GetMetaEntityRequest
+       * @return GetMetaEntityResponse
+       */
+      Models::GetMetaEntityResponse getMetaEntity(const Models::GetMetaEntityRequest &request);
+
+      /**
+       * @summary 获取自定义实体定义详情
+       *
+       * @param request GetMetaEntityDefRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetaEntityDefResponse
+       */
+      Models::GetMetaEntityDefResponse getMetaEntityDefWithOptions(const Models::GetMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取自定义实体定义详情
+       *
+       * @param request GetMetaEntityDefRequest
+       * @return GetMetaEntityDefResponse
+       */
+      Models::GetMetaEntityDefResponse getMetaEntityDef(const Models::GetMetaEntityDefRequest &request);
 
       /**
        * @summary Queries the information about a network resource.
@@ -3137,6 +3290,23 @@ namespace DataworksPublic20240518
        * @return ListCrawlerTypesResponse
        */
       Models::ListCrawlerTypesResponse listCrawlerTypes();
+
+      /**
+       * @summary Querying a Custom Attribute Definition List
+       *
+       * @param request ListCustomAttributesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAttributesResponse
+       */
+      Models::ListCustomAttributesResponse listCustomAttributesWithOptions(const Models::ListCustomAttributesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Querying a Custom Attribute Definition List
+       *
+       * @param request ListCustomAttributesRequest
+       * @return ListCustomAttributesResponse
+       */
+      Models::ListCustomAttributesResponse listCustomAttributes(const Models::ListCustomAttributesRequest &request);
 
       /**
        * @summary Views alert rules configured for a synchronization task.
@@ -3845,6 +4015,40 @@ namespace DataworksPublic20240518
        * @return ListMetaCollectionsResponse
        */
       Models::ListMetaCollectionsResponse listMetaCollections(const Models::ListMetaCollectionsRequest &request);
+
+      /**
+       * @summary 查询自定义实体列表
+       *
+       * @param tmpReq ListMetaEntitiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaEntitiesResponse
+       */
+      Models::ListMetaEntitiesResponse listMetaEntitiesWithOptions(const Models::ListMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自定义实体列表
+       *
+       * @param request ListMetaEntitiesRequest
+       * @return ListMetaEntitiesResponse
+       */
+      Models::ListMetaEntitiesResponse listMetaEntities(const Models::ListMetaEntitiesRequest &request);
+
+      /**
+       * @summary 查询自定义实体定义列表
+       *
+       * @param request ListMetaEntityDefsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMetaEntityDefsResponse
+       */
+      Models::ListMetaEntityDefsResponse listMetaEntityDefsWithOptions(const Models::ListMetaEntityDefsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询自定义实体定义列表
+       *
+       * @param request ListMetaEntityDefsRequest
+       * @return ListMetaEntityDefsResponse
+       */
+      Models::ListMetaEntityDefsResponse listMetaEntityDefs(const Models::ListMetaEntityDefsRequest &request);
 
       /**
        * @summary Queries a list of network resources of a serverless resource group.
@@ -4982,11 +5186,11 @@ namespace DataworksPublic20240518
       /**
        * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
        *
-       * @param request UpdateColumnBusinessMetadataRequest
+       * @param tmpReq UpdateColumnBusinessMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateColumnBusinessMetadataResponse
        */
-      Models::UpdateColumnBusinessMetadataResponse updateColumnBusinessMetadataWithOptions(const Models::UpdateColumnBusinessMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateColumnBusinessMetadataResponse updateColumnBusinessMetadataWithOptions(const Models::UpdateColumnBusinessMetadataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
@@ -5033,6 +5237,23 @@ namespace DataworksPublic20240518
        * @return UpdateComputeResourceResponse
        */
       Models::UpdateComputeResourceResponse updateComputeResource(const Models::UpdateComputeResourceRequest &request);
+
+      /**
+       * @summary 更新自定义属性定义
+       *
+       * @param tmpReq UpdateCustomAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateCustomAttributeResponse
+       */
+      Models::UpdateCustomAttributeResponse updateCustomAttributeWithOptions(const Models::UpdateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义属性定义
+       *
+       * @param request UpdateCustomAttributeRequest
+       * @return UpdateCustomAttributeResponse
+       */
+      Models::UpdateCustomAttributeResponse updateCustomAttribute(const Models::UpdateCustomAttributeRequest &request);
 
       /**
        * @summary Updates an alert rule configured for a synchronization task.
@@ -5364,6 +5585,40 @@ namespace DataworksPublic20240518
       Models::UpdateMetaCollectionResponse updateMetaCollection(const Models::UpdateMetaCollectionRequest &request);
 
       /**
+       * @summary 更新自定义实体
+       *
+       * @param tmpReq UpdateMetaEntityRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMetaEntityResponse
+       */
+      Models::UpdateMetaEntityResponse updateMetaEntityWithOptions(const Models::UpdateMetaEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义实体
+       *
+       * @param request UpdateMetaEntityRequest
+       * @return UpdateMetaEntityResponse
+       */
+      Models::UpdateMetaEntityResponse updateMetaEntity(const Models::UpdateMetaEntityRequest &request);
+
+      /**
+       * @summary 更新自定义实体定义
+       *
+       * @param tmpReq UpdateMetaEntityDefRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMetaEntityDefResponse
+       */
+      Models::UpdateMetaEntityDefResponse updateMetaEntityDefWithOptions(const Models::UpdateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新自定义实体定义
+       *
+       * @param request UpdateMetaEntityDefRequest
+       * @return UpdateMetaEntityDefResponse
+       */
+      Models::UpdateMetaEntityDefResponse updateMetaEntityDef(const Models::UpdateMetaEntityDefRequest &request);
+
+      /**
        * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
        *
        * @param request UpdateNodeRequest
@@ -5495,11 +5750,11 @@ namespace DataworksPublic20240518
       /**
        * @summary Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
        *
-       * @param request UpdateTableBusinessMetadataRequest
+       * @param tmpReq UpdateTableBusinessMetadataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateTableBusinessMetadataResponse
        */
-      Models::UpdateTableBusinessMetadataResponse updateTableBusinessMetadataWithOptions(const Models::UpdateTableBusinessMetadataRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateTableBusinessMetadataResponse updateTableBusinessMetadataWithOptions(const Models::UpdateTableBusinessMetadataRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.

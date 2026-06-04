@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_COLUMN_HPP_
 #define ALIBABACLOUD_MODELS_COLUMN_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -50,9 +52,11 @@ namespace Models
     class BusinessMetadata : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const BusinessMetadata& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomAttributes, customAttributes_);
         DARABONBA_PTR_TO_JSON(Description, description_);
       };
       friend void from_json(const Darabonba::Json& j, BusinessMetadata& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomAttributes, customAttributes_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
       };
       BusinessMetadata() = default ;
@@ -66,7 +70,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->description_ == nullptr; };
+      virtual bool empty() const override { return this->customAttributes_ == nullptr
+        && this->description_ == nullptr; };
+      // customAttributes Field Functions 
+      bool hasCustomAttributes() const { return this->customAttributes_ != nullptr;};
+      void deleteCustomAttributes() { this->customAttributes_ = nullptr;};
+      inline const map<string, vector<string>> & getCustomAttributes() const { DARABONBA_PTR_GET_CONST(customAttributes_, map<string, vector<string>>) };
+      inline map<string, vector<string>> getCustomAttributes() { DARABONBA_PTR_GET(customAttributes_, map<string, vector<string>>) };
+      inline BusinessMetadata& setCustomAttributes(const map<string, vector<string>> & customAttributes) { DARABONBA_PTR_SET_VALUE(customAttributes_, customAttributes) };
+      inline BusinessMetadata& setCustomAttributes(map<string, vector<string>> && customAttributes) { DARABONBA_PTR_SET_RVALUE(customAttributes_, customAttributes) };
+
+
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -75,6 +89,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<map<string, vector<string>>> customAttributes_ {};
       // A business-level description of the field (supported only by MaxCompute, HMS (EMR clusters) and DLF.
       shared_ptr<string> description_ {};
     };

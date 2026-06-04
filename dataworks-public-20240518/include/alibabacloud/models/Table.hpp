@@ -155,6 +155,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const BusinessMetadata& obj) { 
         DARABONBA_PTR_TO_JSON(Categories, categories_);
+        DARABONBA_PTR_TO_JSON(CustomAttributes, customAttributes_);
         DARABONBA_PTR_TO_JSON(Extension, extension_);
         DARABONBA_PTR_TO_JSON(Readme, readme_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -162,6 +163,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, BusinessMetadata& obj) { 
         DARABONBA_PTR_FROM_JSON(Categories, categories_);
+        DARABONBA_PTR_FROM_JSON(CustomAttributes, customAttributes_);
         DARABONBA_PTR_FROM_JSON(Extension, extension_);
         DARABONBA_PTR_FROM_JSON(Readme, readme_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -347,7 +349,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->categories_ == nullptr
-        && this->extension_ == nullptr && this->readme_ == nullptr && this->tags_ == nullptr && this->upstreamTasks_ == nullptr; };
+        && this->customAttributes_ == nullptr && this->extension_ == nullptr && this->readme_ == nullptr && this->tags_ == nullptr && this->upstreamTasks_ == nullptr; };
       // categories Field Functions 
       bool hasCategories() const { return this->categories_ != nullptr;};
       void deleteCategories() { this->categories_ = nullptr;};
@@ -355,6 +357,15 @@ namespace Models
       inline vector<vector<BusinessMetadata::Categories>> getCategories() { DARABONBA_PTR_GET(categories_, vector<vector<BusinessMetadata::Categories>>) };
       inline BusinessMetadata& setCategories(const vector<vector<BusinessMetadata::Categories>> & categories) { DARABONBA_PTR_SET_VALUE(categories_, categories) };
       inline BusinessMetadata& setCategories(vector<vector<BusinessMetadata::Categories>> && categories) { DARABONBA_PTR_SET_RVALUE(categories_, categories) };
+
+
+      // customAttributes Field Functions 
+      bool hasCustomAttributes() const { return this->customAttributes_ != nullptr;};
+      void deleteCustomAttributes() { this->customAttributes_ = nullptr;};
+      inline const map<string, vector<string>> & getCustomAttributes() const { DARABONBA_PTR_GET_CONST(customAttributes_, map<string, vector<string>>) };
+      inline map<string, vector<string>> getCustomAttributes() { DARABONBA_PTR_GET(customAttributes_, map<string, vector<string>>) };
+      inline BusinessMetadata& setCustomAttributes(const map<string, vector<string>> & customAttributes) { DARABONBA_PTR_SET_VALUE(customAttributes_, customAttributes) };
+      inline BusinessMetadata& setCustomAttributes(map<string, vector<string>> && customAttributes) { DARABONBA_PTR_SET_RVALUE(customAttributes_, customAttributes) };
 
 
       // extension Field Functions 
@@ -394,6 +405,7 @@ namespace Models
     protected:
       // The categories.
       shared_ptr<vector<vector<BusinessMetadata::Categories>>> categories_ {};
+      shared_ptr<map<string, vector<string>>> customAttributes_ {};
       // The extended information. Only MaxCompute tables supports this parameter.
       shared_ptr<BusinessMetadata::Extension> extension_ {};
       // The usage notes.
