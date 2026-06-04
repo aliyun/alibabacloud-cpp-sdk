@@ -114,6 +114,9 @@
 #include <alibabacloud/models/ListTagValuesRequest.hpp>
 #include <alibabacloud/models/ListTagValuesResponseBody.hpp>
 #include <alibabacloud/models/ListTagValuesResponse.hpp>
+#include <alibabacloud/models/RenewServiceInstanceRequest.hpp>
+#include <alibabacloud/models/RenewServiceInstanceResponseBody.hpp>
+#include <alibabacloud/models/RenewServiceInstanceResponse.hpp>
 #include <alibabacloud/models/RenewServiceInstanceResourcesRequest.hpp>
 #include <alibabacloud/models/RenewServiceInstanceResourcesResponseBody.hpp>
 #include <alibabacloud/models/RenewServiceInstanceResourcesResponse.hpp>

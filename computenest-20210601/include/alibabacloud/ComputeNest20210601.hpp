@@ -488,7 +488,6 @@ namespace ComputeNest20210601
       /**
        * @summary Queries service categories.
        *
-       * @param request ListServiceCategoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListServiceCategoriesResponse
        */
@@ -670,6 +669,23 @@ namespace ComputeNest20210601
        * @return ListTagValuesResponse
        */
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
+
+      /**
+       * @summary 续费服务实例
+       *
+       * @param request RenewServiceInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewServiceInstanceResponse
+       */
+      Models::RenewServiceInstanceResponse renewServiceInstanceWithOptions(const Models::RenewServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 续费服务实例
+       *
+       * @param request RenewServiceInstanceRequest
+       * @return RenewServiceInstanceResponse
+       */
+      Models::RenewServiceInstanceResponse renewServiceInstance(const Models::RenewServiceInstanceRequest &request);
 
       /**
        * @summary Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.

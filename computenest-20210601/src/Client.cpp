@@ -1560,7 +1560,6 @@ ListRestoreTasksResponse Client::listRestoreTasks(const ListRestoreTasksRequest 
 /**
  * @summary Queries service categories.
  *
- * @param request ListServiceCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListServiceCategoriesResponse
  */
@@ -2192,6 +2191,52 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 ListTagValuesResponse Client::listTagValues(const ListTagValuesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTagValuesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 续费服务实例
+ *
+ * @param request RenewServiceInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenewServiceInstanceResponse
+ */
+RenewServiceInstanceResponse Client::renewServiceInstanceWithOptions(const RenewServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasServiceInstanceId()) {
+    query["ServiceInstanceId"] = request.getServiceInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenewServiceInstance"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenewServiceInstanceResponse>();
+}
+
+/**
+ * @summary 续费服务实例
+ *
+ * @param request RenewServiceInstanceRequest
+ * @return RenewServiceInstanceResponse
+ */
+RenewServiceInstanceResponse Client::renewServiceInstance(const RenewServiceInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renewServiceInstanceWithOptions(request, runtime);
 }
 
 /**
