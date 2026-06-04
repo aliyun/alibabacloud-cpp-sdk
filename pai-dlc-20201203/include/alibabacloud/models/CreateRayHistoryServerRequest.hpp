@@ -102,6 +102,7 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // This parameter is required.
     shared_ptr<string> storagePath_ {};
+    // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };
 

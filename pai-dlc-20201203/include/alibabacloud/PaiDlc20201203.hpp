@@ -61,7 +61,7 @@ namespace PaiDlc20201203
       Models::CreateJobTemplateResponse createJobTemplate(const Models::CreateJobTemplateRequest &request);
 
       /**
-       * @summary 创建 RayHistoryServer
+       * @summary Create RayHistoryServer
        *
        * @param request CreateRayHistoryServerRequest
        * @param headers map
@@ -71,7 +71,7 @@ namespace PaiDlc20201203
       Models::CreateRayHistoryServerResponse createRayHistoryServerWithOptions(const Models::CreateRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 RayHistoryServer
+       * @summary Create RayHistoryServer
        *
        * @param request CreateRayHistoryServerRequest
        * @return CreateRayHistoryServerResponse
@@ -131,7 +131,7 @@ namespace PaiDlc20201203
       Models::DeleteJobTemplateResponse deleteJobTemplate(const string &TemplateId, const Models::DeleteJobTemplateRequest &request);
 
       /**
-       * @summary 删除RayHistoryServer
+       * @summary Delete RayHistoryServer
        *
        * @param request DeleteRayHistoryServerRequest
        * @param headers map
@@ -141,7 +141,7 @@ namespace PaiDlc20201203
       Models::DeleteRayHistoryServerResponse deleteRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::DeleteRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除RayHistoryServer
+       * @summary Delete RayHistoryServer
        *
        * @param request DeleteRayHistoryServerRequest
        * @return DeleteRayHistoryServerResponse
@@ -279,6 +279,24 @@ namespace PaiDlc20201203
       Models::GetJobTemplateResponse getJobTemplate(const string &TemplateId, const Models::GetJobTemplateRequest &request);
 
       /**
+       * @summary 获取metrics数据
+       *
+       * @param request GetMetricsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMetricsResponse
+       */
+      Models::GetMetricsResponse getMetricsWithOptions(const Models::GetMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取metrics数据
+       *
+       * @param request GetMetricsRequest
+       * @return GetMetricsResponse
+       */
+      Models::GetMetricsResponse getMetrics(const Models::GetMetricsRequest &request);
+
+      /**
        * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
        *
        * @param request GetPodEventsRequest
@@ -337,7 +355,7 @@ namespace PaiDlc20201203
       Models::GetRayDashboardResponse getRayDashboard(const string &jobId, const Models::GetRayDashboardRequest &request);
 
       /**
-       * @summary 查询 RayHistoryServer
+       * @summary Query RayHistoryServer
        *
        * @param request GetRayHistoryServerRequest
        * @param headers map
@@ -347,7 +365,7 @@ namespace PaiDlc20201203
       Models::GetRayHistoryServerResponse getRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::GetRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 RayHistoryServer
+       * @summary Query RayHistoryServer
        *
        * @param request GetRayHistoryServerRequest
        * @return GetRayHistoryServerResponse
@@ -499,7 +517,7 @@ namespace PaiDlc20201203
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
-       * @summary 列出资源RayHistoryServer
+       * @summary List resource RayHistoryServer
        *
        * @param request ListRayHistoryServersRequest
        * @param headers map
@@ -509,7 +527,7 @@ namespace PaiDlc20201203
       Models::ListRayHistoryServersResponse listRayHistoryServersWithOptions(const Models::ListRayHistoryServersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出资源RayHistoryServer
+       * @summary List resource RayHistoryServer
        *
        * @param request ListRayHistoryServersRequest
        * @return ListRayHistoryServersResponse
@@ -553,7 +571,7 @@ namespace PaiDlc20201203
       Models::SetJobTemplateDefaultVersionResponse setJobTemplateDefaultVersion(const string &TemplateId, const Models::SetJobTemplateDefaultVersionRequest &request);
 
       /**
-       * @summary 启动 Ray History Server
+       * @summary Start Ray History Server
        *
        * @param request StartRayHistoryServerRequest
        * @param headers map
@@ -563,7 +581,7 @@ namespace PaiDlc20201203
       Models::StartRayHistoryServerResponse startRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StartRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动 Ray History Server
+       * @summary Start Ray History Server
        *
        * @param request StartRayHistoryServerRequest
        * @return StartRayHistoryServerResponse
@@ -605,7 +623,7 @@ namespace PaiDlc20201203
       Models::StopJobResponse stopJob(const string &JobId);
 
       /**
-       * @summary 停止 Ray History Server
+       * @summary Stop Ray History Server
        *
        * @param request StopRayHistoryServerRequest
        * @param headers map
@@ -615,7 +633,7 @@ namespace PaiDlc20201203
       Models::StopRayHistoryServerResponse stopRayHistoryServerWithOptions(const string &RayHistoryServerId, const Models::StopRayHistoryServerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止 Ray History Server
+       * @summary Stop Ray History Server
        *
        * @param request StopRayHistoryServerRequest
        * @return StopRayHistoryServerResponse

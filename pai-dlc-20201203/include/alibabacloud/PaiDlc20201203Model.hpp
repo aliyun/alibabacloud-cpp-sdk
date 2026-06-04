@@ -112,6 +112,9 @@
 #include <alibabacloud/models/GetJobTemplateRequest.hpp>
 #include <alibabacloud/models/GetJobTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetJobTemplateResponse.hpp>
+#include <alibabacloud/models/GetMetricsRequest.hpp>
+#include <alibabacloud/models/GetMetricsResponseBody.hpp>
+#include <alibabacloud/models/GetMetricsResponse.hpp>
 #include <alibabacloud/models/GetPodEventsRequest.hpp>
 #include <alibabacloud/models/GetPodEventsResponseBody.hpp>
 #include <alibabacloud/models/GetPodEventsResponse.hpp>

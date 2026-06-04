@@ -296,7 +296,7 @@ CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateReque
 }
 
 /**
- * @summary 创建 RayHistoryServer
+ * @summary Create RayHistoryServer
  *
  * @param request CreateRayHistoryServerRequest
  * @param headers map
@@ -353,7 +353,7 @@ CreateRayHistoryServerResponse Client::createRayHistoryServerWithOptions(const C
 }
 
 /**
- * @summary 创建 RayHistoryServer
+ * @summary Create RayHistoryServer
  *
  * @param request CreateRayHistoryServerRequest
  * @return CreateRayHistoryServerResponse
@@ -561,7 +561,7 @@ DeleteJobTemplateResponse Client::deleteJobTemplate(const string &TemplateId, co
 }
 
 /**
- * @summary 删除RayHistoryServer
+ * @summary Delete RayHistoryServer
  *
  * @param request DeleteRayHistoryServerRequest
  * @param headers map
@@ -588,7 +588,7 @@ DeleteRayHistoryServerResponse Client::deleteRayHistoryServerWithOptions(const s
 }
 
 /**
- * @summary 删除RayHistoryServer
+ * @summary Delete RayHistoryServer
  *
  * @param request DeleteRayHistoryServerRequest
  * @return DeleteRayHistoryServerResponse
@@ -955,6 +955,87 @@ GetJobTemplateResponse Client::getJobTemplate(const string &TemplateId, const Ge
 }
 
 /**
+ * @summary 获取metrics数据
+ *
+ * @param request GetMetricsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMetricsResponse
+ */
+GetMetricsResponse Client::getMetricsWithOptions(const GetMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDimensions()) {
+    query["Dimensions"] = request.getDimensions();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasLength()) {
+    query["Length"] = request.getLength();
+  }
+
+  if (!!request.hasMetricName()) {
+    query["MetricName"] = request.getMetricName();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["Namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMetrics"},
+    {"version" , "2020-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cms/metrics")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMetricsResponse>();
+}
+
+/**
+ * @summary 获取metrics数据
+ *
+ * @param request GetMetricsRequest
+ * @return GetMetricsResponse
+ */
+GetMetricsResponse Client::getMetrics(const GetMetricsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMetricsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
  *
  * @param request GetPodEventsRequest
@@ -1126,7 +1207,7 @@ GetRayDashboardResponse Client::getRayDashboard(const string &jobId, const GetRa
 }
 
 /**
- * @summary 查询 RayHistoryServer
+ * @summary Query RayHistoryServer
  *
  * @param request GetRayHistoryServerRequest
  * @param headers map
@@ -1153,7 +1234,7 @@ GetRayHistoryServerResponse Client::getRayHistoryServerWithOptions(const string 
 }
 
 /**
- * @summary 查询 RayHistoryServer
+ * @summary Query RayHistoryServer
  *
  * @param request GetRayHistoryServerRequest
  * @return GetRayHistoryServerResponse
@@ -1743,7 +1824,7 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
- * @summary 列出资源RayHistoryServer
+ * @summary List resource RayHistoryServer
  *
  * @param request ListRayHistoryServersRequest
  * @param headers map
@@ -1836,7 +1917,7 @@ ListRayHistoryServersResponse Client::listRayHistoryServersWithOptions(const Lis
 }
 
 /**
- * @summary 列出资源RayHistoryServer
+ * @summary List resource RayHistoryServer
  *
  * @param request ListRayHistoryServersRequest
  * @return ListRayHistoryServersResponse
@@ -2014,7 +2095,7 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersion(const 
 }
 
 /**
- * @summary 启动 Ray History Server
+ * @summary Start Ray History Server
  *
  * @param request StartRayHistoryServerRequest
  * @param headers map
@@ -2041,7 +2122,7 @@ StartRayHistoryServerResponse Client::startRayHistoryServerWithOptions(const str
 }
 
 /**
- * @summary 启动 Ray History Server
+ * @summary Start Ray History Server
  *
  * @param request StartRayHistoryServerRequest
  * @return StartRayHistoryServerResponse
@@ -2134,7 +2215,7 @@ StopJobResponse Client::stopJob(const string &JobId) {
 }
 
 /**
- * @summary 停止 Ray History Server
+ * @summary Stop Ray History Server
  *
  * @param request StopRayHistoryServerRequest
  * @param headers map
@@ -2161,7 +2242,7 @@ StopRayHistoryServerResponse Client::stopRayHistoryServerWithOptions(const strin
 }
 
 /**
- * @summary 停止 Ray History Server
+ * @summary Stop Ray History Server
  *
  * @param request StopRayHistoryServerRequest
  * @return StopRayHistoryServerResponse
