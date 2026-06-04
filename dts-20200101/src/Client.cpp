@@ -9280,6 +9280,10 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 TransferInstanceClassResponse Client::transferInstanceClassWithOptions(const TransferInstanceClassRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDatabaseCount()) {
+    query["DatabaseCount"] = request.getDatabaseCount();
+  }
+
   if (!!request.hasDtsJobId()) {
     query["DtsJobId"] = request.getDtsJobId();
   }

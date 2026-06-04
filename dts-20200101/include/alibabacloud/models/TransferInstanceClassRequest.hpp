@@ -13,6 +13,7 @@ namespace Models
   class TransferInstanceClassRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TransferInstanceClassRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
       DARABONBA_PTR_TO_JSON(DtsJobId, dtsJobId_);
       DARABONBA_PTR_TO_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_TO_JSON(OrderType, orderType_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, TransferInstanceClassRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
       DARABONBA_PTR_FROM_JSON(DtsJobId, dtsJobId_);
       DARABONBA_PTR_FROM_JSON(InstanceClass, instanceClass_);
       DARABONBA_PTR_FROM_JSON(OrderType, orderType_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dtsJobId_ == nullptr
-        && this->instanceClass_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
+    virtual bool empty() const override { return this->databaseCount_ == nullptr
+        && this->dtsJobId_ == nullptr && this->instanceClass_ == nullptr && this->orderType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
+    // databaseCount Field Functions 
+    bool hasDatabaseCount() const { return this->databaseCount_ != nullptr;};
+    void deleteDatabaseCount() { this->databaseCount_ = nullptr;};
+    inline int32_t getDatabaseCount() const { DARABONBA_PTR_GET_DEFAULT(databaseCount_, 0) };
+    inline TransferInstanceClassRequest& setDatabaseCount(int32_t databaseCount) { DARABONBA_PTR_SET_VALUE(databaseCount_, databaseCount) };
+
+
     // dtsJobId Field Functions 
     bool hasDtsJobId() const { return this->dtsJobId_ != nullptr;};
     void deleteDtsJobId() { this->dtsJobId_ = nullptr;};
@@ -75,6 +84,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<int32_t> databaseCount_ {};
     // The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     // 
     // This parameter is required.
