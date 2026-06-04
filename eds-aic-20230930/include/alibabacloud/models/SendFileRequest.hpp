@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidInstanceIdList, androidInstanceIdList_);
       DARABONBA_PTR_TO_JSON(AutoInstall, autoInstall_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(FileMd5, fileMd5_);
       DARABONBA_PTR_TO_JSON(SourceFilePath, sourceFilePath_);
       DARABONBA_PTR_TO_JSON(TargetFileName, targetFileName_);
       DARABONBA_PTR_TO_JSON(UploadEndpoint, uploadEndpoint_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidInstanceIdList, androidInstanceIdList_);
       DARABONBA_PTR_FROM_JSON(AutoInstall, autoInstall_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(FileMd5, fileMd5_);
       DARABONBA_PTR_FROM_JSON(SourceFilePath, sourceFilePath_);
       DARABONBA_PTR_FROM_JSON(TargetFileName, targetFileName_);
       DARABONBA_PTR_FROM_JSON(UploadEndpoint, uploadEndpoint_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->androidInstanceIdList_ == nullptr
-        && this->autoInstall_ == nullptr && this->clientToken_ == nullptr && this->sourceFilePath_ == nullptr && this->targetFileName_ == nullptr && this->uploadEndpoint_ == nullptr
-        && this->uploadType_ == nullptr && this->uploadUrl_ == nullptr; };
+        && this->autoInstall_ == nullptr && this->clientToken_ == nullptr && this->fileMd5_ == nullptr && this->sourceFilePath_ == nullptr && this->targetFileName_ == nullptr
+        && this->uploadEndpoint_ == nullptr && this->uploadType_ == nullptr && this->uploadUrl_ == nullptr; };
     // androidInstanceIdList Field Functions 
     bool hasAndroidInstanceIdList() const { return this->androidInstanceIdList_ != nullptr;};
     void deleteAndroidInstanceIdList() { this->androidInstanceIdList_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline SendFileRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // fileMd5 Field Functions 
+    bool hasFileMd5() const { return this->fileMd5_ != nullptr;};
+    void deleteFileMd5() { this->fileMd5_ = nullptr;};
+    inline string getFileMd5() const { DARABONBA_PTR_GET_DEFAULT(fileMd5_, "") };
+    inline SendFileRequest& setFileMd5(string fileMd5) { DARABONBA_PTR_SET_VALUE(fileMd5_, fileMd5) };
 
 
     // sourceFilePath Field Functions 
@@ -112,6 +121,7 @@ namespace Models
     shared_ptr<vector<string>> androidInstanceIdList_ {};
     shared_ptr<bool> autoInstall_ {};
     shared_ptr<string> clientToken_ {};
+    shared_ptr<string> fileMd5_ {};
     // The path to which you want to upload the pushed file in the cloud phone instance.
     // 
     // This parameter is required.

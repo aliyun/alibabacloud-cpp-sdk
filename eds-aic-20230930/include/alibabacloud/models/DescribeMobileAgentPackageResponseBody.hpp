@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PackageCredit, packageCredit_);
         DARABONBA_PTR_TO_JSON(PackageId, packageId_);
         DARABONBA_PTR_TO_JSON(PackageSpec, packageSpec_);
+        DARABONBA_PTR_TO_JSON(PackageSpecName, packageSpecName_);
         DARABONBA_PTR_TO_JSON(PackageStatus, packageStatus_);
         DARABONBA_PTR_TO_JSON(UsedCredit, usedCredit_);
       };
@@ -55,6 +56,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PackageCredit, packageCredit_);
         DARABONBA_PTR_FROM_JSON(PackageId, packageId_);
         DARABONBA_PTR_FROM_JSON(PackageSpec, packageSpec_);
+        DARABONBA_PTR_FROM_JSON(PackageSpecName, packageSpecName_);
         DARABONBA_PTR_FROM_JSON(PackageStatus, packageStatus_);
         DARABONBA_PTR_FROM_JSON(UsedCredit, usedCredit_);
       };
@@ -70,8 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->expiredAt_ == nullptr
-        && this->instanceIds_ == nullptr && this->packageCredit_ == nullptr && this->packageId_ == nullptr && this->packageSpec_ == nullptr && this->packageStatus_ == nullptr
-        && this->usedCredit_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->packageCredit_ == nullptr && this->packageId_ == nullptr && this->packageSpec_ == nullptr && this->packageSpecName_ == nullptr
+        && this->packageStatus_ == nullptr && this->usedCredit_ == nullptr; };
       // expiredAt Field Functions 
       bool hasExpiredAt() const { return this->expiredAt_ != nullptr;};
       void deleteExpiredAt() { this->expiredAt_ = nullptr;};
@@ -109,6 +111,13 @@ namespace Models
       inline PackageList& setPackageSpec(string packageSpec) { DARABONBA_PTR_SET_VALUE(packageSpec_, packageSpec) };
 
 
+      // packageSpecName Field Functions 
+      bool hasPackageSpecName() const { return this->packageSpecName_ != nullptr;};
+      void deletePackageSpecName() { this->packageSpecName_ = nullptr;};
+      inline string getPackageSpecName() const { DARABONBA_PTR_GET_DEFAULT(packageSpecName_, "") };
+      inline PackageList& setPackageSpecName(string packageSpecName) { DARABONBA_PTR_SET_VALUE(packageSpecName_, packageSpecName) };
+
+
       // packageStatus Field Functions 
       bool hasPackageStatus() const { return this->packageStatus_ != nullptr;};
       void deletePackageStatus() { this->packageStatus_ = nullptr;};
@@ -129,6 +138,7 @@ namespace Models
       shared_ptr<string> packageCredit_ {};
       shared_ptr<string> packageId_ {};
       shared_ptr<string> packageSpec_ {};
+      shared_ptr<string> packageSpecName_ {};
       shared_ptr<string> packageStatus_ {};
       shared_ptr<string> usedCredit_ {};
     };

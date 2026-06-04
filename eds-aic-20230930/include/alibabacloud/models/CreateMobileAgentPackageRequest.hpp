@@ -19,8 +19,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_TO_JSON(CreditConfig, creditConfig_);
+      DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(MobileAgentPackageSpec, mobileAgentPackageSpec_);
+      DARABONBA_PTR_TO_JSON(PackageSpecId, packageSpecId_);
       DARABONBA_PTR_TO_JSON(PaidCallbackUrl, paidCallbackUrl_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
@@ -33,8 +35,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_FROM_JSON(CreditConfig, creditConfig_);
+      DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(MobileAgentPackageSpec, mobileAgentPackageSpec_);
+      DARABONBA_PTR_FROM_JSON(PackageSpecId, packageSpecId_);
       DARABONBA_PTR_FROM_JSON(PaidCallbackUrl, paidCallbackUrl_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
@@ -53,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bizRegionId_ == nullptr && this->creditAmount_ == nullptr && this->creditConfig_ == nullptr
-        && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->promotionId_ == nullptr; };
+        && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->packageSpecId_ == nullptr && this->paidCallbackUrl_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -97,6 +101,13 @@ namespace Models
     inline CreateMobileAgentPackageRequest& setCreditConfig(string creditConfig) { DARABONBA_PTR_SET_VALUE(creditConfig_, creditConfig) };
 
 
+    // imageId Field Functions 
+    bool hasImageId() const { return this->imageId_ != nullptr;};
+    void deleteImageId() { this->imageId_ = nullptr;};
+    inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
+    inline CreateMobileAgentPackageRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
     // instanceName Field Functions 
     bool hasInstanceName() const { return this->instanceName_ != nullptr;};
     void deleteInstanceName() { this->instanceName_ = nullptr;};
@@ -109,6 +120,13 @@ namespace Models
     void deleteMobileAgentPackageSpec() { this->mobileAgentPackageSpec_ = nullptr;};
     inline string getMobileAgentPackageSpec() const { DARABONBA_PTR_GET_DEFAULT(mobileAgentPackageSpec_, "") };
     inline CreateMobileAgentPackageRequest& setMobileAgentPackageSpec(string mobileAgentPackageSpec) { DARABONBA_PTR_SET_VALUE(mobileAgentPackageSpec_, mobileAgentPackageSpec) };
+
+
+    // packageSpecId Field Functions 
+    bool hasPackageSpecId() const { return this->packageSpecId_ != nullptr;};
+    void deletePackageSpecId() { this->packageSpecId_ = nullptr;};
+    inline int64_t getPackageSpecId() const { DARABONBA_PTR_GET_DEFAULT(packageSpecId_, 0L) };
+    inline CreateMobileAgentPackageRequest& setPackageSpecId(int64_t packageSpecId) { DARABONBA_PTR_SET_VALUE(packageSpecId_, packageSpecId) };
 
 
     // paidCallbackUrl Field Functions 
@@ -146,8 +164,10 @@ namespace Models
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> creditAmount_ {};
     shared_ptr<string> creditConfig_ {};
+    shared_ptr<string> imageId_ {};
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> mobileAgentPackageSpec_ {};
+    shared_ptr<int64_t> packageSpecId_ {};
     shared_ptr<string> paidCallbackUrl_ {};
     shared_ptr<int32_t> period_ {};
     shared_ptr<string> periodUnit_ {};

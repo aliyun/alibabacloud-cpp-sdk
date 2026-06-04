@@ -1237,12 +1237,20 @@ CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(con
     query["CreditConfig"] = request.getCreditConfig();
   }
 
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
   if (!!request.hasInstanceName()) {
     query["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasMobileAgentPackageSpec()) {
     query["MobileAgentPackageSpec"] = request.getMobileAgentPackageSpec();
+  }
+
+  if (!!request.hasPackageSpecId()) {
+    query["PackageSpecId"] = request.getPackageSpecId();
   }
 
   if (!!request.hasPaidCallbackUrl()) {
@@ -5723,6 +5731,10 @@ SendFileResponse Client::sendFileWithOptions(const SendFileRequest &request, con
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasFileMd5()) {
+    query["FileMd5"] = request.getFileMd5();
   }
 
   if (!!request.hasSourceFilePath()) {
