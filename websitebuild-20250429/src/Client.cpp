@@ -8,6 +8,7 @@ using namespace std;
 using namespace Darabonba;
 using json = nlohmann::json;
 using namespace AlibabaCloud::OpenApi;
+using namespace AlibabaCloud::OpenApi::Models;
 using OpenApiClient = AlibabaCloud::OpenApi::Client;
 using namespace AlibabaCloud::OpenApi::Utils::Models;
 using namespace AlibabaCloud::WebsiteBuild20250429::Models;
@@ -350,6 +351,52 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUse
 }
 
 /**
+ * @summary 复制插件配置
+ *
+ * @param request CopyAppPluginConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CopyAppPluginConfigResponse
+ */
+CopyAppPluginConfigResponse Client::copyAppPluginConfigWithOptions(const CopyAppPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSourceBizId()) {
+    query["SourceBizId"] = request.getSourceBizId();
+  }
+
+  if (!!request.hasTargetBizId()) {
+    query["TargetBizId"] = request.getTargetBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CopyAppPluginConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CopyAppPluginConfigResponse>();
+}
+
+/**
+ * @summary 复制插件配置
+ *
+ * @param request CopyAppPluginConfigRequest
+ * @return CopyAppPluginConfigResponse
+ */
+CopyAppPluginConfigResponse Client::copyAppPluginConfig(const CopyAppPluginConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return copyAppPluginConfigWithOptions(request, runtime);
+}
+
+/**
  * @summary 异步发起AI员工对话
  *
  * @param request CreateAIStaffChatRequest
@@ -551,6 +598,125 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLoginW
 CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(const CreateAppAssistantAgentSsoLoginRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAppAssistantAgentSsoLoginWithOptions(request, runtime);
+}
+
+/**
+ * @summary 万小智发起AI对话
+ *
+ * @param request CreateAppChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppChatResponse
+ */
+FutureGenerator<CreateAppChatResponse> Client::createAppChatWithSSE(const CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBotId()) {
+    query["BotId"] = request.getBotId();
+  }
+
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMessages()) {
+    query["Messages"] = request.getMessages();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppChat"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      string data = resp.getEvent().getData();
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<CreateAppChatResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 万小智发起AI对话
+ *
+ * @param request CreateAppChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppChatResponse
+ */
+CreateAppChatResponse Client::createAppChatWithOptions(const CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBotId()) {
+    query["BotId"] = request.getBotId();
+  }
+
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMessages()) {
+    query["Messages"] = request.getMessages();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAppChat"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppChatResponse>();
+}
+
+/**
+ * @summary 万小智发起AI对话
+ *
+ * @param request CreateAppChatRequest
+ * @return CreateAppChatResponse
+ */
+CreateAppChatResponse Client::createAppChat(const CreateAppChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppChatWithOptions(request, runtime);
 }
 
 /**
@@ -948,6 +1114,98 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppD
 }
 
 /**
+ * @summary 删除文件
+ *
+ * @param request DeleteAppInstanceFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppInstanceFileResponse
+ */
+DeleteAppInstanceFileResponse Client::deleteAppInstanceFileWithOptions(const DeleteAppInstanceFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppInstanceFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppInstanceFileResponse>();
+}
+
+/**
+ * @summary 删除文件
+ *
+ * @param request DeleteAppInstanceFileRequest
+ * @return DeleteAppInstanceFileResponse
+ */
+DeleteAppInstanceFileResponse Client::deleteAppInstanceFile(const DeleteAppInstanceFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppInstanceFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除Supabase密钥
+ *
+ * @param request DeleteAppSupabaseSecretsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppSupabaseSecretsResponse
+ */
+DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecretsWithOptions(const DeleteAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasKeysJson()) {
+    query["KeysJson"] = request.getKeysJson();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppSupabaseSecrets"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppSupabaseSecretsResponse>();
+}
+
+/**
+ * @summary 删除Supabase密钥
+ *
+ * @param request DeleteAppSupabaseSecretsRequest
+ * @return DeleteAppSupabaseSecretsResponse
+ */
+DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecrets(const DeleteAppSupabaseSecretsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppSupabaseSecretsWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除素材中心文件夹
  *
  * @param request DeleteMaterialDirectoryRequest
@@ -1306,6 +1564,228 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPrevie
 }
 
 /**
+ * @summary 获取代码工作区详情
+ *
+ * @param request GetAppCodeWorkspaceDetailRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppCodeWorkspaceDetailResponse
+ */
+GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetailWithOptions(const GetAppCodeWorkspaceDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppCodeWorkspaceDetail"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppCodeWorkspaceDetailResponse>();
+}
+
+/**
+ * @summary 获取代码工作区详情
+ *
+ * @param request GetAppCodeWorkspaceDetailRequest
+ * @return GetAppCodeWorkspaceDetailResponse
+ */
+GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetail(const GetAppCodeWorkspaceDetailRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppCodeWorkspaceDetailWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取对话详情
+ *
+ * @param request GetAppConversationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppConversationResponse
+ */
+GetAppConversationResponse Client::getAppConversationWithOptions(const GetAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBotId()) {
+    query["BotId"] = request.getBotId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppConversation"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppConversationResponse>();
+}
+
+/**
+ * @summary 获取对话详情
+ *
+ * @param request GetAppConversationRequest
+ * @return GetAppConversationResponse
+ */
+GetAppConversationResponse Client::getAppConversation(const GetAppConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppConversationWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取会话锁定状态
+ *
+ * @param request GetAppConversationLockStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppConversationLockStatusResponse
+ */
+GetAppConversationLockStatusResponse Client::getAppConversationLockStatusWithOptions(const GetAppConversationLockStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppConversationLockStatus"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppConversationLockStatusResponse>();
+}
+
+/**
+ * @summary 获取会话锁定状态
+ *
+ * @param request GetAppConversationLockStatusRequest
+ * @return GetAppConversationLockStatusResponse
+ */
+GetAppConversationLockStatusResponse Client::getAppConversationLockStatus(const GetAppConversationLockStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppConversationLockStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询数据库表结构
+ *
+ * @param request GetAppDatabaseTableSchemasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppDatabaseTableSchemasResponse
+ */
+GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemasWithOptions(const GetAppDatabaseTableSchemasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasTableName()) {
+    query["TableName"] = request.getTableName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppDatabaseTableSchemas"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppDatabaseTableSchemasResponse>();
+}
+
+/**
+ * @summary 查询数据库表结构
+ *
+ * @param request GetAppDatabaseTableSchemasRequest
+ * @return GetAppDatabaseTableSchemasResponse
+ */
+GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemas(const GetAppDatabaseTableSchemasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppDatabaseTableSchemasWithOptions(request, runtime);
+}
+
+/**
+ * @summary 读取文件及修改时间
+ *
+ * @param request GetAppFileContentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppFileContentResponse
+ */
+GetAppFileContentResponse Client::getAppFileContentWithOptions(const GetAppFileContentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppFileContent"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppFileContentResponse>();
+}
+
+/**
+ * @summary 读取文件及修改时间
+ *
+ * @param request GetAppFileContentRequest
+ * @return GetAppFileContentResponse
+ */
+GetAppFileContentResponse Client::getAppFileContent(const GetAppFileContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppFileContentWithOptions(request, runtime);
+}
+
+/**
  * @summary Query Application Instance Details
  *
  * @param request GetAppInstanceRequest
@@ -1345,6 +1825,48 @@ GetAppInstanceResponse Client::getAppInstanceWithOptions(const GetAppInstanceReq
 GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary GetAppInstanceEntitlement
+ *
+ * @param request GetAppInstanceEntitlementRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppInstanceEntitlementResponse
+ */
+GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlementWithOptions(const GetAppInstanceEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppInstanceEntitlement"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppInstanceEntitlementResponse>();
+}
+
+/**
+ * @summary GetAppInstanceEntitlement
+ *
+ * @param request GetAppInstanceEntitlementRequest
+ * @return GetAppInstanceEntitlementResponse
+ */
+GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlement(const GetAppInstanceEntitlementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppInstanceEntitlementWithOptions(request, runtime);
 }
 
 /**
@@ -1436,6 +1958,48 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartner(const GetAppIn
 }
 
 /**
+ * @summary 获取应用临时短链
+ *
+ * @param request GetAppInstanceTempShortUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppInstanceTempShortUrlResponse
+ */
+GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrlWithOptions(const GetAppInstanceTempShortUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBizId()) {
+    body["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppInstanceTempShortUrl"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppInstanceTempShortUrlResponse>();
+}
+
+/**
+ * @summary 获取应用临时短链
+ *
+ * @param request GetAppInstanceTempShortUrlRequest
+ * @return GetAppInstanceTempShortUrlResponse
+ */
+GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrl(const GetAppInstanceTempShortUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppInstanceTempShortUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary 生码-获取插件配置信息
  *
  * @param request GetAppPluginConfigRequest
@@ -1479,6 +2043,56 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppPluginConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 发布状态查询
+ *
+ * @param request GetAppPublishStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppPublishStatusResponse
+ */
+GetAppPublishStatusResponse Client::getAppPublishStatusWithOptions(const GetAppPublishStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDeployOrderId()) {
+    query["DeployOrderId"] = request.getDeployOrderId();
+  }
+
+  if (!!request.hasWebsiteDomain()) {
+    query["WebsiteDomain"] = request.getWebsiteDomain();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppPublishStatus"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppPublishStatusResponse>();
+}
+
+/**
+ * @summary 发布状态查询
+ *
+ * @param request GetAppPublishStatusRequest
+ * @return GetAppPublishStatusResponse
+ */
+GetAppPublishStatusResponse Client::getAppPublishStatus(const GetAppPublishStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppPublishStatusWithOptions(request, runtime);
 }
 
 /**
@@ -1536,6 +2150,420 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const 
 }
 
 /**
+ * @summary 需求查询
+ *
+ * @param request GetAppRequirementRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppRequirementResponse
+ */
+GetAppRequirementResponse Client::getAppRequirementWithOptions(const GetAppRequirementRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppRequirement"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppRequirementResponse>();
+}
+
+/**
+ * @summary 需求查询
+ *
+ * @param request GetAppRequirementRequest
+ * @return GetAppRequirementResponse
+ */
+GetAppRequirementResponse Client::getAppRequirement(const GetAppRequirementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppRequirementWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取沙箱预览地址
+ *
+ * @param request GetAppSandboxPreviewUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSandboxPreviewUrlResponse
+ */
+GetAppSandboxPreviewUrlResponse Client::getAppSandboxPreviewUrlWithOptions(const GetAppSandboxPreviewUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasRestart()) {
+    body["Restart"] = request.getRestart();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppSandboxPreviewUrl"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSandboxPreviewUrlResponse>();
+}
+
+/**
+ * @summary 获取沙箱预览地址
+ *
+ * @param request GetAppSandboxPreviewUrlRequest
+ * @return GetAppSandboxPreviewUrlResponse
+ */
+GetAppSandboxPreviewUrlResponse Client::getAppSandboxPreviewUrl(const GetAppSandboxPreviewUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSandboxPreviewUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SEO索引状态
+ *
+ * @param request GetAppSeoStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSeoStatusResponse
+ */
+GetAppSeoStatusResponse Client::getAppSeoStatusWithOptions(const GetAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeType()) {
+    query["SeType"] = request.getSeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSeoStatus"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSeoStatusResponse>();
+}
+
+/**
+ * @summary 查询SEO索引状态
+ *
+ * @param request GetAppSeoStatusRequest
+ * @return GetAppSeoStatusResponse
+ */
+GetAppSeoStatusResponse Client::getAppSeoStatus(const GetAppSeoStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSeoStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary SEO索引图表
+ *
+ * @param request GetAppSeoTrendsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSeoTrendsResponse
+ */
+GetAppSeoTrendsResponse Client::getAppSeoTrendsWithOptions(const GetAppSeoTrendsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeType()) {
+    query["SeType"] = request.getSeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSeoTrends"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSeoTrendsResponse>();
+}
+
+/**
+ * @summary SEO索引图表
+ *
+ * @param request GetAppSeoTrendsRequest
+ * @return GetAppSeoTrendsResponse
+ */
+GetAppSeoTrendsResponse Client::getAppSeoTrends(const GetAppSeoTrendsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSeoTrendsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取站点地图
+ *
+ * @param request GetAppSitemapRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSitemapResponse
+ */
+GetAppSitemapResponse Client::getAppSitemapWithOptions(const GetAppSitemapRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeType()) {
+    query["SeType"] = request.getSeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSitemap"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSitemapResponse>();
+}
+
+/**
+ * @summary 获取站点地图
+ *
+ * @param request GetAppSitemapRequest
+ * @return GetAppSitemapResponse
+ */
+GetAppSitemapResponse Client::getAppSitemap(const GetAppSitemapRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSitemapWithOptions(request, runtime);
+}
+
+/**
+ * @summary Supabase认证设置查询
+ *
+ * @param request GetAppSupabaseAuthConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSupabaseAuthConfigResponse
+ */
+GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfigWithOptions(const GetAppSupabaseAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAuthType()) {
+    query["AuthType"] = request.getAuthType();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSupabaseAuthConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSupabaseAuthConfigResponse>();
+}
+
+/**
+ * @summary Supabase认证设置查询
+ *
+ * @param request GetAppSupabaseAuthConfigRequest
+ * @return GetAppSupabaseAuthConfigResponse
+ */
+GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfig(const GetAppSupabaseAuthConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSupabaseAuthConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Supabase实例信息
+ *
+ * @param request GetAppSupabaseInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSupabaseInstanceResponse
+ */
+GetAppSupabaseInstanceResponse Client::getAppSupabaseInstanceWithOptions(const GetAppSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSupabaseInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSupabaseInstanceResponse>();
+}
+
+/**
+ * @summary 获取Supabase实例信息
+ *
+ * @param request GetAppSupabaseInstanceRequest
+ * @return GetAppSupabaseInstanceResponse
+ */
+GetAppSupabaseInstanceResponse Client::getAppSupabaseInstance(const GetAppSupabaseInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSupabaseInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Supabase密钥
+ *
+ * @param request GetAppSupabaseSecretsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppSupabaseSecretsResponse
+ */
+GetAppSupabaseSecretsResponse Client::getAppSupabaseSecretsWithOptions(const GetAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppSupabaseSecrets"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppSupabaseSecretsResponse>();
+}
+
+/**
+ * @summary 查询Supabase密钥
+ *
+ * @param request GetAppSupabaseSecretsRequest
+ * @return GetAppSupabaseSecretsResponse
+ */
+GetAppSupabaseSecretsResponse Client::getAppSupabaseSecrets(const GetAppSupabaseSecretsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppSupabaseSecretsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 模板详情查询
+ *
+ * @param request GetAppTemplateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppTemplateResponse
+ */
+GetAppTemplateResponse Client::getAppTemplateWithOptions(const GetAppTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAppTemplate"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppTemplateResponse>();
+}
+
+/**
+ * @summary 模板详情查询
+ *
+ * @param request GetAppTemplateRequest
+ * @return GetAppTemplateResponse
+ */
+GetAppTemplateResponse Client::getAppTemplate(const GetAppTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppTemplateWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询万小智灵感值服务
  *
  * @param runtime runtime options for this request RuntimeOptions
@@ -1565,6 +2593,56 @@ GetAppTokenServiceResponse Client::getAppTokenServiceWithOptions(const Darabonba
 GetAppTokenServiceResponse Client::getAppTokenService() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAppTokenServiceWithOptions(runtime);
+}
+
+/**
+ * @summary 获取工作区目录结构
+ *
+ * @param request GetAppWorkspaceDirectoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAppWorkspaceDirectoryResponse
+ */
+GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectoryWithOptions(const GetAppWorkspaceDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasDeep()) {
+    body["Deep"] = request.getDeep();
+  }
+
+  if (!!request.hasFilePath()) {
+    body["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAppWorkspaceDirectory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAppWorkspaceDirectoryResponse>();
+}
+
+/**
+ * @summary 获取工作区目录结构
+ *
+ * @param request GetAppWorkspaceDirectoryRequest
+ * @return GetAppWorkspaceDirectoryResponse
+ */
+GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectory(const GetAppWorkspaceDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAppWorkspaceDirectoryWithOptions(request, runtime);
 }
 
 /**
@@ -2060,6 +3138,64 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssis
 }
 
 /**
+ * @summary 查询指定聊天的消息列表
+ *
+ * @param request ListAppChatMessagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppChatMessagesResponse
+ */
+ListAppChatMessagesResponse Client::listAppChatMessagesWithOptions(const ListAppChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSectionId()) {
+    query["SectionId"] = request.getSectionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppChatMessages"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppChatMessagesResponse>();
+}
+
+/**
+ * @summary 查询指定聊天的消息列表
+ *
+ * @param request ListAppChatMessagesRequest
+ * @return ListAppChatMessagesResponse
+ */
+ListAppChatMessagesResponse Client::listAppChatMessages(const ListAppChatMessagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppChatMessagesWithOptions(request, runtime);
+}
+
+/**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
  * @summary 获取商品配置信息
@@ -2139,6 +3275,138 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpecificationsV2ForPartner(const ListAppCommoditySpecificationsV2ForPartnerRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAppCommoditySpecificationsV2ForPartnerWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页查询对话消息列表
+ *
+ * @param request ListAppConversationMessagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppConversationMessagesResponse
+ */
+ListAppConversationMessagesResponse Client::listAppConversationMessagesWithOptions(const ListAppConversationMessagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStartCreateTime()) {
+    query["StartCreateTime"] = request.getStartCreateTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppConversationMessages"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppConversationMessagesResponse>();
+}
+
+/**
+ * @summary 分页查询对话消息列表
+ *
+ * @param request ListAppConversationMessagesRequest
+ * @return ListAppConversationMessagesResponse
+ */
+ListAppConversationMessagesResponse Client::listAppConversationMessages(const ListAppConversationMessagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppConversationMessagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 搜索对话列表
+ *
+ * @param request ListAppConversationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppConversationsResponse
+ */
+ListAppConversationsResponse Client::listAppConversationsWithOptions(const ListAppConversationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBotId()) {
+    query["BotId"] = request.getBotId();
+  }
+
+  if (!!request.hasEndModifyTime()) {
+    query["EndModifyTime"] = request.getEndModifyTime();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasStartModifyTime()) {
+    query["StartModifyTime"] = request.getStartModifyTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppConversations"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppConversationsResponse>();
+}
+
+/**
+ * @summary 搜索对话列表
+ *
+ * @param request ListAppConversationsRequest
+ * @return ListAppConversationsResponse
+ */
+ListAppConversationsResponse Client::listAppConversations(const ListAppConversationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppConversationsWithOptions(request, runtime);
 }
 
 /**
@@ -2351,6 +3619,366 @@ ListAppInstancesResponse Client::listAppInstancesWithOptions(const ListAppInstan
 ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAppInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取码农插件配置列表
+ *
+ * @param request ListAppPluginConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppPluginConfigsResponse
+ */
+ListAppPluginConfigsResponse Client::listAppPluginConfigsWithOptions(const ListAppPluginConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppPluginConfigs"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppPluginConfigsResponse>();
+}
+
+/**
+ * @summary 获取码农插件配置列表
+ *
+ * @param request ListAppPluginConfigsRequest
+ * @return ListAppPluginConfigsResponse
+ */
+ListAppPluginConfigsResponse Client::listAppPluginConfigs(const ListAppPluginConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppPluginConfigsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 应用插件列表
+ *
+ * @param request ListAppPluginsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppPluginsResponse
+ */
+ListAppPluginsResponse Client::listAppPluginsWithOptions(const ListAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPhase()) {
+    query["Phase"] = request.getPhase();
+  }
+
+  if (!!request.hasPlatform()) {
+    query["Platform"] = request.getPlatform();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppPlugins"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppPluginsResponse>();
+}
+
+/**
+ * @summary 应用插件列表
+ *
+ * @param request ListAppPluginsRequest
+ * @return ListAppPluginsResponse
+ */
+ListAppPluginsResponse Client::listAppPlugins(const ListAppPluginsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppPluginsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 发布历史查询
+ *
+ * @param request ListAppPublishHistoryRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppPublishHistoryResponse
+ */
+ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const ListAppPublishHistoryRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSort()) {
+    query["Sort"] = request.getSort();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasWebsiteDomain()) {
+    query["WebsiteDomain"] = request.getWebsiteDomain();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppPublishHistory"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppPublishHistoryResponse>();
+}
+
+/**
+ * @summary 发布历史查询
+ *
+ * @param request ListAppPublishHistoryRequest
+ * @return ListAppPublishHistoryResponse
+ */
+ListAppPublishHistoryResponse Client::listAppPublishHistory(const ListAppPublishHistoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppPublishHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary 字典列表查询
+ *
+ * @param request ListAppTemplateDictsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppTemplateDictsResponse
+ */
+ListAppTemplateDictsResponse Client::listAppTemplateDictsWithOptions(const ListAppTemplateDictsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDictType()) {
+    query["DictType"] = request.getDictType();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppTemplateDicts"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppTemplateDictsResponse>();
+}
+
+/**
+ * @summary 字典列表查询
+ *
+ * @param request ListAppTemplateDictsRequest
+ * @return ListAppTemplateDictsResponse
+ */
+ListAppTemplateDictsResponse Client::listAppTemplateDicts(const ListAppTemplateDictsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppTemplateDictsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 模板列表查询
+ *
+ * @param request ListAppTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListAppTemplatesResponse
+ */
+ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppType()) {
+    query["AppType"] = request.getAppType();
+  }
+
+  if (!!request.hasColorScheme()) {
+    query["ColorScheme"] = request.getColorScheme();
+  }
+
+  if (!!request.hasIndustry()) {
+    query["Industry"] = request.getIndustry();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductVersion()) {
+    query["ProductVersion"] = request.getProductVersion();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListAppTemplates"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListAppTemplatesResponse>();
+}
+
+/**
+ * @summary 模板列表查询
+ *
+ * @param request ListAppTemplatesRequest
+ * @return ListAppTemplatesResponse
+ */
+ListAppTemplatesResponse Client::listAppTemplates(const ListAppTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listAppTemplatesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询支付宝ISV插件配置
+ *
+ * @param request ListIsvPaymentPluginConfigsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListIsvPaymentPluginConfigsResponse
+ */
+ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigsWithOptions(const ListIsvPaymentPluginConfigsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListIsvPaymentPluginConfigs"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListIsvPaymentPluginConfigsResponse>();
+}
+
+/**
+ * @summary 查询支付宝ISV插件配置
+ *
+ * @param request ListIsvPaymentPluginConfigsRequest
+ * @return ListIsvPaymentPluginConfigsResponse
+ */
+ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigs(const ListIsvPaymentPluginConfigsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listIsvPaymentPluginConfigsWithOptions(request, runtime);
 }
 
 /**
@@ -2786,6 +4414,52 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const Op
 }
 
 /**
+ * @summary 切换模板点赞统计
+ *
+ * @param request OperateAppTemplateLikeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OperateAppTemplateLikeResponse
+ */
+OperateAppTemplateLikeResponse Client::operateAppTemplateLikeWithOptions(const OperateAppTemplateLikeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLiked()) {
+    query["Liked"] = request.getLiked();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OperateAppTemplateLike"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OperateAppTemplateLikeResponse>();
+}
+
+/**
+ * @summary 切换模板点赞统计
+ *
+ * @param request OperateAppTemplateLikeRequest
+ * @return OperateAppTemplateLikeResponse
+ */
+OperateAppTemplateLikeResponse Client::operateAppTemplateLike(const OperateAppTemplateLikeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return operateAppTemplateLikeWithOptions(request, runtime);
+}
+
+/**
  * @summary 通用Supabase操作
  *
  * @param request OperateSupabaseForAdminRequest
@@ -2869,6 +4543,68 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
 OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSupabaseForAdminRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return operateSupabaseForAdminWithOptions(request, runtime);
+}
+
+/**
+ * @summary 发布应用实例
+ *
+ * @param request PublishAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PublishAppInstanceResponse
+ */
+PublishAppInstanceResponse Client::publishAppInstanceWithOptions(const PublishAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDeployChannel()) {
+    query["DeployChannel"] = request.getDeployChannel();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasLogicalNumber()) {
+    query["LogicalNumber"] = request.getLogicalNumber();
+  }
+
+  if (!!request.hasPublishNumber()) {
+    query["PublishNumber"] = request.getPublishNumber();
+  }
+
+  if (!!request.hasWeappAction()) {
+    query["WeappAction"] = request.getWeappAction();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "PublishAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PublishAppInstanceResponse>();
+}
+
+/**
+ * @summary 发布应用实例
+ *
+ * @param request PublishAppInstanceRequest
+ * @return PublishAppInstanceResponse
+ */
+PublishAppInstanceResponse Client::publishAppInstance(const PublishAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return publishAppInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -3722,6 +5458,109 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
+ * @summary 重新连接AI对话
+ *
+ * @param request ReconnectAppChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReconnectAppChatResponse
+ */
+FutureGenerator<ReconnectAppChatResponse> Client::reconnectAppChatWithSSE(const ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLastEventId()) {
+    query["LastEventId"] = request.getLastEventId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReconnectAppChat"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      string data = resp.getEvent().getData();
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ReconnectAppChatResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary 重新连接AI对话
+ *
+ * @param request ReconnectAppChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReconnectAppChatResponse
+ */
+ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChatId()) {
+    query["ChatId"] = request.getChatId();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasLastEventId()) {
+    query["LastEventId"] = request.getLastEventId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReconnectAppChat"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "string"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReconnectAppChatResponse>();
+}
+
+/**
+ * @summary 重新连接AI对话
+ *
+ * @param request ReconnectAppChatRequest
+ * @return ReconnectAppChatResponse
+ */
+ReconnectAppChatResponse Client::reconnectAppChat(const ReconnectAppChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return reconnectAppChatWithOptions(request, runtime);
+}
+
+/**
  * @summary Refresh ticket
  *
  * @param request RefreshAppInstanceTicketRequest
@@ -3885,6 +5724,242 @@ RenewAppInstanceResponse Client::renewAppInstanceWithOptions(const RenewAppInsta
 RenewAppInstanceResponse Client::renewAppInstance(const RenewAppInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return renewAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 续期/刷新沙箱环境
+ *
+ * @param request RenewAppSandboxRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenewAppSandboxResponse
+ */
+RenewAppSandboxResponse Client::renewAppSandboxWithOptions(const RenewAppSandboxRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenewAppSandbox"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenewAppSandboxResponse>();
+}
+
+/**
+ * @summary 续期/刷新沙箱环境
+ *
+ * @param request RenewAppSandboxRequest
+ * @return RenewAppSandboxResponse
+ */
+RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renewAppSandboxWithOptions(request, runtime);
+}
+
+/**
+ * @summary 代码快照回滚
+ *
+ * @param request RollbackAppCodeSnapshotRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackAppCodeSnapshotResponse
+ */
+RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshotWithOptions(const RollbackAppCodeSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSiteId()) {
+    query["SiteId"] = request.getSiteId();
+  }
+
+  if (!!request.hasTargetLogicalNumber()) {
+    query["TargetLogicalNumber"] = request.getTargetLogicalNumber();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RollbackAppCodeSnapshot"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackAppCodeSnapshotResponse>();
+}
+
+/**
+ * @summary 代码快照回滚
+ *
+ * @param request RollbackAppCodeSnapshotRequest
+ * @return RollbackAppCodeSnapshotResponse
+ */
+RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshot(const RollbackAppCodeSnapshotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackAppCodeSnapshotWithOptions(request, runtime);
+}
+
+/**
+ * @summary 回滚应用实例发布
+ *
+ * @param request RollbackAppInstancePublishRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RollbackAppInstancePublishResponse
+ */
+RollbackAppInstancePublishResponse Client::rollbackAppInstancePublishWithOptions(const RollbackAppInstancePublishRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDeployChannel()) {
+    query["DeployChannel"] = request.getDeployChannel();
+  }
+
+  if (!!request.hasPublishNumber()) {
+    query["PublishNumber"] = request.getPublishNumber();
+  }
+
+  if (!!request.hasQuickRollback()) {
+    query["QuickRollback"] = request.getQuickRollback();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RollbackAppInstancePublish"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RollbackAppInstancePublishResponse>();
+}
+
+/**
+ * @summary 回滚应用实例发布
+ *
+ * @param request RollbackAppInstancePublishRequest
+ * @return RollbackAppInstancePublishResponse
+ */
+RollbackAppInstancePublishResponse Client::rollbackAppInstancePublish(const RollbackAppInstancePublishRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return rollbackAppInstancePublishWithOptions(request, runtime);
+}
+
+/**
+ * @summary 保存需求
+ *
+ * @param request SaveAppRequirementRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveAppRequirementResponse
+ */
+SaveAppRequirementResponse Client::saveAppRequirementWithOptions(const SaveAppRequirementRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  json body = {};
+  if (!!request.hasPrd()) {
+    body["Prd"] = request.getPrd();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveAppRequirement"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveAppRequirementResponse>();
+}
+
+/**
+ * @summary 保存需求
+ *
+ * @param request SaveAppRequirementRequest
+ * @return SaveAppRequirementResponse
+ */
+SaveAppRequirementResponse Client::saveAppRequirement(const SaveAppRequirementRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveAppRequirementWithOptions(request, runtime);
+}
+
+/**
+ * @summary 保存Supabase密钥
+ *
+ * @param request SaveAppSupabaseSecretsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveAppSupabaseSecretsResponse
+ */
+SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecretsWithOptions(const SaveAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasSecretsJson()) {
+    query["SecretsJson"] = request.getSecretsJson();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SaveAppSupabaseSecrets"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveAppSupabaseSecretsResponse>();
+}
+
+/**
+ * @summary 保存Supabase密钥
+ *
+ * @param request SaveAppSupabaseSecretsRequest
+ * @return SaveAppSupabaseSecretsResponse
+ */
+SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecrets(const SaveAppSupabaseSecretsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return saveAppSupabaseSecretsWithOptions(request, runtime);
 }
 
 /**
@@ -4054,6 +6129,60 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDoma
 }
 
 /**
+ * @summary 提交SEO索引
+ *
+ * @param request SubmitAppSeoIndexRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAppSeoIndexResponse
+ */
+SubmitAppSeoIndexResponse Client::submitAppSeoIndexWithOptions(const SubmitAppSeoIndexRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeType()) {
+    query["SeType"] = request.getSeType();
+  }
+
+  if (!!request.hasSubmitLater()) {
+    query["SubmitLater"] = request.getSubmitLater();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitAppSeoIndex"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAppSeoIndexResponse>();
+}
+
+/**
+ * @summary 提交SEO索引
+ *
+ * @param request SubmitAppSeoIndexRequest
+ * @return SubmitAppSeoIndexResponse
+ */
+SubmitAppSeoIndexResponse Client::submitAppSeoIndex(const SubmitAppSeoIndexRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAppSeoIndexWithOptions(request, runtime);
+}
+
+/**
  * @summary 提交素材生产任务
  *
  * @param request SubmitMaterialTaskRequest
@@ -4097,6 +6226,56 @@ SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMat
 SubmitMaterialTaskResponse Client::submitMaterialTask(const SubmitMaterialTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitMaterialTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 切换到指定对话
+ *
+ * @param request SwitchAppConversationRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SwitchAppConversationResponse
+ */
+SwitchAppConversationResponse Client::switchAppConversationWithOptions(const SwitchAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasBotId()) {
+    query["BotId"] = request.getBotId();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SwitchAppConversation"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SwitchAppConversationResponse>();
+}
+
+/**
+ * @summary 切换到指定对话
+ *
+ * @param request SwitchAppConversationRequest
+ * @return SwitchAppConversationResponse
+ */
+SwitchAppConversationResponse Client::switchAppConversation(const SwitchAppConversationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return switchAppConversationWithOptions(request, runtime);
 }
 
 /**
@@ -4207,6 +6386,470 @@ UnbindAppDomainResponse Client::unbindAppDomainWithOptions(const UnbindAppDomain
 UnbindAppDomainResponse Client::unbindAppDomain(const UnbindAppDomainRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return unbindAppDomainWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新消息内容
+ *
+ * @param request UpdateAppChatMessageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppChatMessageResponse
+ */
+UpdateAppChatMessageResponse Client::updateAppChatMessageWithOptions(const UpdateAppChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAddedMetaData()) {
+    query["AddedMetaData"] = request.getAddedMetaData();
+  }
+
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasMessageId()) {
+    query["MessageId"] = request.getMessageId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppChatMessage"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppChatMessageResponse>();
+}
+
+/**
+ * @summary 更新消息内容
+ *
+ * @param request UpdateAppChatMessageRequest
+ * @return UpdateAppChatMessageResponse
+ */
+UpdateAppChatMessageResponse Client::updateAppChatMessage(const UpdateAppChatMessageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppChatMessageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 编辑JSX代码
+ *
+ * @param request UpdateAppCodeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppCodeResponse
+ */
+UpdateAppCodeResponse Client::updateAppCodeWithOptions(const UpdateAppCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppCode"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppCodeResponse>();
+}
+
+/**
+ * @summary 编辑JSX代码
+ *
+ * @param request UpdateAppCodeRequest
+ * @return UpdateAppCodeResponse
+ */
+UpdateAppCodeResponse Client::updateAppCode(const UpdateAppCodeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppCodeWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新文件
+ *
+ * @param request UpdateAppFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppFileResponse
+ */
+UpdateAppFileResponse Client::updateAppFileWithOptions(const UpdateAppFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  if (!!request.hasConversationId()) {
+    query["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppFileResponse>();
+}
+
+/**
+ * @summary 更新文件
+ *
+ * @param request UpdateAppFileRequest
+ * @return UpdateAppFileResponse
+ */
+UpdateAppFileResponse Client::updateAppFile(const UpdateAppFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppFileWithOptions(request, runtime);
+}
+
+/**
+ * @summary 建站实例变配
+ *
+ * @param tmpReq UpdateAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppInstanceResponse
+ */
+UpdateAppInstanceResponse Client::updateAppInstanceWithOptions(const UpdateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateAppInstanceShrinkRequest request = UpdateAppInstanceShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTags()) {
+    request.setTagsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTags(), "Tags", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDeployArea()) {
+    query["DeployArea"] = request.getDeployArea();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasIconUrl()) {
+    query["IconUrl"] = request.getIconUrl();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.getPaymentType();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  if (!!request.hasThumbnailUrl()) {
+    query["ThumbnailUrl"] = request.getThumbnailUrl();
+  }
+
+  json body = {};
+  if (!!request.hasResourceGroupId()) {
+    body["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasTagsShrink()) {
+    body["Tags"] = request.getTagsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppInstanceResponse>();
+}
+
+/**
+ * @summary 建站实例变配
+ *
+ * @param request UpdateAppInstanceRequest
+ * @return UpdateAppInstanceResponse
+ */
+UpdateAppInstanceResponse Client::updateAppInstance(const UpdateAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新SEO索引状态
+ *
+ * @param request UpdateAppSeoStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppSeoStatusResponse
+ */
+UpdateAppSeoStatusResponse Client::updateAppSeoStatusWithOptions(const UpdateAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeType()) {
+    query["SeType"] = request.getSeType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppSeoStatus"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppSeoStatusResponse>();
+}
+
+/**
+ * @summary 更新SEO索引状态
+ *
+ * @param request UpdateAppSeoStatusRequest
+ * @return UpdateAppSeoStatusResponse
+ */
+UpdateAppSeoStatusResponse Client::updateAppSeoStatus(const UpdateAppSeoStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppSeoStatusWithOptions(request, runtime);
+}
+
+/**
+ * @summary Supabase认证配置更新
+ *
+ * @param request UpdateAppSupabaseAuthConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppSupabaseAuthConfigResponse
+ */
+UpdateAppSupabaseAuthConfigResponse Client::updateAppSupabaseAuthConfigWithOptions(const UpdateAppSupabaseAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasConfigsJson()) {
+    query["ConfigsJson"] = request.getConfigsJson();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppSupabaseAuthConfig"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppSupabaseAuthConfigResponse>();
+}
+
+/**
+ * @summary Supabase认证配置更新
+ *
+ * @param request UpdateAppSupabaseAuthConfigRequest
+ * @return UpdateAppSupabaseAuthConfigResponse
+ */
+UpdateAppSupabaseAuthConfigResponse Client::updateAppSupabaseAuthConfig(const UpdateAppSupabaseAuthConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppSupabaseAuthConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新Supabase密钥
+ *
+ * @param request UpdateAppSupabaseSecretRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAppSupabaseSecretResponse
+ */
+UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecretWithOptions(const UpdateAppSupabaseSecretRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasSecretKey()) {
+    query["SecretKey"] = request.getSecretKey();
+  }
+
+  if (!!request.hasSecretName()) {
+    query["SecretName"] = request.getSecretName();
+  }
+
+  if (!!request.hasSecretType()) {
+    query["SecretType"] = request.getSecretType();
+  }
+
+  if (!!request.hasSecretValue()) {
+    query["SecretValue"] = request.getSecretValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateAppSupabaseSecret"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAppSupabaseSecretResponse>();
+}
+
+/**
+ * @summary 更新Supabase密钥
+ *
+ * @param request UpdateAppSupabaseSecretRequest
+ * @return UpdateAppSupabaseSecretResponse
+ */
+UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecret(const UpdateAppSupabaseSecretRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateAppSupabaseSecretWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传到站点根目录
+ *
+ * @param request UploadAppSiteValidationFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UploadAppSiteValidationFileResponse
+ */
+UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFileWithOptions(const UploadAppSiteValidationFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasFile()) {
+    query["File"] = request.getFile();
+  }
+
+  if (!!request.hasFileContent()) {
+    query["FileContent"] = request.getFileContent();
+  }
+
+  if (!!request.hasFileType()) {
+    query["FileType"] = request.getFileType();
+  }
+
+  if (!!request.hasSiteHost()) {
+    query["SiteHost"] = request.getSiteHost();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UploadAppSiteValidationFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UploadAppSiteValidationFileResponse>();
+}
+
+/**
+ * @summary 上传到站点根目录
+ *
+ * @param request UploadAppSiteValidationFileRequest
+ * @return UploadAppSiteValidationFileResponse
+ */
+UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFile(const UploadAppSiteValidationFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uploadAppSiteValidationFileWithOptions(request, runtime);
 }
 
 /**

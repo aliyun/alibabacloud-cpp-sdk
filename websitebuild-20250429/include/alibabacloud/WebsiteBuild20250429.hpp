@@ -106,6 +106,23 @@ namespace WebsiteBuild20250429
       Models::CheckUserResourceMeasureResponse checkUserResourceMeasure(const Models::CheckUserResourceMeasureRequest &request);
 
       /**
+       * @summary 复制插件配置
+       *
+       * @param request CopyAppPluginConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CopyAppPluginConfigResponse
+       */
+      Models::CopyAppPluginConfigResponse copyAppPluginConfigWithOptions(const Models::CopyAppPluginConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 复制插件配置
+       *
+       * @param request CopyAppPluginConfigRequest
+       * @return CopyAppPluginConfigResponse
+       */
+      Models::CopyAppPluginConfigResponse copyAppPluginConfig(const Models::CopyAppPluginConfigRequest &request);
+
+      /**
        * @summary 异步发起AI员工对话
        *
        * @param request CreateAIStaffChatRequest
@@ -172,6 +189,32 @@ namespace WebsiteBuild20250429
        * @return CreateAppAssistantAgentSsoLoginResponse
        */
       Models::CreateAppAssistantAgentSsoLoginResponse createAppAssistantAgentSsoLogin(const Models::CreateAppAssistantAgentSsoLoginRequest &request);
+
+      /**
+       * @summary 万小智发起AI对话
+       *
+       * @param request CreateAppChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppChatResponse
+       */
+      FutureGenerator<Models::CreateAppChatResponse> createAppChatWithSSE(const Models::CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 万小智发起AI对话
+       *
+       * @param request CreateAppChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppChatResponse
+       */
+      Models::CreateAppChatResponse createAppChatWithOptions(const Models::CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 万小智发起AI对话
+       *
+       * @param request CreateAppChatRequest
+       * @return CreateAppChatResponse
+       */
+      Models::CreateAppChatResponse createAppChat(const Models::CreateAppChatRequest &request);
 
       /**
        * @summary Create a website instance
@@ -293,6 +336,40 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
 
       /**
+       * @summary 删除文件
+       *
+       * @param request DeleteAppInstanceFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppInstanceFileResponse
+       */
+      Models::DeleteAppInstanceFileResponse deleteAppInstanceFileWithOptions(const Models::DeleteAppInstanceFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文件
+       *
+       * @param request DeleteAppInstanceFileRequest
+       * @return DeleteAppInstanceFileResponse
+       */
+      Models::DeleteAppInstanceFileResponse deleteAppInstanceFile(const Models::DeleteAppInstanceFileRequest &request);
+
+      /**
+       * @summary 删除Supabase密钥
+       *
+       * @param request DeleteAppSupabaseSecretsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppSupabaseSecretsResponse
+       */
+      Models::DeleteAppSupabaseSecretsResponse deleteAppSupabaseSecretsWithOptions(const Models::DeleteAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Supabase密钥
+       *
+       * @param request DeleteAppSupabaseSecretsRequest
+       * @return DeleteAppSupabaseSecretsResponse
+       */
+      Models::DeleteAppSupabaseSecretsResponse deleteAppSupabaseSecrets(const Models::DeleteAppSupabaseSecretsRequest &request);
+
+      /**
        * @summary 删除素材中心文件夹
        *
        * @param request DeleteMaterialDirectoryRequest
@@ -412,6 +489,91 @@ namespace WebsiteBuild20250429
       Models::GetAIStaffPreviewUrlResponse getAIStaffPreviewUrl(const Models::GetAIStaffPreviewUrlRequest &request);
 
       /**
+       * @summary 获取代码工作区详情
+       *
+       * @param request GetAppCodeWorkspaceDetailRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppCodeWorkspaceDetailResponse
+       */
+      Models::GetAppCodeWorkspaceDetailResponse getAppCodeWorkspaceDetailWithOptions(const Models::GetAppCodeWorkspaceDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取代码工作区详情
+       *
+       * @param request GetAppCodeWorkspaceDetailRequest
+       * @return GetAppCodeWorkspaceDetailResponse
+       */
+      Models::GetAppCodeWorkspaceDetailResponse getAppCodeWorkspaceDetail(const Models::GetAppCodeWorkspaceDetailRequest &request);
+
+      /**
+       * @summary 获取对话详情
+       *
+       * @param request GetAppConversationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppConversationResponse
+       */
+      Models::GetAppConversationResponse getAppConversationWithOptions(const Models::GetAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取对话详情
+       *
+       * @param request GetAppConversationRequest
+       * @return GetAppConversationResponse
+       */
+      Models::GetAppConversationResponse getAppConversation(const Models::GetAppConversationRequest &request);
+
+      /**
+       * @summary 获取会话锁定状态
+       *
+       * @param request GetAppConversationLockStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppConversationLockStatusResponse
+       */
+      Models::GetAppConversationLockStatusResponse getAppConversationLockStatusWithOptions(const Models::GetAppConversationLockStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取会话锁定状态
+       *
+       * @param request GetAppConversationLockStatusRequest
+       * @return GetAppConversationLockStatusResponse
+       */
+      Models::GetAppConversationLockStatusResponse getAppConversationLockStatus(const Models::GetAppConversationLockStatusRequest &request);
+
+      /**
+       * @summary 查询数据库表结构
+       *
+       * @param request GetAppDatabaseTableSchemasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppDatabaseTableSchemasResponse
+       */
+      Models::GetAppDatabaseTableSchemasResponse getAppDatabaseTableSchemasWithOptions(const Models::GetAppDatabaseTableSchemasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据库表结构
+       *
+       * @param request GetAppDatabaseTableSchemasRequest
+       * @return GetAppDatabaseTableSchemasResponse
+       */
+      Models::GetAppDatabaseTableSchemasResponse getAppDatabaseTableSchemas(const Models::GetAppDatabaseTableSchemasRequest &request);
+
+      /**
+       * @summary 读取文件及修改时间
+       *
+       * @param request GetAppFileContentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppFileContentResponse
+       */
+      Models::GetAppFileContentResponse getAppFileContentWithOptions(const Models::GetAppFileContentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取文件及修改时间
+       *
+       * @param request GetAppFileContentRequest
+       * @return GetAppFileContentResponse
+       */
+      Models::GetAppFileContentResponse getAppFileContent(const Models::GetAppFileContentRequest &request);
+
+      /**
        * @summary Query Application Instance Details
        *
        * @param request GetAppInstanceRequest
@@ -427,6 +589,23 @@ namespace WebsiteBuild20250429
        * @return GetAppInstanceResponse
        */
       Models::GetAppInstanceResponse getAppInstance(const Models::GetAppInstanceRequest &request);
+
+      /**
+       * @summary GetAppInstanceEntitlement
+       *
+       * @param request GetAppInstanceEntitlementRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppInstanceEntitlementResponse
+       */
+      Models::GetAppInstanceEntitlementResponse getAppInstanceEntitlementWithOptions(const Models::GetAppInstanceEntitlementRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary GetAppInstanceEntitlement
+       *
+       * @param request GetAppInstanceEntitlementRequest
+       * @return GetAppInstanceEntitlementResponse
+       */
+      Models::GetAppInstanceEntitlementResponse getAppInstanceEntitlement(const Models::GetAppInstanceEntitlementRequest &request);
 
       /**
        * @summary Query application instance information
@@ -463,6 +642,23 @@ namespace WebsiteBuild20250429
       Models::GetAppInstanceForPartnerResponse getAppInstanceForPartner(const Models::GetAppInstanceForPartnerRequest &request);
 
       /**
+       * @summary 获取应用临时短链
+       *
+       * @param request GetAppInstanceTempShortUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppInstanceTempShortUrlResponse
+       */
+      Models::GetAppInstanceTempShortUrlResponse getAppInstanceTempShortUrlWithOptions(const Models::GetAppInstanceTempShortUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取应用临时短链
+       *
+       * @param request GetAppInstanceTempShortUrlRequest
+       * @return GetAppInstanceTempShortUrlResponse
+       */
+      Models::GetAppInstanceTempShortUrlResponse getAppInstanceTempShortUrl(const Models::GetAppInstanceTempShortUrlRequest &request);
+
+      /**
        * @summary 生码-获取插件配置信息
        *
        * @param request GetAppPluginConfigRequest
@@ -478,6 +674,23 @@ namespace WebsiteBuild20250429
        * @return GetAppPluginConfigResponse
        */
       Models::GetAppPluginConfigResponse getAppPluginConfig(const Models::GetAppPluginConfigRequest &request);
+
+      /**
+       * @summary 发布状态查询
+       *
+       * @param request GetAppPublishStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppPublishStatusResponse
+       */
+      Models::GetAppPublishStatusResponse getAppPublishStatusWithOptions(const Models::GetAppPublishStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布状态查询
+       *
+       * @param request GetAppPublishStatusRequest
+       * @return GetAppPublishStatusResponse
+       */
+      Models::GetAppPublishStatusResponse getAppPublishStatus(const Models::GetAppPublishStatusRequest &request);
 
       /**
        * @summary 查询万小智推荐商品
@@ -497,6 +710,159 @@ namespace WebsiteBuild20250429
       Models::GetAppRecommendedCommoditiesResponse getAppRecommendedCommodities(const Models::GetAppRecommendedCommoditiesRequest &request);
 
       /**
+       * @summary 需求查询
+       *
+       * @param request GetAppRequirementRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppRequirementResponse
+       */
+      Models::GetAppRequirementResponse getAppRequirementWithOptions(const Models::GetAppRequirementRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 需求查询
+       *
+       * @param request GetAppRequirementRequest
+       * @return GetAppRequirementResponse
+       */
+      Models::GetAppRequirementResponse getAppRequirement(const Models::GetAppRequirementRequest &request);
+
+      /**
+       * @summary 获取沙箱预览地址
+       *
+       * @param request GetAppSandboxPreviewUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSandboxPreviewUrlResponse
+       */
+      Models::GetAppSandboxPreviewUrlResponse getAppSandboxPreviewUrlWithOptions(const Models::GetAppSandboxPreviewUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取沙箱预览地址
+       *
+       * @param request GetAppSandboxPreviewUrlRequest
+       * @return GetAppSandboxPreviewUrlResponse
+       */
+      Models::GetAppSandboxPreviewUrlResponse getAppSandboxPreviewUrl(const Models::GetAppSandboxPreviewUrlRequest &request);
+
+      /**
+       * @summary 查询SEO索引状态
+       *
+       * @param request GetAppSeoStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSeoStatusResponse
+       */
+      Models::GetAppSeoStatusResponse getAppSeoStatusWithOptions(const Models::GetAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SEO索引状态
+       *
+       * @param request GetAppSeoStatusRequest
+       * @return GetAppSeoStatusResponse
+       */
+      Models::GetAppSeoStatusResponse getAppSeoStatus(const Models::GetAppSeoStatusRequest &request);
+
+      /**
+       * @summary SEO索引图表
+       *
+       * @param request GetAppSeoTrendsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSeoTrendsResponse
+       */
+      Models::GetAppSeoTrendsResponse getAppSeoTrendsWithOptions(const Models::GetAppSeoTrendsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary SEO索引图表
+       *
+       * @param request GetAppSeoTrendsRequest
+       * @return GetAppSeoTrendsResponse
+       */
+      Models::GetAppSeoTrendsResponse getAppSeoTrends(const Models::GetAppSeoTrendsRequest &request);
+
+      /**
+       * @summary 获取站点地图
+       *
+       * @param request GetAppSitemapRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSitemapResponse
+       */
+      Models::GetAppSitemapResponse getAppSitemapWithOptions(const Models::GetAppSitemapRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取站点地图
+       *
+       * @param request GetAppSitemapRequest
+       * @return GetAppSitemapResponse
+       */
+      Models::GetAppSitemapResponse getAppSitemap(const Models::GetAppSitemapRequest &request);
+
+      /**
+       * @summary Supabase认证设置查询
+       *
+       * @param request GetAppSupabaseAuthConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSupabaseAuthConfigResponse
+       */
+      Models::GetAppSupabaseAuthConfigResponse getAppSupabaseAuthConfigWithOptions(const Models::GetAppSupabaseAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Supabase认证设置查询
+       *
+       * @param request GetAppSupabaseAuthConfigRequest
+       * @return GetAppSupabaseAuthConfigResponse
+       */
+      Models::GetAppSupabaseAuthConfigResponse getAppSupabaseAuthConfig(const Models::GetAppSupabaseAuthConfigRequest &request);
+
+      /**
+       * @summary 获取Supabase实例信息
+       *
+       * @param request GetAppSupabaseInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSupabaseInstanceResponse
+       */
+      Models::GetAppSupabaseInstanceResponse getAppSupabaseInstanceWithOptions(const Models::GetAppSupabaseInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Supabase实例信息
+       *
+       * @param request GetAppSupabaseInstanceRequest
+       * @return GetAppSupabaseInstanceResponse
+       */
+      Models::GetAppSupabaseInstanceResponse getAppSupabaseInstance(const Models::GetAppSupabaseInstanceRequest &request);
+
+      /**
+       * @summary 查询Supabase密钥
+       *
+       * @param request GetAppSupabaseSecretsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppSupabaseSecretsResponse
+       */
+      Models::GetAppSupabaseSecretsResponse getAppSupabaseSecretsWithOptions(const Models::GetAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Supabase密钥
+       *
+       * @param request GetAppSupabaseSecretsRequest
+       * @return GetAppSupabaseSecretsResponse
+       */
+      Models::GetAppSupabaseSecretsResponse getAppSupabaseSecrets(const Models::GetAppSupabaseSecretsRequest &request);
+
+      /**
+       * @summary 模板详情查询
+       *
+       * @param request GetAppTemplateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppTemplateResponse
+       */
+      Models::GetAppTemplateResponse getAppTemplateWithOptions(const Models::GetAppTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 模板详情查询
+       *
+       * @param request GetAppTemplateRequest
+       * @return GetAppTemplateResponse
+       */
+      Models::GetAppTemplateResponse getAppTemplate(const Models::GetAppTemplateRequest &request);
+
+      /**
        * @summary 查询万小智灵感值服务
        *
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,6 +876,23 @@ namespace WebsiteBuild20250429
        * @return GetAppTokenServiceResponse
        */
       Models::GetAppTokenServiceResponse getAppTokenService();
+
+      /**
+       * @summary 获取工作区目录结构
+       *
+       * @param request GetAppWorkspaceDirectoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAppWorkspaceDirectoryResponse
+       */
+      Models::GetAppWorkspaceDirectoryResponse getAppWorkspaceDirectoryWithOptions(const Models::GetAppWorkspaceDirectoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取工作区目录结构
+       *
+       * @param request GetAppWorkspaceDirectoryRequest
+       * @return GetAppWorkspaceDirectoryResponse
+       */
+      Models::GetAppWorkspaceDirectoryResponse getAppWorkspaceDirectory(const Models::GetAppWorkspaceDirectoryRequest &request);
 
       /**
        * @summary 查询Logo创建任务
@@ -682,6 +1065,23 @@ namespace WebsiteBuild20250429
       Models::ListAppAssistantAgentsResponse listAppAssistantAgents(const Models::ListAppAssistantAgentsRequest &request);
 
       /**
+       * @summary 查询指定聊天的消息列表
+       *
+       * @param request ListAppChatMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppChatMessagesResponse
+       */
+      Models::ListAppChatMessagesResponse listAppChatMessagesWithOptions(const Models::ListAppChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询指定聊天的消息列表
+       *
+       * @param request ListAppChatMessagesRequest
+       * @return ListAppChatMessagesResponse
+       */
+      Models::ListAppChatMessagesResponse listAppChatMessages(const Models::ListAppChatMessagesRequest &request);
+
+      /**
        * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
        *
        * @summary 获取商品配置信息
@@ -716,6 +1116,40 @@ namespace WebsiteBuild20250429
        * @return ListAppCommoditySpecificationsV2ForPartnerResponse
        */
       Models::ListAppCommoditySpecificationsV2ForPartnerResponse listAppCommoditySpecificationsV2ForPartner(const Models::ListAppCommoditySpecificationsV2ForPartnerRequest &request);
+
+      /**
+       * @summary 分页查询对话消息列表
+       *
+       * @param request ListAppConversationMessagesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppConversationMessagesResponse
+       */
+      Models::ListAppConversationMessagesResponse listAppConversationMessagesWithOptions(const Models::ListAppConversationMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页查询对话消息列表
+       *
+       * @param request ListAppConversationMessagesRequest
+       * @return ListAppConversationMessagesResponse
+       */
+      Models::ListAppConversationMessagesResponse listAppConversationMessages(const Models::ListAppConversationMessagesRequest &request);
+
+      /**
+       * @summary 搜索对话列表
+       *
+       * @param request ListAppConversationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppConversationsResponse
+       */
+      Models::ListAppConversationsResponse listAppConversationsWithOptions(const Models::ListAppConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 搜索对话列表
+       *
+       * @param request ListAppConversationsRequest
+       * @return ListAppConversationsResponse
+       */
+      Models::ListAppConversationsResponse listAppConversations(const Models::ListAppConversationsRequest &request);
 
       /**
        * @summary Query the list of domain redirection rules
@@ -767,6 +1201,108 @@ namespace WebsiteBuild20250429
        * @return ListAppInstancesResponse
        */
       Models::ListAppInstancesResponse listAppInstances(const Models::ListAppInstancesRequest &request);
+
+      /**
+       * @summary 获取码农插件配置列表
+       *
+       * @param request ListAppPluginConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppPluginConfigsResponse
+       */
+      Models::ListAppPluginConfigsResponse listAppPluginConfigsWithOptions(const Models::ListAppPluginConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取码农插件配置列表
+       *
+       * @param request ListAppPluginConfigsRequest
+       * @return ListAppPluginConfigsResponse
+       */
+      Models::ListAppPluginConfigsResponse listAppPluginConfigs(const Models::ListAppPluginConfigsRequest &request);
+
+      /**
+       * @summary 应用插件列表
+       *
+       * @param request ListAppPluginsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppPluginsResponse
+       */
+      Models::ListAppPluginsResponse listAppPluginsWithOptions(const Models::ListAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用插件列表
+       *
+       * @param request ListAppPluginsRequest
+       * @return ListAppPluginsResponse
+       */
+      Models::ListAppPluginsResponse listAppPlugins(const Models::ListAppPluginsRequest &request);
+
+      /**
+       * @summary 发布历史查询
+       *
+       * @param request ListAppPublishHistoryRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppPublishHistoryResponse
+       */
+      Models::ListAppPublishHistoryResponse listAppPublishHistoryWithOptions(const Models::ListAppPublishHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布历史查询
+       *
+       * @param request ListAppPublishHistoryRequest
+       * @return ListAppPublishHistoryResponse
+       */
+      Models::ListAppPublishHistoryResponse listAppPublishHistory(const Models::ListAppPublishHistoryRequest &request);
+
+      /**
+       * @summary 字典列表查询
+       *
+       * @param request ListAppTemplateDictsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppTemplateDictsResponse
+       */
+      Models::ListAppTemplateDictsResponse listAppTemplateDictsWithOptions(const Models::ListAppTemplateDictsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 字典列表查询
+       *
+       * @param request ListAppTemplateDictsRequest
+       * @return ListAppTemplateDictsResponse
+       */
+      Models::ListAppTemplateDictsResponse listAppTemplateDicts(const Models::ListAppTemplateDictsRequest &request);
+
+      /**
+       * @summary 模板列表查询
+       *
+       * @param request ListAppTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAppTemplatesResponse
+       */
+      Models::ListAppTemplatesResponse listAppTemplatesWithOptions(const Models::ListAppTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 模板列表查询
+       *
+       * @param request ListAppTemplatesRequest
+       * @return ListAppTemplatesResponse
+       */
+      Models::ListAppTemplatesResponse listAppTemplates(const Models::ListAppTemplatesRequest &request);
+
+      /**
+       * @summary 查询支付宝ISV插件配置
+       *
+       * @param request ListIsvPaymentPluginConfigsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListIsvPaymentPluginConfigsResponse
+       */
+      Models::ListIsvPaymentPluginConfigsResponse listIsvPaymentPluginConfigsWithOptions(const Models::ListIsvPaymentPluginConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询支付宝ISV插件配置
+       *
+       * @param request ListIsvPaymentPluginConfigsRequest
+       * @return ListIsvPaymentPluginConfigsResponse
+       */
+      Models::ListIsvPaymentPluginConfigsResponse listIsvPaymentPluginConfigs(const Models::ListIsvPaymentPluginConfigsRequest &request);
 
       /**
        * @summary Modify the configuration of a building instance
@@ -905,6 +1441,23 @@ namespace WebsiteBuild20250429
       Models::OperateAppServiceForPartnerResponse operateAppServiceForPartner(const Models::OperateAppServiceForPartnerRequest &request);
 
       /**
+       * @summary 切换模板点赞统计
+       *
+       * @param request OperateAppTemplateLikeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OperateAppTemplateLikeResponse
+       */
+      Models::OperateAppTemplateLikeResponse operateAppTemplateLikeWithOptions(const Models::OperateAppTemplateLikeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 切换模板点赞统计
+       *
+       * @param request OperateAppTemplateLikeRequest
+       * @return OperateAppTemplateLikeResponse
+       */
+      Models::OperateAppTemplateLikeResponse operateAppTemplateLike(const Models::OperateAppTemplateLikeRequest &request);
+
+      /**
        * @summary 通用Supabase操作
        *
        * @param request OperateSupabaseForAdminRequest
@@ -920,6 +1473,23 @@ namespace WebsiteBuild20250429
        * @return OperateSupabaseForAdminResponse
        */
       Models::OperateSupabaseForAdminResponse operateSupabaseForAdmin(const Models::OperateSupabaseForAdminRequest &request);
+
+      /**
+       * @summary 发布应用实例
+       *
+       * @param request PublishAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PublishAppInstanceResponse
+       */
+      Models::PublishAppInstanceResponse publishAppInstanceWithOptions(const Models::PublishAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发布应用实例
+       *
+       * @param request PublishAppInstanceRequest
+       * @return PublishAppInstanceResponse
+       */
+      Models::PublishAppInstanceResponse publishAppInstance(const Models::PublishAppInstanceRequest &request);
 
       /**
        * @summary 推送资源计量数据
@@ -1141,6 +1711,32 @@ namespace WebsiteBuild20250429
       Models::QuerySupabaseInstanceInfoForAdminResponse querySupabaseInstanceInfoForAdmin(const Models::QuerySupabaseInstanceInfoForAdminRequest &request);
 
       /**
+       * @summary 重新连接AI对话
+       *
+       * @param request ReconnectAppChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReconnectAppChatResponse
+       */
+      FutureGenerator<Models::ReconnectAppChatResponse> reconnectAppChatWithSSE(const Models::ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新连接AI对话
+       *
+       * @param request ReconnectAppChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReconnectAppChatResponse
+       */
+      Models::ReconnectAppChatResponse reconnectAppChatWithOptions(const Models::ReconnectAppChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新连接AI对话
+       *
+       * @param request ReconnectAppChatRequest
+       * @return ReconnectAppChatResponse
+       */
+      Models::ReconnectAppChatResponse reconnectAppChat(const Models::ReconnectAppChatRequest &request);
+
+      /**
        * @summary Refresh ticket
        *
        * @param request RefreshAppInstanceTicketRequest
@@ -1192,6 +1788,91 @@ namespace WebsiteBuild20250429
       Models::RenewAppInstanceResponse renewAppInstance(const Models::RenewAppInstanceRequest &request);
 
       /**
+       * @summary 续期/刷新沙箱环境
+       *
+       * @param request RenewAppSandboxRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewAppSandboxResponse
+       */
+      Models::RenewAppSandboxResponse renewAppSandboxWithOptions(const Models::RenewAppSandboxRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 续期/刷新沙箱环境
+       *
+       * @param request RenewAppSandboxRequest
+       * @return RenewAppSandboxResponse
+       */
+      Models::RenewAppSandboxResponse renewAppSandbox(const Models::RenewAppSandboxRequest &request);
+
+      /**
+       * @summary 代码快照回滚
+       *
+       * @param request RollbackAppCodeSnapshotRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackAppCodeSnapshotResponse
+       */
+      Models::RollbackAppCodeSnapshotResponse rollbackAppCodeSnapshotWithOptions(const Models::RollbackAppCodeSnapshotRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 代码快照回滚
+       *
+       * @param request RollbackAppCodeSnapshotRequest
+       * @return RollbackAppCodeSnapshotResponse
+       */
+      Models::RollbackAppCodeSnapshotResponse rollbackAppCodeSnapshot(const Models::RollbackAppCodeSnapshotRequest &request);
+
+      /**
+       * @summary 回滚应用实例发布
+       *
+       * @param request RollbackAppInstancePublishRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RollbackAppInstancePublishResponse
+       */
+      Models::RollbackAppInstancePublishResponse rollbackAppInstancePublishWithOptions(const Models::RollbackAppInstancePublishRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 回滚应用实例发布
+       *
+       * @param request RollbackAppInstancePublishRequest
+       * @return RollbackAppInstancePublishResponse
+       */
+      Models::RollbackAppInstancePublishResponse rollbackAppInstancePublish(const Models::RollbackAppInstancePublishRequest &request);
+
+      /**
+       * @summary 保存需求
+       *
+       * @param request SaveAppRequirementRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveAppRequirementResponse
+       */
+      Models::SaveAppRequirementResponse saveAppRequirementWithOptions(const Models::SaveAppRequirementRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 保存需求
+       *
+       * @param request SaveAppRequirementRequest
+       * @return SaveAppRequirementResponse
+       */
+      Models::SaveAppRequirementResponse saveAppRequirement(const Models::SaveAppRequirementRequest &request);
+
+      /**
+       * @summary 保存Supabase密钥
+       *
+       * @param request SaveAppSupabaseSecretsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveAppSupabaseSecretsResponse
+       */
+      Models::SaveAppSupabaseSecretsResponse saveAppSupabaseSecretsWithOptions(const Models::SaveAppSupabaseSecretsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 保存Supabase密钥
+       *
+       * @param request SaveAppSupabaseSecretsRequest
+       * @return SaveAppSupabaseSecretsResponse
+       */
+      Models::SaveAppSupabaseSecretsResponse saveAppSupabaseSecrets(const Models::SaveAppSupabaseSecretsRequest &request);
+
+      /**
        * @summary 图片检索
        *
        * @param tmpReq SearchImageRequest
@@ -1226,6 +1907,23 @@ namespace WebsiteBuild20250429
       Models::SetAppDomainCertificateResponse setAppDomainCertificate(const Models::SetAppDomainCertificateRequest &request);
 
       /**
+       * @summary 提交SEO索引
+       *
+       * @param request SubmitAppSeoIndexRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitAppSeoIndexResponse
+       */
+      Models::SubmitAppSeoIndexResponse submitAppSeoIndexWithOptions(const Models::SubmitAppSeoIndexRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交SEO索引
+       *
+       * @param request SubmitAppSeoIndexRequest
+       * @return SubmitAppSeoIndexResponse
+       */
+      Models::SubmitAppSeoIndexResponse submitAppSeoIndex(const Models::SubmitAppSeoIndexRequest &request);
+
+      /**
        * @summary 提交素材生产任务
        *
        * @param request SubmitMaterialTaskRequest
@@ -1241,6 +1939,23 @@ namespace WebsiteBuild20250429
        * @return SubmitMaterialTaskResponse
        */
       Models::SubmitMaterialTaskResponse submitMaterialTask(const Models::SubmitMaterialTaskRequest &request);
+
+      /**
+       * @summary 切换到指定对话
+       *
+       * @param request SwitchAppConversationRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SwitchAppConversationResponse
+       */
+      Models::SwitchAppConversationResponse switchAppConversationWithOptions(const Models::SwitchAppConversationRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 切换到指定对话
+       *
+       * @param request SwitchAppConversationRequest
+       * @return SwitchAppConversationResponse
+       */
+      Models::SwitchAppConversationResponse switchAppConversation(const Models::SwitchAppConversationRequest &request);
 
       /**
        * @summary 合作伙伴同步应用实例
@@ -1275,6 +1990,142 @@ namespace WebsiteBuild20250429
        * @return UnbindAppDomainResponse
        */
       Models::UnbindAppDomainResponse unbindAppDomain(const Models::UnbindAppDomainRequest &request);
+
+      /**
+       * @summary 更新消息内容
+       *
+       * @param request UpdateAppChatMessageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppChatMessageResponse
+       */
+      Models::UpdateAppChatMessageResponse updateAppChatMessageWithOptions(const Models::UpdateAppChatMessageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新消息内容
+       *
+       * @param request UpdateAppChatMessageRequest
+       * @return UpdateAppChatMessageResponse
+       */
+      Models::UpdateAppChatMessageResponse updateAppChatMessage(const Models::UpdateAppChatMessageRequest &request);
+
+      /**
+       * @summary 编辑JSX代码
+       *
+       * @param request UpdateAppCodeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppCodeResponse
+       */
+      Models::UpdateAppCodeResponse updateAppCodeWithOptions(const Models::UpdateAppCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 编辑JSX代码
+       *
+       * @param request UpdateAppCodeRequest
+       * @return UpdateAppCodeResponse
+       */
+      Models::UpdateAppCodeResponse updateAppCode(const Models::UpdateAppCodeRequest &request);
+
+      /**
+       * @summary 更新文件
+       *
+       * @param request UpdateAppFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppFileResponse
+       */
+      Models::UpdateAppFileResponse updateAppFileWithOptions(const Models::UpdateAppFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新文件
+       *
+       * @param request UpdateAppFileRequest
+       * @return UpdateAppFileResponse
+       */
+      Models::UpdateAppFileResponse updateAppFile(const Models::UpdateAppFileRequest &request);
+
+      /**
+       * @summary 建站实例变配
+       *
+       * @param tmpReq UpdateAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppInstanceResponse
+       */
+      Models::UpdateAppInstanceResponse updateAppInstanceWithOptions(const Models::UpdateAppInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 建站实例变配
+       *
+       * @param request UpdateAppInstanceRequest
+       * @return UpdateAppInstanceResponse
+       */
+      Models::UpdateAppInstanceResponse updateAppInstance(const Models::UpdateAppInstanceRequest &request);
+
+      /**
+       * @summary 更新SEO索引状态
+       *
+       * @param request UpdateAppSeoStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppSeoStatusResponse
+       */
+      Models::UpdateAppSeoStatusResponse updateAppSeoStatusWithOptions(const Models::UpdateAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新SEO索引状态
+       *
+       * @param request UpdateAppSeoStatusRequest
+       * @return UpdateAppSeoStatusResponse
+       */
+      Models::UpdateAppSeoStatusResponse updateAppSeoStatus(const Models::UpdateAppSeoStatusRequest &request);
+
+      /**
+       * @summary Supabase认证配置更新
+       *
+       * @param request UpdateAppSupabaseAuthConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppSupabaseAuthConfigResponse
+       */
+      Models::UpdateAppSupabaseAuthConfigResponse updateAppSupabaseAuthConfigWithOptions(const Models::UpdateAppSupabaseAuthConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Supabase认证配置更新
+       *
+       * @param request UpdateAppSupabaseAuthConfigRequest
+       * @return UpdateAppSupabaseAuthConfigResponse
+       */
+      Models::UpdateAppSupabaseAuthConfigResponse updateAppSupabaseAuthConfig(const Models::UpdateAppSupabaseAuthConfigRequest &request);
+
+      /**
+       * @summary 更新Supabase密钥
+       *
+       * @param request UpdateAppSupabaseSecretRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppSupabaseSecretResponse
+       */
+      Models::UpdateAppSupabaseSecretResponse updateAppSupabaseSecretWithOptions(const Models::UpdateAppSupabaseSecretRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Supabase密钥
+       *
+       * @param request UpdateAppSupabaseSecretRequest
+       * @return UpdateAppSupabaseSecretResponse
+       */
+      Models::UpdateAppSupabaseSecretResponse updateAppSupabaseSecret(const Models::UpdateAppSupabaseSecretRequest &request);
+
+      /**
+       * @summary 上传到站点根目录
+       *
+       * @param request UploadAppSiteValidationFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UploadAppSiteValidationFileResponse
+       */
+      Models::UploadAppSiteValidationFileResponse uploadAppSiteValidationFileWithOptions(const Models::UploadAppSiteValidationFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传到站点根目录
+       *
+       * @param request UploadAppSiteValidationFileRequest
+       * @return UploadAppSiteValidationFileResponse
+       */
+      Models::UploadAppSiteValidationFileResponse uploadAppSiteValidationFile(const Models::UploadAppSiteValidationFileRequest &request);
 
       /**
        * @summary 上传素材文件
