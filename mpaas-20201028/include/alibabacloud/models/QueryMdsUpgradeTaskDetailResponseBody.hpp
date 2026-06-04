@@ -128,6 +128,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(PushContent, pushContent_);
             DARABONBA_PTR_TO_JSON(QrcodeUrl, qrcodeUrl_);
             DARABONBA_PTR_TO_JSON(ReleaseType, releaseType_);
+            DARABONBA_PTR_TO_JSON(ReminderPeriod, reminderPeriod_);
             DARABONBA_PTR_TO_JSON(RuleJsonList, ruleJsonList_);
             DARABONBA_PTR_TO_JSON(SilentType, silentType_);
             DARABONBA_PTR_TO_JSON(SyncMode, syncMode_);
@@ -181,6 +182,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(PushContent, pushContent_);
             DARABONBA_PTR_FROM_JSON(QrcodeUrl, qrcodeUrl_);
             DARABONBA_PTR_FROM_JSON(ReleaseType, releaseType_);
+            DARABONBA_PTR_FROM_JSON(ReminderPeriod, reminderPeriod_);
             DARABONBA_PTR_FROM_JSON(RuleJsonList, ruleJsonList_);
             DARABONBA_PTR_FROM_JSON(SilentType, silentType_);
             DARABONBA_PTR_FROM_JSON(SyncMode, syncMode_);
@@ -387,8 +389,9 @@ namespace Models
         && this->mobileModelContains_ == nullptr && this->mobileModelExcludes_ == nullptr && this->modifier_ == nullptr && this->netType_ == nullptr && this->osVersion_ == nullptr
         && this->packageInfoId_ == nullptr && this->packageType_ == nullptr && this->platform_ == nullptr && this->productId_ == nullptr && this->productVersion_ == nullptr
         && this->publishMode_ == nullptr && this->publishType_ == nullptr && this->pushContent_ == nullptr && this->qrcodeUrl_ == nullptr && this->releaseType_ == nullptr
-        && this->ruleJsonList_ == nullptr && this->silentType_ == nullptr && this->syncMode_ == nullptr && this->syncResult_ == nullptr && this->taskStatus_ == nullptr
-        && this->upgradeContent_ == nullptr && this->upgradeType_ == nullptr && this->upgradeValidTime_ == nullptr && this->whitelist_ == nullptr && this->whitelistIds_ == nullptr; };
+        && this->reminderPeriod_ == nullptr && this->ruleJsonList_ == nullptr && this->silentType_ == nullptr && this->syncMode_ == nullptr && this->syncResult_ == nullptr
+        && this->taskStatus_ == nullptr && this->upgradeContent_ == nullptr && this->upgradeType_ == nullptr && this->upgradeValidTime_ == nullptr && this->whitelist_ == nullptr
+        && this->whitelistIds_ == nullptr; };
           // appCode Field Functions 
           bool hasAppCode() const { return this->appCode_ != nullptr;};
           void deleteAppCode() { this->appCode_ = nullptr;};
@@ -676,6 +679,13 @@ namespace Models
           inline Content& setReleaseType(string releaseType) { DARABONBA_PTR_SET_VALUE(releaseType_, releaseType) };
 
 
+          // reminderPeriod Field Functions 
+          bool hasReminderPeriod() const { return this->reminderPeriod_ != nullptr;};
+          void deleteReminderPeriod() { this->reminderPeriod_ = nullptr;};
+          inline string getReminderPeriod() const { DARABONBA_PTR_GET_DEFAULT(reminderPeriod_, "") };
+          inline Content& setReminderPeriod(string reminderPeriod) { DARABONBA_PTR_SET_VALUE(reminderPeriod_, reminderPeriod) };
+
+
           // ruleJsonList Field Functions 
           bool hasRuleJsonList() const { return this->ruleJsonList_ != nullptr;};
           void deleteRuleJsonList() { this->ruleJsonList_ = nullptr;};
@@ -792,6 +802,7 @@ namespace Models
           shared_ptr<string> pushContent_ {};
           shared_ptr<string> qrcodeUrl_ {};
           shared_ptr<string> releaseType_ {};
+          shared_ptr<string> reminderPeriod_ {};
           shared_ptr<vector<Content::RuleJsonList>> ruleJsonList_ {};
           shared_ptr<int64_t> silentType_ {};
           shared_ptr<string> syncMode_ {};

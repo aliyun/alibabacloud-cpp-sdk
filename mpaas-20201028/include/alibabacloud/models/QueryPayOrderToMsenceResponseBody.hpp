@@ -40,9 +40,11 @@ namespace Models
     class MpaasUserGamecenterPaymentQuerystatusResponse : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MpaasUserGamecenterPaymentQuerystatusResponse& obj) { 
+        DARABONBA_PTR_TO_JSON(CpExtra, cpExtra_);
         DARABONBA_PTR_TO_JSON(OrderStatus, orderStatus_);
       };
       friend void from_json(const Darabonba::Json& j, MpaasUserGamecenterPaymentQuerystatusResponse& obj) { 
+        DARABONBA_PTR_FROM_JSON(CpExtra, cpExtra_);
         DARABONBA_PTR_FROM_JSON(OrderStatus, orderStatus_);
       };
       MpaasUserGamecenterPaymentQuerystatusResponse() = default ;
@@ -56,7 +58,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->orderStatus_ == nullptr; };
+      virtual bool empty() const override { return this->cpExtra_ == nullptr
+        && this->orderStatus_ == nullptr; };
+      // cpExtra Field Functions 
+      bool hasCpExtra() const { return this->cpExtra_ != nullptr;};
+      void deleteCpExtra() { this->cpExtra_ = nullptr;};
+      inline string getCpExtra() const { DARABONBA_PTR_GET_DEFAULT(cpExtra_, "") };
+      inline MpaasUserGamecenterPaymentQuerystatusResponse& setCpExtra(string cpExtra) { DARABONBA_PTR_SET_VALUE(cpExtra_, cpExtra) };
+
+
       // orderStatus Field Functions 
       bool hasOrderStatus() const { return this->orderStatus_ != nullptr;};
       void deleteOrderStatus() { this->orderStatus_ = nullptr;};
@@ -65,6 +75,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> cpExtra_ {};
       shared_ptr<string> orderStatus_ {};
     };
 
