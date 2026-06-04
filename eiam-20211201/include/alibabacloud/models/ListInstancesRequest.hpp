@@ -14,12 +14,14 @@ namespace Models
   class ListInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Edition, edition_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Edition, edition_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -36,8 +38,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+    virtual bool empty() const override { return this->edition_ == nullptr
+        && this->instanceIds_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr; };
+    // edition Field Functions 
+    bool hasEdition() const { return this->edition_ != nullptr;};
+    void deleteEdition() { this->edition_ = nullptr;};
+    inline string getEdition() const { DARABONBA_PTR_GET_DEFAULT(edition_, "") };
+    inline ListInstancesRequest& setEdition(string edition) { DARABONBA_PTR_SET_VALUE(edition_, edition) };
+
+
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
@@ -69,6 +78,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> edition_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
     // The number of the page to return.

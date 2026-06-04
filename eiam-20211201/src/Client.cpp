@@ -12163,6 +12163,10 @@ ListIdentityProvidersForNetworkAccessEndpointResponse Client::listIdentityProvid
 ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasEdition()) {
+    query["Edition"] = request.getEdition();
+  }
+
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
   }
