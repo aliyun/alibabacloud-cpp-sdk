@@ -368,6 +368,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_TO_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_TO_JSON(Event, event_);
+        DARABONBA_PTR_TO_JSON(EventInfo, eventInfo_);
         DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
         DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       };
@@ -375,6 +376,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
         DARABONBA_PTR_FROM_JSON(ErrorMessage, errorMessage_);
         DARABONBA_PTR_FROM_JSON(Event, event_);
+        DARABONBA_PTR_FROM_JSON(EventInfo, eventInfo_);
         DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
         DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       };
@@ -390,7 +392,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->errorCode_ == nullptr
-        && this->errorMessage_ == nullptr && this->event_ == nullptr && this->sessionId_ == nullptr && this->taskId_ == nullptr; };
+        && this->errorMessage_ == nullptr && this->event_ == nullptr && this->eventInfo_ == nullptr && this->sessionId_ == nullptr && this->taskId_ == nullptr; };
       // errorCode Field Functions 
       bool hasErrorCode() const { return this->errorCode_ != nullptr;};
       void deleteErrorCode() { this->errorCode_ = nullptr;};
@@ -412,6 +414,13 @@ namespace Models
       inline Header& setEvent(string event) { DARABONBA_PTR_SET_VALUE(event_, event) };
 
 
+      // eventInfo Field Functions 
+      bool hasEventInfo() const { return this->eventInfo_ != nullptr;};
+      void deleteEventInfo() { this->eventInfo_ = nullptr;};
+      inline string getEventInfo() const { DARABONBA_PTR_GET_DEFAULT(eventInfo_, "") };
+      inline Header& setEventInfo(string eventInfo) { DARABONBA_PTR_SET_VALUE(eventInfo_, eventInfo) };
+
+
       // sessionId Field Functions 
       bool hasSessionId() const { return this->sessionId_ != nullptr;};
       void deleteSessionId() { this->sessionId_ = nullptr;};
@@ -430,6 +439,7 @@ namespace Models
       shared_ptr<string> errorCode_ {};
       shared_ptr<string> errorMessage_ {};
       shared_ptr<string> event_ {};
+      shared_ptr<string> eventInfo_ {};
       shared_ptr<string> sessionId_ {};
       shared_ptr<string> taskId_ {};
     };

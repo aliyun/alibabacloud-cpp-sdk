@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_SUBMITPARSEDOCUMENTLAYOUTTASKREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITPARSEDOCUMENTLAYOUTTASKREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AiMiaoBi20230801
+{
+namespace Models
+{
+  class SubmitParseDocumentLayoutTaskRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const SubmitParseDocumentLayoutTaskRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Content, content_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, SubmitParseDocumentLayoutTaskRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Content, content_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
+    };
+    SubmitParseDocumentLayoutTaskRequest() = default ;
+    SubmitParseDocumentLayoutTaskRequest(const SubmitParseDocumentLayoutTaskRequest &) = default ;
+    SubmitParseDocumentLayoutTaskRequest(SubmitParseDocumentLayoutTaskRequest &&) = default ;
+    SubmitParseDocumentLayoutTaskRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitParseDocumentLayoutTaskRequest() = default ;
+    SubmitParseDocumentLayoutTaskRequest& operator=(const SubmitParseDocumentLayoutTaskRequest &) = default ;
+    SubmitParseDocumentLayoutTaskRequest& operator=(SubmitParseDocumentLayoutTaskRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->content_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // content Field Functions 
+    bool hasContent() const { return this->content_ != nullptr;};
+    void deleteContent() { this->content_ = nullptr;};
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline SubmitParseDocumentLayoutTaskRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline SubmitParseDocumentLayoutTaskRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<string> content_ {};
+    // This parameter is required.
+    shared_ptr<string> workspaceId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AiMiaoBi20230801
+#endif

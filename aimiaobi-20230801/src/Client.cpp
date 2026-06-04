@@ -2983,6 +2983,52 @@ FetchImportTermsTaskResponse Client::fetchImportTermsTask(const FetchImportTerms
 }
 
 /**
+ * @summary 获取排版任务结果
+ *
+ * @param request FetchParseDocumentLayoutTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FetchParseDocumentLayoutTaskResponse
+ */
+FetchParseDocumentLayoutTaskResponse Client::fetchParseDocumentLayoutTaskWithOptions(const FetchParseDocumentLayoutTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasTaskId()) {
+    body["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "FetchParseDocumentLayoutTask"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FetchParseDocumentLayoutTaskResponse>();
+}
+
+/**
+ * @summary 获取排版任务结果
+ *
+ * @param request FetchParseDocumentLayoutTaskRequest
+ * @return FetchParseDocumentLayoutTaskResponse
+ */
+FetchParseDocumentLayoutTaskResponse Client::fetchParseDocumentLayoutTask(const FetchParseDocumentLayoutTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return fetchParseDocumentLayoutTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary 生成内容导出文档任务
  *
  * @param request GenerateExportWordTaskRequest
@@ -14953,6 +14999,54 @@ SubmitImportTermsTaskResponse Client::submitImportTermsTaskWithOptions(const Sub
 SubmitImportTermsTaskResponse Client::submitImportTermsTask(const SubmitImportTermsTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return submitImportTermsTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 提交版本任务
+ *
+ * @param request SubmitParseDocumentLayoutTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitParseDocumentLayoutTaskResponse
+ */
+SubmitParseDocumentLayoutTaskResponse Client::submitParseDocumentLayoutTaskWithOptions(const SubmitParseDocumentLayoutTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContent()) {
+    query["Content"] = request.getContent();
+  }
+
+  json body = {};
+  if (!!request.hasWorkspaceId()) {
+    body["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitParseDocumentLayoutTask"},
+    {"version" , "2023-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitParseDocumentLayoutTaskResponse>();
+}
+
+/**
+ * @summary 提交版本任务
+ *
+ * @param request SubmitParseDocumentLayoutTaskRequest
+ * @return SubmitParseDocumentLayoutTaskResponse
+ */
+SubmitParseDocumentLayoutTaskResponse Client::submitParseDocumentLayoutTask(const SubmitParseDocumentLayoutTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitParseDocumentLayoutTaskWithOptions(request, runtime);
 }
 
 /**

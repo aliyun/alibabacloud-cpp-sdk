@@ -905,6 +905,23 @@ namespace AiMiaoBi20230801
       Models::FetchImportTermsTaskResponse fetchImportTermsTask(const Models::FetchImportTermsTaskRequest &request);
 
       /**
+       * @summary 获取排版任务结果
+       *
+       * @param request FetchParseDocumentLayoutTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FetchParseDocumentLayoutTaskResponse
+       */
+      Models::FetchParseDocumentLayoutTaskResponse fetchParseDocumentLayoutTaskWithOptions(const Models::FetchParseDocumentLayoutTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取排版任务结果
+       *
+       * @param request FetchParseDocumentLayoutTaskRequest
+       * @return FetchParseDocumentLayoutTaskResponse
+       */
+      Models::FetchParseDocumentLayoutTaskResponse fetchParseDocumentLayoutTask(const Models::FetchParseDocumentLayoutTaskRequest &request);
+
+      /**
        * @summary 生成内容导出文档任务
        *
        * @param request GenerateExportWordTaskRequest
@@ -3824,6 +3841,23 @@ namespace AiMiaoBi20230801
        * @return SubmitImportTermsTaskResponse
        */
       Models::SubmitImportTermsTaskResponse submitImportTermsTask(const Models::SubmitImportTermsTaskRequest &request);
+
+      /**
+       * @summary 提交版本任务
+       *
+       * @param request SubmitParseDocumentLayoutTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitParseDocumentLayoutTaskResponse
+       */
+      Models::SubmitParseDocumentLayoutTaskResponse submitParseDocumentLayoutTaskWithOptions(const Models::SubmitParseDocumentLayoutTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 提交版本任务
+       *
+       * @param request SubmitParseDocumentLayoutTaskRequest
+       * @return SubmitParseDocumentLayoutTaskResponse
+       */
+      Models::SubmitParseDocumentLayoutTaskResponse submitParseDocumentLayoutTask(const Models::SubmitParseDocumentLayoutTaskRequest &request);
 
       /**
        * @summary 提交智能审核

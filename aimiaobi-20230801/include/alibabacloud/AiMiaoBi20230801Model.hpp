@@ -184,6 +184,9 @@
 #include <alibabacloud/models/FetchImportTermsTaskRequest.hpp>
 #include <alibabacloud/models/FetchImportTermsTaskResponseBody.hpp>
 #include <alibabacloud/models/FetchImportTermsTaskResponse.hpp>
+#include <alibabacloud/models/FetchParseDocumentLayoutTaskRequest.hpp>
+#include <alibabacloud/models/FetchParseDocumentLayoutTaskResponseBody.hpp>
+#include <alibabacloud/models/FetchParseDocumentLayoutTaskResponse.hpp>
 #include <alibabacloud/models/GenerateExportWordTaskRequest.hpp>
 #include <alibabacloud/models/GenerateExportWordTaskResponseBody.hpp>
 #include <alibabacloud/models/GenerateExportWordTaskResponse.hpp>
@@ -683,6 +686,9 @@
 #include <alibabacloud/models/SubmitImportTermsTaskRequest.hpp>
 #include <alibabacloud/models/SubmitImportTermsTaskResponseBody.hpp>
 #include <alibabacloud/models/SubmitImportTermsTaskResponse.hpp>
+#include <alibabacloud/models/SubmitParseDocumentLayoutTaskRequest.hpp>
+#include <alibabacloud/models/SubmitParseDocumentLayoutTaskResponseBody.hpp>
+#include <alibabacloud/models/SubmitParseDocumentLayoutTaskResponse.hpp>
 #include <alibabacloud/models/SubmitSmartAuditRequest.hpp>
 #include <alibabacloud/models/SubmitSmartAuditShrinkRequest.hpp>
 #include <alibabacloud/models/SubmitSmartAuditResponseBody.hpp>
