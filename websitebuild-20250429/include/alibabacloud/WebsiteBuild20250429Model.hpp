@@ -64,6 +64,9 @@
 #include <alibabacloud/models/CreateAppInstanceTicketRequest.hpp>
 #include <alibabacloud/models/CreateAppInstanceTicketResponseBody.hpp>
 #include <alibabacloud/models/CreateAppInstanceTicketResponse.hpp>
+#include <alibabacloud/models/CreateAppLlmApiKeyForPartnerRequest.hpp>
+#include <alibabacloud/models/CreateAppLlmApiKeyForPartnerResponseBody.hpp>
+#include <alibabacloud/models/CreateAppLlmApiKeyForPartnerResponse.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceRequest.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponseBody.hpp>
 #include <alibabacloud/models/CreateAppTokenServiceResponse.hpp>

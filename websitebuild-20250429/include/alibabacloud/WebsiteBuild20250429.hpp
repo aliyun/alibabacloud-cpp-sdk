@@ -251,6 +251,23 @@ namespace WebsiteBuild20250429
       Models::CreateAppInstanceTicketResponse createAppInstanceTicket(const Models::CreateAppInstanceTicketRequest &request);
 
       /**
+       * @summary 应用实例创建 LLM 网关 API-KEY
+       *
+       * @param request CreateAppLlmApiKeyForPartnerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAppLlmApiKeyForPartnerResponse
+       */
+      Models::CreateAppLlmApiKeyForPartnerResponse createAppLlmApiKeyForPartnerWithOptions(const Models::CreateAppLlmApiKeyForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用实例创建 LLM 网关 API-KEY
+       *
+       * @param request CreateAppLlmApiKeyForPartnerRequest
+       * @return CreateAppLlmApiKeyForPartnerResponse
+       */
+      Models::CreateAppLlmApiKeyForPartnerResponse createAppLlmApiKeyForPartner(const Models::CreateAppLlmApiKeyForPartnerRequest &request);
+
+      /**
        * @summary Activate the Wanxiaozhi Inspiration Value service
        *
        * @param request CreateAppTokenServiceRequest

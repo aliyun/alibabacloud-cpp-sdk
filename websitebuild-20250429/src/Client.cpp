@@ -876,6 +876,60 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppI
 }
 
 /**
+ * @summary 应用实例创建 LLM 网关 API-KEY
+ *
+ * @param request CreateAppLlmApiKeyForPartnerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAppLlmApiKeyForPartnerResponse
+ */
+CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartnerWithOptions(const CreateAppLlmApiKeyForPartnerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBizId()) {
+    body["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasIpWhiteList()) {
+    body["IpWhiteList"] = request.getIpWhiteList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAppLlmApiKeyForPartner"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAppLlmApiKeyForPartnerResponse>();
+}
+
+/**
+ * @summary 应用实例创建 LLM 网关 API-KEY
+ *
+ * @param request CreateAppLlmApiKeyForPartnerRequest
+ * @return CreateAppLlmApiKeyForPartnerResponse
+ */
+CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartner(const CreateAppLlmApiKeyForPartnerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAppLlmApiKeyForPartnerWithOptions(request, runtime);
+}
+
+/**
  * @summary Activate the Wanxiaozhi Inspiration Value service
  *
  * @param request CreateAppTokenServiceRequest
