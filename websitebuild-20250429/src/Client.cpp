@@ -609,30 +609,30 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(
  */
 FutureGenerator<CreateAppChatResponse> Client::createAppChatWithSSE(const CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasBotId()) {
-    query["BotId"] = request.getBotId();
+    body["BotId"] = request.getBotId();
   }
 
   if (!!request.hasChatId()) {
-    query["ChatId"] = request.getChatId();
+    body["ChatId"] = request.getChatId();
   }
 
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.getConversationId();
+    body["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasMessages()) {
-    query["Messages"] = request.getMessages();
+    body["Messages"] = request.getMessages();
   }
 
   if (!!request.hasSiteId()) {
-    query["SiteId"] = request.getSiteId();
+    body["SiteId"] = request.getSiteId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateAppChat"},
     {"version" , "2025-04-29"},
@@ -670,30 +670,30 @@ return Darabonba::FutureGenerator<json>(__retrun);
  */
 CreateAppChatResponse Client::createAppChatWithOptions(const CreateAppChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  json query = {};
+  json body = {};
   if (!!request.hasBotId()) {
-    query["BotId"] = request.getBotId();
+    body["BotId"] = request.getBotId();
   }
 
   if (!!request.hasChatId()) {
-    query["ChatId"] = request.getChatId();
+    body["ChatId"] = request.getChatId();
   }
 
   if (!!request.hasConversationId()) {
-    query["ConversationId"] = request.getConversationId();
+    body["ConversationId"] = request.getConversationId();
   }
 
   if (!!request.hasMessages()) {
-    query["Messages"] = request.getMessages();
+    body["Messages"] = request.getMessages();
   }
 
   if (!!request.hasSiteId()) {
-    query["SiteId"] = request.getSiteId();
+    body["SiteId"] = request.getSiteId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
   Params params = Params(json({
     {"action" , "CreateAppChat"},
     {"version" , "2025-04-29"},
