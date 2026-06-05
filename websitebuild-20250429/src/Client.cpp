@@ -6691,7 +6691,9 @@ UpdateAppInstanceResponse Client::updateAppInstance(const UpdateAppInstanceReque
 }
 
 /**
- * @summary 更新SEO索引状态
+ * @summary Update SEO Index Status
+ *
+ * @description WanXiaoZhi 2.0 AI Conversation
  *
  * @param request UpdateAppSeoStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6730,7 +6732,9 @@ UpdateAppSeoStatusResponse Client::updateAppSeoStatusWithOptions(const UpdateApp
 }
 
 /**
- * @summary 更新SEO索引状态
+ * @summary Update SEO Index Status
+ *
+ * @description WanXiaoZhi 2.0 AI Conversation
  *
  * @param request UpdateAppSeoStatusRequest
  * @return UpdateAppSeoStatusResponse

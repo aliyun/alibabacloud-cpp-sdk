@@ -2077,7 +2077,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppInstanceResponse updateAppInstance(const Models::UpdateAppInstanceRequest &request);
 
       /**
-       * @summary 更新SEO索引状态
+       * @summary Update SEO Index Status
+       *
+       * @description WanXiaoZhi 2.0 AI Conversation
        *
        * @param request UpdateAppSeoStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2086,7 +2088,9 @@ namespace WebsiteBuild20250429
       Models::UpdateAppSeoStatusResponse updateAppSeoStatusWithOptions(const Models::UpdateAppSeoStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新SEO索引状态
+       * @summary Update SEO Index Status
+       *
+       * @description WanXiaoZhi 2.0 AI Conversation
        *
        * @param request UpdateAppSeoStatusRequest
        * @return UpdateAppSeoStatusResponse
