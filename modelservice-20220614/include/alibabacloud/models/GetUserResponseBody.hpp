@@ -13,6 +13,8 @@ namespace Models
   class GetUserResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetUserResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AnthropicHost, anthropicHost_);
+      DARABONBA_ANY_TO_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Host, host_);
@@ -22,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Token, token_);
     };
     friend void from_json(const Darabonba::Json& j, GetUserResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AnthropicHost, anthropicHost_);
+      DARABONBA_ANY_FROM_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Host, host_);
@@ -41,9 +45,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->appId_ == nullptr
-        && this->code_ == nullptr && this->host_ == nullptr && this->innerToken_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr
-        && this->token_ == nullptr; };
+    virtual bool empty() const override { return this->anthropicHost_ == nullptr
+        && this->apiKeys_ == nullptr && this->appId_ == nullptr && this->code_ == nullptr && this->host_ == nullptr && this->innerToken_ == nullptr
+        && this->message_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
+    // anthropicHost Field Functions 
+    bool hasAnthropicHost() const { return this->anthropicHost_ != nullptr;};
+    void deleteAnthropicHost() { this->anthropicHost_ = nullptr;};
+    inline string getAnthropicHost() const { DARABONBA_PTR_GET_DEFAULT(anthropicHost_, "") };
+    inline GetUserResponseBody& setAnthropicHost(string anthropicHost) { DARABONBA_PTR_SET_VALUE(anthropicHost_, anthropicHost) };
+
+
+    // apiKeys Field Functions 
+    bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
+    void deleteApiKeys() { this->apiKeys_ = nullptr;};
+    inline     const Darabonba::Json & getApiKeys() const { DARABONBA_GET(apiKeys_) };
+    Darabonba::Json & getApiKeys() { DARABONBA_GET(apiKeys_) };
+    inline GetUserResponseBody& setApiKeys(const Darabonba::Json & apiKeys) { DARABONBA_SET_VALUE(apiKeys_, apiKeys) };
+    inline GetUserResponseBody& setApiKeys(Darabonba::Json && apiKeys) { DARABONBA_SET_RVALUE(apiKeys_, apiKeys) };
+
+
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -94,6 +114,8 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> anthropicHost_ {};
+    Darabonba::Json apiKeys_ {};
     shared_ptr<string> appId_ {};
     shared_ptr<string> code_ {};
     shared_ptr<string> host_ {};
