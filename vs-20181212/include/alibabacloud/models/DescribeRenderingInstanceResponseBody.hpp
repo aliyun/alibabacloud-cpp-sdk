@@ -28,6 +28,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RenderingStatus, renderingStatus_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResourceAttributes, resourceAttributes_);
+      DARABONBA_PTR_TO_JSON(ResourceStatus, resourceStatus_);
       DARABONBA_PTR_TO_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_TO_JSON(SystemInfo, systemInfo_);
     };
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RenderingStatus, renderingStatus_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResourceAttributes, resourceAttributes_);
+      DARABONBA_PTR_FROM_JSON(ResourceStatus, resourceStatus_);
       DARABONBA_PTR_FROM_JSON(StorageSize, storageSize_);
       DARABONBA_PTR_FROM_JSON(SystemInfo, systemInfo_);
     };
@@ -100,6 +102,37 @@ namespace Models
     protected:
       shared_ptr<int32_t> frequency_ {};
       shared_ptr<string> resolution_ {};
+    };
+
+    class ResourceStatus : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResourceStatus& obj) { 
+        DARABONBA_PTR_TO_JSON(Status, status_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResourceStatus& obj) { 
+        DARABONBA_PTR_FROM_JSON(Status, status_);
+      };
+      ResourceStatus() = default ;
+      ResourceStatus(const ResourceStatus &) = default ;
+      ResourceStatus(ResourceStatus &&) = default ;
+      ResourceStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResourceStatus() = default ;
+      ResourceStatus& operator=(const ResourceStatus &) = default ;
+      ResourceStatus& operator=(ResourceStatus &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->status_ == nullptr; };
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline ResourceStatus& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+    protected:
+      shared_ptr<string> status_ {};
     };
 
     class ResourceAttributes : public Darabonba::Model {
@@ -553,7 +586,8 @@ namespace Models
     virtual bool empty() const override { return this->additionalIngresses_ == nullptr
         && this->configInfo_ == nullptr && this->creationTime_ == nullptr && this->egressIp_ == nullptr && this->hostname_ == nullptr && this->instanceChargeType_ == nullptr
         && this->internalIp_ == nullptr && this->isp_ == nullptr && this->portMappings_ == nullptr && this->renderingInstanceId_ == nullptr && this->renderingSpec_ == nullptr
-        && this->renderingStatus_ == nullptr && this->requestId_ == nullptr && this->resourceAttributes_ == nullptr && this->storageSize_ == nullptr && this->systemInfo_ == nullptr; };
+        && this->renderingStatus_ == nullptr && this->requestId_ == nullptr && this->resourceAttributes_ == nullptr && this->resourceStatus_ == nullptr && this->storageSize_ == nullptr
+        && this->systemInfo_ == nullptr; };
     // additionalIngresses Field Functions 
     bool hasAdditionalIngresses() const { return this->additionalIngresses_ != nullptr;};
     void deleteAdditionalIngresses() { this->additionalIngresses_ = nullptr;};
@@ -662,6 +696,15 @@ namespace Models
     inline DescribeRenderingInstanceResponseBody& setResourceAttributes(DescribeRenderingInstanceResponseBody::ResourceAttributes && resourceAttributes) { DARABONBA_PTR_SET_RVALUE(resourceAttributes_, resourceAttributes) };
 
 
+    // resourceStatus Field Functions 
+    bool hasResourceStatus() const { return this->resourceStatus_ != nullptr;};
+    void deleteResourceStatus() { this->resourceStatus_ = nullptr;};
+    inline const DescribeRenderingInstanceResponseBody::ResourceStatus & getResourceStatus() const { DARABONBA_PTR_GET_CONST(resourceStatus_, DescribeRenderingInstanceResponseBody::ResourceStatus) };
+    inline DescribeRenderingInstanceResponseBody::ResourceStatus getResourceStatus() { DARABONBA_PTR_GET(resourceStatus_, DescribeRenderingInstanceResponseBody::ResourceStatus) };
+    inline DescribeRenderingInstanceResponseBody& setResourceStatus(const DescribeRenderingInstanceResponseBody::ResourceStatus & resourceStatus) { DARABONBA_PTR_SET_VALUE(resourceStatus_, resourceStatus) };
+    inline DescribeRenderingInstanceResponseBody& setResourceStatus(DescribeRenderingInstanceResponseBody::ResourceStatus && resourceStatus) { DARABONBA_PTR_SET_RVALUE(resourceStatus_, resourceStatus) };
+
+
     // storageSize Field Functions 
     bool hasStorageSize() const { return this->storageSize_ != nullptr;};
     void deleteStorageSize() { this->storageSize_ = nullptr;};
@@ -693,6 +736,7 @@ namespace Models
     shared_ptr<DescribeRenderingInstanceResponseBody::RenderingStatus> renderingStatus_ {};
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRenderingInstanceResponseBody::ResourceAttributes> resourceAttributes_ {};
+    shared_ptr<DescribeRenderingInstanceResponseBody::ResourceStatus> resourceStatus_ {};
     shared_ptr<int32_t> storageSize_ {};
     shared_ptr<DescribeRenderingInstanceResponseBody::SystemInfo> systemInfo_ {};
   };

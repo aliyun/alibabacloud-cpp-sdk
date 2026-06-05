@@ -36,6 +36,64 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 添加负载到集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param tmpReq AddHiveEdgeWorkersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddHiveEdgeWorkersResponse
+ */
+AddHiveEdgeWorkersResponse Client::addHiveEdgeWorkersWithOptions(const AddHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  AddHiveEdgeWorkersShrinkRequest request = AddHiveEdgeWorkersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddHiveEdgeWorkers"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddHiveEdgeWorkersResponse>();
+}
+
+/**
+ * @summary 添加负载到集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request AddHiveEdgeWorkersRequest
+ * @return AddHiveEdgeWorkersResponse
+ */
+AddHiveEdgeWorkersResponse Client::addHiveEdgeWorkers(const AddHiveEdgeWorkersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addHiveEdgeWorkersWithOptions(request, runtime);
+}
+
+/**
  * @param request AddVsPullStreamInfoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddVsPullStreamInfoConfigResponse
@@ -1294,6 +1352,48 @@ BindTemplateResponse Client::bindTemplate(const BindTemplateRequest &request) {
 }
 
 /**
+ * @summary 上传用户数据文件
+ *
+ * @param request CancelComfyTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelComfyTaskResponse
+ */
+CancelComfyTaskResponse Client::cancelComfyTaskWithOptions(const CancelComfyTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelComfyTask"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelComfyTaskResponse>();
+}
+
+/**
+ * @summary 上传用户数据文件
+ *
+ * @param request CancelComfyTaskRequest
+ * @return CancelComfyTaskResponse
+ */
+CancelComfyTaskResponse Client::cancelComfyTask(const CancelComfyTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelComfyTaskWithOptions(request, runtime);
+}
+
+/**
  * @param request ContinuousAdjustRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ContinuousAdjustResponse
@@ -1395,6 +1495,148 @@ ContinuousMoveResponse Client::continuousMoveWithOptions(const ContinuousMoveReq
 ContinuousMoveResponse Client::continuousMove(const ContinuousMoveRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return continuousMoveWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传用户数据文件
+ *
+ * @param request CreateComfyTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateComfyTaskResponse
+ */
+CreateComfyTaskResponse Client::createComfyTaskWithOptions(const CreateComfyTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasUserParameters()) {
+    query["UserParameters"] = request.getUserParameters();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.getWorkflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateComfyTask"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateComfyTaskResponse>();
+}
+
+/**
+ * @summary 上传用户数据文件
+ *
+ * @param request CreateComfyTaskRequest
+ * @return CreateComfyTaskResponse
+ */
+CreateComfyTaskResponse Client::createComfyTask(const CreateComfyTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createComfyTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建一个用户数据的目录
+ *
+ * @param request CreateComfyUserDataDirRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateComfyUserDataDirResponse
+ */
+CreateComfyUserDataDirResponse Client::createComfyUserDataDirWithOptions(const CreateComfyUserDataDirRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateComfyUserDataDir"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateComfyUserDataDirResponse>();
+}
+
+/**
+ * @summary 创建一个用户数据的目录
+ *
+ * @param request CreateComfyUserDataDirRequest
+ * @return CreateComfyUserDataDirResponse
+ */
+CreateComfyUserDataDirResponse Client::createComfyUserDataDir(const CreateComfyUserDataDirRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createComfyUserDataDirWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建Comfy工作流
+ *
+ * @param request CreateComfyWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateComfyWorkflowResponse
+ */
+CreateComfyWorkflowResponse Client::createComfyWorkflowWithOptions(const CreateComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasWorkflow()) {
+    query["Workflow"] = request.getWorkflow();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateComfyWorkflow"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateComfyWorkflowResponse>();
+}
+
+/**
+ * @summary 创建Comfy工作流
+ *
+ * @param request CreateComfyWorkflowRequest
+ * @return CreateComfyWorkflowResponse
+ */
+CreateComfyWorkflowResponse Client::createComfyWorkflow(const CreateComfyWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createComfyWorkflowWithOptions(request, runtime);
 }
 
 /**
@@ -1723,6 +1965,58 @@ CreateGroupResponse Client::createGroupWithOptions(const CreateGroupRequest &req
 CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request CreateHiveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateHiveResponse
+ */
+CreateHiveResponse Client::createHiveWithOptions(const CreateHiveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateHive"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateHiveResponse>();
+}
+
+/**
+ * @summary 创建集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request CreateHiveRequest
+ * @return CreateHiveResponse
+ */
+CreateHiveResponse Client::createHive(const CreateHiveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createHiveWithOptions(request, runtime);
 }
 
 /**
@@ -2212,6 +2506,64 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
 }
 
 /**
+ * @summary 从集群删除负载
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param tmpReq DelHiveEdgeWorkersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DelHiveEdgeWorkersResponse
+ */
+DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkersWithOptions(const DelHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DelHiveEdgeWorkersShrinkRequest request = DelHiveEdgeWorkersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DelHiveEdgeWorkers"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DelHiveEdgeWorkersResponse>();
+}
+
+/**
+ * @summary 从集群删除负载
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request DelHiveEdgeWorkersRequest
+ * @return DelHiveEdgeWorkersResponse
+ */
+DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkers(const DelHiveEdgeWorkersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return delHiveEdgeWorkersWithOptions(request, runtime);
+}
+
+/**
  * @summary 删除云应用
  *
  * @param request DeleteCloudAppRequest
@@ -2251,6 +2603,132 @@ DeleteCloudAppResponse Client::deleteCloudAppWithOptions(const DeleteCloudAppReq
 DeleteCloudAppResponse Client::deleteCloudApp(const DeleteCloudAppRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteCloudAppWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除用户的生成结果
+ *
+ * @param request DeleteComfyProductionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComfyProductionResponse
+ */
+DeleteComfyProductionResponse Client::deleteComfyProductionWithOptions(const DeleteComfyProductionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComfyProduction"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComfyProductionResponse>();
+}
+
+/**
+ * @summary 删除用户的生成结果
+ *
+ * @param request DeleteComfyProductionRequest
+ * @return DeleteComfyProductionResponse
+ */
+DeleteComfyProductionResponse Client::deleteComfyProduction(const DeleteComfyProductionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComfyProductionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除用户数据的中的文件或目录
+ *
+ * @param request DeleteComfyUserDataRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComfyUserDataResponse
+ */
+DeleteComfyUserDataResponse Client::deleteComfyUserDataWithOptions(const DeleteComfyUserDataRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComfyUserData"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComfyUserDataResponse>();
+}
+
+/**
+ * @summary 删除用户数据的中的文件或目录
+ *
+ * @param request DeleteComfyUserDataRequest
+ * @return DeleteComfyUserDataResponse
+ */
+DeleteComfyUserDataResponse Client::deleteComfyUserData(const DeleteComfyUserDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComfyUserDataWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除Comfy工作流
+ *
+ * @param request DeleteComfyWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteComfyWorkflowResponse
+ */
+DeleteComfyWorkflowResponse Client::deleteComfyWorkflowWithOptions(const DeleteComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.getWorkflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteComfyWorkflow"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteComfyWorkflowResponse>();
+}
+
+/**
+ * @summary 删除Comfy工作流
+ *
+ * @param request DeleteComfyWorkflowRequest
+ * @return DeleteComfyWorkflowResponse
+ */
+DeleteComfyWorkflowResponse Client::deleteComfyWorkflow(const DeleteComfyWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteComfyWorkflowWithOptions(request, runtime);
 }
 
 /**
@@ -2419,6 +2897,54 @@ DeleteGroupResponse Client::deleteGroupWithOptions(const DeleteGroupRequest &req
 DeleteGroupResponse Client::deleteGroup(const DeleteGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request DeleteHiveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteHiveResponse
+ */
+DeleteHiveResponse Client::deleteHiveWithOptions(const DeleteHiveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteHive"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteHiveResponse>();
+}
+
+/**
+ * @summary 删除集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request DeleteHiveRequest
+ * @return DeleteHiveResponse
+ */
+DeleteHiveResponse Client::deleteHive(const DeleteHiveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteHiveWithOptions(request, runtime);
 }
 
 /**
@@ -2915,6 +3441,348 @@ DescribeAccountStatResponse Client::describeAccountStatWithOptions(const Describ
 DescribeAccountStatResponse Client::describeAccountStat(const DescribeAccountStatRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeAccountStatWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户生成结果的下载链接
+ *
+ * @param request DescribeComfyProductionDownloadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyProductionDownloadUrlResponse
+ */
+DescribeComfyProductionDownloadUrlResponse Client::describeComfyProductionDownloadUrlWithOptions(const DescribeComfyProductionDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProductionId()) {
+    query["ProductionId"] = request.getProductionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyProductionDownloadUrl"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyProductionDownloadUrlResponse>();
+}
+
+/**
+ * @summary 获取用户生成结果的下载链接
+ *
+ * @param request DescribeComfyProductionDownloadUrlRequest
+ * @return DescribeComfyProductionDownloadUrlResponse
+ */
+DescribeComfyProductionDownloadUrlResponse Client::describeComfyProductionDownloadUrl(const DescribeComfyProductionDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyProductionDownloadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+ *
+ * @param request DescribeComfyProductionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyProductionsResponse
+ */
+DescribeComfyProductionsResponse Client::describeComfyProductionsWithOptions(const DescribeComfyProductionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskId()) {
+    query["TaskId"] = request.getTaskId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyProductions"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyProductionsResponse>();
+}
+
+/**
+ * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+ *
+ * @param request DescribeComfyProductionsRequest
+ * @return DescribeComfyProductionsResponse
+ */
+DescribeComfyProductionsResponse Client::describeComfyProductions(const DescribeComfyProductionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyProductionsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列举用户数据的中所有文件和目录的信息。
+ *
+ * @param request DescribeComfyTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyTasksResponse
+ */
+DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeComfyTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasTaskState()) {
+    query["TaskState"] = request.getTaskState();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.getWorkflowId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyTasks"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyTasksResponse>();
+}
+
+/**
+ * @summary 列举用户数据的中所有文件和目录的信息。
+ *
+ * @param request DescribeComfyTasksRequest
+ * @return DescribeComfyTasksResponse
+ */
+DescribeComfyTasksResponse Client::describeComfyTasks(const DescribeComfyTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary 上传用户数据文件
+ *
+ * @param request DescribeComfyUserDataDownloadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyUserDataDownloadUrlResponse
+ */
+DescribeComfyUserDataDownloadUrlResponse Client::describeComfyUserDataDownloadUrlWithOptions(const DescribeComfyUserDataDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyUserDataDownloadUrl"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyUserDataDownloadUrlResponse>();
+}
+
+/**
+ * @summary 上传用户数据文件
+ *
+ * @param request DescribeComfyUserDataDownloadUrlRequest
+ * @return DescribeComfyUserDataDownloadUrlResponse
+ */
+DescribeComfyUserDataDownloadUrlResponse Client::describeComfyUserDataDownloadUrl(const DescribeComfyUserDataDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyUserDataDownloadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取用户数据文件上传的URL，进行用户文件上传
+ *
+ * @param request DescribeComfyUserDataUploadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyUserDataUploadUrlResponse
+ */
+DescribeComfyUserDataUploadUrlResponse Client::describeComfyUserDataUploadUrlWithOptions(const DescribeComfyUserDataUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasContentType()) {
+    query["ContentType"] = request.getContentType();
+  }
+
+  if (!!request.hasFileMd5()) {
+    query["FileMd5"] = request.getFileMd5();
+  }
+
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFileSizeBytes()) {
+    query["FileSizeBytes"] = request.getFileSizeBytes();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyUserDataUploadUrl"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyUserDataUploadUrlResponse>();
+}
+
+/**
+ * @summary 获取用户数据文件上传的URL，进行用户文件上传
+ *
+ * @param request DescribeComfyUserDataUploadUrlRequest
+ * @return DescribeComfyUserDataUploadUrlResponse
+ */
+DescribeComfyUserDataUploadUrlResponse Client::describeComfyUserDataUploadUrl(const DescribeComfyUserDataUploadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyUserDataUploadUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 列举用户数据的中所有文件和目录的信息。
+ *
+ * @param request DescribeComfyUserDatasRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyUserDatasResponse
+ */
+DescribeComfyUserDatasResponse Client::describeComfyUserDatasWithOptions(const DescribeComfyUserDatasRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileName()) {
+    query["FileName"] = request.getFileName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyUserDatas"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyUserDatasResponse>();
+}
+
+/**
+ * @summary 列举用户数据的中所有文件和目录的信息。
+ *
+ * @param request DescribeComfyUserDatasRequest
+ * @return DescribeComfyUserDatasResponse
+ */
+DescribeComfyUserDatasResponse Client::describeComfyUserDatas(const DescribeComfyUserDatasRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyUserDatasWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Comfy工作流列表
+ *
+ * @param request DescribeComfyWorkflowsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyWorkflowsResponse
+ */
+DescribeComfyWorkflowsResponse Client::describeComfyWorkflowsWithOptions(const DescribeComfyWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyWorkflows"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyWorkflowsResponse>();
+}
+
+/**
+ * @summary 获取Comfy工作流列表
+ *
+ * @param request DescribeComfyWorkflowsRequest
+ * @return DescribeComfyWorkflowsResponse
+ */
+DescribeComfyWorkflowsResponse Client::describeComfyWorkflows(const DescribeComfyWorkflowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyWorkflowsWithOptions(request, runtime);
 }
 
 /**
@@ -6246,6 +7114,98 @@ ListCloudAppsResponse Client::listCloudApps(const ListCloudAppsRequest &request)
 }
 
 /**
+ * @summary 查询所有负载信息，支持分页查询。
+ *
+ * @param tmpReq ListEdgeWorkersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListEdgeWorkersResponse
+ */
+ListEdgeWorkersResponse Client::listEdgeWorkersWithOptions(const ListEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListEdgeWorkersShrinkRequest request = ListEdgeWorkersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHiveIds()) {
+    request.setHiveIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHiveIds(), "HiveIds", "json"));
+  }
+
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  if (!!tmpReq.hasPlanIds()) {
+    request.setPlanIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getPlanIds(), "PlanIds", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasHiveIdsShrink()) {
+    query["HiveIds"] = request.getHiveIdsShrink();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPlanIdsShrink()) {
+    query["PlanIds"] = request.getPlanIdsShrink();
+  }
+
+  if (!!request.hasSpec()) {
+    query["Spec"] = request.getSpec();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    query["Statuses"] = request.getStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListEdgeWorkers"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListEdgeWorkersResponse>();
+}
+
+/**
+ * @summary 查询所有负载信息，支持分页查询。
+ *
+ * @param request ListEdgeWorkersRequest
+ * @return ListEdgeWorkersResponse
+ */
+ListEdgeWorkersResponse Client::listEdgeWorkers(const ListEdgeWorkersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listEdgeWorkersWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询文件的实例推送状态信息列表。
  *
  * @param request ListFilePushStatusesRequest
@@ -6319,6 +7279,68 @@ ListFilesResponse Client::listFilesWithOptions(const ListFilesRequest &request, 
 ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listFilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询所有集群信息，支持分页查询。
+ *
+ * @param request ListHivesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListHivesResponse
+ */
+ListHivesResponse Client::listHivesWithOptions(const ListHivesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListHives"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListHivesResponse>();
+}
+
+/**
+ * @summary 查询所有集群信息，支持分页查询。
+ *
+ * @param request ListHivesRequest
+ * @return ListHivesResponse
+ */
+ListHivesResponse Client::listHives(const ListHivesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listHivesWithOptions(request, runtime);
 }
 
 /**
@@ -6762,6 +7784,56 @@ ListRenderingSessionsResponse Client::listRenderingSessions(const ListRenderingS
 }
 
 /**
+ * @summary 查询规格信息，支持分页查询。
+ *
+ * @param request ListSpecificationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSpecificationsResponse
+ */
+ListSpecificationsResponse Client::listSpecificationsWithOptions(const ListSpecificationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSpecification()) {
+    query["Specification"] = request.getSpecification();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSpecifications"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSpecificationsResponse>();
+}
+
+/**
+ * @summary 查询规格信息，支持分页查询。
+ *
+ * @param request ListSpecificationsRequest
+ * @return ListSpecificationsResponse
+ */
+ListSpecificationsResponse Client::listSpecifications(const ListSpecificationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSpecificationsWithOptions(request, runtime);
+}
+
+/**
  * @summary 安全登陆管理
  *
  * @param request ManageLoginRequest
@@ -6813,6 +7885,56 @@ ManageLoginResponse Client::manageLoginWithOptions(const ManageLoginRequest &req
 ManageLoginResponse Client::manageLogin(const ManageLoginRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return manageLoginWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Comfy的工作流详细信息
+ *
+ * @param request ModifyComfyWorkflowRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyComfyWorkflowResponse
+ */
+ModifyComfyWorkflowResponse Client::modifyComfyWorkflowWithOptions(const ModifyComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasWorkflowId()) {
+    query["WorkflowId"] = request.getWorkflowId();
+  }
+
+  if (!!request.hasWorkflowName()) {
+    query["WorkflowName"] = request.getWorkflowName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyComfyWorkflow"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyComfyWorkflowResponse>();
+}
+
+/**
+ * @summary 查询Comfy的工作流详细信息
+ *
+ * @param request ModifyComfyWorkflowRequest
+ * @return ModifyComfyWorkflowResponse
+ */
+ModifyComfyWorkflowResponse Client::modifyComfyWorkflow(const ModifyComfyWorkflowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyComfyWorkflowWithOptions(request, runtime);
 }
 
 /**
@@ -7232,6 +8354,62 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 }
 
 /**
+ * @summary 更新集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request ModifyHiveAttributeRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyHiveAttributeResponse
+ */
+ModifyHiveAttributeResponse Client::modifyHiveAttributeWithOptions(const ModifyHiveAttributeRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasName()) {
+    query["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyHiveAttribute"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyHiveAttributeResponse>();
+}
+
+/**
+ * @summary 更新集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request ModifyHiveAttributeRequest
+ * @return ModifyHiveAttributeResponse
+ */
+ModifyHiveAttributeResponse Client::modifyHiveAttribute(const ModifyHiveAttributeRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyHiveAttributeWithOptions(request, runtime);
+}
+
+/**
  * @param request ModifyParentPlatformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyParentPlatformResponse
@@ -7632,7 +8810,64 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 }
 
 /**
- * @param request OpenVsServiceRequest
+ * @summary 移动负载到集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param tmpReq MoveHiveEdgeWorkersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveHiveEdgeWorkersResponse
+ */
+MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkersWithOptions(const MoveHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  MoveHiveEdgeWorkersShrinkRequest request = MoveHiveEdgeWorkersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasInstanceIds()) {
+    request.setInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInstanceIds(), "InstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  if (!!request.hasInstanceIdsShrink()) {
+    query["InstanceIds"] = request.getInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MoveHiveEdgeWorkers"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveHiveEdgeWorkersResponse>();
+}
+
+/**
+ * @summary 移动负载到集群
+ *
+ * @description ## 请求说明
+ * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+ *
+ * @param request MoveHiveEdgeWorkersRequest
+ * @return MoveHiveEdgeWorkersResponse
+ */
+MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkers(const MoveHiveEdgeWorkersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return moveHiveEdgeWorkersWithOptions(request, runtime);
+}
+
+/**
  * @param runtime runtime options for this request RuntimeOptions
  * @return OpenVsServiceResponse
  */

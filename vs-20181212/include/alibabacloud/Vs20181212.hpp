@@ -21,6 +21,29 @@ namespace Vs20181212
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 添加负载到集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param tmpReq AddHiveEdgeWorkersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddHiveEdgeWorkersResponse
+       */
+      Models::AddHiveEdgeWorkersResponse addHiveEdgeWorkersWithOptions(const Models::AddHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 添加负载到集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request AddHiveEdgeWorkersRequest
+       * @return AddHiveEdgeWorkersResponse
+       */
+      Models::AddHiveEdgeWorkersResponse addHiveEdgeWorkers(const Models::AddHiveEdgeWorkersRequest &request);
+
+      /**
        * @param request AddVsPullStreamInfoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddVsPullStreamInfoConfigResponse
@@ -356,6 +379,23 @@ namespace Vs20181212
       Models::BindTemplateResponse bindTemplate(const Models::BindTemplateRequest &request);
 
       /**
+       * @summary 上传用户数据文件
+       *
+       * @param request CancelComfyTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelComfyTaskResponse
+       */
+      Models::CancelComfyTaskResponse cancelComfyTaskWithOptions(const Models::CancelComfyTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传用户数据文件
+       *
+       * @param request CancelComfyTaskRequest
+       * @return CancelComfyTaskResponse
+       */
+      Models::CancelComfyTaskResponse cancelComfyTask(const Models::CancelComfyTaskRequest &request);
+
+      /**
        * @param request ContinuousAdjustRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ContinuousAdjustResponse
@@ -380,6 +420,57 @@ namespace Vs20181212
        * @return ContinuousMoveResponse
        */
       Models::ContinuousMoveResponse continuousMove(const Models::ContinuousMoveRequest &request);
+
+      /**
+       * @summary 上传用户数据文件
+       *
+       * @param request CreateComfyTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateComfyTaskResponse
+       */
+      Models::CreateComfyTaskResponse createComfyTaskWithOptions(const Models::CreateComfyTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传用户数据文件
+       *
+       * @param request CreateComfyTaskRequest
+       * @return CreateComfyTaskResponse
+       */
+      Models::CreateComfyTaskResponse createComfyTask(const Models::CreateComfyTaskRequest &request);
+
+      /**
+       * @summary 创建一个用户数据的目录
+       *
+       * @param request CreateComfyUserDataDirRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateComfyUserDataDirResponse
+       */
+      Models::CreateComfyUserDataDirResponse createComfyUserDataDirWithOptions(const Models::CreateComfyUserDataDirRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建一个用户数据的目录
+       *
+       * @param request CreateComfyUserDataDirRequest
+       * @return CreateComfyUserDataDirResponse
+       */
+      Models::CreateComfyUserDataDirResponse createComfyUserDataDir(const Models::CreateComfyUserDataDirRequest &request);
+
+      /**
+       * @summary 创建Comfy工作流
+       *
+       * @param request CreateComfyWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateComfyWorkflowResponse
+       */
+      Models::CreateComfyWorkflowResponse createComfyWorkflowWithOptions(const Models::CreateComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Comfy工作流
+       *
+       * @param request CreateComfyWorkflowRequest
+       * @return CreateComfyWorkflowResponse
+       */
+      Models::CreateComfyWorkflowResponse createComfyWorkflow(const Models::CreateComfyWorkflowRequest &request);
 
       /**
        * @param request CreateDeviceRequest
@@ -432,6 +523,29 @@ namespace Vs20181212
        * @return CreateGroupResponse
        */
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
+
+      /**
+       * @summary 创建集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request CreateHiveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateHiveResponse
+       */
+      Models::CreateHiveResponse createHiveWithOptions(const Models::CreateHiveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request CreateHiveRequest
+       * @return CreateHiveResponse
+       */
+      Models::CreateHiveResponse createHive(const Models::CreateHiveRequest &request);
 
       /**
        * @param request CreateParentPlatformRequest
@@ -541,6 +655,29 @@ namespace Vs20181212
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
+       * @summary 从集群删除负载
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param tmpReq DelHiveEdgeWorkersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DelHiveEdgeWorkersResponse
+       */
+      Models::DelHiveEdgeWorkersResponse delHiveEdgeWorkersWithOptions(const Models::DelHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 从集群删除负载
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request DelHiveEdgeWorkersRequest
+       * @return DelHiveEdgeWorkersResponse
+       */
+      Models::DelHiveEdgeWorkersResponse delHiveEdgeWorkers(const Models::DelHiveEdgeWorkersRequest &request);
+
+      /**
        * @summary 删除云应用
        *
        * @param request DeleteCloudAppRequest
@@ -556,6 +693,57 @@ namespace Vs20181212
        * @return DeleteCloudAppResponse
        */
       Models::DeleteCloudAppResponse deleteCloudApp(const Models::DeleteCloudAppRequest &request);
+
+      /**
+       * @summary 删除用户的生成结果
+       *
+       * @param request DeleteComfyProductionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteComfyProductionResponse
+       */
+      Models::DeleteComfyProductionResponse deleteComfyProductionWithOptions(const Models::DeleteComfyProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户的生成结果
+       *
+       * @param request DeleteComfyProductionRequest
+       * @return DeleteComfyProductionResponse
+       */
+      Models::DeleteComfyProductionResponse deleteComfyProduction(const Models::DeleteComfyProductionRequest &request);
+
+      /**
+       * @summary 删除用户数据的中的文件或目录
+       *
+       * @param request DeleteComfyUserDataRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteComfyUserDataResponse
+       */
+      Models::DeleteComfyUserDataResponse deleteComfyUserDataWithOptions(const Models::DeleteComfyUserDataRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除用户数据的中的文件或目录
+       *
+       * @param request DeleteComfyUserDataRequest
+       * @return DeleteComfyUserDataResponse
+       */
+      Models::DeleteComfyUserDataResponse deleteComfyUserData(const Models::DeleteComfyUserDataRequest &request);
+
+      /**
+       * @summary 删除Comfy工作流
+       *
+       * @param request DeleteComfyWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteComfyWorkflowResponse
+       */
+      Models::DeleteComfyWorkflowResponse deleteComfyWorkflowWithOptions(const Models::DeleteComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Comfy工作流
+       *
+       * @param request DeleteComfyWorkflowRequest
+       * @return DeleteComfyWorkflowResponse
+       */
+      Models::DeleteComfyWorkflowResponse deleteComfyWorkflow(const Models::DeleteComfyWorkflowRequest &request);
 
       /**
        * @param request DeleteDeviceRequest
@@ -612,6 +800,29 @@ namespace Vs20181212
        * @return DeleteGroupResponse
        */
       Models::DeleteGroupResponse deleteGroup(const Models::DeleteGroupRequest &request);
+
+      /**
+       * @summary 删除集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request DeleteHiveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteHiveResponse
+       */
+      Models::DeleteHiveResponse deleteHiveWithOptions(const Models::DeleteHiveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request DeleteHiveRequest
+       * @return DeleteHiveResponse
+       */
+      Models::DeleteHiveResponse deleteHive(const Models::DeleteHiveRequest &request);
 
       /**
        * @param request DeleteParentPlatformRequest
@@ -775,6 +986,125 @@ namespace Vs20181212
        * @return DescribeAccountStatResponse
        */
       Models::DescribeAccountStatResponse describeAccountStat(const Models::DescribeAccountStatRequest &request);
+
+      /**
+       * @summary 获取用户生成结果的下载链接
+       *
+       * @param request DescribeComfyProductionDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyProductionDownloadUrlResponse
+       */
+      Models::DescribeComfyProductionDownloadUrlResponse describeComfyProductionDownloadUrlWithOptions(const Models::DescribeComfyProductionDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户生成结果的下载链接
+       *
+       * @param request DescribeComfyProductionDownloadUrlRequest
+       * @return DescribeComfyProductionDownloadUrlResponse
+       */
+      Models::DescribeComfyProductionDownloadUrlResponse describeComfyProductionDownloadUrl(const Models::DescribeComfyProductionDownloadUrlRequest &request);
+
+      /**
+       * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+       *
+       * @param request DescribeComfyProductionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyProductionsResponse
+       */
+      Models::DescribeComfyProductionsResponse describeComfyProductionsWithOptions(const Models::DescribeComfyProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 本接口支持根据不同请求条件查询Comfy生成物列表
+       *
+       * @param request DescribeComfyProductionsRequest
+       * @return DescribeComfyProductionsResponse
+       */
+      Models::DescribeComfyProductionsResponse describeComfyProductions(const Models::DescribeComfyProductionsRequest &request);
+
+      /**
+       * @summary 列举用户数据的中所有文件和目录的信息。
+       *
+       * @param request DescribeComfyTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyTasksResponse
+       */
+      Models::DescribeComfyTasksResponse describeComfyTasksWithOptions(const Models::DescribeComfyTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举用户数据的中所有文件和目录的信息。
+       *
+       * @param request DescribeComfyTasksRequest
+       * @return DescribeComfyTasksResponse
+       */
+      Models::DescribeComfyTasksResponse describeComfyTasks(const Models::DescribeComfyTasksRequest &request);
+
+      /**
+       * @summary 上传用户数据文件
+       *
+       * @param request DescribeComfyUserDataDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyUserDataDownloadUrlResponse
+       */
+      Models::DescribeComfyUserDataDownloadUrlResponse describeComfyUserDataDownloadUrlWithOptions(const Models::DescribeComfyUserDataDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上传用户数据文件
+       *
+       * @param request DescribeComfyUserDataDownloadUrlRequest
+       * @return DescribeComfyUserDataDownloadUrlResponse
+       */
+      Models::DescribeComfyUserDataDownloadUrlResponse describeComfyUserDataDownloadUrl(const Models::DescribeComfyUserDataDownloadUrlRequest &request);
+
+      /**
+       * @summary 获取用户数据文件上传的URL，进行用户文件上传
+       *
+       * @param request DescribeComfyUserDataUploadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyUserDataUploadUrlResponse
+       */
+      Models::DescribeComfyUserDataUploadUrlResponse describeComfyUserDataUploadUrlWithOptions(const Models::DescribeComfyUserDataUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取用户数据文件上传的URL，进行用户文件上传
+       *
+       * @param request DescribeComfyUserDataUploadUrlRequest
+       * @return DescribeComfyUserDataUploadUrlResponse
+       */
+      Models::DescribeComfyUserDataUploadUrlResponse describeComfyUserDataUploadUrl(const Models::DescribeComfyUserDataUploadUrlRequest &request);
+
+      /**
+       * @summary 列举用户数据的中所有文件和目录的信息。
+       *
+       * @param request DescribeComfyUserDatasRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyUserDatasResponse
+       */
+      Models::DescribeComfyUserDatasResponse describeComfyUserDatasWithOptions(const Models::DescribeComfyUserDatasRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 列举用户数据的中所有文件和目录的信息。
+       *
+       * @param request DescribeComfyUserDatasRequest
+       * @return DescribeComfyUserDatasResponse
+       */
+      Models::DescribeComfyUserDatasResponse describeComfyUserDatas(const Models::DescribeComfyUserDatasRequest &request);
+
+      /**
+       * @summary 获取Comfy工作流列表
+       *
+       * @param request DescribeComfyWorkflowsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeComfyWorkflowsResponse
+       */
+      Models::DescribeComfyWorkflowsResponse describeComfyWorkflowsWithOptions(const Models::DescribeComfyWorkflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Comfy工作流列表
+       *
+       * @param request DescribeComfyWorkflowsRequest
+       * @return DescribeComfyWorkflowsResponse
+       */
+      Models::DescribeComfyWorkflowsResponse describeComfyWorkflows(const Models::DescribeComfyWorkflowsRequest &request);
 
       /**
        * @param request DescribeDeviceRequest
@@ -1631,6 +1961,23 @@ namespace Vs20181212
       Models::ListCloudAppsResponse listCloudApps(const Models::ListCloudAppsRequest &request);
 
       /**
+       * @summary 查询所有负载信息，支持分页查询。
+       *
+       * @param tmpReq ListEdgeWorkersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListEdgeWorkersResponse
+       */
+      Models::ListEdgeWorkersResponse listEdgeWorkersWithOptions(const Models::ListEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询所有负载信息，支持分页查询。
+       *
+       * @param request ListEdgeWorkersRequest
+       * @return ListEdgeWorkersResponse
+       */
+      Models::ListEdgeWorkersResponse listEdgeWorkers(const Models::ListEdgeWorkersRequest &request);
+
+      /**
        * @summary 查询文件的实例推送状态信息列表。
        *
        * @param request ListFilePushStatusesRequest
@@ -1663,6 +2010,23 @@ namespace Vs20181212
        * @return ListFilesResponse
        */
       Models::ListFilesResponse listFiles(const Models::ListFilesRequest &request);
+
+      /**
+       * @summary 查询所有集群信息，支持分页查询。
+       *
+       * @param request ListHivesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListHivesResponse
+       */
+      Models::ListHivesResponse listHivesWithOptions(const Models::ListHivesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询所有集群信息，支持分页查询。
+       *
+       * @param request ListHivesRequest
+       * @return ListHivesResponse
+       */
+      Models::ListHivesResponse listHives(const Models::ListHivesRequest &request);
 
       /**
        * @summary 查询公钥信息
@@ -1806,6 +2170,23 @@ namespace Vs20181212
       Models::ListRenderingSessionsResponse listRenderingSessions(const Models::ListRenderingSessionsRequest &request);
 
       /**
+       * @summary 查询规格信息，支持分页查询。
+       *
+       * @param request ListSpecificationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSpecificationsResponse
+       */
+      Models::ListSpecificationsResponse listSpecificationsWithOptions(const Models::ListSpecificationsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询规格信息，支持分页查询。
+       *
+       * @param request ListSpecificationsRequest
+       * @return ListSpecificationsResponse
+       */
+      Models::ListSpecificationsResponse listSpecifications(const Models::ListSpecificationsRequest &request);
+
+      /**
        * @summary 安全登陆管理
        *
        * @param request ManageLoginRequest
@@ -1821,6 +2202,23 @@ namespace Vs20181212
        * @return ManageLoginResponse
        */
       Models::ManageLoginResponse manageLogin(const Models::ManageLoginRequest &request);
+
+      /**
+       * @summary 查询Comfy的工作流详细信息
+       *
+       * @param request ModifyComfyWorkflowRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyComfyWorkflowResponse
+       */
+      Models::ModifyComfyWorkflowResponse modifyComfyWorkflowWithOptions(const Models::ModifyComfyWorkflowRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Comfy的工作流详细信息
+       *
+       * @param request ModifyComfyWorkflowRequest
+       * @return ModifyComfyWorkflowResponse
+       */
+      Models::ModifyComfyWorkflowResponse modifyComfyWorkflow(const Models::ModifyComfyWorkflowRequest &request);
 
       /**
        * @param request ModifyDeviceRequest
@@ -1899,6 +2297,29 @@ namespace Vs20181212
        * @return ModifyGroupResponse
        */
       Models::ModifyGroupResponse modifyGroup(const Models::ModifyGroupRequest &request);
+
+      /**
+       * @summary 更新集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request ModifyHiveAttributeRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyHiveAttributeResponse
+       */
+      Models::ModifyHiveAttributeResponse modifyHiveAttributeWithOptions(const Models::ModifyHiveAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request ModifyHiveAttributeRequest
+       * @return ModifyHiveAttributeResponse
+       */
+      Models::ModifyHiveAttributeResponse modifyHiveAttribute(const Models::ModifyHiveAttributeRequest &request);
 
       /**
        * @param request ModifyParentPlatformRequest
@@ -1995,7 +2416,29 @@ namespace Vs20181212
       Models::ModifyTemplateResponse modifyTemplate(const Models::ModifyTemplateRequest &request);
 
       /**
-       * @param request OpenVsServiceRequest
+       * @summary 移动负载到集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param tmpReq MoveHiveEdgeWorkersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MoveHiveEdgeWorkersResponse
+       */
+      Models::MoveHiveEdgeWorkersResponse moveHiveEdgeWorkersWithOptions(const Models::MoveHiveEdgeWorkersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 移动负载到集群
+       *
+       * @description ## 请求说明
+       * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+       *
+       * @param request MoveHiveEdgeWorkersRequest
+       * @return MoveHiveEdgeWorkersResponse
+       */
+      Models::MoveHiveEdgeWorkersResponse moveHiveEdgeWorkers(const Models::MoveHiveEdgeWorkersRequest &request);
+
+      /**
        * @param runtime runtime options for this request RuntimeOptions
        * @return OpenVsServiceResponse
        */
