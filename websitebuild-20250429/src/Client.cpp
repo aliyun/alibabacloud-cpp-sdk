@@ -2884,6 +2884,162 @@ GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdmin(const GetLlm
 }
 
 /**
+ * @summary 获取小程序授权链接
+ *
+ * @param request GetMiniAppAuthUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMiniAppAuthUrlResponse
+ */
+GetMiniAppAuthUrlResponse Client::getMiniAppAuthUrlWithOptions(const GetMiniAppAuthUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasRedirectUri()) {
+    query["RedirectUri"] = request.getRedirectUri();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMiniAppAuthUrl"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMiniAppAuthUrlResponse>();
+}
+
+/**
+ * @summary 获取小程序授权链接
+ *
+ * @param request GetMiniAppAuthUrlRequest
+ * @return GetMiniAppAuthUrlResponse
+ */
+GetMiniAppAuthUrlResponse Client::getMiniAppAuthUrl(const GetMiniAppAuthUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMiniAppAuthUrlWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询站点绑定的小程序
+ *
+ * @param tmpReq GetMiniAppBindingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMiniAppBindingResponse
+ */
+GetMiniAppBindingResponse Client::getMiniAppBindingWithOptions(const GetMiniAppBindingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetMiniAppBindingShrinkRequest request = GetMiniAppBindingShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSettingKeys()) {
+    request.setSettingKeysShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSettingKeys(), "SettingKeys", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasSettingKeysShrink()) {
+    query["SettingKeys"] = request.getSettingKeysShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMiniAppBinding"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMiniAppBindingResponse>();
+}
+
+/**
+ * @summary 查询站点绑定的小程序
+ *
+ * @param request GetMiniAppBindingRequest
+ * @return GetMiniAppBindingResponse
+ */
+GetMiniAppBindingResponse Client::getMiniAppBinding(const GetMiniAppBindingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMiniAppBindingWithOptions(request, runtime);
+}
+
+/**
+ * @summary 根据条件查询应用实例绑定的小程序
+ *
+ * @param request GetMiniAppBindingForAdminRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMiniAppBindingForAdminResponse
+ */
+GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdminWithOptions(const GetMiniAppBindingForAdminRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasPlatformAppid()) {
+    query["PlatformAppid"] = request.getPlatformAppid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMiniAppBindingForAdmin"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMiniAppBindingForAdminResponse>();
+}
+
+/**
+ * @summary 根据条件查询应用实例绑定的小程序
+ *
+ * @param request GetMiniAppBindingForAdminRequest
+ * @return GetMiniAppBindingForAdminResponse
+ */
+GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdmin(const GetMiniAppBindingForAdminRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMiniAppBindingForAdminWithOptions(request, runtime);
+}
+
+/**
  * @summary 通过授权码得到accessToken
  *
  * @param request GetUserAccessTokenForPartnerRequest
@@ -6846,6 +7002,60 @@ UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecretWithOptions(const
 UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecret(const UpdateAppSupabaseSecretRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateAppSupabaseSecretWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新绑定小程序信息
+ *
+ * @param request UpdateMiniAppBindingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMiniAppBindingResponse
+ */
+UpdateMiniAppBindingResponse Client::updateMiniAppBindingWithOptions(const UpdateMiniAppBindingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBizId()) {
+    query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasChannel()) {
+    query["Channel"] = request.getChannel();
+  }
+
+  if (!!request.hasSettingKey()) {
+    query["SettingKey"] = request.getSettingKey();
+  }
+
+  if (!!request.hasSettingValue()) {
+    query["SettingValue"] = request.getSettingValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateMiniAppBinding"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMiniAppBindingResponse>();
+}
+
+/**
+ * @summary 更新绑定小程序信息
+ *
+ * @param request UpdateMiniAppBindingRequest
+ * @return UpdateMiniAppBindingResponse
+ */
+UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBindingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMiniAppBindingWithOptions(request, runtime);
 }
 
 /**

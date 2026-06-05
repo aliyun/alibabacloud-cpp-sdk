@@ -194,6 +194,16 @@
 #include <alibabacloud/models/GetLlmProxyConfigForAdminRequest.hpp>
 #include <alibabacloud/models/GetLlmProxyConfigForAdminResponseBody.hpp>
 #include <alibabacloud/models/GetLlmProxyConfigForAdminResponse.hpp>
+#include <alibabacloud/models/GetMiniAppAuthUrlRequest.hpp>
+#include <alibabacloud/models/GetMiniAppAuthUrlResponseBody.hpp>
+#include <alibabacloud/models/GetMiniAppAuthUrlResponse.hpp>
+#include <alibabacloud/models/GetMiniAppBindingRequest.hpp>
+#include <alibabacloud/models/GetMiniAppBindingShrinkRequest.hpp>
+#include <alibabacloud/models/GetMiniAppBindingResponseBody.hpp>
+#include <alibabacloud/models/GetMiniAppBindingResponse.hpp>
+#include <alibabacloud/models/GetMiniAppBindingForAdminRequest.hpp>
+#include <alibabacloud/models/GetMiniAppBindingForAdminResponseBody.hpp>
+#include <alibabacloud/models/GetMiniAppBindingForAdminResponse.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponse.hpp>
@@ -401,6 +411,9 @@
 #include <alibabacloud/models/UpdateAppSupabaseSecretRequest.hpp>
 #include <alibabacloud/models/UpdateAppSupabaseSecretResponseBody.hpp>
 #include <alibabacloud/models/UpdateAppSupabaseSecretResponse.hpp>
+#include <alibabacloud/models/UpdateMiniAppBindingRequest.hpp>
+#include <alibabacloud/models/UpdateMiniAppBindingResponseBody.hpp>
+#include <alibabacloud/models/UpdateMiniAppBindingResponse.hpp>
 #include <alibabacloud/models/UploadAppSiteValidationFileRequest.hpp>
 #include <alibabacloud/models/UploadAppSiteValidationFileResponseBody.hpp>
 #include <alibabacloud/models/UploadAppSiteValidationFileResponse.hpp>

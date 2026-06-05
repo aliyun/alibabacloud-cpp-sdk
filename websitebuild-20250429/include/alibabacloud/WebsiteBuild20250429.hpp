@@ -980,6 +980,57 @@ namespace WebsiteBuild20250429
       Models::GetLlmProxyConfigForAdminResponse getLlmProxyConfigForAdmin(const Models::GetLlmProxyConfigForAdminRequest &request);
 
       /**
+       * @summary 获取小程序授权链接
+       *
+       * @param request GetMiniAppAuthUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMiniAppAuthUrlResponse
+       */
+      Models::GetMiniAppAuthUrlResponse getMiniAppAuthUrlWithOptions(const Models::GetMiniAppAuthUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取小程序授权链接
+       *
+       * @param request GetMiniAppAuthUrlRequest
+       * @return GetMiniAppAuthUrlResponse
+       */
+      Models::GetMiniAppAuthUrlResponse getMiniAppAuthUrl(const Models::GetMiniAppAuthUrlRequest &request);
+
+      /**
+       * @summary 查询站点绑定的小程序
+       *
+       * @param tmpReq GetMiniAppBindingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMiniAppBindingResponse
+       */
+      Models::GetMiniAppBindingResponse getMiniAppBindingWithOptions(const Models::GetMiniAppBindingRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询站点绑定的小程序
+       *
+       * @param request GetMiniAppBindingRequest
+       * @return GetMiniAppBindingResponse
+       */
+      Models::GetMiniAppBindingResponse getMiniAppBinding(const Models::GetMiniAppBindingRequest &request);
+
+      /**
+       * @summary 根据条件查询应用实例绑定的小程序
+       *
+       * @param request GetMiniAppBindingForAdminRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMiniAppBindingForAdminResponse
+       */
+      Models::GetMiniAppBindingForAdminResponse getMiniAppBindingForAdminWithOptions(const Models::GetMiniAppBindingForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 根据条件查询应用实例绑定的小程序
+       *
+       * @param request GetMiniAppBindingForAdminRequest
+       * @return GetMiniAppBindingForAdminResponse
+       */
+      Models::GetMiniAppBindingForAdminResponse getMiniAppBindingForAdmin(const Models::GetMiniAppBindingForAdminRequest &request);
+
+      /**
        * @summary 通过授权码得到accessToken
        *
        * @param request GetUserAccessTokenForPartnerRequest
@@ -2130,6 +2181,23 @@ namespace WebsiteBuild20250429
        * @return UpdateAppSupabaseSecretResponse
        */
       Models::UpdateAppSupabaseSecretResponse updateAppSupabaseSecret(const Models::UpdateAppSupabaseSecretRequest &request);
+
+      /**
+       * @summary 更新绑定小程序信息
+       *
+       * @param request UpdateMiniAppBindingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMiniAppBindingResponse
+       */
+      Models::UpdateMiniAppBindingResponse updateMiniAppBindingWithOptions(const Models::UpdateMiniAppBindingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新绑定小程序信息
+       *
+       * @param request UpdateMiniAppBindingRequest
+       * @return UpdateMiniAppBindingResponse
+       */
+      Models::UpdateMiniAppBindingResponse updateMiniAppBinding(const Models::UpdateMiniAppBindingRequest &request);
 
       /**
        * @summary 上传到站点根目录
