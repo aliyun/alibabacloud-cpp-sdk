@@ -41,6 +41,7 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(apiId, apiId_);
         DARABONBA_PTR_TO_JSON(assembledSources, assembledSources_);
         DARABONBA_PTR_TO_JSON(backend, backend_);
         DARABONBA_PTR_TO_JSON(createFromType, createFromType_);
@@ -65,6 +66,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(apiId, apiId_);
         DARABONBA_PTR_FROM_JSON(assembledSources, assembledSources_);
         DARABONBA_PTR_FROM_JSON(backend, backend_);
         DARABONBA_PTR_FROM_JSON(createFromType, createFromType_);
@@ -448,12 +450,19 @@ namespace Models
         shared_ptr<vector<string>> tools_ {};
       };
 
-      virtual bool empty() const override { return this->assembledSources_ == nullptr
-        && this->backend_ == nullptr && this->createFromType_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr && this->domainIds_ == nullptr
-        && this->domainInfos_ == nullptr && this->environmentId_ == nullptr && this->exposedUriPath_ == nullptr && this->gatewayId_ == nullptr && this->grayMcpServerConfigs_ == nullptr
-        && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpServerConfigPluginAttachmentId_ == nullptr && this->mcpServerId_ == nullptr && this->mcpServerPath_ == nullptr
-        && this->mcpStatisticsEnable_ == nullptr && this->nacosMcpSyncInfo_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr && this->routeId_ == nullptr
-        && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->apiId_ == nullptr
+        && this->assembledSources_ == nullptr && this->backend_ == nullptr && this->createFromType_ == nullptr && this->deployStatus_ == nullptr && this->description_ == nullptr
+        && this->domainIds_ == nullptr && this->domainInfos_ == nullptr && this->environmentId_ == nullptr && this->exposedUriPath_ == nullptr && this->gatewayId_ == nullptr
+        && this->grayMcpServerConfigs_ == nullptr && this->match_ == nullptr && this->mcpServerConfig_ == nullptr && this->mcpServerConfigPluginAttachmentId_ == nullptr && this->mcpServerId_ == nullptr
+        && this->mcpServerPath_ == nullptr && this->mcpStatisticsEnable_ == nullptr && this->nacosMcpSyncInfo_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr
+        && this->routeId_ == nullptr && this->type_ == nullptr; };
+      // apiId Field Functions 
+      bool hasApiId() const { return this->apiId_ != nullptr;};
+      void deleteApiId() { this->apiId_ = nullptr;};
+      inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
+      inline Data& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
+
+
       // assembledSources Field Functions 
       bool hasAssembledSources() const { return this->assembledSources_ != nullptr;};
       void deleteAssembledSources() { this->assembledSources_ = nullptr;};
@@ -623,6 +632,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> apiId_ {};
       // The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
       shared_ptr<vector<Data::AssembledSources>> assembledSources_ {};
       // The backend service of the route.
