@@ -73,6 +73,24 @@ namespace ModelStudio20260210
       Models::DeleteApiKeyResponse deleteApiKey(const string &apiKeyId);
 
       /**
+       * @summary 删除业务空间
+       *
+       * @param request DeleteWorkspaceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspaceWithOptions(const string &workspaceId, const Models::DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除业务空间
+       *
+       * @param request DeleteWorkspaceRequest
+       * @return DeleteWorkspaceResponse
+       */
+      Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId, const Models::DeleteWorkspaceRequest &request);
+
+      /**
        * @summary 禁用API Key
        *
        * @param request DisableApiKeyRequest

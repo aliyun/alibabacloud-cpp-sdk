@@ -177,6 +177,45 @@ DeleteApiKeyResponse Client::deleteApiKey(const string &apiKeyId) {
 }
 
 /**
+ * @summary 删除业务空间
+ *
+ * @param request DeleteWorkspaceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspaceWithOptions(const string &workspaceId, const DeleteWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteWorkspace"},
+    {"version" , "2026-02-10"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/modelstudio/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteWorkspaceResponse>();
+}
+
+/**
+ * @summary 删除业务空间
+ *
+ * @param request DeleteWorkspaceRequest
+ * @return DeleteWorkspaceResponse
+ */
+DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const DeleteWorkspaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 禁用API Key
  *
  * @param request DisableApiKeyRequest

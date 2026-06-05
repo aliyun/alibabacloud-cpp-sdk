@@ -10,6 +10,9 @@
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteApiKeyResponse.hpp>
+#include <alibabacloud/models/DeleteWorkspaceRequest.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponseBody.hpp>
+#include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
 #include <alibabacloud/models/DisableApiKeyRequest.hpp>
 #include <alibabacloud/models/DisableApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DisableApiKeyResponse.hpp>
