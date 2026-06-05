@@ -363,7 +363,7 @@ AttachDataQualityRulesToEvaluationTaskResponse Client::attachDataQualityRulesToE
 }
 
 /**
- * @summary 批量创建自定义实体
+ * @summary Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
  *
  * @param tmpReq BatchCreateMetaEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -400,7 +400,7 @@ BatchCreateMetaEntitiesResponse Client::batchCreateMetaEntitiesWithOptions(const
 }
 
 /**
- * @summary 批量创建自定义实体
+ * @summary Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
  *
  * @param request BatchCreateMetaEntitiesRequest
  * @return BatchCreateMetaEntitiesResponse
@@ -411,7 +411,7 @@ BatchCreateMetaEntitiesResponse Client::batchCreateMetaEntities(const BatchCreat
 }
 
 /**
- * @summary 批量删除自定义实体
+ * @summary Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
  *
  * @param tmpReq BatchDeleteMetaEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -448,7 +448,7 @@ BatchDeleteMetaEntitiesResponse Client::batchDeleteMetaEntitiesWithOptions(const
 }
 
 /**
- * @summary 批量删除自定义实体
+ * @summary Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
  *
  * @param request BatchDeleteMetaEntitiesRequest
  * @return BatchDeleteMetaEntitiesResponse
@@ -622,6 +622,114 @@ CloneDataSourceResponse Client::cloneDataSourceWithOptions(const CloneDataSource
 CloneDataSourceResponse Client::cloneDataSource(const CloneDataSourceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return cloneDataSourceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建 Agent
+ *
+ * @param tmpReq CreateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentResponse
+ */
+CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateAgentShrinkRequest request = CreateAgentShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCallableAgents()) {
+    request.setCallableAgentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCallableAgents(), "CallableAgents", "json"));
+  }
+
+  if (!!tmpReq.hasMetadata()) {
+    request.setMetadataShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getMetadata(), "Metadata", "json"));
+  }
+
+  if (!!tmpReq.hasModel()) {
+    request.setModelShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getModel(), "Model", "json"));
+  }
+
+  if (!!tmpReq.hasSkills()) {
+    request.setSkillsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSkills(), "Skills", "json"));
+  }
+
+  if (!!tmpReq.hasTools()) {
+    request.setToolsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTools(), "Tools", "json"));
+  }
+
+  if (!!tmpReq.hasVisibilityScope()) {
+    request.setVisibilityScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibilityScope(), "VisibilityScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCallableAgentsShrink()) {
+    body["CallableAgents"] = request.getCallableAgentsShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDisplayName()) {
+    body["DisplayName"] = request.getDisplayName();
+  }
+
+  if (!!request.hasMetadataShrink()) {
+    body["Metadata"] = request.getMetadataShrink();
+  }
+
+  if (!!request.hasModelShrink()) {
+    body["Model"] = request.getModelShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSkillsShrink()) {
+    body["Skills"] = request.getSkillsShrink();
+  }
+
+  if (!!request.hasSystemPrompt()) {
+    body["SystemPrompt"] = request.getSystemPrompt();
+  }
+
+  if (!!request.hasToolsShrink()) {
+    body["Tools"] = request.getToolsShrink();
+  }
+
+  if (!!request.hasVisibility()) {
+    body["Visibility"] = request.getVisibility();
+  }
+
+  if (!!request.hasVisibilityScopeShrink()) {
+    body["VisibilityScope"] = request.getVisibilityScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateAgent"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentResponse>();
+}
+
+/**
+ * @summary 创建 Agent
+ *
+ * @param request CreateAgentRequest
+ * @return CreateAgentResponse
+ */
+CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgentWithOptions(request, runtime);
 }
 
 /**
@@ -923,7 +1031,7 @@ CreateComputeResourceResponse Client::createComputeResource(const CreateComputeR
 }
 
 /**
- * @summary 创建自定义属性定义
+ * @summary Create a custom attribute
  *
  * @param tmpReq CreateCustomAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -992,7 +1100,7 @@ CreateCustomAttributeResponse Client::createCustomAttributeWithOptions(const Cre
 }
 
 /**
- * @summary 创建自定义属性定义
+ * @summary Create a custom attribute
  *
  * @param request CreateCustomAttributeRequest
  * @return CreateCustomAttributeResponse
@@ -2617,7 +2725,7 @@ CreateMetaCollectionResponse Client::createMetaCollection(const CreateMetaCollec
 }
 
 /**
- * @summary 创建自定义实体定义
+ * @summary Creates metadata entity definitions (including pure custom types and extended table types)
  *
  * @param tmpReq CreateMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2670,7 +2778,7 @@ CreateMetaEntityDefResponse Client::createMetaEntityDefWithOptions(const CreateM
 }
 
 /**
- * @summary 创建自定义实体定义
+ * @summary Creates metadata entity definitions (including pure custom types and extended table types)
  *
  * @param request CreateMetaEntityDefRequest
  * @return CreateMetaEntityDefResponse
@@ -3841,6 +3949,48 @@ CreateWorkflowInstancesResponse Client::createWorkflowInstances(const CreateWork
 }
 
 /**
+ * @summary 删除 Agent
+ *
+ * @param request DeleteAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentResponse
+ */
+DeleteAgentResponse Client::deleteAgentWithOptions(const DeleteAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgent"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentResponse>();
+}
+
+/**
+ * @summary 删除 Agent
+ *
+ * @param request DeleteAgentRequest
+ * @return DeleteAgentResponse
+ */
+DeleteAgentResponse Client::deleteAgent(const DeleteAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a custom monitoring alert rule.
  *
  * @param request DeleteAlertRuleRequest
@@ -4089,7 +4239,7 @@ DeleteComputeResourceResponse Client::deleteComputeResource(const DeleteComputeR
 }
 
 /**
- * @summary 删除自定义属性定义
+ * @summary Delete Custom Attribute
  *
  * @param request DeleteCustomAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4120,7 +4270,7 @@ DeleteCustomAttributeResponse Client::deleteCustomAttributeWithOptions(const Del
 }
 
 /**
- * @summary 删除自定义属性定义
+ * @summary Delete Custom Attribute
  *
  * @param request DeleteCustomAttributeRequest
  * @return DeleteCustomAttributeResponse
@@ -4929,6 +5079,48 @@ DeleteLineageRelationshipResponse Client::deleteLineageRelationship(const Delete
 }
 
 /**
+ * @summary 删除 MCP Server
+ *
+ * @param request DeleteMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMcpServerResponse
+ */
+DeleteMcpServerResponse Client::deleteMcpServerWithOptions(const DeleteMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteMcpServer"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMcpServerResponse>();
+}
+
+/**
+ * @summary 删除 MCP Server
+ *
+ * @param request DeleteMcpServerRequest
+ * @return DeleteMcpServerResponse
+ */
+DeleteMcpServerResponse Client::deleteMcpServer(const DeleteMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteMcpServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
  *
  * @param request DeleteMetaCollectionRequest
@@ -4971,7 +5163,7 @@ DeleteMetaCollectionResponse Client::deleteMetaCollection(const DeleteMetaCollec
 }
 
 /**
- * @summary 删除自定义实体定义
+ * @summary Delete metadata entity definitions (including pure custom types and extended table types)
  *
  * @param request DeleteMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5006,7 +5198,7 @@ DeleteMetaEntityDefResponse Client::deleteMetaEntityDefWithOptions(const DeleteM
 }
 
 /**
- * @summary 删除自定义实体定义
+ * @summary Delete metadata entity definitions (including pure custom types and extended table types)
  *
  * @param request DeleteMetaEntityDefRequest
  * @return DeleteMetaEntityDefResponse
@@ -5438,6 +5630,48 @@ DeleteRouteResponse Client::deleteRouteWithOptions(const DeleteRouteRequest &req
 DeleteRouteResponse Client::deleteRoute(const DeleteRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除 Skill
+ *
+ * @param request DeleteSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSkillResponse
+ */
+DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSkill"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSkillResponse>();
+}
+
+/**
+ * @summary 删除 Skill
+ *
+ * @param request DeleteSkillRequest
+ * @return DeleteSkillResponse
+ */
+DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSkillWithOptions(request, runtime);
 }
 
 /**
@@ -5996,6 +6230,48 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstanceWithOpt
 ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstance(const ExecuteAdhocWorkflowInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeAdhocWorkflowInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 读取 Agent 详情
+ *
+ * @param request GetAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentResponse
+ */
+GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetAgent"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentResponse>();
+}
+
+/**
+ * @summary 读取 Agent 详情
+ *
+ * @param request GetAgentRequest
+ * @return GetAgentResponse
+ */
+GetAgentResponse Client::getAgent(const GetAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentWithOptions(request, runtime);
 }
 
 /**
@@ -7617,7 +7893,7 @@ GetMetaCollectionResponse Client::getMetaCollection(const GetMetaCollectionReque
 }
 
 /**
- * @summary 获取自定义实体详情
+ * @summary Obtains the details of a metadata entity. Currently, only pure custom types are supported.
  *
  * @param request GetMetaEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7648,7 +7924,7 @@ GetMetaEntityResponse Client::getMetaEntityWithOptions(const GetMetaEntityReques
 }
 
 /**
- * @summary 获取自定义实体详情
+ * @summary Obtains the details of a metadata entity. Currently, only pure custom types are supported.
  *
  * @param request GetMetaEntityRequest
  * @return GetMetaEntityResponse
@@ -7659,7 +7935,7 @@ GetMetaEntityResponse Client::getMetaEntity(const GetMetaEntityRequest &request)
 }
 
 /**
- * @summary 获取自定义实体定义详情
+ * @summary Queries the details of a custom entity definition
  *
  * @param request GetMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7690,7 +7966,7 @@ GetMetaEntityDefResponse Client::getMetaEntityDefWithOptions(const GetMetaEntity
 }
 
 /**
- * @summary 获取自定义实体定义详情
+ * @summary Queries the details of a custom entity definition
  *
  * @param request GetMetaEntityDefRequest
  * @return GetMetaEntityDefResponse
@@ -11409,7 +11685,7 @@ ListMetaCollectionsResponse Client::listMetaCollections(const ListMetaCollection
 }
 
 /**
- * @summary 查询自定义实体列表
+ * @summary Queries the list of metadata entities. Currently, only custom types are supported.
  *
  * @param tmpReq ListMetaEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11482,7 +11758,7 @@ ListMetaEntitiesResponse Client::listMetaEntitiesWithOptions(const ListMetaEntit
 }
 
 /**
- * @summary 查询自定义实体列表
+ * @summary Queries the list of metadata entities. Currently, only custom types are supported.
  *
  * @param request ListMetaEntitiesRequest
  * @return ListMetaEntitiesResponse
@@ -11493,7 +11769,7 @@ ListMetaEntitiesResponse Client::listMetaEntities(const ListMetaEntitiesRequest 
 }
 
 /**
- * @summary 查询自定义实体定义列表
+ * @summary Queries a list of custom entity definitions (including custom entity types and extended table types).
  *
  * @param request ListMetaEntityDefsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11548,7 +11824,7 @@ ListMetaEntityDefsResponse Client::listMetaEntityDefsWithOptions(const ListMetaE
 }
 
 /**
- * @summary 查询自定义实体定义列表
+ * @summary Queries a list of custom entity definitions (including custom entity types and extended table types).
  *
  * @param request ListMetaEntityDefsRequest
  * @return ListMetaEntityDefsResponse
@@ -15227,7 +15503,7 @@ UpdateComputeResourceResponse Client::updateComputeResource(const UpdateComputeR
 }
 
 /**
- * @summary 更新自定义属性定义
+ * @summary Updates custom attribute definitions
  *
  * @param tmpReq UpdateCustomAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15292,7 +15568,7 @@ UpdateCustomAttributeResponse Client::updateCustomAttributeWithOptions(const Upd
 }
 
 /**
- * @summary 更新自定义属性定义
+ * @summary Updates custom attribute definitions
  *
  * @param request UpdateCustomAttributeRequest
  * @return UpdateCustomAttributeResponse
@@ -16599,7 +16875,7 @@ UpdateMetaCollectionResponse Client::updateMetaCollection(const UpdateMetaCollec
 }
 
 /**
- * @summary 更新自定义实体
+ * @summary Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
  *
  * @param tmpReq UpdateMetaEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16652,7 +16928,7 @@ UpdateMetaEntityResponse Client::updateMetaEntityWithOptions(const UpdateMetaEnt
 }
 
 /**
- * @summary 更新自定义实体
+ * @summary Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
  *
  * @param request UpdateMetaEntityRequest
  * @return UpdateMetaEntityResponse
@@ -16663,7 +16939,7 @@ UpdateMetaEntityResponse Client::updateMetaEntity(const UpdateMetaEntityRequest 
 }
 
 /**
- * @summary 更新自定义实体定义
+ * @summary Updates metadata entity definitions (including pure custom types and extended table types)
  *
  * @param tmpReq UpdateMetaEntityDefRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16720,7 +16996,7 @@ UpdateMetaEntityDefResponse Client::updateMetaEntityDefWithOptions(const UpdateM
 }
 
 /**
- * @summary 更新自定义实体定义
+ * @summary Updates metadata entity definitions (including pure custom types and extended table types)
  *
  * @param request UpdateMetaEntityDefRequest
  * @return UpdateMetaEntityDefResponse

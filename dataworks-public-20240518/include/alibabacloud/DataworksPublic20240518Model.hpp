@@ -62,6 +62,10 @@
 #include <alibabacloud/models/CloneDataSourceRequest.hpp>
 #include <alibabacloud/models/CloneDataSourceResponseBody.hpp>
 #include <alibabacloud/models/CloneDataSourceResponse.hpp>
+#include <alibabacloud/models/CreateAgentRequest.hpp>
+#include <alibabacloud/models/CreateAgentShrinkRequest.hpp>
+#include <alibabacloud/models/CreateAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateAgentResponse.hpp>
 #include <alibabacloud/models/CreateAgentSessionRequest.hpp>
 #include <alibabacloud/models/CreateAgentSessionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAgentSessionResponseBody.hpp>
@@ -215,6 +219,9 @@
 #include <alibabacloud/models/CreateWorkflowInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/CreateWorkflowInstancesResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkflowInstancesResponse.hpp>
+#include <alibabacloud/models/DeleteAgentRequest.hpp>
+#include <alibabacloud/models/DeleteAgentResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgentResponse.hpp>
 #include <alibabacloud/models/DeleteAlertRuleRequest.hpp>
 #include <alibabacloud/models/DeleteAlertRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteAlertRuleResponse.hpp>
@@ -285,6 +292,9 @@
 #include <alibabacloud/models/DeleteLineageRelationshipRequest.hpp>
 #include <alibabacloud/models/DeleteLineageRelationshipResponseBody.hpp>
 #include <alibabacloud/models/DeleteLineageRelationshipResponse.hpp>
+#include <alibabacloud/models/DeleteMcpServerRequest.hpp>
+#include <alibabacloud/models/DeleteMcpServerResponseBody.hpp>
+#include <alibabacloud/models/DeleteMcpServerResponse.hpp>
 #include <alibabacloud/models/DeleteMetaCollectionRequest.hpp>
 #include <alibabacloud/models/DeleteMetaCollectionResponseBody.hpp>
 #include <alibabacloud/models/DeleteMetaCollectionResponse.hpp>
@@ -318,6 +328,9 @@
 #include <alibabacloud/models/DeleteRouteRequest.hpp>
 #include <alibabacloud/models/DeleteRouteResponseBody.hpp>
 #include <alibabacloud/models/DeleteRouteResponse.hpp>
+#include <alibabacloud/models/DeleteSkillRequest.hpp>
+#include <alibabacloud/models/DeleteSkillResponseBody.hpp>
+#include <alibabacloud/models/DeleteSkillResponse.hpp>
 #include <alibabacloud/models/DeleteTaskRequest.hpp>
 #include <alibabacloud/models/DeleteTaskResponseBody.hpp>
 #include <alibabacloud/models/DeleteTaskResponse.hpp>
@@ -350,6 +363,9 @@
 #include <alibabacloud/models/ExecuteAdhocWorkflowInstanceShrinkRequest.hpp>
 #include <alibabacloud/models/ExecuteAdhocWorkflowInstanceResponseBody.hpp>
 #include <alibabacloud/models/ExecuteAdhocWorkflowInstanceResponse.hpp>
+#include <alibabacloud/models/GetAgentRequest.hpp>
+#include <alibabacloud/models/GetAgentResponseBody.hpp>
+#include <alibabacloud/models/GetAgentResponse.hpp>
 #include <alibabacloud/models/GetAgentSessionArtifactMetaRequest.hpp>
 #include <alibabacloud/models/GetAgentSessionArtifactMetaShrinkRequest.hpp>
 #include <alibabacloud/models/GetAgentSessionArtifactMetaResponseBody.hpp>

@@ -123,7 +123,7 @@ namespace DataworksPublic20240518
       Models::AttachDataQualityRulesToEvaluationTaskResponse attachDataQualityRulesToEvaluationTask(const Models::AttachDataQualityRulesToEvaluationTaskRequest &request);
 
       /**
-       * @summary 批量创建自定义实体
+       * @summary Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
        *
        * @param tmpReq BatchCreateMetaEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace DataworksPublic20240518
       Models::BatchCreateMetaEntitiesResponse batchCreateMetaEntitiesWithOptions(const Models::BatchCreateMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量创建自定义实体
+       * @summary Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
        *
        * @param request BatchCreateMetaEntitiesRequest
        * @return BatchCreateMetaEntitiesResponse
@@ -140,7 +140,7 @@ namespace DataworksPublic20240518
       Models::BatchCreateMetaEntitiesResponse batchCreateMetaEntities(const Models::BatchCreateMetaEntitiesRequest &request);
 
       /**
-       * @summary 批量删除自定义实体
+       * @summary Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
        *
        * @param tmpReq BatchDeleteMetaEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace DataworksPublic20240518
       Models::BatchDeleteMetaEntitiesResponse batchDeleteMetaEntitiesWithOptions(const Models::BatchDeleteMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除自定义实体
+       * @summary Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
        *
        * @param request BatchDeleteMetaEntitiesRequest
        * @return BatchDeleteMetaEntitiesResponse
@@ -218,6 +218,23 @@ namespace DataworksPublic20240518
        * @return CloneDataSourceResponse
        */
       Models::CloneDataSourceResponse cloneDataSource(const Models::CloneDataSourceRequest &request);
+
+      /**
+       * @summary 创建 Agent
+       *
+       * @param tmpReq CreateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgentResponse
+       */
+      Models::CreateAgentResponse createAgentWithOptions(const Models::CreateAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 Agent
+       *
+       * @param request CreateAgentRequest
+       * @return CreateAgentResponse
+       */
+      Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
 
       /**
        * @summary Creates a new Agent session and returns the session ID.
@@ -305,7 +322,7 @@ namespace DataworksPublic20240518
       Models::CreateComputeResourceResponse createComputeResource(const Models::CreateComputeResourceRequest &request);
 
       /**
-       * @summary 创建自定义属性定义
+       * @summary Create a custom attribute
        *
        * @param tmpReq CreateCustomAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -314,7 +331,7 @@ namespace DataworksPublic20240518
       Models::CreateCustomAttributeResponse createCustomAttributeWithOptions(const Models::CreateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义属性定义
+       * @summary Create a custom attribute
        *
        * @param request CreateCustomAttributeRequest
        * @return CreateCustomAttributeResponse
@@ -749,7 +766,7 @@ namespace DataworksPublic20240518
       Models::CreateMetaCollectionResponse createMetaCollection(const Models::CreateMetaCollectionRequest &request);
 
       /**
-       * @summary 创建自定义实体定义
+       * @summary Creates metadata entity definitions (including pure custom types and extended table types)
        *
        * @param tmpReq CreateMetaEntityDefRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,7 +775,7 @@ namespace DataworksPublic20240518
       Models::CreateMetaEntityDefResponse createMetaEntityDefWithOptions(const Models::CreateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建自定义实体定义
+       * @summary Creates metadata entity definitions (including pure custom types and extended table types)
        *
        * @param request CreateMetaEntityDefRequest
        * @return CreateMetaEntityDefResponse
@@ -1044,6 +1061,23 @@ namespace DataworksPublic20240518
       Models::CreateWorkflowInstancesResponse createWorkflowInstances(const Models::CreateWorkflowInstancesRequest &request);
 
       /**
+       * @summary 删除 Agent
+       *
+       * @param request DeleteAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAgentResponse
+       */
+      Models::DeleteAgentResponse deleteAgentWithOptions(const Models::DeleteAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 Agent
+       *
+       * @param request DeleteAgentRequest
+       * @return DeleteAgentResponse
+       */
+      Models::DeleteAgentResponse deleteAgent(const Models::DeleteAgentRequest &request);
+
+      /**
        * @summary Deletes a custom monitoring alert rule.
        *
        * @param request DeleteAlertRuleRequest
@@ -1147,7 +1181,7 @@ namespace DataworksPublic20240518
       Models::DeleteComputeResourceResponse deleteComputeResource(const Models::DeleteComputeResourceRequest &request);
 
       /**
-       * @summary 删除自定义属性定义
+       * @summary Delete Custom Attribute
        *
        * @param request DeleteCustomAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1190,7 @@ namespace DataworksPublic20240518
       Models::DeleteCustomAttributeResponse deleteCustomAttributeWithOptions(const Models::DeleteCustomAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义属性定义
+       * @summary Delete Custom Attribute
        *
        * @param request DeleteCustomAttributeRequest
        * @return DeleteCustomAttributeResponse
@@ -1503,6 +1537,23 @@ namespace DataworksPublic20240518
       Models::DeleteLineageRelationshipResponse deleteLineageRelationship(const Models::DeleteLineageRelationshipRequest &request);
 
       /**
+       * @summary 删除 MCP Server
+       *
+       * @param request DeleteMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteMcpServerResponse
+       */
+      Models::DeleteMcpServerResponse deleteMcpServerWithOptions(const Models::DeleteMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 MCP Server
+       *
+       * @param request DeleteMcpServerRequest
+       * @return DeleteMcpServerResponse
+       */
+      Models::DeleteMcpServerResponse deleteMcpServer(const Models::DeleteMcpServerRequest &request);
+
+      /**
        * @summary Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
        *
        * @param request DeleteMetaCollectionRequest
@@ -1520,7 +1571,7 @@ namespace DataworksPublic20240518
       Models::DeleteMetaCollectionResponse deleteMetaCollection(const Models::DeleteMetaCollectionRequest &request);
 
       /**
-       * @summary 删除自定义实体定义
+       * @summary Delete metadata entity definitions (including pure custom types and extended table types)
        *
        * @param request DeleteMetaEntityDefRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1529,7 +1580,7 @@ namespace DataworksPublic20240518
       Models::DeleteMetaEntityDefResponse deleteMetaEntityDefWithOptions(const Models::DeleteMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除自定义实体定义
+       * @summary Delete metadata entity definitions (including pure custom types and extended table types)
        *
        * @param request DeleteMetaEntityDefRequest
        * @return DeleteMetaEntityDefResponse
@@ -1718,6 +1769,23 @@ namespace DataworksPublic20240518
        * @return DeleteRouteResponse
        */
       Models::DeleteRouteResponse deleteRoute(const Models::DeleteRouteRequest &request);
+
+      /**
+       * @summary 删除 Skill
+       *
+       * @param request DeleteSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除 Skill
+       *
+       * @param request DeleteSkillRequest
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkill(const Models::DeleteSkillRequest &request);
 
       /**
        * @summary Deletes a task.
@@ -1918,6 +1986,23 @@ namespace DataworksPublic20240518
        * @return ExecuteAdhocWorkflowInstanceResponse
        */
       Models::ExecuteAdhocWorkflowInstanceResponse executeAdhocWorkflowInstance(const Models::ExecuteAdhocWorkflowInstanceRequest &request);
+
+      /**
+       * @summary 读取 Agent 详情
+       *
+       * @param request GetAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentResponse
+       */
+      Models::GetAgentResponse getAgentWithOptions(const Models::GetAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取 Agent 详情
+       *
+       * @param request GetAgentRequest
+       * @return GetAgentResponse
+       */
+      Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
        * @summary Obtains the metadata and body content of an Artifact based on the session ID and file path.
@@ -2606,7 +2691,7 @@ namespace DataworksPublic20240518
       Models::GetMetaCollectionResponse getMetaCollection(const Models::GetMetaCollectionRequest &request);
 
       /**
-       * @summary 获取自定义实体详情
+       * @summary Obtains the details of a metadata entity. Currently, only pure custom types are supported.
        *
        * @param request GetMetaEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2615,7 +2700,7 @@ namespace DataworksPublic20240518
       Models::GetMetaEntityResponse getMetaEntityWithOptions(const Models::GetMetaEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义实体详情
+       * @summary Obtains the details of a metadata entity. Currently, only pure custom types are supported.
        *
        * @param request GetMetaEntityRequest
        * @return GetMetaEntityResponse
@@ -2623,7 +2708,7 @@ namespace DataworksPublic20240518
       Models::GetMetaEntityResponse getMetaEntity(const Models::GetMetaEntityRequest &request);
 
       /**
-       * @summary 获取自定义实体定义详情
+       * @summary Queries the details of a custom entity definition
        *
        * @param request GetMetaEntityDefRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2632,7 +2717,7 @@ namespace DataworksPublic20240518
       Models::GetMetaEntityDefResponse getMetaEntityDefWithOptions(const Models::GetMetaEntityDefRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取自定义实体定义详情
+       * @summary Queries the details of a custom entity definition
        *
        * @param request GetMetaEntityDefRequest
        * @return GetMetaEntityDefResponse
@@ -4017,7 +4102,7 @@ namespace DataworksPublic20240518
       Models::ListMetaCollectionsResponse listMetaCollections(const Models::ListMetaCollectionsRequest &request);
 
       /**
-       * @summary 查询自定义实体列表
+       * @summary Queries the list of metadata entities. Currently, only custom types are supported.
        *
        * @param tmpReq ListMetaEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4026,7 +4111,7 @@ namespace DataworksPublic20240518
       Models::ListMetaEntitiesResponse listMetaEntitiesWithOptions(const Models::ListMetaEntitiesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义实体列表
+       * @summary Queries the list of metadata entities. Currently, only custom types are supported.
        *
        * @param request ListMetaEntitiesRequest
        * @return ListMetaEntitiesResponse
@@ -4034,7 +4119,7 @@ namespace DataworksPublic20240518
       Models::ListMetaEntitiesResponse listMetaEntities(const Models::ListMetaEntitiesRequest &request);
 
       /**
-       * @summary 查询自定义实体定义列表
+       * @summary Queries a list of custom entity definitions (including custom entity types and extended table types).
        *
        * @param request ListMetaEntityDefsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4043,7 +4128,7 @@ namespace DataworksPublic20240518
       Models::ListMetaEntityDefsResponse listMetaEntityDefsWithOptions(const Models::ListMetaEntityDefsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询自定义实体定义列表
+       * @summary Queries a list of custom entity definitions (including custom entity types and extended table types).
        *
        * @param request ListMetaEntityDefsRequest
        * @return ListMetaEntityDefsResponse
@@ -5239,7 +5324,7 @@ namespace DataworksPublic20240518
       Models::UpdateComputeResourceResponse updateComputeResource(const Models::UpdateComputeResourceRequest &request);
 
       /**
-       * @summary 更新自定义属性定义
+       * @summary Updates custom attribute definitions
        *
        * @param tmpReq UpdateCustomAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5248,7 +5333,7 @@ namespace DataworksPublic20240518
       Models::UpdateCustomAttributeResponse updateCustomAttributeWithOptions(const Models::UpdateCustomAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义属性定义
+       * @summary Updates custom attribute definitions
        *
        * @param request UpdateCustomAttributeRequest
        * @return UpdateCustomAttributeResponse
@@ -5585,7 +5670,7 @@ namespace DataworksPublic20240518
       Models::UpdateMetaCollectionResponse updateMetaCollection(const Models::UpdateMetaCollectionRequest &request);
 
       /**
-       * @summary 更新自定义实体
+       * @summary Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
        *
        * @param tmpReq UpdateMetaEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5594,7 +5679,7 @@ namespace DataworksPublic20240518
       Models::UpdateMetaEntityResponse updateMetaEntityWithOptions(const Models::UpdateMetaEntityRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义实体
+       * @summary Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
        *
        * @param request UpdateMetaEntityRequest
        * @return UpdateMetaEntityResponse
@@ -5602,7 +5687,7 @@ namespace DataworksPublic20240518
       Models::UpdateMetaEntityResponse updateMetaEntity(const Models::UpdateMetaEntityRequest &request);
 
       /**
-       * @summary 更新自定义实体定义
+       * @summary Updates metadata entity definitions (including pure custom types and extended table types)
        *
        * @param tmpReq UpdateMetaEntityDefRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5611,7 +5696,7 @@ namespace DataworksPublic20240518
       Models::UpdateMetaEntityDefResponse updateMetaEntityDefWithOptions(const Models::UpdateMetaEntityDefRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新自定义实体定义
+       * @summary Updates metadata entity definitions (including pure custom types and extended table types)
        *
        * @param request UpdateMetaEntityDefRequest
        * @return UpdateMetaEntityDefResponse
