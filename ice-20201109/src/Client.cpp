@@ -760,7 +760,7 @@ AddTemplateResponse Client::addTemplate(const AddTemplateRequest &request) {
 }
 
 /**
- * @summary 增加用户积分
+ * @summary Allocates points to a user.
  *
  * @param request AddYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +795,7 @@ AddYikeUserCreditResponse Client::addYikeUserCreditWithOptions(const AddYikeUser
 }
 
 /**
- * @summary 增加用户积分
+ * @summary Allocates points to a user.
  *
  * @param request AddYikeUserCreditRequest
  * @return AddYikeUserCreditResponse
@@ -1008,7 +1008,7 @@ BatchGetMediaInfosResponse Client::batchGetMediaInfos(const BatchGetMediaInfosRe
 }
 
 /**
- * @summary 批量获取一刻AI应用生成任务
+ * @summary Retrieves information about multiple AI application jobs in WonderClip.
  *
  * @param request BatchGetYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1039,7 +1039,7 @@ BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJobWithOptions(const Batch
 }
 
 /**
- * @summary 批量获取一刻AI应用生成任务
+ * @summary Retrieves information about multiple AI application jobs in WonderClip.
  *
  * @param request BatchGetYikeAIAppJobRequest
  * @return BatchGetYikeAIAppJobResponse
@@ -1050,7 +1050,7 @@ BatchGetYikeAIAppJobResponse Client::batchGetYikeAIAppJob(const BatchGetYikeAIAp
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1081,7 +1081,7 @@ BatchGetYikeAssetMediaInfosResponse Client::batchGetYikeAssetMediaInfosWithOptio
 }
 
 /**
- * @summary 批量获取媒资信息
+ * @summary Retrieves information about multiple media assets.
  *
  * @param request BatchGetYikeAssetMediaInfosRequest
  * @return BatchGetYikeAssetMediaInfosResponse
@@ -3546,7 +3546,7 @@ CreateVodPackagingGroupResponse Client::createVodPackagingGroup(const CreateVodP
 }
 
 /**
- * @summary 获取一刻媒资上传凭证
+ * @summary Obtains the upload credential for a WonderClip media asset.
  *
  * @param request CreateYikeAssetUploadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3581,7 +3581,7 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUploadWithOptions(const Cre
 }
 
 /**
- * @summary 获取一刻媒资上传凭证
+ * @summary Obtains the upload credential for a WonderClip media asset.
  *
  * @param request CreateYikeAssetUploadRequest
  * @return CreateYikeAssetUploadResponse
@@ -3592,7 +3592,7 @@ CreateYikeAssetUploadResponse Client::createYikeAssetUpload(const CreateYikeAsse
 }
 
 /**
- * @summary 创建一刻项目
+ * @summary Creates a WonderClip project.
  *
  * @param request CreateYikeProductionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3627,7 +3627,7 @@ CreateYikeProductionResponse Client::createYikeProductionWithOptions(const Creat
 }
 
 /**
- * @summary 创建一刻项目
+ * @summary Creates a WonderClip project.
  *
  * @param request CreateYikeProductionRequest
  * @return CreateYikeProductionResponse
@@ -3638,7 +3638,7 @@ CreateYikeProductionResponse Client::createYikeProduction(const CreateYikeProduc
 }
 
 /**
- * @summary 创建一刻子用户
+ * @summary Creates a sub-account in WonderClip.
  *
  * @param request CreateYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3685,7 +3685,7 @@ CreateYikeUserResponse Client::createYikeUserWithOptions(const CreateYikeUserReq
 }
 
 /**
- * @summary 创建一刻子用户
+ * @summary Creates a sub-account in WonderClip.
  *
  * @param request CreateYikeUserRequest
  * @return CreateYikeUserResponse
@@ -3696,7 +3696,7 @@ CreateYikeUserResponse Client::createYikeUser(const CreateYikeUserRequest &reque
 }
 
 /**
- * @summary 创建工作室
+ * @summary Creates a workspace in WonderClip.
  *
  * @param request CreateYikeWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3731,7 +3731,7 @@ CreateYikeWorkspaceResponse Client::createYikeWorkspaceWithOptions(const CreateY
 }
 
 /**
- * @summary 创建工作室
+ * @summary Creates a workspace in WonderClip.
  *
  * @param request CreateYikeWorkspaceRequest
  * @return CreateYikeWorkspaceResponse
@@ -5908,7 +5908,7 @@ DeleteVodPackagingGroupResponse Client::deleteVodPackagingGroup(const DeleteVodP
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteYikeAssetMediaInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5943,7 +5943,7 @@ DeleteYikeAssetMediaInfosResponse Client::deleteYikeAssetMediaInfosWithOptions(c
 }
 
 /**
- * @summary 删除媒资信息
+ * @summary Deletes media asset information.
  *
  * @param request DeleteYikeAssetMediaInfosRequest
  * @return DeleteYikeAssetMediaInfosResponse
@@ -6616,7 +6616,7 @@ ForbidMediaConnectFlowOutputResponse Client::forbidMediaConnectFlowOutput(const 
 }
 
 /**
- * @summary 转呼通话到目标电话
+ * @summary Forwards an active call to a specified target phone number.
  *
  * @param request ForwardAIAgentCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6663,7 +6663,7 @@ ForwardAIAgentCallResponse Client::forwardAIAgentCallWithOptions(const ForwardAI
 }
 
 /**
- * @summary 转呼通话到目标电话
+ * @summary Forwards an active call to a specified target phone number.
  *
  * @param request ForwardAIAgentCallRequest
  * @return ForwardAIAgentCallResponse
@@ -6852,7 +6852,7 @@ GenerateMessageChatTokenResponse Client::generateMessageChatToken(const Generate
 }
 
 /**
- * @summary 获取智能体当前通话并发数
+ * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
  *
  * @param request GetAIAgentConcurrencyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6883,7 +6883,7 @@ GetAIAgentConcurrencyResponse Client::getAIAgentConcurrencyWithOptions(const Get
 }
 
 /**
- * @summary 获取智能体当前通话并发数
+ * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
  *
  * @param request GetAIAgentConcurrencyRequest
  * @return GetAIAgentConcurrencyResponse
@@ -8968,7 +8968,7 @@ GetMediaMarksResponse Client::getMediaMarks(const GetMediaMarksRequest &request)
 }
 
 /**
- * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+ * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
  *
  * @param request GetMediaProducingJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8999,7 +8999,7 @@ GetMediaProducingJobResponse Client::getMediaProducingJobWithOptions(const GetMe
 }
 
 /**
- * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+ * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
  *
  * @param request GetMediaProducingJobRequest
  * @return GetMediaProducingJobResponse
@@ -10148,7 +10148,7 @@ GetWorkflowTaskResponse Client::getWorkflowTask(const GetWorkflowTaskRequest &re
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves information about an AI application job in WonderClip.
  *
  * @param request GetYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10179,7 +10179,7 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJobWithOptions(const GetYikeAIAppJob
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves information about an AI application job in WonderClip.
  *
  * @param request GetYikeAIAppJobRequest
  * @return GetYikeAIAppJobResponse
@@ -10190,7 +10190,7 @@ GetYikeAIAppJobResponse Client::getYikeAIAppJob(const GetYikeAIAppJobRequest &re
 }
 
 /**
- * @summary 获取一刻媒资内容信息
+ * @summary Retrieves information about the media asset.
  *
  * @param request GetYikeAssetMediaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10221,7 +10221,7 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfoWithOptions(const Get
 }
 
 /**
- * @summary 获取一刻媒资内容信息
+ * @summary Retrieves information about the media asset.
  *
  * @param request GetYikeAssetMediaInfoRequest
  * @return GetYikeAssetMediaInfoResponse
@@ -10232,7 +10232,7 @@ GetYikeAssetMediaInfoResponse Client::getYikeAssetMediaInfo(const GetYikeAssetMe
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves storyboard jobs in WonderClip.
  *
  * @param request GetYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10263,7 +10263,7 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJobWithOptions(const GetYi
 }
 
 /**
- * @summary 获取一刻AI应用任务
+ * @summary Retrieves storyboard jobs in WonderClip.
  *
  * @param request GetYikeStoryboardJobRequest
  * @return GetYikeStoryboardJobResponse
@@ -10274,7 +10274,7 @@ GetYikeStoryboardJobResponse Client::getYikeStoryboardJob(const GetYikeStoryboar
 }
 
 /**
- * @summary 获取一刻子用户信息
+ * @summary Retrieves information about a WonderClip sub-account.
  *
  * @param request GetYikeUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10305,7 +10305,7 @@ GetYikeUserResponse Client::getYikeUserWithOptions(const GetYikeUserRequest &req
 }
 
 /**
- * @summary 获取一刻子用户信息
+ * @summary Retrieves information about a WonderClip sub-account.
  *
  * @param request GetYikeUserRequest
  * @return GetYikeUserResponse
@@ -10316,7 +10316,7 @@ GetYikeUserResponse Client::getYikeUser(const GetYikeUserRequest &request) {
 }
 
 /**
- * @summary 查询一刻用户积分
+ * @summary Queries the point balance of a WonderClip user.
  *
  * @param request GetYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10347,7 +10347,7 @@ GetYikeUserCreditResponse Client::getYikeUserCreditWithOptions(const GetYikeUser
 }
 
 /**
- * @summary 查询一刻用户积分
+ * @summary Queries the point balance of a WonderClip user.
  *
  * @param request GetYikeUserCreditRequest
  * @return GetYikeUserCreditResponse
@@ -14170,7 +14170,7 @@ ListWorkflowTasksResponse Client::listWorkflowTasks(const ListWorkflowTasksReque
 }
 
 /**
- * @summary 获取一刻文件夹列表
+ * @summary Retrieves a list of WonderClip folders.
  *
  * @param request ListYikeAssetFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14209,7 +14209,7 @@ ListYikeAssetFoldersResponse Client::listYikeAssetFoldersWithOptions(const ListY
 }
 
 /**
- * @summary 获取一刻文件夹列表
+ * @summary Retrieves a list of WonderClip folders.
  *
  * @param request ListYikeAssetFoldersRequest
  * @return ListYikeAssetFoldersResponse
@@ -14220,7 +14220,7 @@ ListYikeAssetFoldersResponse Client::listYikeAssetFolders(const ListYikeAssetFol
 }
 
 /**
- * @summary 获取一刻项目列表
+ * @summary Retrieves a list of WonderClip projects.
  *
  * @param request ListYikeProductionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14267,7 +14267,7 @@ ListYikeProductionsResponse Client::listYikeProductionsWithOptions(const ListYik
 }
 
 /**
- * @summary 获取一刻项目列表
+ * @summary Retrieves a list of WonderClip projects.
  *
  * @param request ListYikeProductionsRequest
  * @return ListYikeProductionsResponse
@@ -14326,7 +14326,7 @@ OpenMediaConnectFlowFailoverResponse Client::openMediaConnectFlowFailover(const 
 }
 
 /**
- * @summary 检查应用参数是否合法
+ * @summary Validates the parameters of an AI application.
  *
  * @param request PrecheckYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14361,7 +14361,7 @@ PrecheckYikeAIAppJobResponse Client::precheckYikeAIAppJobWithOptions(const Prech
 }
 
 /**
- * @summary 检查应用参数是否合法
+ * @summary Validates the parameters of an AI application.
  *
  * @param request PrecheckYikeAIAppJobRequest
  * @return PrecheckYikeAIAppJobResponse
@@ -15416,7 +15416,7 @@ RegisterMediaStreamResponse Client::registerMediaStream(const RegisterMediaStrea
 }
 
 /**
- * @summary 注册一刻媒资
+ * @summary Registers a media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15459,7 +15459,7 @@ RegisterYikeAssetMediaInfoResponse Client::registerYikeAssetMediaInfoWithOptions
 }
 
 /**
- * @summary 注册一刻媒资
+ * @summary Registers a media asset.
  *
  * @param request RegisterYikeAssetMediaInfoRequest
  * @return RegisterYikeAssetMediaInfoResponse
@@ -15516,7 +15516,7 @@ ResumeMediaConnectFlowOutputResponse Client::resumeMediaConnectFlowOutput(const 
 }
 
 /**
- * @summary 故事板任务恢复继续执行任务
+ * @summary Resumes a storyboard job in WonderClip.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15547,7 +15547,7 @@ ResumeYikeStoryboardJobResponse Client::resumeYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary 故事板任务恢复继续执行任务
+ * @summary Resumes a storyboard job in WonderClip.
  *
  * @param request ResumeYikeStoryboardJobRequest
  * @return ResumeYikeStoryboardJobResponse
@@ -16864,7 +16864,7 @@ SetNotifyConfigResponse Client::setNotifyConfig(const SetNotifyConfigRequest &re
 }
 
 /**
- * @summary 设置用户角色
+ * @summary Sets the user role.
  *
  * @param request SetYikeUserRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16899,7 +16899,7 @@ SetYikeUserRoleResponse Client::setYikeUserRoleWithOptions(const SetYikeUserRole
 }
 
 /**
- * @summary 设置用户角色
+ * @summary Sets the user role.
  *
  * @param request SetYikeUserRoleRequest
  * @return SetYikeUserRoleResponse
@@ -16998,7 +16998,7 @@ StartAIAgentInstanceResponse Client::startAIAgentInstance(const StartAIAgentInst
 }
 
 /**
- * @summary Initiates an outbound phone call for an AI agent.
+ * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
  *
  * @param tmpReq StartAIAgentOutboundCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17059,7 +17059,7 @@ StartAIAgentOutboundCallResponse Client::startAIAgentOutboundCallWithOptions(con
 }
 
 /**
- * @summary Initiates an outbound phone call for an AI agent.
+ * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
  *
  * @param request StartAIAgentOutboundCallRequest
  * @return StartAIAgentOutboundCallResponse
@@ -17576,7 +17576,7 @@ StopRtcRobotInstanceResponse Client::stopRtcRobotInstance(const StopRtcRobotInst
 }
 
 /**
- * @summary 扣减用户积分
+ * @summary Reclaims points from a user.
  *
  * @param request SubYikeUserCreditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17611,7 +17611,7 @@ SubYikeUserCreditResponse Client::subYikeUserCreditWithOptions(const SubYikeUser
 }
 
 /**
- * @summary 扣减用户积分
+ * @summary Reclaims points from a user.
  *
  * @param request SubYikeUserCreditRequest
  * @return SubYikeUserCreditResponse
@@ -17768,7 +17768,7 @@ SubmitASRJobResponse Client::submitASRJob(const SubmitASRJobRequest &request) {
 }
 
 /**
- * @summary Converts the provided text content into a high-quality audio file.
+ * @summary Submits an audio production job that converts text into an audio file.
  *
  * @param request SubmitAudioProduceJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17823,7 +17823,7 @@ SubmitAudioProduceJobResponse Client::submitAudioProduceJobWithOptions(const Sub
 }
 
 /**
- * @summary Converts the provided text content into a high-quality audio file.
+ * @summary Submits an audio production job that converts text into an audio file.
  *
  * @param request SubmitAudioProduceJobRequest
  * @return SubmitAudioProduceJobResponse
@@ -18162,7 +18162,7 @@ SubmitCopyrightJobResponse Client::submitCopyrightJob(const SubmitCopyrightJobRe
 }
 
 /**
- * @summary Submits a basic voice cloning job.
+ * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
  *
  * @param request SubmitCustomizedVoiceJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18197,7 +18197,7 @@ SubmitCustomizedVoiceJobResponse Client::submitCustomizedVoiceJobWithOptions(con
 }
 
 /**
- * @summary Submits a basic voice cloning job.
+ * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
  *
  * @param request SubmitCustomizedVoiceJobRequest
  * @return SubmitCustomizedVoiceJobResponse
@@ -19860,7 +19860,7 @@ SubmitSmarttagJobResponse Client::submitSmarttagJob(const SubmitSmarttagJobReque
 }
 
 /**
- * @summary Submits a snapshot job.
+ * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
  *
  * @param tmpReq SubmitSnapshotJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19929,7 +19929,7 @@ SubmitSnapshotJobResponse Client::submitSnapshotJobWithOptions(const SubmitSnaps
 }
 
 /**
- * @summary Submits a snapshot job.
+ * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
  *
  * @param request SubmitSnapshotJobRequest
  * @return SubmitSnapshotJobResponse
@@ -20394,7 +20394,7 @@ SubmitTraceM3u8JobResponse Client::submitTraceM3u8Job(const SubmitTraceM3u8JobRe
 }
 
 /**
- * @summary Submits a transcoding job.
+ * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
  *
  * @param tmpReq SubmitTranscodeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20459,7 +20459,7 @@ SubmitTranscodeJobResponse Client::submitTranscodeJobWithOptions(const SubmitTra
 }
 
 /**
- * @summary Submits a transcoding job.
+ * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
  *
  * @param request SubmitTranscodeJobRequest
  * @return SubmitTranscodeJobResponse
@@ -20628,7 +20628,7 @@ SubmitVideoTranslationJobResponse Client::submitVideoTranslationJob(const Submit
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits a storyboard job in WonderClip.
  *
  * @param request SubmitYikeAIAppJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20671,7 +20671,7 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJobWithOptions(const SubmitYik
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits a storyboard job in WonderClip.
  *
  * @param request SubmitYikeAIAppJobRequest
  * @return SubmitYikeAIAppJobResponse
@@ -20682,7 +20682,7 @@ SubmitYikeAIAppJobResponse Client::submitYikeAIAppJob(const SubmitYikeAIAppJobRe
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits a storyboard job in WonderClip.
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20767,7 +20767,7 @@ SubmitYikeStoryboardJobResponse Client::submitYikeStoryboardJobWithOptions(const
 }
 
 /**
- * @summary 提交一刻AI应用任务
+ * @summary Submits a storyboard job in WonderClip.
  *
  * @param request SubmitYikeStoryboardJobRequest
  * @return SubmitYikeStoryboardJobResponse
@@ -22890,7 +22890,7 @@ UpdateTemplateResponse Client::updateTemplate(const UpdateTemplateRequest &reque
 }
 
 /**
- * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+ * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
  *
  * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
  * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
@@ -22952,7 +22952,7 @@ UploadMediaByURLResponse Client::uploadMediaByURLWithOptions(const UploadMediaBy
 }
 
 /**
- * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+ * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
  *
  * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
  * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.

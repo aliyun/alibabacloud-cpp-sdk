@@ -251,7 +251,7 @@ namespace ICE20201109
       Models::AddTemplateResponse addTemplate(const Models::AddTemplateRequest &request);
 
       /**
-       * @summary 增加用户积分
+       * @summary Allocates points to a user.
        *
        * @param request AddYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -260,7 +260,7 @@ namespace ICE20201109
       Models::AddYikeUserCreditResponse addYikeUserCreditWithOptions(const Models::AddYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 增加用户积分
+       * @summary Allocates points to a user.
        *
        * @param request AddYikeUserCreditRequest
        * @return AddYikeUserCreditResponse
@@ -336,7 +336,7 @@ namespace ICE20201109
       Models::BatchGetMediaInfosResponse batchGetMediaInfos(const Models::BatchGetMediaInfosRequest &request);
 
       /**
-       * @summary 批量获取一刻AI应用生成任务
+       * @summary Retrieves information about multiple AI application jobs in WonderClip.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -345,7 +345,7 @@ namespace ICE20201109
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJobWithOptions(const Models::BatchGetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取一刻AI应用生成任务
+       * @summary Retrieves information about multiple AI application jobs in WonderClip.
        *
        * @param request BatchGetYikeAIAppJobRequest
        * @return BatchGetYikeAIAppJobResponse
@@ -353,7 +353,7 @@ namespace ICE20201109
       Models::BatchGetYikeAIAppJobResponse batchGetYikeAIAppJob(const Models::BatchGetYikeAIAppJobRequest &request);
 
       /**
-       * @summary 批量获取媒资信息
+       * @summary Retrieves information about multiple media assets.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -362,7 +362,7 @@ namespace ICE20201109
       Models::BatchGetYikeAssetMediaInfosResponse batchGetYikeAssetMediaInfosWithOptions(const Models::BatchGetYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量获取媒资信息
+       * @summary Retrieves information about multiple media assets.
        *
        * @param request BatchGetYikeAssetMediaInfosRequest
        * @return BatchGetYikeAssetMediaInfosResponse
@@ -1174,7 +1174,7 @@ namespace ICE20201109
       Models::CreateVodPackagingGroupResponse createVodPackagingGroup(const Models::CreateVodPackagingGroupRequest &request);
 
       /**
-       * @summary 获取一刻媒资上传凭证
+       * @summary Obtains the upload credential for a WonderClip media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1183,7 +1183,7 @@ namespace ICE20201109
       Models::CreateYikeAssetUploadResponse createYikeAssetUploadWithOptions(const Models::CreateYikeAssetUploadRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻媒资上传凭证
+       * @summary Obtains the upload credential for a WonderClip media asset.
        *
        * @param request CreateYikeAssetUploadRequest
        * @return CreateYikeAssetUploadResponse
@@ -1191,7 +1191,7 @@ namespace ICE20201109
       Models::CreateYikeAssetUploadResponse createYikeAssetUpload(const Models::CreateYikeAssetUploadRequest &request);
 
       /**
-       * @summary 创建一刻项目
+       * @summary Creates a WonderClip project.
        *
        * @param request CreateYikeProductionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1200,7 +1200,7 @@ namespace ICE20201109
       Models::CreateYikeProductionResponse createYikeProductionWithOptions(const Models::CreateYikeProductionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一刻项目
+       * @summary Creates a WonderClip project.
        *
        * @param request CreateYikeProductionRequest
        * @return CreateYikeProductionResponse
@@ -1208,7 +1208,7 @@ namespace ICE20201109
       Models::CreateYikeProductionResponse createYikeProduction(const Models::CreateYikeProductionRequest &request);
 
       /**
-       * @summary 创建一刻子用户
+       * @summary Creates a sub-account in WonderClip.
        *
        * @param request CreateYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1217,7 @@ namespace ICE20201109
       Models::CreateYikeUserResponse createYikeUserWithOptions(const Models::CreateYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一刻子用户
+       * @summary Creates a sub-account in WonderClip.
        *
        * @param request CreateYikeUserRequest
        * @return CreateYikeUserResponse
@@ -1225,7 +1225,7 @@ namespace ICE20201109
       Models::CreateYikeUserResponse createYikeUser(const Models::CreateYikeUserRequest &request);
 
       /**
-       * @summary 创建工作室
+       * @summary Creates a workspace in WonderClip.
        *
        * @param request CreateYikeWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1234,7 +1234,7 @@ namespace ICE20201109
       Models::CreateYikeWorkspaceResponse createYikeWorkspaceWithOptions(const Models::CreateYikeWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建工作室
+       * @summary Creates a workspace in WonderClip.
        *
        * @param request CreateYikeWorkspaceRequest
        * @return CreateYikeWorkspaceResponse
@@ -2098,7 +2098,7 @@ namespace ICE20201109
       Models::DeleteVodPackagingGroupResponse deleteVodPackagingGroup(const Models::DeleteVodPackagingGroupRequest &request);
 
       /**
-       * @summary 删除媒资信息
+       * @summary Deletes media asset information.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2107,7 +2107,7 @@ namespace ICE20201109
       Models::DeleteYikeAssetMediaInfosResponse deleteYikeAssetMediaInfosWithOptions(const Models::DeleteYikeAssetMediaInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除媒资信息
+       * @summary Deletes media asset information.
        *
        * @param request DeleteYikeAssetMediaInfosRequest
        * @return DeleteYikeAssetMediaInfosResponse
@@ -2348,7 +2348,7 @@ namespace ICE20201109
       Models::ForbidMediaConnectFlowOutputResponse forbidMediaConnectFlowOutput(const Models::ForbidMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary 转呼通话到目标电话
+       * @summary Forwards an active call to a specified target phone number.
        *
        * @param request ForwardAIAgentCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2357,7 +2357,7 @@ namespace ICE20201109
       Models::ForwardAIAgentCallResponse forwardAIAgentCallWithOptions(const Models::ForwardAIAgentCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 转呼通话到目标电话
+       * @summary Forwards an active call to a specified target phone number.
        *
        * @param request ForwardAIAgentCallRequest
        * @return ForwardAIAgentCallResponse
@@ -2422,7 +2422,7 @@ namespace ICE20201109
       Models::GenerateMessageChatTokenResponse generateMessageChatToken(const Models::GenerateMessageChatTokenRequest &request);
 
       /**
-       * @summary 获取智能体当前通话并发数
+       * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
        *
        * @param request GetAIAgentConcurrencyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2431,7 +2431,7 @@ namespace ICE20201109
       Models::GetAIAgentConcurrencyResponse getAIAgentConcurrencyWithOptions(const Models::GetAIAgentConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取智能体当前通话并发数
+       * @summary Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
        *
        * @param request GetAIAgentConcurrencyRequest
        * @return GetAIAgentConcurrencyResponse
@@ -3321,7 +3321,7 @@ namespace ICE20201109
       Models::GetMediaMarksResponse getMediaMarks(const Models::GetMediaMarksRequest &request);
 
       /**
-       * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+       * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
        *
        * @param request GetMediaProducingJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3330,7 +3330,7 @@ namespace ICE20201109
       Models::GetMediaProducingJobResponse getMediaProducingJobWithOptions(const Models::GetMediaProducingJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+       * @summary Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
        *
        * @param request GetMediaProducingJobRequest
        * @return GetMediaProducingJobResponse
@@ -3768,7 +3768,7 @@ namespace ICE20201109
       Models::GetWorkflowTaskResponse getWorkflowTask(const Models::GetWorkflowTaskRequest &request);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves information about an AI application job in WonderClip.
        *
        * @param request GetYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3777,7 +3777,7 @@ namespace ICE20201109
       Models::GetYikeAIAppJobResponse getYikeAIAppJobWithOptions(const Models::GetYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves information about an AI application job in WonderClip.
        *
        * @param request GetYikeAIAppJobRequest
        * @return GetYikeAIAppJobResponse
@@ -3785,7 +3785,7 @@ namespace ICE20201109
       Models::GetYikeAIAppJobResponse getYikeAIAppJob(const Models::GetYikeAIAppJobRequest &request);
 
       /**
-       * @summary 获取一刻媒资内容信息
+       * @summary Retrieves information about the media asset.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3794,7 +3794,7 @@ namespace ICE20201109
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfoWithOptions(const Models::GetYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻媒资内容信息
+       * @summary Retrieves information about the media asset.
        *
        * @param request GetYikeAssetMediaInfoRequest
        * @return GetYikeAssetMediaInfoResponse
@@ -3802,7 +3802,7 @@ namespace ICE20201109
       Models::GetYikeAssetMediaInfoResponse getYikeAssetMediaInfo(const Models::GetYikeAssetMediaInfoRequest &request);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves storyboard jobs in WonderClip.
        *
        * @param request GetYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3811,7 +3811,7 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJobWithOptions(const Models::GetYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻AI应用任务
+       * @summary Retrieves storyboard jobs in WonderClip.
        *
        * @param request GetYikeStoryboardJobRequest
        * @return GetYikeStoryboardJobResponse
@@ -3819,7 +3819,7 @@ namespace ICE20201109
       Models::GetYikeStoryboardJobResponse getYikeStoryboardJob(const Models::GetYikeStoryboardJobRequest &request);
 
       /**
-       * @summary 获取一刻子用户信息
+       * @summary Retrieves information about a WonderClip sub-account.
        *
        * @param request GetYikeUserRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3828,7 +3828,7 @@ namespace ICE20201109
       Models::GetYikeUserResponse getYikeUserWithOptions(const Models::GetYikeUserRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻子用户信息
+       * @summary Retrieves information about a WonderClip sub-account.
        *
        * @param request GetYikeUserRequest
        * @return GetYikeUserResponse
@@ -3836,7 +3836,7 @@ namespace ICE20201109
       Models::GetYikeUserResponse getYikeUser(const Models::GetYikeUserRequest &request);
 
       /**
-       * @summary 查询一刻用户积分
+       * @summary Queries the point balance of a WonderClip user.
        *
        * @param request GetYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3845,7 +3845,7 @@ namespace ICE20201109
       Models::GetYikeUserCreditResponse getYikeUserCreditWithOptions(const Models::GetYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询一刻用户积分
+       * @summary Queries the point balance of a WonderClip user.
        *
        * @param request GetYikeUserCreditRequest
        * @return GetYikeUserCreditResponse
@@ -5063,7 +5063,7 @@ namespace ICE20201109
       Models::ListWorkflowTasksResponse listWorkflowTasks(const Models::ListWorkflowTasksRequest &request);
 
       /**
-       * @summary 获取一刻文件夹列表
+       * @summary Retrieves a list of WonderClip folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5072,7 +5072,7 @@ namespace ICE20201109
       Models::ListYikeAssetFoldersResponse listYikeAssetFoldersWithOptions(const Models::ListYikeAssetFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻文件夹列表
+       * @summary Retrieves a list of WonderClip folders.
        *
        * @param request ListYikeAssetFoldersRequest
        * @return ListYikeAssetFoldersResponse
@@ -5080,7 +5080,7 @@ namespace ICE20201109
       Models::ListYikeAssetFoldersResponse listYikeAssetFolders(const Models::ListYikeAssetFoldersRequest &request);
 
       /**
-       * @summary 获取一刻项目列表
+       * @summary Retrieves a list of WonderClip projects.
        *
        * @param request ListYikeProductionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5089,7 +5089,7 @@ namespace ICE20201109
       Models::ListYikeProductionsResponse listYikeProductionsWithOptions(const Models::ListYikeProductionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一刻项目列表
+       * @summary Retrieves a list of WonderClip projects.
        *
        * @param request ListYikeProductionsRequest
        * @return ListYikeProductionsResponse
@@ -5120,7 +5120,7 @@ namespace ICE20201109
       Models::OpenMediaConnectFlowFailoverResponse openMediaConnectFlowFailover(const Models::OpenMediaConnectFlowFailoverRequest &request);
 
       /**
-       * @summary 检查应用参数是否合法
+       * @summary Validates the parameters of an AI application.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5129,7 +5129,7 @@ namespace ICE20201109
       Models::PrecheckYikeAIAppJobResponse precheckYikeAIAppJobWithOptions(const Models::PrecheckYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查应用参数是否合法
+       * @summary Validates the parameters of an AI application.
        *
        * @param request PrecheckYikeAIAppJobRequest
        * @return PrecheckYikeAIAppJobResponse
@@ -5481,7 +5481,7 @@ namespace ICE20201109
       Models::RegisterMediaStreamResponse registerMediaStream(const Models::RegisterMediaStreamRequest &request);
 
       /**
-       * @summary 注册一刻媒资
+       * @summary Registers a media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5490,7 +5490,7 @@ namespace ICE20201109
       Models::RegisterYikeAssetMediaInfoResponse registerYikeAssetMediaInfoWithOptions(const Models::RegisterYikeAssetMediaInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 注册一刻媒资
+       * @summary Registers a media asset.
        *
        * @param request RegisterYikeAssetMediaInfoRequest
        * @return RegisterYikeAssetMediaInfoResponse
@@ -5515,7 +5515,7 @@ namespace ICE20201109
       Models::ResumeMediaConnectFlowOutputResponse resumeMediaConnectFlowOutput(const Models::ResumeMediaConnectFlowOutputRequest &request);
 
       /**
-       * @summary 故事板任务恢复继续执行任务
+       * @summary Resumes a storyboard job in WonderClip.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5524,7 +5524,7 @@ namespace ICE20201109
       Models::ResumeYikeStoryboardJobResponse resumeYikeStoryboardJobWithOptions(const Models::ResumeYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 故事板任务恢复继续执行任务
+       * @summary Resumes a storyboard job in WonderClip.
        *
        * @param request ResumeYikeStoryboardJobRequest
        * @return ResumeYikeStoryboardJobResponse
@@ -5927,7 +5927,7 @@ namespace ICE20201109
       Models::SetNotifyConfigResponse setNotifyConfig(const Models::SetNotifyConfigRequest &request);
 
       /**
-       * @summary 设置用户角色
+       * @summary Sets the user role.
        *
        * @param request SetYikeUserRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5936,7 +5936,7 @@ namespace ICE20201109
       Models::SetYikeUserRoleResponse setYikeUserRoleWithOptions(const Models::SetYikeUserRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置用户角色
+       * @summary Sets the user role.
        *
        * @param request SetYikeUserRoleRequest
        * @return SetYikeUserRoleResponse
@@ -5965,7 +5965,7 @@ namespace ICE20201109
       Models::StartAIAgentInstanceResponse startAIAgentInstance(const Models::StartAIAgentInstanceRequest &request);
 
       /**
-       * @summary Initiates an outbound phone call for an AI agent.
+       * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
        *
        * @param tmpReq StartAIAgentOutboundCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5974,7 +5974,7 @@ namespace ICE20201109
       Models::StartAIAgentOutboundCallResponse startAIAgentOutboundCallWithOptions(const Models::StartAIAgentOutboundCallRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiates an outbound phone call for an AI agent.
+       * @summary Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
        *
        * @param request StartAIAgentOutboundCallRequest
        * @return StartAIAgentOutboundCallResponse
@@ -6188,7 +6188,7 @@ namespace ICE20201109
       Models::StopRtcRobotInstanceResponse stopRtcRobotInstance(const Models::StopRtcRobotInstanceRequest &request);
 
       /**
-       * @summary 扣减用户积分
+       * @summary Reclaims points from a user.
        *
        * @param request SubYikeUserCreditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6197,7 +6197,7 @@ namespace ICE20201109
       Models::SubYikeUserCreditResponse subYikeUserCreditWithOptions(const Models::SubYikeUserCreditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 扣减用户积分
+       * @summary Reclaims points from a user.
        *
        * @param request SubYikeUserCreditRequest
        * @return SubYikeUserCreditResponse
@@ -6243,7 +6243,7 @@ namespace ICE20201109
       Models::SubmitASRJobResponse submitASRJob(const Models::SubmitASRJobRequest &request);
 
       /**
-       * @summary Converts the provided text content into a high-quality audio file.
+       * @summary Submits an audio production job that converts text into an audio file.
        *
        * @param request SubmitAudioProduceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6252,7 +6252,7 @@ namespace ICE20201109
       Models::SubmitAudioProduceJobResponse submitAudioProduceJobWithOptions(const Models::SubmitAudioProduceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts the provided text content into a high-quality audio file.
+       * @summary Submits an audio production job that converts text into an audio file.
        *
        * @param request SubmitAudioProduceJobRequest
        * @return SubmitAudioProduceJobResponse
@@ -6365,7 +6365,7 @@ namespace ICE20201109
       Models::SubmitCopyrightJobResponse submitCopyrightJob(const Models::SubmitCopyrightJobRequest &request);
 
       /**
-       * @summary Submits a basic voice cloning job.
+       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6374,7 +6374,7 @@ namespace ICE20201109
       Models::SubmitCustomizedVoiceJobResponse submitCustomizedVoiceJobWithOptions(const Models::SubmitCustomizedVoiceJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a basic voice cloning job.
+       * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
        *
        * @param request SubmitCustomizedVoiceJobRequest
        * @return SubmitCustomizedVoiceJobResponse
@@ -6870,7 +6870,7 @@ namespace ICE20201109
       Models::SubmitSmarttagJobResponse submitSmarttagJob(const Models::SubmitSmarttagJobRequest &request);
 
       /**
-       * @summary Submits a snapshot job.
+       * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
        *
        * @param tmpReq SubmitSnapshotJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6879,7 +6879,7 @@ namespace ICE20201109
       Models::SubmitSnapshotJobResponse submitSnapshotJobWithOptions(const Models::SubmitSnapshotJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a snapshot job.
+       * @summary Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
        *
        * @param request SubmitSnapshotJobRequest
        * @return SubmitSnapshotJobResponse
@@ -7028,7 +7028,7 @@ namespace ICE20201109
       Models::SubmitTraceM3u8JobResponse submitTraceM3u8Job(const Models::SubmitTraceM3u8JobRequest &request);
 
       /**
-       * @summary Submits a transcoding job.
+       * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
        *
        * @param tmpReq SubmitTranscodeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7037,7 +7037,7 @@ namespace ICE20201109
       Models::SubmitTranscodeJobResponse submitTranscodeJobWithOptions(const Models::SubmitTranscodeJobRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a transcoding job.
+       * @summary Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
        *
        * @param request SubmitTranscodeJobRequest
        * @return SubmitTranscodeJobResponse
@@ -7083,7 +7083,7 @@ namespace ICE20201109
       Models::SubmitVideoTranslationJobResponse submitVideoTranslationJob(const Models::SubmitVideoTranslationJobRequest &request);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits a storyboard job in WonderClip.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7092,7 +7092,7 @@ namespace ICE20201109
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJobWithOptions(const Models::SubmitYikeAIAppJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits a storyboard job in WonderClip.
        *
        * @param request SubmitYikeAIAppJobRequest
        * @return SubmitYikeAIAppJobResponse
@@ -7100,7 +7100,7 @@ namespace ICE20201109
       Models::SubmitYikeAIAppJobResponse submitYikeAIAppJob(const Models::SubmitYikeAIAppJobRequest &request);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits a storyboard job in WonderClip.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7109,7 +7109,7 @@ namespace ICE20201109
       Models::SubmitYikeStoryboardJobResponse submitYikeStoryboardJobWithOptions(const Models::SubmitYikeStoryboardJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交一刻AI应用任务
+       * @summary Submits a storyboard job in WonderClip.
        *
        * @param request SubmitYikeStoryboardJobRequest
        * @return SubmitYikeStoryboardJobResponse
@@ -7782,7 +7782,7 @@ namespace ICE20201109
       Models::UpdateTemplateResponse updateTemplate(const Models::UpdateTemplateRequest &request);
 
       /**
-       * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+       * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
        *
        * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
        * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
@@ -7798,7 +7798,7 @@ namespace ICE20201109
       Models::UploadMediaByURLResponse uploadMediaByURLWithOptions(const Models::UploadMediaByURLRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+       * @summary Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
        *
        * @description *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
        * *   After a request is submitted, the upload job is queued as an asynchronous job in the cloud. You can query the status of the upload job based on information such as the URL and media asset ID that are returned in the event notification.
