@@ -21,6 +21,42 @@ namespace QuanMiaoLightApp20240801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 批量取消任务
+       *
+       * @param tmpReq BatchCancelTasksRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchCancelTasksResponse
+       */
+      Models::BatchCancelTasksResponse batchCancelTasksWithOptions(const string &workspaceId, const Models::BatchCancelTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量取消任务
+       *
+       * @param request BatchCancelTasksRequest
+       * @return BatchCancelTasksResponse
+       */
+      Models::BatchCancelTasksResponse batchCancelTasks(const string &workspaceId, const Models::BatchCancelTasksRequest &request);
+
+      /**
+       * @summary 批量查询任务状态
+       *
+       * @param tmpReq BatchQueryTaskStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchQueryTaskStatusResponse
+       */
+      Models::BatchQueryTaskStatusResponse batchQueryTaskStatusWithOptions(const string &workspaceId, const Models::BatchQueryTaskStatusRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量查询任务状态
+       *
+       * @param request BatchQueryTaskStatusRequest
+       * @return BatchQueryTaskStatusResponse
+       */
+      Models::BatchQueryTaskStatusResponse batchQueryTaskStatus(const string &workspaceId, const Models::BatchQueryTaskStatusRequest &request);
+
+      /**
        * @summary 取消异步任务
        *
        * @param request CancelAsyncTaskRequest
@@ -163,6 +199,24 @@ namespace QuanMiaoLightApp20240801
        * @return GetTagMiningAnalysisTaskResponse
        */
       Models::GetTagMiningAnalysisTaskResponse getTagMiningAnalysisTask(const string &workspaceId, const Models::GetTagMiningAnalysisTaskRequest &request);
+
+      /**
+       * @summary 查询任务执行情况统计
+       *
+       * @param request GetTaskExecutionStatisticsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTaskExecutionStatisticsResponse
+       */
+      Models::GetTaskExecutionStatisticsResponse getTaskExecutionStatisticsWithOptions(const string &workspaceId, const Models::GetTaskExecutionStatisticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询任务执行情况统计
+       *
+       * @param request GetTaskExecutionStatisticsRequest
+       * @return GetTaskExecutionStatisticsResponse
+       */
+      Models::GetTaskExecutionStatisticsResponse getTaskExecutionStatistics(const string &workspaceId, const Models::GetTaskExecutionStatisticsRequest &request);
 
       /**
        * @summary 视频理解-获取配置

@@ -38,6 +38,116 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 批量取消任务
+ *
+ * @param tmpReq BatchCancelTasksRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchCancelTasksResponse
+ */
+BatchCancelTasksResponse Client::batchCancelTasksWithOptions(const string &workspaceId, const BatchCancelTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchCancelTasksShrinkRequest request = BatchCancelTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIds()) {
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "taskIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTaskCode()) {
+    body["taskCode"] = request.getTaskCode();
+  }
+
+  if (!!request.hasTaskIdsShrink()) {
+    body["taskIds"] = request.getTaskIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchCancelTasks"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/batchCancelTasks")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchCancelTasksResponse>();
+}
+
+/**
+ * @summary 批量取消任务
+ *
+ * @param request BatchCancelTasksRequest
+ * @return BatchCancelTasksResponse
+ */
+BatchCancelTasksResponse Client::batchCancelTasks(const string &workspaceId, const BatchCancelTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchCancelTasksWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 批量查询任务状态
+ *
+ * @param tmpReq BatchQueryTaskStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchQueryTaskStatusResponse
+ */
+BatchQueryTaskStatusResponse Client::batchQueryTaskStatusWithOptions(const string &workspaceId, const BatchQueryTaskStatusRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchQueryTaskStatusShrinkRequest request = BatchQueryTaskStatusShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasTaskIds()) {
+    request.setTaskIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getTaskIds(), "taskIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasTaskCode()) {
+    body["taskCode"] = request.getTaskCode();
+  }
+
+  if (!!request.hasTaskIdsShrink()) {
+    body["taskIds"] = request.getTaskIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchQueryTaskStatus"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/batchQueryTaskStatus")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchQueryTaskStatusResponse>();
+}
+
+/**
+ * @summary 批量查询任务状态
+ *
+ * @param request BatchQueryTaskStatusRequest
+ * @return BatchQueryTaskStatusResponse
+ */
+BatchQueryTaskStatusResponse Client::batchQueryTaskStatus(const string &workspaceId, const BatchQueryTaskStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return batchQueryTaskStatusWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary 取消异步任务
  *
  * @param request CancelAsyncTaskRequest
@@ -431,6 +541,51 @@ GetTagMiningAnalysisTaskResponse Client::getTagMiningAnalysisTask(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询任务执行情况统计
+ *
+ * @param request GetTaskExecutionStatisticsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTaskExecutionStatisticsResponse
+ */
+GetTaskExecutionStatisticsResponse Client::getTaskExecutionStatisticsWithOptions(const string &workspaceId, const GetTaskExecutionStatisticsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTaskCode()) {
+    query["taskCode"] = request.getTaskCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTaskExecutionStatistics"},
+    {"version" , "2024-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/quanmiao/lightapp/getTaskExecutionStatistics")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTaskExecutionStatisticsResponse>();
+}
+
+/**
+ * @summary 查询任务执行情况统计
+ *
+ * @param request GetTaskExecutionStatisticsRequest
+ * @return GetTaskExecutionStatisticsResponse
+ */
+GetTaskExecutionStatisticsResponse Client::getTaskExecutionStatistics(const string &workspaceId, const GetTaskExecutionStatisticsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTaskExecutionStatisticsWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

@@ -3,6 +3,14 @@
 #define ALIBABACLOUD_QUANMIAOLIGHTAPP20240801MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/ModelUsage.hpp>
+#include <alibabacloud/models/BatchCancelTasksRequest.hpp>
+#include <alibabacloud/models/BatchCancelTasksShrinkRequest.hpp>
+#include <alibabacloud/models/BatchCancelTasksResponseBody.hpp>
+#include <alibabacloud/models/BatchCancelTasksResponse.hpp>
+#include <alibabacloud/models/BatchQueryTaskStatusRequest.hpp>
+#include <alibabacloud/models/BatchQueryTaskStatusShrinkRequest.hpp>
+#include <alibabacloud/models/BatchQueryTaskStatusResponseBody.hpp>
+#include <alibabacloud/models/BatchQueryTaskStatusResponse.hpp>
 #include <alibabacloud/models/CancelAsyncTaskRequest.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelAsyncTaskResponse.hpp>
@@ -29,6 +37,9 @@
 #include <alibabacloud/models/GetTagMiningAnalysisTaskRequest.hpp>
 #include <alibabacloud/models/GetTagMiningAnalysisTaskResponseBody.hpp>
 #include <alibabacloud/models/GetTagMiningAnalysisTaskResponse.hpp>
+#include <alibabacloud/models/GetTaskExecutionStatisticsRequest.hpp>
+#include <alibabacloud/models/GetTaskExecutionStatisticsResponseBody.hpp>
+#include <alibabacloud/models/GetTaskExecutionStatisticsResponse.hpp>
 #include <alibabacloud/models/GetVideoAnalysisConfigResponseBody.hpp>
 #include <alibabacloud/models/GetVideoAnalysisConfigResponse.hpp>
 #include <alibabacloud/models/GetVideoAnalysisTaskRequest.hpp>
