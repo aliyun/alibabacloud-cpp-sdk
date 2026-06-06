@@ -48,12 +48,16 @@ namespace Models
     class Topics : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Topics& obj) { 
+        DARABONBA_PTR_TO_JSON(CustomField, customField_);
         DARABONBA_PTR_TO_JSON(News, news_);
         DARABONBA_PTR_TO_JSON(Topic, topic_);
+        DARABONBA_PTR_TO_JSON(TopicUrl, topicUrl_);
       };
       friend void from_json(const Darabonba::Json& j, Topics& obj) { 
+        DARABONBA_PTR_FROM_JSON(CustomField, customField_);
         DARABONBA_PTR_FROM_JSON(News, news_);
         DARABONBA_PTR_FROM_JSON(Topic, topic_);
+        DARABONBA_PTR_FROM_JSON(TopicUrl, topicUrl_);
       };
       Topics() = default ;
       Topics(const Topics &) = default ;
@@ -66,8 +70,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->news_ == nullptr
-        && this->topic_ == nullptr; };
+      virtual bool empty() const override { return this->customField_ == nullptr
+        && this->news_ == nullptr && this->topic_ == nullptr && this->topicUrl_ == nullptr; };
+      // customField Field Functions 
+      bool hasCustomField() const { return this->customField_ != nullptr;};
+      void deleteCustomField() { this->customField_ = nullptr;};
+      inline string getCustomField() const { DARABONBA_PTR_GET_DEFAULT(customField_, "") };
+      inline Topics& setCustomField(string customField) { DARABONBA_PTR_SET_VALUE(customField_, customField) };
+
+
       // news Field Functions 
       bool hasNews() const { return this->news_ != nullptr;};
       void deleteNews() { this->news_ = nullptr;};
@@ -84,9 +95,18 @@ namespace Models
       inline Topics& setTopic(string topic) { DARABONBA_PTR_SET_VALUE(topic_, topic) };
 
 
+      // topicUrl Field Functions 
+      bool hasTopicUrl() const { return this->topicUrl_ != nullptr;};
+      void deleteTopicUrl() { this->topicUrl_ = nullptr;};
+      inline string getTopicUrl() const { DARABONBA_PTR_GET_DEFAULT(topicUrl_, "") };
+      inline Topics& setTopicUrl(string topicUrl) { DARABONBA_PTR_SET_VALUE(topicUrl_, topicUrl) };
+
+
     protected:
+      shared_ptr<string> customField_ {};
       shared_ptr<vector<HottopicNews>> news_ {};
       shared_ptr<string> topic_ {};
+      shared_ptr<string> topicUrl_ {};
     };
 
     class News : public Darabonba::Model {

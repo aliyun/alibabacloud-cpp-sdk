@@ -15,6 +15,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListHotTopicsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentKey, agentKey_);
+      DARABONBA_PTR_TO_JSON(CreateTimeEnd, createTimeEnd_);
+      DARABONBA_PTR_TO_JSON(CreateTimeStart, createTimeStart_);
+      DARABONBA_PTR_TO_JSON(CustomField, customField_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(TopicIds, topicIds_);
@@ -26,6 +29,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListHotTopicsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentKey, agentKey_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeEnd, createTimeEnd_);
+      DARABONBA_PTR_FROM_JSON(CreateTimeStart, createTimeStart_);
+      DARABONBA_PTR_FROM_JSON(CustomField, customField_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(TopicIds, topicIds_);
@@ -47,13 +53,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentKey_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->topicIds_ == nullptr && this->topicQuery_ == nullptr && this->topicSource_ == nullptr
-        && this->topicVersion_ == nullptr && this->topics_ == nullptr && this->withNews_ == nullptr; };
+        && this->createTimeEnd_ == nullptr && this->createTimeStart_ == nullptr && this->customField_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
+        && this->topicIds_ == nullptr && this->topicQuery_ == nullptr && this->topicSource_ == nullptr && this->topicVersion_ == nullptr && this->topics_ == nullptr
+        && this->withNews_ == nullptr; };
     // agentKey Field Functions 
     bool hasAgentKey() const { return this->agentKey_ != nullptr;};
     void deleteAgentKey() { this->agentKey_ = nullptr;};
     inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
     inline ListHotTopicsRequest& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
+
+
+    // createTimeEnd Field Functions 
+    bool hasCreateTimeEnd() const { return this->createTimeEnd_ != nullptr;};
+    void deleteCreateTimeEnd() { this->createTimeEnd_ = nullptr;};
+    inline string getCreateTimeEnd() const { DARABONBA_PTR_GET_DEFAULT(createTimeEnd_, "") };
+    inline ListHotTopicsRequest& setCreateTimeEnd(string createTimeEnd) { DARABONBA_PTR_SET_VALUE(createTimeEnd_, createTimeEnd) };
+
+
+    // createTimeStart Field Functions 
+    bool hasCreateTimeStart() const { return this->createTimeStart_ != nullptr;};
+    void deleteCreateTimeStart() { this->createTimeStart_ = nullptr;};
+    inline string getCreateTimeStart() const { DARABONBA_PTR_GET_DEFAULT(createTimeStart_, "") };
+    inline ListHotTopicsRequest& setCreateTimeStart(string createTimeStart) { DARABONBA_PTR_SET_VALUE(createTimeStart_, createTimeStart) };
+
+
+    // customField Field Functions 
+    bool hasCustomField() const { return this->customField_ != nullptr;};
+    void deleteCustomField() { this->customField_ = nullptr;};
+    inline string getCustomField() const { DARABONBA_PTR_GET_DEFAULT(customField_, "") };
+    inline ListHotTopicsRequest& setCustomField(string customField) { DARABONBA_PTR_SET_VALUE(customField_, customField) };
 
 
     // maxResults Field Functions 
@@ -119,6 +147,9 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
+    shared_ptr<string> createTimeEnd_ {};
+    shared_ptr<string> createTimeStart_ {};
+    shared_ptr<string> customField_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<vector<string>> topicIds_ {};

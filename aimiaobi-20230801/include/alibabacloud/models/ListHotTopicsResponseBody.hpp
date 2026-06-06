@@ -50,7 +50,9 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AsyncTaskId, asyncTaskId_);
+        DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CreateUser, createUser_);
+        DARABONBA_PTR_TO_JSON(CustomField, customField_);
         DARABONBA_PTR_TO_JSON(HotValue, hotValue_);
         DARABONBA_PTR_TO_JSON(Id, id_);
         DARABONBA_PTR_TO_JSON(Status, status_);
@@ -60,11 +62,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TaskStatus, taskStatus_);
         DARABONBA_PTR_TO_JSON(Topic, topic_);
         DARABONBA_PTR_TO_JSON(TopicSource, topicSource_);
+        DARABONBA_PTR_TO_JSON(TopicUrl, topicUrl_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AsyncTaskId, asyncTaskId_);
+        DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CreateUser, createUser_);
+        DARABONBA_PTR_FROM_JSON(CustomField, customField_);
         DARABONBA_PTR_FROM_JSON(HotValue, hotValue_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -74,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(TaskStatus, taskStatus_);
         DARABONBA_PTR_FROM_JSON(Topic, topic_);
         DARABONBA_PTR_FROM_JSON(TopicSource, topicSource_);
+        DARABONBA_PTR_FROM_JSON(TopicUrl, topicUrl_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       Data() = default ;
@@ -194,9 +200,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->asyncTaskId_ == nullptr
-        && this->createUser_ == nullptr && this->hotValue_ == nullptr && this->id_ == nullptr && this->status_ == nullptr && this->structureSummary_ == nullptr
-        && this->summary_ == nullptr && this->taskErrorMessage_ == nullptr && this->taskStatus_ == nullptr && this->topic_ == nullptr && this->topicSource_ == nullptr
-        && this->version_ == nullptr; };
+        && this->createTime_ == nullptr && this->createUser_ == nullptr && this->customField_ == nullptr && this->hotValue_ == nullptr && this->id_ == nullptr
+        && this->status_ == nullptr && this->structureSummary_ == nullptr && this->summary_ == nullptr && this->taskErrorMessage_ == nullptr && this->taskStatus_ == nullptr
+        && this->topic_ == nullptr && this->topicSource_ == nullptr && this->topicUrl_ == nullptr && this->version_ == nullptr; };
       // asyncTaskId Field Functions 
       bool hasAsyncTaskId() const { return this->asyncTaskId_ != nullptr;};
       void deleteAsyncTaskId() { this->asyncTaskId_ = nullptr;};
@@ -204,11 +210,25 @@ namespace Models
       inline Data& setAsyncTaskId(string asyncTaskId) { DARABONBA_PTR_SET_VALUE(asyncTaskId_, asyncTaskId) };
 
 
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
       // createUser Field Functions 
       bool hasCreateUser() const { return this->createUser_ != nullptr;};
       void deleteCreateUser() { this->createUser_ = nullptr;};
       inline string getCreateUser() const { DARABONBA_PTR_GET_DEFAULT(createUser_, "") };
       inline Data& setCreateUser(string createUser) { DARABONBA_PTR_SET_VALUE(createUser_, createUser) };
+
+
+      // customField Field Functions 
+      bool hasCustomField() const { return this->customField_ != nullptr;};
+      void deleteCustomField() { this->customField_ = nullptr;};
+      inline string getCustomField() const { DARABONBA_PTR_GET_DEFAULT(customField_, "") };
+      inline Data& setCustomField(string customField) { DARABONBA_PTR_SET_VALUE(customField_, customField) };
 
 
       // hotValue Field Functions 
@@ -276,6 +296,13 @@ namespace Models
       inline Data& setTopicSource(string topicSource) { DARABONBA_PTR_SET_VALUE(topicSource_, topicSource) };
 
 
+      // topicUrl Field Functions 
+      bool hasTopicUrl() const { return this->topicUrl_ != nullptr;};
+      void deleteTopicUrl() { this->topicUrl_ = nullptr;};
+      inline string getTopicUrl() const { DARABONBA_PTR_GET_DEFAULT(topicUrl_, "") };
+      inline Data& setTopicUrl(string topicUrl) { DARABONBA_PTR_SET_VALUE(topicUrl_, topicUrl) };
+
+
       // version Field Functions 
       bool hasVersion() const { return this->version_ != nullptr;};
       void deleteVersion() { this->version_ = nullptr;};
@@ -285,7 +312,9 @@ namespace Models
 
     protected:
       shared_ptr<string> asyncTaskId_ {};
+      shared_ptr<string> createTime_ {};
       shared_ptr<string> createUser_ {};
+      shared_ptr<string> customField_ {};
       shared_ptr<int64_t> hotValue_ {};
       shared_ptr<string> id_ {};
       shared_ptr<string> status_ {};
@@ -295,6 +324,7 @@ namespace Models
       shared_ptr<int32_t> taskStatus_ {};
       shared_ptr<string> topic_ {};
       shared_ptr<string> topicSource_ {};
+      shared_ptr<string> topicUrl_ {};
       shared_ptr<string> version_ {};
     };
 

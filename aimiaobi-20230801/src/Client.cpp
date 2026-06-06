@@ -7199,6 +7199,18 @@ ListHotTopicsResponse Client::listHotTopicsWithOptions(const ListHotTopicsReques
   }
 
   json body = {};
+  if (!!request.hasCreateTimeEnd()) {
+    body["CreateTimeEnd"] = request.getCreateTimeEnd();
+  }
+
+  if (!!request.hasCreateTimeStart()) {
+    body["CreateTimeStart"] = request.getCreateTimeStart();
+  }
+
+  if (!!request.hasCustomField()) {
+    body["CustomField"] = request.getCustomField();
+  }
+
   if (!!request.hasMaxResults()) {
     body["MaxResults"] = request.getMaxResults();
   }
