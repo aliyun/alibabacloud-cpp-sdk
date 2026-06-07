@@ -749,6 +749,23 @@ namespace DataworksPublic20240518
       Models::CreateLineageRelationshipResponse createLineageRelationship(const Models::CreateLineageRelationshipRequest &request);
 
       /**
+       * @summary 登记 MCP Server
+       *
+       * @param tmpReq CreateMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateMcpServerResponse
+       */
+      Models::CreateMcpServerResponse createMcpServerWithOptions(const Models::CreateMcpServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 登记 MCP Server
+       *
+       * @param request CreateMcpServerRequest
+       * @return CreateMcpServerResponse
+       */
+      Models::CreateMcpServerResponse createMcpServer(const Models::CreateMcpServerRequest &request);
+
+      /**
        * @summary Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
        *
        * @param request CreateMetaCollectionRequest
@@ -1004,6 +1021,23 @@ namespace DataworksPublic20240518
        * @return CreateRouteResponse
        */
       Models::CreateRouteResponse createRoute(const Models::CreateRouteRequest &request);
+
+      /**
+       * @summary 创建 Skill
+       *
+       * @param tmpReq CreateSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkillWithOptions(const Models::CreateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 Skill
+       *
+       * @param request CreateSkillRequest
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkill(const Models::CreateSkillRequest &request);
 
       /**
        * @summary Creates a file for a function in DataStudio.
@@ -2674,6 +2708,23 @@ namespace DataworksPublic20240518
       Models::GetLineageRelationshipResponse getLineageRelationship(const Models::GetLineageRelationshipRequest &request);
 
       /**
+       * @summary 读取 MCP Server 详情
+       *
+       * @param request GetMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMcpServerResponse
+       */
+      Models::GetMcpServerResponse getMcpServerWithOptions(const Models::GetMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取 MCP Server 详情
+       *
+       * @param request GetMcpServerRequest
+       * @return GetMcpServerResponse
+       */
+      Models::GetMcpServerResponse getMcpServer(const Models::GetMcpServerRequest &request);
+
+      /**
        * @summary Queries the information about a collection in Data Map. Collections include categories and data albums.
        *
        * @param request GetMetaCollectionRequest
@@ -2980,6 +3031,23 @@ namespace DataworksPublic20240518
        * @return GetSchemaResponse
        */
       Models::GetSchemaResponse getSchema(const Models::GetSchemaRequest &request);
+
+      /**
+       * @summary 读取 Skill 详情
+       *
+       * @param request GetSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkillWithOptions(const Models::GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 读取 Skill 详情
+       *
+       * @param request GetSkillRequest
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
 
       /**
        * @summary Queries the information about a specific table in Data Map.
@@ -3375,6 +3443,23 @@ namespace DataworksPublic20240518
        * @return ListCrawlerTypesResponse
        */
       Models::ListCrawlerTypesResponse listCrawlerTypes();
+
+      /**
+       * @summary 分页列出 自定义 Agent
+       *
+       * @param tmpReq ListCustomAgentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentsResponse
+       */
+      Models::ListCustomAgentsResponse listCustomAgentsWithOptions(const Models::ListCustomAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页列出 自定义 Agent
+       *
+       * @param request ListCustomAgentsRequest
+       * @return ListCustomAgentsResponse
+       */
+      Models::ListCustomAgentsResponse listCustomAgents(const Models::ListCustomAgentsRequest &request);
 
       /**
        * @summary Querying a Custom Attribute Definition List
@@ -4085,6 +4170,23 @@ namespace DataworksPublic20240518
       Models::ListLineagesResponse listLineages(const Models::ListLineagesRequest &request);
 
       /**
+       * @summary 分页列出 MCP Server
+       *
+       * @param tmpReq ListMcpServersRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcpServersResponse
+       */
+      Models::ListMcpServersResponse listMcpServersWithOptions(const Models::ListMcpServersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页列出 MCP Server
+       *
+       * @param request ListMcpServersRequest
+       * @return ListMcpServersResponse
+       */
+      Models::ListMcpServersResponse listMcpServers(const Models::ListMcpServersRequest &request);
+
+      /**
        * @summary Queries a list of collections in Data Map. Collections include categories and data albums.
        *
        * @param request ListMetaCollectionsRequest
@@ -4445,6 +4547,23 @@ namespace DataworksPublic20240518
        * @return ListSchemasResponse
        */
       Models::ListSchemasResponse listSchemas(const Models::ListSchemasRequest &request);
+
+      /**
+       * @summary 分页列出 Skill
+       *
+       * @param tmpReq ListSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSkillsResponse
+       */
+      Models::ListSkillsResponse listSkillsWithOptions(const Models::ListSkillsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页列出 Skill
+       *
+       * @param request ListSkillsRequest
+       * @return ListSkillsResponse
+       */
+      Models::ListSkillsResponse listSkills(const Models::ListSkillsRequest &request);
 
       /**
        * @summary Queries a list of tables in Data Map. For data source types that do not support schemas, you can call this API operation to query a list of tables in a specific database. For data source types that support schemas, you can call this API operation to query a list of tables in a specific database, MaxCompute project, or schema. Only the basic information about tables is returned. The information about technical metadata and business metadata is not returned.
@@ -5651,6 +5770,23 @@ namespace DataworksPublic20240518
        * @return UpdateIDEEventResultResponse
        */
       Models::UpdateIDEEventResultResponse updateIDEEventResult(const Models::UpdateIDEEventResultRequest &request);
+
+      /**
+       * @summary 更新 MCP Server
+       *
+       * @param tmpReq UpdateMcpServerRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMcpServerResponse
+       */
+      Models::UpdateMcpServerResponse updateMcpServerWithOptions(const Models::UpdateMcpServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新 MCP Server
+       *
+       * @param request UpdateMcpServerRequest
+       * @return UpdateMcpServerResponse
+       */
+      Models::UpdateMcpServerResponse updateMcpServer(const Models::UpdateMcpServerRequest &request);
 
       /**
        * @summary Updates the information about a collection in Data Map, including the collection name, description, and administrator. Collections include categories and data albums. If you want to update the information about a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.

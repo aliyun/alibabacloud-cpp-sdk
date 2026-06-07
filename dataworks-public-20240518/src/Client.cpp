@@ -2671,6 +2671,70 @@ CreateLineageRelationshipResponse Client::createLineageRelationship(const Create
 }
 
 /**
+ * @summary 登记 MCP Server
+ *
+ * @param tmpReq CreateMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMcpServerResponse
+ */
+CreateMcpServerResponse Client::createMcpServerWithOptions(const CreateMcpServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateMcpServerShrinkRequest request = CreateMcpServerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasConfig()) {
+    request.setConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getConfig(), "Config", "json"));
+  }
+
+  if (!!tmpReq.hasVisibilityScope()) {
+    request.setVisibilityScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibilityScope(), "VisibilityScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasConfigShrink()) {
+    body["Config"] = request.getConfigShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasVisibility()) {
+    body["Visibility"] = request.getVisibility();
+  }
+
+  if (!!request.hasVisibilityScopeShrink()) {
+    body["VisibilityScope"] = request.getVisibilityScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateMcpServer"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMcpServerResponse>();
+}
+
+/**
+ * @summary 登记 MCP Server
+ *
+ * @param request CreateMcpServerRequest
+ * @return CreateMcpServerResponse
+ */
+CreateMcpServerResponse Client::createMcpServer(const CreateMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createMcpServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
  *
  * @param request CreateMetaCollectionRequest
@@ -3702,6 +3766,86 @@ CreateRouteResponse Client::createRouteWithOptions(const CreateRouteRequest &req
 CreateRouteResponse Client::createRoute(const CreateRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建 Skill
+ *
+ * @param tmpReq CreateSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSkillResponse
+ */
+CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSkillShrinkRequest request = CreateSkillShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasExtra()) {
+    request.setExtraShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExtra(), "Extra", "json"));
+  }
+
+  if (!!tmpReq.hasVisibilityScope()) {
+    request.setVisibilityScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibilityScope(), "VisibilityScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBundleUrl()) {
+    body["BundleUrl"] = request.getBundleUrl();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExtraShrink()) {
+    body["Extra"] = request.getExtraShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSkillMdOverride()) {
+    body["SkillMdOverride"] = request.getSkillMdOverride();
+  }
+
+  if (!!request.hasVersionNote()) {
+    body["VersionNote"] = request.getVersionNote();
+  }
+
+  if (!!request.hasVisibility()) {
+    body["Visibility"] = request.getVisibility();
+  }
+
+  if (!!request.hasVisibilityScopeShrink()) {
+    body["VisibilityScope"] = request.getVisibilityScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSkill"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSkillResponse>();
+}
+
+/**
+ * @summary 创建 Skill
+ *
+ * @param request CreateSkillRequest
+ * @return CreateSkillResponse
+ */
+CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSkillWithOptions(request, runtime);
 }
 
 /**
@@ -7855,6 +7999,48 @@ GetLineageRelationshipResponse Client::getLineageRelationship(const GetLineageRe
 }
 
 /**
+ * @summary 读取 MCP Server 详情
+ *
+ * @param request GetMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMcpServerResponse
+ */
+GetMcpServerResponse Client::getMcpServerWithOptions(const GetMcpServerRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetMcpServer"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMcpServerResponse>();
+}
+
+/**
+ * @summary 读取 MCP Server 详情
+ *
+ * @param request GetMcpServerRequest
+ * @return GetMcpServerResponse
+ */
+GetMcpServerResponse Client::getMcpServer(const GetMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getMcpServerWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a collection in Data Map. Collections include categories and data albums.
  *
  * @param request GetMetaCollectionRequest
@@ -8528,6 +8714,48 @@ GetSchemaResponse Client::getSchemaWithOptions(const GetSchemaRequest &request, 
 GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSchemaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 读取 Skill 详情
+ *
+ * @param request GetSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillResponse
+ */
+GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetSkill"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillResponse>();
+}
+
+/**
+ * @summary 读取 Skill 详情
+ *
+ * @param request GetSkillRequest
+ * @return GetSkillResponse
+ */
+GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSkillWithOptions(request, runtime);
 }
 
 /**
@@ -9658,6 +9886,68 @@ ListCrawlerTypesResponse Client::listCrawlerTypesWithOptions(const Darabonba::Ru
 ListCrawlerTypesResponse Client::listCrawlerTypes() {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listCrawlerTypesWithOptions(runtime);
+}
+
+/**
+ * @summary 分页列出 自定义 Agent
+ *
+ * @param tmpReq ListCustomAgentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListCustomAgentsResponse
+ */
+ListCustomAgentsResponse Client::listCustomAgentsWithOptions(const ListCustomAgentsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListCustomAgentsShrinkRequest request = ListCustomAgentsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVisibility()) {
+    request.setVisibilityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibility(), "Visibility", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  json body = {};
+  if (!!request.hasQ()) {
+    body["Q"] = request.getQ();
+  }
+
+  if (!!request.hasVisibilityShrink()) {
+    body["Visibility"] = request.getVisibilityShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListCustomAgents"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListCustomAgentsResponse>();
+}
+
+/**
+ * @summary 分页列出 自定义 Agent
+ *
+ * @param request ListCustomAgentsRequest
+ * @return ListCustomAgentsResponse
+ */
+ListCustomAgentsResponse Client::listCustomAgents(const ListCustomAgentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listCustomAgentsWithOptions(request, runtime);
 }
 
 /**
@@ -11647,6 +11937,68 @@ ListLineagesResponse Client::listLineages(const ListLineagesRequest &request) {
 }
 
 /**
+ * @summary 分页列出 MCP Server
+ *
+ * @param tmpReq ListMcpServersRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMcpServersResponse
+ */
+ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMcpServersShrinkRequest request = ListMcpServersShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVisibility()) {
+    request.setVisibilityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibility(), "Visibility", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  json body = {};
+  if (!!request.hasQ()) {
+    body["Q"] = request.getQ();
+  }
+
+  if (!!request.hasVisibilityShrink()) {
+    body["Visibility"] = request.getVisibilityShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListMcpServers"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMcpServersResponse>();
+}
+
+/**
+ * @summary 分页列出 MCP Server
+ *
+ * @param request ListMcpServersRequest
+ * @return ListMcpServersResponse
+ */
+ListMcpServersResponse Client::listMcpServers(const ListMcpServersRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMcpServersWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of collections in Data Map. Collections include categories and data albums.
  *
  * @param request ListMetaCollectionsRequest
@@ -12732,6 +13084,68 @@ ListSchemasResponse Client::listSchemasWithOptions(const ListSchemasRequest &tmp
 ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSchemasWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页列出 Skill
+ *
+ * @param tmpReq ListSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSkillsResponse
+ */
+ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListSkillsShrinkRequest request = ListSkillsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasVisibility()) {
+    request.setVisibilityShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibility(), "Visibility", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  json body = {};
+  if (!!request.hasQ()) {
+    body["Q"] = request.getQ();
+  }
+
+  if (!!request.hasVisibilityShrink()) {
+    body["Visibility"] = request.getVisibilityShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListSkills"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSkillsResponse>();
+}
+
+/**
+ * @summary 分页列出 Skill
+ *
+ * @param request ListSkillsRequest
+ * @return ListSkillsResponse
+ */
+ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSkillsWithOptions(request, runtime);
 }
 
 /**
@@ -16812,6 +17226,78 @@ UpdateIDEEventResultResponse Client::updateIDEEventResultWithOptions(const Updat
 UpdateIDEEventResultResponse Client::updateIDEEventResult(const UpdateIDEEventResultRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateIDEEventResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新 MCP Server
+ *
+ * @param tmpReq UpdateMcpServerRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMcpServerResponse
+ */
+UpdateMcpServerResponse Client::updateMcpServerWithOptions(const UpdateMcpServerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMcpServerShrinkRequest request = UpdateMcpServerShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCustomHeaders()) {
+    request.setCustomHeadersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCustomHeaders(), "CustomHeaders", "json"));
+  }
+
+  if (!!tmpReq.hasVisibilityScope()) {
+    request.setVisibilityScopeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getVisibilityScope(), "VisibilityScope", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasCustomHeadersShrink()) {
+    body["CustomHeaders"] = request.getCustomHeadersShrink();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasTransport()) {
+    body["Transport"] = request.getTransport();
+  }
+
+  if (!!request.hasUrl()) {
+    body["Url"] = request.getUrl();
+  }
+
+  if (!!request.hasVisibility()) {
+    body["Visibility"] = request.getVisibility();
+  }
+
+  if (!!request.hasVisibilityScopeShrink()) {
+    body["VisibilityScope"] = request.getVisibilityScopeShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateMcpServer"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMcpServerResponse>();
+}
+
+/**
+ * @summary 更新 MCP Server
+ *
+ * @param request UpdateMcpServerRequest
+ * @return UpdateMcpServerResponse
+ */
+UpdateMcpServerResponse Client::updateMcpServer(const UpdateMcpServerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateMcpServerWithOptions(request, runtime);
 }
 
 /**

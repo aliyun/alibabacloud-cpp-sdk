@@ -161,6 +161,10 @@
 #include <alibabacloud/models/CreateLineageRelationshipShrinkRequest.hpp>
 #include <alibabacloud/models/CreateLineageRelationshipResponseBody.hpp>
 #include <alibabacloud/models/CreateLineageRelationshipResponse.hpp>
+#include <alibabacloud/models/CreateMcpServerRequest.hpp>
+#include <alibabacloud/models/CreateMcpServerShrinkRequest.hpp>
+#include <alibabacloud/models/CreateMcpServerResponseBody.hpp>
+#include <alibabacloud/models/CreateMcpServerResponse.hpp>
 #include <alibabacloud/models/CreateMetaCollectionRequest.hpp>
 #include <alibabacloud/models/CreateMetaCollectionResponseBody.hpp>
 #include <alibabacloud/models/CreateMetaCollectionResponse.hpp>
@@ -209,6 +213,10 @@
 #include <alibabacloud/models/CreateRouteRequest.hpp>
 #include <alibabacloud/models/CreateRouteResponseBody.hpp>
 #include <alibabacloud/models/CreateRouteResponse.hpp>
+#include <alibabacloud/models/CreateSkillRequest.hpp>
+#include <alibabacloud/models/CreateSkillShrinkRequest.hpp>
+#include <alibabacloud/models/CreateSkillResponseBody.hpp>
+#include <alibabacloud/models/CreateSkillResponse.hpp>
 #include <alibabacloud/models/CreateUdfFileRequest.hpp>
 #include <alibabacloud/models/CreateUdfFileResponseBody.hpp>
 #include <alibabacloud/models/CreateUdfFileResponse.hpp>
@@ -473,6 +481,9 @@
 #include <alibabacloud/models/GetLineageRelationshipRequest.hpp>
 #include <alibabacloud/models/GetLineageRelationshipResponseBody.hpp>
 #include <alibabacloud/models/GetLineageRelationshipResponse.hpp>
+#include <alibabacloud/models/GetMcpServerRequest.hpp>
+#include <alibabacloud/models/GetMcpServerResponseBody.hpp>
+#include <alibabacloud/models/GetMcpServerResponse.hpp>
 #include <alibabacloud/models/GetMetaCollectionRequest.hpp>
 #include <alibabacloud/models/GetMetaCollectionResponseBody.hpp>
 #include <alibabacloud/models/GetMetaCollectionResponse.hpp>
@@ -521,6 +532,9 @@
 #include <alibabacloud/models/GetSchemaRequest.hpp>
 #include <alibabacloud/models/GetSchemaResponseBody.hpp>
 #include <alibabacloud/models/GetSchemaResponse.hpp>
+#include <alibabacloud/models/GetSkillRequest.hpp>
+#include <alibabacloud/models/GetSkillResponseBody.hpp>
+#include <alibabacloud/models/GetSkillResponse.hpp>
 #include <alibabacloud/models/GetTableRequest.hpp>
 #include <alibabacloud/models/GetTableResponseBody.hpp>
 #include <alibabacloud/models/GetTableResponse.hpp>
@@ -591,6 +605,10 @@
 #include <alibabacloud/models/ListComputeResourcesResponse.hpp>
 #include <alibabacloud/models/ListCrawlerTypesResponseBody.hpp>
 #include <alibabacloud/models/ListCrawlerTypesResponse.hpp>
+#include <alibabacloud/models/ListCustomAgentsRequest.hpp>
+#include <alibabacloud/models/ListCustomAgentsShrinkRequest.hpp>
+#include <alibabacloud/models/ListCustomAgentsResponseBody.hpp>
+#include <alibabacloud/models/ListCustomAgentsResponse.hpp>
 #include <alibabacloud/models/ListCustomAttributesRequest.hpp>
 #include <alibabacloud/models/ListCustomAttributesResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAttributesResponse.hpp>
@@ -706,6 +724,10 @@
 #include <alibabacloud/models/ListLineagesRequest.hpp>
 #include <alibabacloud/models/ListLineagesResponseBody.hpp>
 #include <alibabacloud/models/ListLineagesResponse.hpp>
+#include <alibabacloud/models/ListMcpServersRequest.hpp>
+#include <alibabacloud/models/ListMcpServersShrinkRequest.hpp>
+#include <alibabacloud/models/ListMcpServersResponseBody.hpp>
+#include <alibabacloud/models/ListMcpServersResponse.hpp>
 #include <alibabacloud/models/ListMetaCollectionsRequest.hpp>
 #include <alibabacloud/models/ListMetaCollectionsResponseBody.hpp>
 #include <alibabacloud/models/ListMetaCollectionsResponse.hpp>
@@ -773,6 +795,10 @@
 #include <alibabacloud/models/ListSchemasShrinkRequest.hpp>
 #include <alibabacloud/models/ListSchemasResponseBody.hpp>
 #include <alibabacloud/models/ListSchemasResponse.hpp>
+#include <alibabacloud/models/ListSkillsRequest.hpp>
+#include <alibabacloud/models/ListSkillsShrinkRequest.hpp>
+#include <alibabacloud/models/ListSkillsResponseBody.hpp>
+#include <alibabacloud/models/ListSkillsResponse.hpp>
 #include <alibabacloud/models/ListTablesRequest.hpp>
 #include <alibabacloud/models/ListTablesShrinkRequest.hpp>
 #include <alibabacloud/models/ListTablesResponseBody.hpp>
@@ -990,6 +1016,10 @@
 #include <alibabacloud/models/UpdateIDEEventResultRequest.hpp>
 #include <alibabacloud/models/UpdateIDEEventResultResponseBody.hpp>
 #include <alibabacloud/models/UpdateIDEEventResultResponse.hpp>
+#include <alibabacloud/models/UpdateMcpServerRequest.hpp>
+#include <alibabacloud/models/UpdateMcpServerShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateMcpServerResponseBody.hpp>
+#include <alibabacloud/models/UpdateMcpServerResponse.hpp>
 #include <alibabacloud/models/UpdateMetaCollectionRequest.hpp>
 #include <alibabacloud/models/UpdateMetaCollectionShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateMetaCollectionResponseBody.hpp>
