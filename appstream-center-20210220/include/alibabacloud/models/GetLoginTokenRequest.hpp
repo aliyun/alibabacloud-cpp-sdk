@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AuthenticationCode, authenticationCode_);
       DARABONBA_PTR_TO_JSON(AvailableFeatures, availableFeatures_);
       DARABONBA_PTR_TO_JSON(Channel, channel_);
+      DARABONBA_PTR_TO_JSON(CipherEndUserId, cipherEndUserId_);
+      DARABONBA_PTR_TO_JSON(CipherPassword, cipherPassword_);
       DARABONBA_PTR_TO_JSON(ClientId, clientId_);
       DARABONBA_PTR_TO_JSON(ClientName, clientName_);
       DARABONBA_PTR_TO_JSON(ClientOS, clientOS_);
@@ -58,6 +60,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AuthenticationCode, authenticationCode_);
       DARABONBA_PTR_FROM_JSON(AvailableFeatures, availableFeatures_);
       DARABONBA_PTR_FROM_JSON(Channel, channel_);
+      DARABONBA_PTR_FROM_JSON(CipherEndUserId, cipherEndUserId_);
+      DARABONBA_PTR_FROM_JSON(CipherPassword, cipherPassword_);
       DARABONBA_PTR_FROM_JSON(ClientId, clientId_);
       DARABONBA_PTR_FROM_JSON(ClientName, clientName_);
       DARABONBA_PTR_FROM_JSON(ClientOS, clientOS_);
@@ -105,14 +109,14 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->areaSite_ == nullptr
-        && this->authenticationCode_ == nullptr && this->availableFeatures_ == nullptr && this->channel_ == nullptr && this->clientId_ == nullptr && this->clientName_ == nullptr
-        && this->clientOS_ == nullptr && this->clientType_ == nullptr && this->clientVersion_ == nullptr && this->currentStage_ == nullptr && this->directoryId_ == nullptr
-        && this->encryptedFingerPrintData_ == nullptr && this->encryptedKey_ == nullptr && this->encryptedPassword_ == nullptr && this->endUserId_ == nullptr && this->fingerPrintData_ == nullptr
-        && this->idpId_ == nullptr && this->imageUrl_ == nullptr && this->keepAlive_ == nullptr && this->keepAliveToken_ == nullptr && this->loginIdentifier_ == nullptr
-        && this->loginName_ == nullptr && this->mfaType_ == nullptr && this->networkType_ == nullptr && this->newPassword_ == nullptr && this->officeSiteId_ == nullptr
-        && this->oldPassword_ == nullptr && this->password_ == nullptr && this->phone_ == nullptr && this->phoneVerifyCode_ == nullptr && this->profileRegion_ == nullptr
-        && this->regionId_ == nullptr && this->sessionId_ == nullptr && this->ssoExtendsCookies_ == nullptr && this->ssoSessionToken_ == nullptr && this->tokenCode_ == nullptr
-        && this->umidToken_ == nullptr && this->uuid_ == nullptr; };
+        && this->authenticationCode_ == nullptr && this->availableFeatures_ == nullptr && this->channel_ == nullptr && this->cipherEndUserId_ == nullptr && this->cipherPassword_ == nullptr
+        && this->clientId_ == nullptr && this->clientName_ == nullptr && this->clientOS_ == nullptr && this->clientType_ == nullptr && this->clientVersion_ == nullptr
+        && this->currentStage_ == nullptr && this->directoryId_ == nullptr && this->encryptedFingerPrintData_ == nullptr && this->encryptedKey_ == nullptr && this->encryptedPassword_ == nullptr
+        && this->endUserId_ == nullptr && this->fingerPrintData_ == nullptr && this->idpId_ == nullptr && this->imageUrl_ == nullptr && this->keepAlive_ == nullptr
+        && this->keepAliveToken_ == nullptr && this->loginIdentifier_ == nullptr && this->loginName_ == nullptr && this->mfaType_ == nullptr && this->networkType_ == nullptr
+        && this->newPassword_ == nullptr && this->officeSiteId_ == nullptr && this->oldPassword_ == nullptr && this->password_ == nullptr && this->phone_ == nullptr
+        && this->phoneVerifyCode_ == nullptr && this->profileRegion_ == nullptr && this->regionId_ == nullptr && this->sessionId_ == nullptr && this->ssoExtendsCookies_ == nullptr
+        && this->ssoSessionToken_ == nullptr && this->tokenCode_ == nullptr && this->umidToken_ == nullptr && this->uuid_ == nullptr; };
     // areaSite Field Functions 
     bool hasAreaSite() const { return this->areaSite_ != nullptr;};
     void deleteAreaSite() { this->areaSite_ = nullptr;};
@@ -141,6 +145,20 @@ namespace Models
     void deleteChannel() { this->channel_ = nullptr;};
     inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
     inline GetLoginTokenRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
+
+
+    // cipherEndUserId Field Functions 
+    bool hasCipherEndUserId() const { return this->cipherEndUserId_ != nullptr;};
+    void deleteCipherEndUserId() { this->cipherEndUserId_ = nullptr;};
+    inline string getCipherEndUserId() const { DARABONBA_PTR_GET_DEFAULT(cipherEndUserId_, "") };
+    inline GetLoginTokenRequest& setCipherEndUserId(string cipherEndUserId) { DARABONBA_PTR_SET_VALUE(cipherEndUserId_, cipherEndUserId) };
+
+
+    // cipherPassword Field Functions 
+    bool hasCipherPassword() const { return this->cipherPassword_ != nullptr;};
+    void deleteCipherPassword() { this->cipherPassword_ = nullptr;};
+    inline string getCipherPassword() const { DARABONBA_PTR_GET_DEFAULT(cipherPassword_, "") };
+    inline GetLoginTokenRequest& setCipherPassword(string cipherPassword) { DARABONBA_PTR_SET_VALUE(cipherPassword_, cipherPassword) };
 
 
     // clientId Field Functions 
@@ -386,6 +404,8 @@ namespace Models
     shared_ptr<string> authenticationCode_ {};
     shared_ptr<map<string, string>> availableFeatures_ {};
     shared_ptr<string> channel_ {};
+    shared_ptr<string> cipherEndUserId_ {};
+    shared_ptr<string> cipherPassword_ {};
     // This parameter is required.
     shared_ptr<string> clientId_ {};
     shared_ptr<string> clientName_ {};

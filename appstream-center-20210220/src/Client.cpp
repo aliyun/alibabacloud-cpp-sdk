@@ -207,6 +207,14 @@ GetLoginTokenResponse Client::getLoginTokenWithOptions(const GetLoginTokenReques
     query["Channel"] = request.getChannel();
   }
 
+  if (!!request.hasCipherEndUserId()) {
+    query["CipherEndUserId"] = request.getCipherEndUserId();
+  }
+
+  if (!!request.hasCipherPassword()) {
+    query["CipherPassword"] = request.getCipherPassword();
+  }
+
   if (!!request.hasClientId()) {
     query["ClientId"] = request.getClientId();
   }

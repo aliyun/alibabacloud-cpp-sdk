@@ -45,12 +45,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const TenantAliasInfo& obj) { 
         DARABONBA_PTR_TO_JSON(AccessType, accessType_);
+        DARABONBA_PTR_TO_JSON(IsLoginByCipherParam, isLoginByCipherParam_);
         DARABONBA_PTR_TO_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_TO_JSON(TenantAlias, tenantAlias_);
         DARABONBA_PTR_TO_JSON(VpcAccessAddress, vpcAccessAddress_);
       };
       friend void from_json(const Darabonba::Json& j, TenantAliasInfo& obj) { 
         DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
+        DARABONBA_PTR_FROM_JSON(IsLoginByCipherParam, isLoginByCipherParam_);
         DARABONBA_PTR_FROM_JSON(PreferVpcAccess, preferVpcAccess_);
         DARABONBA_PTR_FROM_JSON(TenantAlias, tenantAlias_);
         DARABONBA_PTR_FROM_JSON(VpcAccessAddress, vpcAccessAddress_);
@@ -67,12 +69,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->preferVpcAccess_ == nullptr && this->tenantAlias_ == nullptr && this->vpcAccessAddress_ == nullptr; };
+        && this->isLoginByCipherParam_ == nullptr && this->preferVpcAccess_ == nullptr && this->tenantAlias_ == nullptr && this->vpcAccessAddress_ == nullptr; };
       // accessType Field Functions 
       bool hasAccessType() const { return this->accessType_ != nullptr;};
       void deleteAccessType() { this->accessType_ = nullptr;};
       inline string getAccessType() const { DARABONBA_PTR_GET_DEFAULT(accessType_, "") };
       inline TenantAliasInfo& setAccessType(string accessType) { DARABONBA_PTR_SET_VALUE(accessType_, accessType) };
+
+
+      // isLoginByCipherParam Field Functions 
+      bool hasIsLoginByCipherParam() const { return this->isLoginByCipherParam_ != nullptr;};
+      void deleteIsLoginByCipherParam() { this->isLoginByCipherParam_ = nullptr;};
+      inline string getIsLoginByCipherParam() const { DARABONBA_PTR_GET_DEFAULT(isLoginByCipherParam_, "") };
+      inline TenantAliasInfo& setIsLoginByCipherParam(string isLoginByCipherParam) { DARABONBA_PTR_SET_VALUE(isLoginByCipherParam_, isLoginByCipherParam) };
 
 
       // preferVpcAccess Field Functions 
@@ -98,6 +107,7 @@ namespace Models
 
     protected:
       shared_ptr<string> accessType_ {};
+      shared_ptr<string> isLoginByCipherParam_ {};
       shared_ptr<bool> preferVpcAccess_ {};
       shared_ptr<string> tenantAlias_ {};
       shared_ptr<string> vpcAccessAddress_ {};
