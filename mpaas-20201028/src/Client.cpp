@@ -7650,6 +7650,14 @@ SaveOrderRelationInfoToMsenceResponse Client::saveOrderRelationInfoToMsenceWithO
     body["BizOrderStatus"] = request.getBizOrderStatus();
   }
 
+  if (!!request.hasClientType()) {
+    body["ClientType"] = request.getClientType();
+  }
+
+  if (!!request.hasCpExtra()) {
+    body["CpExtra"] = request.getCpExtra();
+  }
+
   if (!!request.hasCustomId()) {
     body["CustomId"] = request.getCustomId();
   }

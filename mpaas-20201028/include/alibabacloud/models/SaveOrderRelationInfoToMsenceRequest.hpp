@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(BizOrderId, bizOrderId_);
       DARABONBA_PTR_TO_JSON(BizOrderStatus, bizOrderStatus_);
+      DARABONBA_PTR_TO_JSON(ClientType, clientType_);
+      DARABONBA_PTR_TO_JSON(CpExtra, cpExtra_);
       DARABONBA_PTR_TO_JSON(CustomId, customId_);
       DARABONBA_PTR_TO_JSON(MiniProgramId, miniProgramId_);
       DARABONBA_PTR_TO_JSON(OpenUid, openUid_);
@@ -29,6 +31,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(BizOrderId, bizOrderId_);
       DARABONBA_PTR_FROM_JSON(BizOrderStatus, bizOrderStatus_);
+      DARABONBA_PTR_FROM_JSON(ClientType, clientType_);
+      DARABONBA_PTR_FROM_JSON(CpExtra, cpExtra_);
       DARABONBA_PTR_FROM_JSON(CustomId, customId_);
       DARABONBA_PTR_FROM_JSON(MiniProgramId, miniProgramId_);
       DARABONBA_PTR_FROM_JSON(OpenUid, openUid_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->amount_ == nullptr
-        && this->appId_ == nullptr && this->bizOrderId_ == nullptr && this->bizOrderStatus_ == nullptr && this->customId_ == nullptr && this->miniProgramId_ == nullptr
-        && this->openUid_ == nullptr && this->platformId_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->appId_ == nullptr && this->bizOrderId_ == nullptr && this->bizOrderStatus_ == nullptr && this->clientType_ == nullptr && this->cpExtra_ == nullptr
+        && this->customId_ == nullptr && this->miniProgramId_ == nullptr && this->openUid_ == nullptr && this->platformId_ == nullptr && this->tenantId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -76,6 +81,20 @@ namespace Models
     void deleteBizOrderStatus() { this->bizOrderStatus_ = nullptr;};
     inline int32_t getBizOrderStatus() const { DARABONBA_PTR_GET_DEFAULT(bizOrderStatus_, 0) };
     inline SaveOrderRelationInfoToMsenceRequest& setBizOrderStatus(int32_t bizOrderStatus) { DARABONBA_PTR_SET_VALUE(bizOrderStatus_, bizOrderStatus) };
+
+
+    // clientType Field Functions 
+    bool hasClientType() const { return this->clientType_ != nullptr;};
+    void deleteClientType() { this->clientType_ = nullptr;};
+    inline string getClientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, "") };
+    inline SaveOrderRelationInfoToMsenceRequest& setClientType(string clientType) { DARABONBA_PTR_SET_VALUE(clientType_, clientType) };
+
+
+    // cpExtra Field Functions 
+    bool hasCpExtra() const { return this->cpExtra_ != nullptr;};
+    void deleteCpExtra() { this->cpExtra_ = nullptr;};
+    inline string getCpExtra() const { DARABONBA_PTR_GET_DEFAULT(cpExtra_, "") };
+    inline SaveOrderRelationInfoToMsenceRequest& setCpExtra(string cpExtra) { DARABONBA_PTR_SET_VALUE(cpExtra_, cpExtra) };
 
 
     // customId Field Functions 
@@ -125,6 +144,8 @@ namespace Models
     shared_ptr<string> appId_ {};
     shared_ptr<string> bizOrderId_ {};
     shared_ptr<int32_t> bizOrderStatus_ {};
+    shared_ptr<string> clientType_ {};
+    shared_ptr<string> cpExtra_ {};
     shared_ptr<string> customId_ {};
     shared_ptr<string> miniProgramId_ {};
     shared_ptr<string> openUid_ {};
