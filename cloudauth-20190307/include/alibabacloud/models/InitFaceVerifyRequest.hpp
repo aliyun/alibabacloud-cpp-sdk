@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CertifyUrlStyle, certifyUrlStyle_);
       DARABONBA_PTR_TO_JSON(CertifyUrlType, certifyUrlType_);
       DARABONBA_PTR_TO_JSON(Crop, crop_);
+      DARABONBA_PTR_TO_JSON(EnableBeauty, enableBeauty_);
       DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_TO_JSON(FaceContrastPicture, faceContrastPicture_);
       DARABONBA_PTR_TO_JSON(FaceContrastPictureUrl, faceContrastPictureUrl_);
@@ -67,6 +68,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CertifyUrlStyle, certifyUrlStyle_);
       DARABONBA_PTR_FROM_JSON(CertifyUrlType, certifyUrlType_);
       DARABONBA_PTR_FROM_JSON(Crop, crop_);
+      DARABONBA_PTR_FROM_JSON(EnableBeauty, enableBeauty_);
       DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
       DARABONBA_PTR_FROM_JSON(FaceContrastPicture, faceContrastPicture_);
       DARABONBA_PTR_FROM_JSON(FaceContrastPictureUrl, faceContrastPictureUrl_);
@@ -108,12 +110,12 @@ namespace Models
     virtual bool empty() const override { return this->appQualityCheck_ == nullptr
         && this->authId_ == nullptr && this->birthday_ == nullptr && this->callbackToken_ == nullptr && this->callbackUrl_ == nullptr && this->cameraSelection_ == nullptr
         && this->certName_ == nullptr && this->certNo_ == nullptr && this->certType_ == nullptr && this->certifyId_ == nullptr && this->certifyUrlStyle_ == nullptr
-        && this->certifyUrlType_ == nullptr && this->crop_ == nullptr && this->encryptType_ == nullptr && this->faceContrastPicture_ == nullptr && this->faceContrastPictureUrl_ == nullptr
-        && this->faceGuardOutput_ == nullptr && this->h5DegradeConfirmBtn_ == nullptr && this->ip_ == nullptr && this->metaInfo_ == nullptr && this->mobile_ == nullptr
-        && this->mode_ == nullptr && this->model_ == nullptr && this->needMultiFaceCheck_ == nullptr && this->ossBucketName_ == nullptr && this->ossObjectName_ == nullptr
-        && this->outerOrderNo_ == nullptr && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->rarelyCharacters_ == nullptr && this->readImg_ == nullptr
-        && this->returnUrl_ == nullptr && this->sceneId_ == nullptr && this->suitableType_ == nullptr && this->uiCustomUrl_ == nullptr && this->userId_ == nullptr
-        && this->validityDate_ == nullptr && this->videoEvidence_ == nullptr && this->voluntaryCustomizedContent_ == nullptr; };
+        && this->certifyUrlType_ == nullptr && this->crop_ == nullptr && this->enableBeauty_ == nullptr && this->encryptType_ == nullptr && this->faceContrastPicture_ == nullptr
+        && this->faceContrastPictureUrl_ == nullptr && this->faceGuardOutput_ == nullptr && this->h5DegradeConfirmBtn_ == nullptr && this->ip_ == nullptr && this->metaInfo_ == nullptr
+        && this->mobile_ == nullptr && this->mode_ == nullptr && this->model_ == nullptr && this->needMultiFaceCheck_ == nullptr && this->ossBucketName_ == nullptr
+        && this->ossObjectName_ == nullptr && this->outerOrderNo_ == nullptr && this->procedurePriority_ == nullptr && this->productCode_ == nullptr && this->rarelyCharacters_ == nullptr
+        && this->readImg_ == nullptr && this->returnUrl_ == nullptr && this->sceneId_ == nullptr && this->suitableType_ == nullptr && this->uiCustomUrl_ == nullptr
+        && this->userId_ == nullptr && this->validityDate_ == nullptr && this->videoEvidence_ == nullptr && this->voluntaryCustomizedContent_ == nullptr; };
     // appQualityCheck Field Functions 
     bool hasAppQualityCheck() const { return this->appQualityCheck_ != nullptr;};
     void deleteAppQualityCheck() { this->appQualityCheck_ = nullptr;};
@@ -203,6 +205,13 @@ namespace Models
     void deleteCrop() { this->crop_ = nullptr;};
     inline string getCrop() const { DARABONBA_PTR_GET_DEFAULT(crop_, "") };
     inline InitFaceVerifyRequest& setCrop(string crop) { DARABONBA_PTR_SET_VALUE(crop_, crop) };
+
+
+    // enableBeauty Field Functions 
+    bool hasEnableBeauty() const { return this->enableBeauty_ != nullptr;};
+    void deleteEnableBeauty() { this->enableBeauty_ = nullptr;};
+    inline string getEnableBeauty() const { DARABONBA_PTR_GET_DEFAULT(enableBeauty_, "") };
+    inline InitFaceVerifyRequest& setEnableBeauty(string enableBeauty) { DARABONBA_PTR_SET_VALUE(enableBeauty_, enableBeauty) };
 
 
     // encryptType Field Functions 
@@ -458,6 +467,7 @@ namespace Models
     // 
     // > If the image you are requesting is not from a standard liveness detection SDK, it is recommended to allow face image cropping. When this feature is enabled, the requested image will first undergo face cropping and alignment, and then the service request will be initiated.
     shared_ptr<string> crop_ {};
+    shared_ptr<string> enableBeauty_ {};
     // Encryption algorithm to be used, currently supporting only the SM2 national encryption algorithm.
     // 
     // After enabling encrypted transmission, you need to pass in the encrypted CertName and CertNo. For how to encrypt, please refer to [Parameter Encryption Instructions](https://help.aliyun.com/zh/id-verification/financial-grade-id-verification/description-of-parameter-encryption?spm=a2c4g.11186623.0.0.1a9d566eWdqwy8#task-2229332).

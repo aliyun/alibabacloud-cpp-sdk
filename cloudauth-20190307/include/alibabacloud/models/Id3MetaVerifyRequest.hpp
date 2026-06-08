@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const Id3MetaVerifyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Crop, crop_);
       DARABONBA_PTR_TO_JSON(FaceFile, faceFile_);
+      DARABONBA_PTR_TO_JSON(FacePicture, facePicture_);
       DARABONBA_PTR_TO_JSON(FaceUrl, faceUrl_);
       DARABONBA_PTR_TO_JSON(IdentifyNum, identifyNum_);
       DARABONBA_PTR_TO_JSON(ParamType, paramType_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, Id3MetaVerifyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Crop, crop_);
       DARABONBA_PTR_FROM_JSON(FaceFile, faceFile_);
+      DARABONBA_PTR_FROM_JSON(FacePicture, facePicture_);
       DARABONBA_PTR_FROM_JSON(FaceUrl, faceUrl_);
       DARABONBA_PTR_FROM_JSON(IdentifyNum, identifyNum_);
       DARABONBA_PTR_FROM_JSON(ParamType, paramType_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->crop_ == nullptr
-        && this->faceFile_ == nullptr && this->faceUrl_ == nullptr && this->identifyNum_ == nullptr && this->paramType_ == nullptr && this->userName_ == nullptr; };
+        && this->faceFile_ == nullptr && this->facePicture_ == nullptr && this->faceUrl_ == nullptr && this->identifyNum_ == nullptr && this->paramType_ == nullptr
+        && this->userName_ == nullptr; };
     // crop Field Functions 
     bool hasCrop() const { return this->crop_ != nullptr;};
     void deleteCrop() { this->crop_ = nullptr;};
@@ -53,6 +56,13 @@ namespace Models
     void deleteFaceFile() { this->faceFile_ = nullptr;};
     inline string getFaceFile() const { DARABONBA_PTR_GET_DEFAULT(faceFile_, "") };
     inline Id3MetaVerifyRequest& setFaceFile(string faceFile) { DARABONBA_PTR_SET_VALUE(faceFile_, faceFile) };
+
+
+    // facePicture Field Functions 
+    bool hasFacePicture() const { return this->facePicture_ != nullptr;};
+    void deleteFacePicture() { this->facePicture_ = nullptr;};
+    inline string getFacePicture() const { DARABONBA_PTR_GET_DEFAULT(facePicture_, "") };
+    inline Id3MetaVerifyRequest& setFacePicture(string facePicture) { DARABONBA_PTR_SET_VALUE(facePicture_, facePicture) };
 
 
     // faceUrl Field Functions 
@@ -95,6 +105,7 @@ namespace Models
     // Portrait side of the ID card image input stream.
     // Choose one between `CertUrl` and `CertFile`.
     shared_ptr<string> faceFile_ {};
+    shared_ptr<string> facePicture_ {};
     // Portrait side of the ID card image.
     // Accessible HTTP or HTTPS link on the public network.
     // Choose one between `CertUrl` and `CertFile`.

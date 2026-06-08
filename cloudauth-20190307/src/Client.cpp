@@ -4592,6 +4592,10 @@ Id3MetaVerifyResponse Client::id3MetaVerifyWithOptions(const Id3MetaVerifyReques
     body["FaceFile"] = request.getFaceFile();
   }
 
+  if (!!request.hasFacePicture()) {
+    body["FacePicture"] = request.getFacePicture();
+  }
+
   if (!!request.hasFaceUrl()) {
     body["FaceUrl"] = request.getFaceUrl();
   }
@@ -5114,6 +5118,10 @@ InitFaceVerifyResponse Client::initFaceVerifyWithOptions(const InitFaceVerifyReq
 
   if (!!request.hasCertifyUrlType()) {
     query["CertifyUrlType"] = request.getCertifyUrlType();
+  }
+
+  if (!!request.hasEnableBeauty()) {
+    query["EnableBeauty"] = request.getEnableBeauty();
   }
 
   if (!!request.hasEncryptType()) {
