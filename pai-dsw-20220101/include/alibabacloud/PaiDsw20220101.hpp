@@ -685,6 +685,24 @@ namespace PaiDsw20220101
       Models::ListTempFilesResponse listTempFiles(const Models::ListTempFilesRequest &request);
 
       /**
+       * @summary 获取指定的运行中实例列表的自动关机策略。
+       *
+       * @param request QueryAutoShutdownPoliciesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAutoShutdownPoliciesResponse
+       */
+      Models::QueryAutoShutdownPoliciesResponse queryAutoShutdownPoliciesWithOptions(const Models::QueryAutoShutdownPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定的运行中实例列表的自动关机策略。
+       *
+       * @param request QueryAutoShutdownPoliciesRequest
+       * @return QueryAutoShutdownPoliciesResponse
+       */
+      Models::QueryAutoShutdownPoliciesResponse queryAutoShutdownPolicies(const Models::QueryAutoShutdownPoliciesRequest &request);
+
+      /**
        * @summary 启动实例
        *
        * @param headers map

@@ -114,6 +114,9 @@
 #include <alibabacloud/models/ListTempFilesRequest.hpp>
 #include <alibabacloud/models/ListTempFilesResponseBody.hpp>
 #include <alibabacloud/models/ListTempFilesResponse.hpp>
+#include <alibabacloud/models/QueryAutoShutdownPoliciesRequest.hpp>
+#include <alibabacloud/models/QueryAutoShutdownPoliciesResponseBody.hpp>
+#include <alibabacloud/models/QueryAutoShutdownPoliciesResponse.hpp>
 #include <alibabacloud/models/StartInstanceResponseBody.hpp>
 #include <alibabacloud/models/StartInstanceResponse.hpp>
 #include <alibabacloud/models/StopInstanceRequest.hpp>

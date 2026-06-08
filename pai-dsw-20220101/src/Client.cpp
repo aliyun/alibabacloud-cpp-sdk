@@ -2149,6 +2149,61 @@ ListTempFilesResponse Client::listTempFiles(const ListTempFilesRequest &request)
 }
 
 /**
+ * @summary 获取指定的运行中实例列表的自动关机策略。
+ *
+ * @param request QueryAutoShutdownPoliciesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAutoShutdownPoliciesResponse
+ */
+QueryAutoShutdownPoliciesResponse Client::queryAutoShutdownPoliciesWithOptions(const QueryAutoShutdownPoliciesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasToken()) {
+    query["Token"] = request.getToken();
+  }
+
+  json body = {};
+  if (!!request.hasInstanceIds()) {
+    body["InstanceIds"] = request.getInstanceIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryAutoShutdownPolicies"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v2/batch/autoshutdownpolicies/query")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAutoShutdownPoliciesResponse>();
+}
+
+/**
+ * @summary 获取指定的运行中实例列表的自动关机策略。
+ *
+ * @param request QueryAutoShutdownPoliciesRequest
+ * @return QueryAutoShutdownPoliciesResponse
+ */
+QueryAutoShutdownPoliciesResponse Client::queryAutoShutdownPolicies(const QueryAutoShutdownPoliciesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryAutoShutdownPoliciesWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 启动实例
  *
  * @param headers map
