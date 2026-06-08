@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->driftDetectionId_ == nullptr
-        && return this->requestId_ == nullptr; };
+        && this->requestId_ == nullptr; };
     // driftDetectionId Field Functions 
     bool hasDriftDetectionId() const { return this->driftDetectionId_ != nullptr;};
     void deleteDriftDetectionId() { this->driftDetectionId_ = nullptr;};
-    inline string driftDetectionId() const { DARABONBA_PTR_GET_DEFAULT(driftDetectionId_, "") };
+    inline string getDriftDetectionId() const { DARABONBA_PTR_GET_DEFAULT(driftDetectionId_, "") };
     inline DetectStackDriftResponseBody& setDriftDetectionId(string driftDetectionId) { DARABONBA_PTR_SET_VALUE(driftDetectionId_, driftDetectionId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DetectStackDriftResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the drift detection.
-    std::shared_ptr<string> driftDetectionId_ = nullptr;
+    shared_ptr<string> driftDetectionId_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

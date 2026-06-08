@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->feature_ == nullptr
-        && return this->regionId_ == nullptr; };
+        && this->regionId_ == nullptr; };
     // feature Field Functions 
     bool hasFeature() const { return this->feature_ != nullptr;};
     void deleteFeature() { this->feature_ = nullptr;};
-    inline string feature() const { DARABONBA_PTR_GET_DEFAULT(feature_, "") };
+    inline string getFeature() const { DARABONBA_PTR_GET_DEFAULT(feature_, "") };
     inline GetFeatureDetailsRequest& setFeature(string feature) { DARABONBA_PTR_SET_VALUE(feature_, feature) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetFeatureDetailsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
@@ -56,11 +56,11 @@ namespace Models
     // *   All: all features that are supported by ROS.
     // 
     // This parameter is required.
-    std::shared_ptr<string> feature_ = nullptr;
+    shared_ptr<string> feature_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->resources_ == nullptr; };
+        && this->resources_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetTemplateEstimateCostResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resources Field Functions 
     bool hasResources() const { return this->resources_ != nullptr;};
     void deleteResources() { this->resources_ = nullptr;};
-    inline     const Darabonba::Json & resources() const { DARABONBA_GET(resources_) };
-    Darabonba::Json & resources() { DARABONBA_GET(resources_) };
+    inline     const Darabonba::Json & getResources() const { DARABONBA_GET(resources_) };
+    Darabonba::Json & getResources() { DARABONBA_GET(resources_) };
     inline GetTemplateEstimateCostResponseBody& setResources(const Darabonba::Json & resources) { DARABONBA_SET_VALUE(resources_, resources) };
-    inline GetTemplateEstimateCostResponseBody& setResources(Darabonba::Json & resources) { DARABONBA_SET_RVALUE(resources_, resources) };
+    inline GetTemplateEstimateCostResponseBody& setResources(Darabonba::Json && resources) { DARABONBA_SET_RVALUE(resources_, resources) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The resource details.
-    Darabonba::Json resources_ = nullptr;
+    Darabonba::Json resources_ {};
   };
 
   } // namespace Models

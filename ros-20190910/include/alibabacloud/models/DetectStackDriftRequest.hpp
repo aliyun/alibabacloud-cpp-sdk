@@ -37,19 +37,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->logicalResourceId_ == nullptr && return this->regionId_ == nullptr && return this->stackId_ == nullptr; };
+        && this->logicalResourceId_ == nullptr && this->regionId_ == nullptr && this->stackId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DetectStackDriftRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // logicalResourceId Field Functions 
     bool hasLogicalResourceId() const { return this->logicalResourceId_ != nullptr;};
     void deleteLogicalResourceId() { this->logicalResourceId_ = nullptr;};
-    inline const vector<string> & logicalResourceId() const { DARABONBA_PTR_GET_CONST(logicalResourceId_, vector<string>) };
-    inline vector<string> logicalResourceId() { DARABONBA_PTR_GET(logicalResourceId_, vector<string>) };
+    inline const vector<string> & getLogicalResourceId() const { DARABONBA_PTR_GET_CONST(logicalResourceId_, vector<string>) };
+    inline vector<string> getLogicalResourceId() { DARABONBA_PTR_GET(logicalResourceId_, vector<string>) };
     inline DetectStackDriftRequest& setLogicalResourceId(const vector<string> & logicalResourceId) { DARABONBA_PTR_SET_VALUE(logicalResourceId_, logicalResourceId) };
     inline DetectStackDriftRequest& setLogicalResourceId(vector<string> && logicalResourceId) { DARABONBA_PTR_SET_RVALUE(logicalResourceId_, logicalResourceId) };
 
@@ -57,14 +57,14 @@ namespace Models
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DetectStackDriftRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline DetectStackDriftRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
@@ -74,17 +74,17 @@ namespace Models
     // The value can be up to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
     // 
     // For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The logical ID of resource.
-    std::shared_ptr<vector<string>> logicalResourceId_ = nullptr;
+    shared_ptr<vector<string>> logicalResourceId_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the stack.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
   };
 
   } // namespace Models

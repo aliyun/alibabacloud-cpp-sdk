@@ -46,84 +46,84 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountIdsShrink_ == nullptr
-        && return this->clientToken_ == nullptr && return this->deploymentTargetsShrink_ == nullptr && return this->operationDescription_ == nullptr && return this->operationPreferencesShrink_ == nullptr && return this->regionId_ == nullptr
-        && return this->regionIdsShrink_ == nullptr && return this->retainStacks_ == nullptr && return this->stackGroupName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->deploymentTargetsShrink_ == nullptr && this->operationDescription_ == nullptr && this->operationPreferencesShrink_ == nullptr && this->regionId_ == nullptr
+        && this->regionIdsShrink_ == nullptr && this->retainStacks_ == nullptr && this->stackGroupName_ == nullptr; };
     // accountIdsShrink Field Functions 
     bool hasAccountIdsShrink() const { return this->accountIdsShrink_ != nullptr;};
     void deleteAccountIdsShrink() { this->accountIdsShrink_ = nullptr;};
-    inline string accountIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(accountIdsShrink_, "") };
+    inline string getAccountIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(accountIdsShrink_, "") };
     inline DeleteStackInstancesShrinkRequest& setAccountIdsShrink(string accountIdsShrink) { DARABONBA_PTR_SET_VALUE(accountIdsShrink_, accountIdsShrink) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteStackInstancesShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deploymentTargetsShrink Field Functions 
     bool hasDeploymentTargetsShrink() const { return this->deploymentTargetsShrink_ != nullptr;};
     void deleteDeploymentTargetsShrink() { this->deploymentTargetsShrink_ = nullptr;};
-    inline string deploymentTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetsShrink_, "") };
+    inline string getDeploymentTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetsShrink_, "") };
     inline DeleteStackInstancesShrinkRequest& setDeploymentTargetsShrink(string deploymentTargetsShrink) { DARABONBA_PTR_SET_VALUE(deploymentTargetsShrink_, deploymentTargetsShrink) };
 
 
     // operationDescription Field Functions 
     bool hasOperationDescription() const { return this->operationDescription_ != nullptr;};
     void deleteOperationDescription() { this->operationDescription_ = nullptr;};
-    inline string operationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
+    inline string getOperationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
     inline DeleteStackInstancesShrinkRequest& setOperationDescription(string operationDescription) { DARABONBA_PTR_SET_VALUE(operationDescription_, operationDescription) };
 
 
     // operationPreferencesShrink Field Functions 
     bool hasOperationPreferencesShrink() const { return this->operationPreferencesShrink_ != nullptr;};
     void deleteOperationPreferencesShrink() { this->operationPreferencesShrink_ = nullptr;};
-    inline string operationPreferencesShrink() const { DARABONBA_PTR_GET_DEFAULT(operationPreferencesShrink_, "") };
+    inline string getOperationPreferencesShrink() const { DARABONBA_PTR_GET_DEFAULT(operationPreferencesShrink_, "") };
     inline DeleteStackInstancesShrinkRequest& setOperationPreferencesShrink(string operationPreferencesShrink) { DARABONBA_PTR_SET_VALUE(operationPreferencesShrink_, operationPreferencesShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteStackInstancesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionIdsShrink Field Functions 
     bool hasRegionIdsShrink() const { return this->regionIdsShrink_ != nullptr;};
     void deleteRegionIdsShrink() { this->regionIdsShrink_ = nullptr;};
-    inline string regionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
+    inline string getRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
     inline DeleteStackInstancesShrinkRequest& setRegionIdsShrink(string regionIdsShrink) { DARABONBA_PTR_SET_VALUE(regionIdsShrink_, regionIdsShrink) };
 
 
     // retainStacks Field Functions 
     bool hasRetainStacks() const { return this->retainStacks_ != nullptr;};
     void deleteRetainStacks() { this->retainStacks_ = nullptr;};
-    inline bool retainStacks() const { DARABONBA_PTR_GET_DEFAULT(retainStacks_, false) };
+    inline bool getRetainStacks() const { DARABONBA_PTR_GET_DEFAULT(retainStacks_, false) };
     inline DeleteStackInstancesShrinkRequest& setRetainStacks(bool retainStacks) { DARABONBA_PTR_SET_VALUE(retainStacks_, retainStacks) };
 
 
     // stackGroupName Field Functions 
     bool hasStackGroupName() const { return this->stackGroupName_ != nullptr;};
     void deleteStackGroupName() { this->stackGroupName_ = nullptr;};
-    inline string stackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
+    inline string getStackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
     inline DeleteStackInstancesShrinkRequest& setStackGroupName(string stackGroupName) { DARABONBA_PTR_SET_VALUE(stackGroupName_, stackGroupName) };
 
 
   protected:
     // The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
-    std::shared_ptr<string> accountIdsShrink_ = nullptr;
+    shared_ptr<string> accountIdsShrink_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
     // The token can contain letters, digits, hyphens (-), and underscores (_), and cannot exceed 64 characters in length.\\
     // For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The folders in which you want to deploy stacks in service-managed mode.
-    std::shared_ptr<string> deploymentTargetsShrink_ = nullptr;
+    shared_ptr<string> deploymentTargetsShrink_ {};
     // The description of the delete operation.
     // 
     // The description must be 1 to 256 characters in length.
-    std::shared_ptr<string> operationDescription_ = nullptr;
+    shared_ptr<string> operationDescription_ {};
     // The preference settings of the delete operation.
     // 
     // The following parameters are available:
@@ -171,15 +171,15 @@ namespace Models
     // 
     // > - You can specify only one of the following parameters: MaxConcurrentCount and MaxConcurrentPercentage.
     // > - You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
-    std::shared_ptr<string> operationPreferencesShrink_ = nullptr;
+    shared_ptr<string> operationPreferencesShrink_ {};
     // The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the regions where you want to delete the stacks. You can specify up to 20 region IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionIdsShrink_ = nullptr;
+    shared_ptr<string> regionIdsShrink_ {};
     // Specifies whether to delete the stacks.
     // 
     // Valid values:
@@ -188,12 +188,12 @@ namespace Models
     // *   false: deletes the stacks.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> retainStacks_ = nullptr;
+    shared_ptr<bool> retainStacks_ {};
     // The name of the stack group. The name must be unique within a region.\\
     // The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackGroupName_ = nullptr;
+    shared_ptr<string> stackGroupName_ {};
   };
 
   } // namespace Models

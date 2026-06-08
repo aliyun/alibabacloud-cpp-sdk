@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->logOption_ == nullptr && return this->outputOption_ == nullptr && return this->regionId_ == nullptr && return this->showResourceProgress_ == nullptr && return this->stackId_ == nullptr; };
+        && this->logOption_ == nullptr && this->outputOption_ == nullptr && this->regionId_ == nullptr && this->showResourceProgress_ == nullptr && this->stackId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetStackRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // logOption Field Functions 
     bool hasLogOption() const { return this->logOption_ != nullptr;};
     void deleteLogOption() { this->logOption_ = nullptr;};
-    inline string logOption() const { DARABONBA_PTR_GET_DEFAULT(logOption_, "") };
+    inline string getLogOption() const { DARABONBA_PTR_GET_DEFAULT(logOption_, "") };
     inline GetStackRequest& setLogOption(string logOption) { DARABONBA_PTR_SET_VALUE(logOption_, logOption) };
 
 
     // outputOption Field Functions 
     bool hasOutputOption() const { return this->outputOption_ != nullptr;};
     void deleteOutputOption() { this->outputOption_ = nullptr;};
-    inline string outputOption() const { DARABONBA_PTR_GET_DEFAULT(outputOption_, "") };
+    inline string getOutputOption() const { DARABONBA_PTR_GET_DEFAULT(outputOption_, "") };
     inline GetStackRequest& setOutputOption(string outputOption) { DARABONBA_PTR_SET_VALUE(outputOption_, outputOption) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetStackRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // showResourceProgress Field Functions 
     bool hasShowResourceProgress() const { return this->showResourceProgress_ != nullptr;};
     void deleteShowResourceProgress() { this->showResourceProgress_ = nullptr;};
-    inline string showResourceProgress() const { DARABONBA_PTR_GET_DEFAULT(showResourceProgress_, "") };
+    inline string getShowResourceProgress() const { DARABONBA_PTR_GET_DEFAULT(showResourceProgress_, "") };
     inline GetStackRequest& setShowResourceProgress(string showResourceProgress) { DARABONBA_PTR_SET_VALUE(showResourceProgress_, showResourceProgress) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline GetStackRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
@@ -87,25 +87,25 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
     // The token can be up to 64 characters in length.\\
     // For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The option for returning logs. Valid values:
     // 
     // *   None: does not return logs.
     // *   Stack (default): returns the logs of the stack.
     // *   Resource: returns the logs of resources in the stack.
     // *   All: returns all logs.
-    std::shared_ptr<string> logOption_ = nullptr;
+    shared_ptr<string> logOption_ {};
     // Specifies whether to return Outputs. Valid values:
     // 
     // *   Enabled (default)
     // *   Disabled
     // 
     // >  The Outputs parameter requires a long period of time to calculate. If you do not require Outputs of the stack, we recommend that you set OutputOption to Disabled to improve the response speed of the GetStack operation.
-    std::shared_ptr<string> outputOption_ = nullptr;
+    shared_ptr<string> outputOption_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to return information about ResourceProgress. Valid values:
     // 
     // *   Disabled (default): does not return information about ResourceProgress.
@@ -116,11 +116,11 @@ namespace Models
     // *   EnabledIfCreateStack (not recommend): returns \\*Count and InProgressResourceDetails of ResourceProgress only during a stack creation operation.
     // 
     // >  During a creation operation, a stack is in one of the following states: CREATE_IN_PROGRESS, CREATE_COMPLETE, CREATE_FAILED, CREATE_ROLLBACK_IN_PROGRESS, CREATE_ROLLBACK_COMPLETE, and CREATE_ROLLBACK_FAILED.
-    std::shared_ptr<string> showResourceProgress_ = nullptr;
+    shared_ptr<string> showResourceProgress_ {};
     // The stack ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
   };
 
   } // namespace Models

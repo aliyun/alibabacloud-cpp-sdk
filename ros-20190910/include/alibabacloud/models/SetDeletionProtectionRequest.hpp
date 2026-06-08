@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->deletionProtection_ == nullptr
-        && return this->regionId_ == nullptr && return this->stackId_ == nullptr; };
+        && this->regionId_ == nullptr && this->stackId_ == nullptr; };
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
-    inline string deletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, "") };
+    inline string getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, "") };
     inline SetDeletionProtectionRequest& setDeletionProtection(string deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline SetDeletionProtectionRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline SetDeletionProtectionRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
@@ -65,17 +65,17 @@ namespace Models
     // >  The deletion of nested stacks is the same as the root stack.
     // 
     // This parameter is required.
-    std::shared_ptr<string> deletionProtection_ = nullptr;
+    shared_ptr<string> deletionProtection_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the stack.
     // 
     // The delete protection attribute of a nested stack is determined by the root stack and remains unchanged from the root stack.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
   };
 
   } // namespace Models

@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diagnosticKey_ == nullptr
-        && return this->diagnosticType_ == nullptr && return this->lang_ == nullptr && return this->product_ == nullptr; };
+        && this->diagnosticType_ == nullptr && this->lang_ == nullptr && this->product_ == nullptr; };
     // diagnosticKey Field Functions 
     bool hasDiagnosticKey() const { return this->diagnosticKey_ != nullptr;};
     void deleteDiagnosticKey() { this->diagnosticKey_ = nullptr;};
-    inline string diagnosticKey() const { DARABONBA_PTR_GET_DEFAULT(diagnosticKey_, "") };
+    inline string getDiagnosticKey() const { DARABONBA_PTR_GET_DEFAULT(diagnosticKey_, "") };
     inline CreateDiagnosticRequest& setDiagnosticKey(string diagnosticKey) { DARABONBA_PTR_SET_VALUE(diagnosticKey_, diagnosticKey) };
 
 
     // diagnosticType Field Functions 
     bool hasDiagnosticType() const { return this->diagnosticType_ != nullptr;};
     void deleteDiagnosticType() { this->diagnosticType_ = nullptr;};
-    inline string diagnosticType() const { DARABONBA_PTR_GET_DEFAULT(diagnosticType_, "") };
+    inline string getDiagnosticType() const { DARABONBA_PTR_GET_DEFAULT(diagnosticType_, "") };
     inline CreateDiagnosticRequest& setDiagnosticType(string diagnosticType) { DARABONBA_PTR_SET_VALUE(diagnosticType_, diagnosticType) };
 
 
     // lang Field Functions 
     bool hasLang() const { return this->lang_ != nullptr;};
     void deleteLang() { this->lang_ = nullptr;};
-    inline string lang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
     inline CreateDiagnosticRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
 
 
     // product Field Functions 
     bool hasProduct() const { return this->product_ != nullptr;};
     void deleteProduct() { this->product_ = nullptr;};
-    inline string product() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
+    inline string getProduct() const { DARABONBA_PTR_GET_DEFAULT(product_, "") };
     inline CreateDiagnosticRequest& setProduct(string product) { DARABONBA_PTR_SET_VALUE(product_, product) };
 
 
@@ -71,18 +71,18 @@ namespace Models
     // You can specify the ID of the stack that you want to diagnose.
     // 
     // This parameter is required.
-    std::shared_ptr<string> diagnosticKey_ = nullptr;
+    shared_ptr<string> diagnosticKey_ {};
     // The type of the item that is diagnosed. Set the value to Stack, which specifies that the stack is diagnosed.
-    std::shared_ptr<string> diagnosticType_ = nullptr;
+    shared_ptr<string> diagnosticType_ {};
     // The language of the diagnostic report to be generated. Only Chinese and English are supported.
     // 
     // Valid values:
     // 
     // *   zh-cn
     // *   en
-    std::shared_ptr<string> lang_ = nullptr;
+    shared_ptr<string> lang_ {};
     // The name of the product that is diagonosed.
-    std::shared_ptr<string> product_ = nullptr;
+    shared_ptr<string> product_ {};
   };
 
   } // namespace Models

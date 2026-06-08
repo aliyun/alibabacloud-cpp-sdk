@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diagnosticKey_ == nullptr
-        && return this->diagnosticProduct_ == nullptr && return this->maxResults_ == nullptr && return this->nextToken_ == nullptr && return this->status_ == nullptr; };
+        && this->diagnosticProduct_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->status_ == nullptr; };
     // diagnosticKey Field Functions 
     bool hasDiagnosticKey() const { return this->diagnosticKey_ != nullptr;};
     void deleteDiagnosticKey() { this->diagnosticKey_ = nullptr;};
-    inline string diagnosticKey() const { DARABONBA_PTR_GET_DEFAULT(diagnosticKey_, "") };
+    inline string getDiagnosticKey() const { DARABONBA_PTR_GET_DEFAULT(diagnosticKey_, "") };
     inline ListDiagnosticsRequest& setDiagnosticKey(string diagnosticKey) { DARABONBA_PTR_SET_VALUE(diagnosticKey_, diagnosticKey) };
 
 
     // diagnosticProduct Field Functions 
     bool hasDiagnosticProduct() const { return this->diagnosticProduct_ != nullptr;};
     void deleteDiagnosticProduct() { this->diagnosticProduct_ = nullptr;};
-    inline string diagnosticProduct() const { DARABONBA_PTR_GET_DEFAULT(diagnosticProduct_, "") };
+    inline string getDiagnosticProduct() const { DARABONBA_PTR_GET_DEFAULT(diagnosticProduct_, "") };
     inline ListDiagnosticsRequest& setDiagnosticProduct(string diagnosticProduct) { DARABONBA_PTR_SET_VALUE(diagnosticProduct_, diagnosticProduct) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline string maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
+    inline string getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, "") };
     inline ListDiagnosticsRequest& setMaxResults(string maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListDiagnosticsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline string status() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+    inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
     inline ListDiagnosticsRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
   protected:
     // The keyword in the diagnosis.
-    std::shared_ptr<string> diagnosticKey_ = nullptr;
+    shared_ptr<string> diagnosticKey_ {};
     // The product that is diagnosed.
-    std::shared_ptr<string> diagnosticProduct_ = nullptr;
+    shared_ptr<string> diagnosticProduct_ {};
     // The maximum number of results to be returned in a single call when NextToken is used for the query.
     // 
     // Valid values: 1 to 100.
     // 
     // Default value: 50.
-    std::shared_ptr<string> maxResults_ = nullptr;
+    shared_ptr<string> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The diagnosis status.
-    std::shared_ptr<string> status_ = nullptr;
+    shared_ptr<string> status_ {};
   };
 
   } // namespace Models

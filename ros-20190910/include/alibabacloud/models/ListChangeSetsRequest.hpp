@@ -45,20 +45,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changeSetId_ == nullptr
-        && return this->changeSetName_ == nullptr && return this->executionStatus_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr
-        && return this->stackId_ == nullptr && return this->status_ == nullptr; };
+        && this->changeSetName_ == nullptr && this->executionStatus_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr
+        && this->stackId_ == nullptr && this->status_ == nullptr; };
     // changeSetId Field Functions 
     bool hasChangeSetId() const { return this->changeSetId_ != nullptr;};
     void deleteChangeSetId() { this->changeSetId_ = nullptr;};
-    inline string changeSetId() const { DARABONBA_PTR_GET_DEFAULT(changeSetId_, "") };
+    inline string getChangeSetId() const { DARABONBA_PTR_GET_DEFAULT(changeSetId_, "") };
     inline ListChangeSetsRequest& setChangeSetId(string changeSetId) { DARABONBA_PTR_SET_VALUE(changeSetId_, changeSetId) };
 
 
     // changeSetName Field Functions 
     bool hasChangeSetName() const { return this->changeSetName_ != nullptr;};
     void deleteChangeSetName() { this->changeSetName_ = nullptr;};
-    inline const vector<string> & changeSetName() const { DARABONBA_PTR_GET_CONST(changeSetName_, vector<string>) };
-    inline vector<string> changeSetName() { DARABONBA_PTR_GET(changeSetName_, vector<string>) };
+    inline const vector<string> & getChangeSetName() const { DARABONBA_PTR_GET_CONST(changeSetName_, vector<string>) };
+    inline vector<string> getChangeSetName() { DARABONBA_PTR_GET(changeSetName_, vector<string>) };
     inline ListChangeSetsRequest& setChangeSetName(const vector<string> & changeSetName) { DARABONBA_PTR_SET_VALUE(changeSetName_, changeSetName) };
     inline ListChangeSetsRequest& setChangeSetName(vector<string> && changeSetName) { DARABONBA_PTR_SET_RVALUE(changeSetName_, changeSetName) };
 
@@ -66,8 +66,8 @@ namespace Models
     // executionStatus Field Functions 
     bool hasExecutionStatus() const { return this->executionStatus_ != nullptr;};
     void deleteExecutionStatus() { this->executionStatus_ = nullptr;};
-    inline const vector<string> & executionStatus() const { DARABONBA_PTR_GET_CONST(executionStatus_, vector<string>) };
-    inline vector<string> executionStatus() { DARABONBA_PTR_GET(executionStatus_, vector<string>) };
+    inline const vector<string> & getExecutionStatus() const { DARABONBA_PTR_GET_CONST(executionStatus_, vector<string>) };
+    inline vector<string> getExecutionStatus() { DARABONBA_PTR_GET(executionStatus_, vector<string>) };
     inline ListChangeSetsRequest& setExecutionStatus(const vector<string> & executionStatus) { DARABONBA_PTR_SET_VALUE(executionStatus_, executionStatus) };
     inline ListChangeSetsRequest& setExecutionStatus(vector<string> && executionStatus) { DARABONBA_PTR_SET_RVALUE(executionStatus_, executionStatus) };
 
@@ -75,45 +75,45 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListChangeSetsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListChangeSetsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListChangeSetsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline ListChangeSetsRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const vector<string> & status() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
-    inline vector<string> status() { DARABONBA_PTR_GET(status_, vector<string>) };
+    inline const vector<string> & getStatus() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
+    inline vector<string> getStatus() { DARABONBA_PTR_GET(status_, vector<string>) };
     inline ListChangeSetsRequest& setStatus(const vector<string> & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline ListChangeSetsRequest& setStatus(vector<string> && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
 
   protected:
     // The ID of the change set. If detailed information about the change set is not required, you can use this parameter to replace the GetChangeSet operation.
-    std::shared_ptr<string> changeSetId_ = nullptr;
+    shared_ptr<string> changeSetId_ {};
     // The name of change set N. Maximum value of N: 5. You can use an asterisk (\\*) as a wildcard for fuzzy search.
-    std::shared_ptr<vector<string>> changeSetName_ = nullptr;
+    shared_ptr<vector<string>> changeSetName_ {};
     // The execution status of change set N. Maximum value of N: 5. Valid values:
     // 
     // *   UNAVAILABLE
@@ -122,23 +122,23 @@ namespace Models
     // *   EXECUTE_COMPLETE
     // *   EXECUTE_FAILED
     // *   OBSOLETE
-    std::shared_ptr<vector<string>> executionStatus_ = nullptr;
+    shared_ptr<vector<string>> executionStatus_ {};
     // The page number.\\
     // Pages start from page 1.\\
     // Default value: 1.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.\\
     // Valid values: 1 to 50.\\
     // Default value: 10.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the stack.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
     // The status of change set N. Maximum value of N: 5. Valid values:
     // 
     // *   CREATE_PENDING
@@ -147,7 +147,7 @@ namespace Models
     // *   CREATE_FAILED
     // *   DELETE_FAILED
     // *   DELETE_COMPLETE
-    std::shared_ptr<vector<string>> status_ = nullptr;
+    shared_ptr<vector<string>> status_ {};
   };
 
   } // namespace Models

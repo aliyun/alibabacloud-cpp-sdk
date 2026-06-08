@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_DELETESTACKINSTANCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/DeleteStackInstancesRequestDeploymentTargets.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -47,14 +46,68 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class DeploymentTargets : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DeploymentTargets& obj) { 
+        DARABONBA_PTR_TO_JSON(AccountIds, accountIds_);
+        DARABONBA_PTR_TO_JSON(RdFolderIds, rdFolderIds_);
+      };
+      friend void from_json(const Darabonba::Json& j, DeploymentTargets& obj) { 
+        DARABONBA_PTR_FROM_JSON(AccountIds, accountIds_);
+        DARABONBA_PTR_FROM_JSON(RdFolderIds, rdFolderIds_);
+      };
+      DeploymentTargets() = default ;
+      DeploymentTargets(const DeploymentTargets &) = default ;
+      DeploymentTargets(DeploymentTargets &&) = default ;
+      DeploymentTargets(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DeploymentTargets() = default ;
+      DeploymentTargets& operator=(const DeploymentTargets &) = default ;
+      DeploymentTargets& operator=(DeploymentTargets &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->accountIds_ == nullptr
+        && this->rdFolderIds_ == nullptr; };
+      // accountIds Field Functions 
+      bool hasAccountIds() const { return this->accountIds_ != nullptr;};
+      void deleteAccountIds() { this->accountIds_ = nullptr;};
+      inline const vector<string> & getAccountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
+      inline vector<string> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
+      inline DeploymentTargets& setAccountIds(const vector<string> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
+      inline DeploymentTargets& setAccountIds(vector<string> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
+
+
+      // rdFolderIds Field Functions 
+      bool hasRdFolderIds() const { return this->rdFolderIds_ != nullptr;};
+      void deleteRdFolderIds() { this->rdFolderIds_ = nullptr;};
+      inline const vector<string> & getRdFolderIds() const { DARABONBA_PTR_GET_CONST(rdFolderIds_, vector<string>) };
+      inline vector<string> getRdFolderIds() { DARABONBA_PTR_GET(rdFolderIds_, vector<string>) };
+      inline DeploymentTargets& setRdFolderIds(const vector<string> & rdFolderIds) { DARABONBA_PTR_SET_VALUE(rdFolderIds_, rdFolderIds) };
+      inline DeploymentTargets& setRdFolderIds(vector<string> && rdFolderIds) { DARABONBA_PTR_SET_RVALUE(rdFolderIds_, rdFolderIds) };
+
+
+    protected:
+      // The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
+      // 
+      // > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+      shared_ptr<vector<string>> accountIds_ {};
+      // The IDs of the folders in the resource directory. You can add up to five folder IDs.
+      // 
+      // You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
+      // 
+      // > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](https://help.aliyun.com/document_detail/111223.html).
+      shared_ptr<vector<string>> rdFolderIds_ {};
+    };
+
     virtual bool empty() const override { return this->accountIds_ == nullptr
-        && return this->clientToken_ == nullptr && return this->deploymentTargets_ == nullptr && return this->operationDescription_ == nullptr && return this->operationPreferences_ == nullptr && return this->regionId_ == nullptr
-        && return this->regionIds_ == nullptr && return this->retainStacks_ == nullptr && return this->stackGroupName_ == nullptr; };
+        && this->clientToken_ == nullptr && this->deploymentTargets_ == nullptr && this->operationDescription_ == nullptr && this->operationPreferences_ == nullptr && this->regionId_ == nullptr
+        && this->regionIds_ == nullptr && this->retainStacks_ == nullptr && this->stackGroupName_ == nullptr; };
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline const vector<string> & accountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
-    inline vector<string> accountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
+    inline const vector<string> & getAccountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
+    inline vector<string> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
     inline DeleteStackInstancesRequest& setAccountIds(const vector<string> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
     inline DeleteStackInstancesRequest& setAccountIds(vector<string> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
 
@@ -62,47 +115,47 @@ namespace Models
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteStackInstancesRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deploymentTargets Field Functions 
     bool hasDeploymentTargets() const { return this->deploymentTargets_ != nullptr;};
     void deleteDeploymentTargets() { this->deploymentTargets_ = nullptr;};
-    inline const DeleteStackInstancesRequestDeploymentTargets & deploymentTargets() const { DARABONBA_PTR_GET_CONST(deploymentTargets_, DeleteStackInstancesRequestDeploymentTargets) };
-    inline DeleteStackInstancesRequestDeploymentTargets deploymentTargets() { DARABONBA_PTR_GET(deploymentTargets_, DeleteStackInstancesRequestDeploymentTargets) };
-    inline DeleteStackInstancesRequest& setDeploymentTargets(const DeleteStackInstancesRequestDeploymentTargets & deploymentTargets) { DARABONBA_PTR_SET_VALUE(deploymentTargets_, deploymentTargets) };
-    inline DeleteStackInstancesRequest& setDeploymentTargets(DeleteStackInstancesRequestDeploymentTargets && deploymentTargets) { DARABONBA_PTR_SET_RVALUE(deploymentTargets_, deploymentTargets) };
+    inline const DeleteStackInstancesRequest::DeploymentTargets & getDeploymentTargets() const { DARABONBA_PTR_GET_CONST(deploymentTargets_, DeleteStackInstancesRequest::DeploymentTargets) };
+    inline DeleteStackInstancesRequest::DeploymentTargets getDeploymentTargets() { DARABONBA_PTR_GET(deploymentTargets_, DeleteStackInstancesRequest::DeploymentTargets) };
+    inline DeleteStackInstancesRequest& setDeploymentTargets(const DeleteStackInstancesRequest::DeploymentTargets & deploymentTargets) { DARABONBA_PTR_SET_VALUE(deploymentTargets_, deploymentTargets) };
+    inline DeleteStackInstancesRequest& setDeploymentTargets(DeleteStackInstancesRequest::DeploymentTargets && deploymentTargets) { DARABONBA_PTR_SET_RVALUE(deploymentTargets_, deploymentTargets) };
 
 
     // operationDescription Field Functions 
     bool hasOperationDescription() const { return this->operationDescription_ != nullptr;};
     void deleteOperationDescription() { this->operationDescription_ = nullptr;};
-    inline string operationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
+    inline string getOperationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
     inline DeleteStackInstancesRequest& setOperationDescription(string operationDescription) { DARABONBA_PTR_SET_VALUE(operationDescription_, operationDescription) };
 
 
     // operationPreferences Field Functions 
     bool hasOperationPreferences() const { return this->operationPreferences_ != nullptr;};
     void deleteOperationPreferences() { this->operationPreferences_ = nullptr;};
-    inline     const Darabonba::Json & operationPreferences() const { DARABONBA_GET(operationPreferences_) };
-    Darabonba::Json & operationPreferences() { DARABONBA_GET(operationPreferences_) };
+    inline     const Darabonba::Json & getOperationPreferences() const { DARABONBA_GET(operationPreferences_) };
+    Darabonba::Json & getOperationPreferences() { DARABONBA_GET(operationPreferences_) };
     inline DeleteStackInstancesRequest& setOperationPreferences(const Darabonba::Json & operationPreferences) { DARABONBA_SET_VALUE(operationPreferences_, operationPreferences) };
-    inline DeleteStackInstancesRequest& setOperationPreferences(Darabonba::Json & operationPreferences) { DARABONBA_SET_RVALUE(operationPreferences_, operationPreferences) };
+    inline DeleteStackInstancesRequest& setOperationPreferences(Darabonba::Json && operationPreferences) { DARABONBA_SET_RVALUE(operationPreferences_, operationPreferences) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteStackInstancesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionIds Field Functions 
     bool hasRegionIds() const { return this->regionIds_ != nullptr;};
     void deleteRegionIds() { this->regionIds_ = nullptr;};
-    inline const vector<string> & regionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
-    inline vector<string> regionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
+    inline const vector<string> & getRegionIds() const { DARABONBA_PTR_GET_CONST(regionIds_, vector<string>) };
+    inline vector<string> getRegionIds() { DARABONBA_PTR_GET(regionIds_, vector<string>) };
     inline DeleteStackInstancesRequest& setRegionIds(const vector<string> & regionIds) { DARABONBA_PTR_SET_VALUE(regionIds_, regionIds) };
     inline DeleteStackInstancesRequest& setRegionIds(vector<string> && regionIds) { DARABONBA_PTR_SET_RVALUE(regionIds_, regionIds) };
 
@@ -110,30 +163,30 @@ namespace Models
     // retainStacks Field Functions 
     bool hasRetainStacks() const { return this->retainStacks_ != nullptr;};
     void deleteRetainStacks() { this->retainStacks_ = nullptr;};
-    inline bool retainStacks() const { DARABONBA_PTR_GET_DEFAULT(retainStacks_, false) };
+    inline bool getRetainStacks() const { DARABONBA_PTR_GET_DEFAULT(retainStacks_, false) };
     inline DeleteStackInstancesRequest& setRetainStacks(bool retainStacks) { DARABONBA_PTR_SET_VALUE(retainStacks_, retainStacks) };
 
 
     // stackGroupName Field Functions 
     bool hasStackGroupName() const { return this->stackGroupName_ != nullptr;};
     void deleteStackGroupName() { this->stackGroupName_ = nullptr;};
-    inline string stackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
+    inline string getStackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
     inline DeleteStackInstancesRequest& setStackGroupName(string stackGroupName) { DARABONBA_PTR_SET_VALUE(stackGroupName_, stackGroupName) };
 
 
   protected:
     // The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
-    std::shared_ptr<vector<string>> accountIds_ = nullptr;
+    shared_ptr<vector<string>> accountIds_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
     // The token can contain letters, digits, hyphens (-), and underscores (_), and cannot exceed 64 characters in length.\\
     // For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The folders in which you want to deploy stacks in service-managed mode.
-    std::shared_ptr<DeleteStackInstancesRequestDeploymentTargets> deploymentTargets_ = nullptr;
+    shared_ptr<DeleteStackInstancesRequest::DeploymentTargets> deploymentTargets_ {};
     // The description of the delete operation.
     // 
     // The description must be 1 to 256 characters in length.
-    std::shared_ptr<string> operationDescription_ = nullptr;
+    shared_ptr<string> operationDescription_ {};
     // The preference settings of the delete operation.
     // 
     // The following parameters are available:
@@ -181,15 +234,15 @@ namespace Models
     // 
     // > - You can specify only one of the following parameters: MaxConcurrentCount and MaxConcurrentPercentage.
     // > - You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
-    Darabonba::Json operationPreferences_ = nullptr;
+    Darabonba::Json operationPreferences_ {};
     // The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the regions where you want to delete the stacks. You can specify up to 20 region IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> regionIds_ = nullptr;
+    shared_ptr<vector<string>> regionIds_ {};
     // Specifies whether to delete the stacks.
     // 
     // Valid values:
@@ -198,12 +251,12 @@ namespace Models
     // *   false: deletes the stacks.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> retainStacks_ = nullptr;
+    shared_ptr<bool> retainStacks_ {};
     // The name of the stack group. The name must be unique within a region.\\
     // The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackGroupName_ = nullptr;
+    shared_ptr<string> stackGroupName_ {};
   };
 
   } // namespace Models

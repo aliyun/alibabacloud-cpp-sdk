@@ -34,39 +34,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->templateBody_ == nullptr && return this->templateContent_ == nullptr; };
+        && this->templateBody_ == nullptr && this->templateContent_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetResourceTypeTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // templateBody Field Functions 
     bool hasTemplateBody() const { return this->templateBody_ != nullptr;};
     void deleteTemplateBody() { this->templateBody_ = nullptr;};
-    inline     const Darabonba::Json & templateBody() const { DARABONBA_GET(templateBody_) };
-    Darabonba::Json & templateBody() { DARABONBA_GET(templateBody_) };
+    inline     const Darabonba::Json & getTemplateBody() const { DARABONBA_GET(templateBody_) };
+    Darabonba::Json & getTemplateBody() { DARABONBA_GET(templateBody_) };
     inline GetResourceTypeTemplateResponseBody& setTemplateBody(const Darabonba::Json & templateBody) { DARABONBA_SET_VALUE(templateBody_, templateBody) };
-    inline GetResourceTypeTemplateResponseBody& setTemplateBody(Darabonba::Json & templateBody) { DARABONBA_SET_RVALUE(templateBody_, templateBody) };
+    inline GetResourceTypeTemplateResponseBody& setTemplateBody(Darabonba::Json && templateBody) { DARABONBA_SET_RVALUE(templateBody_, templateBody) };
 
 
     // templateContent Field Functions 
     bool hasTemplateContent() const { return this->templateContent_ != nullptr;};
     void deleteTemplateContent() { this->templateContent_ = nullptr;};
-    inline string templateContent() const { DARABONBA_PTR_GET_DEFAULT(templateContent_, "") };
+    inline string getTemplateContent() const { DARABONBA_PTR_GET_DEFAULT(templateContent_, "") };
     inline GetResourceTypeTemplateResponseBody& setTemplateContent(string templateContent) { DARABONBA_PTR_SET_VALUE(templateContent_, templateContent) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The structure that contains the template body. The template body must be 1 to 51,200 bytes in length. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
     // 
     // > We recommend that use TemplateContent instead of TemplateBody.
-    Darabonba::Json templateBody_ = nullptr;
+    Darabonba::Json templateBody_ {};
     // The JSON-formatted structure of the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
-    std::shared_ptr<string> templateContent_ = nullptr;
+    shared_ptr<string> templateContent_ {};
   };
 
   } // namespace Models

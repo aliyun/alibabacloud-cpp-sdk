@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateVersion_ == nullptr; };
+        && this->templateId_ == nullptr && this->templateVersion_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateTemplateResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline UpdateTemplateResponseBody& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateVersion Field Functions 
     bool hasTemplateVersion() const { return this->templateVersion_ != nullptr;};
     void deleteTemplateVersion() { this->templateVersion_ = nullptr;};
-    inline string templateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
+    inline string getTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
     inline UpdateTemplateResponseBody& setTemplateVersion(string templateVersion) { DARABONBA_PTR_SET_VALUE(templateVersion_, templateVersion) };
 
 
   protected:
     // Request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // Template ID.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The template version affected by this operation.
-    std::shared_ptr<string> templateVersion_ = nullptr;
+    shared_ptr<string> templateVersion_ {};
   };
 
   } // namespace Models

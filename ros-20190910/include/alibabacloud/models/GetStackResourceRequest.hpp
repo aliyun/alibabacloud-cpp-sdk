@@ -41,33 +41,33 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->logicalResourceId_ == nullptr && return this->regionId_ == nullptr && return this->resourceAttributes_ == nullptr && return this->showResourceAttributes_ == nullptr && return this->stackId_ == nullptr; };
+        && this->logicalResourceId_ == nullptr && this->regionId_ == nullptr && this->resourceAttributes_ == nullptr && this->showResourceAttributes_ == nullptr && this->stackId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline GetStackResourceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // logicalResourceId Field Functions 
     bool hasLogicalResourceId() const { return this->logicalResourceId_ != nullptr;};
     void deleteLogicalResourceId() { this->logicalResourceId_ = nullptr;};
-    inline string logicalResourceId() const { DARABONBA_PTR_GET_DEFAULT(logicalResourceId_, "") };
+    inline string getLogicalResourceId() const { DARABONBA_PTR_GET_DEFAULT(logicalResourceId_, "") };
     inline GetStackResourceRequest& setLogicalResourceId(string logicalResourceId) { DARABONBA_PTR_SET_VALUE(logicalResourceId_, logicalResourceId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetStackResourceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceAttributes Field Functions 
     bool hasResourceAttributes() const { return this->resourceAttributes_ != nullptr;};
     void deleteResourceAttributes() { this->resourceAttributes_ = nullptr;};
-    inline const vector<string> & resourceAttributes() const { DARABONBA_PTR_GET_CONST(resourceAttributes_, vector<string>) };
-    inline vector<string> resourceAttributes() { DARABONBA_PTR_GET(resourceAttributes_, vector<string>) };
+    inline const vector<string> & getResourceAttributes() const { DARABONBA_PTR_GET_CONST(resourceAttributes_, vector<string>) };
+    inline vector<string> getResourceAttributes() { DARABONBA_PTR_GET(resourceAttributes_, vector<string>) };
     inline GetStackResourceRequest& setResourceAttributes(const vector<string> & resourceAttributes) { DARABONBA_PTR_SET_VALUE(resourceAttributes_, resourceAttributes) };
     inline GetStackResourceRequest& setResourceAttributes(vector<string> && resourceAttributes) { DARABONBA_PTR_SET_RVALUE(resourceAttributes_, resourceAttributes) };
 
@@ -75,14 +75,14 @@ namespace Models
     // showResourceAttributes Field Functions 
     bool hasShowResourceAttributes() const { return this->showResourceAttributes_ != nullptr;};
     void deleteShowResourceAttributes() { this->showResourceAttributes_ = nullptr;};
-    inline bool showResourceAttributes() const { DARABONBA_PTR_GET_DEFAULT(showResourceAttributes_, false) };
+    inline bool getShowResourceAttributes() const { DARABONBA_PTR_GET_DEFAULT(showResourceAttributes_, false) };
     inline GetStackResourceRequest& setShowResourceAttributes(bool showResourceAttributes) { DARABONBA_PTR_SET_VALUE(showResourceAttributes_, showResourceAttributes) };
 
 
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline GetStackResourceRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
@@ -91,17 +91,17 @@ namespace Models
     // 
     // *   true
     // *   false
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The name of resource property N that you want to query.
     // 
     // >  Maximum value of N: 20.
     // 
     // This parameter is required.
-    std::shared_ptr<string> logicalResourceId_ = nullptr;
+    shared_ptr<string> logicalResourceId_ {};
     // The logical ID of the resource defined in the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The status of the resource. Valid values:
     // 
     // *   CREATE_COMPLETE
@@ -118,13 +118,13 @@ namespace Models
     // *   IMPORT_IN_PROGRESS
     // *   IMPORT_FAILED
     // *   IMPORT_COMPLETE
-    std::shared_ptr<vector<string>> resourceAttributes_ = nullptr;
+    shared_ptr<vector<string>> resourceAttributes_ {};
     // The name of resource property N that you want to query.
-    std::shared_ptr<bool> showResourceAttributes_ = nullptr;
+    shared_ptr<bool> showResourceAttributes_ {};
     // The ID of the region to which the stack belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
   };
 
   } // namespace Models

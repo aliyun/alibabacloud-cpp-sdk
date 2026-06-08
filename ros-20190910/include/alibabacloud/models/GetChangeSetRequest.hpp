@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changeSetId_ == nullptr
-        && return this->regionId_ == nullptr && return this->showTemplate_ == nullptr; };
+        && this->regionId_ == nullptr && this->showTemplate_ == nullptr; };
     // changeSetId Field Functions 
     bool hasChangeSetId() const { return this->changeSetId_ != nullptr;};
     void deleteChangeSetId() { this->changeSetId_ = nullptr;};
-    inline string changeSetId() const { DARABONBA_PTR_GET_DEFAULT(changeSetId_, "") };
+    inline string getChangeSetId() const { DARABONBA_PTR_GET_DEFAULT(changeSetId_, "") };
     inline GetChangeSetRequest& setChangeSetId(string changeSetId) { DARABONBA_PTR_SET_VALUE(changeSetId_, changeSetId) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetChangeSetRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // showTemplate Field Functions 
     bool hasShowTemplate() const { return this->showTemplate_ != nullptr;};
     void deleteShowTemplate() { this->showTemplate_ = nullptr;};
-    inline bool showTemplate() const { DARABONBA_PTR_GET_DEFAULT(showTemplate_, false) };
+    inline bool getShowTemplate() const { DARABONBA_PTR_GET_DEFAULT(showTemplate_, false) };
     inline GetChangeSetRequest& setShowTemplate(bool showTemplate) { DARABONBA_PTR_SET_VALUE(showTemplate_, showTemplate) };
 
 
@@ -60,16 +60,16 @@ namespace Models
     // The ID of the change set.
     // 
     // This parameter is required.
-    std::shared_ptr<string> changeSetId_ = nullptr;
+    shared_ptr<string> changeSetId_ {};
     // The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // Specifies whether to obtain the template. Valid values:
     // 
     // *   true
     // *   false (default)
-    std::shared_ptr<bool> showTemplate_ = nullptr;
+    shared_ptr<bool> showTemplate_ {};
   };
 
   } // namespace Models

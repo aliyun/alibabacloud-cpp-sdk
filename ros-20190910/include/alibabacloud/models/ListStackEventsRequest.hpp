@@ -43,13 +43,13 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logicalResourceId_ == nullptr
-        && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->regionId_ == nullptr && return this->resourceType_ == nullptr && return this->stackId_ == nullptr
-        && return this->status_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->stackId_ == nullptr
+        && this->status_ == nullptr; };
     // logicalResourceId Field Functions 
     bool hasLogicalResourceId() const { return this->logicalResourceId_ != nullptr;};
     void deleteLogicalResourceId() { this->logicalResourceId_ = nullptr;};
-    inline const vector<string> & logicalResourceId() const { DARABONBA_PTR_GET_CONST(logicalResourceId_, vector<string>) };
-    inline vector<string> logicalResourceId() { DARABONBA_PTR_GET(logicalResourceId_, vector<string>) };
+    inline const vector<string> & getLogicalResourceId() const { DARABONBA_PTR_GET_CONST(logicalResourceId_, vector<string>) };
+    inline vector<string> getLogicalResourceId() { DARABONBA_PTR_GET(logicalResourceId_, vector<string>) };
     inline ListStackEventsRequest& setLogicalResourceId(const vector<string> & logicalResourceId) { DARABONBA_PTR_SET_VALUE(logicalResourceId_, logicalResourceId) };
     inline ListStackEventsRequest& setLogicalResourceId(vector<string> && logicalResourceId) { DARABONBA_PTR_SET_RVALUE(logicalResourceId_, logicalResourceId) };
 
@@ -57,29 +57,29 @@ namespace Models
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int64_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
+    inline int64_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0L) };
     inline ListStackEventsRequest& setPageNumber(int64_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int64_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
+    inline int64_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0L) };
     inline ListStackEventsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListStackEventsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline const vector<string> & resourceType() const { DARABONBA_PTR_GET_CONST(resourceType_, vector<string>) };
-    inline vector<string> resourceType() { DARABONBA_PTR_GET(resourceType_, vector<string>) };
+    inline const vector<string> & getResourceType() const { DARABONBA_PTR_GET_CONST(resourceType_, vector<string>) };
+    inline vector<string> getResourceType() { DARABONBA_PTR_GET(resourceType_, vector<string>) };
     inline ListStackEventsRequest& setResourceType(const vector<string> & resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
     inline ListStackEventsRequest& setResourceType(vector<string> && resourceType) { DARABONBA_PTR_SET_RVALUE(resourceType_, resourceType) };
 
@@ -87,42 +87,42 @@ namespace Models
     // stackId Field Functions 
     bool hasStackId() const { return this->stackId_ != nullptr;};
     void deleteStackId() { this->stackId_ = nullptr;};
-    inline string stackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
+    inline string getStackId() const { DARABONBA_PTR_GET_DEFAULT(stackId_, "") };
     inline ListStackEventsRequest& setStackId(string stackId) { DARABONBA_PTR_SET_VALUE(stackId_, stackId) };
 
 
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
-    inline const vector<string> & status() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
-    inline vector<string> status() { DARABONBA_PTR_GET(status_, vector<string>) };
+    inline const vector<string> & getStatus() const { DARABONBA_PTR_GET_CONST(status_, vector<string>) };
+    inline vector<string> getStatus() { DARABONBA_PTR_GET(status_, vector<string>) };
     inline ListStackEventsRequest& setStatus(const vector<string> & status) { DARABONBA_PTR_SET_VALUE(status_, status) };
     inline ListStackEventsRequest& setStatus(vector<string> && status) { DARABONBA_PTR_SET_RVALUE(status_, status) };
 
 
   protected:
     // The logical IDs of the resources.
-    std::shared_ptr<vector<string>> logicalResourceId_ = nullptr;
+    shared_ptr<vector<string>> logicalResourceId_ {};
     // The number of the page to return.\\
     // Pages start from page 1.\\
     // Default value: 1.
-    std::shared_ptr<int64_t> pageNumber_ = nullptr;
+    shared_ptr<int64_t> pageNumber_ {};
     // The number of entries to return on each page.\\
     // Maximum value: 50.\\
     // Default value: 10.
-    std::shared_ptr<int64_t> pageSize_ = nullptr;
+    shared_ptr<int64_t> pageSize_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The resource types.
-    std::shared_ptr<vector<string>> resourceType_ = nullptr;
+    shared_ptr<vector<string>> resourceType_ {};
     // The stack ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackId_ = nullptr;
+    shared_ptr<string> stackId_ {};
     // The status of the resource.
-    std::shared_ptr<vector<string>> status_ = nullptr;
+    shared_ptr<vector<string>> status_ {};
   };
 
   } // namespace Models

@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->newTemplateBody_ == nullptr
-        && return this->oldTemplateBody_ == nullptr && return this->requestId_ == nullptr; };
+        && this->oldTemplateBody_ == nullptr && this->requestId_ == nullptr; };
     // newTemplateBody Field Functions 
     bool hasNewTemplateBody() const { return this->newTemplateBody_ != nullptr;};
     void deleteNewTemplateBody() { this->newTemplateBody_ = nullptr;};
-    inline string newTemplateBody() const { DARABONBA_PTR_GET_DEFAULT(newTemplateBody_, "") };
+    inline string getNewTemplateBody() const { DARABONBA_PTR_GET_DEFAULT(newTemplateBody_, "") };
     inline UpdateStackTemplateByResourcesResponseBody& setNewTemplateBody(string newTemplateBody) { DARABONBA_PTR_SET_VALUE(newTemplateBody_, newTemplateBody) };
 
 
     // oldTemplateBody Field Functions 
     bool hasOldTemplateBody() const { return this->oldTemplateBody_ != nullptr;};
     void deleteOldTemplateBody() { this->oldTemplateBody_ = nullptr;};
-    inline string oldTemplateBody() const { DARABONBA_PTR_GET_DEFAULT(oldTemplateBody_, "") };
+    inline string getOldTemplateBody() const { DARABONBA_PTR_GET_DEFAULT(oldTemplateBody_, "") };
     inline UpdateStackTemplateByResourcesResponseBody& setOldTemplateBody(string oldTemplateBody) { DARABONBA_PTR_SET_VALUE(oldTemplateBody_, oldTemplateBody) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline UpdateStackTemplateByResourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The template content after correction.
-    std::shared_ptr<string> newTemplateBody_ = nullptr;
+    shared_ptr<string> newTemplateBody_ {};
     // The template content before correction.
-    std::shared_ptr<string> oldTemplateBody_ = nullptr;
+    shared_ptr<string> oldTemplateBody_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

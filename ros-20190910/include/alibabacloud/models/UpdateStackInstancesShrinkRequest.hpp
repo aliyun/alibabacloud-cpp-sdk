@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_UPDATESTACKINSTANCESSHRINKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/UpdateStackInstancesShrinkRequestParameterOverrides.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -49,78 +48,136 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ParameterOverrides : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ParameterOverrides& obj) { 
+        DARABONBA_PTR_TO_JSON(ParameterKey, parameterKey_);
+        DARABONBA_PTR_TO_JSON(ParameterValue, parameterValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, ParameterOverrides& obj) { 
+        DARABONBA_PTR_FROM_JSON(ParameterKey, parameterKey_);
+        DARABONBA_PTR_FROM_JSON(ParameterValue, parameterValue_);
+      };
+      ParameterOverrides() = default ;
+      ParameterOverrides(const ParameterOverrides &) = default ;
+      ParameterOverrides(ParameterOverrides &&) = default ;
+      ParameterOverrides(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ParameterOverrides() = default ;
+      ParameterOverrides& operator=(const ParameterOverrides &) = default ;
+      ParameterOverrides& operator=(ParameterOverrides &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->parameterKey_ == nullptr
+        && this->parameterValue_ == nullptr; };
+      // parameterKey Field Functions 
+      bool hasParameterKey() const { return this->parameterKey_ != nullptr;};
+      void deleteParameterKey() { this->parameterKey_ = nullptr;};
+      inline string getParameterKey() const { DARABONBA_PTR_GET_DEFAULT(parameterKey_, "") };
+      inline ParameterOverrides& setParameterKey(string parameterKey) { DARABONBA_PTR_SET_VALUE(parameterKey_, parameterKey) };
+
+
+      // parameterValue Field Functions 
+      bool hasParameterValue() const { return this->parameterValue_ != nullptr;};
+      void deleteParameterValue() { this->parameterValue_ = nullptr;};
+      inline string getParameterValue() const { DARABONBA_PTR_GET_DEFAULT(parameterValue_, "") };
+      inline ParameterOverrides& setParameterValue(string parameterValue) { DARABONBA_PTR_SET_VALUE(parameterValue_, parameterValue) };
+
+
+    protected:
+      // The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
+      // 
+      // Maximum value of N: 200.
+      // 
+      // > -  ParameterOverrides is optional.
+      // > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+      // 
+      // This parameter is required.
+      shared_ptr<string> parameterKey_ {};
+      // The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
+      // 
+      // Maximum value of N: 200.
+      // 
+      // > -  ParameterOverrides is optional.
+      // > - If you specify ParameterOverrides, you must specify ParameterOverrides.N.ParameterKey and ParameterOverrides.N.ParameterValue.
+      // 
+      // This parameter is required.
+      shared_ptr<string> parameterValue_ {};
+    };
+
     virtual bool empty() const override { return this->accountIdsShrink_ == nullptr
-        && return this->clientToken_ == nullptr && return this->deploymentTargetsShrink_ == nullptr && return this->operationDescription_ == nullptr && return this->operationPreferencesShrink_ == nullptr && return this->parameterOverrides_ == nullptr
-        && return this->regionId_ == nullptr && return this->regionIdsShrink_ == nullptr && return this->stackGroupName_ == nullptr && return this->timeoutInMinutes_ == nullptr; };
+        && this->clientToken_ == nullptr && this->deploymentTargetsShrink_ == nullptr && this->operationDescription_ == nullptr && this->operationPreferencesShrink_ == nullptr && this->parameterOverrides_ == nullptr
+        && this->regionId_ == nullptr && this->regionIdsShrink_ == nullptr && this->stackGroupName_ == nullptr && this->timeoutInMinutes_ == nullptr; };
     // accountIdsShrink Field Functions 
     bool hasAccountIdsShrink() const { return this->accountIdsShrink_ != nullptr;};
     void deleteAccountIdsShrink() { this->accountIdsShrink_ = nullptr;};
-    inline string accountIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(accountIdsShrink_, "") };
+    inline string getAccountIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(accountIdsShrink_, "") };
     inline UpdateStackInstancesShrinkRequest& setAccountIdsShrink(string accountIdsShrink) { DARABONBA_PTR_SET_VALUE(accountIdsShrink_, accountIdsShrink) };
 
 
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateStackInstancesShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // deploymentTargetsShrink Field Functions 
     bool hasDeploymentTargetsShrink() const { return this->deploymentTargetsShrink_ != nullptr;};
     void deleteDeploymentTargetsShrink() { this->deploymentTargetsShrink_ = nullptr;};
-    inline string deploymentTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetsShrink_, "") };
+    inline string getDeploymentTargetsShrink() const { DARABONBA_PTR_GET_DEFAULT(deploymentTargetsShrink_, "") };
     inline UpdateStackInstancesShrinkRequest& setDeploymentTargetsShrink(string deploymentTargetsShrink) { DARABONBA_PTR_SET_VALUE(deploymentTargetsShrink_, deploymentTargetsShrink) };
 
 
     // operationDescription Field Functions 
     bool hasOperationDescription() const { return this->operationDescription_ != nullptr;};
     void deleteOperationDescription() { this->operationDescription_ = nullptr;};
-    inline string operationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
+    inline string getOperationDescription() const { DARABONBA_PTR_GET_DEFAULT(operationDescription_, "") };
     inline UpdateStackInstancesShrinkRequest& setOperationDescription(string operationDescription) { DARABONBA_PTR_SET_VALUE(operationDescription_, operationDescription) };
 
 
     // operationPreferencesShrink Field Functions 
     bool hasOperationPreferencesShrink() const { return this->operationPreferencesShrink_ != nullptr;};
     void deleteOperationPreferencesShrink() { this->operationPreferencesShrink_ = nullptr;};
-    inline string operationPreferencesShrink() const { DARABONBA_PTR_GET_DEFAULT(operationPreferencesShrink_, "") };
+    inline string getOperationPreferencesShrink() const { DARABONBA_PTR_GET_DEFAULT(operationPreferencesShrink_, "") };
     inline UpdateStackInstancesShrinkRequest& setOperationPreferencesShrink(string operationPreferencesShrink) { DARABONBA_PTR_SET_VALUE(operationPreferencesShrink_, operationPreferencesShrink) };
 
 
     // parameterOverrides Field Functions 
     bool hasParameterOverrides() const { return this->parameterOverrides_ != nullptr;};
     void deleteParameterOverrides() { this->parameterOverrides_ = nullptr;};
-    inline const vector<UpdateStackInstancesShrinkRequestParameterOverrides> & parameterOverrides() const { DARABONBA_PTR_GET_CONST(parameterOverrides_, vector<UpdateStackInstancesShrinkRequestParameterOverrides>) };
-    inline vector<UpdateStackInstancesShrinkRequestParameterOverrides> parameterOverrides() { DARABONBA_PTR_GET(parameterOverrides_, vector<UpdateStackInstancesShrinkRequestParameterOverrides>) };
-    inline UpdateStackInstancesShrinkRequest& setParameterOverrides(const vector<UpdateStackInstancesShrinkRequestParameterOverrides> & parameterOverrides) { DARABONBA_PTR_SET_VALUE(parameterOverrides_, parameterOverrides) };
-    inline UpdateStackInstancesShrinkRequest& setParameterOverrides(vector<UpdateStackInstancesShrinkRequestParameterOverrides> && parameterOverrides) { DARABONBA_PTR_SET_RVALUE(parameterOverrides_, parameterOverrides) };
+    inline const vector<UpdateStackInstancesShrinkRequest::ParameterOverrides> & getParameterOverrides() const { DARABONBA_PTR_GET_CONST(parameterOverrides_, vector<UpdateStackInstancesShrinkRequest::ParameterOverrides>) };
+    inline vector<UpdateStackInstancesShrinkRequest::ParameterOverrides> getParameterOverrides() { DARABONBA_PTR_GET(parameterOverrides_, vector<UpdateStackInstancesShrinkRequest::ParameterOverrides>) };
+    inline UpdateStackInstancesShrinkRequest& setParameterOverrides(const vector<UpdateStackInstancesShrinkRequest::ParameterOverrides> & parameterOverrides) { DARABONBA_PTR_SET_VALUE(parameterOverrides_, parameterOverrides) };
+    inline UpdateStackInstancesShrinkRequest& setParameterOverrides(vector<UpdateStackInstancesShrinkRequest::ParameterOverrides> && parameterOverrides) { DARABONBA_PTR_SET_RVALUE(parameterOverrides_, parameterOverrides) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline UpdateStackInstancesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // regionIdsShrink Field Functions 
     bool hasRegionIdsShrink() const { return this->regionIdsShrink_ != nullptr;};
     void deleteRegionIdsShrink() { this->regionIdsShrink_ = nullptr;};
-    inline string regionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
+    inline string getRegionIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(regionIdsShrink_, "") };
     inline UpdateStackInstancesShrinkRequest& setRegionIdsShrink(string regionIdsShrink) { DARABONBA_PTR_SET_VALUE(regionIdsShrink_, regionIdsShrink) };
 
 
     // stackGroupName Field Functions 
     bool hasStackGroupName() const { return this->stackGroupName_ != nullptr;};
     void deleteStackGroupName() { this->stackGroupName_ = nullptr;};
-    inline string stackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
+    inline string getStackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
     inline UpdateStackInstancesShrinkRequest& setStackGroupName(string stackGroupName) { DARABONBA_PTR_SET_VALUE(stackGroupName_, stackGroupName) };
 
 
     // timeoutInMinutes Field Functions 
     bool hasTimeoutInMinutes() const { return this->timeoutInMinutes_ != nullptr;};
     void deleteTimeoutInMinutes() { this->timeoutInMinutes_ = nullptr;};
-    inline int64_t timeoutInMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutInMinutes_, 0L) };
+    inline int64_t getTimeoutInMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutInMinutes_, 0L) };
     inline UpdateStackInstancesShrinkRequest& setTimeoutInMinutes(int64_t timeoutInMinutes) { DARABONBA_PTR_SET_VALUE(timeoutInMinutes_, timeoutInMinutes) };
 
 
@@ -128,19 +185,19 @@ namespace Models
     // The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
     // 
     // > If you want to update stacks in self-managed permission mode, you must specify this parameter.
-    std::shared_ptr<string> accountIdsShrink_ = nullptr;
+    shared_ptr<string> accountIdsShrink_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
     // The token can contain letters, digits, hyphens (-), and underscores (_), and cannot exceed 64 characters in length.\\
     // For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The folders in which you want to deploy stacks in service-managed mode.
     // 
     // > If you want to update stacks in service-managed permission mode, you must specify this parameter.
-    std::shared_ptr<string> deploymentTargetsShrink_ = nullptr;
+    shared_ptr<string> deploymentTargetsShrink_ {};
     // The description of the update operation.
     // 
     // The description must be 1 to 256 characters in length.
-    std::shared_ptr<string> operationDescription_ = nullptr;
+    shared_ptr<string> operationDescription_ {};
     // The preference settings of the update operation.
     // 
     // The following parameters are available:
@@ -187,27 +244,27 @@ namespace Models
     // 
     // > - You can specify only one of the following parameters: MaxConcurrentCount and MaxConcurrentPercentage.
     // > - You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
-    std::shared_ptr<string> operationPreferencesShrink_ = nullptr;
+    shared_ptr<string> operationPreferencesShrink_ {};
     // The parameters that are used to override specific parameters.
-    std::shared_ptr<vector<UpdateStackInstancesShrinkRequestParameterOverrides>> parameterOverrides_ = nullptr;
+    shared_ptr<vector<UpdateStackInstancesShrinkRequest::ParameterOverrides>> parameterOverrides_ {};
     // The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The IDs of the regions where you want to update the stacks. You can specify up to 20 region IDs.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionIdsShrink_ = nullptr;
+    shared_ptr<string> regionIdsShrink_ {};
     // The name of the stack group. The name must be unique within a region.\\
     // The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackGroupName_ = nullptr;
+    shared_ptr<string> stackGroupName_ {};
     // The timeout period for the update operation.
     // 
     // *   Default value: 60.
     // *   Unit: minutes.
-    std::shared_ptr<int64_t> timeoutInMinutes_ = nullptr;
+    shared_ptr<int64_t> timeoutInMinutes_ {};
   };
 
   } // namespace Models

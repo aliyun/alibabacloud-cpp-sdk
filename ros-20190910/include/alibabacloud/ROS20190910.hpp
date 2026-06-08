@@ -511,7 +511,7 @@ namespace ROS20190910
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary You can call this operation to detect drift on a stack.
+       * @summary Performs drift detection on resources in a stack to check whether the resources have drifted from the expected template configurations.
        *
        * @param request DetectStackDriftRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -520,7 +520,7 @@ namespace ROS20190910
       Models::DetectStackDriftResponse detectStackDriftWithOptions(const Models::DetectStackDriftRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to detect drift on a stack.
+       * @summary Performs drift detection on resources in a stack to check whether the resources have drifted from the expected template configurations.
        *
        * @param request DetectStackDriftRequest
        * @return DetectStackDriftResponse
@@ -528,7 +528,7 @@ namespace ROS20190910
       Models::DetectStackDriftResponse detectStackDrift(const Models::DetectStackDriftRequest &request);
 
       /**
-       * @summary 对资源栈组进行偏差检测
+       * @summary Performs drift detection on stack groups to check whether the stack groups have drifted from the expected template configurations.
        *
        * @param tmpReq DetectStackGroupDriftRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +537,7 @@ namespace ROS20190910
       Models::DetectStackGroupDriftResponse detectStackGroupDriftWithOptions(const Models::DetectStackGroupDriftRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 对资源栈组进行偏差检测
+       * @summary Performs drift detection on stack groups to check whether the stack groups have drifted from the expected template configurations.
        *
        * @param request DetectStackGroupDriftRequest
        * @return DetectStackGroupDriftResponse
@@ -564,7 +564,6 @@ namespace ROS20190910
       /**
        * @summary 开启可信服务访问
        *
-       * @param request EnableServiceAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return EnableServiceAccessResponse
        */
@@ -742,7 +741,7 @@ namespace ROS20190910
       Models::GetFeatureDetailsResponse getFeatureDetails(const Models::GetFeatureDetailsRequest &request);
 
       /**
-       * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+       * @summary This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -753,7 +752,7 @@ namespace ROS20190910
       Models::GetResourceTypeResponse getResourceTypeWithOptions(const Models::GetResourceTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+       * @summary This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -780,16 +779,15 @@ namespace ROS20190910
       Models::GetResourceTypeTemplateResponse getResourceTypeTemplate(const Models::GetResourceTypeTemplateRequest &request);
 
       /**
-       * @summary 查询可信服务
+       * @summary Queries a trusted service.
        *
-       * @param request GetServiceAccessRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetServiceAccessResponse
        */
       Models::GetServiceAccessResponse getServiceAccessWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询可信服务
+       * @summary Queries a trusted service.
        *
        * @return GetServiceAccessResponse
        */
@@ -863,7 +861,7 @@ namespace ROS20190910
       Models::GetStackDriftDetectionStatusResponse getStackDriftDetectionStatus(const Models::GetStackDriftDetectionStatusRequest &request);
 
       /**
-       * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+       * @summary In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -874,7 +872,7 @@ namespace ROS20190910
       Models::GetStackGroupResponse getStackGroupWithOptions(const Models::GetStackGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+       * @summary In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -926,7 +924,7 @@ namespace ROS20190910
       Models::GetStackInstanceResponse getStackInstance(const Models::GetStackInstanceRequest &request);
 
       /**
-       * @summary You can call this operation to query information about a stack policy.
+       * @summary Queries the information about a stack policy in an Alibaba Cloud region.
        *
        * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
        *
@@ -937,7 +935,7 @@ namespace ROS20190910
       Models::GetStackPolicyResponse getStackPolicyWithOptions(const Models::GetStackPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to query information about a stack policy.
+       * @summary Queries the information about a stack policy in an Alibaba Cloud region.
        *
        * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
        *
@@ -1137,7 +1135,7 @@ namespace ROS20190910
       Models::GetTemplateParameterConstraintsResponse getTemplateParameterConstraints(const Models::GetTemplateParameterConstraintsRequest &request);
 
       /**
-       * @summary 推荐参数
+       * @summary Queries recommended parameters.
        *
        * @param request GetTemplateRecommendParametersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1146,7 +1144,7 @@ namespace ROS20190910
       Models::GetTemplateRecommendParametersResponse getTemplateRecommendParametersWithOptions(const Models::GetTemplateRecommendParametersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 推荐参数
+       * @summary Queries recommended parameters.
        *
        * @param request GetTemplateRecommendParametersRequest
        * @return GetTemplateRecommendParametersResponse
@@ -1471,7 +1469,7 @@ namespace ROS20190910
       Models::ListStackResourceDriftsResponse listStackResourceDrifts(const Models::ListStackResourceDriftsRequest &request);
 
       /**
-       * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+       * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -1482,7 +1480,7 @@ namespace ROS20190910
       Models::ListStackResourcesResponse listStackResourcesWithOptions(const Models::ListStackResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+       * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
        *
        * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
        *
@@ -1515,7 +1513,7 @@ namespace ROS20190910
       Models::ListStacksResponse listStacks(const Models::ListStacksRequest &request);
 
       /**
-       * @summary 查询总览
+       * @summary Queries summaries.
        *
        * @param request ListSummariesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1524,7 +1522,7 @@ namespace ROS20190910
       Models::ListSummariesResponse listSummariesWithOptions(const Models::ListSummariesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询总览
+       * @summary Queries summaries.
        *
        * @param request ListSummariesRequest
        * @return ListSummariesResponse
@@ -1721,7 +1719,7 @@ namespace ROS20190910
       Models::RegisterResourceTypeResponse registerResourceType(const Models::RegisterResourceTypeRequest &request);
 
       /**
-       * @summary 修改资源栈的删除保护属性
+       * @summary Modifies the deletion protection setting for a stack.
        *
        * @param request SetDeletionProtectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1730,7 +1728,7 @@ namespace ROS20190910
       Models::SetDeletionProtectionResponse setDeletionProtectionWithOptions(const Models::SetDeletionProtectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改资源栈的删除保护属性
+       * @summary Modifies the deletion protection setting for a stack.
        *
        * @param request SetDeletionProtectionRequest
        * @return SetDeletionProtectionResponse
@@ -1755,7 +1753,7 @@ namespace ROS20190910
       Models::SetResourceTypeResponse setResourceType(const Models::SetResourceTypeRequest &request);
 
       /**
-       * @summary You can call this operation to configure a stack policy.
+       * @summary Configures a stack policy for a stack.
        *
        * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
        *
@@ -1766,7 +1764,7 @@ namespace ROS20190910
       Models::SetStackPolicyResponse setStackPolicyWithOptions(const Models::SetStackPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call this operation to configure a stack policy.
+       * @summary Configures a stack policy for a stack.
        *
        * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
        *
@@ -1816,7 +1814,7 @@ namespace ROS20190910
       Models::SignalResourceResponse signalResource(const Models::SignalResourceRequest &request);
 
       /**
-       * @summary Stops a stack group operation.
+       * @summary Stops an ongoing operation in a stack group.
        *
        * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
        *
@@ -1827,7 +1825,7 @@ namespace ROS20190910
       Models::StopStackGroupOperationResponse stopStackGroupOperationWithOptions(const Models::StopStackGroupOperationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a stack group operation.
+       * @summary Stops an ongoing operation in a stack group.
        *
        * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
        *
@@ -1906,7 +1904,7 @@ namespace ROS20190910
       Models::UpdateStackResponse updateStack(const Models::UpdateStackRequest &request);
 
       /**
-       * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+       * @summary Update an already created stack group.
        *
        * @description The name of the stack group. The name must be unique within a region.
        * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
@@ -1918,7 +1916,7 @@ namespace ROS20190910
       Models::UpdateStackGroupResponse updateStackGroupWithOptions(const Models::UpdateStackGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+       * @summary Update an already created stack group.
        *
        * @description The name of the stack group. The name must be unique within a region.
        * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
@@ -1950,7 +1948,7 @@ namespace ROS20190910
       Models::UpdateStackInstancesResponse updateStackInstances(const Models::UpdateStackInstancesRequest &request);
 
       /**
-       * @summary Corrects a template to eliminate stack drift.
+       * @summary Eliminates stack drifts by performing drift detection.
        *
        * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
        * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
@@ -1962,7 +1960,7 @@ namespace ROS20190910
       Models::UpdateStackTemplateByResourcesResponse updateStackTemplateByResourcesWithOptions(const Models::UpdateStackTemplateByResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Corrects a template to eliminate stack drift.
+       * @summary Eliminates stack drifts by performing drift detection.
        *
        * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
        * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.

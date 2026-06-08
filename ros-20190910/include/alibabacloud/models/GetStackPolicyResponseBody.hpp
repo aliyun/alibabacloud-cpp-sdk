@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->stackPolicyBody_ == nullptr; };
+        && this->stackPolicyBody_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetStackPolicyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // stackPolicyBody Field Functions 
     bool hasStackPolicyBody() const { return this->stackPolicyBody_ != nullptr;};
     void deleteStackPolicyBody() { this->stackPolicyBody_ = nullptr;};
-    inline     const Darabonba::Json & stackPolicyBody() const { DARABONBA_GET(stackPolicyBody_) };
-    Darabonba::Json & stackPolicyBody() { DARABONBA_GET(stackPolicyBody_) };
+    inline     const Darabonba::Json & getStackPolicyBody() const { DARABONBA_GET(stackPolicyBody_) };
+    Darabonba::Json & getStackPolicyBody() { DARABONBA_GET(stackPolicyBody_) };
     inline GetStackPolicyResponseBody& setStackPolicyBody(const Darabonba::Json & stackPolicyBody) { DARABONBA_SET_VALUE(stackPolicyBody_, stackPolicyBody) };
-    inline GetStackPolicyResponseBody& setStackPolicyBody(Darabonba::Json & stackPolicyBody) { DARABONBA_SET_RVALUE(stackPolicyBody_, stackPolicyBody) };
+    inline GetStackPolicyResponseBody& setStackPolicyBody(Darabonba::Json && stackPolicyBody) { DARABONBA_SET_RVALUE(stackPolicyBody_, stackPolicyBody) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
-    Darabonba::Json stackPolicyBody_ = nullptr;
+    Darabonba::Json stackPolicyBody_ {};
   };
 
   } // namespace Models

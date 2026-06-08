@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->stackGroupId_ == nullptr && return this->stackGroupName_ == nullptr; };
+        && this->stackGroupId_ == nullptr && this->stackGroupName_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetStackGroupRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // stackGroupId Field Functions 
     bool hasStackGroupId() const { return this->stackGroupId_ != nullptr;};
     void deleteStackGroupId() { this->stackGroupId_ = nullptr;};
-    inline string stackGroupId() const { DARABONBA_PTR_GET_DEFAULT(stackGroupId_, "") };
+    inline string getStackGroupId() const { DARABONBA_PTR_GET_DEFAULT(stackGroupId_, "") };
     inline GetStackGroupRequest& setStackGroupId(string stackGroupId) { DARABONBA_PTR_SET_VALUE(stackGroupId_, stackGroupId) };
 
 
     // stackGroupName Field Functions 
     bool hasStackGroupName() const { return this->stackGroupName_ != nullptr;};
     void deleteStackGroupName() { this->stackGroupName_ = nullptr;};
-    inline string stackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
+    inline string getStackGroupName() const { DARABONBA_PTR_GET_DEFAULT(stackGroupName_, "") };
     inline GetStackGroupRequest& setStackGroupName(string stackGroupName) { DARABONBA_PTR_SET_VALUE(stackGroupName_, stackGroupName) };
 
 
@@ -64,13 +64,13 @@ namespace Models
     // >  You must specify one of the StackGroupName and StackGroupId parameters.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the request.
-    std::shared_ptr<string> stackGroupId_ = nullptr;
+    shared_ptr<string> stackGroupId_ {};
     // The ID of the stack group.
     // 
     // >  You must specify one of the StackGroupName and StackGroupId parameters.
-    std::shared_ptr<string> stackGroupName_ = nullptr;
+    shared_ptr<string> stackGroupName_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     // option Field Functions 
     bool hasOption() const { return this->option_ != nullptr;};
     void deleteOption() { this->option_ = nullptr;};
-    inline string option() const { DARABONBA_PTR_GET_DEFAULT(option_, "") };
+    inline string getOption() const { DARABONBA_PTR_GET_DEFAULT(option_, "") };
     inline ListSummariesRequest& setOption(string option) { DARABONBA_PTR_SET_VALUE(option_, option) };
 
 
   protected:
-    std::shared_ptr<string> option_ = nullptr;
+    shared_ptr<string> option_ {};
   };
 
   } // namespace Models

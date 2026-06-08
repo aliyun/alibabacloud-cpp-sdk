@@ -39,12 +39,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountIds_ == nullptr
-        && return this->shareOption_ == nullptr && return this->templateId_ == nullptr && return this->templateVersion_ == nullptr && return this->versionOption_ == nullptr; };
+        && this->shareOption_ == nullptr && this->templateId_ == nullptr && this->templateVersion_ == nullptr && this->versionOption_ == nullptr; };
     // accountIds Field Functions 
     bool hasAccountIds() const { return this->accountIds_ != nullptr;};
     void deleteAccountIds() { this->accountIds_ = nullptr;};
-    inline const vector<string> & accountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
-    inline vector<string> accountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
+    inline const vector<string> & getAccountIds() const { DARABONBA_PTR_GET_CONST(accountIds_, vector<string>) };
+    inline vector<string> getAccountIds() { DARABONBA_PTR_GET(accountIds_, vector<string>) };
     inline SetTemplatePermissionRequest& setAccountIds(const vector<string> & accountIds) { DARABONBA_PTR_SET_VALUE(accountIds_, accountIds) };
     inline SetTemplatePermissionRequest& setAccountIds(vector<string> && accountIds) { DARABONBA_PTR_SET_RVALUE(accountIds_, accountIds) };
 
@@ -52,28 +52,28 @@ namespace Models
     // shareOption Field Functions 
     bool hasShareOption() const { return this->shareOption_ != nullptr;};
     void deleteShareOption() { this->shareOption_ = nullptr;};
-    inline string shareOption() const { DARABONBA_PTR_GET_DEFAULT(shareOption_, "") };
+    inline string getShareOption() const { DARABONBA_PTR_GET_DEFAULT(shareOption_, "") };
     inline SetTemplatePermissionRequest& setShareOption(string shareOption) { DARABONBA_PTR_SET_VALUE(shareOption_, shareOption) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline SetTemplatePermissionRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateVersion Field Functions 
     bool hasTemplateVersion() const { return this->templateVersion_ != nullptr;};
     void deleteTemplateVersion() { this->templateVersion_ = nullptr;};
-    inline string templateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
+    inline string getTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
     inline SetTemplatePermissionRequest& setTemplateVersion(string templateVersion) { DARABONBA_PTR_SET_VALUE(templateVersion_, templateVersion) };
 
 
     // versionOption Field Functions 
     bool hasVersionOption() const { return this->versionOption_ != nullptr;};
     void deleteVersionOption() { this->versionOption_ = nullptr;};
-    inline string versionOption() const { DARABONBA_PTR_GET_DEFAULT(versionOption_, "") };
+    inline string getVersionOption() const { DARABONBA_PTR_GET_DEFAULT(versionOption_, "") };
     inline SetTemplatePermissionRequest& setVersionOption(string versionOption) { DARABONBA_PTR_SET_VALUE(versionOption_, versionOption) };
 
 
@@ -85,7 +85,7 @@ namespace Models
     // > - When ShareOption is set to CancelSharing, you can unshare the template from all the specified Alibaba Cloud accounts by using an asterisk (\\*).
     // 
     // This parameter is required.
-    std::shared_ptr<vector<string>> accountIds_ = nullptr;
+    shared_ptr<vector<string>> accountIds_ {};
     // The sharing option.
     // 
     // Valid values:
@@ -94,15 +94,15 @@ namespace Models
     // *   CancelSharing: unshares the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> shareOption_ = nullptr;
+    shared_ptr<string> shareOption_ {};
     // The ID of the template.
     // 
     // This parameter is required.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The version of the shared template. This parameter takes effect only if you set ShareOption to ShareToAccounts and set VersionOption to Specified.
     // 
     // Valid values: v1 to v100.
-    std::shared_ptr<string> templateVersion_ = nullptr;
+    shared_ptr<string> templateVersion_ {};
     // The version option for the shared template. This parameter takes effect only if you set ShareOption to ShareToAccounts.
     // 
     // Valid values:
@@ -111,7 +111,7 @@ namespace Models
     // *   Latest: shares only the latest version of template. When the version of the template is updated, ROS updates the shared version to the latest version.
     // *   Current: shares only the current version of the template. When the version of the template is updated, ROS does not update the shared version.
     // *   Specified: shares only the specified version of the template.
-    std::shared_ptr<string> versionOption_ = nullptr;
+    shared_ptr<string> versionOption_ {};
   };
 
   } // namespace Models

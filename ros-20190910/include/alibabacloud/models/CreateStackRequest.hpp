@@ -3,8 +3,6 @@
 #define ALIBABACLOUD_MODELS_CREATESTACKREQUEST_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/CreateStackRequestParameters.hpp>
-#include <alibabacloud/models/CreateStackRequestTags.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -74,31 +72,144 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The key of tag N that you want to add to the stack.
+      // 
+      // Valid values of N: 1 to 20.
+      // 
+      // > - The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
+      // > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+      // 
+      // This parameter is required.
+      shared_ptr<string> key_ {};
+      // The value of tag N that you want to add to the stack.
+      // 
+      // Valid values of N: 1 to 20.
+      // 
+      // > The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](https://help.aliyun.com/document_detail/201421.html).
+      shared_ptr<string> value_ {};
+    };
+
+    class Parameters : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Parameters& obj) { 
+        DARABONBA_PTR_TO_JSON(ParameterKey, parameterKey_);
+        DARABONBA_PTR_TO_JSON(ParameterValue, parameterValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Parameters& obj) { 
+        DARABONBA_PTR_FROM_JSON(ParameterKey, parameterKey_);
+        DARABONBA_PTR_FROM_JSON(ParameterValue, parameterValue_);
+      };
+      Parameters() = default ;
+      Parameters(const Parameters &) = default ;
+      Parameters(Parameters &&) = default ;
+      Parameters(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Parameters() = default ;
+      Parameters& operator=(const Parameters &) = default ;
+      Parameters& operator=(Parameters &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->parameterKey_ == nullptr
+        && this->parameterValue_ == nullptr; };
+      // parameterKey Field Functions 
+      bool hasParameterKey() const { return this->parameterKey_ != nullptr;};
+      void deleteParameterKey() { this->parameterKey_ = nullptr;};
+      inline string getParameterKey() const { DARABONBA_PTR_GET_DEFAULT(parameterKey_, "") };
+      inline Parameters& setParameterKey(string parameterKey) { DARABONBA_PTR_SET_VALUE(parameterKey_, parameterKey) };
+
+
+      // parameterValue Field Functions 
+      bool hasParameterValue() const { return this->parameterValue_ != nullptr;};
+      void deleteParameterValue() { this->parameterValue_ = nullptr;};
+      inline string getParameterValue() const { DARABONBA_PTR_GET_DEFAULT(parameterValue_, "") };
+      inline Parameters& setParameterValue(string parameterValue) { DARABONBA_PTR_SET_VALUE(parameterValue_, parameterValue) };
+
+
+    protected:
+      // The key of parameter N that is defined in the template. If you do not specify the name and value of a parameter, ROS uses the default name and value that are specified in the template.
+      // 
+      // Maximum value of N: 200.\\
+      // The name must be 1 to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+      // 
+      // > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+      // 
+      // This parameter is required.
+      shared_ptr<string> parameterKey_ {};
+      // The value of parameter N that is defined in the template.
+      // 
+      // Maximum value of N: 200.\\
+      // The value can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+      // 
+      // > The Parameters parameter is optional. If you specify Parameters, you must specify Parameters.N.ParameterKey and Parameters.N.ParameterValue.
+      // 
+      // This parameter is required.
+      shared_ptr<string> parameterValue_ {};
+    };
+
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && return this->createOption_ == nullptr && return this->createOptions_ == nullptr && return this->deletionProtection_ == nullptr && return this->disableRollback_ == nullptr && return this->notificationURLs_ == nullptr
-        && return this->parallelism_ == nullptr && return this->parameters_ == nullptr && return this->ramRoleName_ == nullptr && return this->regionId_ == nullptr && return this->resourceGroupId_ == nullptr
-        && return this->stackName_ == nullptr && return this->stackPolicyBody_ == nullptr && return this->stackPolicyURL_ == nullptr && return this->tags_ == nullptr && return this->templateBody_ == nullptr
-        && return this->templateId_ == nullptr && return this->templateScratchId_ == nullptr && return this->templateScratchRegionId_ == nullptr && return this->templateURL_ == nullptr && return this->templateVersion_ == nullptr
-        && return this->timeoutInMinutes_ == nullptr; };
+        && this->createOption_ == nullptr && this->createOptions_ == nullptr && this->deletionProtection_ == nullptr && this->disableRollback_ == nullptr && this->notificationURLs_ == nullptr
+        && this->parallelism_ == nullptr && this->parameters_ == nullptr && this->ramRoleName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->stackName_ == nullptr && this->stackPolicyBody_ == nullptr && this->stackPolicyURL_ == nullptr && this->tags_ == nullptr && this->templateBody_ == nullptr
+        && this->templateId_ == nullptr && this->templateScratchId_ == nullptr && this->templateScratchRegionId_ == nullptr && this->templateURL_ == nullptr && this->templateVersion_ == nullptr
+        && this->timeoutInMinutes_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateStackRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // createOption Field Functions 
     bool hasCreateOption() const { return this->createOption_ != nullptr;};
     void deleteCreateOption() { this->createOption_ = nullptr;};
-    inline string createOption() const { DARABONBA_PTR_GET_DEFAULT(createOption_, "") };
+    inline string getCreateOption() const { DARABONBA_PTR_GET_DEFAULT(createOption_, "") };
     inline CreateStackRequest& setCreateOption(string createOption) { DARABONBA_PTR_SET_VALUE(createOption_, createOption) };
 
 
     // createOptions Field Functions 
     bool hasCreateOptions() const { return this->createOptions_ != nullptr;};
     void deleteCreateOptions() { this->createOptions_ = nullptr;};
-    inline const vector<string> & createOptions() const { DARABONBA_PTR_GET_CONST(createOptions_, vector<string>) };
-    inline vector<string> createOptions() { DARABONBA_PTR_GET(createOptions_, vector<string>) };
+    inline const vector<string> & getCreateOptions() const { DARABONBA_PTR_GET_CONST(createOptions_, vector<string>) };
+    inline vector<string> getCreateOptions() { DARABONBA_PTR_GET(createOptions_, vector<string>) };
     inline CreateStackRequest& setCreateOptions(const vector<string> & createOptions) { DARABONBA_PTR_SET_VALUE(createOptions_, createOptions) };
     inline CreateStackRequest& setCreateOptions(vector<string> && createOptions) { DARABONBA_PTR_SET_RVALUE(createOptions_, createOptions) };
 
@@ -106,22 +217,22 @@ namespace Models
     // deletionProtection Field Functions 
     bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
     void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
-    inline string deletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, "") };
+    inline string getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, "") };
     inline CreateStackRequest& setDeletionProtection(string deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
     // disableRollback Field Functions 
     bool hasDisableRollback() const { return this->disableRollback_ != nullptr;};
     void deleteDisableRollback() { this->disableRollback_ = nullptr;};
-    inline bool disableRollback() const { DARABONBA_PTR_GET_DEFAULT(disableRollback_, false) };
+    inline bool getDisableRollback() const { DARABONBA_PTR_GET_DEFAULT(disableRollback_, false) };
     inline CreateStackRequest& setDisableRollback(bool disableRollback) { DARABONBA_PTR_SET_VALUE(disableRollback_, disableRollback) };
 
 
     // notificationURLs Field Functions 
     bool hasNotificationURLs() const { return this->notificationURLs_ != nullptr;};
     void deleteNotificationURLs() { this->notificationURLs_ = nullptr;};
-    inline const vector<string> & notificationURLs() const { DARABONBA_PTR_GET_CONST(notificationURLs_, vector<string>) };
-    inline vector<string> notificationURLs() { DARABONBA_PTR_GET(notificationURLs_, vector<string>) };
+    inline const vector<string> & getNotificationURLs() const { DARABONBA_PTR_GET_CONST(notificationURLs_, vector<string>) };
+    inline vector<string> getNotificationURLs() { DARABONBA_PTR_GET(notificationURLs_, vector<string>) };
     inline CreateStackRequest& setNotificationURLs(const vector<string> & notificationURLs) { DARABONBA_PTR_SET_VALUE(notificationURLs_, notificationURLs) };
     inline CreateStackRequest& setNotificationURLs(vector<string> && notificationURLs) { DARABONBA_PTR_SET_RVALUE(notificationURLs_, notificationURLs) };
 
@@ -129,116 +240,116 @@ namespace Models
     // parallelism Field Functions 
     bool hasParallelism() const { return this->parallelism_ != nullptr;};
     void deleteParallelism() { this->parallelism_ = nullptr;};
-    inline int64_t parallelism() const { DARABONBA_PTR_GET_DEFAULT(parallelism_, 0L) };
+    inline int64_t getParallelism() const { DARABONBA_PTR_GET_DEFAULT(parallelism_, 0L) };
     inline CreateStackRequest& setParallelism(int64_t parallelism) { DARABONBA_PTR_SET_VALUE(parallelism_, parallelism) };
 
 
     // parameters Field Functions 
     bool hasParameters() const { return this->parameters_ != nullptr;};
     void deleteParameters() { this->parameters_ = nullptr;};
-    inline const vector<CreateStackRequestParameters> & parameters() const { DARABONBA_PTR_GET_CONST(parameters_, vector<CreateStackRequestParameters>) };
-    inline vector<CreateStackRequestParameters> parameters() { DARABONBA_PTR_GET(parameters_, vector<CreateStackRequestParameters>) };
-    inline CreateStackRequest& setParameters(const vector<CreateStackRequestParameters> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
-    inline CreateStackRequest& setParameters(vector<CreateStackRequestParameters> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
+    inline const vector<CreateStackRequest::Parameters> & getParameters() const { DARABONBA_PTR_GET_CONST(parameters_, vector<CreateStackRequest::Parameters>) };
+    inline vector<CreateStackRequest::Parameters> getParameters() { DARABONBA_PTR_GET(parameters_, vector<CreateStackRequest::Parameters>) };
+    inline CreateStackRequest& setParameters(const vector<CreateStackRequest::Parameters> & parameters) { DARABONBA_PTR_SET_VALUE(parameters_, parameters) };
+    inline CreateStackRequest& setParameters(vector<CreateStackRequest::Parameters> && parameters) { DARABONBA_PTR_SET_RVALUE(parameters_, parameters) };
 
 
     // ramRoleName Field Functions 
     bool hasRamRoleName() const { return this->ramRoleName_ != nullptr;};
     void deleteRamRoleName() { this->ramRoleName_ = nullptr;};
-    inline string ramRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
+    inline string getRamRoleName() const { DARABONBA_PTR_GET_DEFAULT(ramRoleName_, "") };
     inline CreateStackRequest& setRamRoleName(string ramRoleName) { DARABONBA_PTR_SET_VALUE(ramRoleName_, ramRoleName) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline CreateStackRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline CreateStackRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // stackName Field Functions 
     bool hasStackName() const { return this->stackName_ != nullptr;};
     void deleteStackName() { this->stackName_ = nullptr;};
-    inline string stackName() const { DARABONBA_PTR_GET_DEFAULT(stackName_, "") };
+    inline string getStackName() const { DARABONBA_PTR_GET_DEFAULT(stackName_, "") };
     inline CreateStackRequest& setStackName(string stackName) { DARABONBA_PTR_SET_VALUE(stackName_, stackName) };
 
 
     // stackPolicyBody Field Functions 
     bool hasStackPolicyBody() const { return this->stackPolicyBody_ != nullptr;};
     void deleteStackPolicyBody() { this->stackPolicyBody_ = nullptr;};
-    inline string stackPolicyBody() const { DARABONBA_PTR_GET_DEFAULT(stackPolicyBody_, "") };
+    inline string getStackPolicyBody() const { DARABONBA_PTR_GET_DEFAULT(stackPolicyBody_, "") };
     inline CreateStackRequest& setStackPolicyBody(string stackPolicyBody) { DARABONBA_PTR_SET_VALUE(stackPolicyBody_, stackPolicyBody) };
 
 
     // stackPolicyURL Field Functions 
     bool hasStackPolicyURL() const { return this->stackPolicyURL_ != nullptr;};
     void deleteStackPolicyURL() { this->stackPolicyURL_ = nullptr;};
-    inline string stackPolicyURL() const { DARABONBA_PTR_GET_DEFAULT(stackPolicyURL_, "") };
+    inline string getStackPolicyURL() const { DARABONBA_PTR_GET_DEFAULT(stackPolicyURL_, "") };
     inline CreateStackRequest& setStackPolicyURL(string stackPolicyURL) { DARABONBA_PTR_SET_VALUE(stackPolicyURL_, stackPolicyURL) };
 
 
     // tags Field Functions 
     bool hasTags() const { return this->tags_ != nullptr;};
     void deleteTags() { this->tags_ = nullptr;};
-    inline const vector<CreateStackRequestTags> & tags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateStackRequestTags>) };
-    inline vector<CreateStackRequestTags> tags() { DARABONBA_PTR_GET(tags_, vector<CreateStackRequestTags>) };
-    inline CreateStackRequest& setTags(const vector<CreateStackRequestTags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
-    inline CreateStackRequest& setTags(vector<CreateStackRequestTags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+    inline const vector<CreateStackRequest::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CreateStackRequest::Tags>) };
+    inline vector<CreateStackRequest::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CreateStackRequest::Tags>) };
+    inline CreateStackRequest& setTags(const vector<CreateStackRequest::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CreateStackRequest& setTags(vector<CreateStackRequest::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
     // templateBody Field Functions 
     bool hasTemplateBody() const { return this->templateBody_ != nullptr;};
     void deleteTemplateBody() { this->templateBody_ = nullptr;};
-    inline string templateBody() const { DARABONBA_PTR_GET_DEFAULT(templateBody_, "") };
+    inline string getTemplateBody() const { DARABONBA_PTR_GET_DEFAULT(templateBody_, "") };
     inline CreateStackRequest& setTemplateBody(string templateBody) { DARABONBA_PTR_SET_VALUE(templateBody_, templateBody) };
 
 
     // templateId Field Functions 
     bool hasTemplateId() const { return this->templateId_ != nullptr;};
     void deleteTemplateId() { this->templateId_ = nullptr;};
-    inline string templateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
+    inline string getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, "") };
     inline CreateStackRequest& setTemplateId(string templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
 
 
     // templateScratchId Field Functions 
     bool hasTemplateScratchId() const { return this->templateScratchId_ != nullptr;};
     void deleteTemplateScratchId() { this->templateScratchId_ = nullptr;};
-    inline string templateScratchId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchId_, "") };
+    inline string getTemplateScratchId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchId_, "") };
     inline CreateStackRequest& setTemplateScratchId(string templateScratchId) { DARABONBA_PTR_SET_VALUE(templateScratchId_, templateScratchId) };
 
 
     // templateScratchRegionId Field Functions 
     bool hasTemplateScratchRegionId() const { return this->templateScratchRegionId_ != nullptr;};
     void deleteTemplateScratchRegionId() { this->templateScratchRegionId_ = nullptr;};
-    inline string templateScratchRegionId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchRegionId_, "") };
+    inline string getTemplateScratchRegionId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchRegionId_, "") };
     inline CreateStackRequest& setTemplateScratchRegionId(string templateScratchRegionId) { DARABONBA_PTR_SET_VALUE(templateScratchRegionId_, templateScratchRegionId) };
 
 
     // templateURL Field Functions 
     bool hasTemplateURL() const { return this->templateURL_ != nullptr;};
     void deleteTemplateURL() { this->templateURL_ = nullptr;};
-    inline string templateURL() const { DARABONBA_PTR_GET_DEFAULT(templateURL_, "") };
+    inline string getTemplateURL() const { DARABONBA_PTR_GET_DEFAULT(templateURL_, "") };
     inline CreateStackRequest& setTemplateURL(string templateURL) { DARABONBA_PTR_SET_VALUE(templateURL_, templateURL) };
 
 
     // templateVersion Field Functions 
     bool hasTemplateVersion() const { return this->templateVersion_ != nullptr;};
     void deleteTemplateVersion() { this->templateVersion_ = nullptr;};
-    inline string templateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
+    inline string getTemplateVersion() const { DARABONBA_PTR_GET_DEFAULT(templateVersion_, "") };
     inline CreateStackRequest& setTemplateVersion(string templateVersion) { DARABONBA_PTR_SET_VALUE(templateVersion_, templateVersion) };
 
 
     // timeoutInMinutes Field Functions 
     bool hasTimeoutInMinutes() const { return this->timeoutInMinutes_ != nullptr;};
     void deleteTimeoutInMinutes() { this->timeoutInMinutes_ = nullptr;};
-    inline int64_t timeoutInMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutInMinutes_, 0L) };
+    inline int64_t getTimeoutInMinutes() const { DARABONBA_PTR_GET_DEFAULT(timeoutInMinutes_, 0L) };
     inline CreateStackRequest& setTimeoutInMinutes(int64_t timeoutInMinutes) { DARABONBA_PTR_SET_VALUE(timeoutInMinutes_, timeoutInMinutes) };
 
 
@@ -246,7 +357,7 @@ namespace Models
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
     // 
     // For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
     // The creation option for the stack. Valid values:
     // 
     // *   KeepStackOnCreationComplete (default): After the stack is created, the stack and its resources are retained. The quota for the maximum number of stacks that can be created in ROS is consumed.
@@ -255,23 +366,23 @@ namespace Models
     // *   ManuallyPay: When you create the stack, you must manually pay for the subscription resources that are used. The following resource types support manual payment: `ALIYUN::ECS::InstanceGroup`, `ALIYUN::RDS::DBInstance`, `ALIYUN::SLB::LoadBalancer`, `ALIYUN::VPC::EIP`, and `ALIYUN::VPC::VpnGateway`.
     // 
     // >  You can specify only one of CreateOption and CreateOptions.
-    std::shared_ptr<string> createOption_ = nullptr;
+    shared_ptr<string> createOption_ {};
     // The creation options for the stack.
-    std::shared_ptr<vector<string>> createOptions_ = nullptr;
+    shared_ptr<vector<string>> createOptions_ {};
     // Specifies whether to enable deletion protection for the stack. Valid values:
     // 
     // *   Enabled.
     // *   Disabled (default). If deletion protection is disabled, you can delete the stack by using the ROS console or by calling the DeleteStack operation.
     // 
     // > The value of DeletionProtection that you specify for the root stack applies to its nested stacks.
-    std::shared_ptr<string> deletionProtection_ = nullptr;
+    shared_ptr<string> deletionProtection_ {};
     // Specifies whether to disable rollback for the resources when the stack fails to be created.
     // 
     // Valid values:
     // 
     // *   true
     // *   false (default)
-    std::shared_ptr<bool> disableRollback_ = nullptr;
+    shared_ptr<bool> disableRollback_ {};
     // The callback URLs that are used to receive stack events. Valid values:
     // 
     // *   HTTP POST URL
@@ -299,7 +410,7 @@ namespace Models
     //        "StackName": "test-notification-url",
     //        "Status": "CREATE_COMPLETE"
     //     }
-    std::shared_ptr<vector<string>> notificationURLs_ = nullptr;
+    shared_ptr<vector<string>> notificationURLs_ {};
     // The maximum number of concurrent operations that can be performed on resources.
     // 
     // By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0.
@@ -308,68 +419,71 @@ namespace Models
     // 
     // > -  If you set this parameter to an integer that is greater than 0, the integer is used. If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
     // > -  If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack, such as an update operation.
-    std::shared_ptr<int64_t> parallelism_ = nullptr;
+    shared_ptr<int64_t> parallelism_ {};
     // The parameters that are defined in the template.
-    std::shared_ptr<vector<CreateStackRequestParameters>> parameters_ = nullptr;
+    shared_ptr<vector<CreateStackRequest::Parameters>> parameters_ {};
     // The name of the RAM role. ROS assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
     // ROS assumes the RAM role to perform operations on the stack. If you have permissions to perform operations on the stack but do not have permissions to use the RAM role, ROS still assumes the RAM role. You must make sure that the least privileges are granted to the RAM role.
     // 
     // If you do not specify this parameter, ROS assumes the existing role that is associated with the stack. If no roles are available, ROS uses a temporary credential that is generated from the credentials of your account.
     // 
     // The RAM role name can be up to 64 characters in length.
-    std::shared_ptr<string> ramRoleName_ = nullptr;
+    shared_ptr<string> ramRoleName_ {};
     // The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The ID of the resource group. If you leave this parameter empty, the stack is added to the default resource group.
     // 
     // For more information about resource groups, see the "Resource group" section of the [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html) topic.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // The name of the stack.\\
     // The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). It must start with a letter.
     // 
     // This parameter is required.
-    std::shared_ptr<string> stackName_ = nullptr;
+    shared_ptr<string> stackName_ {};
     // The structure that contains the stack policy body. The policy body must be 1 to 16,384 bytes in length.
     // 
     // > You can specify only one of StackPolicyBody and StackPolicyURL.
-    std::shared_ptr<string> stackPolicyBody_ = nullptr;
+    shared_ptr<string> stackPolicyBody_ {};
     // The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
     // 
     // > You can specify only one of StackPolicyBody and StackPolicyURL.
     // 
     // The URL can be up to 1,350 bytes in length.
-    std::shared_ptr<string> stackPolicyURL_ = nullptr;
+    shared_ptr<string> stackPolicyURL_ {};
     // The tags that you want to add to the stack.
-    std::shared_ptr<vector<CreateStackRequestTags>> tags_ = nullptr;
-    std::shared_ptr<string> templateBody_ = nullptr;
+    shared_ptr<vector<CreateStackRequest::Tags>> tags_ {};
+    // The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+    // 
+    // > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+    shared_ptr<string> templateBody_ {};
     // The template ID. This parameter applies to shared templates and private templates.
     // 
     // > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-    std::shared_ptr<string> templateId_ = nullptr;
+    shared_ptr<string> templateId_ {};
     // The scenario ID.
     // 
     // For more information about how to query the scenario ID, see [ListTemplateScratches](https://help.aliyun.com/document_detail/363050.html).
     // 
     // > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-    std::shared_ptr<string> templateScratchId_ = nullptr;
+    shared_ptr<string> templateScratchId_ {};
     // The region ID of the scenario. The default value is the same as the value of RegionId.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-    std::shared_ptr<string> templateScratchRegionId_ = nullptr;
+    shared_ptr<string> templateScratchRegionId_ {};
     // The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
     // 
     // > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-    std::shared_ptr<string> templateURL_ = nullptr;
+    shared_ptr<string> templateURL_ {};
     // The version of the template. This parameter takes effect only when TemplateId is specified.
-    std::shared_ptr<string> templateVersion_ = nullptr;
+    shared_ptr<string> templateVersion_ {};
     // The timeout period for creating the stack.
     // 
     // *   Default value: 60.
     // *   Unit: minutes.
     // *   Valid values: 10 to 1440.
-    std::shared_ptr<int64_t> timeoutInMinutes_ = nullptr;
+    shared_ptr<int64_t> timeoutInMinutes_ {};
   };
 
   } // namespace Models

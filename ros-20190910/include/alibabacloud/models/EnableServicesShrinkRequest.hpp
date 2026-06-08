@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->serviceNamesShrink_ == nullptr; };
+        && this->serviceNamesShrink_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EnableServicesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceNamesShrink Field Functions 
     bool hasServiceNamesShrink() const { return this->serviceNamesShrink_ != nullptr;};
     void deleteServiceNamesShrink() { this->serviceNamesShrink_ = nullptr;};
-    inline string serviceNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(serviceNamesShrink_, "") };
+    inline string getServiceNamesShrink() const { DARABONBA_PTR_GET_DEFAULT(serviceNamesShrink_, "") };
     inline EnableServicesShrinkRequest& setServiceNamesShrink(string serviceNamesShrink) { DARABONBA_PTR_SET_VALUE(serviceNamesShrink_, serviceNamesShrink) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<string> serviceNamesShrink_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<string> serviceNamesShrink_ {};
   };
 
   } // namespace Models

@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->showDataOption_ == nullptr && return this->templateScratchId_ == nullptr; };
+        && this->showDataOption_ == nullptr && this->templateScratchId_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetTemplateScratchRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // showDataOption Field Functions 
     bool hasShowDataOption() const { return this->showDataOption_ != nullptr;};
     void deleteShowDataOption() { this->showDataOption_ = nullptr;};
-    inline string showDataOption() const { DARABONBA_PTR_GET_DEFAULT(showDataOption_, "") };
+    inline string getShowDataOption() const { DARABONBA_PTR_GET_DEFAULT(showDataOption_, "") };
     inline GetTemplateScratchRequest& setShowDataOption(string showDataOption) { DARABONBA_PTR_SET_VALUE(showDataOption_, showDataOption) };
 
 
     // templateScratchId Field Functions 
     bool hasTemplateScratchId() const { return this->templateScratchId_ != nullptr;};
     void deleteTemplateScratchId() { this->templateScratchId_ = nullptr;};
-    inline string templateScratchId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchId_, "") };
+    inline string getTemplateScratchId() const { DARABONBA_PTR_GET_DEFAULT(templateScratchId_, "") };
     inline GetTemplateScratchRequest& setTemplateScratchId(string templateScratchId) { DARABONBA_PTR_SET_VALUE(templateScratchId_, templateScratchId) };
 
 
@@ -62,7 +62,7 @@ namespace Models
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The data display option. Valid values:
     // 
     // *   Sources: displays only the data of source nodes. This setting takes effect only when TemplateScratchType is set to ArchitectureDetection.
@@ -73,9 +73,9 @@ namespace Models
     // For more information about source nodes and new nodes, see [Overview](https://help.aliyun.com/document_detail/352074.html).
     // 
     // >  If you do not specify this parameter, the node data is not displayed.
-    std::shared_ptr<string> showDataOption_ = nullptr;
+    shared_ptr<string> showDataOption_ {};
     // The ID of the resource scenario.
-    std::shared_ptr<string> templateScratchId_ = nullptr;
+    shared_ptr<string> templateScratchId_ {};
   };
 
   } // namespace Models

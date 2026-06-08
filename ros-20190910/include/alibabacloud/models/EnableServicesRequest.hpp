@@ -33,27 +33,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->regionId_ == nullptr
-        && return this->serviceNames_ == nullptr; };
+        && this->serviceNames_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline EnableServicesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // serviceNames Field Functions 
     bool hasServiceNames() const { return this->serviceNames_ != nullptr;};
     void deleteServiceNames() { this->serviceNames_ = nullptr;};
-    inline const vector<string> & serviceNames() const { DARABONBA_PTR_GET_CONST(serviceNames_, vector<string>) };
-    inline vector<string> serviceNames() { DARABONBA_PTR_GET(serviceNames_, vector<string>) };
+    inline const vector<string> & getServiceNames() const { DARABONBA_PTR_GET_CONST(serviceNames_, vector<string>) };
+    inline vector<string> getServiceNames() { DARABONBA_PTR_GET(serviceNames_, vector<string>) };
     inline EnableServicesRequest& setServiceNames(const vector<string> & serviceNames) { DARABONBA_PTR_SET_VALUE(serviceNames_, serviceNames) };
     inline EnableServicesRequest& setServiceNames(vector<string> && serviceNames) { DARABONBA_PTR_SET_RVALUE(serviceNames_, serviceNames) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> regionId_ = nullptr;
-    std::shared_ptr<vector<string>> serviceNames_ = nullptr;
+    shared_ptr<string> regionId_ {};
+    shared_ptr<vector<string>> serviceNames_ {};
   };
 
   } // namespace Models

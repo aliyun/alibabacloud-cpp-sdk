@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defaultVersionId_ == nullptr
-        && return this->description_ == nullptr && return this->resourceType_ == nullptr && return this->versionId_ == nullptr; };
+        && this->description_ == nullptr && this->resourceType_ == nullptr && this->versionId_ == nullptr; };
     // defaultVersionId Field Functions 
     bool hasDefaultVersionId() const { return this->defaultVersionId_ != nullptr;};
     void deleteDefaultVersionId() { this->defaultVersionId_ = nullptr;};
-    inline string defaultVersionId() const { DARABONBA_PTR_GET_DEFAULT(defaultVersionId_, "") };
+    inline string getDefaultVersionId() const { DARABONBA_PTR_GET_DEFAULT(defaultVersionId_, "") };
     inline SetResourceTypeRequest& setDefaultVersionId(string defaultVersionId) { DARABONBA_PTR_SET_VALUE(defaultVersionId_, defaultVersionId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline SetResourceTypeRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // resourceType Field Functions 
     bool hasResourceType() const { return this->resourceType_ != nullptr;};
     void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string resourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
     inline SetResourceTypeRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
 
 
     // versionId Field Functions 
     bool hasVersionId() const { return this->versionId_ != nullptr;};
     void deleteVersionId() { this->versionId_ = nullptr;};
-    inline string versionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
+    inline string getVersionId() const { DARABONBA_PTR_GET_DEFAULT(versionId_, "") };
     inline SetResourceTypeRequest& setVersionId(string versionId) { DARABONBA_PTR_SET_VALUE(versionId_, versionId) };
 
 
@@ -69,17 +69,17 @@ namespace Models
     // The ID of the default version. You can use this parameter to specify the default version of the resource type.
     // 
     // > You can specify only one of the VersionId and DefaultVersionId parameters.
-    std::shared_ptr<string> defaultVersionId_ = nullptr;
+    shared_ptr<string> defaultVersionId_ {};
     // The description of the resource type or resource type version. The description can be up to 512 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The resource type.
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceType_ = nullptr;
+    shared_ptr<string> resourceType_ {};
     // The version ID. If you want to modify a version of the resource type, you must specify this parameter. If you do not specify this parameter, only the resource type is modified.
     // 
     // > You can specify only one of the VersionId and DefaultVersionId parameters.
-    std::shared_ptr<string> versionId_ = nullptr;
+    shared_ptr<string> versionId_ {};
   };
 
   } // namespace Models
