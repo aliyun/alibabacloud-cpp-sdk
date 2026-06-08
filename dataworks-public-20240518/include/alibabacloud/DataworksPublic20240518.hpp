@@ -60,6 +60,40 @@ namespace DataworksPublic20240518
       Models::AddEntityIntoMetaCollectionResponse addEntityIntoMetaCollection(const Models::AddEntityIntoMetaCollectionRequest &request);
 
       /**
+       * @summary 发起资源访问权限申请
+       *
+       * @param tmpReq ApplyResourceAccessPermissionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApplyResourceAccessPermissionResponse
+       */
+      Models::ApplyResourceAccessPermissionResponse applyResourceAccessPermissionWithOptions(const Models::ApplyResourceAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 发起资源访问权限申请
+       *
+       * @param request ApplyResourceAccessPermissionRequest
+       * @return ApplyResourceAccessPermissionResponse
+       */
+      Models::ApplyResourceAccessPermissionResponse applyResourceAccessPermission(const Models::ApplyResourceAccessPermissionRequest &request);
+
+      /**
+       * @summary 审批权限申请流程实例
+       *
+       * @param request ApproveProcessInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ApproveProcessInstanceResponse
+       */
+      Models::ApproveProcessInstanceResponse approveProcessInstanceWithOptions(const Models::ApproveProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 审批权限申请流程实例
+       *
+       * @param request ApproveProcessInstanceRequest
+       * @return ApproveProcessInstanceResponse
+       */
+      Models::ApproveProcessInstanceResponse approveProcessInstance(const Models::ApproveProcessInstanceRequest &request);
+
+      /**
        * @summary Adds a custom image to a workspace.
        *
        * @param request AssociateProjectToImageRequest
@@ -882,6 +916,23 @@ namespace DataworksPublic20240518
       Models::CreatePipelineRunResponse createPipelineRun(const Models::CreatePipelineRunRequest &request);
 
       /**
+       * @summary 创建审批流程定义
+       *
+       * @param tmpReq CreateProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateProcessDefinitionResponse
+       */
+      Models::CreateProcessDefinitionResponse createProcessDefinitionWithOptions(const Models::CreateProcessDefinitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建审批流程定义
+       *
+       * @param request CreateProcessDefinitionRequest
+       * @return CreateProcessDefinitionResponse
+       */
+      Models::CreateProcessDefinitionResponse createProcessDefinition(const Models::CreateProcessDefinitionRequest &request);
+
+      /**
        * @summary Creates a workspace.
        *
        * @param tmpReq CreateProjectRequest
@@ -1021,6 +1072,23 @@ namespace DataworksPublic20240518
        * @return CreateRouteResponse
        */
       Models::CreateRouteResponse createRoute(const Models::CreateRouteRequest &request);
+
+      /**
+       * @summary 创建安全管控策略
+       *
+       * @param tmpReq CreateSecurityStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSecurityStrategyResponse
+       */
+      Models::CreateSecurityStrategyResponse createSecurityStrategyWithOptions(const Models::CreateSecurityStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建安全管控策略
+       *
+       * @param request CreateSecurityStrategyRequest
+       * @return CreateSecurityStrategyResponse
+       */
+      Models::CreateSecurityStrategyResponse createSecurityStrategy(const Models::CreateSecurityStrategyRequest &request);
 
       /**
        * @summary 创建 Skill
@@ -1681,6 +1749,23 @@ namespace DataworksPublic20240518
       Models::DeleteParameterResponse deleteParameter(const Models::DeleteParameterRequest &request);
 
       /**
+       * @summary 删除审批流程定义
+       *
+       * @param request DeleteProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteProcessDefinitionResponse
+       */
+      Models::DeleteProcessDefinitionResponse deleteProcessDefinitionWithOptions(const Models::DeleteProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除审批流程定义
+       *
+       * @param request DeleteProcessDefinitionRequest
+       * @return DeleteProcessDefinitionResponse
+       */
+      Models::DeleteProcessDefinitionResponse deleteProcessDefinition(const Models::DeleteProcessDefinitionRequest &request);
+
+      /**
        * @summary Deletes a DataWorks workspace.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -1805,6 +1890,23 @@ namespace DataworksPublic20240518
       Models::DeleteRouteResponse deleteRoute(const Models::DeleteRouteRequest &request);
 
       /**
+       * @summary 删除安全管控策略
+       *
+       * @param request DeleteSecurityStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSecurityStrategyResponse
+       */
+      Models::DeleteSecurityStrategyResponse deleteSecurityStrategyWithOptions(const Models::DeleteSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除安全管控策略
+       *
+       * @param request DeleteSecurityStrategyRequest
+       * @return DeleteSecurityStrategyResponse
+       */
+      Models::DeleteSecurityStrategyResponse deleteSecurityStrategy(const Models::DeleteSecurityStrategyRequest &request);
+
+      /**
        * @summary 删除 Skill
        *
        * @param request DeleteSkillRequest
@@ -1919,6 +2021,23 @@ namespace DataworksPublic20240518
       Models::DetachDataQualityRulesFromEvaluationTaskResponse detachDataQualityRulesFromEvaluationTask(const Models::DetachDataQualityRulesFromEvaluationTaskRequest &request);
 
       /**
+       * @summary 停用审批流程定义
+       *
+       * @param request DisableProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableProcessDefinitionResponse
+       */
+      Models::DisableProcessDefinitionResponse disableProcessDefinitionWithOptions(const Models::DisableProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 停用审批流程定义
+       *
+       * @param request DisableProcessDefinitionRequest
+       * @return DisableProcessDefinitionResponse
+       */
+      Models::DisableProcessDefinitionResponse disableProcessDefinition(const Models::DisableProcessDefinitionRequest &request);
+
+      /**
        * @summary Disassociates an image from a workspace.
        *
        * @param request DissociateProjectFromImageRequest
@@ -1959,6 +2078,23 @@ namespace DataworksPublic20240518
        * @return DissociateProjectFromResourceGroupResponse
        */
       Models::DissociateProjectFromResourceGroupResponse dissociateProjectFromResourceGroup(const Models::DissociateProjectFromResourceGroupRequest &request);
+
+      /**
+       * @summary 启用审批流程定义
+       *
+       * @param request EnableProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableProcessDefinitionResponse
+       */
+      Models::EnableProcessDefinitionResponse enableProcessDefinitionWithOptions(const Models::EnableProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启用审批流程定义
+       *
+       * @param request EnableProcessDefinitionRequest
+       * @return EnableProcessDefinitionResponse
+       */
+      Models::EnableProcessDefinitionResponse enableProcessDefinition(const Models::EnableProcessDefinitionRequest &request);
 
       /**
        * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
@@ -2020,6 +2156,23 @@ namespace DataworksPublic20240518
        * @return ExecuteAdhocWorkflowInstanceResponse
        */
       Models::ExecuteAdhocWorkflowInstanceResponse executeAdhocWorkflowInstance(const Models::ExecuteAdhocWorkflowInstanceRequest &request);
+
+      /**
+       * @summary 匹配最佳安全管控策略
+       *
+       * @param request FindBestMatchSecurityStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return FindBestMatchSecurityStrategyResponse
+       */
+      Models::FindBestMatchSecurityStrategyResponse findBestMatchSecurityStrategyWithOptions(const Models::FindBestMatchSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 匹配最佳安全管控策略
+       *
+       * @param request FindBestMatchSecurityStrategyRequest
+       * @return FindBestMatchSecurityStrategyResponse
+       */
+      Models::FindBestMatchSecurityStrategyResponse findBestMatchSecurityStrategy(const Models::FindBestMatchSecurityStrategyRequest &request);
 
       /**
        * @summary 读取 Agent 详情
@@ -2088,6 +2241,23 @@ namespace DataworksPublic20240518
        * @return GetAlertRuleResponse
        */
       Models::GetAlertRuleResponse getAlertRule(const Models::GetAlertRuleRequest &request);
+
+      /**
+       * @summary 查询数据访问权限申请单
+       *
+       * @param request GetApplicationContentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApplicationContentsResponse
+       */
+      Models::GetApplicationContentsResponse getApplicationContentsWithOptions(const Models::GetApplicationContentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询数据访问权限申请单
+       *
+       * @param request GetApplicationContentsRequest
+       * @return GetApplicationContentsResponse
+       */
+      Models::GetApplicationContentsResponse getApplicationContents(const Models::GetApplicationContentsRequest &request);
 
       /**
        * @summary Queries the information about a workflow.
@@ -2871,6 +3041,40 @@ namespace DataworksPublic20240518
       Models::GetPipelineRunResponse getPipelineRun(const Models::GetPipelineRunRequest &request);
 
       /**
+       * @summary 查询审批流程定义详情
+       *
+       * @param request GetProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProcessDefinitionResponse
+       */
+      Models::GetProcessDefinitionResponse getProcessDefinitionWithOptions(const Models::GetProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询审批流程定义详情
+       *
+       * @param request GetProcessDefinitionRequest
+       * @return GetProcessDefinitionResponse
+       */
+      Models::GetProcessDefinitionResponse getProcessDefinition(const Models::GetProcessDefinitionRequest &request);
+
+      /**
+       * @summary 查询审批流程实例详情
+       *
+       * @param request GetProcessInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetProcessInstanceResponse
+       */
+      Models::GetProcessInstanceResponse getProcessInstanceWithOptions(const Models::GetProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询审批流程实例详情
+       *
+       * @param request GetProcessInstanceRequest
+       * @return GetProcessInstanceResponse
+       */
+      Models::GetProcessInstanceResponse getProcessInstance(const Models::GetProcessInstanceRequest &request);
+
+      /**
        * @summary Queries the information about a DataWorks workspace.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -3031,6 +3235,23 @@ namespace DataworksPublic20240518
        * @return GetSchemaResponse
        */
       Models::GetSchemaResponse getSchema(const Models::GetSchemaRequest &request);
+
+      /**
+       * @summary 查询安全管控策略详情
+       *
+       * @param request GetSecurityStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSecurityStrategyResponse
+       */
+      Models::GetSecurityStrategyResponse getSecurityStrategyWithOptions(const Models::GetSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询安全管控策略详情
+       *
+       * @param request GetSecurityStrategyRequest
+       * @return GetSecurityStrategyResponse
+       */
+      Models::GetSecurityStrategyResponse getSecurityStrategy(const Models::GetSecurityStrategyRequest &request);
 
       /**
        * @summary 读取 Skill 详情
@@ -4238,6 +4459,40 @@ namespace DataworksPublic20240518
       Models::ListMetaEntityDefsResponse listMetaEntityDefs(const Models::ListMetaEntityDefsRequest &request);
 
       /**
+       * @summary 查询我发起的权限申请单
+       *
+       * @param tmpReq ListMyApplicationsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMyApplicationsResponse
+       */
+      Models::ListMyApplicationsResponse listMyApplicationsWithOptions(const Models::ListMyApplicationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询我发起的权限申请单
+       *
+       * @param request ListMyApplicationsRequest
+       * @return ListMyApplicationsResponse
+       */
+      Models::ListMyApplicationsResponse listMyApplications(const Models::ListMyApplicationsRequest &request);
+
+      /**
+       * @summary 查询与我相关的权限申请单
+       *
+       * @param tmpReq ListMyRelatedApprovalsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMyRelatedApprovalsResponse
+       */
+      Models::ListMyRelatedApprovalsResponse listMyRelatedApprovalsWithOptions(const Models::ListMyRelatedApprovalsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询与我相关的权限申请单
+       *
+       * @param request ListMyRelatedApprovalsRequest
+       * @return ListMyRelatedApprovalsResponse
+       */
+      Models::ListMyRelatedApprovalsResponse listMyRelatedApprovals(const Models::ListMyRelatedApprovalsRequest &request);
+
+      /**
        * @summary Queries a list of network resources of a serverless resource group.
        *
        * @description This API operation is available for all DataWorks editions.
@@ -4344,6 +4599,23 @@ namespace DataworksPublic20240518
       Models::ListPartitionsResponse listPartitions(const Models::ListPartitionsRequest &request);
 
       /**
+       * @summary 查询待我审批的权限申请单
+       *
+       * @param tmpReq ListPendingApprovalsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPendingApprovalsResponse
+       */
+      Models::ListPendingApprovalsResponse listPendingApprovalsWithOptions(const Models::ListPendingApprovalsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询待我审批的权限申请单
+       *
+       * @param request ListPendingApprovalsRequest
+       * @return ListPendingApprovalsResponse
+       */
+      Models::ListPendingApprovalsResponse listPendingApprovals(const Models::ListPendingApprovalsRequest &request);
+
+      /**
        * @summary Queries the information about deployment objects by deployment process ID.
        *
        * @param request ListPipelineRunItemsRequest
@@ -4376,6 +4648,23 @@ namespace DataworksPublic20240518
        * @return ListPipelineRunsResponse
        */
       Models::ListPipelineRunsResponse listPipelineRuns(const Models::ListPipelineRunsRequest &request);
+
+      /**
+       * @summary 查询审批流程定义列表
+       *
+       * @param request ListProcessDefinitionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProcessDefinitionsResponse
+       */
+      Models::ListProcessDefinitionsResponse listProcessDefinitionsWithOptions(const Models::ListProcessDefinitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询审批流程定义列表
+       *
+       * @param request ListProcessDefinitionsRequest
+       * @return ListProcessDefinitionsResponse
+       */
+      Models::ListProcessDefinitionsResponse listProcessDefinitions(const Models::ListProcessDefinitionsRequest &request);
 
       /**
        * @summary Queries details about members in a workspace.
@@ -4547,6 +4836,23 @@ namespace DataworksPublic20240518
        * @return ListSchemasResponse
        */
       Models::ListSchemasResponse listSchemas(const Models::ListSchemasRequest &request);
+
+      /**
+       * @summary 分页检索安全管控策略
+       *
+       * @param request ListSecurityStrategiesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSecurityStrategiesResponse
+       */
+      Models::ListSecurityStrategiesResponse listSecurityStrategiesWithOptions(const Models::ListSecurityStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 分页检索安全管控策略
+       *
+       * @param request ListSecurityStrategiesRequest
+       * @return ListSecurityStrategiesResponse
+       */
+      Models::ListSecurityStrategiesResponse listSecurityStrategies(const Models::ListSecurityStrategiesRequest &request);
 
       /**
        * @summary 分页列出 Skill
@@ -5186,6 +5492,23 @@ namespace DataworksPublic20240518
        * @return StopDIJobResponse
        */
       Models::StopDIJobResponse stopDIJob(const Models::StopDIJobRequest &request);
+
+      /**
+       * @summary 撤回审批流程实例
+       *
+       * @param request StopProcessInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopProcessInstanceResponse
+       */
+      Models::StopProcessInstanceResponse stopProcessInstanceWithOptions(const Models::StopProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 撤回审批流程实例
+       *
+       * @param request StopProcessInstanceRequest
+       * @return StopProcessInstanceResponse
+       */
+      Models::StopProcessInstanceResponse stopProcessInstance(const Models::StopProcessInstanceRequest &request);
 
       /**
        * @summary Stops multiple instances at a time.
@@ -5874,6 +6197,23 @@ namespace DataworksPublic20240518
       Models::UpdateParameterResponse updateParameter(const Models::UpdateParameterRequest &request);
 
       /**
+       * @summary 更新审批流程定义
+       *
+       * @param tmpReq UpdateProcessDefinitionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateProcessDefinitionResponse
+       */
+      Models::UpdateProcessDefinitionResponse updateProcessDefinitionWithOptions(const Models::UpdateProcessDefinitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新审批流程定义
+       *
+       * @param request UpdateProcessDefinitionRequest
+       * @return UpdateProcessDefinitionResponse
+       */
+      Models::UpdateProcessDefinitionResponse updateProcessDefinition(const Models::UpdateProcessDefinitionRequest &request);
+
+      /**
        * @summary Updates a DataWorks workspace.
        *
        * @param request UpdateProjectRequest
@@ -5967,6 +6307,23 @@ namespace DataworksPublic20240518
        * @return UpdateRouteResponse
        */
       Models::UpdateRouteResponse updateRoute(const Models::UpdateRouteRequest &request);
+
+      /**
+       * @summary 变更安全管控策略
+       *
+       * @param tmpReq UpdateSecurityStrategyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSecurityStrategyResponse
+       */
+      Models::UpdateSecurityStrategyResponse updateSecurityStrategyWithOptions(const Models::UpdateSecurityStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 变更安全管控策略
+       *
+       * @param request UpdateSecurityStrategyRequest
+       * @return UpdateSecurityStrategyResponse
+       */
+      Models::UpdateSecurityStrategyResponse updateSecurityStrategy(const Models::UpdateSecurityStrategyRequest &request);
 
       /**
        * @summary Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.

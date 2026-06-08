@@ -203,6 +203,116 @@ AddEntityIntoMetaCollectionResponse Client::addEntityIntoMetaCollection(const Ad
 }
 
 /**
+ * @summary 发起资源访问权限申请
+ *
+ * @param tmpReq ApplyResourceAccessPermissionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApplyResourceAccessPermissionResponse
+ */
+ApplyResourceAccessPermissionResponse Client::applyResourceAccessPermissionWithOptions(const ApplyResourceAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ApplyResourceAccessPermissionShrinkRequest request = ApplyResourceAccessPermissionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApplyContents()) {
+    request.setApplyContentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApplyContents(), "ApplyContents", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApplyContentsShrink()) {
+    body["ApplyContents"] = request.getApplyContentsShrink();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasReason()) {
+    body["Reason"] = request.getReason();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ApplyResourceAccessPermission"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApplyResourceAccessPermissionResponse>();
+}
+
+/**
+ * @summary 发起资源访问权限申请
+ *
+ * @param request ApplyResourceAccessPermissionRequest
+ * @return ApplyResourceAccessPermissionResponse
+ */
+ApplyResourceAccessPermissionResponse Client::applyResourceAccessPermission(const ApplyResourceAccessPermissionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return applyResourceAccessPermissionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 审批权限申请流程实例
+ *
+ * @param request ApproveProcessInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ApproveProcessInstanceResponse
+ */
+ApproveProcessInstanceResponse Client::approveProcessInstanceWithOptions(const ApproveProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasApprovalAction()) {
+    body["ApprovalAction"] = request.getApprovalAction();
+  }
+
+  if (!!request.hasApprovalComment()) {
+    body["ApprovalComment"] = request.getApprovalComment();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasProcessInstanceId()) {
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ApproveProcessInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ApproveProcessInstanceResponse>();
+}
+
+/**
+ * @summary 审批权限申请流程实例
+ *
+ * @param request ApproveProcessInstanceRequest
+ * @return ApproveProcessInstanceResponse
+ */
+ApproveProcessInstanceResponse Client::approveProcessInstance(const ApproveProcessInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return approveProcessInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Adds a custom image to a workspace.
  *
  * @param request AssociateProjectToImageRequest
@@ -3107,6 +3217,94 @@ CreatePipelineRunResponse Client::createPipelineRun(const CreatePipelineRunReque
 }
 
 /**
+ * @summary 创建审批流程定义
+ *
+ * @param tmpReq CreateProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateProcessDefinitionResponse
+ */
+CreateProcessDefinitionResponse Client::createProcessDefinitionWithOptions(const CreateProcessDefinitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateProcessDefinitionShrinkRequest request = CreateProcessDefinitionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApprovalNodes()) {
+    request.setApprovalNodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApprovalNodes(), "ApprovalNodes", "json"));
+  }
+
+  if (!!tmpReq.hasNotificationServices()) {
+    request.setNotificationServicesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotificationServices(), "NotificationServices", "json"));
+  }
+
+  if (!!tmpReq.hasRuleConditions()) {
+    request.setRuleConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuleConditions(), "RuleConditions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApprovalNodesShrink()) {
+    body["ApprovalNodes"] = request.getApprovalNodesShrink();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasEnabled()) {
+    body["Enabled"] = request.getEnabled();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNotificationServicesShrink()) {
+    body["NotificationServices"] = request.getNotificationServicesShrink();
+  }
+
+  if (!!request.hasRuleConditionsShrink()) {
+    body["RuleConditions"] = request.getRuleConditionsShrink();
+  }
+
+  if (!!request.hasSubType()) {
+    body["SubType"] = request.getSubType();
+  }
+
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 创建审批流程定义
+ *
+ * @param request CreateProcessDefinitionRequest
+ * @return CreateProcessDefinitionResponse
+ */
+CreateProcessDefinitionResponse Client::createProcessDefinition(const CreateProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createProcessDefinitionWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a workspace.
  *
  * @param tmpReq CreateProjectRequest
@@ -3766,6 +3964,90 @@ CreateRouteResponse Client::createRouteWithOptions(const CreateRouteRequest &req
 CreateRouteResponse Client::createRoute(const CreateRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建安全管控策略
+ *
+ * @param tmpReq CreateSecurityStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSecurityStrategyResponse
+ */
+CreateSecurityStrategyResponse Client::createSecurityStrategyWithOptions(const CreateSecurityStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateSecurityStrategyShrinkRequest request = CreateSecurityStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContent()) {
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
+  }
+
+  if (!!tmpReq.hasWorkspaces()) {
+    request.setWorkspacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkspaces(), "Workspaces", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasContentShrink()) {
+    body["Content"] = request.getContentShrink();
+  }
+
+  if (!!request.hasControlDwScope()) {
+    body["ControlDwScope"] = request.getControlDwScope();
+  }
+
+  if (!!request.hasControlModule()) {
+    body["ControlModule"] = request.getControlModule();
+  }
+
+  if (!!request.hasControlSubModule()) {
+    body["ControlSubModule"] = request.getControlSubModule();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSchemaName()) {
+    body["SchemaName"] = request.getSchemaName();
+  }
+
+  if (!!request.hasWorkspacesShrink()) {
+    body["Workspaces"] = request.getWorkspacesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "CreateSecurityStrategy"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSecurityStrategyResponse>();
+}
+
+/**
+ * @summary 创建安全管控策略
+ *
+ * @param request CreateSecurityStrategyRequest
+ * @return CreateSecurityStrategyResponse
+ */
+CreateSecurityStrategyResponse Client::createSecurityStrategy(const CreateSecurityStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSecurityStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -5491,6 +5773,48 @@ DeleteParameterResponse Client::deleteParameter(const DeleteParameterRequest &re
 }
 
 /**
+ * @summary 删除审批流程定义
+ *
+ * @param request DeleteProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteProcessDefinitionResponse
+ */
+DeleteProcessDefinitionResponse Client::deleteProcessDefinitionWithOptions(const DeleteProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 删除审批流程定义
+ *
+ * @param request DeleteProcessDefinitionRequest
+ * @return DeleteProcessDefinitionResponse
+ */
+DeleteProcessDefinitionResponse Client::deleteProcessDefinition(const DeleteProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteProcessDefinitionWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a DataWorks workspace.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -5774,6 +6098,48 @@ DeleteRouteResponse Client::deleteRouteWithOptions(const DeleteRouteRequest &req
 DeleteRouteResponse Client::deleteRoute(const DeleteRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除安全管控策略
+ *
+ * @param request DeleteSecurityStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSecurityStrategyResponse
+ */
+DeleteSecurityStrategyResponse Client::deleteSecurityStrategyWithOptions(const DeleteSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteSecurityStrategy"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSecurityStrategyResponse>();
+}
+
+/**
+ * @summary 删除安全管控策略
+ *
+ * @param request DeleteSecurityStrategyRequest
+ * @return DeleteSecurityStrategyResponse
+ */
+DeleteSecurityStrategyResponse Client::deleteSecurityStrategy(const DeleteSecurityStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSecurityStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -6089,6 +6455,52 @@ DetachDataQualityRulesFromEvaluationTaskResponse Client::detachDataQualityRulesF
 }
 
 /**
+ * @summary 停用审批流程定义
+ *
+ * @param request DisableProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableProcessDefinitionResponse
+ */
+DisableProcessDefinitionResponse Client::disableProcessDefinitionWithOptions(const DisableProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DisableProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 停用审批流程定义
+ *
+ * @param request DisableProcessDefinitionRequest
+ * @return DisableProcessDefinitionResponse
+ */
+DisableProcessDefinitionResponse Client::disableProcessDefinition(const DisableProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return disableProcessDefinitionWithOptions(request, runtime);
+}
+
+/**
  * @summary Disassociates an image from a workspace.
  *
  * @param request DissociateProjectFromImageRequest
@@ -6186,6 +6598,52 @@ DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResource
 DissociateProjectFromResourceGroupResponse Client::dissociateProjectFromResourceGroup(const DissociateProjectFromResourceGroupRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return dissociateProjectFromResourceGroupWithOptions(request, runtime);
+}
+
+/**
+ * @summary 启用审批流程定义
+ *
+ * @param request EnableProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableProcessDefinitionResponse
+ */
+EnableProcessDefinitionResponse Client::enableProcessDefinitionWithOptions(const EnableProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "EnableProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 启用审批流程定义
+ *
+ * @param request EnableProcessDefinitionRequest
+ * @return EnableProcessDefinitionResponse
+ */
+EnableProcessDefinitionResponse Client::enableProcessDefinition(const EnableProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return enableProcessDefinitionWithOptions(request, runtime);
 }
 
 /**
@@ -6374,6 +6832,56 @@ ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstanceWithOpt
 ExecuteAdhocWorkflowInstanceResponse Client::executeAdhocWorkflowInstance(const ExecuteAdhocWorkflowInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return executeAdhocWorkflowInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 匹配最佳安全管控策略
+ *
+ * @param request FindBestMatchSecurityStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return FindBestMatchSecurityStrategyResponse
+ */
+FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategyWithOptions(const FindBestMatchSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasControlModule()) {
+    query["ControlModule"] = request.getControlModule();
+  }
+
+  if (!!request.hasControlSubModule()) {
+    query["ControlSubModule"] = request.getControlSubModule();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "FindBestMatchSecurityStrategy"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<FindBestMatchSecurityStrategyResponse>();
+}
+
+/**
+ * @summary 匹配最佳安全管控策略
+ *
+ * @param request FindBestMatchSecurityStrategyRequest
+ * @return FindBestMatchSecurityStrategyResponse
+ */
+FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategy(const FindBestMatchSecurityStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return findBestMatchSecurityStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -6566,6 +7074,48 @@ GetAlertRuleResponse Client::getAlertRuleWithOptions(const GetAlertRuleRequest &
 GetAlertRuleResponse Client::getAlertRule(const GetAlertRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAlertRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询数据访问权限申请单
+ *
+ * @param request GetApplicationContentsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApplicationContentsResponse
+ */
+GetApplicationContentsResponse Client::getApplicationContentsWithOptions(const GetApplicationContentsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProcessInstanceId()) {
+    query["ProcessInstanceId"] = request.getProcessInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetApplicationContents"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApplicationContentsResponse>();
+}
+
+/**
+ * @summary 查询数据访问权限申请单
+ *
+ * @param request GetApplicationContentsRequest
+ * @return GetApplicationContentsResponse
+ */
+GetApplicationContentsResponse Client::getApplicationContents(const GetApplicationContentsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getApplicationContentsWithOptions(request, runtime);
 }
 
 /**
@@ -8367,6 +8917,90 @@ GetPipelineRunResponse Client::getPipelineRun(const GetPipelineRunRequest &reque
 }
 
 /**
+ * @summary 查询审批流程定义详情
+ *
+ * @param request GetProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProcessDefinitionResponse
+ */
+GetProcessDefinitionResponse Client::getProcessDefinitionWithOptions(const GetProcessDefinitionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 查询审批流程定义详情
+ *
+ * @param request GetProcessDefinitionRequest
+ * @return GetProcessDefinitionResponse
+ */
+GetProcessDefinitionResponse Client::getProcessDefinition(const GetProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getProcessDefinitionWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询审批流程实例详情
+ *
+ * @param request GetProcessInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetProcessInstanceResponse
+ */
+GetProcessInstanceResponse Client::getProcessInstanceWithOptions(const GetProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProcessInstanceId()) {
+    query["ProcessInstanceId"] = request.getProcessInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetProcessInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetProcessInstanceResponse>();
+}
+
+/**
+ * @summary 查询审批流程实例详情
+ *
+ * @param request GetProcessInstanceRequest
+ * @return GetProcessInstanceResponse
+ */
+GetProcessInstanceResponse Client::getProcessInstance(const GetProcessInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getProcessInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a DataWorks workspace.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -8714,6 +9348,48 @@ GetSchemaResponse Client::getSchemaWithOptions(const GetSchemaRequest &request, 
 GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSchemaWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询安全管控策略详情
+ *
+ * @param request GetSecurityStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSecurityStrategyResponse
+ */
+GetSecurityStrategyResponse Client::getSecurityStrategyWithOptions(const GetSecurityStrategyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSecurityStrategy"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSecurityStrategyResponse>();
+}
+
+/**
+ * @summary 查询安全管控策略详情
+ *
+ * @param request GetSecurityStrategyRequest
+ * @return GetSecurityStrategyResponse
+ */
+GetSecurityStrategyResponse Client::getSecurityStrategy(const GetSecurityStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSecurityStrategyWithOptions(request, runtime);
 }
 
 /**
@@ -12187,6 +12863,190 @@ ListMetaEntityDefsResponse Client::listMetaEntityDefs(const ListMetaEntityDefsRe
 }
 
 /**
+ * @summary 查询我发起的权限申请单
+ *
+ * @param tmpReq ListMyApplicationsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMyApplicationsResponse
+ */
+ListMyApplicationsResponse Client::listMyApplicationsWithOptions(const ListMyApplicationsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMyApplicationsShrinkRequest request = ListMyApplicationsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasResource()) {
+    request.setResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResource(), "Resource", "json"));
+  }
+
+  if (!!tmpReq.hasResourceType()) {
+    request.setResourceTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceType(), "ResourceType", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasDefSchema()) {
+    body["DefSchema"] = request.getDefSchema();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceShrink()) {
+    body["Resource"] = request.getResourceShrink();
+  }
+
+  if (!!request.hasResourceTypeShrink()) {
+    body["ResourceType"] = request.getResourceTypeShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    body["Statuses"] = request.getStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMyApplications"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMyApplicationsResponse>();
+}
+
+/**
+ * @summary 查询我发起的权限申请单
+ *
+ * @param request ListMyApplicationsRequest
+ * @return ListMyApplicationsResponse
+ */
+ListMyApplicationsResponse Client::listMyApplications(const ListMyApplicationsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMyApplicationsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询与我相关的权限申请单
+ *
+ * @param tmpReq ListMyRelatedApprovalsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMyRelatedApprovalsResponse
+ */
+ListMyRelatedApprovalsResponse Client::listMyRelatedApprovalsWithOptions(const ListMyRelatedApprovalsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListMyRelatedApprovalsShrinkRequest request = ListMyRelatedApprovalsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAccessTypes()) {
+    request.setAccessTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccessTypes(), "AccessTypes", "json"));
+  }
+
+  if (!!tmpReq.hasGrantee()) {
+    request.setGranteeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGrantee(), "Grantee", "json"));
+  }
+
+  if (!!tmpReq.hasResource()) {
+    request.setResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResource(), "Resource", "json"));
+  }
+
+  if (!!tmpReq.hasResourceType()) {
+    request.setResourceTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceType(), "ResourceType", "json"));
+  }
+
+  if (!!tmpReq.hasStatuses()) {
+    request.setStatusesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatuses(), "Statuses", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessTypesShrink()) {
+    body["AccessTypes"] = request.getAccessTypesShrink();
+  }
+
+  if (!!request.hasDefSchema()) {
+    body["DefSchema"] = request.getDefSchema();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranteeShrink()) {
+    body["Grantee"] = request.getGranteeShrink();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceShrink()) {
+    body["Resource"] = request.getResourceShrink();
+  }
+
+  if (!!request.hasResourceTypeShrink()) {
+    body["ResourceType"] = request.getResourceTypeShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasStatusesShrink()) {
+    body["Statuses"] = request.getStatusesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListMyRelatedApprovals"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMyRelatedApprovalsResponse>();
+}
+
+/**
+ * @summary 查询与我相关的权限申请单
+ *
+ * @param request ListMyRelatedApprovalsRequest
+ * @return ListMyRelatedApprovalsResponse
+ */
+ListMyRelatedApprovalsResponse Client::listMyRelatedApprovals(const ListMyRelatedApprovalsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listMyRelatedApprovalsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries a list of network resources of a serverless resource group.
  *
  * @description This API operation is available for all DataWorks editions.
@@ -12481,6 +13341,98 @@ ListPartitionsResponse Client::listPartitions(const ListPartitionsRequest &reque
 }
 
 /**
+ * @summary 查询待我审批的权限申请单
+ *
+ * @param tmpReq ListPendingApprovalsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPendingApprovalsResponse
+ */
+ListPendingApprovalsResponse Client::listPendingApprovalsWithOptions(const ListPendingApprovalsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListPendingApprovalsShrinkRequest request = ListPendingApprovalsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAccessTypes()) {
+    request.setAccessTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAccessTypes(), "AccessTypes", "json"));
+  }
+
+  if (!!tmpReq.hasGrantee()) {
+    request.setGranteeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getGrantee(), "Grantee", "json"));
+  }
+
+  if (!!tmpReq.hasResource()) {
+    request.setResourceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResource(), "Resource", "json"));
+  }
+
+  if (!!tmpReq.hasResourceType()) {
+    request.setResourceTypeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceType(), "ResourceType", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasAccessTypesShrink()) {
+    body["AccessTypes"] = request.getAccessTypesShrink();
+  }
+
+  if (!!request.hasDefSchema()) {
+    body["DefSchema"] = request.getDefSchema();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasGranteeShrink()) {
+    body["Grantee"] = request.getGranteeShrink();
+  }
+
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasResourceShrink()) {
+    body["Resource"] = request.getResourceShrink();
+  }
+
+  if (!!request.hasResourceTypeShrink()) {
+    body["ResourceType"] = request.getResourceTypeShrink();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListPendingApprovals"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListPendingApprovalsResponse>();
+}
+
+/**
+ * @summary 查询待我审批的权限申请单
+ *
+ * @param request ListPendingApprovalsRequest
+ * @return ListPendingApprovalsResponse
+ */
+ListPendingApprovalsResponse Client::listPendingApprovals(const ListPendingApprovalsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPendingApprovalsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about deployment objects by deployment process ID.
  *
  * @param request ListPipelineRunItemsRequest
@@ -12554,6 +13506,48 @@ ListPipelineRunsResponse Client::listPipelineRunsWithOptions(const ListPipelineR
 ListPipelineRunsResponse Client::listPipelineRuns(const ListPipelineRunsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listPipelineRunsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询审批流程定义列表
+ *
+ * @param request ListProcessDefinitionsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProcessDefinitionsResponse
+ */
+ListProcessDefinitionsResponse Client::listProcessDefinitionsWithOptions(const ListProcessDefinitionsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasType()) {
+    body["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListProcessDefinitions"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProcessDefinitionsResponse>();
+}
+
+/**
+ * @summary 查询审批流程定义列表
+ *
+ * @param request ListProcessDefinitionsRequest
+ * @return ListProcessDefinitionsResponse
+ */
+ListProcessDefinitionsResponse Client::listProcessDefinitions(const ListProcessDefinitionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProcessDefinitionsWithOptions(request, runtime);
 }
 
 /**
@@ -13084,6 +14078,60 @@ ListSchemasResponse Client::listSchemasWithOptions(const ListSchemasRequest &tmp
 ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listSchemasWithOptions(request, runtime);
+}
+
+/**
+ * @summary 分页检索安全管控策略
+ *
+ * @param request ListSecurityStrategiesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSecurityStrategiesResponse
+ */
+ListSecurityStrategiesResponse Client::listSecurityStrategiesWithOptions(const ListSecurityStrategiesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasControlModule()) {
+    body["ControlModule"] = request.getControlModule();
+  }
+
+  if (!!request.hasControlSubModule()) {
+    body["ControlSubModule"] = request.getControlSubModule();
+  }
+
+  if (!!request.hasPageNumber()) {
+    body["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "ListSecurityStrategies"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSecurityStrategiesResponse>();
+}
+
+/**
+ * @summary 分页检索安全管控策略
+ *
+ * @param request ListSecurityStrategiesRequest
+ * @return ListSecurityStrategiesResponse
+ */
+ListSecurityStrategiesResponse Client::listSecurityStrategies(const ListSecurityStrategiesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSecurityStrategiesWithOptions(request, runtime);
 }
 
 /**
@@ -15124,6 +16172,52 @@ StopDIJobResponse Client::stopDIJobWithOptions(const StopDIJobRequest &request, 
 StopDIJobResponse Client::stopDIJob(const StopDIJobRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopDIJobWithOptions(request, runtime);
+}
+
+/**
+ * @summary 撤回审批流程实例
+ *
+ * @param request StopProcessInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopProcessInstanceResponse
+ */
+StopProcessInstanceResponse Client::stopProcessInstanceWithOptions(const StopProcessInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasProcessInstanceId()) {
+    body["ProcessInstanceId"] = request.getProcessInstanceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "StopProcessInstance"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopProcessInstanceResponse>();
+}
+
+/**
+ * @summary 撤回审批流程实例
+ *
+ * @param request StopProcessInstanceRequest
+ * @return StopProcessInstanceResponse
+ */
+StopProcessInstanceResponse Client::stopProcessInstance(const StopProcessInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopProcessInstanceWithOptions(request, runtime);
 }
 
 /**
@@ -17603,6 +18697,86 @@ UpdateParameterResponse Client::updateParameter(const UpdateParameterRequest &re
 }
 
 /**
+ * @summary 更新审批流程定义
+ *
+ * @param tmpReq UpdateProcessDefinitionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateProcessDefinitionResponse
+ */
+UpdateProcessDefinitionResponse Client::updateProcessDefinitionWithOptions(const UpdateProcessDefinitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateProcessDefinitionShrinkRequest request = UpdateProcessDefinitionShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasApprovalNodes()) {
+    request.setApprovalNodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getApprovalNodes(), "ApprovalNodes", "json"));
+  }
+
+  if (!!tmpReq.hasNotificationServices()) {
+    request.setNotificationServicesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getNotificationServices(), "NotificationServices", "json"));
+  }
+
+  if (!!tmpReq.hasRuleConditions()) {
+    request.setRuleConditionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRuleConditions(), "RuleConditions", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasApprovalNodesShrink()) {
+    body["ApprovalNodes"] = request.getApprovalNodesShrink();
+  }
+
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasNotificationServicesShrink()) {
+    body["NotificationServices"] = request.getNotificationServicesShrink();
+  }
+
+  if (!!request.hasRuleConditionsShrink()) {
+    body["RuleConditions"] = request.getRuleConditionsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateProcessDefinition"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateProcessDefinitionResponse>();
+}
+
+/**
+ * @summary 更新审批流程定义
+ *
+ * @param request UpdateProcessDefinitionRequest
+ * @return UpdateProcessDefinitionResponse
+ */
+UpdateProcessDefinitionResponse Client::updateProcessDefinition(const UpdateProcessDefinitionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateProcessDefinitionWithOptions(request, runtime);
+}
+
+/**
  * @summary Updates a DataWorks workspace.
  *
  * @param request UpdateProjectRequest
@@ -17976,6 +19150,78 @@ UpdateRouteResponse Client::updateRouteWithOptions(const UpdateRouteRequest &req
 UpdateRouteResponse Client::updateRoute(const UpdateRouteRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateRouteWithOptions(request, runtime);
+}
+
+/**
+ * @summary 变更安全管控策略
+ *
+ * @param tmpReq UpdateSecurityStrategyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSecurityStrategyResponse
+ */
+UpdateSecurityStrategyResponse Client::updateSecurityStrategyWithOptions(const UpdateSecurityStrategyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateSecurityStrategyShrinkRequest request = UpdateSecurityStrategyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContent()) {
+    request.setContentShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContent(), "Content", "json"));
+  }
+
+  if (!!tmpReq.hasWorkspaces()) {
+    request.setWorkspacesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWorkspaces(), "Workspaces", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasContentShrink()) {
+    body["Content"] = request.getContentShrink();
+  }
+
+  if (!!request.hasDescription()) {
+    body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasId()) {
+    body["Id"] = request.getId();
+  }
+
+  if (!!request.hasName()) {
+    body["Name"] = request.getName();
+  }
+
+  if (!!request.hasWorkspacesShrink()) {
+    body["Workspaces"] = request.getWorkspacesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "UpdateSecurityStrategy"},
+    {"version" , "2024-05-18"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSecurityStrategyResponse>();
+}
+
+/**
+ * @summary 变更安全管控策略
+ *
+ * @param request UpdateSecurityStrategyRequest
+ * @return UpdateSecurityStrategyResponse
+ */
+UpdateSecurityStrategyResponse Client::updateSecurityStrategy(const UpdateSecurityStrategyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSecurityStrategyWithOptions(request, runtime);
 }
 
 /**
