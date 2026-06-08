@@ -36,45 +36,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->domain_ == nullptr && return this->functionType_ == nullptr && return this->modelType_ == nullptr; };
+        && this->domain_ == nullptr && this->functionType_ == nullptr && this->modelType_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline GetFunctionCurrentVersionRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline GetFunctionCurrentVersionRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // functionType Field Functions 
     bool hasFunctionType() const { return this->functionType_ != nullptr;};
     void deleteFunctionType() { this->functionType_ = nullptr;};
-    inline string functionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
+    inline string getFunctionType() const { DARABONBA_PTR_GET_DEFAULT(functionType_, "") };
     inline GetFunctionCurrentVersionRequest& setFunctionType(string functionType) { DARABONBA_PTR_SET_VALUE(functionType_, functionType) };
 
 
     // modelType Field Functions 
     bool hasModelType() const { return this->modelType_ != nullptr;};
     void deleteModelType() { this->modelType_ = nullptr;};
-    inline string modelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
     inline GetFunctionCurrentVersionRequest& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
   protected:
     // The category. By default, this parameter is left empty.
-    std::shared_ptr<string> category_ = nullptr;
+    shared_ptr<string> category_ {};
     // The industry. By default, this parameter is left empty, which indicates General-purpose Edition.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The type of the feature. Valid values:
     // 
     // *   PAAS. This is the default value.
     // *   SAAS.
-    std::shared_ptr<string> functionType_ = nullptr;
+    shared_ptr<string> functionType_ {};
     // The type of the model. The following features correspond to different model types:
     // 
     // *   CTR model: tf_checkpoint
@@ -87,7 +87,7 @@ namespace Models
     // *   Word weight model: tf_checkpoint
     // 
     // This parameter is required.
-    std::shared_ptr<string> modelType_ = nullptr;
+    shared_ptr<string> modelType_ {};
   };
 
   } // namespace Models

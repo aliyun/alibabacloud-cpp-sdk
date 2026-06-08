@@ -685,6 +685,8 @@ namespace OpenSearch20171225
       Models::DescribeInterventionDictionaryResponse describeInterventionDictionary(const string &name);
 
       /**
+       * @summary Queries the query analysis rule for a version of an OpenSearch application.
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeQueryProcessorResponse
@@ -692,6 +694,8 @@ namespace OpenSearch20171225
       Models::DescribeQueryProcessorResponse describeQueryProcessorWithOptions(const string &appGroupIdentity, const string &appId, const string &name, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the query analysis rule for a version of an OpenSearch application.
+       *
        * @return DescribeQueryProcessorResponse
        */
       Models::DescribeQueryProcessorResponse describeQueryProcessor(const string &appGroupIdentity, const string &appId, const string &name);
@@ -2123,6 +2127,24 @@ namespace OpenSearch20171225
        * @return UpdateABTestSceneResponse
        */
       Models::UpdateABTestSceneResponse updateABTestScene(const string &appGroupIdentity, const string &sceneId, const Models::UpdateABTestSceneRequest &request);
+
+      /**
+       * @summary 应用删除保护
+       *
+       * @param request UpdateAppGroupDeleteProtectionRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAppGroupDeleteProtectionResponse
+       */
+      Models::UpdateAppGroupDeleteProtectionResponse updateAppGroupDeleteProtectionWithOptions(const string &appGroupIdentity, const Models::UpdateAppGroupDeleteProtectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 应用删除保护
+       *
+       * @param request UpdateAppGroupDeleteProtectionRequest
+       * @return UpdateAppGroupDeleteProtectionResponse
+       */
+      Models::UpdateAppGroupDeleteProtectionResponse updateAppGroupDeleteProtection(const string &appGroupIdentity, const Models::UpdateAppGroupDeleteProtectionRequest &request);
 
       /**
        * @summary Updates fetch fields. A dry run is supported.

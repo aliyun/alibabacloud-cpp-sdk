@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->analyzerType_ == nullptr
-        && return this->name_ == nullptr && return this->type_ == nullptr && return this->dryRun_ == nullptr; };
+        && this->name_ == nullptr && this->type_ == nullptr && this->dryRun_ == nullptr; };
     // analyzerType Field Functions 
     bool hasAnalyzerType() const { return this->analyzerType_ != nullptr;};
     void deleteAnalyzerType() { this->analyzerType_ = nullptr;};
-    inline string analyzerType() const { DARABONBA_PTR_GET_DEFAULT(analyzerType_, "") };
+    inline string getAnalyzerType() const { DARABONBA_PTR_GET_DEFAULT(analyzerType_, "") };
     inline CreateInterventionDictionaryRequest& setAnalyzerType(string analyzerType) { DARABONBA_PTR_SET_VALUE(analyzerType_, analyzerType) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateInterventionDictionaryRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateInterventionDictionaryRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateInterventionDictionaryRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
@@ -71,9 +71,9 @@ namespace Models
     // *   MODEL: model-based custom analyzer.
     // *   SYSTEM: system analyzer.
     // *   USER: custom analyzer.
-    std::shared_ptr<string> analyzerType_ = nullptr;
+    shared_ptr<string> analyzerType_ {};
     // The name of the intervention dictionary.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The type of the intervention dictionary. Valid values:
     // 
     // *   stopword: an intervention dictionary for stop word filtering.
@@ -88,14 +88,14 @@ namespace Models
     // *   hot_denylist: a top search blacklist.
     // *   hint_allowlist: a hint whitelist.
     // *   hint_denylist: a hint blacklist.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // Specifies whether to perform only a dry run, without performing the actual request. Default value: false.
     // 
     // Valid values:
     // 
     // *   **true**
     // *   **false**
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

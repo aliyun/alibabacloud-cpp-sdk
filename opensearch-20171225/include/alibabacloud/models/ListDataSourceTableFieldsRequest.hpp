@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->params_ == nullptr
-        && return this->rawType_ == nullptr; };
+        && this->rawType_ == nullptr; };
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ListDataSourceTableFieldsRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
     // rawType Field Functions 
     bool hasRawType() const { return this->rawType_ != nullptr;};
     void deleteRawType() { this->rawType_ = nullptr;};
-    inline bool rawType() const { DARABONBA_PTR_GET_DEFAULT(rawType_, false) };
+    inline bool getRawType() const { DARABONBA_PTR_GET_DEFAULT(rawType_, false) };
     inline ListDataSourceTableFieldsRequest& setRawType(bool rawType) { DARABONBA_PTR_SET_VALUE(rawType_, rawType) };
 
 
@@ -59,9 +59,9 @@ namespace Models
     // *   [drds](https://help.aliyun.com/document_detail/173627.html)
     // 
     // This parameter is required.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
     // Specifies whether to return the original field types of the data source.
-    std::shared_ptr<bool> rawType_ = nullptr;
+    shared_ptr<bool> rawType_ {};
   };
 
   } // namespace Models

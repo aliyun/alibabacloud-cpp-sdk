@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const DataSource & body() const { DARABONBA_PTR_GET_CONST(body_, DataSource) };
-    inline DataSource body() { DARABONBA_PTR_GET(body_, DataSource) };
+    inline const DataSource & getBody() const { DARABONBA_PTR_GET_CONST(body_, DataSource) };
+    inline DataSource getBody() { DARABONBA_PTR_GET(body_, DataSource) };
     inline ValidateDataSourcesRequest& setBody(const DataSource & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline ValidateDataSourcesRequest& setBody(DataSource && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The request parameter. For more information, see [DataSource](https://help.aliyun.com/document_detail/170005.html).
-    std::shared_ptr<DataSource> body_ = nullptr;
+    shared_ptr<DataSource> body_ {};
   };
 
   } // namespace Models

@@ -36,40 +36,40 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->computeResource_ == nullptr
-        && return this->docSize_ == nullptr && return this->orderType_ == nullptr && return this->spec_ == nullptr; };
+        && this->docSize_ == nullptr && this->orderType_ == nullptr && this->spec_ == nullptr; };
     // computeResource Field Functions 
     bool hasComputeResource() const { return this->computeResource_ != nullptr;};
     void deleteComputeResource() { this->computeResource_ = nullptr;};
-    inline int32_t computeResource() const { DARABONBA_PTR_GET_DEFAULT(computeResource_, 0) };
+    inline int32_t getComputeResource() const { DARABONBA_PTR_GET_DEFAULT(computeResource_, 0) };
     inline Quota& setComputeResource(int32_t computeResource) { DARABONBA_PTR_SET_VALUE(computeResource_, computeResource) };
 
 
     // docSize Field Functions 
     bool hasDocSize() const { return this->docSize_ != nullptr;};
     void deleteDocSize() { this->docSize_ = nullptr;};
-    inline int32_t docSize() const { DARABONBA_PTR_GET_DEFAULT(docSize_, 0) };
+    inline int32_t getDocSize() const { DARABONBA_PTR_GET_DEFAULT(docSize_, 0) };
     inline Quota& setDocSize(int32_t docSize) { DARABONBA_PTR_SET_VALUE(docSize_, docSize) };
 
 
     // orderType Field Functions 
     bool hasOrderType() const { return this->orderType_ != nullptr;};
     void deleteOrderType() { this->orderType_ = nullptr;};
-    inline string orderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
+    inline string getOrderType() const { DARABONBA_PTR_GET_DEFAULT(orderType_, "") };
     inline Quota& setOrderType(string orderType) { DARABONBA_PTR_SET_VALUE(orderType_, orderType) };
 
 
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline Quota& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
   protected:
-    std::shared_ptr<int32_t> computeResource_ = nullptr;
-    std::shared_ptr<int32_t> docSize_ = nullptr;
-    std::shared_ptr<string> orderType_ = nullptr;
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<int32_t> computeResource_ {};
+    shared_ptr<int32_t> docSize_ {};
+    shared_ptr<string> orderType_ {};
+    shared_ptr<string> spec_ {};
   };
 
   } // namespace Models

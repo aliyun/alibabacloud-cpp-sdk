@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTTAGRESOURCESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListTagResourcesResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,38 +34,104 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(resourceId, resourceId_);
+        DARABONBA_PTR_TO_JSON(resourceType, resourceType_);
+        DARABONBA_PTR_TO_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_TO_JSON(tagValue, tagValue_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(resourceId, resourceId_);
+        DARABONBA_PTR_FROM_JSON(resourceType, resourceType_);
+        DARABONBA_PTR_FROM_JSON(tagKey, tagKey_);
+        DARABONBA_PTR_FROM_JSON(tagValue, tagValue_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->resourceId_ == nullptr
+        && this->resourceType_ == nullptr && this->tagKey_ == nullptr && this->tagValue_ == nullptr; };
+      // resourceId Field Functions 
+      bool hasResourceId() const { return this->resourceId_ != nullptr;};
+      void deleteResourceId() { this->resourceId_ = nullptr;};
+      inline string getResourceId() const { DARABONBA_PTR_GET_DEFAULT(resourceId_, "") };
+      inline Result& setResourceId(string resourceId) { DARABONBA_PTR_SET_VALUE(resourceId_, resourceId) };
+
+
+      // resourceType Field Functions 
+      bool hasResourceType() const { return this->resourceType_ != nullptr;};
+      void deleteResourceType() { this->resourceType_ = nullptr;};
+      inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
+      inline Result& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
+
+
+      // tagKey Field Functions 
+      bool hasTagKey() const { return this->tagKey_ != nullptr;};
+      void deleteTagKey() { this->tagKey_ = nullptr;};
+      inline string getTagKey() const { DARABONBA_PTR_GET_DEFAULT(tagKey_, "") };
+      inline Result& setTagKey(string tagKey) { DARABONBA_PTR_SET_VALUE(tagKey_, tagKey) };
+
+
+      // tagValue Field Functions 
+      bool hasTagValue() const { return this->tagValue_ != nullptr;};
+      void deleteTagValue() { this->tagValue_ = nullptr;};
+      inline string getTagValue() const { DARABONBA_PTR_GET_DEFAULT(tagValue_, "") };
+      inline Result& setTagValue(string tagValue) { DARABONBA_PTR_SET_VALUE(tagValue_, tagValue) };
+
+
+    protected:
+      // The ID of the resource.
+      shared_ptr<string> resourceId_ {};
+      // The resource type.
+      shared_ptr<string> resourceType_ {};
+      // The key of the tag.
+      shared_ptr<string> tagKey_ {};
+      // The value of the tag.
+      shared_ptr<string> tagValue_ {};
+    };
+
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && return this->requestId_ == nullptr && return this->result_ == nullptr; };
+        && this->requestId_ == nullptr && this->result_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListTagResourcesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListTagResourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const vector<ListTagResourcesResponseBodyResult> & result() const { DARABONBA_PTR_GET_CONST(result_, vector<ListTagResourcesResponseBodyResult>) };
-    inline vector<ListTagResourcesResponseBodyResult> result() { DARABONBA_PTR_GET(result_, vector<ListTagResourcesResponseBodyResult>) };
-    inline ListTagResourcesResponseBody& setResult(const vector<ListTagResourcesResponseBodyResult> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline ListTagResourcesResponseBody& setResult(vector<ListTagResourcesResponseBodyResult> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const vector<ListTagResourcesResponseBody::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<ListTagResourcesResponseBody::Result>) };
+    inline vector<ListTagResourcesResponseBody::Result> getResult() { DARABONBA_PTR_GET(result_, vector<ListTagResourcesResponseBody::Result>) };
+    inline ListTagResourcesResponseBody& setResult(const vector<ListTagResourcesResponseBody::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListTagResourcesResponseBody& setResult(vector<ListTagResourcesResponseBody::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The token that is used to retrieve the next page.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The resources.
-    std::shared_ptr<vector<ListTagResourcesResponseBodyResult>> result_ = nullptr;
+    shared_ptr<vector<ListTagResourcesResponseBody::Result>> result_ {};
   };
 
   } // namespace Models

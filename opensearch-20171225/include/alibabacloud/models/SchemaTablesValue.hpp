@@ -36,34 +36,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->name_ == nullptr
-        && return this->primaryTable_ == nullptr && return this->fields_ == nullptr; };
+        && this->primaryTable_ == nullptr && this->fields_ == nullptr; };
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline SchemaTablesValue& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // primaryTable Field Functions 
     bool hasPrimaryTable() const { return this->primaryTable_ != nullptr;};
     void deletePrimaryTable() { this->primaryTable_ = nullptr;};
-    inline bool primaryTable() const { DARABONBA_PTR_GET_DEFAULT(primaryTable_, false) };
+    inline bool getPrimaryTable() const { DARABONBA_PTR_GET_DEFAULT(primaryTable_, false) };
     inline SchemaTablesValue& setPrimaryTable(bool primaryTable) { DARABONBA_PTR_SET_VALUE(primaryTable_, primaryTable) };
 
 
     // fields Field Functions 
     bool hasFields() const { return this->fields_ != nullptr;};
     void deleteFields() { this->fields_ = nullptr;};
-    inline const map<string, SchemaTablesValueFieldsValue> & fields() const { DARABONBA_PTR_GET_CONST(fields_, map<string, SchemaTablesValueFieldsValue>) };
-    inline map<string, SchemaTablesValueFieldsValue> fields() { DARABONBA_PTR_GET(fields_, map<string, SchemaTablesValueFieldsValue>) };
+    inline const map<string, SchemaTablesValueFieldsValue> & getFields() const { DARABONBA_PTR_GET_CONST(fields_, map<string, SchemaTablesValueFieldsValue>) };
+    inline map<string, SchemaTablesValueFieldsValue> getFields() { DARABONBA_PTR_GET(fields_, map<string, SchemaTablesValueFieldsValue>) };
     inline SchemaTablesValue& setFields(const map<string, SchemaTablesValueFieldsValue> & fields) { DARABONBA_PTR_SET_VALUE(fields_, fields) };
     inline SchemaTablesValue& setFields(map<string, SchemaTablesValueFieldsValue> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
 
   protected:
-    std::shared_ptr<string> name_ = nullptr;
-    std::shared_ptr<bool> primaryTable_ = nullptr;
-    std::shared_ptr<map<string, SchemaTablesValueFieldsValue>> fields_ = nullptr;
+    shared_ptr<string> name_ {};
+    shared_ptr<bool> primaryTable_ {};
+    shared_ptr<map<string, SchemaTablesValueFieldsValue>> fields_ {};
   };
 
   } // namespace Models

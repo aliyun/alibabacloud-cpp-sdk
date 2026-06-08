@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->dryRun_ == nullptr; };
+        && this->dryRun_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline     const Darabonba::Json & body() const { DARABONBA_GET(body_) };
-    Darabonba::Json & body() { DARABONBA_GET(body_) };
+    inline     const Darabonba::Json & getBody() const { DARABONBA_GET(body_) };
+    Darabonba::Json & getBody() { DARABONBA_GET(body_) };
     inline CreateQueryProcessorRequest& setBody(const Darabonba::Json & body) { DARABONBA_SET_VALUE(body_, body) };
-    inline CreateQueryProcessorRequest& setBody(Darabonba::Json & body) { DARABONBA_SET_RVALUE(body_, body) };
+    inline CreateQueryProcessorRequest& setBody(Darabonba::Json && body) { DARABONBA_SET_RVALUE(body_, body) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline CreateQueryProcessorRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
   protected:
     // The request body.
-    Darabonba::Json body_ = nullptr;
+    Darabonba::Json body_ {};
     // Specifies whether to perform a dry run.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

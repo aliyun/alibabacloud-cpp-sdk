@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_APP_HPP_
 #define ALIBABACLOUD_MODELS_APP_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/AppCluster.hpp>
 #include <vector>
 #include <alibabacloud/models/DataSource.hpp>
 #include <alibabacloud/models/Domain.hpp>
@@ -69,31 +68,73 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Cluster : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Cluster& obj) { 
+        DARABONBA_PTR_TO_JSON(maxQueryClauseLength, maxQueryClauseLength_);
+        DARABONBA_PTR_TO_JSON(maxTimeoutMS, maxTimeoutMS_);
+      };
+      friend void from_json(const Darabonba::Json& j, Cluster& obj) { 
+        DARABONBA_PTR_FROM_JSON(maxQueryClauseLength, maxQueryClauseLength_);
+        DARABONBA_PTR_FROM_JSON(maxTimeoutMS, maxTimeoutMS_);
+      };
+      Cluster() = default ;
+      Cluster(const Cluster &) = default ;
+      Cluster(Cluster &&) = default ;
+      Cluster(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Cluster() = default ;
+      Cluster& operator=(const Cluster &) = default ;
+      Cluster& operator=(Cluster &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->maxQueryClauseLength_ == nullptr
+        && this->maxTimeoutMS_ == nullptr; };
+      // maxQueryClauseLength Field Functions 
+      bool hasMaxQueryClauseLength() const { return this->maxQueryClauseLength_ != nullptr;};
+      void deleteMaxQueryClauseLength() { this->maxQueryClauseLength_ = nullptr;};
+      inline int32_t getMaxQueryClauseLength() const { DARABONBA_PTR_GET_DEFAULT(maxQueryClauseLength_, 0) };
+      inline Cluster& setMaxQueryClauseLength(int32_t maxQueryClauseLength) { DARABONBA_PTR_SET_VALUE(maxQueryClauseLength_, maxQueryClauseLength) };
+
+
+      // maxTimeoutMS Field Functions 
+      bool hasMaxTimeoutMS() const { return this->maxTimeoutMS_ != nullptr;};
+      void deleteMaxTimeoutMS() { this->maxTimeoutMS_ = nullptr;};
+      inline int32_t getMaxTimeoutMS() const { DARABONBA_PTR_GET_DEFAULT(maxTimeoutMS_, 0) };
+      inline Cluster& setMaxTimeoutMS(int32_t maxTimeoutMS) { DARABONBA_PTR_SET_VALUE(maxTimeoutMS_, maxTimeoutMS) };
+
+
+    protected:
+      shared_ptr<int32_t> maxQueryClauseLength_ {};
+      shared_ptr<int32_t> maxTimeoutMS_ {};
+    };
+
     virtual bool empty() const override { return this->autoSwitch_ == nullptr
-        && return this->cluster_ == nullptr && return this->dataSources_ == nullptr && return this->description_ == nullptr && return this->domain_ == nullptr && return this->fetchFields_ == nullptr
-        && return this->firstRanks_ == nullptr && return this->networkType_ == nullptr && return this->queryProcessors_ == nullptr && return this->quota_ == nullptr && return this->realtimeShared_ == nullptr
-        && return this->schema_ == nullptr && return this->schemas_ == nullptr && return this->secondRanks_ == nullptr && return this->summaries_ == nullptr && return this->type_ == nullptr; };
+        && this->cluster_ == nullptr && this->dataSources_ == nullptr && this->description_ == nullptr && this->domain_ == nullptr && this->fetchFields_ == nullptr
+        && this->firstRanks_ == nullptr && this->networkType_ == nullptr && this->queryProcessors_ == nullptr && this->quota_ == nullptr && this->realtimeShared_ == nullptr
+        && this->schema_ == nullptr && this->schemas_ == nullptr && this->secondRanks_ == nullptr && this->summaries_ == nullptr && this->type_ == nullptr; };
     // autoSwitch Field Functions 
     bool hasAutoSwitch() const { return this->autoSwitch_ != nullptr;};
     void deleteAutoSwitch() { this->autoSwitch_ = nullptr;};
-    inline bool autoSwitch() const { DARABONBA_PTR_GET_DEFAULT(autoSwitch_, false) };
+    inline bool getAutoSwitch() const { DARABONBA_PTR_GET_DEFAULT(autoSwitch_, false) };
     inline App& setAutoSwitch(bool autoSwitch) { DARABONBA_PTR_SET_VALUE(autoSwitch_, autoSwitch) };
 
 
     // cluster Field Functions 
     bool hasCluster() const { return this->cluster_ != nullptr;};
     void deleteCluster() { this->cluster_ = nullptr;};
-    inline const AppCluster & cluster() const { DARABONBA_PTR_GET_CONST(cluster_, AppCluster) };
-    inline AppCluster cluster() { DARABONBA_PTR_GET(cluster_, AppCluster) };
-    inline App& setCluster(const AppCluster & cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
-    inline App& setCluster(AppCluster && cluster) { DARABONBA_PTR_SET_RVALUE(cluster_, cluster) };
+    inline const App::Cluster & getCluster() const { DARABONBA_PTR_GET_CONST(cluster_, App::Cluster) };
+    inline App::Cluster getCluster() { DARABONBA_PTR_GET(cluster_, App::Cluster) };
+    inline App& setCluster(const App::Cluster & cluster) { DARABONBA_PTR_SET_VALUE(cluster_, cluster) };
+    inline App& setCluster(App::Cluster && cluster) { DARABONBA_PTR_SET_RVALUE(cluster_, cluster) };
 
 
     // dataSources Field Functions 
     bool hasDataSources() const { return this->dataSources_ != nullptr;};
     void deleteDataSources() { this->dataSources_ = nullptr;};
-    inline const vector<DataSource> & dataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<DataSource>) };
-    inline vector<DataSource> dataSources() { DARABONBA_PTR_GET(dataSources_, vector<DataSource>) };
+    inline const vector<DataSource> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<DataSource>) };
+    inline vector<DataSource> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<DataSource>) };
     inline App& setDataSources(const vector<DataSource> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
     inline App& setDataSources(vector<DataSource> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
@@ -101,15 +142,15 @@ namespace Models
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline App& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline const Domain & domain() const { DARABONBA_PTR_GET_CONST(domain_, Domain) };
-    inline Domain domain() { DARABONBA_PTR_GET(domain_, Domain) };
+    inline const Domain & getDomain() const { DARABONBA_PTR_GET_CONST(domain_, Domain) };
+    inline Domain getDomain() { DARABONBA_PTR_GET(domain_, Domain) };
     inline App& setDomain(const Domain & domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
     inline App& setDomain(Domain && domain) { DARABONBA_PTR_SET_RVALUE(domain_, domain) };
 
@@ -117,8 +158,8 @@ namespace Models
     // fetchFields Field Functions 
     bool hasFetchFields() const { return this->fetchFields_ != nullptr;};
     void deleteFetchFields() { this->fetchFields_ = nullptr;};
-    inline const vector<string> & fetchFields() const { DARABONBA_PTR_GET_CONST(fetchFields_, vector<string>) };
-    inline vector<string> fetchFields() { DARABONBA_PTR_GET(fetchFields_, vector<string>) };
+    inline const vector<string> & getFetchFields() const { DARABONBA_PTR_GET_CONST(fetchFields_, vector<string>) };
+    inline vector<string> getFetchFields() { DARABONBA_PTR_GET(fetchFields_, vector<string>) };
     inline App& setFetchFields(const vector<string> & fetchFields) { DARABONBA_PTR_SET_VALUE(fetchFields_, fetchFields) };
     inline App& setFetchFields(vector<string> && fetchFields) { DARABONBA_PTR_SET_RVALUE(fetchFields_, fetchFields) };
 
@@ -126,8 +167,8 @@ namespace Models
     // firstRanks Field Functions 
     bool hasFirstRanks() const { return this->firstRanks_ != nullptr;};
     void deleteFirstRanks() { this->firstRanks_ = nullptr;};
-    inline const vector<FirstRank> & firstRanks() const { DARABONBA_PTR_GET_CONST(firstRanks_, vector<FirstRank>) };
-    inline vector<FirstRank> firstRanks() { DARABONBA_PTR_GET(firstRanks_, vector<FirstRank>) };
+    inline const vector<FirstRank> & getFirstRanks() const { DARABONBA_PTR_GET_CONST(firstRanks_, vector<FirstRank>) };
+    inline vector<FirstRank> getFirstRanks() { DARABONBA_PTR_GET(firstRanks_, vector<FirstRank>) };
     inline App& setFirstRanks(const vector<FirstRank> & firstRanks) { DARABONBA_PTR_SET_VALUE(firstRanks_, firstRanks) };
     inline App& setFirstRanks(vector<FirstRank> && firstRanks) { DARABONBA_PTR_SET_RVALUE(firstRanks_, firstRanks) };
 
@@ -135,15 +176,15 @@ namespace Models
     // networkType Field Functions 
     bool hasNetworkType() const { return this->networkType_ != nullptr;};
     void deleteNetworkType() { this->networkType_ = nullptr;};
-    inline string networkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
+    inline string getNetworkType() const { DARABONBA_PTR_GET_DEFAULT(networkType_, "") };
     inline App& setNetworkType(string networkType) { DARABONBA_PTR_SET_VALUE(networkType_, networkType) };
 
 
     // queryProcessors Field Functions 
     bool hasQueryProcessors() const { return this->queryProcessors_ != nullptr;};
     void deleteQueryProcessors() { this->queryProcessors_ = nullptr;};
-    inline const vector<QueryProcessor> & queryProcessors() const { DARABONBA_PTR_GET_CONST(queryProcessors_, vector<QueryProcessor>) };
-    inline vector<QueryProcessor> queryProcessors() { DARABONBA_PTR_GET(queryProcessors_, vector<QueryProcessor>) };
+    inline const vector<QueryProcessor> & getQueryProcessors() const { DARABONBA_PTR_GET_CONST(queryProcessors_, vector<QueryProcessor>) };
+    inline vector<QueryProcessor> getQueryProcessors() { DARABONBA_PTR_GET(queryProcessors_, vector<QueryProcessor>) };
     inline App& setQueryProcessors(const vector<QueryProcessor> & queryProcessors) { DARABONBA_PTR_SET_VALUE(queryProcessors_, queryProcessors) };
     inline App& setQueryProcessors(vector<QueryProcessor> && queryProcessors) { DARABONBA_PTR_SET_RVALUE(queryProcessors_, queryProcessors) };
 
@@ -151,8 +192,8 @@ namespace Models
     // quota Field Functions 
     bool hasQuota() const { return this->quota_ != nullptr;};
     void deleteQuota() { this->quota_ = nullptr;};
-    inline const Quota & quota() const { DARABONBA_PTR_GET_CONST(quota_, Quota) };
-    inline Quota quota() { DARABONBA_PTR_GET(quota_, Quota) };
+    inline const Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, Quota) };
+    inline Quota getQuota() { DARABONBA_PTR_GET(quota_, Quota) };
     inline App& setQuota(const Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
     inline App& setQuota(Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
 
@@ -160,15 +201,15 @@ namespace Models
     // realtimeShared Field Functions 
     bool hasRealtimeShared() const { return this->realtimeShared_ != nullptr;};
     void deleteRealtimeShared() { this->realtimeShared_ = nullptr;};
-    inline bool realtimeShared() const { DARABONBA_PTR_GET_DEFAULT(realtimeShared_, false) };
+    inline bool getRealtimeShared() const { DARABONBA_PTR_GET_DEFAULT(realtimeShared_, false) };
     inline App& setRealtimeShared(bool realtimeShared) { DARABONBA_PTR_SET_VALUE(realtimeShared_, realtimeShared) };
 
 
     // schema Field Functions 
     bool hasSchema() const { return this->schema_ != nullptr;};
     void deleteSchema() { this->schema_ = nullptr;};
-    inline const Schema & schema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
-    inline Schema schema() { DARABONBA_PTR_GET(schema_, Schema) };
+    inline const Schema & getSchema() const { DARABONBA_PTR_GET_CONST(schema_, Schema) };
+    inline Schema getSchema() { DARABONBA_PTR_GET(schema_, Schema) };
     inline App& setSchema(const Schema & schema) { DARABONBA_PTR_SET_VALUE(schema_, schema) };
     inline App& setSchema(Schema && schema) { DARABONBA_PTR_SET_RVALUE(schema_, schema) };
 
@@ -176,8 +217,8 @@ namespace Models
     // schemas Field Functions 
     bool hasSchemas() const { return this->schemas_ != nullptr;};
     void deleteSchemas() { this->schemas_ = nullptr;};
-    inline const vector<Schema> & schemas() const { DARABONBA_PTR_GET_CONST(schemas_, vector<Schema>) };
-    inline vector<Schema> schemas() { DARABONBA_PTR_GET(schemas_, vector<Schema>) };
+    inline const vector<Schema> & getSchemas() const { DARABONBA_PTR_GET_CONST(schemas_, vector<Schema>) };
+    inline vector<Schema> getSchemas() { DARABONBA_PTR_GET(schemas_, vector<Schema>) };
     inline App& setSchemas(const vector<Schema> & schemas) { DARABONBA_PTR_SET_VALUE(schemas_, schemas) };
     inline App& setSchemas(vector<Schema> && schemas) { DARABONBA_PTR_SET_RVALUE(schemas_, schemas) };
 
@@ -185,8 +226,8 @@ namespace Models
     // secondRanks Field Functions 
     bool hasSecondRanks() const { return this->secondRanks_ != nullptr;};
     void deleteSecondRanks() { this->secondRanks_ = nullptr;};
-    inline const vector<SecondRank> & secondRanks() const { DARABONBA_PTR_GET_CONST(secondRanks_, vector<SecondRank>) };
-    inline vector<SecondRank> secondRanks() { DARABONBA_PTR_GET(secondRanks_, vector<SecondRank>) };
+    inline const vector<SecondRank> & getSecondRanks() const { DARABONBA_PTR_GET_CONST(secondRanks_, vector<SecondRank>) };
+    inline vector<SecondRank> getSecondRanks() { DARABONBA_PTR_GET(secondRanks_, vector<SecondRank>) };
     inline App& setSecondRanks(const vector<SecondRank> & secondRanks) { DARABONBA_PTR_SET_VALUE(secondRanks_, secondRanks) };
     inline App& setSecondRanks(vector<SecondRank> && secondRanks) { DARABONBA_PTR_SET_RVALUE(secondRanks_, secondRanks) };
 
@@ -194,8 +235,8 @@ namespace Models
     // summaries Field Functions 
     bool hasSummaries() const { return this->summaries_ != nullptr;};
     void deleteSummaries() { this->summaries_ = nullptr;};
-    inline const vector<Summary> & summaries() const { DARABONBA_PTR_GET_CONST(summaries_, vector<Summary>) };
-    inline vector<Summary> summaries() { DARABONBA_PTR_GET(summaries_, vector<Summary>) };
+    inline const vector<Summary> & getSummaries() const { DARABONBA_PTR_GET_CONST(summaries_, vector<Summary>) };
+    inline vector<Summary> getSummaries() { DARABONBA_PTR_GET(summaries_, vector<Summary>) };
     inline App& setSummaries(const vector<Summary> & summaries) { DARABONBA_PTR_SET_VALUE(summaries_, summaries) };
     inline App& setSummaries(vector<Summary> && summaries) { DARABONBA_PTR_SET_RVALUE(summaries_, summaries) };
 
@@ -203,27 +244,27 @@ namespace Models
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline App& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<bool> autoSwitch_ = nullptr;
-    std::shared_ptr<AppCluster> cluster_ = nullptr;
-    std::shared_ptr<vector<DataSource>> dataSources_ = nullptr;
-    std::shared_ptr<string> description_ = nullptr;
-    std::shared_ptr<Domain> domain_ = nullptr;
-    std::shared_ptr<vector<string>> fetchFields_ = nullptr;
-    std::shared_ptr<vector<FirstRank>> firstRanks_ = nullptr;
-    std::shared_ptr<string> networkType_ = nullptr;
-    std::shared_ptr<vector<QueryProcessor>> queryProcessors_ = nullptr;
-    std::shared_ptr<Quota> quota_ = nullptr;
-    std::shared_ptr<bool> realtimeShared_ = nullptr;
-    std::shared_ptr<Schema> schema_ = nullptr;
-    std::shared_ptr<vector<Schema>> schemas_ = nullptr;
-    std::shared_ptr<vector<SecondRank>> secondRanks_ = nullptr;
-    std::shared_ptr<vector<Summary>> summaries_ = nullptr;
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<bool> autoSwitch_ {};
+    shared_ptr<App::Cluster> cluster_ {};
+    shared_ptr<vector<DataSource>> dataSources_ {};
+    shared_ptr<string> description_ {};
+    shared_ptr<Domain> domain_ {};
+    shared_ptr<vector<string>> fetchFields_ {};
+    shared_ptr<vector<FirstRank>> firstRanks_ {};
+    shared_ptr<string> networkType_ {};
+    shared_ptr<vector<QueryProcessor>> queryProcessors_ {};
+    shared_ptr<Quota> quota_ {};
+    shared_ptr<bool> realtimeShared_ {};
+    shared_ptr<Schema> schema_ {};
+    shared_ptr<vector<Schema>> schemas_ {};
+    shared_ptr<vector<SecondRank>> secondRanks_ {};
+    shared_ptr<vector<Summary>> summaries_ {};
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

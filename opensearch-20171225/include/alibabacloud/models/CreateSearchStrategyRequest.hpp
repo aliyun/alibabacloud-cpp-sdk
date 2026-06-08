@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const SearchStrategy & body() const { DARABONBA_PTR_GET_CONST(body_, SearchStrategy) };
-    inline SearchStrategy body() { DARABONBA_PTR_GET(body_, SearchStrategy) };
+    inline const SearchStrategy & getBody() const { DARABONBA_PTR_GET_CONST(body_, SearchStrategy) };
+    inline SearchStrategy getBody() { DARABONBA_PTR_GET(body_, SearchStrategy) };
     inline CreateSearchStrategyRequest& setBody(const SearchStrategy & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateSearchStrategyRequest& setBody(SearchStrategy && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The query policy.
-    std::shared_ptr<SearchStrategy> body_ = nullptr;
+    shared_ptr<SearchStrategy> body_ {};
   };
 
   } // namespace Models

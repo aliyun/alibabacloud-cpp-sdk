@@ -33,7 +33,7 @@ namespace Models
     // appGroupIdentity Field Functions 
     bool hasAppGroupIdentity() const { return this->appGroupIdentity_ != nullptr;};
     void deleteAppGroupIdentity() { this->appGroupIdentity_ = nullptr;};
-    inline string appGroupIdentity() const { DARABONBA_PTR_GET_DEFAULT(appGroupIdentity_, "") };
+    inline string getAppGroupIdentity() const { DARABONBA_PTR_GET_DEFAULT(appGroupIdentity_, "") };
     inline GetDomainRequest& setAppGroupIdentity(string appGroupIdentity) { DARABONBA_PTR_SET_VALUE(appGroupIdentity_, appGroupIdentity) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The name or ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appGroupIdentity_ = nullptr;
+    shared_ptr<string> appGroupIdentity_ {};
   };
 
   } // namespace Models

@@ -38,47 +38,47 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentVersion_ == nullptr
-        && return this->description_ == nullptr && return this->domain_ == nullptr && return this->resourceGroupId_ == nullptr && return this->dryRun_ == nullptr; };
+        && this->description_ == nullptr && this->domain_ == nullptr && this->resourceGroupId_ == nullptr && this->dryRun_ == nullptr; };
     // currentVersion Field Functions 
     bool hasCurrentVersion() const { return this->currentVersion_ != nullptr;};
     void deleteCurrentVersion() { this->currentVersion_ = nullptr;};
-    inline string currentVersion() const { DARABONBA_PTR_GET_DEFAULT(currentVersion_, "") };
+    inline string getCurrentVersion() const { DARABONBA_PTR_GET_DEFAULT(currentVersion_, "") };
     inline ModifyAppGroupRequest& setCurrentVersion(string currentVersion) { DARABONBA_PTR_SET_VALUE(currentVersion_, currentVersion) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyAppGroupRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // domain Field Functions 
     bool hasDomain() const { return this->domain_ != nullptr;};
     void deleteDomain() { this->domain_ = nullptr;};
-    inline string domain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+    inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
     inline ModifyAppGroupRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ModifyAppGroupRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
-    inline bool dryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
     inline ModifyAppGroupRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
   protected:
     // The online version of the application.
-    std::shared_ptr<string> currentVersion_ = nullptr;
+    shared_ptr<string> currentVersion_ {};
     // The description of the application.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The type of the industry. Valid values:
     // 
     // *   general: general.
@@ -86,11 +86,11 @@ namespace Models
     // *   education: education.
     // *   esports: electronic sports.
     // *   community: content community.
-    std::shared_ptr<string> domain_ = nullptr;
+    shared_ptr<string> domain_ {};
     // The ID of the resource group to which the instance belongs.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to verify the application before modification. Valid values: true and false.
-    std::shared_ptr<bool> dryRun_ = nullptr;
+    shared_ptr<bool> dryRun_ {};
   };
 
   } // namespace Models

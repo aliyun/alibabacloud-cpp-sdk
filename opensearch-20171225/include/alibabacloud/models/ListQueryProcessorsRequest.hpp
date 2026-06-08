@@ -33,7 +33,7 @@ namespace Models
     // isActive Field Functions 
     bool hasIsActive() const { return this->isActive_ != nullptr;};
     void deleteIsActive() { this->isActive_ = nullptr;};
-    inline int32_t isActive() const { DARABONBA_PTR_GET_DEFAULT(isActive_, 0) };
+    inline int32_t getIsActive() const { DARABONBA_PTR_GET_DEFAULT(isActive_, 0) };
     inline ListQueryProcessorsRequest& setIsActive(int32_t isActive) { DARABONBA_PTR_SET_VALUE(isActive_, isActive) };
 
 
@@ -43,7 +43,7 @@ namespace Models
     // *   0: queries all query analysis rules.
     // *   1: queries the default query analysis rules.
     // *   2: queries the query analysis rules that are not the default rules.
-    std::shared_ptr<int32_t> isActive_ = nullptr;
+    shared_ptr<int32_t> isActive_ {};
   };
 
   } // namespace Models

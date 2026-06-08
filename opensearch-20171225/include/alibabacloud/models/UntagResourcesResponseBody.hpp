@@ -33,13 +33,13 @@ namespace Models
     // tequestId Field Functions 
     bool hasTequestId() const { return this->tequestId_ != nullptr;};
     void deleteTequestId() { this->tequestId_ = nullptr;};
-    inline string tequestId() const { DARABONBA_PTR_GET_DEFAULT(tequestId_, "") };
+    inline string getTequestId() const { DARABONBA_PTR_GET_DEFAULT(tequestId_, "") };
     inline UntagResourcesResponseBody& setTequestId(string tequestId) { DARABONBA_PTR_SET_VALUE(tequestId_, tequestId) };
 
 
   protected:
     // The ID of the request.
-    std::shared_ptr<string> tequestId_ = nullptr;
+    shared_ptr<string> tequestId_ {};
   };
 
   } // namespace Models

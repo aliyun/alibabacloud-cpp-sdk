@@ -33,7 +33,7 @@ namespace Models
     // text Field Functions 
     bool hasText() const { return this->text_ != nullptr;};
     void deleteText() { this->text_ = nullptr;};
-    inline string text() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+    inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
     inline ListQueryProcessorAnalyzerResultsRequest& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The text to be tested.
     // 
     // This parameter is required.
-    std::shared_ptr<string> text_ = nullptr;
+    shared_ptr<string> text_ {};
   };
 
   } // namespace Models

@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->clientToken_ == nullptr; };
+        && this->clientToken_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const PrepayOrderInfo & body() const { DARABONBA_PTR_GET_CONST(body_, PrepayOrderInfo) };
-    inline PrepayOrderInfo body() { DARABONBA_PTR_GET(body_, PrepayOrderInfo) };
+    inline const PrepayOrderInfo & getBody() const { DARABONBA_PTR_GET_CONST(body_, PrepayOrderInfo) };
+    inline PrepayOrderInfo getBody() { DARABONBA_PTR_GET(body_, PrepayOrderInfo) };
     inline RenewAppGroupRequest& setBody(const PrepayOrderInfo & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline RenewAppGroupRequest& setBody(PrepayOrderInfo && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,15 +46,15 @@ namespace Models
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline RenewAppGroupRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
   protected:
     // The renewal request body.
-    std::shared_ptr<PrepayOrderInfo> body_ = nullptr;
+    shared_ptr<PrepayOrderInfo> body_ {};
     // The client token that is used to ensure the idempotence of the request.
-    std::shared_ptr<string> clientToken_ = nullptr;
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

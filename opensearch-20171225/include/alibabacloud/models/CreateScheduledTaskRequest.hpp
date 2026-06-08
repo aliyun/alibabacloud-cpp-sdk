@@ -34,15 +34,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const ScheduledTask & body() const { DARABONBA_PTR_GET_CONST(body_, ScheduledTask) };
-    inline ScheduledTask body() { DARABONBA_PTR_GET(body_, ScheduledTask) };
+    inline const ScheduledTask & getBody() const { DARABONBA_PTR_GET_CONST(body_, ScheduledTask) };
+    inline ScheduledTask getBody() { DARABONBA_PTR_GET(body_, ScheduledTask) };
     inline CreateScheduledTaskRequest& setBody(const ScheduledTask & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline CreateScheduledTaskRequest& setBody(ScheduledTask && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     // The request body.
-    std::shared_ptr<ScheduledTask> body_ = nullptr;
+    shared_ptr<ScheduledTask> body_ {};
   };
 
   } // namespace Models

@@ -36,43 +36,43 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && return this->scope_ == nullptr && return this->scriptName_ == nullptr && return this->type_ == nullptr; };
+        && this->scope_ == nullptr && this->scriptName_ == nullptr && this->type_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateSortScriptRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // scope Field Functions 
     bool hasScope() const { return this->scope_ != nullptr;};
     void deleteScope() { this->scope_ = nullptr;};
-    inline string scope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+    inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
     inline CreateSortScriptRequest& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
     // scriptName Field Functions 
     bool hasScriptName() const { return this->scriptName_ != nullptr;};
     void deleteScriptName() { this->scriptName_ = nullptr;};
-    inline string scriptName() const { DARABONBA_PTR_GET_DEFAULT(scriptName_, "") };
+    inline string getScriptName() const { DARABONBA_PTR_GET_DEFAULT(scriptName_, "") };
     inline CreateSortScriptRequest& setScriptName(string scriptName) { DARABONBA_PTR_SET_VALUE(scriptName_, scriptName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline CreateSortScriptRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The sort phase to which the script applies.
-    std::shared_ptr<string> scope_ = nullptr;
+    shared_ptr<string> scope_ {};
     // The script name.
-    std::shared_ptr<string> scriptName_ = nullptr;
+    shared_ptr<string> scriptName_ {};
     // The script type. Set the value to cava_script.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

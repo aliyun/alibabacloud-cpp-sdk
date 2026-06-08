@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTAPPGROUPSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListAppGroupsResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,40 +34,455 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(chargeType, chargeType_);
+        DARABONBA_PTR_TO_JSON(chargingWay, chargingWay_);
+        DARABONBA_PTR_TO_JSON(commodityCode, commodityCode_);
+        DARABONBA_PTR_TO_JSON(created, created_);
+        DARABONBA_PTR_TO_JSON(currentVersion, currentVersion_);
+        DARABONBA_PTR_TO_JSON(description, description_);
+        DARABONBA_PTR_TO_JSON(domain, domain_);
+        DARABONBA_PTR_TO_JSON(engineType, engineType_);
+        DARABONBA_PTR_TO_JSON(expireOn, expireOn_);
+        DARABONBA_PTR_TO_JSON(hasPendingQuotaReviewTask, hasPendingQuotaReviewTask_);
+        DARABONBA_PTR_TO_JSON(id, id_);
+        DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(lockMode, lockMode_);
+        DARABONBA_PTR_TO_JSON(lockedByExpiration, lockedByExpiration_);
+        DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(produced, produced_);
+        DARABONBA_PTR_TO_JSON(projectId, projectId_);
+        DARABONBA_PTR_TO_JSON(quota, quota_);
+        DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(switchedTime, switchedTime_);
+        DARABONBA_PTR_TO_JSON(tags, tags_);
+        DARABONBA_PTR_TO_JSON(type, type_);
+        DARABONBA_PTR_TO_JSON(updated, updated_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(chargeType, chargeType_);
+        DARABONBA_PTR_FROM_JSON(chargingWay, chargingWay_);
+        DARABONBA_PTR_FROM_JSON(commodityCode, commodityCode_);
+        DARABONBA_PTR_FROM_JSON(created, created_);
+        DARABONBA_PTR_FROM_JSON(currentVersion, currentVersion_);
+        DARABONBA_PTR_FROM_JSON(description, description_);
+        DARABONBA_PTR_FROM_JSON(domain, domain_);
+        DARABONBA_PTR_FROM_JSON(engineType, engineType_);
+        DARABONBA_PTR_FROM_JSON(expireOn, expireOn_);
+        DARABONBA_PTR_FROM_JSON(hasPendingQuotaReviewTask, hasPendingQuotaReviewTask_);
+        DARABONBA_PTR_FROM_JSON(id, id_);
+        DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(lockMode, lockMode_);
+        DARABONBA_PTR_FROM_JSON(lockedByExpiration, lockedByExpiration_);
+        DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(produced, produced_);
+        DARABONBA_PTR_FROM_JSON(projectId, projectId_);
+        DARABONBA_PTR_FROM_JSON(quota, quota_);
+        DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(switchedTime, switchedTime_);
+        DARABONBA_PTR_FROM_JSON(tags, tags_);
+        DARABONBA_PTR_FROM_JSON(type, type_);
+        DARABONBA_PTR_FROM_JSON(updated, updated_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(key, key_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(key, key_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        shared_ptr<string> key_ {};
+        // The tag value.
+        shared_ptr<string> value_ {};
+      };
+
+      class Quota : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Quota& obj) { 
+          DARABONBA_PTR_TO_JSON(computeResource, computeResource_);
+          DARABONBA_PTR_TO_JSON(docSize, docSize_);
+          DARABONBA_PTR_TO_JSON(spec, spec_);
+        };
+        friend void from_json(const Darabonba::Json& j, Quota& obj) { 
+          DARABONBA_PTR_FROM_JSON(computeResource, computeResource_);
+          DARABONBA_PTR_FROM_JSON(docSize, docSize_);
+          DARABONBA_PTR_FROM_JSON(spec, spec_);
+        };
+        Quota() = default ;
+        Quota(const Quota &) = default ;
+        Quota(Quota &&) = default ;
+        Quota(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Quota() = default ;
+        Quota& operator=(const Quota &) = default ;
+        Quota& operator=(Quota &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->computeResource_ == nullptr
+        && this->docSize_ == nullptr && this->spec_ == nullptr; };
+        // computeResource Field Functions 
+        bool hasComputeResource() const { return this->computeResource_ != nullptr;};
+        void deleteComputeResource() { this->computeResource_ = nullptr;};
+        inline int32_t getComputeResource() const { DARABONBA_PTR_GET_DEFAULT(computeResource_, 0) };
+        inline Quota& setComputeResource(int32_t computeResource) { DARABONBA_PTR_SET_VALUE(computeResource_, computeResource) };
+
+
+        // docSize Field Functions 
+        bool hasDocSize() const { return this->docSize_ != nullptr;};
+        void deleteDocSize() { this->docSize_ = nullptr;};
+        inline int32_t getDocSize() const { DARABONBA_PTR_GET_DEFAULT(docSize_, 0) };
+        inline Quota& setDocSize(int32_t docSize) { DARABONBA_PTR_SET_VALUE(docSize_, docSize) };
+
+
+        // spec Field Functions 
+        bool hasSpec() const { return this->spec_ != nullptr;};
+        void deleteSpec() { this->spec_ = nullptr;};
+        inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+        inline Quota& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
+
+
+      protected:
+        // The computing resources. Unit: logical computing unit (LCU).
+        shared_ptr<int32_t> computeResource_ {};
+        // The storage capacity. Unit: GB.
+        shared_ptr<int32_t> docSize_ {};
+        // The specifications. Valid values:
+        // 
+        // *   opensearch.share.junior: basic.
+        // *   opensearch.share.common: shared general-purpose.
+        // *   opensearch.share.compute: shared computing.
+        // *   opensearch.share.storage: shared storage.
+        // *   opensearch.private.common: exclusive general-purpose.
+        // *   opensearch.private.compute: exclusive computing.
+        // *   opensearch.private.storage: exclusive storage.
+        shared_ptr<string> spec_ {};
+      };
+
+      virtual bool empty() const override { return this->chargeType_ == nullptr
+        && this->chargingWay_ == nullptr && this->commodityCode_ == nullptr && this->created_ == nullptr && this->currentVersion_ == nullptr && this->description_ == nullptr
+        && this->domain_ == nullptr && this->engineType_ == nullptr && this->expireOn_ == nullptr && this->hasPendingQuotaReviewTask_ == nullptr && this->id_ == nullptr
+        && this->instanceId_ == nullptr && this->lockMode_ == nullptr && this->lockedByExpiration_ == nullptr && this->name_ == nullptr && this->produced_ == nullptr
+        && this->projectId_ == nullptr && this->quota_ == nullptr && this->status_ == nullptr && this->switchedTime_ == nullptr && this->tags_ == nullptr
+        && this->type_ == nullptr && this->updated_ == nullptr; };
+      // chargeType Field Functions 
+      bool hasChargeType() const { return this->chargeType_ != nullptr;};
+      void deleteChargeType() { this->chargeType_ = nullptr;};
+      inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
+      inline Result& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+      // chargingWay Field Functions 
+      bool hasChargingWay() const { return this->chargingWay_ != nullptr;};
+      void deleteChargingWay() { this->chargingWay_ = nullptr;};
+      inline int32_t getChargingWay() const { DARABONBA_PTR_GET_DEFAULT(chargingWay_, 0) };
+      inline Result& setChargingWay(int32_t chargingWay) { DARABONBA_PTR_SET_VALUE(chargingWay_, chargingWay) };
+
+
+      // commodityCode Field Functions 
+      bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
+      void deleteCommodityCode() { this->commodityCode_ = nullptr;};
+      inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
+      inline Result& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
+
+
+      // created Field Functions 
+      bool hasCreated() const { return this->created_ != nullptr;};
+      void deleteCreated() { this->created_ = nullptr;};
+      inline int32_t getCreated() const { DARABONBA_PTR_GET_DEFAULT(created_, 0) };
+      inline Result& setCreated(int32_t created) { DARABONBA_PTR_SET_VALUE(created_, created) };
+
+
+      // currentVersion Field Functions 
+      bool hasCurrentVersion() const { return this->currentVersion_ != nullptr;};
+      void deleteCurrentVersion() { this->currentVersion_ = nullptr;};
+      inline string getCurrentVersion() const { DARABONBA_PTR_GET_DEFAULT(currentVersion_, "") };
+      inline Result& setCurrentVersion(string currentVersion) { DARABONBA_PTR_SET_VALUE(currentVersion_, currentVersion) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Result& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // domain Field Functions 
+      bool hasDomain() const { return this->domain_ != nullptr;};
+      void deleteDomain() { this->domain_ = nullptr;};
+      inline string getDomain() const { DARABONBA_PTR_GET_DEFAULT(domain_, "") };
+      inline Result& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
+
+
+      // engineType Field Functions 
+      bool hasEngineType() const { return this->engineType_ != nullptr;};
+      void deleteEngineType() { this->engineType_ = nullptr;};
+      inline string getEngineType() const { DARABONBA_PTR_GET_DEFAULT(engineType_, "") };
+      inline Result& setEngineType(string engineType) { DARABONBA_PTR_SET_VALUE(engineType_, engineType) };
+
+
+      // expireOn Field Functions 
+      bool hasExpireOn() const { return this->expireOn_ != nullptr;};
+      void deleteExpireOn() { this->expireOn_ = nullptr;};
+      inline string getExpireOn() const { DARABONBA_PTR_GET_DEFAULT(expireOn_, "") };
+      inline Result& setExpireOn(string expireOn) { DARABONBA_PTR_SET_VALUE(expireOn_, expireOn) };
+
+
+      // hasPendingQuotaReviewTask Field Functions 
+      bool hasHasPendingQuotaReviewTask() const { return this->hasPendingQuotaReviewTask_ != nullptr;};
+      void deleteHasPendingQuotaReviewTask() { this->hasPendingQuotaReviewTask_ = nullptr;};
+      inline int32_t getHasPendingQuotaReviewTask() const { DARABONBA_PTR_GET_DEFAULT(hasPendingQuotaReviewTask_, 0) };
+      inline Result& setHasPendingQuotaReviewTask(int32_t hasPendingQuotaReviewTask) { DARABONBA_PTR_SET_VALUE(hasPendingQuotaReviewTask_, hasPendingQuotaReviewTask) };
+
+
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline Result& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline Result& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+      // lockMode Field Functions 
+      bool hasLockMode() const { return this->lockMode_ != nullptr;};
+      void deleteLockMode() { this->lockMode_ = nullptr;};
+      inline string getLockMode() const { DARABONBA_PTR_GET_DEFAULT(lockMode_, "") };
+      inline Result& setLockMode(string lockMode) { DARABONBA_PTR_SET_VALUE(lockMode_, lockMode) };
+
+
+      // lockedByExpiration Field Functions 
+      bool hasLockedByExpiration() const { return this->lockedByExpiration_ != nullptr;};
+      void deleteLockedByExpiration() { this->lockedByExpiration_ = nullptr;};
+      inline int32_t getLockedByExpiration() const { DARABONBA_PTR_GET_DEFAULT(lockedByExpiration_, 0) };
+      inline Result& setLockedByExpiration(int32_t lockedByExpiration) { DARABONBA_PTR_SET_VALUE(lockedByExpiration_, lockedByExpiration) };
+
+
+      // name Field Functions 
+      bool hasName() const { return this->name_ != nullptr;};
+      void deleteName() { this->name_ = nullptr;};
+      inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+      inline Result& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+      // produced Field Functions 
+      bool hasProduced() const { return this->produced_ != nullptr;};
+      void deleteProduced() { this->produced_ = nullptr;};
+      inline int32_t getProduced() const { DARABONBA_PTR_GET_DEFAULT(produced_, 0) };
+      inline Result& setProduced(int32_t produced) { DARABONBA_PTR_SET_VALUE(produced_, produced) };
+
+
+      // projectId Field Functions 
+      bool hasProjectId() const { return this->projectId_ != nullptr;};
+      void deleteProjectId() { this->projectId_ = nullptr;};
+      inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+      inline Result& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+      // quota Field Functions 
+      bool hasQuota() const { return this->quota_ != nullptr;};
+      void deleteQuota() { this->quota_ = nullptr;};
+      inline const Result::Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, Result::Quota) };
+      inline Result::Quota getQuota() { DARABONBA_PTR_GET(quota_, Result::Quota) };
+      inline Result& setQuota(const Result::Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
+      inline Result& setQuota(Result::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
+
+
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Result& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // switchedTime Field Functions 
+      bool hasSwitchedTime() const { return this->switchedTime_ != nullptr;};
+      void deleteSwitchedTime() { this->switchedTime_ = nullptr;};
+      inline int32_t getSwitchedTime() const { DARABONBA_PTR_GET_DEFAULT(switchedTime_, 0) };
+      inline Result& setSwitchedTime(int32_t switchedTime) { DARABONBA_PTR_SET_VALUE(switchedTime_, switchedTime) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<Result::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Result::Tags>) };
+      inline vector<Result::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Result::Tags>) };
+      inline Result& setTags(const vector<Result::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Result& setTags(vector<Result::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
+      // type Field Functions 
+      bool hasType() const { return this->type_ != nullptr;};
+      void deleteType() { this->type_ = nullptr;};
+      inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+      inline Result& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      // updated Field Functions 
+      bool hasUpdated() const { return this->updated_ != nullptr;};
+      void deleteUpdated() { this->updated_ = nullptr;};
+      inline int32_t getUpdated() const { DARABONBA_PTR_GET_DEFAULT(updated_, 0) };
+      inline Result& setUpdated(int32_t updated) { DARABONBA_PTR_SET_VALUE(updated_, updated) };
+
+
+    protected:
+      // The billing method. Valid values:
+      // 
+      // *   POSTPAY: pay-as-you-go.
+      // *   PREPAY: subscription.
+      shared_ptr<string> chargeType_ {};
+      // The billable item. Valid values:
+      // 
+      // *   1: computing resources.
+      // *   2: queries per second (QPS).
+      shared_ptr<int32_t> chargingWay_ {};
+      // The commodity code.
+      shared_ptr<string> commodityCode_ {};
+      // The timestamp when the application was created.
+      shared_ptr<int32_t> created_ {};
+      // The ID of the current online version.
+      shared_ptr<string> currentVersion_ {};
+      // The description of the application.
+      shared_ptr<string> description_ {};
+      // The industry of the application.
+      shared_ptr<string> domain_ {};
+      // The engine type.
+      shared_ptr<string> engineType_ {};
+      // The time when the application expired.
+      shared_ptr<string> expireOn_ {};
+      // The approval state of the quotas. Valid values:
+      // 
+      // *   0: The application is in service.
+      // *   1: The quotas are being reviewed.
+      shared_ptr<int32_t> hasPendingQuotaReviewTask_ {};
+      // The application ID.
+      shared_ptr<string> id_ {};
+      // The instance ID.
+      shared_ptr<string> instanceId_ {};
+      // The lock state. Valid values:
+      // 
+      // *   Unlock: The instance is unlocked.
+      // *   LockByExpiration: The instance is automatically locked after it expires.
+      // *   ManualLock: The instance is manually locked.
+      shared_ptr<string> lockMode_ {};
+      // Indicates whether the instance is automatically locked after it expires.
+      shared_ptr<int32_t> lockedByExpiration_ {};
+      // The application name.
+      shared_ptr<string> name_ {};
+      // Indicates whether the application is created. Valid values:
+      // 
+      // *   0: The application is being created.
+      // *   1: The application is created.
+      shared_ptr<int32_t> produced_ {};
+      // The name of the A/B test group.
+      shared_ptr<string> projectId_ {};
+      // The information about the quotas of the application. For more information, see [Quota](https://help.aliyun.com/document_detail/170001.html).
+      shared_ptr<Result::Quota> quota_ {};
+      // The state of the application. Valid values:
+      // 
+      // *   producing: The application is being created.
+      // *   review_pending: The application is being reviewed.
+      // *   config_pending: The application is to be configured.
+      // *   normal: The application is in service.
+      // *   frozen: The application is frozen.
+      shared_ptr<string> status_ {};
+      // The timestamp when the current online version was published.
+      shared_ptr<int32_t> switchedTime_ {};
+      // The application tags.
+      shared_ptr<vector<Result::Tags>> tags_ {};
+      // The type of the application. Valid values:
+      // 
+      // *   standard: a High-performance Search Edition application.
+      // *   enhanced: an Industry Algorithm Edition application.
+      shared_ptr<string> type_ {};
+      // The timestamp when the application was last updated.
+      shared_ptr<int32_t> updated_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr && return this->totalCount_ == nullptr; };
+        && this->result_ == nullptr && this->totalCount_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListAppGroupsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const vector<ListAppGroupsResponseBodyResult> & result() const { DARABONBA_PTR_GET_CONST(result_, vector<ListAppGroupsResponseBodyResult>) };
-    inline vector<ListAppGroupsResponseBodyResult> result() { DARABONBA_PTR_GET(result_, vector<ListAppGroupsResponseBodyResult>) };
-    inline ListAppGroupsResponseBody& setResult(const vector<ListAppGroupsResponseBodyResult> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline ListAppGroupsResponseBody& setResult(vector<ListAppGroupsResponseBodyResult> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const vector<ListAppGroupsResponseBody::Result> & getResult() const { DARABONBA_PTR_GET_CONST(result_, vector<ListAppGroupsResponseBody::Result>) };
+    inline vector<ListAppGroupsResponseBody::Result> getResult() { DARABONBA_PTR_GET(result_, vector<ListAppGroupsResponseBody::Result>) };
+    inline ListAppGroupsResponseBody& setResult(const vector<ListAppGroupsResponseBody::Result> & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ListAppGroupsResponseBody& setResult(vector<ListAppGroupsResponseBody::Result> && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
     // totalCount Field Functions 
     bool hasTotalCount() const { return this->totalCount_ != nullptr;};
     void deleteTotalCount() { this->totalCount_ = nullptr;};
-    inline int32_t totalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
     inline ListAppGroupsResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The information about the application.
     // 
     // For more information, see [AppGroup](https://help.aliyun.com/document_detail/170000.html).
-    std::shared_ptr<vector<ListAppGroupsResponseBodyResult>> result_ = nullptr;
+    shared_ptr<vector<ListAppGroupsResponseBody::Result>> result_ {};
     // The total number of entries returned.
-    std::shared_ptr<int32_t> totalCount_ = nullptr;
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

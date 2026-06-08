@@ -33,14 +33,14 @@ namespace Models
     // with Field Functions 
     bool hasWith() const { return this->with_ != nullptr;};
     void deleteWith() { this->with_ = nullptr;};
-    inline string with() const { DARABONBA_PTR_GET_DEFAULT(with_, "") };
+    inline string getWith() const { DARABONBA_PTR_GET_DEFAULT(with_, "") };
     inline DescribeUserAnalyzerRequest& setWith(string with) { DARABONBA_PTR_SET_VALUE(with_, with) };
 
 
   protected:
     // The Associated information,output properties based on hierarchy.
     // * **all**: Outputs associated app information
-    std::shared_ptr<string> with_ = nullptr;
+    shared_ptr<string> with_ {};
   };
 
   } // namespace Models

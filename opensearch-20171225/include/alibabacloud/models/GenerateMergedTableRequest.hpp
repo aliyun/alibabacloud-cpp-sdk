@@ -33,12 +33,12 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->body_ == nullptr
-        && return this->spec_ == nullptr; };
+        && this->spec_ == nullptr; };
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const Schema & body() const { DARABONBA_PTR_GET_CONST(body_, Schema) };
-    inline Schema body() { DARABONBA_PTR_GET(body_, Schema) };
+    inline const Schema & getBody() const { DARABONBA_PTR_GET_CONST(body_, Schema) };
+    inline Schema getBody() { DARABONBA_PTR_GET(body_, Schema) };
     inline GenerateMergedTableRequest& setBody(const Schema & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
     inline GenerateMergedTableRequest& setBody(Schema && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
@@ -46,19 +46,19 @@ namespace Models
     // spec Field Functions 
     bool hasSpec() const { return this->spec_ != nullptr;};
     void deleteSpec() { this->spec_ = nullptr;};
-    inline string spec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
+    inline string getSpec() const { DARABONBA_PTR_GET_DEFAULT(spec_, "") };
     inline GenerateMergedTableRequest& setSpec(string spec) { DARABONBA_PTR_SET_VALUE(spec_, spec) };
 
 
   protected:
     // The request body parameters.
-    std::shared_ptr<Schema> body_ = nullptr;
+    shared_ptr<Schema> body_ {};
     // The specifications of the OpenSearch instance. This parameter is used to check whether the OpenSearch instance meets the special limits on an exclusive instance.
     // 
     // Default value: opensearch.share.common.
     // 
     // For more information, see the description of the spec field in the Quota topic.
-    std::shared_ptr<string> spec_ = nullptr;
+    shared_ptr<string> spec_ {};
   };
 
   } // namespace Models

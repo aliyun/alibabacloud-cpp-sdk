@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_GENERATEMERGEDTABLERESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GENERATEMERGEDTABLERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/GenerateMergedTableResponseBodyResult.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -32,29 +31,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Result : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_ANY_TO_JSON(fromTable, fromTable_);
+        DARABONBA_ANY_TO_JSON(mergeTable, mergeTable_);
+        DARABONBA_PTR_TO_JSON(primaryKey, primaryKey_);
+      };
+      friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_ANY_FROM_JSON(fromTable, fromTable_);
+        DARABONBA_ANY_FROM_JSON(mergeTable, mergeTable_);
+        DARABONBA_PTR_FROM_JSON(primaryKey, primaryKey_);
+      };
+      Result() = default ;
+      Result(const Result &) = default ;
+      Result(Result &&) = default ;
+      Result(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Result() = default ;
+      Result& operator=(const Result &) = default ;
+      Result& operator=(Result &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->fromTable_ == nullptr
+        && this->mergeTable_ == nullptr && this->primaryKey_ == nullptr; };
+      // fromTable Field Functions 
+      bool hasFromTable() const { return this->fromTable_ != nullptr;};
+      void deleteFromTable() { this->fromTable_ = nullptr;};
+      inline       const Darabonba::Json & getFromTable() const { DARABONBA_GET(fromTable_) };
+      Darabonba::Json & getFromTable() { DARABONBA_GET(fromTable_) };
+      inline Result& setFromTable(const Darabonba::Json & fromTable) { DARABONBA_SET_VALUE(fromTable_, fromTable) };
+      inline Result& setFromTable(Darabonba::Json && fromTable) { DARABONBA_SET_RVALUE(fromTable_, fromTable) };
+
+
+      // mergeTable Field Functions 
+      bool hasMergeTable() const { return this->mergeTable_ != nullptr;};
+      void deleteMergeTable() { this->mergeTable_ = nullptr;};
+      inline       const Darabonba::Json & getMergeTable() const { DARABONBA_GET(mergeTable_) };
+      Darabonba::Json & getMergeTable() { DARABONBA_GET(mergeTable_) };
+      inline Result& setMergeTable(const Darabonba::Json & mergeTable) { DARABONBA_SET_VALUE(mergeTable_, mergeTable) };
+      inline Result& setMergeTable(Darabonba::Json && mergeTable) { DARABONBA_SET_RVALUE(mergeTable_, mergeTable) };
+
+
+      // primaryKey Field Functions 
+      bool hasPrimaryKey() const { return this->primaryKey_ != nullptr;};
+      void deletePrimaryKey() { this->primaryKey_ = nullptr;};
+      inline string getPrimaryKey() const { DARABONBA_PTR_GET_DEFAULT(primaryKey_, "") };
+      inline Result& setPrimaryKey(string primaryKey) { DARABONBA_PTR_SET_VALUE(primaryKey_, primaryKey) };
+
+
+    protected:
+      // The tables on which the JOIN operation is performed.
+      Darabonba::Json fromTable_ {};
+      // The wide table that is generated after the JOIN operation is performed on multiple tables.
+      Darabonba::Json mergeTable_ {};
+      // The primary key.
+      shared_ptr<string> primaryKey_ {};
+    };
+
     virtual bool empty() const override { return this->requestId_ == nullptr
-        && return this->result_ == nullptr; };
+        && this->result_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GenerateMergedTableResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const GenerateMergedTableResponseBodyResult & result() const { DARABONBA_PTR_GET_CONST(result_, GenerateMergedTableResponseBodyResult) };
-    inline GenerateMergedTableResponseBodyResult result() { DARABONBA_PTR_GET(result_, GenerateMergedTableResponseBodyResult) };
-    inline GenerateMergedTableResponseBody& setResult(const GenerateMergedTableResponseBodyResult & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline GenerateMergedTableResponseBody& setResult(GenerateMergedTableResponseBodyResult && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const GenerateMergedTableResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, GenerateMergedTableResponseBody::Result) };
+    inline GenerateMergedTableResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, GenerateMergedTableResponseBody::Result) };
+    inline GenerateMergedTableResponseBody& setResult(const GenerateMergedTableResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline GenerateMergedTableResponseBody& setResult(GenerateMergedTableResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The request ID.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
     // The response parameters.
-    std::shared_ptr<GenerateMergedTableResponseBodyResult> result_ = nullptr;
+    shared_ptr<GenerateMergedTableResponseBody::Result> result_ {};
   };
 
   } // namespace Models

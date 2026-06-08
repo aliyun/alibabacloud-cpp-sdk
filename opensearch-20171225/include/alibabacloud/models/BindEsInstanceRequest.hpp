@@ -33,15 +33,15 @@ namespace Models
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline     const Darabonba::Json & body() const { DARABONBA_GET(body_) };
-    Darabonba::Json & body() { DARABONBA_GET(body_) };
+    inline     const Darabonba::Json & getBody() const { DARABONBA_GET(body_) };
+    Darabonba::Json & getBody() { DARABONBA_GET(body_) };
     inline BindEsInstanceRequest& setBody(const Darabonba::Json & body) { DARABONBA_SET_VALUE(body_, body) };
-    inline BindEsInstanceRequest& setBody(Darabonba::Json & body) { DARABONBA_SET_RVALUE(body_, body) };
+    inline BindEsInstanceRequest& setBody(Darabonba::Json && body) { DARABONBA_SET_RVALUE(body_, body) };
 
 
   protected:
     // The body of the request.
-    Darabonba::Json body_ = nullptr;
+    Darabonba::Json body_ {};
   };
 
   } // namespace Models

@@ -44,61 +44,61 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->columns_ == nullptr
-        && return this->distinct_ == nullptr && return this->pageNumber_ == nullptr && return this->pageSize_ == nullptr && return this->query_ == nullptr && return this->sortBy_ == nullptr
-        && return this->startTime_ == nullptr && return this->stopTime_ == nullptr; };
+        && this->distinct_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->query_ == nullptr && this->sortBy_ == nullptr
+        && this->startTime_ == nullptr && this->stopTime_ == nullptr; };
     // columns Field Functions 
     bool hasColumns() const { return this->columns_ != nullptr;};
     void deleteColumns() { this->columns_ = nullptr;};
-    inline string columns() const { DARABONBA_PTR_GET_DEFAULT(columns_, "") };
+    inline string getColumns() const { DARABONBA_PTR_GET_DEFAULT(columns_, "") };
     inline ListStatisticLogsRequest& setColumns(string columns) { DARABONBA_PTR_SET_VALUE(columns_, columns) };
 
 
     // distinct Field Functions 
     bool hasDistinct() const { return this->distinct_ != nullptr;};
     void deleteDistinct() { this->distinct_ = nullptr;};
-    inline bool distinct() const { DARABONBA_PTR_GET_DEFAULT(distinct_, false) };
+    inline bool getDistinct() const { DARABONBA_PTR_GET_DEFAULT(distinct_, false) };
     inline ListStatisticLogsRequest& setDistinct(bool distinct) { DARABONBA_PTR_SET_VALUE(distinct_, distinct) };
 
 
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListStatisticLogsRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListStatisticLogsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // query Field Functions 
     bool hasQuery() const { return this->query_ != nullptr;};
     void deleteQuery() { this->query_ = nullptr;};
-    inline string query() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
     inline ListStatisticLogsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
-    inline string sortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
     inline ListStatisticLogsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
     // startTime Field Functions 
     bool hasStartTime() const { return this->startTime_ != nullptr;};
     void deleteStartTime() { this->startTime_ = nullptr;};
-    inline int32_t startTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0) };
+    inline int32_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0) };
     inline ListStatisticLogsRequest& setStartTime(int32_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
     // stopTime Field Functions 
     bool hasStopTime() const { return this->stopTime_ != nullptr;};
     void deleteStopTime() { this->stopTime_ = nullptr;};
-    inline int32_t stopTime() const { DARABONBA_PTR_GET_DEFAULT(stopTime_, 0) };
+    inline int32_t getStopTime() const { DARABONBA_PTR_GET_DEFAULT(stopTime_, 0) };
     inline ListStatisticLogsRequest& setStopTime(int32_t stopTime) { DARABONBA_PTR_SET_VALUE(stopTime_, stopTime) };
 
 
@@ -106,21 +106,21 @@ namespace Models
     // The fields to query. Format: columns=wordsTopPv.
     // 
     // For more information, see [Metrics in statistical reports](https://help.aliyun.com/document_detail/187665.html).
-    std::shared_ptr<string> columns_ = nullptr;
+    shared_ptr<string> columns_ {};
     // Specifies whether to use the distinct clause.
-    std::shared_ptr<bool> distinct_ = nullptr;
+    shared_ptr<bool> distinct_ {};
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The content of the query clause.
-    std::shared_ptr<string> query_ = nullptr;
+    shared_ptr<string> query_ {};
     // The content of the sort clause.
-    std::shared_ptr<string> sortBy_ = nullptr;
+    shared_ptr<string> sortBy_ {};
     // The beginning of the time range to query. The default value is the timestamp of 00:00:00 on the current day.
-    std::shared_ptr<int32_t> startTime_ = nullptr;
+    shared_ptr<int32_t> startTime_ {};
     // The end of the time range to query. The default value is the timestamp of 24:00:00 on the current day.
-    std::shared_ptr<int32_t> stopTime_ = nullptr;
+    shared_ptr<int32_t> stopTime_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // params Field Functions 
     bool hasParams() const { return this->params_ != nullptr;};
     void deleteParams() { this->params_ = nullptr;};
-    inline string params() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
+    inline string getParams() const { DARABONBA_PTR_GET_DEFAULT(params_, "") };
     inline ListDataSourceTablesRequest& setParams(string params) { DARABONBA_PTR_SET_VALUE(params_, params) };
 
 
@@ -49,7 +49,7 @@ namespace Models
     // *   [drds](https://help.aliyun.com/document_detail/173627.html)
     // 
     // This parameter is required.
-    std::shared_ptr<string> params_ = nullptr;
+    shared_ptr<string> params_ {};
   };
 
   } // namespace Models

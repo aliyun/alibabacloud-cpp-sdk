@@ -36,19 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && return this->functions_ == nullptr && return this->name_ == nullptr; };
+        && this->functions_ == nullptr && this->name_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
-    inline string category() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
     inline Domain& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
 
 
     // functions Field Functions 
     bool hasFunctions() const { return this->functions_ != nullptr;};
     void deleteFunctions() { this->functions_ = nullptr;};
-    inline const map<string, vector<string>> & functions() const { DARABONBA_PTR_GET_CONST(functions_, map<string, vector<string>>) };
-    inline map<string, vector<string>> functions() { DARABONBA_PTR_GET(functions_, map<string, vector<string>>) };
+    inline const map<string, vector<string>> & getFunctions() const { DARABONBA_PTR_GET_CONST(functions_, map<string, vector<string>>) };
+    inline map<string, vector<string>> getFunctions() { DARABONBA_PTR_GET(functions_, map<string, vector<string>>) };
     inline Domain& setFunctions(const map<string, vector<string>> & functions) { DARABONBA_PTR_SET_VALUE(functions_, functions) };
     inline Domain& setFunctions(map<string, vector<string>> && functions) { DARABONBA_PTR_SET_RVALUE(functions_, functions) };
 
@@ -56,14 +56,14 @@ namespace Models
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline Domain& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    std::shared_ptr<string> category_ = nullptr;
-    std::shared_ptr<map<string, vector<string>>> functions_ = nullptr;
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> category_ {};
+    shared_ptr<map<string, vector<string>>> functions_ {};
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

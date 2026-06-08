@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && return this->pageSize_ == nullptr && return this->word_ == nullptr; };
+        && this->pageSize_ == nullptr && this->word_ == nullptr; };
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
-    inline int32_t pageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
     inline ListInterventionDictionaryEntriesRequest& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline ListInterventionDictionaryEntriesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // word Field Functions 
     bool hasWord() const { return this->word_ != nullptr;};
     void deleteWord() { this->word_ = nullptr;};
-    inline string word() const { DARABONBA_PTR_GET_DEFAULT(word_, "") };
+    inline string getWord() const { DARABONBA_PTR_GET_DEFAULT(word_, "") };
     inline ListInterventionDictionaryEntriesRequest& setWord(string word) { DARABONBA_PTR_SET_VALUE(word_, word) };
 
 
   protected:
     // The page number. Default value: 1.
-    std::shared_ptr<int32_t> pageNumber_ = nullptr;
+    shared_ptr<int32_t> pageNumber_ {};
     // The number of entries returned per page. Default value: 10.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
+    shared_ptr<int32_t> pageSize_ {};
     // The intervention entry.
-    std::shared_ptr<string> word_ = nullptr;
+    shared_ptr<string> word_ {};
   };
 
   } // namespace Models

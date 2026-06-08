@@ -33,13 +33,13 @@ namespace Models
     // filterFinished Field Functions 
     bool hasFilterFinished() const { return this->filterFinished_ != nullptr;};
     void deleteFilterFinished() { this->filterFinished_ = nullptr;};
-    inline bool filterFinished() const { DARABONBA_PTR_GET_DEFAULT(filterFinished_, false) };
+    inline bool getFilterFinished() const { DARABONBA_PTR_GET_DEFAULT(filterFinished_, false) };
     inline ListProceedingsRequest& setFilterFinished(bool filterFinished) { DARABONBA_PTR_SET_VALUE(filterFinished_, filterFinished) };
 
 
   protected:
     // Specifies whether the filtering is complete.
-    std::shared_ptr<bool> filterFinished_ = nullptr;
+    shared_ptr<bool> filterFinished_ {};
   };
 
   } // namespace Models

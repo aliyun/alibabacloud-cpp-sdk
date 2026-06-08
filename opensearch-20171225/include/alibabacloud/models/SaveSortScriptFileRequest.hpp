@@ -32,26 +32,26 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && return this->version_ == nullptr; };
+        && this->version_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
-    inline string content() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
+    inline string getContent() const { DARABONBA_PTR_GET_DEFAULT(content_, "") };
     inline SaveSortScriptFileRequest& setContent(string content) { DARABONBA_PTR_SET_VALUE(content_, content) };
 
 
     // version Field Functions 
     bool hasVersion() const { return this->version_ != nullptr;};
     void deleteVersion() { this->version_ = nullptr;};
-    inline int32_t version() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
+    inline int32_t getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, 0) };
     inline SaveSortScriptFileRequest& setVersion(int32_t version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
   protected:
     // The script content that is encoded in the Base64 format.
-    std::shared_ptr<string> content_ = nullptr;
+    shared_ptr<string> content_ {};
     // The version number of the script content.
-    std::shared_ptr<int32_t> version_ = nullptr;
+    shared_ptr<int32_t> version_ {};
   };
 
   } // namespace Models

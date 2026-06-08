@@ -33,7 +33,7 @@ namespace Models
     // output Field Functions 
     bool hasOutput() const { return this->output_ != nullptr;};
     void deleteOutput() { this->output_ = nullptr;};
-    inline string output() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
+    inline string getOutput() const { DARABONBA_PTR_GET_DEFAULT(output_, "") };
     inline GetFunctionResourceRequest& setOutput(string output) { DARABONBA_PTR_SET_VALUE(output_, output) };
 
 
@@ -45,7 +45,7 @@ namespace Models
     // *   simple
     // *   normal
     // *   detail
-    std::shared_ptr<string> output_ = nullptr;
+    shared_ptr<string> output_ {};
   };
 
   } // namespace Models
