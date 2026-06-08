@@ -737,6 +737,9 @@
 #include <alibabacloud/models/ListOrganizationalUnitsForResourceServerResponse.hpp>
 #include <alibabacloud/models/ListRegionsResponseBody.hpp>
 #include <alibabacloud/models/ListRegionsResponse.hpp>
+#include <alibabacloud/models/ListResourceServerScopesRequest.hpp>
+#include <alibabacloud/models/ListResourceServerScopesResponseBody.hpp>
+#include <alibabacloud/models/ListResourceServerScopesResponse.hpp>
 #include <alibabacloud/models/ListResourceServersForUserRequest.hpp>
 #include <alibabacloud/models/ListResourceServersForUserResponseBody.hpp>
 #include <alibabacloud/models/ListResourceServersForUserResponse.hpp>

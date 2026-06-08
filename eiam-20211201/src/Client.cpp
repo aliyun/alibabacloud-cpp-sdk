@@ -12724,6 +12724,84 @@ ListRegionsResponse Client::listRegions() {
 }
 
 /**
+ * @summary 获取指定ResourceServer下Scope列表。
+ *
+ * @param request ListResourceServerScopesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListResourceServerScopesResponse
+ */
+ListResourceServerScopesResponse Client::listResourceServerScopesWithOptions(const ListResourceServerScopesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationId()) {
+    query["ApplicationId"] = request.getApplicationId();
+  }
+
+  if (!!request.hasAuthorizationType()) {
+    query["AuthorizationType"] = request.getAuthorizationType();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPreviousToken()) {
+    query["PreviousToken"] = request.getPreviousToken();
+  }
+
+  if (!!request.hasResourceServerScopeIds()) {
+    query["ResourceServerScopeIds"] = request.getResourceServerScopeIds();
+  }
+
+  if (!!request.hasResourceServerScopeName()) {
+    query["ResourceServerScopeName"] = request.getResourceServerScopeName();
+  }
+
+  if (!!request.hasResourceServerScopeType()) {
+    query["ResourceServerScopeType"] = request.getResourceServerScopeType();
+  }
+
+  if (!!request.hasResourceServerScopeValue()) {
+    query["ResourceServerScopeValue"] = request.getResourceServerScopeValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListResourceServerScopes"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListResourceServerScopesResponse>();
+}
+
+/**
+ * @summary 获取指定ResourceServer下Scope列表。
+ *
+ * @param request ListResourceServerScopesRequest
+ * @return ListResourceServerScopesResponse
+ */
+ListResourceServerScopesResponse Client::listResourceServerScopes(const ListResourceServerScopesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listResourceServerScopesWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询用户的被授予ResourceServers和Scopes的权限
  *
  * @param request ListResourceServersForUserRequest

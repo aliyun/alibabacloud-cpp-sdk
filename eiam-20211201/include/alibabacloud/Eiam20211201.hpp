@@ -4249,6 +4249,23 @@ namespace Eiam20211201
       Models::ListRegionsResponse listRegions();
 
       /**
+       * @summary 获取指定ResourceServer下Scope列表。
+       *
+       * @param request ListResourceServerScopesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListResourceServerScopesResponse
+       */
+      Models::ListResourceServerScopesResponse listResourceServerScopesWithOptions(const Models::ListResourceServerScopesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取指定ResourceServer下Scope列表。
+       *
+       * @param request ListResourceServerScopesRequest
+       * @return ListResourceServerScopesResponse
+       */
+      Models::ListResourceServerScopesResponse listResourceServerScopes(const Models::ListResourceServerScopesRequest &request);
+
+      /**
        * @summary 查询用户的被授予ResourceServers和Scopes的权限
        *
        * @param request ListResourceServersForUserRequest
