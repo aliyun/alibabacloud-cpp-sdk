@@ -53,11 +53,13 @@ namespace Models
     class Fields : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Fields& obj) { 
+        DARABONBA_PTR_TO_JSON(AlignedEntityName, alignedEntityName_);
         DARABONBA_PTR_TO_JSON(Attributes, attributes_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Fields& obj) { 
+        DARABONBA_PTR_FROM_JSON(AlignedEntityName, alignedEntityName_);
         DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -73,8 +75,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->attributes_ == nullptr
-        && this->name_ == nullptr && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->alignedEntityName_ == nullptr
+        && this->attributes_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+      // alignedEntityName Field Functions 
+      bool hasAlignedEntityName() const { return this->alignedEntityName_ != nullptr;};
+      void deleteAlignedEntityName() { this->alignedEntityName_ = nullptr;};
+      inline string getAlignedEntityName() const { DARABONBA_PTR_GET_DEFAULT(alignedEntityName_, "") };
+      inline Fields& setAlignedEntityName(string alignedEntityName) { DARABONBA_PTR_SET_VALUE(alignedEntityName_, alignedEntityName) };
+
+
       // attributes Field Functions 
       bool hasAttributes() const { return this->attributes_ != nullptr;};
       void deleteAttributes() { this->attributes_ = nullptr;};
@@ -99,6 +108,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<string> alignedEntityName_ {};
       shared_ptr<vector<string>> attributes_ {};
       shared_ptr<string> name_ {};
       shared_ptr<string> type_ {};

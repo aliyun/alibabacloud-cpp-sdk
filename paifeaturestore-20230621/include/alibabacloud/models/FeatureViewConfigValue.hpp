@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(UseMock, useMock_);
       DARABONBA_PTR_TO_JSON(Snapshot, snapshot_);
       DARABONBA_PTR_TO_JSON(SecondJoinKey, secondJoinKey_);
+      DARABONBA_PTR_TO_JSON(JoinWithLabel, joinWithLabel_);
     };
     friend void from_json(const Darabonba::Json& j, FeatureViewConfigValue& obj) { 
       DARABONBA_PTR_FROM_JSON(Partitions, partitions_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(UseMock, useMock_);
       DARABONBA_PTR_FROM_JSON(Snapshot, snapshot_);
       DARABONBA_PTR_FROM_JSON(SecondJoinKey, secondJoinKey_);
+      DARABONBA_PTR_FROM_JSON(JoinWithLabel, joinWithLabel_);
     };
     FeatureViewConfigValue() = default ;
     FeatureViewConfigValue(const FeatureViewConfigValue &) = default ;
@@ -87,7 +89,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->partitions_ == nullptr
-        && this->eventTime_ == nullptr && this->equal_ == nullptr && this->useMock_ == nullptr && this->snapshot_ == nullptr && this->secondJoinKey_ == nullptr; };
+        && this->eventTime_ == nullptr && this->equal_ == nullptr && this->useMock_ == nullptr && this->snapshot_ == nullptr && this->secondJoinKey_ == nullptr
+        && this->joinWithLabel_ == nullptr; };
     // partitions Field Functions 
     bool hasPartitions() const { return this->partitions_ != nullptr;};
     void deletePartitions() { this->partitions_ = nullptr;};
@@ -134,6 +137,13 @@ namespace Models
     inline FeatureViewConfigValue& setSecondJoinKey(string secondJoinKey) { DARABONBA_PTR_SET_VALUE(secondJoinKey_, secondJoinKey) };
 
 
+    // joinWithLabel Field Functions 
+    bool hasJoinWithLabel() const { return this->joinWithLabel_ != nullptr;};
+    void deleteJoinWithLabel() { this->joinWithLabel_ = nullptr;};
+    inline bool getJoinWithLabel() const { DARABONBA_PTR_GET_DEFAULT(joinWithLabel_, false) };
+    inline FeatureViewConfigValue& setJoinWithLabel(bool joinWithLabel) { DARABONBA_PTR_SET_VALUE(joinWithLabel_, joinWithLabel) };
+
+
   protected:
     shared_ptr<map<string, FeatureViewConfigValuePartitionsValue>> partitions_ {};
     shared_ptr<string> eventTime_ {};
@@ -141,6 +151,7 @@ namespace Models
     shared_ptr<bool> useMock_ {};
     shared_ptr<FeatureViewConfigValue::Snapshot> snapshot_ {};
     shared_ptr<string> secondJoinKey_ {};
+    shared_ptr<bool> joinWithLabel_ {};
   };
 
   } // namespace Models
