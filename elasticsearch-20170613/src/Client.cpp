@@ -7552,6 +7552,10 @@ TriggerNetworkResponse Client::triggerNetwork(const string &InstanceId, const Tr
 TurnOffZoneResponse Client::turnOffZoneWithOptions(const string &instanceId, const TurnOffZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasHpAlbZoneDrained()) {
+    query["hpAlbZoneDrained"] = request.getHpAlbZoneDrained();
+  }
+
   if (!!request.hasZone()) {
     query["zone"] = request.getZone();
   }
@@ -7597,6 +7601,10 @@ TurnOffZoneResponse Client::turnOffZone(const string &instanceId, const TurnOffZ
 TurnOnZoneResponse Client::turnOnZoneWithOptions(const string &instanceId, const TurnOnZoneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasHpAlbZoneDrained()) {
+    query["hpAlbZoneDrained"] = request.getHpAlbZoneDrained();
+  }
+
   if (!!request.hasZone()) {
     query["zone"] = request.getZone();
   }

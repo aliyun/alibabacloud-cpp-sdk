@@ -13,9 +13,11 @@ namespace Models
   class TurnOnZoneRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const TurnOnZoneRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(hpAlbZoneDrained, hpAlbZoneDrained_);
       DARABONBA_PTR_TO_JSON(zone, zone_);
     };
     friend void from_json(const Darabonba::Json& j, TurnOnZoneRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(hpAlbZoneDrained, hpAlbZoneDrained_);
       DARABONBA_PTR_FROM_JSON(zone, zone_);
     };
     TurnOnZoneRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->zone_ == nullptr; };
+    virtual bool empty() const override { return this->hpAlbZoneDrained_ == nullptr
+        && this->zone_ == nullptr; };
+    // hpAlbZoneDrained Field Functions 
+    bool hasHpAlbZoneDrained() const { return this->hpAlbZoneDrained_ != nullptr;};
+    void deleteHpAlbZoneDrained() { this->hpAlbZoneDrained_ = nullptr;};
+    inline bool getHpAlbZoneDrained() const { DARABONBA_PTR_GET_DEFAULT(hpAlbZoneDrained_, false) };
+    inline TurnOnZoneRequest& setHpAlbZoneDrained(bool hpAlbZoneDrained) { DARABONBA_PTR_SET_VALUE(hpAlbZoneDrained_, hpAlbZoneDrained) };
+
+
     // zone Field Functions 
     bool hasZone() const { return this->zone_ != nullptr;};
     void deleteZone() { this->zone_ = nullptr;};
@@ -38,6 +48,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<bool> hpAlbZoneDrained_ {};
     shared_ptr<string> zone_ {};
   };
 
