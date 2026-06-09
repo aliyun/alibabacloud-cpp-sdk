@@ -832,9 +832,13 @@ namespace Models
           public:
             friend void to_json(Darabonba::Json& j, const Xiaomi& obj) { 
               DARABONBA_PTR_TO_JSON(Channel, channel_);
+              DARABONBA_PTR_TO_JSON(FocusParam, focusParam_);
+              DARABONBA_PTR_TO_JSON(FocusPics, focusPics_);
             };
             friend void from_json(const Darabonba::Json& j, Xiaomi& obj) { 
               DARABONBA_PTR_FROM_JSON(Channel, channel_);
+              DARABONBA_PTR_FROM_JSON(FocusParam, focusParam_);
+              DARABONBA_PTR_FROM_JSON(FocusPics, focusPics_);
             };
             Xiaomi() = default ;
             Xiaomi(const Xiaomi &) = default ;
@@ -847,7 +851,8 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->channel_ == nullptr; };
+            virtual bool empty() const override { return this->channel_ == nullptr
+        && this->focusParam_ == nullptr && this->focusPics_ == nullptr; };
             // channel Field Functions 
             bool hasChannel() const { return this->channel_ != nullptr;};
             void deleteChannel() { this->channel_ = nullptr;};
@@ -855,8 +860,24 @@ namespace Models
             inline Xiaomi& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
+            // focusParam Field Functions 
+            bool hasFocusParam() const { return this->focusParam_ != nullptr;};
+            void deleteFocusParam() { this->focusParam_ = nullptr;};
+            inline string getFocusParam() const { DARABONBA_PTR_GET_DEFAULT(focusParam_, "") };
+            inline Xiaomi& setFocusParam(string focusParam) { DARABONBA_PTR_SET_VALUE(focusParam_, focusParam) };
+
+
+            // focusPics Field Functions 
+            bool hasFocusPics() const { return this->focusPics_ != nullptr;};
+            void deleteFocusPics() { this->focusPics_ = nullptr;};
+            inline string getFocusPics() const { DARABONBA_PTR_GET_DEFAULT(focusPics_, "") };
+            inline Xiaomi& setFocusPics(string focusPics) { DARABONBA_PTR_SET_VALUE(focusPics_, focusPics) };
+
+
           protected:
             shared_ptr<string> channel_ {};
+            shared_ptr<string> focusParam_ {};
+            shared_ptr<string> focusPics_ {};
           };
 
           class Vivo : public Darabonba::Model {

@@ -947,6 +947,14 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
     query["AndroidXiaomiBigPictureUrl"] = request.getAndroidXiaomiBigPictureUrl();
   }
 
+  if (!!request.hasAndroidXiaomiFocusParam()) {
+    query["AndroidXiaomiFocusParam"] = request.getAndroidXiaomiFocusParam();
+  }
+
+  if (!!request.hasAndroidXiaomiFocusPics()) {
+    query["AndroidXiaomiFocusPics"] = request.getAndroidXiaomiFocusPics();
+  }
+
   if (!!request.hasAndroidXiaomiImageUrl()) {
     query["AndroidXiaomiImageUrl"] = request.getAndroidXiaomiImageUrl();
   }
@@ -1798,6 +1806,8 @@ QueryDevicesByAliasResponse Client::queryDevicesByAlias(const QueryDevicesByAlia
 }
 
 /**
+ * @summary 获取推送历史记录
+ *
  * @param request QueryPushRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryPushRecordsResponse
@@ -1863,6 +1873,8 @@ QueryPushRecordsResponse Client::queryPushRecordsWithOptions(const QueryPushReco
 }
 
 /**
+ * @summary 获取推送历史记录
+ *
  * @param request QueryPushRecordsRequest
  * @return QueryPushRecordsResponse
  */

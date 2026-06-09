@@ -67,6 +67,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AndroidXiaoMiNotifyBody, androidXiaoMiNotifyBody_);
       DARABONBA_PTR_TO_JSON(AndroidXiaoMiNotifyTitle, androidXiaoMiNotifyTitle_);
       DARABONBA_PTR_TO_JSON(AndroidXiaomiBigPictureUrl, androidXiaomiBigPictureUrl_);
+      DARABONBA_PTR_TO_JSON(AndroidXiaomiFocusParam, androidXiaomiFocusParam_);
+      DARABONBA_PTR_TO_JSON(AndroidXiaomiFocusPics, androidXiaomiFocusPics_);
       DARABONBA_PTR_TO_JSON(AndroidXiaomiImageUrl, androidXiaomiImageUrl_);
       DARABONBA_PTR_TO_JSON(AppKey, appKey_);
       DARABONBA_PTR_TO_JSON(Body, body_);
@@ -186,6 +188,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AndroidXiaoMiNotifyBody, androidXiaoMiNotifyBody_);
       DARABONBA_PTR_FROM_JSON(AndroidXiaoMiNotifyTitle, androidXiaoMiNotifyTitle_);
       DARABONBA_PTR_FROM_JSON(AndroidXiaomiBigPictureUrl, androidXiaomiBigPictureUrl_);
+      DARABONBA_PTR_FROM_JSON(AndroidXiaomiFocusParam, androidXiaomiFocusParam_);
+      DARABONBA_PTR_FROM_JSON(AndroidXiaomiFocusPics, androidXiaomiFocusPics_);
       DARABONBA_PTR_FROM_JSON(AndroidXiaomiImageUrl, androidXiaomiImageUrl_);
       DARABONBA_PTR_FROM_JSON(AppKey, appKey_);
       DARABONBA_PTR_FROM_JSON(Body, body_);
@@ -272,20 +276,20 @@ namespace Models
         && this->androidOppoIntelligentIntent_ == nullptr && this->androidOppoIntentEnv_ == nullptr && this->androidOppoPrivateContentParametersShrink_ == nullptr && this->androidOppoPrivateMsgTemplateId_ == nullptr && this->androidOppoPrivateTitleParametersShrink_ == nullptr
         && this->androidPopupActivity_ == nullptr && this->androidPopupBody_ == nullptr && this->androidPopupTitle_ == nullptr && this->androidRemind_ == nullptr && this->androidRenderStyle_ == nullptr
         && this->androidTargetUserType_ == nullptr && this->androidVivoLiveMessage_ == nullptr && this->androidVivoPushMode_ == nullptr && this->androidVivoReceiptId_ == nullptr && this->androidXiaoMiActivity_ == nullptr
-        && this->androidXiaoMiNotifyBody_ == nullptr && this->androidXiaoMiNotifyTitle_ == nullptr && this->androidXiaomiBigPictureUrl_ == nullptr && this->androidXiaomiImageUrl_ == nullptr && this->appKey_ == nullptr
-        && this->body_ == nullptr && this->deviceType_ == nullptr && this->expireTime_ == nullptr && this->harmonyAction_ == nullptr && this->harmonyActionType_ == nullptr
-        && this->harmonyBadgeAddNum_ == nullptr && this->harmonyBadgeSetNum_ == nullptr && this->harmonyCategory_ == nullptr && this->harmonyExtParameters_ == nullptr && this->harmonyExtensionExtraData_ == nullptr
-        && this->harmonyExtensionPush_ == nullptr && this->harmonyImageUrl_ == nullptr && this->harmonyInboxContent_ == nullptr && this->harmonyLiveViewPayload_ == nullptr && this->harmonyNotificationSlotType_ == nullptr
-        && this->harmonyNotifyId_ == nullptr && this->harmonyReceiptId_ == nullptr && this->harmonyRemind_ == nullptr && this->harmonyRemindBody_ == nullptr && this->harmonyRemindTitle_ == nullptr
-        && this->harmonyRenderStyle_ == nullptr && this->harmonyTestMessage_ == nullptr && this->harmonyUri_ == nullptr && this->idempotentToken_ == nullptr && this->jobKey_ == nullptr
-        && this->pushTime_ == nullptr && this->pushType_ == nullptr && this->sendChannels_ == nullptr && this->sendSpeed_ == nullptr && this->smsDelaySecs_ == nullptr
-        && this->smsParams_ == nullptr && this->smsSendPolicy_ == nullptr && this->smsSignName_ == nullptr && this->smsTemplateName_ == nullptr && this->storeOffline_ == nullptr
-        && this->target_ == nullptr && this->targetValue_ == nullptr && this->title_ == nullptr && this->trim_ == nullptr && this->iOSApnsEnv_ == nullptr
-        && this->iOSBadge_ == nullptr && this->iOSBadgeAutoIncrement_ == nullptr && this->iOSExtParameters_ == nullptr && this->iOSInterruptionLevel_ == nullptr && this->iOSLiveActivityAttributes_ == nullptr
-        && this->iOSLiveActivityAttributesType_ == nullptr && this->iOSLiveActivityContentState_ == nullptr && this->iOSLiveActivityDismissalDate_ == nullptr && this->iOSLiveActivityEvent_ == nullptr && this->iOSLiveActivityId_ == nullptr
-        && this->iOSLiveActivityStaleDate_ == nullptr && this->iOSMusic_ == nullptr && this->iOSMutableContent_ == nullptr && this->iOSNotificationCategory_ == nullptr && this->iOSNotificationCollapseId_ == nullptr
-        && this->iOSNotificationThreadId_ == nullptr && this->iOSRelevanceScore_ == nullptr && this->iOSRemind_ == nullptr && this->iOSRemindBody_ == nullptr && this->iOSSilentNotification_ == nullptr
-        && this->iOSSubtitle_ == nullptr; };
+        && this->androidXiaoMiNotifyBody_ == nullptr && this->androidXiaoMiNotifyTitle_ == nullptr && this->androidXiaomiBigPictureUrl_ == nullptr && this->androidXiaomiFocusParam_ == nullptr && this->androidXiaomiFocusPics_ == nullptr
+        && this->androidXiaomiImageUrl_ == nullptr && this->appKey_ == nullptr && this->body_ == nullptr && this->deviceType_ == nullptr && this->expireTime_ == nullptr
+        && this->harmonyAction_ == nullptr && this->harmonyActionType_ == nullptr && this->harmonyBadgeAddNum_ == nullptr && this->harmonyBadgeSetNum_ == nullptr && this->harmonyCategory_ == nullptr
+        && this->harmonyExtParameters_ == nullptr && this->harmonyExtensionExtraData_ == nullptr && this->harmonyExtensionPush_ == nullptr && this->harmonyImageUrl_ == nullptr && this->harmonyInboxContent_ == nullptr
+        && this->harmonyLiveViewPayload_ == nullptr && this->harmonyNotificationSlotType_ == nullptr && this->harmonyNotifyId_ == nullptr && this->harmonyReceiptId_ == nullptr && this->harmonyRemind_ == nullptr
+        && this->harmonyRemindBody_ == nullptr && this->harmonyRemindTitle_ == nullptr && this->harmonyRenderStyle_ == nullptr && this->harmonyTestMessage_ == nullptr && this->harmonyUri_ == nullptr
+        && this->idempotentToken_ == nullptr && this->jobKey_ == nullptr && this->pushTime_ == nullptr && this->pushType_ == nullptr && this->sendChannels_ == nullptr
+        && this->sendSpeed_ == nullptr && this->smsDelaySecs_ == nullptr && this->smsParams_ == nullptr && this->smsSendPolicy_ == nullptr && this->smsSignName_ == nullptr
+        && this->smsTemplateName_ == nullptr && this->storeOffline_ == nullptr && this->target_ == nullptr && this->targetValue_ == nullptr && this->title_ == nullptr
+        && this->trim_ == nullptr && this->iOSApnsEnv_ == nullptr && this->iOSBadge_ == nullptr && this->iOSBadgeAutoIncrement_ == nullptr && this->iOSExtParameters_ == nullptr
+        && this->iOSInterruptionLevel_ == nullptr && this->iOSLiveActivityAttributes_ == nullptr && this->iOSLiveActivityAttributesType_ == nullptr && this->iOSLiveActivityContentState_ == nullptr && this->iOSLiveActivityDismissalDate_ == nullptr
+        && this->iOSLiveActivityEvent_ == nullptr && this->iOSLiveActivityId_ == nullptr && this->iOSLiveActivityStaleDate_ == nullptr && this->iOSMusic_ == nullptr && this->iOSMutableContent_ == nullptr
+        && this->iOSNotificationCategory_ == nullptr && this->iOSNotificationCollapseId_ == nullptr && this->iOSNotificationThreadId_ == nullptr && this->iOSRelevanceScore_ == nullptr && this->iOSRemind_ == nullptr
+        && this->iOSRemindBody_ == nullptr && this->iOSSilentNotification_ == nullptr && this->iOSSubtitle_ == nullptr; };
     // androidActivity Field Functions 
     bool hasAndroidActivity() const { return this->androidActivity_ != nullptr;};
     void deleteAndroidActivity() { this->androidActivity_ = nullptr;};
@@ -662,6 +666,20 @@ namespace Models
     void deleteAndroidXiaomiBigPictureUrl() { this->androidXiaomiBigPictureUrl_ = nullptr;};
     inline string getAndroidXiaomiBigPictureUrl() const { DARABONBA_PTR_GET_DEFAULT(androidXiaomiBigPictureUrl_, "") };
     inline PushShrinkRequest& setAndroidXiaomiBigPictureUrl(string androidXiaomiBigPictureUrl) { DARABONBA_PTR_SET_VALUE(androidXiaomiBigPictureUrl_, androidXiaomiBigPictureUrl) };
+
+
+    // androidXiaomiFocusParam Field Functions 
+    bool hasAndroidXiaomiFocusParam() const { return this->androidXiaomiFocusParam_ != nullptr;};
+    void deleteAndroidXiaomiFocusParam() { this->androidXiaomiFocusParam_ = nullptr;};
+    inline string getAndroidXiaomiFocusParam() const { DARABONBA_PTR_GET_DEFAULT(androidXiaomiFocusParam_, "") };
+    inline PushShrinkRequest& setAndroidXiaomiFocusParam(string androidXiaomiFocusParam) { DARABONBA_PTR_SET_VALUE(androidXiaomiFocusParam_, androidXiaomiFocusParam) };
+
+
+    // androidXiaomiFocusPics Field Functions 
+    bool hasAndroidXiaomiFocusPics() const { return this->androidXiaomiFocusPics_ != nullptr;};
+    void deleteAndroidXiaomiFocusPics() { this->androidXiaomiFocusPics_ = nullptr;};
+    inline string getAndroidXiaomiFocusPics() const { DARABONBA_PTR_GET_DEFAULT(androidXiaomiFocusPics_, "") };
+    inline PushShrinkRequest& setAndroidXiaomiFocusPics(string androidXiaomiFocusPics) { DARABONBA_PTR_SET_VALUE(androidXiaomiFocusPics_, androidXiaomiFocusPics) };
 
 
     // androidXiaomiImageUrl Field Functions 
@@ -1160,6 +1178,8 @@ namespace Models
     shared_ptr<string> androidXiaoMiNotifyBody_ {};
     shared_ptr<string> androidXiaoMiNotifyTitle_ {};
     shared_ptr<string> androidXiaomiBigPictureUrl_ {};
+    shared_ptr<string> androidXiaomiFocusParam_ {};
+    shared_ptr<string> androidXiaomiFocusPics_ {};
     shared_ptr<string> androidXiaomiImageUrl_ {};
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};

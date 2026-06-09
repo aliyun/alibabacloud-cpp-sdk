@@ -431,6 +431,8 @@ namespace Push20160801
       Models::QueryDevicesByAliasResponse queryDevicesByAlias(const Models::QueryDevicesByAliasRequest &request);
 
       /**
+       * @summary 获取推送历史记录
+       *
        * @param request QueryPushRecordsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryPushRecordsResponse
@@ -438,6 +440,8 @@ namespace Push20160801
       Models::QueryPushRecordsResponse queryPushRecordsWithOptions(const Models::QueryPushRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary 获取推送历史记录
+       *
        * @param request QueryPushRecordsRequest
        * @return QueryPushRecordsResponse
        */
