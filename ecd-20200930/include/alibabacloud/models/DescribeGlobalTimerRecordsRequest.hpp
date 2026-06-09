@@ -21,11 +21,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceTypes, resourceTypes_);
       DARABONBA_PTR_TO_JSON(ResultCategory, resultCategory_);
       DARABONBA_PTR_TO_JSON(Retryable, retryable_);
       DARABONBA_PTR_TO_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_TO_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_TO_JSON(TimerTypes, timerTypes_);
+      DARABONBA_PTR_TO_JSON(WuyingServerIds, wuyingServerIds_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeGlobalTimerRecordsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
@@ -35,11 +37,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceTypes, resourceTypes_);
       DARABONBA_PTR_FROM_JSON(ResultCategory, resultCategory_);
       DARABONBA_PTR_FROM_JSON(Retryable, retryable_);
       DARABONBA_PTR_FROM_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_FROM_JSON(TimerResult, timerResult_);
       DARABONBA_PTR_FROM_JSON(TimerTypes, timerTypes_);
+      DARABONBA_PTR_FROM_JSON(WuyingServerIds, wuyingServerIds_);
     };
     DescribeGlobalTimerRecordsRequest() = default ;
     DescribeGlobalTimerRecordsRequest(const DescribeGlobalTimerRecordsRequest &) = default ;
@@ -54,8 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->batchId_ == nullptr
         && this->desktopIds_ == nullptr && this->displayResultName_ == nullptr && this->groupId_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->regionId_ == nullptr && this->resultCategory_ == nullptr && this->retryable_ == nullptr && this->searchRegionId_ == nullptr && this->timerResult_ == nullptr
-        && this->timerTypes_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceTypes_ == nullptr && this->resultCategory_ == nullptr && this->retryable_ == nullptr && this->searchRegionId_ == nullptr
+        && this->timerResult_ == nullptr && this->timerTypes_ == nullptr && this->wuyingServerIds_ == nullptr; };
     // batchId Field Functions 
     bool hasBatchId() const { return this->batchId_ != nullptr;};
     void deleteBatchId() { this->batchId_ = nullptr;};
@@ -107,6 +111,15 @@ namespace Models
     inline DescribeGlobalTimerRecordsRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceTypes Field Functions 
+    bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
+    void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
+    inline const vector<string> & getResourceTypes() const { DARABONBA_PTR_GET_CONST(resourceTypes_, vector<string>) };
+    inline vector<string> getResourceTypes() { DARABONBA_PTR_GET(resourceTypes_, vector<string>) };
+    inline DescribeGlobalTimerRecordsRequest& setResourceTypes(const vector<string> & resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
+    inline DescribeGlobalTimerRecordsRequest& setResourceTypes(vector<string> && resourceTypes) { DARABONBA_PTR_SET_RVALUE(resourceTypes_, resourceTypes) };
+
+
     // resultCategory Field Functions 
     bool hasResultCategory() const { return this->resultCategory_ != nullptr;};
     void deleteResultCategory() { this->resultCategory_ = nullptr;};
@@ -144,6 +157,15 @@ namespace Models
     inline DescribeGlobalTimerRecordsRequest& setTimerTypes(vector<string> && timerTypes) { DARABONBA_PTR_SET_RVALUE(timerTypes_, timerTypes) };
 
 
+    // wuyingServerIds Field Functions 
+    bool hasWuyingServerIds() const { return this->wuyingServerIds_ != nullptr;};
+    void deleteWuyingServerIds() { this->wuyingServerIds_ = nullptr;};
+    inline const vector<string> & getWuyingServerIds() const { DARABONBA_PTR_GET_CONST(wuyingServerIds_, vector<string>) };
+    inline vector<string> getWuyingServerIds() { DARABONBA_PTR_GET(wuyingServerIds_, vector<string>) };
+    inline DescribeGlobalTimerRecordsRequest& setWuyingServerIds(const vector<string> & wuyingServerIds) { DARABONBA_PTR_SET_VALUE(wuyingServerIds_, wuyingServerIds) };
+    inline DescribeGlobalTimerRecordsRequest& setWuyingServerIds(vector<string> && wuyingServerIds) { DARABONBA_PTR_SET_RVALUE(wuyingServerIds_, wuyingServerIds) };
+
+
   protected:
     // The ID of the batch in which the scheduled task is executed.
     shared_ptr<string> batchId_ {};
@@ -162,6 +184,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     shared_ptr<string> regionId_ {};
+    shared_ptr<vector<string>> resourceTypes_ {};
     // The type of the execution result. You can specify this parameter to filter the execution results.
     // 
     // Valid values:
@@ -187,6 +210,7 @@ namespace Models
     shared_ptr<string> timerResult_ {};
     // The scheduled tasks.
     shared_ptr<vector<string>> timerTypes_ {};
+    shared_ptr<vector<string>> wuyingServerIds_ {};
   };
 
   } // namespace Models

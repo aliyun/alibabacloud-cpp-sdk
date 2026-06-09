@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DisplayResultName, displayResultName_);
         DARABONBA_PTR_TO_JSON(FinishTime, finishTime_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceParentId, resourceParentId_);
         DARABONBA_PTR_TO_JSON(Retryable, retryable_);
         DARABONBA_PTR_TO_JSON(TimerGroupId, timerGroupId_);
         DARABONBA_PTR_TO_JSON(TimerRecordId, timerRecordId_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DisplayResultName, displayResultName_);
         DARABONBA_PTR_FROM_JSON(FinishTime, finishTime_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceParentId, resourceParentId_);
         DARABONBA_PTR_FROM_JSON(Retryable, retryable_);
         DARABONBA_PTR_FROM_JSON(TimerGroupId, timerGroupId_);
         DARABONBA_PTR_FROM_JSON(TimerRecordId, timerRecordId_);
@@ -83,8 +85,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->actionType_ == nullptr
         && this->batchId_ == nullptr && this->context_ == nullptr && this->createTime_ == nullptr && this->desktopId_ == nullptr && this->desktopName_ == nullptr
-        && this->displayResultName_ == nullptr && this->finishTime_ == nullptr && this->regionId_ == nullptr && this->retryable_ == nullptr && this->timerGroupId_ == nullptr
-        && this->timerRecordId_ == nullptr && this->timerResult_ == nullptr && this->timerType_ == nullptr; };
+        && this->displayResultName_ == nullptr && this->finishTime_ == nullptr && this->regionId_ == nullptr && this->resourceParentId_ == nullptr && this->retryable_ == nullptr
+        && this->timerGroupId_ == nullptr && this->timerRecordId_ == nullptr && this->timerResult_ == nullptr && this->timerType_ == nullptr; };
       // actionType Field Functions 
       bool hasActionType() const { return this->actionType_ != nullptr;};
       void deleteActionType() { this->actionType_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
       inline Results& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resourceParentId Field Functions 
+      bool hasResourceParentId() const { return this->resourceParentId_ != nullptr;};
+      void deleteResourceParentId() { this->resourceParentId_ = nullptr;};
+      inline string getResourceParentId() const { DARABONBA_PTR_GET_DEFAULT(resourceParentId_, "") };
+      inline Results& setResourceParentId(string resourceParentId) { DARABONBA_PTR_SET_VALUE(resourceParentId_, resourceParentId) };
+
+
       // retryable Field Functions 
       bool hasRetryable() const { return this->retryable_ != nullptr;};
       void deleteRetryable() { this->retryable_ = nullptr;};
@@ -199,6 +208,7 @@ namespace Models
       shared_ptr<string> finishTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      shared_ptr<string> resourceParentId_ {};
       shared_ptr<bool> retryable_ {};
       // The ID of the scheduled task group.
       shared_ptr<string> timerGroupId_ {};

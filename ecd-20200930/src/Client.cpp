@@ -9659,6 +9659,10 @@ DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatchesWithOptions
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceTypes()) {
+    query["ResourceTypes"] = request.getResourceTypes();
+  }
+
   if (!!request.hasSearchRegionId()) {
     query["SearchRegionId"] = request.getSearchRegionId();
   }
@@ -9733,6 +9737,10 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceTypes()) {
+    query["ResourceTypes"] = request.getResourceTypes();
+  }
+
   if (!!request.hasResultCategory()) {
     query["ResultCategory"] = request.getResultCategory();
   }
@@ -9751,6 +9759,10 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
 
   if (!!request.hasTimerTypes()) {
     query["TimerTypes"] = request.getTimerTypes();
+  }
+
+  if (!!request.hasWuyingServerIds()) {
+    query["WuyingServerIds"] = request.getWuyingServerIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

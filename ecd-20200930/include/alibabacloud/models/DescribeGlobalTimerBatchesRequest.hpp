@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEGLOBALTIMERBATCHESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEGLOBALTIMERBATCHESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceTypes, resourceTypes_);
       DARABONBA_PTR_TO_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_TO_JSON(TimerType, timerType_);
     };
@@ -25,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceTypes, resourceTypes_);
       DARABONBA_PTR_FROM_JSON(SearchRegionId, searchRegionId_);
       DARABONBA_PTR_FROM_JSON(TimerType, timerType_);
     };
@@ -40,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->groupId_ == nullptr
-        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->searchRegionId_ == nullptr && this->timerType_ == nullptr; };
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr && this->resourceTypes_ == nullptr && this->searchRegionId_ == nullptr
+        && this->timerType_ == nullptr; };
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
@@ -69,6 +73,15 @@ namespace Models
     inline DescribeGlobalTimerBatchesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceTypes Field Functions 
+    bool hasResourceTypes() const { return this->resourceTypes_ != nullptr;};
+    void deleteResourceTypes() { this->resourceTypes_ = nullptr;};
+    inline const vector<string> & getResourceTypes() const { DARABONBA_PTR_GET_CONST(resourceTypes_, vector<string>) };
+    inline vector<string> getResourceTypes() { DARABONBA_PTR_GET(resourceTypes_, vector<string>) };
+    inline DescribeGlobalTimerBatchesRequest& setResourceTypes(const vector<string> & resourceTypes) { DARABONBA_PTR_SET_VALUE(resourceTypes_, resourceTypes) };
+    inline DescribeGlobalTimerBatchesRequest& setResourceTypes(vector<string> && resourceTypes) { DARABONBA_PTR_SET_RVALUE(resourceTypes_, resourceTypes) };
+
+
     // searchRegionId Field Functions 
     bool hasSearchRegionId() const { return this->searchRegionId_ != nullptr;};
     void deleteSearchRegionId() { this->searchRegionId_ = nullptr;};
@@ -88,6 +101,7 @@ namespace Models
     shared_ptr<string> maxResults_ {};
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> regionId_ {};
+    shared_ptr<vector<string>> resourceTypes_ {};
     shared_ptr<string> searchRegionId_ {};
     shared_ptr<string> timerType_ {};
   };
