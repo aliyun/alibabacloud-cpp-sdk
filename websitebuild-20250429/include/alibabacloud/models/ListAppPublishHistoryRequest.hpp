@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListAppPublishHistoryRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(DeployChannel, deployChannel_);
       DARABONBA_PTR_TO_JSON(Keyword, keyword_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ListAppPublishHistoryRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(DeployChannel, deployChannel_);
       DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -46,13 +48,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNum_ == nullptr && this->pageSize_ == nullptr
-        && this->sort_ == nullptr && this->status_ == nullptr && this->websiteDomain_ == nullptr; };
+        && this->deployChannel_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNum_ == nullptr
+        && this->pageSize_ == nullptr && this->sort_ == nullptr && this->status_ == nullptr && this->websiteDomain_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline ListAppPublishHistoryRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // deployChannel Field Functions 
+    bool hasDeployChannel() const { return this->deployChannel_ != nullptr;};
+    void deleteDeployChannel() { this->deployChannel_ = nullptr;};
+    inline string getDeployChannel() const { DARABONBA_PTR_GET_DEFAULT(deployChannel_, "") };
+    inline ListAppPublishHistoryRequest& setDeployChannel(string deployChannel) { DARABONBA_PTR_SET_VALUE(deployChannel_, deployChannel) };
 
 
     // keyword Field Functions 
@@ -113,6 +122,7 @@ namespace Models
 
   protected:
     shared_ptr<string> bizId_ {};
+    shared_ptr<string> deployChannel_ {};
     shared_ptr<string> keyword_ {};
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<string> nextToken_ {};

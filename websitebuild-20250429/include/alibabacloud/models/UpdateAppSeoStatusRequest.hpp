@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateAppSeoStatusRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
+      DARABONBA_PTR_TO_JSON(SeAuthInfo, seAuthInfo_);
       DARABONBA_PTR_TO_JSON(SeType, seType_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateAppSeoStatusRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
+      DARABONBA_PTR_FROM_JSON(SeAuthInfo, seAuthInfo_);
       DARABONBA_PTR_FROM_JSON(SeType, seType_);
     };
     UpdateAppSeoStatusRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->domain_ == nullptr && this->seType_ == nullptr; };
+        && this->domain_ == nullptr && this->seAuthInfo_ == nullptr && this->seType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline UpdateAppSeoStatusRequest& setDomain(string domain) { DARABONBA_PTR_SET_VALUE(domain_, domain) };
 
 
+    // seAuthInfo Field Functions 
+    bool hasSeAuthInfo() const { return this->seAuthInfo_ != nullptr;};
+    void deleteSeAuthInfo() { this->seAuthInfo_ = nullptr;};
+    inline string getSeAuthInfo() const { DARABONBA_PTR_GET_DEFAULT(seAuthInfo_, "") };
+    inline UpdateAppSeoStatusRequest& setSeAuthInfo(string seAuthInfo) { DARABONBA_PTR_SET_VALUE(seAuthInfo_, seAuthInfo) };
+
+
     // seType Field Functions 
     bool hasSeType() const { return this->seType_ != nullptr;};
     void deleteSeType() { this->seType_ = nullptr;};
@@ -61,6 +70,7 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // Domain Name
     shared_ptr<string> domain_ {};
+    shared_ptr<string> seAuthInfo_ {};
     // Search Engine Type
     shared_ptr<string> seType_ {};
   };

@@ -50,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Tags, tags_);
       DARABONBA_PTR_TO_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
+      DARABONBA_PTR_TO_JSON(Version, version_);
     };
     friend void from_json(const Darabonba::Json& j, AppInstanceAggregate& obj) { 
       DARABONBA_PTR_FROM_JSON(AiStaffList, aiStaffList_);
@@ -84,6 +85,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Tags, tags_);
       DARABONBA_PTR_FROM_JSON(ThumbnailUrl, thumbnailUrl_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
+      DARABONBA_PTR_FROM_JSON(Version, version_);
     };
     AppInstanceAggregate() = default ;
     AppInstanceAggregate(const AppInstanceAggregate &) = default ;
@@ -302,7 +304,7 @@ namespace Models
         && this->gmtModified_ == nullptr && this->gmtPublish_ == nullptr && this->iconUrl_ == nullptr && this->name_ == nullptr && this->partnerDetail_ == nullptr
         && this->profile_ == nullptr && this->resourceGroupId_ == nullptr && this->siteHost_ == nullptr && this->slug_ == nullptr && this->sourceType_ == nullptr
         && this->startTime_ == nullptr && this->status_ == nullptr && this->statusText_ == nullptr && this->tags_ == nullptr && this->thumbnailUrl_ == nullptr
-        && this->userId_ == nullptr; };
+        && this->userId_ == nullptr && this->version_ == nullptr; };
     // aiStaffList Field Functions 
     bool hasAiStaffList() const { return this->aiStaffList_ != nullptr;};
     void deleteAiStaffList() { this->aiStaffList_ = nullptr;};
@@ -539,6 +541,13 @@ namespace Models
     inline AppInstanceAggregate& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline AppInstanceAggregate& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
     shared_ptr<vector<AppAiStaff>> aiStaffList_ {};
     shared_ptr<AppOperationAddress> appOperationAddress_ {};
@@ -573,6 +582,7 @@ namespace Models
     shared_ptr<vector<AppInstanceAggregate::Tags>> tags_ {};
     shared_ptr<string> thumbnailUrl_ {};
     shared_ptr<string> userId_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

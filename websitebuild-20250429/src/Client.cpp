@@ -351,6 +351,92 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUse
 }
 
 /**
+ * @summary 试用转正
+ *
+ * @param request ConfirmAppInstanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConfirmAppInstanceResponse
+ */
+ConfirmAppInstanceResponse Client::confirmAppInstanceWithOptions(const ConfirmAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplicationType()) {
+    query["ApplicationType"] = request.getApplicationType();
+  }
+
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDeployArea()) {
+    query["DeployArea"] = request.getDeployArea();
+  }
+
+  if (!!request.hasDuration()) {
+    query["Duration"] = request.getDuration();
+  }
+
+  if (!!request.hasExtend()) {
+    query["Extend"] = request.getExtend();
+  }
+
+  if (!!request.hasPaymentType()) {
+    query["PaymentType"] = request.getPaymentType();
+  }
+
+  if (!!request.hasPricingCycle()) {
+    query["PricingCycle"] = request.getPricingCycle();
+  }
+
+  if (!!request.hasQuantity()) {
+    query["Quantity"] = request.getQuantity();
+  }
+
+  if (!!request.hasSiteVersion()) {
+    query["SiteVersion"] = request.getSiteVersion();
+  }
+
+  if (!!request.hasTrialBizId()) {
+    query["TrialBizId"] = request.getTrialBizId();
+  }
+
+  if (!!request.hasVersion()) {
+    query["Version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConfirmAppInstance"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConfirmAppInstanceResponse>();
+}
+
+/**
+ * @summary 试用转正
+ *
+ * @param request ConfirmAppInstanceRequest
+ * @return ConfirmAppInstanceResponse
+ */
+ConfirmAppInstanceResponse Client::confirmAppInstance(const ConfirmAppInstanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return confirmAppInstanceWithOptions(request, runtime);
+}
+
+/**
  * @summary 复制插件配置
  *
  * @param request CopyAppPluginConfigRequest
@@ -1165,6 +1251,52 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppDomainRedirectRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteAppDomainRedirectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除文件
+ *
+ * @param request DeleteAppFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAppFileResponse
+ */
+DeleteAppFileResponse Client::deleteAppFileWithOptions(const DeleteAppFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConversationId()) {
+    body["ConversationId"] = request.getConversationId();
+  }
+
+  if (!!request.hasFilePath()) {
+    body["FilePath"] = request.getFilePath();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DeleteAppFile"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAppFileResponse>();
+}
+
+/**
+ * @summary 删除文件
+ *
+ * @param request DeleteAppFileRequest
+ * @return DeleteAppFileResponse
+ */
+DeleteAppFileResponse Client::deleteAppFile(const DeleteAppFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAppFileWithOptions(request, runtime);
 }
 
 /**
@@ -3040,6 +3172,90 @@ GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdmin(const GetMin
 }
 
 /**
+ * @summary 生成文件上传策略
+ *
+ * @param request GetOssUploadPolicyRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetOssUploadPolicyResponse
+ */
+GetOssUploadPolicyResponse Client::getOssUploadPolicyWithOptions(const GetOssUploadPolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasScenario()) {
+    body["Scenario"] = request.getScenario();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetOssUploadPolicy"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetOssUploadPolicyResponse>();
+}
+
+/**
+ * @summary 生成文件上传策略
+ *
+ * @param request GetOssUploadPolicyRequest
+ * @return GetOssUploadPolicyResponse
+ */
+GetOssUploadPolicyResponse Client::getOssUploadPolicy(const GetOssUploadPolicyRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getOssUploadPolicyWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取临时下载地址
+ *
+ * @param request GetTempDownloadUrlRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTempDownloadUrlResponse
+ */
+GetTempDownloadUrlResponse Client::getTempDownloadUrlWithOptions(const GetTempDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasOssKey()) {
+    body["OssKey"] = request.getOssKey();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetTempDownloadUrl"},
+    {"version" , "2025-04-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTempDownloadUrlResponse>();
+}
+
+/**
+ * @summary 获取临时下载地址
+ *
+ * @param request GetTempDownloadUrlRequest
+ * @return GetTempDownloadUrlResponse
+ */
+GetTempDownloadUrlResponse Client::getTempDownloadUrl(const GetTempDownloadUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTempDownloadUrlWithOptions(request, runtime);
+}
+
+/**
  * @summary 通过授权码得到accessToken
  *
  * @param request GetUserAccessTokenForPartnerRequest
@@ -3951,6 +4167,10 @@ ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const Lis
   json query = {};
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDeployChannel()) {
+    query["DeployChannel"] = request.getDeployChannel();
   }
 
   if (!!request.hasKeyword()) {
@@ -6864,6 +7084,10 @@ UpdateAppSeoStatusResponse Client::updateAppSeoStatusWithOptions(const UpdateApp
 
   if (!!request.hasDomain()) {
     query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasSeAuthInfo()) {
+    query["SeAuthInfo"] = request.getSeAuthInfo();
   }
 
   if (!!request.hasSeType()) {

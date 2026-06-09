@@ -40,6 +40,9 @@
 #include <alibabacloud/models/CheckUserResourceMeasureRequest.hpp>
 #include <alibabacloud/models/CheckUserResourceMeasureResponseBody.hpp>
 #include <alibabacloud/models/CheckUserResourceMeasureResponse.hpp>
+#include <alibabacloud/models/ConfirmAppInstanceRequest.hpp>
+#include <alibabacloud/models/ConfirmAppInstanceResponseBody.hpp>
+#include <alibabacloud/models/ConfirmAppInstanceResponse.hpp>
 #include <alibabacloud/models/CopyAppPluginConfigRequest.hpp>
 #include <alibabacloud/models/CopyAppPluginConfigResponseBody.hpp>
 #include <alibabacloud/models/CopyAppPluginConfigResponse.hpp>
@@ -82,6 +85,9 @@
 #include <alibabacloud/models/DeleteAppDomainRedirectRequest.hpp>
 #include <alibabacloud/models/DeleteAppDomainRedirectResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppDomainRedirectResponse.hpp>
+#include <alibabacloud/models/DeleteAppFileRequest.hpp>
+#include <alibabacloud/models/DeleteAppFileResponseBody.hpp>
+#include <alibabacloud/models/DeleteAppFileResponse.hpp>
 #include <alibabacloud/models/DeleteAppInstanceFileRequest.hpp>
 #include <alibabacloud/models/DeleteAppInstanceFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteAppInstanceFileResponse.hpp>
@@ -204,6 +210,12 @@
 #include <alibabacloud/models/GetMiniAppBindingForAdminRequest.hpp>
 #include <alibabacloud/models/GetMiniAppBindingForAdminResponseBody.hpp>
 #include <alibabacloud/models/GetMiniAppBindingForAdminResponse.hpp>
+#include <alibabacloud/models/GetOssUploadPolicyRequest.hpp>
+#include <alibabacloud/models/GetOssUploadPolicyResponseBody.hpp>
+#include <alibabacloud/models/GetOssUploadPolicyResponse.hpp>
+#include <alibabacloud/models/GetTempDownloadUrlRequest.hpp>
+#include <alibabacloud/models/GetTempDownloadUrlResponseBody.hpp>
+#include <alibabacloud/models/GetTempDownloadUrlResponse.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerRequest.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponseBody.hpp>
 #include <alibabacloud/models/GetUserAccessTokenForPartnerResponse.hpp>

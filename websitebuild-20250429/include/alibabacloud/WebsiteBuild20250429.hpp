@@ -106,6 +106,23 @@ namespace WebsiteBuild20250429
       Models::CheckUserResourceMeasureResponse checkUserResourceMeasure(const Models::CheckUserResourceMeasureRequest &request);
 
       /**
+       * @summary 试用转正
+       *
+       * @param request ConfirmAppInstanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConfirmAppInstanceResponse
+       */
+      Models::ConfirmAppInstanceResponse confirmAppInstanceWithOptions(const Models::ConfirmAppInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 试用转正
+       *
+       * @param request ConfirmAppInstanceRequest
+       * @return ConfirmAppInstanceResponse
+       */
+      Models::ConfirmAppInstanceResponse confirmAppInstance(const Models::ConfirmAppInstanceRequest &request);
+
+      /**
        * @summary 复制插件配置
        *
        * @param request CopyAppPluginConfigRequest
@@ -351,6 +368,23 @@ namespace WebsiteBuild20250429
        * @return DeleteAppDomainRedirectResponse
        */
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirect(const Models::DeleteAppDomainRedirectRequest &request);
+
+      /**
+       * @summary 删除文件
+       *
+       * @param request DeleteAppFileRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAppFileResponse
+       */
+      Models::DeleteAppFileResponse deleteAppFileWithOptions(const Models::DeleteAppFileRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除文件
+       *
+       * @param request DeleteAppFileRequest
+       * @return DeleteAppFileResponse
+       */
+      Models::DeleteAppFileResponse deleteAppFile(const Models::DeleteAppFileRequest &request);
 
       /**
        * @summary 删除文件
@@ -1029,6 +1063,40 @@ namespace WebsiteBuild20250429
        * @return GetMiniAppBindingForAdminResponse
        */
       Models::GetMiniAppBindingForAdminResponse getMiniAppBindingForAdmin(const Models::GetMiniAppBindingForAdminRequest &request);
+
+      /**
+       * @summary 生成文件上传策略
+       *
+       * @param request GetOssUploadPolicyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetOssUploadPolicyResponse
+       */
+      Models::GetOssUploadPolicyResponse getOssUploadPolicyWithOptions(const Models::GetOssUploadPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 生成文件上传策略
+       *
+       * @param request GetOssUploadPolicyRequest
+       * @return GetOssUploadPolicyResponse
+       */
+      Models::GetOssUploadPolicyResponse getOssUploadPolicy(const Models::GetOssUploadPolicyRequest &request);
+
+      /**
+       * @summary 获取临时下载地址
+       *
+       * @param request GetTempDownloadUrlRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTempDownloadUrlResponse
+       */
+      Models::GetTempDownloadUrlResponse getTempDownloadUrlWithOptions(const Models::GetTempDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取临时下载地址
+       *
+       * @param request GetTempDownloadUrlRequest
+       * @return GetTempDownloadUrlResponse
+       */
+      Models::GetTempDownloadUrlResponse getTempDownloadUrl(const Models::GetTempDownloadUrlRequest &request);
 
       /**
        * @summary 通过授权码得到accessToken
