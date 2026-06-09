@@ -105,6 +105,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(OffsiteAgentDestinationNumbers, offsiteAgentDestinationNumbers_);
           DARABONBA_PTR_TO_JSON(OffsiteAgentOriginatorNumbers, offsiteAgentOriginatorNumbers_);
           DARABONBA_PTR_TO_JSON(OffsiteAgentReleaseReason, offsiteAgentReleaseReason_);
+          DARABONBA_PTR_TO_JSON(OutsideNumberDestinationNumber, outsideNumberDestinationNumber_);
           DARABONBA_PTR_TO_JSON(OutsideNumberReleaseReason, outsideNumberReleaseReason_);
           DARABONBA_PTR_TO_JSON(QueueTime, queueTime_);
           DARABONBA_PTR_TO_JSON(RecordingDuration, recordingDuration_);
@@ -167,6 +168,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(OffsiteAgentDestinationNumbers, offsiteAgentDestinationNumbers_);
           DARABONBA_PTR_FROM_JSON(OffsiteAgentOriginatorNumbers, offsiteAgentOriginatorNumbers_);
           DARABONBA_PTR_FROM_JSON(OffsiteAgentReleaseReason, offsiteAgentReleaseReason_);
+          DARABONBA_PTR_FROM_JSON(OutsideNumberDestinationNumber, outsideNumberDestinationNumber_);
           DARABONBA_PTR_FROM_JSON(OutsideNumberReleaseReason, outsideNumberReleaseReason_);
           DARABONBA_PTR_FROM_JSON(QueueTime, queueTime_);
           DARABONBA_PTR_FROM_JSON(RecordingDuration, recordingDuration_);
@@ -569,11 +571,11 @@ namespace Models
         && this->contactId_ == nullptr && this->contactType_ == nullptr && this->dialingTime_ == nullptr && this->earlyMediaState_ == nullptr && this->earlyMediaText_ == nullptr
         && this->establishedTime_ == nullptr && this->firstResponseTime_ == nullptr && this->heldTime_ == nullptr && this->instanceId_ == nullptr && this->ivrTime_ == nullptr
         && this->mediaType_ == nullptr && this->messagesSent_ == nullptr && this->messagesSentByAgent_ == nullptr && this->messagesSentByCustomer_ == nullptr && this->offSiteAgentIds_ == nullptr
-        && this->offsiteAgentDestinationNumbers_ == nullptr && this->offsiteAgentOriginatorNumbers_ == nullptr && this->offsiteAgentReleaseReason_ == nullptr && this->outsideNumberReleaseReason_ == nullptr && this->queueTime_ == nullptr
-        && this->recordingDuration_ == nullptr && this->recordingReady_ == nullptr && this->releaseInitiator_ == nullptr && this->releaseReason_ == nullptr && this->releaseTime_ == nullptr
-        && this->ringTime_ == nullptr && this->satisfactionDescription_ == nullptr && this->satisfactionIndex_ == nullptr && this->satisfactionSurveyChannel_ == nullptr && this->satisfactionSurveyOffered_ == nullptr
-        && this->skillGroupIds_ == nullptr && this->skillGroupNames_ == nullptr && this->startTime_ == nullptr && this->summaryIndex_ == nullptr && this->talkTime_ == nullptr
-        && this->transferCount_ == nullptr && this->voicebotDestinationNumber_ == nullptr && this->voicebotOriginatorNumber_ == nullptr && this->waitTime_ == nullptr; };
+        && this->offsiteAgentDestinationNumbers_ == nullptr && this->offsiteAgentOriginatorNumbers_ == nullptr && this->offsiteAgentReleaseReason_ == nullptr && this->outsideNumberDestinationNumber_ == nullptr && this->outsideNumberReleaseReason_ == nullptr
+        && this->queueTime_ == nullptr && this->recordingDuration_ == nullptr && this->recordingReady_ == nullptr && this->releaseInitiator_ == nullptr && this->releaseReason_ == nullptr
+        && this->releaseTime_ == nullptr && this->ringTime_ == nullptr && this->satisfactionDescription_ == nullptr && this->satisfactionIndex_ == nullptr && this->satisfactionSurveyChannel_ == nullptr
+        && this->satisfactionSurveyOffered_ == nullptr && this->skillGroupIds_ == nullptr && this->skillGroupNames_ == nullptr && this->startTime_ == nullptr && this->summaryIndex_ == nullptr
+        && this->talkTime_ == nullptr && this->transferCount_ == nullptr && this->voicebotDestinationNumber_ == nullptr && this->voicebotOriginatorNumber_ == nullptr && this->waitTime_ == nullptr; };
         // accessChannelName Field Functions 
         bool hasAccessChannelName() const { return this->accessChannelName_ != nullptr;};
         void deleteAccessChannelName() { this->accessChannelName_ = nullptr;};
@@ -849,6 +851,13 @@ namespace Models
         inline List& setOffsiteAgentReleaseReason(string offsiteAgentReleaseReason) { DARABONBA_PTR_SET_VALUE(offsiteAgentReleaseReason_, offsiteAgentReleaseReason) };
 
 
+        // outsideNumberDestinationNumber Field Functions 
+        bool hasOutsideNumberDestinationNumber() const { return this->outsideNumberDestinationNumber_ != nullptr;};
+        void deleteOutsideNumberDestinationNumber() { this->outsideNumberDestinationNumber_ = nullptr;};
+        inline string getOutsideNumberDestinationNumber() const { DARABONBA_PTR_GET_DEFAULT(outsideNumberDestinationNumber_, "") };
+        inline List& setOutsideNumberDestinationNumber(string outsideNumberDestinationNumber) { DARABONBA_PTR_SET_VALUE(outsideNumberDestinationNumber_, outsideNumberDestinationNumber) };
+
+
         // outsideNumberReleaseReason Field Functions 
         bool hasOutsideNumberReleaseReason() const { return this->outsideNumberReleaseReason_ != nullptr;};
         void deleteOutsideNumberReleaseReason() { this->outsideNumberReleaseReason_ = nullptr;};
@@ -1038,6 +1047,7 @@ namespace Models
         shared_ptr<string> offsiteAgentDestinationNumbers_ {};
         shared_ptr<string> offsiteAgentOriginatorNumbers_ {};
         shared_ptr<string> offsiteAgentReleaseReason_ {};
+        shared_ptr<string> outsideNumberDestinationNumber_ {};
         shared_ptr<string> outsideNumberReleaseReason_ {};
         shared_ptr<int64_t> queueTime_ {};
         shared_ptr<int64_t> recordingDuration_ {};
