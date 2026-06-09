@@ -4917,7 +4917,7 @@ namespace Ecs20140526
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+       * @summary Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
        *
        * @description *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
        * *   Take note of the following items:
@@ -4931,7 +4931,7 @@ namespace Ecs20140526
       Models::DescribeRenewalPriceResponse describeRenewalPriceWithOptions(const Models::DescribeRenewalPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+       * @summary Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
        *
        * @description *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
        * *   Take note of the following items:

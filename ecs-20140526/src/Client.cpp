@@ -18579,7 +18579,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+ * @summary Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
  *
  * @description *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
  * *   Take note of the following items:
@@ -18651,7 +18651,7 @@ DescribeRenewalPriceResponse Client::describeRenewalPriceWithOptions(const Descr
 }
 
 /**
- * @summary Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+ * @summary Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
  *
  * @description *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
  * *   Take note of the following items:
