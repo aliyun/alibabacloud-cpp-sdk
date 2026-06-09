@@ -2744,6 +2744,10 @@ DescribeCdcVersionListResponse Client::describeCdcVersionListWithOptions(const D
     query["DBInstanceName"] = request.getDBInstanceName();
   }
 
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
