@@ -4622,6 +4622,96 @@ RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspace(co
 }
 
 /**
+ * @summary 检索知识库
+ *
+ * @param request RetrieveKnowledgeBaseRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RetrieveKnowledgeBaseResponse
+ */
+RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBaseWithOptions(const RetrieveKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFilter()) {
+    body["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasHybridSearch()) {
+    body["HybridSearch"] = request.getHybridSearch();
+  }
+
+  if (!!request.hasHybridSearchArgs()) {
+    body["HybridSearchArgs"] = request.getHybridSearchArgs();
+  }
+
+  if (!!request.hasIncludeMetadataFields()) {
+    body["IncludeMetadataFields"] = request.getIncludeMetadataFields();
+  }
+
+  if (!!request.hasIncludeVector()) {
+    body["IncludeVector"] = request.getIncludeVector();
+  }
+
+  if (!!request.hasKbUuid()) {
+    body["KbUuid"] = request.getKbUuid();
+  }
+
+  if (!!request.hasMetrics()) {
+    body["Metrics"] = request.getMetrics();
+  }
+
+  if (!!request.hasOffset()) {
+    body["Offset"] = request.getOffset();
+  }
+
+  if (!!request.hasOrderBy()) {
+    body["OrderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.getQuery();
+  }
+
+  if (!!request.hasRecallWindow()) {
+    body["RecallWindow"] = request.getRecallWindow();
+  }
+
+  if (!!request.hasRerankFactor()) {
+    body["RerankFactor"] = request.getRerankFactor();
+  }
+
+  if (!!request.hasTopK()) {
+    body["TopK"] = request.getTopK();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "RetrieveKnowledgeBase"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RetrieveKnowledgeBaseResponse>();
+}
+
+/**
+ * @summary 检索知识库
+ *
+ * @param request RetrieveKnowledgeBaseRequest
+ * @return RetrieveKnowledgeBaseResponse
+ */
+RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const RetrieveKnowledgeBaseRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return retrieveKnowledgeBaseWithOptions(request, runtime);
+}
+
+/**
  * @summary 保存工作空间代码，如果文件不存在则自动新建
  *
  * @param request SaveWorkspaceCodeRequest

@@ -287,6 +287,9 @@
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceRequest.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/RemoveUserToDataAgentWorkspaceResponse.hpp>
+#include <alibabacloud/models/RetrieveKnowledgeBaseRequest.hpp>
+#include <alibabacloud/models/RetrieveKnowledgeBaseResponseBody.hpp>
+#include <alibabacloud/models/RetrieveKnowledgeBaseResponse.hpp>
 #include <alibabacloud/models/SaveWorkspaceCodeRequest.hpp>
 #include <alibabacloud/models/SaveWorkspaceCodeResponseBody.hpp>
 #include <alibabacloud/models/SaveWorkspaceCodeResponse.hpp>

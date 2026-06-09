@@ -1305,6 +1305,23 @@ namespace Dms20250414
       Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspace(const Models::RemoveUserToDataAgentWorkspaceRequest &request);
 
       /**
+       * @summary 检索知识库
+       *
+       * @param request RetrieveKnowledgeBaseRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RetrieveKnowledgeBaseResponse
+       */
+      Models::RetrieveKnowledgeBaseResponse retrieveKnowledgeBaseWithOptions(const Models::RetrieveKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 检索知识库
+       *
+       * @param request RetrieveKnowledgeBaseRequest
+       * @return RetrieveKnowledgeBaseResponse
+       */
+      Models::RetrieveKnowledgeBaseResponse retrieveKnowledgeBase(const Models::RetrieveKnowledgeBaseRequest &request);
+
+      /**
        * @summary 保存工作空间代码，如果文件不存在则自动新建
        *
        * @param request SaveWorkspaceCodeRequest
