@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you omit this parameter, the system uses the default business space. You can find this key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the chatbot instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent definition object.
     shared_ptr<string> intentDefinitionShrink_ {};
+    // The ID of the intent.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
   };

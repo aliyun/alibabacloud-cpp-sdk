@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The intent ID.
     shared_ptr<int64_t> intentId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

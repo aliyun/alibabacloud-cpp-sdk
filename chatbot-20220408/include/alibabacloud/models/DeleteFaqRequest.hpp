@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The business space key. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
+    // The unique identifier for the knowledge item.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
   };

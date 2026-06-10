@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the operation was successful.
     shared_ptr<bool> cancelResult_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

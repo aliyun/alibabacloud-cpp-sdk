@@ -106,9 +106,13 @@ namespace Models
 
 
     protected:
+      // The ability type of the category, such as FAQ or MRC.
       shared_ptr<string> abilityType_ {};
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The category name.
       shared_ptr<string> name_ {};
+      // The parent category ID. A value of -1 indicates the root directory.
       shared_ptr<int64_t> parentCategoryId_ {};
     };
 
@@ -195,16 +199,27 @@ namespace Models
 
 
   protected:
+    // The URL of the robot\\"s avatar.
     shared_ptr<string> avatar_ {};
+    // A list of categories.
     shared_ptr<vector<DescribeInstanceResponseBody::Categories>> categories_ {};
+    // The UTC time when the robot was created.
     shared_ptr<string> createTime_ {};
+    // The status of the robot.
     shared_ptr<string> editStatus_ {};
+    // The unique identifier of the robot instance.
     shared_ptr<string> instanceId_ {};
+    // The robot\\"s introduction.
     shared_ptr<string> introduction_ {};
+    // The language of the robot, such as zh-cn and en-us.
     shared_ptr<string> languageCode_ {};
+    // The robot name.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The robot type.
     shared_ptr<string> robotType_ {};
+    // The time zone of the robot. For more information, see Time zone codes.
     shared_ptr<string> timeZone_ {};
   };
 

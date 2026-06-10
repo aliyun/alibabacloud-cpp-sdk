@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the updated user say.
     shared_ptr<int64_t> userSayId_ {};
   };
 

@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The business space key. If you do not set this parameter, the default business space is used. You can find the key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The unique ID of the association.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> outlineId_ {};
   };

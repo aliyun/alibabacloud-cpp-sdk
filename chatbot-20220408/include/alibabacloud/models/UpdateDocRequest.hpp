@@ -251,18 +251,36 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If this parameter is not specified, the default business space is used. You can obtain the key on the Business Management page of your master account.
     shared_ptr<string> agentKey_ {};
+    // The document category ID.
     shared_ptr<int64_t> categoryId_ {};
+    // **Splitter**: The method used to split the document. Valid values: `paragraphSplitter` (splits by paragraph, default) and `treeSplitter` (splits by hierarchical rules).
+    // 
+    // **ChunkSize**: The chunk size. The value must be an integer from 200 to 800. The default value is 500.
+    // 
+    // **TreePatterns**: An array of regular expressions that define the structure for rule-based splitting. The default value is `[]`.
+    // 
+    // **TitleSource**: The source of the document title. Valid values: `ocrTitle` (uses the OCR-recognized title, default) and `docName` (uses the document name as the title).
     shared_ptr<string> config_ {};
+    // The document content.
     shared_ptr<string> content_ {};
     shared_ptr<vector<UpdateDocRequest::DocMetadata>> docMetadata_ {};
+    // The document name.
     shared_ptr<string> docName_ {};
+    // The time when the document expires. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> endDate_ {};
+    // The document ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The metadata of the document, specified as a JSON string.
     shared_ptr<string> meta_ {};
+    // The time when the document becomes effective. Specify the time in UTC, using the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> startDate_ {};
+    // The tag IDs to associate with the document. Passing an empty array removes all existing tag associations.
     shared_ptr<vector<int64_t>> tagIds_ {};
+    // The document title.
     shared_ptr<string> title_ {};
   };
 

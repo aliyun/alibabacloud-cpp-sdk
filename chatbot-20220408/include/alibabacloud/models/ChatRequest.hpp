@@ -133,16 +133,31 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If omitted, the request is routed to the default business space. You can get this key from the **Business Management** page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The unique ID of the chatbot instance. To get this ID, log in to the Alibaba Cloud Chatbot console and go to **Chatbot Details** > **Session API**.
     shared_ptr<string> instanceId_ {};
+    // The name of an intent within a dialog flow. If specified, the chatbot directly activates this intent to process the user\\"s request.
     shared_ptr<string> intentName_ {};
+    // The ID of an entry in the knowledge base. If you specify this ID, the chatbot directly returns the corresponding answer.
     shared_ptr<string> knowledgeId_ {};
+    // An array of perspective codes. Use these codes to retrieve answers from different perspectives for the same knowledge entry. Example: `Perspective=["FZJBY3raWr"]`. When using an SDK, refer to its parameter definitions.
     shared_ptr<vector<string>> perspective_ {};
+    // Specifies the environment to use. The default value is `false`, which indicates the production environment.
+    // 
+    // - `true`: The test environment. This environment is for testing only. Do not use it in production due to potential instability and QPS limitations.
+    // 
+    // - `false`: The production environment.
     shared_ptr<bool> sandBox_ {};
+    // The unique ID of the user in the current session.
     shared_ptr<string> senderId_ {};
+    // The nickname of the user in the current session.
     shared_ptr<string> senderNick_ {};
+    // The session ID, used to identify a user session and maintain context. For a new user, omit this parameter in the first call to the `Chat` API. The chatbot automatically starts a session and returns the `SessionId` in the response. To continue the conversation, include this `SessionId` in all subsequent requests. The maximum length is 64 characters.
     shared_ptr<string> sessionId_ {};
+    // The user\\"s input text.
     shared_ptr<string> utterance_ {};
+    // A JSON-formatted string containing custom parameters to pass to various dialog engines.
     shared_ptr<string> vendorParam_ {};
   };
 

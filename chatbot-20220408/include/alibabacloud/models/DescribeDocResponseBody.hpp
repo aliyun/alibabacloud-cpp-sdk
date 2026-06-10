@@ -143,10 +143,15 @@ namespace Models
 
 
     protected:
+      // Indicates whether the tag represents all items by default.
       shared_ptr<bool> defaultTag_ {};
+      // The tag\\"s group ID.
       shared_ptr<int64_t> groupId_ {};
+      // The tag group name.
       shared_ptr<string> groupName_ {};
+      // The tag ID.
       shared_ptr<int64_t> tagId_ {};
+      // The tag name.
       shared_ptr<string> tagName_ {};
     };
 
@@ -220,8 +225,11 @@ namespace Models
 
 
       protected:
+        // The code of the field.
         shared_ptr<string> fieldCode_ {};
+        // The field name.
         shared_ptr<string> fieldName_ {};
+        // The value of the field.
         shared_ptr<string> value_ {};
       };
 
@@ -251,8 +259,11 @@ namespace Models
 
 
     protected:
+      // The ID of the business view.
       shared_ptr<string> businessViewId_ {};
+      // The business view name.
       shared_ptr<string> businessViewName_ {};
+      // A list of metadata cells.
       shared_ptr<vector<DocMetadata::MetaCellInfoDTOList>> metaCellInfoDTOList_ {};
     };
 
@@ -331,9 +342,13 @@ namespace Models
 
 
       protected:
+        // The paragraph level.
         shared_ptr<int32_t> paraLevel_ {};
+        // The paragraph number.
         shared_ptr<int32_t> paraNo_ {};
+        // The paragraph content. The content can be plain text, text extracted from an image using optical character recognition (OCR), or a table in Markdown format.
         shared_ptr<string> paraText_ {};
+        // The paragraph type.<br>text: Text<br>figure: Image<br>table: Table<br><br><br>
         shared_ptr<string> paraType_ {};
       };
 
@@ -348,6 +363,7 @@ namespace Models
 
 
     protected:
+      // The paragraphs of the document.
       shared_ptr<vector<DocInfo::DocParas>> docParas_ {};
     };
 
@@ -539,31 +555,61 @@ namespace Models
 
 
   protected:
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
+    // The configuration for document parsing and splitting. Key: `Splitter`. Valid values: `paragraphSplitter` (splits by recognition level, default) and `treeSplitter` (splits by rule level).
+    // 
+    // Key: `ChunkSize`. The size of each document chunk, which must be between 200 and 800. The default value is 500.
+    // 
+    // Key: `TreePatterns`. The patterns for the rule-based hierarchy. The default value is [].
+    // 
+    // Key: `TitleSource`. The source of the document title. Valid values: `ocrTitle` (OCR-recognized title, default) and `docName` (document name).
     shared_ptr<string> config_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The creator ID.
     shared_ptr<int64_t> createUserId_ {};
+    // The creator name.
     shared_ptr<string> createUserName_ {};
+    // The document details.
     shared_ptr<DescribeDocResponseBody::DocInfo> docInfo_ {};
+    // A list of metadata sets, where each set corresponds to a business view.
     shared_ptr<vector<DescribeDocResponseBody::DocMetadata>> docMetadata_ {};
+    // The document name.
     shared_ptr<string> docName_ {};
+    // A list of document tags.
     shared_ptr<vector<DescribeDocResponseBody::DocTags>> docTags_ {};
+    // The effective status, calculated from `StartDate` and `EndDate`.<br>20: Active<br>21: Expired<br>22: Pending<br><br><br>
     shared_ptr<int32_t> effectStatus_ {};
+    // The end time in UTC format.
     shared_ptr<string> endDate_ {};
+    // The knowledge ID.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The document\\"s metadata.
     shared_ptr<string> meta_ {};
+    // The modification time.
     shared_ptr<string> modifyTime_ {};
+    // The modifier ID.
     shared_ptr<int64_t> modifyUserId_ {};
+    // The modifier name.
     shared_ptr<string> modifyUserName_ {};
+    // Indicates whether a failed task can be retried.<br>`true`: The task can be retried.<br>`false`: The task cannot be retried.<br><br>
     shared_ptr<bool> processCanRetry_ {};
+    // The processing message.
     shared_ptr<string> processMessage_ {};
+    // The processing status of the task.<br>-1: Queued<br>0: Succeeded<br>1: Parsing<br>2: Processing<br>3: Failed<br><br><br><br><br>
     shared_ptr<int32_t> processStatus_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The start time in UTC format.
     shared_ptr<string> startDate_ {};
+    // The edit status.<br>1: Unpublished<br>2: Published<br>3: Updated but not published<br><br><br>
     shared_ptr<int32_t> status_ {};
+    // The document title.
     shared_ptr<string> title_ {};
+    // The OSS address of the document.
     shared_ptr<string> url_ {};
   };
 

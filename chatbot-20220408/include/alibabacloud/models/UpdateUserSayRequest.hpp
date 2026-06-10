@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // The zero-based end index (exclusive) of the slot within the content of the user say.
         shared_ptr<int32_t> endIndex_ {};
+        // The ID of the slot.
         shared_ptr<string> slotId_ {};
+        // The zero-based start index of the slot within the content of the user say.
         shared_ptr<int32_t> startIndex_ {};
       };
 
@@ -137,10 +140,15 @@ namespace Models
 
 
     protected:
+      // The content of the user say.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The ID of the intent.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
+      // An array that contains information for each slot.
       shared_ptr<vector<UserSayDefinition::SlotInfos>> slotInfos_ {};
     };
 
@@ -177,10 +185,16 @@ namespace Models
 
 
   protected:
+    // The workspace key. If you omit this parameter, the default workspace is used. You can find this key on the Workspace Management page in your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the bot.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The definition of the user say.
     shared_ptr<UpdateUserSayRequest::UserSayDefinition> userSayDefinition_ {};
+    // The ID of the user say.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> userSayId_ {};
   };

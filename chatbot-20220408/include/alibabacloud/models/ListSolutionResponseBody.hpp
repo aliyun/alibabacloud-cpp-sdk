@@ -129,13 +129,21 @@ namespace Models
 
 
     protected:
+      // The content of the solution.
       shared_ptr<string> content_ {};
+      // The type of the solution content. Valid values: `0` (plain text) and `1` (rich text).
       shared_ptr<int32_t> contentType_ {};
+      // The time when the solution was created, in UTC.
       shared_ptr<string> createTime_ {};
+      // The time when the solution was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // A list of perspective codes.
       shared_ptr<vector<string>> perspectiveCodes_ {};
+      // The content of the solution in plain text.
       shared_ptr<string> plainText_ {};
+      // The solution ID.
       shared_ptr<int64_t> solutionId_ {};
+      // A list of tag IDs.
       shared_ptr<vector<int64_t>> tagIdList_ {};
     };
 
@@ -158,7 +166,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of solutions.
     shared_ptr<vector<ListSolutionResponseBody::Solutions>> solutions_ {};
   };
 

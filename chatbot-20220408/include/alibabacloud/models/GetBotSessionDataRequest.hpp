@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The key for the workspace. If you omit this parameter, the operation uses the default workspace. You can find the key on the business management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The end time for the query. The format must be `yyyyMMdd`. For example: `20240605`.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The ID of the bot instance.
+    // 
     // This parameter is required.
     shared_ptr<string> robotInstanceId_ {};
+    // The start time for the query. The format must be `yyyyMMdd`. For example: `20240505`.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

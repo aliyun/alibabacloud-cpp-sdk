@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you do not specify this parameter, the default business space is used. You can get the key from your main account\\"s Business Management page.
     shared_ptr<string> agentKey_ {};
+    // The ID of the perspective.
     shared_ptr<string> perspectiveId_ {};
   };
 

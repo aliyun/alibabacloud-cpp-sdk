@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID of the robot.
     shared_ptr<string> instanceId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

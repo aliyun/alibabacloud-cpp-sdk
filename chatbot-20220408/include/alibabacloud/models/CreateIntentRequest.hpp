@@ -131,13 +131,22 @@ namespace Models
 
 
       protected:
+        // Specifies whether the slot can have multiple values.
         shared_ptr<bool> array_ {};
+        // Specifies whether to encrypt the slot value.
         shared_ptr<bool> encrypt_ {};
+        // Specifies whether the slot is interactive.
         shared_ptr<bool> interactive_ {};
+        // The slot name.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The slot ID.
+        // 
         // This parameter is required.
         shared_ptr<string> slotId_ {};
+        // The name of the associated entity.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -168,9 +177,13 @@ namespace Models
 
 
     protected:
+      // The intent alias.
       shared_ptr<string> aliasName_ {};
+      // The intent name.
+      // 
       // This parameter is required.
       shared_ptr<string> intentName_ {};
+      // An array of objects, each defining a slot for the intent.
       shared_ptr<vector<IntentDefinition::SlotInfos>> slotInfos_ {};
     };
 
@@ -200,9 +213,13 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If you do not specify this parameter, the default business space is used. You can get the key from the business management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent definition.
     shared_ptr<CreateIntentRequest::IntentDefinition> intentDefinition_ {};
   };
 

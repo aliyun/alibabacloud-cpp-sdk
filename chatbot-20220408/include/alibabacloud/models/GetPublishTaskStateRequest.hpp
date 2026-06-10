@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key that identifies the business space. If omitted, the default business space is used. You can get the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The publish task ID.
     shared_ptr<int64_t> id_ {};
   };
 

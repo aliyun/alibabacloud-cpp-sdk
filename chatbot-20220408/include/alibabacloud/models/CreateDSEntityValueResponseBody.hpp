@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The entity member ID.
     shared_ptr<int64_t> entityValueId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

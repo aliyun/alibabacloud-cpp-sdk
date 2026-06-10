@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The agent key. If you do not specify this parameter, the default agent is used. You can obtain the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The connected question ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> connQuestionId_ {};
+    // The knowledge ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
   };

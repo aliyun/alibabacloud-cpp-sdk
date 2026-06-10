@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the chatbot.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the intent.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
+    // The text used to filter the advanced semantic configurations.
     shared_ptr<string> lgfText_ {};
+    // The number of the page to return. Defaults to 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Defaults to 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

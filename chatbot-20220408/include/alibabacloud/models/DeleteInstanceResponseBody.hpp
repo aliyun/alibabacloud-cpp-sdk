@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // A list of business types.
     shared_ptr<vector<string>> bizTypeList_ {};
+    // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
+    // The ID of the user who created the task.
     shared_ptr<int64_t> createUserId_ {};
+    // The username of the user who created the task.
     shared_ptr<string> createUserName_ {};
+    // The error message.
     shared_ptr<string> error_ {};
+    // The task ID.
     shared_ptr<int64_t> id_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID. This parameter is an alias for `Id`.
     shared_ptr<int64_t> response_ {};
+    // The task status. For more information about possible states, see the GetInstancePublishTaskState API operation.
     shared_ptr<string> status_ {};
   };
 

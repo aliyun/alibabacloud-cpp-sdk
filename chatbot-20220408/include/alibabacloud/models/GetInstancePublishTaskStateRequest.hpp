@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you do not specify this parameter, the default business space is used. You can find the key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The task ID.
     shared_ptr<int64_t> id_ {};
+    // The unique identifier of the bot instance.
     shared_ptr<string> instanceId_ {};
   };
 

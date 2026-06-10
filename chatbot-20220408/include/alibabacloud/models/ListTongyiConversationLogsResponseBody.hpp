@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The API parameters from the session flow.
       Darabonba::Json apiParams_ {};
+      // The slot parameters from the session flow.
       Darabonba::Json slotParams_ {};
     };
 
@@ -117,9 +119,13 @@ namespace Models
 
 
   protected:
+    // The request processing time, in milliseconds.
     shared_ptr<string> costTime_ {};
+    // An array of conversation log entries.
     shared_ptr<vector<Darabonba::Json>> datas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The debug information for the session flow.
     shared_ptr<ListTongyiConversationLogsResponseBody::SessionFlowDebugInfo> sessionFlowDebugInfo_ {};
   };
 

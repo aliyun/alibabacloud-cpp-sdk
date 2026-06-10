@@ -157,13 +157,21 @@ namespace Models
 
 
     protected:
+      // The solution content.
       shared_ptr<string> content_ {};
+      // The solution content type. Valid values: `0` (plain text) and `1` (rich text).
       shared_ptr<int32_t> contentType_ {};
+      // The time the solution was created, in UTC.
       shared_ptr<string> createTime_ {};
+      // The time the solution was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // A list of perspective codes.
       shared_ptr<vector<string>> perspectiveCodes_ {};
+      // The plain text content of the solution.
       shared_ptr<string> plainText_ {};
+      // The solution ID.
       shared_ptr<int64_t> solutionId_ {};
+      // A list of tag IDs.
       shared_ptr<vector<int64_t>> tagIdList_ {};
     };
 
@@ -223,9 +231,13 @@ namespace Models
 
 
     protected:
+      // The time the similar question was created, in UTC.
       shared_ptr<string> createTime_ {};
+      // The time the similar question was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // The similar question ID.
       shared_ptr<int64_t> simQuestionId_ {};
+      // The similar question title.
       shared_ptr<string> title_ {};
     };
 
@@ -294,10 +306,15 @@ namespace Models
 
 
     protected:
+      // The related knowledge ID.
       shared_ptr<int64_t> connQuestionId_ {};
+      // The time the related question was created, in UTC.
       shared_ptr<string> createTime_ {};
+      // The time the related question was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // The relationship ID.
       shared_ptr<int64_t> outlineId_ {};
+      // The related knowledge title.
       shared_ptr<string> title_ {};
     };
 
@@ -426,21 +443,37 @@ namespace Models
 
 
   protected:
+    // The category ID.
     shared_ptr<int64_t> categoryId_ {};
+    // The time the knowledge was created, in UTC.
     shared_ptr<string> createTime_ {};
+    // The creator of the knowledge.
     shared_ptr<string> createUserName_ {};
+    // The validity status of the knowledge, calculated based on `StartDate` and `EndDate`. Valid values: `20` (Active), `21` (Expired), and `22` (Pending).
     shared_ptr<int32_t> effectStatus_ {};
+    // The expiration time of the knowledge, in UTC.
     shared_ptr<string> endDate_ {};
+    // The knowledge ID.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The time the knowledge was last modified, in UTC.
     shared_ptr<string> modifyTime_ {};
+    // The user who last modified the knowledge.
     shared_ptr<string> modifyUserName_ {};
+    // A list of related questions.
     shared_ptr<vector<DescribeFaqResponseBody::Outlines>> outlines_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of similar questions.
     shared_ptr<vector<DescribeFaqResponseBody::SimQuestions>> simQuestions_ {};
+    // A list of solutions.
     shared_ptr<vector<DescribeFaqResponseBody::Solutions>> solutions_ {};
+    // The effective start time of the knowledge, in UTC.
     shared_ptr<string> startDate_ {};
+    // The knowledge status. Valid values: `-1` (Deleted and unpublished), `1` (Unpublished), `2` (Published), and `3` (Updated and unpublished).
     shared_ptr<int32_t> status_ {};
+    // A list of tag IDs associated with the knowledge.
     shared_ptr<vector<int64_t>> tagIdList_ {};
+    // The knowledge title.
     shared_ptr<string> title_ {};
   };
 

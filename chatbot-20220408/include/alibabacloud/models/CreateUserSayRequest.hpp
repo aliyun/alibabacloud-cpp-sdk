@@ -104,8 +104,11 @@ namespace Models
 
 
       protected:
+        // The zero-based end index of the slot in the user say content. This index is exclusive.
         shared_ptr<int32_t> endIndex_ {};
+        // The ID of the slot.
         shared_ptr<string> slotId_ {};
+        // The zero-based start index of the slot in the user say content.
         shared_ptr<int32_t> startIndex_ {};
       };
 
@@ -135,10 +138,15 @@ namespace Models
 
 
     protected:
+      // The content of the user say.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The ID of the intent.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
+      // An array of objects, each containing information about a slot.
       shared_ptr<vector<UserSayDefinition::SlotInfos>> slotInfos_ {};
     };
 
@@ -168,9 +176,13 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If you do not specify this parameter, the default business space is used. You can find the key on the Business Management page of your Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the chatbot instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The definition of the user say.
     shared_ptr<CreateUserSayRequest::UserSayDefinition> userSayDefinition_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The knowledge ID.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

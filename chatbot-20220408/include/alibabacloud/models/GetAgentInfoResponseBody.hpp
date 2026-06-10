@@ -73,7 +73,9 @@ namespace Models
 
 
     protected:
+      // The agent key. It is used to specify the agent in Platform as a Service (PaaS) API calls.
       shared_ptr<string> agentKey_ {};
+      // The agent name.
       shared_ptr<string> agentName_ {};
     };
 
@@ -110,10 +112,13 @@ namespace Models
 
 
   protected:
+    // The agent details.
     shared_ptr<GetAgentInfoResponseBody::Data> data_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The Agent key. If omitted, the system uses the default Agent. You can get this key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The unique identifier of the entity.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
+    // The unique identifier of the entity value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityValueId_ {};
+    // The unique identifier of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

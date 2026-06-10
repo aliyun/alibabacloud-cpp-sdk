@@ -103,14 +103,24 @@ namespace Models
 
 
   protected:
+    // The agent key. If omitted, the default agent is used. Find this key on the Agent Management page.
     shared_ptr<string> agentKey_ {};
+    // The ID of the knowledge category.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
+    // The knowledge end time. The time is in UTC and in ISO 8601 format.
     shared_ptr<string> endDate_ {};
+    // The content of the default solution. Required if the fallback feature is enabled.
     shared_ptr<string> solutionContent_ {};
+    // The type of the default solution. Valid values: `0` (plain text) and `1` (rich text).
     shared_ptr<int32_t> solutionType_ {};
+    // The knowledge start time. The time is in UTC and in ISO 8601 format.
     shared_ptr<string> startDate_ {};
+    // A list of tag IDs to associate with the knowledge.
     shared_ptr<string> tagIdListShrink_ {};
+    // The knowledge title. Max length: 120 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

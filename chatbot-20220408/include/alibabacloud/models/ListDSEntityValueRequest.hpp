@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If omitted, the default business space is used. You can get this key from the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the entity.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
+    // The ID of the entity value.
     shared_ptr<int64_t> entityValueId_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The keyword used to search for entity values and their synonyms.
     shared_ptr<string> keyword_ {};
+    // The page number. Defaults to 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size. Defaults to 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

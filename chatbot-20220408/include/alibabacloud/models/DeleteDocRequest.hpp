@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The business space key. If this parameter is not specified, the default business space is used. You can obtain the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the knowledge.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
   };

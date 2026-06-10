@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If this parameter is omitted, the default business space is used. You can obtain this key from the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The end time for the query, in `yyyy-MM-dd HH:mm:ss` format. For example: `2024-04-01 08:00:00`.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The number of entries to return. Default: 30. Maximum: 500.
     shared_ptr<int32_t> limit_ {};
+    // The robot instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> robotInstanceId_ {};
+    // The start time for the query, in `yyyy-MM-dd HH:mm:ss` format. For example: `2024-04-01 00:00:00`.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

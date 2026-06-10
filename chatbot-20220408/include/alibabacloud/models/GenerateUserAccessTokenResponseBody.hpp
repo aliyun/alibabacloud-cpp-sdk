@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The response code. 200 indicates a successful request.
     shared_ptr<string> code_ {};
+    // The generated token value.
     shared_ptr<string> data_ {};
+    // The error message for a failed request.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: `true` and `false`.
     shared_ptr<bool> success_ {};
   };
 

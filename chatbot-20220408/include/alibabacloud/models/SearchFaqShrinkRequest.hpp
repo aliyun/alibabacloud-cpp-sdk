@@ -186,22 +186,39 @@ namespace Models
 
 
   protected:
+    // The key for the workspace. If this parameter is not specified, the default workspace is used. You can get the key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // An array of category IDs to filter the search results.
     shared_ptr<string> categoryIdsShrink_ {};
+    // The start of the creation period.
     shared_ptr<string> createTimeBegin_ {};
+    // The end of the creation period.
     shared_ptr<string> createTimeEnd_ {};
+    // The creator\\"s username.
     shared_ptr<string> createUserName_ {};
+    // The start of the expiration period.
     shared_ptr<string> endTimeBegin_ {};
+    // The end of the expiration period.
     shared_ptr<string> endTimeEnd_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The start of the modification period.
     shared_ptr<string> modifyTimeBegin_ {};
+    // The end of the modification period.
     shared_ptr<string> modifyTimeEnd_ {};
+    // The modifier\\"s username.
     shared_ptr<string> modifyUserName_ {};
+    // The number of the page to return. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The default value is 10, and the maximum value is 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The search scope.
     shared_ptr<int32_t> searchScope_ {};
+    // The start of the effective period.
     shared_ptr<string> startTimeBegin_ {};
+    // The end of the effective period.
     shared_ptr<string> startTimeEnd_ {};
+    // The status of the knowledge item.
     shared_ptr<int32_t> status_ {};
   };
 

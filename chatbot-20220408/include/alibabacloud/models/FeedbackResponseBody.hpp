@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // The feedback rating.
+    // 
+    // Enumerated values: \\"good\\" (a positive rating) or \\"bad\\" (a negative rating).
     shared_ptr<string> feedback_ {};
+    // The unique identifier of a single message within the session.
     shared_ptr<string> messageId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

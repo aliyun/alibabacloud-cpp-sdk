@@ -181,18 +181,31 @@ namespace Models
 
 
     protected:
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The creation time (UTC).
       shared_ptr<string> createTime_ {};
+      // The creator ID.
       shared_ptr<int64_t> createUserId_ {};
+      // The creator\\"s username.
       shared_ptr<string> createUserName_ {};
+      // The effective status of the FAQ. This status is determined by the StartDate and EndDate parameters.
       shared_ptr<int32_t> effectStatus_ {};
+      // A list of matched similar titles.
       shared_ptr<vector<string>> hitSimilarTitles_ {};
+      // A list of matched answers.
       shared_ptr<vector<string>> hitSolutions_ {};
+      // The FAQ ID.
       shared_ptr<int64_t> knowledgeId_ {};
+      // The modification time (UTC).
       shared_ptr<string> modifyTime_ {};
+      // The modifier ID.
       shared_ptr<int64_t> modifyUserId_ {};
+      // The modifier\\"s username.
       shared_ptr<string> modifyUserName_ {};
+      // The FAQ status.
       shared_ptr<int32_t> status_ {};
+      // The title of the FAQ.
       shared_ptr<string> title_ {};
     };
 
@@ -236,10 +249,15 @@ namespace Models
 
 
   protected:
+    // The list of matching FAQs.
     shared_ptr<vector<SearchFaqResponseBody::FaqHits>> faqHits_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matched entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

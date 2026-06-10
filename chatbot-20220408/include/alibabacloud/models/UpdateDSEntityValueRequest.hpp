@@ -87,15 +87,25 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you omit this parameter, the default business space is used. You can find this key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The new content for the entity value. For an entity type of `synonyms`, this is the normalized value. For an entity type of `regex`, this is the regular expression.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The entity ID. You can leave this parameter empty when modifying an entity value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
+    // The ID of the entity value to update.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityValueId_ {};
+    // The bot ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The synonym list for the normalized value.
     shared_ptr<vector<string>> synonyms_ {};
   };
 

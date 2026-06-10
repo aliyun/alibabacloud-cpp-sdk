@@ -149,11 +149,17 @@ namespace Models
 
 
       protected:
+        // Indicates whether the slot can accept multiple values.
         shared_ptr<bool> array_ {};
+        // Indicates whether the slot contains sensitive data.
         shared_ptr<bool> encrypt_ {};
+        // Indicates whether the slot value is collected interactively.
         shared_ptr<bool> interactive_ {};
+        // The slot name.
         shared_ptr<string> name_ {};
+        // The slot ID.
         shared_ptr<string> slotId_ {};
+        // The slot value (entity name).
         shared_ptr<string> value_ {};
       };
 
@@ -233,15 +239,25 @@ namespace Models
 
 
     protected:
+      // The intent alias.
       shared_ptr<string> aliasName_ {};
+      // The time at which the intent was created, in UTC.
       shared_ptr<string> createTime_ {};
+      // The ID of the user who created the intent.
       shared_ptr<string> createUserId_ {};
+      // The name of the user who created the intent.
       shared_ptr<string> createUserName_ {};
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
+      // The intent name.
       shared_ptr<string> intentName_ {};
+      // The time at which the intent was last modified, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // The ID of the user who last modified the intent.
       shared_ptr<string> modifyUserId_ {};
+      // The name of the user who last modified the intent.
       shared_ptr<string> modifyUserName_ {};
+      // A list of slots associated with the intent.
       shared_ptr<vector<Intents::SlotInfos>> slotInfos_ {};
     };
 
@@ -285,10 +301,15 @@ namespace Models
 
 
   protected:
+    // A list of intents.
     shared_ptr<vector<ListIntentResponseBody::Intents>> intents_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of intents per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of intents.
     shared_ptr<int32_t> totalCount_ {};
   };
 

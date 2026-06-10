@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you omit this parameter, the default business space is used. You can obtain the key from the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The unique instance ID of the robot.
     shared_ptr<string> instanceId_ {};
   };
 

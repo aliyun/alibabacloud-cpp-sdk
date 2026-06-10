@@ -94,14 +94,24 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If this parameter is omitted, the default business space is used. You can find this key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the knowledge entry\\"s category.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
+    // The expiration date and time. The value must be in ISO 8601 format.
     shared_ptr<string> endDate_ {};
+    // The ID of the knowledge entry.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The effective start date and time. The value must be in ISO 8601 format.
     shared_ptr<string> startDate_ {};
+    // A list of tag IDs.
     shared_ptr<string> tagIdListShrink_ {};
+    // The knowledge title.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

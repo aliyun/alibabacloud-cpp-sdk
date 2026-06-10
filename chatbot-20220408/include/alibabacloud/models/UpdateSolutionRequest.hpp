@@ -89,14 +89,23 @@ namespace Models
 
 
   protected:
+    // The agent key. If you omit this parameter, the default agent is used. You can obtain the key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The content of the solution.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The content type. Valid values: 0 for plain text and 1 for rich text.
     shared_ptr<int32_t> contentType_ {};
+    // A list of perspective codes.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> perspectiveCodes_ {};
+    // The ID of the solution.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> solutionId_ {};
+    // A list of tag IDs.
     shared_ptr<vector<int64_t>> tagIdList_ {};
   };
 

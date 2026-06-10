@@ -21,7 +21,7 @@ namespace Chatbot20220408
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Apply for Streaming Gateway AccessToken
+       * @summary Obtain the Connection information for stream invocation.
        *
        * @param request ApplyForStreamAccessTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Chatbot20220408
       Models::ApplyForStreamAccessTokenResponse applyForStreamAccessTokenWithOptions(const Models::ApplyForStreamAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Apply for Streaming Gateway AccessToken
+       * @summary Obtain the Connection information for stream invocation.
        *
        * @param request ApplyForStreamAccessTokenRequest
        * @return ApplyForStreamAccessTokenResponse
@@ -38,7 +38,7 @@ namespace Chatbot20220408
       Models::ApplyForStreamAccessTokenResponse applyForStreamAccessToken(const Models::ApplyForStreamAccessTokenRequest &request);
 
       /**
-       * @summary 会话-联想API
+       * @summary Suggests FAQs from the knowledge base based on a user\\"s utterance.
        *
        * @param tmpReq AssociateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Chatbot20220408
       Models::AssociateResponse associateWithOptions(const Models::AssociateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 会话-联想API
+       * @summary Suggests FAQs from the knowledge base based on a user\\"s utterance.
        *
        * @param request AssociateRequest
        * @return AssociateResponse
@@ -55,7 +55,7 @@ namespace Chatbot20220408
       Models::AssociateResponse associate(const Models::AssociateRequest &request);
 
       /**
-       * @summary 获取欢迎语
+       * @summary Initiates a session and retrieves a welcome message.
        *
        * @param request BeginSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Chatbot20220408
       Models::BeginSessionResponse beginSessionWithOptions(const Models::BeginSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取欢迎语
+       * @summary Initiates a session and retrieves a welcome message.
        *
        * @param request BeginSessionRequest
        * @return BeginSessionResponse
@@ -72,7 +72,9 @@ namespace Chatbot20220408
       Models::BeginSessionResponse beginSession(const Models::BeginSessionRequest &request);
 
       /**
-       * @summary 取消对应对话
+       * @summary Cancels or interrupts an ongoing chat.
+       *
+       * @description This operation supports only the new version of chatbots. You can query data only from the last 90 days.
        *
        * @param request CancelChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +83,9 @@ namespace Chatbot20220408
       Models::CancelChatResponse cancelChatWithOptions(const Models::CancelChatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消对应对话
+       * @summary Cancels or interrupts an ongoing chat.
+       *
+       * @description This operation supports only the new version of chatbots. You can query data only from the last 90 days.
        *
        * @param request CancelChatRequest
        * @return CancelChatResponse
@@ -89,7 +93,7 @@ namespace Chatbot20220408
       Models::CancelChatResponse cancelChat(const Models::CancelChatRequest &request);
 
       /**
-       * @summary 取消机器人发布
+       * @summary Cancels a publishing task for a chatbot.
        *
        * @param request CancelInstancePublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +102,7 @@ namespace Chatbot20220408
       Models::CancelInstancePublishTaskResponse cancelInstancePublishTaskWithOptions(const Models::CancelInstancePublishTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消机器人发布
+       * @summary Cancels a publishing task for a chatbot.
        *
        * @param request CancelInstancePublishTaskRequest
        * @return CancelInstancePublishTaskResponse
@@ -106,7 +110,7 @@ namespace Chatbot20220408
       Models::CancelInstancePublishTaskResponse cancelInstancePublishTask(const Models::CancelInstancePublishTaskRequest &request);
 
       /**
-       * @summary Cancel Publishing Task
+       * @summary Cancels a publish task that is in progress.
        *
        * @param request CancelPublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +119,7 @@ namespace Chatbot20220408
       Models::CancelPublishTaskResponse cancelPublishTaskWithOptions(const Models::CancelPublishTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancel Publishing Task
+       * @summary Cancels a publish task that is in progress.
        *
        * @param request CancelPublishTaskRequest
        * @return CancelPublishTaskResponse
@@ -123,7 +127,7 @@ namespace Chatbot20220408
       Models::CancelPublishTaskResponse cancelPublishTask(const Models::CancelPublishTaskRequest &request);
 
       /**
-       * @summary 会话API
+       * @summary Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
        *
        * @param tmpReq ChatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +136,7 @@ namespace Chatbot20220408
       Models::ChatResponse chatWithOptions(const Models::ChatRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 会话API
+       * @summary Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
        *
        * @param request ChatRequest
        * @return ChatResponse
@@ -140,7 +144,7 @@ namespace Chatbot20220408
       Models::ChatResponse chat(const Models::ChatRequest &request);
 
       /**
-       * @summary 继续机器人发布
+       * @summary Ignores an alarm and continues a chatbot publish task.
        *
        * @param request ContinueInstancePublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +153,7 @@ namespace Chatbot20220408
       Models::ContinueInstancePublishTaskResponse continueInstancePublishTaskWithOptions(const Models::ContinueInstancePublishTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 继续机器人发布
+       * @summary Ignores an alarm and continues a chatbot publish task.
        *
        * @param request ContinueInstancePublishTaskRequest
        * @return ContinueInstancePublishTaskResponse
@@ -157,7 +161,7 @@ namespace Chatbot20220408
       Models::ContinueInstancePublishTaskResponse continueInstancePublishTask(const Models::ContinueInstancePublishTaskRequest &request);
 
       /**
-       * @summary Create Category
+       * @summary Creates a category.
        *
        * @param request CreateCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +170,7 @@ namespace Chatbot20220408
       Models::CreateCategoryResponse createCategoryWithOptions(const Models::CreateCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Category
+       * @summary Creates a category.
        *
        * @param request CreateCategoryRequest
        * @return CreateCategoryResponse
@@ -174,7 +178,7 @@ namespace Chatbot20220408
       Models::CreateCategoryResponse createCategory(const Models::CreateCategoryRequest &request);
 
       /**
-       * @summary Create FAQ Connection Question
+       * @summary Creates a connected question for a knowledge item.
        *
        * @param request CreateConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +187,7 @@ namespace Chatbot20220408
       Models::CreateConnQuestionResponse createConnQuestionWithOptions(const Models::CreateConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create FAQ Connection Question
+       * @summary Creates a connected question for a knowledge item.
        *
        * @param request CreateConnQuestionRequest
        * @return CreateConnQuestionResponse
@@ -191,7 +195,7 @@ namespace Chatbot20220408
       Models::CreateConnQuestionResponse createConnQuestion(const Models::CreateConnQuestionRequest &request);
 
       /**
-       * @summary 实体-创建
+       * @summary Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
        *
        * @param request CreateDSEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +204,7 @@ namespace Chatbot20220408
       Models::CreateDSEntityResponse createDSEntityWithOptions(const Models::CreateDSEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体-创建
+       * @summary Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
        *
        * @param request CreateDSEntityRequest
        * @return CreateDSEntityResponse
@@ -208,7 +212,7 @@ namespace Chatbot20220408
       Models::CreateDSEntityResponse createDSEntity(const Models::CreateDSEntityRequest &request);
 
       /**
-       * @summary 实体成员-创建
+       * @summary Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
        *
        * @param tmpReq CreateDSEntityValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +221,7 @@ namespace Chatbot20220408
       Models::CreateDSEntityValueResponse createDSEntityValueWithOptions(const Models::CreateDSEntityValueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体成员-创建
+       * @summary Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
        *
        * @param request CreateDSEntityValueRequest
        * @return CreateDSEntityValueResponse
@@ -225,7 +229,7 @@ namespace Chatbot20220408
       Models::CreateDSEntityValueResponse createDSEntityValue(const Models::CreateDSEntityValueRequest &request);
 
       /**
-       * @summary Create Document
+       * @summary Creates a document.
        *
        * @param tmpReq CreateDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +238,7 @@ namespace Chatbot20220408
       Models::CreateDocResponse createDocWithOptions(const Models::CreateDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Document
+       * @summary Creates a document.
        *
        * @param request CreateDocRequest
        * @return CreateDocResponse
@@ -242,7 +246,7 @@ namespace Chatbot20220408
       Models::CreateDocResponse createDoc(const Models::CreateDocRequest &request);
 
       /**
-       * @summary New FAQ
+       * @summary Creates a knowledge item.
        *
        * @param tmpReq CreateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +255,7 @@ namespace Chatbot20220408
       Models::CreateFaqResponse createFaqWithOptions(const Models::CreateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary New FAQ
+       * @summary Creates a knowledge item.
        *
        * @param request CreateFaqRequest
        * @return CreateFaqResponse
@@ -259,7 +263,7 @@ namespace Chatbot20220408
       Models::CreateFaqResponse createFaq(const Models::CreateFaqRequest &request);
 
       /**
-       * @summary 机器人-创建
+       * @summary Creates a robot in the sandbox environment.
        *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +272,7 @@ namespace Chatbot20220408
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-创建
+       * @summary Creates a robot in the sandbox environment.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -276,7 +280,7 @@ namespace Chatbot20220408
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建机器人发布任务
+       * @summary Publishes a sandbox robot to the production environment.
        *
        * @param request CreateInstancePublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +289,7 @@ namespace Chatbot20220408
       Models::CreateInstancePublishTaskResponse createInstancePublishTaskWithOptions(const Models::CreateInstancePublishTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建机器人发布任务
+       * @summary Publishes a sandbox robot to the production environment.
        *
        * @param request CreateInstancePublishTaskRequest
        * @return CreateInstancePublishTaskResponse
@@ -293,7 +297,7 @@ namespace Chatbot20220408
       Models::CreateInstancePublishTaskResponse createInstancePublishTask(const Models::CreateInstancePublishTaskRequest &request);
 
       /**
-       * @summary 意图-创建
+       * @summary Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
        *
        * @param tmpReq CreateIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +306,7 @@ namespace Chatbot20220408
       Models::CreateIntentResponse createIntentWithOptions(const Models::CreateIntentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-创建
+       * @summary Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
        *
        * @param request CreateIntentRequest
        * @return CreateIntentResponse
@@ -310,7 +314,7 @@ namespace Chatbot20220408
       Models::CreateIntentResponse createIntent(const Models::CreateIntentRequest &request);
 
       /**
-       * @summary 意图-LGF-创建
+       * @summary Creates an advanced semantic configuration (LGF) for a specified intent.
        *
        * @param tmpReq CreateLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +323,7 @@ namespace Chatbot20220408
       Models::CreateLgfResponse createLgfWithOptions(const Models::CreateLgfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-LGF-创建
+       * @summary Creates an advanced semantic configuration (LGF) for a specified intent.
        *
        * @param request CreateLgfRequest
        * @return CreateLgfResponse
@@ -327,7 +331,7 @@ namespace Chatbot20220408
       Models::CreateLgfResponse createLgf(const Models::CreateLgfRequest &request);
 
       /**
-       * @summary 视角-创建
+       * @summary Creates a perspective.
        *
        * @param request CreatePerspectiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +340,7 @@ namespace Chatbot20220408
       Models::CreatePerspectiveResponse createPerspectiveWithOptions(const Models::CreatePerspectiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角-创建
+       * @summary Creates a perspective.
        *
        * @param request CreatePerspectiveRequest
        * @return CreatePerspectiveResponse
@@ -344,7 +348,7 @@ namespace Chatbot20220408
       Models::CreatePerspectiveResponse createPerspective(const Models::CreatePerspectiveRequest &request);
 
       /**
-       * @summary Create Publishing Task
+       * @summary Creates a publish task in the publishing center.
        *
        * @param tmpReq CreatePublishTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +357,7 @@ namespace Chatbot20220408
       Models::CreatePublishTaskResponse createPublishTaskWithOptions(const Models::CreatePublishTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Publishing Task
+       * @summary Creates a publish task in the publishing center.
        *
        * @param request CreatePublishTaskRequest
        * @return CreatePublishTaskResponse
@@ -361,7 +365,7 @@ namespace Chatbot20220408
       Models::CreatePublishTaskResponse createPublishTask(const Models::CreatePublishTaskRequest &request);
 
       /**
-       * @summary Create FAQ Similar Question
+       * @summary Creates a similar question.
        *
        * @param request CreateSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +374,7 @@ namespace Chatbot20220408
       Models::CreateSimQuestionResponse createSimQuestionWithOptions(const Models::CreateSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create FAQ Similar Question
+       * @summary Creates a similar question.
        *
        * @param request CreateSimQuestionRequest
        * @return CreateSimQuestionResponse
@@ -378,7 +382,7 @@ namespace Chatbot20220408
       Models::CreateSimQuestionResponse createSimQuestion(const Models::CreateSimQuestionRequest &request);
 
       /**
-       * @summary Create New FAQ Answer
+       * @summary Creates a knowledge answer.
        *
        * @param tmpReq CreateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +391,7 @@ namespace Chatbot20220408
       Models::CreateSolutionResponse createSolutionWithOptions(const Models::CreateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create New FAQ Answer
+       * @summary Creates a knowledge answer.
        *
        * @param request CreateSolutionRequest
        * @return CreateSolutionResponse
@@ -429,7 +433,7 @@ namespace Chatbot20220408
       Models::CreateTagGroupResponse createTagGroup(const Models::CreateTagGroupRequest &request);
 
       /**
-       * @summary 意图-话术-创建
+       * @summary Adds a user say to a specified intent.
        *
        * @param tmpReq CreateUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +442,7 @@ namespace Chatbot20220408
       Models::CreateUserSayResponse createUserSayWithOptions(const Models::CreateUserSayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-话术-创建
+       * @summary Adds a user say to a specified intent.
        *
        * @param request CreateUserSayRequest
        * @return CreateUserSayResponse
@@ -446,7 +450,7 @@ namespace Chatbot20220408
       Models::CreateUserSayResponse createUserSay(const Models::CreateUserSayRequest &request);
 
       /**
-       * @summary Delete Category
+       * @summary Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
        *
        * @param request DeleteCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +459,7 @@ namespace Chatbot20220408
       Models::DeleteCategoryResponse deleteCategoryWithOptions(const Models::DeleteCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Category
+       * @summary Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
        *
        * @param request DeleteCategoryRequest
        * @return DeleteCategoryResponse
@@ -463,7 +467,7 @@ namespace Chatbot20220408
       Models::DeleteCategoryResponse deleteCategory(const Models::DeleteCategoryRequest &request);
 
       /**
-       * @summary Delete FAQ Connection Question
+       * @summary Deletes a knowledge association.
        *
        * @param request DeleteConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +476,7 @@ namespace Chatbot20220408
       Models::DeleteConnQuestionResponse deleteConnQuestionWithOptions(const Models::DeleteConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete FAQ Connection Question
+       * @summary Deletes a knowledge association.
        *
        * @param request DeleteConnQuestionRequest
        * @return DeleteConnQuestionResponse
@@ -480,7 +484,7 @@ namespace Chatbot20220408
       Models::DeleteConnQuestionResponse deleteConnQuestion(const Models::DeleteConnQuestionRequest &request);
 
       /**
-       * @summary 实体-删除
+       * @summary Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
        *
        * @param request DeleteDSEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +493,7 @@ namespace Chatbot20220408
       Models::DeleteDSEntityResponse deleteDSEntityWithOptions(const Models::DeleteDSEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体-删除
+       * @summary Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
        *
        * @param request DeleteDSEntityRequest
        * @return DeleteDSEntityResponse
@@ -497,7 +501,7 @@ namespace Chatbot20220408
       Models::DeleteDSEntityResponse deleteDSEntity(const Models::DeleteDSEntityRequest &request);
 
       /**
-       * @summary 实体成员-删除
+       * @summary Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
        *
        * @param request DeleteDSEntityValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +510,7 @@ namespace Chatbot20220408
       Models::DeleteDSEntityValueResponse deleteDSEntityValueWithOptions(const Models::DeleteDSEntityValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体成员-删除
+       * @summary Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
        *
        * @param request DeleteDSEntityValueRequest
        * @return DeleteDSEntityValueResponse
@@ -514,7 +518,7 @@ namespace Chatbot20220408
       Models::DeleteDSEntityValueResponse deleteDSEntityValue(const Models::DeleteDSEntityValueRequest &request);
 
       /**
-       * @summary Document Deletion
+       * @summary Deletes a document.
        *
        * @param request DeleteDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +527,7 @@ namespace Chatbot20220408
       Models::DeleteDocResponse deleteDocWithOptions(const Models::DeleteDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document Deletion
+       * @summary Deletes a document.
        *
        * @param request DeleteDocRequest
        * @return DeleteDocResponse
@@ -531,7 +535,7 @@ namespace Chatbot20220408
       Models::DeleteDocResponse deleteDoc(const Models::DeleteDocRequest &request);
 
       /**
-       * @summary Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
+       * @summary Deletes a knowledge item.
        *
        * @param request DeleteFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +544,7 @@ namespace Chatbot20220408
       Models::DeleteFaqResponse deleteFaqWithOptions(const Models::DeleteFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
+       * @summary Deletes a knowledge item.
        *
        * @param request DeleteFaqRequest
        * @return DeleteFaqResponse
@@ -548,7 +552,7 @@ namespace Chatbot20220408
       Models::DeleteFaqResponse deleteFaq(const Models::DeleteFaqRequest &request);
 
       /**
-       * @summary 机器人-删除
+       * @summary Deletes an instance from the sandbox and online environments.
        *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +561,7 @@ namespace Chatbot20220408
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-删除
+       * @summary Deletes an instance from the sandbox and online environments.
        *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
@@ -565,7 +569,7 @@ namespace Chatbot20220408
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
-       * @summary 意图-删除
+       * @summary Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
        *
        * @param request DeleteIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +578,7 @@ namespace Chatbot20220408
       Models::DeleteIntentResponse deleteIntentWithOptions(const Models::DeleteIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-删除
+       * @summary Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
        *
        * @param request DeleteIntentRequest
        * @return DeleteIntentResponse
@@ -582,7 +586,7 @@ namespace Chatbot20220408
       Models::DeleteIntentResponse deleteIntent(const Models::DeleteIntentRequest &request);
 
       /**
-       * @summary 意图-LGF-删除
+       * @summary Deletes the specified LGF configuration.
        *
        * @param request DeleteLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +595,7 @@ namespace Chatbot20220408
       Models::DeleteLgfResponse deleteLgfWithOptions(const Models::DeleteLgfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-LGF-删除
+       * @summary Deletes the specified LGF configuration.
        *
        * @param request DeleteLgfRequest
        * @return DeleteLgfResponse
@@ -599,7 +603,7 @@ namespace Chatbot20220408
       Models::DeleteLgfResponse deleteLgf(const Models::DeleteLgfRequest &request);
 
       /**
-       * @summary 视角-删除
+       * @summary Deletes a perspective.
        *
        * @param request DeletePerspectiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +612,7 @@ namespace Chatbot20220408
       Models::DeletePerspectiveResponse deletePerspectiveWithOptions(const Models::DeletePerspectiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角-删除
+       * @summary Deletes a perspective.
        *
        * @param request DeletePerspectiveRequest
        * @return DeletePerspectiveResponse
@@ -616,7 +620,7 @@ namespace Chatbot20220408
       Models::DeletePerspectiveResponse deletePerspective(const Models::DeletePerspectiveRequest &request);
 
       /**
-       * @summary Delete FAQ Similar Question
+       * @summary Deletes a similar question.
        *
        * @param request DeleteSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +629,7 @@ namespace Chatbot20220408
       Models::DeleteSimQuestionResponse deleteSimQuestionWithOptions(const Models::DeleteSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete FAQ Similar Question
+       * @summary Deletes a similar question.
        *
        * @param request DeleteSimQuestionRequest
        * @return DeleteSimQuestionResponse
@@ -633,7 +637,7 @@ namespace Chatbot20220408
       Models::DeleteSimQuestionResponse deleteSimQuestion(const Models::DeleteSimQuestionRequest &request);
 
       /**
-       * @summary Delete FAQ Solution
+       * @summary Deletes the specified solution.
        *
        * @param request DeleteSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +646,7 @@ namespace Chatbot20220408
       Models::DeleteSolutionResponse deleteSolutionWithOptions(const Models::DeleteSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete FAQ Solution
+       * @summary Deletes the specified solution.
        *
        * @param request DeleteSolutionRequest
        * @return DeleteSolutionResponse
@@ -684,7 +688,7 @@ namespace Chatbot20220408
       Models::DeleteTagGroupResponse deleteTagGroup(const Models::DeleteTagGroupRequest &request);
 
       /**
-       * @summary 意图-用户话术-删除
+       * @summary Deletes a user say from a specified intent.
        *
        * @param request DeleteUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +697,7 @@ namespace Chatbot20220408
       Models::DeleteUserSayResponse deleteUserSayWithOptions(const Models::DeleteUserSayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-用户话术-删除
+       * @summary Deletes a user say from a specified intent.
        *
        * @param request DeleteUserSayRequest
        * @return DeleteUserSayResponse
@@ -701,7 +705,7 @@ namespace Chatbot20220408
       Models::DeleteUserSayResponse deleteUserSay(const Models::DeleteUserSayRequest &request);
 
       /**
-       * @summary View Single Category Information
+       * @summary Gets information about a specific category.
        *
        * @param request DescribeCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -710,7 +714,7 @@ namespace Chatbot20220408
       Models::DescribeCategoryResponse describeCategoryWithOptions(const Models::DescribeCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View Single Category Information
+       * @summary Gets information about a specific category.
        *
        * @param request DescribeCategoryRequest
        * @return DescribeCategoryResponse
@@ -718,7 +722,7 @@ namespace Chatbot20220408
       Models::DescribeCategoryResponse describeCategory(const Models::DescribeCategoryRequest &request);
 
       /**
-       * @summary 实体-详情
+       * @summary Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
        *
        * @param request DescribeDSEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -727,7 +731,7 @@ namespace Chatbot20220408
       Models::DescribeDSEntityResponse describeDSEntityWithOptions(const Models::DescribeDSEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体-详情
+       * @summary Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
        *
        * @param request DescribeDSEntityRequest
        * @return DescribeDSEntityResponse
@@ -735,7 +739,7 @@ namespace Chatbot20220408
       Models::DescribeDSEntityResponse describeDSEntity(const Models::DescribeDSEntityRequest &request);
 
       /**
-       * @summary Document Details
+       * @summary Document details.
        *
        * @param request DescribeDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +748,7 @@ namespace Chatbot20220408
       Models::DescribeDocResponse describeDocWithOptions(const Models::DescribeDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document Details
+       * @summary Document details.
        *
        * @param request DescribeDocRequest
        * @return DescribeDocResponse
@@ -752,7 +756,7 @@ namespace Chatbot20220408
       Models::DescribeDocResponse describeDoc(const Models::DescribeDocRequest &request);
 
       /**
-       * @summary Knowledge Details
+       * @summary Retrieves knowledge details.
        *
        * @param request DescribeFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +765,7 @@ namespace Chatbot20220408
       Models::DescribeFaqResponse describeFaqWithOptions(const Models::DescribeFaqRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Knowledge Details
+       * @summary Retrieves knowledge details.
        *
        * @param request DescribeFaqRequest
        * @return DescribeFaqResponse
@@ -769,7 +773,7 @@ namespace Chatbot20220408
       Models::DescribeFaqResponse describeFaq(const Models::DescribeFaqRequest &request);
 
       /**
-       * @summary 机器人-详情
+       * @summary Queries the details of a robot.
        *
        * @param request DescribeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -778,7 +782,7 @@ namespace Chatbot20220408
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-详情
+       * @summary Queries the details of a robot.
        *
        * @param request DescribeInstanceRequest
        * @return DescribeInstanceResponse
@@ -786,7 +790,7 @@ namespace Chatbot20220408
       Models::DescribeInstanceResponse describeInstance(const Models::DescribeInstanceRequest &request);
 
       /**
-       * @summary 意图-详情
+       * @summary Returns metadata for a specified intent, including its type, name, creation time, and modification time.
        *
        * @param request DescribeIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +799,7 @@ namespace Chatbot20220408
       Models::DescribeIntentResponse describeIntentWithOptions(const Models::DescribeIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-详情
+       * @summary Returns metadata for a specified intent, including its type, name, creation time, and modification time.
        *
        * @param request DescribeIntentRequest
        * @return DescribeIntentResponse
@@ -803,7 +807,7 @@ namespace Chatbot20220408
       Models::DescribeIntentResponse describeIntent(const Models::DescribeIntentRequest &request);
 
       /**
-       * @summary 视角-详情
+       * @summary Retrieves the details of a specified perspective.
        *
        * @param request DescribePerspectiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -812,7 +816,7 @@ namespace Chatbot20220408
       Models::DescribePerspectiveResponse describePerspectiveWithOptions(const Models::DescribePerspectiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角-详情
+       * @summary Retrieves the details of a specified perspective.
        *
        * @param request DescribePerspectiveRequest
        * @return DescribePerspectiveResponse
@@ -854,7 +858,7 @@ namespace Chatbot20220408
       Models::DescribeTagGroupResponse describeTagGroup(const Models::DescribeTagGroupRequest &request);
 
       /**
-       * @summary 问答点赞、点踩API
+       * @summary Saves user feedback on chatbot responses.
        *
        * @param request FeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -863,7 +867,7 @@ namespace Chatbot20220408
       Models::FeedbackResponse feedbackWithOptions(const Models::FeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 问答点赞、点踩API
+       * @summary Saves user feedback on chatbot responses.
        *
        * @param request FeedbackRequest
        * @return FeedbackResponse
@@ -871,7 +875,9 @@ namespace Chatbot20220408
       Models::FeedbackResponse feedback(const Models::FeedbackRequest &request);
 
       /**
-       * @summary 生成用户免登Token
+       * @summary Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+       *
+       * @description For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
        *
        * @param request GenerateUserAccessTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,7 +886,9 @@ namespace Chatbot20220408
       Models::GenerateUserAccessTokenResponse generateUserAccessTokenWithOptions(const Models::GenerateUserAccessTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成用户免登Token
+       * @summary Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+       *
+       * @description For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
        *
        * @param request GenerateUserAccessTokenRequest
        * @return GenerateUserAccessTokenResponse
@@ -888,7 +896,7 @@ namespace Chatbot20220408
       Models::GenerateUserAccessTokenResponse generateUserAccessToken(const Models::GenerateUserAccessTokenRequest &request);
 
       /**
-       * @summary 获取业务空间信息
+       * @summary Retrieves details for a specified agent.
        *
        * @param request GetAgentInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +905,7 @@ namespace Chatbot20220408
       Models::GetAgentInfoResponse getAgentInfoWithOptions(const Models::GetAgentInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取业务空间信息
+       * @summary Retrieves details for a specified agent.
        *
        * @param request GetAgentInfoRequest
        * @return GetAgentInfoResponse
@@ -905,7 +913,9 @@ namespace Chatbot20220408
       Models::GetAgentInfoResponse getAgentInfo(const Models::GetAgentInfoRequest &request);
 
       /**
-       * @summary 获取异步函数执行结果接口
+       * @summary Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+       *
+       * @description Retrieves the execution result of an asynchronous service.
        *
        * @param request GetAsyncResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -914,7 +924,9 @@ namespace Chatbot20220408
       Models::GetAsyncResultResponse getAsyncResultWithOptions(const Models::GetAsyncResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异步函数执行结果接口
+       * @summary Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+       *
+       * @description Retrieves the execution result of an asynchronous service.
        *
        * @param request GetAsyncResultRequest
        * @return GetAsyncResultResponse
@@ -922,7 +934,9 @@ namespace Chatbot20220408
       Models::GetAsyncResultResponse getAsyncResult(const Models::GetAsyncResultRequest &request);
 
       /**
-       * @summary 查询机器人接待人次和对话轮次
+       * @summary Retrieves overview metrics for a bot.
+       *
+       * @description This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
        *
        * @param request GetBotSessionDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -931,7 +945,9 @@ namespace Chatbot20220408
       Models::GetBotSessionDataResponse getBotSessionDataWithOptions(const Models::GetBotSessionDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询机器人接待人次和对话轮次
+       * @summary Retrieves overview metrics for a bot.
+       *
+       * @description This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
        *
        * @param request GetBotSessionDataRequest
        * @return GetBotSessionDataResponse
@@ -939,7 +955,7 @@ namespace Chatbot20220408
       Models::GetBotSessionDataResponse getBotSessionData(const Models::GetBotSessionDataRequest &request);
 
       /**
-       * @summary 查询机器人发布进度
+       * @summary Checks the status of a bot publishing task.
        *
        * @param request GetInstancePublishTaskStateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -948,7 +964,7 @@ namespace Chatbot20220408
       Models::GetInstancePublishTaskStateResponse getInstancePublishTaskStateWithOptions(const Models::GetInstancePublishTaskStateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询机器人发布进度
+       * @summary Checks the status of a bot publishing task.
        *
        * @param request GetInstancePublishTaskStateRequest
        * @return GetInstancePublishTaskStateResponse
@@ -956,7 +972,7 @@ namespace Chatbot20220408
       Models::GetInstancePublishTaskStateResponse getInstancePublishTaskState(const Models::GetInstancePublishTaskStateRequest &request);
 
       /**
-       * @summary Query Publishing Progress
+       * @summary Gets the progress of a publish task.
        *
        * @param request GetPublishTaskStateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +981,7 @@ namespace Chatbot20220408
       Models::GetPublishTaskStateResponse getPublishTaskStateWithOptions(const Models::GetPublishTaskStateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Publishing Progress
+       * @summary Gets the progress of a publish task.
        *
        * @param request GetPublishTaskStateRequest
        * @return GetPublishTaskStateResponse
@@ -973,7 +989,7 @@ namespace Chatbot20220408
       Models::GetPublishTaskStateResponse getPublishTaskState(const Models::GetPublishTaskStateRequest &request);
 
       /**
-       * @summary 初始化im连接信息
+       * @summary Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
        *
        * @param request InitIMConnectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -982,7 +998,7 @@ namespace Chatbot20220408
       Models::InitIMConnectResponse initIMConnectWithOptions(const Models::InitIMConnectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化im连接信息
+       * @summary Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
        *
        * @param request InitIMConnectRequest
        * @return InitIMConnectResponse
@@ -990,7 +1006,7 @@ namespace Chatbot20220408
       Models::InitIMConnectResponse initIMConnect(const Models::InitIMConnectRequest &request);
 
       /**
-       * @summary 机器人-绑定类目
+       * @summary Links knowledge categories to a chatbot.
        *
        * @param request LinkInstanceCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1015,7 @@ namespace Chatbot20220408
       Models::LinkInstanceCategoryResponse linkInstanceCategoryWithOptions(const Models::LinkInstanceCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-绑定类目
+       * @summary Links knowledge categories to a chatbot.
        *
        * @param request LinkInstanceCategoryRequest
        * @return LinkInstanceCategoryResponse
@@ -1007,7 +1023,7 @@ namespace Chatbot20220408
       Models::LinkInstanceCategoryResponse linkInstanceCategory(const Models::LinkInstanceCategoryRequest &request);
 
       /**
-       * @summary 获取业务空间列表
+       * @summary Lists the business spaces for your Alibaba Cloud account.
        *
        * @param request ListAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1016,7 +1032,7 @@ namespace Chatbot20220408
       Models::ListAgentResponse listAgentWithOptions(const Models::ListAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取业务空间列表
+       * @summary Lists the business spaces for your Alibaba Cloud account.
        *
        * @param request ListAgentRequest
        * @return ListAgentResponse
@@ -1024,7 +1040,7 @@ namespace Chatbot20220408
       Models::ListAgentResponse listAgent(const Models::ListAgentRequest &request);
 
       /**
-       * @summary Category List
+       * @summary Lists categories.
        *
        * @param request ListCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1049,7 @@ namespace Chatbot20220408
       Models::ListCategoryResponse listCategoryWithOptions(const Models::ListCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Category List
+       * @summary Lists categories.
        *
        * @param request ListCategoryRequest
        * @return ListCategoryResponse
@@ -1041,7 +1057,7 @@ namespace Chatbot20220408
       Models::ListCategoryResponse listCategory(const Models::ListCategoryRequest &request);
 
       /**
-       * @summary Query FAQ Connection Questions List
+       * @summary Lists the connected questions for a knowledge item.
        *
        * @param request ListConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1050,7 +1066,7 @@ namespace Chatbot20220408
       Models::ListConnQuestionResponse listConnQuestionWithOptions(const Models::ListConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query FAQ Connection Questions List
+       * @summary Lists the connected questions for a knowledge item.
        *
        * @param request ListConnQuestionRequest
        * @return ListConnQuestionResponse
@@ -1058,7 +1074,7 @@ namespace Chatbot20220408
       Models::ListConnQuestionResponse listConnQuestion(const Models::ListConnQuestionRequest &request);
 
       /**
-       * @summary 实体-列表
+       * @summary Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
        *
        * @param request ListDSEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1083,7 @@ namespace Chatbot20220408
       Models::ListDSEntityResponse listDSEntityWithOptions(const Models::ListDSEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体-列表
+       * @summary Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
        *
        * @param request ListDSEntityRequest
        * @return ListDSEntityResponse
@@ -1075,7 +1091,7 @@ namespace Chatbot20220408
       Models::ListDSEntityResponse listDSEntity(const Models::ListDSEntityRequest &request);
 
       /**
-       * @summary 实体成员-列表
+       * @summary Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
        *
        * @param request ListDSEntityValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1100,7 @@ namespace Chatbot20220408
       Models::ListDSEntityValueResponse listDSEntityValueWithOptions(const Models::ListDSEntityValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体成员-列表
+       * @summary Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
        *
        * @param request ListDSEntityValueRequest
        * @return ListDSEntityValueResponse
@@ -1092,7 +1108,7 @@ namespace Chatbot20220408
       Models::ListDSEntityValueResponse listDSEntityValue(const Models::ListDSEntityValueRequest &request);
 
       /**
-       * @summary 机器人-修改
+       * @summary Queries a list of instances.
        *
        * @param request ListInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1117,7 @@ namespace Chatbot20220408
       Models::ListInstanceResponse listInstanceWithOptions(const Models::ListInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-修改
+       * @summary Queries a list of instances.
        *
        * @param request ListInstanceRequest
        * @return ListInstanceResponse
@@ -1109,7 +1125,7 @@ namespace Chatbot20220408
       Models::ListInstanceResponse listInstance(const Models::ListInstanceRequest &request);
 
       /**
-       * @summary 意图-列表
+       * @summary Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
        *
        * @param request ListIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1134,7 @@ namespace Chatbot20220408
       Models::ListIntentResponse listIntentWithOptions(const Models::ListIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-列表
+       * @summary Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
        *
        * @param request ListIntentRequest
        * @return ListIntentResponse
@@ -1126,7 +1142,7 @@ namespace Chatbot20220408
       Models::ListIntentResponse listIntent(const Models::ListIntentRequest &request);
 
       /**
-       * @summary 意图-LGF-列表
+       * @summary Queries the advanced semantic configurations (LGF) for a specified intent.
        *
        * @param request ListLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1135,7 +1151,7 @@ namespace Chatbot20220408
       Models::ListLgfResponse listLgfWithOptions(const Models::ListLgfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-LGF-列表
+       * @summary Queries the advanced semantic configurations (LGF) for a specified intent.
        *
        * @param request ListLgfRequest
        * @return ListLgfResponse
@@ -1143,7 +1159,7 @@ namespace Chatbot20220408
       Models::ListLgfResponse listLgf(const Models::ListLgfRequest &request);
 
       /**
-       * @summary 获取业务空间下可集成的SaaS信息列表
+       * @summary Lists SaaS integration information.
        *
        * @param request ListSaasInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1152,7 +1168,7 @@ namespace Chatbot20220408
       Models::ListSaasInfoResponse listSaasInfoWithOptions(const Models::ListSaasInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取业务空间下可集成的SaaS信息列表
+       * @summary Lists SaaS integration information.
        *
        * @param request ListSaasInfoRequest
        * @return ListSaasInfoResponse
@@ -1160,7 +1176,7 @@ namespace Chatbot20220408
       Models::ListSaasInfoResponse listSaasInfo(const Models::ListSaasInfoRequest &request);
 
       /**
-       * @summary 获取业务空间下可集成的权限组信息
+       * @summary Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
        *
        * @param request ListSaasPermissionGroupInfosRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1185,7 @@ namespace Chatbot20220408
       Models::ListSaasPermissionGroupInfosResponse listSaasPermissionGroupInfosWithOptions(const Models::ListSaasPermissionGroupInfosRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取业务空间下可集成的权限组信息
+       * @summary Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
        *
        * @param request ListSaasPermissionGroupInfosRequest
        * @return ListSaasPermissionGroupInfosResponse
@@ -1177,7 +1193,7 @@ namespace Chatbot20220408
       Models::ListSaasPermissionGroupInfosResponse listSaasPermissionGroupInfos(const Models::ListSaasPermissionGroupInfosRequest &request);
 
       /**
-       * @summary FAQ Similar Questions List
+       * @summary Queries the list of similar questions for a knowledge entry.
        *
        * @param request ListSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1186,7 +1202,7 @@ namespace Chatbot20220408
       Models::ListSimQuestionResponse listSimQuestionWithOptions(const Models::ListSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FAQ Similar Questions List
+       * @summary Queries the list of similar questions for a knowledge entry.
        *
        * @param request ListSimQuestionRequest
        * @return ListSimQuestionResponse
@@ -1194,7 +1210,7 @@ namespace Chatbot20220408
       Models::ListSimQuestionResponse listSimQuestion(const Models::ListSimQuestionRequest &request);
 
       /**
-       * @summary FAQ Solution List
+       * @summary Lists the solutions for a knowledge entry.
        *
        * @param request ListSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1203,7 +1219,7 @@ namespace Chatbot20220408
       Models::ListSolutionResponse listSolutionWithOptions(const Models::ListSolutionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary FAQ Solution List
+       * @summary Lists the solutions for a knowledge entry.
        *
        * @param request ListSolutionRequest
        * @return ListSolutionResponse
@@ -1245,7 +1261,7 @@ namespace Chatbot20220408
       Models::ListTagGroupResponse listTagGroup(const Models::ListTagGroupRequest &request);
 
       /**
-       * @summary Tongyi对话明细查询接口
+       * @summary Retrieves chat history details.
        *
        * @param request ListTongyiChatHistorysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1270,7 @@ namespace Chatbot20220408
       Models::ListTongyiChatHistorysResponse listTongyiChatHistorysWithOptions(const Models::ListTongyiChatHistorysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tongyi对话明细查询接口
+       * @summary Retrieves chat history details.
        *
        * @param request ListTongyiChatHistorysRequest
        * @return ListTongyiChatHistorysResponse
@@ -1262,7 +1278,9 @@ namespace Chatbot20220408
       Models::ListTongyiChatHistorysResponse listTongyiChatHistorys(const Models::ListTongyiChatHistorysRequest &request);
 
       /**
-       * @summary 查询通义晓蜜的单个会话对话记录
+       * @summary Retrieves the conversation logs for a single session of a Tongyi chatbot.
+       *
+       * @description This operation retrieves conversation logs generated within the past two hours.
        *
        * @param request ListTongyiConversationLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1289,9 @@ namespace Chatbot20220408
       Models::ListTongyiConversationLogsResponse listTongyiConversationLogsWithOptions(const Models::ListTongyiConversationLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询通义晓蜜的单个会话对话记录
+       * @summary Retrieves the conversation logs for a single session of a Tongyi chatbot.
+       *
+       * @description This operation retrieves conversation logs generated within the past two hours.
        *
        * @param request ListTongyiConversationLogsRequest
        * @return ListTongyiConversationLogsResponse
@@ -1279,7 +1299,7 @@ namespace Chatbot20220408
       Models::ListTongyiConversationLogsResponse listTongyiConversationLogs(const Models::ListTongyiConversationLogsRequest &request);
 
       /**
-       * @summary 话术-列表
+       * @summary Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
        *
        * @param request ListUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1288,7 +1308,7 @@ namespace Chatbot20220408
       Models::ListUserSayResponse listUserSayWithOptions(const Models::ListUserSayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 话术-列表
+       * @summary Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
        *
        * @param request ListUserSayRequest
        * @return ListUserSayResponse
@@ -1296,7 +1316,7 @@ namespace Chatbot20220408
       Models::ListUserSayResponse listUserSay(const Models::ListUserSayRequest &request);
 
       /**
-       * @summary 统一NLU接口
+       * @summary Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
        *
        * @param request NluRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1325,7 @@ namespace Chatbot20220408
       Models::NluResponse nluWithOptions(const Models::NluRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 统一NLU接口
+       * @summary Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
        *
        * @param request NluRequest
        * @return NluResponse
@@ -1313,7 +1333,7 @@ namespace Chatbot20220408
       Models::NluResponse nlu(const Models::NluRequest &request);
 
       /**
-       * @summary 视角-列表
+       * @summary Queries a list of perspectives.
        *
        * @param request QueryPerspectivesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1342,7 @@ namespace Chatbot20220408
       Models::QueryPerspectivesResponse queryPerspectivesWithOptions(const Models::QueryPerspectivesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角-列表
+       * @summary Queries a list of perspectives.
        *
        * @param request QueryPerspectivesRequest
        * @return QueryPerspectivesResponse
@@ -1330,7 +1350,7 @@ namespace Chatbot20220408
       Models::QueryPerspectivesResponse queryPerspectives(const Models::QueryPerspectivesRequest &request);
 
       /**
-       * @summary Document Retry
+       * @summary Retries a document processing task.
        *
        * @param request RetryDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1359,7 @@ namespace Chatbot20220408
       Models::RetryDocResponse retryDocWithOptions(const Models::RetryDocRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document Retry
+       * @summary Retries a document processing task.
        *
        * @param request RetryDocRequest
        * @return RetryDocResponse
@@ -1347,7 +1367,7 @@ namespace Chatbot20220408
       Models::RetryDocResponse retryDoc(const Models::RetryDocRequest &request);
 
       /**
-       * @summary Document Search
+       * @summary Search the documentation.
        *
        * @param tmpReq SearchDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1376,7 @@ namespace Chatbot20220408
       Models::SearchDocResponse searchDocWithOptions(const Models::SearchDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document Search
+       * @summary Search the documentation.
        *
        * @param request SearchDocRequest
        * @return SearchDocResponse
@@ -1364,7 +1384,7 @@ namespace Chatbot20220408
       Models::SearchDocResponse searchDoc(const Models::SearchDocRequest &request);
 
       /**
-       * @summary Knowledge Search
+       * @summary Search the knowledge base.
        *
        * @param tmpReq SearchFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1393,7 @@ namespace Chatbot20220408
       Models::SearchFaqResponse searchFaqWithOptions(const Models::SearchFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Knowledge Search
+       * @summary Search the knowledge base.
        *
        * @param request SearchFaqRequest
        * @return SearchFaqResponse
@@ -1381,7 +1401,9 @@ namespace Chatbot20220408
       Models::SearchFaqResponse searchFaq(const Models::SearchFaqRequest &request);
 
       /**
-       * @summary 大模型问答调试信息
+       * @summary This operation returns debugging information for the large language model (LLM) Q&A process.
+       *
+       * @description This operation supports only the latest version of chatbots and can query data from only the last 90 days.
        *
        * @param request TongyiChatDebugInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1412,9 @@ namespace Chatbot20220408
       Models::TongyiChatDebugInfoResponse tongyiChatDebugInfoWithOptions(const Models::TongyiChatDebugInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 大模型问答调试信息
+       * @summary This operation returns debugging information for the large language model (LLM) Q&A process.
+       *
+       * @description This operation supports only the latest version of chatbots and can query data from only the last 90 days.
        *
        * @param request TongyiChatDebugInfoRequest
        * @return TongyiChatDebugInfoResponse
@@ -1398,7 +1422,7 @@ namespace Chatbot20220408
       Models::TongyiChatDebugInfoResponse tongyiChatDebugInfo(const Models::TongyiChatDebugInfoRequest &request);
 
       /**
-       * @summary Edit Category
+       * @summary Updates a category.
        *
        * @param request UpdateCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1431,7 @@ namespace Chatbot20220408
       Models::UpdateCategoryResponse updateCategoryWithOptions(const Models::UpdateCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Category
+       * @summary Updates a category.
        *
        * @param request UpdateCategoryRequest
        * @return UpdateCategoryResponse
@@ -1415,7 +1439,7 @@ namespace Chatbot20220408
       Models::UpdateCategoryResponse updateCategory(const Models::UpdateCategoryRequest &request);
 
       /**
-       * @summary Update FAQ Connection Question
+       * @summary Updates a connection.
        *
        * @param request UpdateConnQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1424,7 +1448,7 @@ namespace Chatbot20220408
       Models::UpdateConnQuestionResponse updateConnQuestionWithOptions(const Models::UpdateConnQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update FAQ Connection Question
+       * @summary Updates a connection.
        *
        * @param request UpdateConnQuestionRequest
        * @return UpdateConnQuestionResponse
@@ -1432,7 +1456,7 @@ namespace Chatbot20220408
       Models::UpdateConnQuestionResponse updateConnQuestion(const Models::UpdateConnQuestionRequest &request);
 
       /**
-       * @summary 实体-更新
+       * @summary Updates the metadata of an entity. You can modify the entity name, but not the entity type.
        *
        * @param request UpdateDSEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1441,7 +1465,7 @@ namespace Chatbot20220408
       Models::UpdateDSEntityResponse updateDSEntityWithOptions(const Models::UpdateDSEntityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体-更新
+       * @summary Updates the metadata of an entity. You can modify the entity name, but not the entity type.
        *
        * @param request UpdateDSEntityRequest
        * @return UpdateDSEntityResponse
@@ -1449,7 +1473,7 @@ namespace Chatbot20220408
       Models::UpdateDSEntityResponse updateDSEntity(const Models::UpdateDSEntityRequest &request);
 
       /**
-       * @summary 实体成员-更新
+       * @summary Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
        *
        * @param tmpReq UpdateDSEntityValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1458,7 +1482,7 @@ namespace Chatbot20220408
       Models::UpdateDSEntityValueResponse updateDSEntityValueWithOptions(const Models::UpdateDSEntityValueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 实体成员-更新
+       * @summary Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
        *
        * @param request UpdateDSEntityValueRequest
        * @return UpdateDSEntityValueResponse
@@ -1466,7 +1490,7 @@ namespace Chatbot20220408
       Models::UpdateDSEntityValueResponse updateDSEntityValue(const Models::UpdateDSEntityValueRequest &request);
 
       /**
-       * @summary Document Update
+       * @summary Updates a document.
        *
        * @param tmpReq UpdateDocRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1499,7 @@ namespace Chatbot20220408
       Models::UpdateDocResponse updateDocWithOptions(const Models::UpdateDocRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Document Update
+       * @summary Updates a document.
        *
        * @param request UpdateDocRequest
        * @return UpdateDocResponse
@@ -1483,7 +1507,7 @@ namespace Chatbot20220408
       Models::UpdateDocResponse updateDoc(const Models::UpdateDocRequest &request);
 
       /**
-       * @summary Update FAQ
+       * @summary Updates an existing knowledge entry.
        *
        * @param tmpReq UpdateFaqRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1492,7 +1516,7 @@ namespace Chatbot20220408
       Models::UpdateFaqResponse updateFaqWithOptions(const Models::UpdateFaqRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update FAQ
+       * @summary Updates an existing knowledge entry.
        *
        * @param request UpdateFaqRequest
        * @return UpdateFaqResponse
@@ -1500,7 +1524,7 @@ namespace Chatbot20220408
       Models::UpdateFaqResponse updateFaq(const Models::UpdateFaqRequest &request);
 
       /**
-       * @summary 机器人-修改
+       * @summary Updates a chatbot\\"s name and description.
        *
        * @param request UpdateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1509,7 +1533,7 @@ namespace Chatbot20220408
       Models::UpdateInstanceResponse updateInstanceWithOptions(const Models::UpdateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 机器人-修改
+       * @summary Updates a chatbot\\"s name and description.
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -1517,7 +1541,7 @@ namespace Chatbot20220408
       Models::UpdateInstanceResponse updateInstance(const Models::UpdateInstanceRequest &request);
 
       /**
-       * @summary 意图-更新
+       * @summary Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
        *
        * @param tmpReq UpdateIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1526,7 +1550,7 @@ namespace Chatbot20220408
       Models::UpdateIntentResponse updateIntentWithOptions(const Models::UpdateIntentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-更新
+       * @summary Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
        *
        * @param request UpdateIntentRequest
        * @return UpdateIntentResponse
@@ -1534,7 +1558,7 @@ namespace Chatbot20220408
       Models::UpdateIntentResponse updateIntent(const Models::UpdateIntentRequest &request);
 
       /**
-       * @summary 意图-LGF-更新
+       * @summary Updates the advanced semantic feature (LGF) for a specified intent.
        *
        * @param tmpReq UpdateLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1543,7 +1567,7 @@ namespace Chatbot20220408
       Models::UpdateLgfResponse updateLgfWithOptions(const Models::UpdateLgfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-LGF-更新
+       * @summary Updates the advanced semantic feature (LGF) for a specified intent.
        *
        * @param request UpdateLgfRequest
        * @return UpdateLgfResponse
@@ -1551,7 +1575,7 @@ namespace Chatbot20220408
       Models::UpdateLgfResponse updateLgf(const Models::UpdateLgfRequest &request);
 
       /**
-       * @summary 视角-修改
+       * @summary Updates a perspective\\"s name and description.
        *
        * @param request UpdatePerspectiveRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1560,7 +1584,7 @@ namespace Chatbot20220408
       Models::UpdatePerspectiveResponse updatePerspectiveWithOptions(const Models::UpdatePerspectiveRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 视角-修改
+       * @summary Updates a perspective\\"s name and description.
        *
        * @param request UpdatePerspectiveRequest
        * @return UpdatePerspectiveResponse
@@ -1568,7 +1592,7 @@ namespace Chatbot20220408
       Models::UpdatePerspectiveResponse updatePerspective(const Models::UpdatePerspectiveRequest &request);
 
       /**
-       * @summary Update FAQ Similar Questions
+       * @summary Updates a similar question.
        *
        * @param request UpdateSimQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1577,7 +1601,7 @@ namespace Chatbot20220408
       Models::UpdateSimQuestionResponse updateSimQuestionWithOptions(const Models::UpdateSimQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update FAQ Similar Questions
+       * @summary Updates a similar question.
        *
        * @param request UpdateSimQuestionRequest
        * @return UpdateSimQuestionResponse
@@ -1585,7 +1609,7 @@ namespace Chatbot20220408
       Models::UpdateSimQuestionResponse updateSimQuestion(const Models::UpdateSimQuestionRequest &request);
 
       /**
-       * @summary Update FAQ Answer
+       * @summary Updates a solution.
        *
        * @param tmpReq UpdateSolutionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1594,7 +1618,7 @@ namespace Chatbot20220408
       Models::UpdateSolutionResponse updateSolutionWithOptions(const Models::UpdateSolutionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update FAQ Answer
+       * @summary Updates a solution.
        *
        * @param request UpdateSolutionRequest
        * @return UpdateSolutionResponse
@@ -1636,7 +1660,7 @@ namespace Chatbot20220408
       Models::UpdateTagGroupResponse updateTagGroup(const Models::UpdateTagGroupRequest &request);
 
       /**
-       * @summary 意图-话术-更新
+       * @summary Modifies an existing user say.
        *
        * @param tmpReq UpdateUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1669,7 @@ namespace Chatbot20220408
       Models::UpdateUserSayResponse updateUserSayWithOptions(const Models::UpdateUserSayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图-话术-更新
+       * @summary Modifies an existing user say.
        *
        * @param request UpdateUserSayRequest
        * @return UpdateUserSayResponse

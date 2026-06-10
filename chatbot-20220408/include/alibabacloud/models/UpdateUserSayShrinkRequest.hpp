@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The workspace key. If you omit this parameter, the default workspace is used. You can find this key on the Workspace Management page in your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the bot.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The definition of the user say.
     shared_ptr<string> userSayDefinitionShrink_ {};
+    // The ID of the user say.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> userSayId_ {};
   };

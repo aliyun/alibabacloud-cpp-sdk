@@ -128,15 +128,25 @@ namespace Models
 
 
   protected:
+    // The business types associated with the publish task.
     shared_ptr<vector<string>> bizTypeList_ {};
+    // The UTC time when the task was created.
     shared_ptr<string> createTime_ {};
+    // The error message if the task fails.
     shared_ptr<string> error_ {};
+    // A key-value map of errors. Keys are the submodule names, and values are arrays of error messages.
     Darabonba::Json errors_ {};
+    // The ID of the task.
     shared_ptr<int64_t> id_ {};
+    // The UTC time when the task was last modified.
     shared_ptr<string> modifyTime_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the task, returned as a string.
     shared_ptr<string> response_ {};
+    // The status of the task.
     shared_ptr<string> status_ {};
+    // A key-value map of warnings. Keys are the submodule names, and values are arrays of warning messages.
     Darabonba::Json warnings_ {};
   };
 

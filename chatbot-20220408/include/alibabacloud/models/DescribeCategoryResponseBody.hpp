@@ -96,10 +96,15 @@ namespace Models
 
 
     protected:
+      // The business code.
       shared_ptr<string> bizCode_ {};
+      // The ID of the category.
       shared_ptr<int64_t> categoryId_ {};
+      // The name of the category.
       shared_ptr<string> name_ {};
+      // The ID of the parent category. A value of -1 indicates the root directory.
       shared_ptr<int64_t> parentCategoryId_ {};
+      // The status of the category. Valid values: 0 (Normal) or -1 (Deleted).
       shared_ptr<int32_t> status_ {};
     };
 
@@ -122,7 +127,9 @@ namespace Models
 
 
   protected:
+    // The category information.
     shared_ptr<DescribeCategoryResponseBody::Category> category_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

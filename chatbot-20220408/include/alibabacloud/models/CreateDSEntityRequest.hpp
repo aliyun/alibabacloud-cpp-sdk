@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The key for the `business space`. If you omit this parameter, the default `business space` is used. You can get the key from the Business Management page of your `main account`.
     shared_ptr<string> agentKey_ {};
+    // The `entity name`. The name can contain Chinese characters, uppercase and lowercase letters, digits, and underscores (_).
+    // 
     // This parameter is required.
     shared_ptr<string> entityName_ {};
+    // The `entity type`. Valid values: `synonyms` and `regex`.
     shared_ptr<string> entityType_ {};
+    // The `instance ID`.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

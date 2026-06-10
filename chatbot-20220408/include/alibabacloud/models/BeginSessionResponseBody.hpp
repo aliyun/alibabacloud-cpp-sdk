@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The ASR end-pointing detection time, in milliseconds.
     shared_ptr<int32_t> asrMaxEndSilence_ {};
+    // Indicates whether voice playback is interruptible.
     shared_ptr<bool> interruptible_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 静默超时时间
+    // The silence timeout, in seconds.
     shared_ptr<int32_t> silenceReplyTimeout_ {};
+    // The welcome message.
     shared_ptr<string> welcomeMessage_ {};
   };
 

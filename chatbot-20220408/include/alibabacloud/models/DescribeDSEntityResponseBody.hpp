@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The time when the entity was created, in UTC.
     shared_ptr<string> createTime_ {};
+    // The ID of the user who created the entity.
     shared_ptr<string> createUserId_ {};
+    // The name of the user who created the entity.
     shared_ptr<string> createUserName_ {};
+    // The entity ID.
     shared_ptr<int64_t> entityId_ {};
+    // The entity name. The name can contain only Chinese characters, letters, digits, and underscores (_).
     shared_ptr<string> entityName_ {};
+    // The entity type. Valid values are `synonyms` and `regex`.
     shared_ptr<string> entityType_ {};
+    // The time when the entity was last modified, in UTC.
     shared_ptr<string> modifyTime_ {};
+    // The ID of the user who last modified the entity.
     shared_ptr<string> modifyUserId_ {};
+    // The name of the user who last modified the entity.
     shared_ptr<string> modifyUserName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The code of the system entity, such as sys.date. This parameter is empty for user-defined entities.
     shared_ptr<string> sysEntityCode_ {};
   };
 

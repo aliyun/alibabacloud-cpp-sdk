@@ -75,6 +75,7 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If not specified, the default business space is used. You can find the key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
     shared_ptr<string> instanceId_ {};
     shared_ptr<bool> sandBox_ {};

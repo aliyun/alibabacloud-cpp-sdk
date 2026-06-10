@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The key of the agent. If you omit this parameter, the default agent is used. You can find the key on the Business Management page of your Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
+    // A description of the robot. The description can be up to 50 characters long.
     shared_ptr<string> introduction_ {};
+    // The language of the robot, such as `zh-cn` or `en-us`. The language must be supported by the agent. If you omit this parameter, the agent\\"s default language is used.
     shared_ptr<string> languageCode_ {};
+    // The name of the robot. The maximum length is 50 characters.
     shared_ptr<string> name_ {};
+    // The robot type. The default value is `scenario_im`.
     shared_ptr<string> robotType_ {};
   };
 

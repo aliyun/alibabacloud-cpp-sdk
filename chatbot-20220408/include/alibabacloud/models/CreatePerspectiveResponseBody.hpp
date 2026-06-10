@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The perspective ID.
     shared_ptr<string> perspectiveId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

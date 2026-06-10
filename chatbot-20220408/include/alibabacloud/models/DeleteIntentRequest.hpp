@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The key that identifies the business space. If you omit this parameter, the service uses the default business space. You can get this key from the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The robot ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
   };

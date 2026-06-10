@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Workspace key. If not set, the default workspace is accessed. The key value can be obtained from the Alibaba Cloud account workspace Management page.
     shared_ptr<string> agentKey_ {};
   };
 

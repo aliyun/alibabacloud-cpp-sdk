@@ -133,13 +133,22 @@ namespace Models
 
 
       protected:
+        // Specifies whether the slot can contain an array of values.
         shared_ptr<bool> array_ {};
+        // Specifies whether to enable data masking for the slot value.
         shared_ptr<bool> encrypt_ {};
+        // Specifies whether the slot is interactive. If true, the chatbot prompts the user for a value if the user does not provide one.
         shared_ptr<bool> interactive_ {};
+        // The name of the slot.
+        // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        // The ID of the slot.
+        // 
         // This parameter is required.
         shared_ptr<string> slotId_ {};
+        // The name of the associated entity.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -170,9 +179,13 @@ namespace Models
 
 
     protected:
+      // The alias for the intent.
       shared_ptr<string> aliasName_ {};
+      // The name of the intent.
+      // 
       // This parameter is required.
       shared_ptr<string> intentName_ {};
+      // A list of slot objects.
       shared_ptr<vector<IntentDefinition::SlotInfos>> slotInfos_ {};
     };
 
@@ -209,10 +222,16 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If you omit this parameter, the system uses the default business space. You can find this key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the chatbot instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent definition object.
     shared_ptr<UpdateIntentRequest::IntentDefinition> intentDefinition_ {};
+    // The ID of the intent.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
   };

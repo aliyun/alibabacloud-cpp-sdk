@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The agent key. If not specified, the default agent is used. You can obtain the key from the agent management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The unique identifier of the category.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
   };

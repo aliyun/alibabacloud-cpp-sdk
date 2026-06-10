@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // If unspecified, the default agent is used. You can get the key from the agent management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The entity ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
+    // The chatbot ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

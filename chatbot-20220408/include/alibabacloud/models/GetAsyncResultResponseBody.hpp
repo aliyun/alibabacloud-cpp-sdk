@@ -57,8 +57,17 @@ namespace Models
 
 
   protected:
+    // The task result, returned as a JSON-formatted string.
     shared_ptr<string> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task\\"s execution status. Valid values:
+    // 
+    // | Value   | Description                      |
+    // | ------- | -------------------------------- |
+    // | Success | The task completed successfully. |
+    // | Running | The task is running.             |
+    // | Fail    | The task failed.                 |
     shared_ptr<string> status_ {};
   };
 

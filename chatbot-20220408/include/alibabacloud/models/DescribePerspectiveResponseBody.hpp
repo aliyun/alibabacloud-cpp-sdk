@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The creation time in UTC.
     shared_ptr<string> createTime_ {};
+    // The modification time in UTC.
     shared_ptr<string> modifyTime_ {};
+    // The name of the perspective.
     shared_ptr<string> name_ {};
+    // The perspective code (used for the Q\\&A API).
     shared_ptr<string> perspectiveCode_ {};
+    // The ID of the perspective.
     shared_ptr<string> perspectiveId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the perspective is user-defined.
     shared_ptr<bool> selfDefine_ {};
+    // The status of the perspective. Valid values: 3 (Enabled) and 1 (Disabled).
     shared_ptr<int32_t> status_ {};
   };
 

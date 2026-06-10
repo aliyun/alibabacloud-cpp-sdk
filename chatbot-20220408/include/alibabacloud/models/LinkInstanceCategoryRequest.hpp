@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The category\\"s ability type. Valid values: `FAQ` and `MRC` (machine reading comprehension). Defaults to `FAQ`.
     shared_ptr<string> abilityType_ {};
+    // The key for the business space. If you do not specify this parameter, the default business space is used. You can obtain the key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // An array of FAQ category IDs to link to the chatbot.
     shared_ptr<string> categoryIds_ {};
+    // The unique identifier of the chatbot.
     shared_ptr<string> instanceId_ {};
   };
 

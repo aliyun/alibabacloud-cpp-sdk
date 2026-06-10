@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The API call latency, in milliseconds (ms).
     shared_ptr<string> costTime_ {};
+    // An array of objects containing the data details.
     shared_ptr<vector<Darabonba::Json>> datas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

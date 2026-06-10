@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If unspecified, the default business space is used. You can find this key on the Business Management page of your main account.
+    // 
     // This parameter is required.
     shared_ptr<string> agentKey_ {};
   };

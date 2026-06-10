@@ -114,8 +114,11 @@ namespace Models
 
 
       protected:
+        // The zero-based end index of the slot in the user say. This value is exclusive.
         shared_ptr<int32_t> endIndex_ {};
+        // The ID of the intent slot.
         shared_ptr<string> slotId_ {};
+        // The zero-based start index of the slot in the user say. This value is inclusive.
         shared_ptr<int32_t> startIndex_ {};
       };
 
@@ -166,11 +169,17 @@ namespace Models
 
 
     protected:
+      // The content of the user say.
       shared_ptr<string> content_ {};
+      // The time when the user say was created. The time is in UTC.
       shared_ptr<string> createTime_ {};
+      // The ID of the intent.
       shared_ptr<int64_t> intentId_ {};
+      // The time when the user say was last modified. The time is in UTC.
       shared_ptr<string> modifyTime_ {};
+      // A list of associated slots.
       shared_ptr<vector<UserSays::SlotInfos>> slotInfos_ {};
+      // The ID of the user say.
       shared_ptr<int64_t> userSayId_ {};
     };
 
@@ -214,10 +223,15 @@ namespace Models
 
 
   protected:
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<int32_t> totalCount_ {};
+    // A list of user says.
     shared_ptr<vector<ListUserSayResponseBody::UserSays>> userSays_ {};
   };
 

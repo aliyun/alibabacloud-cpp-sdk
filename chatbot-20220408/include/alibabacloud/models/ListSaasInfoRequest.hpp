@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If this parameter is omitted, the default business space is used. You can obtain the key from the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The codes of the user\\"s SaaS permission groups. Separate multiple codes with a comma.
     shared_ptr<string> saasGroupCodes_ {};
+    // The username of the business user.
+    // 
     // This parameter is required.
     shared_ptr<string> saasName_ {};
   };

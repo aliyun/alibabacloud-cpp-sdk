@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The agent key. If omitted, the default agent is used. You can find the key on the agent management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The knowledge ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
   };

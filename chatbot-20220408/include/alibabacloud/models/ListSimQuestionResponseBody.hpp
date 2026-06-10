@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The creation time of the similar question, in UTC.
       shared_ptr<string> createTime_ {};
+      // The modification time of the similar question, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // The similar question ID.
       shared_ptr<int64_t> simQuestionId_ {};
+      // The title of the similar question.
       shared_ptr<string> title_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of similar questions.
     shared_ptr<vector<ListSimQuestionResponseBody::SimQuestions>> simQuestions_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If this parameter is omitted, the default business space is used. You can obtain the key on the **Business Management** page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The category ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> categoryId_ {};
+    // The category name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

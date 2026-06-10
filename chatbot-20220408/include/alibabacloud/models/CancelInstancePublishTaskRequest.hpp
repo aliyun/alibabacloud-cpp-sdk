@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The key of the business space. You can obtain the key from the Business Management page of your Alibaba Cloud account. If you omit this parameter, the default business space is used.
     shared_ptr<string> agentKey_ {};
+    // The task ID.
     shared_ptr<int64_t> id_ {};
+    // The unique ID of the chatbot.
     shared_ptr<string> instanceId_ {};
   };
 

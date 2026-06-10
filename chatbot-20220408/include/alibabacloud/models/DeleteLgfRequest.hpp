@@ -66,12 +66,17 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If omitted, the default business space is used. You can find this key on the Business Management page of your primary account.
     shared_ptr<string> agentKey_ {};
+    // The robot ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
-    // lgf Id
+    // The ID of the LGF configuration.
     // 
     // This parameter is required.
     shared_ptr<int64_t> lgfId_ {};

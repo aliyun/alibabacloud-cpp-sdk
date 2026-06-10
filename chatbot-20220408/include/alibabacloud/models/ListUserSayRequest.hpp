@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If you omit this parameter, the default business space is used. You can obtain the key from the Business Management page of your Alibaba Cloud account.
     shared_ptr<string> agentKey_ {};
+    // The keywords used to filter user says. The query returns only user says that contain these keywords.
     shared_ptr<string> content_ {};
+    // The ID of the bot.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the intent.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The default value is 10. The maximum value is 1000.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The business space key. If not specified, the default business space is used. You can get the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The name of the perspective. The name must be 50 characters or fewer.
     shared_ptr<string> name_ {};
+    // The perspective ID.
     shared_ptr<string> perspectiveId_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The outline ID.
     shared_ptr<int64_t> outlineId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

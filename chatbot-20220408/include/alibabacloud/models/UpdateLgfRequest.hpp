@@ -73,8 +73,12 @@ namespace Models
 
 
     protected:
+      // The intent ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
+      // The LGF configuration.
+      // 
       // This parameter is required.
       shared_ptr<string> ruleText_ {};
     };
@@ -112,12 +116,17 @@ namespace Models
 
 
   protected:
+    // The key for the business space. If omitted, the default business space is used. You can get the key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The bot ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The LGF definition.
+    // 
     // This parameter is required.
     shared_ptr<UpdateLgfRequest::LgfDefinition> lgfDefinition_ {};
-    // LGF ID
+    // The LGF ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> lgfId_ {};

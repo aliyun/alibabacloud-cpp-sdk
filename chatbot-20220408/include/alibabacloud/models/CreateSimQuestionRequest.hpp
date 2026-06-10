@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The business space key. If omitted, the default business space is used. You can find the key on the business management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The knowledge ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
+    // The similar question title. Maximum length: 120 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If this parameter is not specified, the default business space is used. You can obtain the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The business code.
     shared_ptr<string> bizCode_ {};
+    // The knowledge type. Valid values are 1 for an FAQ category and 3 for a document category. The default value is 1.
     shared_ptr<int32_t> knowledgeType_ {};
+    // The category name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The ID of the parent category. Defaults to -1, which indicates the root category.
     shared_ptr<int64_t> parentCategoryId_ {};
   };
 

@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The business code.
       shared_ptr<string> bizCode_ {};
+      // The category ID.
       shared_ptr<int64_t> categoryId_ {};
+      // The category name.
       shared_ptr<string> name_ {};
+      // The parent category ID.
       shared_ptr<int64_t> parentCategoryId_ {};
+      // The status of the category. Valid values: `0` (Normal) and `-1` (Deleted).
       shared_ptr<int32_t> status_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // An array of categories.
     shared_ptr<vector<ListCategoryResponseBody::Categories>> categories_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

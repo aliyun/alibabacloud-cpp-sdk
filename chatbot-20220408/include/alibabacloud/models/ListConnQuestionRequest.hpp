@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The key for the workspace. If omitted, the default workspace is used. You can find this key on the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the knowledge item.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
   };

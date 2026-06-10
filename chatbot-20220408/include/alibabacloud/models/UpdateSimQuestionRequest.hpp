@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The key of the workspace. If you do not specify this parameter, the default workspace is used. You can find the key on the Business Management page of your master account.
     shared_ptr<string> agentKey_ {};
+    // The ID of the similar question that you want to update.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> simQuestionId_ {};
+    // The new title of the similar question. The title can be up to 120 characters long.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

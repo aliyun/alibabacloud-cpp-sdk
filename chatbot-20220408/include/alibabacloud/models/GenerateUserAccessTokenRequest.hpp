@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The key of the business space. If you do not specify this parameter, the system accesses the default business space. You can obtain the key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // The user\\"s email address.
     shared_ptr<string> email_ {};
+    // This parameter is reserved. You do not need to specify it.
     shared_ptr<int32_t> expireTime_ {};
+    // Additional information formatted as a JSON string.
     shared_ptr<string> extraInfo_ {};
+    // The external user ID.
+    // 
     // This parameter is required.
     shared_ptr<string> foreignId_ {};
+    // The visitor\\"s nickname.
+    // 
     // This parameter is required.
     shared_ptr<string> nick_ {};
+    // The user\\"s telephone number.
     shared_ptr<string> telephone_ {};
   };
 

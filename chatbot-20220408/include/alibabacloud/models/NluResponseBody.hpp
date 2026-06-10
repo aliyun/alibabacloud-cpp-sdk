@@ -161,9 +161,13 @@ namespace Models
 
 
           protected:
+            // The name of the entity.
             shared_ptr<string> name_ {};
+            // The original word for the entity, also known as an entity member.
             shared_ptr<string> origin_ {};
+            // The type of the entity. Currently, only the `text` type is supported.
             shared_ptr<string> type_ {};
+            // The entity\\"s synonym.
             shared_ptr<string> value_ {};
           };
 
@@ -214,11 +218,17 @@ namespace Models
 
 
         protected:
+          // The intent ID.
           shared_ptr<int64_t> intentId_ {};
+          // The details of the matching process.
           shared_ptr<string> matchDetail_ {};
+          // The match type. Valid values are `Similarity` (match by utterance similarity), `Lgf` (match by LGF), `Classify` (match by model training), `FewShotLearning` (match by the built-in few-shot learning model), and `BuildIn` (match with a built-in intent).
           shared_ptr<string> matchType_ {};
+          // The name of the intent.
           shared_ptr<string> name_ {};
+          // The confidence score of the match.
           shared_ptr<double> score_ {};
+          // The list of slots for the matched intent.
           shared_ptr<vector<IntentList::SlotList>> slotList_ {};
         };
 
@@ -278,9 +288,13 @@ namespace Models
 
 
         protected:
+          // The name of the entity.
           shared_ptr<string> name_ {};
+          // The original word for the entity, also known as an entity member.
           shared_ptr<string> origin_ {};
+          // The type of the entity. Currently, only the `text` type is supported.
           shared_ptr<string> type_ {};
+          // The entity\\"s synonym.
           shared_ptr<string> value_ {};
         };
 
@@ -305,7 +319,9 @@ namespace Models
 
 
       protected:
+        // The list of entities.
         shared_ptr<vector<DsNluInfo::EntityList>> entityList_ {};
+        // The list of intents.
         shared_ptr<vector<DsNluInfo::IntentList>> intentList_ {};
       };
 
@@ -368,7 +384,9 @@ namespace Models
 
 
         protected:
+          // The standard word.
           shared_ptr<string> standardWord_ {};
+          // The synonym.
           shared_ptr<string> word_ {};
         };
 
@@ -410,7 +428,9 @@ namespace Models
 
 
         protected:
+          // The standard word.
           shared_ptr<string> standardWord_ {};
+          // The synonym.
           shared_ptr<string> word_ {};
         };
 
@@ -435,7 +455,9 @@ namespace Models
 
 
       protected:
+        // The list of global dictionary entries.
         shared_ptr<vector<DialogHubNluInfo::GlobalDictList>> globalDictList_ {};
+        // The list of global sensitive words.
         shared_ptr<vector<DialogHubNluInfo::GlobalSensitiveWordList>> globalSensitiveWordList_ {};
       };
 
@@ -460,7 +482,9 @@ namespace Models
 
 
     protected:
+      // The natural language understanding information from DialogHub.
       shared_ptr<Messages::DialogHubNluInfo> dialogHubNluInfo_ {};
+      // The natural language understanding information from Dialog Studio.
       shared_ptr<Messages::DsNluInfo> dsNluInfo_ {};
     };
 
@@ -490,8 +514,11 @@ namespace Models
 
 
   protected:
+    // The ID of the natural language understanding response.
     shared_ptr<string> messageId_ {};
+    // The list of messages.
     shared_ptr<vector<NluResponseBody::Messages>> messages_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

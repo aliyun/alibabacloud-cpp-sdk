@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The business space ID.
       shared_ptr<int64_t> agentId_ {};
+      // The business space signature, used to identify the business space in Platform-as-a-Service (PaaS) API calls.
       shared_ptr<string> agentKey_ {};
+      // The name of the business space.
       shared_ptr<string> agentName_ {};
+      // Details of the associated commodity instance. The object keys are commodity codes.
       Darabonba::Json instanceInfos_ {};
     };
 
@@ -142,11 +146,15 @@ namespace Models
 
 
   protected:
+    // The list of business spaces.
     shared_ptr<vector<ListAgentResponseBody::Data>> data_ {};
+    // The page number of the returned results.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total count of business spaces that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

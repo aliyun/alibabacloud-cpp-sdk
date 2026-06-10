@@ -97,10 +97,15 @@ namespace Models
 
 
     protected:
+      // The ID of the connected question.
       shared_ptr<int64_t> connQuestionId_ {};
+      // The creation time, in UTC.
       shared_ptr<string> createTime_ {};
+      // The last modification time, in UTC.
       shared_ptr<string> modifyTime_ {};
+      // The relation ID.
       shared_ptr<int64_t> outlineId_ {};
+      // The title of the connected question.
       shared_ptr<string> title_ {};
     };
 
@@ -123,7 +128,9 @@ namespace Models
 
 
   protected:
+    // A list of connected questions.
     shared_ptr<vector<ListConnQuestionResponseBody::Outlines>> outlines_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

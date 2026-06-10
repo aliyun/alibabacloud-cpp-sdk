@@ -124,11 +124,17 @@ namespace Models
 
 
     protected:
+      // Indicates whether the slot can contain an array of values.
       shared_ptr<bool> array_ {};
+      // Indicates whether the slot is configured to encrypt its value.
       shared_ptr<bool> encrypt_ {};
+      // Indicates whether interactive slot filling is enabled. Default value: false.
       shared_ptr<bool> interactive_ {};
+      // The slot name.
       shared_ptr<string> name_ {};
+      // The slot ID.
       shared_ptr<string> slotId_ {};
+      // The value extracted for the slot.
       shared_ptr<string> value_ {};
     };
 
@@ -215,16 +221,27 @@ namespace Models
 
 
   protected:
+    // The intent alias.
     shared_ptr<string> aliasName_ {};
+    // The time when the intent was created, in UTC format.
     shared_ptr<string> createTime_ {};
+    // The creator ID.
     shared_ptr<string> createUserId_ {};
+    // The creator name.
     shared_ptr<string> createUserName_ {};
+    // The intent ID.
     shared_ptr<int64_t> intentId_ {};
+    // The intent name.
     shared_ptr<string> intentName_ {};
+    // The time when the intent was last modified, in UTC format.
     shared_ptr<string> modifyTime_ {};
+    // The modifier ID.
     shared_ptr<string> modifyUserId_ {};
+    // The modifier name.
     shared_ptr<string> modifyUserName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // An array of objects that contain the slot information for the intent.
     shared_ptr<vector<DescribeIntentResponseBody::SlotInfos>> slotInfos_ {};
   };
 

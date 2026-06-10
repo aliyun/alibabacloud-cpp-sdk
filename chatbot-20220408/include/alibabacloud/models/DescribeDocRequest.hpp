@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The key that identifies the workspace. If this parameter is omitted, the default workspace is used. You can find this key on the workspace management page of your root account.
     shared_ptr<string> agentKey_ {};
+    // The knowledge ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> knowledgeId_ {};
+    // Specifies whether to return detailed information for paragraphs. true: Detailed information is returned. false: Detailed information is not returned (default).
     shared_ptr<bool> showDetail_ {};
   };
 

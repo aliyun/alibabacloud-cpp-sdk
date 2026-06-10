@@ -104,8 +104,11 @@ namespace Models
 
 
       protected:
+        // The unique permission group code.
         shared_ptr<string> pgCode_ {};
+        // The English name of the permission group.
         shared_ptr<string> pgEnName_ {};
+        // The name of the permission group.
         shared_ptr<string> pgName_ {};
       };
 
@@ -142,9 +145,13 @@ namespace Models
 
 
     protected:
+      // The name of the page in English.
       shared_ptr<string> enName_ {};
+      // The name of the page.
       shared_ptr<string> name_ {};
+      // The SaaS permission groups.
       shared_ptr<vector<Data::PgInfos>> pgInfos_ {};
+      // The unique code for the SaaS page.
       shared_ptr<string> saasCode_ {};
     };
 
@@ -167,8 +174,9 @@ namespace Models
 
 
   protected:
+    // The permission details for integrated SaaS pages.
     shared_ptr<vector<ListSaasPermissionGroupInfosResponseBody::Data>> data_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

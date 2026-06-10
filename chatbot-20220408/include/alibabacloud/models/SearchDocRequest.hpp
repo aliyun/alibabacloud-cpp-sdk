@@ -209,24 +209,43 @@ namespace Models
 
 
   protected:
+    // The workspace key. If omitted, the default workspace is used. You can obtain this key from the Business Management page of your main account.
     shared_ptr<string> agentKey_ {};
+    // A list of category IDs.
     shared_ptr<vector<int64_t>> categoryIds_ {};
+    // The start of the creation time range.
     shared_ptr<string> createTimeBegin_ {};
+    // The end of the creation time range.
     shared_ptr<string> createTimeEnd_ {};
+    // The name of the creator.
     shared_ptr<string> createUserName_ {};
+    // The start of the expiration time range.
     shared_ptr<string> endTimeBegin_ {};
+    // The end of the expiration time range.
     shared_ptr<string> endTimeEnd_ {};
+    // The search keyword.
     shared_ptr<string> keyword_ {};
+    // The start of the modification time range.
     shared_ptr<string> modifyTimeBegin_ {};
+    // The end of the modification time range.
     shared_ptr<string> modifyTimeEnd_ {};
+    // The name of the last modifier.
     shared_ptr<string> modifyUserName_ {};
+    // The page number to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The task status.<br>Valid values:<br>• -1: Queued<br>• 0: Succeeded<br>• 1: Parsing<br>• 2: Processing<br>• 3: Failed<br><br><br><br><br><br>
     shared_ptr<int32_t> processStatus_ {};
+    // The search scope.<br>Valid values:<br>• 1: Search titles<br>• 2: Search content<br><br><br>
     shared_ptr<int32_t> searchScope_ {};
+    // The start of the effective time range.
     shared_ptr<string> startTimeBegin_ {};
+    // The end of the effective time range.
     shared_ptr<string> startTimeEnd_ {};
+    // The edit status.<br>Valid values:<br>• 1: Unpublished<br>• 2: Published<br>• 3: Updated but not published<br><br><br><br>
     shared_ptr<int32_t> status_ {};
+    // A list of tag IDs. If you provide multiple IDs, the operation returns documents that match at least one of the specified tags (logical OR).
     shared_ptr<vector<int64_t>> tagIds_ {};
   };
 
