@@ -29,6 +29,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClusterVSwitchId, clusterVSwitchId_);
       DARABONBA_PTR_TO_JSON(ClusterVpcId, clusterVpcId_);
       DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_TO_JSON(GrowInterval, growInterval_);
+      DARABONBA_PTR_TO_JSON(IdleInterval, idleInterval_);
       DARABONBA_PTR_TO_JSON(IsEnterpriseSecurityGroup, isEnterpriseSecurityGroup_);
       DARABONBA_PTR_TO_JSON(Manager, manager_);
       DARABONBA_PTR_TO_JSON(MaxCoreCount, maxCoreCount_);
@@ -52,6 +54,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClusterVSwitchId, clusterVSwitchId_);
       DARABONBA_PTR_FROM_JSON(ClusterVpcId, clusterVpcId_);
       DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
+      DARABONBA_PTR_FROM_JSON(GrowInterval, growInterval_);
+      DARABONBA_PTR_FROM_JSON(IdleInterval, idleInterval_);
       DARABONBA_PTR_FROM_JSON(IsEnterpriseSecurityGroup, isEnterpriseSecurityGroup_);
       DARABONBA_PTR_FROM_JSON(Manager, manager_);
       DARABONBA_PTR_FROM_JSON(MaxCoreCount, maxCoreCount_);
@@ -111,9 +115,9 @@ namespace Models
 
 
     protected:
-      // The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+      // The tag key. The key cannot be an empty string. The key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The tag value. The value can be an empty string. The value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -182,11 +186,15 @@ namespace Models
       protected:
         // The scheduler type. Valid values:
         // 
-        // *   SLURM
-        // *   PBS
-        // *   OPENGRIDSCHEDULER
-        // *   LSF_PLUGIN
-        // *   PBS_PLUGIN
+        // - SLURM
+        // 
+        // - PBS
+        // 
+        // - OPENGRIDSCHEDULER
+        // 
+        // - LSF_PLUGIN
+        // 
+        // - PBS_PLUGIN
         shared_ptr<string> type_ {};
         // The scheduler version.
         shared_ptr<string> version_ {};
@@ -230,13 +238,9 @@ namespace Models
 
 
       protected:
-        // The type of the domain account.
-        // 
-        // Valid values:
-        // 
-        // *   NIS
+        // The directory service type.
         shared_ptr<string> type_ {};
-        // The version of the domain account service.
+        // The directory service version.
         shared_ptr<string> version_ {};
       };
 
@@ -278,13 +282,9 @@ namespace Models
 
 
       protected:
-        // The domain name resolution type.
-        // 
-        // Valid values:
-        // 
-        // *   NIS
+        // The DNS service type.
         shared_ptr<string> type_ {};
-        // The version of the domain name resolution service.
+        // The DNS service version.
         shared_ptr<string> version_ {};
       };
 
@@ -327,13 +327,13 @@ namespace Models
 
 
     protected:
-      // The configurations of the domain name resolution service.
+      // Configuration for the DNS service.
       shared_ptr<Manager::DNS> DNS_ {};
-      // The configurations of the domain account service.
+      // Configuration for the directory service.
       shared_ptr<Manager::DirectoryService> directoryService_ {};
-      // The hardware configurations of the management node.
+      // Hardware configuration for the manager node.
       shared_ptr<NodeTemplate> managerNode_ {};
-      // The configurations of the scheduler service.
+      // Configuration for the scheduler.
       shared_ptr<Manager::Scheduler> scheduler_ {};
     };
 
@@ -375,9 +375,9 @@ namespace Models
 
 
     protected:
-      // The runtime parameters of the script after the cluster is created.
+      // The execution parameters for the post-processing script.
       shared_ptr<string> args_ {};
-      // The URL that is used to download the post-processing script.
+      // The download URL for the post-processing script.
       shared_ptr<string> script_ {};
     };
 
@@ -419,13 +419,13 @@ namespace Models
 
 
     protected:
-      // The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+      // The key pair name. The name must be 2 to 128 characters long, start with a letter or a Chinese character, and not start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).
       // 
-      // >  For more information, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
+      // > To use an ECS key pair, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
       shared_ptr<string> keyPairName_ {};
-      // The password for the root user to log on to the node. The password must be 8 to 20 characters in length, and must contain at least 3 of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; \\" < > , . ? /`
+      // The root password of the login node. The password must be 8 to 20 characters long and include characters from at least three of the following categories: uppercase letters, lowercase letters, digits, and special characters. The supported special characters are: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; ‘ < > , . ? /`
       // 
-      // >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
+      // > Use HTTPS when calling the API to prevent password exposure.
       shared_ptr<string> password_ {};
     };
 
@@ -485,15 +485,15 @@ namespace Models
 
 
     protected:
-      // The addon name.
+      // The name of the custom service component.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The resource configurations of the addon.
+      // The resource configuration of the custom service component.
       shared_ptr<string> resourcesSpec_ {};
-      // The service configurations of the addon.
+      // The service configuration of the custom service component.
       shared_ptr<string> servicesSpec_ {};
-      // The addon version.
+      // The version of the custom service component.
       // 
       // This parameter is required.
       shared_ptr<string> version_ {};
@@ -537,17 +537,18 @@ namespace Models
 
 
     protected:
-      // The name of the software that you want to install in the cluster.
+      // The name of the software.
       shared_ptr<string> name_ {};
-      // The version of the software that you want to install in the cluster.
+      // The version of the software.
       shared_ptr<string> version_ {};
     };
 
     virtual bool empty() const override { return this->additionalPackages_ == nullptr
         && this->addons_ == nullptr && this->clientVersion_ == nullptr && this->clusterCategory_ == nullptr && this->clusterCredentials_ == nullptr && this->clusterCustomConfiguration_ == nullptr
         && this->clusterDescription_ == nullptr && this->clusterMode_ == nullptr && this->clusterName_ == nullptr && this->clusterVSwitchId_ == nullptr && this->clusterVpcId_ == nullptr
-        && this->deletionProtection_ == nullptr && this->isEnterpriseSecurityGroup_ == nullptr && this->manager_ == nullptr && this->maxCoreCount_ == nullptr && this->maxCount_ == nullptr
-        && this->queues_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->sharedStorages_ == nullptr && this->tags_ == nullptr; };
+        && this->deletionProtection_ == nullptr && this->growInterval_ == nullptr && this->idleInterval_ == nullptr && this->isEnterpriseSecurityGroup_ == nullptr && this->manager_ == nullptr
+        && this->maxCoreCount_ == nullptr && this->maxCount_ == nullptr && this->queues_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->sharedStorages_ == nullptr && this->tags_ == nullptr; };
     // additionalPackages Field Functions 
     bool hasAdditionalPackages() const { return this->additionalPackages_ != nullptr;};
     void deleteAdditionalPackages() { this->additionalPackages_ = nullptr;};
@@ -640,6 +641,20 @@ namespace Models
     inline CreateClusterRequest& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
+    // growInterval Field Functions 
+    bool hasGrowInterval() const { return this->growInterval_ != nullptr;};
+    void deleteGrowInterval() { this->growInterval_ = nullptr;};
+    inline int32_t getGrowInterval() const { DARABONBA_PTR_GET_DEFAULT(growInterval_, 0) };
+    inline CreateClusterRequest& setGrowInterval(int32_t growInterval) { DARABONBA_PTR_SET_VALUE(growInterval_, growInterval) };
+
+
+    // idleInterval Field Functions 
+    bool hasIdleInterval() const { return this->idleInterval_ != nullptr;};
+    void deleteIdleInterval() { this->idleInterval_ = nullptr;};
+    inline int32_t getIdleInterval() const { DARABONBA_PTR_GET_DEFAULT(idleInterval_, 0) };
+    inline CreateClusterRequest& setIdleInterval(int32_t idleInterval) { DARABONBA_PTR_SET_VALUE(idleInterval_, idleInterval) };
+
+
     // isEnterpriseSecurityGroup Field Functions 
     bool hasIsEnterpriseSecurityGroup() const { return this->isEnterpriseSecurityGroup_ != nullptr;};
     void deleteIsEnterpriseSecurityGroup() { this->isEnterpriseSecurityGroup_ = nullptr;};
@@ -712,70 +727,77 @@ namespace Models
 
 
   protected:
-    // The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
+    // A list of software to install in the cluster. You can specify up to 10 packages.
     shared_ptr<vector<CreateClusterRequest::AdditionalPackages>> additionalPackages_ {};
-    // The configurations of the custom addons in the cluster. Only one addon is supported.
+    // The configuration of the custom service component for the cluster. Only one component is supported.
     shared_ptr<vector<CreateClusterRequest::Addons>> addons_ {};
-    // The client version. By default, the latest version is used.
+    // The version of the E-HPC client. By default, the latest version is used.
     shared_ptr<string> clientVersion_ {};
-    // The cluster type. Valid values:
+    // The edition of the cluster. Valid values:
     // 
-    // *   Standard
-    // *   Serverless
+    // - Standard
+    // 
+    // - Serverless
     shared_ptr<string> clusterCategory_ {};
-    // The access credentials of the cluster.
+    // The security credentials for the cluster.
     shared_ptr<CreateClusterRequest::ClusterCredentials> clusterCredentials_ {};
-    // The post-processing script of the cluster.
+    // The post-processing script for the cluster.
     shared_ptr<CreateClusterRequest::ClusterCustomConfiguration> clusterCustomConfiguration_ {};
-    // The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+    // The description of the cluster. The description must be 2 to 128 characters long and can contain letters, Chinese characters, digits, hyphens (-), and underscores (_).
     shared_ptr<string> clusterDescription_ {};
-    // The deployment mode of the cluster. Valid values:
+    // The cluster\\"s deployment type. Valid values:
     // 
-    // *   Integrated
-    // *   Hybrid
-    // *   Custom
+    // - Integrated: An integrated cluster.
+    // 
+    // - Hybrid: A hybrid cloud cluster.
+    // 
+    // - Custom: A custom cluster.
     shared_ptr<string> clusterMode_ {};
-    // The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+    // The name of the cluster. The name must be 2 to 128 characters long and can contain letters, Chinese characters, digits, hyphens (-), and underscores (_).
     shared_ptr<string> clusterName_ {};
-    // The ID of the vSwitch that you want the cluster to use. The vSwitch must reside in the VPC that is specified by the `ClusterVpcId` parameter.
+    // The ID of the VSwitch for the cluster. The VSwitch must be in the VPC specified by `ClusterVpcId`.
     // 
-    // You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to query information about the created VPCs and vSwitches.
+    // Call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to find available VPCs and VSwitches.
     shared_ptr<string> clusterVSwitchId_ {};
-    // The ID of the virtual private cloud (VPC) in which the cluster resides.
+    // The ID of the VPC for the cluster.
     shared_ptr<string> clusterVpcId_ {};
-    // Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation. Valid values:
+    // Specifies whether to enable deletion protection for the cluster. This feature prevents the cluster from being deleted via the console or the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation.
     // 
-    // *   true
-    // *   false
+    // - true: Enables deletion protection.
+    // 
+    // - false: Disables deletion protection.
     // 
     // Default value: false.
     shared_ptr<bool> deletionProtection_ {};
-    // Specifies whether to use an advanced security group. Valid values:
+    shared_ptr<int32_t> growInterval_ {};
+    shared_ptr<int32_t> idleInterval_ {};
+    // Specifies whether to use an enterprise security group. Valid values:
     // 
-    // *   true: automatically creates and uses an advanced security group.
-    // *   false: automatically creates and uses a basic security group.
+    // - true: The system automatically creates and uses an enterprise security group.
     // 
-    // For more information, see [Basic security groups and advanced security groups](https://help.aliyun.com/document_detail/605897.html).
+    // - false: The system automatically creates and uses a security group.
+    // 
+    // For more information about how to select a security group type, see [Security groups and enterprise security groups](https://help.aliyun.com/document_detail/605897.html).
     shared_ptr<bool> isEnterpriseSecurityGroup_ {};
-    // The configurations of the cluster management node.
+    // Configuration for the cluster manager node.
     shared_ptr<CreateClusterRequest::Manager> manager_ {};
-    // The maximum number of vCPUs that can be used by compute nodes in the cluster. Valid values: 0 to 100,000.
+    // The maximum number of CPU cores that the cluster can manage across all compute nodes. Valid values: 0 to 100,000.
     shared_ptr<int32_t> maxCoreCount_ {};
     // The maximum number of compute nodes that the cluster can manage. Valid values: 0 to 5,000.
     shared_ptr<int32_t> maxCount_ {};
-    // The queues in the cluster. The number of queues can be 0 to 8.
+    // Configuration for the cluster queues. You can specify up to 8 queues.
     shared_ptr<vector<QueueTemplate>> queues_ {};
-    // The ID of the resource group to which the cluster belongs.
+    // The ID of the resource group.
     // 
-    // You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the IDs of the resource groups.
+    // Call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to find resource group IDs.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the security group to which the cluster belongs.
+    // The ID of the security group for the cluster.
     // 
-    // You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query available security groups in the current region.
+    // Call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to find available security groups in the current region.
     shared_ptr<string> securityGroupId_ {};
-    // The shared storage resources of the cluster.
+    // Configuration for the cluster\\"s shared storage.
     shared_ptr<vector<SharedStorageTemplate>> sharedStorages_ {};
-    // The tags of the cluster.
+    // The list of tags to add to the cluster. You can add up to 20 tags.
     shared_ptr<vector<CreateClusterRequest::Tags>> tags_ {};
   };
 

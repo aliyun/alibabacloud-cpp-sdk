@@ -174,10 +174,10 @@ AttachSharedStoragesResponse Client::attachSharedStorages(const AttachSharedStor
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Create a pay-as-you-go or subscription cluster.
  *
- * @description ## [](#)Usage notes
- * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+ * @description ## API
+ * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
  *
  * @param tmpReq CreateClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -268,6 +268,14 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
     query["DeletionProtection"] = request.getDeletionProtection();
   }
 
+  if (!!request.hasGrowInterval()) {
+    query["GrowInterval"] = request.getGrowInterval();
+  }
+
+  if (!!request.hasIdleInterval()) {
+    query["IdleInterval"] = request.getIdleInterval();
+  }
+
   if (!!request.hasIsEnterpriseSecurityGroup()) {
     query["IsEnterpriseSecurityGroup"] = request.getIsEnterpriseSecurityGroup();
   }
@@ -322,10 +330,10 @@ CreateClusterResponse Client::createClusterWithOptions(const CreateClusterReques
 }
 
 /**
- * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Create a pay-as-you-go or subscription cluster.
  *
- * @description ## [](#)Usage notes
- * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+ * @description ## API
+ * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
  *
  * @param request CreateClusterRequest
  * @return CreateClusterResponse
@@ -396,9 +404,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
- *
- * @description ## [](#)
+ * @summary Creates a batch of compute nodes for an E-HPC cluster.
  *
  * @param tmpReq CreateNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -491,9 +497,7 @@ CreateNodesResponse Client::createNodesWithOptions(const CreateNodesRequest &tmp
 }
 
 /**
- * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
- *
- * @description ## [](#)
+ * @summary Creates a batch of compute nodes for an E-HPC cluster.
  *
  * @param request CreateNodesRequest
  * @return CreateNodesResponse
@@ -556,7 +560,7 @@ CreateQueueResponse Client::createQueue(const CreateQueueRequest &request) {
 }
 
 /**
- * @summary 创建预设节点池
+ * @summary Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
  *
  * @param request CreateReservedNodePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -611,7 +615,7 @@ CreateReservedNodePoolResponse Client::createReservedNodePoolWithOptions(const C
 }
 
 /**
- * @summary 创建预设节点池
+ * @summary Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
  *
  * @param request CreateReservedNodePoolRequest
  * @return CreateReservedNodePoolResponse
@@ -840,7 +844,7 @@ DeleteQueuesResponse Client::deleteQueues(const DeleteQueuesRequest &request) {
 }
 
 /**
- * @summary 删除集群预设节点池
+ * @summary Deletes the specified reserved node pool.
  *
  * @param request DeleteReservedNodePoolRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -875,7 +879,7 @@ DeleteReservedNodePoolResponse Client::deleteReservedNodePoolWithOptions(const D
 }
 
 /**
- * @summary 删除集群预设节点池
+ * @summary Deletes the specified reserved node pool.
  *
  * @param request DeleteReservedNodePoolRequest
  * @return DeleteReservedNodePoolResponse
@@ -1090,7 +1094,7 @@ GetAddonResponse Client::getAddon(const GetAddonRequest &request) {
 }
 
 /**
- * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Query information about a specified E-HPC cluster.
  *
  * @param request GetClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1121,7 +1125,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
 }
 
 /**
- * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Query information about a specified E-HPC cluster.
  *
  * @param request GetClusterRequest
  * @return GetClusterResponse
@@ -1296,7 +1300,7 @@ GetJobLogResponse Client::getJobLog(const GetJobLogRequest &request) {
 }
 
 /**
- * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Query the details of a specified queue in an E-HPC cluster.
  *
  * @param request GetQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1331,7 +1335,7 @@ GetQueueResponse Client::getQueueWithOptions(const GetQueueRequest &request, con
 }
 
 /**
- * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Query the details of a specified queue in an E-HPC cluster.
  *
  * @param request GetQueueRequest
  * @return GetQueueResponse
@@ -2078,7 +2082,7 @@ ListQueuesResponse Client::listQueues(const ListQueuesRequest &request) {
 }
 
 /**
- * @summary 查询产品支持的地域列表。
+ * @summary Queries the available regions for the product.
  *
  * @param request ListRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2121,7 +2125,7 @@ ListRegionsResponse Client::listRegionsWithOptions(const ListRegionsRequest &req
 }
 
 /**
- * @summary 查询产品支持的地域列表。
+ * @summary Queries the available regions for the product.
  *
  * @param request ListRegionsRequest
  * @return ListRegionsResponse
@@ -2588,7 +2592,9 @@ UpdateNodesResponse Client::updateNodes(const UpdateNodesRequest &request) {
 }
 
 /**
- * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Updates the configuration of a specified queue in an E-HPC cluster.
+ *
+ * @description When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
  *
  * @param tmpReq UpdateQueueRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2629,7 +2635,9 @@ UpdateQueueResponse Client::updateQueueWithOptions(const UpdateQueueRequest &tmp
 }
 
 /**
- * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+ * @summary Updates the configuration of a specified queue in an E-HPC cluster.
+ *
+ * @description When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
  *
  * @param request UpdateQueueRequest
  * @return UpdateQueueResponse

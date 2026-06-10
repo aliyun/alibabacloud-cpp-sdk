@@ -85,10 +85,10 @@ namespace EHPC20240730
       Models::AttachSharedStoragesResponse attachSharedStorages(const Models::AttachSharedStoragesRequest &request);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Create a pay-as-you-go or subscription cluster.
        *
-       * @description ## [](#)Usage notes
-       * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+       * @description ## API
+       * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
        *
        * @param tmpReq CreateClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -97,10 +97,10 @@ namespace EHPC20240730
       Models::CreateClusterResponse createClusterWithOptions(const Models::CreateClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Create a pay-as-you-go or subscription cluster.
        *
-       * @description ## [](#)Usage notes
-       * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+       * @description ## API
+       * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
        *
        * @param request CreateClusterRequest
        * @return CreateClusterResponse
@@ -129,9 +129,7 @@ namespace EHPC20240730
       Models::CreateJobResponse createJob(const Models::CreateJobRequest &request);
 
       /**
-       * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-       *
-       * @description ## [](#)
+       * @summary Creates a batch of compute nodes for an E-HPC cluster.
        *
        * @param tmpReq CreateNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -140,9 +138,7 @@ namespace EHPC20240730
       Models::CreateNodesResponse createNodesWithOptions(const Models::CreateNodesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-       *
-       * @description ## [](#)
+       * @summary Creates a batch of compute nodes for an E-HPC cluster.
        *
        * @param request CreateNodesRequest
        * @return CreateNodesResponse
@@ -167,7 +163,7 @@ namespace EHPC20240730
       Models::CreateQueueResponse createQueue(const Models::CreateQueueRequest &request);
 
       /**
-       * @summary 创建预设节点池
+       * @summary Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
        *
        * @param request CreateReservedNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -176,7 +172,7 @@ namespace EHPC20240730
       Models::CreateReservedNodePoolResponse createReservedNodePoolWithOptions(const Models::CreateReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建预设节点池
+       * @summary Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
        *
        * @param request CreateReservedNodePoolRequest
        * @return CreateReservedNodePoolResponse
@@ -272,7 +268,7 @@ namespace EHPC20240730
       Models::DeleteQueuesResponse deleteQueues(const Models::DeleteQueuesRequest &request);
 
       /**
-       * @summary 删除集群预设节点池
+       * @summary Deletes the specified reserved node pool.
        *
        * @param request DeleteReservedNodePoolRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -281,7 +277,7 @@ namespace EHPC20240730
       Models::DeleteReservedNodePoolResponse deleteReservedNodePoolWithOptions(const Models::DeleteReservedNodePoolRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除集群预设节点池
+       * @summary Deletes the specified reserved node pool.
        *
        * @param request DeleteReservedNodePoolRequest
        * @return DeleteReservedNodePoolResponse
@@ -357,7 +353,7 @@ namespace EHPC20240730
       Models::GetAddonResponse getAddon(const Models::GetAddonRequest &request);
 
       /**
-       * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Query information about a specified E-HPC cluster.
        *
        * @param request GetClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,7 +362,7 @@ namespace EHPC20240730
       Models::GetClusterResponse getClusterWithOptions(const Models::GetClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Query information about a specified E-HPC cluster.
        *
        * @param request GetClusterRequest
        * @return GetClusterResponse
@@ -431,7 +427,7 @@ namespace EHPC20240730
       Models::GetJobLogResponse getJobLog(const Models::GetJobLogRequest &request);
 
       /**
-       * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Query the details of a specified queue in an E-HPC cluster.
        *
        * @param request GetQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -440,7 +436,7 @@ namespace EHPC20240730
       Models::GetQueueResponse getQueueWithOptions(const Models::GetQueueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Query the details of a specified queue in an E-HPC cluster.
        *
        * @param request GetQueueRequest
        * @return GetQueueResponse
@@ -676,7 +672,7 @@ namespace EHPC20240730
       Models::ListQueuesResponse listQueues(const Models::ListQueuesRequest &request);
 
       /**
-       * @summary 查询产品支持的地域列表。
+       * @summary Queries the available regions for the product.
        *
        * @param request ListRegionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +681,7 @@ namespace EHPC20240730
       Models::ListRegionsResponse listRegionsWithOptions(const Models::ListRegionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询产品支持的地域列表。
+       * @summary Queries the available regions for the product.
        *
        * @param request ListRegionsRequest
        * @return ListRegionsResponse
@@ -857,7 +853,9 @@ namespace EHPC20240730
       Models::UpdateNodesResponse updateNodes(const Models::UpdateNodesRequest &request);
 
       /**
-       * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Updates the configuration of a specified queue in an E-HPC cluster.
+       *
+       * @description When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
        *
        * @param tmpReq UpdateQueueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -866,7 +864,9 @@ namespace EHPC20240730
       Models::UpdateQueueResponse updateQueueWithOptions(const Models::UpdateQueueRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+       * @summary Updates the configuration of a specified queue in an E-HPC cluster.
+       *
+       * @description When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
        *
        * @param request UpdateQueueRequest
        * @return UpdateQueueResponse

@@ -141,26 +141,12 @@ namespace Models
 
 
       protected:
-        // The category into which the software falls.
         shared_ptr<string> category_ {};
-        // The time when the software was installed.
         shared_ptr<string> createTime_ {};
-        // The software description.
         shared_ptr<string> description_ {};
-        // The URL of the software icon.
         shared_ptr<string> icon_ {};
-        // The software name.
         shared_ptr<string> name_ {};
-        // The installation status of the software.
-        // 
-        // Valid values:
-        // 
-        // *   Installed
-        // *   Uninstalled
-        // *   Installing
-        // *   Exception
         shared_ptr<string> status_ {};
-        // The software version.
         shared_ptr<string> version_ {};
       };
 
@@ -218,7 +204,6 @@ namespace Models
 
 
   protected:
-    // The list of installed software.
     shared_ptr<ListInstalledSoftwaresResponseBody::AdditionalPackages> additionalPackages_ {};
     // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};

@@ -184,22 +184,57 @@ namespace Models
 
 
   protected:
+    // The auto scale-out policy for the queue.
     shared_ptr<string> allocationStrategy_ {};
+    // The list of hardware configurations for the compute nodes in the queue. You can specify 0 to 10 configurations.
     shared_ptr<vector<NodeTemplate>> computeNodes_ {};
+    // Indicates whether to enable auto scale-in for the queue. Valid values:
+    // 
+    // - true: enabled
+    // 
+    // - false: disabled
     shared_ptr<bool> enableScaleIn_ {};
+    // Indicates whether to enable auto scale-out for the queue. Valid values:
+    // 
+    // - true: enabled
+    // 
+    // - false: disabled
     shared_ptr<bool> enableScaleOut_ {};
+    // The hostname prefix of the compute nodes in the queue.
+    // 
+    // >Notice: 
+    // 
+    // The prefix can be up to 8 characters in length for Windows operating systems and up to 32 characters in length for Linux operating systems. The prefix can contain only lowercase letters, digits, and hyphens (-).
     shared_ptr<string> hostnamePrefix_ {};
+    // The hostname suffix of the compute nodes in the queue.
     shared_ptr<string> hostnameSuffix_ {};
+    // The initial number of compute nodes in the queue.
     shared_ptr<int32_t> initialCount_ {};
+    // The network type of the compute nodes in the queue. Valid values:
+    // 
+    // - vpc
+    // 
+    // - eRDMA
     shared_ptr<string> interConnect_ {};
+    // The list of nodes in the queue that have deletion protection enabled.
     shared_ptr<vector<string>> keepAliveNodes_ {};
+    // The maximum number of compute nodes in the queue.
     shared_ptr<int32_t> maxCount_ {};
+    // The maximum number of compute nodes that can be scaled out in each cycle.
     shared_ptr<int64_t> maxCountPerCycle_ {};
+    // The minimum number of compute nodes in the queue.
     shared_ptr<int32_t> minCount_ {};
+    // The queue name. The name must be 1 to 15 characters long. It can contain letters from the Unicode letter category, such as English letters and digits, and periods (.).
+    // 
     // This parameter is required.
     shared_ptr<string> queueName_ {};
+    // The name of the instance role attached to the compute nodes in the queue.
     shared_ptr<string> ramRole_ {};
+    // The ID of the reserved node pool that the queue uses.
+    // 
+    // > If this parameter is specified, allocatable nodes from the reserved node pool are used to create compute nodes. The `VSwitchIds`, `HostnamePrefix`, and `HostnameSuffix` parameters are ignored.
     shared_ptr<string> reservedNodePoolId_ {};
+    // A list of virtual switches available to the compute nodes in the queue. You can specify 1 to 5 virtual switches.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

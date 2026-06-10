@@ -118,8 +118,9 @@ namespace Models
       shared_ptr<bool> enablePowerSaving_ {};
       // Indicates whether the topology awareness feature is enabled for the cluster. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enable
+      // 
+      // - false: Disable
       shared_ptr<bool> enableTopologyAwareness_ {};
     };
 
@@ -151,10 +152,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the monitoring component of compute nodes is enabled for the cluster. Valid values:
+      // Indicates whether the monitoring component for compute nodes is enabled for the cluster. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enable
+      // 
+      // - false: Disable
       shared_ptr<bool> enableComputeLoadMonitor_ {};
     };
 
@@ -230,23 +232,33 @@ namespace Models
 
 
       protected:
-        // The scheduler state. Valid values:
+        // The scheduler service status. Valid values:
         // 
-        // *   uninit: The scheduler is being installed.
-        // *   initing: The scheduler is being initialized.
-        // *   running: The scheduler is running.
-        // *   exception: The scheduler has run into an exception.
-        // *   releasing: The scheduler is being released.
-        // *   stopped: The scheduler is stopped.
-        // *   pending: The scheduler is waiting to be configured.
+        // - uninit: Installing
+        // 
+        // - initing: Initializing
+        // 
+        // - running: Running
+        // 
+        // - exception: Abnormal
+        // 
+        // - releasing: Releasing
+        // 
+        // - stopped: Stopped
+        // 
+        // - pending: Pending configuration
         shared_ptr<string> status_ {};
         // The scheduler type. Valid values:
         // 
-        // *   SLURM
-        // *   PBS
-        // *   OPENGRIDSCHEDULER
-        // *   LSF_PLUGIN
-        // *   PBS_PLUGIN
+        // - SLURM
+        // 
+        // - PBS
+        // 
+        // - OPENGRIDSCHEDULER
+        // 
+        // - LSF_PLUGIN
+        // 
+        // - PBS_PLUGIN
         shared_ptr<string> type_ {};
         // The scheduler version.
         shared_ptr<string> version_ {};
@@ -458,17 +470,18 @@ namespace Models
         shared_ptr<int64_t> autoRenewPeriod_ {};
         shared_ptr<int64_t> duration_ {};
         shared_ptr<bool> enableHt_ {};
-        // The expiration time of the management node.
+        // The expiration time of the control plane node.
         shared_ptr<string> expiredTime_ {};
         shared_ptr<string> imageId_ {};
-        // The instance billing method of the management node. Valid values:
+        // The billing method of the control plane node instance. Valid values:
         // 
-        // *   PostPaid: pay-as-you-go
-        // *   PrePaid: subscription
+        // - PostPaid: Pay-as-you-go
+        // 
+        // - PrePaid: Subscription
         shared_ptr<string> instanceChargeType_ {};
-        // The instance ID of the management node.
+        // The control plane node instance ID.
         shared_ptr<string> instanceId_ {};
-        // The instance type of the management node.
+        // The control plane node instance type.
         shared_ptr<string> instanceType_ {};
         shared_ptr<int64_t> period_ {};
         shared_ptr<string> periodUnit_ {};
@@ -524,19 +537,25 @@ namespace Models
 
 
       protected:
-        // The state of the domain account service. Valid values:
+        // The domain account service status. Valid values:
         // 
-        // *   uninit: The service is being installed.
-        // *   initing: The service is being initialized.
-        // *   running: The service is running.
-        // *   exception: The service has run into an exception.
-        // *   releasing: The service is being released.
-        // *   stopped: The service is stopped.
-        // *   pending: The service is waiting to be configured.
+        // - uninit: Installing
+        // 
+        // - initing: Initializing
+        // 
+        // - running: Running
+        // 
+        // - exception: Abnormal
+        // 
+        // - releasing: Releasing
+        // 
+        // - stopped: Stopped
+        // 
+        // - pending: Pending configuration
         shared_ptr<string> status_ {};
-        // The type of the domain account.
+        // The domain account type.
         shared_ptr<string> type_ {};
-        // The version of the domain account service.
+        // The domain account version.
         shared_ptr<string> version_ {};
       };
 
@@ -587,19 +606,25 @@ namespace Models
 
 
       protected:
-        // The state of the domain name resolution service. Valid values:
+        // The domain name resolution service status. Valid values:
         // 
-        // *   uninit: The service is being installed.
-        // *   initing: The service is being initialized.
-        // *   running: The service is running.
-        // *   exception: The service has run into an exception.
-        // *   releasing: The service is being released.
-        // *   stopped: The service is stopped.
-        // *   pending: The service is waiting to be configured.
+        // - uninit: Installing
+        // 
+        // - initing: Initializing
+        // 
+        // - running: Running
+        // 
+        // - exception: Abnormal
+        // 
+        // - releasing: Releasing
+        // 
+        // - stopped: Stopped
+        // 
+        // - pending: Pending configuration
         shared_ptr<string> status_ {};
-        // The resolution type.
+        // The domain name resolution type.
         shared_ptr<string> type_ {};
-        // The version of the resolution service.
+        // The domain name resolution version.
         shared_ptr<string> version_ {};
       };
 
@@ -642,13 +667,13 @@ namespace Models
 
 
     protected:
-      // The configurations of the domain name resolution service.
+      // The domain name resolution service configuration.
       shared_ptr<Manager::DNS> DNS_ {};
-      // The information about the domain account service.
+      // The domain account service information.
       shared_ptr<Manager::DirectoryService> directoryService_ {};
-      // The configurations of the management node.
+      // The control plane node configuration.
       shared_ptr<Manager::ManagerNode> managerNode_ {};
-      // The information about the scheduler.
+      // The scheduler service information.
       shared_ptr<Manager::Scheduler> scheduler_ {};
     };
 
@@ -690,9 +715,9 @@ namespace Models
 
 
     protected:
-      // The arguments that are used to run the script after the scrip is installed.
+      // The runtime parameters of the post-installation script.
       shared_ptr<string> args_ {};
-      // The URL that is used to download the post-processing script.
+      // The download URL of the post-processing script.
       shared_ptr<string> script_ {};
     };
 
@@ -886,79 +911,93 @@ namespace Models
 
 
   protected:
-    // The E-HPC Util version.
+    // The E-HPC Util version used by the cluster.
     shared_ptr<string> clientVersion_ {};
-    // The cluster type. Valid values:
+    // The cluster series. Valid values:
     // 
-    // *   Standard
-    // *   Serverless
+    // - Standard
+    // 
+    // - Serverless
     shared_ptr<string> clusterCategory_ {};
-    // The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+    // The cluster creation time. The time follows the ISO 8601 standard and is in UTC+0. The format is yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
     shared_ptr<string> clusterCreateTime_ {};
-    // The post-processing script of the cluster.
+    // The cluster post-processing script.
     shared_ptr<GetClusterResponseBody::ClusterCustomConfiguration> clusterCustomConfiguration_ {};
-    // The cluster ID.
+    // The E-HPC cluster ID.
     shared_ptr<string> clusterId_ {};
     // The deployment type of the cluster. Valid values:
     // 
-    // *   Integrated: The cluster is deployed on a public cloud.
-    // *   Hybrid: The cluster is deployed on a hybrid cloud.
-    // *   Custom: The cluster is a custom cluster.
+    // - Integrated: Public cloud
+    // 
+    // - Hybrid: Hybrid cloud
+    // 
+    // - Custom: Custom cluster
     shared_ptr<string> clusterMode_ {};
-    // The time when the cluster was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+    // The cluster modification time. The time follows the ISO 8601 standard and is in UTC+0. The format is yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
     shared_ptr<string> clusterModifyTime_ {};
-    // The cluster name.
+    // The E-HPC cluster name.
     shared_ptr<string> clusterName_ {};
-    // The cluster state. Valid values:
+    // The cluster status. Valid values:
     // 
-    // *   uninit: The cluster is being installed.
-    // *   creating: The cluster is being created.
-    // *   initing: The cluster is being initialized.
-    // *   running: The cluster is running.
-    // *   exception: The cluster has run into an exception.
-    // *   raleasing: The cluster is being released.
-    // *   stopping: The cluster is being stopped.
-    // *   stopped: The cluster is stopped.
-    // *   pending: The cluster is waiting to be configured.
+    // - uninit: Installing
+    // 
+    // - creating: Creating
+    // 
+    // - initing: Initializing
+    // 
+    // - running: Running
+    // 
+    // - exception: Abnormal
+    // 
+    // - releasing: Releasing
+    // 
+    // - stopping: Stopping
+    // 
+    // - stopped: Stopped
+    // 
+    // - pending: Pending configuration
     shared_ptr<string> clusterStatus_ {};
-    // The ID of the vSwitch used by the cluster.
+    // The virtual switch ID used by the cluster.
     shared_ptr<string> clusterVSwitchId_ {};
-    // The ID of the virtual private cloud (VPC) used by the cluster.
+    // The Virtual Private Cloud (VPC) ID used by the cluster.
     shared_ptr<string> clusterVpcId_ {};
-    // Indicates whether deletion protection is enabled for the cluster. Valid values:
+    // Indicates whether delete protection is enabled for the cluster. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enable delete protection.
+    // 
+    // - false: Do not enable delete protection.
     shared_ptr<string> deleteProtection_ {};
-    // The E-HPC version.
+    // The E-HPC product version number.
     shared_ptr<string> ehpcVersion_ {};
-    // Indicates whether automatic scale-in is enabled for the cluster. Valid values:
+    // Indicates whether auto scale-in is enabled for the cluster. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enable
+    // 
+    // - false: Disable
     shared_ptr<bool> enableScaleIn_ {};
-    // Indicates whether automatic scale-out is enabled for the cluster. Valid values:
+    // Indicates whether auto scale-out is enabled for the cluster. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enable
+    // 
+    // - false: Disable
     shared_ptr<bool> enableScaleOut_ {};
-    // The interval at which the cluster is automatically scaled out.
+    // The interval for cluster auto scale-out.
     shared_ptr<int32_t> growInterval_ {};
-    // The idle duration of the compute nodes allowed by the cluster.
+    // The idle time of the cluster\\"s compute nodes.
     shared_ptr<int32_t> idleInterval_ {};
-    // The management node configurations.
+    // The cluster control plane node configuration.
     shared_ptr<GetClusterResponseBody::Manager> manager_ {};
-    // The maximum total number of vCPUs that can be used by all compute nodes managed by the cluster.
+    // The total number of cores of compute nodes the cluster can manage.
     shared_ptr<string> maxCoreCount_ {};
-    // The maximum number of compute nodes that the cluster can manage.
+    // The number of compute nodes the cluster can manage.
     shared_ptr<string> maxCount_ {};
-    // The monitoring details of the cluster.
+    // The cluster monitoring details.
     shared_ptr<GetClusterResponseBody::MonitorSpec> monitorSpec_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The scheduler specifications of the cluster.
+    // The cluster scheduling details.
     shared_ptr<GetClusterResponseBody::SchedulerSpec> schedulerSpec_ {};
     // The security group ID.
     shared_ptr<string> securityGroupId_ {};

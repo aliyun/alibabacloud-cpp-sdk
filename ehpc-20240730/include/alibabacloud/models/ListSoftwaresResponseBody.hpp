@@ -183,12 +183,7 @@ namespace Models
 
 
               protected:
-                // The OS architecture. Valid values:
-                // 
-                // *   x86_64
-                // *   arm64
                 shared_ptr<string> architecture_ {};
-                // The image tag.
                 shared_ptr<string> osTag_ {};
               };
 
@@ -232,11 +227,8 @@ namespace Models
 
 
           protected:
-            // Indicates whether the version is the latest.
             shared_ptr<string> latest_ {};
-            // The information about the supported OSs.
             shared_ptr<VersionInfos::SupportOs> supportOs_ {};
-            // The software version.
             shared_ptr<string> version_ {};
           };
 
@@ -294,15 +286,10 @@ namespace Models
 
 
       protected:
-        // The application category.
         shared_ptr<string> category_ {};
-        // The software description.
         shared_ptr<string> description_ {};
-        // The URL of the software icon.
         shared_ptr<string> icon_ {};
-        // The software name.
         shared_ptr<string> name_ {};
-        // The information about the software versions that can be installed in the cluster.
         shared_ptr<AdditionalPackageInfos::Versions> versions_ {};
       };
 
@@ -360,7 +347,6 @@ namespace Models
 
 
   protected:
-    // The information about the software that can be installed in the cluster.
     shared_ptr<ListSoftwaresResponseBody::AdditionalPackages> additionalPackages_ {};
     // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};

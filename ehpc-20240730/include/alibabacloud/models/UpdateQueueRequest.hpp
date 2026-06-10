@@ -205,46 +205,48 @@ namespace Models
 
 
     protected:
-      // The policy based on which instance types are selected for compute nodes during auto scale-outs. Valid values:
+      // The strategy for selecting instance types when the queue scales out automatically. Valid values:
       // 
-      // *   PriorityInstanceType
+      // - PriorityInstanceType
       shared_ptr<string> allocationStrategy_ {};
-      // The hardware configurations of the compute nodes in the queue. Valid values of N: 1 to 10.
+      // The hardware configuration of compute nodes in the queue. Valid values for N: 1 to 10.
       shared_ptr<vector<NodeTemplate>> computeNodes_ {};
-      // Specifies whether to enable auto scale-in for the queue. Valid values:
+      // Enable auto scale-in for the queue. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> enableScaleIn_ {};
-      // Specifies whether to enable auto scale-out for the queue. Valid values:
+      // Enable auto scale-out for the queue. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> enableScaleOut_ {};
-      // The hostname prefix of the added compute nodes.
+      // The hostname prefix for compute nodes in the queue.
       shared_ptr<string> hostnamePrefix_ {};
-      // The hostname suffix of the compute nodes in the queue.
+      // The hostname suffix for compute nodes in the queue.
       shared_ptr<string> hostnameSuffix_ {};
       // The initial number of compute nodes in the queue.
       shared_ptr<int32_t> initialCount_ {};
-      // The type of the network for interconnecting compute nodes in the queue.
+      // The interconnect network type for compute nodes in the queue.
       shared_ptr<string> interConnect_ {};
-      // List of excluded compute nodes in the queue.
+      // The list of exceptional compute nodes in the queue.
       shared_ptr<vector<string>> keepAliveNodes_ {};
-      // The maximum number of compute nodes that the queue can contain.
+      // The maximum number of compute nodes that the queue can retain.
       shared_ptr<int32_t> maxCount_ {};
-      // The minimum number of compute nodes that are added to the queue during an automatic scale-out.
+      // The minimum number of compute nodes created during auto scale-out.
       shared_ptr<int64_t> maxCountPerCycle_ {};
-      // The minimum number of compute nodes that the queue must contain.
+      // The minimum number of nodes that the queue retains.
       shared_ptr<int32_t> minCount_ {};
       // The queue name.
       // 
       // This parameter is required.
       shared_ptr<string> queueName_ {};
-      // The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+      // The name of the instance role attached to compute nodes in the queue.
       shared_ptr<string> ramRole_ {};
       shared_ptr<string> reservedNodePoolId_ {};
-      // The vSwitches available for use by compute nodes in the queue.
+      // The list of vSwitches available for compute nodes in the queue.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
 
@@ -269,9 +271,9 @@ namespace Models
   protected:
     // The cluster ID.
     // 
-    // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+    // Call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to get the cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The information about the queue to be updated.
+    // The queue information to update.
     shared_ptr<UpdateQueueRequest::Queue> queue_ {};
   };
 

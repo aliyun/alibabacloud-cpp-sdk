@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster.
     // 
-    // You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+    // You can call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to query the cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The queue name.
+    // The name of the queue.
     shared_ptr<string> queueName_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The ID of the cluster.
     shared_ptr<string> clusterId_ {};
+    // The number of reserved nodes.
     shared_ptr<int32_t> count_ {};
+    // The description of the reserved node pool.
     shared_ptr<string> description_ {};
+    // The suffix of the hostnames for the reserved nodes.
     shared_ptr<string> hostPostfix_ {};
+    // The prefix of the hostnames for the reserved nodes.
     shared_ptr<string> hostPrefix_ {};
+    // The name of the reserved node pool.
     shared_ptr<string> name_ {};
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
   };
 

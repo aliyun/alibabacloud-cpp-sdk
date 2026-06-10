@@ -66,9 +66,25 @@ namespace Models
 
 
   protected:
+    // The language of the response. The default value is zh-CN. Valid values:
+    // 
+    // - zh-CN (default): Chinese.
+    // 
+    // - en-US: English.
     shared_ptr<string> acceptLanguage_ {};
+    // The maximum number of entries to return on each page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The product name. The default value is Next. Valid values:
+    // 
+    // - Next: The E-HPC Cluster product, formerly known as E-HPC NEXT.
+    // 
+    // - Instant: The E-HPC Instant product.
     shared_ptr<string> specCode_ {};
   };
 

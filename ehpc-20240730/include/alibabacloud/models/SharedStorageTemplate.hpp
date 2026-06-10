@@ -84,11 +84,20 @@ namespace Models
 
 
   protected:
+    // The ID of the mounted file system.
     shared_ptr<string> fileSystemId_ {};
+    // The local mount directory of the attached file system.
     shared_ptr<string> mountDirectory_ {};
+    // The storage mount options of the mounted file system.
     shared_ptr<string> mountOptions_ {};
+    // The address of the mount point of the file system.
     shared_ptr<string> mountTargetDomain_ {};
+    // The remote mount directory of the mounted file system.
     shared_ptr<string> NASDirectory_ {};
+    // The protocol type of the mounted file system. Valid values:
+    // 
+    // *   NFS
+    // *   SMB
     shared_ptr<string> protocolType_ {};
   };
 

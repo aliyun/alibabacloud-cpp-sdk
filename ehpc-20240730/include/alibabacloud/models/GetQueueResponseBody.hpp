@@ -224,50 +224,53 @@ namespace Models
 
 
     protected:
-      // The auto scale-out policy of the queue.
+      // The strategy used for automatic scale-out of the queue.
       shared_ptr<string> allocationStrategy_ {};
-      // The hardware configurations of the compute nodes in the queue.
+      // The hardware configurations of compute nodes in the queue.
       shared_ptr<vector<NodeTemplate>> computeNodes_ {};
       shared_ptr<string> createTime_ {};
-      // Indicates whether auto scale-in is enabled for the queue. Valid values:
+      // Specifies whether automatic scale-in is enabled for the queue. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> enableScaleIn_ {};
-      // Indicates whether auto scale-out is enabled for the queue. Valid values:
+      // Specifies whether automatic scale-out is enabled for the queue. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> enableScaleOut_ {};
-      // The hostname prefix of the compute nodes in the queue.
+      // The hostname prefix for compute nodes in the queue.
       shared_ptr<string> hostnamePrefix_ {};
-      // The hostname suffix of the compute nodes in the queue.
+      // The hostname suffix for compute nodes in the queue.
       shared_ptr<string> hostnameSuffix_ {};
       // The initial number of nodes in the queue.
       shared_ptr<int32_t> initialCount_ {};
-      // The type of the network between compute nodes in the queue. Valid values:
+      // The network type between compute nodes in the queue. Valid values:
       // 
-      // *   vpc
-      // *   eRDMA
+      // - vpc
+      // 
+      // - eRDMA
       shared_ptr<string> interConnect_ {};
-      // The nodes for which deletion protection is enabled in the queue.
+      // The list of nodes with deletion protection enabled in the queue.
       shared_ptr<vector<string>> keepAliveNodes_ {};
-      // The maximum number of compute nodes that the queue can contain.
+      // The maximum number of compute nodes that the queue maintains.
       shared_ptr<int32_t> maxCount_ {};
-      // The minimum number of nodes that are delivered to the queue in each scale-out cycle.
+      // The minimum number of nodes delivered per scale-out cycle.
       shared_ptr<int64_t> maxCountPerCycle_ {};
-      // The minimum number of compute nodes that the queue must contain.
+      // The minimum number of compute nodes that the queue maintains.
       shared_ptr<int32_t> minCount_ {};
-      // The queue name.
+      // The name of the queue.
       // 
       // This parameter is required.
       shared_ptr<string> queueName_ {};
-      // The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+      // The name of the RAM role attached to compute nodes in the queue.
       shared_ptr<string> ramRole_ {};
-      // Preset node pool ID.
+      // The ID of the reserved node pool.
       shared_ptr<string> reservedNodePoolId_ {};
       shared_ptr<string> updateTime_ {};
-      // The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
+      // The list of virtual switches available to compute nodes in the queue. N ranges from 1 to 5.
       shared_ptr<vector<string>> vSwitchIds_ {};
     };
 
@@ -290,9 +293,9 @@ namespace Models
 
 
   protected:
-    // The queue configurations.
+    // The configuration of the queue.
     shared_ptr<GetQueueResponseBody::Queue> queue_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

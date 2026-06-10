@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The name of the region.
       shared_ptr<string> localName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
     };
 
@@ -120,10 +122,19 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The list of available regions.
     shared_ptr<vector<ListRegionsResponseBody::Regions>> regions_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that meet the query conditions.<br>This parameter is optional and may not be returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

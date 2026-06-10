@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The cluster ID.
     shared_ptr<string> clusterId_ {};
+    // The reserved node pool ID.
     shared_ptr<string> id_ {};
   };
 

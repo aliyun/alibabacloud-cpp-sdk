@@ -122,19 +122,10 @@ namespace Models
 
 
       protected:
-        // The time when the user was first added.
         shared_ptr<string> addTime_ {};
-        // The name of the permission group. Valid values:
-        // 
-        // users: ordinary permissions, which are suitable for regular users that need only to submit and debug jobs.
-        // 
-        // wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes.
         shared_ptr<string> group_ {};
-        // The permission group ID.
         shared_ptr<string> groupId_ {};
-        // The user ID.
         shared_ptr<string> userId_ {};
-        // The username.
         shared_ptr<string> userName_ {};
       };
 
@@ -200,7 +191,6 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the users.
     shared_ptr<ListUsersResponseBody::Users> users_ {};
   };
 
