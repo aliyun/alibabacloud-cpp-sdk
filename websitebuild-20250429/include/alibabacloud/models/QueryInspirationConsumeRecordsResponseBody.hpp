@@ -179,6 +179,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ConsumeTime, consumeTime_);
           DARABONBA_PTR_TO_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_TO_JSON(MetaData, metaData_);
+          DARABONBA_PTR_TO_JSON(RecordKey, recordKey_);
           DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
         };
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -187,6 +188,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ConsumeTime, consumeTime_);
           DARABONBA_PTR_FROM_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_FROM_JSON(MetaData, metaData_);
+          DARABONBA_PTR_FROM_JSON(RecordKey, recordKey_);
           DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
         };
         Data() = default ;
@@ -201,7 +203,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->amount_ == nullptr
-        && this->amountStr_ == nullptr && this->consumeTime_ == nullptr && this->consumeType_ == nullptr && this->metaData_ == nullptr && this->sceneName_ == nullptr; };
+        && this->amountStr_ == nullptr && this->consumeTime_ == nullptr && this->consumeType_ == nullptr && this->metaData_ == nullptr && this->recordKey_ == nullptr
+        && this->sceneName_ == nullptr; };
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
@@ -237,6 +240,13 @@ namespace Models
         inline Data& setMetaData(string metaData) { DARABONBA_PTR_SET_VALUE(metaData_, metaData) };
 
 
+        // recordKey Field Functions 
+        bool hasRecordKey() const { return this->recordKey_ != nullptr;};
+        void deleteRecordKey() { this->recordKey_ = nullptr;};
+        inline string getRecordKey() const { DARABONBA_PTR_GET_DEFAULT(recordKey_, "") };
+        inline Data& setRecordKey(string recordKey) { DARABONBA_PTR_SET_VALUE(recordKey_, recordKey) };
+
+
         // sceneName Field Functions 
         bool hasSceneName() const { return this->sceneName_ != nullptr;};
         void deleteSceneName() { this->sceneName_ = nullptr;};
@@ -253,6 +263,7 @@ namespace Models
         shared_ptr<string> consumeType_ {};
         // Extension information (in JSON string format)
         shared_ptr<string> metaData_ {};
+        shared_ptr<string> recordKey_ {};
         // Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
         shared_ptr<string> sceneName_ {};
       };

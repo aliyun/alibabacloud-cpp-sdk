@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_MODELS_APPSERVICEAGGREGATE_HPP_
 #define ALIBABACLOUD_MODELS_APPSERVICEAGGREGATE_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AppServiceGroup.hpp>
+#include <vector>
+#include <alibabacloud/models/TreeNode.hpp>
 #include <alibabacloud/models/AppOperationAddress.hpp>
 #include <alibabacloud/models/AppServiceProfile.hpp>
 using namespace std;
@@ -21,8 +24,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EspBizId, espBizId_);
       DARABONBA_PTR_TO_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_TO_JSON(Group, group_);
       DARABONBA_PTR_TO_JSON(InstanceBizId, instanceBizId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NodeList, nodeList_);
       DARABONBA_PTR_TO_JSON(OperationAddress, operationAddress_);
       DARABONBA_PTR_TO_JSON(Profile, profile_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
@@ -39,8 +44,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EspBizId, espBizId_);
       DARABONBA_PTR_FROM_JSON(GmtCreate, gmtCreate_);
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
+      DARABONBA_PTR_FROM_JSON(Group, group_);
       DARABONBA_PTR_FROM_JSON(InstanceBizId, instanceBizId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NodeList, nodeList_);
       DARABONBA_PTR_FROM_JSON(OperationAddress, operationAddress_);
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
@@ -63,8 +70,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->deleted_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->instanceBizId_ == nullptr && this->name_ == nullptr && this->operationAddress_ == nullptr && this->profile_ == nullptr && this->serviceType_ == nullptr
-        && this->serviceTypeText_ == nullptr && this->slug_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr; };
+        && this->group_ == nullptr && this->instanceBizId_ == nullptr && this->name_ == nullptr && this->nodeList_ == nullptr && this->operationAddress_ == nullptr
+        && this->profile_ == nullptr && this->serviceType_ == nullptr && this->serviceTypeText_ == nullptr && this->slug_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->userId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -107,6 +115,15 @@ namespace Models
     inline AppServiceAggregate& setGmtModified(string gmtModified) { DARABONBA_PTR_SET_VALUE(gmtModified_, gmtModified) };
 
 
+    // group Field Functions 
+    bool hasGroup() const { return this->group_ != nullptr;};
+    void deleteGroup() { this->group_ = nullptr;};
+    inline const AppServiceGroup & getGroup() const { DARABONBA_PTR_GET_CONST(group_, AppServiceGroup) };
+    inline AppServiceGroup getGroup() { DARABONBA_PTR_GET(group_, AppServiceGroup) };
+    inline AppServiceAggregate& setGroup(const AppServiceGroup & group) { DARABONBA_PTR_SET_VALUE(group_, group) };
+    inline AppServiceAggregate& setGroup(AppServiceGroup && group) { DARABONBA_PTR_SET_RVALUE(group_, group) };
+
+
     // instanceBizId Field Functions 
     bool hasInstanceBizId() const { return this->instanceBizId_ != nullptr;};
     void deleteInstanceBizId() { this->instanceBizId_ = nullptr;};
@@ -119,6 +136,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AppServiceAggregate& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nodeList Field Functions 
+    bool hasNodeList() const { return this->nodeList_ != nullptr;};
+    void deleteNodeList() { this->nodeList_ = nullptr;};
+    inline const vector<TreeNode> & getNodeList() const { DARABONBA_PTR_GET_CONST(nodeList_, vector<TreeNode>) };
+    inline vector<TreeNode> getNodeList() { DARABONBA_PTR_GET(nodeList_, vector<TreeNode>) };
+    inline AppServiceAggregate& setNodeList(const vector<TreeNode> & nodeList) { DARABONBA_PTR_SET_VALUE(nodeList_, nodeList) };
+    inline AppServiceAggregate& setNodeList(vector<TreeNode> && nodeList) { DARABONBA_PTR_SET_RVALUE(nodeList_, nodeList) };
 
 
     // operationAddress Field Functions 
@@ -188,8 +214,10 @@ namespace Models
     shared_ptr<string> espBizId_ {};
     shared_ptr<string> gmtCreate_ {};
     shared_ptr<string> gmtModified_ {};
+    shared_ptr<AppServiceGroup> group_ {};
     shared_ptr<string> instanceBizId_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<vector<TreeNode>> nodeList_ {};
     shared_ptr<AppOperationAddress> operationAddress_ {};
     shared_ptr<AppServiceProfile> profile_ {};
     shared_ptr<string> serviceType_ {};

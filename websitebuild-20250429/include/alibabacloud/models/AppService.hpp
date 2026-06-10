@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_APPSERVICE_HPP_
 #define ALIBABACLOUD_MODELS_APPSERVICE_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
+#include <alibabacloud/models/TreeNode.hpp>
 #include <alibabacloud/models/AppServiceProfile.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -22,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(InstanceBizId, instanceBizId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(NodeList, nodeList_);
       DARABONBA_PTR_TO_JSON(Profile, profile_);
       DARABONBA_PTR_TO_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_TO_JSON(ServiceTypeText, serviceTypeText_);
@@ -39,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(InstanceBizId, instanceBizId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(NodeList, nodeList_);
       DARABONBA_PTR_FROM_JSON(Profile, profile_);
       DARABONBA_PTR_FROM_JSON(ServiceType, serviceType_);
       DARABONBA_PTR_FROM_JSON(ServiceTypeText, serviceTypeText_);
@@ -60,8 +64,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->createTime_ == nullptr && this->deleted_ == nullptr && this->endTime_ == nullptr && this->espBizId_ == nullptr && this->gmtModified_ == nullptr
-        && this->instanceBizId_ == nullptr && this->name_ == nullptr && this->profile_ == nullptr && this->serviceType_ == nullptr && this->serviceTypeText_ == nullptr
-        && this->slug_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr; };
+        && this->instanceBizId_ == nullptr && this->name_ == nullptr && this->nodeList_ == nullptr && this->profile_ == nullptr && this->serviceType_ == nullptr
+        && this->serviceTypeText_ == nullptr && this->slug_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->userId_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -116,6 +120,15 @@ namespace Models
     void deleteName() { this->name_ = nullptr;};
     inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline AppService& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+    // nodeList Field Functions 
+    bool hasNodeList() const { return this->nodeList_ != nullptr;};
+    void deleteNodeList() { this->nodeList_ = nullptr;};
+    inline const vector<TreeNode> & getNodeList() const { DARABONBA_PTR_GET_CONST(nodeList_, vector<TreeNode>) };
+    inline vector<TreeNode> getNodeList() { DARABONBA_PTR_GET(nodeList_, vector<TreeNode>) };
+    inline AppService& setNodeList(const vector<TreeNode> & nodeList) { DARABONBA_PTR_SET_VALUE(nodeList_, nodeList) };
+    inline AppService& setNodeList(vector<TreeNode> && nodeList) { DARABONBA_PTR_SET_RVALUE(nodeList_, nodeList) };
 
 
     // profile Field Functions 
@@ -178,6 +191,7 @@ namespace Models
     shared_ptr<string> gmtModified_ {};
     shared_ptr<string> instanceBizId_ {};
     shared_ptr<string> name_ {};
+    shared_ptr<vector<TreeNode>> nodeList_ {};
     shared_ptr<AppServiceProfile> profile_ {};
     shared_ptr<string> serviceType_ {};
     shared_ptr<string> serviceTypeText_ {};
