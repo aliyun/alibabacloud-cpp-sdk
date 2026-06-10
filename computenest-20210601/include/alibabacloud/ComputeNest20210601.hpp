@@ -173,6 +173,74 @@ namespace ComputeNest20210601
       Models::CreateServiceUsageResponse createServiceUsage(const Models::CreateServiceUsageRequest &request);
 
       /**
+       * @summary 创建Skill
+       *
+       * @param request CreateSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkillWithOptions(const Models::CreateSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Skill
+       *
+       * @param request CreateSkillRequest
+       * @return CreateSkillResponse
+       */
+      Models::CreateSkillResponse createSkill(const Models::CreateSkillRequest &request);
+
+      /**
+       * @summary 创建Skill文件检测任务
+       *
+       * @param request CreateSkillFileDetectRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillFileDetectResponse
+       */
+      Models::CreateSkillFileDetectResponse createSkillFileDetectWithOptions(const Models::CreateSkillFileDetectRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建Skill文件检测任务
+       *
+       * @param request CreateSkillFileDetectRequest
+       * @return CreateSkillFileDetectResponse
+       */
+      Models::CreateSkillFileDetectResponse createSkillFileDetect(const Models::CreateSkillFileDetectRequest &request);
+
+      /**
+       * @summary 创建SkillHub配置
+       *
+       * @param request CreateSkillHubConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillHubConfigResponse
+       */
+      Models::CreateSkillHubConfigResponse createSkillHubConfigWithOptions(const Models::CreateSkillHubConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建SkillHub配置
+       *
+       * @param request CreateSkillHubConfigRequest
+       * @return CreateSkillHubConfigResponse
+       */
+      Models::CreateSkillHubConfigResponse createSkillHubConfig(const Models::CreateSkillHubConfigRequest &request);
+
+      /**
+       * @summary 创建SkillSpace
+       *
+       * @param request CreateSkillSpaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSkillSpaceResponse
+       */
+      Models::CreateSkillSpaceResponse createSkillSpaceWithOptions(const Models::CreateSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建SkillSpace
+       *
+       * @param request CreateSkillSpaceRequest
+       * @return CreateSkillSpaceResponse
+       */
+      Models::CreateSkillSpaceResponse createSkillSpace(const Models::CreateSkillSpaceRequest &request);
+
+      /**
        * @summary Delete Compute Nest instance backups.
        *
        * @description ### [](#)Prerequisites
@@ -211,6 +279,40 @@ namespace ComputeNest20210601
        * @return DeleteServiceInstancesResponse
        */
       Models::DeleteServiceInstancesResponse deleteServiceInstances(const Models::DeleteServiceInstancesRequest &request);
+
+      /**
+       * @summary 删除Skill
+       *
+       * @param request DeleteSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除Skill
+       *
+       * @param request DeleteSkillRequest
+       * @return DeleteSkillResponse
+       */
+      Models::DeleteSkillResponse deleteSkill(const Models::DeleteSkillRequest &request);
+
+      /**
+       * @summary 删除SkillSpace
+       *
+       * @param request DeleteSkillSpaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteSkillSpaceResponse
+       */
+      Models::DeleteSkillSpaceResponse deleteSkillSpaceWithOptions(const Models::DeleteSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除SkillSpace
+       *
+       * @param request DeleteSkillSpaceRequest
+       * @return DeleteSkillSpaceResponse
+       */
+      Models::DeleteSkillSpaceResponse deleteSkillSpace(const Models::DeleteSkillSpaceRequest &request);
 
       /**
        * @summary Deploys the created service instance.
@@ -406,6 +508,74 @@ namespace ComputeNest20210601
       Models::GetServiceTemplateParameterConstraintsResponse getServiceTemplateParameterConstraints(const Models::GetServiceTemplateParameterConstraintsRequest &request);
 
       /**
+       * @summary 查询Skill详情
+       *
+       * @param request GetSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkillWithOptions(const Models::GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Skill详情
+       *
+       * @param request GetSkillRequest
+       * @return GetSkillResponse
+       */
+      Models::GetSkillResponse getSkill(const Models::GetSkillRequest &request);
+
+      /**
+       * @summary 查询Skill文件检测结果
+       *
+       * @param request GetSkillFileDetectResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillFileDetectResultResponse
+       */
+      Models::GetSkillFileDetectResultResponse getSkillFileDetectResultWithOptions(const Models::GetSkillFileDetectResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Skill文件检测结果
+       *
+       * @param request GetSkillFileDetectResultRequest
+       * @return GetSkillFileDetectResultResponse
+       */
+      Models::GetSkillFileDetectResultResponse getSkillFileDetectResult(const Models::GetSkillFileDetectResultRequest &request);
+
+      /**
+       * @summary 查询SkillHub配置
+       *
+       * @param request GetSkillHubConfigRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillHubConfigResponse
+       */
+      Models::GetSkillHubConfigResponse getSkillHubConfigWithOptions(const Models::GetSkillHubConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SkillHub配置
+       *
+       * @param request GetSkillHubConfigRequest
+       * @return GetSkillHubConfigResponse
+       */
+      Models::GetSkillHubConfigResponse getSkillHubConfig(const Models::GetSkillHubConfigRequest &request);
+
+      /**
+       * @summary 查询SkillSpace详情
+       *
+       * @param request GetSkillSpaceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSkillSpaceResponse
+       */
+      Models::GetSkillSpaceResponse getSkillSpaceWithOptions(const Models::GetSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SkillSpace详情
+       *
+       * @param request GetSkillSpaceRequest
+       * @return GetSkillSpaceResponse
+       */
+      Models::GetSkillSpaceResponse getSkillSpace(const Models::GetSkillSpaceRequest &request);
+
+      /**
        * @summary Queries the information about a customer.
        *
        * @param request GetUserInformationRequest
@@ -461,6 +631,23 @@ namespace ComputeNest20210601
        * @return ListPoliciesResponse
        */
       Models::ListPoliciesResponse listPolicies(const Models::ListPoliciesRequest &request);
+
+      /**
+       * @summary 查询公开 Skill 列表
+       *
+       * @param request ListPublicSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListPublicSkillsResponse
+       */
+      Models::ListPublicSkillsResponse listPublicSkillsWithOptions(const Models::ListPublicSkillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询公开 Skill 列表
+       *
+       * @param request ListPublicSkillsRequest
+       * @return ListPublicSkillsResponse
+       */
+      Models::ListPublicSkillsResponse listPublicSkills(const Models::ListPublicSkillsRequest &request);
 
       /**
        * @summary Query and list restore tasks
@@ -618,6 +805,57 @@ namespace ComputeNest20210601
        * @return ListServicesResponse
        */
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
+
+      /**
+       * @summary 获取Skill文件列表
+       *
+       * @param request ListSkillFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSkillFilesResponse
+       */
+      Models::ListSkillFilesResponse listSkillFilesWithOptions(const Models::ListSkillFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取Skill文件列表
+       *
+       * @param request ListSkillFilesRequest
+       * @return ListSkillFilesResponse
+       */
+      Models::ListSkillFilesResponse listSkillFiles(const Models::ListSkillFilesRequest &request);
+
+      /**
+       * @summary 查询SkillSpace列表
+       *
+       * @param request ListSkillSpacesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSkillSpacesResponse
+       */
+      Models::ListSkillSpacesResponse listSkillSpacesWithOptions(const Models::ListSkillSpacesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询SkillSpace列表
+       *
+       * @param request ListSkillSpacesRequest
+       * @return ListSkillSpacesResponse
+       */
+      Models::ListSkillSpacesResponse listSkillSpaces(const Models::ListSkillSpacesRequest &request);
+
+      /**
+       * @summary 查询Skill列表
+       *
+       * @param request ListSkillsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSkillsResponse
+       */
+      Models::ListSkillsResponse listSkillsWithOptions(const Models::ListSkillsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询Skill列表
+       *
+       * @param request ListSkillsRequest
+       * @return ListSkillsResponse
+       */
+      Models::ListSkillsResponse listSkills(const Models::ListSkillsRequest &request);
 
       /**
        * @summary Queries the existing tag keys.
@@ -862,6 +1100,23 @@ namespace ComputeNest20210601
        * @return UpdateServiceUsageResponse
        */
       Models::UpdateServiceUsageResponse updateServiceUsage(const Models::UpdateServiceUsageRequest &request);
+
+      /**
+       * @summary 更新Skill
+       *
+       * @param request UpdateSkillRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateSkillResponse
+       */
+      Models::UpdateSkillResponse updateSkillWithOptions(const Models::UpdateSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新Skill
+       *
+       * @param request UpdateSkillRequest
+       * @return UpdateSkillResponse
+       */
+      Models::UpdateSkillResponse updateSkill(const Models::UpdateSkillRequest &request);
 
       /**
        * @summary Updates the information about a customer.

@@ -564,6 +564,234 @@ CreateServiceUsageResponse Client::createServiceUsage(const CreateServiceUsageRe
 }
 
 /**
+ * @summary 创建Skill
+ *
+ * @param request CreateSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSkillResponse
+ */
+CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOssUrl()) {
+    query["OssUrl"] = request.getOssUrl();
+  }
+
+  if (!!request.hasSkillDescription()) {
+    query["SkillDescription"] = request.getSkillDescription();
+  }
+
+  if (!!request.hasSkillLabels()) {
+    query["SkillLabels"] = request.getSkillLabels();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillSpaceId()) {
+    query["SkillSpaceId"] = request.getSkillSpaceId();
+  }
+
+  if (!!request.hasSourceSkillId()) {
+    query["SourceSkillId"] = request.getSourceSkillId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSkill"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSkillResponse>();
+}
+
+/**
+ * @summary 创建Skill
+ *
+ * @param request CreateSkillRequest
+ * @return CreateSkillResponse
+ */
+CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建Skill文件检测任务
+ *
+ * @param request CreateSkillFileDetectRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSkillFileDetectResponse
+ */
+CreateSkillFileDetectResponse Client::createSkillFileDetectWithOptions(const CreateSkillFileDetectRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOssUrl()) {
+    query["OssUrl"] = request.getOssUrl();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSkillFileDetect"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSkillFileDetectResponse>();
+}
+
+/**
+ * @summary 创建Skill文件检测任务
+ *
+ * @param request CreateSkillFileDetectRequest
+ * @return CreateSkillFileDetectResponse
+ */
+CreateSkillFileDetectResponse Client::createSkillFileDetect(const CreateSkillFileDetectRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSkillFileDetectWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建SkillHub配置
+ *
+ * @param request CreateSkillHubConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSkillHubConfigResponse
+ */
+CreateSkillHubConfigResponse Client::createSkillHubConfigWithOptions(const CreateSkillHubConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOssBucketName()) {
+    query["OssBucketName"] = request.getOssBucketName();
+  }
+
+  if (!!request.hasOssRegionId()) {
+    query["OssRegionId"] = request.getOssRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSkillHubConfig"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSkillHubConfigResponse>();
+}
+
+/**
+ * @summary 创建SkillHub配置
+ *
+ * @param request CreateSkillHubConfigRequest
+ * @return CreateSkillHubConfigResponse
+ */
+CreateSkillHubConfigResponse Client::createSkillHubConfig(const CreateSkillHubConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSkillHubConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建SkillSpace
+ *
+ * @param request CreateSkillSpaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSkillSpaceResponse
+ */
+CreateSkillSpaceResponse Client::createSkillSpaceWithOptions(const CreateSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillSpaceDescription()) {
+    query["SkillSpaceDescription"] = request.getSkillSpaceDescription();
+  }
+
+  if (!!request.hasSkillSpaceName()) {
+    query["SkillSpaceName"] = request.getSkillSpaceName();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateSkillSpace"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSkillSpaceResponse>();
+}
+
+/**
+ * @summary 创建SkillSpace
+ *
+ * @param request CreateSkillSpaceRequest
+ * @return CreateSkillSpaceResponse
+ */
+CreateSkillSpaceResponse Client::createSkillSpace(const CreateSkillSpaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSkillSpaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Delete Compute Nest instance backups.
  *
  * @description ### [](#)Prerequisites
@@ -659,6 +887,102 @@ DeleteServiceInstancesResponse Client::deleteServiceInstancesWithOptions(const D
 DeleteServiceInstancesResponse Client::deleteServiceInstances(const DeleteServiceInstancesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteServiceInstancesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除Skill
+ *
+ * @param request DeleteSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSkillResponse
+ */
+DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSkill"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSkillResponse>();
+}
+
+/**
+ * @summary 删除Skill
+ *
+ * @param request DeleteSkillRequest
+ * @return DeleteSkillResponse
+ */
+DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary 删除SkillSpace
+ *
+ * @param request DeleteSkillSpaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSkillSpaceResponse
+ */
+DeleteSkillSpaceResponse Client::deleteSkillSpaceWithOptions(const DeleteSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillSpaceId()) {
+    query["SkillSpaceId"] = request.getSkillSpaceId();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteSkillSpace"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSkillSpaceResponse>();
+}
+
+/**
+ * @summary 删除SkillSpace
+ *
+ * @param request DeleteSkillSpaceRequest
+ * @return DeleteSkillSpaceResponse
+ */
+DeleteSkillSpaceResponse Client::deleteSkillSpace(const DeleteSkillSpaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSkillSpaceWithOptions(request, runtime);
 }
 
 /**
@@ -1354,6 +1678,171 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 }
 
 /**
+ * @summary 查询Skill详情
+ *
+ * @param request GetSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillResponse
+ */
+GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSkill"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillResponse>();
+}
+
+/**
+ * @summary 查询Skill详情
+ *
+ * @param request GetSkillRequest
+ * @return GetSkillResponse
+ */
+GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSkillWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Skill文件检测结果
+ *
+ * @param request GetSkillFileDetectResultRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillFileDetectResultResponse
+ */
+GetSkillFileDetectResultResponse Client::getSkillFileDetectResultWithOptions(const GetSkillFileDetectResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHashKey()) {
+    query["HashKey"] = request.getHashKey();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSkillFileDetectResult"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillFileDetectResultResponse>();
+}
+
+/**
+ * @summary 查询Skill文件检测结果
+ *
+ * @param request GetSkillFileDetectResultRequest
+ * @return GetSkillFileDetectResultResponse
+ */
+GetSkillFileDetectResultResponse Client::getSkillFileDetectResult(const GetSkillFileDetectResultRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSkillFileDetectResultWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SkillHub配置
+ *
+ * @param request GetSkillHubConfigRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillHubConfigResponse
+ */
+GetSkillHubConfigResponse Client::getSkillHubConfigWithOptions(const GetSkillHubConfigRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "GetSkillHubConfig"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillHubConfigResponse>();
+}
+
+/**
+ * @summary 查询SkillHub配置
+ *
+ * @param request GetSkillHubConfigRequest
+ * @return GetSkillHubConfigResponse
+ */
+GetSkillHubConfigResponse Client::getSkillHubConfig(const GetSkillHubConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSkillHubConfigWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SkillSpace详情
+ *
+ * @param request GetSkillSpaceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSkillSpaceResponse
+ */
+GetSkillSpaceResponse Client::getSkillSpaceWithOptions(const GetSkillSpaceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillSpaceId()) {
+    query["SkillSpaceId"] = request.getSkillSpaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetSkillSpace"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSkillSpaceResponse>();
+}
+
+/**
+ * @summary 查询SkillSpace详情
+ *
+ * @param request GetSkillSpaceRequest
+ * @return GetSkillSpaceResponse
+ */
+GetSkillSpaceResponse Client::getSkillSpace(const GetSkillSpaceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSkillSpaceWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the information about a customer.
  *
  * @param request GetUserInformationRequest
@@ -1499,6 +1988,60 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listPoliciesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询公开 Skill 列表
+ *
+ * @param request ListPublicSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListPublicSkillsResponse
+ */
+ListPublicSkillsResponse Client::listPublicSkillsWithOptions(const ListPublicSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNeedDownloadUrl()) {
+    query["NeedDownloadUrl"] = request.getNeedDownloadUrl();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListPublicSkills"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "Anonymous"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(doRPCRequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getBodyType(), req, runtime)).get<ListPublicSkillsResponse>();
+}
+
+/**
+ * @summary 查询公开 Skill 列表
+ *
+ * @param request ListPublicSkillsRequest
+ * @return ListPublicSkillsResponse
+ */
+ListPublicSkillsResponse Client::listPublicSkills(const ListPublicSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listPublicSkillsWithOptions(request, runtime);
 }
 
 /**
@@ -2029,6 +2572,164 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
 ListServicesResponse Client::listServices(const ListServicesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listServicesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取Skill文件列表
+ *
+ * @param request ListSkillFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSkillFilesResponse
+ */
+ListSkillFilesResponse Client::listSkillFilesWithOptions(const ListSkillFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSkillFiles"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSkillFilesResponse>();
+}
+
+/**
+ * @summary 获取Skill文件列表
+ *
+ * @param request ListSkillFilesRequest
+ * @return ListSkillFilesResponse
+ */
+ListSkillFilesResponse Client::listSkillFiles(const ListSkillFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSkillFilesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询SkillSpace列表
+ *
+ * @param request ListSkillSpacesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSkillSpacesResponse
+ */
+ListSkillSpacesResponse Client::listSkillSpacesWithOptions(const ListSkillSpacesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSkillSpaces"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSkillSpacesResponse>();
+}
+
+/**
+ * @summary 查询SkillSpace列表
+ *
+ * @param request ListSkillSpacesRequest
+ * @return ListSkillSpacesResponse
+ */
+ListSkillSpacesResponse Client::listSkillSpaces(const ListSkillSpacesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSkillSpacesWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询Skill列表
+ *
+ * @param request ListSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSkillsResponse
+ */
+ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilter()) {
+    query["Filter"] = request.getFilter();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNeedDownloadUrl()) {
+    query["NeedDownloadUrl"] = request.getNeedDownloadUrl();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSkills"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSkillsResponse>();
+}
+
+/**
+ * @summary 查询Skill列表
+ *
+ * @param request ListSkillsRequest
+ * @return ListSkillsResponse
+ */
+ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSkillsWithOptions(request, runtime);
 }
 
 /**
@@ -2807,6 +3508,78 @@ UpdateServiceUsageResponse Client::updateServiceUsageWithOptions(const UpdateSer
 UpdateServiceUsageResponse Client::updateServiceUsage(const UpdateServiceUsageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return updateServiceUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 更新Skill
+ *
+ * @param request UpdateSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateSkillResponse
+ */
+UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOssUrl()) {
+    query["OssUrl"] = request.getOssUrl();
+  }
+
+  if (!!request.hasSkillDescription()) {
+    query["SkillDescription"] = request.getSkillDescription();
+  }
+
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasSkillLabels()) {
+    query["SkillLabels"] = request.getSkillLabels();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSourceSkillId()) {
+    query["SourceSkillId"] = request.getSourceSkillId();
+  }
+
+  if (!!request.hasSourceType()) {
+    query["SourceType"] = request.getSourceType();
+  }
+
+  json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateSkill"},
+    {"version" , "2021-06-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateSkillResponse>();
+}
+
+/**
+ * @summary 更新Skill
+ *
+ * @param request UpdateSkillRequest
+ * @return UpdateSkillResponse
+ */
+UpdateSkillResponse Client::updateSkill(const UpdateSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateSkillWithOptions(request, runtime);
 }
 
 /**
