@@ -46,6 +46,32 @@ namespace DAS20200116
       Models::AddHDMInstanceResponse addHDMInstance(const Models::AddHDMInstanceRequest &request);
 
       /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request ChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatResponse
+       */
+      FutureGenerator<Models::ChatResponse> chatWithSSE(const Models::ChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request ChatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ChatResponse
+       */
+      Models::ChatResponse chatWithOptions(const Models::ChatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DAS大模型能力异步逻辑接口
+       *
+       * @param request ChatRequest
+       * @return ChatResponse
+       */
+      Models::ChatResponse chat(const Models::ChatRequest &request);
+
+      /**
        * @summary Creates a cache analysis task.
        *
        * @description Before you call this operation, take note of the following items:
@@ -402,6 +428,23 @@ namespace DAS20200116
        * @return DeleteStopGatewayResponse
        */
       Models::DeleteStopGatewayResponse deleteStopGateway(const Models::DeleteStopGatewayRequest &request);
+
+      /**
+       * @summary 获取审计告警日志
+       *
+       * @param request DescribeAuditLogsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeAuditLogsResponse
+       */
+      Models::DescribeAuditLogsResponse describeAuditLogsWithOptions(const Models::DescribeAuditLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取审计告警日志
+       *
+       * @param request DescribeAuditLogsRequest
+       * @return DescribeAuditLogsResponse
+       */
+      Models::DescribeAuditLogsResponse describeAuditLogs(const Models::DescribeAuditLogsRequest &request);
 
       /**
        * @summary Queries the configurations of the auto scaling feature for an instance.
@@ -1633,19 +1676,6 @@ namespace DAS20200116
       Models::GetDeadlockHistogramResponse getDeadlockHistogram(const Models::GetDeadlockHistogramRequest &request);
 
       /**
-       * @param request GetEndpointSwitchTaskRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetEndpointSwitchTaskResponse
-       */
-      Models::GetEndpointSwitchTaskResponse getEndpointSwitchTaskWithOptions(const Models::GetEndpointSwitchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request GetEndpointSwitchTaskRequest
-       * @return GetEndpointSwitchTaskResponse
-       */
-      Models::GetEndpointSwitchTaskResponse getEndpointSwitchTask(const Models::GetEndpointSwitchTaskRequest &request);
-
-      /**
        * @summary Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
        *
        * @description >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
@@ -1775,32 +1805,6 @@ namespace DAS20200116
        * @return GetFullRequestStatResultByInstanceIdResponse
        */
       Models::GetFullRequestStatResultByInstanceIdResponse getFullRequestStatResultByInstanceId(const Models::GetFullRequestStatResultByInstanceIdRequest &request);
-
-      /**
-       * @param request GetHDMAliyunResourceSyncResultRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetHDMAliyunResourceSyncResultResponse
-       */
-      Models::GetHDMAliyunResourceSyncResultResponse getHDMAliyunResourceSyncResultWithOptions(const Models::GetHDMAliyunResourceSyncResultRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request GetHDMAliyunResourceSyncResultRequest
-       * @return GetHDMAliyunResourceSyncResultResponse
-       */
-      Models::GetHDMAliyunResourceSyncResultResponse getHDMAliyunResourceSyncResult(const Models::GetHDMAliyunResourceSyncResultRequest &request);
-
-      /**
-       * @param request GetHDMLastAliyunResourceSyncResultRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetHDMLastAliyunResourceSyncResultResponse
-       */
-      Models::GetHDMLastAliyunResourceSyncResultResponse getHDMLastAliyunResourceSyncResultWithOptions(const Models::GetHDMLastAliyunResourceSyncResultRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @param request GetHDMLastAliyunResourceSyncResultRequest
-       * @return GetHDMLastAliyunResourceSyncResultResponse
-       */
-      Models::GetHDMLastAliyunResourceSyncResultResponse getHDMLastAliyunResourceSyncResult(const Models::GetHDMLastAliyunResourceSyncResultRequest &request);
 
       /**
        * @summary 获取实例组日报详情

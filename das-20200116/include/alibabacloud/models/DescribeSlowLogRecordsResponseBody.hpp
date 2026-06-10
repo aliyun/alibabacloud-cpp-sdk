@@ -89,6 +89,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DbId, dbId_);
           DARABONBA_PTR_TO_JSON(DbInstanceName, dbInstanceName_);
           DARABONBA_PTR_TO_JSON(DocsExamined, docsExamined_);
+          DARABONBA_PTR_TO_JSON(ExtText, extText_);
           DARABONBA_PTR_TO_JSON(Fail, fail_);
           DARABONBA_PTR_TO_JSON(Frows, frows_);
           DARABONBA_PTR_TO_JSON(HostAddress, hostAddress_);
@@ -146,6 +147,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DbId, dbId_);
           DARABONBA_PTR_FROM_JSON(DbInstanceName, dbInstanceName_);
           DARABONBA_PTR_FROM_JSON(DocsExamined, docsExamined_);
+          DARABONBA_PTR_FROM_JSON(ExtText, extText_);
           DARABONBA_PTR_FROM_JSON(Fail, fail_);
           DARABONBA_PTR_FROM_JSON(Frows, frows_);
           DARABONBA_PTR_FROM_JSON(HostAddress, hostAddress_);
@@ -258,15 +260,15 @@ namespace Models
         virtual bool empty() const override { return this->accountName_ == nullptr
         && this->applicationName_ == nullptr && this->CPUTime_ == nullptr && this->CPUTimeSeconds_ == nullptr && this->clientIp_ == nullptr && this->cmd_ == nullptr
         && this->command_ == nullptr && this->DBName_ == nullptr && this->dbId_ == nullptr && this->dbInstanceName_ == nullptr && this->docsExamined_ == nullptr
-        && this->fail_ == nullptr && this->frows_ == nullptr && this->hostAddress_ == nullptr && this->IOWrites_ == nullptr && this->insName_ == nullptr
-        && this->keysExamined_ == nullptr && this->lastRowsCountAffected_ == nullptr && this->lockTime_ == nullptr && this->lockTimeSeconds_ == nullptr && this->logicalIOReads_ == nullptr
-        && this->namespace_ == nullptr && this->nodeId_ == nullptr && this->opType_ == nullptr && this->originTime_ == nullptr && this->params_ == nullptr
-        && this->physicalIOReads_ == nullptr && this->psql_ == nullptr && this->queryId_ == nullptr && this->queryStartTime_ == nullptr && this->queryTime_ == nullptr
-        && this->queryTimeSeconds_ == nullptr && this->reason_ == nullptr && this->reqId_ == nullptr && this->requestSize_ == nullptr && this->responseSize_ == nullptr
-        && this->returnItemNumbers_ == nullptr && this->returnNum_ == nullptr && this->rows_ == nullptr && this->rowsCountAffected_ == nullptr && this->rowsExamined_ == nullptr
-        && this->rowsSent_ == nullptr && this->rt_ == nullptr && this->SQLText_ == nullptr && this->scheme_ == nullptr && this->scnt_ == nullptr
-        && this->sqlId_ == nullptr && this->sqlTag_ == nullptr && this->sqlType_ == nullptr && this->subInstanceId_ == nullptr && this->tableName_ == nullptr
-        && this->templateId_ == nullptr && this->threadId_ == nullptr && this->timestamp_ == nullptr && this->traceId_ == nullptr; };
+        && this->extText_ == nullptr && this->fail_ == nullptr && this->frows_ == nullptr && this->hostAddress_ == nullptr && this->IOWrites_ == nullptr
+        && this->insName_ == nullptr && this->keysExamined_ == nullptr && this->lastRowsCountAffected_ == nullptr && this->lockTime_ == nullptr && this->lockTimeSeconds_ == nullptr
+        && this->logicalIOReads_ == nullptr && this->namespace_ == nullptr && this->nodeId_ == nullptr && this->opType_ == nullptr && this->originTime_ == nullptr
+        && this->params_ == nullptr && this->physicalIOReads_ == nullptr && this->psql_ == nullptr && this->queryId_ == nullptr && this->queryStartTime_ == nullptr
+        && this->queryTime_ == nullptr && this->queryTimeSeconds_ == nullptr && this->reason_ == nullptr && this->reqId_ == nullptr && this->requestSize_ == nullptr
+        && this->responseSize_ == nullptr && this->returnItemNumbers_ == nullptr && this->returnNum_ == nullptr && this->rows_ == nullptr && this->rowsCountAffected_ == nullptr
+        && this->rowsExamined_ == nullptr && this->rowsSent_ == nullptr && this->rt_ == nullptr && this->SQLText_ == nullptr && this->scheme_ == nullptr
+        && this->scnt_ == nullptr && this->sqlId_ == nullptr && this->sqlTag_ == nullptr && this->sqlType_ == nullptr && this->subInstanceId_ == nullptr
+        && this->tableName_ == nullptr && this->templateId_ == nullptr && this->threadId_ == nullptr && this->timestamp_ == nullptr && this->traceId_ == nullptr; };
         // accountName Field Functions 
         bool hasAccountName() const { return this->accountName_ != nullptr;};
         void deleteAccountName() { this->accountName_ = nullptr;};
@@ -342,6 +344,13 @@ namespace Models
         void deleteDocsExamined() { this->docsExamined_ = nullptr;};
         inline string getDocsExamined() const { DARABONBA_PTR_GET_DEFAULT(docsExamined_, "") };
         inline Logs& setDocsExamined(string docsExamined) { DARABONBA_PTR_SET_VALUE(docsExamined_, docsExamined) };
+
+
+        // extText Field Functions 
+        bool hasExtText() const { return this->extText_ != nullptr;};
+        void deleteExtText() { this->extText_ = nullptr;};
+        inline string getExtText() const { DARABONBA_PTR_GET_DEFAULT(extText_, "") };
+        inline Logs& setExtText(string extText) { DARABONBA_PTR_SET_VALUE(extText_, extText) };
 
 
         // fail Field Functions 
@@ -666,6 +675,7 @@ namespace Models
         shared_ptr<string> dbId_ {};
         shared_ptr<string> dbInstanceName_ {};
         shared_ptr<string> docsExamined_ {};
+        shared_ptr<string> extText_ {};
         shared_ptr<string> fail_ {};
         shared_ptr<int64_t> frows_ {};
         shared_ptr<string> hostAddress_ {};

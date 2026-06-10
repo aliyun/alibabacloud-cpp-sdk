@@ -138,6 +138,117 @@ AddHDMInstanceResponse Client::addHDMInstance(const AddHDMInstanceRequest &reque
 }
 
 /**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request ChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatResponse
+ */
+FutureGenerator<ChatResponse> Client::chatWithSSE(const ChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasMessage()) {
+    query["Message"] = request.getMessage();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSummary()) {
+    query["Summary"] = request.getSummary();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Chat"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  FutureGenerator<SSEResponse> sseResp = callSSEApi(params, req, runtime);
+  for (SSEResponse resp : sseResp) {
+    if (!!resp.hasEvent() && !!resp.getEvent().hasData()) {
+      json data = json(json::parse(resp.getEvent().getData()));
+json       __retrun = json(json({
+        {"statusCode" , resp.getStatusCode()},
+        {"headers" , resp.getHeaders()},
+        {"id" , resp.getEvent().getId()},
+        {"event" , resp.getEvent().getEvent()},
+        {"body" , data}
+      })).get<ChatResponse>();
+return Darabonba::FutureGenerator<json>(__retrun);
+    }
+
+  }
+}
+
+/**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request ChatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ChatResponse
+ */
+ChatResponse Client::chatWithOptions(const ChatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentId()) {
+    query["AgentId"] = request.getAgentId();
+  }
+
+  if (!!request.hasMessage()) {
+    query["Message"] = request.getMessage();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["SessionId"] = request.getSessionId();
+  }
+
+  if (!!request.hasSummary()) {
+    query["Summary"] = request.getSummary();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "Chat"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ChatResponse>();
+}
+
+/**
+ * @summary DAS大模型能力异步逻辑接口
+ *
+ * @param request ChatRequest
+ * @return ChatResponse
+ */
+ChatResponse Client::chat(const ChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return chatWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a cache analysis task.
  *
  * @description Before you call this operation, take note of the following items:
@@ -1097,6 +1208,148 @@ DeleteStopGatewayResponse Client::deleteStopGatewayWithOptions(const DeleteStopG
 DeleteStopGatewayResponse Client::deleteStopGateway(const DeleteStopGatewayRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteStopGatewayWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取审计告警日志
+ *
+ * @param request DescribeAuditLogsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeAuditLogsResponse
+ */
+DescribeAuditLogsResponse Client::describeAuditLogsWithOptions(const DescribeAuditLogsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAsyncRequestId()) {
+    query["AsyncRequestId"] = request.getAsyncRequestId();
+  }
+
+  if (!!request.hasClientIp()) {
+    query["ClientIp"] = request.getClientIp();
+  }
+
+  if (!!request.hasClientUa()) {
+    query["ClientUa"] = request.getClientUa();
+  }
+
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasDatabaseName()) {
+    query["DatabaseName"] = request.getDatabaseName();
+  }
+
+  if (!!request.hasEffectRowRange()) {
+    query["EffectRowRange"] = request.getEffectRowRange();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasExecuteTimeRange()) {
+    query["ExecuteTimeRange"] = request.getExecuteTimeRange();
+  }
+
+  if (!!request.hasInstanceName()) {
+    query["InstanceName"] = request.getInstanceName();
+  }
+
+  if (!!request.hasIpType()) {
+    query["IpType"] = request.getIpType();
+  }
+
+  if (!!request.hasLang()) {
+    query["Lang"] = request.getLang();
+  }
+
+  if (!!request.hasLoadWhiteList()) {
+    query["LoadWhiteList"] = request.getLoadWhiteList();
+  }
+
+  if (!!request.hasLogSource()) {
+    query["LogSource"] = request.getLogSource();
+  }
+
+  if (!!request.hasOperateType()) {
+    query["OperateType"] = request.getOperateType();
+  }
+
+  if (!!request.hasOssObjectKey()) {
+    query["OssObjectKey"] = request.getOssObjectKey();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductId()) {
+    query["ProductId"] = request.getProductId();
+  }
+
+  if (!!request.hasRuleAggQuery()) {
+    query["RuleAggQuery"] = request.getRuleAggQuery();
+  }
+
+  if (!!request.hasRuleCategory()) {
+    query["RuleCategory"] = request.getRuleCategory();
+  }
+
+  if (!!request.hasRuleID()) {
+    query["RuleID"] = request.getRuleID();
+  }
+
+  if (!!request.hasRuleId()) {
+    query["RuleId"] = request.getRuleId();
+  }
+
+  if (!!request.hasRuleName()) {
+    query["RuleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasSqlText()) {
+    query["SqlText"] = request.getSqlText();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeAuditLogs"},
+    {"version" , "2020-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeAuditLogsResponse>();
+}
+
+/**
+ * @summary 获取审计告警日志
+ *
+ * @param request DescribeAuditLogsRequest
+ * @return DescribeAuditLogsResponse
+ */
+DescribeAuditLogsResponse Client::describeAuditLogs(const DescribeAuditLogsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeAuditLogsWithOptions(request, runtime);
 }
 
 /**
@@ -4327,72 +4580,6 @@ GetDeadlockHistogramResponse Client::getDeadlockHistogram(const GetDeadlockHisto
 }
 
 /**
- * @param request GetEndpointSwitchTaskRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetEndpointSwitchTaskResponse
- */
-GetEndpointSwitchTaskResponse Client::getEndpointSwitchTaskWithOptions(const GetEndpointSwitchTaskRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasTaskId()) {
-    query["TaskId"] = request.getTaskId();
-  }
-
-  if (!!request.hasUid()) {
-    query["Uid"] = request.getUid();
-  }
-
-  if (!!request.hasUserId()) {
-    query["UserId"] = request.getUserId();
-  }
-
-  if (!!request.hasContext()) {
-    query["__context"] = request.getContext();
-  }
-
-  if (!!request.hasAccessKey()) {
-    query["accessKey"] = request.getAccessKey();
-  }
-
-  if (!!request.hasSignature()) {
-    query["signature"] = request.getSignature();
-  }
-
-  if (!!request.hasSkipAuth()) {
-    query["skipAuth"] = request.getSkipAuth();
-  }
-
-  if (!!request.hasTimestamp()) {
-    query["timestamp"] = request.getTimestamp();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetEndpointSwitchTask"},
-    {"version" , "2020-01-16"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetEndpointSwitchTaskResponse>();
-}
-
-/**
- * @param request GetEndpointSwitchTaskRequest
- * @return GetEndpointSwitchTaskResponse
- */
-GetEndpointSwitchTaskResponse Client::getEndpointSwitchTask(const GetEndpointSwitchTaskRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getEndpointSwitchTaskWithOptions(request, runtime);
-}
-
-/**
  * @summary Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
  *
  * @description >  GetErrorRequestSample is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
@@ -4784,134 +4971,6 @@ GetFullRequestStatResultByInstanceIdResponse Client::getFullRequestStatResultByI
 GetFullRequestStatResultByInstanceIdResponse Client::getFullRequestStatResultByInstanceId(const GetFullRequestStatResultByInstanceIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getFullRequestStatResultByInstanceIdWithOptions(request, runtime);
-}
-
-/**
- * @param request GetHDMAliyunResourceSyncResultRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetHDMAliyunResourceSyncResultResponse
- */
-GetHDMAliyunResourceSyncResultResponse Client::getHDMAliyunResourceSyncResultWithOptions(const GetHDMAliyunResourceSyncResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasTaskId()) {
-    query["TaskId"] = request.getTaskId();
-  }
-
-  if (!!request.hasUid()) {
-    query["Uid"] = request.getUid();
-  }
-
-  if (!!request.hasUserId()) {
-    query["UserId"] = request.getUserId();
-  }
-
-  if (!!request.hasContext()) {
-    query["__context"] = request.getContext();
-  }
-
-  if (!!request.hasAccessKey()) {
-    query["accessKey"] = request.getAccessKey();
-  }
-
-  if (!!request.hasSignature()) {
-    query["signature"] = request.getSignature();
-  }
-
-  if (!!request.hasSkipAuth()) {
-    query["skipAuth"] = request.getSkipAuth();
-  }
-
-  if (!!request.hasTimestamp()) {
-    query["timestamp"] = request.getTimestamp();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetHDMAliyunResourceSyncResult"},
-    {"version" , "2020-01-16"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetHDMAliyunResourceSyncResultResponse>();
-}
-
-/**
- * @param request GetHDMAliyunResourceSyncResultRequest
- * @return GetHDMAliyunResourceSyncResultResponse
- */
-GetHDMAliyunResourceSyncResultResponse Client::getHDMAliyunResourceSyncResult(const GetHDMAliyunResourceSyncResultRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getHDMAliyunResourceSyncResultWithOptions(request, runtime);
-}
-
-/**
- * @param request GetHDMLastAliyunResourceSyncResultRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return GetHDMLastAliyunResourceSyncResultResponse
- */
-GetHDMLastAliyunResourceSyncResultResponse Client::getHDMLastAliyunResourceSyncResultWithOptions(const GetHDMLastAliyunResourceSyncResultRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasUid()) {
-    query["Uid"] = request.getUid();
-  }
-
-  if (!!request.hasUserId()) {
-    query["UserId"] = request.getUserId();
-  }
-
-  if (!!request.hasContext()) {
-    query["__context"] = request.getContext();
-  }
-
-  if (!!request.hasAccessKey()) {
-    query["accessKey"] = request.getAccessKey();
-  }
-
-  if (!!request.hasSignature()) {
-    query["signature"] = request.getSignature();
-  }
-
-  if (!!request.hasSkipAuth()) {
-    query["skipAuth"] = request.getSkipAuth();
-  }
-
-  if (!!request.hasTimestamp()) {
-    query["timestamp"] = request.getTimestamp();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)}
-  }).get<map<string, map<string, string>>>());
-  Params params = Params(json({
-    {"action" , "GetHDMLastAliyunResourceSyncResult"},
-    {"version" , "2020-01-16"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<GetHDMLastAliyunResourceSyncResultResponse>();
-}
-
-/**
- * @param request GetHDMLastAliyunResourceSyncResultRequest
- * @return GetHDMLastAliyunResourceSyncResultResponse
- */
-GetHDMLastAliyunResourceSyncResultResponse Client::getHDMLastAliyunResourceSyncResult(const GetHDMLastAliyunResourceSyncResultRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return getHDMLastAliyunResourceSyncResultWithOptions(request, runtime);
 }
 
 /**

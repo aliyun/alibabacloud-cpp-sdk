@@ -9,6 +9,9 @@
 #include <alibabacloud/models/AddHDMInstanceRequest.hpp>
 #include <alibabacloud/models/AddHDMInstanceResponseBody.hpp>
 #include <alibabacloud/models/AddHDMInstanceResponse.hpp>
+#include <alibabacloud/models/ChatRequest.hpp>
+#include <alibabacloud/models/ChatResponseBody.hpp>
+#include <alibabacloud/models/ChatResponse.hpp>
 #include <alibabacloud/models/CreateCacheAnalysisJobRequest.hpp>
 #include <alibabacloud/models/CreateCacheAnalysisJobResponseBody.hpp>
 #include <alibabacloud/models/CreateCacheAnalysisJobResponse.hpp>
@@ -51,6 +54,9 @@
 #include <alibabacloud/models/DeleteStopGatewayRequest.hpp>
 #include <alibabacloud/models/DeleteStopGatewayResponseBody.hpp>
 #include <alibabacloud/models/DeleteStopGatewayResponse.hpp>
+#include <alibabacloud/models/DescribeAuditLogsRequest.hpp>
+#include <alibabacloud/models/DescribeAuditLogsResponseBody.hpp>
+#include <alibabacloud/models/DescribeAuditLogsResponse.hpp>
 #include <alibabacloud/models/DescribeAutoScalingConfigRequest.hpp>
 #include <alibabacloud/models/DescribeAutoScalingConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeAutoScalingConfigResponse.hpp>
@@ -201,9 +207,6 @@
 #include <alibabacloud/models/GetDeadlockHistogramRequest.hpp>
 #include <alibabacloud/models/GetDeadlockHistogramResponseBody.hpp>
 #include <alibabacloud/models/GetDeadlockHistogramResponse.hpp>
-#include <alibabacloud/models/GetEndpointSwitchTaskRequest.hpp>
-#include <alibabacloud/models/GetEndpointSwitchTaskResponseBody.hpp>
-#include <alibabacloud/models/GetEndpointSwitchTaskResponse.hpp>
 #include <alibabacloud/models/GetErrorRequestSampleRequest.hpp>
 #include <alibabacloud/models/GetErrorRequestSampleResponseBody.hpp>
 #include <alibabacloud/models/GetErrorRequestSampleResponse.hpp>
@@ -219,12 +222,6 @@
 #include <alibabacloud/models/GetFullRequestStatResultByInstanceIdRequest.hpp>
 #include <alibabacloud/models/GetFullRequestStatResultByInstanceIdResponseBody.hpp>
 #include <alibabacloud/models/GetFullRequestStatResultByInstanceIdResponse.hpp>
-#include <alibabacloud/models/GetHDMAliyunResourceSyncResultRequest.hpp>
-#include <alibabacloud/models/GetHDMAliyunResourceSyncResultResponseBody.hpp>
-#include <alibabacloud/models/GetHDMAliyunResourceSyncResultResponse.hpp>
-#include <alibabacloud/models/GetHDMLastAliyunResourceSyncResultRequest.hpp>
-#include <alibabacloud/models/GetHDMLastAliyunResourceSyncResultResponseBody.hpp>
-#include <alibabacloud/models/GetHDMLastAliyunResourceSyncResultResponse.hpp>
 #include <alibabacloud/models/GetInstanceGroupInspectReportDetailRequest.hpp>
 #include <alibabacloud/models/GetInstanceGroupInspectReportDetailResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceGroupInspectReportDetailResponse.hpp>

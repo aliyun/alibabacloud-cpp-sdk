@@ -153,6 +153,8 @@ namespace Models
 
   protected:
     // The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // 
+    // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The filter conditions.
     shared_ptr<vector<CreateSqlLogTaskRequest::Filters>> filters_ {};
@@ -170,6 +172,8 @@ namespace Models
     // *   **polarx_dn**: data node
     shared_ptr<string> role_ {};
     // The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+    // 
+    // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
     // The type of the task. Valid values:
     // 

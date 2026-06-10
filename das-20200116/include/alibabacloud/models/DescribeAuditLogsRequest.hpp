@@ -1,0 +1,302 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBEAUDITLOGSREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBEAUDITLOGSREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace DAS20200116
+{
+namespace Models
+{
+  class DescribeAuditLogsRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeAuditLogsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AsyncRequestId, asyncRequestId_);
+      DARABONBA_PTR_TO_JSON(ClientIp, clientIp_);
+      DARABONBA_PTR_TO_JSON(ClientUa, clientUa_);
+      DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(DatabaseName, databaseName_);
+      DARABONBA_PTR_TO_JSON(EffectRowRange, effectRowRange_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+      DARABONBA_PTR_TO_JSON(ExecuteTimeRange, executeTimeRange_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_TO_JSON(IpType, ipType_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_TO_JSON(LogSource, logSource_);
+      DARABONBA_PTR_TO_JSON(OperateType, operateType_);
+      DARABONBA_PTR_TO_JSON(OssObjectKey, ossObjectKey_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_TO_JSON(ProductId, productId_);
+      DARABONBA_PTR_TO_JSON(RuleAggQuery, ruleAggQuery_);
+      DARABONBA_PTR_TO_JSON(RuleCategory, ruleCategory_);
+      DARABONBA_PTR_TO_JSON(RuleID, ruleID_);
+      DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_TO_JSON(SqlText, sqlText_);
+      DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(UserName, userName_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeAuditLogsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AsyncRequestId, asyncRequestId_);
+      DARABONBA_PTR_FROM_JSON(ClientIp, clientIp_);
+      DARABONBA_PTR_FROM_JSON(ClientUa, clientUa_);
+      DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(DatabaseName, databaseName_);
+      DARABONBA_PTR_FROM_JSON(EffectRowRange, effectRowRange_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+      DARABONBA_PTR_FROM_JSON(ExecuteTimeRange, executeTimeRange_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
+      DARABONBA_PTR_FROM_JSON(IpType, ipType_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(LoadWhiteList, loadWhiteList_);
+      DARABONBA_PTR_FROM_JSON(LogSource, logSource_);
+      DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
+      DARABONBA_PTR_FROM_JSON(OssObjectKey, ossObjectKey_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
+      DARABONBA_PTR_FROM_JSON(ProductId, productId_);
+      DARABONBA_PTR_FROM_JSON(RuleAggQuery, ruleAggQuery_);
+      DARABONBA_PTR_FROM_JSON(RuleCategory, ruleCategory_);
+      DARABONBA_PTR_FROM_JSON(RuleID, ruleID_);
+      DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
+      DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
+      DARABONBA_PTR_FROM_JSON(SqlText, sqlText_);
+      DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(UserName, userName_);
+    };
+    DescribeAuditLogsRequest() = default ;
+    DescribeAuditLogsRequest(const DescribeAuditLogsRequest &) = default ;
+    DescribeAuditLogsRequest(DescribeAuditLogsRequest &&) = default ;
+    DescribeAuditLogsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeAuditLogsRequest() = default ;
+    DescribeAuditLogsRequest& operator=(const DescribeAuditLogsRequest &) = default ;
+    DescribeAuditLogsRequest& operator=(DescribeAuditLogsRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->asyncRequestId_ == nullptr
+        && this->clientIp_ == nullptr && this->clientUa_ == nullptr && this->currentPage_ == nullptr && this->databaseName_ == nullptr && this->effectRowRange_ == nullptr
+        && this->endTime_ == nullptr && this->executeTimeRange_ == nullptr && this->instanceName_ == nullptr && this->ipType_ == nullptr && this->lang_ == nullptr
+        && this->loadWhiteList_ == nullptr && this->logSource_ == nullptr && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr && this->pageSize_ == nullptr
+        && this->productCode_ == nullptr && this->productId_ == nullptr && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr && this->ruleID_ == nullptr
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->startTime_ == nullptr && this->userName_ == nullptr; };
+    // asyncRequestId Field Functions 
+    bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
+    void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
+    inline string getAsyncRequestId() const { DARABONBA_PTR_GET_DEFAULT(asyncRequestId_, "") };
+    inline DescribeAuditLogsRequest& setAsyncRequestId(string asyncRequestId) { DARABONBA_PTR_SET_VALUE(asyncRequestId_, asyncRequestId) };
+
+
+    // clientIp Field Functions 
+    bool hasClientIp() const { return this->clientIp_ != nullptr;};
+    void deleteClientIp() { this->clientIp_ = nullptr;};
+    inline string getClientIp() const { DARABONBA_PTR_GET_DEFAULT(clientIp_, "") };
+    inline DescribeAuditLogsRequest& setClientIp(string clientIp) { DARABONBA_PTR_SET_VALUE(clientIp_, clientIp) };
+
+
+    // clientUa Field Functions 
+    bool hasClientUa() const { return this->clientUa_ != nullptr;};
+    void deleteClientUa() { this->clientUa_ = nullptr;};
+    inline string getClientUa() const { DARABONBA_PTR_GET_DEFAULT(clientUa_, "") };
+    inline DescribeAuditLogsRequest& setClientUa(string clientUa) { DARABONBA_PTR_SET_VALUE(clientUa_, clientUa) };
+
+
+    // currentPage Field Functions 
+    bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
+    void deleteCurrentPage() { this->currentPage_ = nullptr;};
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline DescribeAuditLogsRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // databaseName Field Functions 
+    bool hasDatabaseName() const { return this->databaseName_ != nullptr;};
+    void deleteDatabaseName() { this->databaseName_ = nullptr;};
+    inline string getDatabaseName() const { DARABONBA_PTR_GET_DEFAULT(databaseName_, "") };
+    inline DescribeAuditLogsRequest& setDatabaseName(string databaseName) { DARABONBA_PTR_SET_VALUE(databaseName_, databaseName) };
+
+
+    // effectRowRange Field Functions 
+    bool hasEffectRowRange() const { return this->effectRowRange_ != nullptr;};
+    void deleteEffectRowRange() { this->effectRowRange_ = nullptr;};
+    inline string getEffectRowRange() const { DARABONBA_PTR_GET_DEFAULT(effectRowRange_, "") };
+    inline DescribeAuditLogsRequest& setEffectRowRange(string effectRowRange) { DARABONBA_PTR_SET_VALUE(effectRowRange_, effectRowRange) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline DescribeAuditLogsRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+    // executeTimeRange Field Functions 
+    bool hasExecuteTimeRange() const { return this->executeTimeRange_ != nullptr;};
+    void deleteExecuteTimeRange() { this->executeTimeRange_ = nullptr;};
+    inline string getExecuteTimeRange() const { DARABONBA_PTR_GET_DEFAULT(executeTimeRange_, "") };
+    inline DescribeAuditLogsRequest& setExecuteTimeRange(string executeTimeRange) { DARABONBA_PTR_SET_VALUE(executeTimeRange_, executeTimeRange) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline DescribeAuditLogsRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
+
+
+    // ipType Field Functions 
+    bool hasIpType() const { return this->ipType_ != nullptr;};
+    void deleteIpType() { this->ipType_ = nullptr;};
+    inline string getIpType() const { DARABONBA_PTR_GET_DEFAULT(ipType_, "") };
+    inline DescribeAuditLogsRequest& setIpType(string ipType) { DARABONBA_PTR_SET_VALUE(ipType_, ipType) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline DescribeAuditLogsRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // loadWhiteList Field Functions 
+    bool hasLoadWhiteList() const { return this->loadWhiteList_ != nullptr;};
+    void deleteLoadWhiteList() { this->loadWhiteList_ = nullptr;};
+    inline bool getLoadWhiteList() const { DARABONBA_PTR_GET_DEFAULT(loadWhiteList_, false) };
+    inline DescribeAuditLogsRequest& setLoadWhiteList(bool loadWhiteList) { DARABONBA_PTR_SET_VALUE(loadWhiteList_, loadWhiteList) };
+
+
+    // logSource Field Functions 
+    bool hasLogSource() const { return this->logSource_ != nullptr;};
+    void deleteLogSource() { this->logSource_ = nullptr;};
+    inline string getLogSource() const { DARABONBA_PTR_GET_DEFAULT(logSource_, "") };
+    inline DescribeAuditLogsRequest& setLogSource(string logSource) { DARABONBA_PTR_SET_VALUE(logSource_, logSource) };
+
+
+    // operateType Field Functions 
+    bool hasOperateType() const { return this->operateType_ != nullptr;};
+    void deleteOperateType() { this->operateType_ = nullptr;};
+    inline string getOperateType() const { DARABONBA_PTR_GET_DEFAULT(operateType_, "") };
+    inline DescribeAuditLogsRequest& setOperateType(string operateType) { DARABONBA_PTR_SET_VALUE(operateType_, operateType) };
+
+
+    // ossObjectKey Field Functions 
+    bool hasOssObjectKey() const { return this->ossObjectKey_ != nullptr;};
+    void deleteOssObjectKey() { this->ossObjectKey_ = nullptr;};
+    inline string getOssObjectKey() const { DARABONBA_PTR_GET_DEFAULT(ossObjectKey_, "") };
+    inline DescribeAuditLogsRequest& setOssObjectKey(string ossObjectKey) { DARABONBA_PTR_SET_VALUE(ossObjectKey_, ossObjectKey) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeAuditLogsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // productCode Field Functions 
+    bool hasProductCode() const { return this->productCode_ != nullptr;};
+    void deleteProductCode() { this->productCode_ = nullptr;};
+    inline string getProductCode() const { DARABONBA_PTR_GET_DEFAULT(productCode_, "") };
+    inline DescribeAuditLogsRequest& setProductCode(string productCode) { DARABONBA_PTR_SET_VALUE(productCode_, productCode) };
+
+
+    // productId Field Functions 
+    bool hasProductId() const { return this->productId_ != nullptr;};
+    void deleteProductId() { this->productId_ = nullptr;};
+    inline int64_t getProductId() const { DARABONBA_PTR_GET_DEFAULT(productId_, 0L) };
+    inline DescribeAuditLogsRequest& setProductId(int64_t productId) { DARABONBA_PTR_SET_VALUE(productId_, productId) };
+
+
+    // ruleAggQuery Field Functions 
+    bool hasRuleAggQuery() const { return this->ruleAggQuery_ != nullptr;};
+    void deleteRuleAggQuery() { this->ruleAggQuery_ = nullptr;};
+    inline bool getRuleAggQuery() const { DARABONBA_PTR_GET_DEFAULT(ruleAggQuery_, false) };
+    inline DescribeAuditLogsRequest& setRuleAggQuery(bool ruleAggQuery) { DARABONBA_PTR_SET_VALUE(ruleAggQuery_, ruleAggQuery) };
+
+
+    // ruleCategory Field Functions 
+    bool hasRuleCategory() const { return this->ruleCategory_ != nullptr;};
+    void deleteRuleCategory() { this->ruleCategory_ = nullptr;};
+    inline string getRuleCategory() const { DARABONBA_PTR_GET_DEFAULT(ruleCategory_, "") };
+    inline DescribeAuditLogsRequest& setRuleCategory(string ruleCategory) { DARABONBA_PTR_SET_VALUE(ruleCategory_, ruleCategory) };
+
+
+    // ruleID Field Functions 
+    bool hasRuleID() const { return this->ruleID_ != nullptr;};
+    void deleteRuleID() { this->ruleID_ = nullptr;};
+    inline string getRuleID() const { DARABONBA_PTR_GET_DEFAULT(ruleID_, "") };
+    inline DescribeAuditLogsRequest& setRuleID(string ruleID) { DARABONBA_PTR_SET_VALUE(ruleID_, ruleID) };
+
+
+    // ruleId Field Functions 
+    bool hasRuleId() const { return this->ruleId_ != nullptr;};
+    void deleteRuleId() { this->ruleId_ = nullptr;};
+    inline string getRuleId() const { DARABONBA_PTR_GET_DEFAULT(ruleId_, "") };
+    inline DescribeAuditLogsRequest& setRuleId(string ruleId) { DARABONBA_PTR_SET_VALUE(ruleId_, ruleId) };
+
+
+    // ruleName Field Functions 
+    bool hasRuleName() const { return this->ruleName_ != nullptr;};
+    void deleteRuleName() { this->ruleName_ = nullptr;};
+    inline string getRuleName() const { DARABONBA_PTR_GET_DEFAULT(ruleName_, "") };
+    inline DescribeAuditLogsRequest& setRuleName(string ruleName) { DARABONBA_PTR_SET_VALUE(ruleName_, ruleName) };
+
+
+    // sqlText Field Functions 
+    bool hasSqlText() const { return this->sqlText_ != nullptr;};
+    void deleteSqlText() { this->sqlText_ = nullptr;};
+    inline string getSqlText() const { DARABONBA_PTR_GET_DEFAULT(sqlText_, "") };
+    inline DescribeAuditLogsRequest& setSqlText(string sqlText) { DARABONBA_PTR_SET_VALUE(sqlText_, sqlText) };
+
+
+    // startTime Field Functions 
+    bool hasStartTime() const { return this->startTime_ != nullptr;};
+    void deleteStartTime() { this->startTime_ = nullptr;};
+    inline int64_t getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, 0L) };
+    inline DescribeAuditLogsRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+    // userName Field Functions 
+    bool hasUserName() const { return this->userName_ != nullptr;};
+    void deleteUserName() { this->userName_ = nullptr;};
+    inline string getUserName() const { DARABONBA_PTR_GET_DEFAULT(userName_, "") };
+    inline DescribeAuditLogsRequest& setUserName(string userName) { DARABONBA_PTR_SET_VALUE(userName_, userName) };
+
+
+  protected:
+    shared_ptr<string> asyncRequestId_ {};
+    shared_ptr<string> clientIp_ {};
+    shared_ptr<string> clientUa_ {};
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<string> databaseName_ {};
+    shared_ptr<string> effectRowRange_ {};
+    shared_ptr<int64_t> endTime_ {};
+    shared_ptr<string> executeTimeRange_ {};
+    shared_ptr<string> instanceName_ {};
+    shared_ptr<string> ipType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<bool> loadWhiteList_ {};
+    shared_ptr<string> logSource_ {};
+    shared_ptr<string> operateType_ {};
+    shared_ptr<string> ossObjectKey_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> productCode_ {};
+    shared_ptr<int64_t> productId_ {};
+    shared_ptr<bool> ruleAggQuery_ {};
+    shared_ptr<string> ruleCategory_ {};
+    shared_ptr<string> ruleID_ {};
+    shared_ptr<string> ruleId_ {};
+    shared_ptr<string> ruleName_ {};
+    shared_ptr<string> sqlText_ {};
+    shared_ptr<int64_t> startTime_ {};
+    shared_ptr<string> userName_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace DAS20200116
+#endif
