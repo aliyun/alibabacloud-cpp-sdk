@@ -99,14 +99,19 @@ namespace Models
 
 
   protected:
+    // Whether to ignore volumes defined in the image.
     shared_ptr<bool> ignoreImageDefinedVolume_ {};
-    // Insecure image repositories that skipped the TLS certificate verification.
+    // A list of insecure registries that skip TLS certificate verification.
     shared_ptr<vector<string>> insecureRegistries_ {};
+    // Maximum core dump size in bytes.
     shared_ptr<int64_t> limitCore_ {};
+    // Maximum locked memory in bytes.
     shared_ptr<int64_t> limitMemLock_ {};
+    // Maximum number of open file handles.
     shared_ptr<int64_t> limitNoFile_ {};
+    // The maximum number of concurrent image layer downloads.
     shared_ptr<int64_t> maxConcurrentDownloads_ {};
-    // The image accelerator configuration.
+    // A list of registry mirrors to accelerate image pulls.
     shared_ptr<vector<string>> registryMirrors_ {};
   };
 

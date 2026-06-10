@@ -105,31 +105,47 @@ namespace Models
   protected:
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // After you set `cluster_type` to `ManagedKubernetes` and configure the `profile` parameter, you can further specify the edition of the cluster. Valid values:
+    // The cluster specification. This parameter is valid only when `cluster_type` is set to `ManagedKubernetes` and the `profile` parameter is specified. Valid values:
     // 
-    // *   `ack.pro.small`: ACK Pro cluster.
-    // *   `ack.standard`: ACK Basic cluster. If you leave the parameter empty, ACK Basic cluster is selected.
+    // - `ack.standard`: Standard
+    // 
+    // - `ack.pro.small`: Pro
+    // 
+    // - `ack.pro.xlarge`: Pro XL
+    // 
+    // - `ack.pro.2xlarge`: Pro 2XL
+    // 
+    // - `ack.pro.4xlarge`: Pro 4XL (Contact customer service to enable this option.)
+    // 
+    // Pro XL, Pro 2XL, and Pro 4XL are three tiers provided by the <props="china">[ACK Pro provisioned control plane](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane)<props="intl">[ACK Pro provisioned control plane](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/user-guide/ack-pro-provisioned-control-plane). These tiers pre-allocate and dedicate control plane resources to ensure a consistently high, predictable level of performance for API concurrency and pod scheduling. They are suitable for AI training and inference, ultra-large-scale clusters, and mission-critical workloads.
+    // 
+    // For information about the cluster management fees for Pro and provisioned control plane editions, see <props="china">[Cluster management fee](https://help.aliyun.com/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee)<props="intl">[Cluster management fee](https://www.alibabacloud.com/help/ack/ack-managed-and-ack-dedicated/product-overview/cluster-management-fee).
     shared_ptr<string> clusterSpec_ {};
-    // The type of the instance.
+    // The cluster type.
     // 
-    // *   `Kubernetes`: ACK dedicated cluster.
-    // *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
-    // *   `ExternalKubernetes`: registered cluster
+    // - `Kubernetes`: an ACK dedicated cluster.
+    // 
+    // - `ManagedKubernetes`: an ACK managed cluster. This type includes ACK managed clusters (Pro and Standard), ACK Serverless clusters (Pro and Standard), ACK Edge clusters (Pro and Standard), and ACK Lingjun clusters (Pro).
+    // 
+    // - `ExternalKubernetes`: a registered cluster.
     shared_ptr<string> clusterType_ {};
-    // The cluster name.
+    // The name of the cluster.
     shared_ptr<string> name_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // If you set `cluster_type` to `ManagedKubernetes`, an ACK managed cluster is created. In this case, you can further specify the cluster edition. Valid values:
+    // When `cluster_type` is set to `ManagedKubernetes`, you can further specify a sub-type of the cluster.
     // 
-    // *   `Default`: ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
-    // *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
-    // *   `Serverless`: ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
-    // *   `Lingjun`: ACK Lingjun Pro cluster.
+    // - `Default`: an ACK managed cluster. This includes ACK Pro and ACK Standard clusters.
+    // 
+    // - `Edge`: an ACK Edge cluster. This includes ACK Edge Pro and ACK Edge Standard clusters.
+    // 
+    // - `Serverless`: an ACK Serverless cluster. This includes ACK Serverless Pro and ACK Serverless Standard clusters.
+    // 
+    // - `Lingjun`: an ACK Lingjun cluster (Pro edition).
     shared_ptr<string> profile_ {};
-    // The region ID of the clusters. You can use this parameter to query all clusters in the specified region.
+    // The ID of the region to which the clusters belong.
     shared_ptr<string> regionId_ {};
   };
 

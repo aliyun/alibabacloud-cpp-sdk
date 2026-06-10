@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The list of alert contact IDs.
+    // The alert contact IDs to delete.
     // 
     // This parameter is required.
     shared_ptr<string> contactIdsShrink_ {};

@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The number of the page to return.
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page. Valid values: 1 to 50. Default value: 50.
+      // The number of entries returned per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that match the query.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -168,36 +168,10 @@ namespace Models
 
       protected:
         // The severity level of the event.
-        // 
-        // Valid values:
-        // 
-        // *   warning
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   error
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   info
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> level_ {};
-        // The details of the event.
+        // The event message.
         shared_ptr<string> message_ {};
-        // The status of the event.
+        // The event status.
         shared_ptr<string> reason_ {};
       };
 
@@ -256,19 +230,51 @@ namespace Models
 
 
     protected:
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The description of the event.
+      // The event data.
       shared_ptr<Events::Data> data_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
       // The event source.
       shared_ptr<string> source_ {};
-      // The subject related to the event.
+      // The object associated with the event.
       shared_ptr<string> subject_ {};
-      // The time when the event started.
+      // The time the event occurred.
       shared_ptr<string> time_ {};
-      // The type of event. Valid values:
+      // The event type. Valid values:
+      // 
+      // - `cluster_create`: Cluster creation.
+      // 
+      // - `cluster_scaleout`: Cluster scale-out.
+      // 
+      // - `cluster_attach`: Attaching existing nodes to a cluster.
+      // 
+      // - `cluster_delete`: Cluster deletion.
+      // 
+      // - `cluster_upgrade`: Cluster upgrade.
+      // 
+      // - `cluster_migrate`: Cluster migration.
+      // 
+      // - `cluster_node_delete`: Node removal.
+      // 
+      // - `cluster_node_drain`: Node drain.
+      // 
+      // - `cluster_modify`: Cluster modification.
+      // 
+      // - `cluster_configuration_modify`: Control plane configuration modification.
+      // 
+      // - `cluster_addon_install`: Add-on installation.
+      // 
+      // - `cluster_addon_upgrade`: Add-on upgrade.
+      // 
+      // - `cluster_addon_uninstall`: Add-on uninstallation.
+      // 
+      // - `runtime_upgrade`: Container runtime upgrade.
+      // 
+      // - `nodepool_upgrade`: Node pool upgrade.
+      // 
+      // - `nodepool_update`: Node pool update.
       shared_ptr<string> type_ {};
     };
 
@@ -302,6 +308,7 @@ namespace Models
   protected:
     // The list of events.
     shared_ptr<vector<DescribeClusterEventsResponseBody::Events>> events_ {};
+    // The token used to retrieve the next page of results. If this parameter is empty, there are no more results to return.
     shared_ptr<string> nextToken_ {};
     // The pagination information.
     shared_ptr<DescribeClusterEventsResponseBody::PageInfo> pageInfo_ {};

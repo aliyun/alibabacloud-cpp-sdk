@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The auto-repair policy ID.
     shared_ptr<string> policyId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

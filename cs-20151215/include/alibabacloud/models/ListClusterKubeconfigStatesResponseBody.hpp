@@ -125,9 +125,16 @@ namespace Models
 
 
       protected:
+        // Indicates whether the content matches the default cluster role template.  
+        // 
+        // - true: Matches  
+        // - false: Does not match
         shared_ptr<bool> isDefaultTemplate_ {};
+        // Name of the cluster role associated with the cluster cloud product service role.
         shared_ptr<string> roleName_ {};
+        // Namespace of the cluster role associated with the cluster cloud product service role.
         shared_ptr<string> roleNamespace_ {};
+        // The type of the cluster role associated with the cloud service role of the cluster.
         shared_ptr<string> type_ {};
       };
 
@@ -233,7 +240,9 @@ namespace Models
       // *   Expired: The certificate is expired.
       // *   Unknown: The status of the certificate is unknown.
       shared_ptr<string> certState_ {};
+      // Cloud service name.
       shared_ptr<string> cloudServiceName_ {};
+      // List of cluster roles associated with the cluster cloud product service roles.
       shared_ptr<vector<States::CloudServiceRoles>> cloudServiceRoles_ {};
       // Indicates whether the client certificate for the kubeconfig file can be revoked.
       shared_ptr<bool> revokable_ {};

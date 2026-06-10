@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // Cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // Task ID.
     shared_ptr<string> taskId_ {};
   };
 

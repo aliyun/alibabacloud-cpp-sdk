@@ -60,13 +60,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to evict all pods from the nodes that you want to remove.
     shared_ptr<bool> drainNode_ {};
-    // The list of nodes to be removed.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> nodes_ {};
-    // Specifies whether to release the Elastic Compute Service (ECS) instances when they are removed from the cluster.
     shared_ptr<bool> releaseNode_ {};
   };
 

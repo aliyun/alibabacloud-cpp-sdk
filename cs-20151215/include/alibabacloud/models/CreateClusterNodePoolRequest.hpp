@@ -345,7 +345,13 @@ namespace Models
 
 
       protected:
+        // A list of private pool IDs, which are either Elasticity Assurance service IDs or Capacity Reservation service IDs. This parameter accepts only private pool IDs in Target pattern. The value range for N is 1 to 20.
         shared_ptr<vector<string>> privatePoolIds_ {};
+        // The resource pool policy used when creating an instance. Resource pools include private pools generated after Elasticity Assurance or Capacity Reservation services take effect, as well as the public pool, which are available for selection when starting an instance. Valid values:
+        // PrivatePoolFirst: Private pool first. With this policy, if `resource_pool_options.private_pool_ids` is specified, the specified private pool is used first. If no private pool is specified or the specified private pool lacks sufficient capacity, an open-type private pool is automatically matched. If no eligible private pool exists, the instance is created using the public pool.
+        // PrivatePoolOnly: Private pool only. With this policy, you must specify `resource_pool_options.private_pool_ids`. If the specified private pool lacks sufficient capacity, instance startup fails.
+        // None: Do not use a resource pool policy.
+        // Default Value: None.
         shared_ptr<string> strategy_ {};
       };
 
@@ -812,6 +818,7 @@ namespace Models
       shared_ptr<string> deploymentsetId_ {};
       // The expected number of nodes in the node pool.
       shared_ptr<int64_t> desiredSize_ {};
+      // Block device initialization configuration.
       shared_ptr<vector<DiskInit>> diskInit_ {};
       // The custom image ID. By default, the image provided by Container Service for Kubernetes (ACK) is used.
       shared_ptr<string> imageId_ {};
@@ -837,6 +844,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> instanceChargeType_ {};
+      // Access configuration for ECS instance metadata.
       shared_ptr<InstanceMetadataOptions> instanceMetadataOptions_ {};
       // The instance attributes.
       shared_ptr<vector<InstancePatterns>> instancePatterns_ {};
@@ -911,6 +919,11 @@ namespace Models
       shared_ptr<string> ramRoleName_ {};
       // The IDs of ApsaraDB RDS instances.
       shared_ptr<vector<string>> rdsInstances_ {};
+      // The resource pool and resource pool policy used when creating instances. After you set this parameter, note the following:
+      // 
+      // This parameter takes effect only when pay-as-you-go instances are created.
+      // 
+      // This parameter cannot be set together with `private_pool_options.match_criteria` or `private_pool_options.id`.
       shared_ptr<ScalingGroup::ResourcePoolOptions> resourcePoolOptions_ {};
       // The scaling mode of the scaling group. Valid values:
       // 
@@ -999,6 +1012,7 @@ namespace Models
       // 
       // Valid values: 20 to 20248.
       shared_ptr<int64_t> systemDiskSize_ {};
+      // Snapshot policy for the system disk.
       shared_ptr<string> systemDiskSnapshotPolicyId_ {};
       // The tags that you want to add only to ECS instances.
       // 
@@ -1160,6 +1174,7 @@ namespace Models
 
 
       protected:
+        // Custom Configuration of the edge zone widget.
         shared_ptr<map<string, string>> customConfig_ {};
       };
 
@@ -1189,14 +1204,18 @@ namespace Models
 
 
     protected:
+      // Configuration of the edge zone widget.
       shared_ptr<NodeComponents::Config> config_ {};
+      // Name of the edge zone widget.
       shared_ptr<string> name_ {};
+      // Version of the edge zone widget.
       shared_ptr<string> version_ {};
     };
 
     class Management : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Management& obj) { 
+        DARABONBA_PTR_TO_JSON(auto_fault_diagnosis, autoFaultDiagnosis_);
         DARABONBA_PTR_TO_JSON(auto_repair, autoRepair_);
         DARABONBA_PTR_TO_JSON(auto_repair_policy, autoRepairPolicy_);
         DARABONBA_PTR_TO_JSON(auto_upgrade, autoUpgrade_);
@@ -1207,6 +1226,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(upgrade_config, upgradeConfig_);
       };
       friend void from_json(const Darabonba::Json& j, Management& obj) { 
+        DARABONBA_PTR_FROM_JSON(auto_fault_diagnosis, autoFaultDiagnosis_);
         DARABONBA_PTR_FROM_JSON(auto_repair, autoRepair_);
         DARABONBA_PTR_FROM_JSON(auto_repair_policy, autoRepairPolicy_);
         DARABONBA_PTR_FROM_JSON(auto_upgrade, autoUpgrade_);
@@ -1349,6 +1369,9 @@ namespace Models
 
 
       protected:
+        // Packages to exclude during vulnerability remediation.
+        // 
+        // Default Value: `kernel`.
         shared_ptr<string> excludePackages_ {};
         // Specifies whether to allow node restart. This parameter takes effect only when `auto_vul_fix` is set to true. Valid values:
         // 
@@ -1473,6 +1496,7 @@ namespace Models
 
 
       protected:
+        // Whether manual approval is required for edge zone repair.
         shared_ptr<bool> approvalRequired_ {};
         // Specifies whether to allow node restart. This parameter takes effect only when `auto_repair` is set to true. Valid values:
         // 
@@ -1483,9 +1507,16 @@ namespace Models
         shared_ptr<bool> restartNode_ {};
       };
 
-      virtual bool empty() const override { return this->autoRepair_ == nullptr
-        && this->autoRepairPolicy_ == nullptr && this->autoUpgrade_ == nullptr && this->autoUpgradePolicy_ == nullptr && this->autoVulFix_ == nullptr && this->autoVulFixPolicy_ == nullptr
-        && this->enable_ == nullptr && this->upgradeConfig_ == nullptr; };
+      virtual bool empty() const override { return this->autoFaultDiagnosis_ == nullptr
+        && this->autoRepair_ == nullptr && this->autoRepairPolicy_ == nullptr && this->autoUpgrade_ == nullptr && this->autoUpgradePolicy_ == nullptr && this->autoVulFix_ == nullptr
+        && this->autoVulFixPolicy_ == nullptr && this->enable_ == nullptr && this->upgradeConfig_ == nullptr; };
+      // autoFaultDiagnosis Field Functions 
+      bool hasAutoFaultDiagnosis() const { return this->autoFaultDiagnosis_ != nullptr;};
+      void deleteAutoFaultDiagnosis() { this->autoFaultDiagnosis_ = nullptr;};
+      inline bool getAutoFaultDiagnosis() const { DARABONBA_PTR_GET_DEFAULT(autoFaultDiagnosis_, false) };
+      inline Management& setAutoFaultDiagnosis(bool autoFaultDiagnosis) { DARABONBA_PTR_SET_VALUE(autoFaultDiagnosis_, autoFaultDiagnosis) };
+
+
       // autoRepair Field Functions 
       bool hasAutoRepair() const { return this->autoRepair_ != nullptr;};
       void deleteAutoRepair() { this->autoRepair_ = nullptr;};
@@ -1551,6 +1582,7 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> autoFaultDiagnosis_ {};
       // Specifies whether to enable auto node repair. This parameter takes effect only when `enable` is set to true.
       // 
       // *   `true`: enables auto node repair.
@@ -1872,7 +1904,9 @@ namespace Models
 
 
     protected:
+      // The Lingjun cluster ID that must be associated when creating a Lingjun node pool.
       shared_ptr<string> clusterId_ {};
+      // The ID of the Lingjun group in the Lingjun cluster to associate when creating a Lingjun node pool.
       shared_ptr<string> groupId_ {};
     };
 
@@ -2046,6 +2080,10 @@ namespace Models
 
 
     protected:
+      // Whether to enable the intelligent managed mode.  
+      // Valid values:  
+      // - true: Enables the intelligent managed mode. This can be enabled only when the cluster has the intelligent managed mode enabled.  
+      // - false: Disables the intelligent managed mode.
       shared_ptr<bool> enable_ {};
     };
 
@@ -2188,6 +2226,7 @@ namespace Models
 
 
   protected:
+    // Intelligent managed configuration for the node pool.
     shared_ptr<CreateClusterNodePoolRequest::AutoMode> autoMode_ {};
     // The configurations of auto scaling.
     shared_ptr<CreateClusterNodePoolRequest::AutoScaling> autoScaling_ {};
@@ -2195,6 +2234,7 @@ namespace Models
     // 
     // The number of nodes in the node pool.
     shared_ptr<int64_t> count_ {};
+    // Lingjun node pool configuration.
     shared_ptr<CreateClusterNodePoolRequest::EfloNodeGroup> efloNodeGroup_ {};
     // Specifies whether to set the network type of the pod to host network.
     // 
@@ -2223,6 +2263,7 @@ namespace Models
     // 
     // The maximum number of nodes that can be contained in the edge node pool.
     shared_ptr<int64_t> maxNodes_ {};
+    // List of edge zone widgets.
     shared_ptr<vector<CreateClusterNodePoolRequest::NodeComponents>> nodeComponents_ {};
     // The node configurations.
     shared_ptr<CreateClusterNodePoolRequest::NodeConfig> nodeConfig_ {};

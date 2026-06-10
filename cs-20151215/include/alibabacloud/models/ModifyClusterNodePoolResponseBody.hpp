@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The node pool ID.
     shared_ptr<string> nodepoolId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

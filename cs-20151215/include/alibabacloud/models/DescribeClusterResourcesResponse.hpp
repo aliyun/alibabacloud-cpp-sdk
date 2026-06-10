@@ -114,9 +114,17 @@ namespace Models
 
 
       protected:
-        // Specifies whether to delete the resource by default when the cluster is deleted.
+        // Indicates whether to delete the resource by default when the cluster is deleted. Valid values:
+        // 
+        // - true: The resource is deleted by default.
+        // 
+        // - false: The resource is not deleted by default.
         shared_ptr<bool> deleteByDefault_ {};
-        // Specifies whether the default behavior returned in delete_by_default can be changed.
+        // Indicates whether the default behavior specified by the `delete_by_default` parameter can be changed. Valid values:
+        // 
+        // - true: The default behavior can be changed.
+        // 
+        // - false: The default behavior cannot be changed.
         shared_ptr<bool> changeable_ {};
       };
 
@@ -167,11 +175,11 @@ namespace Models
 
 
       protected:
-        // The Kubernetes object type.
+        // The type of the Kubernetes object.
         shared_ptr<string> kind_ {};
-        // The namespace in which the Kubernetes object resides.
+        // The namespace of the Kubernetes object.
         shared_ptr<string> namespace_ {};
-        // The Kubernetes object name.
+        // The name of the Kubernetes object.
         shared_ptr<string> name_ {};
       };
 
@@ -222,11 +230,11 @@ namespace Models
 
 
       protected:
-        // The ID of the cluster to which the dependent resource is related.
+        // The cluster ID of the dependent resource.
         shared_ptr<string> clusterId_ {};
-        // The dependent resource type.
+        // The type of the dependent resource.
         shared_ptr<string> resourceType_ {};
-        // The dependent resource ID.
+        // The instance ID of the dependent resource.
         shared_ptr<string> instanceId_ {};
       };
 
@@ -333,39 +341,49 @@ namespace Models
       shared_ptr<string> created_ {};
       // The resource ID.
       shared_ptr<string> instanceId_ {};
-      // The resource information. For more information about how to query the source information about the resource, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
+      // Information about the resource. For more details about its source, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
       shared_ptr<string> resourceInfo_ {};
       // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The resource status. Valid values:
+      // The state of the resource. Valid values:
       // 
-      // *   `CREATE_COMPLETE`: the resource is created.
-      // *   `CREATE_FAILED`: the resource failed to be created.
-      // *   `CREATE_IN_PROGRESS`: the resource is being created.
-      // *   `DELETE_FAILED`: the resource failed to be deleted.
-      // *   `DELETE_IN_PROGRESS`: the resource is being deleted.
-      // *   `ROLLBACK_COMPLETE`: the resource is rolled back.
-      // *   `ROLLBACK_FAILED`: the resource failed to be rolled back.
-      // *   `ROLLBACK_IN_PROGRESS`: the resource is being rolled back.
+      // - `CREATE_COMPLETE`: The resource is successfully created.
+      // 
+      // - `CREATE_FAILED`: The resource fails to be created.
+      // 
+      // - `CREATE_IN_PROGRESS`: The resource is being created.
+      // 
+      // - `DELETE_FAILED`: The resource fails to be deleted.
+      // 
+      // - `DELETE_IN_PROGRESS`: The resource is being deleted.
+      // 
+      // - `ROLLBACK_COMPLETE`: The rollback is successful.
+      // 
+      // - `ROLLBACK_FAILED`: The rollback fails.
+      // 
+      // - `ROLLBACK_IN_PROGRESS`: The rollback is in progress.
       shared_ptr<string> state_ {};
-      // Specifies whether the resource is created by Container Service for Kubernetes (ACK). Valid values:
+      // Indicates whether the resource is created by ACK. Valid values:
       // 
-      // *   1: the resource is created by ACK.
-      // *   0: the resource is an existing resource.
+      // - 1: The resource is created by ACK.
+      // 
+      // - 0: The resource is an existing resource.
       shared_ptr<int64_t> autoCreate_ {};
-      // The dependent resources.
+      // The list of dependent resources.
       shared_ptr<vector<Body::Dependencies>> dependencies_ {};
-      // The Kubernetes object with which the resource is associated.
+      // The Kubernetes object that is associated with the resource.
       shared_ptr<Body::AssociatedObject> associatedObject_ {};
       // The deletion behavior of the resource when the cluster is deleted.
       shared_ptr<Body::DeleteBehavior> deleteBehavior_ {};
-      // The type of the resource creator. Valid values:
+      // The type of the creator of the resource. Valid values:
       // 
-      // *   user: The resource is created by the user.
-      // *   system: The resource is created by the ACK management system.
-      // *   addon: The resource is created by a cluster component.
+      // - user: The resource is created by a user.
+      // 
+      // - system: The resource is created by the ACK control plane.
+      // 
+      // - addon: The resource is created by an add-on.
       shared_ptr<string> creatorType_ {};
-      // The additional information about the resource.
+      // Extra information about the resource.
       Darabonba::Json extraInfo_ {};
     };
 

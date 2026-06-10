@@ -90,19 +90,8 @@ namespace Models
 
 
     protected:
-      // This parameter is discontinued.
-      // 
-      // The maximum bandwidth of each enhanced edge node pool. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
-      // This parameter is discontinued.
-      // 
-      // The maximum number of enhanced edge node pools that you can create within an Alibaba Cloud account.
       shared_ptr<int32_t> count_ {};
-      // This parameter is discontinued.
-      // 
-      // The maximum subscription duration of an enhanced edge node pool. Unit: months.
-      // 
-      // >  You are charged for enhanced edge node pools based on the pay-as-you-go billing method. Therefore, you can ignore this parameter.
       shared_ptr<int32_t> period_ {};
     };
 
@@ -171,9 +160,6 @@ namespace Models
     shared_ptr<int64_t> clusterNodepoolQuota_ {};
     // The quota of clusters that belong to an Alibaba Cloud account. Default value: 50. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
     shared_ptr<int64_t> clusterQuota_ {};
-    // This parameter is discontinued.
-    // 
-    // The quotas of enhanced edge node pools.
     shared_ptr<DescribeUserQuotaResponseBody::EdgeImprovedNodepoolQuota> edgeImprovedNodepoolQuota_ {};
     // The quota of nodes in an ACK cluster. Default value: 100. If the default quota limit is reached, submit an application in the [Quota Center console](https://quotas.console.aliyun.com/products/csk/quotas) to increase the quota.
     shared_ptr<int64_t> nodeQuota_ {};

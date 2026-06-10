@@ -112,6 +112,7 @@ namespace Models
 
 
         protected:
+          // Package name.
           shared_ptr<string> name_ {};
         };
 
@@ -180,6 +181,7 @@ namespace Models
         shared_ptr<string> necessity_ {};
         // Indicates whether a restart is required.
         shared_ptr<bool> needReboot_ {};
+        // List of packages affected by the vulnerability.
         shared_ptr<vector<VulList::PackageList>> packageList_ {};
       };
 

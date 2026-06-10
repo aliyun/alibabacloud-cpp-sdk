@@ -139,7 +139,9 @@ namespace Models
 
 
           protected:
+            // The label `key`.
             shared_ptr<string> key_ {};
+            // The label `value`.
             shared_ptr<string> value_ {};
           };
 
@@ -181,7 +183,9 @@ namespace Models
 
 
           protected:
+            // The label `key`.
             shared_ptr<string> key_ {};
+            // The label `value`.
             shared_ptr<string> value_ {};
           };
 
@@ -220,9 +224,13 @@ namespace Models
 
 
         protected:
+          // The label configuration for authorization confirmation. Add this label to the node to authorize ACK to proceed with this stage. After the stage completes, ACK automatically removes the inquiry and confirmation labels. If you do not add this label in time, ACK will not proceed with this or subsequent stages, leaving the node in an unhealthy state.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
+          // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
+          // The label configuration for the authorization inquiry. At this stage, ACK adds this label to the node and waits for your authorization before proceeding.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
+          // The approval type.
           shared_ptr<string> type_ {};
         };
 
@@ -254,8 +262,11 @@ namespace Models
 
 
       protected:
+        // Configuration parameters for the procedure.
         Darabonba::Json config_ {};
+        // The configuration for the manual intervention procedure.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
+        // The procedure name.
         shared_ptr<string> name_ {};
       };
 
@@ -297,7 +308,9 @@ namespace Models
 
 
       protected:
+        // The incident name.
         shared_ptr<string> name_ {};
+        // The incident type.
         shared_ptr<string> type_ {};
       };
 
@@ -322,7 +335,9 @@ namespace Models
 
 
     protected:
+      // A list of identified incidents.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
+      // A list of repair procedures.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
     };
 
@@ -345,7 +360,9 @@ namespace Models
 
 
   protected:
+    // The name of the self-healing rule.
     shared_ptr<string> name_ {};
+    // A list of self-healing sub-rules.
     shared_ptr<vector<ModifyAutoRepairPolicyRequest::Rules>> rules_ {};
   };
 

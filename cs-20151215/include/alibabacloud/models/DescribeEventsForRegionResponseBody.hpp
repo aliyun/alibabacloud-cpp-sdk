@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The number of pages.
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of records on each page.
+      // The number of entries returned on each page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -167,11 +167,11 @@ namespace Models
 
 
       protected:
-        // The severity level of the event.
+        // The event level.
         shared_ptr<string> level_ {};
-        // The details of the event.
+        // The event message.
         shared_ptr<string> message_ {};
-        // The event status.
+        // The reason for the event.
         shared_ptr<string> reason_ {};
       };
 
@@ -232,15 +232,15 @@ namespace Models
     protected:
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The description of the event.
+      // The event data.
       shared_ptr<Events::Data> data_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
       // The event source.
       shared_ptr<string> source_ {};
-      // The object associated with the event.
+      // The event subject.
       shared_ptr<string> subject_ {};
-      // The time when the event was generated.
+      // The time when the event occurred.
       shared_ptr<string> time_ {};
       // The event type.
       shared_ptr<string> type_ {};
@@ -274,10 +274,11 @@ namespace Models
 
 
   protected:
-    // The events.
+    // A list of events.
     shared_ptr<vector<DescribeEventsForRegionResponseBody::Events>> events_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // The pagination details.
+    // The pagination information.
     shared_ptr<DescribeEventsForRegionResponseBody::PageInfo> pageInfo_ {};
   };
 

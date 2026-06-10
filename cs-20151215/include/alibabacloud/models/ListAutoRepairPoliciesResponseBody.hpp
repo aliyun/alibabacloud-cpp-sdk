@@ -166,7 +166,9 @@ namespace Models
 
 
             protected:
+              // The key of the label.
               shared_ptr<string> key_ {};
+              // The value of the label.
               shared_ptr<string> value_ {};
             };
 
@@ -208,7 +210,9 @@ namespace Models
 
 
             protected:
+              // The key of the label.
               shared_ptr<string> key_ {};
+              // The value of the label.
               shared_ptr<string> value_ {};
             };
 
@@ -247,9 +251,13 @@ namespace Models
 
 
           protected:
+            // The configuration for the approval label. Applying this label to the node authorizes Container Service for Kubernetes (ACK) to execute the action for this repair step. After the step is complete, ACK automatically removes both the inquiry and approval labels. If the approval label is not applied promptly, the repair process will not proceed, and the node may remain in an unhealthy state.
             shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
+            // Determines whether manual approval is required for the repair step.
             shared_ptr<bool> enable_ {};
+            // The configuration for the authorization inquiry label. When this repair step starts, Container Service for Kubernetes (ACK) applies this label to the node and pauses, awaiting approval before executing the step\\"s action.
             shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
+            // The manual approval type.
             shared_ptr<string> type_ {};
           };
 
@@ -281,8 +289,11 @@ namespace Models
 
 
         protected:
+          // The configuration parameters for the procedure step.
           Darabonba::Json config_ {};
+          // The manual intervention settings for this procedure step.
           shared_ptr<RepairProcedure::Intervention> intervention_ {};
+          // The name of the procedure step.
           shared_ptr<string> name_ {};
         };
 
@@ -324,7 +335,9 @@ namespace Models
 
 
         protected:
+          // The incident name.
           shared_ptr<string> name_ {};
+          // The diagnosis type.
           shared_ptr<string> type_ {};
         };
 
@@ -349,7 +362,9 @@ namespace Models
 
 
       protected:
+        // A list of identified incidents.
         shared_ptr<vector<Rules::Incidents>> incidents_ {};
+        // The repair procedure.
         shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
       };
 
@@ -402,11 +417,17 @@ namespace Models
 
 
     protected:
+      // The ID of the auto-repair rule.
       shared_ptr<string> id_ {};
+      // The name of the auto-repair rule.
       shared_ptr<string> name_ {};
+      // The IDs of the resources that the auto-repair rule affects.
       shared_ptr<vector<string>> resourceIds_ {};
+      // The resource sub-type that the auto-repair rule affects.
       shared_ptr<string> resourceSubType_ {};
+      // The resource type that the auto-repair rule affects.
       shared_ptr<string> resourceType_ {};
+      // A list of auto-repair sub-rules.
       shared_ptr<vector<Items::Rules>> rules_ {};
     };
 
@@ -421,6 +442,7 @@ namespace Models
 
 
   protected:
+    // A list of auto-repair rules.
     shared_ptr<vector<ListAutoRepairPoliciesResponseBody::Items>> items_ {};
   };
 

@@ -129,20 +129,9 @@ namespace Models
 
 
     protected:
-      // The ID of the automatic snapshot policy. The system performs automatic backup for a cloud disk based on the specified automatic snapshot policy.
-      // 
-      // By default, this parameter is left empty, which indicates that automatic backup is disabled.
       shared_ptr<string> autoSnapshotPolicyId_ {};
-      // The type of the data disk.
       shared_ptr<string> category_ {};
-      // Specifies whether to encrypt the data disks. Valid values:
-      // 
-      // *   `true`: encrypts the data disk.
-      // *   `false`: does not encrypt the data disk.
-      // 
-      // Default value: `false`.
       shared_ptr<string> encrypted_ {};
-      // The size of the data disk. Valid values: 40 to 32767.
       shared_ptr<string> size_ {};
     };
 
@@ -313,103 +302,32 @@ namespace Models
 
 
   protected:
-    // Specifies whether to install the CloudMonitor agent. Valid values:
-    // 
-    // *   `true`: installs the CloudMonitor agent.
-    // *   `false`: does not install the CloudMonitor agent.
-    // 
-    // Default value: `false`.
     shared_ptr<bool> cloudMonitorFlags_ {};
-    // The number of worker nodes that you want to add.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> count_ {};
-    // The CPU management policy of nodes in the node pool. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
-    // 
-    // *   `static`: allows pods with specific resource characteristics on the node to be granted with enhanced CPU affinity and exclusivity.
-    // *   `none`: specifies that the default CPU affinity is used.
-    // 
-    // Default value: `none`.
     shared_ptr<string> cpuPolicy_ {};
-    // Specifies a custom image for nodes. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
     shared_ptr<string> imageId_ {};
-    // The name of the key pair. You must configure this parameter or the `login_password` parameter.
-    // 
     // This parameter is required.
     shared_ptr<string> keyPair_ {};
-    // The password for SSH logon. You must configure this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // 
     // This parameter is required.
     shared_ptr<string> loginPassword_ {};
-    // The ApsaraDB RDS instances. If you specify a list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
     shared_ptr<vector<string>> rdsInstances_ {};
-    // The container runtime.
     shared_ptr<Runtime> runtime_ {};
-    // The labels that you want to add to the node. When you add labels to a node, the following rules apply:
-    // 
-    // *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
-    // *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
     shared_ptr<vector<Tag>> tags_ {};
-    // The taints that you want to add to nodes. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
     shared_ptr<vector<Taint>> taints_ {};
-    // The user-defined data of the node pool. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
     shared_ptr<string> userData_ {};
-    // The vSwitch IDs. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> vswitchIds_ {};
-    // Specifies whether to enable auto-renewal for worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`. Valid values:
-    // 
-    // *   `true`: enables auto-renewal.
-    // *   `false`: does not enable auto-renewal.
-    // 
-    // Default value: `true`
     shared_ptr<bool> workerAutoRenew_ {};
-    // The auto-renewal duration of worker nodes. This parameter takes effect and is required only if the subscription billing method is selected for worker nodes.
-    // 
-    // Valid values: 1, 2, 3, 6, and 12.
-    // 
-    // Default value: `1`.
     shared_ptr<int64_t> workerAutoRenewPeriod_ {};
-    // The configurations of the data disks that you want to mount to worker nodes. The configurations include the disk type and disk size.
     shared_ptr<vector<ScaleOutClusterRequest::WorkerDataDisks>> workerDataDisks_ {};
-    // The billing method of worker nodes. Valid values:
-    // 
-    // *   `PrePaid`: subscription.
-    // *   `PostPaid`: pay-as-you-go.
-    // 
-    // Default value: `PostPaid`.
     shared_ptr<string> workerInstanceChargeType_ {};
-    // The instance configurations of worker nodes.
-    // 
     // This parameter is required.
     shared_ptr<vector<string>> workerInstanceTypes_ {};
-    // The subscription duration of worker nodes. This parameter takes effect and is required only if `worker_instance_charge_type` is set to `PrePaid`.
-    // 
-    // Valid values: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
-    // 
-    // Default value: 1.
     shared_ptr<int64_t> workerPeriod_ {};
-    // The billing cycle of worker nodes. This parameter is required only if worker_instance_charge_type is set to `PrePaid`.
-    // 
-    // Set the value to `Month`.
     shared_ptr<string> workerPeriodUnit_ {};
-    // The system disk category of worker nodes. Valid values:
-    // 
-    // *   `cloud_efficiency`: ultra disk.
-    // *   `cloud_ssd`: standard SSD.
-    // *   `cloud_essd`: Enterprise SSD (ESSD).
-    // 
-    // Default value: `cloud_ssd`.
-    // 
     // This parameter is required.
     shared_ptr<string> workerSystemDiskCategory_ {};
-    // The system disk size of worker nodes. Unit: GiB.
-    // 
-    // Valid values: 40 to 500.
-    // 
-    // Default value: `120`.
-    // 
     // This parameter is required.
     shared_ptr<int64_t> workerSystemDiskSize_ {};
   };

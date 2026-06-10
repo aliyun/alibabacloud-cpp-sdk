@@ -115,6 +115,7 @@ namespace Models
 
 
     protected:
+      // Hugepage configuration.
       shared_ptr<Hugepage> hugepage_ {};
       // The sysctl configuration.
       Darabonba::Json sysctl_ {};
@@ -172,6 +173,7 @@ namespace Models
     shared_ptr<ContainerdConfig> containerdConfig_ {};
     // The kubelet configurations.
     shared_ptr<KubeletConfig> kubeletConfig_ {};
+    // List of nodes to upgrade.
     shared_ptr<vector<string>> nodeNames_ {};
     // The OS configuration.
     shared_ptr<ModifyNodePoolNodeConfigRequest::OsConfig> osConfig_ {};

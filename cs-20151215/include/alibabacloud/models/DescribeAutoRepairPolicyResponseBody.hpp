@@ -147,7 +147,9 @@ namespace Models
 
 
           protected:
+            // The label key.
             shared_ptr<string> key_ {};
+            // The label value.
             shared_ptr<string> value_ {};
           };
 
@@ -189,7 +191,9 @@ namespace Models
 
 
           protected:
+            // The label\\"s `key`.
             shared_ptr<string> key_ {};
+            // The label\\"s value.
             shared_ptr<string> value_ {};
           };
 
@@ -228,9 +232,13 @@ namespace Models
 
 
         protected:
+          // The label you add to a node to approve a repair action. When ACK detects this label, it proceeds with the current repair step. After the action is complete, ACK automatically removes both the inquiring and approved labels. If you do not add this label promptly, the repair procedure is paused, and the node may remain unhealthy.
           shared_ptr<Intervention::ApprovedLabel> approvedLabel_ {};
+          // Specifies whether to enable manual approval.
           shared_ptr<bool> enable_ {};
+          // When a repair procedure reaches this step, ACK applies this label to the affected node and pauses until you grant approval.
           shared_ptr<Intervention::InquiringLabel> inquiringLabel_ {};
+          // The manual approval type.
           shared_ptr<string> type_ {};
         };
 
@@ -262,8 +270,11 @@ namespace Models
 
 
       protected:
+        // The configuration parameters for the repair action.
         Darabonba::Json config_ {};
+        // The manual approval configuration.
         shared_ptr<RepairProcedure::Intervention> intervention_ {};
+        // The name of the repair action.
         shared_ptr<string> name_ {};
       };
 
@@ -305,7 +316,9 @@ namespace Models
 
 
       protected:
+        // The incident name.
         shared_ptr<string> name_ {};
+        // The incident type.
         shared_ptr<string> type_ {};
       };
 
@@ -330,7 +343,9 @@ namespace Models
 
 
     protected:
+      // The detected incidents that trigger the rule.
       shared_ptr<vector<Rules::Incidents>> incidents_ {};
+      // The repair procedure, which contains a list of repair actions.
       shared_ptr<vector<Rules::RepairProcedure>> repairProcedure_ {};
     };
 
@@ -383,11 +398,17 @@ namespace Models
 
 
   protected:
+    // The ID of the auto-repair rule.
     shared_ptr<string> id_ {};
+    // The name of the auto-repair rule.
     shared_ptr<string> name_ {};
+    // The IDs of resources affected by the auto-repair rule.
     shared_ptr<vector<string>> resourceIds_ {};
+    // The subtype of the resource affected by the auto-repair rule.
     shared_ptr<string> resourceSubType_ {};
+    // The resource type affected by the auto-repair rule.
     shared_ptr<string> resourceType_ {};
+    // The list of rules.
     shared_ptr<vector<DescribeAutoRepairPolicyResponseBody::Rules>> rules_ {};
   };
 
