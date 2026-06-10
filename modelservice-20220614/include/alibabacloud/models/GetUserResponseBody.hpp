@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETUSERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETUSERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -14,7 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetUserResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(AnthropicHost, anthropicHost_);
-      DARABONBA_ANY_TO_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_TO_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Host, host_);
@@ -25,7 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetUserResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(AnthropicHost, anthropicHost_);
-      DARABONBA_ANY_FROM_JSON(ApiKeys, apiKeys_);
+      DARABONBA_PTR_FROM_JSON(ApiKeys, apiKeys_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Host, host_);
@@ -45,6 +46,48 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ApiKeys : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ApiKeys& obj) { 
+        DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
+        DARABONBA_PTR_TO_JSON(InnerApiKey, innerApiKey_);
+      };
+      friend void from_json(const Darabonba::Json& j, ApiKeys& obj) { 
+        DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
+        DARABONBA_PTR_FROM_JSON(InnerApiKey, innerApiKey_);
+      };
+      ApiKeys() = default ;
+      ApiKeys(const ApiKeys &) = default ;
+      ApiKeys(ApiKeys &&) = default ;
+      ApiKeys(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ApiKeys() = default ;
+      ApiKeys& operator=(const ApiKeys &) = default ;
+      ApiKeys& operator=(ApiKeys &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->apiKey_ == nullptr
+        && this->innerApiKey_ == nullptr; };
+      // apiKey Field Functions 
+      bool hasApiKey() const { return this->apiKey_ != nullptr;};
+      void deleteApiKey() { this->apiKey_ = nullptr;};
+      inline string getApiKey() const { DARABONBA_PTR_GET_DEFAULT(apiKey_, "") };
+      inline ApiKeys& setApiKey(string apiKey) { DARABONBA_PTR_SET_VALUE(apiKey_, apiKey) };
+
+
+      // innerApiKey Field Functions 
+      bool hasInnerApiKey() const { return this->innerApiKey_ != nullptr;};
+      void deleteInnerApiKey() { this->innerApiKey_ = nullptr;};
+      inline string getInnerApiKey() const { DARABONBA_PTR_GET_DEFAULT(innerApiKey_, "") };
+      inline ApiKeys& setInnerApiKey(string innerApiKey) { DARABONBA_PTR_SET_VALUE(innerApiKey_, innerApiKey) };
+
+
+    protected:
+      shared_ptr<string> apiKey_ {};
+      shared_ptr<string> innerApiKey_ {};
+    };
+
     virtual bool empty() const override { return this->anthropicHost_ == nullptr
         && this->apiKeys_ == nullptr && this->appId_ == nullptr && this->code_ == nullptr && this->host_ == nullptr && this->innerToken_ == nullptr
         && this->message_ == nullptr && this->requestId_ == nullptr && this->token_ == nullptr; };
@@ -58,10 +101,10 @@ namespace Models
     // apiKeys Field Functions 
     bool hasApiKeys() const { return this->apiKeys_ != nullptr;};
     void deleteApiKeys() { this->apiKeys_ = nullptr;};
-    inline     const Darabonba::Json & getApiKeys() const { DARABONBA_GET(apiKeys_) };
-    Darabonba::Json & getApiKeys() { DARABONBA_GET(apiKeys_) };
-    inline GetUserResponseBody& setApiKeys(const Darabonba::Json & apiKeys) { DARABONBA_SET_VALUE(apiKeys_, apiKeys) };
-    inline GetUserResponseBody& setApiKeys(Darabonba::Json && apiKeys) { DARABONBA_SET_RVALUE(apiKeys_, apiKeys) };
+    inline const vector<GetUserResponseBody::ApiKeys> & getApiKeys() const { DARABONBA_PTR_GET_CONST(apiKeys_, vector<GetUserResponseBody::ApiKeys>) };
+    inline vector<GetUserResponseBody::ApiKeys> getApiKeys() { DARABONBA_PTR_GET(apiKeys_, vector<GetUserResponseBody::ApiKeys>) };
+    inline GetUserResponseBody& setApiKeys(const vector<GetUserResponseBody::ApiKeys> & apiKeys) { DARABONBA_PTR_SET_VALUE(apiKeys_, apiKeys) };
+    inline GetUserResponseBody& setApiKeys(vector<GetUserResponseBody::ApiKeys> && apiKeys) { DARABONBA_PTR_SET_RVALUE(apiKeys_, apiKeys) };
 
 
     // appId Field Functions 
@@ -115,7 +158,7 @@ namespace Models
 
   protected:
     shared_ptr<string> anthropicHost_ {};
-    Darabonba::Json apiKeys_ {};
+    shared_ptr<vector<GetUserResponseBody::ApiKeys>> apiKeys_ {};
     shared_ptr<string> appId_ {};
     shared_ptr<string> code_ {};
     shared_ptr<string> host_ {};
