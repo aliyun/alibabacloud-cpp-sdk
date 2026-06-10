@@ -38,6 +38,9 @@ namespace Models
 
 
   protected:
+    // Phone number to query (required)
+    // 
+    // > Query the binding status of this number across all instances. Get the number from the response of ListAllTenantBindNumberBinding.
     shared_ptr<string> number_ {};
   };
 

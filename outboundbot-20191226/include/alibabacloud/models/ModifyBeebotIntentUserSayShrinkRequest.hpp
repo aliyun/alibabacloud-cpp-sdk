@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // The definition of the user utterance.
+    // 
     // This parameter is required.
     shared_ptr<string> userSayDefinitionShrink_ {};
+    // The user utterance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userSayId_ {};
   };

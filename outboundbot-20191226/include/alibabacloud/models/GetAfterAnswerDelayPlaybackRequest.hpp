@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Policy level (required)
+    // 
+    // - 2: Instance
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

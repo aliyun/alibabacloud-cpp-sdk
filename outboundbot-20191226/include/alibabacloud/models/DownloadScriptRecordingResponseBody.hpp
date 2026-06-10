@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Recording file name
       shared_ptr<string> fileName_ {};
+      // A URL pointing to the recording file. Use this address for playback or download.
       shared_ptr<string> signatureUrl_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Parameters
     shared_ptr<DownloadScriptRecordingResponseBody::DownloadParams> downloadParams_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Success
     shared_ptr<bool> success_ {};
   };
 

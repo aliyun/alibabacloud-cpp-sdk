@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the account that owns the instance.
     shared_ptr<int64_t> instanceOwnerId_ {};
+    // The job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
   };

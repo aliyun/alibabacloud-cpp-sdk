@@ -95,9 +95,13 @@ namespace Models
 
 
     protected:
+      // Job group ID
       shared_ptr<string> id_ {};
+      // Minimum concurrency
       shared_ptr<int64_t> minConcurrency_ {};
+      // Job priority
       shared_ptr<string> priority_ {};
+      // Ringing duration
       shared_ptr<int64_t> ringingDuration_ {};
     };
 
@@ -148,11 +152,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // HTTP error code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Job group information
     shared_ptr<CreateBatchRepeatJobResponseBody::JobGroup> jobGroup_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

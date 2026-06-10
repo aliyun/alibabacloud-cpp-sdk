@@ -80,13 +80,27 @@ namespace Models
 
 
   protected:
+    // Remove all tags. This parameter takes effect only when TagKey.N is empty. Valid values:
+    // 
+    // - true
+    // 
+    // - false
+    // 
+    // Default value: false
     shared_ptr<bool> all_ {};
+    // Region
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // List of resource IDs. Default value: list of instance IDs. Valid values for n: 1 to 50
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
+    // Resource type. Default value: INSTANCE
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // List of tag keys. Valid values for n: 1 to 20
     shared_ptr<vector<string>> tagKey_ {};
   };
 

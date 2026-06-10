@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A description of the intent.
     shared_ptr<string> intentDescription_ {};
+    // The name of the intent. This name must be unique within the script.
+    // 
     // This parameter is required.
     shared_ptr<string> intentName_ {};
+    // A JSON-formatted string containing an array of keywords that help identify the intent.
     shared_ptr<string> keywords_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // A JSON-formatted string containing an array of sample utterances that trigger this intent.
+    // 
     // This parameter is required.
     shared_ptr<string> utterances_ {};
   };

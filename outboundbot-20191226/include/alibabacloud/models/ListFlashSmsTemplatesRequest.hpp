@@ -57,10 +57,22 @@ namespace Models
 
 
   protected:
+    // The ID of the flash SMS configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> configId_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the flash SMS provider.
+    // 
+    // - Uincall: Beijing Uincall Communication Co., Ltd.
+    // 
+    // - ShangHaiTianNan: Shanghai Tiannan
+    // 
+    // - HeDao: Galacos
+    // 
     // This parameter is required.
     shared_ptr<string> providerId_ {};
   };

@@ -121,9 +121,13 @@ namespace Models
 
 
       protected:
+        // Phone number.
         shared_ptr<string> number_ {};
+        // ID of the phone number.
         shared_ptr<string> outboundCallNumberId_ {};
+        // Time window for rate limiting, in seconds.
         shared_ptr<string> rateLimitCount_ {};
+        // Maximum number of calls allowed in the time window.
         shared_ptr<string> rateLimitPeriod_ {};
       };
 
@@ -160,9 +164,13 @@ namespace Models
 
 
     protected:
+      // List of outbound call number data.
       shared_ptr<vector<OutboundCallNumbers::List>> list_ {};
+      // Page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of entries on the page.
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -213,11 +221,17 @@ namespace Models
 
 
   protected:
+    // API status code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message.
     shared_ptr<string> message_ {};
+    // List of outbound call numbers.
     shared_ptr<ListOutboundCallNumbersResponseBody::OutboundCallNumbers> outboundCallNumbers_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

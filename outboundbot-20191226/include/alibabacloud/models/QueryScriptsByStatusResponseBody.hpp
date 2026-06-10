@@ -195,17 +195,51 @@ namespace Models
 
 
       protected:
+        // The version ID.
         shared_ptr<string> appliedVersion_ {};
+        // The debug status.
         shared_ptr<string> debugStatus_ {};
+        // The debug version.
         shared_ptr<string> debugVersion_ {};
+        // The industry.
         shared_ptr<string> industry_ {};
+        // Indicates whether the debug version is a draft.
         shared_ptr<bool> isDebugDrafted_ {};
+        // Indicates whether the version is a draft.
         shared_ptr<bool> isDrafted_ {};
+        // The scenario.
         shared_ptr<string> scene_ {};
+        // The script description.
         shared_ptr<string> scriptDescription_ {};
+        // The scenario ID.
         shared_ptr<string> scriptId_ {};
+        // The scenario name.
         shared_ptr<string> scriptName_ {};
+        // The status of the application version. Valid values:
+        // 
+        // - **DRAFTED**: The script is a draft.
+        // 
+        // - **INITIALIZE_IN_PROGRESS**: The script is being initialized.
+        // 
+        // - **PUBLISHED**: The script is published.
+        // 
+        // - **PUBLISH_IN_PROGRESS**: The script is being published.
+        // 
+        // - **ROLLBACK_IN_PROGRESS**: The script is being rolled back.
+        // 
+        // - **EXAMINE_IN_PROGRESS**: The script is pending approval.
+        // 
+        // - **PUBLISHED_AND_EXAMINE_IN_PROGRESS**: The script is published and pending approval.
+        // 
+        // - **PUBLISH_FAILED**: The script failed to be published.
+        // 
+        // - **ROLLBACK_FAILED**: The script failed to be rolled back.
+        // 
+        // - **IMPORT_IN_PROGRESS**: The script is being imported.
+        // 
+        // - **IMPORT_FAILED**: The script failed to be imported.
         shared_ptr<string> status_ {};
+        // The time when the script was last updated.
         shared_ptr<int64_t> updateTime_ {};
       };
 
@@ -242,9 +276,13 @@ namespace Models
 
 
     protected:
+      // The list of scenarios.
       shared_ptr<vector<Scripts::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -295,11 +333,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The scenarios.
     shared_ptr<QueryScriptsByStatusResponseBody::Scripts> scripts_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

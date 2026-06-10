@@ -103,17 +103,49 @@ namespace Models
 
 
   protected:
+    // Instance ID of the recording
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Recording ID list (JSON format), same as UuidsJson
     shared_ptr<string> refIdsJson_ {};
+    // Scenario ID of the recording
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // Search criteria: Search by recording name or content.
     shared_ptr<string> search_ {};
+    // Recording status
+    // 
+    // - Validating: 1
+    // 
+    // - Validation failed: 2
+    // 
+    // - Processing: 3
+    // 
+    // - Processing failed: 4
+    // 
+    // - Reviewing: 5
+    // 
+    // - Review failed: 6
+    // 
+    // - Publish failed: 7
+    // 
+    // - Published: 8
+    // 
+    // - Pending publish: 9
     shared_ptr<string> statesJson_ {};
+    // Recording ID list
+    // 
+    // > This is a list of unique recording IDs. If left blank, all recordings display.
     shared_ptr<string> uuidsJson_ {};
   };
 

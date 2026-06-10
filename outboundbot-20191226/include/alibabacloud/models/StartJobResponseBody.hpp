@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // Third-party contact ID
       shared_ptr<string> key_ {};
+      // Outbound call task ID
       shared_ptr<string> value_ {};
     };
 
@@ -122,7 +124,9 @@ namespace Models
 
 
     protected:
+      // Third-party contact ID
       shared_ptr<string> key_ {};
+      // Call ID for the task
       shared_ptr<string> value_ {};
     };
 
@@ -183,12 +187,19 @@ namespace Models
 
 
   protected:
+    // List of call IDs
     shared_ptr<vector<StartJobResponseBody::CallIds>> callIds_ {};
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded. true means success. false means failure.
     shared_ptr<bool> success_ {};
+    // Mapping between third-party contact IDs and outbound call task IDs
     shared_ptr<vector<StartJobResponseBody::TaskIds>> taskIds_ {};
   };
 

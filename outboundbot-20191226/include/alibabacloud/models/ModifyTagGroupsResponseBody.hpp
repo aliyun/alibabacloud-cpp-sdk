@@ -107,10 +107,15 @@ namespace Models
 
 
     protected:
+      // The script ID.
       shared_ptr<string> scriptId_ {};
+      // The name of the tag group.
       shared_ptr<string> tagGroup_ {};
+      // The unique ID of the tag.
       shared_ptr<string> tagId_ {};
+      // The index of the tag.
       shared_ptr<int32_t> tagIndex_ {};
+      // The name of the tag.
       shared_ptr<string> tagName_ {};
     };
 
@@ -170,9 +175,13 @@ namespace Models
 
 
     protected:
+      // The script ID.
       shared_ptr<string> scriptId_ {};
+      // The name of the tag group.
       shared_ptr<string> tagGroup_ {};
+      // The ID of the tag group.
       shared_ptr<string> tagGroupId_ {};
+      // The position of the tag group.
       shared_ptr<int32_t> tagGroupIndex_ {};
     };
 
@@ -233,12 +242,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The list of tag groups.
     shared_ptr<vector<ModifyTagGroupsResponseBody::TagGroups>> tagGroups_ {};
+    // The list of tags.
     shared_ptr<vector<ModifyTagGroupsResponseBody::Tags>> tags_ {};
   };
 

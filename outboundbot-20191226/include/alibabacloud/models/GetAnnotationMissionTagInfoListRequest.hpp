@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
+    // > If you do not specify this parameter, the system returns the default tags for the tenant.
     shared_ptr<string> instanceId_ {};
+    // Page number
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

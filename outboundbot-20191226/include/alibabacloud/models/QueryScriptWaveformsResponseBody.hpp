@@ -105,10 +105,15 @@ namespace Models
 
 
     protected:
+      // File key in OSS
       shared_ptr<string> fileId_ {};
+      // Recording file name
       shared_ptr<string> fileName_ {};
+      // Scenario voice name
       shared_ptr<string> scriptContent_ {};
+      // Scenario ID
       shared_ptr<string> scriptId_ {};
+      // Scenario voice recording ID
       shared_ptr<string> scriptWaveformId_ {};
     };
 
@@ -159,11 +164,19 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Recording list of scenario voices
+    // 
+    // > Recording data is returned only when the voice type is recording. It is not returned when the voice is speech synthesis.
     shared_ptr<vector<QueryScriptWaveformsResponseBody::ScriptWaveforms>> scriptWaveforms_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

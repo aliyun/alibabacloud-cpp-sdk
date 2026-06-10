@@ -75,13 +75,24 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent name.
+    // 
+    // > This is the intent code. It uniquely identifies the intent.
     shared_ptr<string> intentName_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

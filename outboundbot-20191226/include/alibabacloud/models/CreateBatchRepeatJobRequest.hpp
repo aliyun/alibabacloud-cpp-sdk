@@ -163,22 +163,43 @@ namespace Models
 
 
   protected:
+    // Calling number
     shared_ptr<vector<string>> callingNumber_ {};
+    // Job group description
     shared_ptr<string> description_ {};
+    // Job group status
     shared_ptr<string> filterStatus_ {};
+    // Configuration parameters for flash SMS push, in JSON format, including configuration information for third-party flash SMS.
+    // 
+    // - Template ID: Flash SMS template ID.
+    // 
+    // - Config ID: Flash SMS configuration ID.
     shared_ptr<string> flashSmsExtras_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Minimum concurrency
     shared_ptr<int64_t> minConcurrency_ {};
+    // Job name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Job priority
     shared_ptr<string> priority_ {};
+    // Redial calling number list
     shared_ptr<vector<string>> recallCallingNumber_ {};
+    // Redial policy JSON
     shared_ptr<string> recallStrategyJson_ {};
+    // Ringing duration
     shared_ptr<int64_t> ringingDuration_ {};
+    // Script ID
     shared_ptr<string> scriptId_ {};
+    // Job group ID
+    // 
     // This parameter is required.
     shared_ptr<string> sourceGroupId_ {};
+    // Job execution policy
     shared_ptr<string> strategyJson_ {};
   };
 

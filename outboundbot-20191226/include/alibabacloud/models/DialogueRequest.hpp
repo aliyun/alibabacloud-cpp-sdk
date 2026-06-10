@@ -130,22 +130,38 @@ namespace Models
 
 
   protected:
+    // Action to perform for outbound calls. Hangup ends the call.
     shared_ptr<string> actionKey_ {};
+    // Parameters required to perform the action. (Deprecated)
     shared_ptr<string> actionParams_ {};
+    // Call ID
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // Call type, typically Outbound
+    // 
     // This parameter is required.
     shared_ptr<string> callType_ {};
+    // Called number
+    // 
     // This parameter is required.
     shared_ptr<string> calledNumber_ {};
+    // Calling number
+    // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Scenario ID
     shared_ptr<string> scenarioId_ {};
-    // 场景id
+    // Scenario ID
     shared_ptr<string> scriptId_ {};
+    // Task ID
     shared_ptr<string> taskId_ {};
+    // User utterance
+    // 
     // This parameter is required.
     shared_ptr<string> utterance_ {};
   };

@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // Delay before playback starts, in seconds. Default is 0 if not specified.
     shared_ptr<int32_t> afterAnswerDelayPlayback_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Policy level (required)
+    // 
+    // - 2: Instance
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

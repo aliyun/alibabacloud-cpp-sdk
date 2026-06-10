@@ -84,16 +84,28 @@ namespace Models
 
 
   protected:
+    // The answers to the global question.
+    // 
     // This parameter is required.
     shared_ptr<string> answers_ {};
+    // The name of the global question.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionName_ {};
+    // The type of the global question.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionType_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The questions that trigger the global question.
+    // 
     // This parameter is required.
     shared_ptr<string> questions_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

@@ -141,14 +141,23 @@ namespace Models
 
 
     protected:
+      // The time when the instance was created.
       shared_ptr<int64_t> creationTime_ {};
+      // The ID of the creator.
       shared_ptr<int64_t> creatorId_ {};
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
+      // The description of the instance.
       shared_ptr<string> instanceDescription_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the instance.
       shared_ptr<string> instanceName_ {};
+      // The maximum number of concurrent conversations for the instance.
       shared_ptr<int32_t> maxConcurrentConversation_ {};
+      // The name of the instance owner.
       shared_ptr<string> ownerName_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
     };
 
@@ -199,11 +208,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the instance.
     shared_ptr<DescribeInstanceResponseBody::Instance> instance_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

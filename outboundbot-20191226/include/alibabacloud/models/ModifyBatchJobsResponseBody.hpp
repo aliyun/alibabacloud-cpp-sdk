@@ -158,7 +158,9 @@ namespace Models
 
 
         protected:
+          // The start time.
           shared_ptr<string> beginTime_ {};
+          // The end time.
           shared_ptr<string> endTime_ {};
         };
 
@@ -276,20 +278,35 @@ namespace Models
 
 
       protected:
+        // The custom data for the policy.
         shared_ptr<string> customized_ {};
+        // The end time.
         shared_ptr<int64_t> endTime_ {};
+        // The follow-up action after an execution epoch ends.
         shared_ptr<string> followUpStrategy_ {};
+        // Indicates whether the policy is a template.
         shared_ptr<bool> isTemplate_ {};
+        // The maximum number of redials after a call fails.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
+        // The interval between redials.
         shared_ptr<int32_t> minAttemptInterval_ {};
+        // The repeat mode.
         shared_ptr<string> repeatBy_ {};
+        // The days of the week on which to repeat the execution.
         shared_ptr<vector<string>> repeatDays_ {};
+        // The number routing policy.
         shared_ptr<string> routingStrategy_ {};
+        // The start time.
         shared_ptr<int64_t> startTime_ {};
+        // The policy description.
         shared_ptr<string> strategyDescription_ {};
+        // The policy ID.
         shared_ptr<string> strategyId_ {};
+        // The policy name.
         shared_ptr<string> strategyName_ {};
+        // The policy type.
         shared_ptr<string> type_ {};
+        // The time frames during which the policy is executed.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -357,13 +374,21 @@ namespace Models
 
 
     protected:
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
+      // The time when the job group was created.
       shared_ptr<int64_t> creationTime_ {};
+      // The key of the job file after it is uploaded.
       shared_ptr<string> jobFilePath_ {};
+      // The description of the job group.
       shared_ptr<string> jobGroupDescription_ {};
+      // The job group ID.
       shared_ptr<string> jobGroupId_ {};
+      // The name of the job group.
       shared_ptr<string> jobGroupName_ {};
+      // The scenario ID.
       shared_ptr<string> scenarioId_ {};
+      // The execution policy.
       shared_ptr<JobGroup::Strategy> strategy_ {};
     };
 
@@ -414,11 +439,17 @@ namespace Models
 
 
   protected:
+    // The status code of the API call.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The information about the job group.
     shared_ptr<ModifyBatchJobsResponseBody::JobGroup> jobGroup_ {};
+    // The message returned for the API call.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

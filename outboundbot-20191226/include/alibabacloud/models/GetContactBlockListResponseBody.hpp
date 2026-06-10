@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The unique key of the entry in the do-not-call list.
         shared_ptr<string> contactBlockListId_ {};
+        // The time when the entry was created.
         shared_ptr<int64_t> creationTime_ {};
+        // The user who created the entry.
         shared_ptr<string> creator_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The name of the contact.
         shared_ptr<string> name_ {};
+        // The operator.
         shared_ptr<string> operator_ {};
+        // The mobile phone number.
         shared_ptr<string> phoneNumber_ {};
+        // The remarks.
         shared_ptr<string> remark_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The data array.
       shared_ptr<vector<ContactBlocklistList::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -254,11 +266,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of blocked contacts.
     shared_ptr<GetContactBlockListResponseBody::ContactBlocklistList> contactBlocklistList_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

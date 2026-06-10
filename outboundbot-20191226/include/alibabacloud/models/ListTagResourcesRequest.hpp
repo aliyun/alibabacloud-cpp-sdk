@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The tag key. The value range of n is [1, 20].
       shared_ptr<string> key_ {};
+      // The tag value. The value range of n is [1, 20].
       shared_ptr<string> value_ {};
     };
 
@@ -122,12 +124,19 @@ namespace Models
 
 
   protected:
+    // The token to start the next query
     shared_ptr<string> nextToken_ {};
+    // Deprecated
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The list of resource IDs. The value range of n is [1, 50].
     shared_ptr<vector<string>> resourceId_ {};
+    // Resource type
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
+    // The list of tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

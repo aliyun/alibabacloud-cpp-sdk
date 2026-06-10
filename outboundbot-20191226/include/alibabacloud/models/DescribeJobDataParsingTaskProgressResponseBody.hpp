@@ -113,11 +113,27 @@ namespace Models
 
 
     protected:
+      // Error code for a failed parsing task.
       shared_ptr<string> failErrorCode_ {};
+      // Reason for failure.
       shared_ptr<string> failReason_ {};
+      // Download URL for the file that lists parsing failures. This field is deprecated.
       shared_ptr<string> feedbackUrl_ {};
+      // Number of jobs processed so far.
       shared_ptr<int32_t> handledJobCount_ {};
+      // Status of the job.
+      // 
+      // - Pending: The job is waiting to start.
+      // 
+      // - InProgress: The job is running.
+      // 
+      // - Finished: The job completed successfully.
+      // 
+      // - PartialFinished: The job completed partially.
+      // 
+      // - Failed: The job failed.
       shared_ptr<string> status_ {};
+      // Total number of jobs in the task.
       shared_ptr<int32_t> totalJobCount_ {};
     };
 
@@ -168,11 +184,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Parsing progress.
     shared_ptr<DescribeJobDataParsingTaskProgressResponseBody::Progress> progress_ {};
+    // ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
   };
 

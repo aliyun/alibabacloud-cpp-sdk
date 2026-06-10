@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The key of the instance tag.
       shared_ptr<string> key_ {};
+      // The value of the instance tag.
       shared_ptr<string> value_ {};
     };
 
@@ -120,10 +122,19 @@ namespace Models
 
 
   protected:
+    // The name of the Outbound Calling Bot instance.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the resource group.
+    // 
+    // > For more information, see ListResourceGroups.
     shared_ptr<string> resourceGroupId_ {};
+    // The tags of the service instance.
+    // 
+    // > You can call the ListResourceTags operation to obtain the tags.
     shared_ptr<vector<ListInstancesRequest::Tag>> tag_ {};
   };
 

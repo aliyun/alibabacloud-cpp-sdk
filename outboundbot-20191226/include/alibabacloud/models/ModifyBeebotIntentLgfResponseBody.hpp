@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Internal Request ID
     shared_ptr<string> beebotRequestId_ {};
+    // status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Utterance Template ID
     shared_ptr<int64_t> lgfId_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

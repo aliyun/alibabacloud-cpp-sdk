@@ -108,15 +108,61 @@ namespace Models
 
 
   protected:
+    // These numbers are displayed as the caller ID to the contact.
+    // 
+    // > If unspecified, all available calling numbers are used.
     shared_ptr<vector<string>> callingNumber_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether the task is asynchronous.
+    // 
+    // You can omit this parameter if you create jobs by calling this API. The default value is `false`.
     shared_ptr<bool> isAsynchrony_ {};
+    // The ID of the data parsing task for the outbound call job.
+    // 
+    // You can omit this parameter if you create jobs by calling this API.
+    // 
+    // > If you create jobs by uploading a file, you must call the `CreateJobDataParsingTask` operation to obtain a value for this parameter.
     shared_ptr<string> jobDataParsingTaskId_ {};
+    // The job group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};
+    // >Notice: 
+    // 
+    // This parameter is required.
+    // 
+    // 
+    // 
+    // The job data, a JSON array where each object represents a contact. For formatting details, see the example.
+    // 
+    // The array can contain up to 99 elements.
     shared_ptr<vector<string>> jobsJson_ {};
+    // The roster type.
+    // 
+    // If you create jobs by calling this API, you can omit this parameter. The default value is `json`. If you upload a contact list file, set this parameter to `excel`.
     shared_ptr<string> rosterType_ {};
+    // The execution strategy for the job group.
+    // 
+    // - `repeatBy`: The recurrence type. Valid values: `Once` (runs once), `Day` (repeats daily), `Week` (repeats weekly), and `Month` (repeats monthly).
+    // 
+    // - `startTime`: The start time of the strategy.
+    // 
+    // - `endTime`: The end time of the strategy.
+    // 
+    // - `workingTime`: The time windows during which calls can be made.
+    // 
+    // - `maxAttemptsPerDay`: The maximum daily call attempts per phone number.
+    // 
+    // - `minAttemptInterval`: The minimum interval between call retries, in minutes.
+    // 
+    // - `routingStrategy`: The number routing strategy. Valid values: `None` (no preference), `LocalFirst` (prioritizes numbers in the same city), and `LocalProvinceFirst` (prioritizes numbers in the same province).
+    // 
+    // - `repeatDays`: The specific days on which the job runs, based on the `repeatBy` type. If `repeatBy` is set to `Week`, `0` represents Sunday, and `1` through `6` represent Monday through Saturday. If `repeatBy` is set to `Month`, values from `1` to `31` represent the days of the month. If a month does not have a specified day (for example, February 30), the job is skipped for that month.
+    // 
+    // - `repeatable`: Specifies whether the job is recurring. Valid values are `true` and `false`.
     shared_ptr<string> strategyJson_ {};
   };
 

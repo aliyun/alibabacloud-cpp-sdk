@@ -157,15 +157,31 @@ namespace Models
 
 
     protected:
+      // Description.
       shared_ptr<string> description_ {};
+      // Draft configuration
       shared_ptr<string> draftedConfigJson_ {};
+      // Creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // Update time
       shared_ptr<int64_t> gmtModified_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Plugin name
       shared_ptr<string> name_ {};
+      // Published configuration
       shared_ptr<string> publishedConfigJson_ {};
+      // Status.
+      // 
+      // - Drafted
+      // 
+      // - Published
+      // 
+      // - PublishedAndEdited
       shared_ptr<string> status_ {};
+      // Type
       shared_ptr<string> type_ {};
+      // Unique plugin identifier
       shared_ptr<string> uuid_ {};
     };
 
@@ -238,14 +254,23 @@ namespace Models
 
 
   protected:
+    // API plugin list
     shared_ptr<vector<ListApiPluginsResponseBody::ApiPlugins>> apiPlugins_ {};
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API prompt message
     shared_ptr<string> message_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries displayed per page
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates success
     shared_ptr<bool> success_ {};
+    // Total number of entries
     shared_ptr<int64_t> totalCount_ {};
   };
 

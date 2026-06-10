@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The type of the dialogue flow. Use `MainFlow` for a main flow or `SubFlow` for a subflow.
+    // 
     // This parameter is required.
     shared_ptr<string> dialogueFlowType_ {};
+    // The dialogue flow name.
+    // 
     // This parameter is required.
     shared_ptr<string> dialogueName_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

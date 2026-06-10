@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // File path. Required.
+    // 
+    // > Get the value for this parameter by calling the GetJobDataUploadParams operation. Use the Folder value returned in the response as the FilePath value.
     shared_ptr<string> filePath_ {};
+    // Task group ID. Required.
     shared_ptr<string> groupId_ {};
+    // Instance ID. Required.
     shared_ptr<string> instanceId_ {};
   };
 

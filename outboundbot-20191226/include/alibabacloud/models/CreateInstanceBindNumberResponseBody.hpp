@@ -97,7 +97,9 @@ namespace Models
 
 
       protected:
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Indicates whether the binding was successful.
         shared_ptr<bool> success_ {};
       };
 
@@ -112,6 +114,7 @@ namespace Models
 
 
     protected:
+      // List of number data.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -162,11 +165,17 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<CreateInstanceBindNumberResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

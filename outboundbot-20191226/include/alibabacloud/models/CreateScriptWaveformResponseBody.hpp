@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Script information
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the script waveform.
     shared_ptr<string> scriptWaveformId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

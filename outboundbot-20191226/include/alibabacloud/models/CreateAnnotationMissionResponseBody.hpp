@@ -77,7 +77,9 @@ namespace Models
 
 
     protected:
+      // Additional information. If the request is successful, \\`success\\` is returned. If the request fails, a specific error code is returned.
       shared_ptr<string> message_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -128,11 +130,17 @@ namespace Models
 
 
   protected:
+    // The status code of the API.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateAnnotationMissionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Additional information. If the request is successful, \\`success\\` is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. \\`true\\`: The call was successful. \\`false\\`: The call failed.
     shared_ptr<bool> success_ {};
   };
 

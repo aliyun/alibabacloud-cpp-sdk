@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // ID of the agent profile template.
       shared_ptr<string> agentProfileTemplateId_ {};
+      // Time when the template was created.
       shared_ptr<string> createTime_ {};
+      // Description of the agent profile template.
       shared_ptr<string> description_ {};
+      // Name of the agent profile template.
       shared_ptr<string> name_ {};
+      // Agent profile template configuration.
       shared_ptr<string> promptSchema_ {};
+      // Time when the template was last updated.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -168,11 +174,17 @@ namespace Models
 
 
   protected:
+    // API status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetAgentProfileTemplateResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
   };
 

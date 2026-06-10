@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // Task group ID
     shared_ptr<string> jobGroupId_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
   };
 

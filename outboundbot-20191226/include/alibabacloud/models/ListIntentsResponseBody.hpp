@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The time when the intent was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> createTime_ {};
+        // The description of the intent.
         shared_ptr<string> intentDescription_ {};
+        // The intent ID.
         shared_ptr<string> intentId_ {};
+        // The intent name.
         shared_ptr<string> intentName_ {};
+        // The keywords of the intent.
         shared_ptr<string> keywords_ {};
+        // The script ID.
         shared_ptr<string> scriptId_ {};
+        // The time when the intent was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> updateTime_ {};
+        // The user utterances that trigger the intent.
         shared_ptr<string> utterances_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The list of intents.
       shared_ptr<vector<Intents::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of intents.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -254,11 +266,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The paginated list of intents.
     shared_ptr<ListIntentsResponseBody::Intents> intents_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

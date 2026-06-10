@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // Text content of the recording file
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // File key in OSS
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // File name
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Script ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

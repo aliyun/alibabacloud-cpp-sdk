@@ -87,13 +87,39 @@ namespace Models
 
 
   protected:
+    // List of caller numbers
     shared_ptr<vector<string>> callingNumber_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Task group ID
     shared_ptr<string> jobGroupId_ {};
+    // Job data, which includes the following fields:
+    // 
+    // extras // Optional extra information
+    // 
+    // - key // Key for a custom variable
+    // 
+    // - value // Value for a custom variable
+    // 
+    // contacts // Required contact information for the callee
+    // 
+    // - phoneNumber // Required phone number of the callee
+    // 
+    // - referenceId // Required contact ID (user-defined) to avoid duplicate names
+    // 
+    // - role // Optional role of this contact in the outbound call scenario. If omitted, no role distinction is made
+    // 
+    // - honorific // Optional honorific for the contact
+    // 
+    // - name // Optional name of the contact
+    // 
     // This parameter is required.
     shared_ptr<string> jobJson_ {};
+    // Scenario ID. This field supports backward compatibility with legacy outbound calling features. You can omit it.
     shared_ptr<string> scenarioId_ {};
+    // Scenario ID (required)
     shared_ptr<string> scriptId_ {};
   };
 

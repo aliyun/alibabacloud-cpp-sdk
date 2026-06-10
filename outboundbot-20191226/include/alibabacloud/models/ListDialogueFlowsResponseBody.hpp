@@ -114,11 +114,21 @@ namespace Models
 
 
     protected:
+      // The dialogue flow data, formatted as a JSON string.
       shared_ptr<string> dialogueFlowDefinition_ {};
+      // The dialogue flow ID.
       shared_ptr<string> dialogueFlowId_ {};
+      // The dialogue flow name.
       shared_ptr<string> dialogueFlowName_ {};
+      // The flow type.
+      // 
+      // - `SubFlow`: The subflow.
+      // 
+      // - `MainFlow`: The main flow.
       shared_ptr<string> dialogueFlowType_ {};
+      // The outbound script ID.
       shared_ptr<string> scriptId_ {};
+      // The script version.
       shared_ptr<string> scriptVersion_ {};
     };
 
@@ -169,11 +179,21 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // A list of dialogue flows.
     shared_ptr<vector<ListDialogueFlowsResponseBody::DialogueFlows>> dialogueFlows_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // The keyword in the user utterance.
     shared_ptr<string> content_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> intentId_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to display on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

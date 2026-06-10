@@ -180,7 +180,9 @@ namespace Models
 
 
         protected:
+          // End Time of the window.
           shared_ptr<string> beginTime_ {};
+          // Start Time of the window.
           shared_ptr<string> endTime_ {};
         };
 
@@ -298,20 +300,40 @@ namespace Models
 
 
       protected:
+        // Custom policy data
         shared_ptr<string> customized_ {};
+        // End Time
         shared_ptr<int64_t> endTime_ {};
+        // Post-execution handling method after the epoch ends (this field is deprecated).
         shared_ptr<string> followUpStrategy_ {};
+        // Indicates whether it is a template.
         shared_ptr<bool> isTemplate_ {};
+        // The maximum number of attempts per day when a call in the job fails to connect.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
+        // Calling interval.
         shared_ptr<int32_t> minAttemptInterval_ {};
+        // Repetition mode: "once" for no repetition, "day" for daily repetition, "week" for weekly repetition, and "month" for monthly repetition.
         shared_ptr<string> repeatBy_ {};
+        // Days on which execution repeats.
+        // - If the recurrence **RepeatBy** is set to **Week**, 0 represents Sunday, and 1–6 represent Monday through Saturday, respectively.
+        // - If the recurrence **RepeatBy** is set to **Month**, values 1–31 represent the 1st through the 31st day of the month. Months that do not contain the specified date will not execute the task. For example, if the 30th is selected, the task will not run in February.
         shared_ptr<vector<string>> repeatDays_ {};
+        // Number routing policy.
+        // - None: No special rule.
+        // - LocalFirst: Local city numbers are prioritized.
+        // - LocalProvinceFirst: Numbers from the same province are prioritized.
         shared_ptr<string> routingStrategy_ {};
+        // Start Time.
         shared_ptr<int64_t> startTime_ {};
+        // Policy Description
         shared_ptr<string> strategyDescription_ {};
+        // Policy ID.
         shared_ptr<string> strategyId_ {};
+        // Policy Name.
         shared_ptr<string> strategyName_ {};
+        // Policy Type.
         shared_ptr<string> type_ {};
+        // Time window for policy execution.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -362,8 +384,11 @@ namespace Models
 
 
       protected:
+        // Do not make outbound calls to nonexistent numbers.
         shared_ptr<bool> emptyNumberIgnore_ {};
+        // Do not make outbound calls to numbers with overdue payment.
         shared_ptr<bool> inArrearsIgnore_ {};
+        // Do not make outbound calls to numbers that are out of service.
         shared_ptr<bool> outOfServiceIgnore_ {};
       };
 
@@ -414,8 +439,11 @@ namespace Models
 
 
       protected:
+        // File URL. [Deprecated]
         shared_ptr<string> fileHttpUrl_ {};
+        // Progress. [Deprecated]
         shared_ptr<string> progress_ {};
+        // Job export status. [Deprecated]
         shared_ptr<string> status_ {};
       };
 
@@ -568,24 +596,51 @@ namespace Models
 
 
     protected:
+      // List of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
+      // Creation Time.
       shared_ptr<int64_t> creationTime_ {};
+      // Export progress.  
+      // > This field is deprecated in the current parameter.
       shared_ptr<JobGroup::ExportProgress> exportProgress_ {};
+      // The ID of the asynchronous parsing operation in the backend corresponding to the uploaded job file.  
+      // > If empty, it is not returned.
       shared_ptr<string> jobDataParsingTaskId_ {};
+      // OSS path of the job file.  
+      // > If empty, it is not returned.
       shared_ptr<string> jobFilePath_ {};
+      // Task description.
       shared_ptr<string> jobGroupDescription_ {};
+      // Task ID.
       shared_ptr<string> jobGroupId_ {};
+      // Task Name.
       shared_ptr<string> jobGroupName_ {};
+      // Concurrent guarantee value.  
+      // When the job starts, it guarantees a minimum of N concurrent instances.  
+      // The sum of concurrent guarantee values for jobs with the same priority must not exceed the instance concurrency limit.  
+      // If the concurrent guarantee value is set to 0, the system intelligently assigns available idle concurrency.
       shared_ptr<int64_t> minConcurrency_ {};
+      // Updated At.
       shared_ptr<string> modifyTime_ {};
+      // Job group priority. Valid values:  
+      // - **Urgent**: Urgent job.  
+      // - **Daily**: Daily job.
       shared_ptr<string> priority_ {};
+      // List of recall calling numbers
       shared_ptr<vector<string>> recallCallingNumbers_ {};
+      // Redial policy.
       shared_ptr<JobGroup::RecallStrategy> recallStrategy_ {};
+      // Ringing duration.
       shared_ptr<int64_t> ringingDuration_ {};
+      // Scenario ID.
       shared_ptr<string> scenarioId_ {};
+      // Scenario name.
       shared_ptr<string> scriptName_ {};
+      // Script scenario version.
       shared_ptr<string> scriptVersion_ {};
+      // Task status.
       shared_ptr<string> status_ {};
+      // Job scheduling policy.
       shared_ptr<JobGroup::Strategy> strategy_ {};
     };
 
@@ -636,11 +691,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP return code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Job information.
     shared_ptr<CreateJobGroupResponseBody::JobGroup> jobGroup_ {};
+    // Message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

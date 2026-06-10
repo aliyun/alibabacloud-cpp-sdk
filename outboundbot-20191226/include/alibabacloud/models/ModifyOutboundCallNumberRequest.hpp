@@ -75,14 +75,24 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number to modify
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
+    // Number ID
+    // 
     // This parameter is required.
     shared_ptr<string> outboundCallNumberId_ {};
+    // Number of rate limiting rules
+    // 
     // This parameter is required.
     shared_ptr<int32_t> rateLimitCount_ {};
+    // Rate limiting time window, in seconds
+    // 
     // This parameter is required.
     shared_ptr<int32_t> rateLimitPeriod_ {};
   };

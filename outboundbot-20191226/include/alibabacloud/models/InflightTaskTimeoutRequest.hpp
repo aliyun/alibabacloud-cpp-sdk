@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Alibaba Cloud account ID of the instance owner
     shared_ptr<int64_t> instanceOwnerId_ {};
+    // Task ID
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

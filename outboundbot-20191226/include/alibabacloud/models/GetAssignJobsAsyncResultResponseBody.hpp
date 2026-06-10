@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The task group ID.
     shared_ptr<string> jobGroupId_ {};
+    // The list of job IDs.
     shared_ptr<vector<string>> jobsId_ {};
+    // The API message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
+    // Indicates whether the asynchronous task timed out.
     shared_ptr<bool> timeout_ {};
+    // Indicates whether the result has been fully generated.
     shared_ptr<bool> valid_ {};
   };
 

@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // Whitelist ID
         shared_ptr<string> contactWhiteListId_ {};
+        // Creation time
         shared_ptr<int64_t> creationTime_ {};
+        // Creator
         shared_ptr<string> creator_ {};
+        // Instance ID
         shared_ptr<string> instanceId_ {};
+        // Name
         shared_ptr<string> name_ {};
+        // Operator
         shared_ptr<string> operator_ {};
+        // Mobile phone number
         shared_ptr<string> phoneNumber_ {};
+        // Remarks
         shared_ptr<string> remark_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // Contact list
       shared_ptr<vector<ContactWhitelistList::List>> list_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of entries per page
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of entries
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -254,11 +266,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Contact list
     shared_ptr<GetContactWhiteListResponseBody::ContactWhitelistList> contactWhitelistList_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

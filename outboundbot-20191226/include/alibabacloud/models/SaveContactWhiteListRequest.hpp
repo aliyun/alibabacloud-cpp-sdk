@@ -60,8 +60,12 @@ namespace Models
 
 
   protected:
+    // The contact whitelist. This parameter is deprecated.
     shared_ptr<vector<string>> contactWhiteListList_ {};
+    // The whitelist. This parameter is required.
     shared_ptr<string> contactWhiteListsJson_ {};
+    // The instance ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

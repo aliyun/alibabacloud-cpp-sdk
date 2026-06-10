@@ -73,7 +73,10 @@ namespace Models
 
 
     protected:
+      // Intent alias
       shared_ptr<string> aliasName_ {};
+      // Intent name
+      // 
       // This parameter is required.
       shared_ptr<string> intentName_ {};
     };
@@ -111,12 +114,20 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Intent definition
+    // 
     // This parameter is required.
     shared_ptr<ModifyBeebotIntentRequest::IntentDefinition> intentDefinition_ {};
+    // Intent ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> intentId_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

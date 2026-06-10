@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Utterance Template Definition
+    // 
     // This parameter is required.
     shared_ptr<string> lgfDefinitionShrink_ {};
+    // Utterance Template ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> lgfId_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

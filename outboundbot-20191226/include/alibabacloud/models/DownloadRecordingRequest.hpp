@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DownloadRecordingRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NeedVoiceSliceRecording, needVoiceSliceRecording_);
+      DARABONBA_PTR_TO_JSON(SwapChannels, swapChannels_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
     };
     friend void from_json(const Darabonba::Json& j, DownloadRecordingRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NeedVoiceSliceRecording, needVoiceSliceRecording_);
+      DARABONBA_PTR_FROM_JSON(SwapChannels, swapChannels_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
     };
     DownloadRecordingRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->needVoiceSliceRecording_ == nullptr && this->taskId_ == nullptr; };
+        && this->needVoiceSliceRecording_ == nullptr && this->swapChannels_ == nullptr && this->taskId_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline DownloadRecordingRequest& setNeedVoiceSliceRecording(bool needVoiceSliceRecording) { DARABONBA_PTR_SET_VALUE(needVoiceSliceRecording_, needVoiceSliceRecording) };
 
 
+    // swapChannels Field Functions 
+    bool hasSwapChannels() const { return this->swapChannels_ != nullptr;};
+    void deleteSwapChannels() { this->swapChannels_ = nullptr;};
+    inline bool getSwapChannels() const { DARABONBA_PTR_GET_DEFAULT(swapChannels_, false) };
+    inline DownloadRecordingRequest& setSwapChannels(bool swapChannels) { DARABONBA_PTR_SET_VALUE(swapChannels_, swapChannels) };
+
+
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
@@ -57,9 +66,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to retrieve voice slice recordings.
     shared_ptr<bool> needVoiceSliceRecording_ {};
+    // Specifies whether to swap the left and right audio channels. The default value is `false`.
+    shared_ptr<bool> swapChannels_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

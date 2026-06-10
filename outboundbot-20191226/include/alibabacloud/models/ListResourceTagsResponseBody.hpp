@@ -103,7 +103,9 @@ namespace Models
 
 
       protected:
+        // Tag key
         shared_ptr<string> key_ {};
+        // Tag value
         shared_ptr<string> value_ {};
       };
 
@@ -140,9 +142,13 @@ namespace Models
 
 
     protected:
+      // List of resource tags
       shared_ptr<vector<ResourceTags::List>> list_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Number of items per page
       shared_ptr<int32_t> pageSize_ {};
+      // Total number of items
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -193,11 +199,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Resource tag information
     shared_ptr<ListResourceTagsResponseBody::ResourceTags> resourceTags_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

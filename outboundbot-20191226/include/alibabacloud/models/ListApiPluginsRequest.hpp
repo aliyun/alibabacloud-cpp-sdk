@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // API plugin unique identifiers
     shared_ptr<string> uuidsJson_ {};
   };
 

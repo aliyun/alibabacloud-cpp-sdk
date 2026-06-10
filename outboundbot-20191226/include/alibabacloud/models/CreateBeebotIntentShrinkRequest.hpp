@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The description of the intent.
+    // 
     // This parameter is required.
     shared_ptr<string> intentDefinitionShrink_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

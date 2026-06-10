@@ -73,8 +73,12 @@ namespace Models
 
 
     protected:
+      // Intent ID
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
+      // Intent Configuration
+      // 
       // This parameter is required.
       shared_ptr<string> ruleText_ {};
     };
@@ -112,12 +116,20 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Utterance Template Definition
+    // 
     // This parameter is required.
     shared_ptr<ModifyBeebotIntentLgfRequest::LgfDefinition> lgfDefinition_ {};
+    // Utterance Template ID
+    // 
     // This parameter is required.
     shared_ptr<int64_t> lgfId_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

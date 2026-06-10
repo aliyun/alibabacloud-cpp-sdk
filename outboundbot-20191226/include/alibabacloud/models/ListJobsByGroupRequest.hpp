@@ -84,14 +84,24 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job failure reason
     shared_ptr<string> jobFailureReason_ {};
+    // Job group ID
+    // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};
+    // Job status
     shared_ptr<string> jobStatus_ {};
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

@@ -260,23 +260,71 @@ namespace Models
 
 
       protected:
+        // Annotation data source type. 1: Outbound call. 2: Navigation.
         shared_ptr<int32_t> annotationMissionDataSourceType_ {};
+        // Annotation debug data source list
+        // 
+        // > The response includes an extra 0. Valid responses are [0,1], [0,2], or [0,1,2].
         shared_ptr<vector<int32_t>> annotationMissionDebugDataSourceList_ {};
+        // Mission ID
         shared_ptr<string> annotationMissionId_ {};
+        // Mission name
         shared_ptr<string> annotationMissionName_ {};
+        // Annotation status
+        // 
+        // - 1: In progress
+        // 
+        // - 2: Completed
+        // 
+        // - 3: Closed
         shared_ptr<int32_t> annotationStatus_ {};
+        // End time of the conversation time query condition for the annotation mission
         shared_ptr<int64_t> conversationTimeEndFilter_ {};
+        // Start time of the conversation time query condition for the annotation mission
         shared_ptr<int64_t> conversationTimeStartFilter_ {};
+        // Creation time
         shared_ptr<int64_t> createTime_ {};
+        // Indicates whether to exclude call records already annotated in other missions
         shared_ptr<bool> excludeOtherMissionSession_ {};
+        // Completion time of the annotation mission
         shared_ptr<int64_t> finishTime_ {};
+        // Instance ID
         shared_ptr<string> instanceId_ {};
+        // Maximum sampling count limit
         shared_ptr<int32_t> samplingCount_ {};
+        // Sampling description
         shared_ptr<string> samplingDescription_ {};
+        // Sampling rate
         shared_ptr<int32_t> samplingRate_ {};
+        // Sampling type
         shared_ptr<int32_t> samplingType_ {};
+        // List of session end reason types used when creating the mission
+        // 
+        // - 1: Normal completion
+        // 
+        // - 2: Bot hangup after rejection
+        // 
+        // - 3: Hangup due to silence timeout
+        // 
+        // - 4: User hangup after rejection
+        // 
+        // - 5: User hangup without reason
+        // 
+        // - 6: Transfer to agent after intent match
+        // 
+        // - 7: Transfer to agent after rejection
+        // 
+        // - 8: No interaction from user side
+        // 
+        // - 9: System exception interruption
+        // 
+        // - 10: Transfer to IVR after intent match
+        // 
+        // - 11: Transfer to IVR after rejection
         shared_ptr<vector<int32_t>> sessionEndReasonFilterList_ {};
+        // Number of completed sessions in the annotation mission
         shared_ptr<int32_t> sessionFinishCount_ {};
+        // Total number of sessions in the annotation mission
         shared_ptr<int32_t> sessionTotalCount_ {};
       };
 
@@ -335,12 +383,19 @@ namespace Models
 
 
     protected:
+      // Annotation mission list
       shared_ptr<vector<Data::AnnotationMissionList>> annotationMissionList_ {};
+      // Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
       shared_ptr<string> message_ {};
+      // Page number
       shared_ptr<int64_t> pageIndex_ {};
+      // Number of entries per page
       shared_ptr<int64_t> pageSize_ {};
+      // Indicates whether the call succeeded. true: succeeded. false: failed.
       shared_ptr<bool> success_ {};
+      // Total count
       shared_ptr<int64_t> totalCount_ {};
+      // Total number of pages
       shared_ptr<int64_t> totalPageCount_ {};
     };
 
@@ -391,11 +446,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Data
     shared_ptr<ListAnnotationMissionResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Additional information. Returns success for normal requests. Returns a specific error code for abnormal requests.
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded. true: succeeded. false: failed.
     shared_ptr<bool> success_ {};
   };
 

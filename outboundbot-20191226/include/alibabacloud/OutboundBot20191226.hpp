@@ -21,7 +21,7 @@ namespace OutboundBot20191226
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建外呼任务
+       * @summary Creates outbound call jobs in batches.
        *
        * @param request AssignJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace OutboundBot20191226
       Models::AssignJobsResponse assignJobsWithOptions(const Models::AssignJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建外呼任务
+       * @summary Creates outbound call jobs in batches.
        *
        * @param request AssignJobsRequest
        * @return AssignJobsResponse
@@ -38,7 +38,7 @@ namespace OutboundBot20191226
       Models::AssignJobsResponse assignJobs(const Models::AssignJobsRequest &request);
 
       /**
-       * @summary 异步创建外呼任务
+       * @summary Asynchronously creates outbound jobs.
        *
        * @param tmpReq AssignJobsAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace OutboundBot20191226
       Models::AssignJobsAsyncResponse assignJobsAsyncWithOptions(const Models::AssignJobsAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异步创建外呼任务
+       * @summary Asynchronously creates outbound jobs.
        *
        * @param request AssignJobsAsyncRequest
        * @return AssignJobsAsyncResponse
@@ -55,6 +55,8 @@ namespace OutboundBot20191226
       Models::AssignJobsAsyncResponse assignJobsAsync(const Models::AssignJobsAsyncRequest &request);
 
       /**
+       * @summary Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+       *
        * @param request CancelJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelJobsResponse
@@ -62,12 +64,16 @@ namespace OutboundBot20191226
       Models::CancelJobsResponse cancelJobsWithOptions(const Models::CancelJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+       *
        * @param request CancelJobsRequest
        * @return CancelJobsResponse
        */
       Models::CancelJobsResponse cancelJobs(const Models::CancelJobsRequest &request);
 
       /**
+       * @summary Changes the resource group of a resource.
+       *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ChangeResourceGroupResponse
@@ -75,12 +81,16 @@ namespace OutboundBot20191226
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Changes the resource group of a resource.
+       *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
        */
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
+       * @summary You can create an intelligent configuration.
+       *
        * @param request CreateAgentProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateAgentProfileResponse
@@ -88,13 +98,15 @@ namespace OutboundBot20191226
       Models::CreateAgentProfileResponse createAgentProfileWithOptions(const Models::CreateAgentProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can create an intelligent configuration.
+       *
        * @param request CreateAgentProfileRequest
        * @return CreateAgentProfileResponse
        */
       Models::CreateAgentProfileResponse createAgentProfile(const Models::CreateAgentProfileRequest &request);
 
       /**
-       * @summary 创建标注任务
+       * @summary Creates an annotation task.
        *
        * @param tmpReq CreateAnnotationMissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -103,7 +115,7 @@ namespace OutboundBot20191226
       Models::CreateAnnotationMissionResponse createAnnotationMissionWithOptions(const Models::CreateAnnotationMissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建标注任务
+       * @summary Creates an annotation task.
        *
        * @param request CreateAnnotationMissionRequest
        * @return CreateAnnotationMissionResponse
@@ -111,7 +123,7 @@ namespace OutboundBot20191226
       Models::CreateAnnotationMissionResponse createAnnotationMission(const Models::CreateAnnotationMissionRequest &request);
 
       /**
-       * @summary 创建任务
+       * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
        *
        * @param request CreateBatchJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -120,7 +132,7 @@ namespace OutboundBot20191226
       Models::CreateBatchJobsResponse createBatchJobsWithOptions(const Models::CreateBatchJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建任务
+       * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
        *
        * @param request CreateBatchJobsRequest
        * @return CreateBatchJobsResponse
@@ -128,7 +140,7 @@ namespace OutboundBot20191226
       Models::CreateBatchJobsResponse createBatchJobs(const Models::CreateBatchJobsRequest &request);
 
       /**
-       * @summary CreateBatchRepeatJob
+       * @summary Copy an existing task group to reinitiate an outbound task.
        *
        * @param request CreateBatchRepeatJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -137,7 +149,7 @@ namespace OutboundBot20191226
       Models::CreateBatchRepeatJobResponse createBatchRepeatJobWithOptions(const Models::CreateBatchRepeatJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateBatchRepeatJob
+       * @summary Copy an existing task group to reinitiate an outbound task.
        *
        * @param request CreateBatchRepeatJobRequest
        * @return CreateBatchRepeatJobResponse
@@ -145,7 +157,7 @@ namespace OutboundBot20191226
       Models::CreateBatchRepeatJobResponse createBatchRepeatJob(const Models::CreateBatchRepeatJobRequest &request);
 
       /**
-       * @summary CreateBeebotIntent
+       * @summary Creates an intent for a small-model scenario.
        *
        * @param tmpReq CreateBeebotIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -154,7 +166,7 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentResponse createBeebotIntentWithOptions(const Models::CreateBeebotIntentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateBeebotIntent
+       * @summary Creates an intent for a small-model scenario.
        *
        * @param request CreateBeebotIntentRequest
        * @return CreateBeebotIntentResponse
@@ -162,7 +174,7 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentResponse createBeebotIntent(const Models::CreateBeebotIntentRequest &request);
 
       /**
-       * @summary CreateBeebotIntentLgf
+       * @summary Creates a user utterance template for an intent in a small model scenario.
        *
        * @param tmpReq CreateBeebotIntentLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -171,7 +183,7 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentLgfResponse createBeebotIntentLgfWithOptions(const Models::CreateBeebotIntentLgfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateBeebotIntentLgf
+       * @summary Creates a user utterance template for an intent in a small model scenario.
        *
        * @param request CreateBeebotIntentLgfRequest
        * @return CreateBeebotIntentLgfResponse
@@ -179,7 +191,7 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentLgfResponse createBeebotIntentLgf(const Models::CreateBeebotIntentLgfRequest &request);
 
       /**
-       * @summary CreateBeebotIntentUserSay
+       * @summary Creates a user utterance for an intent in a small model scenario.
        *
        * @param tmpReq CreateBeebotIntentUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -188,7 +200,7 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentUserSayResponse createBeebotIntentUserSayWithOptions(const Models::CreateBeebotIntentUserSayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateBeebotIntentUserSay
+       * @summary Creates a user utterance for an intent in a small model scenario.
        *
        * @param request CreateBeebotIntentUserSayRequest
        * @return CreateBeebotIntentUserSayResponse
@@ -196,6 +208,8 @@ namespace OutboundBot20191226
       Models::CreateBeebotIntentUserSayResponse createBeebotIntentUserSay(const Models::CreateBeebotIntentUserSayRequest &request);
 
       /**
+       * @summary This legacy canvas API creates a dialogue flow.
+       *
        * @param request CreateDialogueFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateDialogueFlowResponse
@@ -203,12 +217,16 @@ namespace OutboundBot20191226
       Models::CreateDialogueFlowResponse createDialogueFlowWithOptions(const Models::CreateDialogueFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary This legacy canvas API creates a dialogue flow.
+       *
        * @param request CreateDialogueFlowRequest
        * @return CreateDialogueFlowResponse
        */
       Models::CreateDialogueFlowResponse createDialogueFlow(const Models::CreateDialogueFlowRequest &request);
 
       /**
+       * @summary Creates a URL for a Download Hub task.
+       *
        * @param request CreateDownloadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateDownloadUrlResponse
@@ -216,12 +234,16 @@ namespace OutboundBot20191226
       Models::CreateDownloadUrlResponse createDownloadUrlWithOptions(const Models::CreateDownloadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a URL for a Download Hub task.
+       *
        * @param request CreateDownloadUrlRequest
        * @return CreateDownloadUrlResponse
        */
       Models::CreateDownloadUrlResponse createDownloadUrl(const Models::CreateDownloadUrlRequest &request);
 
       /**
+       * @summary Creates a global question in a legacy canvas.
+       *
        * @param request CreateGlobalQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateGlobalQuestionResponse
@@ -229,12 +251,16 @@ namespace OutboundBot20191226
       Models::CreateGlobalQuestionResponse createGlobalQuestionWithOptions(const Models::CreateGlobalQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a global question in a legacy canvas.
+       *
        * @param request CreateGlobalQuestionRequest
        * @return CreateGlobalQuestionResponse
        */
       Models::CreateGlobalQuestionResponse createGlobalQuestion(const Models::CreateGlobalQuestionRequest &request);
 
       /**
+       * @summary Creates an outbound call instance.
+       *
        * @param request CreateInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateInstanceResponse
@@ -242,13 +268,15 @@ namespace OutboundBot20191226
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates an outbound call instance.
+       *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
        */
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建实例绑定号码
+       * @summary Binds a number to a business instance.
        *
        * @param request CreateInstanceBindNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +285,7 @@ namespace OutboundBot20191226
       Models::CreateInstanceBindNumberResponse createInstanceBindNumberWithOptions(const Models::CreateInstanceBindNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例绑定号码
+       * @summary Binds a number to a business instance.
        *
        * @param request CreateInstanceBindNumberRequest
        * @return CreateInstanceBindNumberResponse
@@ -265,6 +293,8 @@ namespace OutboundBot20191226
       Models::CreateInstanceBindNumberResponse createInstanceBindNumber(const Models::CreateInstanceBindNumberRequest &request);
 
       /**
+       * @summary Creates an intent in a legacy canvas script.
+       *
        * @param request CreateIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateIntentResponse
@@ -272,12 +302,16 @@ namespace OutboundBot20191226
       Models::CreateIntentResponse createIntentWithOptions(const Models::CreateIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates an intent in a legacy canvas script.
+       *
        * @param request CreateIntentRequest
        * @return CreateIntentResponse
        */
       Models::CreateIntentResponse createIntent(const Models::CreateIntentRequest &request);
 
       /**
+       * @summary Creates a job data parsing task.
+       *
        * @param request CreateJobDataParsingTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateJobDataParsingTaskResponse
@@ -285,13 +319,15 @@ namespace OutboundBot20191226
       Models::CreateJobDataParsingTaskResponse createJobDataParsingTaskWithOptions(const Models::CreateJobDataParsingTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a job data parsing task.
+       *
        * @param request CreateJobDataParsingTaskRequest
        * @return CreateJobDataParsingTaskResponse
        */
       Models::CreateJobDataParsingTaskResponse createJobDataParsingTask(const Models::CreateJobDataParsingTaskRequest &request);
 
       /**
-       * @summary 创建任务组
+       * @summary Create a job group.
        *
        * @param request CreateJobGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -300,7 +336,7 @@ namespace OutboundBot20191226
       Models::CreateJobGroupResponse createJobGroupWithOptions(const Models::CreateJobGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建任务组
+       * @summary Create a job group.
        *
        * @param request CreateJobGroupRequest
        * @return CreateJobGroupResponse
@@ -308,7 +344,7 @@ namespace OutboundBot20191226
       Models::CreateJobGroupResponse createJobGroup(const Models::CreateJobGroupRequest &request);
 
       /**
-       * @summary 创建任务组到处任务
+       * @summary Creates an export task for an outbound job group.
        *
        * @param request CreateJobGroupExportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -317,7 +353,7 @@ namespace OutboundBot20191226
       Models::CreateJobGroupExportTaskResponse createJobGroupExportTaskWithOptions(const Models::CreateJobGroupExportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建任务组到处任务
+       * @summary Creates an export task for an outbound job group.
        *
        * @param request CreateJobGroupExportTaskRequest
        * @return CreateJobGroupExportTaskResponse
@@ -325,7 +361,7 @@ namespace OutboundBot20191226
       Models::CreateJobGroupExportTaskResponse createJobGroupExportTask(const Models::CreateJobGroupExportTaskRequest &request);
 
       /**
-       * @summary 新建场景
+       * @summary Create a scenario.
        *
        * @param request CreateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -334,7 +370,7 @@ namespace OutboundBot20191226
       Models::CreateScriptResponse createScriptWithOptions(const Models::CreateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建场景
+       * @summary Create a scenario.
        *
        * @param request CreateScriptRequest
        * @return CreateScriptResponse
@@ -342,6 +378,10 @@ namespace OutboundBot20191226
       Models::CreateScriptResponse createScript(const Models::CreateScriptRequest &request);
 
       /**
+       * @summary Creates a recording for the broadcast script.
+       *
+       * @description ***
+       *
        * @param request CreateScriptWaveformRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateScriptWaveformResponse
@@ -349,12 +389,18 @@ namespace OutboundBot20191226
       Models::CreateScriptWaveformResponse createScriptWaveformWithOptions(const Models::CreateScriptWaveformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a recording for the broadcast script.
+       *
+       * @description ***
+       *
        * @param request CreateScriptWaveformRequest
        * @return CreateScriptWaveformResponse
        */
       Models::CreateScriptWaveformResponse createScriptWaveform(const Models::CreateScriptWaveformRequest &request);
 
       /**
+       * @summary Creates a tag for use in the legacy canvas.
+       *
        * @param request CreateTagRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateTagResponse
@@ -362,13 +408,15 @@ namespace OutboundBot20191226
       Models::CreateTagResponse createTagWithOptions(const Models::CreateTagRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Creates a tag for use in the legacy canvas.
+       *
        * @param request CreateTagRequest
        * @return CreateTagResponse
        */
       Models::CreateTagResponse createTag(const Models::CreateTagRequest &request);
 
       /**
-       * @summary 外呼历史导出
+       * @summary Create an asynchronous task to export outbound call history.
        *
        * @param request CreateTaskExportTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -377,7 +425,7 @@ namespace OutboundBot20191226
       Models::CreateTaskExportTaskResponse createTaskExportTaskWithOptions(const Models::CreateTaskExportTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 外呼历史导出
+       * @summary Create an asynchronous task to export outbound call history.
        *
        * @param request CreateTaskExportTaskRequest
        * @return CreateTaskExportTaskResponse
@@ -385,7 +433,7 @@ namespace OutboundBot20191226
       Models::CreateTaskExportTaskResponse createTaskExportTask(const Models::CreateTaskExportTaskRequest &request);
 
       /**
-       * @summary 创建密钥
+       * @summary Creates a key.
        *
        * @param request CreateTenantKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -394,7 +442,7 @@ namespace OutboundBot20191226
       Models::CreateTenantKeyResponse createTenantKeyWithOptions(const Models::CreateTenantKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建密钥
+       * @summary Creates a key.
        *
        * @param request CreateTenantKeyRequest
        * @return CreateTenantKeyResponse
@@ -402,6 +450,8 @@ namespace OutboundBot20191226
       Models::CreateTenantKeyResponse createTenantKey(const Models::CreateTenantKeyRequest &request);
 
       /**
+       * @summary Deletes Large Language Model (LLM) agents.
+       *
        * @param tmpReq DeleteAgentProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAgentProfilesResponse
@@ -409,13 +459,15 @@ namespace OutboundBot20191226
       Models::DeleteAgentProfilesResponse deleteAgentProfilesWithOptions(const Models::DeleteAgentProfilesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes Large Language Model (LLM) agents.
+       *
        * @param request DeleteAgentProfilesRequest
        * @return DeleteAgentProfilesResponse
        */
       Models::DeleteAgentProfilesResponse deleteAgentProfiles(const Models::DeleteAgentProfilesRequest &request);
 
       /**
-       * @summary 清空归属地号码库
+       * @summary Deletes all entries from the number district database. This operation is deprecated.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteAllNumberDistrictInfoResponse
@@ -423,14 +475,14 @@ namespace OutboundBot20191226
       Models::DeleteAllNumberDistrictInfoResponse deleteAllNumberDistrictInfoWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 清空归属地号码库
+       * @summary Deletes all entries from the number district database. This operation is deprecated.
        *
        * @return DeleteAllNumberDistrictInfoResponse
        */
       Models::DeleteAllNumberDistrictInfoResponse deleteAllNumberDistrictInfo();
 
       /**
-       * @summary DeleteBeebotIntent
+       * @summary Delete an intent in a small-model scenario.
        *
        * @param request DeleteBeebotIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -439,7 +491,7 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentResponse deleteBeebotIntentWithOptions(const Models::DeleteBeebotIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteBeebotIntent
+       * @summary Delete an intent in a small-model scenario.
        *
        * @param request DeleteBeebotIntentRequest
        * @return DeleteBeebotIntentResponse
@@ -447,7 +499,7 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentResponse deleteBeebotIntent(const Models::DeleteBeebotIntentRequest &request);
 
       /**
-       * @summary DeleteBeebotIntentLgf
+       * @summary Deletes utterance templates for intents in small model scenarios.
        *
        * @param request DeleteBeebotIntentLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -456,7 +508,7 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentLgfResponse deleteBeebotIntentLgfWithOptions(const Models::DeleteBeebotIntentLgfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteBeebotIntentLgf
+       * @summary Deletes utterance templates for intents in small model scenarios.
        *
        * @param request DeleteBeebotIntentLgfRequest
        * @return DeleteBeebotIntentLgfResponse
@@ -464,7 +516,7 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentLgfResponse deleteBeebotIntentLgf(const Models::DeleteBeebotIntentLgfRequest &request);
 
       /**
-       * @summary DeleteBeebotIntentUserSay
+       * @summary Delete user queries for intents in the small-model scenario.
        *
        * @param request DeleteBeebotIntentUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +525,7 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentUserSayResponse deleteBeebotIntentUserSayWithOptions(const Models::DeleteBeebotIntentUserSayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteBeebotIntentUserSay
+       * @summary Delete user queries for intents in the small-model scenario.
        *
        * @param request DeleteBeebotIntentUserSayRequest
        * @return DeleteBeebotIntentUserSayResponse
@@ -481,6 +533,8 @@ namespace OutboundBot20191226
       Models::DeleteBeebotIntentUserSayResponse deleteBeebotIntentUserSay(const Models::DeleteBeebotIntentUserSayRequest &request);
 
       /**
+       * @summary You can delete a do-not-call list.
+       *
        * @param request DeleteContactBlockListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteContactBlockListResponse
@@ -488,12 +542,16 @@ namespace OutboundBot20191226
       Models::DeleteContactBlockListResponse deleteContactBlockListWithOptions(const Models::DeleteContactBlockListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can delete a do-not-call list.
+       *
        * @param request DeleteContactBlockListRequest
        * @return DeleteContactBlockListResponse
        */
       Models::DeleteContactBlockListResponse deleteContactBlockList(const Models::DeleteContactBlockListRequest &request);
 
       /**
+       * @summary Deletes the global outbound calling policy whitelist.
+       *
        * @param request DeleteContactWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteContactWhiteListResponse
@@ -501,12 +559,16 @@ namespace OutboundBot20191226
       Models::DeleteContactWhiteListResponse deleteContactWhiteListWithOptions(const Models::DeleteContactWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes the global outbound calling policy whitelist.
+       *
        * @param request DeleteContactWhiteListRequest
        * @return DeleteContactWhiteListResponse
        */
       Models::DeleteContactWhiteListResponse deleteContactWhiteList(const Models::DeleteContactWhiteListRequest &request);
 
       /**
+       * @summary Deletes a dialogue flow. This is a legacy canvas API.
+       *
        * @param request DeleteDialogueFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteDialogueFlowResponse
@@ -514,12 +576,16 @@ namespace OutboundBot20191226
       Models::DeleteDialogueFlowResponse deleteDialogueFlowWithOptions(const Models::DeleteDialogueFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a dialogue flow. This is a legacy canvas API.
+       *
        * @param request DeleteDialogueFlowRequest
        * @return DeleteDialogueFlowResponse
        */
       Models::DeleteDialogueFlowResponse deleteDialogueFlow(const Models::DeleteDialogueFlowRequest &request);
 
       /**
+       * @summary Deletes a global question from a legacy canvas script.
+       *
        * @param request DeleteGlobalQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteGlobalQuestionResponse
@@ -527,12 +593,16 @@ namespace OutboundBot20191226
       Models::DeleteGlobalQuestionResponse deleteGlobalQuestionWithOptions(const Models::DeleteGlobalQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a global question from a legacy canvas script.
+       *
        * @param request DeleteGlobalQuestionRequest
        * @return DeleteGlobalQuestionResponse
        */
       Models::DeleteGlobalQuestionResponse deleteGlobalQuestion(const Models::DeleteGlobalQuestionRequest &request);
 
       /**
+       * @summary Deletes an Intelligent Outbound Calling instance.
+       *
        * @param request DeleteInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteInstanceResponse
@@ -540,12 +610,16 @@ namespace OutboundBot20191226
       Models::DeleteInstanceResponse deleteInstanceWithOptions(const Models::DeleteInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an Intelligent Outbound Calling instance.
+       *
        * @param request DeleteInstanceRequest
        * @return DeleteInstanceResponse
        */
       Models::DeleteInstanceResponse deleteInstance(const Models::DeleteInstanceRequest &request);
 
       /**
+       * @summary Deletes an intent. This is a legacy API.
+       *
        * @param request DeleteIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteIntentResponse
@@ -553,12 +627,16 @@ namespace OutboundBot20191226
       Models::DeleteIntentResponse deleteIntentWithOptions(const Models::DeleteIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an intent. This is a legacy API.
+       *
        * @param request DeleteIntentRequest
        * @return DeleteIntentResponse
        */
       Models::DeleteIntentResponse deleteIntent(const Models::DeleteIntentRequest &request);
 
       /**
+       * @summary Deletes a job group.
+       *
        * @param request DeleteJobGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteJobGroupResponse
@@ -566,12 +644,16 @@ namespace OutboundBot20191226
       Models::DeleteJobGroupResponse deleteJobGroupWithOptions(const Models::DeleteJobGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a job group.
+       *
        * @param request DeleteJobGroupRequest
        * @return DeleteJobGroupResponse
        */
       Models::DeleteJobGroupResponse deleteJobGroup(const Models::DeleteJobGroupRequest &request);
 
       /**
+       * @summary Deletes an outbound call number. This API is deprecated.
+       *
        * @param request DeleteOutboundCallNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteOutboundCallNumberResponse
@@ -579,12 +661,16 @@ namespace OutboundBot20191226
       Models::DeleteOutboundCallNumberResponse deleteOutboundCallNumberWithOptions(const Models::DeleteOutboundCallNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes an outbound call number. This API is deprecated.
+       *
        * @param request DeleteOutboundCallNumberRequest
        * @return DeleteOutboundCallNumberResponse
        */
       Models::DeleteOutboundCallNumberResponse deleteOutboundCallNumber(const Models::DeleteOutboundCallNumberRequest &request);
 
       /**
+       * @summary Deletes a specified script.
+       *
        * @param request DeleteScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteScriptResponse
@@ -592,12 +678,16 @@ namespace OutboundBot20191226
       Models::DeleteScriptResponse deleteScriptWithOptions(const Models::DeleteScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes a specified script.
+       *
        * @param request DeleteScriptRequest
        * @return DeleteScriptResponse
        */
       Models::DeleteScriptResponse deleteScript(const Models::DeleteScriptRequest &request);
 
       /**
+       * @summary Deletes uploaded recordings for a small-model scenario.
+       *
        * @param request DeleteScriptRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteScriptRecordingResponse
@@ -605,12 +695,16 @@ namespace OutboundBot20191226
       Models::DeleteScriptRecordingResponse deleteScriptRecordingWithOptions(const Models::DeleteScriptRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Deletes uploaded recordings for a small-model scenario.
+       *
        * @param request DeleteScriptRecordingRequest
        * @return DeleteScriptRecordingResponse
        */
       Models::DeleteScriptRecordingResponse deleteScriptRecording(const Models::DeleteScriptRecordingRequest &request);
 
       /**
+       * @summary Delete a script recording.
+       *
        * @param request DeleteScriptWaveformRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteScriptWaveformResponse
@@ -618,15 +712,17 @@ namespace OutboundBot20191226
       Models::DeleteScriptWaveformResponse deleteScriptWaveformWithOptions(const Models::DeleteScriptWaveformRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Delete a script recording.
+       *
        * @param request DeleteScriptWaveformRequest
        * @return DeleteScriptWaveformResponse
        */
       Models::DeleteScriptWaveformResponse deleteScriptWaveform(const Models::DeleteScriptWaveformRequest &request);
 
       /**
-       * @summary DescribeBeebotIntent
+       * @summary Retrieves the intent in the small model scenario.
        *
-       * @description ****
+       * @description ***
        *
        * @param request DescribeBeebotIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -635,9 +731,9 @@ namespace OutboundBot20191226
       Models::DescribeBeebotIntentResponse describeBeebotIntentWithOptions(const Models::DescribeBeebotIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeBeebotIntent
+       * @summary Retrieves the intent in the small model scenario.
        *
-       * @description ****
+       * @description ***
        *
        * @param request DescribeBeebotIntentRequest
        * @return DescribeBeebotIntentResponse
@@ -645,6 +741,8 @@ namespace OutboundBot20191226
       Models::DescribeBeebotIntentResponse describeBeebotIntent(const Models::DescribeBeebotIntentRequest &request);
 
       /**
+       * @summary Retrieves performance statistics for task labels.
+       *
        * @param request DescribeDialogueNodeStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeDialogueNodeStatisticsResponse
@@ -652,13 +750,15 @@ namespace OutboundBot20191226
       Models::DescribeDialogueNodeStatisticsResponse describeDialogueNodeStatisticsWithOptions(const Models::DescribeDialogueNodeStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves performance statistics for task labels.
+       *
        * @param request DescribeDialogueNodeStatisticsRequest
        * @return DescribeDialogueNodeStatisticsResponse
        */
       Models::DescribeDialogueNodeStatisticsResponse describeDialogueNodeStatistics(const Models::DescribeDialogueNodeStatisticsRequest &request);
 
       /**
-       * @summary DescribeDsReports
+       * @summary Describes DS reports.
        *
        * @param request DescribeDsReportsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +767,7 @@ namespace OutboundBot20191226
       Models::DescribeDsReportsResponse describeDsReportsWithOptions(const Models::DescribeDsReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeDsReports
+       * @summary Describes DS reports.
        *
        * @param request DescribeDsReportsRequest
        * @return DescribeDsReportsResponse
@@ -675,6 +775,10 @@ namespace OutboundBot20191226
       Models::DescribeDsReportsResponse describeDsReports(const Models::DescribeDsReportsRequest &request);
 
       /**
+       * @summary Retrieves the details of a global question in a legacy canvas script.
+       *
+       * @description ***
+       *
        * @param request DescribeGlobalQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeGlobalQuestionResponse
@@ -682,13 +786,17 @@ namespace OutboundBot20191226
       Models::DescribeGlobalQuestionResponse describeGlobalQuestionWithOptions(const Models::DescribeGlobalQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the details of a global question in a legacy canvas script.
+       *
+       * @description ***
+       *
        * @param request DescribeGlobalQuestionRequest
        * @return DescribeGlobalQuestionResponse
        */
       Models::DescribeGlobalQuestionResponse describeGlobalQuestion(const Models::DescribeGlobalQuestionRequest &request);
 
       /**
-       * @summary 任务组数据统计
+       * @summary Returns the execution status of tasks in a task group.
        *
        * @param request DescribeGroupExecutingInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -697,7 +805,7 @@ namespace OutboundBot20191226
       Models::DescribeGroupExecutingInfoResponse describeGroupExecutingInfoWithOptions(const Models::DescribeGroupExecutingInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 任务组数据统计
+       * @summary Returns the execution status of tasks in a task group.
        *
        * @param request DescribeGroupExecutingInfoRequest
        * @return DescribeGroupExecutingInfoResponse
@@ -705,7 +813,7 @@ namespace OutboundBot20191226
       Models::DescribeGroupExecutingInfoResponse describeGroupExecutingInfo(const Models::DescribeGroupExecutingInfoRequest &request);
 
       /**
-       * @summary DescribeInstance
+       * @summary Queries the details of an Outbound Calling instance.
        *
        * @param request DescribeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -714,7 +822,7 @@ namespace OutboundBot20191226
       Models::DescribeInstanceResponse describeInstanceWithOptions(const Models::DescribeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeInstance
+       * @summary Queries the details of an Outbound Calling instance.
        *
        * @param request DescribeInstanceRequest
        * @return DescribeInstanceResponse
@@ -722,6 +830,8 @@ namespace OutboundBot20191226
       Models::DescribeInstanceResponse describeInstance(const Models::DescribeInstanceRequest &request);
 
       /**
+       * @summary Retrieves the details of an intent. This is a legacy Canvas API.
+       *
        * @param request DescribeIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeIntentResponse
@@ -729,13 +839,15 @@ namespace OutboundBot20191226
       Models::DescribeIntentResponse describeIntentWithOptions(const Models::DescribeIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the details of an intent. This is a legacy Canvas API.
+       *
        * @param request DescribeIntentRequest
        * @return DescribeIntentResponse
        */
       Models::DescribeIntentResponse describeIntent(const Models::DescribeIntentRequest &request);
 
       /**
-       * @summary DescribeIntentStatistics
+       * @summary Queries the performance statistics of intents for a task group.
        *
        * @param request DescribeIntentStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +856,7 @@ namespace OutboundBot20191226
       Models::DescribeIntentStatisticsResponse describeIntentStatisticsWithOptions(const Models::DescribeIntentStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeIntentStatistics
+       * @summary Queries the performance statistics of intents for a task group.
        *
        * @param request DescribeIntentStatisticsRequest
        * @return DescribeIntentStatisticsResponse
@@ -752,7 +864,7 @@ namespace OutboundBot20191226
       Models::DescribeIntentStatisticsResponse describeIntentStatistics(const Models::DescribeIntentStatisticsRequest &request);
 
       /**
-       * @summary 获取job信息
+       * @summary Retrieves the conversation data for a specific job.
        *
        * @param request DescribeJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -761,7 +873,7 @@ namespace OutboundBot20191226
       Models::DescribeJobResponse describeJobWithOptions(const Models::DescribeJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取job信息
+       * @summary Retrieves the conversation data for a specific job.
        *
        * @param request DescribeJobRequest
        * @return DescribeJobResponse
@@ -769,6 +881,8 @@ namespace OutboundBot20191226
       Models::DescribeJobResponse describeJob(const Models::DescribeJobRequest &request);
 
       /**
+       * @summary Retrieve the parsing progress of an uploaded job file.
+       *
        * @param request DescribeJobDataParsingTaskProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeJobDataParsingTaskProgressResponse
@@ -776,13 +890,15 @@ namespace OutboundBot20191226
       Models::DescribeJobDataParsingTaskProgressResponse describeJobDataParsingTaskProgressWithOptions(const Models::DescribeJobDataParsingTaskProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieve the parsing progress of an uploaded job file.
+       *
        * @param request DescribeJobDataParsingTaskProgressRequest
        * @return DescribeJobDataParsingTaskProgressResponse
        */
       Models::DescribeJobDataParsingTaskProgressResponse describeJobDataParsingTaskProgress(const Models::DescribeJobDataParsingTaskProgressRequest &request);
 
       /**
-       * @summary DescribeJobGroup
+       * @summary Retrieves data for intelligent outbound call job groups.
        *
        * @param request DescribeJobGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -791,7 +907,7 @@ namespace OutboundBot20191226
       Models::DescribeJobGroupResponse describeJobGroupWithOptions(const Models::DescribeJobGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeJobGroup
+       * @summary Retrieves data for intelligent outbound call job groups.
        *
        * @param request DescribeJobGroupRequest
        * @return DescribeJobGroupResponse
@@ -799,6 +915,8 @@ namespace OutboundBot20191226
       Models::DescribeJobGroupResponse describeJobGroup(const Models::DescribeJobGroupRequest &request);
 
       /**
+       * @summary Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+       *
        * @param request DescribeJobGroupExportTaskProgressRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeJobGroupExportTaskProgressResponse
@@ -806,13 +924,15 @@ namespace OutboundBot20191226
       Models::DescribeJobGroupExportTaskProgressResponse describeJobGroupExportTaskProgressWithOptions(const Models::DescribeJobGroupExportTaskProgressRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+       *
        * @param request DescribeJobGroupExportTaskProgressRequest
        * @return DescribeJobGroupExportTaskProgressResponse
        */
       Models::DescribeJobGroupExportTaskProgressResponse describeJobGroupExportTaskProgress(const Models::DescribeJobGroupExportTaskProgressRequest &request);
 
       /**
-       * @summary 获取场景信息
+       * @summary Returns information about a script.
        *
        * @param request DescribeScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -821,7 +941,7 @@ namespace OutboundBot20191226
       Models::DescribeScriptResponse describeScriptWithOptions(const Models::DescribeScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景信息
+       * @summary Returns information about a script.
        *
        * @param request DescribeScriptRequest
        * @return DescribeScriptResponse
@@ -829,6 +949,8 @@ namespace OutboundBot20191226
       Models::DescribeScriptResponse describeScript(const Models::DescribeScriptRequest &request);
 
       /**
+       * @summary Describes the voice configuration of a script created in the legacy canvas.
+       *
        * @param request DescribeScriptVoiceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeScriptVoiceConfigResponse
@@ -836,12 +958,16 @@ namespace OutboundBot20191226
       Models::DescribeScriptVoiceConfigResponse describeScriptVoiceConfigWithOptions(const Models::DescribeScriptVoiceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Describes the voice configuration of a script created in the legacy canvas.
+       *
        * @param request DescribeScriptVoiceConfigRequest
        * @return DescribeScriptVoiceConfigResponse
        */
       Models::DescribeScriptVoiceConfigResponse describeScriptVoiceConfig(const Models::DescribeScriptVoiceConfigRequest &request);
 
       /**
+       * @summary Query the text-to-speech (TTS) configuration information.
+       *
        * @param request DescribeTTSConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeTTSConfigResponse
@@ -849,12 +975,16 @@ namespace OutboundBot20191226
       Models::DescribeTTSConfigResponse describeTTSConfigWithOptions(const Models::DescribeTTSConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the text-to-speech (TTS) configuration information.
+       *
        * @param request DescribeTTSConfigRequest
        * @return DescribeTTSConfigResponse
        */
       Models::DescribeTTSConfigResponse describeTTSConfig(const Models::DescribeTTSConfigRequest &request);
 
       /**
+       * @summary Preview text-to-speech (TTS) audio.
+       *
        * @param request DescribeTTSDemoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeTTSDemoResponse
@@ -862,12 +992,16 @@ namespace OutboundBot20191226
       Models::DescribeTTSDemoResponse describeTTSDemoWithOptions(const Models::DescribeTTSDemoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Preview text-to-speech (TTS) audio.
+       *
        * @param request DescribeTTSDemoRequest
        * @return DescribeTTSDemoResponse
        */
       Models::DescribeTTSDemoResponse describeTTSDemo(const Models::DescribeTTSDemoRequest &request);
 
       /**
+       * @summary Queries statistics about tag hits. This is a legacy canvas API.
+       *
        * @param request DescribeTagHitsSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeTagHitsSummaryResponse
@@ -875,13 +1009,15 @@ namespace OutboundBot20191226
       Models::DescribeTagHitsSummaryResponse describeTagHitsSummaryWithOptions(const Models::DescribeTagHitsSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries statistics about tag hits. This is a legacy canvas API.
+       *
        * @param request DescribeTagHitsSummaryRequest
        * @return DescribeTagHitsSummaryResponse
        */
       Models::DescribeTagHitsSummaryResponse describeTagHitsSummary(const Models::DescribeTagHitsSummaryRequest &request);
 
       /**
-       * @summary 号码绑定实例列表
+       * @summary Lists the instances to which a phone number is bound in a tenant.
        *
        * @param request DescribeTenantBindNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -890,7 +1026,7 @@ namespace OutboundBot20191226
       Models::DescribeTenantBindNumberResponse describeTenantBindNumberWithOptions(const Models::DescribeTenantBindNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 号码绑定实例列表
+       * @summary Lists the instances to which a phone number is bound in a tenant.
        *
        * @param request DescribeTenantBindNumberRequest
        * @return DescribeTenantBindNumberResponse
@@ -898,6 +1034,8 @@ namespace OutboundBot20191226
       Models::DescribeTenantBindNumberResponse describeTenantBindNumber(const Models::DescribeTenantBindNumberRequest &request);
 
       /**
+       * @summary This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+       *
        * @param request DialogueRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DialogueResponse
@@ -905,13 +1043,15 @@ namespace OutboundBot20191226
       Models::DialogueResponse dialogueWithOptions(const Models::DialogueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+       *
        * @param request DialogueRequest
        * @return DialogueResponse
        */
       Models::DialogueResponse dialogue(const Models::DialogueRequest &request);
 
       /**
-       * @summary DownloadRecording
+       * @summary Downloads a call recording.
        *
        * @param request DownloadRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -920,7 +1060,7 @@ namespace OutboundBot20191226
       Models::DownloadRecordingResponse downloadRecordingWithOptions(const Models::DownloadRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DownloadRecording
+       * @summary Downloads a call recording.
        *
        * @param request DownloadRecordingRequest
        * @return DownloadRecordingResponse
@@ -928,6 +1068,8 @@ namespace OutboundBot20191226
       Models::DownloadRecordingResponse downloadRecording(const Models::DownloadRecordingRequest &request);
 
       /**
+       * @summary Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+       *
        * @param request DownloadScriptRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DownloadScriptRecordingResponse
@@ -935,12 +1077,16 @@ namespace OutboundBot20191226
       Models::DownloadScriptRecordingResponse downloadScriptRecordingWithOptions(const Models::DownloadScriptRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+       *
        * @param request DownloadScriptRecordingRequest
        * @return DownloadScriptRecordingResponse
        */
       Models::DownloadScriptRecordingResponse downloadScriptRecording(const Models::DownloadScriptRecordingRequest &request);
 
       /**
+       * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+       *
        * @param request DuplicateScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DuplicateScriptResponse
@@ -948,12 +1094,16 @@ namespace OutboundBot20191226
       Models::DuplicateScriptResponse duplicateScriptWithOptions(const Models::DuplicateScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+       *
        * @param request DuplicateScriptRequest
        * @return DuplicateScriptResponse
        */
       Models::DuplicateScriptResponse duplicateScript(const Models::DuplicateScriptRequest &request);
 
       /**
+       * @summary Exports a scenario.
+       *
        * @param request ExportScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ExportScriptResponse
@@ -961,12 +1111,16 @@ namespace OutboundBot20191226
       Models::ExportScriptResponse exportScriptWithOptions(const Models::ExportScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Exports a scenario.
+       *
        * @param request ExportScriptRequest
        * @return ExportScriptResponse
        */
       Models::ExportScriptResponse exportScript(const Models::ExportScriptRequest &request);
 
       /**
+       * @summary Upload a hotword list file.
+       *
        * @param request GenerateUploadUrlRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateUploadUrlResponse
@@ -974,12 +1128,16 @@ namespace OutboundBot20191226
       Models::GenerateUploadUrlResponse generateUploadUrlWithOptions(const Models::GenerateUploadUrlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Upload a hotword list file.
+       *
        * @param request GenerateUploadUrlRequest
        * @return GenerateUploadUrlResponse
        */
       Models::GenerateUploadUrlResponse generateUploadUrl(const Models::GenerateUploadUrlRequest &request);
 
       /**
+       * @summary Retrieve the delay before audio playback begins after a call is answered.
+       *
        * @param request GetAfterAnswerDelayPlaybackRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAfterAnswerDelayPlaybackResponse
@@ -987,12 +1145,16 @@ namespace OutboundBot20191226
       Models::GetAfterAnswerDelayPlaybackResponse getAfterAnswerDelayPlaybackWithOptions(const Models::GetAfterAnswerDelayPlaybackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieve the delay before audio playback begins after a call is answered.
+       *
        * @param request GetAfterAnswerDelayPlaybackRequest
        * @return GetAfterAnswerDelayPlaybackResponse
        */
       Models::GetAfterAnswerDelayPlaybackResponse getAfterAnswerDelayPlayback(const Models::GetAfterAnswerDelayPlaybackRequest &request);
 
       /**
+       * @summary Retrieves the configuration of an agent.
+       *
        * @param request GetAgentProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAgentProfileResponse
@@ -1000,12 +1162,16 @@ namespace OutboundBot20191226
       Models::GetAgentProfileResponse getAgentProfileWithOptions(const Models::GetAgentProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the configuration of an agent.
+       *
        * @param request GetAgentProfileRequest
        * @return GetAgentProfileResponse
        */
       Models::GetAgentProfileResponse getAgentProfile(const Models::GetAgentProfileRequest &request);
 
       /**
+       * @summary Retrieves an agent profile template.
+       *
        * @param request GetAgentProfileTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAgentProfileTemplateResponse
@@ -1013,12 +1179,16 @@ namespace OutboundBot20191226
       Models::GetAgentProfileTemplateResponse getAgentProfileTemplateWithOptions(const Models::GetAgentProfileTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves an agent profile template.
+       *
        * @param request GetAgentProfileTemplateRequest
        * @return GetAgentProfileTemplateResponse
        */
       Models::GetAgentProfileTemplateResponse getAgentProfileTemplate(const Models::GetAgentProfileTemplateRequest &request);
 
       /**
+       * @summary null
+       *
        * @param request GetAnnotationMissionSummaryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAnnotationMissionSummaryResponse
@@ -1026,6 +1196,8 @@ namespace OutboundBot20191226
       Models::GetAnnotationMissionSummaryResponse getAnnotationMissionSummaryWithOptions(const Models::GetAnnotationMissionSummaryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary null
+       *
        * @param request GetAnnotationMissionSummaryRequest
        * @return GetAnnotationMissionSummaryResponse
        */
@@ -1045,6 +1217,8 @@ namespace OutboundBot20191226
       Models::GetAnnotationMissionTagInfoListResponse getAnnotationMissionTagInfoList(const Models::GetAnnotationMissionTagInfoListRequest &request);
 
       /**
+       * @summary Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+       *
        * @param request GetAsrServerInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetAsrServerInfoResponse
@@ -1052,13 +1226,15 @@ namespace OutboundBot20191226
       Models::GetAsrServerInfoResponse getAsrServerInfoWithOptions(const Models::GetAsrServerInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+       *
        * @param request GetAsrServerInfoRequest
        * @return GetAsrServerInfoResponse
        */
       Models::GetAsrServerInfoResponse getAsrServerInfo(const Models::GetAsrServerInfoRequest &request);
 
       /**
-       * @summary 获取异步外呼任务上传结果
+       * @summary Retrieves the result of an asynchronous outbound call task upload.
        *
        * @param request GetAssignJobsAsyncResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1243,7 @@ namespace OutboundBot20191226
       Models::GetAssignJobsAsyncResultResponse getAssignJobsAsyncResultWithOptions(const Models::GetAssignJobsAsyncResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取异步外呼任务上传结果
+       * @summary Retrieves the result of an asynchronous outbound call task upload.
        *
        * @param request GetAssignJobsAsyncResultRequest
        * @return GetAssignJobsAsyncResultResponse
@@ -1075,7 +1251,7 @@ namespace OutboundBot20191226
       Models::GetAssignJobsAsyncResultResponse getAssignJobsAsyncResult(const Models::GetAssignJobsAsyncResultRequest &request);
 
       /**
-       * @summary 获取系统策略配置
+       * @summary Retrieve the global outbound time periods for the outbound calling system.
        *
        * @param request GetBaseStrategyPeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1084,7 +1260,7 @@ namespace OutboundBot20191226
       Models::GetBaseStrategyPeriodResponse getBaseStrategyPeriodWithOptions(const Models::GetBaseStrategyPeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取系统策略配置
+       * @summary Retrieve the global outbound time periods for the outbound calling system.
        *
        * @param request GetBaseStrategyPeriodRequest
        * @return GetBaseStrategyPeriodResponse
@@ -1092,18 +1268,22 @@ namespace OutboundBot20191226
       Models::GetBaseStrategyPeriodResponse getBaseStrategyPeriod(const Models::GetBaseStrategyPeriodRequest &request);
 
       /**
+       * @summary Retrieves the remaining concurrency for the caller\\"s account.
+       *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetConcurrentConversationQuotaResponse
        */
       Models::GetConcurrentConversationQuotaResponse getConcurrentConversationQuotaWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the remaining concurrency for the caller\\"s account.
+       *
        * @return GetConcurrentConversationQuotaResponse
        */
       Models::GetConcurrentConversationQuotaResponse getConcurrentConversationQuota();
 
       /**
-       * @summary GetContactBlockList
+       * @summary Retrieves the list of contacts blocked for outbound calls.
        *
        * @param request GetContactBlockListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1112,7 +1292,7 @@ namespace OutboundBot20191226
       Models::GetContactBlockListResponse getContactBlockListWithOptions(const Models::GetContactBlockListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetContactBlockList
+       * @summary Retrieves the list of contacts blocked for outbound calls.
        *
        * @param request GetContactBlockListRequest
        * @return GetContactBlockListResponse
@@ -1120,7 +1300,7 @@ namespace OutboundBot20191226
       Models::GetContactBlockListResponse getContactBlockList(const Models::GetContactBlockListRequest &request);
 
       /**
-       * @summary GetContactWhiteList
+       * @summary Retrieves the global outbound call policy whitelist.
        *
        * @param request GetContactWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1129,7 +1309,7 @@ namespace OutboundBot20191226
       Models::GetContactWhiteListResponse getContactWhiteListWithOptions(const Models::GetContactWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetContactWhiteList
+       * @summary Retrieves the global outbound call policy whitelist.
        *
        * @param request GetContactWhiteListRequest
        * @return GetContactWhiteListResponse
@@ -1137,6 +1317,8 @@ namespace OutboundBot20191226
       Models::GetContactWhiteListResponse getContactWhiteList(const Models::GetContactWhiteListRequest &request);
 
       /**
+       * @summary Retrieves the current concurrency of an instance.
+       *
        * @param request GetCurrentConcurrencyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetCurrentConcurrencyResponse
@@ -1144,13 +1326,15 @@ namespace OutboundBot20191226
       Models::GetCurrentConcurrencyResponse getCurrentConcurrencyWithOptions(const Models::GetCurrentConcurrencyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the current concurrency of an instance.
+       *
        * @param request GetCurrentConcurrencyRequest
        * @return GetCurrentConcurrencyResponse
        */
       Models::GetCurrentConcurrencyResponse getCurrentConcurrency(const Models::GetCurrentConcurrencyRequest &request);
 
       /**
-       * @summary GetEmptyNumberNoMoreCallsInfo
+       * @summary A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
        *
        * @param request GetEmptyNumberNoMoreCallsInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1159,7 +1343,7 @@ namespace OutboundBot20191226
       Models::GetEmptyNumberNoMoreCallsInfoResponse getEmptyNumberNoMoreCallsInfoWithOptions(const Models::GetEmptyNumberNoMoreCallsInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetEmptyNumberNoMoreCallsInfo
+       * @summary A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
        *
        * @param request GetEmptyNumberNoMoreCallsInfoRequest
        * @return GetEmptyNumberNoMoreCallsInfoResponse
@@ -1167,7 +1351,7 @@ namespace OutboundBot20191226
       Models::GetEmptyNumberNoMoreCallsInfoResponse getEmptyNumberNoMoreCallsInfo(const Models::GetEmptyNumberNoMoreCallsInfoRequest &request);
 
       /**
-       * @summary 获取上传信息
+       * @summary Retrieves the parameters for uploading job data.
        *
        * @param request GetJobDataUploadParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1176,7 +1360,7 @@ namespace OutboundBot20191226
       Models::GetJobDataUploadParamsResponse getJobDataUploadParamsWithOptions(const Models::GetJobDataUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取上传信息
+       * @summary Retrieves the parameters for uploading job data.
        *
        * @param request GetJobDataUploadParamsRequest
        * @return GetJobDataUploadParamsResponse
@@ -1184,7 +1368,7 @@ namespace OutboundBot20191226
       Models::GetJobDataUploadParamsResponse getJobDataUploadParams(const Models::GetJobDataUploadParamsRequest &request);
 
       /**
-       * @summary GetMaxAttemptsPerDay
+       * @summary Retrieves the maximum number of daily call attempts allowed for a specified called number.
        *
        * @param request GetMaxAttemptsPerDayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1193,7 +1377,7 @@ namespace OutboundBot20191226
       Models::GetMaxAttemptsPerDayResponse getMaxAttemptsPerDayWithOptions(const Models::GetMaxAttemptsPerDayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetMaxAttemptsPerDay
+       * @summary Retrieves the maximum number of daily call attempts allowed for a specified called number.
        *
        * @param request GetMaxAttemptsPerDayRequest
        * @return GetMaxAttemptsPerDayResponse
@@ -1201,7 +1385,7 @@ namespace OutboundBot20191226
       Models::GetMaxAttemptsPerDayResponse getMaxAttemptsPerDay(const Models::GetMaxAttemptsPerDayRequest &request);
 
       /**
-       * @summary 获取号码库模板下载链接
+       * @summary Retrieves the download URL for the number library template. This API is deprecated.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -1209,14 +1393,14 @@ namespace OutboundBot20191226
       Models::GetNumberDistrictInfoTemplateDownloadUrlResponse getNumberDistrictInfoTemplateDownloadUrlWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取号码库模板下载链接
+       * @summary Retrieves the download URL for the number library template. This API is deprecated.
        *
        * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
        */
       Models::GetNumberDistrictInfoTemplateDownloadUrlResponse getNumberDistrictInfoTemplateDownloadUrl();
 
       /**
-       * @summary 获取非对称加密算法公钥
+       * @summary Retrieves the public key for an asymmetric encryption algorithm.
        *
        * @param request GetPublicKeyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1225,7 +1409,7 @@ namespace OutboundBot20191226
       Models::GetPublicKeyResponse getPublicKeyWithOptions(const Models::GetPublicKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取非对称加密算法公钥
+       * @summary Retrieves the public key for an asymmetric encryption algorithm.
        *
        * @param request GetPublicKeyRequest
        * @return GetPublicKeyResponse
@@ -1233,7 +1417,7 @@ namespace OutboundBot20191226
       Models::GetPublicKeyResponse getPublicKey(const Models::GetPublicKeyRequest &request);
 
       /**
-       * @summary GetRealtimeConcurrencyReport
+       * @summary Queries the current concurrency list.
        *
        * @param request GetRealtimeConcurrencyReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1242,7 +1426,7 @@ namespace OutboundBot20191226
       Models::GetRealtimeConcurrencyReportResponse getRealtimeConcurrencyReportWithOptions(const Models::GetRealtimeConcurrencyReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetRealtimeConcurrencyReport
+       * @summary Queries the current concurrency list.
        *
        * @param request GetRealtimeConcurrencyReportRequest
        * @return GetRealtimeConcurrencyReportResponse
@@ -1250,7 +1434,7 @@ namespace OutboundBot20191226
       Models::GetRealtimeConcurrencyReportResponse getRealtimeConcurrencyReport(const Models::GetRealtimeConcurrencyReportRequest &request);
 
       /**
-       * @summary GetSummaryInfo
+       * @summary Summary information for outbound call instances.
        *
        * @param request GetSummaryInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1443,7 @@ namespace OutboundBot20191226
       Models::GetSummaryInfoResponse getSummaryInfoWithOptions(const Models::GetSummaryInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetSummaryInfo
+       * @summary Summary information for outbound call instances.
        *
        * @param request GetSummaryInfoRequest
        * @return GetSummaryInfoResponse
@@ -1267,7 +1451,7 @@ namespace OutboundBot20191226
       Models::GetSummaryInfoResponse getSummaryInfo(const Models::GetSummaryInfoRequest &request);
 
       /**
-       * @summary 根据TaskId获取Task信息
+       * @summary Retrieve a task by its UUID.
        *
        * @param request GetTaskByUuidRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1276,7 +1460,7 @@ namespace OutboundBot20191226
       Models::GetTaskByUuidResponse getTaskByUuidWithOptions(const Models::GetTaskByUuidRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据TaskId获取Task信息
+       * @summary Retrieve a task by its UUID.
        *
        * @param request GetTaskByUuidRequest
        * @return GetTaskByUuidResponse
@@ -1284,7 +1468,7 @@ namespace OutboundBot20191226
       Models::GetTaskByUuidResponse getTaskByUuid(const Models::GetTaskByUuidRequest &request);
 
       /**
-       * @summary GetVersion
+       * @summary Retrieve the application version information.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetVersionResponse
@@ -1292,13 +1476,15 @@ namespace OutboundBot20191226
       Models::GetVersionResponse getVersionWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetVersion
+       * @summary Retrieve the application version information.
        *
        * @return GetVersionResponse
        */
       Models::GetVersionResponse getVersion();
 
       /**
+       * @summary Import a scenario.
+       *
        * @param request ImportScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ImportScriptResponse
@@ -1306,6 +1492,8 @@ namespace OutboundBot20191226
       Models::ImportScriptResponse importScriptWithOptions(const Models::ImportScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Import a scenario.
+       *
        * @param request ImportScriptRequest
        * @return ImportScriptResponse
        */
@@ -1329,6 +1517,8 @@ namespace OutboundBot20191226
       Models::InflightTaskTimeoutResponse inflightTaskTimeout(const Models::InflightTaskTimeoutRequest &request);
 
       /**
+       * @summary Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+       *
        * @param request ListAgentProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAgentProfilesResponse
@@ -1336,13 +1526,15 @@ namespace OutboundBot20191226
       Models::ListAgentProfilesResponse listAgentProfilesWithOptions(const Models::ListAgentProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+       *
        * @param request ListAgentProfilesRequest
        * @return ListAgentProfilesResponse
        */
       Models::ListAgentProfilesResponse listAgentProfiles(const Models::ListAgentProfilesRequest &request);
 
       /**
-       * @summary 租户绑定号码列表
+       * @summary Lists the phone numbers bound to the tenant.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListAllTenantBindNumberBindingResponse
@@ -1350,14 +1542,14 @@ namespace OutboundBot20191226
       Models::ListAllTenantBindNumberBindingResponse listAllTenantBindNumberBindingWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 租户绑定号码列表
+       * @summary Lists the phone numbers bound to the tenant.
        *
        * @return ListAllTenantBindNumberBindingResponse
        */
       Models::ListAllTenantBindNumberBindingResponse listAllTenantBindNumberBinding();
 
       /**
-       * @summary 标注中心
+       * @summary Lists annotation missions.
        *
        * @param request ListAnnotationMissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1366,7 +1558,7 @@ namespace OutboundBot20191226
       Models::ListAnnotationMissionResponse listAnnotationMissionWithOptions(const Models::ListAnnotationMissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 标注中心
+       * @summary Lists annotation missions.
        *
        * @param request ListAnnotationMissionRequest
        * @return ListAnnotationMissionResponse
@@ -1391,6 +1583,8 @@ namespace OutboundBot20191226
       Models::ListAnnotationMissionSessionResponse listAnnotationMissionSession(const Models::ListAnnotationMissionSessionRequest &request);
 
       /**
+       * @summary Lists API plugins.
+       *
        * @param request ListApiPluginsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListApiPluginsResponse
@@ -1398,13 +1592,15 @@ namespace OutboundBot20191226
       Models::ListApiPluginsResponse listApiPluginsWithOptions(const Models::ListApiPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists API plugins.
+       *
        * @param request ListApiPluginsRequest
        * @return ListApiPluginsResponse
        */
       Models::ListApiPluginsResponse listApiPlugins(const Models::ListApiPluginsRequest &request);
 
       /**
-       * @summary ListBeebotIntent
+       * @summary Lists intents for small-model scenarios.
        *
        * @param request ListBeebotIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1413,7 +1609,7 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentResponse listBeebotIntentWithOptions(const Models::ListBeebotIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListBeebotIntent
+       * @summary Lists intents for small-model scenarios.
        *
        * @param request ListBeebotIntentRequest
        * @return ListBeebotIntentResponse
@@ -1421,7 +1617,7 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentResponse listBeebotIntent(const Models::ListBeebotIntentRequest &request);
 
       /**
-       * @summary ListBeebotIntentLgf
+       * @summary Lists the utterance templates for a specified intent in a scenario.
        *
        * @param request ListBeebotIntentLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1430,7 +1626,7 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentLgfResponse listBeebotIntentLgfWithOptions(const Models::ListBeebotIntentLgfRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListBeebotIntentLgf
+       * @summary Lists the utterance templates for a specified intent in a scenario.
        *
        * @param request ListBeebotIntentLgfRequest
        * @return ListBeebotIntentLgfResponse
@@ -1438,7 +1634,7 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentLgfResponse listBeebotIntentLgf(const Models::ListBeebotIntentLgfRequest &request);
 
       /**
-       * @summary ListBeebotIntentUserSay
+       * @summary Lists user utterances for intents in small model scenarios.
        *
        * @param request ListBeebotIntentUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1447,7 +1643,7 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentUserSayResponse listBeebotIntentUserSayWithOptions(const Models::ListBeebotIntentUserSayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListBeebotIntentUserSay
+       * @summary Lists user utterances for intents in small model scenarios.
        *
        * @param request ListBeebotIntentUserSayRequest
        * @return ListBeebotIntentUserSayResponse
@@ -1455,6 +1651,8 @@ namespace OutboundBot20191226
       Models::ListBeebotIntentUserSayResponse listBeebotIntentUserSay(const Models::ListBeebotIntentUserSayRequest &request);
 
       /**
+       * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+       *
        * @param request ListChatbotInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListChatbotInstancesResponse
@@ -1462,12 +1660,16 @@ namespace OutboundBot20191226
       Models::ListChatbotInstancesResponse listChatbotInstancesWithOptions(const Models::ListChatbotInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+       *
        * @param request ListChatbotInstancesRequest
        * @return ListChatbotInstancesResponse
        */
       Models::ListChatbotInstancesResponse listChatbotInstances(const Models::ListChatbotInstancesRequest &request);
 
       /**
+       * @summary Queries the dialogue flows of a script in the legacy canvas.
+       *
        * @param request ListDialogueFlowsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDialogueFlowsResponse
@@ -1475,12 +1677,16 @@ namespace OutboundBot20191226
       Models::ListDialogueFlowsResponse listDialogueFlowsWithOptions(const Models::ListDialogueFlowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the dialogue flows of a script in the legacy canvas.
+       *
        * @param request ListDialogueFlowsRequest
        * @return ListDialogueFlowsResponse
        */
       Models::ListDialogueFlowsResponse listDialogueFlows(const Models::ListDialogueFlowsRequest &request);
 
       /**
+       * @summary Queries the list of download tasks in Download Hub.
+       *
        * @param request ListDownloadTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListDownloadTasksResponse
@@ -1488,12 +1694,16 @@ namespace OutboundBot20191226
       Models::ListDownloadTasksResponse listDownloadTasksWithOptions(const Models::ListDownloadTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of download tasks in Download Hub.
+       *
        * @param request ListDownloadTasksRequest
        * @return ListDownloadTasksResponse
        */
       Models::ListDownloadTasksResponse listDownloadTasks(const Models::ListDownloadTasksRequest &request);
 
       /**
+       * @summary You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+       *
        * @param request ListFlashSmsTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListFlashSmsTemplatesResponse
@@ -1501,12 +1711,16 @@ namespace OutboundBot20191226
       Models::ListFlashSmsTemplatesResponse listFlashSmsTemplatesWithOptions(const Models::ListFlashSmsTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+       *
        * @param request ListFlashSmsTemplatesRequest
        * @return ListFlashSmsTemplatesResponse
        */
       Models::ListFlashSmsTemplatesResponse listFlashSmsTemplates(const Models::ListFlashSmsTemplatesRequest &request);
 
       /**
+       * @summary Queries the list of key questions. This is a legacy canvas interface.
+       *
        * @param request ListGlobalQuestionsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListGlobalQuestionsResponse
@@ -1514,12 +1728,16 @@ namespace OutboundBot20191226
       Models::ListGlobalQuestionsResponse listGlobalQuestionsWithOptions(const Models::ListGlobalQuestionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the list of key questions. This is a legacy canvas interface.
+       *
        * @param request ListGlobalQuestionsRequest
        * @return ListGlobalQuestionsResponse
        */
       Models::ListGlobalQuestionsResponse listGlobalQuestions(const Models::ListGlobalQuestionsRequest &request);
 
       /**
+       * @summary Lists Outbound Calling Bot service instances.
+       *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListInstancesResponse
@@ -1527,13 +1745,15 @@ namespace OutboundBot20191226
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists Outbound Calling Bot service instances.
+       *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
        */
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary 意图列表
+       * @summary Query intent for the Annotation Center list.
        *
        * @param request ListIntentionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1542,7 +1762,7 @@ namespace OutboundBot20191226
       Models::ListIntentionsResponse listIntentionsWithOptions(const Models::ListIntentionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 意图列表
+       * @summary Query intent for the Annotation Center list.
        *
        * @param request ListIntentionsRequest
        * @return ListIntentionsResponse
@@ -1550,6 +1770,8 @@ namespace OutboundBot20191226
       Models::ListIntentionsResponse listIntentions(const Models::ListIntentionsRequest &request);
 
       /**
+       * @summary Retrieves intents from the legacy canvas interface.
+       *
        * @param request ListIntentsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListIntentsResponse
@@ -1557,12 +1779,16 @@ namespace OutboundBot20191226
       Models::ListIntentsResponse listIntentsWithOptions(const Models::ListIntentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves intents from the legacy canvas interface.
+       *
        * @param request ListIntentsRequest
        * @return ListIntentsResponse
        */
       Models::ListIntentsResponse listIntents(const Models::ListIntentsRequest &request);
 
       /**
+       * @summary Retrieves the list of outbound call task groups.
+       *
        * @param request ListJobGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListJobGroupsResponse
@@ -1570,12 +1796,16 @@ namespace OutboundBot20191226
       Models::ListJobGroupsResponse listJobGroupsWithOptions(const Models::ListJobGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the list of outbound call task groups.
+       *
        * @param request ListJobGroupsRequest
        * @return ListJobGroupsResponse
        */
       Models::ListJobGroupsResponse listJobGroups(const Models::ListJobGroupsRequest &request);
 
       /**
+       * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+       *
        * @param request ListJobGroupsAsyncRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListJobGroupsAsyncResponse
@@ -1583,13 +1813,15 @@ namespace OutboundBot20191226
       Models::ListJobGroupsAsyncResponse listJobGroupsAsyncWithOptions(const Models::ListJobGroupsAsyncRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+       *
        * @param request ListJobGroupsAsyncRequest
        * @return ListJobGroupsAsyncResponse
        */
       Models::ListJobGroupsAsyncResponse listJobGroupsAsync(const Models::ListJobGroupsAsyncRequest &request);
 
       /**
-       * @summary ListJobs
+       * @summary Query multiple jobs.
        *
        * @param request ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1598,7 +1830,7 @@ namespace OutboundBot20191226
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListJobs
+       * @summary Query multiple jobs.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse
@@ -1606,6 +1838,8 @@ namespace OutboundBot20191226
       Models::ListJobsResponse listJobs(const Models::ListJobsRequest &request);
 
       /**
+       * @summary Lists jobs by job group.
+       *
        * @param request ListJobsByGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListJobsByGroupResponse
@@ -1613,12 +1847,16 @@ namespace OutboundBot20191226
       Models::ListJobsByGroupResponse listJobsByGroupWithOptions(const Models::ListJobsByGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists jobs by job group.
+       *
        * @param request ListJobsByGroupRequest
        * @return ListJobsByGroupResponse
        */
       Models::ListJobsByGroupResponse listJobsByGroup(const Models::ListJobsByGroupRequest &request);
 
       /**
+       * @summary List outbound call numbers.
+       *
        * @param request ListOutboundCallNumbersRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListOutboundCallNumbersResponse
@@ -1626,12 +1864,16 @@ namespace OutboundBot20191226
       Models::ListOutboundCallNumbersResponse listOutboundCallNumbersWithOptions(const Models::ListOutboundCallNumbersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary List outbound call numbers.
+       *
        * @param request ListOutboundCallNumbersRequest
        * @return ListOutboundCallNumbersResponse
        */
       Models::ListOutboundCallNumbersResponse listOutboundCallNumbers(const Models::ListOutboundCallNumbersRequest &request);
 
       /**
+       * @summary Lists tags for business resources.
+       *
        * @param request ListResourceTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListResourceTagsResponse
@@ -1639,12 +1881,16 @@ namespace OutboundBot20191226
       Models::ListResourceTagsResponse listResourceTagsWithOptions(const Models::ListResourceTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists tags for business resources.
+       *
        * @param request ListResourceTagsRequest
        * @return ListResourceTagsResponse
        */
       Models::ListResourceTagsResponse listResourceTags(const Models::ListResourceTagsRequest &request);
 
       /**
+       * @summary Retrieves the publication history of the small model for outbound calls.
+       *
        * @param request ListScriptPublishHistoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListScriptPublishHistoriesResponse
@@ -1652,12 +1898,16 @@ namespace OutboundBot20191226
       Models::ListScriptPublishHistoriesResponse listScriptPublishHistoriesWithOptions(const Models::ListScriptPublishHistoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Retrieves the publication history of the small model for outbound calls.
+       *
        * @param request ListScriptPublishHistoriesRequest
        * @return ListScriptPublishHistoriesResponse
        */
       Models::ListScriptPublishHistoriesResponse listScriptPublishHistories(const Models::ListScriptPublishHistoriesRequest &request);
 
       /**
+       * @summary Query the list of recording files. Use this operation in small model scenarios.
+       *
        * @param request ListScriptRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListScriptRecordingResponse
@@ -1665,13 +1915,15 @@ namespace OutboundBot20191226
       Models::ListScriptRecordingResponse listScriptRecordingWithOptions(const Models::ListScriptRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the list of recording files. Use this operation in small model scenarios.
+       *
        * @param request ListScriptRecordingRequest
        * @return ListScriptRecordingResponse
        */
       Models::ListScriptRecordingResponse listScriptRecording(const Models::ListScriptRecordingRequest &request);
 
       /**
-       * @summary 获取场景中当前使用的变量
+       * @summary Queries the variables used in a script.
        *
        * @param request ListScriptVariablesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1680,7 +1932,7 @@ namespace OutboundBot20191226
       Models::ListScriptVariablesResponse listScriptVariablesWithOptions(const Models::ListScriptVariablesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取场景中当前使用的变量
+       * @summary Queries the variables used in a script.
        *
        * @param request ListScriptVariablesRequest
        * @return ListScriptVariablesResponse
@@ -1688,6 +1940,10 @@ namespace OutboundBot20191226
       Models::ListScriptVariablesResponse listScriptVariables(const Models::ListScriptVariablesRequest &request);
 
       /**
+       * @summary Lists the audio in a legacy canvas scene.
+       *
+       * @description ***
+       *
        * @param request ListScriptVoiceConfigsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListScriptVoiceConfigsResponse
@@ -1695,13 +1951,17 @@ namespace OutboundBot20191226
       Models::ListScriptVoiceConfigsResponse listScriptVoiceConfigsWithOptions(const Models::ListScriptVoiceConfigsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Lists the audio in a legacy canvas scene.
+       *
+       * @description ***
+       *
        * @param request ListScriptVoiceConfigsRequest
        * @return ListScriptVoiceConfigsResponse
        */
       Models::ListScriptVoiceConfigsResponse listScriptVoiceConfigs(const Models::ListScriptVoiceConfigsRequest &request);
 
       /**
-       * @summary -
+       * @summary View the script list.
        *
        * @param request ListScriptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1710,7 +1970,7 @@ namespace OutboundBot20191226
       Models::ListScriptsResponse listScriptsWithOptions(const Models::ListScriptsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary -
+       * @summary View the script list.
        *
        * @param request ListScriptsRequest
        * @return ListScriptsResponse
@@ -1718,6 +1978,8 @@ namespace OutboundBot20191226
       Models::ListScriptsResponse listScripts(const Models::ListScriptsRequest &request);
 
       /**
+       * @summary Query the tag relationships for resources.
+       *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTagResourcesResponse
@@ -1725,12 +1987,16 @@ namespace OutboundBot20191226
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the tag relationships for resources.
+       *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
        */
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
+       * @summary Queries the tags of a script. This is a legacy canvas API.
+       *
        * @param request ListTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListTagsResponse
@@ -1738,12 +2004,16 @@ namespace OutboundBot20191226
       Models::ListTagsResponse listTagsWithOptions(const Models::ListTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the tags of a script. This is a legacy canvas API.
+       *
        * @param request ListTagsRequest
        * @return ListTagsResponse
        */
       Models::ListTagsResponse listTags(const Models::ListTagsRequest &request);
 
       /**
+       * @summary Modify the agent configuration.
+       *
        * @param tmpReq ModifyAgentProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAgentProfileResponse
@@ -1751,12 +2021,16 @@ namespace OutboundBot20191226
       Models::ModifyAgentProfileResponse modifyAgentProfileWithOptions(const Models::ModifyAgentProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modify the agent configuration.
+       *
        * @param request ModifyAgentProfileRequest
        * @return ModifyAgentProfileResponse
        */
       Models::ModifyAgentProfileResponse modifyAgentProfile(const Models::ModifyAgentProfileRequest &request);
 
       /**
+       * @summary Updates the status and name of an annotation task.
+       *
        * @param request ModifyAnnotationMissionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyAnnotationMissionResponse
@@ -1764,12 +2038,16 @@ namespace OutboundBot20191226
       Models::ModifyAnnotationMissionResponse modifyAnnotationMissionWithOptions(const Models::ModifyAnnotationMissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Updates the status and name of an annotation task.
+       *
        * @param request ModifyAnnotationMissionRequest
        * @return ModifyAnnotationMissionResponse
        */
       Models::ModifyAnnotationMissionResponse modifyAnnotationMission(const Models::ModifyAnnotationMissionRequest &request);
 
       /**
+       * @summary Modifies batch jobs. This operation is deprecated.
+       *
        * @param request ModifyBatchJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyBatchJobsResponse
@@ -1777,13 +2055,15 @@ namespace OutboundBot20191226
       Models::ModifyBatchJobsResponse modifyBatchJobsWithOptions(const Models::ModifyBatchJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies batch jobs. This operation is deprecated.
+       *
        * @param request ModifyBatchJobsRequest
        * @return ModifyBatchJobsResponse
        */
       Models::ModifyBatchJobsResponse modifyBatchJobs(const Models::ModifyBatchJobsRequest &request);
 
       /**
-       * @summary ModifyBeebotIntent
+       * @summary Modify the intent for a small-model scenario.
        *
        * @param tmpReq ModifyBeebotIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1792,7 +2072,7 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentResponse modifyBeebotIntentWithOptions(const Models::ModifyBeebotIntentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyBeebotIntent
+       * @summary Modify the intent for a small-model scenario.
        *
        * @param request ModifyBeebotIntentRequest
        * @return ModifyBeebotIntentResponse
@@ -1800,7 +2080,7 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentResponse modifyBeebotIntent(const Models::ModifyBeebotIntentRequest &request);
 
       /**
-       * @summary ModifyBeebotIntentLgf
+       * @summary Modifies the intent utterance template for a small model scenario.
        *
        * @param tmpReq ModifyBeebotIntentLgfRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1809,7 +2089,7 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentLgfResponse modifyBeebotIntentLgfWithOptions(const Models::ModifyBeebotIntentLgfRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyBeebotIntentLgf
+       * @summary Modifies the intent utterance template for a small model scenario.
        *
        * @param request ModifyBeebotIntentLgfRequest
        * @return ModifyBeebotIntentLgfResponse
@@ -1817,7 +2097,7 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentLgfResponse modifyBeebotIntentLgf(const Models::ModifyBeebotIntentLgfRequest &request);
 
       /**
-       * @summary ModifyBeebotIntentUserSay
+       * @summary Modifies a user utterance for an intent in a Beebot scenario.
        *
        * @param tmpReq ModifyBeebotIntentUserSayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1826,7 +2106,7 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentUserSayResponse modifyBeebotIntentUserSayWithOptions(const Models::ModifyBeebotIntentUserSayRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyBeebotIntentUserSay
+       * @summary Modifies a user utterance for an intent in a Beebot scenario.
        *
        * @param request ModifyBeebotIntentUserSayRequest
        * @return ModifyBeebotIntentUserSayResponse
@@ -1834,6 +2114,8 @@ namespace OutboundBot20191226
       Models::ModifyBeebotIntentUserSayResponse modifyBeebotIntentUserSay(const Models::ModifyBeebotIntentUserSayRequest &request);
 
       /**
+       * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+       *
        * @param request ModifyDialogueFlowRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyDialogueFlowResponse
@@ -1841,12 +2123,16 @@ namespace OutboundBot20191226
       Models::ModifyDialogueFlowResponse modifyDialogueFlowWithOptions(const Models::ModifyDialogueFlowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+       *
        * @param request ModifyDialogueFlowRequest
        * @return ModifyDialogueFlowResponse
        */
       Models::ModifyDialogueFlowResponse modifyDialogueFlow(const Models::ModifyDialogueFlowRequest &request);
 
       /**
+       * @summary Enables or disables the global no-call feature for nonexistent numbers.
+       *
        * @param request ModifyEmptyNumberNoMoreCallsInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyEmptyNumberNoMoreCallsInfoResponse
@@ -1854,12 +2140,16 @@ namespace OutboundBot20191226
       Models::ModifyEmptyNumberNoMoreCallsInfoResponse modifyEmptyNumberNoMoreCallsInfoWithOptions(const Models::ModifyEmptyNumberNoMoreCallsInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Enables or disables the global no-call feature for nonexistent numbers.
+       *
        * @param request ModifyEmptyNumberNoMoreCallsInfoRequest
        * @return ModifyEmptyNumberNoMoreCallsInfoResponse
        */
       Models::ModifyEmptyNumberNoMoreCallsInfoResponse modifyEmptyNumberNoMoreCallsInfo(const Models::ModifyEmptyNumberNoMoreCallsInfoRequest &request);
 
       /**
+       * @summary Modifies a global question in the legacy canvas.
+       *
        * @param request ModifyGlobalQuestionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyGlobalQuestionResponse
@@ -1867,12 +2157,16 @@ namespace OutboundBot20191226
       Models::ModifyGlobalQuestionResponse modifyGlobalQuestionWithOptions(const Models::ModifyGlobalQuestionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies a global question in the legacy canvas.
+       *
        * @param request ModifyGlobalQuestionRequest
        * @return ModifyGlobalQuestionResponse
        */
       Models::ModifyGlobalQuestionResponse modifyGlobalQuestion(const Models::ModifyGlobalQuestionRequest &request);
 
       /**
+       * @summary Modifies an Outbound Bot instance.
+       *
        * @param request ModifyInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyInstanceResponse
@@ -1880,12 +2174,16 @@ namespace OutboundBot20191226
       Models::ModifyInstanceResponse modifyInstanceWithOptions(const Models::ModifyInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies an Outbound Bot instance.
+       *
        * @param request ModifyInstanceRequest
        * @return ModifyInstanceResponse
        */
       Models::ModifyInstanceResponse modifyInstance(const Models::ModifyInstanceRequest &request);
 
       /**
+       * @summary Modifies an intent in the legacy canvas. This is a legacy API.
+       *
        * @param request ModifyIntentRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyIntentResponse
@@ -1893,13 +2191,15 @@ namespace OutboundBot20191226
       Models::ModifyIntentResponse modifyIntentWithOptions(const Models::ModifyIntentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies an intent in the legacy canvas. This is a legacy API.
+       *
        * @param request ModifyIntentRequest
        * @return ModifyIntentResponse
        */
       Models::ModifyIntentResponse modifyIntent(const Models::ModifyIntentRequest &request);
 
       /**
-       * @summary 修改任务组
+       * @summary Modify an intelligent outbound call task group.
        *
        * @param request ModifyJobGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1908,7 +2208,7 @@ namespace OutboundBot20191226
       Models::ModifyJobGroupResponse modifyJobGroupWithOptions(const Models::ModifyJobGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改任务组
+       * @summary Modify an intelligent outbound call task group.
        *
        * @param request ModifyJobGroupRequest
        * @return ModifyJobGroupResponse
@@ -1916,7 +2216,7 @@ namespace OutboundBot20191226
       Models::ModifyJobGroupResponse modifyJobGroup(const Models::ModifyJobGroupRequest &request);
 
       /**
-       * @summary ModifyOutboundCallNumber
+       * @summary Modifies an outbound call number. This API is deprecated.
        *
        * @param request ModifyOutboundCallNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1925,7 +2225,7 @@ namespace OutboundBot20191226
       Models::ModifyOutboundCallNumberResponse modifyOutboundCallNumberWithOptions(const Models::ModifyOutboundCallNumberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyOutboundCallNumber
+       * @summary Modifies an outbound call number. This API is deprecated.
        *
        * @param request ModifyOutboundCallNumberRequest
        * @return ModifyOutboundCallNumberResponse
@@ -1933,7 +2233,7 @@ namespace OutboundBot20191226
       Models::ModifyOutboundCallNumberResponse modifyOutboundCallNumber(const Models::ModifyOutboundCallNumberRequest &request);
 
       /**
-       * @summary 修改场景
+       * @summary Modify script information.
        *
        * @param request ModifyScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1942,7 +2242,7 @@ namespace OutboundBot20191226
       Models::ModifyScriptResponse modifyScriptWithOptions(const Models::ModifyScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改场景
+       * @summary Modify script information.
        *
        * @param request ModifyScriptRequest
        * @return ModifyScriptResponse
@@ -1950,6 +2250,10 @@ namespace OutboundBot20191226
       Models::ModifyScriptResponse modifyScript(const Models::ModifyScriptRequest &request);
 
       /**
+       * @summary Modifies the voice configuration of a script in a legacy canvas.
+       *
+       * @description ***
+       *
        * @param request ModifyScriptVoiceConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyScriptVoiceConfigResponse
@@ -1957,12 +2261,18 @@ namespace OutboundBot20191226
       Models::ModifyScriptVoiceConfigResponse modifyScriptVoiceConfigWithOptions(const Models::ModifyScriptVoiceConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies the voice configuration of a script in a legacy canvas.
+       *
+       * @description ***
+       *
        * @param request ModifyScriptVoiceConfigRequest
        * @return ModifyScriptVoiceConfigResponse
        */
       Models::ModifyScriptVoiceConfigResponse modifyScriptVoiceConfig(const Models::ModifyScriptVoiceConfigRequest &request);
 
       /**
+       * @summary Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+       *
        * @param request ModifyTTSConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyTTSConfigResponse
@@ -1970,12 +2280,16 @@ namespace OutboundBot20191226
       Models::ModifyTTSConfigResponse modifyTTSConfigWithOptions(const Models::ModifyTTSConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+       *
        * @param request ModifyTTSConfigRequest
        * @return ModifyTTSConfigResponse
        */
       Models::ModifyTTSConfigResponse modifyTTSConfig(const Models::ModifyTTSConfigRequest &request);
 
       /**
+       * @summary Modifies tag groups for the legacy canvas interface.
+       *
        * @param request ModifyTagGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ModifyTagGroupsResponse
@@ -1983,12 +2297,16 @@ namespace OutboundBot20191226
       Models::ModifyTagGroupsResponse modifyTagGroupsWithOptions(const Models::ModifyTagGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Modifies tag groups for the legacy canvas interface.
+       *
        * @param request ModifyTagGroupsRequest
        * @return ModifyTagGroupsResponse
        */
       Models::ModifyTagGroupsResponse modifyTagGroups(const Models::ModifyTagGroupsRequest &request);
 
       /**
+       * @summary Publishing a scenario
+       *
        * @param request PublishScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishScriptResponse
@@ -1996,12 +2314,16 @@ namespace OutboundBot20191226
       Models::PublishScriptResponse publishScriptWithOptions(const Models::PublishScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Publishing a scenario
+       *
        * @param request PublishScriptRequest
        * @return PublishScriptResponse
        */
       Models::PublishScriptResponse publishScript(const Models::PublishScriptRequest &request);
 
       /**
+       * @summary Publishes the debug version of a script.
+       *
        * @param request PublishScriptForDebugRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PublishScriptForDebugResponse
@@ -2009,13 +2331,15 @@ namespace OutboundBot20191226
       Models::PublishScriptForDebugResponse publishScriptForDebugWithOptions(const Models::PublishScriptForDebugRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Publishes the debug version of a script.
+       *
        * @param request PublishScriptForDebugRequest
        * @return PublishScriptForDebugResponse
        */
       Models::PublishScriptForDebugResponse publishScriptForDebug(const Models::PublishScriptForDebugRequest &request);
 
       /**
-       * @summary QueryJobs
+       * @summary You can query the list of jobs.
        *
        * @param request QueryJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2024,7 +2348,7 @@ namespace OutboundBot20191226
       Models::QueryJobsResponse queryJobsWithOptions(const Models::QueryJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary QueryJobs
+       * @summary You can query the list of jobs.
        *
        * @param request QueryJobsRequest
        * @return QueryJobsResponse
@@ -2032,7 +2356,7 @@ namespace OutboundBot20191226
       Models::QueryJobsResponse queryJobs(const Models::QueryJobsRequest &request);
 
       /**
-       * @summary 获取外呼任务结果信息
+       * @summary Find tasks by result.
        *
        * @param request QueryJobsWithResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2041,7 +2365,7 @@ namespace OutboundBot20191226
       Models::QueryJobsWithResultResponse queryJobsWithResultWithOptions(const Models::QueryJobsWithResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取外呼任务结果信息
+       * @summary Find tasks by result.
        *
        * @param request QueryJobsWithResultRequest
        * @return QueryJobsWithResultResponse
@@ -2049,6 +2373,8 @@ namespace OutboundBot20191226
       Models::QueryJobsWithResultResponse queryJobsWithResult(const Models::QueryJobsWithResultRequest &request);
 
       /**
+       * @summary This legacy canvas interface retrieves the list of recorded speech transcripts.
+       *
        * @param request QueryScriptWaveformsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryScriptWaveformsResponse
@@ -2056,12 +2382,16 @@ namespace OutboundBot20191226
       Models::QueryScriptWaveformsResponse queryScriptWaveformsWithOptions(const Models::QueryScriptWaveformsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary This legacy canvas interface retrieves the list of recorded speech transcripts.
+       *
        * @param request QueryScriptWaveformsRequest
        * @return QueryScriptWaveformsResponse
        */
       Models::QueryScriptWaveformsResponse queryScriptWaveforms(const Models::QueryScriptWaveformsRequest &request);
 
       /**
+       * @summary Queries scenario information by status.
+       *
        * @param request QueryScriptsByStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryScriptsByStatusResponse
@@ -2069,12 +2399,16 @@ namespace OutboundBot20191226
       Models::QueryScriptsByStatusResponse queryScriptsByStatusWithOptions(const Models::QueryScriptsByStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries scenario information by status.
+       *
        * @param request QueryScriptsByStatusRequest
        * @return QueryScriptsByStatusResponse
        */
       Models::QueryScriptsByStatusResponse queryScriptsByStatus(const Models::QueryScriptsByStatusRequest &request);
 
       /**
+       * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+       *
        * @param request RecordFailureRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RecordFailureResponse
@@ -2082,12 +2416,16 @@ namespace OutboundBot20191226
       Models::RecordFailureResponse recordFailureWithOptions(const Models::RecordFailureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+       *
        * @param request RecordFailureRequest
        * @return RecordFailureResponse
        */
       Models::RecordFailureResponse recordFailure(const Models::RecordFailureRequest &request);
 
       /**
+       * @summary Resumes paused jobs.
+       *
        * @param request ResumeJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ResumeJobsResponse
@@ -2095,12 +2433,16 @@ namespace OutboundBot20191226
       Models::ResumeJobsResponse resumeJobsWithOptions(const Models::ResumeJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Resumes paused jobs.
+       *
        * @param request ResumeJobsRequest
        * @return ResumeJobsResponse
        */
       Models::ResumeJobsResponse resumeJobs(const Models::ResumeJobsRequest &request);
 
       /**
+       * @summary Roll back a published small model scenario.
+       *
        * @param request RollbackScriptRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return RollbackScriptResponse
@@ -2108,13 +2450,15 @@ namespace OutboundBot20191226
       Models::RollbackScriptResponse rollbackScriptWithOptions(const Models::RollbackScriptRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Roll back a published small model scenario.
+       *
        * @param request RollbackScriptRequest
        * @return RollbackScriptResponse
        */
       Models::RollbackScriptResponse rollbackScript(const Models::RollbackScriptRequest &request);
 
       /**
-       * @summary 保存接听后延迟播报时间
+       * @summary Sets the delay before playback starts after the call is answered.
        *
        * @param request SaveAfterAnswerDelayPlaybackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2467,7 @@ namespace OutboundBot20191226
       Models::SaveAfterAnswerDelayPlaybackResponse saveAfterAnswerDelayPlaybackWithOptions(const Models::SaveAfterAnswerDelayPlaybackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存接听后延迟播报时间
+       * @summary Sets the delay before playback starts after the call is answered.
        *
        * @param request SaveAfterAnswerDelayPlaybackRequest
        * @return SaveAfterAnswerDelayPlaybackResponse
@@ -2131,6 +2475,8 @@ namespace OutboundBot20191226
       Models::SaveAfterAnswerDelayPlaybackResponse saveAfterAnswerDelayPlayback(const Models::SaveAfterAnswerDelayPlaybackRequest &request);
 
       /**
+       * @summary You can save a list of annotation chat instances.
+       *
        * @param request SaveAnnotationMissionSessionListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveAnnotationMissionSessionListResponse
@@ -2138,12 +2484,16 @@ namespace OutboundBot20191226
       Models::SaveAnnotationMissionSessionListResponse saveAnnotationMissionSessionListWithOptions(const Models::SaveAnnotationMissionSessionListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can save a list of annotation chat instances.
+       *
        * @param request SaveAnnotationMissionSessionListRequest
        * @return SaveAnnotationMissionSessionListResponse
        */
       Models::SaveAnnotationMissionSessionListResponse saveAnnotationMissionSessionList(const Models::SaveAnnotationMissionSessionListRequest &request);
 
       /**
+       * @summary Saves instance tags in a batch.
+       *
        * @param request SaveAnnotationMissionTagInfoListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveAnnotationMissionTagInfoListResponse
@@ -2151,13 +2501,15 @@ namespace OutboundBot20191226
       Models::SaveAnnotationMissionTagInfoListResponse saveAnnotationMissionTagInfoListWithOptions(const Models::SaveAnnotationMissionTagInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Saves instance tags in a batch.
+       *
        * @param request SaveAnnotationMissionTagInfoListRequest
        * @return SaveAnnotationMissionTagInfoListResponse
        */
       Models::SaveAnnotationMissionTagInfoListResponse saveAnnotationMissionTagInfoList(const Models::SaveAnnotationMissionTagInfoListRequest &request);
 
       /**
-       * @summary 编辑基础策略有效时间窗口
+       * @summary Modifies the global outbound call time window in system administration.
        *
        * @param request SaveBaseStrategyPeriodRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2166,7 +2518,7 @@ namespace OutboundBot20191226
       Models::SaveBaseStrategyPeriodResponse saveBaseStrategyPeriodWithOptions(const Models::SaveBaseStrategyPeriodRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 编辑基础策略有效时间窗口
+       * @summary Modifies the global outbound call time window in system administration.
        *
        * @param request SaveBaseStrategyPeriodRequest
        * @return SaveBaseStrategyPeriodResponse
@@ -2174,7 +2526,7 @@ namespace OutboundBot20191226
       Models::SaveBaseStrategyPeriodResponse saveBaseStrategyPeriod(const Models::SaveBaseStrategyPeriodRequest &request);
 
       /**
-       * @summary 保存外呼黑名单列表
+       * @summary Adds contacts to the instance\\"s blocklist.
        *
        * @param request SaveContactBlockListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2183,7 +2535,7 @@ namespace OutboundBot20191226
       Models::SaveContactBlockListResponse saveContactBlockListWithOptions(const Models::SaveContactBlockListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存外呼黑名单列表
+       * @summary Adds contacts to the instance\\"s blocklist.
        *
        * @param request SaveContactBlockListRequest
        * @return SaveContactBlockListResponse
@@ -2191,7 +2543,7 @@ namespace OutboundBot20191226
       Models::SaveContactBlockListResponse saveContactBlockList(const Models::SaveContactBlockListRequest &request);
 
       /**
-       * @summary 保存外呼白名单
+       * @summary Saves an outbound call whitelist.
        *
        * @param request SaveContactWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2200,7 +2552,7 @@ namespace OutboundBot20191226
       Models::SaveContactWhiteListResponse saveContactWhiteListWithOptions(const Models::SaveContactWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存外呼白名单
+       * @summary Saves an outbound call whitelist.
        *
        * @param request SaveContactWhiteListRequest
        * @return SaveContactWhiteListResponse
@@ -2208,6 +2560,8 @@ namespace OutboundBot20191226
       Models::SaveContactWhiteListResponse saveContactWhiteList(const Models::SaveContactWhiteListRequest &request);
 
       /**
+       * @summary Saves the validity period of a basic policy. This operation is deprecated.
+       *
        * @param request SaveEffectiveDaysRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveEffectiveDaysResponse
@@ -2215,13 +2569,15 @@ namespace OutboundBot20191226
       Models::SaveEffectiveDaysResponse saveEffectiveDaysWithOptions(const Models::SaveEffectiveDaysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Saves the validity period of a basic policy. This operation is deprecated.
+       *
        * @param request SaveEffectiveDaysRequest
        * @return SaveEffectiveDaysResponse
        */
       Models::SaveEffectiveDaysResponse saveEffectiveDays(const Models::SaveEffectiveDaysRequest &request);
 
       /**
-       * @summary 保存每日最大外呼量
+       * @summary Sets the maximum number of daily outbound call attempts to a specific number.
        *
        * @param request SaveMaxAttemptsPerDayRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2230,7 +2586,7 @@ namespace OutboundBot20191226
       Models::SaveMaxAttemptsPerDayResponse saveMaxAttemptsPerDayWithOptions(const Models::SaveMaxAttemptsPerDayRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存每日最大外呼量
+       * @summary Sets the maximum number of daily outbound call attempts to a specific number.
        *
        * @param request SaveMaxAttemptsPerDayRequest
        * @return SaveMaxAttemptsPerDayResponse
@@ -2238,7 +2594,7 @@ namespace OutboundBot20191226
       Models::SaveMaxAttemptsPerDayResponse saveMaxAttemptsPerDay(const Models::SaveMaxAttemptsPerDayRequest &request);
 
       /**
-       * @summary 外呼历史查询
+       * @summary Search for tasks.
        *
        * @param request SearchTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2247,7 +2603,7 @@ namespace OutboundBot20191226
       Models::SearchTaskResponse searchTaskWithOptions(const Models::SearchTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 外呼历史查询
+       * @summary Search for tasks.
        *
        * @param request SearchTaskRequest
        * @return SearchTaskResponse
@@ -2255,7 +2611,7 @@ namespace OutboundBot20191226
       Models::SearchTaskResponse searchTask(const Models::SearchTaskRequest &request);
 
       /**
-       * @summary 开启一个任务
+       * @summary This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
        *
        * @param request StartJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2264,7 +2620,7 @@ namespace OutboundBot20191226
       Models::StartJobResponse startJobWithOptions(const Models::StartJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 开启一个任务
+       * @summary This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
        *
        * @param request StartJobRequest
        * @return StartJobResponse
@@ -2272,6 +2628,8 @@ namespace OutboundBot20191226
       Models::StartJobResponse startJob(const Models::StartJobRequest &request);
 
       /**
+       * @summary Submits a draft job group. This operation is deprecated.
+       *
        * @param request SubmitBatchJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitBatchJobsResponse
@@ -2279,12 +2637,16 @@ namespace OutboundBot20191226
       Models::SubmitBatchJobsResponse submitBatchJobsWithOptions(const Models::SubmitBatchJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submits a draft job group. This operation is deprecated.
+       *
        * @param request SubmitBatchJobsRequest
        * @return SubmitBatchJobsResponse
        */
       Models::SubmitBatchJobsResponse submitBatchJobs(const Models::SubmitBatchJobsRequest &request);
 
       /**
+       * @summary Submits a recording of an outbound call. This operation is deprecated.
+       *
        * @param request SubmitRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitRecordingResponse
@@ -2292,12 +2654,16 @@ namespace OutboundBot20191226
       Models::SubmitRecordingResponse submitRecordingWithOptions(const Models::SubmitRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submits a recording of an outbound call. This operation is deprecated.
+       *
        * @param request SubmitRecordingRequest
        * @return SubmitRecordingResponse
        */
       Models::SubmitRecordingResponse submitRecording(const Models::SubmitRecordingRequest &request);
 
       /**
+       * @summary Submit the scenario for release review.
+       *
        * @param request SubmitScriptReviewRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitScriptReviewResponse
@@ -2305,13 +2671,15 @@ namespace OutboundBot20191226
       Models::SubmitScriptReviewResponse submitScriptReviewWithOptions(const Models::SubmitScriptReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submit the scenario for release review.
+       *
        * @param request SubmitScriptReviewRequest
        * @return SubmitScriptReviewResponse
        */
       Models::SubmitScriptReviewResponse submitScriptReview(const Models::SubmitScriptReviewRequest &request);
 
       /**
-       * @summary 止呼
+       * @summary Suspends outbound calls for a list of phone numbers.
        *
        * @param request SuspendCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2320,7 +2688,7 @@ namespace OutboundBot20191226
       Models::SuspendCallResponse suspendCallWithOptions(const Models::SuspendCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 止呼
+       * @summary Suspends outbound calls for a list of phone numbers.
        *
        * @param request SuspendCallRequest
        * @return SuspendCallResponse
@@ -2328,7 +2696,7 @@ namespace OutboundBot20191226
       Models::SuspendCallResponse suspendCall(const Models::SuspendCallRequest &request);
 
       /**
-       * @summary SuspendCallWithFile
+       * @summary Suspends outbound calls using data from a file.
        *
        * @param request SuspendCallWithFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2337,7 +2705,7 @@ namespace OutboundBot20191226
       Models::SuspendCallWithFileResponse suspendCallWithFileWithOptions(const Models::SuspendCallWithFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SuspendCallWithFile
+       * @summary Suspends outbound calls using data from a file.
        *
        * @param request SuspendCallWithFileRequest
        * @return SuspendCallWithFileResponse
@@ -2345,6 +2713,8 @@ namespace OutboundBot20191226
       Models::SuspendCallWithFileResponse suspendCallWithFile(const Models::SuspendCallWithFileRequest &request);
 
       /**
+       * @summary You can pause the job.
+       *
        * @param request SuspendJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SuspendJobsResponse
@@ -2352,13 +2722,17 @@ namespace OutboundBot20191226
       Models::SuspendJobsResponse suspendJobsWithOptions(const Models::SuspendJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can pause the job.
+       *
        * @param request SuspendJobsRequest
        * @return SuspendJobsResponse
        */
       Models::SuspendJobsResponse suspendJobs(const Models::SuspendJobsRequest &request);
 
       /**
-       * @description **
+       * @summary Adds tags to instance resources.
+       *
+       * @description \\*\\*
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2367,7 +2741,9 @@ namespace OutboundBot20191226
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @description **
+       * @summary Adds tags to instance resources.
+       *
+       * @description \\*\\*
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -2375,7 +2751,7 @@ namespace OutboundBot20191226
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary TaskPreparing
+       * @summary Prepares a task for execution.
        *
        * @param request TaskPreparingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2384,7 +2760,7 @@ namespace OutboundBot20191226
       Models::TaskPreparingResponse taskPreparingWithOptions(const Models::TaskPreparingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary TaskPreparing
+       * @summary Prepares a task for execution.
        *
        * @param request TaskPreparingRequest
        * @return TaskPreparingResponse
@@ -2392,6 +2768,8 @@ namespace OutboundBot20191226
       Models::TaskPreparingResponse taskPreparing(const Models::TaskPreparingRequest &request);
 
       /**
+       * @summary Terminates a call during an active session.
+       *
        * @param request TerminateCallRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TerminateCallResponse
@@ -2399,12 +2777,16 @@ namespace OutboundBot20191226
       Models::TerminateCallResponse terminateCallWithOptions(const Models::TerminateCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Terminates a call during an active session.
+       *
        * @param request TerminateCallRequest
        * @return TerminateCallResponse
        */
       Models::TerminateCallResponse terminateCall(const Models::TerminateCallRequest &request);
 
       /**
+       * @summary Remove tags from resources.
+       *
        * @param request UntagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UntagResourcesResponse
@@ -2412,12 +2794,16 @@ namespace OutboundBot20191226
       Models::UntagResourcesResponse untagResourcesWithOptions(const Models::UntagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Remove tags from resources.
+       *
        * @param request UntagResourcesRequest
        * @return UntagResourcesResponse
        */
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
+       * @summary Upload recording files.
+       *
        * @param request UploadScriptRecordingRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UploadScriptRecordingResponse
@@ -2425,15 +2811,17 @@ namespace OutboundBot20191226
       Models::UploadScriptRecordingResponse uploadScriptRecordingWithOptions(const Models::UploadScriptRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Upload recording files.
+       *
        * @param request UploadScriptRecordingRequest
        * @return UploadScriptRecordingResponse
        */
       Models::UploadScriptRecordingResponse uploadScriptRecording(const Models::UploadScriptRecordingRequest &request);
 
       /**
-       * @summary WithdrawScriptReview
+       * @summary Revoke script review.
        *
-       * @description ****
+       * @description ***
        *
        * @param request WithdrawScriptReviewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2442,9 +2830,9 @@ namespace OutboundBot20191226
       Models::WithdrawScriptReviewResponse withdrawScriptReviewWithOptions(const Models::WithdrawScriptReviewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary WithdrawScriptReview
+       * @summary Revoke script review.
        *
-       * @description ****
+       * @description ***
        *
        * @param request WithdrawScriptReviewRequest
        * @return WithdrawScriptReviewResponse

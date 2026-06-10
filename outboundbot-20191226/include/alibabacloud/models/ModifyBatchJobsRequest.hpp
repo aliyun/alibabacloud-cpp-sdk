@@ -124,18 +124,32 @@ namespace Models
 
 
   protected:
+    // The job name.
+    // 
     // This parameter is required.
     shared_ptr<string> batchJobName_ {};
+    // The calling numbers.
     shared_ptr<vector<string>> callingNumber_ {};
+    // The description of the job group.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The download URL of the Excel file for the job.
     shared_ptr<string> jobFilePath_ {};
+    // The job group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};
+    // The scenario ID.
     shared_ptr<string> scenarioId_ {};
+    // The script ID.
     shared_ptr<string> scriptId_ {};
+    // The policy in the JSON format.
     shared_ptr<string> strategyJson_ {};
+    // Specifies whether to submit the job. \\`false\\` submits the job. \\`true\\` saves the job as a draft.
+    // 
     // This parameter is required.
     shared_ptr<bool> submitted_ {};
   };

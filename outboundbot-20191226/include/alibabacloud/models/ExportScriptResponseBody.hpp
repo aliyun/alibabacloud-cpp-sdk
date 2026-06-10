@@ -67,6 +67,9 @@ namespace Models
 
 
     protected:
+      // The download URL. This parameter is returned only for legacy canvases.
+      // 
+      // > **For modern canvases**: After the scenario is exported, call the **ListDownloadTasks** operation to obtain the \\`TaskId\\` (for example, \\`5d352db754fe430xxxxxxx\\`) and \\`FileId\\` (for example, \\`5d000f3f6eae4228b2731427xxxxxx\\`). Then, call the **CreateDownloadUrl** operation to obtain the download URL.
       shared_ptr<string> signatureUrl_ {};
     };
 
@@ -117,11 +120,17 @@ namespace Models
 
 
   protected:
+    // The status code of the request.
     shared_ptr<string> code_ {};
+    // The signed URL that you can use to download the script. This parameter is returned only for legacy canvases.
     shared_ptr<ExportScriptResponseBody::DownloadParams> downloadParams_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned for the request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

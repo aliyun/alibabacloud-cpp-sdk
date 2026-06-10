@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The global question ID.
+    // 
+    // > You can call the ListGlobalQuestions operation to obtain the ID.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

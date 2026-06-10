@@ -60,8 +60,19 @@ namespace Models
 
 
   protected:
+    // The list of contacts. [Deprecated]
     shared_ptr<vector<string>> contactBlockListList_ {};
+    // A JSON string that contains the blocklist. This parameter is required.
+    // 
+    // - phoneNumber: The mobile phone number.
+    // 
+    // - remark: The remarks.
+    // 
+    // - name: The name.
+    // 
+    // - creator: The creator.
     shared_ptr<string> contactBlockListsJson_ {};
+    // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
   };
 

@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // The tag groups to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> tagGroups_ {};
+    // The list of tags.
+    // 
     // This parameter is required.
     shared_ptr<string> tags_ {};
   };

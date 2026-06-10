@@ -162,8 +162,11 @@ namespace Models
 
 
       protected:
+        // Function service name
         shared_ptr<string> fcFunction_ {};
+        // Function service trigger URL
         shared_ptr<string> fcHttpTriggerUrl_ {};
+        // Function service region
         shared_ptr<string> fcRegion_ {};
         shared_ptr<bool> supportBeebotPrompts_ {};
       };
@@ -345,29 +348,56 @@ namespace Models
 
 
     protected:
+      // Robot workspace access key
       shared_ptr<int64_t> agentId_ {};
+      // Robot workspace access key
       shared_ptr<string> agentKey_ {};
+      // Indicates whether the robot workspace uses a Large Language Model (LLM)
       shared_ptr<bool> agentLlm_ {};
+      // ASR configuration
       shared_ptr<string> asrConfig_ {};
+      // Call configuration
       shared_ptr<string> chatConfig_ {};
+      // Chatbot ID
       shared_ptr<string> chatbotId_ {};
+      // Status of the debug script
       shared_ptr<string> debugStatus_ {};
+      // Enables emotion detection
       shared_ptr<bool> emotionEnable_ {};
+      // Industry
       shared_ptr<string> industry_ {};
+      // Indicates whether the debug version is in draft status
       shared_ptr<bool> isDebugDrafted_ {};
+      // Indicates whether the script is in draft status
       shared_ptr<bool> isDrafted_ {};
       shared_ptr<string> labelConfig_ {};
+      // Enables intelligent sentence break
       shared_ptr<bool> longWaitEnable_ {};
+      // Enables tone continuity
       shared_ptr<bool> miniPlaybackEnable_ {};
+      // Enables graceful barge-in
       shared_ptr<bool> newBargeInEnable_ {};
+      // NLU engine (applies only to LLM scenarios)
+      // 
+      // - Prompts — Text entry mode
+      // 
+      // - SSE_FUNCTION — Function Compute service mode
       shared_ptr<string> nluEngine_ {};
+      // Function Compute service mode configuration
       shared_ptr<Script::NluProfile> nluProfile_ {};
+      // Scenario
       shared_ptr<string> scene_ {};
+      // Script description
       shared_ptr<string> scriptDescription_ {};
+      // Script ID
       shared_ptr<string> scriptId_ {};
+      // Script name
       shared_ptr<string> scriptName_ {};
+      // Script status
       shared_ptr<string> status_ {};
+      // TTS configuration for the script
       shared_ptr<string> ttsConfig_ {};
+      // Time when the script was last updated
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -426,12 +456,19 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Deprecated
     shared_ptr<string> nlsConfig_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Script details
     shared_ptr<DescribeScriptResponseBody::Script> script_ {};
+    // Indicates whether the call succeeded
     shared_ptr<bool> success_ {};
   };
 

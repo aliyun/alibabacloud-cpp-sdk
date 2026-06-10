@@ -130,12 +130,19 @@ namespace Models
 
 
     protected:
+      // Profile picture URL.
       shared_ptr<string> avatar_ {};
+      // Creation time.
       shared_ptr<string> createTime_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Chatbot description.
       shared_ptr<string> introduction_ {};
+      // Language used by the chatbot, such as zh-cn or en-us.
       shared_ptr<string> languageCode_ {};
+      // Chatbot name.
       shared_ptr<string> name_ {};
+      // Time zone of the chatbot. See Common Time Zone Codes.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -208,14 +215,23 @@ namespace Models
 
 
   protected:
+    // Chatbot list details
     shared_ptr<vector<ListChatbotInstancesResponseBody::Bots>> bots_ {};
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // Number of items per page.
     shared_ptr<int64_t> pageSize_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
+    // Total number of items.
     shared_ptr<int64_t> totalCount_ {};
   };
 

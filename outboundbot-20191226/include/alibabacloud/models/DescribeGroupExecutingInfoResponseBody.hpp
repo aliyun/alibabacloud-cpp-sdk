@@ -181,13 +181,21 @@ namespace Models
 
 
       protected:
+        // Number of canceled tasks
         shared_ptr<int32_t> cancelledNum_ {};
+        // Number of executing jobs
         shared_ptr<int32_t> executingNum_ {};
+        // Number of failed tasks
         shared_ptr<int32_t> failedNum_ {};
+        // Number of paused tasks
         shared_ptr<int32_t> pausedNum_ {};
+        // Number of tasks being scheduled
         shared_ptr<int32_t> schedulingNum_ {};
+        // Total number of completed tasks
         shared_ptr<int32_t> totalCompletedNum_ {};
+        // Total number of jobs
         shared_ptr<int32_t> totalJobs_ {};
+        // Number of unanswered calls
         shared_ptr<int32_t> totalNotAnsweredNum_ {};
       };
 
@@ -296,19 +304,39 @@ namespace Models
 
 
     protected:
+      // Average talk time
       shared_ptr<int32_t> avgTalkTime_ {};
+      // Number of failed calls
       shared_ptr<int32_t> callFailedNum_ {};
+      // Number of outbound calls
       shared_ptr<int32_t> callNum_ {};
+      // Deprecated
       shared_ptr<string> creatorName_ {};
+      // Call duration distribution
       shared_ptr<string> durationDistribution_ {};
+      // End time
       shared_ptr<int64_t> endTime_ {};
+      // Number of completed executions
       shared_ptr<int32_t> finishedNum_ {};
+      // Number of calls hung up by customers
       shared_ptr<int32_t> hangUpByClientNum_ {};
+      // Execution progress
       shared_ptr<ExecutingInfo::JobsProgress> jobsProgress_ {};
+      // Number of calls with no interaction
       shared_ptr<int32_t> noInteractionNum_ {};
+      // Start time
       shared_ptr<int64_t> startTime_ {};
+      // Distribution of conversation rounds
+      // 
+      // - total: total number of conversation rounds involved
+      // 
+      // - number: specific round number
+      // 
+      // > * Example: {"total":"5","5":"1"} means 5 conversation rounds were involved, and 1 call had 5 user turns.
       shared_ptr<string> talkTurnsDistribution_ {};
+      // Intent recognition
       shared_ptr<int32_t> transferByIntentNum_ {};
+      // No answer
       shared_ptr<int32_t> transferByNoAnswer_ {};
     };
 
@@ -374,13 +402,21 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Execution information
     shared_ptr<DescribeGroupExecutingInfoResponseBody::ExecutingInfo> executingInfo_ {};
+    // Task group ID
     shared_ptr<string> groupId_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

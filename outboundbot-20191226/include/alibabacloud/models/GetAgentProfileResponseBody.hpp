@@ -233,25 +233,53 @@ namespace Models
 
 
     protected:
+      // The ID of the agent configuration.
       shared_ptr<string> agentProfileId_ {};
+      // The ID of the agent configuration template.
       shared_ptr<string> agentProfileTemplateId_ {};
-      // agent type
+      // The agent type.
       shared_ptr<string> agentType_ {};
+      // The API plugin configuration.
       shared_ptr<string> apiPluginJson_ {};
+      // The time when the configuration was created.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instruction configuration.
       shared_ptr<string> instructionJson_ {};
+      // The description of the labels.
       shared_ptr<string> labelsJson_ {};
+      // The model ID.
       shared_ptr<string> model_ {};
+      // The model configuration.
       shared_ptr<string> modelConfig_ {};
+      // The Natural Language Understanding (NLU) configuration. The parameters are described as follows:
+      // 
+      // - chatbotInstanceId: The instance ID of the ChatMe LLM agent.
+      // 
+      // - faqCategoryIds: The IDs of the attached FAQ categories.
+      // 
+      // - llmAgentId: The ID of the ChatMe LLM workspace.
+      // 
+      // - llmAgentKey: The key of the ChatMe LLM workspace.
+      // 
+      // - llmAgentInstanceId: The instance ID of the ChatMe LLM workspace.
       shared_ptr<string> nluConfigJson_ {};
+      // The prompt for the professional pattern.
       shared_ptr<string> prompt_ {};
+      // The agent configuration.
       shared_ptr<string> promptJson_ {};
+      // The scenario.
       shared_ptr<string> scenario_ {};
+      // The scenario ID.
       shared_ptr<string> scriptId_ {};
+      // Indicates whether the template is a system template.
       shared_ptr<bool> system_ {};
+      // The time when the configuration was last modified.
       shared_ptr<string> updateTime_ {};
+      // The variable configuration.
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -302,11 +330,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetAgentProfileResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

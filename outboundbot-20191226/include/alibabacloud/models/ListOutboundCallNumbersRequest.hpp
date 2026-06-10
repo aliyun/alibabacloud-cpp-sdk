@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

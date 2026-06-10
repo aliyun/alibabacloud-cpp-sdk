@@ -216,23 +216,39 @@ namespace Models
 
 
     protected:
+      // The ID of the agent configuration.
       shared_ptr<string> agentProfileId_ {};
+      // The ID of the agent template.
       shared_ptr<string> agentProfileTemplateId_ {};
-      // agent type
+      // The agent type.
       shared_ptr<string> agentType_ {};
+      // The time when the configuration was created.
       shared_ptr<string> createTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instruction configuration in JSON format.
       shared_ptr<string> instructionJson_ {};
+      // The label definitions in JSON format.
       shared_ptr<string> labelsJson_ {};
+      // The model ID.
       shared_ptr<string> model_ {};
+      // The model configuration.
       shared_ptr<string> modelConfig_ {};
+      // The prompt for the professional pattern.
       shared_ptr<string> prompt_ {};
+      // The agent configuration.
       shared_ptr<string> promptJson_ {};
+      // The scenario.
       shared_ptr<string> scenario_ {};
+      // The scenario ID.
       shared_ptr<string> scriptId_ {};
+      // Indicates whether this is a system template.
       shared_ptr<bool> system_ {};
+      // The time when the configuration was last modified.
       shared_ptr<string> updateTime_ {};
+      // The variable configuration in JSON format.
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -283,11 +299,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListAgentProfilesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned for the request.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

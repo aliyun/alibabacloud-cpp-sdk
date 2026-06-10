@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The content of the template.
       shared_ptr<string> templateContent_ {};
+      // The ID of the flash SMS template.
       shared_ptr<string> templateId_ {};
+      // The name of the template.
       shared_ptr<string> templateName_ {};
     };
 
@@ -139,11 +142,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListFlashSmsTemplatesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded. A value of true indicates a successful call. A value of false indicates a failed call.
     shared_ptr<bool> success_ {};
   };
 

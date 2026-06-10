@@ -141,14 +141,21 @@ namespace Models
 
 
     protected:
+      // Task group ID
       shared_ptr<string> groupId_ {};
+      // Number of hang-ups
       shared_ptr<int32_t> hangUpNum_ {};
+      // Number of hits
       shared_ptr<int32_t> hitNum_ {};
-      // id
+      // ID, unique identifier
       shared_ptr<string> id_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Number of no-answers
       shared_ptr<int32_t> noAnswerNum_ {};
+      // Node ID
       shared_ptr<string> nodeId_ {};
+      // Node name
       shared_ptr<string> nodeName_ {};
     };
 
@@ -208,9 +215,13 @@ namespace Models
 
 
     protected:
+      // Number of hang-ups
       shared_ptr<int32_t> hangUpNum_ {};
+      // Node ID
       shared_ptr<string> nodeId_ {};
+      // Node name
       shared_ptr<string> nodeName_ {};
+      // Proportion of quantity
       shared_ptr<string> rateDisplay_ {};
     };
 
@@ -292,15 +303,25 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Task group ID
     shared_ptr<string> groupId_ {};
+    // Hang-up nodes
     shared_ptr<vector<DescribeDialogueNodeStatisticsResponseBody::HangUpDialogueNodes>> hangUpDialogueNodes_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // No-answer nodes
     shared_ptr<vector<DescribeDialogueNodeStatisticsResponseBody::NoAnswerDialogueNodes>> noAnswerDialogueNodes_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates success
     shared_ptr<bool> success_ {};
+    // Number of completed tasks in the task group
     shared_ptr<int32_t> totalCompleted_ {};
   };
 

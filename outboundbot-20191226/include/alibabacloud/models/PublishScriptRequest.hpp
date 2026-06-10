@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // A description of the publication.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the scenario to publish.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

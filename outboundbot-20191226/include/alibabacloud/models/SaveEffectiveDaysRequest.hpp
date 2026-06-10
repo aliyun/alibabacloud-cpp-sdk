@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The effective time.
     shared_ptr<int32_t> effectiveDays_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Policy level
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

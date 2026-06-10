@@ -89,13 +89,27 @@ namespace Models
 
 
   protected:
+    // Specifies whether to cancel all jobs.
+    // 
     // This parameter is required.
     shared_ptr<bool> all_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A filter condition. The task group ID.
     shared_ptr<string> jobGroupId_ {};
+    // A filter condition. The job ID.
+    // 
+    // > The JobId parameter is required when the All parameter is set to false.
     shared_ptr<vector<string>> jobId_ {};
+    // A filter condition. The reference ID of the job.
+    // 
+    // > This is the ReferenceId that you specified when you uploaded the contact list.
     shared_ptr<vector<string>> jobReferenceId_ {};
+    // A filter condition. The scenario ID.
+    // 
+    // > Obtain this ID by calling the DescribeJobGroup operation.
     shared_ptr<string> scenarioId_ {};
   };
 

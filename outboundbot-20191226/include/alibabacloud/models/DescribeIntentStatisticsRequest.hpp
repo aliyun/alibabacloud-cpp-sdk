@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job group ID
+    // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};
+    // Number of statistics to display (required)
     shared_ptr<int32_t> limit_ {};
   };
 

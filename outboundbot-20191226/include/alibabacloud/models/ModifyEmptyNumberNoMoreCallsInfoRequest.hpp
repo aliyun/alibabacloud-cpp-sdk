@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // Enable or disable the nonexistent number no-call feature.
     shared_ptr<bool> emptyNumberNoMoreCalls_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Policy level. Use 2 for business instances.
+    // 
+    // - 0: system
+    // 
+    // - 1: tenant
+    // 
+    // - 2: instance
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

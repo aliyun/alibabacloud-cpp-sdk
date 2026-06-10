@@ -73,8 +73,12 @@ namespace Models
 
 
     protected:
+      // The content of the user utterance.
+      // 
       // This parameter is required.
       shared_ptr<string> content_ {};
+      // The intent ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
     };
@@ -112,12 +116,20 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // The definition of the user utterance.
+    // 
     // This parameter is required.
     shared_ptr<ModifyBeebotIntentUserSayRequest::UserSayDefinition> userSayDefinition_ {};
+    // The user utterance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userSayId_ {};
   };

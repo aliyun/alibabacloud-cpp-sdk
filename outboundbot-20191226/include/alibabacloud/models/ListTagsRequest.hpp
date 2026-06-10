@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the script.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

@@ -233,26 +233,53 @@ namespace Models
 
 
     protected:
+      // Agent configuration ID
       shared_ptr<string> agentProfileId_ {};
-      // agent template id
+      // Agent Template ID
       shared_ptr<string> agentProfileTemplateId_ {};
-      // agent type
+      // Agent Type
       shared_ptr<string> agentType_ {};
+      // API plug-in configuration
       shared_ptr<string> apiPluginJson_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Description
       shared_ptr<string> description_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Instruction configuration
       shared_ptr<string> instructionJson_ {};
+      // Label description
       shared_ptr<string> labelsJson_ {};
+      // Model ID
       shared_ptr<string> model_ {};
+      // Model configuration
       shared_ptr<string> modelConfig_ {};
+      // NLU configuration, parameter settings:
+      // 
+      // - chatbotInstanceId Xiaomi Large Language Model (LLM) robot instance ID
+      // 
+      // - faqCategoryIds bound FAQ category ID
+      // 
+      // - llmAgentId Xiaomi Large Language Model (LLM) workspace ID
+      // 
+      // - llmAgentKey Xiaomi Large Language Model (LLM) workspace key
+      // 
+      // - llmAgentInstanceId Xiaomi Large Language Model (LLM) workspace instance ID
       shared_ptr<string> nluConfigJson_ {};
+      // Prompt (Professional Mode)
       shared_ptr<string> prompt_ {};
+      // Agent configuration
       shared_ptr<string> promptJson_ {};
+      // Scenario
       shared_ptr<string> scenario_ {};
+      // Scenario ID
       shared_ptr<string> scriptId_ {};
+      // Is it a system template?
       shared_ptr<bool> system_ {};
+      // Modification time
       shared_ptr<string> updateTime_ {};
+      // Variable configuration
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -303,11 +330,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<ModifyAgentProfileResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

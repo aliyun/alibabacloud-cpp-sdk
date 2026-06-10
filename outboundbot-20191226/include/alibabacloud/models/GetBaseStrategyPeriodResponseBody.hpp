@@ -100,9 +100,13 @@ namespace Models
 
 
     protected:
+      // Start time
       shared_ptr<string> beginTime_ {};
+      // Daily start time, in milliseconds
       shared_ptr<int64_t> beginTimeMillis_ {};
+      // End time
       shared_ptr<string> endTime_ {};
+      // Daily end time, in milliseconds
       shared_ptr<int64_t> endTimeMillis_ {};
     };
 
@@ -168,13 +172,21 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Indicates whether the period applies only to weekends
     shared_ptr<bool> onlyWeekdays_ {};
+    // Indicates whether the period applies only to weekdays
     shared_ptr<bool> onlyWorkdays_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded
     shared_ptr<bool> success_ {};
+    // Time periods when the strategy runs
     shared_ptr<vector<GetBaseStrategyPeriodResponseBody::WorkingTime>> workingTime_ {};
   };
 

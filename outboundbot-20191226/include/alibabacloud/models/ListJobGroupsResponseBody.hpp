@@ -152,7 +152,9 @@ namespace Models
 
 
         protected:
+          // The end time of the calling window.
           shared_ptr<int64_t> endTime_ {};
+          // The start time of the calling window.
           shared_ptr<int64_t> startTime_ {};
         };
 
@@ -276,16 +278,45 @@ namespace Models
 
 
         protected:
+          // The number of canceled jobs.
           shared_ptr<int32_t> cancelledNum_ {};
+          // The total runtime. This parameter is deprecated.
           shared_ptr<int32_t> duration_ {};
+          // The number of running jobs.
           shared_ptr<int32_t> executingNum_ {};
+          // The number of failed jobs.
           shared_ptr<int32_t> failedNum_ {};
+          // The number of paused jobs.
           shared_ptr<int32_t> pausedNum_ {};
+          // The number of jobs that are being scheduled.
           shared_ptr<int32_t> scheduling_ {};
+          // The start time. This parameter is deprecated.
           shared_ptr<int64_t> startTime_ {};
+          // > This parameter is no longer returned.
+          // 
+          // The status of the job. Valid values:
+          // 
+          // - **Draft**: The job is a draft.
+          // 
+          // - **Scheduling**: The job is being scheduled.
+          // 
+          // - **Executing**: The job is running.
+          // 
+          // - **Completed**: The job is completed.
+          // 
+          // - **Paused**: The job is paused.
+          // 
+          // - **Failed**: The job failed.
+          // 
+          // - **Cancelled**: The job is canceled.
+          // 
+          // - **Initializing**: The job is being initialized.
           shared_ptr<string> status_ {};
+          // The number of completed jobs.
           shared_ptr<int32_t> totalCompleted_ {};
+          // The total number of jobs.
           shared_ptr<int32_t> totalJobs_ {};
+          // This parameter is deprecated.
           shared_ptr<int32_t> totalNotAnswered_ {};
         };
 
@@ -336,8 +367,19 @@ namespace Models
 
 
         protected:
+          // This parameter is deprecated.
           shared_ptr<string> fileHttpUrl_ {};
+          // The progress of the export task.
           shared_ptr<string> progress_ {};
+          // The status of the export task. Valid values:
+          // 
+          // - **PENDING**: The task is pending.
+          // 
+          // - **IN_PROGRESS**: The task is in progress.
+          // 
+          // - **FINISHED**: The task is finished.
+          // 
+          // - **FAILED**: The task failed.
           shared_ptr<string> status_ {};
         };
 
@@ -457,20 +499,53 @@ namespace Models
 
 
       protected:
+        // The time when the job group was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<int64_t> creationTime_ {};
+        // The progress of the export task.
         shared_ptr<List::ExportProgress> exportProgress_ {};
+        // The ID of the task that parses the job data file. This parameter is deprecated.
         shared_ptr<string> jobDataParsingTaskId_ {};
+        // The description of the job group.
         shared_ptr<string> jobGroupDescription_ {};
+        // The ID of the job group.
         shared_ptr<string> jobGroupId_ {};
+        // The name of the job group.
         shared_ptr<string> jobGroupName_ {};
+        // The minimum number of concurrent calls.
         shared_ptr<int32_t> minConcurrency_ {};
+        // The time when the job group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
         shared_ptr<string> modifyTime_ {};
+        // The progress of the job group.
         shared_ptr<List::Progress> progress_ {};
+        // The ID of the script.
         shared_ptr<string> scriptId_ {};
+        // The name of the script.
         shared_ptr<string> scriptName_ {};
+        // The script version.
         shared_ptr<string> scriptVersion_ {};
+        // The status of the job group. Valid values:
+        // 
+        // - **Draft**: The job group is a draft.
+        // 
+        // - **Scheduling**: The job group is being scheduled.
+        // 
+        // - **Executing**: The job group is running.
+        // 
+        // - **Completed**: The job group is completed.
+        // 
+        // - **Paused**: The job group is paused.
+        // 
+        // - **Failed**: The job group failed.
+        // 
+        // - **Cancelled**: The job group is canceled.
+        // 
+        // - **Initializing**: The job group is being initialized.
         shared_ptr<string> status_ {};
+        // The calling strategy. This parameter is deprecated.
+        // 
+        // > To view the strategy for a job group, call the `DescribeJobGroup` operation.
         shared_ptr<List::Strategy> strategy_ {};
+        // The total number of calls.
         shared_ptr<int32_t> totalCallNum_ {};
       };
 
@@ -507,9 +582,13 @@ namespace Models
 
 
     protected:
+      // The list of job groups.
       shared_ptr<vector<JobGroups::List>> list_ {};
+      // The page number of the returned page.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -568,12 +647,19 @@ namespace Models
 
 
   protected:
+    // The ID of the asynchronous task. You can use this ID to query the status of the task.
     shared_ptr<string> asyncTaskId_ {};
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of job groups.
     shared_ptr<ListJobGroupsResponseBody::JobGroups> jobGroups_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: `true` and `false`.
     shared_ptr<bool> success_ {};
   };
 

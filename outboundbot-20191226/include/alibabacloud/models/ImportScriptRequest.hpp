@@ -57,9 +57,22 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // NLU engine. Applies only to Large Language Model (LLM) scenarios.
+    // 
+    // Valid values:
+    // 
+    // - Prompts: LLM scenario.
+    // 
+    // - Empty: Non-LLM scenario.
     shared_ptr<string> nluEngine_ {};
+    // URL of the scenario JSON file to import.
+    // 
+    // > This value is the Folder parameter returned by the GetJobDataUploadParams operation.
+    // 
     // This parameter is required.
     shared_ptr<string> signatureUrl_ {};
   };

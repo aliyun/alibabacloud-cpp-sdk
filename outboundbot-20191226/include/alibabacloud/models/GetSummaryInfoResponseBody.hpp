@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Total number of outbound calls.
       shared_ptr<int64_t> totalCallCount_ {};
+      // Total call duration, in seconds.
       shared_ptr<int64_t> totalCallTime_ {};
+      // Used recording storage space, in MB.
       shared_ptr<int32_t> usedRecordingStorageSpace_ {};
     };
 
@@ -149,11 +153,17 @@ namespace Models
 
 
   protected:
+    // List of instances.
     shared_ptr<vector<GetSummaryInfoResponseBody::AgentBotInstanceSummaryList>> agentBotInstanceSummaryList_ {};
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

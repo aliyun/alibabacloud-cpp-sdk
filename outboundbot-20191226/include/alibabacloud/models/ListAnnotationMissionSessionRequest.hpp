@@ -84,11 +84,43 @@ namespace Models
 
 
   protected:
+    // The task ID.
     shared_ptr<string> annotationMissionId_ {};
+    // The ID of the chat instance for the annotation task.
+    // 
+    // > Obtain this ID by calling the SaveAnnotationMissionSessionList operation.
     shared_ptr<string> annotationMissionSessionId_ {};
+    // The environment.
+    // 
+    // > The default value is 2.
+    // 
+    // **Enumeration values**
+    // 
+    // - 0: NONE
+    // 
+    // - 1: Private cloud
+    // 
+    // - 2: Public cloud
     shared_ptr<int32_t> environment_ {};
+    // The list of statuses to include.
+    // 
+    // > The format is [1]. Fill the array with specific enumeration values.
+    // 
+    // **Enumeration values**
+    // 
+    // - 1: Correctly detected
+    // 
+    // - 2: Incorrectly detected
+    // 
+    // - 8: Invalid data
+    // 
+    // - 4: Uncovered intent
+    // 
+    // - 16: Transcription error
     shared_ptr<string> includeStatusListJsonString_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of records to display on each page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

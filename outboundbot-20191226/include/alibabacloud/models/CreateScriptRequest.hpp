@@ -218,29 +218,104 @@ namespace Models
 
 
   protected:
+    // Robot workspace ID
     shared_ptr<int64_t> agentId_ {};
+    // Robot workspace access Key
     shared_ptr<string> agentKey_ {};
+    // Is the robot workspace a Large Language Model (LLM) workspace?
     shared_ptr<bool> agentLlm_ {};
+    // ASR configuration. Parameter definitions:
+    // 
+    // - **appKey**: Alibaba Cloud account appKey.
+    // 
+    // - **maxEndSilence**: Voice endpoint detection duration.
+    // 
+    // - **silenceTimeout**: Silence timeout. Unit: seconds. The user times out after N seconds of silence.
+    // 
+    // - **engine**: Invoke service; [ali, xunfei]
+    // 
+    // - **nlsServiceType**: Invoke service type [Managed, Authorized]
+    // 
+    // - **engineXunfei**: If the caller is xunfei, enter the corresponding configuration.
+    // 
+    // > If you select ali as the engine and Authorized as the nlsServiceType, a custom service is used, and the service provider is ali. If you select ali as the engine and Managed as the nlsServiceType, the default service is used. If you select xunfei as the engine and Authorized as the nlsServiceType, xunfei is the service provider. You must enter the xunfei configuration: {"uuid":"ed2xxxxxxxxx","globalMaxEndSilence":700,"globalMaxEndSilenceEnable":true}
+    // 
+    // - **globalMaxEndSilence**: Silence detection. Unit: milliseconds.
+    // 
+    // - **globalMaxEndSilenceEnable**: Silence detection switch. Enabled by default.
+    // 
+    // - **speechNoiseThreshold**: Noise filtering threshold
     shared_ptr<string> asrConfig_ {};
+    // If the NluServiceType of the instance is Authorized or Provided, specify the ID of the chatbot instance to which the script needs to be attached using this field.
     shared_ptr<string> chatbotId_ {};
+    // Emotion detection configuration switch (applicable to small models)
     shared_ptr<bool> emotionEnable_ {};
+    // Industry
+    // 
     // This parameter is required.
     shared_ptr<string> industry_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Intelligent sentence segmentation configuration switch (applicable to small models)
     shared_ptr<bool> longWaitEnable_ {};
+    // Connective phrase configuration switch (applicable to small models)
     shared_ptr<bool> miniPlaybackEnable_ {};
+    // Graceful interruption configuration switch (applicable to small models)
     shared_ptr<bool> newBargeInEnable_ {};
+    // NLU access method (applicable only to Large Language Model (LLM) scenarios). Enumeration: Managed - Access using an Alibaba public account. This field is empty for non-LLM scenarios.
     shared_ptr<string> nluAccessType_ {};
+    // NLU engine (applicable only to Large Language Model (LLM) scenarios). This field is empty for non-LLM scenarios.
+    // 
+    // - Prompts - Large Language Model (LLM) scenario,
+    // 
+    // - SSE_FUNCTION - Function Compute pattern.
+    // 
+    // - BeeBot - Workflow pattern.
     shared_ptr<string> nluEngine_ {};
+    // Scenario
+    // 
     // This parameter is required.
     shared_ptr<string> scene_ {};
+    // For notification instances, pass in the script list. Deprecated.
     shared_ptr<vector<string>> scriptContent_ {};
+    // Script description
     shared_ptr<string> scriptDescription_ {};
+    // Script name
+    // 
     // This parameter is required.
     shared_ptr<string> scriptName_ {};
+    // > If nluEngine is SSE_FUNCTION, you must pass in the corresponding configuration.
+    // 
+    // Function Compute service pattern configuration
+    // 
+    // - fcRegion: Function service region
+    // 
+    // - fcFunction: Function service name
+    // 
+    // - fcHttpTriggerUrl Function service trigger
     shared_ptr<string> scriptNluProfileJsonString_ {};
+    // For notification instances, pass in the script voice list. Deprecated.
     shared_ptr<vector<string>> scriptWaveform_ {};
+    // TTS configuration. Parameter definitions:
+    // 
+    // - **voice**: Speaker.
+    // 
+    // - **volume**: Volume. Value range: 0 to 100. Default value: 50.
+    // 
+    // - **speechRate**: Speech rate. Value range: -500 to 500. Default value: 0.
+    // 
+    // - **pitchRate**: Pitch rate. Value range: -500 to 500. Default value: 0.
+    // 
+    // - **globalInterruptible**: Voice interruption configuration.
+    //   -**engine**: Invoke service; [ali, volc, xunfei]. Large Language Model (LLM) scenarios do not support xunfei.
+    // 
+    // - **nlsServiceType**: Service type. [Managed, Authorized]
+    // 
+    // - **engineXunfei**: Configuration when the service provider is xunfei.
+    // 
+    // > 1\\. If you select ali as the engine and Authorized as the nlsServiceType, a custom service is used. 2. If the service provider is ali, and you select ali as the engine and Managed as the nlsServiceType, the default service is used. 3. If you select xunfei as the engine (applicable to small model scenarios) and Authorized as the nlsServiceType, xunfei is the service provider. You must enter the engineXunfei configuration: {"pitchRate":50,"speechRate":50,"voice":"aisjiuxu","volume":50}. 4. If you select volc as the engine and Authorized as the nlsServiceType, it applies to doubao.
     shared_ptr<string> ttsConfig_ {};
   };
 

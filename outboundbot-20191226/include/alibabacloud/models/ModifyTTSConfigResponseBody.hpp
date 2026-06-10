@@ -123,18 +123,23 @@ namespace Models
 
 
     protected:
+      // Instance ID
       shared_ptr<string> instanceId_ {};
-      // 语调
-      // [-500,500]之间整数。默认值为0。
+      // Pitch. An integer between -500 and 500. Default is 0.
       // 
-      // 大于0表示升高音高。
+      // A value greater than 0 raises pitch.
       // 
-      // 小于0表示降低音高。
+      // A value less than 0 lowers pitch.
       shared_ptr<string> pitchRate_ {};
+      // Scenario ID
       shared_ptr<string> scriptId_ {};
+      // Speech rate
       shared_ptr<string> speechRate_ {};
+      // Configuration ID
       shared_ptr<string> TTSConfigId_ {};
+      // Voice model
       shared_ptr<string> voice_ {};
+      // Volume
       shared_ptr<string> volume_ {};
     };
 
@@ -185,11 +190,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // TTS configuration
     shared_ptr<ModifyTTSConfigResponseBody::TTSConfig> TTSConfig_ {};
   };
 

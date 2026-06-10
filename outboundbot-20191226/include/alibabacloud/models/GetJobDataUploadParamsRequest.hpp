@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // Business type
     shared_ptr<string> busiType_ {};
+    // File name
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Relative path for file storage
     shared_ptr<string> path_ {};
+    // Unique business ID (prevents duplicate file names; the system automatically adds one if left blank)
     shared_ptr<string> uniqueId_ {};
   };
 

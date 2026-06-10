@@ -113,10 +113,15 @@ namespace Models
 
 
     protected:
+      // The content of the utterance.
       shared_ptr<string> content_ {};
+      // The time when the utterance was created.
       shared_ptr<string> createTime_ {};
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
+      // The time when the utterance was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The utterance ID.
       shared_ptr<string> userSayId_ {};
     };
 
@@ -196,15 +201,25 @@ namespace Models
 
 
   protected:
+    // The internal request ID.
     shared_ptr<string> beebotRequestId_ {};
+    // The status code of the API.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned for the API call.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of user utterances.
     shared_ptr<vector<ListBeebotIntentUserSayResponseBody::UserSays>> userSays_ {};
   };
 

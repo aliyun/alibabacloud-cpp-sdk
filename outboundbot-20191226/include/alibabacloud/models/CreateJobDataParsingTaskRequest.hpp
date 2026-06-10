@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Path to the file that contains the job data.
+    // 
+    // > This value is the Folder parameter returned by the GetJobDataUploadParams operation.
+    // 
     // This parameter is required.
     shared_ptr<string> jobFilePath_ {};
   };

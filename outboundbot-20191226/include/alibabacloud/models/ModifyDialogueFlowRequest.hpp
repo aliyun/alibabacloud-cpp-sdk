@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // A JSON string that defines the structure and logic of the dialogue flow.
+    // 
     // This parameter is required.
     shared_ptr<string> dialogueFlowDefinition_ {};
+    // The dialogue flow ID.
+    // 
     // This parameter is required.
     shared_ptr<string> dialogueFlowId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to save the changes as a draft.
     shared_ptr<bool> isDrafted_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

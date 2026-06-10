@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID returned by an asynchronous call to `ListJobGroup`. Use this ID to retrieve the results of the asynchronous query.
+    // 
     // This parameter is required.
     shared_ptr<string> asyncTaskId_ {};
   };

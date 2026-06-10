@@ -278,33 +278,60 @@ namespace Models
 
 
   protected:
+    // Start time of the call time range (inclusive)
     shared_ptr<int64_t> actualTimeGte_ {};
+    // End time of the call time range (inclusive)
     shared_ptr<int64_t> actualTimeLte_ {};
+    // Minimum call duration
     shared_ptr<int64_t> callDurationGte_ {};
+    // Maximum call duration
     shared_ptr<int64_t> callDurationLte_ {};
+    // Called number
     shared_ptr<string> calledNumber_ {};
     shared_ptr<string> callingNumber_ {};
+    // Whether the call was answered
     shared_ptr<bool> hasAnswered_ {};
+    // Whether the call ended because the contact rejected it
     shared_ptr<bool> hasHangUpByRejection_ {};
+    // Whether the conversation ended normally
     shared_ptr<bool> hasReachedEndOfFlow_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Task group ID
     shared_ptr<string> jobGroupId_ {};
+    // Task name
     shared_ptr<string> jobGroupNameQuery_ {};
+    // Job ID
     shared_ptr<string> jobId_ {};
+    // Job status
     shared_ptr<string> jobStatusStringList_ {};
+    // Other ID
     shared_ptr<string> otherId_ {};
+    // Page number, starting from 0
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
+    // The start time for the ring duration search.
     shared_ptr<int64_t> recordingDurationGte_ {};
+    // End time of the ring duration search.
     shared_ptr<int64_t> recordingDurationLte_ {};
+    // Scenario name
     shared_ptr<string> scriptNameQuery_ {};
+    // Sort field
     shared_ptr<string> sortBy_ {};
+    // Sort order. Valid values: asc (ascending), desc (descending)
     shared_ptr<string> sortOrder_ {};
+    // Start time of the task creation time range
     shared_ptr<int64_t> taskCreateTimeGte_ {};
+    // End time of the task creation time range
     shared_ptr<int64_t> taskCreateTimeLte_ {};
+    // Task ID
     shared_ptr<string> taskId_ {};
+    // Call status
     shared_ptr<string> taskStatusStringList_ {};
+    // User ID
     shared_ptr<string> userIdMatch_ {};
   };
 

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Contact whitelist ID
+    // 
     // This parameter is required.
     shared_ptr<string> contactWhiteListId_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Operator information
     shared_ptr<string> operator_ {};
   };
 

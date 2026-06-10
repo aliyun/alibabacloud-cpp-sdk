@@ -149,12 +149,19 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The text content of the script.
         shared_ptr<string> scriptContent_ {};
+        // The script ID.
         shared_ptr<string> scriptId_ {};
+        // The ID of the voice configuration.
         shared_ptr<string> scriptVoiceConfigId_ {};
+        // The relationship between the script and the audio file.
         shared_ptr<string> scriptWaveformRelation_ {};
+        // The source of the script.
         shared_ptr<string> source_ {};
+        // The voice type.
         shared_ptr<string> type_ {};
       };
 
@@ -191,9 +198,13 @@ namespace Models
 
 
     protected:
+      // An array of script voice configuration objects.
       shared_ptr<vector<ScriptVoiceConfigs::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -244,11 +255,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The paginated list of script voice configurations.
     shared_ptr<ListScriptVoiceConfigsResponseBody::ScriptVoiceConfigs> scriptVoiceConfigs_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

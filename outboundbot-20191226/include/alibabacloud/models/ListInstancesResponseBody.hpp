@@ -123,7 +123,9 @@ namespace Models
 
 
       protected:
+        // The key of the tag.
         shared_ptr<string> key_ {};
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -210,16 +212,27 @@ namespace Models
 
 
     protected:
+      // The time when the instance was created.
       shared_ptr<int64_t> creationTime_ {};
+      // The ID of the user who created the instance.
       shared_ptr<int64_t> creatorId_ {};
+      // The name of the user who created the instance.
       shared_ptr<string> creatorName_ {};
+      // The description of the Outbound Calling Bot service instance.
       shared_ptr<string> instanceDescription_ {};
+      // The ID of the service instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the Outbound Calling Bot service instance.
       shared_ptr<string> instanceName_ {};
+      // Indicates whether the instance is a system-predefined instance.
       shared_ptr<bool> isPreset_ {};
+      // The maximum number of concurrent outbound calls.
       shared_ptr<int32_t> maxConcurrentConversation_ {};
+      // The name of the Alibaba Cloud account.
       shared_ptr<string> ownerName_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The tags.
       shared_ptr<vector<Instances::ResourceTags>> resourceTags_ {};
     };
 
@@ -292,14 +305,23 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // A list of service instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

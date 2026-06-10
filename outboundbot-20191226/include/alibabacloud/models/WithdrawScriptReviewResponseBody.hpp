@@ -150,15 +150,25 @@ namespace Models
 
 
     protected:
+      // The debug status.
       shared_ptr<string> debugStatus_ {};
+      // The industry.
       shared_ptr<string> industry_ {};
+      // Indicates whether the debug version is a draft.
       shared_ptr<bool> isDebugDrafted_ {};
+      // Indicates whether the application version is a draft.
       shared_ptr<bool> isDrafted_ {};
+      // The scenario.
       shared_ptr<string> scene_ {};
+      // The script description.
       shared_ptr<string> scriptDescription_ {};
+      // The script ID.
       shared_ptr<string> scriptId_ {};
+      // The script name.
       shared_ptr<string> scriptName_ {};
+      // The status of the application version.
       shared_ptr<string> status_ {};
+      // The time when the script was updated.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -209,11 +219,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The script information.
     shared_ptr<WithdrawScriptReviewResponseBody::Script> script_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -148,9 +148,25 @@ namespace Models
 
 
         protected:
+          // File ID
           shared_ptr<string> fileId_ {};
+          // Completion progress [Deprecated]
           shared_ptr<int32_t> progress_ {};
+          // File status
+          // 
+          // - Pending: Pending
+          // 
+          // - InProgress: In progress
+          // 
+          // - Finished: Completed
+          // 
+          // - Failed: Failed
+          // 
+          // - Expired: Expired
+          // 
+          // - Cancelled: Canceled
           shared_ptr<string> status_ {};
+          // Title
           shared_ptr<string> title_ {};
         };
 
@@ -194,10 +210,27 @@ namespace Models
 
 
       protected:
+        // Download task file list
         shared_ptr<vector<List::DownloadTaskFiles>> downloadTaskFiles_ {};
+        // The expiration time.
         shared_ptr<int64_t> expireTime_ {};
+        // Export status.
+        // 
+        // - Pending: Pending
+        // 
+        // - InProgress: In progress
+        // 
+        // - Finished: Completed
+        // 
+        // - Failed: Failed
+        // 
+        // - Expired: Expired
+        // 
+        // - Cancelled: Canceled
         shared_ptr<string> status_ {};
+        // Task ID
         shared_ptr<string> taskId_ {};
+        // Title
         shared_ptr<string> title_ {};
       };
 
@@ -234,9 +267,13 @@ namespace Models
 
 
     protected:
+      // Download task array
       shared_ptr<vector<DownloadTasks::List>> list_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Count
       shared_ptr<int32_t> pageSize_ {};
+      // Total count
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -287,11 +324,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Download task list
     shared_ptr<ListDownloadTasksResponseBody::DownloadTasks> downloadTasks_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Success
     shared_ptr<bool> success_ {};
   };
 

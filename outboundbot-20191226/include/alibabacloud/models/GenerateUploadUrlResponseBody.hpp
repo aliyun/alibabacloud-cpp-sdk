@@ -132,13 +132,21 @@ namespace Models
 
 
     protected:
+      // OSS access ID
       shared_ptr<string> accessId_ {};
+      // Time-to-live (TTL) in seconds
       shared_ptr<int32_t> expire_ {};
+      // Upload folder path
       shared_ptr<string> folder_ {};
+      // Upload server URL
       shared_ptr<string> host_ {};
+      // API message for the upload
       shared_ptr<string> message_ {};
+      // Upload policy
       shared_ptr<string> policy_ {};
+      // Signature
       shared_ptr<string> signature_ {};
+      // Indicates whether the upload succeeded
       shared_ptr<bool> success_ {};
     };
 
@@ -189,11 +197,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<GenerateUploadUrlResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded
     shared_ptr<bool> success_ {};
   };
 

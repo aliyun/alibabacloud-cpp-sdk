@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Recording scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // Unique recording ID
+    // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};
   };

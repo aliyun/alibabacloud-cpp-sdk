@@ -175,8 +175,11 @@ namespace Models
 
 
         protected:
+          // The function name.
           shared_ptr<string> fcFunction_ {};
+          // The URL of the function trigger.
           shared_ptr<string> fcHttpTriggerUrl_ {};
+          // The function region.
           shared_ptr<string> fcRegion_ {};
         };
 
@@ -350,28 +353,51 @@ namespace Models
 
 
       protected:
+        // The agent access key.
         shared_ptr<string> agentKey_ {};
+        // Indicates whether the agent is an LLM agent.
         shared_ptr<bool> agentLlm_ {};
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The debug status.
         shared_ptr<string> debugStatus_ {};
+        // Indicates whether emotion detection is enabled. This parameter is always false for LLM-based scripts.
         shared_ptr<bool> emotionEnable_ {};
+        // The industry.
         shared_ptr<string> industry_ {};
+        // Indicates whether the debug version of the script is a draft.
         shared_ptr<bool> isDebugDrafted_ {};
+        // Indicates whether the script is a draft.
         shared_ptr<bool> isDrafted_ {};
+        // Indicates whether the script is for a preset scene.
         shared_ptr<bool> isPreset_ {};
+        // Indicates whether long wait is enabled. This parameter is always false for LLM-based scripts.
         shared_ptr<bool> longWaitEnable_ {};
+        // Indicates whether mini playback is enabled.
         shared_ptr<bool> miniPlaybackEnable_ {};
+        // Indicates whether graceful barge-in is enabled. This parameter is always false for LLM-based scripts.
         shared_ptr<bool> newBargeInEnable_ {};
+        // The NLU access type, which is set to Managed for LLM scenarios and is empty for small model scenarios.
         shared_ptr<string> nluAccessType_ {};
+        // The NLU engine, which is set to Prompts for LLM scenarios and is empty for small model scenarios.
         shared_ptr<string> nluEngine_ {};
+        // The Function Compute configuration for function calling mode.
         shared_ptr<List::NluProfile> nluProfile_ {};
+        // The rejection reason.
         shared_ptr<string> rejectReason_ {};
+        // The scene.
         shared_ptr<string> scene_ {};
+        // The script description.
         shared_ptr<string> scriptDescription_ {};
+        // The script ID.
         shared_ptr<string> scriptId_ {};
+        // The script name.
         shared_ptr<string> scriptName_ {};
+        // The script status.
         shared_ptr<string> status_ {};
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
+        // The agent ID.
         shared_ptr<int64_t> agentId_ {};
       };
 
@@ -408,9 +434,13 @@ namespace Models
 
 
     protected:
+      // The list of scripts.
       shared_ptr<vector<Scripts::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of scripts.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -461,11 +491,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The paginated list of scripts.
     shared_ptr<ListScriptsResponseBody::Scripts> scripts_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

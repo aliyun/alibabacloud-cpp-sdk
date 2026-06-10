@@ -139,11 +139,21 @@ namespace Models
 
 
       protected:
+        // The replies to the global question.
         shared_ptr<string> answers_ {};
+        // The global question ID.
         shared_ptr<string> globalQuestionId_ {};
+        // The name of the global question.
         shared_ptr<string> globalQuestionName_ {};
+        // The type of the global question.
+        // 
+        // - SYSTEM: System-defined
+        // 
+        // - COMMON: General
         shared_ptr<string> globalQuestionType_ {};
+        // The list of global questions.
         shared_ptr<string> questions_ {};
+        // The scenario ID.
         shared_ptr<string> scriptId_ {};
       };
 
@@ -180,9 +190,13 @@ namespace Models
 
 
     protected:
+      // The array of global questions.
       shared_ptr<vector<GlobalQuestions::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -233,11 +247,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The global question data.
     shared_ptr<ListGlobalQuestionsResponseBody::GlobalQuestions> globalQuestions_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

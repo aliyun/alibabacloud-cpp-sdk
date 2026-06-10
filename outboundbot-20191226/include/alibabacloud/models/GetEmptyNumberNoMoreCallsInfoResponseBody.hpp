@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Do Not Call Nonexistent Numbers
     shared_ptr<bool> emptyNumberNoMoreCalls_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded
     shared_ptr<bool> success_ {};
   };
 

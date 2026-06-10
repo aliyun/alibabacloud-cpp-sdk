@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // Description
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Source of review submission
     shared_ptr<string> from_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Script ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

@@ -169,17 +169,51 @@ namespace Models
 
 
     protected:
+      // Script debug status
       shared_ptr<string> debugStatus_ {};
+      // Industry
       shared_ptr<string> industry_ {};
+      // Is debug draft
       shared_ptr<bool> isDebugDrafted_ {};
+      // Is draft
       shared_ptr<bool> isDrafted_ {};
+      // NLU access method (applicable only to Large Language Model (LLM) scenarios). Enumeration: Managed - Access using an Alibaba public account. This field is empty for non-LLM scenarios.
       shared_ptr<string> nluAccessType_ {};
+      // NLU engine (applicable only to Large Language Model (LLM) scenarios). Enumeration: Prompts - Large Language Model (LLM) scenario. This field is empty for non-LLM scenarios.
       shared_ptr<string> nluEngine_ {};
+      // Scenario
       shared_ptr<string> scene_ {};
+      // Script description
       shared_ptr<string> scriptDescription_ {};
+      // Script ID
       shared_ptr<string> scriptId_ {};
+      // Script name
       shared_ptr<string> scriptName_ {};
+      // Job status. Valid values:
+      // 
+      // - **DRAFTED**: Draft.
+      // 
+      // - **INITIALIZE_IN_PROGRESS**: Initializing.
+      // 
+      // - **PUBLISHED**: Published.
+      // 
+      // - **PUBLISH_IN_PROGRESS**: Publishing.
+      // 
+      // - **ROLLBACK_IN_PROGRESS**: Rolling back.
+      // 
+      // - **EXAMINE_IN_PROGRESS**: Pending review.
+      // 
+      // - **PUBLISHED_AND_EXAMINE_IN_PROGRESS**: Published and pending review.
+      // 
+      // - **PUBLISH_FAILED**: Publish failed.
+      // 
+      // - **ROLLBACK_FAILED**: Rollback failed.
+      // 
+      // - **IMPORT_IN_PROGRESS**: Importing.
+      // 
+      // - **IMPORT_FAILED**: Import failed.
       shared_ptr<string> status_ {};
+      // Script update time (unit: milliseconds)
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -230,11 +264,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Script information
     shared_ptr<CreateScriptResponseBody::Script> script_ {};
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
   };
 

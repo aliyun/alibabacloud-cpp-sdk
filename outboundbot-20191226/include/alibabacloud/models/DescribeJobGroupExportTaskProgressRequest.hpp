@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

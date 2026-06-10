@@ -89,13 +89,25 @@ namespace Models
 
 
   protected:
+    // Filter condition: Specifies whether to restart all jobs.
+    // 
     // This parameter is required.
     shared_ptr<bool> all_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Filter condition: Task group ID.
     shared_ptr<string> jobGroupId_ {};
+    // Job ID list.
+    // 
+    // > This parameter is required when All is false.
     shared_ptr<vector<string>> jobId_ {};
+    // Third-party ID of the job.
+    // 
+    // > This is the ReferenceId uploaded by the customer when uploading the outbound list.
     shared_ptr<vector<string>> jobReferenceId_ {};
+    // Filter condition: Scenario ID (historical parameter, deprecated).
     shared_ptr<string> scenarioId_ {};
   };
 

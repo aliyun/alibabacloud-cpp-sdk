@@ -110,12 +110,19 @@ namespace Models
 
 
     protected:
+      // The tag description.
       shared_ptr<string> annotationMissionTagInfoDescription_ {};
-      // tag id
+      // The tag ID.
       shared_ptr<string> annotationMissionTagInfoId_ {};
+      // The tag name.
       shared_ptr<string> annotationMissionTagInfoName_ {};
+      // Indicates whether to delete the tag.
+      // 
+      // > Set this parameter to true to delete the tag. Set it to false to add the tag.
       shared_ptr<bool> delete_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
     };
 
@@ -152,9 +159,17 @@ namespace Models
 
 
   protected:
+    // The list of tags.
+    // 
+    // > This parameter has the same function as AnnotationMissionTagInfoListJsonString. Specify either this parameter or AnnotationMissionTagInfoListJsonString.
     shared_ptr<vector<SaveAnnotationMissionTagInfoListRequest::AnnotationMissionTagInfoList>> annotationMissionTagInfoList_ {};
+    // The JSON-formatted data of the tags.
+    // 
+    // > The parameters in the JSON string are the same as those in AnnotationMissionTagInfoList. Specify either this parameter or AnnotationMissionTagInfoList.
     shared_ptr<string> annotationMissionTagInfoListJsonString_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether to restore the default tag values.
     shared_ptr<bool> reset_ {};
   };
 

@@ -48,8 +48,16 @@ namespace Models
 
 
   protected:
+    // The ID of the download task.
+    // 
+    // > This parameter is obtained from the TaskId response parameter of the ListDownloadTasks operation.
+    // 
     // This parameter is required.
     shared_ptr<string> downloadTaskId_ {};
+    // The ID of the file.
+    // 
+    // > This parameter is obtained from the FileId response parameter of the ListDownloadTasks operation.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };

@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建外呼任务
+ * @summary Creates outbound call jobs in batches.
  *
  * @param request AssignJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +95,7 @@ AssignJobsResponse Client::assignJobsWithOptions(const AssignJobsRequest &reques
 }
 
 /**
- * @summary 创建外呼任务
+ * @summary Creates outbound call jobs in batches.
  *
  * @param request AssignJobsRequest
  * @return AssignJobsResponse
@@ -106,7 +106,7 @@ AssignJobsResponse Client::assignJobs(const AssignJobsRequest &request) {
 }
 
 /**
- * @summary 异步创建外呼任务
+ * @summary Asynchronously creates outbound jobs.
  *
  * @param tmpReq AssignJobsAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -163,7 +163,7 @@ AssignJobsAsyncResponse Client::assignJobsAsyncWithOptions(const AssignJobsAsync
 }
 
 /**
- * @summary 异步创建外呼任务
+ * @summary Asynchronously creates outbound jobs.
  *
  * @param request AssignJobsAsyncRequest
  * @return AssignJobsAsyncResponse
@@ -174,6 +174,8 @@ AssignJobsAsyncResponse Client::assignJobsAsync(const AssignJobsAsyncRequest &re
 }
 
 /**
+ * @summary Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+ *
  * @param request CancelJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelJobsResponse
@@ -223,6 +225,8 @@ CancelJobsResponse Client::cancelJobsWithOptions(const CancelJobsRequest &reques
 }
 
 /**
+ * @summary Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+ *
  * @param request CancelJobsRequest
  * @return CancelJobsResponse
  */
@@ -232,6 +236,8 @@ CancelJobsResponse Client::cancelJobs(const CancelJobsRequest &request) {
 }
 
 /**
+ * @summary Changes the resource group of a resource.
+ *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ChangeResourceGroupResponse
@@ -265,6 +271,8 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
+ * @summary Changes the resource group of a resource.
+ *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
  */
@@ -274,6 +282,8 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
+ * @summary You can create an intelligent configuration.
+ *
  * @param request CreateAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateAgentProfileResponse
@@ -355,6 +365,8 @@ CreateAgentProfileResponse Client::createAgentProfileWithOptions(const CreateAge
 }
 
 /**
+ * @summary You can create an intelligent configuration.
+ *
  * @param request CreateAgentProfileRequest
  * @return CreateAgentProfileResponse
  */
@@ -364,7 +376,7 @@ CreateAgentProfileResponse Client::createAgentProfile(const CreateAgentProfileRe
 }
 
 /**
- * @summary 创建标注任务
+ * @summary Creates an annotation task.
  *
  * @param tmpReq CreateAnnotationMissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -469,7 +481,7 @@ CreateAnnotationMissionResponse Client::createAnnotationMissionWithOptions(const
 }
 
 /**
- * @summary 创建标注任务
+ * @summary Creates an annotation task.
  *
  * @param request CreateAnnotationMissionRequest
  * @return CreateAnnotationMissionResponse
@@ -480,7 +492,7 @@ CreateAnnotationMissionResponse Client::createAnnotationMission(const CreateAnno
 }
 
 /**
- * @summary 创建任务
+ * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
  *
  * @param request CreateBatchJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -543,7 +555,7 @@ CreateBatchJobsResponse Client::createBatchJobsWithOptions(const CreateBatchJobs
 }
 
 /**
- * @summary 创建任务
+ * @summary Deprecated. Do not use this operation to batch-create outbound calling jobs.
  *
  * @param request CreateBatchJobsRequest
  * @return CreateBatchJobsResponse
@@ -554,7 +566,7 @@ CreateBatchJobsResponse Client::createBatchJobs(const CreateBatchJobsRequest &re
 }
 
 /**
- * @summary CreateBatchRepeatJob
+ * @summary Copy an existing task group to reinitiate an outbound task.
  *
  * @param request CreateBatchRepeatJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +649,7 @@ CreateBatchRepeatJobResponse Client::createBatchRepeatJobWithOptions(const Creat
 }
 
 /**
- * @summary CreateBatchRepeatJob
+ * @summary Copy an existing task group to reinitiate an outbound task.
  *
  * @param request CreateBatchRepeatJobRequest
  * @return CreateBatchRepeatJobResponse
@@ -648,7 +660,7 @@ CreateBatchRepeatJobResponse Client::createBatchRepeatJob(const CreateBatchRepea
 }
 
 /**
- * @summary CreateBeebotIntent
+ * @summary Creates an intent for a small-model scenario.
  *
  * @param tmpReq CreateBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -693,7 +705,7 @@ CreateBeebotIntentResponse Client::createBeebotIntentWithOptions(const CreateBee
 }
 
 /**
- * @summary CreateBeebotIntent
+ * @summary Creates an intent for a small-model scenario.
  *
  * @param request CreateBeebotIntentRequest
  * @return CreateBeebotIntentResponse
@@ -704,7 +716,7 @@ CreateBeebotIntentResponse Client::createBeebotIntent(const CreateBeebotIntentRe
 }
 
 /**
- * @summary CreateBeebotIntentLgf
+ * @summary Creates a user utterance template for an intent in a small model scenario.
  *
  * @param tmpReq CreateBeebotIntentLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -749,7 +761,7 @@ CreateBeebotIntentLgfResponse Client::createBeebotIntentLgfWithOptions(const Cre
 }
 
 /**
- * @summary CreateBeebotIntentLgf
+ * @summary Creates a user utterance template for an intent in a small model scenario.
  *
  * @param request CreateBeebotIntentLgfRequest
  * @return CreateBeebotIntentLgfResponse
@@ -760,7 +772,7 @@ CreateBeebotIntentLgfResponse Client::createBeebotIntentLgf(const CreateBeebotIn
 }
 
 /**
- * @summary CreateBeebotIntentUserSay
+ * @summary Creates a user utterance for an intent in a small model scenario.
  *
  * @param tmpReq CreateBeebotIntentUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -805,7 +817,7 @@ CreateBeebotIntentUserSayResponse Client::createBeebotIntentUserSayWithOptions(c
 }
 
 /**
- * @summary CreateBeebotIntentUserSay
+ * @summary Creates a user utterance for an intent in a small model scenario.
  *
  * @param request CreateBeebotIntentUserSayRequest
  * @return CreateBeebotIntentUserSayResponse
@@ -816,6 +828,8 @@ CreateBeebotIntentUserSayResponse Client::createBeebotIntentUserSay(const Create
 }
 
 /**
+ * @summary This legacy canvas API creates a dialogue flow.
+ *
  * @param request CreateDialogueFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDialogueFlowResponse
@@ -857,6 +871,8 @@ CreateDialogueFlowResponse Client::createDialogueFlowWithOptions(const CreateDia
 }
 
 /**
+ * @summary This legacy canvas API creates a dialogue flow.
+ *
  * @param request CreateDialogueFlowRequest
  * @return CreateDialogueFlowResponse
  */
@@ -866,6 +882,8 @@ CreateDialogueFlowResponse Client::createDialogueFlow(const CreateDialogueFlowRe
 }
 
 /**
+ * @summary Creates a URL for a Download Hub task.
+ *
  * @param request CreateDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateDownloadUrlResponse
@@ -891,6 +909,8 @@ CreateDownloadUrlResponse Client::createDownloadUrlWithOptions(const CreateDownl
 }
 
 /**
+ * @summary Creates a URL for a Download Hub task.
+ *
  * @param request CreateDownloadUrlRequest
  * @return CreateDownloadUrlResponse
  */
@@ -900,6 +920,8 @@ CreateDownloadUrlResponse Client::createDownloadUrl(const CreateDownloadUrlReque
 }
 
 /**
+ * @summary Creates a global question in a legacy canvas.
+ *
  * @param request CreateGlobalQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateGlobalQuestionResponse
@@ -949,6 +971,8 @@ CreateGlobalQuestionResponse Client::createGlobalQuestionWithOptions(const Creat
 }
 
 /**
+ * @summary Creates a global question in a legacy canvas.
+ *
  * @param request CreateGlobalQuestionRequest
  * @return CreateGlobalQuestionResponse
  */
@@ -958,6 +982,8 @@ CreateGlobalQuestionResponse Client::createGlobalQuestion(const CreateGlobalQues
 }
 
 /**
+ * @summary Creates an outbound call instance.
+ *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateInstanceResponse
@@ -1007,6 +1033,8 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
+ * @summary Creates an outbound call instance.
+ *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
  */
@@ -1016,7 +1044,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 创建实例绑定号码
+ * @summary Binds a number to a business instance.
  *
  * @param request CreateInstanceBindNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1079,7 @@ CreateInstanceBindNumberResponse Client::createInstanceBindNumberWithOptions(con
 }
 
 /**
- * @summary 创建实例绑定号码
+ * @summary Binds a number to a business instance.
  *
  * @param request CreateInstanceBindNumberRequest
  * @return CreateInstanceBindNumberResponse
@@ -1062,6 +1090,8 @@ CreateInstanceBindNumberResponse Client::createInstanceBindNumber(const CreateIn
 }
 
 /**
+ * @summary Creates an intent in a legacy canvas script.
+ *
  * @param request CreateIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateIntentResponse
@@ -1111,6 +1141,8 @@ CreateIntentResponse Client::createIntentWithOptions(const CreateIntentRequest &
 }
 
 /**
+ * @summary Creates an intent in a legacy canvas script.
+ *
  * @param request CreateIntentRequest
  * @return CreateIntentResponse
  */
@@ -1120,6 +1152,8 @@ CreateIntentResponse Client::createIntent(const CreateIntentRequest &request) {
 }
 
 /**
+ * @summary Creates a job data parsing task.
+ *
  * @param request CreateJobDataParsingTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateJobDataParsingTaskResponse
@@ -1153,6 +1187,8 @@ CreateJobDataParsingTaskResponse Client::createJobDataParsingTaskWithOptions(con
 }
 
 /**
+ * @summary Creates a job data parsing task.
+ *
  * @param request CreateJobDataParsingTaskRequest
  * @return CreateJobDataParsingTaskResponse
  */
@@ -1162,7 +1198,7 @@ CreateJobDataParsingTaskResponse Client::createJobDataParsingTask(const CreateJo
 }
 
 /**
- * @summary 创建任务组
+ * @summary Create a job group.
  *
  * @param request CreateJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1277,7 @@ CreateJobGroupResponse Client::createJobGroupWithOptions(const CreateJobGroupReq
 }
 
 /**
- * @summary 创建任务组
+ * @summary Create a job group.
  *
  * @param request CreateJobGroupRequest
  * @return CreateJobGroupResponse
@@ -1252,7 +1288,7 @@ CreateJobGroupResponse Client::createJobGroup(const CreateJobGroupRequest &reque
 }
 
 /**
- * @summary 创建任务组到处任务
+ * @summary Creates an export task for an outbound job group.
  *
  * @param request CreateJobGroupExportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +1327,7 @@ CreateJobGroupExportTaskResponse Client::createJobGroupExportTaskWithOptions(con
 }
 
 /**
- * @summary 创建任务组到处任务
+ * @summary Creates an export task for an outbound job group.
  *
  * @param request CreateJobGroupExportTaskRequest
  * @return CreateJobGroupExportTaskResponse
@@ -1302,7 +1338,7 @@ CreateJobGroupExportTaskResponse Client::createJobGroupExportTask(const CreateJo
 }
 
 /**
- * @summary 新建场景
+ * @summary Create a scenario.
  *
  * @param request CreateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1409,7 +1445,7 @@ CreateScriptResponse Client::createScriptWithOptions(const CreateScriptRequest &
 }
 
 /**
- * @summary 新建场景
+ * @summary Create a scenario.
  *
  * @param request CreateScriptRequest
  * @return CreateScriptResponse
@@ -1420,6 +1456,10 @@ CreateScriptResponse Client::createScript(const CreateScriptRequest &request) {
 }
 
 /**
+ * @summary Creates a recording for the broadcast script.
+ *
+ * @description ***
+ *
  * @param request CreateScriptWaveformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateScriptWaveformResponse
@@ -1465,6 +1505,10 @@ CreateScriptWaveformResponse Client::createScriptWaveformWithOptions(const Creat
 }
 
 /**
+ * @summary Creates a recording for the broadcast script.
+ *
+ * @description ***
+ *
  * @param request CreateScriptWaveformRequest
  * @return CreateScriptWaveformResponse
  */
@@ -1474,6 +1518,8 @@ CreateScriptWaveformResponse Client::createScriptWaveform(const CreateScriptWave
 }
 
 /**
+ * @summary Creates a tag for use in the legacy canvas.
+ *
  * @param request CreateTagRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateTagResponse
@@ -1515,6 +1561,8 @@ CreateTagResponse Client::createTagWithOptions(const CreateTagRequest &request, 
 }
 
 /**
+ * @summary Creates a tag for use in the legacy canvas.
+ *
  * @param request CreateTagRequest
  * @return CreateTagResponse
  */
@@ -1524,7 +1572,7 @@ CreateTagResponse Client::createTag(const CreateTagRequest &request) {
 }
 
 /**
- * @summary 外呼历史导出
+ * @summary Create an asynchronous task to export outbound call history.
  *
  * @param request CreateTaskExportTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1551,7 +1599,7 @@ CreateTaskExportTaskResponse Client::createTaskExportTaskWithOptions(const Creat
 }
 
 /**
- * @summary 外呼历史导出
+ * @summary Create an asynchronous task to export outbound call history.
  *
  * @param request CreateTaskExportTaskRequest
  * @return CreateTaskExportTaskResponse
@@ -1562,7 +1610,7 @@ CreateTaskExportTaskResponse Client::createTaskExportTask(const CreateTaskExport
 }
 
 /**
- * @summary 创建密钥
+ * @summary Creates a key.
  *
  * @param request CreateTenantKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1586,7 +1634,7 @@ CreateTenantKeyResponse Client::createTenantKeyWithOptions(const CreateTenantKey
 }
 
 /**
- * @summary 创建密钥
+ * @summary Creates a key.
  *
  * @param request CreateTenantKeyRequest
  * @return CreateTenantKeyResponse
@@ -1597,6 +1645,8 @@ CreateTenantKeyResponse Client::createTenantKey(const CreateTenantKeyRequest &re
 }
 
 /**
+ * @summary Deletes Large Language Model (LLM) agents.
+ *
  * @param tmpReq DeleteAgentProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAgentProfilesResponse
@@ -1636,6 +1686,8 @@ DeleteAgentProfilesResponse Client::deleteAgentProfilesWithOptions(const DeleteA
 }
 
 /**
+ * @summary Deletes Large Language Model (LLM) agents.
+ *
  * @param request DeleteAgentProfilesRequest
  * @return DeleteAgentProfilesResponse
  */
@@ -1645,7 +1697,7 @@ DeleteAgentProfilesResponse Client::deleteAgentProfiles(const DeleteAgentProfile
 }
 
 /**
- * @summary 清空归属地号码库
+ * @summary Deletes all entries from the number district database. This operation is deprecated.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAllNumberDistrictInfoResponse
@@ -1667,7 +1719,7 @@ DeleteAllNumberDistrictInfoResponse Client::deleteAllNumberDistrictInfoWithOptio
 }
 
 /**
- * @summary 清空归属地号码库
+ * @summary Deletes all entries from the number district database. This operation is deprecated.
  *
  * @return DeleteAllNumberDistrictInfoResponse
  */
@@ -1677,7 +1729,7 @@ DeleteAllNumberDistrictInfoResponse Client::deleteAllNumberDistrictInfo() {
 }
 
 /**
- * @summary DeleteBeebotIntent
+ * @summary Delete an intent in a small-model scenario.
  *
  * @param request DeleteBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1716,7 +1768,7 @@ DeleteBeebotIntentResponse Client::deleteBeebotIntentWithOptions(const DeleteBee
 }
 
 /**
- * @summary DeleteBeebotIntent
+ * @summary Delete an intent in a small-model scenario.
  *
  * @param request DeleteBeebotIntentRequest
  * @return DeleteBeebotIntentResponse
@@ -1727,7 +1779,7 @@ DeleteBeebotIntentResponse Client::deleteBeebotIntent(const DeleteBeebotIntentRe
 }
 
 /**
- * @summary DeleteBeebotIntentLgf
+ * @summary Deletes utterance templates for intents in small model scenarios.
  *
  * @param request DeleteBeebotIntentLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1770,7 +1822,7 @@ DeleteBeebotIntentLgfResponse Client::deleteBeebotIntentLgfWithOptions(const Del
 }
 
 /**
- * @summary DeleteBeebotIntentLgf
+ * @summary Deletes utterance templates for intents in small model scenarios.
  *
  * @param request DeleteBeebotIntentLgfRequest
  * @return DeleteBeebotIntentLgfResponse
@@ -1781,7 +1833,7 @@ DeleteBeebotIntentLgfResponse Client::deleteBeebotIntentLgf(const DeleteBeebotIn
 }
 
 /**
- * @summary DeleteBeebotIntentUserSay
+ * @summary Delete user queries for intents in the small-model scenario.
  *
  * @param request DeleteBeebotIntentUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1824,7 +1876,7 @@ DeleteBeebotIntentUserSayResponse Client::deleteBeebotIntentUserSayWithOptions(c
 }
 
 /**
- * @summary DeleteBeebotIntentUserSay
+ * @summary Delete user queries for intents in the small-model scenario.
  *
  * @param request DeleteBeebotIntentUserSayRequest
  * @return DeleteBeebotIntentUserSayResponse
@@ -1835,6 +1887,8 @@ DeleteBeebotIntentUserSayResponse Client::deleteBeebotIntentUserSay(const Delete
 }
 
 /**
+ * @summary You can delete a do-not-call list.
+ *
  * @param request DeleteContactBlockListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteContactBlockListResponse
@@ -1872,6 +1926,8 @@ DeleteContactBlockListResponse Client::deleteContactBlockListWithOptions(const D
 }
 
 /**
+ * @summary You can delete a do-not-call list.
+ *
  * @param request DeleteContactBlockListRequest
  * @return DeleteContactBlockListResponse
  */
@@ -1881,6 +1937,8 @@ DeleteContactBlockListResponse Client::deleteContactBlockList(const DeleteContac
 }
 
 /**
+ * @summary Deletes the global outbound calling policy whitelist.
+ *
  * @param request DeleteContactWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteContactWhiteListResponse
@@ -1918,6 +1976,8 @@ DeleteContactWhiteListResponse Client::deleteContactWhiteListWithOptions(const D
 }
 
 /**
+ * @summary Deletes the global outbound calling policy whitelist.
+ *
  * @param request DeleteContactWhiteListRequest
  * @return DeleteContactWhiteListResponse
  */
@@ -1927,6 +1987,8 @@ DeleteContactWhiteListResponse Client::deleteContactWhiteList(const DeleteContac
 }
 
 /**
+ * @summary Deletes a dialogue flow. This is a legacy canvas API.
+ *
  * @param request DeleteDialogueFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDialogueFlowResponse
@@ -1964,6 +2026,8 @@ DeleteDialogueFlowResponse Client::deleteDialogueFlowWithOptions(const DeleteDia
 }
 
 /**
+ * @summary Deletes a dialogue flow. This is a legacy canvas API.
+ *
  * @param request DeleteDialogueFlowRequest
  * @return DeleteDialogueFlowResponse
  */
@@ -1973,6 +2037,8 @@ DeleteDialogueFlowResponse Client::deleteDialogueFlow(const DeleteDialogueFlowRe
 }
 
 /**
+ * @summary Deletes a global question from a legacy canvas script.
+ *
  * @param request DeleteGlobalQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteGlobalQuestionResponse
@@ -2010,6 +2076,8 @@ DeleteGlobalQuestionResponse Client::deleteGlobalQuestionWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a global question from a legacy canvas script.
+ *
  * @param request DeleteGlobalQuestionRequest
  * @return DeleteGlobalQuestionResponse
  */
@@ -2019,6 +2087,8 @@ DeleteGlobalQuestionResponse Client::deleteGlobalQuestion(const DeleteGlobalQues
 }
 
 /**
+ * @summary Deletes an Intelligent Outbound Calling instance.
+ *
  * @param request DeleteInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteInstanceResponse
@@ -2048,6 +2118,8 @@ DeleteInstanceResponse Client::deleteInstanceWithOptions(const DeleteInstanceReq
 }
 
 /**
+ * @summary Deletes an Intelligent Outbound Calling instance.
+ *
  * @param request DeleteInstanceRequest
  * @return DeleteInstanceResponse
  */
@@ -2057,6 +2129,8 @@ DeleteInstanceResponse Client::deleteInstance(const DeleteInstanceRequest &reque
 }
 
 /**
+ * @summary Deletes an intent. This is a legacy API.
+ *
  * @param request DeleteIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteIntentResponse
@@ -2094,6 +2168,8 @@ DeleteIntentResponse Client::deleteIntentWithOptions(const DeleteIntentRequest &
 }
 
 /**
+ * @summary Deletes an intent. This is a legacy API.
+ *
  * @param request DeleteIntentRequest
  * @return DeleteIntentResponse
  */
@@ -2103,6 +2179,8 @@ DeleteIntentResponse Client::deleteIntent(const DeleteIntentRequest &request) {
 }
 
 /**
+ * @summary Deletes a job group.
+ *
  * @param request DeleteJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteJobGroupResponse
@@ -2136,6 +2214,8 @@ DeleteJobGroupResponse Client::deleteJobGroupWithOptions(const DeleteJobGroupReq
 }
 
 /**
+ * @summary Deletes a job group.
+ *
  * @param request DeleteJobGroupRequest
  * @return DeleteJobGroupResponse
  */
@@ -2145,6 +2225,8 @@ DeleteJobGroupResponse Client::deleteJobGroup(const DeleteJobGroupRequest &reque
 }
 
 /**
+ * @summary Deletes an outbound call number. This API is deprecated.
+ *
  * @param request DeleteOutboundCallNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteOutboundCallNumberResponse
@@ -2178,6 +2260,8 @@ DeleteOutboundCallNumberResponse Client::deleteOutboundCallNumberWithOptions(con
 }
 
 /**
+ * @summary Deletes an outbound call number. This API is deprecated.
+ *
  * @param request DeleteOutboundCallNumberRequest
  * @return DeleteOutboundCallNumberResponse
  */
@@ -2187,6 +2271,8 @@ DeleteOutboundCallNumberResponse Client::deleteOutboundCallNumber(const DeleteOu
 }
 
 /**
+ * @summary Deletes a specified script.
+ *
  * @param request DeleteScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteScriptResponse
@@ -2220,6 +2306,8 @@ DeleteScriptResponse Client::deleteScriptWithOptions(const DeleteScriptRequest &
 }
 
 /**
+ * @summary Deletes a specified script.
+ *
  * @param request DeleteScriptRequest
  * @return DeleteScriptResponse
  */
@@ -2229,6 +2317,8 @@ DeleteScriptResponse Client::deleteScript(const DeleteScriptRequest &request) {
 }
 
 /**
+ * @summary Deletes uploaded recordings for a small-model scenario.
+ *
  * @param request DeleteScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteScriptRecordingResponse
@@ -2266,6 +2356,8 @@ DeleteScriptRecordingResponse Client::deleteScriptRecordingWithOptions(const Del
 }
 
 /**
+ * @summary Deletes uploaded recordings for a small-model scenario.
+ *
  * @param request DeleteScriptRecordingRequest
  * @return DeleteScriptRecordingResponse
  */
@@ -2275,6 +2367,8 @@ DeleteScriptRecordingResponse Client::deleteScriptRecording(const DeleteScriptRe
 }
 
 /**
+ * @summary Delete a script recording.
+ *
  * @param request DeleteScriptWaveformRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteScriptWaveformResponse
@@ -2312,6 +2406,8 @@ DeleteScriptWaveformResponse Client::deleteScriptWaveformWithOptions(const Delet
 }
 
 /**
+ * @summary Delete a script recording.
+ *
  * @param request DeleteScriptWaveformRequest
  * @return DeleteScriptWaveformResponse
  */
@@ -2321,9 +2417,9 @@ DeleteScriptWaveformResponse Client::deleteScriptWaveform(const DeleteScriptWave
 }
 
 /**
- * @summary DescribeBeebotIntent
+ * @summary Retrieves the intent in the small model scenario.
  *
- * @description ****
+ * @description ***
  *
  * @param request DescribeBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2362,9 +2458,9 @@ DescribeBeebotIntentResponse Client::describeBeebotIntentWithOptions(const Descr
 }
 
 /**
- * @summary DescribeBeebotIntent
+ * @summary Retrieves the intent in the small model scenario.
  *
- * @description ****
+ * @description ***
  *
  * @param request DescribeBeebotIntentRequest
  * @return DescribeBeebotIntentResponse
@@ -2375,6 +2471,8 @@ DescribeBeebotIntentResponse Client::describeBeebotIntent(const DescribeBeebotIn
 }
 
 /**
+ * @summary Retrieves performance statistics for task labels.
+ *
  * @param request DescribeDialogueNodeStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeDialogueNodeStatisticsResponse
@@ -2412,6 +2510,8 @@ DescribeDialogueNodeStatisticsResponse Client::describeDialogueNodeStatisticsWit
 }
 
 /**
+ * @summary Retrieves performance statistics for task labels.
+ *
  * @param request DescribeDialogueNodeStatisticsRequest
  * @return DescribeDialogueNodeStatisticsResponse
  */
@@ -2421,7 +2521,7 @@ DescribeDialogueNodeStatisticsResponse Client::describeDialogueNodeStatistics(co
 }
 
 /**
- * @summary DescribeDsReports
+ * @summary Describes DS reports.
  *
  * @param request DescribeDsReportsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2456,7 +2556,7 @@ DescribeDsReportsResponse Client::describeDsReportsWithOptions(const DescribeDsR
 }
 
 /**
- * @summary DescribeDsReports
+ * @summary Describes DS reports.
  *
  * @param request DescribeDsReportsRequest
  * @return DescribeDsReportsResponse
@@ -2467,6 +2567,10 @@ DescribeDsReportsResponse Client::describeDsReports(const DescribeDsReportsReque
 }
 
 /**
+ * @summary Retrieves the details of a global question in a legacy canvas script.
+ *
+ * @description ***
+ *
  * @param request DescribeGlobalQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeGlobalQuestionResponse
@@ -2504,6 +2608,10 @@ DescribeGlobalQuestionResponse Client::describeGlobalQuestionWithOptions(const D
 }
 
 /**
+ * @summary Retrieves the details of a global question in a legacy canvas script.
+ *
+ * @description ***
+ *
  * @param request DescribeGlobalQuestionRequest
  * @return DescribeGlobalQuestionResponse
  */
@@ -2513,7 +2621,7 @@ DescribeGlobalQuestionResponse Client::describeGlobalQuestion(const DescribeGlob
 }
 
 /**
- * @summary 任务组数据统计
+ * @summary Returns the execution status of tasks in a task group.
  *
  * @param request DescribeGroupExecutingInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2548,7 +2656,7 @@ DescribeGroupExecutingInfoResponse Client::describeGroupExecutingInfoWithOptions
 }
 
 /**
- * @summary 任务组数据统计
+ * @summary Returns the execution status of tasks in a task group.
  *
  * @param request DescribeGroupExecutingInfoRequest
  * @return DescribeGroupExecutingInfoResponse
@@ -2559,7 +2667,7 @@ DescribeGroupExecutingInfoResponse Client::describeGroupExecutingInfo(const Desc
 }
 
 /**
- * @summary DescribeInstance
+ * @summary Queries the details of an Outbound Calling instance.
  *
  * @param request DescribeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2590,7 +2698,7 @@ DescribeInstanceResponse Client::describeInstanceWithOptions(const DescribeInsta
 }
 
 /**
- * @summary DescribeInstance
+ * @summary Queries the details of an Outbound Calling instance.
  *
  * @param request DescribeInstanceRequest
  * @return DescribeInstanceResponse
@@ -2601,6 +2709,8 @@ DescribeInstanceResponse Client::describeInstance(const DescribeInstanceRequest 
 }
 
 /**
+ * @summary Retrieves the details of an intent. This is a legacy Canvas API.
+ *
  * @param request DescribeIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeIntentResponse
@@ -2638,6 +2748,8 @@ DescribeIntentResponse Client::describeIntentWithOptions(const DescribeIntentReq
 }
 
 /**
+ * @summary Retrieves the details of an intent. This is a legacy Canvas API.
+ *
  * @param request DescribeIntentRequest
  * @return DescribeIntentResponse
  */
@@ -2647,7 +2759,7 @@ DescribeIntentResponse Client::describeIntent(const DescribeIntentRequest &reque
 }
 
 /**
- * @summary DescribeIntentStatistics
+ * @summary Queries the performance statistics of intents for a task group.
  *
  * @param request DescribeIntentStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2686,7 +2798,7 @@ DescribeIntentStatisticsResponse Client::describeIntentStatisticsWithOptions(con
 }
 
 /**
- * @summary DescribeIntentStatistics
+ * @summary Queries the performance statistics of intents for a task group.
  *
  * @param request DescribeIntentStatisticsRequest
  * @return DescribeIntentStatisticsResponse
@@ -2697,7 +2809,7 @@ DescribeIntentStatisticsResponse Client::describeIntentStatistics(const Describe
 }
 
 /**
- * @summary 获取job信息
+ * @summary Retrieves the conversation data for a specific job.
  *
  * @param request DescribeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2736,7 +2848,7 @@ DescribeJobResponse Client::describeJobWithOptions(const DescribeJobRequest &req
 }
 
 /**
- * @summary 获取job信息
+ * @summary Retrieves the conversation data for a specific job.
  *
  * @param request DescribeJobRequest
  * @return DescribeJobResponse
@@ -2747,6 +2859,8 @@ DescribeJobResponse Client::describeJob(const DescribeJobRequest &request) {
 }
 
 /**
+ * @summary Retrieve the parsing progress of an uploaded job file.
+ *
  * @param request DescribeJobDataParsingTaskProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeJobDataParsingTaskProgressResponse
@@ -2780,6 +2894,8 @@ DescribeJobDataParsingTaskProgressResponse Client::describeJobDataParsingTaskPro
 }
 
 /**
+ * @summary Retrieve the parsing progress of an uploaded job file.
+ *
  * @param request DescribeJobDataParsingTaskProgressRequest
  * @return DescribeJobDataParsingTaskProgressResponse
  */
@@ -2789,7 +2905,7 @@ DescribeJobDataParsingTaskProgressResponse Client::describeJobDataParsingTaskPro
 }
 
 /**
- * @summary DescribeJobGroup
+ * @summary Retrieves data for intelligent outbound call job groups.
  *
  * @param request DescribeJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2828,7 +2944,7 @@ DescribeJobGroupResponse Client::describeJobGroupWithOptions(const DescribeJobGr
 }
 
 /**
- * @summary DescribeJobGroup
+ * @summary Retrieves data for intelligent outbound call job groups.
  *
  * @param request DescribeJobGroupRequest
  * @return DescribeJobGroupResponse
@@ -2839,6 +2955,8 @@ DescribeJobGroupResponse Client::describeJobGroup(const DescribeJobGroupRequest 
 }
 
 /**
+ * @summary Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+ *
  * @param request DescribeJobGroupExportTaskProgressRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeJobGroupExportTaskProgressResponse
@@ -2872,6 +2990,8 @@ DescribeJobGroupExportTaskProgressResponse Client::describeJobGroupExportTaskPro
 }
 
 /**
+ * @summary Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+ *
  * @param request DescribeJobGroupExportTaskProgressRequest
  * @return DescribeJobGroupExportTaskProgressResponse
  */
@@ -2881,7 +3001,7 @@ DescribeJobGroupExportTaskProgressResponse Client::describeJobGroupExportTaskPro
 }
 
 /**
- * @summary 获取场景信息
+ * @summary Returns information about a script.
  *
  * @param request DescribeScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2916,7 +3036,7 @@ DescribeScriptResponse Client::describeScriptWithOptions(const DescribeScriptReq
 }
 
 /**
- * @summary 获取场景信息
+ * @summary Returns information about a script.
  *
  * @param request DescribeScriptRequest
  * @return DescribeScriptResponse
@@ -2927,6 +3047,8 @@ DescribeScriptResponse Client::describeScript(const DescribeScriptRequest &reque
 }
 
 /**
+ * @summary Describes the voice configuration of a script created in the legacy canvas.
+ *
  * @param request DescribeScriptVoiceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeScriptVoiceConfigResponse
@@ -2964,6 +3086,8 @@ DescribeScriptVoiceConfigResponse Client::describeScriptVoiceConfigWithOptions(c
 }
 
 /**
+ * @summary Describes the voice configuration of a script created in the legacy canvas.
+ *
  * @param request DescribeScriptVoiceConfigRequest
  * @return DescribeScriptVoiceConfigResponse
  */
@@ -2973,6 +3097,8 @@ DescribeScriptVoiceConfigResponse Client::describeScriptVoiceConfig(const Descri
 }
 
 /**
+ * @summary Query the text-to-speech (TTS) configuration information.
+ *
  * @param request DescribeTTSConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTTSConfigResponse
@@ -3006,6 +3132,8 @@ DescribeTTSConfigResponse Client::describeTTSConfigWithOptions(const DescribeTTS
 }
 
 /**
+ * @summary Query the text-to-speech (TTS) configuration information.
+ *
  * @param request DescribeTTSConfigRequest
  * @return DescribeTTSConfigResponse
  */
@@ -3015,6 +3143,8 @@ DescribeTTSConfigResponse Client::describeTTSConfig(const DescribeTTSConfigReque
 }
 
 /**
+ * @summary Preview text-to-speech (TTS) audio.
+ *
  * @param request DescribeTTSDemoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTTSDemoResponse
@@ -3092,6 +3222,8 @@ DescribeTTSDemoResponse Client::describeTTSDemoWithOptions(const DescribeTTSDemo
 }
 
 /**
+ * @summary Preview text-to-speech (TTS) audio.
+ *
  * @param request DescribeTTSDemoRequest
  * @return DescribeTTSDemoResponse
  */
@@ -3101,6 +3233,8 @@ DescribeTTSDemoResponse Client::describeTTSDemo(const DescribeTTSDemoRequest &re
 }
 
 /**
+ * @summary Queries statistics about tag hits. This is a legacy canvas API.
+ *
  * @param request DescribeTagHitsSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeTagHitsSummaryResponse
@@ -3134,6 +3268,8 @@ DescribeTagHitsSummaryResponse Client::describeTagHitsSummaryWithOptions(const D
 }
 
 /**
+ * @summary Queries statistics about tag hits. This is a legacy canvas API.
+ *
  * @param request DescribeTagHitsSummaryRequest
  * @return DescribeTagHitsSummaryResponse
  */
@@ -3143,7 +3279,7 @@ DescribeTagHitsSummaryResponse Client::describeTagHitsSummary(const DescribeTagH
 }
 
 /**
- * @summary 号码绑定实例列表
+ * @summary Lists the instances to which a phone number is bound in a tenant.
  *
  * @param request DescribeTenantBindNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3174,7 +3310,7 @@ DescribeTenantBindNumberResponse Client::describeTenantBindNumberWithOptions(con
 }
 
 /**
- * @summary 号码绑定实例列表
+ * @summary Lists the instances to which a phone number is bound in a tenant.
  *
  * @param request DescribeTenantBindNumberRequest
  * @return DescribeTenantBindNumberResponse
@@ -3185,6 +3321,8 @@ DescribeTenantBindNumberResponse Client::describeTenantBindNumber(const Describe
 }
 
 /**
+ * @summary This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+ *
  * @param request DialogueRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DialogueResponse
@@ -3254,6 +3392,8 @@ DialogueResponse Client::dialogueWithOptions(const DialogueRequest &request, con
 }
 
 /**
+ * @summary This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+ *
  * @param request DialogueRequest
  * @return DialogueResponse
  */
@@ -3263,7 +3403,7 @@ DialogueResponse Client::dialogue(const DialogueRequest &request) {
 }
 
 /**
- * @summary DownloadRecording
+ * @summary Downloads a call recording.
  *
  * @param request DownloadRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3278,6 +3418,10 @@ DownloadRecordingResponse Client::downloadRecordingWithOptions(const DownloadRec
 
   if (!!request.hasNeedVoiceSliceRecording()) {
     query["NeedVoiceSliceRecording"] = request.getNeedVoiceSliceRecording();
+  }
+
+  if (!!request.hasSwapChannels()) {
+    query["SwapChannels"] = request.getSwapChannels();
   }
 
   if (!!request.hasTaskId()) {
@@ -3302,7 +3446,7 @@ DownloadRecordingResponse Client::downloadRecordingWithOptions(const DownloadRec
 }
 
 /**
- * @summary DownloadRecording
+ * @summary Downloads a call recording.
  *
  * @param request DownloadRecordingRequest
  * @return DownloadRecordingResponse
@@ -3313,6 +3457,8 @@ DownloadRecordingResponse Client::downloadRecording(const DownloadRecordingReque
 }
 
 /**
+ * @summary Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+ *
  * @param request DownloadScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DownloadScriptRecordingResponse
@@ -3350,6 +3496,8 @@ DownloadScriptRecordingResponse Client::downloadScriptRecordingWithOptions(const
 }
 
 /**
+ * @summary Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+ *
  * @param request DownloadScriptRecordingRequest
  * @return DownloadScriptRecordingResponse
  */
@@ -3359,6 +3507,8 @@ DownloadScriptRecordingResponse Client::downloadScriptRecording(const DownloadSc
 }
 
 /**
+ * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+ *
  * @param request DuplicateScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DuplicateScriptResponse
@@ -3396,6 +3546,8 @@ DuplicateScriptResponse Client::duplicateScriptWithOptions(const DuplicateScript
 }
 
 /**
+ * @summary Duplicates an existing script. This operation applies only to the legacy canvas.
+ *
  * @param request DuplicateScriptRequest
  * @return DuplicateScriptResponse
  */
@@ -3405,6 +3557,8 @@ DuplicateScriptResponse Client::duplicateScript(const DuplicateScriptRequest &re
 }
 
 /**
+ * @summary Exports a scenario.
+ *
  * @param request ExportScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ExportScriptResponse
@@ -3438,6 +3592,8 @@ ExportScriptResponse Client::exportScriptWithOptions(const ExportScriptRequest &
 }
 
 /**
+ * @summary Exports a scenario.
+ *
  * @param request ExportScriptRequest
  * @return ExportScriptResponse
  */
@@ -3447,6 +3603,8 @@ ExportScriptResponse Client::exportScript(const ExportScriptRequest &request) {
 }
 
 /**
+ * @summary Upload a hotword list file.
+ *
  * @param request GenerateUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateUploadUrlResponse
@@ -3480,6 +3638,8 @@ GenerateUploadUrlResponse Client::generateUploadUrlWithOptions(const GenerateUpl
 }
 
 /**
+ * @summary Upload a hotword list file.
+ *
  * @param request GenerateUploadUrlRequest
  * @return GenerateUploadUrlResponse
  */
@@ -3489,6 +3649,8 @@ GenerateUploadUrlResponse Client::generateUploadUrl(const GenerateUploadUrlReque
 }
 
 /**
+ * @summary Retrieve the delay before audio playback begins after a call is answered.
+ *
  * @param request GetAfterAnswerDelayPlaybackRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAfterAnswerDelayPlaybackResponse
@@ -3522,6 +3684,8 @@ GetAfterAnswerDelayPlaybackResponse Client::getAfterAnswerDelayPlaybackWithOptio
 }
 
 /**
+ * @summary Retrieve the delay before audio playback begins after a call is answered.
+ *
  * @param request GetAfterAnswerDelayPlaybackRequest
  * @return GetAfterAnswerDelayPlaybackResponse
  */
@@ -3531,6 +3695,8 @@ GetAfterAnswerDelayPlaybackResponse Client::getAfterAnswerDelayPlayback(const Ge
 }
 
 /**
+ * @summary Retrieves the configuration of an agent.
+ *
  * @param request GetAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAgentProfileResponse
@@ -3568,6 +3734,8 @@ GetAgentProfileResponse Client::getAgentProfileWithOptions(const GetAgentProfile
 }
 
 /**
+ * @summary Retrieves the configuration of an agent.
+ *
  * @param request GetAgentProfileRequest
  * @return GetAgentProfileResponse
  */
@@ -3577,6 +3745,8 @@ GetAgentProfileResponse Client::getAgentProfile(const GetAgentProfileRequest &re
 }
 
 /**
+ * @summary Retrieves an agent profile template.
+ *
  * @param request GetAgentProfileTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAgentProfileTemplateResponse
@@ -3610,6 +3780,8 @@ GetAgentProfileTemplateResponse Client::getAgentProfileTemplateWithOptions(const
 }
 
 /**
+ * @summary Retrieves an agent profile template.
+ *
  * @param request GetAgentProfileTemplateRequest
  * @return GetAgentProfileTemplateResponse
  */
@@ -3619,6 +3791,8 @@ GetAgentProfileTemplateResponse Client::getAgentProfileTemplate(const GetAgentPr
 }
 
 /**
+ * @summary null
+ *
  * @param request GetAnnotationMissionSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAnnotationMissionSummaryResponse
@@ -3648,6 +3822,8 @@ GetAnnotationMissionSummaryResponse Client::getAnnotationMissionSummaryWithOptio
 }
 
 /**
+ * @summary null
+ *
  * @param request GetAnnotationMissionSummaryRequest
  * @return GetAnnotationMissionSummaryResponse
  */
@@ -3703,6 +3879,8 @@ GetAnnotationMissionTagInfoListResponse Client::getAnnotationMissionTagInfoList(
 }
 
 /**
+ * @summary Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+ *
  * @param request GetAsrServerInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAsrServerInfoResponse
@@ -3736,6 +3914,8 @@ GetAsrServerInfoResponse Client::getAsrServerInfoWithOptions(const GetAsrServerI
 }
 
 /**
+ * @summary Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+ *
  * @param request GetAsrServerInfoRequest
  * @return GetAsrServerInfoResponse
  */
@@ -3745,7 +3925,7 @@ GetAsrServerInfoResponse Client::getAsrServerInfo(const GetAsrServerInfoRequest 
 }
 
 /**
- * @summary 获取异步外呼任务上传结果
+ * @summary Retrieves the result of an asynchronous outbound call task upload.
  *
  * @param request GetAssignJobsAsyncResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3776,7 +3956,7 @@ GetAssignJobsAsyncResultResponse Client::getAssignJobsAsyncResultWithOptions(con
 }
 
 /**
- * @summary 获取异步外呼任务上传结果
+ * @summary Retrieves the result of an asynchronous outbound call task upload.
  *
  * @param request GetAssignJobsAsyncResultRequest
  * @return GetAssignJobsAsyncResultResponse
@@ -3787,7 +3967,7 @@ GetAssignJobsAsyncResultResponse Client::getAssignJobsAsyncResult(const GetAssig
 }
 
 /**
- * @summary 获取系统策略配置
+ * @summary Retrieve the global outbound time periods for the outbound calling system.
  *
  * @param request GetBaseStrategyPeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3822,7 +4002,7 @@ GetBaseStrategyPeriodResponse Client::getBaseStrategyPeriodWithOptions(const Get
 }
 
 /**
- * @summary 获取系统策略配置
+ * @summary Retrieve the global outbound time periods for the outbound calling system.
  *
  * @param request GetBaseStrategyPeriodRequest
  * @return GetBaseStrategyPeriodResponse
@@ -3833,6 +4013,8 @@ GetBaseStrategyPeriodResponse Client::getBaseStrategyPeriod(const GetBaseStrateg
 }
 
 /**
+ * @summary Retrieves the remaining concurrency for the caller\\"s account.
+ *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetConcurrentConversationQuotaResponse
  */
@@ -3853,6 +4035,8 @@ GetConcurrentConversationQuotaResponse Client::getConcurrentConversationQuotaWit
 }
 
 /**
+ * @summary Retrieves the remaining concurrency for the caller\\"s account.
+ *
  * @return GetConcurrentConversationQuotaResponse
  */
 GetConcurrentConversationQuotaResponse Client::getConcurrentConversationQuota() {
@@ -3861,7 +4045,7 @@ GetConcurrentConversationQuotaResponse Client::getConcurrentConversationQuota() 
 }
 
 /**
- * @summary GetContactBlockList
+ * @summary Retrieves the list of contacts blocked for outbound calls.
  *
  * @param request GetContactBlockListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3904,7 +4088,7 @@ GetContactBlockListResponse Client::getContactBlockListWithOptions(const GetCont
 }
 
 /**
- * @summary GetContactBlockList
+ * @summary Retrieves the list of contacts blocked for outbound calls.
  *
  * @param request GetContactBlockListRequest
  * @return GetContactBlockListResponse
@@ -3915,7 +4099,7 @@ GetContactBlockListResponse Client::getContactBlockList(const GetContactBlockLis
 }
 
 /**
- * @summary GetContactWhiteList
+ * @summary Retrieves the global outbound call policy whitelist.
  *
  * @param request GetContactWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3958,7 +4142,7 @@ GetContactWhiteListResponse Client::getContactWhiteListWithOptions(const GetCont
 }
 
 /**
- * @summary GetContactWhiteList
+ * @summary Retrieves the global outbound call policy whitelist.
  *
  * @param request GetContactWhiteListRequest
  * @return GetContactWhiteListResponse
@@ -3969,6 +4153,8 @@ GetContactWhiteListResponse Client::getContactWhiteList(const GetContactWhiteLis
 }
 
 /**
+ * @summary Retrieves the current concurrency of an instance.
+ *
  * @param request GetCurrentConcurrencyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetCurrentConcurrencyResponse
@@ -3998,6 +4184,8 @@ GetCurrentConcurrencyResponse Client::getCurrentConcurrencyWithOptions(const Get
 }
 
 /**
+ * @summary Retrieves the current concurrency of an instance.
+ *
  * @param request GetCurrentConcurrencyRequest
  * @return GetCurrentConcurrencyResponse
  */
@@ -4007,7 +4195,7 @@ GetCurrentConcurrencyResponse Client::getCurrentConcurrency(const GetCurrentConc
 }
 
 /**
- * @summary GetEmptyNumberNoMoreCallsInfo
+ * @summary A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
  *
  * @param request GetEmptyNumberNoMoreCallsInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4042,7 +4230,7 @@ GetEmptyNumberNoMoreCallsInfoResponse Client::getEmptyNumberNoMoreCallsInfoWithO
 }
 
 /**
- * @summary GetEmptyNumberNoMoreCallsInfo
+ * @summary A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
  *
  * @param request GetEmptyNumberNoMoreCallsInfoRequest
  * @return GetEmptyNumberNoMoreCallsInfoResponse
@@ -4053,7 +4241,7 @@ GetEmptyNumberNoMoreCallsInfoResponse Client::getEmptyNumberNoMoreCallsInfo(cons
 }
 
 /**
- * @summary 获取上传信息
+ * @summary Retrieves the parameters for uploading job data.
  *
  * @param request GetJobDataUploadParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4100,7 +4288,7 @@ GetJobDataUploadParamsResponse Client::getJobDataUploadParamsWithOptions(const G
 }
 
 /**
- * @summary 获取上传信息
+ * @summary Retrieves the parameters for uploading job data.
  *
  * @param request GetJobDataUploadParamsRequest
  * @return GetJobDataUploadParamsResponse
@@ -4111,7 +4299,7 @@ GetJobDataUploadParamsResponse Client::getJobDataUploadParams(const GetJobDataUp
 }
 
 /**
- * @summary GetMaxAttemptsPerDay
+ * @summary Retrieves the maximum number of daily call attempts allowed for a specified called number.
  *
  * @param request GetMaxAttemptsPerDayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4146,7 +4334,7 @@ GetMaxAttemptsPerDayResponse Client::getMaxAttemptsPerDayWithOptions(const GetMa
 }
 
 /**
- * @summary GetMaxAttemptsPerDay
+ * @summary Retrieves the maximum number of daily call attempts allowed for a specified called number.
  *
  * @param request GetMaxAttemptsPerDayRequest
  * @return GetMaxAttemptsPerDayResponse
@@ -4157,7 +4345,7 @@ GetMaxAttemptsPerDayResponse Client::getMaxAttemptsPerDay(const GetMaxAttemptsPe
 }
 
 /**
- * @summary 获取号码库模板下载链接
+ * @summary Retrieves the download URL for the number library template. This API is deprecated.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -4179,7 +4367,7 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
- * @summary 获取号码库模板下载链接
+ * @summary Retrieves the download URL for the number library template. This API is deprecated.
  *
  * @return GetNumberDistrictInfoTemplateDownloadUrlResponse
  */
@@ -4189,7 +4377,7 @@ GetNumberDistrictInfoTemplateDownloadUrlResponse Client::getNumberDistrictInfoTe
 }
 
 /**
- * @summary 获取非对称加密算法公钥
+ * @summary Retrieves the public key for an asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4213,7 +4401,7 @@ GetPublicKeyResponse Client::getPublicKeyWithOptions(const GetPublicKeyRequest &
 }
 
 /**
- * @summary 获取非对称加密算法公钥
+ * @summary Retrieves the public key for an asymmetric encryption algorithm.
  *
  * @param request GetPublicKeyRequest
  * @return GetPublicKeyResponse
@@ -4224,7 +4412,7 @@ GetPublicKeyResponse Client::getPublicKey(const GetPublicKeyRequest &request) {
 }
 
 /**
- * @summary GetRealtimeConcurrencyReport
+ * @summary Queries the current concurrency list.
  *
  * @param request GetRealtimeConcurrencyReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4251,7 +4439,7 @@ GetRealtimeConcurrencyReportResponse Client::getRealtimeConcurrencyReportWithOpt
 }
 
 /**
- * @summary GetRealtimeConcurrencyReport
+ * @summary Queries the current concurrency list.
  *
  * @param request GetRealtimeConcurrencyReportRequest
  * @return GetRealtimeConcurrencyReportResponse
@@ -4262,7 +4450,7 @@ GetRealtimeConcurrencyReportResponse Client::getRealtimeConcurrencyReport(const 
 }
 
 /**
- * @summary GetSummaryInfo
+ * @summary Summary information for outbound call instances.
  *
  * @param request GetSummaryInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4293,7 +4481,7 @@ GetSummaryInfoResponse Client::getSummaryInfoWithOptions(const GetSummaryInfoReq
 }
 
 /**
- * @summary GetSummaryInfo
+ * @summary Summary information for outbound call instances.
  *
  * @param request GetSummaryInfoRequest
  * @return GetSummaryInfoResponse
@@ -4304,7 +4492,7 @@ GetSummaryInfoResponse Client::getSummaryInfo(const GetSummaryInfoRequest &reque
 }
 
 /**
- * @summary 根据TaskId获取Task信息
+ * @summary Retrieve a task by its UUID.
  *
  * @param request GetTaskByUuidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4331,7 +4519,7 @@ GetTaskByUuidResponse Client::getTaskByUuidWithOptions(const GetTaskByUuidReques
 }
 
 /**
- * @summary 根据TaskId获取Task信息
+ * @summary Retrieve a task by its UUID.
  *
  * @param request GetTaskByUuidRequest
  * @return GetTaskByUuidResponse
@@ -4342,7 +4530,7 @@ GetTaskByUuidResponse Client::getTaskByUuid(const GetTaskByUuidRequest &request)
 }
 
 /**
- * @summary GetVersion
+ * @summary Retrieve the application version information.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetVersionResponse
@@ -4364,7 +4552,7 @@ GetVersionResponse Client::getVersionWithOptions(const Darabonba::RuntimeOptions
 }
 
 /**
- * @summary GetVersion
+ * @summary Retrieve the application version information.
  *
  * @return GetVersionResponse
  */
@@ -4374,6 +4562,8 @@ GetVersionResponse Client::getVersion() {
 }
 
 /**
+ * @summary Import a scenario.
+ *
  * @param request ImportScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ImportScriptResponse
@@ -4411,6 +4601,8 @@ ImportScriptResponse Client::importScriptWithOptions(const ImportScriptRequest &
 }
 
 /**
+ * @summary Import a scenario.
+ *
  * @param request ImportScriptRequest
  * @return ImportScriptResponse
  */
@@ -4470,6 +4662,8 @@ InflightTaskTimeoutResponse Client::inflightTaskTimeout(const InflightTaskTimeou
 }
 
 /**
+ * @summary Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+ *
  * @param request ListAgentProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAgentProfilesResponse
@@ -4507,6 +4701,8 @@ ListAgentProfilesResponse Client::listAgentProfilesWithOptions(const ListAgentPr
 }
 
 /**
+ * @summary Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+ *
  * @param request ListAgentProfilesRequest
  * @return ListAgentProfilesResponse
  */
@@ -4516,7 +4712,7 @@ ListAgentProfilesResponse Client::listAgentProfiles(const ListAgentProfilesReque
 }
 
 /**
- * @summary 租户绑定号码列表
+ * @summary Lists the phone numbers bound to the tenant.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAllTenantBindNumberBindingResponse
@@ -4538,7 +4734,7 @@ ListAllTenantBindNumberBindingResponse Client::listAllTenantBindNumberBindingWit
 }
 
 /**
- * @summary 租户绑定号码列表
+ * @summary Lists the phone numbers bound to the tenant.
  *
  * @return ListAllTenantBindNumberBindingResponse
  */
@@ -4548,7 +4744,7 @@ ListAllTenantBindNumberBindingResponse Client::listAllTenantBindNumberBinding() 
 }
 
 /**
- * @summary 标注中心
+ * @summary Lists annotation missions.
  *
  * @param request ListAnnotationMissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4611,7 +4807,7 @@ ListAnnotationMissionResponse Client::listAnnotationMissionWithOptions(const Lis
 }
 
 /**
- * @summary 标注中心
+ * @summary Lists annotation missions.
  *
  * @param request ListAnnotationMissionRequest
  * @return ListAnnotationMissionResponse
@@ -4684,6 +4880,8 @@ ListAnnotationMissionSessionResponse Client::listAnnotationMissionSession(const 
 }
 
 /**
+ * @summary Lists API plugins.
+ *
  * @param request ListApiPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListApiPluginsResponse
@@ -4725,6 +4923,8 @@ ListApiPluginsResponse Client::listApiPluginsWithOptions(const ListApiPluginsReq
 }
 
 /**
+ * @summary Lists API plugins.
+ *
  * @param request ListApiPluginsRequest
  * @return ListApiPluginsResponse
  */
@@ -4734,7 +4934,7 @@ ListApiPluginsResponse Client::listApiPlugins(const ListApiPluginsRequest &reque
 }
 
 /**
- * @summary ListBeebotIntent
+ * @summary Lists intents for small-model scenarios.
  *
  * @param request ListBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4781,7 +4981,7 @@ ListBeebotIntentResponse Client::listBeebotIntentWithOptions(const ListBeebotInt
 }
 
 /**
- * @summary ListBeebotIntent
+ * @summary Lists intents for small-model scenarios.
  *
  * @param request ListBeebotIntentRequest
  * @return ListBeebotIntentResponse
@@ -4792,7 +4992,7 @@ ListBeebotIntentResponse Client::listBeebotIntent(const ListBeebotIntentRequest 
 }
 
 /**
- * @summary ListBeebotIntentLgf
+ * @summary Lists the utterance templates for a specified intent in a scenario.
  *
  * @param request ListBeebotIntentLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4843,7 +5043,7 @@ ListBeebotIntentLgfResponse Client::listBeebotIntentLgfWithOptions(const ListBee
 }
 
 /**
- * @summary ListBeebotIntentLgf
+ * @summary Lists the utterance templates for a specified intent in a scenario.
  *
  * @param request ListBeebotIntentLgfRequest
  * @return ListBeebotIntentLgfResponse
@@ -4854,7 +5054,7 @@ ListBeebotIntentLgfResponse Client::listBeebotIntentLgf(const ListBeebotIntentLg
 }
 
 /**
- * @summary ListBeebotIntentUserSay
+ * @summary Lists user utterances for intents in small model scenarios.
  *
  * @param request ListBeebotIntentUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4905,7 +5105,7 @@ ListBeebotIntentUserSayResponse Client::listBeebotIntentUserSayWithOptions(const
 }
 
 /**
- * @summary ListBeebotIntentUserSay
+ * @summary Lists user utterances for intents in small model scenarios.
  *
  * @param request ListBeebotIntentUserSayRequest
  * @return ListBeebotIntentUserSayResponse
@@ -4916,6 +5116,8 @@ ListBeebotIntentUserSayResponse Client::listBeebotIntentUserSay(const ListBeebot
 }
 
 /**
+ * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+ *
  * @param request ListChatbotInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListChatbotInstancesResponse
@@ -4953,6 +5155,8 @@ ListChatbotInstancesResponse Client::listChatbotInstancesWithOptions(const ListC
 }
 
 /**
+ * @summary Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+ *
  * @param request ListChatbotInstancesRequest
  * @return ListChatbotInstancesResponse
  */
@@ -4962,6 +5166,8 @@ ListChatbotInstancesResponse Client::listChatbotInstances(const ListChatbotInsta
 }
 
 /**
+ * @summary Queries the dialogue flows of a script in the legacy canvas.
+ *
  * @param request ListDialogueFlowsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDialogueFlowsResponse
@@ -4995,6 +5201,8 @@ ListDialogueFlowsResponse Client::listDialogueFlowsWithOptions(const ListDialogu
 }
 
 /**
+ * @summary Queries the dialogue flows of a script in the legacy canvas.
+ *
  * @param request ListDialogueFlowsRequest
  * @return ListDialogueFlowsResponse
  */
@@ -5004,6 +5212,8 @@ ListDialogueFlowsResponse Client::listDialogueFlows(const ListDialogueFlowsReque
 }
 
 /**
+ * @summary Queries the list of download tasks in Download Hub.
+ *
  * @param request ListDownloadTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDownloadTasksResponse
@@ -5029,6 +5239,8 @@ ListDownloadTasksResponse Client::listDownloadTasksWithOptions(const ListDownloa
 }
 
 /**
+ * @summary Queries the list of download tasks in Download Hub.
+ *
  * @param request ListDownloadTasksRequest
  * @return ListDownloadTasksResponse
  */
@@ -5038,6 +5250,8 @@ ListDownloadTasksResponse Client::listDownloadTasks(const ListDownloadTasksReque
 }
 
 /**
+ * @summary You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+ *
  * @param request ListFlashSmsTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFlashSmsTemplatesResponse
@@ -5063,6 +5277,8 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplatesWithOptions(const Lis
 }
 
 /**
+ * @summary You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+ *
  * @param request ListFlashSmsTemplatesRequest
  * @return ListFlashSmsTemplatesResponse
  */
@@ -5072,6 +5288,8 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplates(const ListFlashSmsTe
 }
 
 /**
+ * @summary Queries the list of key questions. This is a legacy canvas interface.
+ *
  * @param request ListGlobalQuestionsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListGlobalQuestionsResponse
@@ -5113,6 +5331,8 @@ ListGlobalQuestionsResponse Client::listGlobalQuestionsWithOptions(const ListGlo
 }
 
 /**
+ * @summary Queries the list of key questions. This is a legacy canvas interface.
+ *
  * @param request ListGlobalQuestionsRequest
  * @return ListGlobalQuestionsResponse
  */
@@ -5122,6 +5342,8 @@ ListGlobalQuestionsResponse Client::listGlobalQuestions(const ListGlobalQuestion
 }
 
 /**
+ * @summary Lists Outbound Calling Bot service instances.
+ *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListInstancesResponse
@@ -5167,6 +5389,8 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
+ * @summary Lists Outbound Calling Bot service instances.
+ *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
  */
@@ -5176,7 +5400,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary 意图列表
+ * @summary Query intent for the Annotation Center list.
  *
  * @param request ListIntentionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5239,7 +5463,7 @@ ListIntentionsResponse Client::listIntentionsWithOptions(const ListIntentionsReq
 }
 
 /**
- * @summary 意图列表
+ * @summary Query intent for the Annotation Center list.
  *
  * @param request ListIntentionsRequest
  * @return ListIntentionsResponse
@@ -5250,6 +5474,8 @@ ListIntentionsResponse Client::listIntentions(const ListIntentionsRequest &reque
 }
 
 /**
+ * @summary Retrieves intents from the legacy canvas interface.
+ *
  * @param request ListIntentsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListIntentsResponse
@@ -5295,6 +5521,8 @@ ListIntentsResponse Client::listIntentsWithOptions(const ListIntentsRequest &req
 }
 
 /**
+ * @summary Retrieves intents from the legacy canvas interface.
+ *
  * @param request ListIntentsRequest
  * @return ListIntentsResponse
  */
@@ -5304,6 +5532,8 @@ ListIntentsResponse Client::listIntents(const ListIntentsRequest &request) {
 }
 
 /**
+ * @summary Retrieves the list of outbound call task groups.
+ *
  * @param request ListJobGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListJobGroupsResponse
@@ -5365,6 +5595,8 @@ ListJobGroupsResponse Client::listJobGroupsWithOptions(const ListJobGroupsReques
 }
 
 /**
+ * @summary Retrieves the list of outbound call task groups.
+ *
  * @param request ListJobGroupsRequest
  * @return ListJobGroupsResponse
  */
@@ -5374,6 +5606,8 @@ ListJobGroupsResponse Client::listJobGroups(const ListJobGroupsRequest &request)
 }
 
 /**
+ * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+ *
  * @param request ListJobGroupsAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListJobGroupsAsyncResponse
@@ -5399,6 +5633,8 @@ ListJobGroupsAsyncResponse Client::listJobGroupsAsyncWithOptions(const ListJobGr
 }
 
 /**
+ * @summary Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+ *
  * @param request ListJobGroupsAsyncRequest
  * @return ListJobGroupsAsyncResponse
  */
@@ -5408,7 +5644,7 @@ ListJobGroupsAsyncResponse Client::listJobGroupsAsync(const ListJobGroupsAsyncRe
 }
 
 /**
- * @summary ListJobs
+ * @summary Query multiple jobs.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5443,7 +5679,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary ListJobs
+ * @summary Query multiple jobs.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse
@@ -5454,6 +5690,8 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 }
 
 /**
+ * @summary Lists jobs by job group.
+ *
  * @param request ListJobsByGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListJobsByGroupResponse
@@ -5503,6 +5741,8 @@ ListJobsByGroupResponse Client::listJobsByGroupWithOptions(const ListJobsByGroup
 }
 
 /**
+ * @summary Lists jobs by job group.
+ *
  * @param request ListJobsByGroupRequest
  * @return ListJobsByGroupResponse
  */
@@ -5512,6 +5752,8 @@ ListJobsByGroupResponse Client::listJobsByGroup(const ListJobsByGroupRequest &re
 }
 
 /**
+ * @summary List outbound call numbers.
+ *
  * @param request ListOutboundCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListOutboundCallNumbersResponse
@@ -5549,6 +5791,8 @@ ListOutboundCallNumbersResponse Client::listOutboundCallNumbersWithOptions(const
 }
 
 /**
+ * @summary List outbound call numbers.
+ *
  * @param request ListOutboundCallNumbersRequest
  * @return ListOutboundCallNumbersResponse
  */
@@ -5558,6 +5802,8 @@ ListOutboundCallNumbersResponse Client::listOutboundCallNumbers(const ListOutbou
 }
 
 /**
+ * @summary Lists tags for business resources.
+ *
  * @param request ListResourceTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListResourceTagsResponse
@@ -5595,6 +5841,8 @@ ListResourceTagsResponse Client::listResourceTagsWithOptions(const ListResourceT
 }
 
 /**
+ * @summary Lists tags for business resources.
+ *
  * @param request ListResourceTagsRequest
  * @return ListResourceTagsResponse
  */
@@ -5604,6 +5852,8 @@ ListResourceTagsResponse Client::listResourceTags(const ListResourceTagsRequest 
 }
 
 /**
+ * @summary Retrieves the publication history of the small model for outbound calls.
+ *
  * @param request ListScriptPublishHistoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListScriptPublishHistoriesResponse
@@ -5645,6 +5895,8 @@ ListScriptPublishHistoriesResponse Client::listScriptPublishHistoriesWithOptions
 }
 
 /**
+ * @summary Retrieves the publication history of the small model for outbound calls.
+ *
  * @param request ListScriptPublishHistoriesRequest
  * @return ListScriptPublishHistoriesResponse
  */
@@ -5654,6 +5906,8 @@ ListScriptPublishHistoriesResponse Client::listScriptPublishHistories(const List
 }
 
 /**
+ * @summary Query the list of recording files. Use this operation in small model scenarios.
+ *
  * @param request ListScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListScriptRecordingResponse
@@ -5711,6 +5965,8 @@ ListScriptRecordingResponse Client::listScriptRecordingWithOptions(const ListScr
 }
 
 /**
+ * @summary Query the list of recording files. Use this operation in small model scenarios.
+ *
  * @param request ListScriptRecordingRequest
  * @return ListScriptRecordingResponse
  */
@@ -5720,7 +5976,7 @@ ListScriptRecordingResponse Client::listScriptRecording(const ListScriptRecordin
 }
 
 /**
- * @summary 获取场景中当前使用的变量
+ * @summary Queries the variables used in a script.
  *
  * @param request ListScriptVariablesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5759,7 +6015,7 @@ ListScriptVariablesResponse Client::listScriptVariablesWithOptions(const ListScr
 }
 
 /**
- * @summary 获取场景中当前使用的变量
+ * @summary Queries the variables used in a script.
  *
  * @param request ListScriptVariablesRequest
  * @return ListScriptVariablesResponse
@@ -5770,6 +6026,10 @@ ListScriptVariablesResponse Client::listScriptVariables(const ListScriptVariable
 }
 
 /**
+ * @summary Lists the audio in a legacy canvas scene.
+ *
+ * @description ***
+ *
  * @param request ListScriptVoiceConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListScriptVoiceConfigsResponse
@@ -5811,6 +6071,10 @@ ListScriptVoiceConfigsResponse Client::listScriptVoiceConfigsWithOptions(const L
 }
 
 /**
+ * @summary Lists the audio in a legacy canvas scene.
+ *
+ * @description ***
+ *
  * @param request ListScriptVoiceConfigsRequest
  * @return ListScriptVoiceConfigsResponse
  */
@@ -5820,7 +6084,7 @@ ListScriptVoiceConfigsResponse Client::listScriptVoiceConfigs(const ListScriptVo
 }
 
 /**
- * @summary -
+ * @summary View the script list.
  *
  * @param request ListScriptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5867,7 +6131,7 @@ ListScriptsResponse Client::listScriptsWithOptions(const ListScriptsRequest &req
 }
 
 /**
- * @summary -
+ * @summary View the script list.
  *
  * @param request ListScriptsRequest
  * @return ListScriptsResponse
@@ -5878,6 +6142,8 @@ ListScriptsResponse Client::listScripts(const ListScriptsRequest &request) {
 }
 
 /**
+ * @summary Query the tag relationships for resources.
+ *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTagResourcesResponse
@@ -5923,6 +6189,8 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
+ * @summary Query the tag relationships for resources.
+ *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
  */
@@ -5932,6 +6200,8 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
+ * @summary Queries the tags of a script. This is a legacy canvas API.
+ *
  * @param request ListTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTagsResponse
@@ -5965,6 +6235,8 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
 }
 
 /**
+ * @summary Queries the tags of a script. This is a legacy canvas API.
+ *
  * @param request ListTagsRequest
  * @return ListTagsResponse
  */
@@ -5974,6 +6246,8 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
+ * @summary Modify the agent configuration.
+ *
  * @param tmpReq ModifyAgentProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAgentProfileResponse
@@ -6057,6 +6331,8 @@ ModifyAgentProfileResponse Client::modifyAgentProfileWithOptions(const ModifyAge
 }
 
 /**
+ * @summary Modify the agent configuration.
+ *
  * @param request ModifyAgentProfileRequest
  * @return ModifyAgentProfileResponse
  */
@@ -6066,6 +6342,8 @@ ModifyAgentProfileResponse Client::modifyAgentProfile(const ModifyAgentProfileRe
 }
 
 /**
+ * @summary Updates the status and name of an annotation task.
+ *
  * @param request ModifyAnnotationMissionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyAnnotationMissionResponse
@@ -6107,6 +6385,8 @@ ModifyAnnotationMissionResponse Client::modifyAnnotationMissionWithOptions(const
 }
 
 /**
+ * @summary Updates the status and name of an annotation task.
+ *
  * @param request ModifyAnnotationMissionRequest
  * @return ModifyAnnotationMissionResponse
  */
@@ -6116,6 +6396,8 @@ ModifyAnnotationMissionResponse Client::modifyAnnotationMission(const ModifyAnno
 }
 
 /**
+ * @summary Modifies batch jobs. This operation is deprecated.
+ *
  * @param request ModifyBatchJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyBatchJobsResponse
@@ -6181,6 +6463,8 @@ ModifyBatchJobsResponse Client::modifyBatchJobsWithOptions(const ModifyBatchJobs
 }
 
 /**
+ * @summary Modifies batch jobs. This operation is deprecated.
+ *
  * @param request ModifyBatchJobsRequest
  * @return ModifyBatchJobsResponse
  */
@@ -6190,7 +6474,7 @@ ModifyBatchJobsResponse Client::modifyBatchJobs(const ModifyBatchJobsRequest &re
 }
 
 /**
- * @summary ModifyBeebotIntent
+ * @summary Modify the intent for a small-model scenario.
  *
  * @param tmpReq ModifyBeebotIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6239,7 +6523,7 @@ ModifyBeebotIntentResponse Client::modifyBeebotIntentWithOptions(const ModifyBee
 }
 
 /**
- * @summary ModifyBeebotIntent
+ * @summary Modify the intent for a small-model scenario.
  *
  * @param request ModifyBeebotIntentRequest
  * @return ModifyBeebotIntentResponse
@@ -6250,7 +6534,7 @@ ModifyBeebotIntentResponse Client::modifyBeebotIntent(const ModifyBeebotIntentRe
 }
 
 /**
- * @summary ModifyBeebotIntentLgf
+ * @summary Modifies the intent utterance template for a small model scenario.
  *
  * @param tmpReq ModifyBeebotIntentLgfRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6299,7 +6583,7 @@ ModifyBeebotIntentLgfResponse Client::modifyBeebotIntentLgfWithOptions(const Mod
 }
 
 /**
- * @summary ModifyBeebotIntentLgf
+ * @summary Modifies the intent utterance template for a small model scenario.
  *
  * @param request ModifyBeebotIntentLgfRequest
  * @return ModifyBeebotIntentLgfResponse
@@ -6310,7 +6594,7 @@ ModifyBeebotIntentLgfResponse Client::modifyBeebotIntentLgf(const ModifyBeebotIn
 }
 
 /**
- * @summary ModifyBeebotIntentUserSay
+ * @summary Modifies a user utterance for an intent in a Beebot scenario.
  *
  * @param tmpReq ModifyBeebotIntentUserSayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6359,7 +6643,7 @@ ModifyBeebotIntentUserSayResponse Client::modifyBeebotIntentUserSayWithOptions(c
 }
 
 /**
- * @summary ModifyBeebotIntentUserSay
+ * @summary Modifies a user utterance for an intent in a Beebot scenario.
  *
  * @param request ModifyBeebotIntentUserSayRequest
  * @return ModifyBeebotIntentUserSayResponse
@@ -6370,6 +6654,8 @@ ModifyBeebotIntentUserSayResponse Client::modifyBeebotIntentUserSay(const Modify
 }
 
 /**
+ * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+ *
  * @param request ModifyDialogueFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyDialogueFlowResponse
@@ -6415,6 +6701,8 @@ ModifyDialogueFlowResponse Client::modifyDialogueFlowWithOptions(const ModifyDia
 }
 
 /**
+ * @summary Modifies a dialogue flow. This is a legacy API for the canvas.
+ *
  * @param request ModifyDialogueFlowRequest
  * @return ModifyDialogueFlowResponse
  */
@@ -6424,6 +6712,8 @@ ModifyDialogueFlowResponse Client::modifyDialogueFlow(const ModifyDialogueFlowRe
 }
 
 /**
+ * @summary Enables or disables the global no-call feature for nonexistent numbers.
+ *
  * @param request ModifyEmptyNumberNoMoreCallsInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyEmptyNumberNoMoreCallsInfoResponse
@@ -6461,6 +6751,8 @@ ModifyEmptyNumberNoMoreCallsInfoResponse Client::modifyEmptyNumberNoMoreCallsInf
 }
 
 /**
+ * @summary Enables or disables the global no-call feature for nonexistent numbers.
+ *
  * @param request ModifyEmptyNumberNoMoreCallsInfoRequest
  * @return ModifyEmptyNumberNoMoreCallsInfoResponse
  */
@@ -6470,6 +6762,8 @@ ModifyEmptyNumberNoMoreCallsInfoResponse Client::modifyEmptyNumberNoMoreCallsInf
 }
 
 /**
+ * @summary Modifies a global question in the legacy canvas.
+ *
  * @param request ModifyGlobalQuestionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyGlobalQuestionResponse
@@ -6523,6 +6817,8 @@ ModifyGlobalQuestionResponse Client::modifyGlobalQuestionWithOptions(const Modif
 }
 
 /**
+ * @summary Modifies a global question in the legacy canvas.
+ *
  * @param request ModifyGlobalQuestionRequest
  * @return ModifyGlobalQuestionResponse
  */
@@ -6532,6 +6828,8 @@ ModifyGlobalQuestionResponse Client::modifyGlobalQuestion(const ModifyGlobalQues
 }
 
 /**
+ * @summary Modifies an Outbound Bot instance.
+ *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyInstanceResponse
@@ -6577,6 +6875,8 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
+ * @summary Modifies an Outbound Bot instance.
+ *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
  */
@@ -6586,6 +6886,8 @@ ModifyInstanceResponse Client::modifyInstance(const ModifyInstanceRequest &reque
 }
 
 /**
+ * @summary Modifies an intent in the legacy canvas. This is a legacy API.
+ *
  * @param request ModifyIntentRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyIntentResponse
@@ -6639,6 +6941,8 @@ ModifyIntentResponse Client::modifyIntentWithOptions(const ModifyIntentRequest &
 }
 
 /**
+ * @summary Modifies an intent in the legacy canvas. This is a legacy API.
+ *
  * @param request ModifyIntentRequest
  * @return ModifyIntentResponse
  */
@@ -6648,7 +6952,7 @@ ModifyIntentResponse Client::modifyIntent(const ModifyIntentRequest &request) {
 }
 
 /**
- * @summary 修改任务组
+ * @summary Modify an intelligent outbound call task group.
  *
  * @param request ModifyJobGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6735,7 +7039,7 @@ ModifyJobGroupResponse Client::modifyJobGroupWithOptions(const ModifyJobGroupReq
 }
 
 /**
- * @summary 修改任务组
+ * @summary Modify an intelligent outbound call task group.
  *
  * @param request ModifyJobGroupRequest
  * @return ModifyJobGroupResponse
@@ -6746,7 +7050,7 @@ ModifyJobGroupResponse Client::modifyJobGroup(const ModifyJobGroupRequest &reque
 }
 
 /**
- * @summary ModifyOutboundCallNumber
+ * @summary Modifies an outbound call number. This API is deprecated.
  *
  * @param request ModifyOutboundCallNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6793,7 +7097,7 @@ ModifyOutboundCallNumberResponse Client::modifyOutboundCallNumberWithOptions(con
 }
 
 /**
- * @summary ModifyOutboundCallNumber
+ * @summary Modifies an outbound call number. This API is deprecated.
  *
  * @param request ModifyOutboundCallNumberRequest
  * @return ModifyOutboundCallNumberResponse
@@ -6804,7 +7108,7 @@ ModifyOutboundCallNumberResponse Client::modifyOutboundCallNumber(const ModifyOu
 }
 
 /**
- * @summary 修改场景
+ * @summary Modify script information.
  *
  * @param request ModifyScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6927,7 +7231,7 @@ ModifyScriptResponse Client::modifyScriptWithOptions(const ModifyScriptRequest &
 }
 
 /**
- * @summary 修改场景
+ * @summary Modify script information.
  *
  * @param request ModifyScriptRequest
  * @return ModifyScriptResponse
@@ -6938,6 +7242,10 @@ ModifyScriptResponse Client::modifyScript(const ModifyScriptRequest &request) {
 }
 
 /**
+ * @summary Modifies the voice configuration of a script in a legacy canvas.
+ *
+ * @description ***
+ *
  * @param request ModifyScriptVoiceConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyScriptVoiceConfigResponse
@@ -6983,6 +7291,10 @@ ModifyScriptVoiceConfigResponse Client::modifyScriptVoiceConfigWithOptions(const
 }
 
 /**
+ * @summary Modifies the voice configuration of a script in a legacy canvas.
+ *
+ * @description ***
+ *
  * @param request ModifyScriptVoiceConfigRequest
  * @return ModifyScriptVoiceConfigResponse
  */
@@ -6992,6 +7304,8 @@ ModifyScriptVoiceConfigResponse Client::modifyScriptVoiceConfig(const ModifyScri
 }
 
 /**
+ * @summary Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+ *
  * @param request ModifyTTSConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyTTSConfigResponse
@@ -7049,6 +7363,8 @@ ModifyTTSConfigResponse Client::modifyTTSConfigWithOptions(const ModifyTTSConfig
 }
 
 /**
+ * @summary Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+ *
  * @param request ModifyTTSConfigRequest
  * @return ModifyTTSConfigResponse
  */
@@ -7058,6 +7374,8 @@ ModifyTTSConfigResponse Client::modifyTTSConfig(const ModifyTTSConfigRequest &re
 }
 
 /**
+ * @summary Modifies tag groups for the legacy canvas interface.
+ *
  * @param request ModifyTagGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ModifyTagGroupsResponse
@@ -7099,6 +7417,8 @@ ModifyTagGroupsResponse Client::modifyTagGroupsWithOptions(const ModifyTagGroups
 }
 
 /**
+ * @summary Modifies tag groups for the legacy canvas interface.
+ *
  * @param request ModifyTagGroupsRequest
  * @return ModifyTagGroupsResponse
  */
@@ -7108,6 +7428,8 @@ ModifyTagGroupsResponse Client::modifyTagGroups(const ModifyTagGroupsRequest &re
 }
 
 /**
+ * @summary Publishing a scenario
+ *
  * @param request PublishScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishScriptResponse
@@ -7145,6 +7467,8 @@ PublishScriptResponse Client::publishScriptWithOptions(const PublishScriptReques
 }
 
 /**
+ * @summary Publishing a scenario
+ *
  * @param request PublishScriptRequest
  * @return PublishScriptResponse
  */
@@ -7154,6 +7478,8 @@ PublishScriptResponse Client::publishScript(const PublishScriptRequest &request)
 }
 
 /**
+ * @summary Publishes the debug version of a script.
+ *
  * @param request PublishScriptForDebugRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PublishScriptForDebugResponse
@@ -7187,6 +7513,8 @@ PublishScriptForDebugResponse Client::publishScriptForDebugWithOptions(const Pub
 }
 
 /**
+ * @summary Publishes the debug version of a script.
+ *
  * @param request PublishScriptForDebugRequest
  * @return PublishScriptForDebugResponse
  */
@@ -7196,7 +7524,7 @@ PublishScriptForDebugResponse Client::publishScriptForDebug(const PublishScriptF
 }
 
 /**
- * @summary QueryJobs
+ * @summary You can query the list of jobs.
  *
  * @param request QueryJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7263,7 +7591,7 @@ QueryJobsResponse Client::queryJobsWithOptions(const QueryJobsRequest &request, 
 }
 
 /**
- * @summary QueryJobs
+ * @summary You can query the list of jobs.
  *
  * @param request QueryJobsRequest
  * @return QueryJobsResponse
@@ -7274,7 +7602,7 @@ QueryJobsResponse Client::queryJobs(const QueryJobsRequest &request) {
 }
 
 /**
- * @summary 获取外呼任务结果信息
+ * @summary Find tasks by result.
  *
  * @param request QueryJobsWithResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7357,7 +7685,7 @@ QueryJobsWithResultResponse Client::queryJobsWithResultWithOptions(const QueryJo
 }
 
 /**
- * @summary 获取外呼任务结果信息
+ * @summary Find tasks by result.
  *
  * @param request QueryJobsWithResultRequest
  * @return QueryJobsWithResultResponse
@@ -7368,6 +7696,8 @@ QueryJobsWithResultResponse Client::queryJobsWithResult(const QueryJobsWithResul
 }
 
 /**
+ * @summary This legacy canvas interface retrieves the list of recorded speech transcripts.
+ *
  * @param request QueryScriptWaveformsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryScriptWaveformsResponse
@@ -7405,6 +7735,8 @@ QueryScriptWaveformsResponse Client::queryScriptWaveformsWithOptions(const Query
 }
 
 /**
+ * @summary This legacy canvas interface retrieves the list of recorded speech transcripts.
+ *
  * @param request QueryScriptWaveformsRequest
  * @return QueryScriptWaveformsResponse
  */
@@ -7414,6 +7746,8 @@ QueryScriptWaveformsResponse Client::queryScriptWaveforms(const QueryScriptWavef
 }
 
 /**
+ * @summary Queries scenario information by status.
+ *
  * @param request QueryScriptsByStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryScriptsByStatusResponse
@@ -7455,6 +7789,8 @@ QueryScriptsByStatusResponse Client::queryScriptsByStatusWithOptions(const Query
 }
 
 /**
+ * @summary Queries scenario information by status.
+ *
  * @param request QueryScriptsByStatusRequest
  * @return QueryScriptsByStatusResponse
  */
@@ -7464,6 +7800,8 @@ QueryScriptsByStatusResponse Client::queryScriptsByStatus(const QueryScriptsBySt
 }
 
 /**
+ * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+ *
  * @param request RecordFailureRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RecordFailureResponse
@@ -7521,6 +7859,8 @@ RecordFailureResponse Client::recordFailureWithOptions(const RecordFailureReques
 }
 
 /**
+ * @summary CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+ *
  * @param request RecordFailureRequest
  * @return RecordFailureResponse
  */
@@ -7530,6 +7870,8 @@ RecordFailureResponse Client::recordFailure(const RecordFailureRequest &request)
 }
 
 /**
+ * @summary Resumes paused jobs.
+ *
  * @param request ResumeJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResumeJobsResponse
@@ -7579,6 +7921,8 @@ ResumeJobsResponse Client::resumeJobsWithOptions(const ResumeJobsRequest &reques
 }
 
 /**
+ * @summary Resumes paused jobs.
+ *
  * @param request ResumeJobsRequest
  * @return ResumeJobsResponse
  */
@@ -7588,6 +7932,8 @@ ResumeJobsResponse Client::resumeJobs(const ResumeJobsRequest &request) {
 }
 
 /**
+ * @summary Roll back a published small model scenario.
+ *
  * @param request RollbackScriptRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RollbackScriptResponse
@@ -7625,6 +7971,8 @@ RollbackScriptResponse Client::rollbackScriptWithOptions(const RollbackScriptReq
 }
 
 /**
+ * @summary Roll back a published small model scenario.
+ *
  * @param request RollbackScriptRequest
  * @return RollbackScriptResponse
  */
@@ -7634,7 +7982,7 @@ RollbackScriptResponse Client::rollbackScript(const RollbackScriptRequest &reque
 }
 
 /**
- * @summary 保存接听后延迟播报时间
+ * @summary Sets the delay before playback starts after the call is answered.
  *
  * @param request SaveAfterAnswerDelayPlaybackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7673,7 +8021,7 @@ SaveAfterAnswerDelayPlaybackResponse Client::saveAfterAnswerDelayPlaybackWithOpt
 }
 
 /**
- * @summary 保存接听后延迟播报时间
+ * @summary Sets the delay before playback starts after the call is answered.
  *
  * @param request SaveAfterAnswerDelayPlaybackRequest
  * @return SaveAfterAnswerDelayPlaybackResponse
@@ -7684,6 +8032,8 @@ SaveAfterAnswerDelayPlaybackResponse Client::saveAfterAnswerDelayPlayback(const 
 }
 
 /**
+ * @summary You can save a list of annotation chat instances.
+ *
  * @param request SaveAnnotationMissionSessionListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveAnnotationMissionSessionListResponse
@@ -7737,6 +8087,8 @@ SaveAnnotationMissionSessionListResponse Client::saveAnnotationMissionSessionLis
 }
 
 /**
+ * @summary You can save a list of annotation chat instances.
+ *
  * @param request SaveAnnotationMissionSessionListRequest
  * @return SaveAnnotationMissionSessionListResponse
  */
@@ -7746,6 +8098,8 @@ SaveAnnotationMissionSessionListResponse Client::saveAnnotationMissionSessionLis
 }
 
 /**
+ * @summary Saves instance tags in a batch.
+ *
  * @param request SaveAnnotationMissionTagInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveAnnotationMissionTagInfoListResponse
@@ -7787,6 +8141,8 @@ SaveAnnotationMissionTagInfoListResponse Client::saveAnnotationMissionTagInfoLis
 }
 
 /**
+ * @summary Saves instance tags in a batch.
+ *
  * @param request SaveAnnotationMissionTagInfoListRequest
  * @return SaveAnnotationMissionTagInfoListResponse
  */
@@ -7796,7 +8152,7 @@ SaveAnnotationMissionTagInfoListResponse Client::saveAnnotationMissionTagInfoLis
 }
 
 /**
- * @summary 编辑基础策略有效时间窗口
+ * @summary Modifies the global outbound call time window in system administration.
  *
  * @param request SaveBaseStrategyPeriodRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7847,7 +8203,7 @@ SaveBaseStrategyPeriodResponse Client::saveBaseStrategyPeriodWithOptions(const S
 }
 
 /**
- * @summary 编辑基础策略有效时间窗口
+ * @summary Modifies the global outbound call time window in system administration.
  *
  * @param request SaveBaseStrategyPeriodRequest
  * @return SaveBaseStrategyPeriodResponse
@@ -7858,7 +8214,7 @@ SaveBaseStrategyPeriodResponse Client::saveBaseStrategyPeriod(const SaveBaseStra
 }
 
 /**
- * @summary 保存外呼黑名单列表
+ * @summary Adds contacts to the instance\\"s blocklist.
  *
  * @param request SaveContactBlockListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7897,7 +8253,7 @@ SaveContactBlockListResponse Client::saveContactBlockListWithOptions(const SaveC
 }
 
 /**
- * @summary 保存外呼黑名单列表
+ * @summary Adds contacts to the instance\\"s blocklist.
  *
  * @param request SaveContactBlockListRequest
  * @return SaveContactBlockListResponse
@@ -7908,7 +8264,7 @@ SaveContactBlockListResponse Client::saveContactBlockList(const SaveContactBlock
 }
 
 /**
- * @summary 保存外呼白名单
+ * @summary Saves an outbound call whitelist.
  *
  * @param request SaveContactWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7947,7 +8303,7 @@ SaveContactWhiteListResponse Client::saveContactWhiteListWithOptions(const SaveC
 }
 
 /**
- * @summary 保存外呼白名单
+ * @summary Saves an outbound call whitelist.
  *
  * @param request SaveContactWhiteListRequest
  * @return SaveContactWhiteListResponse
@@ -7958,6 +8314,8 @@ SaveContactWhiteListResponse Client::saveContactWhiteList(const SaveContactWhite
 }
 
 /**
+ * @summary Saves the validity period of a basic policy. This operation is deprecated.
+ *
  * @param request SaveEffectiveDaysRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveEffectiveDaysResponse
@@ -7995,6 +8353,8 @@ SaveEffectiveDaysResponse Client::saveEffectiveDaysWithOptions(const SaveEffecti
 }
 
 /**
+ * @summary Saves the validity period of a basic policy. This operation is deprecated.
+ *
  * @param request SaveEffectiveDaysRequest
  * @return SaveEffectiveDaysResponse
  */
@@ -8004,7 +8364,7 @@ SaveEffectiveDaysResponse Client::saveEffectiveDays(const SaveEffectiveDaysReque
 }
 
 /**
- * @summary 保存每日最大外呼量
+ * @summary Sets the maximum number of daily outbound call attempts to a specific number.
  *
  * @param request SaveMaxAttemptsPerDayRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8043,7 +8403,7 @@ SaveMaxAttemptsPerDayResponse Client::saveMaxAttemptsPerDayWithOptions(const Sav
 }
 
 /**
- * @summary 保存每日最大外呼量
+ * @summary Sets the maximum number of daily outbound call attempts to a specific number.
  *
  * @param request SaveMaxAttemptsPerDayRequest
  * @return SaveMaxAttemptsPerDayResponse
@@ -8054,7 +8414,7 @@ SaveMaxAttemptsPerDayResponse Client::saveMaxAttemptsPerDay(const SaveMaxAttempt
 }
 
 /**
- * @summary 外呼历史查询
+ * @summary Search for tasks.
  *
  * @param request SearchTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8081,7 +8441,7 @@ SearchTaskResponse Client::searchTaskWithOptions(const SearchTaskRequest &reques
 }
 
 /**
- * @summary 外呼历史查询
+ * @summary Search for tasks.
  *
  * @param request SearchTaskRequest
  * @return SearchTaskResponse
@@ -8092,7 +8452,7 @@ SearchTaskResponse Client::searchTask(const SearchTaskRequest &request) {
 }
 
 /**
- * @summary 开启一个任务
+ * @summary This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
  *
  * @param request StartJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8143,7 +8503,7 @@ StartJobResponse Client::startJobWithOptions(const StartJobRequest &request, con
 }
 
 /**
- * @summary 开启一个任务
+ * @summary This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
  *
  * @param request StartJobRequest
  * @return StartJobResponse
@@ -8154,6 +8514,8 @@ StartJobResponse Client::startJob(const StartJobRequest &request) {
 }
 
 /**
+ * @summary Submits a draft job group. This operation is deprecated.
+ *
  * @param request SubmitBatchJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitBatchJobsResponse
@@ -8187,6 +8549,8 @@ SubmitBatchJobsResponse Client::submitBatchJobsWithOptions(const SubmitBatchJobs
 }
 
 /**
+ * @summary Submits a draft job group. This operation is deprecated.
+ *
  * @param request SubmitBatchJobsRequest
  * @return SubmitBatchJobsResponse
  */
@@ -8196,6 +8560,8 @@ SubmitBatchJobsResponse Client::submitBatchJobs(const SubmitBatchJobsRequest &re
 }
 
 /**
+ * @summary Submits a recording of an outbound call. This operation is deprecated.
+ *
  * @param request SubmitRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitRecordingResponse
@@ -8237,6 +8603,8 @@ SubmitRecordingResponse Client::submitRecordingWithOptions(const SubmitRecording
 }
 
 /**
+ * @summary Submits a recording of an outbound call. This operation is deprecated.
+ *
  * @param request SubmitRecordingRequest
  * @return SubmitRecordingResponse
  */
@@ -8246,6 +8614,8 @@ SubmitRecordingResponse Client::submitRecording(const SubmitRecordingRequest &re
 }
 
 /**
+ * @summary Submit the scenario for release review.
+ *
  * @param request SubmitScriptReviewRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitScriptReviewResponse
@@ -8287,6 +8657,8 @@ SubmitScriptReviewResponse Client::submitScriptReviewWithOptions(const SubmitScr
 }
 
 /**
+ * @summary Submit the scenario for release review.
+ *
  * @param request SubmitScriptReviewRequest
  * @return SubmitScriptReviewResponse
  */
@@ -8296,7 +8668,7 @@ SubmitScriptReviewResponse Client::submitScriptReview(const SubmitScriptReviewRe
 }
 
 /**
- * @summary 止呼
+ * @summary Suspends outbound calls for a list of phone numbers.
  *
  * @param request SuspendCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8335,7 +8707,7 @@ SuspendCallResponse Client::suspendCallWithOptions(const SuspendCallRequest &req
 }
 
 /**
- * @summary 止呼
+ * @summary Suspends outbound calls for a list of phone numbers.
  *
  * @param request SuspendCallRequest
  * @return SuspendCallResponse
@@ -8346,7 +8718,7 @@ SuspendCallResponse Client::suspendCall(const SuspendCallRequest &request) {
 }
 
 /**
- * @summary SuspendCallWithFile
+ * @summary Suspends outbound calls using data from a file.
  *
  * @param request SuspendCallWithFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8385,7 +8757,7 @@ SuspendCallWithFileResponse Client::suspendCallWithFileWithOptions(const Suspend
 }
 
 /**
- * @summary SuspendCallWithFile
+ * @summary Suspends outbound calls using data from a file.
  *
  * @param request SuspendCallWithFileRequest
  * @return SuspendCallWithFileResponse
@@ -8396,6 +8768,8 @@ SuspendCallWithFileResponse Client::suspendCallWithFile(const SuspendCallWithFil
 }
 
 /**
+ * @summary You can pause the job.
+ *
  * @param request SuspendJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SuspendJobsResponse
@@ -8445,6 +8819,8 @@ SuspendJobsResponse Client::suspendJobsWithOptions(const SuspendJobsRequest &req
 }
 
 /**
+ * @summary You can pause the job.
+ *
  * @param request SuspendJobsRequest
  * @return SuspendJobsResponse
  */
@@ -8454,7 +8830,9 @@ SuspendJobsResponse Client::suspendJobs(const SuspendJobsRequest &request) {
 }
 
 /**
- * @description **
+ * @summary Adds tags to instance resources.
+ *
+ * @description \\*\\*
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8497,7 +8875,9 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @description **
+ * @summary Adds tags to instance resources.
+ *
+ * @description \\*\\*
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -8508,7 +8888,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary TaskPreparing
+ * @summary Prepares a task for execution.
  *
  * @param request TaskPreparingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8547,7 +8927,7 @@ TaskPreparingResponse Client::taskPreparingWithOptions(const TaskPreparingReques
 }
 
 /**
- * @summary TaskPreparing
+ * @summary Prepares a task for execution.
  *
  * @param request TaskPreparingRequest
  * @return TaskPreparingResponse
@@ -8558,6 +8938,8 @@ TaskPreparingResponse Client::taskPreparing(const TaskPreparingRequest &request)
 }
 
 /**
+ * @summary Terminates a call during an active session.
+ *
  * @param request TerminateCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TerminateCallResponse
@@ -8591,6 +8973,8 @@ TerminateCallResponse Client::terminateCallWithOptions(const TerminateCallReques
 }
 
 /**
+ * @summary Terminates a call during an active session.
+ *
  * @param request TerminateCallRequest
  * @return TerminateCallResponse
  */
@@ -8600,6 +8984,8 @@ TerminateCallResponse Client::terminateCall(const TerminateCallRequest &request)
 }
 
 /**
+ * @summary Remove tags from resources.
+ *
  * @param request UntagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UntagResourcesResponse
@@ -8645,6 +9031,8 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 }
 
 /**
+ * @summary Remove tags from resources.
+ *
  * @param request UntagResourcesRequest
  * @return UntagResourcesResponse
  */
@@ -8654,6 +9042,8 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
+ * @summary Upload recording files.
+ *
  * @param request UploadScriptRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UploadScriptRecordingResponse
@@ -8699,6 +9089,8 @@ UploadScriptRecordingResponse Client::uploadScriptRecordingWithOptions(const Upl
 }
 
 /**
+ * @summary Upload recording files.
+ *
  * @param request UploadScriptRecordingRequest
  * @return UploadScriptRecordingResponse
  */
@@ -8708,9 +9100,9 @@ UploadScriptRecordingResponse Client::uploadScriptRecording(const UploadScriptRe
 }
 
 /**
- * @summary WithdrawScriptReview
+ * @summary Revoke script review.
  *
- * @description ****
+ * @description ***
  *
  * @param request WithdrawScriptReviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8745,9 +9137,9 @@ WithdrawScriptReviewResponse Client::withdrawScriptReviewWithOptions(const Withd
 }
 
 /**
- * @summary WithdrawScriptReview
+ * @summary Revoke script review.
  *
- * @description ****
+ * @description ***
  *
  * @param request WithdrawScriptReviewRequest
  * @return WithdrawScriptReviewResponse

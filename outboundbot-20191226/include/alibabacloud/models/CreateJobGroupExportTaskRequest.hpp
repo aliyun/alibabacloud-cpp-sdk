@@ -60,9 +60,13 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job group ID. Required.
     shared_ptr<string> jobGroupId_ {};
+    // Parameters that control task execution for the import.
     shared_ptr<vector<string>> option_ {};
   };
 

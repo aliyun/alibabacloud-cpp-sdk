@@ -158,23 +158,41 @@ namespace Models
 
 
   protected:
+    // Agent profile template ID (unique value)
+    // 
     // This parameter is required.
     shared_ptr<string> agentProfileTemplateId_ {};
+    // app_ip (system field) — optional
     shared_ptr<string> appIp_ {};
+    // Description
     shared_ptr<string> description_ {};
+    // FAQ folder ID
     shared_ptr<string> faqCategoryIds_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Instruction configuration
     shared_ptr<string> instructionJson_ {};
+    // Label description
     shared_ptr<string> labelsJson_ {};
+    // Model ID (unique value)
+    // 
     // This parameter is required.
     shared_ptr<string> model_ {};
+    // Model configuration (deprecated)
     shared_ptr<string> modelConfig_ {};
+    // Agent configuration (professional mode)
     shared_ptr<string> prompt_ {};
+    // Agent configuration in Normal mode
     shared_ptr<string> promptJson_ {};
+    // Scenario
     shared_ptr<string> scenario_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // Variable configuration
     shared_ptr<string> variablesJson_ {};
   };
 

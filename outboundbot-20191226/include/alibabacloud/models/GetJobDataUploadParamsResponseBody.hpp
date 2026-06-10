@@ -113,11 +113,19 @@ namespace Models
 
 
     protected:
+      // OSS access ID
       shared_ptr<string> accessId_ {};
+      // Expiration time (seconds)
       shared_ptr<int32_t> expire_ {};
+      // Upload folder
+      // 
+      // > This parameter\\"s value is used in request parameters for many APIs.
       shared_ptr<string> folder_ {};
+      // Upload server URL
       shared_ptr<string> host_ {};
+      // Upload policy
       shared_ptr<string> policy_ {};
+      // Signature information
       shared_ptr<string> signature_ {};
     };
 
@@ -168,11 +176,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Is successful
     shared_ptr<bool> success_ {};
+    // List of upload parameters
     shared_ptr<GetJobDataUploadParamsResponseBody::UploadParams> uploadParams_ {};
   };
 

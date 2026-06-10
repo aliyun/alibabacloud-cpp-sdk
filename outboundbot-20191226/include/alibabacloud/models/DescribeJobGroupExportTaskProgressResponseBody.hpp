@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The file URL.
     shared_ptr<string> fileHttpUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The API message.
     shared_ptr<string> message_ {};
+    // The export progress.
     shared_ptr<float> progress_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

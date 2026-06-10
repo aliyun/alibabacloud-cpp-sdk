@@ -113,10 +113,15 @@ namespace Models
 
 
     protected:
+      // The time when the template was created.
       shared_ptr<string> createTime_ {};
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
+      // The ID of the utterance template.
       shared_ptr<int64_t> lgfId_ {};
+      // The time when the template was last modified.
       shared_ptr<string> modifyTime_ {};
+      // The content of the utterance template.
       shared_ptr<string> ruleText_ {};
     };
 
@@ -196,15 +201,25 @@ namespace Models
 
 
   protected:
+    // The internal request ID.
     shared_ptr<string> beebotRequestId_ {};
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of LGFs.
     shared_ptr<vector<ListBeebotIntentLgfResponseBody::Lgfs>> lgfs_ {};
+    // The message returned by the API.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

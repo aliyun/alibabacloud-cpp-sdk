@@ -48,8 +48,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // The policy level. The default value is 2 for a business instance.
+    // 
+    // - 0: System
+    // 
+    // - 1: Tenant
+    // 
+    // - 2: Instance
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

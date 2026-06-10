@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // The answers to the global question.
       shared_ptr<string> answers_ {};
+      // The ID of the global question.
       shared_ptr<string> globalQuestionId_ {};
+      // The name of the global question.
       shared_ptr<string> globalQuestionName_ {};
+      // The type of the global question.
       shared_ptr<string> globalQuestionType_ {};
+      // The questions mapped to this global question.
       shared_ptr<string> questions_ {};
+      // The ID of the script.
       shared_ptr<string> scriptId_ {};
     };
 
@@ -168,11 +174,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The details of the global question.
     shared_ptr<DescribeGlobalQuestionResponseBody::GlobalQuestion> globalQuestion_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -194,19 +194,33 @@ namespace Models
 
 
     protected:
+      // Creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // Update time
       shared_ptr<int64_t> gmtModified_ {};
+      // Recording upload time
       shared_ptr<int64_t> gmtUpload_ {};
+      // The ID of the recording file within the instance
       shared_ptr<string> innerId_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Recording content
       shared_ptr<string> recordingContent_ {};
+      // Recording duration, in seconds.
       shared_ptr<int32_t> recordingDuration_ {};
+      // Recording name
       shared_ptr<string> recordingName_ {};
+      // The unique ID of the recording.
       shared_ptr<string> refId_ {};
+      // Scenario ID of the recording
       shared_ptr<string> scriptId_ {};
+      // Recording status
       shared_ptr<int32_t> state_ {};
+      // State extension
       shared_ptr<string> stateExtend_ {};
+      // Storage UUID
       shared_ptr<string> storageUuid_ {};
+      // Unique ID of the recording
       shared_ptr<string> uuid_ {};
     };
 
@@ -279,14 +293,23 @@ namespace Models
 
 
   protected:
+    // API status
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Recording list
     shared_ptr<vector<ListScriptRecordingResponseBody::ScriptRecordings>> scriptRecordings_ {};
+    // Success
     shared_ptr<bool> success_ {};
+    // Total count
     shared_ptr<int64_t> totalCount_ {};
   };
 

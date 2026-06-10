@@ -160,13 +160,21 @@ namespace Models
 
 
       protected:
+        // Instance ID
         shared_ptr<string> instanceId_ {};
+        // Instance name
         shared_ptr<string> instanceName_ {};
+        // Job ID
         shared_ptr<string> jobGroupId_ {};
+        // Job name.
         shared_ptr<string> jobGroupName_ {};
+        // Maximum configured concurrency limit
         shared_ptr<int64_t> maxConcurrencyLimit_ {};
+        // Minimum concurrency limit for the job
         shared_ptr<int64_t> minConcurrencyLimit_ {};
+        // Occupied concurrency value
         shared_ptr<int64_t> occupiedConcurrencyCount_ {};
+        // Report generation time
         shared_ptr<int64_t> reportDate_ {};
       };
 
@@ -203,9 +211,13 @@ namespace Models
 
 
     protected:
+      // Report collection data
       shared_ptr<vector<Reports::List>> list_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size
       shared_ptr<int32_t> pageSize_ {};
+      // Total count
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -264,12 +276,19 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Report generation time
     shared_ptr<int64_t> reportDate_ {};
+    // Report details.
     shared_ptr<GetRealtimeConcurrencyReportResponseBody::Reports> reports_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Is successful
     shared_ptr<bool> success_ {};
   };
 

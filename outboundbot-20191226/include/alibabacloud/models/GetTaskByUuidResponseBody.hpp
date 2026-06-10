@@ -146,10 +146,43 @@ namespace Models
 
 
       protected:
+        // Action type
+        // 
+        // - Dialogue: Dialogue
+        // 
+        // - AbortDialogue: Abort a dialogue
+        // 
+        // - SilenceTimeout: Silence timeout
+        // 
+        // - CollectedNumber: Collected number
+        // 
+        // - EndDialogue: End a dialogue
+        // 
+        // - Broadcast: Greeting message
+        // 
+        // - HangUp: Hang up
+        // 
+        // - Authorize: Authorization
+        // 
+        // - TransferToAgent: Transfer to an agent
+        // 
+        // - TransferToIVR: Transfer to an IVR system
+        // 
+        // - RedirectToPage: Redirect to a page
+        // 
+        // - CollectNumber: Collect a number
+        // 
+        // - WaitOnAsyncTask: Wait for an asynchronous task
+        // 
+        // - Error: Error
         shared_ptr<string> action_ {};
+        // Conversation text.
         shared_ptr<string> script_ {};
+        // Session ID
         shared_ptr<string> sequenceId_ {};
+        // Who spoke in the conversation. Valid values: Robot or Contact.
         shared_ptr<string> speaker_ {};
+        // Timestamp when the summary was created.
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -244,17 +277,55 @@ namespace Models
 
 
     protected:
+      // Actual execution time
       shared_ptr<int64_t> actualTime_ {};
+      // Call ID
       shared_ptr<string> callId_ {};
+      // Callee number
       shared_ptr<string> calledNumber_ {};
+      // Caller number
       shared_ptr<string> callingNumber_ {};
+      // List of conversations
       shared_ptr<vector<Task::Conversations>> conversations_ {};
+      // Reason the task ended
+      // 
+      // - FINISHED: Task completed normally
+      // 
+      // - CHATBOT_HANGUP_AFTER_NOANSWER: Bot hung up after no answer
+      // 
+      // - CHATBOT_HANGUP_AFTER_SILENCE: Bot hung up after silence timeout
+      // 
+      // - CLIENT_HANGUP_AFTER_NOANSWER: Client hung up after no answer
+      // 
+      // - CLIENT_HANGUP: Client hung up without reason
+      // 
+      // - TRANSFER_BY_INTENT: Transferred to agent after intent match
+      // 
+      // - TRANSFER_AFTER_NOANSWER: Transferred to agent after no answer
+      // 
+      // - INO_INTERACTION: No interaction from client
+      // 
+      // - ERROR: System error interrupted the task
+      // 
+      // - SPECIAL_INTERCEPT_VOICE_ASSISTANT: Intercepted due to voice assistant
+      // 
+      // - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER: Intercepted due to extension number transfer
+      // 
+      // >Notice: 
+      // 
+      // This parameter is a string that returns an enumeration value such as FINISHED.
       shared_ptr<string> endReason_ {};
+      // End time
       shared_ptr<int64_t> endTime_ {};
+      // Task ID
       shared_ptr<string> id_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Job group ID
       shared_ptr<string> jobGroupId_ {};
+      // Job ID
       shared_ptr<string> jobId_ {};
+      // Planned execution time (deprecated)
       shared_ptr<int64_t> plannedTime_ {};
     };
 
@@ -305,11 +376,17 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Task information
     shared_ptr<GetTaskByUuidResponseBody::Task> task_ {};
   };
 

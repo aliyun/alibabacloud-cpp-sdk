@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // List of outbound calling instance IDs.
+    // 
+    // > Modifying this parameter overwrites previous parameters. Setting this parameter to empty clears the number binding list.
     shared_ptr<string> instanceList_ {};
+    // The number to bind (required).
+    // 
+    // > For the list of numbers, see the Number parameter returned by the ListAllTenantBindNumberBinding API.
     shared_ptr<string> number_ {};
   };
 

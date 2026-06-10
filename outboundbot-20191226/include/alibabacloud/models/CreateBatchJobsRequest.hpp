@@ -115,16 +115,30 @@ namespace Models
 
 
   protected:
+    // Description of the batch job.
     shared_ptr<string> batchJobDescription_ {};
+    // Name of the batch job.
+    // 
     // This parameter is required.
     shared_ptr<string> batchJobName_ {};
+    // List of caller numbers.
     shared_ptr<vector<string>> callingNumber_ {};
+    // ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Path to the Excel file that contains the batch job data.
+    // 
+    // > Get this value from the Folder parameter in the response of the GetJobDataUploadParams operation.
     shared_ptr<string> jobFilePath_ {};
+    // ID of the scenario.
     shared_ptr<string> scenarioId_ {};
+    // ID of the script.
     shared_ptr<string> scriptId_ {};
+    // JSON string that defines the job execution policy. Required.
     shared_ptr<string> strategyJson_ {};
+    // Indicates whether the job is submitted. Set to false to submit the job. Set to true to save it as a draft.
+    // 
     // This parameter is required.
     shared_ptr<bool> submitted_ {};
   };

@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // ID of the agent profile template.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProfileTemplateId_ {};
+    // IP address of the application. This is a system field and is optional.
     shared_ptr<string> appIp_ {};
   };
 

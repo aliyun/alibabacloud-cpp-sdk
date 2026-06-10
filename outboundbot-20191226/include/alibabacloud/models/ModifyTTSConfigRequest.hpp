@@ -103,20 +103,39 @@ namespace Models
 
 
   protected:
+    // AppKey for your Intelligent Speech Interaction project. Required only when NlsServiceType is Authorized.
     shared_ptr<string> appKey_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The service type.
+    // Managed: The default public Intelligent Speech Interaction service for Outbound Bot.
+    // Authorized: A private Intelligent Speech Interaction service that you have purchased. To grant authorization, navigate to Scenario Management > Edit > Call Service > Custom Service.
     shared_ptr<string> nlsServiceType_ {};
-    // 语调 [-500,500]之间整数。默认值为0。
+    // Pitch. An integer between -500 and 500. Default is 0.
     // 
-    // 大于0表示升高音高。
+    // A value greater than 0 raises pitch.
     // 
-    // 小于0表示降低音高。
+    // A value less than 0 lowers pitch.
     shared_ptr<string> pitchRate_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // Speech rate. An integer between -500 and 500. Default is 0.
+    // 
+    // A value greater than 0 increases speech speed.
+    // 
+    // A value less than 0 decreases speech speed.
     shared_ptr<string> speechRate_ {};
+    // Voice model, such as aixia, siyue, or xiaoyun
     shared_ptr<string> voice_ {};
+    // Volume. An integer between 0 and 100. Default is 50.
+    // 
+    // A value greater than 50 increases volume.
+    // 
+    // A value less than 50 decreases volume.
     shared_ptr<string> volume_ {};
   };
 

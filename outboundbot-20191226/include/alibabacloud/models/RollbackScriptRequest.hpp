@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Version to roll back to
+    // 
+    // > For valid values, see the ListScriptPublishHistories operation.
+    // 
     // This parameter is required.
     shared_ptr<string> rollbackVersion_ {};
+    // Script ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

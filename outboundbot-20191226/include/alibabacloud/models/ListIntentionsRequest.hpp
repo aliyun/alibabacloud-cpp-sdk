@@ -112,14 +112,41 @@ namespace Models
 
 
   protected:
+    // >Notice: 
+    // 
+    // This parameter is required. Select based on the scenario.
+    // 
+    // 
+    // 
+    // Annotation data source.
+    // 
+    // - 1: Outbound Call
+    // 
+    // - 2: Navigation
     shared_ptr<int64_t> annotationMissionDataSourceType_ {};
+    // Bot ID
+    // 
+    // > Get this from the DescribeScript API. The corresponding parameter is ChatbotId.
     shared_ptr<string> botId_ {};
+    // Environment
+    // 
+    // - 1: Private Cloud
+    // 
+    // - 2: Public Cloud
     shared_ptr<int64_t> environment_ {};
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // Intent ID
     shared_ptr<int64_t> intentId_ {};
+    // Page Number
     shared_ptr<int32_t> pageIndex_ {};
+    // Number.
     shared_ptr<int32_t> pageSize_ {};
+    // Scenario ID
     shared_ptr<string> scriptId_ {};
+    // Intent Name
+    // 
+    // > Use this for fuzzy queries based on keywords.
     shared_ptr<string> userNick_ {};
   };
 

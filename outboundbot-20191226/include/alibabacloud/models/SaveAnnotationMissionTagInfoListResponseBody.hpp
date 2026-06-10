@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The number of successful operations.
       shared_ptr<int32_t> execCount_ {};
+      // The message returned for the API call.
       shared_ptr<string> message_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The status code of the API call.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<SaveAnnotationMissionTagInfoListResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message returned for the API call.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
     shared_ptr<bool> success_ {};
   };
 

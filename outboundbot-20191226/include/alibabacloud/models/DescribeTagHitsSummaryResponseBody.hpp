@@ -89,8 +89,11 @@ namespace Models
 
 
     protected:
+      // The hit count for the tag.
       shared_ptr<int32_t> hitCount_ {};
+      // The tag group name.
       shared_ptr<string> tagGroup_ {};
+      // The tag name.
       shared_ptr<string> tagName_ {};
     };
 
@@ -150,10 +153,13 @@ namespace Models
 
 
     protected:
-      // ID
+      // The ID of the tag group.
       shared_ptr<string> id_ {};
+      // The script ID.
       shared_ptr<string> scriptId_ {};
+      // The tag group name.
       shared_ptr<string> tagGroup_ {};
+      // The index of the tag group.
       shared_ptr<int32_t> tagGroupIndex_ {};
     };
 
@@ -214,12 +220,19 @@ namespace Models
 
 
   protected:
+    // The response code. `OK` indicates a successful request.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // A list of tag groups.
     shared_ptr<vector<DescribeTagHitsSummaryResponseBody::TagGroups>> tagGroups_ {};
+    // A list of tag hit statistics.
     shared_ptr<vector<DescribeTagHitsSummaryResponseBody::TagHitsList>> tagHitsList_ {};
   };
 

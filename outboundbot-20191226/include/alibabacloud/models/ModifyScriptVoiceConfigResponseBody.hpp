@@ -123,12 +123,19 @@ namespace Models
 
 
     protected:
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The text that corresponds to the audio.
       shared_ptr<string> scriptContent_ {};
+      // The script ID.
       shared_ptr<string> scriptId_ {};
+      // The script voice configuration ID.
       shared_ptr<string> scriptVoiceConfigId_ {};
+      // Maps script segments to audio recordings.
       shared_ptr<string> scriptWaveformRelation_ {};
+      // The script source.
       shared_ptr<string> source_ {};
+      // The audio source type.
       shared_ptr<string> type_ {};
     };
 
@@ -179,11 +186,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The API message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The voice configuration for the script.
     shared_ptr<ModifyScriptVoiceConfigResponseBody::ScriptVoiceConfig> scriptVoiceConfig_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -104,11 +104,15 @@ namespace Models
 
 
     protected:
+      // Instruction for IVR
       shared_ptr<string> action_ {};
+      // Instruction parameters
       shared_ptr<string> actionParams_ {};
+      // Dialogue text
       shared_ptr<string> content_ {};
-      // 已废弃
+      // Deprecated
       shared_ptr<string> contentParams_ {};
+      // Indicates whether the broadcast can be interrupted
       shared_ptr<bool> interruptible_ {};
     };
 
@@ -159,11 +163,17 @@ namespace Models
 
 
   protected:
+    // Interface status code
     shared_ptr<string> code_ {};
+    // Returns dialogue information
     shared_ptr<DialogueResponseBody::Feedback> feedback_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Interface message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful
     shared_ptr<bool> success_ {};
   };
 

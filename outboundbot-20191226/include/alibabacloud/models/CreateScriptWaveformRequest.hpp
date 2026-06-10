@@ -75,14 +75,26 @@ namespace Models
 
 
   protected:
+    // The ID of the recording file.
+    // 
+    // > Obtain this ID from the Folder parameter of the GetJobDataUploadParams operation.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // The name of the recording file.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The text of the script.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptContent_ {};
+    // Scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

@@ -180,7 +180,9 @@ namespace Models
 
 
         protected:
+          // The start time.
           shared_ptr<string> beginTime_ {};
+          // The end time.
           shared_ptr<string> endTime_ {};
         };
 
@@ -298,20 +300,38 @@ namespace Models
 
 
       protected:
+        // The customized strategy data. [Deprecated]
         shared_ptr<string> customized_ {};
+        // The end time.
         shared_ptr<int64_t> endTime_ {};
+        // The action to take when the execution cycle ends. [Deprecated]
         shared_ptr<string> followUpStrategy_ {};
+        // Indicates whether the strategy is a template. [Deprecated]
         shared_ptr<bool> isTemplate_ {};
+        // The maximum attempts per day.
         shared_ptr<int32_t> maxAttemptsPerDay_ {};
+        // The minimum attempt interval.
         shared_ptr<int32_t> minAttemptInterval_ {};
+        // The repeat mode. Valid values: `Once` (runs only once), `Day` (repeats daily), `Week` (repeats weekly), and `Month` (repeats monthly).
         shared_ptr<string> repeatBy_ {};
+        // The days of the week or month on which the job repeats.
+        // 
+        // If `RepeatBy` is set to `Week`, valid values are `0` to `6`, where `0` represents Sunday, and `1` to `6` represent Monday to Saturday.
+        // If `RepeatBy` is set to `Month`, valid values are `1` to `31`. If a month is shorter than the specified day (for example, day 31 in February), the job does not run that month.
         shared_ptr<vector<string>> repeatDays_ {};
+        // The routing strategy.
         shared_ptr<string> routingStrategy_ {};
+        // The start time.
         shared_ptr<int64_t> startTime_ {};
+        // The strategy description.
         shared_ptr<string> strategyDescription_ {};
+        // The strategy ID.
         shared_ptr<string> strategyId_ {};
+        // The strategy name.
         shared_ptr<string> strategyName_ {};
+        // The strategy type.
         shared_ptr<string> type_ {};
+        // The time windows for making outbound calls.
         shared_ptr<vector<Strategy::WorkingTime>> workingTime_ {};
       };
 
@@ -362,8 +382,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether to ignore an invalid number.
         shared_ptr<bool> emptyNumberIgnore_ {};
+        // Indicates whether to ignore a number in arrears.
         shared_ptr<bool> inArrearsIgnore_ {};
+        // Indicates whether to ignore an out-of-service number.
         shared_ptr<bool> outOfServiceIgnore_ {};
       };
 
@@ -414,8 +437,11 @@ namespace Models
 
 
       protected:
+        // The file URL.
         shared_ptr<string> fileHttpUrl_ {};
+        // The progress of the export.
         shared_ptr<string> progress_ {};
+        // The export status.
         shared_ptr<string> status_ {};
       };
 
@@ -566,24 +592,53 @@ namespace Models
 
 
     protected:
+      // The list of calling numbers.
       shared_ptr<vector<string>> callingNumbers_ {};
+      // The creation time.
+      // 
+      // > Call the `DescribeJobGroup` operation to obtain this value.
       shared_ptr<int64_t> creationTime_ {};
+      // The export progress. [Deprecated]
       shared_ptr<JobGroup::ExportProgress> exportProgress_ {};
+      // Extra parameters for the flash SMS service. The value is a JSON string that contains the configuration for a third-party provider.
+      // 
+      // `templateId`: The flash SMS template ID. `configId`: The flash SMS configuration ID.
       shared_ptr<string> flashSmsExtras_ {};
+      // The data parsing task ID. [Deprecated]
       shared_ptr<string> jobDataParsingTaskId_ {};
+      // The job file path. [Deprecated]
       shared_ptr<string> jobFilePath_ {};
+      // The job group description.
       shared_ptr<string> jobGroupDescription_ {};
+      // The job group ID.
       shared_ptr<string> jobGroupId_ {};
+      // The job group name.
       shared_ptr<string> jobGroupName_ {};
+      // The minimum number of concurrent calls to reserve for this job group. The sum of this value for all job groups with the same priority cannot exceed the total concurrency of the instance. If set to 0, the system dynamically allocates idle lines from a shared pool.
       shared_ptr<int64_t> minConcurrency_ {};
+      // The modification time.
+      // 
+      // > Call the `DescribeJobGroup` operation to obtain this value.
       shared_ptr<string> modifyTime_ {};
+      // The job group priority. Valid values:
+      // 
+      // `Urgent`: For high-priority jobs. `Daily`: For standard-priority jobs.
       shared_ptr<string> priority_ {};
+      // The recall strategy.
       shared_ptr<JobGroup::RecallStrategy> recallStrategy_ {};
+      // The ringing duration.
       shared_ptr<int64_t> ringingDuration_ {};
+      // The scenario ID.
+      // 
+      // > This parameter is deprecated. To obtain the `ScriptId`, call the `DescribeJobGroup` operation.
       shared_ptr<string> scenarioId_ {};
+      // The script name.
       shared_ptr<string> scriptName_ {};
+      // The script version.
       shared_ptr<string> scriptVersion_ {};
+      // The job group status.
       shared_ptr<string> status_ {};
+      // The outbound strategy.
       shared_ptr<JobGroup::Strategy> strategy_ {};
     };
 
@@ -634,11 +689,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The job group details.
     shared_ptr<ModifyJobGroupResponseBody::JobGroup> jobGroup_ {};
+    // The API response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -112,17 +112,45 @@ namespace Models
 
 
   protected:
+    // Specifies whether to retrieve the query results asynchronously.
     shared_ptr<bool> asyncQuery_ {};
+    // The end of the time range for the query, based on the creation time of the job group. Specify the time as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Filters results by job status. To specify multiple statuses, separate them with commas. The statuses are combined with a logical OR. Valid values:
+    // 
+    // - **Draft**: The job group is a draft.
+    // 
+    // - **Scheduling**: The job group is being scheduled.
+    // 
+    // - **Executing**: The job group is executing.
+    // 
+    // - **Completed**: The job group has completed.
+    // 
+    // - **Paused**: The job group is paused.
+    // 
+    // - **Failed**: The job group has failed.
+    // 
+    // - **Cancelled**: The job group is canceled.
+    // 
+    // - **Initializing**: The job group is initializing.
     shared_ptr<string> jobGroupStatusFilter_ {};
+    // Specifies whether to return only job groups with minimum concurrency enabled.
     shared_ptr<bool> onlyMinConcurrencyEnabled_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The search text.
     shared_ptr<string> searchText_ {};
+    // The start of the time range for the query, based on the creation time of the job group. Specify the time as a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Number ID
+    // 
     // This parameter is required.
     shared_ptr<string> outboundCallNumberId_ {};
   };

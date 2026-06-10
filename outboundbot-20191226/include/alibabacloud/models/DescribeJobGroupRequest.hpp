@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // Filter condition. This parameter is deprecated.
     shared_ptr<vector<string>> briefTypes_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobGroupId_ {};
   };

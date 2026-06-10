@@ -215,23 +215,39 @@ namespace Models
 
 
     protected:
+      // Agent profile ID
       shared_ptr<string> agentProfileId_ {};
+      // Agent profile template ID
       shared_ptr<string> agentProfileTemplateId_ {};
-      // agent type
+      // Agent type
       shared_ptr<string> agentType_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Description
       shared_ptr<string> description_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Instruction configuration
       shared_ptr<string> instructionJson_ {};
+      // Label description
       shared_ptr<string> labelsJson_ {};
+      // Model ID
       shared_ptr<string> model_ {};
+      // Model configuration
       shared_ptr<string> modelConfig_ {};
+      // Prompt (professional mode)
       shared_ptr<string> prompt_ {};
+      // Agent configuration
       shared_ptr<string> promptJson_ {};
+      // Scenario
       shared_ptr<string> scenario_ {};
+      // Scenario ID
       shared_ptr<string> scriptId_ {};
+      // Indicates whether this is a system template
       shared_ptr<bool> system_ {};
+      // Last update time
       shared_ptr<string> updateTime_ {};
+      // Variable configuration
       shared_ptr<string> variablesJson_ {};
     };
 
@@ -282,11 +298,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<CreateAgentProfileResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
   };
 

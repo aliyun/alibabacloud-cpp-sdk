@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the annotation task.
     shared_ptr<string> annotationMissionId_ {};
   };
 

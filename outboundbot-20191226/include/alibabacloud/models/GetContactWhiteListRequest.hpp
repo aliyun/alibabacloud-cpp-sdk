@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Whether to return the total count
     shared_ptr<bool> countTotalRow_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -262,31 +262,163 @@ namespace Models
 
 
   protected:
+    // Call start time
     shared_ptr<int64_t> actualTimeGte_ {};
+    // Call end time
     shared_ptr<int64_t> actualTimeLte_ {};
+    // Minimum call duration, in milliseconds
     shared_ptr<int64_t> callDurationGte_ {};
+    // Maximum call duration, in milliseconds
     shared_ptr<int64_t> callDurationLte_ {};
+    // Called number
     shared_ptr<string> calledNumber_ {};
+    // Calling number
     shared_ptr<string> callingNumber_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Job group ID
     shared_ptr<string> jobGroupId_ {};
+    // Job group name
     shared_ptr<string> jobGroupNameQuery_ {};
+    // Job ID
     shared_ptr<string> jobId_ {};
+    // Job status. Separate multiple statuses with commas. If you specify this parameter, it overrides jobStatusList.
+    // 
+    // - Scheduling: The job is being scheduled.
+    // 
+    // - Executing: The job is running.
+    // 
+    // - Succeeded: The job completed successfully.
+    // 
+    // - Paused: The job was paused.
+    // 
+    // - Failed: The job failed.
+    // 
+    // - Cancelled: The job was cancelled.
     shared_ptr<string> jobStatusStringList_ {};
+    // Label-based filter condition for calls
+    // 
+    // > You can only use labels that have specific enumeration values. For example, labels configured with specific values in Large Language Model (LLM) scenarios.
     shared_ptr<vector<string>> labelsJson_ {};
+    // Other ID
+    // 
+    // **Valid values include the following:**
+    // 
+    // - sessionID
+    // 
+    // - taskid
+    // 
+    // - jobid
     shared_ptr<string> otherId_ {};
+    // Page number
+    // 
+    // > The first page is 0.
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of items per page
+    // 
+    // > If you omit this parameter, the default value is 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Minimum ring duration, in seconds
     shared_ptr<int64_t> recordingDurationGte_ {};
+    // The minimum ringing duration for the search.
     shared_ptr<int64_t> recordingDurationLte_ {};
+    // Scenario name
     shared_ptr<string> scriptNameQuery_ {};
+    // Sort field. Default value: actualTime
     shared_ptr<string> sortBy_ {};
+    // Sort order. Valid values:
+    // 
+    // - asc (ascending)
+    // 
+    // - desc (descending). Default value.
     shared_ptr<string> sortOrder_ {};
+    // Start time of the task
+    // 
+    // > You must specify both TaskCreateTimeGte and TaskCreateTimeLte. If you omit either, the filter does not work.
     shared_ptr<int64_t> taskCreateTimeGte_ {};
+    // End time of the task
+    // 
+    // > You must specify both TaskCreateTimeGte and TaskCreateTimeLte. If you omit either, the filter does not work.
     shared_ptr<int64_t> taskCreateTimeLte_ {};
+    // Task ID
     shared_ptr<string> taskId_ {};
+    // Call status. Separate multiple statuses with commas.
+    // 
+    // - **Executing**: 0 (Calling).
+    // 
+    // - **Succeeded**: 1 (Connected).
+    // 
+    // - **NoAnswer**: 2 (No answer).
+    // 
+    // - **NotExist**: 3 (Nonexistent number).
+    // 
+    // - **Busy**: 4 (Line busy).
+    // 
+    // - **Cancelled**: 5 (Call canceled due to job stop).
+    // 
+    // - **Failed**: 6 (Call failed).
+    // 
+    // - **NotConnected**: 7 (Cannot connect).
+    // 
+    // - **PoweredOff**: 8 (Phone powered off).
+    // 
+    // - **OutOfService**: 9 (Called number out of service).
+    // 
+    // - **InArrears**: 10 (Called number overdue payment).
+    // 
+    // - **EmptyNumber**: 11 (Empty number, no outbound call).
+    // 
+    // - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
+    // 
+    // - **ContactBlockList**: 13 (Blacklisted).
+    // 
+    // - **CallerNotRegistered**: 14 (Caller number not registered).
+    // 
+    // - **Terminated**: 15 (Call terminated).
+    // 
+    // - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
+    // 
+    // - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
+    // 
+    // - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
+    // 
+    // - **CallingNumberNotExist**: 19 (Caller number does not exist).
+    // 
+    // - **SucceededFinish**: 20 (Connected and ended normally).
+    // 
+    // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
+    // 
+    // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
+    // 
+    // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
+    // 
+    // - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
+    // 
+    // - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
+    // 
+    // - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
+    // 
+    // - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
+    // 
+    // - **SucceededError**: 28 (Connected but system error interrupted).
+    // 
+    // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
+    // 
+    // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
+    // 
+    // - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected but intercepted by custom rule).
+    // 
+    // - **HighRiskSipCode**: 32 (High-risk SIP code, no outbound call).
     shared_ptr<string> taskStatusStringList_ {};
+    // User ID. A unique identifier for a user.
+    // 
+    // > This field is passed when you upload an outbound call list.
+    // >
+    // > - If you upload the list in JSON format, the user ID is the value of referenceId.
+    // >
+    // > - If you upload the list as an Excel file, the user ID is the value of contactId.
     shared_ptr<string> userIdMatch_ {};
   };
 

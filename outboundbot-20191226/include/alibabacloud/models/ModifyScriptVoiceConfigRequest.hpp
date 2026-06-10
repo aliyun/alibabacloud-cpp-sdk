@@ -75,13 +75,28 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // The script voice configuration ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptVoiceConfigId_ {};
+    // Maps script segments to audio recordings. This parameter is required only when Type is set to WAVEFORM.
+    // 
+    // > To obtain the value for the ScriptWaveformId parameter, call the CreateScriptWaveform operation. The ScriptContent parameter specifies the text that corresponds to the audio segment.
     shared_ptr<string> scriptWaveformRelation_ {};
+    // The audio source type.
+    // 
+    // - WAVEFORM: A pre-recorded audio file.
+    // 
+    // - TTS: Audio generated from text using the text-to-speech (TTS) service.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

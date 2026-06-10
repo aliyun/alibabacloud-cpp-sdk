@@ -93,6 +93,7 @@ namespace Models
 
 
       protected:
+        // The content of the script for the approval requests
         shared_ptr<string> annotationMissionSessionListJsonString_ {};
       };
 
@@ -131,9 +132,13 @@ namespace Models
 
 
     protected:
+      // The message returned for the operation.
       shared_ptr<string> message_ {};
+      // The list of messages.
       shared_ptr<vector<string>> messageList_ {};
+      // The request result.
       shared_ptr<Data::SaveAnnotationMissionSessionListRequest> saveAnnotationMissionSessionListRequest_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -184,11 +189,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<SaveAnnotationMissionSessionListResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message. If the request is successful, success is returned. If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

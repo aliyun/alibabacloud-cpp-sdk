@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The intent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> intentId_ {};
+    // The utterance template.
     shared_ptr<string> lgfText_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of items
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

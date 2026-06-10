@@ -169,7 +169,9 @@ namespace Models
 
 
           protected:
+            // Slot Unique Identifier
             shared_ptr<string> slotId_ {};
+            // Expression
             shared_ptr<string> text_ {};
           };
 
@@ -206,9 +208,14 @@ namespace Models
 
 
         protected:
+          // Source ID
+          // >Notice: Invalid content
           shared_ptr<string> fromId_ {};
+          // The ID of the user utterance.
           shared_ptr<string> id_ {};
+          // Is Strict Match
           shared_ptr<bool> strict_ {};
+          // User Say List
           shared_ptr<vector<UserSay::UserSayData>> userSayData_ {};
         };
 
@@ -291,7 +298,9 @@ namespace Models
 
 
           protected:
+            // User Say Unique Identifier for the Label
             shared_ptr<string> userSayId_ {};
+            // The value of the tag is the result of tagging an intent expression.
             shared_ptr<string> value_ {};
           };
 
@@ -397,10 +406,15 @@ namespace Models
 
 
             protected:
+              // Condition ID
               shared_ptr<string> id_ {};
+              // Follow-up Question Label
               shared_ptr<string> label_ {};
+              // Condition Name
               shared_ptr<string> name_ {};
+              // Type
               shared_ptr<string> type_ {};
+              // Condition Value
               shared_ptr<string> value_ {};
             };
 
@@ -482,15 +496,29 @@ namespace Models
 
 
           protected:
+            // Alibaba Cloud Function Name
             shared_ptr<string> aliyunFunction_ {};
+            // Alibaba Cloud Service
             shared_ptr<string> aliyunService_ {};
+            // API Status Code
             shared_ptr<string> code_ {};
+            // Follow-up Question Description
             shared_ptr<string> description_ {};
+            // Endpoint
             shared_ptr<string> endPoint_ {};
+            // Follow-up Question Function
             shared_ptr<string> function_ {};
+            // Function Name
             shared_ptr<string> name_ {};
+            // Parameters
             Darabonba::Json params_ {};
+            // Feature Switch. Values:
+            // 
+            // - **on**: Enabled
+            // 
+            // - **off**: Disabled
             shared_ptr<vector<FeedbackFunctions::Switch>> switch_ {};
+            // Follow-up Question Type
             shared_ptr<string> type_ {};
           };
 
@@ -589,17 +617,41 @@ namespace Models
 
 
         protected:
+          // The follow-up question function.
+          // >Notice: This parameter is invalid.
           shared_ptr<vector<Slot::FeedbackFunctions>> feedbackFunctions_ {};
+          // Feedback Type
+          // >Notice: Invalid content
           shared_ptr<string> feedbackType_ {};
+          // Slot Unique Identifier
           shared_ptr<string> id_ {};
+          // Is Array:
+          // 
+          // - true: Yes
+          // 
+          // - false: No
           shared_ptr<bool> isArray_ {};
+          // Is Encrypted
+          // >Notice: Invalid content
           shared_ptr<bool> isEncrypt_ {};
+          // Is Interactive
+          // >Notice: Invalid content
           shared_ptr<bool> isInteractive_ {};
+          // Is Required Slot:
+          // 
+          // - true: Yes
+          // 
+          // - false: No
           shared_ptr<bool> isNecessary_ {};
+          // Slot Lifecycle
           shared_ptr<int32_t> lifeSpan_ {};
+          // Slot Name
           shared_ptr<string> name_ {};
+          // Slot Follow-up Question
           shared_ptr<vector<string>> question_ {};
+          // Slot Tagging Labels
           shared_ptr<vector<Slot::Tags>> tags_ {};
+          // Slot Tagging Result
           shared_ptr<string> value_ {};
         };
 
@@ -663,9 +715,13 @@ namespace Models
 
 
         protected:
+          // Error Message
           shared_ptr<vector<string>> error_ {};
+          // Is Strict Match
           shared_ptr<bool> strict_ {};
+          // Expression Value
           shared_ptr<string> text_ {};
+          // Warning Message
           shared_ptr<vector<string>> warning_ {};
         };
 
@@ -766,17 +822,41 @@ namespace Models
 
 
       protected:
+        // Intent Alias
         shared_ptr<vector<string>> alias_ {};
+        // Bot ID (Deprecated)
         shared_ptr<int64_t> botId_ {};
+        // Bot Name
         shared_ptr<string> botName_ {};
+        // Conversation Flow ID
         shared_ptr<string> dialogId_ {};
+        // Intent ID
         shared_ptr<int64_t> id_ {};
+        // Language
+        // 
+        // - English (en-us)
+        // 
+        // - Chinese (zh-cn)
         shared_ptr<string> language_ {};
+        // Intent Name
         shared_ptr<string> name_ {};
+        // LGF Intent Expression
         shared_ptr<vector<IntentList::RuleCheck>> ruleCheck_ {};
+        // Intent Slot Information
         shared_ptr<vector<IntentList::Slot>> slot_ {};
+        // Table ID
         shared_ptr<int64_t> tableId_ {};
+        // Intent Type:
+        // 
+        // - 0: Normal intent;
+        // 
+        // - 1: UNKNOWN;
+        // 
+        // - 2: TableQA intent;
+        // 
+        // - 3: Generated from standard intent
         shared_ptr<int32_t> type_ {};
+        // User Say List
         shared_ptr<vector<IntentList::UserSay>> userSay_ {};
       };
 
@@ -813,9 +893,13 @@ namespace Models
 
 
     protected:
+      // Bot ID
       shared_ptr<string> botId_ {};
+      // Intent List
       shared_ptr<vector<Data::IntentList>> intentList_ {};
+      // API Message
       shared_ptr<string> message_ {};
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -866,11 +950,17 @@ namespace Models
 
 
   protected:
+    // API Status Code
     shared_ptr<string> code_ {};
+    // Returned Data
     shared_ptr<ListIntentionsResponseBody::Data> data_ {};
+    // HTTP Status Code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API Message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Is Success
     shared_ptr<bool> success_ {};
   };
 

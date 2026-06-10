@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Intent ID
+    // 
     // This parameter is required.
     shared_ptr<string> intentId_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // User Say ID
+    // 
     // This parameter is required.
     shared_ptr<string> userSayId_ {};
   };

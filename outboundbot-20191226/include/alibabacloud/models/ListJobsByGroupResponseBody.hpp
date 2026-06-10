@@ -201,13 +201,21 @@ namespace Models
 
 
         protected:
+          // Conversation summary category
           shared_ptr<string> category_ {};
+          // Conversation summary content
           shared_ptr<string> content_ {};
+          // Call record ID
           shared_ptr<string> conversationDetailId_ {};
+          // Job group ID
           shared_ptr<string> jobGroupId_ {};
+          // Job ID
           shared_ptr<string> jobId_ {};
+          // Summary ID
           shared_ptr<string> summaryId_ {};
+          // Summary name
           shared_ptr<string> summaryName_ {};
+          // Call ID
           shared_ptr<string> taskId_ {};
         };
 
@@ -249,7 +257,9 @@ namespace Models
 
 
         protected:
+          // Business parameter name
           shared_ptr<string> key_ {};
+          // Business parameter value
           shared_ptr<string> value_ {};
         };
 
@@ -346,13 +356,21 @@ namespace Models
 
 
         protected:
+          // Contact ID (system-generated)
           shared_ptr<string> contactId_ {};
+          // Contact name
           shared_ptr<string> contactName_ {};
+          // Honorific (same as contact name)
           shared_ptr<string> honorific_ {};
+          // Job ID (deprecated)
           shared_ptr<string> jobId_ {};
+          // Phone number
           shared_ptr<string> phoneNumber_ {};
+          // Contact third-party system ID (uploaded by customer)
           shared_ptr<string> referenceId_ {};
+          // Deprecated
           shared_ptr<string> role_ {};
+          // Deprecated
           shared_ptr<string> state_ {};
         };
 
@@ -460,18 +478,79 @@ namespace Models
 
 
       protected:
+        // Caller number list
         shared_ptr<vector<string>> callingNumbers_ {};
+        // Contact list
         shared_ptr<vector<List::Contacts>> contacts_ {};
+        // Business data
+        // 
+        // > TenantId and ServiceId are system-generated. All other parameters are custom.
         shared_ptr<vector<List::Extras>> extras_ {};
+        // The failure reason.
+        // 
+        // - Unknown: An unknown error occurred.
+        // 
+        // - NoAnswer: The call was not answered.
+        // 
+        // - InvalidStrategy: The policy is invalid or incorrectly configured.
+        // 
+        // - TimeUp: The task timed out during scheduling.
+        // 
+        // - NoStrategy: The policy is empty or was not found.
+        // 
+        // - CallFailed: The call failed.
+        // 
+        // - PerDayCallCountLimit: The daily call limit for the phone number was reached.
+        // 
+        // - ContactBlockList: The phone number is on the blocklist.
+        // 
+        // - EmptyNumber: The phone number is nonexistent.
+        // 
+        // - JobPerDayCallCountLimit: The daily call limit for the phone number within the job was reached.
+        // 
+        // - VerificationCancelled: The call was canceled because it failed pre-call validation.
+        // 
+        // - ContactSuspended: Calling to the contact is suspended.
+        // 
+        // - InArrears: The account has an overdue payment.
+        // 
+        // - OutOfService: The phone number is out of service.
+        // 
+        // - NoneRepeatableJobMaxAttemptCountLimit: The non-repeatable job reached the maximum number of attempts.
         shared_ptr<string> failureReason_ {};
+        // Job ID
         shared_ptr<string> jobGroupId_ {};
+        // Job ID
         shared_ptr<string> jobId_ {};
+        // Priority
         shared_ptr<int32_t> priority_ {};
+        // Third-party system ID
         shared_ptr<string> referenceId_ {};
+        // Scenario ID (legacy parameter)
         shared_ptr<string> scenarioId_ {};
+        // Job status
+        // 
+        // - Scheduling (0)
+        // 
+        // - Executing (1)
+        // 
+        // - Succeeded (2)
+        // 
+        // - Paused (3)
+        // 
+        // - Failed (4)
+        // 
+        // - Cancelled (5)
+        // 
+        // - Drafted (6)
         shared_ptr<string> status_ {};
+        // Strategy ID
         shared_ptr<string> strategyId_ {};
+        // Conversation summary (deprecated)
+        // 
+        // > Use the DescribeJob API to retrieve this data.
         shared_ptr<vector<List::Summary>> summary_ {};
+        // System priority
         shared_ptr<int32_t> systemPriority_ {};
       };
 
@@ -508,9 +587,13 @@ namespace Models
 
 
     protected:
+      // Job list
       shared_ptr<vector<Jobs::List>> list_ {};
+      // Page number
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size
       shared_ptr<int32_t> pageSize_ {};
+      // Total count
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -561,11 +644,17 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Job array
     shared_ptr<ListJobsByGroupResponseBody::Jobs> jobs_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded
     shared_ptr<bool> success_ {};
   };
 

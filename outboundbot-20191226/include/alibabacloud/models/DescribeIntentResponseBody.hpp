@@ -132,13 +132,21 @@ namespace Models
 
 
     protected:
+      // The time when the intent was created.
       shared_ptr<int64_t> createTime_ {};
+      // The description of the intent.
       shared_ptr<string> intentDescription_ {};
+      // The ID of the intent.
       shared_ptr<string> intentId_ {};
+      // The name of the intent.
       shared_ptr<string> intentName_ {};
+      // The keywords for the intent. You can use these keywords to filter intents during list operations.
       shared_ptr<string> keywords_ {};
+      // The ID of the script.
       shared_ptr<string> scriptId_ {};
+      // The time when the intent was last updated.
       shared_ptr<int64_t> updateTime_ {};
+      // A list of utterances that trigger the intent.
       shared_ptr<string> utterances_ {};
     };
 
@@ -189,11 +197,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the intent.
     shared_ptr<DescribeIntentResponseBody::Intent> intent_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

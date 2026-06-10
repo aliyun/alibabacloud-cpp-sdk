@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the asynchronous task.
+    // 
     // This parameter is required.
     shared_ptr<string> asyncTaskId_ {};
   };

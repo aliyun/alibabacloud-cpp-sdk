@@ -149,20 +149,39 @@ namespace Models
 
 
   protected:
+    // Agent configuration ID
+    // 
+    // > Get the agent configuration ID for created scenarios from the ChatbotId return parameter of DescribeScript.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProfileId_ {};
+    // API plug-in configuration
+    // 
+    // > To bind multiple APIs, get the UUIDs of multiple APIs through ListApiPlugins and fill them in the format [{"uuid":"xxx"},{"uuid":"xxxx""},....].
     shared_ptr<string> apiPluginJson_ {};
+    // Description
     shared_ptr<string> description_ {};
+    // FAQ category ID
     shared_ptr<string> faqCategoryIdsShrink_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Instruction configuration
     shared_ptr<string> instructionJson_ {};
+    // Label description
     shared_ptr<string> labelsJson_ {};
+    // Model ID
     shared_ptr<string> model_ {};
+    // Model configuration
     shared_ptr<string> modelConfig_ {};
+    // Prompt (Professional Mode)
     shared_ptr<string> prompt_ {};
+    // Agent configuration
     shared_ptr<string> promptJson_ {};
+    // Scenario
     shared_ptr<string> scenario_ {};
+    // Variable configuration
     shared_ptr<string> variablesJson_ {};
   };
 

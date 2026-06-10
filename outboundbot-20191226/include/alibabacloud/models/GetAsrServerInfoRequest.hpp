@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Instance ID
     shared_ptr<string> entryId_ {};
+    // Policy level
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

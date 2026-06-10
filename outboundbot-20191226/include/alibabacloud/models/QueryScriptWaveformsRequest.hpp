@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Scenario voice name
+    // 
     // This parameter is required.
     shared_ptr<string> scriptContent_ {};
+    // Scenario ID
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

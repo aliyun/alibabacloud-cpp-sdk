@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Page number
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Resource type
+    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
   };

@@ -145,13 +145,25 @@ namespace Models
 
 
     protected:
+      // Task group ID
       shared_ptr<string> groupId_ {};
+      // Hit after no acknowledgement
       shared_ptr<int32_t> hitAfterNoAnswer_ {};
+      // Hit count
       shared_ptr<int32_t> hitNum_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Intent ID
       shared_ptr<string> intentId_ {};
+      // Intent name
       shared_ptr<string> intentName_ {};
+      // Percentage
       shared_ptr<string> rateDisplay_ {};
+      // Type
+      // 
+      // - GlobalIntent(0): Global intent
+      // 
+      // - ProcessIntent(1): Flow intent
       shared_ptr<string> type_ {};
     };
 
@@ -220,10 +232,15 @@ namespace Models
 
 
     protected:
+      // Task group ID
       shared_ptr<string> groupId_ {};
+      // No acknowledgement is received after a hit.
       shared_ptr<int32_t> hitAfterNoAnswer_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Intent ID
       shared_ptr<string> intentId_ {};
+      // Intent name
       shared_ptr<string> intentName_ {};
     };
 
@@ -311,12 +328,23 @@ namespace Models
 
 
     protected:
+      // Task group ID
       shared_ptr<string> groupId_ {};
+      // Hit after no acknowledgement
       shared_ptr<int32_t> hitAfterNoAnswer_ {};
+      // Hit count
       shared_ptr<int32_t> hitNum_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Intent ID
       shared_ptr<string> intentId_ {};
+      // Intent name
       shared_ptr<string> intentName_ {};
+      // Type
+      // 
+      // GlobalIntent(0): Global intent
+      // 
+      // ProcessIntent(1): Flow intent
       shared_ptr<string> type_ {};
     };
 
@@ -415,17 +443,29 @@ namespace Models
 
 
   protected:
+    // API status code
     shared_ptr<string> code_ {};
+    // Total count of global intents
     shared_ptr<int32_t> globalIntentNum_ {};
+    // Global intent array
     shared_ptr<vector<DescribeIntentStatisticsResponseBody::GlobalIntents>> globalIntents_ {};
+    // Group ID of the instance.
     shared_ptr<string> groupId_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // Rejected intent information list
     shared_ptr<vector<DescribeIntentStatisticsResponseBody::IntentsAfterNoAnswer>> intentsAfterNoAnswer_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Total count of flow intents
     shared_ptr<int32_t> processIntentNum_ {};
+    // Intent information list
     shared_ptr<vector<DescribeIntentStatisticsResponseBody::ProcessIntents>> processIntents_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Success
     shared_ptr<bool> success_ {};
   };
 

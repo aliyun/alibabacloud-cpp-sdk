@@ -71,8 +71,12 @@ namespace Models
 
 
     protected:
+      // The intent ID.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> intentId_ {};
+      // Intent configuration
+      // 
       // This parameter is required.
       shared_ptr<string> ruleText_ {};
     };
@@ -103,10 +107,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The LGF definition.
+    // 
     // This parameter is required.
     shared_ptr<CreateBeebotIntentLgfRequest::LgfDefinition> lgfDefinition_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

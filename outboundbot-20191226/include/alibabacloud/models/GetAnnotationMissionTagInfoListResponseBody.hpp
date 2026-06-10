@@ -137,11 +137,17 @@ namespace Models
 
 
       protected:
+        // Tag description
         shared_ptr<string> annotationMissionTagInfoDescription_ {};
+        // Tag ID
         shared_ptr<string> annotationMissionTagInfoId_ {};
+        // Tag name
         shared_ptr<string> annotationMissionTagInfoName_ {};
+        // Indicates whether the tag is deleted. A value of true indicates that the tag is deleted.
         shared_ptr<bool> delete_ {};
+        // Instance ID
         shared_ptr<string> instanceId_ {};
+        // Tenant ID
         shared_ptr<string> tenantId_ {};
       };
 
@@ -171,8 +177,11 @@ namespace Models
 
 
     protected:
+      // Tag list
       shared_ptr<vector<Data::AnnotationMissionTagInfoList>> annotationMissionTagInfoList_ {};
+      // Response message
       shared_ptr<string> message_ {};
+      // Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
       shared_ptr<bool> success_ {};
     };
 
@@ -223,11 +232,17 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Response data
     shared_ptr<GetAnnotationMissionTagInfoListResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

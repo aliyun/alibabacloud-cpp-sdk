@@ -165,7 +165,9 @@ namespace Models
 
 
       protected:
+        // Label name
         shared_ptr<string> k_ {};
+        // Matched label value
         shared_ptr<string> v_ {};
       };
 
@@ -391,35 +393,313 @@ namespace Models
 
 
     protected:
+      // Actual execution time
       shared_ptr<int64_t> actualTime_ {};
+      // Call duration, in milliseconds
       shared_ptr<int32_t> callDuration_ {};
+      // Call duration
       shared_ptr<string> callDurationDisplay_ {};
+      // Called number
       shared_ptr<string> calledNumber_ {};
+      // Calling number
       shared_ptr<string> callingNumber_ {};
+      // Exception details
       shared_ptr<string> dialException_ {};
+      // Exception codes shown on the remarks page
       shared_ptr<vector<string>> dialExceptionCodes_ {};
+      // Exception details
       shared_ptr<string> dialExceptionOld_ {};
+      // Indicates whether the called party answered
       shared_ptr<bool> hasAnswered_ {};
+      // Indicates whether the call ended due to rejection
       shared_ptr<bool> hasHangUpByRejection_ {};
+      // Indicates whether the last audio playback completed before hangup
       shared_ptr<bool> hasLastPlaybackCompleted_ {};
+      // Indicates whether the conversation ended
       shared_ptr<bool> hasReachedEndOfFlow_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Job group ID
       shared_ptr<string> jobGroupId_ {};
+      // Job group name
       shared_ptr<string> jobGroupName_ {};
+      // Job ID
       shared_ptr<string> jobId_ {};
+      // Job status
+      // 
+      // - 0: Scheduling
+      // 
+      // - 1: Executing
+      // 
+      // - 2: Succeeded
+      // 
+      // - 3: Paused
+      // 
+      // - 4: Failed
+      // 
+      // - 5: Cancelled
       shared_ptr<int32_t> jobStatus_ {};
+      // Display text for job status
+      // 
+      // - 0: Scheduling
+      // 
+      // - 1: Executing
+      // 
+      // - 2: Succeeded
+      // 
+      // - 3: Paused
+      // 
+      // - 4: Failed
+      // 
+      // - 5: Cancelled
       shared_ptr<string> jobStatusName_ {};
+      // Job status
+      // 
+      // - Scheduling (0)
+      // 
+      // - Executing (1)
+      // 
+      // - Completed—Reached (2)
+      // 
+      // - Paused (3)
+      // 
+      // - Failed—Line busy (4)
+      // 
+      // - Cancelled (5)
       shared_ptr<string> jobStatusString_ {};
+      // Labels matched for this outbound call
       shared_ptr<vector<SearchTaskInfoList::Labels>> labels_ {};
+      // Ringing duration, in seconds
       shared_ptr<int32_t> recordingDuration_ {};
+      // Scenario name
       shared_ptr<string> scriptName_ {};
+      // Task creation time
       shared_ptr<int64_t> taskCreateTime_ {};
+      // Reason why the task ended
+      // 
+      // - FINISHED(1,"Normal completion")
+      // 
+      // - CHATBOT_HANGUP_AFTER_NOANSWER(2, "Robot hangup after rejection")
+      // 
+      // - CHATBOT_HANGUP_AFTER_SILENCE(3, "Robot hangup after silence timeout")
+      // 
+      // - CLIENT_HANGUP_AFTER_NOANSWER(4, "Client hangup after rejection")
+      // 
+      // - CLIENT_HANGUP(5, "Client hangup without reason")
+      // 
+      // - TRANSFER_BY_INTENT(6, "Transfer to agent based on intent match")
+      // 
+      // - TRANSFER_AFTER_NOANSWER(7, "Transfer to agent after rejection")
+      // 
+      // - INO_INTERACTION(8, "No interaction from client side")
+      // 
+      // - ERROR(9, "System error interrupted")
+      // 
+      // - SPECIAL_INTERCEPT_VOICE_ASSISTANT(10, "Intercepted by voice assistant")
+      // 
+      // - SPECIAL_INTERCEPT_EXTENSION_NUMBER_TRANSFER(11, "Intercepted by extension transfer")
       shared_ptr<int32_t> taskEndReason_ {};
+      // Task ID
       shared_ptr<string> taskId_ {};
+      // Valid values:
+      // 
+      // - **Executing**: 0 (Calling).
+      // 
+      // - **Succeeded**: 1 (Connected).
+      // 
+      // - **NoAnswer**: 2 (No answer).
+      // 
+      // - **NotExist**: 3 (Nonexistent number).
+      // 
+      // - **Busy**: 4 (Line busy).
+      // 
+      // - **Cancelled**: 5 (Call canceled due to job stop).
+      // 
+      // - **Failed**: 6 (Call failed).
+      // 
+      // - **NotConnected**: 7 (Cannot connect).
+      // 
+      // - **PoweredOff**: 8 (Phone powered off).
+      // 
+      // - **OutOfService**: 9 (Called number out of service).
+      // 
+      // - **InArrears**: 10 (Called number overdue payment).
+      // 
+      // - **EmptyNumber**: 11 (Empty number, no outbound call).
+      // 
+      // - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
+      // 
+      // - **ContactBlockList**: 13 (Blacklisted).
+      // 
+      // - **CallerNotRegistered**: 14 (Caller number not registered).
+      // 
+      // - **Terminated**: 15 (Call terminated).
+      // 
+      // - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
+      // 
+      // - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
+      // 
+      // - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
+      // 
+      // - **CallingNumberNotExist**: 19 (Caller number does not exist).
+      // 
+      // - **SucceededFinish**: 20 (Connected and ended normally).
+      // 
+      // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
+      // 
+      // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
+      // 
+      // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
+      // 
+      // - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
+      // 
+      // - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
+      // 
+      // - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
+      // 
+      // - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
+      // 
+      // - **SucceededError**: 28 (Connected but system error interrupted).
+      // 
+      // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
+      // 
+      // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
       shared_ptr<int32_t> taskStatus_ {};
+      // Display text for task status
+      // 
+      // - **Executing**: 0 (Calling).
+      // 
+      // - **Succeeded**: 1 (Connected).
+      // 
+      // - **NoAnswer**: 2 (No answer).
+      // 
+      // - **NotExist**: 3 (Nonexistent number).
+      // 
+      // - **Busy**: 4 (Line busy).
+      // 
+      // - **Cancelled**: 5 (Call canceled due to job stop).
+      // 
+      // - **Failed**: 6 (Call failed).
+      // 
+      // - **NotConnected**: 7 (Cannot connect).
+      // 
+      // - **PoweredOff**: 8 (Phone powered off).
+      // 
+      // - **OutOfService**: 9 (Called number out of service).
+      // 
+      // - **InArrears**: 10 (Called number overdue payment).
+      // 
+      // - **EmptyNumber**: 11 (Empty number, no outbound call).
+      // 
+      // - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
+      // 
+      // - **ContactBlockList**: 13 (Blacklisted).
+      // 
+      // - **CallerNotRegistered**: 14 (Caller number not registered).
+      // 
+      // - **Terminated**: 15 (Call terminated).
+      // 
+      // - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
+      // 
+      // - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
+      // 
+      // - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
+      // 
+      // - **CallingNumberNotExist**: 19 (Caller number does not exist).
+      // 
+      // - **SucceededFinish**: 20 (Connected and ended normally).
+      // 
+      // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
+      // 
+      // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
+      // 
+      // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
+      // 
+      // - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
+      // 
+      // - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
+      // 
+      // - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
+      // 
+      // - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
+      // 
+      // - **SucceededError**: 28 (Connected but system error interrupted).
+      // 
+      // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
+      // 
+      // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
       shared_ptr<string> taskStatusName_ {};
+      // Task status
+      // 
+      // - **Executing**: 0 (Calling).
+      // 
+      // - **Succeeded**: 1 (Connected).
+      // 
+      // - **NoAnswer**: 2 (No answer).
+      // 
+      // - **NotExist**: 3 (Nonexistent number).
+      // 
+      // - **Busy**: 4 (Line busy).
+      // 
+      // - **Cancelled**: 5 (Call canceled due to job stop).
+      // 
+      // - **Failed**: 6 (Call failed).
+      // 
+      // - **NotConnected**: 7 (Cannot connect).
+      // 
+      // - **PoweredOff**: 8 (Phone powered off).
+      // 
+      // - **OutOfService**: 9 (Called number out of service).
+      // 
+      // - **InArrears**: 10 (Called number overdue payment).
+      // 
+      // - **EmptyNumber**: 11 (Empty number, no outbound call).
+      // 
+      // - **PerDayCallCountLimit**: 12 (Daily call limit exceeded).
+      // 
+      // - **ContactBlockList**: 13 (Blacklisted).
+      // 
+      // - **CallerNotRegistered**: 14 (Caller number not registered).
+      // 
+      // - **Terminated**: 15 (Call terminated).
+      // 
+      // - **VerificationCancelled**: 16 (Call canceled due to pre-call validation failure).
+      // 
+      // - **OutOfServiceNoCall**: 17 (Called number out of service, no outbound call).
+      // 
+      // - **InArrearsNoCall**: 18 (Called number overdue payment, no outbound call).
+      // 
+      // - **CallingNumberNotExist**: 19 (Caller number does not exist).
+      // 
+      // - **SucceededFinish**: 20 (Connected and ended normally).
+      // 
+      // - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected and robot hung up after rejection).
+      // 
+      // - **SucceededChatbotHangUpAfterSilence**: 22 (Connected and robot hung up after silence timeout).
+      // 
+      // - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected and client hung up after rejection).
+      // 
+      // - **SucceededClientHangUp**: 24 (Connected and client hung up without reason).
+      // 
+      // - **SucceededTransferByIntent**: 25 (Connected and transferred to agent based on intent match).
+      // 
+      // - **SucceededTransferAfterNoAnswer**: 26 (Connected and transferred to agent after rejection).
+      // 
+      // - **SucceededInoInterAction**: 27 (Connected and no interaction from client side).
+      // 
+      // - **SucceededError**: 28 (Connected but system error interrupted).
+      // 
+      // - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected but intercepted by voice assistant).
+      // 
+      // - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected but intercepted by extension transfer).
+      // 
+      // - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected but intercepted by custom rule).
+      // 
+      // - **HighRiskSipCode**: 32 (High-risk SIP code, no outbound call).
       shared_ptr<string> taskStatusString_ {};
+      // User ID
       shared_ptr<string> userId_ {};
+      // Username
       shared_ptr<string> userName_ {};
     };
 
@@ -463,7 +743,9 @@ namespace Models
 
 
     protected:
+      // Label name
       shared_ptr<string> name_ {};
+      // List of label values
       shared_ptr<vector<string>> valueList_ {};
     };
 
@@ -554,16 +836,29 @@ namespace Models
 
 
   protected:
+    // Request status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Labels available for filtering.
+    // 
+    // > Displays all labels with enumeration values in this job group.
     shared_ptr<vector<SearchTaskResponseBody::Labels>> labels_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // Page number
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of items per page
     shared_ptr<int32_t> pageSize_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // List of tasks
     shared_ptr<vector<SearchTaskResponseBody::SearchTaskInfoList>> searchTaskInfoList_ {};
+    // Indicates whether the request succeeded
     shared_ptr<bool> success_ {};
+    // Total number of items
     shared_ptr<int64_t> total_ {};
+    // Complete list of label keys
     shared_ptr<vector<string>> variableNames_ {};
   };
 

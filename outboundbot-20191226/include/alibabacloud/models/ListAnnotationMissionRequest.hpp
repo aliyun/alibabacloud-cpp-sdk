@@ -115,14 +115,31 @@ namespace Models
 
 
   protected:
+    // Annotation mission ID
     shared_ptr<string> annotationMissionId_ {};
+    // Annotation mission name
     shared_ptr<string> annotationMissionName_ {};
+    // Annotation status filter. Deprecated.
     shared_ptr<vector<int32_t>> annotationStatusListFilter_ {};
+    // Annotation status filter
+    // 
+    // > Format: [1]. You can specify multiple values. Valid values:
+    // 
+    // - 1: In progress
+    // 
+    // - 2: Completed
+    // 
+    // - 3: Closed
     shared_ptr<string> annotationStatusListStringFilter_ {};
+    // End time of the annotation mission creation filter
     shared_ptr<int64_t> createTimeEndFilter_ {};
+    // Start time of the annotation mission creation filter
     shared_ptr<int64_t> createTimeStartFilter_ {};
+    // Instance ID
     shared_ptr<string> instanceId_ {};
+    // Page number
     shared_ptr<int32_t> pageIndex_ {};
+    // Number of entries per page
     shared_ptr<int32_t> pageSize_ {};
   };
 

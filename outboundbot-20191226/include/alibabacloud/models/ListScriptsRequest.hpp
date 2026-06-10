@@ -75,13 +75,29 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The NLU engine.
+    // 
+    // - Leave this parameter empty to query scripts that use small models.
+    // 
+    // - Set this parameter to `Prompts` to query scripts that use the text completion mode of a large model.
+    // 
+    // - Set this parameter to `SSE_FUNCTION` to query scripts that use the function calling mode of a large model.
+    // 
+    // - Set this parameter to `BeeBot` to query scripts that use the workflow configuration mode of a large model.
     shared_ptr<string> nluEngine_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the script.
     shared_ptr<string> scriptName_ {};
   };
 

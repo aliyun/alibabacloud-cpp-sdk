@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // File name, including the extension
     shared_ptr<string> fileName_ {};
+    // Upload URL key
     shared_ptr<string> key_ {};
   };
 

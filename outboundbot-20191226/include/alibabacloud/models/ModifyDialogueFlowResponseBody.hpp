@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The JSON string that defines the dialogue flow.
     shared_ptr<string> dialogueFlowDefinition_ {};
+    // The dialogue flow ID.
     shared_ptr<string> dialogueFlowId_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

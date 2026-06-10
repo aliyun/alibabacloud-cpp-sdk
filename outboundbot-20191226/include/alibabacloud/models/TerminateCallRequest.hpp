@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // ID of the call.
+    // 
+    // > You can get this ID by calling the DescribeJob operation.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

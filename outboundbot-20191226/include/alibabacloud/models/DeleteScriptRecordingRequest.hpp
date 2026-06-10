@@ -57,10 +57,17 @@ namespace Models
 
 
   protected:
+    // The ID of the instance to which the recording belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the scenario to which the recording belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
+    // A list of recording IDs. If this parameter is empty, all recordings are selected by default.
+    // 
+    // > Obtain the recording IDs from the ListScriptRecording operation.
     shared_ptr<string> uuidsJson_ {};
   };
 

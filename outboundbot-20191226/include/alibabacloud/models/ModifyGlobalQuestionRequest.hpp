@@ -94,18 +94,32 @@ namespace Models
 
 
   protected:
+    // A JSON string containing an array of answers.
+    // 
     // This parameter is required.
     shared_ptr<string> answers_ {};
+    // The unique ID of the global question.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionId_ {};
+    // The global question name.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionName_ {};
+    // The global question type.
+    // 
     // This parameter is required.
     shared_ptr<string> globalQuestionType_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A JSON string containing an array of questions.
+    // 
     // This parameter is required.
     shared_ptr<string> questions_ {};
+    // The script ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

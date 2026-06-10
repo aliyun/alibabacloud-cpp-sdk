@@ -87,12 +87,21 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Make outbound calls only on weekdays. Defaults to false.
     shared_ptr<bool> onlyWeekdays_ {};
+    // Make outbound calls only on non-holiday days. Defaults to false.
     shared_ptr<bool> onlyWorkdays_ {};
+    // Policy level (required)
+    // 
+    // - 2: Instance
     shared_ptr<int32_t> strategyLevel_ {};
+    // Running time (deprecated)
     shared_ptr<vector<string>> workingTime_ {};
+    // Running time
     shared_ptr<string> workingTimeFramesJson_ {};
   };
 

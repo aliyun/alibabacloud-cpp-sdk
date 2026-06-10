@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the job.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Specifies whether to return the script.
     shared_ptr<bool> withScript_ {};
   };
 

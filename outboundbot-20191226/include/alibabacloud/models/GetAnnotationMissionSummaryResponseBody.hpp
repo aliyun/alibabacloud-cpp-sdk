@@ -126,7 +126,9 @@ namespace Models
 
 
         protected:
+          // The number of tags.
           shared_ptr<int32_t> count_ {};
+          // The name of the tag.
           shared_ptr<string> name_ {};
         };
 
@@ -141,6 +143,7 @@ namespace Models
 
 
       protected:
+        // The list of tags.
         shared_ptr<vector<TagSummaryInfo::TagSummaryInfoDetailList>> tagSummaryInfoDetailList_ {};
       };
 
@@ -237,13 +240,21 @@ namespace Models
 
 
       protected:
+        // The number of correct chats.
         shared_ptr<int32_t> annotationCorrectCount_ {};
+        // Invalid data
         shared_ptr<int32_t> annotationInvalid_ {};
+        // The total number of chats.
         shared_ptr<int32_t> chatTotalCount_ {};
+        // The number of conversations.
         shared_ptr<int32_t> intentUserSayCount_ {};
+        // The number of uncovered intents.
         shared_ptr<int32_t> intentionNotCoveredCount_ {};
+        // The number of detection errors.
         shared_ptr<int32_t> matchErrorCount_ {};
+        // Not annotated.
         shared_ptr<int32_t> noAnnotation_ {};
+        // The number of translations that were not recognized.
         shared_ptr<int32_t> translationUnrecognizedCount_ {};
       };
 
@@ -349,14 +360,23 @@ namespace Models
 
 
       protected:
+        // The number of times language model data was added.
         shared_ptr<int32_t> addCustomizationDataCount_ {};
+        // The number of times hotwords were added.
         shared_ptr<int32_t> addVocabularyDataCount_ {};
+        // Data is invalid.
         shared_ptr<int32_t> annotationInvalid_ {};
+        // The character accuracy rate. Unit: 0.01%.
         shared_ptr<int32_t> characterCorrectRate_ {};
+        // The character error rate. Unit: 0.01%.
         shared_ptr<int32_t> characterErrorRate_ {};
+        // The total number of chats.
         shared_ptr<int32_t> chatTotalCount_ {};
+        // Not annotated.
         shared_ptr<int32_t> noAnnotation_ {};
+        // The sentence error rate. Unit: 0.01%.
         shared_ptr<int32_t> sentenceErrorRate_ {};
+        // The word error rate. Unit: 0.01%. This parameter is typically used for English.
         shared_ptr<int32_t> wordErrorRate_ {};
       };
 
@@ -411,11 +431,17 @@ namespace Models
 
 
     protected:
+      // The ID of the annotation task.
       shared_ptr<string> annotationMissionId_ {};
+      // The statistics of speech annotation.
       shared_ptr<Data::AsrSummaryInfo> asrSummaryInfo_ {};
+      // The statistics of semantic tagging.
       shared_ptr<Data::IntentSummaryInfo> intentSummaryInfo_ {};
+      // The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
       shared_ptr<string> message_ {};
+      // Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
       shared_ptr<bool> success_ {};
+      // The custom tags and their quantities.
       shared_ptr<Data::TagSummaryInfo> tagSummaryInfo_ {};
     };
 
@@ -466,11 +492,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<GetAnnotationMissionSummaryResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
     shared_ptr<bool> success_ {};
   };
 

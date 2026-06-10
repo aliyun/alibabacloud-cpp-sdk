@@ -71,7 +71,12 @@ namespace Models
 
 
     protected:
+      // The intent alias.
       shared_ptr<string> aliasName_ {};
+      // The intent name.
+      // 
+      // > This is the intent code. It serves as a unique identifier.
+      // 
       // This parameter is required.
       shared_ptr<string> intentName_ {};
     };
@@ -102,10 +107,16 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The description of the intent.
+    // 
     // This parameter is required.
     shared_ptr<CreateBeebotIntentRequest::IntentDefinition> intentDefinition_ {};
+    // The scenario ID.
+    // 
     // This parameter is required.
     shared_ptr<string> scriptId_ {};
   };

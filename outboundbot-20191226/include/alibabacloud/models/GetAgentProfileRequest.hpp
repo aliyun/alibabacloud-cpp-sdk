@@ -57,9 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the agent configuration.
+    // 
+    // > The agent configuration ID for a created scenario is available in the ChatbotId parameter returned by the DescribeScript operation.
+    // 
     // This parameter is required.
     shared_ptr<string> agentProfileId_ {};
+    // The IP address of the application. This is a system field and is optional.
     shared_ptr<string> appIp_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

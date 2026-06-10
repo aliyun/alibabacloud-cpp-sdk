@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The name of the recording file, typically a universally unique identifier (UUID).
       shared_ptr<string> fileName_ {};
+      // The signed URL for downloading the recording file.
       shared_ptr<string> signatureUrl_ {};
+      // A JSON-formatted string that contains a list of voice slice recordings. Each item in the list includes the file name and URL of a slice.
       shared_ptr<string> voiceSliceRecordingListJson_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // Download parameters for the recording file.
     shared_ptr<DownloadRecordingResponseBody::DownloadParams> downloadParams_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

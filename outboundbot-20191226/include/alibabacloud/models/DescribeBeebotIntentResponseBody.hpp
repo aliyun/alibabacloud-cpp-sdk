@@ -145,14 +145,23 @@ namespace Models
 
 
     protected:
+      // Intent alias
       shared_ptr<string> aliasName_ {};
+      // Creation time
       shared_ptr<string> createTime_ {};
+      // Creator user ID
       shared_ptr<string> createUserId_ {};
+      // Creator account name
       shared_ptr<string> createUserName_ {};
+      // Intent ID
       shared_ptr<int64_t> intentId_ {};
+      // Intent name
       shared_ptr<string> intentName_ {};
+      // Modification time
       shared_ptr<string> modifyTime_ {};
+      // Modifier user ID
       shared_ptr<string> modifyUserId_ {};
+      // Modifier account name
       shared_ptr<string> modifyUserName_ {};
     };
 
@@ -218,13 +227,21 @@ namespace Models
 
 
   protected:
+    // Internal request ID
     shared_ptr<string> beebotRequestId_ {};
+    // API status code
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Intent information
     shared_ptr<DescribeBeebotIntentResponseBody::Intent> intent_ {};
+    // Intent ID
     shared_ptr<int64_t> intentId_ {};
+    // API message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded
     shared_ptr<bool> success_ {};
   };
 

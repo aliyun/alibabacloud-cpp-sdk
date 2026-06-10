@@ -150,14 +150,25 @@ namespace Models
 
 
     protected:
+      // The intent alias.
       shared_ptr<string> aliasName_ {};
+      // The time when the intent was created.
       shared_ptr<string> createTime_ {};
+      // The ID of the user who created the intent.
       shared_ptr<string> createUserId_ {};
+      // The name of the account that created the intent.
       shared_ptr<string> createUserName_ {};
+      // The intent ID.
       shared_ptr<int64_t> intentId_ {};
+      // The intent name.
+      // 
+      // > This is the intent code. It uniquely identifies the intent.
       shared_ptr<string> intentName_ {};
+      // The time when the intent was last modified.
       shared_ptr<string> modifyTime_ {};
+      // Modify User ID
       shared_ptr<string> modifyUserId_ {};
+      // Modify the account name.
       shared_ptr<string> modifyUserName_ {};
     };
 
@@ -237,15 +248,25 @@ namespace Models
 
 
   protected:
+    // The internal request ID.
     shared_ptr<string> beebotRequestId_ {};
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of intents.
     shared_ptr<vector<ListBeebotIntentResponseBody::Intents>> intents_ {};
+    // The message returned by the operation.
     shared_ptr<string> message_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries returned on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call succeeded.
     shared_ptr<bool> success_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

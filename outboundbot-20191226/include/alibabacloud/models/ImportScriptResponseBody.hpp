@@ -84,11 +84,21 @@ namespace Models
 
 
   protected:
+    // API status code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // API message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Outbound scenario ID.
     shared_ptr<string> scriptId_ {};
+    // Indicates whether the call succeeded.
+    // 
+    // - **true**: The call succeeded.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

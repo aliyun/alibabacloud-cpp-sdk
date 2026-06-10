@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Script recording data
+    // 
     // This parameter is required.
     shared_ptr<string> mergedRecording_ {};
+    // Script recording data
     shared_ptr<string> resourceRecording_ {};
+    // Task ID
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

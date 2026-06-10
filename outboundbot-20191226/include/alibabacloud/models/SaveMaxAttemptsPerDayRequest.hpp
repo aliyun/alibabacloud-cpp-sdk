@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> entryId_ {};
+    // Daily maximum redial attempts. Default is 3 if not specified.
     shared_ptr<int32_t> maxAttemptsPerDay_ {};
+    // Policy level (required)
+    // 
+    // - 2: Instance
     shared_ptr<int32_t> strategyLevel_ {};
   };
 

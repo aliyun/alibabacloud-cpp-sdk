@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // Resource ID
       shared_ptr<string> resourceId_ {};
+      // Resource type
       shared_ptr<string> resourceType_ {};
+      // Tag key
       shared_ptr<string> tagKey_ {};
+      // Tag value
       shared_ptr<string> tagValue_ {};
     };
 
@@ -159,12 +163,19 @@ namespace Models
 
 
   protected:
+    // The status code of the API
     shared_ptr<string> code_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message of the API
     shared_ptr<string> message_ {};
+    // The token to start the next query
     shared_ptr<string> nextToken_ {};
+    // The request ID
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful
     shared_ptr<bool> success_ {};
+    // Resources
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

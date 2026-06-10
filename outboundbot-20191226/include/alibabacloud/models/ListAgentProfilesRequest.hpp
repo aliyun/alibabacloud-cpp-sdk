@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The IP address of the application. This is an optional system field.
     shared_ptr<string> appIp_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The scenario ID.
     shared_ptr<string> scriptId_ {};
   };
 

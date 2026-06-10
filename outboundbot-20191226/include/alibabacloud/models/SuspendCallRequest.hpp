@@ -60,8 +60,12 @@ namespace Models
 
 
   protected:
+    // The list of called numbers.
     shared_ptr<vector<string>> calledNumbers_ {};
+    // The task group ID. This parameter is required.
     shared_ptr<string> groupId_ {};
+    // The instance ID. This parameter is required.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };
