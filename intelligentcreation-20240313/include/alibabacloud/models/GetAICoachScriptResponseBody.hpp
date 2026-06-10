@@ -423,6 +423,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(pointId, pointId_);
         DARABONBA_PTR_TO_JSON(questionDescription, questionDescription_);
+        DARABONBA_PTR_TO_JSON(questionSample, questionSample_);
         DARABONBA_PTR_TO_JSON(scriptPointId, scriptPointId_);
         DARABONBA_PTR_TO_JSON(sortNo, sortNo_);
         DARABONBA_PTR_TO_JSON(weight, weight_);
@@ -433,6 +434,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(pointId, pointId_);
         DARABONBA_PTR_FROM_JSON(questionDescription, questionDescription_);
+        DARABONBA_PTR_FROM_JSON(questionSample, questionSample_);
         DARABONBA_PTR_FROM_JSON(scriptPointId, scriptPointId_);
         DARABONBA_PTR_FROM_JSON(sortNo, sortNo_);
         DARABONBA_PTR_FROM_JSON(weight, weight_);
@@ -749,8 +751,8 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->answerList_ == nullptr
-        && this->knowledgeList_ == nullptr && this->name_ == nullptr && this->pointId_ == nullptr && this->questionDescription_ == nullptr && this->scriptPointId_ == nullptr
-        && this->sortNo_ == nullptr && this->weight_ == nullptr; };
+        && this->knowledgeList_ == nullptr && this->name_ == nullptr && this->pointId_ == nullptr && this->questionDescription_ == nullptr && this->questionSample_ == nullptr
+        && this->scriptPointId_ == nullptr && this->sortNo_ == nullptr && this->weight_ == nullptr; };
       // answerList Field Functions 
       bool hasAnswerList() const { return this->answerList_ != nullptr;};
       void deleteAnswerList() { this->answerList_ = nullptr;};
@@ -790,6 +792,13 @@ namespace Models
       inline Points& setQuestionDescription(string questionDescription) { DARABONBA_PTR_SET_VALUE(questionDescription_, questionDescription) };
 
 
+      // questionSample Field Functions 
+      bool hasQuestionSample() const { return this->questionSample_ != nullptr;};
+      void deleteQuestionSample() { this->questionSample_ = nullptr;};
+      inline string getQuestionSample() const { DARABONBA_PTR_GET_DEFAULT(questionSample_, "") };
+      inline Points& setQuestionSample(string questionSample) { DARABONBA_PTR_SET_VALUE(questionSample_, questionSample) };
+
+
       // scriptPointId Field Functions 
       bool hasScriptPointId() const { return this->scriptPointId_ != nullptr;};
       void deleteScriptPointId() { this->scriptPointId_ = nullptr;};
@@ -817,6 +826,7 @@ namespace Models
       shared_ptr<string> name_ {};
       shared_ptr<string> pointId_ {};
       shared_ptr<string> questionDescription_ {};
+      shared_ptr<string> questionSample_ {};
       shared_ptr<string> scriptPointId_ {};
       shared_ptr<int32_t> sortNo_ {};
       shared_ptr<int32_t> weight_ {};
