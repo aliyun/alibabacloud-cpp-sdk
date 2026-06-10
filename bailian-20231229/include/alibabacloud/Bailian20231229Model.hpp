@@ -68,6 +68,10 @@
 #include <alibabacloud/models/DeleteFileRequest.hpp>
 #include <alibabacloud/models/DeleteFileResponseBody.hpp>
 #include <alibabacloud/models/DeleteFileResponse.hpp>
+#include <alibabacloud/models/DeleteFilesRequest.hpp>
+#include <alibabacloud/models/DeleteFilesShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteFilesResponseBody.hpp>
+#include <alibabacloud/models/DeleteFilesResponse.hpp>
 #include <alibabacloud/models/DeleteIndexRequest.hpp>
 #include <alibabacloud/models/DeleteIndexResponseBody.hpp>
 #include <alibabacloud/models/DeleteIndexResponse.hpp>

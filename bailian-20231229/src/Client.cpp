@@ -1298,6 +1298,57 @@ DeleteFileResponse Client::deleteFile(const string &FileId, const string &Worksp
 }
 
 /**
+ * @summary 批量删除文档
+ *
+ * @param tmpReq DeleteFilesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteFilesResponse
+ */
+DeleteFilesResponse Client::deleteFilesWithOptions(const string &WorkspaceId, const DeleteFilesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteFilesShrinkRequest request = DeleteFilesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasFileIds()) {
+    request.setFileIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFileIds(), "FileIds", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasFileIdsShrink()) {
+    body["FileIds"] = request.getFileIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "DeleteFiles"},
+    {"version" , "2023-12-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(WorkspaceId) , "/datacenter/file/delete")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteFilesResponse>();
+}
+
+/**
+ * @summary 批量删除文档
+ *
+ * @param request DeleteFilesRequest
+ * @return DeleteFilesResponse
+ */
+DeleteFilesResponse Client::deleteFiles(const string &WorkspaceId, const DeleteFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteFilesWithOptions(WorkspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Deletes a specified knowledge base permanently.
  *
  * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.

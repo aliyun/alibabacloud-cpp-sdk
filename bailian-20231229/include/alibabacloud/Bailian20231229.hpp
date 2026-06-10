@@ -439,6 +439,24 @@ namespace Bailian20231229
       Models::DeleteFileResponse deleteFile(const string &FileId, const string &WorkspaceId, const Models::DeleteFileRequest &request);
 
       /**
+       * @summary 批量删除文档
+       *
+       * @param tmpReq DeleteFilesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteFilesResponse
+       */
+      Models::DeleteFilesResponse deleteFilesWithOptions(const string &WorkspaceId, const Models::DeleteFilesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量删除文档
+       *
+       * @param request DeleteFilesRequest
+       * @return DeleteFilesResponse
+       */
+      Models::DeleteFilesResponse deleteFiles(const string &WorkspaceId, const Models::DeleteFilesRequest &request);
+
+      /**
        * @summary Deletes a specified knowledge base permanently.
        *
        * @description *   Before you call this operation, make sure that your knowledge base is created and is not deleted. That is, the primary key ID of the knowledge base `IndexId` is valid.
