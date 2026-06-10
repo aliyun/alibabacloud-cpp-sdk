@@ -4,9 +4,10 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/AssignNodeSpec.hpp>
 #include <alibabacloud/models/AutoScalingSpec.hpp>
+#include <vector>
+#include <alibabacloud/models/ElasticSpotSpec.hpp>
 #include <alibabacloud/models/ExtraPodSpec.hpp>
 #include <alibabacloud/models/ImageConfig.hpp>
-#include <vector>
 #include <alibabacloud/models/LocalMountSpec.hpp>
 #include <alibabacloud/models/ResourceConfig.hpp>
 #include <alibabacloud/models/ServiceSpec.hpp>
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoScalingSpec, autoScalingSpec_);
       DARABONBA_PTR_TO_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
       DARABONBA_PTR_TO_JSON(EcsSpec, ecsSpec_);
+      DARABONBA_PTR_TO_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_TO_JSON(ExtraPodSpec, extraPodSpec_);
       DARABONBA_PTR_TO_JSON(Image, image_);
       DARABONBA_PTR_TO_JSON(ImageConfig, imageConfig_);
@@ -50,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoScalingSpec, autoScalingSpec_);
       DARABONBA_PTR_FROM_JSON(ConsiderInSuccessPolicy, considerInSuccessPolicy_);
       DARABONBA_PTR_FROM_JSON(EcsSpec, ecsSpec_);
+      DARABONBA_PTR_FROM_JSON(ElasticSpotSpecs, elasticSpotSpecs_);
       DARABONBA_PTR_FROM_JSON(ExtraPodSpec, extraPodSpec_);
       DARABONBA_PTR_FROM_JSON(Image, image_);
       DARABONBA_PTR_FROM_JSON(ImageConfig, imageConfig_);
@@ -79,10 +82,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->assignNodeSpec_ == nullptr
-        && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->ecsSpec_ == nullptr && this->extraPodSpec_ == nullptr && this->image_ == nullptr
-        && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->podCount_ == nullptr
-        && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr
-        && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->autoScalingSpec_ == nullptr && this->considerInSuccessPolicy_ == nullptr && this->ecsSpec_ == nullptr && this->elasticSpotSpecs_ == nullptr && this->extraPodSpec_ == nullptr
+        && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr
+        && this->podCount_ == nullptr && this->quotaId_ == nullptr && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr
+        && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -113,6 +116,15 @@ namespace Models
     void deleteEcsSpec() { this->ecsSpec_ = nullptr;};
     inline string getEcsSpec() const { DARABONBA_PTR_GET_DEFAULT(ecsSpec_, "") };
     inline JobSpec& setEcsSpec(string ecsSpec) { DARABONBA_PTR_SET_VALUE(ecsSpec_, ecsSpec) };
+
+
+    // elasticSpotSpecs Field Functions 
+    bool hasElasticSpotSpecs() const { return this->elasticSpotSpecs_ != nullptr;};
+    void deleteElasticSpotSpecs() { this->elasticSpotSpecs_ = nullptr;};
+    inline const vector<ElasticSpotSpec> & getElasticSpotSpecs() const { DARABONBA_PTR_GET_CONST(elasticSpotSpecs_, vector<ElasticSpotSpec>) };
+    inline vector<ElasticSpotSpec> getElasticSpotSpecs() { DARABONBA_PTR_GET(elasticSpotSpecs_, vector<ElasticSpotSpec>) };
+    inline JobSpec& setElasticSpotSpecs(const vector<ElasticSpotSpec> & elasticSpotSpecs) { DARABONBA_PTR_SET_VALUE(elasticSpotSpecs_, elasticSpotSpecs) };
+    inline JobSpec& setElasticSpotSpecs(vector<ElasticSpotSpec> && elasticSpotSpecs) { DARABONBA_PTR_SET_RVALUE(elasticSpotSpecs_, elasticSpotSpecs) };
 
 
     // extraPodSpec Field Functions 
@@ -253,6 +265,7 @@ namespace Models
     // 
     // >  The price varies based on instance types.
     shared_ptr<string> ecsSpec_ {};
+    shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
     // The additional pod configurations.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
     // The address of the image that is run by the worker node. You can call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain the image provided by PAI. You can also specify a third-party public image.

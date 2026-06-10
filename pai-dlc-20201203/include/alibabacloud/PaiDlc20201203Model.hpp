@@ -25,6 +25,7 @@
 #include <alibabacloud/models/DebuggerResult.hpp>
 #include <alibabacloud/models/DownloadJobResult.hpp>
 #include <alibabacloud/models/EcsSpec.hpp>
+#include <alibabacloud/models/ElasticSpotSpec.hpp>
 #include <alibabacloud/models/EventInfo.hpp>
 #include <alibabacloud/models/Lifecycle.hpp>
 #include <alibabacloud/models/SecurityContextCapabilities.hpp>

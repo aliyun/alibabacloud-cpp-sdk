@@ -955,7 +955,7 @@ GetJobTemplateResponse Client::getJobTemplate(const string &TemplateId, const Ge
 }
 
 /**
- * @summary 获取metrics数据
+ * @summary Queries metrics data.
  *
  * @param request GetMetricsRequest
  * @param headers map
@@ -1024,7 +1024,7 @@ GetMetricsResponse Client::getMetricsWithOptions(const GetMetricsRequest &reques
 }
 
 /**
- * @summary 获取metrics数据
+ * @summary Queries metrics data.
  *
  * @param request GetMetricsRequest
  * @return GetMetricsResponse

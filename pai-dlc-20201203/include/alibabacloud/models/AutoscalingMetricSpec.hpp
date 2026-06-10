@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MetricName, metricName_);
       DARABONBA_PTR_TO_JSON(StabilizationWindowSeconds, stabilizationWindowSeconds_);
       DARABONBA_PTR_TO_JSON(TargetValue, targetValue_);
+      DARABONBA_PTR_TO_JSON(Tolerance, tolerance_);
     };
     friend void from_json(const Darabonba::Json& j, AutoscalingMetricSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(MetricName, metricName_);
       DARABONBA_PTR_FROM_JSON(StabilizationWindowSeconds, stabilizationWindowSeconds_);
       DARABONBA_PTR_FROM_JSON(TargetValue, targetValue_);
+      DARABONBA_PTR_FROM_JSON(Tolerance, tolerance_);
     };
     AutoscalingMetricSpec() = default ;
     AutoscalingMetricSpec(const AutoscalingMetricSpec &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->metricName_ == nullptr
-        && this->stabilizationWindowSeconds_ == nullptr && this->targetValue_ == nullptr; };
+        && this->stabilizationWindowSeconds_ == nullptr && this->targetValue_ == nullptr && this->tolerance_ == nullptr; };
     // metricName Field Functions 
     bool hasMetricName() const { return this->metricName_ != nullptr;};
     void deleteMetricName() { this->metricName_ = nullptr;};
@@ -56,10 +58,18 @@ namespace Models
     inline AutoscalingMetricSpec& setTargetValue(int32_t targetValue) { DARABONBA_PTR_SET_VALUE(targetValue_, targetValue) };
 
 
+    // tolerance Field Functions 
+    bool hasTolerance() const { return this->tolerance_ != nullptr;};
+    void deleteTolerance() { this->tolerance_ = nullptr;};
+    inline string getTolerance() const { DARABONBA_PTR_GET_DEFAULT(tolerance_, "") };
+    inline AutoscalingMetricSpec& setTolerance(string tolerance) { DARABONBA_PTR_SET_VALUE(tolerance_, tolerance) };
+
+
   protected:
     shared_ptr<string> metricName_ {};
     shared_ptr<int32_t> stabilizationWindowSeconds_ {};
     shared_ptr<int32_t> targetValue_ {};
+    shared_ptr<string> tolerance_ {};
   };
 
   } // namespace Models

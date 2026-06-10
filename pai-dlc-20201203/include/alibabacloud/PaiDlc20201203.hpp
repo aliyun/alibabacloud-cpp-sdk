@@ -279,7 +279,7 @@ namespace PaiDlc20201203
       Models::GetJobTemplateResponse getJobTemplate(const string &TemplateId, const Models::GetJobTemplateRequest &request);
 
       /**
-       * @summary 获取metrics数据
+       * @summary Queries metrics data.
        *
        * @param request GetMetricsRequest
        * @param headers map
@@ -289,7 +289,7 @@ namespace PaiDlc20201203
       Models::GetMetricsResponse getMetricsWithOptions(const Models::GetMetricsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取metrics数据
+       * @summary Queries metrics data.
        *
        * @param request GetMetricsRequest
        * @return GetMetricsResponse

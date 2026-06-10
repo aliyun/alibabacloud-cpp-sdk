@@ -16,6 +16,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const JobReplicaStatus& obj) { 
       DARABONBA_PTR_TO_JSON(Active, active_);
+      DARABONBA_PTR_TO_JSON(CurrentSpotInstanceType, currentSpotInstanceType_);
       DARABONBA_PTR_TO_JSON(Dequeued, dequeued_);
       DARABONBA_PTR_TO_JSON(EstimatedAutoScalingSpec, estimatedAutoScalingSpec_);
       DARABONBA_PTR_TO_JSON(EstimatedPodCount, estimatedPodCount_);
@@ -25,6 +26,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, JobReplicaStatus& obj) { 
       DARABONBA_PTR_FROM_JSON(Active, active_);
+      DARABONBA_PTR_FROM_JSON(CurrentSpotInstanceType, currentSpotInstanceType_);
       DARABONBA_PTR_FROM_JSON(Dequeued, dequeued_);
       DARABONBA_PTR_FROM_JSON(EstimatedAutoScalingSpec, estimatedAutoScalingSpec_);
       DARABONBA_PTR_FROM_JSON(EstimatedPodCount, estimatedPodCount_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->active_ == nullptr
-        && this->dequeued_ == nullptr && this->estimatedAutoScalingSpec_ == nullptr && this->estimatedPodCount_ == nullptr && this->estimatedResourceConfig_ == nullptr && this->queuing_ == nullptr
-        && this->type_ == nullptr; };
+        && this->currentSpotInstanceType_ == nullptr && this->dequeued_ == nullptr && this->estimatedAutoScalingSpec_ == nullptr && this->estimatedPodCount_ == nullptr && this->estimatedResourceConfig_ == nullptr
+        && this->queuing_ == nullptr && this->type_ == nullptr; };
     // active Field Functions 
     bool hasActive() const { return this->active_ != nullptr;};
     void deleteActive() { this->active_ = nullptr;};
     inline int32_t getActive() const { DARABONBA_PTR_GET_DEFAULT(active_, 0) };
     inline JobReplicaStatus& setActive(int32_t active) { DARABONBA_PTR_SET_VALUE(active_, active) };
+
+
+    // currentSpotInstanceType Field Functions 
+    bool hasCurrentSpotInstanceType() const { return this->currentSpotInstanceType_ != nullptr;};
+    void deleteCurrentSpotInstanceType() { this->currentSpotInstanceType_ = nullptr;};
+    inline string getCurrentSpotInstanceType() const { DARABONBA_PTR_GET_DEFAULT(currentSpotInstanceType_, "") };
+    inline JobReplicaStatus& setCurrentSpotInstanceType(string currentSpotInstanceType) { DARABONBA_PTR_SET_VALUE(currentSpotInstanceType_, currentSpotInstanceType) };
 
 
     // dequeued Field Functions 
@@ -101,6 +110,7 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> active_ {};
+    shared_ptr<string> currentSpotInstanceType_ {};
     shared_ptr<int32_t> dequeued_ {};
     shared_ptr<AutoScalingSpec> estimatedAutoScalingSpec_ {};
     shared_ptr<int64_t> estimatedPodCount_ {};
