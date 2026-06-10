@@ -917,5 +917,58 @@ TextTranslateResponse Client::textTranslate(const TextTranslateRequest &request)
   map<string, string> headers = {};
   return textTranslateWithOptions(request, headers, runtime);
 }
+
+/**
+ * @summary 通义多模态文档翻译查询Usage
+ *
+ * @param request UsageQueryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UsageQueryResponse
+ */
+UsageQueryResponse Client::usageQueryWithOptions(const UsageQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasEndTime()) {
+    body["endTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasStartTime()) {
+    body["startTime"] = request.getStartTime();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UsageQuery"},
+    {"version" , "2025-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/anytrans/translate/doc/usage/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UsageQueryResponse>();
+}
+
+/**
+ * @summary 通义多模态文档翻译查询Usage
+ *
+ * @param request UsageQueryRequest
+ * @return UsageQueryResponse
+ */
+UsageQueryResponse Client::usageQuery(const UsageQueryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return usageQueryWithOptions(request, headers, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace AnyTrans20250707

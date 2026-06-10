@@ -253,6 +253,24 @@ namespace AnyTrans20250707
        * @return TextTranslateResponse
        */
       Models::TextTranslateResponse textTranslate(const Models::TextTranslateRequest &request);
+
+      /**
+       * @summary 通义多模态文档翻译查询Usage
+       *
+       * @param request UsageQueryRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UsageQueryResponse
+       */
+      Models::UsageQueryResponse usageQueryWithOptions(const Models::UsageQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 通义多模态文档翻译查询Usage
+       *
+       * @param request UsageQueryRequest
+       * @return UsageQueryResponse
+       */
+      Models::UsageQueryResponse usageQuery(const Models::UsageQueryRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AnyTrans20250707

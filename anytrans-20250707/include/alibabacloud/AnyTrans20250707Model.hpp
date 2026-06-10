@@ -50,5 +50,8 @@
 #include <alibabacloud/models/TextTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/TextTranslateResponseBody.hpp>
 #include <alibabacloud/models/TextTranslateResponse.hpp>
+#include <alibabacloud/models/UsageQueryRequest.hpp>
+#include <alibabacloud/models/UsageQueryResponseBody.hpp>
+#include <alibabacloud/models/UsageQueryResponse.hpp>
 
 #endif
