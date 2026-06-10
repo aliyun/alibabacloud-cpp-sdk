@@ -83,8 +83,15 @@ namespace Models
 
 
     protected:
+      // ECS instance ID
       shared_ptr<string> instance_ {};
+      // When `success` is false, this value is not empty and indicates the reason why the instance cannot be managed by SysOM.
       shared_ptr<string> reason_ {};
+      // Indicates whether the instance can be managed by SysOM.  
+      // 
+      // - **true**: The instance can be managed by SysOM.  
+      // 
+      // - **false**: The instance cannot be managed by SysOM.
       shared_ptr<bool> support_ {};
     };
 
@@ -121,8 +128,13 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates that authorization succeeded.  
+    // - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<CheckInstanceSupportResponseBody::Data>> data_ {};
+    // Error message. When code != Success, the error message is stored here.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

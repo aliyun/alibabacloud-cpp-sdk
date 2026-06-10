@@ -74,8 +74,12 @@ namespace Models
 
 
     protected:
+      // Instance ID.
+      // 
       // This parameter is required.
       shared_ptr<string> instance_ {};
+      // Region ID.
+      // 
       // This parameter is required.
       shared_ptr<string> region_ {};
     };
@@ -113,12 +117,23 @@ namespace Models
 
 
   protected:
+    // ID of the widget to install
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // Version of the widget to install
+    // 
     // This parameter is required.
     shared_ptr<string> agentVersion_ {};
+    // Installation Type:  
+    // - InstallAndUpgrade: Install if not present; update if present.  
+    // - OnlyInstallNotHasAgent: Install if not present; do nothing if present.  
+    // - OnlyUpgradeHasAgent: Do nothing if not present; update if present.
+    // 
     // This parameter is required.
     shared_ptr<string> installType_ {};
+    // List of instances on which to install the widget
+    // 
     // This parameter is required.
     shared_ptr<vector<InstallAgentRequest::Instances>> instances_ {};
   };

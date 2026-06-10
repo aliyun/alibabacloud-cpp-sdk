@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // stop time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begEnd_ {};
+    // start time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begStart_ {};
+    // instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instance_ {};
+    // Table name to query
+    // 
     // This parameter is required.
     shared_ptr<string> table_ {};
   };

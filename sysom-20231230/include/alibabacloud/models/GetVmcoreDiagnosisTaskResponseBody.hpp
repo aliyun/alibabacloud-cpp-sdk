@@ -122,9 +122,13 @@ namespace Models
 
 
       protected:
+        // Download link for the debuginfo-common RPM package
         shared_ptr<string> debuginfoCommonUrl_ {};
+        // Link to download the debuginfo RPM package
         shared_ptr<string> debuginfoUrl_ {};
+        // Download link for the dmesg log
         shared_ptr<string> dmesgUrl_ {};
+        // Download link for the vmcore file
         shared_ptr<string> vmcoreUrl_ {};
       };
 
@@ -183,12 +187,19 @@ namespace Models
 
 
     protected:
+      // Creation Time
       shared_ptr<string> createdAt_ {};
+      // Diagnosis Result
       shared_ptr<string> diagnoseResult_ {};
+      // Diagnosis error message
       shared_ptr<string> errorMsg_ {};
+      // Job ID
       shared_ptr<string> taskId_ {};
+      // Task Status
       shared_ptr<string> taskStatus_ {};
+      // Task Type
       shared_ptr<string> taskType_ {};
+      // Download links for files associated with the job
       shared_ptr<Data::Urls> urls_ {};
     };
 
@@ -225,8 +236,15 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Return Result
     shared_ptr<GetVmcoreDiagnosisTaskResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // Cluster ID
     shared_ptr<string> cluster_ {};
+    // This field is present when paging is used and indicates the current page.
     shared_ptr<int32_t> current_ {};
+    // End time
     shared_ptr<float> end_ {};
+    // Anomalous activity name
     shared_ptr<string> event_ {};
+    // Instance ID.
     shared_ptr<string> instance_ {};
+    // Level of the anomalous activity
     shared_ptr<string> level_ {};
+    // Namespace where the pod is located
     shared_ptr<string> namespace_ {};
+    // Page size. The default value is 5. Valid values are in the range [1,100].
     shared_ptr<int32_t> pageSize_ {};
+    // Pod name
     shared_ptr<string> pod_ {};
+    // Whether to display anomalous activities of the pod
     shared_ptr<int32_t> showPod_ {};
+    // Start time
     shared_ptr<float> start_ {};
   };
 

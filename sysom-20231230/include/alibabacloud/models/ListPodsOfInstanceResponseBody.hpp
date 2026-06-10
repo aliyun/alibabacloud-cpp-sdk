@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // Namespace where the pod resides
       shared_ptr<string> namespace_ {};
+      // Pod Name
       shared_ptr<string> pod_ {};
     };
 
@@ -122,10 +124,15 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> code_ {};
+    // Data returned
     shared_ptr<vector<ListPodsOfInstanceResponseBody::Data>> data_ {};
+    // Error message; empty indicates that data reading is complete
+    // 
     // This parameter is required.
     shared_ptr<string> message_ {};
+    // The maximum number of records returned by this request
     shared_ptr<int64_t> total_ {};
   };
 

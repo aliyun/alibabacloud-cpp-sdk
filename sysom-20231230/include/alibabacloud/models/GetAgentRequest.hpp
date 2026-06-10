@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Widget ID
     shared_ptr<string> agentId_ {};
   };
 

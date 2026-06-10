@@ -85,10 +85,17 @@ namespace Models
 
   protected:
     shared_ptr<string> agentConfigId_ {};
+    // Filter by cluster ID.  
+    // 
+    // > This cluster ID is not the ACK cluster ID. Instead, it refers to the `cluster_id` field in the data returned by this API or the `id` field in the data returned by the ListCluster API.
     shared_ptr<string> clusterId_ {};
+    // Current page number (starting from 1)
     shared_ptr<int64_t> current_ {};
+    // Page size
     shared_ptr<int64_t> pageSize_ {};
+    // If this parameter is specified, the response filters the installation list for the specified agent. It can be used together with the plugin_version parameter.
     shared_ptr<string> pluginId_ {};
+    // This parameter cannot be used alone. It must be used together with plugin_id to filter the installation list for a specific agent version.
     shared_ptr<string> pluginVersion_ {};
   };
 

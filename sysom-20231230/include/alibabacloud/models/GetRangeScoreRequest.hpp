@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Cluster ID
     shared_ptr<string> cluster_ {};
+    // End Time
+    // 
     // This parameter is required.
     shared_ptr<float> end_ {};
+    // Instance ID.
     shared_ptr<string> instance_ {};
+    // Start Time
+    // 
     // This parameter is required.
     shared_ptr<float> start_ {};
   };

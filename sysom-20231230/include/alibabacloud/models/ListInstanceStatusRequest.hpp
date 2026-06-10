@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // This field exists when paging is used and indicates the current page (starting from 1).
     shared_ptr<int64_t> current_ {};
+    // Instance ID.
     shared_ptr<string> instance_ {};
+    // Number of entries returned per page. Default value: pageSize=10
     shared_ptr<int64_t> pageSize_ {};
+    // Region ID.
     shared_ptr<string> region_ {};
+    // Filter the instance list by status. If this field is specified, only instances with the corresponding status are returned.
     shared_ptr<string> status_ {};
   };
 

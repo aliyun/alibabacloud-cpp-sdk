@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // UUID corresponding to the anomalous activity
     shared_ptr<string> uuid_ {};
   };
 

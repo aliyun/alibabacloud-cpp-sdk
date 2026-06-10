@@ -93,9 +93,13 @@ namespace Models
 
 
     protected:
+      // mailbox
       shared_ptr<string> email_ {};
+      // Phone number
       shared_ptr<string> phone_ {};
+      // Robot key
       shared_ptr<string> sec_ {};
+      // Robot webhook address
       shared_ptr<string> webhook_ {};
     };
 
@@ -139,10 +143,15 @@ namespace Models
 
 
   protected:
+    // ID of the alert contact
     shared_ptr<string> id_ {};
+    // Name of the alert contact
     shared_ptr<string> name_ {};
+    // Configuration Parameter
     shared_ptr<UpdateAlertDestinationRequest::Params> params_ {};
+    // Source of the configuration
     shared_ptr<string> source_ {};
+    // Push Target for alerts. Currently, only DingTalk contacts are supported.
     shared_ptr<string> target_ {};
   };
 

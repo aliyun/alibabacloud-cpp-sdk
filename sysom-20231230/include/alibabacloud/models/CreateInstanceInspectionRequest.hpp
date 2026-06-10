@@ -16,12 +16,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateInstanceInspectionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(instance, instance_);
       DARABONBA_PTR_TO_JSON(items, items_);
+      DARABONBA_PTR_TO_JSON(metricSource, metricSource_);
       DARABONBA_PTR_TO_JSON(region, region_);
       DARABONBA_PTR_TO_JSON(source, source_);
     };
     friend void from_json(const Darabonba::Json& j, CreateInstanceInspectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(instance, instance_);
       DARABONBA_PTR_FROM_JSON(items, items_);
+      DARABONBA_PTR_FROM_JSON(metricSource, metricSource_);
       DARABONBA_PTR_FROM_JSON(region, region_);
       DARABONBA_PTR_FROM_JSON(source, source_);
     };
@@ -37,7 +39,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instance_ == nullptr
-        && this->items_ == nullptr && this->region_ == nullptr && this->source_ == nullptr; };
+        && this->items_ == nullptr && this->metricSource_ == nullptr && this->region_ == nullptr && this->source_ == nullptr; };
     // instance Field Functions 
     bool hasInstance() const { return this->instance_ != nullptr;};
     void deleteInstance() { this->instance_ = nullptr;};
@@ -52,6 +54,13 @@ namespace Models
     inline vector<string> getItems() { DARABONBA_PTR_GET(items_, vector<string>) };
     inline CreateInstanceInspectionRequest& setItems(const vector<string> & items) { DARABONBA_PTR_SET_VALUE(items_, items) };
     inline CreateInstanceInspectionRequest& setItems(vector<string> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
+
+
+    // metricSource Field Functions 
+    bool hasMetricSource() const { return this->metricSource_ != nullptr;};
+    void deleteMetricSource() { this->metricSource_ = nullptr;};
+    inline string getMetricSource() const { DARABONBA_PTR_GET_DEFAULT(metricSource_, "") };
+    inline CreateInstanceInspectionRequest& setMetricSource(string metricSource) { DARABONBA_PTR_SET_VALUE(metricSource_, metricSource) };
 
 
     // region Field Functions 
@@ -71,6 +80,7 @@ namespace Models
   protected:
     shared_ptr<string> instance_ {};
     shared_ptr<vector<string>> items_ {};
+    shared_ptr<string> metricSource_ {};
     shared_ptr<string> region_ {};
     shared_ptr<string> source_ {};
   };

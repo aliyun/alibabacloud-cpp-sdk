@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // AI analysis ID
       shared_ptr<string> analysisId_ {};
     };
 
@@ -99,8 +100,11 @@ namespace Models
 
 
   protected:
+    // Return code.
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<StartAIAnalysisResponseBody::Data> data_ {};
+    // Error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

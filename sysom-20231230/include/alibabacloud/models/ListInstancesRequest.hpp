@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Cluster ID
     shared_ptr<string> clusterId_ {};
+    // This field exists when paging is used and indicates the current page.
     shared_ptr<int64_t> current_ {};
+    // Filter by ECS instance ID
     shared_ptr<string> instance_ {};
+    // Page size. Default value is 20. Valid range: [1, 100].
     shared_ptr<int64_t> pageSize_ {};
+    // Filter instances by area
     shared_ptr<string> region_ {};
+    // Filter instances by status
     shared_ptr<string> status_ {};
   };
 

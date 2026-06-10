@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Input parameter for integrating with the copilot LLM service. Refer to the standard LLM API input parameter dict, convert it into a string, and pass it in llmParamString.
     shared_ptr<string> llmParamString_ {};
   };
 

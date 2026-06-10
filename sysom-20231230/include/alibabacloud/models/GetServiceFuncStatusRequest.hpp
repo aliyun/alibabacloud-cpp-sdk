@@ -80,9 +80,13 @@ namespace Models
 
 
     protected:
+      // feature name
+      // 
       // This parameter is required.
       shared_ptr<string> functionName_ {};
+      // instance ID
       shared_ptr<string> instance_ {};
+      // User ID
       shared_ptr<string> uid_ {};
     };
 
@@ -112,10 +116,16 @@ namespace Models
 
 
   protected:
+    // channel name
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // Diagnosis parameters. Different types of diagnosis require different diagnosis parameters. You can use this field to filter records whose parameter values match the specified values.
+    // 
     // This parameter is required.
     shared_ptr<GetServiceFuncStatusRequest::Params> params_ {};
+    // Service Name
+    // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
   };

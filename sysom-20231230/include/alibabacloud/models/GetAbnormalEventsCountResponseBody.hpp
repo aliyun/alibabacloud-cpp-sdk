@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // Event List
       shared_ptr<vector<string>> eventList_ {};
+      // Type of anomaly
       shared_ptr<string> type_ {};
+      // Quantity of the anomaly type
       shared_ptr<int64_t> value_ {};
     };
 
@@ -114,8 +117,11 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<GetAbnormalEventsCountResponseBody::Data>> data_ {};
+    // When success is false, this value is Not Empty and indicates the error message.
     shared_ptr<string> message_ {};
   };
 

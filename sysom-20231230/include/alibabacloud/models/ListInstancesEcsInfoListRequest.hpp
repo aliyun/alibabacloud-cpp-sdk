@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // Type of information to retrieve
+    // 
     // This parameter is required.
     shared_ptr<string> infoType_ {};
+    // If this field is specified, the response filters and returns the Agent installation status for the specified instance.
     shared_ptr<string> instanceId_ {};
+    // Management status of the instance
     shared_ptr<string> managedType_ {};
+    // If this parameter is specified, the response filters and returns the instance information list for the corresponding widget.
     shared_ptr<string> pluginId_ {};
+    // Filter instances by area
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
   };

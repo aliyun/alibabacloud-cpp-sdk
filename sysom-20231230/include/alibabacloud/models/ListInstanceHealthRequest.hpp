@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // cluster ID
     shared_ptr<string> cluster_ {};
+    // Current page number for paging
     shared_ptr<int32_t> current_ {};
+    // End Time
+    // 
     // This parameter is required.
     shared_ptr<float> end_ {};
+    // instance ID.
     shared_ptr<string> instance_ {};
+    // Page size. Default value is 5. Valid range: [1,100]
     shared_ptr<int32_t> pageSize_ {};
+    // Start Time
+    // 
     // This parameter is required.
     shared_ptr<float> start_ {};
   };

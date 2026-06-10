@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // Diagnosis channel (currently fixed as the ECS channel)
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // Diagnosis parameters. Different diagnosis types require different parameters. For the required parameters of each diagnosis type, see the Request Parameters supplement below.  
+    // 
+    // >Notice: Please pass a string in JSON format
+    // 
     // This parameter is required.
     shared_ptr<string> params_ {};
+    // Diagnosis type, used to distinguish between different types of diagnosis
+    // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
   };

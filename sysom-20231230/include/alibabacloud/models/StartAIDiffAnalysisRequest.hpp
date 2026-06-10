@@ -90,12 +90,20 @@ namespace Models
 
 
     protected:
+      // AI analysis ID
+      // 
       // This parameter is required.
       shared_ptr<string> analysisId_ {};
+      // Process IDs (PIDs) of AI jobs. Batch input is supported, with PIDs separated by commas.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> pids_ {};
+      // Step end time, computed based on the selected step number.
+      // 
       // This parameter is required.
       shared_ptr<float> stepEnd_ {};
+      // Step start time, computed based on the selected step number.
+      // 
       // This parameter is required.
       shared_ptr<float> stepStart_ {};
     };
@@ -158,9 +166,13 @@ namespace Models
 
 
     protected:
+      // AI analysis ID
       shared_ptr<string> analysisId_ {};
+      // PIDs of AI job processes; batch input is supported, separated by commas
       shared_ptr<vector<string>> pids_ {};
+      // Step end time, computed based on the selected step number
       shared_ptr<float> stepEnd_ {};
+      // Step start time, computed based on the selected step number
       shared_ptr<float> stepStart_ {};
     };
 
@@ -185,8 +197,12 @@ namespace Models
 
 
   protected:
+    // task1 parameters
+    // 
     // This parameter is required.
     shared_ptr<StartAIDiffAnalysisRequest::Task1> task1_ {};
+    // task2 parameters
+    // 
     // This parameter is required.
     shared_ptr<StartAIDiffAnalysisRequest::Task2> task2_ {};
   };

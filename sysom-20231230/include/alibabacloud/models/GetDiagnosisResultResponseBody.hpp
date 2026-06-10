@@ -161,16 +161,32 @@ namespace Models
 
 
     protected:
+      // Error code (0 indicates no error)
       shared_ptr<int32_t> code_ {};
+      // Diagnosis command
       Darabonba::Json command_ {};
+      // Creation Time
       shared_ptr<string> createdAt_ {};
+      // Error message
       shared_ptr<string> errMsg_ {};
+      // Diagnosis parameters
       Darabonba::Json params_ {};
+      // Diagnosis result
       Darabonba::Json result_ {};
+      // Diagnosis Type
       shared_ptr<string> serviceName_ {};
+      // The execution status of the diagnostic task.  
+      // Valid values:  
+      // - **Ready**: Ready  
+      // - **Running**: Running  
+      // - **Success**: Succeeded  
+      // - **Fail**: Failed
       shared_ptr<string> status_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
+      // Update Time
       shared_ptr<string> updatedAt_ {};
+      // Diagnosis details URL
       shared_ptr<string> url_ {};
     };
 
@@ -207,9 +223,17 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - If `code == "Success"`, authorization succeeded.  
+    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetDiagnosisResultResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
   };
 

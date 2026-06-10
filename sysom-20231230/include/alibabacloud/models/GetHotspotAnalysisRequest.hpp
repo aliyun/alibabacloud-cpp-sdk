@@ -84,15 +84,25 @@ namespace Models
 
 
   protected:
+    // Application Type
+    // 
     // This parameter is required.
     shared_ptr<string> appType_ {};
+    // End time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begEnd_ {};
+    // Start time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begStart_ {};
+    // instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instance_ {};
+    // Process PID
     shared_ptr<int64_t> pid_ {};
+    // Name of the queried Table
     shared_ptr<string> table_ {};
   };
 

@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // Health level of the edge zone/pod
       shared_ptr<string> type_ {};
+      // Quantity
       shared_ptr<int64_t> value_ {};
     };
 
@@ -102,8 +104,13 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates that authorization succeeded.  
+    // - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<GetHealthPercentageResponseBody::Data>> data_ {};
+    // Error Details
     shared_ptr<string> message_ {};
   };
 

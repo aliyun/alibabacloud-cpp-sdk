@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Alert policy ID
+    // 
     // This parameter is required.
     shared_ptr<string> id_ {};
   };

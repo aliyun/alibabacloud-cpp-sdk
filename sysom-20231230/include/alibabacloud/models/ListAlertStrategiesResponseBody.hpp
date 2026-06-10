@@ -128,8 +128,10 @@ namespace Models
 
 
       protected:
+        // Set of clusters that accept alerts
         shared_ptr<vector<string>> clusters_ {};
         shared_ptr<vector<int32_t>> destinations_ {};
+        // List of abnormal items that accept alerts
         shared_ptr<vector<string>> items_ {};
       };
 
@@ -195,13 +197,20 @@ namespace Models
 
 
     protected:
+      // Creation Time.
       shared_ptr<string> createdAt_ {};
+      // Whether the alert policy is enabled
       shared_ptr<bool> enabled_ {};
+      // Policy ID
       shared_ptr<int64_t> id_ {};
       shared_ptr<bool> k8sLabel_ {};
+      // Policy Name
       shared_ptr<string> name_ {};
+      // Details of the alert policy
       shared_ptr<Data::Strategy> strategy_ {};
+      // User ID
       shared_ptr<string> uid_ {};
+      // Update Time
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -260,13 +269,23 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - If `code == Success`, authorization succeeded.  
+    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
     shared_ptr<string> code_ {};
+    // Return Result.
     shared_ptr<vector<ListAlertStrategiesResponseBody::Data>> data_ {};
+    // Maximum number of returned records
     shared_ptr<int32_t> maxResults_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty;  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total number of records
     shared_ptr<int64_t> total_ {};
   };
 

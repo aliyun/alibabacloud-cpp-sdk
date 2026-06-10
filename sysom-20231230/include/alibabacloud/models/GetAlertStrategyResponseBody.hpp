@@ -122,8 +122,10 @@ namespace Models
 
 
       protected:
+        // Set of clusters that accept alerts
         shared_ptr<vector<string>> clusters_ {};
         Darabonba::Json destinations_ {};
+        // List of abnormal items that accept alerts
         Darabonba::Json items_ {};
       };
 
@@ -189,13 +191,21 @@ namespace Models
 
 
     protected:
+      // Creation Time.
       shared_ptr<int64_t> createdAt_ {};
+      // Indicates whether the alert policy is enabled
       shared_ptr<bool> enabled_ {};
+      // Alert policy ID
       shared_ptr<int64_t> id_ {};
+      // k8s label
       shared_ptr<bool> k8sLabel_ {};
+      // Policy Name
       shared_ptr<string> name_ {};
+      // Details of the alert policy
       shared_ptr<Data::Strategy> strategy_ {};
+      // User ID
       shared_ptr<string> uid_ {};
+      // Update Time.
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -232,8 +242,15 @@ namespace Models
 
 
   protected:
+    // Status code:  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetAlertStrategyResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty;  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

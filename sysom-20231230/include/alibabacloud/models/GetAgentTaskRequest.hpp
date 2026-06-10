@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Job ID.
     shared_ptr<string> taskId_ {};
   };
 

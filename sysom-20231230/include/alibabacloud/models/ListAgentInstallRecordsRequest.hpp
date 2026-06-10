@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Current page number (starting from 1)
     shared_ptr<int64_t> current_ {};
+    // If this field is specified, the response filters the Agent installation status for the specified instance.
     shared_ptr<string> instanceId_ {};
+    // Page size
     shared_ptr<int64_t> pageSize_ {};
+    // If this parameter is specified, the response filters the installation list for the specified Agent. It can be used together with the plugin_version parameter.
     shared_ptr<string> pluginId_ {};
+    // This parameter cannot be used alone. It must be used together with plugin_id to filter the installation list for a specified version of the specified Agent.
     shared_ptr<string> pluginVersion_ {};
+    // Region ID.
     shared_ptr<string> region_ {};
+    // Filter widget installation records by status
     shared_ptr<string> status_ {};
   };
 

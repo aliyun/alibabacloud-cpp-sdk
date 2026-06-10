@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // IP address of the machine.
       shared_ptr<string> ip_ {};
+      // Name of the tag.
       shared_ptr<string> tagKey_ {};
+      // tag value.
       shared_ptr<string> tagValue_ {};
+      // IP type
       shared_ptr<string> type_ {};
     };
 
@@ -122,8 +126,13 @@ namespace Models
 
 
   protected:
+    // error code
     shared_ptr<string> code_ {};
+    // Return Data.
     shared_ptr<vector<ListInstancesEcsInfoListResponseBody::Data>> data_ {};
+    // error message  
+    // - If `code == Success`, this field is empty;  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
   };
 

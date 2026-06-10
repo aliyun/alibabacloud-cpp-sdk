@@ -75,11 +75,25 @@ namespace Models
 
 
   protected:
+    // Download link for the debuginfo-common file. This parameter is optional when the diagnosis type is vmcore.  
+    // 
+    // For CentOS or Alinux kernel diagnosis, the corresponding debuginfo-common file is automatically downloaded, so you do not need to provide this parameter. For kernels of other distributions, you must manually provide the download link for the debuginfo-common file that matches the kernel version.
     shared_ptr<string> debuginfoCommonUrl_ {};
+    // The download link of the debuginfo file corresponding to the vmcore file. This parameter is optional when the diagnosis type is vmcore.
+    // 
+    // For CentOS or Alinux kernel diagnosis, the corresponding debuginfo file is automatically downloaded, so you do not need to provide this parameter. For kernels from other distributions, you must manually provide the download link for the debuginfo file that matches the kernel version.
     shared_ptr<string> debuginfoUrl_ {};
+    // Download link for the dmesg log file. This parameter is required when the diagnosis type is dmesg.
     shared_ptr<string> dmesgUrl_ {};
+    // Task Type  
+    // 
+    // vmcore: vmcore file diagnosis task  
+    // 
+    // dmesg: dmesg log diagnosis task
+    // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};
+    // The download link of the vmcore file. This parameter is required when the diagnosis type is vmcore.
     shared_ptr<string> vmcoreUrl_ {};
   };
 

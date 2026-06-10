@@ -145,11 +145,17 @@ namespace Models
 
 
       protected:
+        // Widget version creation time
         shared_ptr<string> createdAt_ {};
+        // The widget\\"s install script
         shared_ptr<string> installScript_ {};
+        // Widget uninstall script
         shared_ptr<string> uninstallScript_ {};
+        // Widget version update time
         shared_ptr<string> updatedAt_ {};
+        // Widget upgrade script
         shared_ptr<string> upgradeScript_ {};
+        // Widget version number
         shared_ptr<string> version_ {};
       };
 
@@ -215,13 +221,23 @@ namespace Models
 
 
     protected:
+      // Widget creation time
       shared_ptr<string> createdAt_ {};
+      // Widget description
       shared_ptr<string> description_ {};
+      // Widget ID
       shared_ptr<string> id_ {};
+      // Widget name
       shared_ptr<string> name_ {};
+      // Supported architecture (multiple architectures separated by commas)
       shared_ptr<string> supportArch_ {};
+      // Widget type  
+      // - Control: control-type widget  
+      // - AI: AI widget
       shared_ptr<string> type_ {};
+      // Widget Update Time
       shared_ptr<string> updatedAt_ {};
+      // Widget Version List
       shared_ptr<vector<Data::Versions>> versions_ {};
     };
 
@@ -265,10 +281,19 @@ namespace Models
 
 
   protected:
+    // Request ID, which can be used for end-to-end Diagnosis
     shared_ptr<string> requestId_ {};
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate authorization failure. When authorization fails, view the `message` field to obtain detailed error message;
     shared_ptr<string> code_ {};
+    // Returned Data
     shared_ptr<vector<ListAgentsResponseBody::Data>> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

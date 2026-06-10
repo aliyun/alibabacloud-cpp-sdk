@@ -121,21 +121,38 @@ namespace Models
 
 
   protected:
+    // End time 1
+    // 
     // This parameter is required.
     shared_ptr<int64_t> beg1End_ {};
+    // Start time 1
+    // 
     // This parameter is required.
     shared_ptr<int64_t> beg1Start_ {};
+    // End time 2
+    // 
     // This parameter is required.
     shared_ptr<int64_t> beg2End_ {};
+    // Start time 2
+    // 
     // This parameter is required.
     shared_ptr<int64_t> beg2Start_ {};
+    // Hot spot type
     shared_ptr<string> hotType_ {};
+    // Instance 1
+    // 
     // This parameter is required.
     shared_ptr<string> instance1_ {};
+    // Instance 2
+    // 
     // This parameter is required.
     shared_ptr<string> instance2_ {};
+    // Process of instance 1
     shared_ptr<int64_t> pid1_ {};
+    // Process of instance 2
     shared_ptr<int64_t> pid2_ {};
+    // Query table name
+    // 
     // This parameter is required.
     shared_ptr<string> table_ {};
   };

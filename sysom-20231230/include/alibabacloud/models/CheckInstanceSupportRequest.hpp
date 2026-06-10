@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // List of instance IDs to check
     shared_ptr<vector<string>> instances_ {};
+    // Region to which the instances belong. Ensure that all instance IDs passed in the instances list belong to the same region.
     shared_ptr<string> region_ {};
   };
 

@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Current page number (starts from 1).
     shared_ptr<int32_t> current_ {};
+    // Maximum number of records retrieved in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // Alert contact name.
     shared_ptr<string> name_ {};
+    // Paging token for the next request.
     shared_ptr<string> nextToken_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

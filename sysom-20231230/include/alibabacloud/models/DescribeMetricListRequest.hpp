@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // End time, in seconds as a UNIX timestamp
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
     shared_ptr<string> instance_ {};
+    // Metric name
     shared_ptr<string> metricName_ {};
+    // Start time, in seconds as a UNIX timestamp
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -154,13 +154,62 @@ namespace Models
 
 
       protected:
+        // When Job execution fails, this field contains the error message indicating the cause of the failure.
         shared_ptr<string> error_ {};
+        // The error code indicating the reason for sub-job failure. Possible values:
+        // * empty: The job executed normally.
+        // * INSTANCE_NOT_SUPPORTED: The instance type is not supported.
+        // * INSTANCE_NOT_EXISTS: The instance does not exist.
+        // * INSTANCE_RELEASED: The instance has been released.
+        // * INSTANCE_NOT_RUNNING: The instance is not running.
+        // * INSTANCE_NOT_OWNED: The instance does not belong to the current account.
+        // * AGENT_ALREADY_INSTALLED: The agent is already installed.
+        // * AGENT_NOT_INSTALLED: The agent is not installed.
+        // * AGENT_SAME_VERSION: The version is the same.
+        // * HAS_RUNNING_JOB: There is a running job.
+        // * RPM_LOCK_HELD: The RPM lock is held.
+        // * DISK_SPACE_INSUFFICIENT: Insufficient disk space.
+        // * NODE_LOAD_HIGH: High edge zone load.
+        // * COMMAND_FAILED: Command execution failed.
+        // * CLIENT_NOT_RUNNING: The Cloud Assistant agent is not running.
+        // * CLIENT_NOT_RESPONSE: The Cloud Assistant agent is unresponsive.
+        // * DELIVERY_TIMEOUT: Command delivery timeout.
+        // * EXECUTION_TIMEOUT: Command execution timeout.
+        // * TASK_CONCURRENCY_LIMIT: Task concurrency limit reached.
         shared_ptr<string> errorCode_ {};
+        // Detailed reason for subtask execution failure. Possible values:  
+        // * Instance type is not supported  
+        // * Instance does not exist  
+        // * Instance has been released  
+        // * Instance is not running  
+        // * Instance does not belong to the current account  
+        // * Agent is already installed  
+        // * Agent is not installed  
+        // * Agent version is the same; no upgrade is required  
+        // * A task is currently running; please retry later  
+        // * RPM lock is occupied; please retry later  
+        // * Insufficient disk space  
+        // * Edge zone payload is too high; please retry later  
+        // * Command execution failed; please retry later  
+        // * Cloud Assistant Agent is not running  
+        // * Cloud Assistant Agent is unresponsive  
+        // * Command sending timeout  
+        // * Command execution timeout  
+        // * Task concurrency limit has been reached
         shared_ptr<string> errorMessage_ {};
+        // Instance ID.
         shared_ptr<string> instance_ {};
+        // Parameters of the sub-Job
         Darabonba::Json params_ {};
+        // Region ID.
         shared_ptr<string> region_ {};
+        // Result of sub-Job execution
         shared_ptr<string> result_ {};
+        // Sub-Job status:  
+        // - Created: Created  
+        // - Running: Running  
+        // - Success: Job Run Succeeded  
+        // - Fail: Job Run failed
         shared_ptr<string> status_ {};
       };
 
@@ -190,8 +239,10 @@ namespace Models
 
 
     protected:
+      // List of sub-Jobs
       shared_ptr<vector<Data::Jobs>> jobs_ {};
       shared_ptr<string> status_ {};
+      // Job ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -228,9 +279,17 @@ namespace Models
 
 
   protected:
+    // Request ID, which can be used for end-to-end Diagnosis
     shared_ptr<string> requestId_ {};
+    // Status code  
+    // - `code == Success` indicates that authorization Succeeded.  
+    // - Any other status code indicates Failed to Authorize. When authorization fails, View the `message` field to obtain the detailed error message.
     shared_ptr<string> code_ {};
+    // Returned Data.
     shared_ptr<GetAgentTaskResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty;  
+    // - Otherwise, this field contains the Request error message.
     shared_ptr<string> message_ {};
   };
 

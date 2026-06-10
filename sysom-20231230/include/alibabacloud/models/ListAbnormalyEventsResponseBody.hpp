@@ -130,8 +130,11 @@ namespace Models
 
 
       protected:
+        // End Time
         shared_ptr<float> endTime_ {};
+        // List of metric values.
         shared_ptr<vector<string>> metrics_ {};
+        // Start Time
         shared_ptr<float> startTime_ {};
       };
 
@@ -196,7 +199,9 @@ namespace Models
 
 
         protected:
+          // Diagnosis status
           shared_ptr<string> status_ {};
+          // Diagnosis details URL
           shared_ptr<string> url_ {};
         };
 
@@ -226,8 +231,11 @@ namespace Models
 
 
       protected:
+        // Operation Type
         shared_ptr<string> label_ {};
+        // Diagnosis result of the abnormal item
         shared_ptr<Opts::Result> result_ {};
+        // Diagnosis Type
         shared_ptr<string> type_ {};
       };
 
@@ -338,19 +346,33 @@ namespace Models
 
 
     protected:
+      // Creation Time
       shared_ptr<int64_t> createdAt_ {};
+      // Detailed description of the anomalous item.
       shared_ptr<string> description_ {};
+      // Diagnosis status (1 indicates diagnosis ready, 2 indicates running, 3 indicates completed, 4 indicates undiagnosable, 5 indicates failed)
       shared_ptr<int32_t> diagStatus_ {};
+      // End time of the anomalous activity.
       shared_ptr<int64_t> endAt_ {};
+      // Instance ID.
       shared_ptr<string> instance_ {};
+      // Name of the anomalous item.
       shared_ptr<string> item_ {};
+      // Level of the anomalous item.
       shared_ptr<string> level_ {};
+      // Namespace where the pod is located
       shared_ptr<string> namespace_ {};
+      // List of operations for the abnormal item
       shared_ptr<vector<Data::Opts>> opts_ {};
+      // Pod name.
       shared_ptr<string> pod_ {};
+      // Raw metrics
       shared_ptr<Data::RawMetrics> rawMetrics_ {};
+      // Region ID.
       shared_ptr<string> regionId_ {};
+      // Type of abnormal item
       shared_ptr<string> type_ {};
+      // UUID corresponding to the anomalous activity
       shared_ptr<string> uuid_ {};
     };
 
@@ -387,9 +409,15 @@ namespace Models
 
 
   protected:
+    // Status code.  
+    // - If `code == Success`, authorization succeeded.  
+    // - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error message.
     shared_ptr<string> code_ {};
+    // Return Result.
     shared_ptr<vector<ListAbnormalyEventsResponseBody::Data>> data_ {};
+    // Error code description; empty if no error
     shared_ptr<string> message_ {};
+    // Total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

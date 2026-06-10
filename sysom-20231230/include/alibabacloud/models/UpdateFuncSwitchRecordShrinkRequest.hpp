@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Diagnosis channel (currently fixed to the ecs channel)
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // Diagnosis parameters. Different diagnosis types require different diagnosis parameters. You can use this field to filter records whose parameters match specified values.
+    // 
     // This parameter is required.
     shared_ptr<string> paramsShrink_ {};
+    // Service Name
+    // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
   };

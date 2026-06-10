@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // List of column names
       shared_ptr<vector<string>> columns_ {};
+      // List of process information
       shared_ptr<vector<vector<string>>> values_ {};
     };
 
@@ -115,8 +117,11 @@ namespace Models
 
 
   protected:
+    // error code
     shared_ptr<string> code_ {};
+    // Data returned
     shared_ptr<GetHotspotPidListResponseBody::Data> data_ {};
+    // Response message
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

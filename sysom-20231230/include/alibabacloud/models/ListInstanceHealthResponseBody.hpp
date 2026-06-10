@@ -124,12 +124,23 @@ namespace Models
 
 
     protected:
+      // List of container image names in the pod.
       shared_ptr<vector<string>> images_ {};
+      // Instance ID.
       shared_ptr<string> instance_ {};
+      // Namespace where the pod resides.
       shared_ptr<string> namespace_ {};
+      // Pod name.
       shared_ptr<string> pod_ {};
+      // Region ID.
       shared_ptr<string> regionId_ {};
+      // Health score value.
       shared_ptr<float> score_ {};
+      // Running status of the instance. Valid values:  
+      // - **Running**: The instance is running.  
+      // - **Offline**: The instance is offline.  
+      // 
+      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM server has been lost. This does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -173,10 +184,19 @@ namespace Models
 
 
   protected:
+    // Status code.  
+    // - `code == Success` indicates that authorization succeeded.  
+    // - Other status codes indicate that authorization failed. When authorization fails, check the `message` field for detailed error message.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<ListInstanceHealthResponseBody::Data>> data_ {};
+    // error message  
+    // - If `code == Success`, this field is empty;  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
+    // Total number of query results.
     shared_ptr<int32_t> total_ {};
   };
 

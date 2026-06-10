@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // stop time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begEnd_ {};
+    // start time
+    // 
     // This parameter is required.
     shared_ptr<int64_t> begStart_ {};
+    // Query table name
+    // 
     // This parameter is required.
     shared_ptr<string> table_ {};
   };

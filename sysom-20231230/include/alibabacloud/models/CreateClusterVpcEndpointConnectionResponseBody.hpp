@@ -102,7 +102,6 @@ namespace Models
     shared_ptr<string> code_ {};
     shared_ptr<CreateClusterVpcEndpointConnectionResponseBody::Data> data_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

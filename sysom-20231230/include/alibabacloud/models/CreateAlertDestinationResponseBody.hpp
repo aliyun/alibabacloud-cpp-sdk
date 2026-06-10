@@ -124,9 +124,13 @@ namespace Models
 
 
       protected:
+        // mailbox
         shared_ptr<string> email_ {};
+        // Phone
         shared_ptr<string> phone_ {};
+        // Robot key
         shared_ptr<string> sec_ {};
+        // Robot address
         shared_ptr<string> webhook_ {};
       };
 
@@ -192,13 +196,21 @@ namespace Models
 
 
     protected:
+      // Creation Time.
       shared_ptr<int64_t> createdAt_ {};
+      // Policy ID
       shared_ptr<int32_t> id_ {};
+      // Policy Name
       shared_ptr<string> name_ {};
+      // Configuration Parameter of alert contact
       shared_ptr<Data::Params> params_ {};
+      // Configuration Source
       shared_ptr<string> source_ {};
+      // Push Target. Currently, only DingTalk Robot is supported.
       shared_ptr<string> target_ {};
+      // User ID
       shared_ptr<string> uid_ {};
+      // Update Time
       shared_ptr<int64_t> updatedAt_ {};
     };
 
@@ -235,9 +247,15 @@ namespace Models
 
 
   protected:
+    // error code
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<CreateAlertDestinationResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

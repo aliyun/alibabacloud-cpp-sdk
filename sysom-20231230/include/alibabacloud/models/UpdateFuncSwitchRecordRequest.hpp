@@ -164,14 +164,23 @@ namespace Models
 
 
       protected:
+        // Configuration process
         shared_ptr<string> addCmd_ {};
+        // ONCPU tracing Toggle
         shared_ptr<string> cpu_ {};
+        // Duration in seconds (s)
         shared_ptr<int32_t> duration_ {};
+        // Storage Path
         shared_ptr<string> javaStorePath_ {};
+        // Edit Lock tracing Toggle
         shared_ptr<string> locks_ {};
+        // Tracing epoch
         shared_ptr<int32_t> loop_ {};
+        // Memory tracing Toggle
         shared_ptr<string> mem_ {};
+        // Process PID
         shared_ptr<int32_t> pid_ {};
+        // System tracing toggle
         shared_ptr<string> systemProfiling_ {};
       };
 
@@ -222,12 +231,19 @@ namespace Models
 
 
     protected:
+      // Configuration Parameter
       shared_ptr<Params::Args> args_ {};
+      // Feature Name
+      // 
       // This parameter is required.
       shared_ptr<string> functionName_ {};
+      // Instance ID
       shared_ptr<string> instance_ {};
+      // Operation Type
       shared_ptr<string> op_ {};
+      // Region to which the instance belongs. Ensure that all instance IDs passed in the instances field belong to the same region.
       shared_ptr<string> region_ {};
+      // User ID
       shared_ptr<string> uid_ {};
     };
 
@@ -257,10 +273,16 @@ namespace Models
 
 
   protected:
+    // Diagnosis channel (currently fixed to the ecs channel)
+    // 
     // This parameter is required.
     shared_ptr<string> channel_ {};
+    // Diagnosis parameters. Different diagnosis types require different diagnosis parameters. You can use this field to filter records whose parameters match specified values.
+    // 
     // This parameter is required.
     shared_ptr<UpdateFuncSwitchRecordRequest::Params> params_ {};
+    // Service Name
+    // 
     // This parameter is required.
     shared_ptr<string> serviceName_ {};
   };

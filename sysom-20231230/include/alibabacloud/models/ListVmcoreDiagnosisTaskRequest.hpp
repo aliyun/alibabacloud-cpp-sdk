@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Indicates jobs from the past days days, up to a maximum of 30 days
+    // 
     // This parameter is required.
     shared_ptr<int64_t> days_ {};
   };

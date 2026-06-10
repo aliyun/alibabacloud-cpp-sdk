@@ -57,7 +57,13 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - If `code == Success`, authorization succeeded.  
+    // - Any other status code indicates a failed authorization. When authorization fails, view the `message` field to obtain the detailed error message.
     shared_ptr<string> code_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

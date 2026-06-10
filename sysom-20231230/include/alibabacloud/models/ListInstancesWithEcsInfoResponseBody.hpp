@@ -119,7 +119,9 @@ namespace Models
 
 
       protected:
+        // Name of the tag.
         shared_ptr<string> tagKey_ {};
+        // Tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -221,18 +223,35 @@ namespace Models
 
 
     protected:
+      // Cluster ID
       shared_ptr<string> clusterId_ {};
+      // instance ID
       shared_ptr<string> instanceId_ {};
+      // Instance Name.
       shared_ptr<string> instanceName_ {};
+      // tags of instances
       shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
+      // Milvus version
       shared_ptr<string> kernelVersion_ {};
+      // ECS instance architecture
       shared_ptr<string> osArch_ {};
+      // Instance health score
       shared_ptr<string> osHealthScore_ {};
+      // The operating system name of the instance
       shared_ptr<string> osName_ {};
+      // Instance private IP
       shared_ptr<string> privateIp_ {};
+      // Instance Internet IP
       shared_ptr<string> publicIp_ {};
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // Resource group name
       shared_ptr<string> resourceGroupName_ {};
+      // The running status of the instance. Valid values:  
+      // - **Running**: The instance is running.  
+      // - **Offline**: The instance is offline.  
+      // 
+      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. This does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -276,10 +295,15 @@ namespace Models
 
 
   protected:
+    // Status code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<ListInstancesWithEcsInfoResponseBody::Data>> data_ {};
+    // Error message. An empty value indicates that the data has been read completely.
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
+    // Total number of records
     shared_ptr<int64_t> total_ {};
   };
 

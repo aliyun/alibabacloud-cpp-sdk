@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Current page number (starting from page 1)
     shared_ptr<int64_t> current_ {};
+    // Filter plugins by plugin name
     shared_ptr<string> name_ {};
+    // Page size
     shared_ptr<int64_t> pageSize_ {};
+    // Retrieve the list based on the Agent Type. For example, passing "control" retrieves all control-type Agents.
     shared_ptr<string> type_ {};
   };
 

@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // Job creation time
       shared_ptr<string> createdAt_ {};
+      // error message
       shared_ptr<string> errorMsg_ {};
+      // Job ID
       shared_ptr<string> taskId_ {};
+      // Task Status
       shared_ptr<string> taskStatus_ {};
+      // Task Type
       shared_ptr<string> taskType_ {};
     };
 
@@ -150,11 +155,19 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message;
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<vector<ListVmcoreDiagnosisTaskResponseBody::Data>> data_ {};
+    // error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total number of jobs
     shared_ptr<int64_t> total_ {};
   };
 

@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // Metric labels
       shared_ptr<string> labels_ {};
+      // Metric name
       shared_ptr<string> metricName_ {};
+      // Metric data
       shared_ptr<vector<vector<string>>> values_ {};
     };
 
@@ -123,8 +126,15 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Any other status code indicates authorization failure. When authorization fails, check the `message` field for detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<DescribeMetricListResponseBody::Data>> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

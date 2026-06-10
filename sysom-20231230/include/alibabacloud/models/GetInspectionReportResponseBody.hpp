@@ -71,7 +71,6 @@ namespace Models
     shared_ptr<string> code_ {};
     Darabonba::Json data_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

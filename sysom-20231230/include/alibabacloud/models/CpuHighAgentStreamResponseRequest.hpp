@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Input parameter for interfacing with the high-CPU agent service. Refer to the standard LLM API input parameter dictionary, convert it into a string, and pass it in the `llmParamString` field.
     shared_ptr<string> llmParamString_ {};
   };
 

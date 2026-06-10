@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<string> instance_ {};
+      // Region ID.
       shared_ptr<string> region_ {};
     };
 
@@ -102,8 +104,11 @@ namespace Models
 
 
   protected:
+    // Automatic creation of role
     shared_ptr<bool> autoCreateRole_ {};
+    // Automatic installation of agent
     shared_ptr<bool> autoInstallAgent_ {};
+    // List of instances to authorize for diagnosis
     shared_ptr<vector<AuthDiagnosisRequest::Instances>> instances_ {};
   };
 

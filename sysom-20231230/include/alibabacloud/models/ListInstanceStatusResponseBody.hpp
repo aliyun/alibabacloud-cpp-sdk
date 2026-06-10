@@ -85,8 +85,15 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<string> instance_ {};
+      // Region ID.
       shared_ptr<string> region_ {};
+      // Instance running status. Valid values:  
+      // - **Running**: Running  
+      // - **Offline**: Offline  
+      // 
+      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM server is lost. This does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -130,10 +137,19 @@ namespace Models
 
 
   protected:
+    // Request ID, which can be used for end-to-end diagnosis
     shared_ptr<string> requestId_ {};
+    // Status code  
+    // - If `code == Success`, authorization succeeded.  
+    // - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error message.
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<vector<ListInstanceStatusResponseBody::Data>> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Total number of records
     shared_ptr<int64_t> total_ {};
   };
 

@@ -21,7 +21,13 @@ namespace SysOM20231230
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 授权 SysOM 对某个机器进行诊断
+       * @summary This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+       *
+       * @description >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
+       * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
+       * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
+       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
+       * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
        *
        * @param request AuthDiagnosisRequest
        * @param headers map
@@ -31,7 +37,13 @@ namespace SysOM20231230
       Models::AuthDiagnosisResponse authDiagnosisWithOptions(const Models::AuthDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 授权 SysOM 对某个机器进行诊断
+       * @summary This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+       *
+       * @description >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
+       * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
+       * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
+       * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
+       * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
        *
        * @param request AuthDiagnosisRequest
        * @return AuthDiagnosisResponse
@@ -39,7 +51,9 @@ namespace SysOM20231230
       Models::AuthDiagnosisResponse authDiagnosis(const Models::AuthDiagnosisRequest &request);
 
       /**
-       * @summary 检查目标实例是否被 SysOM 支持
+       * @summary Check whether the target instance is supported by SysOM
+       *
+       * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request CheckInstanceSupportRequest
        * @param headers map
@@ -49,7 +63,9 @@ namespace SysOM20231230
       Models::CheckInstanceSupportResponse checkInstanceSupportWithOptions(const Models::CheckInstanceSupportRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查目标实例是否被 SysOM 支持
+       * @summary Check whether the target instance is supported by SysOM
+       *
+       * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request CheckInstanceSupportRequest
        * @return CheckInstanceSupportResponse
@@ -57,7 +73,7 @@ namespace SysOM20231230
       Models::CheckInstanceSupportResponse checkInstanceSupport(const Models::CheckInstanceSupportRequest &request);
 
       /**
-       * @summary cpu高agent流式接口
+       * @summary High-CPU agent streaming API
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @param headers map
@@ -67,7 +83,7 @@ namespace SysOM20231230
       FutureGenerator<Models::CpuHighAgentStreamResponseResponse> cpuHighAgentStreamResponseWithSSE(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary cpu高agent流式接口
+       * @summary High-CPU agent streaming API
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @param headers map
@@ -77,7 +93,7 @@ namespace SysOM20231230
       Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponseWithOptions(const Models::CpuHighAgentStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary cpu高agent流式接口
+       * @summary High-CPU agent streaming API
        *
        * @param request CpuHighAgentStreamResponseRequest
        * @return CpuHighAgentStreamResponseResponse
@@ -85,7 +101,7 @@ namespace SysOM20231230
       Models::CpuHighAgentStreamResponseResponse cpuHighAgentStreamResponse(const Models::CpuHighAgentStreamResponseRequest &request);
 
       /**
-       * @summary 创建一个告警联系人
+       * @summary This API is used to create an alert contact for push notifications.
        *
        * @param request CreateAlertDestinationRequest
        * @param headers map
@@ -95,7 +111,7 @@ namespace SysOM20231230
       Models::CreateAlertDestinationResponse createAlertDestinationWithOptions(const Models::CreateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建一个告警联系人
+       * @summary This API is used to create an alert contact for push notifications.
        *
        * @param request CreateAlertDestinationRequest
        * @return CreateAlertDestinationResponse
@@ -103,7 +119,7 @@ namespace SysOM20231230
       Models::CreateAlertDestinationResponse createAlertDestination(const Models::CreateAlertDestinationRequest &request);
 
       /**
-       * @summary 新增推送告警的策略
+       * @summary Create an alert policy for push notifications
        *
        * @param request CreateAlertStrategyRequest
        * @param headers map
@@ -113,7 +129,7 @@ namespace SysOM20231230
       Models::CreateAlertStrategyResponse createAlertStrategyWithOptions(const Models::CreateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新增推送告警的策略
+       * @summary Create an alert policy for push notifications
        *
        * @param request CreateAlertStrategyRequest
        * @return CreateAlertStrategyResponse
@@ -122,6 +138,10 @@ namespace SysOM20231230
 
       /**
        * @summary 创建集群Vpc端点连接
+       *
+       * @description - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
+       * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
+       * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @param headers map
@@ -132,6 +152,10 @@ namespace SysOM20231230
 
       /**
        * @summary 创建集群Vpc端点连接
+       *
+       * @description - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
+       * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
+       * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
        *
        * @param request CreateClusterVpcEndpointConnectionRequest
        * @return CreateClusterVpcEndpointConnectionResponse
@@ -157,7 +181,7 @@ namespace SysOM20231230
       Models::CreateInstanceInspectionResponse createInstanceInspection(const Models::CreateInstanceInspectionRequest &request);
 
       /**
-       * @summary 创建宕机诊断任务
+       * @summary This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
        *
        * @param request CreateVmcoreDiagnosisTaskRequest
        * @param headers map
@@ -167,7 +191,7 @@ namespace SysOM20231230
       Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTaskWithOptions(const Models::CreateVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建宕机诊断任务
+       * @summary This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
        *
        * @param request CreateVmcoreDiagnosisTaskRequest
        * @return CreateVmcoreDiagnosisTaskResponse
@@ -175,7 +199,7 @@ namespace SysOM20231230
       Models::CreateVmcoreDiagnosisTaskResponse createVmcoreDiagnosisTask(const Models::CreateVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary 删除告警联系人
+       * @summary This API is used to delete an alert contact.
        *
        * @param request DeleteAlertDestinationRequest
        * @param headers map
@@ -185,7 +209,7 @@ namespace SysOM20231230
       Models::DeleteAlertDestinationResponse deleteAlertDestinationWithOptions(const Models::DeleteAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除告警联系人
+       * @summary This API is used to delete an alert contact.
        *
        * @param request DeleteAlertDestinationRequest
        * @return DeleteAlertDestinationResponse
@@ -193,7 +217,7 @@ namespace SysOM20231230
       Models::DeleteAlertDestinationResponse deleteAlertDestination(const Models::DeleteAlertDestinationRequest &request);
 
       /**
-       * @summary 用户删除推送告警的策略
+       * @summary User deletes the alert policy for push notifications.
        *
        * @param request DeleteAlertStrategyRequest
        * @param headers map
@@ -203,7 +227,7 @@ namespace SysOM20231230
       Models::DeleteAlertStrategyResponse deleteAlertStrategyWithOptions(const Models::DeleteAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户删除推送告警的策略
+       * @summary User deletes the alert policy for push notifications.
        *
        * @param request DeleteAlertStrategyRequest
        * @return DeleteAlertStrategyResponse
@@ -211,7 +235,9 @@ namespace SysOM20231230
       Models::DeleteAlertStrategyResponse deleteAlertStrategy(const Models::DeleteAlertStrategyRequest &request);
 
       /**
-       * @summary 查询指标
+       * @summary Query metrics
+       *
+       * @description The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request DescribeMetricListRequest
        * @param headers map
@@ -221,7 +247,9 @@ namespace SysOM20231230
       Models::DescribeMetricListResponse describeMetricListWithOptions(const Models::DescribeMetricListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指标
+       * @summary Query metrics
+       *
+       * @description The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request DescribeMetricListRequest
        * @return DescribeMetricListResponse
@@ -229,7 +257,10 @@ namespace SysOM20231230
       Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
 
       /**
-       * @summary 获取copilot服务的返回结果
+       * @summary Obtain the Return Result of the copilot service
+       *
+       * @description - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+       * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
        *
        * @param request GenerateCopilotResponseRequest
        * @param headers map
@@ -239,7 +270,10 @@ namespace SysOM20231230
       Models::GenerateCopilotResponseResponse generateCopilotResponseWithOptions(const Models::GenerateCopilotResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取copilot服务的返回结果
+       * @summary Obtain the Return Result of the copilot service
+       *
+       * @description - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+       * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
        *
        * @param request GenerateCopilotResponseRequest
        * @return GenerateCopilotResponseResponse
@@ -247,7 +281,11 @@ namespace SysOM20231230
       Models::GenerateCopilotResponseResponse generateCopilotResponse(const Models::GenerateCopilotResponseRequest &request);
 
       /**
-       * @summary 流式copilot服务接口
+       * @summary Stream Copilot service API
+       *
+       * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+       * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+       * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @param headers map
@@ -257,7 +295,11 @@ namespace SysOM20231230
       FutureGenerator<Models::GenerateCopilotStreamResponseResponse> generateCopilotStreamResponseWithSSE(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式copilot服务接口
+       * @summary Stream Copilot service API
+       *
+       * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+       * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+       * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @param headers map
@@ -267,7 +309,11 @@ namespace SysOM20231230
       Models::GenerateCopilotStreamResponseResponse generateCopilotStreamResponseWithOptions(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 流式copilot服务接口
+       * @summary Stream Copilot service API
+       *
+       * @description - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+       * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+       * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
        *
        * @param request GenerateCopilotStreamResponseRequest
        * @return GenerateCopilotStreamResponseResponse
@@ -275,7 +321,7 @@ namespace SysOM20231230
       Models::GenerateCopilotStreamResponseResponse generateCopilotStreamResponse(const Models::GenerateCopilotStreamResponseRequest &request);
 
       /**
-       * @summary 查看AI Infra分析结果
+       * @summary View AI Infra Analysis Result
        *
        * @param request GetAIQueryResultRequest
        * @param headers map
@@ -285,7 +331,7 @@ namespace SysOM20231230
       Models::GetAIQueryResultResponse getAIQueryResultWithOptions(const Models::GetAIQueryResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看AI Infra分析结果
+       * @summary View AI Infra Analysis Result
        *
        * @param request GetAIQueryResultRequest
        * @return GetAIQueryResultResponse
@@ -293,7 +339,7 @@ namespace SysOM20231230
       Models::GetAIQueryResultResponse getAIQueryResult(const Models::GetAIQueryResultRequest &request);
 
       /**
-       * @summary 获取节点/Pod不同等级异常事件的数量
+       * @summary Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
        *
        * @param request GetAbnormalEventsCountRequest
        * @param headers map
@@ -303,7 +349,7 @@ namespace SysOM20231230
       Models::GetAbnormalEventsCountResponse getAbnormalEventsCountWithOptions(const Models::GetAbnormalEventsCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取节点/Pod不同等级异常事件的数量
+       * @summary Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
        *
        * @param request GetAbnormalEventsCountRequest
        * @return GetAbnormalEventsCountResponse
@@ -311,7 +357,7 @@ namespace SysOM20231230
       Models::GetAbnormalEventsCountResponse getAbnormalEventsCount(const Models::GetAbnormalEventsCountRequest &request);
 
       /**
-       * @summary 获取某个组件的详情
+       * @summary Retrieve the details of a widget
        *
        * @param request GetAgentRequest
        * @param headers map
@@ -321,7 +367,7 @@ namespace SysOM20231230
       Models::GetAgentResponse getAgentWithOptions(const Models::GetAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取某个组件的详情
+       * @summary Retrieve the details of a widget
        *
        * @param request GetAgentRequest
        * @return GetAgentResponse
@@ -329,7 +375,7 @@ namespace SysOM20231230
       Models::GetAgentResponse getAgent(const Models::GetAgentRequest &request);
 
       /**
-       * @summary 获取Agent安装任务执行状态
+       * @summary Obtain the task execution status of Agent installation
        *
        * @param request GetAgentTaskRequest
        * @param headers map
@@ -339,7 +385,7 @@ namespace SysOM20231230
       Models::GetAgentTaskResponse getAgentTaskWithOptions(const Models::GetAgentTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Agent安装任务执行状态
+       * @summary Obtain the task execution status of Agent installation
        *
        * @param request GetAgentTaskRequest
        * @return GetAgentTaskResponse
@@ -347,7 +393,7 @@ namespace SysOM20231230
       Models::GetAgentTaskResponse getAgentTask(const Models::GetAgentTaskRequest &request);
 
       /**
-       * @summary 获取告警联系人详情
+       * @summary This API is used to obtain the specified alert contact information.
        *
        * @param request GetAlertDestinationRequest
        * @param headers map
@@ -357,7 +403,7 @@ namespace SysOM20231230
       Models::GetAlertDestinationResponse getAlertDestinationWithOptions(const Models::GetAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取告警联系人详情
+       * @summary This API is used to obtain the specified alert contact information.
        *
        * @param request GetAlertDestinationRequest
        * @return GetAlertDestinationResponse
@@ -365,7 +411,7 @@ namespace SysOM20231230
       Models::GetAlertDestinationResponse getAlertDestination(const Models::GetAlertDestinationRequest &request);
 
       /**
-       * @summary 根据策略id，获取用户的一条告警
+       * @summary Obtain an alert for a user by policy ID.
        *
        * @param request GetAlertStrategyRequest
        * @param headers map
@@ -375,7 +421,7 @@ namespace SysOM20231230
       Models::GetAlertStrategyResponse getAlertStrategyWithOptions(const Models::GetAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据策略id，获取用户的一条告警
+       * @summary Obtain an alert for a user by policy ID.
        *
        * @param request GetAlertStrategyRequest
        * @return GetAlertStrategyResponse
@@ -383,7 +429,7 @@ namespace SysOM20231230
       Models::GetAlertStrategyResponse getAlertStrategy(const Models::GetAlertStrategyRequest &request);
 
       /**
-       * @summary 获取copilot历史聊天记录
+       * @summary Retrieve copilot chat history
        *
        * @param request GetCopilotHistoryRequest
        * @param headers map
@@ -393,7 +439,7 @@ namespace SysOM20231230
       Models::GetCopilotHistoryResponse getCopilotHistoryWithOptions(const Models::GetCopilotHistoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取copilot历史聊天记录
+       * @summary Retrieve copilot chat history
        *
        * @param request GetCopilotHistoryRequest
        * @return GetCopilotHistoryResponse
@@ -401,7 +447,9 @@ namespace SysOM20231230
       Models::GetCopilotHistoryResponse getCopilotHistory(const Models::GetCopilotHistoryRequest &request);
 
       /**
-       * @summary 获取诊断结果
+       * @summary Obtain the diagnosis result.
+       *
+       * @description The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
        *
        * @param request GetDiagnosisResultRequest
        * @param headers map
@@ -411,7 +459,9 @@ namespace SysOM20231230
       Models::GetDiagnosisResultResponse getDiagnosisResultWithOptions(const Models::GetDiagnosisResultRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取诊断结果
+       * @summary Obtain the diagnosis result.
+       *
+       * @description The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
        *
        * @param request GetDiagnosisResultRequest
        * @return GetDiagnosisResultResponse
@@ -419,7 +469,7 @@ namespace SysOM20231230
       Models::GetDiagnosisResultResponse getDiagnosisResult(const Models::GetDiagnosisResultRequest &request);
 
       /**
-       * @summary 获取一段时间的节点/pod健康度比例
+       * @summary Obtain the proportion of edge zone/pod health statuses over a period of time
        *
        * @param request GetHealthPercentageRequest
        * @param headers map
@@ -429,7 +479,7 @@ namespace SysOM20231230
       Models::GetHealthPercentageResponse getHealthPercentageWithOptions(const Models::GetHealthPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一段时间的节点/pod健康度比例
+       * @summary Obtain the proportion of edge zone/pod health statuses over a period of time
        *
        * @param request GetHealthPercentageRequest
        * @return GetHealthPercentageResponse
@@ -437,7 +487,7 @@ namespace SysOM20231230
       Models::GetHealthPercentageResponse getHealthPercentage(const Models::GetHealthPercentageRequest &request);
 
       /**
-       * @summary 获取集群节点数量
+       * @summary Obtain the number of edge zones in a cluster or the number of pods in an edge zone
        *
        * @param request GetHostCountRequest
        * @param headers map
@@ -447,7 +497,7 @@ namespace SysOM20231230
       Models::GetHostCountResponse getHostCountWithOptions(const Models::GetHostCountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群节点数量
+       * @summary Obtain the number of edge zones in a cluster or the number of pods in an edge zone
        *
        * @param request GetHostCountRequest
        * @return GetHostCountResponse
@@ -455,7 +505,7 @@ namespace SysOM20231230
       Models::GetHostCountResponse getHostCount(const Models::GetHostCountRequest &request);
 
       /**
-       * @summary 获取实例下的某个字段列表
+       * @summary Obtain the list of a specific field under an instance.
        *
        * @param request GetHotSpotUniqListRequest
        * @param headers map
@@ -465,7 +515,7 @@ namespace SysOM20231230
       Models::GetHotSpotUniqListResponse getHotSpotUniqListWithOptions(const Models::GetHotSpotUniqListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例下的某个字段列表
+       * @summary Obtain the list of a specific field under an instance.
        *
        * @param request GetHotSpotUniqListRequest
        * @return GetHotSpotUniqListResponse
@@ -473,7 +523,7 @@ namespace SysOM20231230
       Models::GetHotSpotUniqListResponse getHotSpotUniqList(const Models::GetHotSpotUniqListRequest &request);
 
       /**
-       * @summary 获取热定分析结果
+       * @summary Obtain hot spot analysis results
        *
        * @param request GetHotspotAnalysisRequest
        * @param headers map
@@ -483,7 +533,7 @@ namespace SysOM20231230
       Models::GetHotspotAnalysisResponse getHotspotAnalysisWithOptions(const Models::GetHotspotAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取热定分析结果
+       * @summary Obtain hot spot analysis results
        *
        * @param request GetHotspotAnalysisRequest
        * @return GetHotspotAnalysisResponse
@@ -491,7 +541,7 @@ namespace SysOM20231230
       Models::GetHotspotAnalysisResponse getHotspotAnalysis(const Models::GetHotspotAnalysisRequest &request);
 
       /**
-       * @summary 热点对比
+       * @summary Obtain hot spot comparison tracing results
        *
        * @param request GetHotspotCompareRequest
        * @param headers map
@@ -501,7 +551,7 @@ namespace SysOM20231230
       Models::GetHotspotCompareResponse getHotspotCompareWithOptions(const Models::GetHotspotCompareRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 热点对比
+       * @summary Obtain hot spot comparison tracing results
        *
        * @param request GetHotspotCompareRequest
        * @return GetHotspotCompareResponse
@@ -509,7 +559,7 @@ namespace SysOM20231230
       Models::GetHotspotCompareResponse getHotspotCompare(const Models::GetHotspotCompareRequest &request);
 
       /**
-       * @summary 获取热点实例列表
+       * @summary Obtain the hot spot instance list
        *
        * @param request GetHotspotInstanceListRequest
        * @param headers map
@@ -519,7 +569,7 @@ namespace SysOM20231230
       Models::GetHotspotInstanceListResponse getHotspotInstanceListWithOptions(const Models::GetHotspotInstanceListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取热点实例列表
+       * @summary Obtain the hot spot instance list
        *
        * @param request GetHotspotInstanceListRequest
        * @return GetHotspotInstanceListResponse
@@ -527,7 +577,7 @@ namespace SysOM20231230
       Models::GetHotspotInstanceListResponse getHotspotInstanceList(const Models::GetHotspotInstanceListRequest &request);
 
       /**
-       * @summary 获取某个实例的pid列表
+       * @summary Obtain the PID list of a specific instance
        *
        * @param request GetHotspotPidListRequest
        * @param headers map
@@ -537,7 +587,7 @@ namespace SysOM20231230
       Models::GetHotspotPidListResponse getHotspotPidListWithOptions(const Models::GetHotspotPidListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取某个实例的pid列表
+       * @summary Obtain the PID list of a specific instance
        *
        * @param request GetHotspotPidListRequest
        * @return GetHotspotPidListResponse
@@ -545,7 +595,7 @@ namespace SysOM20231230
       Models::GetHotspotPidListResponse getHotspotPidList(const Models::GetHotspotPidListRequest &request);
 
       /**
-       * @summary 发起热点追踪
+       * @summary Obtain hot spot tracing results
        *
        * @param request GetHotspotTrackingRequest
        * @param headers map
@@ -555,7 +605,7 @@ namespace SysOM20231230
       Models::GetHotspotTrackingResponse getHotspotTrackingWithOptions(const Models::GetHotspotTrackingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起热点追踪
+       * @summary Obtain hot spot tracing results
        *
        * @param request GetHotspotTrackingRequest
        * @return GetHotspotTrackingResponse
@@ -581,7 +631,7 @@ namespace SysOM20231230
       Models::GetInspectionReportResponse getInspectionReport(const Models::GetInspectionReportRequest &request);
 
       /**
-       * @summary 获取实时集群/节点健康度分数
+       * @summary Obtain real-time cluster/edge zone health degree score
        *
        * @param request GetInstantScoreRequest
        * @param headers map
@@ -591,7 +641,7 @@ namespace SysOM20231230
       Models::GetInstantScoreResponse getInstantScoreWithOptions(const Models::GetInstantScoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实时集群/节点健康度分数
+       * @summary Obtain real-time cluster/edge zone health degree score
        *
        * @param request GetInstantScoreRequest
        * @return GetInstantScoreResponse
@@ -599,7 +649,7 @@ namespace SysOM20231230
       Models::GetInstantScoreResponse getInstantScore(const Models::GetInstantScoreRequest &request);
 
       /**
-       * @summary AI Infra获取分析记录列表
+       * @summary AI Infra retrieves the list of analysis records
        *
        * @param request GetListRecordRequest
        * @param headers map
@@ -609,7 +659,7 @@ namespace SysOM20231230
       Models::GetListRecordResponse getListRecordWithOptions(const Models::GetListRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary AI Infra获取分析记录列表
+       * @summary AI Infra retrieves the list of analysis records
        *
        * @param request GetListRecordRequest
        * @return GetListRecordResponse
@@ -617,7 +667,7 @@ namespace SysOM20231230
       Models::GetListRecordResponse getListRecord(const Models::GetListRecordRequest &request);
 
       /**
-       * @summary 获取一定时间内集群中节点/节点中pod异常问题占比
+       * @summary Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
        *
        * @param request GetProblemPercentageRequest
        * @param headers map
@@ -627,7 +677,7 @@ namespace SysOM20231230
       Models::GetProblemPercentageResponse getProblemPercentageWithOptions(const Models::GetProblemPercentageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一定时间内集群中节点/节点中pod异常问题占比
+       * @summary Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
        *
        * @param request GetProblemPercentageRequest
        * @return GetProblemPercentageResponse
@@ -635,7 +685,7 @@ namespace SysOM20231230
       Models::GetProblemPercentageResponse getProblemPercentage(const Models::GetProblemPercentageRequest &request);
 
       /**
-       * @summary 获取健康分趋势
+       * @summary Retrieve the health score trend
        *
        * @param request GetRangeScoreRequest
        * @param headers map
@@ -645,7 +695,7 @@ namespace SysOM20231230
       Models::GetRangeScoreResponse getRangeScoreWithOptions(const Models::GetRangeScoreRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取健康分趋势
+       * @summary Retrieve the health score trend
        *
        * @param request GetRangeScoreRequest
        * @return GetRangeScoreResponse
@@ -653,7 +703,7 @@ namespace SysOM20231230
       Models::GetRangeScoreResponse getRangeScore(const Models::GetRangeScoreRequest &request);
 
       /**
-       * @summary 获取集群/节点资源实时使用情况
+       * @summary Obtain real-time resource usage of clusters or edge zones
        *
        * @param request GetResourcesRequest
        * @param headers map
@@ -663,7 +713,7 @@ namespace SysOM20231230
       Models::GetResourcesResponse getResourcesWithOptions(const Models::GetResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群/节点资源实时使用情况
+       * @summary Obtain real-time resource usage of clusters or edge zones
        *
        * @param request GetResourcesRequest
        * @return GetResourcesResponse
@@ -671,7 +721,9 @@ namespace SysOM20231230
       Models::GetResourcesResponse getResources(const Models::GetResourcesRequest &request);
 
       /**
-       * @summary 获取功能模块配置
+       * @summary Obtain Function Modules Configuration
+       *
+       * @description This API is used to retrieve the service configuration status.
        *
        * @param tmpReq GetServiceFuncStatusRequest
        * @param headers map
@@ -681,7 +733,9 @@ namespace SysOM20231230
       Models::GetServiceFuncStatusResponse getServiceFuncStatusWithOptions(const Models::GetServiceFuncStatusRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取功能模块配置
+       * @summary Obtain Function Modules Configuration
+       *
+       * @description This API is used to retrieve the service configuration status.
        *
        * @param request GetServiceFuncStatusRequest
        * @return GetServiceFuncStatusResponse
@@ -689,7 +743,7 @@ namespace SysOM20231230
       Models::GetServiceFuncStatusResponse getServiceFuncStatus(const Models::GetServiceFuncStatusRequest &request);
 
       /**
-       * @summary 查询宕机诊断任务结果
+       * @summary This API queries the task execution status and diagnosis result based on the job ID.
        *
        * @param request GetVmcoreDiagnosisTaskRequest
        * @param headers map
@@ -699,7 +753,7 @@ namespace SysOM20231230
       Models::GetVmcoreDiagnosisTaskResponse getVmcoreDiagnosisTaskWithOptions(const Models::GetVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询宕机诊断任务结果
+       * @summary This API queries the task execution status and diagnosis result based on the job ID.
        *
        * @param request GetVmcoreDiagnosisTaskRequest
        * @return GetVmcoreDiagnosisTaskResponse
@@ -707,7 +761,12 @@ namespace SysOM20231230
       Models::GetVmcoreDiagnosisTaskResponse getVmcoreDiagnosisTask(const Models::GetVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary 初始化SysOM，确保角色存在
+       * @summary Initialize SysOM and ensure that the service role exists.
+       *
+       * @description Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
+       * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
+       * >  
+       * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
        *
        * @param request InitialSysomRequest
        * @param headers map
@@ -717,7 +776,12 @@ namespace SysOM20231230
       Models::InitialSysomResponse initialSysomWithOptions(const Models::InitialSysomRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 初始化SysOM，确保角色存在
+       * @summary Initialize SysOM and ensure that the service role exists.
+       *
+       * @description Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
+       * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
+       * >  
+       * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
        *
        * @param request InitialSysomRequest
        * @return InitialSysomResponse
@@ -725,7 +789,9 @@ namespace SysOM20231230
       Models::InitialSysomResponse initialSysom(const Models::InitialSysomRequest &request);
 
       /**
-       * @summary 在指定的实例上安装 Agent
+       * @summary Install an agent on the specified instance
+       *
+       * @description The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
        *
        * @param request InstallAgentRequest
        * @param headers map
@@ -735,7 +801,9 @@ namespace SysOM20231230
       Models::InstallAgentResponse installAgentWithOptions(const Models::InstallAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 在指定的实例上安装 Agent
+       * @summary Install an agent on the specified instance
+       *
+       * @description The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
        *
        * @param request InstallAgentRequest
        * @return InstallAgentResponse
@@ -743,7 +811,11 @@ namespace SysOM20231230
       Models::InstallAgentResponse installAgent(const Models::InstallAgentRequest &request);
 
       /**
-       * @summary 给集群安装组件
+       * @summary Install widgets on a cluster
+       *
+       * @description After you install widgets on the specified ACK cluster:  
+       * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
+       * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
        *
        * @param request InstallAgentForClusterRequest
        * @param headers map
@@ -753,7 +825,11 @@ namespace SysOM20231230
       Models::InstallAgentForClusterResponse installAgentForClusterWithOptions(const Models::InstallAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给集群安装组件
+       * @summary Install widgets on a cluster
+       *
+       * @description After you install widgets on the specified ACK cluster:  
+       * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
+       * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
        *
        * @param request InstallAgentForClusterRequest
        * @return InstallAgentForClusterResponse
@@ -761,7 +837,7 @@ namespace SysOM20231230
       Models::InstallAgentForClusterResponse installAgentForCluster(const Models::InstallAgentForClusterRequest &request);
 
       /**
-       * @summary 异常项诊断跳转
+       * @summary Initiate diagnosis for anomalous activity
        *
        * @param request InvokeAnomalyDiagnosisRequest
        * @param headers map
@@ -771,7 +847,7 @@ namespace SysOM20231230
       Models::InvokeAnomalyDiagnosisResponse invokeAnomalyDiagnosisWithOptions(const Models::InvokeAnomalyDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异常项诊断跳转
+       * @summary Initiate diagnosis for anomalous activity
        *
        * @param request InvokeAnomalyDiagnosisRequest
        * @return InvokeAnomalyDiagnosisResponse
@@ -779,7 +855,13 @@ namespace SysOM20231230
       Models::InvokeAnomalyDiagnosisResponse invokeAnomalyDiagnosis(const Models::InvokeAnomalyDiagnosisRequest &request);
 
       /**
-       * @summary 发起诊断
+       * @summary Initiate a diagnosis.
+       *
+       * @description Diagnosing the target ECS instance has the following requirements:  
+       * - The instance status of the target ECS instance must be running.  
+       * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
+       * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
+       * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @param headers map
@@ -789,7 +871,13 @@ namespace SysOM20231230
       Models::InvokeDiagnosisResponse invokeDiagnosisWithOptions(const Models::InvokeDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发起诊断
+       * @summary Initiate a diagnosis.
+       *
+       * @description Diagnosing the target ECS instance has the following requirements:  
+       * - The instance status of the target ECS instance must be running.  
+       * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
+       * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
+       * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @return InvokeDiagnosisResponse
@@ -797,7 +885,7 @@ namespace SysOM20231230
       Models::InvokeDiagnosisResponse invokeDiagnosis(const Models::InvokeDiagnosisRequest &request);
 
       /**
-       * @summary 获取一定时间段内的异常事件
+       * @summary Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
        *
        * @param request ListAbnormalyEventsRequest
        * @param headers map
@@ -807,7 +895,7 @@ namespace SysOM20231230
       Models::ListAbnormalyEventsResponse listAbnormalyEventsWithOptions(const Models::ListAbnormalyEventsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取一定时间段内的异常事件
+       * @summary Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
        *
        * @param request ListAbnormalyEventsRequest
        * @return ListAbnormalyEventsResponse
@@ -815,7 +903,7 @@ namespace SysOM20231230
       Models::ListAbnormalyEventsResponse listAbnormalyEvents(const Models::ListAbnormalyEventsRequest &request);
 
       /**
-       * @summary 列出 Agent 的安装记录
+       * @summary List installation records of the agent
        *
        * @param request ListAgentInstallRecordsRequest
        * @param headers map
@@ -825,7 +913,7 @@ namespace SysOM20231230
       Models::ListAgentInstallRecordsResponse listAgentInstallRecordsWithOptions(const Models::ListAgentInstallRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出 Agent 的安装记录
+       * @summary List installation records of the agent
        *
        * @param request ListAgentInstallRecordsRequest
        * @return ListAgentInstallRecordsResponse
@@ -833,7 +921,7 @@ namespace SysOM20231230
       Models::ListAgentInstallRecordsResponse listAgentInstallRecords(const Models::ListAgentInstallRecordsRequest &request);
 
       /**
-       * @summary 获取 Agent 列表
+       * @summary Retrieve the Agent List
        *
        * @param request ListAgentsRequest
        * @param headers map
@@ -843,7 +931,7 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgentsWithOptions(const Models::ListAgentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 Agent 列表
+       * @summary Retrieve the Agent List
        *
        * @param request ListAgentsRequest
        * @return ListAgentsResponse
@@ -851,7 +939,7 @@ namespace SysOM20231230
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
 
       /**
-       * @summary 查看告警联系人列表
+       * @summary This API is used to obtain the alert contact list.
        *
        * @param request ListAlertDestinationsRequest
        * @param headers map
@@ -861,7 +949,7 @@ namespace SysOM20231230
       Models::ListAlertDestinationsResponse listAlertDestinationsWithOptions(const Models::ListAlertDestinationsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看告警联系人列表
+       * @summary This API is used to obtain the alert contact list.
        *
        * @param request ListAlertDestinationsRequest
        * @return ListAlertDestinationsResponse
@@ -869,7 +957,7 @@ namespace SysOM20231230
       Models::ListAlertDestinationsResponse listAlertDestinations(const Models::ListAlertDestinationsRequest &request);
 
       /**
-       * @summary 获取所有告警项
+       * @summary Retrieve all alerting items
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -878,14 +966,14 @@ namespace SysOM20231230
       Models::ListAlertItemsResponse listAlertItemsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取所有告警项
+       * @summary Retrieve all alerting items
        *
        * @return ListAlertItemsResponse
        */
       Models::ListAlertItemsResponse listAlertItems();
 
       /**
-       * @summary 用于获取用户所有推送告警的策略
+       * @summary Used to obtain all alert policies for push notifications of a user
        *
        * @param request ListAlertStrategiesRequest
        * @param headers map
@@ -895,7 +983,7 @@ namespace SysOM20231230
       Models::ListAlertStrategiesResponse listAlertStrategiesWithOptions(const Models::ListAlertStrategiesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用于获取用户所有推送告警的策略
+       * @summary Used to obtain all alert policies for push notifications of a user
        *
        * @param request ListAlertStrategiesRequest
        * @return ListAlertStrategiesResponse
@@ -903,7 +991,7 @@ namespace SysOM20231230
       Models::ListAlertStrategiesResponse listAlertStrategies(const Models::ListAlertStrategiesRequest &request);
 
       /**
-       * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+       * @summary This API is used to obtain a list of managed or unmanaged instances along with instance information.
        *
        * @param request ListAllInstancesRequest
        * @param headers map
@@ -913,7 +1001,7 @@ namespace SysOM20231230
       Models::ListAllInstancesResponse listAllInstancesWithOptions(const Models::ListAllInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+       * @summary This API is used to obtain a list of managed or unmanaged instances along with instance information.
        *
        * @param request ListAllInstancesRequest
        * @return ListAllInstancesResponse
@@ -921,7 +1009,7 @@ namespace SysOM20231230
       Models::ListAllInstancesResponse listAllInstances(const Models::ListAllInstancesRequest &request);
 
       /**
-       * @summary 获取集群组件安装记录
+       * @summary Obtain cluster widget installation records
        *
        * @param request ListClusterAgentInstallRecordsRequest
        * @param headers map
@@ -931,7 +1019,7 @@ namespace SysOM20231230
       Models::ListClusterAgentInstallRecordsResponse listClusterAgentInstallRecordsWithOptions(const Models::ListClusterAgentInstallRecordsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取集群组件安装记录
+       * @summary Obtain cluster widget installation records
        *
        * @param request ListClusterAgentInstallRecordsRequest
        * @return ListClusterAgentInstallRecordsResponse
@@ -939,7 +1027,7 @@ namespace SysOM20231230
       Models::ListClusterAgentInstallRecordsResponse listClusterAgentInstallRecords(const Models::ListClusterAgentInstallRecordsRequest &request);
 
       /**
-       * @summary 获取当前用户的所有集群
+       * @summary Retrieve all clusters managed by the current user
        *
        * @param request ListClustersRequest
        * @param headers map
@@ -949,7 +1037,7 @@ namespace SysOM20231230
       Models::ListClustersResponse listClustersWithOptions(const Models::ListClustersRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取当前用户的所有集群
+       * @summary Retrieve all clusters managed by the current user
        *
        * @param request ListClustersRequest
        * @return ListClustersResponse
@@ -957,7 +1045,7 @@ namespace SysOM20231230
       Models::ListClustersResponse listClusters(const Models::ListClustersRequest &request);
 
       /**
-       * @summary 获取诊断历史记录列表
+       * @summary Obtain the diagnosis history list.
        *
        * @param request ListDiagnosisRequest
        * @param headers map
@@ -967,7 +1055,7 @@ namespace SysOM20231230
       Models::ListDiagnosisResponse listDiagnosisWithOptions(const Models::ListDiagnosisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取诊断历史记录列表
+       * @summary Obtain the diagnosis history list.
        *
        * @param request ListDiagnosisRequest
        * @return ListDiagnosisResponse
@@ -975,7 +1063,7 @@ namespace SysOM20231230
       Models::ListDiagnosisResponse listDiagnosis(const Models::ListDiagnosisRequest &request);
 
       /**
-       * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
+       * @summary Obtain a list of cluster node or pod health scores within a specified time period.
        *
        * @param request ListInstanceHealthRequest
        * @param headers map
@@ -985,7 +1073,7 @@ namespace SysOM20231230
       Models::ListInstanceHealthResponse listInstanceHealthWithOptions(const Models::ListInstanceHealthRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain a list of cluster node or pod health degrees within a specified time period.
+       * @summary Obtain a list of cluster node or pod health scores within a specified time period.
        *
        * @param request ListInstanceHealthRequest
        * @return ListInstanceHealthResponse
@@ -993,7 +1081,9 @@ namespace SysOM20231230
       Models::ListInstanceHealthResponse listInstanceHealth(const Models::ListInstanceHealthRequest &request);
 
       /**
-       * @summary 获取实例状态
+       * @summary Obtain instance status
+       *
+       * @description This API is used to obtain the list of machines managed by SysOM.
        *
        * @param request ListInstanceStatusRequest
        * @param headers map
@@ -1003,7 +1093,9 @@ namespace SysOM20231230
       Models::ListInstanceStatusResponse listInstanceStatusWithOptions(const Models::ListInstanceStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例状态
+       * @summary Obtain instance status
+       *
+       * @description This API is used to obtain the list of machines managed by SysOM.
        *
        * @param request ListInstanceStatusRequest
        * @return ListInstanceStatusResponse
@@ -1011,7 +1103,9 @@ namespace SysOM20231230
       Models::ListInstanceStatusResponse listInstanceStatus(const Models::ListInstanceStatusRequest &request);
 
       /**
-       * @summary 获取实例列表
+       * @summary Obtain the instance list
+       *
+       * @description The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
        *
        * @param request ListInstancesRequest
        * @param headers map
@@ -1021,7 +1115,9 @@ namespace SysOM20231230
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例列表
+       * @summary Obtain the instance list
+       *
+       * @description The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -1029,7 +1125,9 @@ namespace SysOM20231230
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary 获取ecs信息的列表，如标签列表，公网ip列表等
+       * @summary Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+       *
+       * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request ListInstancesEcsInfoListRequest
        * @param headers map
@@ -1039,7 +1137,9 @@ namespace SysOM20231230
       Models::ListInstancesEcsInfoListResponse listInstancesEcsInfoListWithOptions(const Models::ListInstancesEcsInfoListRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取ecs信息的列表，如标签列表，公网ip列表等
+       * @summary Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+       *
+       * @description The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request ListInstancesEcsInfoListRequest
        * @return ListInstancesEcsInfoListResponse
@@ -1047,7 +1147,9 @@ namespace SysOM20231230
       Models::ListInstancesEcsInfoListResponse listInstancesEcsInfoList(const Models::ListInstancesEcsInfoListRequest &request);
 
       /**
-       * @summary 获取已纳管/未纳管实例信息，信息中包含ECS信息
+       * @summary Obtain information about managed or unmanaged instances, including ECS information.
+       *
+       * @description The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
        *
        * @param tmpReq ListInstancesWithEcsInfoRequest
        * @param headers map
@@ -1057,7 +1159,9 @@ namespace SysOM20231230
       Models::ListInstancesWithEcsInfoResponse listInstancesWithEcsInfoWithOptions(const Models::ListInstancesWithEcsInfoRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取已纳管/未纳管实例信息，信息中包含ECS信息
+       * @summary Obtain information about managed or unmanaged instances, including ECS information.
+       *
+       * @description The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
        *
        * @param request ListInstancesWithEcsInfoRequest
        * @return ListInstancesWithEcsInfoResponse
@@ -1065,7 +1169,9 @@ namespace SysOM20231230
       Models::ListInstancesWithEcsInfoResponse listInstancesWithEcsInfo(const Models::ListInstancesWithEcsInfoRequest &request);
 
       /**
-       * @summary 获取插件的安装/更新/卸载实例列表
+       * @summary Obtain the list of instances for plugin installation, update, or uninstallation
+       *
+       * @description The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request ListPluginsInstancesRequest
        * @param headers map
@@ -1075,7 +1181,9 @@ namespace SysOM20231230
       Models::ListPluginsInstancesResponse listPluginsInstancesWithOptions(const Models::ListPluginsInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取插件的安装/更新/卸载实例列表
+       * @summary Obtain the list of instances for plugin installation, update, or uninstallation
+       *
+       * @description The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
        *
        * @param request ListPluginsInstancesRequest
        * @return ListPluginsInstancesResponse
@@ -1083,7 +1191,7 @@ namespace SysOM20231230
       Models::ListPluginsInstancesResponse listPluginsInstances(const Models::ListPluginsInstancesRequest &request);
 
       /**
-       * @summary 获取实例中的pod列表
+       * @summary Retrieve the list of pods in a cluster or instance
        *
        * @param request ListPodsOfInstanceRequest
        * @param headers map
@@ -1093,7 +1201,7 @@ namespace SysOM20231230
       Models::ListPodsOfInstanceResponse listPodsOfInstanceWithOptions(const Models::ListPodsOfInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例中的pod列表
+       * @summary Retrieve the list of pods in a cluster or instance
        *
        * @param request ListPodsOfInstanceRequest
        * @return ListPodsOfInstanceResponse
@@ -1101,7 +1209,9 @@ namespace SysOM20231230
       Models::ListPodsOfInstanceResponse listPodsOfInstance(const Models::ListPodsOfInstanceRequest &request);
 
       /**
-       * @summary 列出所有纳管了机器的区域
+       * @summary List all areas where machines are managed
+       *
+       * @description This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1110,14 +1220,16 @@ namespace SysOM20231230
       Models::ListRegionsResponse listRegionsWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出所有纳管了机器的区域
+       * @summary List all areas where machines are managed
+       *
+       * @description This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
        *
        * @return ListRegionsResponse
        */
       Models::ListRegionsResponse listRegions();
 
       /**
-       * @summary 查询历史宕机诊断任务
+       * @summary Query the history list of breakdown diagnosis jobs.
        *
        * @param request ListVmcoreDiagnosisTaskRequest
        * @param headers map
@@ -1127,7 +1239,7 @@ namespace SysOM20231230
       Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTaskWithOptions(const Models::ListVmcoreDiagnosisTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询历史宕机诊断任务
+       * @summary Query the history list of breakdown diagnosis jobs.
        *
        * @param request ListVmcoreDiagnosisTaskRequest
        * @return ListVmcoreDiagnosisTaskResponse
@@ -1135,7 +1247,7 @@ namespace SysOM20231230
       Models::ListVmcoreDiagnosisTaskResponse listVmcoreDiagnosisTask(const Models::ListVmcoreDiagnosisTaskRequest &request);
 
       /**
-       * @summary 启动AI作业分析
+       * @summary Start an AI job analysis.
        *
        * @param request StartAIAnalysisRequest
        * @param headers map
@@ -1145,7 +1257,7 @@ namespace SysOM20231230
       Models::StartAIAnalysisResponse startAIAnalysisWithOptions(const Models::StartAIAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 启动AI作业分析
+       * @summary Start an AI job analysis.
        *
        * @param request StartAIAnalysisRequest
        * @return StartAIAnalysisResponse
@@ -1153,7 +1265,9 @@ namespace SysOM20231230
       Models::StartAIAnalysisResponse startAIAnalysis(const Models::StartAIAnalysisRequest &request);
 
       /**
-       * @summary 查看AI Infra差分分析结果
+       * @summary Start AI Infra differential analysis.
+       *
+       * @description Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
        *
        * @param request StartAIDiffAnalysisRequest
        * @param headers map
@@ -1163,7 +1277,9 @@ namespace SysOM20231230
       Models::StartAIDiffAnalysisResponse startAIDiffAnalysisWithOptions(const Models::StartAIDiffAnalysisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看AI Infra差分分析结果
+       * @summary Start AI Infra differential analysis.
+       *
+       * @description Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
        *
        * @param request StartAIDiffAnalysisRequest
        * @return StartAIDiffAnalysisResponse
@@ -1171,7 +1287,9 @@ namespace SysOM20231230
       Models::StartAIDiffAnalysisResponse startAIDiffAnalysis(const Models::StartAIDiffAnalysisRequest &request);
 
       /**
-       * @summary 卸载 SysOM Agent
+       * @summary Uninstall a specified version of the widget
+       *
+       * @description The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
        *
        * @param request UninstallAgentRequest
        * @param headers map
@@ -1181,7 +1299,9 @@ namespace SysOM20231230
       Models::UninstallAgentResponse uninstallAgentWithOptions(const Models::UninstallAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 卸载 SysOM Agent
+       * @summary Uninstall a specified version of the widget
+       *
+       * @description The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
        *
        * @param request UninstallAgentRequest
        * @return UninstallAgentResponse
@@ -1189,7 +1309,7 @@ namespace SysOM20231230
       Models::UninstallAgentResponse uninstallAgent(const Models::UninstallAgentRequest &request);
 
       /**
-       * @summary 给集群卸载组件
+       * @summary Uninstall a widget from a cluster
        *
        * @param request UninstallAgentForClusterRequest
        * @param headers map
@@ -1199,7 +1319,7 @@ namespace SysOM20231230
       Models::UninstallAgentForClusterResponse uninstallAgentForClusterWithOptions(const Models::UninstallAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给集群卸载组件
+       * @summary Uninstall a widget from a cluster
        *
        * @param request UninstallAgentForClusterRequest
        * @return UninstallAgentForClusterResponse
@@ -1207,7 +1327,7 @@ namespace SysOM20231230
       Models::UninstallAgentForClusterResponse uninstallAgentForCluster(const Models::UninstallAgentForClusterRequest &request);
 
       /**
-       * @summary 更新告警联系人
+       * @summary This API is used to update an alert contact.
        *
        * @description 、
        *
@@ -1219,7 +1339,7 @@ namespace SysOM20231230
       Models::UpdateAlertDestinationResponse updateAlertDestinationWithOptions(const Models::UpdateAlertDestinationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新告警联系人
+       * @summary This API is used to update an alert contact.
        *
        * @description 、
        *
@@ -1229,7 +1349,7 @@ namespace SysOM20231230
       Models::UpdateAlertDestinationResponse updateAlertDestination(const Models::UpdateAlertDestinationRequest &request);
 
       /**
-       * @summary 用户更新推送告警策略的状态
+       * @summary User updates the status of a push alert policy
        *
        * @param request UpdateAlertEnabledRequest
        * @param headers map
@@ -1239,7 +1359,7 @@ namespace SysOM20231230
       Models::UpdateAlertEnabledResponse updateAlertEnabledWithOptions(const Models::UpdateAlertEnabledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 用户更新推送告警策略的状态
+       * @summary User updates the status of a push alert policy
        *
        * @param request UpdateAlertEnabledRequest
        * @return UpdateAlertEnabledResponse
@@ -1247,7 +1367,7 @@ namespace SysOM20231230
       Models::UpdateAlertEnabledResponse updateAlertEnabled(const Models::UpdateAlertEnabledRequest &request);
 
       /**
-       * @summary 更新推送告警策略
+       * @summary Update push alert policy
        *
        * @param request UpdateAlertStrategyRequest
        * @param headers map
@@ -1257,7 +1377,7 @@ namespace SysOM20231230
       Models::UpdateAlertStrategyResponse updateAlertStrategyWithOptions(const Models::UpdateAlertStrategyRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新推送告警策略
+       * @summary Update push alert policy
        *
        * @param request UpdateAlertStrategyRequest
        * @return UpdateAlertStrategyResponse
@@ -1265,7 +1385,7 @@ namespace SysOM20231230
       Models::UpdateAlertStrategyResponse updateAlertStrategy(const Models::UpdateAlertStrategyRequest &request);
 
       /**
-       * @summary 异常项关注度更新
+       * @summary Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
        *
        * @param request UpdateEventsAttentionRequest
        * @param headers map
@@ -1275,7 +1395,7 @@ namespace SysOM20231230
       Models::UpdateEventsAttentionResponse updateEventsAttentionWithOptions(const Models::UpdateEventsAttentionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 异常项关注度更新
+       * @summary Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
        *
        * @param request UpdateEventsAttentionRequest
        * @return UpdateEventsAttentionResponse
@@ -1283,7 +1403,10 @@ namespace SysOM20231230
       Models::UpdateEventsAttentionResponse updateEventsAttention(const Models::UpdateEventsAttentionRequest &request);
 
       /**
-       * @summary 获取功能模块配置
+       * @summary Update the service function module configuration.
+       *
+       * @description - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
+       * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
        *
        * @param tmpReq UpdateFuncSwitchRecordRequest
        * @param headers map
@@ -1293,7 +1416,10 @@ namespace SysOM20231230
       Models::UpdateFuncSwitchRecordResponse updateFuncSwitchRecordWithOptions(const Models::UpdateFuncSwitchRecordRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取功能模块配置
+       * @summary Update the service function module configuration.
+       *
+       * @description - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
+       * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
        *
        * @param request UpdateFuncSwitchRecordRequest
        * @return UpdateFuncSwitchRecordResponse
@@ -1301,7 +1427,9 @@ namespace SysOM20231230
       Models::UpdateFuncSwitchRecordResponse updateFuncSwitchRecord(const Models::UpdateFuncSwitchRecordRequest &request);
 
       /**
-       * @summary 更新 SysOM Agent
+       * @summary Update the version of the installed widget to the specified version.
+       *
+       * @description The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
        *
        * @param request UpgradeAgentRequest
        * @param headers map
@@ -1311,7 +1439,9 @@ namespace SysOM20231230
       Models::UpgradeAgentResponse upgradeAgentWithOptions(const Models::UpgradeAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新 SysOM Agent
+       * @summary Update the version of the installed widget to the specified version.
+       *
+       * @description The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
        *
        * @param request UpgradeAgentRequest
        * @return UpgradeAgentResponse
@@ -1319,7 +1449,7 @@ namespace SysOM20231230
       Models::UpgradeAgentResponse upgradeAgent(const Models::UpgradeAgentRequest &request);
 
       /**
-       * @summary 给集群更新组件
+       * @summary Update widget for cluster
        *
        * @param request UpgradeAgentForClusterRequest
        * @param headers map
@@ -1329,7 +1459,7 @@ namespace SysOM20231230
       Models::UpgradeAgentForClusterResponse upgradeAgentForClusterWithOptions(const Models::UpgradeAgentForClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 给集群更新组件
+       * @summary Update widget for cluster
        *
        * @param request UpgradeAgentForClusterRequest
        * @return UpgradeAgentForClusterResponse

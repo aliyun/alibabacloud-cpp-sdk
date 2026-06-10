@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // Name of the tag.
         shared_ptr<string> tagKey_ {};
+        // Tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -184,14 +186,23 @@ namespace Models
 
 
     protected:
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Widget instance name.
       shared_ptr<string> instanceName_ {};
+      // Tags of instances
       shared_ptr<vector<Data::InstanceTag>> instanceTag_ {};
+      // Operating system name of the instance
       shared_ptr<string> osName_ {};
+      // Private IP address
       shared_ptr<string> privateIp_ {};
+      // Internet IP address
       shared_ptr<string> publicIp_ {};
+      // Area where the instance resides
       shared_ptr<string> region_ {};
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // Resource group name
       shared_ptr<string> resourceGroupName_ {};
     };
 
@@ -235,10 +246,17 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Return Result.
     shared_ptr<vector<ListPluginsInstancesResponseBody::Data>> data_ {};
+    // Description
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
+    // Total number of query results.
     shared_ptr<int64_t> total_ {};
   };
 

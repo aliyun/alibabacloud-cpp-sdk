@@ -75,10 +75,20 @@ namespace Models
 
 
   protected:
+    // Current page number
     shared_ptr<int64_t> current_ {};
+    // Page size
     shared_ptr<int64_t> pageSize_ {};
+    // Diagnostic parameters. Different diagnosis types require different diagnostic parameters. You can use this field to filter records whose parameter values match the specified value.
     shared_ptr<string> params_ {};
+    // Diagnosis type
     shared_ptr<string> serviceName_ {};
+    // Status of the diagnostic task execution.  
+    // Valid values:  
+    // - **Ready**: Ready  
+    // - **Running**: Running  
+    // - **Success**: Succeeded  
+    // - **Fail**: Failed
     shared_ptr<string> status_ {};
   };
 

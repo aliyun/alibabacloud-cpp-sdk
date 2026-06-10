@@ -89,8 +89,10 @@ namespace Models
 
 
     protected:
+      // Set of clusters that receive alerts
       shared_ptr<vector<string>> clusters_ {};
       shared_ptr<vector<int32_t>> destinations_ {};
+      // Set of abnormal items that trigger alerts
       shared_ptr<vector<string>> items_ {};
     };
 
@@ -127,11 +129,17 @@ namespace Models
 
 
   protected:
+    // Whether the alert policy is enabled
+    // 
     // This parameter is required.
     shared_ptr<bool> enabled_ {};
     shared_ptr<bool> k8sLabel_ {};
+    // Alert policy name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Details of the alert policy
+    // 
     // This parameter is required.
     shared_ptr<CreateAlertStrategyRequest::Strategy> strategy_ {};
   };

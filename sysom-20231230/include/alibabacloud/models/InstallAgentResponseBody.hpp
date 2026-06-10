@@ -63,6 +63,9 @@ namespace Models
 
 
     protected:
+      // Job ID.  
+      // 
+      // You can use this job ID to invoke the GetAgentTask API to view the job execution status.
       shared_ptr<string> taskId_ {};
     };
 
@@ -99,9 +102,17 @@ namespace Models
 
 
   protected:
+    // Request ID, which can be used for end-to-end diagnosis
     shared_ptr<string> requestId_ {};
+    // Status code  
+    // - `code == Success` indicates that authorization succeeded.  
+    // - Any other status code indicates that authorization failed. If authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<InstallAgentResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
   };
 

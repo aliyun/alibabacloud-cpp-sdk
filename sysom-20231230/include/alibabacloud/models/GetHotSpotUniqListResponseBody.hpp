@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // List of data names
       shared_ptr<vector<string>> columns_ {};
+      // List of data values
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -124,10 +126,17 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates successful authorization;  
+    // - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<GetHotSpotUniqListResponseBody::Data> data_ {};
+    // Return message
     shared_ptr<string> message_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
+    // true if the API call succeeded; false if the API call failed
     shared_ptr<string> success_ {};
   };
 

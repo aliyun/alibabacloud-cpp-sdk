@@ -163,19 +163,35 @@ namespace Models
 
 
   protected:
+    // Analysis tool. This field does not need to be filled in when using OpenAPI.
     shared_ptr<string> analysisTool_ {};
+    // Data richness
     shared_ptr<vector<string>> analysisParams_ {};
+    // Channel name
     shared_ptr<string> channel_ {};
+    // Process name. This is an optional parameter.
     shared_ptr<string> comms_ {};
+    // Creator. You do not need to specify this parameter when using OpenAPI.
     shared_ptr<string> createdBy_ {};
+    // Instance ID
     shared_ptr<string> instance_ {};
+    // Instance type. This field does not need to be filled in when using OpenAPI.
     shared_ptr<string> instanceType_ {};
+    // Iteration entry function. Required only in iteration mode. This parameter is optional.
     shared_ptr<string> iterationFunc_ {};
+    // Iteration entry module. Required only in iteration mode. This parameter is optional.
     shared_ptr<string> iterationMod_ {};
+    // Iteration range (iteration count: the number of iterations when the data collection module is activated, independent of the AI job\\"s iteration count)
     shared_ptr<vector<int32_t>> iterationRange_ {};
+    // Process IDs (PIDs) of the AI job. Batch input is supported, separated by commas.
     shared_ptr<string> pids_ {};
+    // Region ID
     shared_ptr<string> region_ {};
+    // AI Infra analysis duration.  
+    // Unit: milliseconds.  
+    // Default value: 2000.
     shared_ptr<int32_t> timeout_ {};
+    // Alibaba Cloud User ID. You do not need to specify this parameter when using OpenAPI.
     shared_ptr<string> uid_ {};
   };
 

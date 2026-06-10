@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // cluster ID
     shared_ptr<string> cluster_ {};
+    // End time
     shared_ptr<float> end_ {};
+    // instance ID.
     shared_ptr<string> instance_ {};
+    // Level of the anomalous activity
     shared_ptr<string> level_ {};
+    // Namespace where the pod is located
     shared_ptr<string> namespace_ {};
+    // Name of the pod
     shared_ptr<string> pod_ {};
+    // is whether to display pod anomalous activity
     shared_ptr<int32_t> showPod_ {};
+    // Start time
     shared_ptr<float> start_ {};
   };
 

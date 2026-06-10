@@ -170,17 +170,29 @@ namespace Models
 
 
     protected:
+      // Cluster ID
       shared_ptr<string> clusterId_ {};
+      // ECS instance ID
       shared_ptr<string> instance_ {};
+      // Milvus version of the instance
       shared_ptr<string> kernelVersion_ {};
+      // Metadata of the instance
       Darabonba::Json meta_ {};
+      // Architecture of the ECS instance
       shared_ptr<string> osArch_ {};
+      // Health score of the instance
       shared_ptr<string> osHealthScore_ {};
+      // Operating system name of the instance (retrieved from /etc/os-release)
       shared_ptr<string> osName_ {};
+      // Operating system name ID of the instance (retrieved from /etc/os-release)
       shared_ptr<string> osNameId_ {};
+      // Operating system version of the instance (obtained from /etc/os-release)
       shared_ptr<string> osVersion_ {};
+      // Operating system version ID of the instance (retrieved from /etc/os-release)
       shared_ptr<string> osVersionId_ {};
+      // Region where the instance is located
       shared_ptr<string> region_ {};
+      // Status of the instance
       shared_ptr<string> status_ {};
     };
 
@@ -224,10 +236,19 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - `code == Success` indicates that authorization succeeded.  
+    // - Any other status code indicates that authorization failed. When authorization fails, check the `message` field for detailed error information.
     shared_ptr<string> code_ {};
+    // Return Result.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
+    // Total number of records
     shared_ptr<int64_t> total_ {};
   };
 

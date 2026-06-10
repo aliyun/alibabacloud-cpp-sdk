@@ -150,8 +150,11 @@ namespace Models
 
 
       protected:
+        // information key
         shared_ptr<string> infoKey_ {};
+        // information type
         shared_ptr<string> infoType_ {};
+        // information value
         shared_ptr<string> infoValue_ {};
       };
 
@@ -318,27 +321,53 @@ namespace Models
 
 
     protected:
+      // Agent configuration ID
       shared_ptr<string> agentConfigId_ {};
+      // Agent configuration name
       shared_ptr<string> agentConfigName_ {};
+      // Extension information.
       shared_ptr<vector<Data::Attributes>> attributes_ {};
+      // Cluster ID
       shared_ptr<string> clusterId_ {};
+      // Cluster name
       shared_ptr<string> clusterName_ {};
+      // Image ID.
       shared_ptr<string> imageId_ {};
+      // Installation level
       shared_ptr<string> installLevel_ {};
+      // Installation type
       shared_ptr<string> installType_ {};
+      // Instance ID
       shared_ptr<string> instanceId_ {};
+      // Instance name.
       shared_ptr<string> instanceName_ {};
+      // Instance type
       shared_ptr<string> instanceType_ {};
+      // Milvus version
       shared_ptr<string> kernelVersion_ {};
+      // Management level
       shared_ptr<string> manageLevel_ {};
+      // Management type
       shared_ptr<string> manageType_ {};
+      // Operating system architecture
       shared_ptr<string> osArch_ {};
+      // Operating system health score
       shared_ptr<int32_t> osHealthScore_ {};
+      // Operating system name
       shared_ptr<string> osName_ {};
+      // Private IP address.
       shared_ptr<string> privateIp_ {};
+      // Public IP address.
       shared_ptr<string> publicIp_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // Resource group name
       shared_ptr<string> resourceGroupName_ {};
+      // The running status of the instance. Valid values:
+      // - **Running**: The instance is running.
+      // - **Offline**: The instance is offline.
+      // 
+      // > An instance in the Offline state indicates that the heartbeat from the edge zone to the SysOM Server has been lost. It does not mean that the corresponding ECS instance is not running.
       shared_ptr<string> status_ {};
     };
 
@@ -397,13 +426,23 @@ namespace Models
 
 
   protected:
+    // Status code
     shared_ptr<string> code_ {};
+    // Returned data
     shared_ptr<vector<ListAllInstancesResponseBody::Data>> data_ {};
+    // Maximum number of returned items
     shared_ptr<int32_t> maxResults_ {};
+    // Error message:
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the error message of the request.
     shared_ptr<string> message_ {};
+    // Paging cursor.
+    // 
+    // > If not empty, more data is available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Total number of query results.
     shared_ptr<int64_t> total_ {};
   };
 

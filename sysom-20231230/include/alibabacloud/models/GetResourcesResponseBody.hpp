@@ -82,8 +82,11 @@ namespace Models
 
 
     protected:
+      // Total amount of resources
       shared_ptr<float> total_ {};
+      // Unit
       shared_ptr<string> unit_ {};
+      // Resource usage
       shared_ptr<float> usage_ {};
     };
 
@@ -120,9 +123,17 @@ namespace Models
 
 
   protected:
+    // Status code  
+    // - If `code == Success`, authorization succeeded.  
+    // - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetResourcesResponseBody::Data> data_ {};
+    // Error message  
+    // - If `code == Success`, this field is empty.  
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // Request RequestId
     shared_ptr<string> requestId_ {};
   };
 

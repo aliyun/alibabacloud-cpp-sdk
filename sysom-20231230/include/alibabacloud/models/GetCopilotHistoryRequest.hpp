@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // Quantity of historical chat records to request, typically fewer than 100 records
+    // 
     // This parameter is required.
     shared_ptr<int64_t> count_ {};
   };
