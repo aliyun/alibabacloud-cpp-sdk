@@ -33,13 +33,13 @@ namespace Models
     // image Field Functions 
     bool hasImage() const { return this->image_ != nullptr;};
     void deleteImage() { this->image_ = nullptr;};
-    inline string image() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
+    inline string getImage() const { DARABONBA_PTR_GET_DEFAULT(image_, "") };
     inline ActiveInteractionEuCreateRequest& setImage(string image) { DARABONBA_PTR_SET_VALUE(image_, image) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> image_ = nullptr;
+    shared_ptr<string> image_ {};
   };
 
   } // namespace Models

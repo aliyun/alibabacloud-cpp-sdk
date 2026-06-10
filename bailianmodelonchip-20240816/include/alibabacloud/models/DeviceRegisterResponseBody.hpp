@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_DEVICEREGISTERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DEVICEREGISTERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/DeviceRegisterResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -40,60 +39,142 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(appId, appId_);
+        DARABONBA_PTR_TO_JSON(deviceName, deviceName_);
+        DARABONBA_PTR_TO_JSON(nonce, nonce_);
+        DARABONBA_PTR_TO_JSON(responseTime, responseTime_);
+        DARABONBA_PTR_TO_JSON(signature, signature_);
+        DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(appId, appId_);
+        DARABONBA_PTR_FROM_JSON(deviceName, deviceName_);
+        DARABONBA_PTR_FROM_JSON(nonce, nonce_);
+        DARABONBA_PTR_FROM_JSON(responseTime, responseTime_);
+        DARABONBA_PTR_FROM_JSON(signature, signature_);
+        DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->appId_ == nullptr
+        && this->deviceName_ == nullptr && this->nonce_ == nullptr && this->responseTime_ == nullptr && this->signature_ == nullptr && this->workspaceId_ == nullptr; };
+      // appId Field Functions 
+      bool hasAppId() const { return this->appId_ != nullptr;};
+      void deleteAppId() { this->appId_ = nullptr;};
+      inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+      inline Data& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+      // deviceName Field Functions 
+      bool hasDeviceName() const { return this->deviceName_ != nullptr;};
+      void deleteDeviceName() { this->deviceName_ = nullptr;};
+      inline string getDeviceName() const { DARABONBA_PTR_GET_DEFAULT(deviceName_, "") };
+      inline Data& setDeviceName(string deviceName) { DARABONBA_PTR_SET_VALUE(deviceName_, deviceName) };
+
+
+      // nonce Field Functions 
+      bool hasNonce() const { return this->nonce_ != nullptr;};
+      void deleteNonce() { this->nonce_ = nullptr;};
+      inline string getNonce() const { DARABONBA_PTR_GET_DEFAULT(nonce_, "") };
+      inline Data& setNonce(string nonce) { DARABONBA_PTR_SET_VALUE(nonce_, nonce) };
+
+
+      // responseTime Field Functions 
+      bool hasResponseTime() const { return this->responseTime_ != nullptr;};
+      void deleteResponseTime() { this->responseTime_ = nullptr;};
+      inline string getResponseTime() const { DARABONBA_PTR_GET_DEFAULT(responseTime_, "") };
+      inline Data& setResponseTime(string responseTime) { DARABONBA_PTR_SET_VALUE(responseTime_, responseTime) };
+
+
+      // signature Field Functions 
+      bool hasSignature() const { return this->signature_ != nullptr;};
+      void deleteSignature() { this->signature_ = nullptr;};
+      inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+      inline Data& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
+
+
+      // workspaceId Field Functions 
+      bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+      void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+      inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+      inline Data& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+    protected:
+      shared_ptr<string> appId_ {};
+      shared_ptr<string> deviceName_ {};
+      shared_ptr<string> nonce_ {};
+      shared_ptr<string> responseTime_ {};
+      shared_ptr<string> signature_ {};
+      shared_ptr<string> workspaceId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->httpStatusCode_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr && return this->success_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline DeviceRegisterResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const DeviceRegisterResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, DeviceRegisterResponseBodyData) };
-    inline DeviceRegisterResponseBodyData data() { DARABONBA_PTR_GET(data_, DeviceRegisterResponseBodyData) };
-    inline DeviceRegisterResponseBody& setData(const DeviceRegisterResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline DeviceRegisterResponseBody& setData(DeviceRegisterResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DeviceRegisterResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DeviceRegisterResponseBody::Data) };
+    inline DeviceRegisterResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DeviceRegisterResponseBody::Data) };
+    inline DeviceRegisterResponseBody& setData(const DeviceRegisterResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DeviceRegisterResponseBody& setData(DeviceRegisterResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
-    inline int32_t httpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
+    inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
     inline DeviceRegisterResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline DeviceRegisterResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline DeviceRegisterResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline DeviceRegisterResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<DeviceRegisterResponseBodyData> data_ = nullptr;
-    std::shared_ptr<int32_t> httpStatusCode_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> code_ {};
+    shared_ptr<DeviceRegisterResponseBody::Data> data_ {};
+    shared_ptr<int32_t> httpStatusCode_ {};
+    shared_ptr<string> message_ {};
     // Id of the request
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    shared_ptr<string> requestId_ {};
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

@@ -21,16 +21,8 @@
 #include <alibabacloud/models/ModelTypeDetermineShrinkRequest.hpp>
 #include <alibabacloud/models/ModelTypeDetermineResponseBody.hpp>
 #include <alibabacloud/models/ModelTypeDetermineResponse.hpp>
-#include <alibabacloud/models/OmniRealtimeConversationEuRequest.hpp>
-#include <alibabacloud/models/OmniRealtimeConversationEuResponseBody.hpp>
-#include <alibabacloud/models/OmniRealtimeConversationEuResponse.hpp>
-#include <alibabacloud/models/ActiveInteractionCreateResponseBodyData.hpp>
-#include <alibabacloud/models/ActiveInteractionEuCreateResponseBodyData.hpp>
-#include <alibabacloud/models/DeviceRegisterResponseBodyData.hpp>
-#include <alibabacloud/models/GetPassThroughAuthInfoResponseBodyData.hpp>
-#include <alibabacloud/models/GetTokenResponseBodyData.hpp>
-#include <alibabacloud/models/ModelTypeDetermineRequestHistory.hpp>
-#include <alibabacloud/models/ModelTypeDetermineResponseBodyData.hpp>
-#include <alibabacloud/models/OmniRealtimeConversationEuResponseBodyData.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEURequest.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEUResponseBody.hpp>
+#include <alibabacloud/models/OmniRealtimeConversationEUResponse.hpp>
 
 #endif

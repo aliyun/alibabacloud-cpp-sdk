@@ -32,25 +32,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->historyShrink_ == nullptr
-        && return this->inputText_ == nullptr; };
+        && this->inputText_ == nullptr; };
     // historyShrink Field Functions 
     bool hasHistoryShrink() const { return this->historyShrink_ != nullptr;};
     void deleteHistoryShrink() { this->historyShrink_ = nullptr;};
-    inline string historyShrink() const { DARABONBA_PTR_GET_DEFAULT(historyShrink_, "") };
+    inline string getHistoryShrink() const { DARABONBA_PTR_GET_DEFAULT(historyShrink_, "") };
     inline ModelTypeDetermineShrinkRequest& setHistoryShrink(string historyShrink) { DARABONBA_PTR_SET_VALUE(historyShrink_, historyShrink) };
 
 
     // inputText Field Functions 
     bool hasInputText() const { return this->inputText_ != nullptr;};
     void deleteInputText() { this->inputText_ = nullptr;};
-    inline string inputText() const { DARABONBA_PTR_GET_DEFAULT(inputText_, "") };
+    inline string getInputText() const { DARABONBA_PTR_GET_DEFAULT(inputText_, "") };
     inline ModelTypeDetermineShrinkRequest& setInputText(string inputText) { DARABONBA_PTR_SET_VALUE(inputText_, inputText) };
 
 
   protected:
-    std::shared_ptr<string> historyShrink_ = nullptr;
+    shared_ptr<string> historyShrink_ {};
     // This parameter is required.
-    std::shared_ptr<string> inputText_ = nullptr;
+    shared_ptr<string> inputText_ {};
   };
 
   } // namespace Models

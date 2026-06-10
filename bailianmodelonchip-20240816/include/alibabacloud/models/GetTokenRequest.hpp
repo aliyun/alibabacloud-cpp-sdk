@@ -42,71 +42,71 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->deviceName_ == nullptr && return this->nonce_ == nullptr && return this->requestTime_ == nullptr && return this->signature_ == nullptr && return this->tokenKey_ == nullptr
-        && return this->tokenType_ == nullptr; };
+        && this->deviceName_ == nullptr && this->nonce_ == nullptr && this->requestTime_ == nullptr && this->signature_ == nullptr && this->tokenKey_ == nullptr
+        && this->tokenType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetTokenRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // deviceName Field Functions 
     bool hasDeviceName() const { return this->deviceName_ != nullptr;};
     void deleteDeviceName() { this->deviceName_ = nullptr;};
-    inline string deviceName() const { DARABONBA_PTR_GET_DEFAULT(deviceName_, "") };
+    inline string getDeviceName() const { DARABONBA_PTR_GET_DEFAULT(deviceName_, "") };
     inline GetTokenRequest& setDeviceName(string deviceName) { DARABONBA_PTR_SET_VALUE(deviceName_, deviceName) };
 
 
     // nonce Field Functions 
     bool hasNonce() const { return this->nonce_ != nullptr;};
     void deleteNonce() { this->nonce_ = nullptr;};
-    inline string nonce() const { DARABONBA_PTR_GET_DEFAULT(nonce_, "") };
+    inline string getNonce() const { DARABONBA_PTR_GET_DEFAULT(nonce_, "") };
     inline GetTokenRequest& setNonce(string nonce) { DARABONBA_PTR_SET_VALUE(nonce_, nonce) };
 
 
     // requestTime Field Functions 
     bool hasRequestTime() const { return this->requestTime_ != nullptr;};
     void deleteRequestTime() { this->requestTime_ = nullptr;};
-    inline string requestTime() const { DARABONBA_PTR_GET_DEFAULT(requestTime_, "") };
+    inline string getRequestTime() const { DARABONBA_PTR_GET_DEFAULT(requestTime_, "") };
     inline GetTokenRequest& setRequestTime(string requestTime) { DARABONBA_PTR_SET_VALUE(requestTime_, requestTime) };
 
 
     // signature Field Functions 
     bool hasSignature() const { return this->signature_ != nullptr;};
     void deleteSignature() { this->signature_ = nullptr;};
-    inline string signature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
+    inline string getSignature() const { DARABONBA_PTR_GET_DEFAULT(signature_, "") };
     inline GetTokenRequest& setSignature(string signature) { DARABONBA_PTR_SET_VALUE(signature_, signature) };
 
 
     // tokenKey Field Functions 
     bool hasTokenKey() const { return this->tokenKey_ != nullptr;};
     void deleteTokenKey() { this->tokenKey_ = nullptr;};
-    inline string tokenKey() const { DARABONBA_PTR_GET_DEFAULT(tokenKey_, "") };
+    inline string getTokenKey() const { DARABONBA_PTR_GET_DEFAULT(tokenKey_, "") };
     inline GetTokenRequest& setTokenKey(string tokenKey) { DARABONBA_PTR_SET_VALUE(tokenKey_, tokenKey) };
 
 
     // tokenType Field Functions 
     bool hasTokenType() const { return this->tokenType_ != nullptr;};
     void deleteTokenType() { this->tokenType_ = nullptr;};
-    inline string tokenType() const { DARABONBA_PTR_GET_DEFAULT(tokenType_, "") };
+    inline string getTokenType() const { DARABONBA_PTR_GET_DEFAULT(tokenType_, "") };
     inline GetTokenRequest& setTokenType(string tokenType) { DARABONBA_PTR_SET_VALUE(tokenType_, tokenType) };
 
 
   protected:
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // This parameter is required.
-    std::shared_ptr<string> deviceName_ = nullptr;
+    shared_ptr<string> deviceName_ {};
     // This parameter is required.
-    std::shared_ptr<string> nonce_ = nullptr;
+    shared_ptr<string> nonce_ {};
     // This parameter is required.
-    std::shared_ptr<string> requestTime_ = nullptr;
+    shared_ptr<string> requestTime_ {};
     // This parameter is required.
-    std::shared_ptr<string> signature_ = nullptr;
-    std::shared_ptr<string> tokenKey_ = nullptr;
+    shared_ptr<string> signature_ {};
+    shared_ptr<string> tokenKey_ {};
     // This parameter is required.
-    std::shared_ptr<string> tokenType_ = nullptr;
+    shared_ptr<string> tokenType_ {};
   };
 
   } // namespace Models

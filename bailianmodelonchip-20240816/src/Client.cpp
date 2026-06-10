@@ -47,7 +47,7 @@ ActiveInteractionCreateResponse Client::activeInteractionCreateWithOptions(const
   request.validate();
   json body = {};
   if (!!request.hasImage()) {
-    body["image"] = request.image();
+    body["image"] = request.getImage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -92,7 +92,7 @@ ActiveInteractionEuCreateResponse Client::activeInteractionEuCreateWithOptions(c
   request.validate();
   json body = {};
   if (!!request.hasImage()) {
-    body["image"] = request.image();
+    body["image"] = request.getImage();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -137,19 +137,23 @@ DeviceRegisterResponse Client::deviceRegisterWithOptions(const DeviceRegisterReq
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["appId"] = request.appId();
+    body["appId"] = request.getAppId();
   }
 
   if (!!request.hasNonce()) {
-    body["nonce"] = request.nonce();
+    body["nonce"] = request.getNonce();
   }
 
   if (!!request.hasRequestTime()) {
-    body["requestTime"] = request.requestTime();
+    body["requestTime"] = request.getRequestTime();
   }
 
   if (!!request.hasSignature()) {
-    body["signature"] = request.signature();
+    body["signature"] = request.getSignature();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -194,11 +198,11 @@ GetPassThroughAuthInfoResponse Client::getPassThroughAuthInfoWithOptions(const G
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["appId"] = request.appId();
+    body["appId"] = request.getAppId();
   }
 
   if (!!request.hasDeviceName()) {
-    body["deviceName"] = request.deviceName();
+    body["deviceName"] = request.getDeviceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -243,31 +247,31 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["appId"] = request.appId();
+    body["appId"] = request.getAppId();
   }
 
   if (!!request.hasDeviceName()) {
-    body["deviceName"] = request.deviceName();
+    body["deviceName"] = request.getDeviceName();
   }
 
   if (!!request.hasNonce()) {
-    body["nonce"] = request.nonce();
+    body["nonce"] = request.getNonce();
   }
 
   if (!!request.hasRequestTime()) {
-    body["requestTime"] = request.requestTime();
+    body["requestTime"] = request.getRequestTime();
   }
 
   if (!!request.hasSignature()) {
-    body["signature"] = request.signature();
+    body["signature"] = request.getSignature();
   }
 
   if (!!request.hasTokenKey()) {
-    body["tokenKey"] = request.tokenKey();
+    body["tokenKey"] = request.getTokenKey();
   }
 
   if (!!request.hasTokenType()) {
-    body["tokenType"] = request.tokenType();
+    body["tokenType"] = request.getTokenType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -313,16 +317,16 @@ ModelTypeDetermineResponse Client::modelTypeDetermineWithOptions(const ModelType
   ModelTypeDetermineShrinkRequest request = ModelTypeDetermineShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasHistory()) {
-    request.setHistoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.history(), "history", "json"));
+    request.setHistoryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHistory(), "history", "json"));
   }
 
   json body = {};
   if (!!request.hasHistoryShrink()) {
-    body["history"] = request.historyShrink();
+    body["history"] = request.getHistoryShrink();
   }
 
   if (!!request.hasInputText()) {
-    body["inputText"] = request.inputText();
+    body["inputText"] = request.getInputText();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -367,15 +371,15 @@ OmniRealtimeConversationEUResponse Client::omniRealtimeConversationEUWithOptions
   request.validate();
   json body = {};
   if (!!request.hasInputAudio()) {
-    body["inputAudio"] = request.inputAudio();
+    body["inputAudio"] = request.getInputAudio();
   }
 
   if (!!request.hasUserPrompt()) {
-    body["userPrompt"] = request.userPrompt();
+    body["userPrompt"] = request.getUserPrompt();
   }
 
   if (!!request.hasVoice()) {
-    body["voice"] = request.voice();
+    body["voice"] = request.getVoice();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

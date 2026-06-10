@@ -32,24 +32,24 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->deviceName_ == nullptr; };
+        && this->deviceName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetPassThroughAuthInfoRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // deviceName Field Functions 
     bool hasDeviceName() const { return this->deviceName_ != nullptr;};
     void deleteDeviceName() { this->deviceName_ = nullptr;};
-    inline string deviceName() const { DARABONBA_PTR_GET_DEFAULT(deviceName_, "") };
+    inline string getDeviceName() const { DARABONBA_PTR_GET_DEFAULT(deviceName_, "") };
     inline GetPassThroughAuthInfoRequest& setDeviceName(string deviceName) { DARABONBA_PTR_SET_VALUE(deviceName_, deviceName) };
 
 
   protected:
-    std::shared_ptr<string> appId_ = nullptr;
-    std::shared_ptr<string> deviceName_ = nullptr;
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> deviceName_ {};
   };
 
   } // namespace Models
