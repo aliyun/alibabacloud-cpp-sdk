@@ -94,36 +94,23 @@ namespace Models
 
 
     protected:
-      // The ID of the region to include in global acceleration.
+      // The ID of the acceleration region.
       // 
       // This parameter is required.
       shared_ptr<string> accelerateRegionId_ {};
-      // The bandwidth that you want to allocate to the acceleration region. Unit: Mbit/s.
+      // The bandwidth allocated to the acceleration region. Unit: Mbps.
       // 
       // This parameter is required.
       shared_ptr<int32_t> bandwidth_ {};
-      // The IP version used to connect to the GA instance.
+      // The IP protocol version used to access the GA instance.
       // 
-      // >  Only pay-as-you-go standard GA instances support `DUAL_STACK`.
-      // 
-      // Valid values:
-      // 
-      // *   DUAL_STACK: IPv4 and IPv6.
-      // *   IPv6: IPv6.
-      // *   IPv4 (default): IPv4.
+      // > Only standard pay-as-you-go GA instances support `DUAL_STACK`.
       shared_ptr<string> ipVersion_ {};
-      // The line type of the elastic IP address (EIP) in the acceleration region.
+      // The line type.
       // 
-      // > 
-      // 
-      // *   This parameter is required only if the bandwidth metering method of the GA instance is **pay-by-data transfer**.
-      // 
-      // *   Different acceleration regions support different line types of EIPs.
-      // 
-      // Valid values:
-      // 
-      // *   BGP: BGP (Multi-ISP) lines.
-      // *   BGP_PRO: BGP (Multi-ISP) Pro.
+      // > - This parameter is required for pay-by-data-transfer GA instances.
+      // >
+      // > - The supported line types vary by acceleration region.
       // 
       // This parameter is required.
       shared_ptr<string> ispType_ {};
@@ -169,7 +156,7 @@ namespace Models
 
 
   protected:
-    // The regions to include in global acceleration.
+    // A list of regions where access points provide acceleration.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateOfficeSiteAcceleratorRequest::AccelerateRegion>> accelerateRegion_ {};

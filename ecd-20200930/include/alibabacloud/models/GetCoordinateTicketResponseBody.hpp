@@ -85,29 +85,29 @@ namespace Models
     // 
     // Possible values:
     // 
-    // *   Finished
+    // - Finished
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   Failed
+    // - Failed
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   Running
+    // - Running
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> taskStatus_ {};
     // The credentials of the stream collaboration.
     shared_ptr<string> ticket_ {};

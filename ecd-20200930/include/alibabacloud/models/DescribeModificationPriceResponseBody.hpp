@@ -253,7 +253,7 @@ namespace Models
 
 
       protected:
-        // The unit of currency (USD).
+        // <props="china">The unit of currency (CNY).<props="intl">The unit of currency (USD).
         shared_ptr<string> currency_ {};
         // The discounted amount.
         shared_ptr<float> discountPrice_ {};

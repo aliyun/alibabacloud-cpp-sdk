@@ -127,15 +127,15 @@ namespace Models
     shared_ptr<string> description_ {};
     // The ID of the storage resource.
     // 
-    // >  Call the DescribeDrives operation to retrieve the storage resource ID.
+    // > Call the DescribeDrives operation to retrieve the storage resource ID.
     shared_ptr<string> domainId_ {};
     // The name of the user-level storage resource.
     shared_ptr<string> driveName_ {};
     // The ID of the external storage resource.
     // 
-    // >  Call the DescribeDrives operation to retrieve the external storage resource ID.
+    // > Call the DescribeDrives operation to retrieve the external storage resource ID.
     shared_ptr<string> externalDomainId_ {};
-    // >  This parameter is deprecated.
+    // > This parameter is deprecated.
     shared_ptr<bool> profileRoaming_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -143,15 +143,17 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   NAS: File Storage NAS
-    // *   PDS: Drive and Photo Service
+    // - NAS: File Storage NAS
+    // 
+    // - PDS: Drive and Photo Service
     shared_ptr<string> resourceType_ {};
     // The usage of the storage resource.
     // 
     // Valid values:
     // 
-    // *   DESKTOP: data disk space
-    // *   USER_PROFILE: space for personal data of the user
+    // - DESKTOP: data disk space
+    // 
+    // - USER_PROFILE: space for personal data of the user
     shared_ptr<string> type_ {};
     // The user ID.
     shared_ptr<string> userId_ {};

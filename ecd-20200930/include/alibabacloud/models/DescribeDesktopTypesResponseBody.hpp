@@ -202,37 +202,32 @@ namespace Models
     protected:
       // The number of vCPUs.
       shared_ptr<string> cpuCount_ {};
-      // The size of the data disk. Unit: GiB.
+      // The size of the data disk, in GiB.
       shared_ptr<string> dataDiskSize_ {};
       shared_ptr<string> description_ {};
-      // The ID of the cloud desktop type.
+      // The specification ID.
       shared_ptr<string> desktopTypeId_ {};
-      // The status of the cloud desktop type. If SUFFICIENT is returned, the number of cloud desktops of the type is sufficient.
+      // The availability of the specification. A value of `SUFFICIENT` indicates that the specification is in stock.
       shared_ptr<string> desktopTypeStatus_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
-      // The number of GPUs.
+      // The number of GPU cores.
       shared_ptr<float> gpuCount_ {};
-      // The GPU memory size. For GPU-accelerated cloud computers, this return value is significant. Unit: MB.
+      // The GPU memory size in MiB. This parameter is valid only for GPU-accelerated cloud desktops.
       shared_ptr<int32_t> gpuMemory_ {};
-      // The GPU memory.
+      // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
-      // The family of the cloud desktop type.
+      // The instance type family.
       shared_ptr<string> instanceTypeFamily_ {};
-      // The number of sessions supported by the specification.
+      // The maximum number of concurrent sessions that is supported by the cloud desktop specification.
       shared_ptr<int32_t> maxSessionCount_ {};
-      // The memory size. Unit: MiB.
+      // The memory size, in MiB.
       shared_ptr<string> memorySize_ {};
-      // The sales modes of the specifications.
+      // The purchase options for the specification.
       shared_ptr<vector<string>> scopes_ {};
-      // The inventory status of the specification.
-      // 
-      // Valid values:
-      // 
-      // *   Insufficient
-      // *   Sufficient
+      // The inventory status.
       shared_ptr<string> stockState_ {};
-      // The size of the system disk. Unit: GiB.
+      // The size of the system disk, in GiB.
       shared_ptr<string> systemDiskSize_ {};
     };
 
@@ -255,9 +250,9 @@ namespace Models
 
 
   protected:
-    // The specifications.
+    // The details of the specifications.
     shared_ptr<vector<DescribeDesktopTypesResponseBody::DesktopTypes>> desktopTypes_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

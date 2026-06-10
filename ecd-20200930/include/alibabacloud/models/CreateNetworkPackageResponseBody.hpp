@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the premium bandwidth plan.
+    // The ID of the created network package.
     shared_ptr<string> networkPackageId_ {};
-    // The ID of the bill.
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

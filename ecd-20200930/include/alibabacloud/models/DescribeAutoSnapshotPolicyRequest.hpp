@@ -75,18 +75,19 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The maximum number of entries to return per page.
     // 
-    // *   Maximum value: 50.
-    // *   Default value: 50.
+    // - Maximum value: 50
+    // 
+    // - Default value: 50
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
     // The ID of the automatic snapshot policy.
     shared_ptr<string> policyId_ {};
     // The name of the automatic snapshot policy.
     shared_ptr<string> policyName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. To query the regions supported by Elastic Desktop Service, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

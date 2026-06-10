@@ -130,7 +130,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The instance type of the cloud computers. You can call the [DescribeBundles](https://help.aliyun.com/document_detail/436974.html) operation to query cloud computer templates and obtain the instance types supported by the cloud computers from the `DesktopType` response parameter.
     // 
-    // >  If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
+    // > If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
     // 
     // This parameter is required.
     shared_ptr<string> desktopType_ {};
@@ -140,10 +140,13 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The OS language. This parameter is available only for system images. Valid values:
     // 
-    // *   zh-CN: Simplified Chinese
-    // *   zh-HK: Traditional Chinese (Hong Kong)
-    // *   en-US: American English
-    // *   ja-JP: Japanese
+    // - zh-CN: Simplified Chinese
+    // 
+    // - zh-HK: Traditional Chinese (Hong Kong)
+    // 
+    // - en-US: American English
+    // 
+    // - ja-JP: Japanese
     shared_ptr<string> language_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 
@@ -153,37 +156,37 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   PL1
+    // - PL1
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL0
+    // - PL0
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL3
+    // - PL3
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL2
+    // - PL2
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> rootDiskPerformanceLevel_ {};
     // The size of the system disk. Unit: GiB. The value of this parameter must be consistent with the system disk size supported by the cloud computer instance type. For more information, see [Overview](https://help.aliyun.com/document_detail/188609.html).
     // 
@@ -193,37 +196,37 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   PL1
+    // - PL1
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL0
+    // - PL0
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL3
+    // - PL3
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   PL2
+    // - PL2
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> userDiskPerformanceLevel_ {};
     // The data disk sizes. You can configure only one data disk.
     // 

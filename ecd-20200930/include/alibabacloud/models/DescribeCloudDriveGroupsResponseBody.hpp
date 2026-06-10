@@ -163,12 +163,19 @@ namespace Models
 
 
       protected:
+        // Mailbox.
         shared_ptr<string> email_ {};
+        // Administrator username (may be unreadable when imported from a third party).
         shared_ptr<string> endUserId_ {};
+        // Job number (DingTalk)
         shared_ptr<string> jobNumber_ {};
+        // Administrator nickname.
         shared_ptr<string> nickName_ {};
+        // Phone number.
         shared_ptr<string> phone_ {};
+        // Administrator nickname.
         shared_ptr<string> realNickName_ {};
+        // Remark.
         shared_ptr<string> remark_ {};
       };
 
@@ -263,7 +270,9 @@ namespace Models
 
 
     protected:
+      // List of group administrators.
       shared_ptr<string> adminUserIds_ {};
+      // Administrator information for the group space.
       shared_ptr<vector<CloudDriveGroups::AdminUserInfos>> adminUserInfos_ {};
       // The time when the team space was created.
       shared_ptr<string> createTime_ {};
@@ -275,12 +284,15 @@ namespace Models
       shared_ptr<string> groupId_ {};
       // The name of the team space.
       shared_ptr<string> groupName_ {};
+      // Organization ID of the team.
       shared_ptr<string> orgId_ {};
+      // Size of the recycle bin for the team space. Unit: Byte.
       shared_ptr<string> recycleBinSize_ {};
       // The team space status. Valid values:
       // 
-      // *   enabled
-      // *   disabled
+      // - enabled
+      // 
+      // - disabled
       // 
       // Default value: enabled.
       shared_ptr<string> status_ {};

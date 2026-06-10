@@ -86,8 +86,9 @@ namespace Models
   protected:
     // The number of entries per page.
     // 
-    // *   Maximum value: 1600.
-    // *   Default value: 1600.
+    // - Maximum value: 1600.
+    // 
+    // - Default value: 1600.
     shared_ptr<int32_t> maxResults_ {};
     // The token that is used for the next query. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
@@ -103,8 +104,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   desktop: cloud computer
-    // *   vpc: office network
+    // - desktop: cloud computer
+    // 
+    // - vpc: office network
     shared_ptr<string> sourceType_ {};
   };
 

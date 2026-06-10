@@ -326,7 +326,7 @@ namespace Models
 
 
     protected:
-      // 账号类型
+      // The account type.
       shared_ptr<string> accountType_ {};
       // The IP address of the client.
       shared_ptr<string> clientIp_ {};
@@ -340,7 +340,7 @@ namespace Models
       shared_ptr<string> desktopGroupName_ {};
       // If the session status is Connected, it indicates the ID of the cloud computer that is currently connected. If the session status is Disconnected, it indicates the ID of the cloud computer that was last connected.
       shared_ptr<string> desktopId_ {};
-      // 办公网络类型
+      // The office network type.
       shared_ptr<string> directoryType_ {};
       // The point in time when the end user applies for administrator assistance.
       shared_ptr<int64_t> endUserApplyCoordinateTime_ {};
@@ -357,47 +357,14 @@ namespace Models
       // The office network name.
       shared_ptr<string> officeSiteName_ {};
       // The operating system type of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   linux.
-      // *   Windows.
       shared_ptr<string> osType_ {};
       // The type of the session.
-      // 
-      // Valid values:
-      // 
-      // *   0: single-session
-      // *   1: multi-session
       shared_ptr<int32_t> ownType_ {};
       // The protocol type supported by the rule.
-      // 
-      // Valid value:
-      // 
-      // *   High-definition Experience (HDX).
-      // *   ASP.
       shared_ptr<string> protocolType_ {};
       // The idle duration of the cloud computer. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
       // The state of the session.
-      // 
-      // Valid values:
-      // 
-      // *   Connected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Disconnected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> sessionStatus_ {};
       // Terminal Info
       shared_ptr<Sessions::TerminalInfo> terminalInfo_ {};

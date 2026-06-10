@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The time the drive was created.
       shared_ptr<string> createTime_ {};
+      // The office network ID.
       shared_ptr<string> directoryId_ {};
+      // The drive ID.
       shared_ptr<string> driveId_ {};
+      // The team drive ID.
       shared_ptr<string> groupId_ {};
+      // The team drive name.
       shared_ptr<string> groupName_ {};
+      // The organization ID of the team.
       shared_ptr<string> orgId_ {};
+      // The status of the team drive.
       shared_ptr<string> status_ {};
+      // The total capacity of the cloud disk team drive.
       shared_ptr<int64_t> totalSize_ {};
+      // The used space size, in bytes.
       shared_ptr<string> usedSize_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The list of cloud disk team drives.
     shared_ptr<vector<DescribeCloudDiskGroupDrivesResponseBody::CloudDriveGroups>> cloudDriveGroups_ {};
+    // The total number of results.
     shared_ptr<int64_t> count_ {};
+    // The token that marks the start of the next query. An empty NextToken means no more results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

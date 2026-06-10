@@ -69,7 +69,9 @@ namespace Models
 
 
     protected:
+      // The number of daily active users.
       shared_ptr<int32_t> dailyActiveUserCount_ {};
+      // The number of monthly active users.
       shared_ptr<int32_t> monthlyActiveUserCount_ {};
     };
 
@@ -92,7 +94,9 @@ namespace Models
 
 
   protected:
+    // The active user statistics.
     shared_ptr<QueryHistoryActiveUserCountResponseBody::ActiveUserCount> activeUserCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

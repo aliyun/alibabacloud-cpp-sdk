@@ -106,41 +106,33 @@ namespace Models
 
 
   protected:
-    // The instance ID. The value you specify depends on the resource type (ResourceType) you\\"re querying the renewal price for.
+    // The instance ID. The value for this parameter depends on the resource type:
     // 
-    // *   When `ResourceType` is set to `Desktop`, you must provide the cloud computer ID as the value of `InstanceId`.
-    // *   When `ResourceType` is set to `DesktopGroup`, you must provide the share ID as the value of `InstanceId`.
-    // *   When `ResourceType` is set to `Bandwidth`, you must provide the ID of the premium bandwidth plan as the value of `InstanceId`.
+    // - If `ResourceType` is set to `Desktop`, set `InstanceId` to the cloud desktop ID.
+    // 
+    // - If `ResourceType` is set to `DesktopGroup`, set `InstanceId` to the desktop pool ID.
+    // 
+    // - If `ResourceType` is set to `Bandwidth`, set `InstanceId` to the premium bandwidth ID.
     shared_ptr<string> instanceId_ {};
-    // The instance IDs. The value you specify depends on the resource type (ResourceType) you\\"re querying the renewal price for.
+    // The instance IDs. The values to provide depend on the resource type (`ResourceType`).
     shared_ptr<vector<string>> instanceIds_ {};
-    // The renewal duration. The valid values for this parameter depend on the value of `PeriodUnit`.
+    // The renewal duration. The valid values depend on the `PeriodUnit` parameter.
     // 
-    // *   If you set `PeriodUnit` to `Month`, set the value of this parameter to 1, 2, 3, or 6.
-    // *   If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
+    // - If `PeriodUnit` is set to `Month`, the valid values are 1, 2, 3, and 6.
+    // 
+    // - If `PeriodUnit` is set to `Year`, the valid values are 1, 2, and 3.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
-    // The unit of the renewal duration specified by `Period`.
-    // 
-    // Valid values:
-    // 
-    // *   Month (default)
-    // *   Year
+    // The time unit for the `Period` parameter.
     shared_ptr<string> periodUnit_ {};
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to get a list of regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resellerOwnerUid_ {};
     // The resource type.
-    // 
-    // Valid values:
-    // 
-    // *   Desktop (default): cloud computers.
-    // *   Bandwidth: premium bandwidth plans.
-    // *   DesktopGroup: cloud computer shares.
     shared_ptr<string> resourceType_ {};
   };
 

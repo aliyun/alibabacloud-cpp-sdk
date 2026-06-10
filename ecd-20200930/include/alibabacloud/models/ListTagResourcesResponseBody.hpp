@@ -96,7 +96,7 @@ namespace Models
       // 
       // Valid values:
       // 
-      // * ALIYUN::GWS::INSTANCE: cloud computer.
+      // - ALIYUN::GWS::INSTANCE: cloud computer.
       shared_ptr<string> resourceType_ {};
       // The tag keys.
       shared_ptr<string> tagKey_ {};

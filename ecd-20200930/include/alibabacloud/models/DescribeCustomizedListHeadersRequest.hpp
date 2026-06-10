@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // The language type for exporting the WUYING Workspace list.
     shared_ptr<string> langType_ {};
+    // The list type.
     shared_ptr<string> listType_ {};
+    // The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain the list of regions supported by WUYING Workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

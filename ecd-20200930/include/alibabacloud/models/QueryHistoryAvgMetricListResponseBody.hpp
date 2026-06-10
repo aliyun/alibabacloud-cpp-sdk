@@ -141,9 +141,13 @@ namespace Models
 
 
       protected:
+        // The ID of the end user.
         shared_ptr<string> endUserId_ {};
+        // The time when the session was created.
         shared_ptr<string> establishmentTime_ {};
+        // The external username of the end user.
         shared_ptr<string> externalUserName_ {};
+        // The nickname of the end user.
         shared_ptr<string> nickName_ {};
       };
 
@@ -276,22 +280,61 @@ namespace Models
 
 
     protected:
+      // The aggregated metric value.
       shared_ptr<float> avgValue_ {};
+      // The billing method of the desktop. Valid values:
+      // 
+      // - `PostPaid`: pay-as-you-go
+      // 
+      // - `PrePaid`: subscription
+      // 
+      // Default value: `PostPaid`.
       shared_ptr<string> chargeType_ {};
+      // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
+      // The desktop group ID.
       shared_ptr<string> desktopGroupId_ {};
+      // **The desktop ID.**
       shared_ptr<string> desktopId_ {};
+      // **The desktop name.**
       shared_ptr<string> desktopName_ {};
+      // The status of the desktop. Valid values:
+      // 
+      // - `Stopped`: The desktop is stopped.
+      // 
+      // - `Starting`: The desktop is being started.
+      // 
+      // - `Rebuilding`: The desktop is being rebuilt.
+      // 
+      // - `Running`: The desktop is running.
+      // 
+      // - `Stopping`: The desktop is being stopped.
+      // 
+      // - `Expired`: The desktop has expired.
+      // 
+      // - `Deleted`: The desktop has been deleted.
+      // 
+      // - `Pending`: The desktop is in a pending state.
       shared_ptr<string> desktopStatus_ {};
+      // The desktop type.
       shared_ptr<string> desktopType_ {};
+      // The IDs of the authorized end users.
       shared_ptr<vector<string>> endUserIds_ {};
+      // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
+      // The management flag.
       shared_ptr<string> managementFlag_ {};
+      // The memory size, in MB.
       shared_ptr<int64_t> memory_ {};
+      // Whether the desktop is a multi-user shared desktop.
       shared_ptr<bool> multiResource_ {};
+      // The type of the system image.
       shared_ptr<string> platform_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // A list of session details.
       shared_ptr<vector<AvgMetricList::Sessions>> sessions_ {};
+      // The payment type.
       shared_ptr<string> subPayType_ {};
     };
 
@@ -321,8 +364,11 @@ namespace Models
 
 
   protected:
+    // The list of average metric data.
     shared_ptr<vector<QueryHistoryAvgMetricListResponseBody::AvgMetricList>> avgMetricList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

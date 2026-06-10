@@ -328,72 +328,55 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account with which the event is associated.
+      // The ID of the Alibaba Cloud account associated with the event.
       shared_ptr<string> aliUid_ {};
-      // The number of bytes that are received.
+      // The number of bytes received.
       shared_ptr<string> bytesReceived_ {};
-      // The number of bytes that are sent.
+      // The number of bytes sent.
       shared_ptr<string> bytesSend_ {};
       // The IP address of the client.
       shared_ptr<string> clientIp_ {};
-      // The OS that the client runs.
+      // The operating system of the client.
       shared_ptr<string> clientOS_ {};
       // The client version.
       shared_ptr<string> clientVersion_ {};
-      // The description.
+      // The description of the event.
       shared_ptr<string> description_ {};
-      // The desktop group ID.
+      // The ID of the desktop group.
       shared_ptr<string> desktopGroupId_ {};
-      // The desktop group name.
+      // The name of the desktop group.
       shared_ptr<string> desktopGroupName_ {};
-      // The cloud desktop ID.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
       // The IP address of the cloud desktop.
       shared_ptr<string> desktopIp_ {};
-      // The cloud desktop name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The ID of the directory to which the cloud desktop belongs.
+      // The ID of the cloud desktop\\"s directory.
       shared_ptr<string> directoryId_ {};
       // The directory type.
       shared_ptr<string> directoryType_ {};
-      // The information about the end user that connects to the cloud desktop from the EDS client. The information can be a RAM user ID or an AD username.
+      // The ID of the end user. The value can be the ID of a RAM user or the username of an AD user.
       shared_ptr<string> endUserId_ {};
       // The event ID.
       shared_ptr<string> eventId_ {};
-      // The time when the event occurred.
+      // The time the event occurred.
       shared_ptr<string> eventTime_ {};
-      // The event type. Valid values:
+      // The event type.
       shared_ptr<string> eventType_ {};
-      // The ID of the workspace to which the cloud desktop belongs.
+      // The ID of the cloud desktop\\"s office site.
       shared_ptr<string> officeSiteId_ {};
-      // The workspace name.
+      // The name of the office site.
       shared_ptr<string> officeSiteName_ {};
-      // The account type of the workspace.
-      // 
-      // Valid values:
-      // 
-      // *   SIMPLE: convenience account
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   AD_CONNECTOR: enterprise AD account
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The type of account system for the office site.
       shared_ptr<string> officeSiteType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The status of the event. If you set the EventType parameter to `DESKTOP_DISCONNECT` or `GET_CONNECTION_TICKET`, this parameter is returned. Valid values:
+      // The status of the event. This parameter is returned for `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
       // 
-      // *   200\\. The value indicates that the request is successful.
-      // *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.
+      // - `200`: Success.
+      // 
+      // - An error message, such as `FailedToGetConnectionTicket`.
       shared_ptr<string> status_ {};
       shared_ptr<Events::TerminalInfo> terminalInfo_ {};
     };
@@ -424,9 +407,9 @@ namespace Models
 
 
   protected:
-    // The user events.
+    // The list of user events.
     shared_ptr<vector<DescribeClientEventsResponseBody::Events>> events_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

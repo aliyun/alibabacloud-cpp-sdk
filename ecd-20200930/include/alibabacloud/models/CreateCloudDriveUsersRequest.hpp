@@ -69,19 +69,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // Enterprise cloud drive ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The IDs of the end users.
+    // List of end user IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> endUserId_ {};
-    // The region ID.
+    // The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain a list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The maximum storage space of an end user. Unit: bytes.
+    // Maximum storage size for a user\\"s personal cloud drive. This value must not exceed the remaining available capacity in the enterprise cloud drive. Unit: byte.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userMaxSize_ {};

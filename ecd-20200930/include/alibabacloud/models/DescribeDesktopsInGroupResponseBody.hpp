@@ -296,217 +296,53 @@ namespace Models
 
 
     protected:
-      // The connection status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Unknown
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Connected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Disconnected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The connection status of the cloud desktop.
       shared_ptr<string> connectionStatus_ {};
-      // The retention period. Unit: milliseconds.
+      // The retention period of the cloud desktop, in milliseconds.
       shared_ptr<string> createDuration_ {};
-      // The time when the cloud computer was created.
+      // The creation time of the cloud desktop.
       shared_ptr<string> createTime_ {};
-      // The ID of the cloud computer.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Stopped
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Starting
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Rebuilding
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Running
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Stopping
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Expired
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Deleted
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Pending
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The type of the disk.
-      // 
-      // Valid values:
-      // 
-      // *   SYSTEM: system disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DATA: data disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The disk type.
       shared_ptr<string> diskType_ {};
-      // The ID of the authorized user.
+      // The ID of the authorized end user.
       shared_ptr<string> endUserId_ {};
-      // The IDs of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+      // The IDs of end users connected to the cloud desktop. If no end user is connected, the array is empty.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The username of the authorized user.
+      // The name of the authorized end user.
       shared_ptr<string> endUserName_ {};
-      // The usernames of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+      // The usernames of end users connected to the cloud desktop. If no end user is connected, the array is empty.
       shared_ptr<vector<string>> endUserNames_ {};
       // The image version.
       shared_ptr<string> fotaVersion_ {};
-      // The version of the GPU driver.
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The flag that is used to manage the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Updating: The configurations of the cloud computer are being updated.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   NoFlag: No flags are attached to the cloud computer.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The flags that are used to manage the cloud computers.
+      // The management flags.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The IP address of the member NIC of the instance.
+      // The IP address of the secondary elastic network interface of the instance.
       shared_ptr<string> memberEniIp_ {};
-      // The OS.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The type of the operating system.
       shared_ptr<string> osType_ {};
-      // The IP address of the primary NIC of the instance.
+      // The IP address of the primary network interface of the instance.
       shared_ptr<string> primaryEniIp_ {};
-      // The protocol.
-      // 
-      // Valid values:
-      // 
-      // *   HDX: HDX protocol
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   ASP: ASP protocol provided by Alibaba Cloud
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The session protocol.
       shared_ptr<string> protocolType_ {};
-      // The time when the cloud computer was released.
+      // The release time of the cloud desktop.
       shared_ptr<string> releaseTime_ {};
-      // The time when the cloud computer was reset.
+      // The time when the cloud desktop was last reset.
       shared_ptr<string> resetTime_ {};
-      // The system disk size. Unit: GiB.
+      // The size of the system disk, in GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -738,212 +574,49 @@ namespace Models
 
 
     protected:
-      // The connection status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Unknown
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Connected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Disconnected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The connection status of the cloud desktop.
       shared_ptr<string> connectionStatus_ {};
-      // The ID of the cloud computer.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Stopped
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Starting
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Rebuilding
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Running
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Stopping
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Expired
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Deleted
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Pending
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The type of the disk.
-      // 
-      // Valid values:
-      // 
-      // *   SYSTEM: system disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DATA: data disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The disk type.
       shared_ptr<string> diskType_ {};
-      // The ID of the authorized user.
+      // The ID of the authorized end user.
       shared_ptr<string> endUserId_ {};
-      // The IDs of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
+      // The IDs of end users connected to the cloud desktop. If no end user is connected, the array is empty.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The username of the authorized user.
+      // The name of the authorized end user.
       shared_ptr<string> endUserName_ {};
-      // The usernames of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
+      // The usernames of end users connected to the cloud desktop. If no end user is connected, the array is empty.
       shared_ptr<vector<string>> endUserNames_ {};
+      // The expiration time of the subscription cloud desktop.
       shared_ptr<string> expiredTime_ {};
       // The image version.
       shared_ptr<string> fotaVersion_ {};
-      // The version of the GPU driver.
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
-      // The flag that is used to manage the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Updating: The configurations of the cloud computer are being updated.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   NoFlag: No flags are attached to the cloud computer.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The flags that are used to manage the cloud computers.
+      // The management flags.
       shared_ptr<vector<string>> managementFlags_ {};
-      // The IP address of the member network interface controller (NIC) of the instance.
+      // The IP address of the secondary elastic network interface of the instance.
       shared_ptr<string> memberEniIp_ {};
-      // The OS.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The type of the operating system.
       shared_ptr<string> osType_ {};
-      // The IP address of the primary NIC of the instance.
+      // The IP address of the primary network interface of the instance.
       shared_ptr<string> primaryEniIp_ {};
-      // The protocol.
-      // 
-      // Valid values:
-      // 
-      // *   HDX: High-definition Experience (HDX) protocol
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   ASP: Adaptive Streaming Protocol (ASP) protocol provided by Alibaba Cloud
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The session protocol.
       shared_ptr<string> protocolType_ {};
-      // The time when the cloud computer was reset.
+      // The time when the cloud desktop was last reset.
       shared_ptr<string> resetTime_ {};
-      // The system disk size. Unit: GiB.
+      // The size of the system disk, in GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
     };
 
@@ -1032,28 +705,27 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
-    // If NextToken is empty, no next page exists.
+    // The token to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The number of subscription cloud computers that are in the Connected state.
+    // The number of connected subscription cloud desktops.
     shared_ptr<int32_t> onlinePrePaidDesktopsCount_ {};
-    // The subscription cloud computers.
+    // A list of subscription cloud desktops.
     shared_ptr<vector<DescribeDesktopsInGroupResponseBody::PaidDesktops>> paidDesktops_ {};
-    // The total number of subscription cloud computers.
+    // The total number of subscription cloud desktops.
     shared_ptr<int32_t> paidDesktopsCount_ {};
-    // The pay-as-you-go cloud computers.
+    // A list of pay-as-you-go cloud desktops.
     shared_ptr<vector<DescribeDesktopsInGroupResponseBody::PostPaidDesktops>> postPaidDesktops_ {};
-    // The total number of pay-as-you-go cloud computers.
+    // The total number of pay-as-you-go cloud desktops.
     shared_ptr<int32_t> postPaidDesktopsCount_ {};
-    // The total amount of bills for pay-as-you-go cloud computers.
+    // The total billed amount for the pay-as-you-go cloud desktops.
     shared_ptr<int32_t> postPaidDesktopsTotalAmount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of subscription cloud computers that are in the Running state.
+    // The number of running subscription cloud desktops.
     shared_ptr<int32_t> runningPrePaidDesktopsCount_ {};
-    // The number of subscription cloud computers that are in the Stopped state.
+    // Deprecated. This parameter is misspelled. Use `StoppedPrePaidDesktopsCount` instead.
     shared_ptr<int32_t> stopedPrePaidDesktopsCount_ {};
-    // The number of subscription cloud computers that are in the Stopped state.
+    // The number of stopped subscription cloud desktops.
     shared_ptr<int32_t> stoppedPrePaidDesktopsCount_ {};
   };
 

@@ -193,24 +193,26 @@ namespace Models
 
 
     protected:
+      // The type of action performed.
       shared_ptr<string> actionType_ {};
-      // The ID of the batch in which the scheduled task is executed.
+      // The batch ID of the scheduled task execution.
       shared_ptr<string> batchId_ {};
+      // The recorded information during the execution of the scheduled task.
       shared_ptr<string> context_ {};
-      // The time when the execution record was created.
+      // The time when the record was created.
       shared_ptr<string> createTime_ {};
-      // The cloud computer ID.
+      // The cloud desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The cloud desktop name.
       shared_ptr<string> desktopName_ {};
       shared_ptr<string> displayResultName_ {};
-      // The time when the scheduled task ended.
+      // The time when the task ended.
       shared_ptr<string> finishTime_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       shared_ptr<string> resourceParentId_ {};
       shared_ptr<bool> retryable_ {};
-      // The ID of the scheduled task group.
+      // The scheduled task group ID.
       shared_ptr<string> timerGroupId_ {};
       shared_ptr<string> timerRecordId_ {};
       // The execution result of the scheduled task.
@@ -254,11 +256,11 @@ namespace Models
   protected:
     // The total number of entries returned.
     shared_ptr<int32_t> count_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The response parameters.
+    // The returned results.
     shared_ptr<vector<DescribeGlobalTimerRecordsResponseBody::Results>> results_ {};
   };
 

@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer.
+    // The cloud desktop ID.
     // 
     // This parameter is required.
     shared_ptr<string> desktopId_ {};
-    // The maximum number of entries to return on each page.
+    // Number of entries per page for paged queries.
     // 
-    // *   Maximum value: 100.
-    // *   Default value: 10.
+    // - Maximum: 100.
+    // 
+    // - Default: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+    // Pagination token. Set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to list regions that support WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

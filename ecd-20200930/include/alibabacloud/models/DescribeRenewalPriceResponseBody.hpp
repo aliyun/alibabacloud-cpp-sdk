@@ -192,7 +192,7 @@ namespace Models
 
 
         protected:
-          // The description of the promotion rule.
+          // The promotion rule description.
           shared_ptr<string> optionCode_ {};
           // The promotion description.
           shared_ptr<string> promotionDesc_ {};
@@ -200,7 +200,7 @@ namespace Models
           shared_ptr<string> promotionId_ {};
           // The promotion name.
           shared_ptr<string> promotionName_ {};
-          // Indicates whether an item is selected.
+          // Indicates whether the promotion is selected.
           shared_ptr<bool> selected_ {};
         };
 
@@ -253,17 +253,18 @@ namespace Models
 
 
       protected:
-        // The unit of currency (USD).
+        // <props="china">The unit of currency. The value is CNY.
+        // <props="intl">The unit of currency. The value is USD.
         shared_ptr<string> currency_ {};
-        // The discounted amount.
+        // The discount.
         shared_ptr<float> discountPrice_ {};
-        // The orders.
+        // The order details.
         shared_ptr<map<string, string>> orderLines_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The promotions.
+        // The promotion details.
         shared_ptr<vector<Price::Promotions>> promotions_ {};
-        // The actual price. The actual price is the original price minus the discount.
+        // The final price. This is the value of `OriginalPrice` minus `DiscountPrice`.
         shared_ptr<float> tradePrice_ {};
       };
 

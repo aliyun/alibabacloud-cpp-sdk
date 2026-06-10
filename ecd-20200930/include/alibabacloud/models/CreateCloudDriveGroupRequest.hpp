@@ -78,6 +78,7 @@ namespace Models
 
 
   protected:
+    // List of user IDs to be set as team space administrators.
     shared_ptr<vector<string>> adminUserIds_ {};
     // The ID of the cloud disk in Cloud Drive Service.
     // 

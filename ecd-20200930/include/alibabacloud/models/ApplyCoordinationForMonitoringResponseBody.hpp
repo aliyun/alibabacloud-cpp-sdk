@@ -122,13 +122,13 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   COORDINATING: The collaboration task is being executed.
+      // - COORDINATING: The collaboration task is being executed.
       // 
-      // *   TERMINATING: The collaboration task is being terminated.
+      // - TERMINATING: The collaboration task is being terminated.
       // 
-      // *   TERMINATED: The collaboration task is terminated.
+      // - TERMINATED: The collaboration task is terminated.
       // 
-      // *   PENDING: The collaboration task is pending to be executed.
+      // - PENDING: The collaboration task is pending to be executed.
       shared_ptr<string> coordinateStatus_ {};
       // The ticket that is used to establish the Adaptive Streaming Protocol (ASP)-based connection.
       shared_ptr<string> coordinateTicket_ {};
@@ -136,11 +136,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
+      // - ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
       // 
-      // *   ADMIN_INITIATE: The administrator initiates the collaboration request.
+      // - ADMIN_INITIATE: The administrator initiates the collaboration request.
       // 
-      // *   COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
+      // - COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
       shared_ptr<string> initiatorType_ {};
       // The ID of the Alibaba Cloud account of the end user.
       shared_ptr<string> ownerUserId_ {};

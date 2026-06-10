@@ -85,7 +85,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of zones.
+    // The information about the zones.
     shared_ptr<vector<DescribeZonesResponseBody::Zones>> zones_ {};
   };
 

@@ -226,55 +226,19 @@ namespace Models
 
 
     protected:
-      // The description of the rule.
+      // The rule description.
       shared_ptr<string> description_ {};
-      // The class of the device. If you set the `usbRuleType` parameter to 1, you must specify this parameter. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+      // The device class. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
       shared_ptr<string> deviceClass_ {};
-      // The subclass of the device. If you set the `usbRuleType` parameter to 1, you must specify this parameter. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+      // The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
       shared_ptr<string> deviceSubclass_ {};
-      // The ID of the service.
+      // The product ID (PID).
       shared_ptr<string> productId_ {};
-      // The type of USB redirection.
-      // 
-      // Valid values:
-      // 
-      // *   1: allows USB redirection
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   2: forbids USB redirection
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The USB redirection type.
       shared_ptr<int64_t> usbRedirectType_ {};
-      // The type of the USB redirection rule.
-      // 
-      // Valid values:
-      // 
-      // *   1: by device class
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   2: by device vendor
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The USB redirection rule type.
       shared_ptr<int64_t> usbRuleType_ {};
-      // The ID of the vendor. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+      // The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
       shared_ptr<string> vendorId_ {};
     };
 
@@ -325,16 +289,11 @@ namespace Models
 
 
     protected:
-      // The description of domain name resolution rule.
+      // The policy description.
       shared_ptr<string> description_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
-      // Specifies whether to allow the domain name resolution rule.
-      // 
-      // Valid values:
-      // 
-      // *   allow: allows the rule.
-      // *   block: denies the rule.
+      // The resolution policy.
       shared_ptr<string> policy_ {};
     };
 
@@ -427,32 +386,13 @@ namespace Models
       // The product ID (PID).
       shared_ptr<string> devicePid_ {};
       // The peripheral type.
-      // 
-      // Valid values:
-      // 
-      // *   usbKey: UKeys.
-      // *   other: other peripheral devices.
-      // *   graphicsTablet: graphics tablets.
-      // *   printer: printers.
-      // *   cardReader: card readers.
-      // *   scanner: scanners.
-      // *   storage: storage devices.
-      // *   camera: web cameras.
-      // *   adb: Android Debug Bridge (ADB) devices.
-      // *   networkInterfaceCard: NIC devices.
       shared_ptr<string> deviceType_ {};
-      // The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+      // The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
       shared_ptr<string> deviceVid_ {};
-      // The link optimization command.
+      // The link optimization instruction.
       shared_ptr<string> optCommand_ {};
       shared_ptr<string> platforms_ {};
       // The redirection type.
-      // 
-      // Valid values:
-      // 
-      // *   deviceRedirect: device redirection
-      // *   usbRedirect: USB redirection
-      // *   off: redirection disabled
       shared_ptr<string> redirectType_ {};
     };
 
@@ -495,21 +435,8 @@ namespace Models
 
     protected:
       // The peripheral type.
-      // 
-      // Valid values:
-      // 
-      // *   printer
-      // *   scanner
-      // *   camera
-      // *   adb: the Android Debug Bridge (ADB) device.
       shared_ptr<string> deviceType_ {};
       // The redirection type.
-      // 
-      // Valid values:
-      // 
-      // *   deviceRedirect: device redirection
-      // *   usbRedirect: USB redirection
-      // *   off: redirection disabled
       shared_ptr<string> redirectType_ {};
     };
 
@@ -551,26 +478,13 @@ namespace Models
 
 
     protected:
-      // The type of the Alibaba Cloud Workspace client.
+      // Logon method control. Specifies the client type.
       // 
-      // >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
-      // 
-      // Valid values:
-      // 
-      // *   html5: web client
-      // *   android: Android client
-      // *   ios: iOS client
-      // *   windows: Windows client
-      // *   macos: macOS client
+      // > If you do not configure the `ClientType` parameters, all types of clients are allowed to log on to the cloud computer by default.
       shared_ptr<string> clientType_ {};
-      // Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
+      // Logon method control. Specifies whether to allow a specific type of client to log on to the cloud computer.
       // 
-      // >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
-      // 
-      // Valid values:
-      // 
-      // *   OFF
-      // *   ON
+      // > If you do not configure the `ClientType` parameters, all types of clients are allowed to log on to the cloud computer by default.
       shared_ptr<string> status_ {};
     };
 
@@ -658,46 +572,31 @@ namespace Models
 
 
     protected:
-      // The object to which the security group rule applies. The value is an IPv4 CIDR block.
+      // The object of the security group rule. The value is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
       // The description of the security group rule.
       shared_ptr<string> description_ {};
       // The protocol type of the security group rule.
-      // 
-      // Valid values:
-      // 
-      // *   TCP: the Transmission Control Protocol (TCP) protocol.
-      // *   UDP: the User Datagram Protocol (UDP) protocol.
-      // *   ALL: all protocols.
-      // *   GRE: the Generic Routing Encapsulation (GRE) protocol.
-      // *   ICMP: the Internet Control Message Protocol (ICMP) for IPv4.
       shared_ptr<string> ipProtocol_ {};
-      // The authorization of the security group rule.
-      // 
-      // Valid values:
-      // 
-      // *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
-      // *   accept (default): accepts all requests.
+      // The authorization policy of the security group rule.
       shared_ptr<string> policy_ {};
-      // The port range of the security group rule. The value range of this parameter varies based on the value of the IpProtocol parameter.
+      // The port range of the security group rule. The value of this parameter depends on the value of the \\`IpProtocol\\` parameter.
       // 
-      // *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-      // *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
-      // *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
-      // *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
+      // - If \\`IpProtocol\\` is set to TCP or UDP, the port range is 1 to 65535. Use a forward slash (/) to separate the start port and the end port. For example: 1/200.
       // 
-      // For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+      // - If \\`IpProtocol\\` is set to ICMP, the port range is -1/-1.
+      // 
+      // - If \\`IpProtocol\\` is set to GRE, the port range is -1/-1.
+      // 
+      // - If \\`IpProtocol\\` is set to all, the port range is -1/-1.
+      // 
+      // For more information about common ports, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
       shared_ptr<string> portRange_ {};
-      // The priority of the security group rule. A smaller value indicates a higher priority.\\
-      // Valid values: 1 to 60.\\
-      // Default value: 1.
+      // The priority of the security group rule. A smaller value indicates a higher priority.<br>
+      // Valid values: 1 to 60.<br>
+      // Default value: 1.<br><br>
       shared_ptr<string> priority_ {};
       // The direction of the security group rule.
-      // 
-      // Valid values:
-      // 
-      // *   outflow: outbound.
-      // *   inflow: inbound.
       shared_ptr<string> type_ {};
     };
 
@@ -739,7 +638,7 @@ namespace Models
 
 
     protected:
-      // The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
+      // The client IP address CIDR block. The value is an IPv4 CIDR block.
       shared_ptr<string> cidrIp_ {};
       // The description of the client IP address whitelist.
       shared_ptr<string> description_ {};
@@ -1176,482 +1075,137 @@ namespace Models
 
 
   protected:
-    // Specifies whether end users have the administrator permissions.
-    // 
-    // >  This parameter is in invitational preview for specific users and not available to the public.
-    shared_ptr<string> adminAccess_ {};
-    // Specifies whether to enable the anti-screenshot feature.
-    // 
-    // Valid values:
-    // 
-    // *   off: Anti-screenshot is disabled. This value is the default value.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: Anti-screenshot is enabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    shared_ptr<string> appContentProtection_ {};
-    // The client IP address whitelist. After you configure the whitelist, end users can access cloud computers only from the IP addresses in the whitelist.
-    shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeAccessPolicyRule>> authorizeAccessPolicyRule_ {};
-    // The security group rules.
-    shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule_ {};
-    // Specifies whether to enable the webcam redirection feature.
-    // 
-    // Valid values:
-    // 
-    // *   off: Webcam redirection is disabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: Webcam redirection is enabled. This value is the default value.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    shared_ptr<string> cameraRedirect_ {};
-    // The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
-    shared_ptr<vector<CreatePolicyGroupRequest::ClientType>> clientType_ {};
-    // The permissions on the clipboard.
-    // 
-    // Valid values:
-    // 
-    // *   read: specifies one-way transfer. You can copy files only from local devices to cloud computers.
-    // *   readwrite: specifies two-way transfer. You can copy files between local devices and cloud computers.
-    // *   write: specifies one-way transfer. You can only copy files from cloud computers to local devices.
-    // *   off (default): disables both one-way and two-way transfer. Files cannot be copied between local devices and cloud computers.
-    shared_ptr<string> clipboard_ {};
-    // The device redirection rules.
-    shared_ptr<vector<CreatePolicyGroupRequest::DeviceRedirects>> deviceRedirects_ {};
-    // The custom peripheral rules.
-    shared_ptr<vector<CreatePolicyGroupRequest::DeviceRules>> deviceRules_ {};
-    // Specifies whether the access control for domain names is enabled. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
-    shared_ptr<string> domainList_ {};
-    // The details of the domain name resolution rule.
-    shared_ptr<vector<CreatePolicyGroupRequest::DomainResolveRule>> domainResolveRule_ {};
-    // The type of the domain name resolution policy.
-    // 
-    // Valid values:
-    // 
-    // *   OFF
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   ON
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    shared_ptr<string> domainResolveRuleType_ {};
-    // Specifies whether to turn on the Contact Administrator for Help switch.
-    // 
-    // Valid values:
-    // 
-    // *   OFF
-    // *   ON
-    shared_ptr<string> endUserApplyAdminCoordinate_ {};
-    // Specifies whether to turn on the User Stream Collaboration switch.
-    // 
-    // Valid values:
-    // 
-    // *   OFF
-    // *   ON
-    shared_ptr<string> endUserGroupCoordinate_ {};
-    // Specifies whether to enable the Image Quality Control feature. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
-    shared_ptr<string> gpuAcceleration_ {};
-    // Specifies whether to allow web client access.
-    // 
-    // >  We recommend that you use the ClientType-related parameters to control the Alibaba Cloud Workspace client type for cloud computer logon.``
-    // 
-    // Valid values:
-    // 
-    // *   off (default)
-    // *   on
-    shared_ptr<string> html5Access_ {};
-    // The file transfer feature on the web client.
-    // 
-    // Valid values:
-    // 
-    // *   all: Files can be uploaded and downloaded between local computers and the web client.
-    // *   download: Files on the web client can be downloaded to local computers.
-    // *   upload: Files on local computers can be uploaded to the web client.
-    // *   off (default): Files cannot be transferred between the web client and local computers.
-    shared_ptr<string> html5FileTransfer_ {};
-    // The protocol for network communication.
-    // 
-    // Valid values:
-    // 
-    // *   TCP (default): TCP
-    // *   BOTH: TCP and UDP
-    shared_ptr<string> internetCommunicationProtocol_ {};
-    // The permissions on local disk mapping.
-    // 
-    // Valid values:
-    // 
-    // *   read: read-only. Local disk mapping is available on cloud computers. However, you can only read (copy) local files but cannot modify the files.
-    // *   readwrite: read and write. Local disk mapping is available on cloud computers. You can read (copy) and write (modify) local files.
-    // *   off (default): disabled. Local disk mapping is unavailable on cloud computers.
-    shared_ptr<string> localDrive_ {};
-    // The maximum retry period for reconnecting to cloud computers when the cloud computers are disconnected due to none-human reasons. Valid values: 30 to 7200. Unit: seconds.
-    shared_ptr<int32_t> maxReconnectTime_ {};
-    // The name of the policy.
-    shared_ptr<string> name_ {};
-    // Specifies whether to enable the network redirection feature.
+    // Specifies whether a user has administrative permissions after logging on to the cloud computer.
     // 
     // > This feature is in invitational preview and is not available to the public.
+    shared_ptr<string> adminAccess_ {};
+    // Specifies whether to enable the anti-screenshot feature.
+    shared_ptr<string> appContentProtection_ {};
+    // The client IP address whitelist. After you configure this parameter, only IP addresses in the whitelist can access the cloud computer.
+    shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeAccessPolicyRule>> authorizeAccessPolicyRule_ {};
+    // The list of security group rules.
+    shared_ptr<vector<CreatePolicyGroupRequest::AuthorizeSecurityPolicyRule>> authorizeSecurityPolicyRule_ {};
+    // Specifies whether to enable local camera redirection.
+    shared_ptr<string> cameraRedirect_ {};
+    // The list of logon method control rules. These rules control which clients can be used to access the cloud computer.
+    shared_ptr<vector<CreatePolicyGroupRequest::ClientType>> clientType_ {};
+    // The clipboard permission.
+    shared_ptr<string> clipboard_ {};
+    // The list of device redirection rules.
+    shared_ptr<vector<CreatePolicyGroupRequest::DeviceRedirects>> deviceRedirects_ {};
+    // The list of custom peripheral rules.
+    shared_ptr<vector<CreatePolicyGroupRequest::DeviceRules>> deviceRules_ {};
+    // The policy for controlling access to domain names. You can use a wildcard character (\\*). Separate multiple domain names with commas (,).
+    shared_ptr<string> domainList_ {};
+    // The details of the domain name resolution policy.
+    shared_ptr<vector<CreatePolicyGroupRequest::DomainResolveRule>> domainResolveRule_ {};
+    // The type of the domain name resolution policy.
+    shared_ptr<string> domainResolveRuleType_ {};
+    // Specifies whether to allow end users to request assistance from administrators.
+    shared_ptr<string> endUserApplyAdminCoordinate_ {};
+    // Specifies whether to enable stream collaboration between users.
+    shared_ptr<string> endUserGroupCoordinate_ {};
+    // Specifies whether to enable the image quality policy for graphics cloud computers. Enable this policy for scenarios that require high performance and user experience, such as professional design.
+    shared_ptr<string> gpuAcceleration_ {};
+    // The policy for access from web clients.
     // 
-    // Valid values:
+    // > Use the `ClientType` parameters to manage logon methods.
+    shared_ptr<string> html5Access_ {};
+    // The file transfer policy for web clients.
+    shared_ptr<string> html5FileTransfer_ {};
+    // The network communication protocol.
+    shared_ptr<string> internetCommunicationProtocol_ {};
+    // The local disk mapping permission.
+    shared_ptr<string> localDrive_ {};
+    // The maximum amount of time to retry the connection if the cloud computer is disconnected due to an unexpected event. Valid values: 30 to 7200. Unit: seconds.
+    shared_ptr<int32_t> maxReconnectTime_ {};
+    // The policy name.
+    shared_ptr<string> name_ {};
+    // Specifies whether to enable network redirection.
     // 
-    // *   off (default): The network redirection feature is disabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: The network redirection feature is enabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // > This feature is in invitational preview and is not available to the public.
     shared_ptr<string> netRedirect_ {};
-    // The cloud computer preemption feature.
+    // The preemption policy.
     // 
-    // >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
-    // 
-    // Valid values:
-    // 
-    // *   off (default): Multiple end users cannot connect to the same cloud computer at the same time.
+    // > To ensure the user experience and data security of the end users who are using cloud computers, mutual preemption among multiple users is not allowed. This parameter is set to `off` by default and cannot be changed.
     shared_ptr<string> preemptLogin_ {};
-    // The usernames that are allowed to connect to the cloud computer in use. You can specify up to five usernames.
+    // The usernames of the users that are allowed to preempt the cloud computer. You can specify up to five usernames.
     // 
-    // >  To ensure user experience and data security, other end users cannot connect to the cloud computer that is used by an end user.
+    // > To ensure the user experience and data security of the end users who are using cloud computers, mutual preemption among multiple users is not allowed.
     shared_ptr<vector<string>> preemptLoginUser_ {};
-    // The policy for printer redirection.
-    // 
-    // Valid values:
-    // 
-    // *   off: Printer redirection is disabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: Printer redirection is enabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The printer redirection policy.
     shared_ptr<string> printerRedirection_ {};
-    // Specifies whether to enable the custom screen recording feature.
-    // 
-    // Valid values:
-    // 
-    // *   off: Custom screen recording is disabled. This value is the default value.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: Custom screen recording is enabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // Specifies whether to enable custom screen recording.
     shared_ptr<string> recordContent_ {};
-    // The duration in which the custom screen recording is valid. Default value: 30. Unit: days.
+    // The expiration time of custom recording files. The default value is 30. Unit: days.
     shared_ptr<int64_t> recordContentExpires_ {};
-    // Specifies whether to enable the screen recording feature.
-    // 
-    // Valid values:
-    // 
-    // *   byaction_cmd_ft: enables the operation-triggered screen recording upon command execution and file transfer.
-    // *   ALLTIME: enables the whole-process screen recording. That is, the recording starts when cloud computers are connected and ends when the cloud computers are disconnected.
-    // *   session: enables the screen recording for session lifecycle listening.
-    // *   PERIOD: enables the interval-based screen recording. You must specify an interval between the start time and end time of this type of recording.
-    // *   byaction_commands: enables the operation-triggered screen recording upon command execution.
-    // *   OFF: disables the screen recording feature.
-    // *   byaction_file_transfer: enables the operation-triggered screen recording upon file transfer.
+    // Specifies whether to enable screen recording.
     shared_ptr<string> recording_ {};
-    // Specifies whether to record audio files generated from cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   off: records only video files.
-    // *   on: records video and audio files.
+    // The option to record audio from the cloud computer.
     shared_ptr<string> recordingAudio_ {};
-    // The file length of the screen recording. Unit: minutes. Screen recording files are split based on the specified file length and uploaded to Object Storage Service (OSS) buckets. When a screen recording file reaches 300 MB in size, the system preferentially performs rolling update for the file.
-    // 
-    // Valid values:
-    // 
-    // *   10
-    // *   20
-    // *   30
-    // *   60
+    // The duration for viewing the recording file. Unit: minutes. The recording file is automatically split based on the specified duration and uploaded to a bucket. If a file reaches 300 MB, it is rolled over first.
     shared_ptr<int32_t> recordingDuration_ {};
-    // The time when the screen recording ends. The value is in the HH:MM:SS format. The value is meaningful only when you set the `Recording` parameter to `PERIOD`.
+    // The time when screen recording ends. The value is in the HH:MM:SS format. This parameter is valid only when \\`Recording\\` is set to \\`PERIOD\\`.
     shared_ptr<string> recordingEndTime_ {};
-    // The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
+    // The retention period of the recording file. Valid values: 1 to 180. Unit: days.
     shared_ptr<int64_t> recordingExpires_ {};
-    // The frame rate of screen recording. Unit: fps.
-    // 
-    // Valid values:
-    // 
-    // *   2
-    // *   5
-    // *   10
-    // *   15
+    // The frame rate for screen recording. Unit: frames per second (fps).
     shared_ptr<int64_t> recordingFps_ {};
-    // The time when the screen recording starts. The value is in the HH:MM:SS format. The value is meaningful only when you set the `Recording` parameter to `PERIOD`.
+    // The time when screen recording starts. The value is in the HH:MM:SS format. This parameter is valid only when \\`Recording\\` is set to \\`PERIOD\\`.
     shared_ptr<string> recordingStartTime_ {};
-    // Specifies whether to enable the screen recording notification feature after end users log on to the Alibaba Cloud Workspace client.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // The feature that sends notifications to the client when screen recording is in progress.
     shared_ptr<string> recordingUserNotify_ {};
-    // The notification content of screen recording. By default, this parameter is left empty.
+    // The content of the notification that is sent to the client when screen recording is in progress. You do not need to specify this parameter.
     shared_ptr<string> recordingUserNotifyMessage_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. Call the [DescribeRegions](~~DescribeRegions~~) operation to obtain the list of regions that support WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The permission to control the keyboard and the mouse during remote assistance.
-    // 
-    // Valid values:
-    // 
-    // *    optionalControl: By default, this feature is disabled. You can enable it by applying permissions.
-    // 
-    // *   fullControl: The permission is granted.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   disableControl: The permission is revoked.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The keyboard and mouse control permissions for remote assistance.
     shared_ptr<string> remoteCoordinate_ {};
-    // The effective scope of the policy.
-    // 
-    // Valid values:
-    // 
-    // *   IP: The policy takes effect based on the IP address.
-    // *   GLOBAL: The policy takes effect globally.
+    // The scope of the policy.
     shared_ptr<string> scope_ {};
-    // This parameter is required when the `Scope` parameter is set to `IP`.````
+    // This parameter is required when `Scope` is set to `IP`. It takes effect only when `Scope` is set to `IP`.
     shared_ptr<vector<string>> scopeValue_ {};
-    // Specifies whether to enable USB redirection.
-    // 
-    // Valid values:
-    // 
-    // *   off: USB redirection is disabled. This value is the default value.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   on: USB redirection is enabled.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // USB redirection.
     shared_ptr<string> usbRedirect_ {};
     // The USB redirection rules.
     shared_ptr<vector<CreatePolicyGroupRequest::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
-    // Specifies whether to enable the multimedia redirection switch.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // Multimedia redirection.
     shared_ptr<string> videoRedirect_ {};
-    // The policy for image display quality.
-    // 
-    // Valid values:
-    // 
-    // *   high
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   low
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   lossless
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   medium: adaptive. This value is the default value.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The image display quality policy.
     shared_ptr<string> visualQuality_ {};
-    // The watermarking feature.
-    // 
-    // Valid values:
-    // 
-    // *   blind: Invisible watermarks are applied.
-    // *   off (default): The watermarking feature is disabled.
-    // *   on: Visible watermarks are applied.
+    // The watermark feature.
     shared_ptr<string> watermark_ {};
-    // Specifies whether to enable the anti-screen photo feature for invisible watermarks.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // The anti-screen-recording feature for invisible watermarks.
     shared_ptr<string> watermarkAntiCam_ {};
-    // The font color in red, green, and blue (RGB) of the watermark. Valid values: 0 to 16777215.
+    // The font color of the watermark. Valid values: 0 to 16777215.
     shared_ptr<int32_t> watermarkColor_ {};
-    // The watermark rotation. Valid values: -10 to -30.
+    // The rotation angle of the watermark. Valid values: -10 to -30.
     shared_ptr<double> watermarkDegree_ {};
-    // The watermark font size. Valid values: 10 to 20.
+    // The font size of the watermark. Valid values: 10 to 20.
     shared_ptr<int32_t> watermarkFontSize_ {};
-    // The watermark font style.
-    // 
-    // Valid values:
-    // 
-    // *   plain
-    // *   bold
+    // The font style of the watermark.
     shared_ptr<string> watermarkFontStyle_ {};
-    // The watermark enhancement feature.
-    // 
-    // Valid values:
-    // 
-    // *   high
-    // *   low
-    // *   medium
+    // The enhanced feature for invisible watermarks.
     shared_ptr<string> watermarkPower_ {};
     // The number of watermark rows.
     // 
-    // >  This parameter is not available for public use.
+    // > This parameter is not yet available.
     shared_ptr<int32_t> watermarkRowAmount_ {};
-    // Specifies whether to enable the security priority feature for invisible watermarks.
-    // 
-    // Valid values:
-    // 
-    // *   off
-    // *   on
+    // The security priority rule for invisible watermarks.
     shared_ptr<string> watermarkSecurity_ {};
     // The transparency of the watermark.
-    // 
-    // Valid values:
-    // 
-    // *   LIGHT
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DARK
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   MIDDLE
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> watermarkTransparency_ {};
-    // The watermark opacity. A larger value indicates more opaque watermarks. Valid values: 10 to 100.
+    // The opacity of the watermark. A larger value indicates lower transparency. Valid values: 10 to 100.
     shared_ptr<int32_t> watermarkTransparencyValue_ {};
-    // The watermark content. You can select up to three items as the watermark content. Separate multiple items with commas (,).
+    // The type of watermark. You can specify up to three types. Separate multiple types with commas (,).
     // 
-    // >  If you set this parameter to `Custom`, specify `WatermarkCustomText`
-    // 
-    // Valid values:
-    // 
-    // *   EndUserId: the username.
-    // *   Custom: the custom text.
-    // *   DesktopIp: the IP address of the cloud computer.
-    // *   ClientIp: the IP address of the Alibaba Cloud Workspace client.
-    // *   HostName: the rightmost 15 digits of the cloud computer ID.
-    // *   ClientTime: the current time displayed on the cloud computer.
+    // > If you set this parameter to `custom`, you must also specify the `WatermarkCustomText` parameter.
     shared_ptr<string> watermarkType_ {};
-    // Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
+    // When you connect to a cloud computer from a desktop client (including a Windows client and a macOS client), specifies whether to display the entry for the WUYING AI assistant in the floating ball on the cloud computer.
     // 
-    // > Desktop clients of V7.7 and higher versions required.
-    // 
-    // Valid values:
-    // 
-    // - off: the AI Aisstant function is not provided.
-    // - on: the AI Aisstant function is provided.
+    // > This feature is available only for desktop clients of V7.7 or later.
     shared_ptr<string> wyAssistant_ {};
   };
 

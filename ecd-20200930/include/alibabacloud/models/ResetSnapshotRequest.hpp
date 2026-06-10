@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the snapshot.
+    // The ID of the snapshot used to recover disk data.
     // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};
+    // Indicates whether to shut down and recover the disk using the snapshot.
     shared_ptr<bool> stopDesktop_ {};
   };
 

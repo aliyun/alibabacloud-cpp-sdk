@@ -112,36 +112,31 @@ namespace Models
 
 
   protected:
-    // > This parameter is not publicly available. The value can be 1 or left empty.
+    // > This parameter is not publicly available. You can only set this parameter to `1` or leave it empty.
     shared_ptr<string> assignedInfo_ {};
-    // The ID of the AD directory.
+    // The AD directory ID.
     // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
-    // The query string for fuzzy match. If you specify this parameter, the system returns all results that contain the string.
+    // The string for a fuzzy search. The operation returns all results that contain this string.
     shared_ptr<string> filter_ {};
-    // Specifies whether to return the users with assigned cloud computers only.
+    // Specifies whether to return only users who are assigned cloud desktops.
     shared_ptr<bool> includeAssignedUser_ {};
     // The number of entries to return on each page.
     // 
-    // Valid values: 1 to 100.
+    // - Maximum value: 100.
     // 
-    // Default value: 10.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query. If the value of this parameter is empty, all results are returned.
+    // The token used to start the next query. If this value is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The organizational unit (OU) in the specified AD domain.
+    // The path of the organizational unit (OU) in the AD domain. You can call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to obtain the OU path.
     shared_ptr<string> OUPath_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. To get a list of regions that WUYING Workspace supports, call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The sort type.
-    // 
-    // Valide values:
-    // 
-    // - asc: cloud computers assigned to users on bottom
-    // - desc: cloud computers assigned to users on top
+    // The sorting method.
     shared_ptr<string> sortType_ {};
   };
 

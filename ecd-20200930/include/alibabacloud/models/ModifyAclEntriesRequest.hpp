@@ -73,9 +73,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   allow: allows access to the Internet.
+    // - allow: allows access to the Internet.
     // 
-    // *   disable: forbids access to the Internet.
+    // - disable: forbids access to the Internet.
     // 
     // This parameter is required.
     shared_ptr<string> policy_ {};
@@ -91,9 +91,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   desktop: cloud computer granularity.
+    // - desktop: cloud computer granularity.
     // 
-    // *   vpc: office network granularity.
+    // - vpc: office network granularity.
     // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};

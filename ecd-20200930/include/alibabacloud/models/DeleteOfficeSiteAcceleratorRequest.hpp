@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The office network ID.
+    // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

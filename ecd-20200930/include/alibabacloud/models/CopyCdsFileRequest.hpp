@@ -116,21 +116,21 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<bool> autoRename_ {};
     // The ID of the cloud disk.
     // 
@@ -142,12 +142,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
-    // 目标复制文件所在的个人空间ID（即UserId，您可以在DescribeCloudDriveUsers接口返回的报文中获取。）或者目标复制文件所在的团队空间ID（即GroupId，您可以在DescribeCloudDriveGroups接口返回的报文中获取。）
-    // > FileReceiverId和FileReceiverType都为空时，默认复制到文件所在的个人空间。
-    // >
+    // 目标复制文件所在的个人空间 ID（即 UserId，您可以在 DescribeCloudDriveUsers 接口返回的报文中获取。）或者目标复制文件所在的团队空间 ID（即 GroupId，您可以在 DescribeCloudDriveGroups 接口返回的报文中获取。）
+    // 
+    // > FileReceiverId 和 FileReceiverType 都为空时，默认复制到文件所在的个人空间。
     shared_ptr<string> fileReceiverId_ {};
     // 文件所属的空间类型。
     shared_ptr<string> fileReceiverType_ {};
+    // The team Space ID.
     shared_ptr<string> groupId_ {};
     // The ID of the parent folder of the folder to which you want to copy the file. If you want to copy the file to the root directory, set this parameter to root.
     // 

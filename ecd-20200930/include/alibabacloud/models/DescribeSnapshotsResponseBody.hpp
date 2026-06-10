@@ -274,60 +274,33 @@ namespace Models
 
 
     protected:
-      // The point in time at which the snapshot was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The point in time at which the snapshot was created. The time follows the [ISO 8601](t10049.xdita#) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The user who creates the snapshot.
       shared_ptr<string> creator_ {};
-      // The time when the snapshot was deleted. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The snapshot creation time follows the [ISO 8601](t10049.xdita#) standard. It uses UTC+0 time and is formatted as `yyyy-mm-ddThh:mm:ssZ`.
       shared_ptr<string> deletionTime_ {};
       // The description of the snapshot.
       shared_ptr<string> description_ {};
-      // The ID of the cloud computer to which the snapshot belongs.
+      // The ID of the cloud desktop to which the snapshot belongs.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // The status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Stopped
-      // *   Starting
-      // *   Rebuilding
-      // *   Running
-      // *   Stopping
-      // *   Expired
-      // *   Deleted
-      // *   Pending
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
+      // Status of the disk to which the snapshot belongs.
       shared_ptr<string> diskStatus_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
+      // The operating system type.
       shared_ptr<string> osType_ {};
       // The progress of creating the snapshot. Unit: %.
       shared_ptr<string> progress_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // *   HDX: High-definition Experience (HDX) protocol
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   ASP: in-house Adaptive Streaming Protocol (ASP)
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> protocolType_ {};
-      // The remaining time that is required to complete the snapshot creation. Unit: seconds.
+      // The remaining time to complete snapshot creation. Unit: seconds.
       // 
-      // >  When the `Status` value is `PROGRESSING`, the `RemainTime` value is `-1`. A value of -1 indicates that the system is calculating the remaining time.
+      // > When `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`. This indicates that the system is calculating the remaining time.
       shared_ptr<int32_t> remainTime_ {};
       // The ID of the restore point.
       shared_ptr<string> restorePointId_ {};
@@ -338,78 +311,16 @@ namespace Models
       // The name of the snapshot.
       shared_ptr<string> snapshotName_ {};
       // The type of the snapshot.
-      // 
-      // Valid values:
-      // 
-      // *   AUTO: automatic snapshot
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   USER: manual snapshot
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> snapshotType_ {};
       // The capacity of the source disk. Unit: GiB.
       shared_ptr<string> sourceDiskSize_ {};
       // The type of the source disk.
-      // 
-      // Valid values:
-      // 
-      // *   SYSTEM: system disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   DATA: data disk
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> sourceDiskType_ {};
       // The status of the snapshot.
-      // 
-      // Valid values:
-      // 
-      // *   PROGRESSING: The snapshot is being created.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   FAILED: The snapshot fails to be created.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   ACCOMPLISHED: The snapshot is created.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> status_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
+      // The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [](t22712.xdita#)operation to query the list of KMS keys.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -439,11 +350,11 @@ namespace Models
 
 
   protected:
-    // If the NextToken parameter is empty, no next page exists.
+    // The token that marks the start of the next page of results. If NextToken is empty, no more pages exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The snapshots.
+    // A collection of snapshots.
     shared_ptr<vector<DescribeSnapshotsResponseBody::Snapshots>> snapshots_ {};
   };
 

@@ -79,13 +79,14 @@ namespace Models
 
   protected:
     shared_ptr<bool> createSnapshot_ {};
-    // The IDs of the cloud computers. You can specify 1 to 100 IDs.
+    // An array of 1 to 100 desktop IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
+    // Specifies whether to install system patches.
     shared_ptr<bool> osUpdate_ {};
     shared_ptr<string> patchId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where Elastic Desktop Service is available.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

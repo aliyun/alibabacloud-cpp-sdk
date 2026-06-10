@@ -90,6 +90,7 @@ namespace Models
     shared_ptr<vector<string>> downloadEndUserIds_ {};
     // The IDs of the users who have the upload and download permissions.
     shared_ptr<vector<string>> downloadUploadEndUserIds_ {};
+    // List of end user IDs with neither upload nor download permissions. These users cannot download files from the enterprise file storage to on-premises devices or upload files from on-premises devices to the enterprise file storage.
     shared_ptr<vector<string>> noDownloadNoUploadEndUserIds_ {};
     // The region ID.
     // 

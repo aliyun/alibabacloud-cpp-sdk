@@ -167,12 +167,12 @@ namespace Models
 
 
   protected:
-    // The ID of the batch in which the scheduled task is executed.
+    // The batch ID for a scheduled task execution.
     shared_ptr<string> batchId_ {};
-    // The cloud computer IDs.
+    // A list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIds_ {};
     shared_ptr<string> displayResultName_ {};
-    // The ID of the scheduled task group.
+    // The scheduled task group ID.
     shared_ptr<string> groupId_ {};
     // The number of entries per page.
     // 
@@ -180,35 +180,19 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<string> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to list the regions available in Elastic Desktop Service.
     shared_ptr<string> regionId_ {};
     shared_ptr<vector<string>> resourceTypes_ {};
-    // The type of the execution result. You can specify this parameter to filter the execution results.
-    // 
-    // Valid values:
-    // 
-    // *   FAILED: The execution is successful.
-    // *   FAILED: The execution failed.
-    // *   RUNNING: The execution is in progress.
-    // *   SKIPPED: The execution is skipped.
+    // Filters the results by execution status. Valid values:
     shared_ptr<string> resultCategory_ {};
     shared_ptr<bool> retryable_ {};
-    // The ID of the searched region. You can specify this parameter to filter cloud computers in specific regions.
+    // The ID of the region to filter by. Only records for cloud desktops in this region are returned.
     shared_ptr<string> searchRegionId_ {};
-    // The execution result of the scheduled task.
-    // 
-    // Valid values:
-    // 
-    // *   CONNECTED_NOT_RUN: The cloud computer is connected, but the scheduled task is not executed.
-    // *   PAUSED: The scheduled task is suspended.
-    // *   COMPLETED: The scheduled task is executed.
-    // *   FAILED: The scheduled task failed to be executed.
-    // *   RUNNING: The scheduled task is being executed.
-    // *   TERMINATED: The scheduled task is stopped.
+    // The execution result of the scheduled task. Valid values:
     shared_ptr<string> timerResult_ {};
-    // The scheduled tasks.
+    // The types of scheduled tasks.
     shared_ptr<vector<string>> timerTypes_ {};
     shared_ptr<vector<string>> wuyingServerIds_ {};
   };

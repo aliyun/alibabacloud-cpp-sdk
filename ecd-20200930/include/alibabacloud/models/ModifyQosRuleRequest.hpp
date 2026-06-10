@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The maximum downstream bandwidth. The unit is Mbps.
     shared_ptr<int32_t> download_ {};
+    // The ID of the QoS rule.
+    // 
     // This parameter is required.
     shared_ptr<string> qosRuleId_ {};
+    // The name of the QoS rule.
     shared_ptr<string> qosRuleName_ {};
+    // The maximum upstream bandwidth. The unit is Mbps.
     shared_ptr<int32_t> upload_ {};
   };
 

@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The time when the resource was created.
       shared_ptr<string> createTime_ {};
+      // The office network ID.
       shared_ptr<string> directoryId_ {};
+      // The space ID.
       shared_ptr<string> driveId_ {};
+      // The team space ID.
       shared_ptr<string> groupId_ {};
+      // The team space name.
       shared_ptr<string> groupName_ {};
+      // The organization ID of the team.
       shared_ptr<string> orgId_ {};
+      // The status of the team space.
       shared_ptr<string> status_ {};
+      // The total capacity of the cloud drive team space, in bytes.
       shared_ptr<int64_t> totalSize_ {};
+      // The amount of space used, in bytes.
       shared_ptr<string> usedSize_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // A list of cloud drive team spaces.
     shared_ptr<vector<DescribeCloudDiskGroupsResponseBody::CloudDriveGroups>> cloudDriveGroups_ {};
+    // The total number of items.
     shared_ptr<int64_t> count_ {};
+    // The token used to start the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded. Valid values: true and false.
     shared_ptr<bool> success_ {};
   };
 

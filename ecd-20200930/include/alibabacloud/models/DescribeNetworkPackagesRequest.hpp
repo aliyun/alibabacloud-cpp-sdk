@@ -82,14 +82,15 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   PayByTraffic: charges by data transfer.
+    // - PayByTraffic: charges by data transfer.
     // 
-    // *   PayByBandwidth: charges by fixed bandwidth.
+    // - PayByBandwidth: charges by fixed bandwidth.
     shared_ptr<string> internetChargeType_ {};
     // The number of entries to return on each page.
     // 
-    // *   Maximum value: 100
-    // *   Default value: 10
+    // - Maximum value: 100
+    // 
+    // - Default value: 10
     shared_ptr<int32_t> maxResults_ {};
     // The ID of the premium bandwidth plan. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> networkPackageId_ {};

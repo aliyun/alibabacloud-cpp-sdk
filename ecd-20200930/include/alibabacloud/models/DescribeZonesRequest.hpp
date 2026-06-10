@@ -57,12 +57,12 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. Call [](t2167755.xdita#)to get the list of regions supported by EDS.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<bool> vpcAccessZone_ {};
-    // The type of the zone. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
+    // The zone type to query. Default value: `AvailabilityZone`. This queries standard cloud zones.
     shared_ptr<string> zoneType_ {};
   };
 

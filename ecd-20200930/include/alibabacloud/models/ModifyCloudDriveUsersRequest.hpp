@@ -78,10 +78,16 @@ namespace Models
 
 
   protected:
+    // The enterprise cloud disk ID.
+    // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
+    // A list of end user IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> endUserId_ {};
+    // The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain the list of regions supported by WUYING Workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The status of Cloud Drive Service users.

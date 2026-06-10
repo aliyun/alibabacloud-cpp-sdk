@@ -179,9 +179,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The ID of the configuration group.
       shared_ptr<string> groupId_ {};
+      // Used for frontend display. The system scheduled task description uses a code.
       shared_ptr<string> innerTimerDesc_ {};
+      // Used for frontend display; maps the system scheduled task name to a code.
       shared_ptr<string> innerTimerName_ {};
+      // Used for system scheduled task checks. The current scheduled task does not support detach or attach operations.
       shared_ptr<bool> isBind_ {};
+      // Used for system scheduled task checks. The current scheduled task does not support modification.
       shared_ptr<bool> isUpdate_ {};
       // The name of the configuration group.
       shared_ptr<string> name_ {};

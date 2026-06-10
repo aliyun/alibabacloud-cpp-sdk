@@ -131,11 +131,11 @@ namespace Models
     protected:
       // The URL of the file icon.
       // 
-      // > 
+      // >
       // 
-      // *   For image file types (.png, .jpg, .jpeg, .gif, .webp, and .svg), the URL of the specific image is returned.
+      // - For image file types (.png, .jpg, .jpeg, .gif, .webp, and .svg), the URL of the specific image is returned.
       // 
-      // *   For other file types, the URL of the default image is returned.
+      // - For other file types, the URL of the default image is returned.
       shared_ptr<string> iconUrl_ {};
       // The file ID.
       shared_ptr<string> id_ {};
@@ -143,15 +143,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The name of the object stored in OSS.
       // 
-      // > 
+      // >
       // 
-      // *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
+      // - A value is returned for this parameter only when the object is stored in a custom OSS bucket.
       shared_ptr<string> ossFileName_ {};
       // The path of the object in the OSS bucket.
       // 
-      // > 
+      // >
       // 
-      // *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
+      // - A value is returned for this parameter only when the object is stored in a custom OSS bucket.
       shared_ptr<string> ossFilePath_ {};
       // The file size.
       shared_ptr<string> size_ {};
@@ -159,9 +159,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   DELETING
-      // *   DELETED
-      // *   UPLOADED
+      // - DELETING
+      // 
+      // - DELETED
+      // 
+      // - UPLOADED
       shared_ptr<string> status_ {};
       // The file type.
       shared_ptr<string> type_ {};

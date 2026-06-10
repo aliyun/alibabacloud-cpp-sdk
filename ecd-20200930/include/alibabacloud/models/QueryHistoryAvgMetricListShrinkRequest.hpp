@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The start date of the statistics. The format is `YYYY-MM-DD`. The default value is T-1.
     shared_ptr<string> dataDate_ {};
+    // The desktop ID list. A maximum of 100 IDs are supported.
     shared_ptr<vector<string>> desktopId_ {};
+    // The metric to query.
     shared_ptr<string> metricName_ {};
+    // The page number, which must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of custom numeric ranges.
     shared_ptr<string> rangeShrink_ {};
+    // The desktop region.
     shared_ptr<string> resourceRegionId_ {};
+    // The sorting method.
     shared_ptr<string> sortType_ {};
   };
 

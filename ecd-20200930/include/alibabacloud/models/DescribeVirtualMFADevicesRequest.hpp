@@ -87,16 +87,16 @@ namespace Models
 
 
   protected:
-    // The names of the AD users.
+    // The list of Active Directory (AD) account usernames.
     shared_ptr<vector<string>> endUserId_ {};
     shared_ptr<string> filter_ {};
-    // The number of entries per page. Valid values: 1 to 500. Default value: 100.
+    // The maximum number of entries to return. Valid values: 1 to 500. Default value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. If a response is truncated, use the returned `NextToken` to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the workspace.
+    // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. Call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

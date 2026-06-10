@@ -78,11 +78,18 @@ namespace Models
 
 
   protected:
+    // The ID of the enterprise cloud drive that you created.
+    // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
+    // The group ID.
     shared_ptr<vector<string>> groupId_ {};
+    // The team space name.
     shared_ptr<string> groupName_ {};
+    // The parent organization ID.
     shared_ptr<string> parentOrgId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

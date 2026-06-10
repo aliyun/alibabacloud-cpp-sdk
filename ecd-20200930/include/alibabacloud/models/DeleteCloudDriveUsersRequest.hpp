@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // WUYING Workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
+    // List of end user IDs.
     shared_ptr<vector<string>> endUserId_ {};
+    // Region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain the list of regions supported by WUYING Workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

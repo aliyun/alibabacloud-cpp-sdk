@@ -158,7 +158,7 @@ namespace Models
         protected:
           // The property value.
           shared_ptr<string> propertyValue_ {};
-          // The ID of the property value.
+          // The property value ID.
           shared_ptr<int64_t> propertyValueId_ {};
         };
 
@@ -214,13 +214,8 @@ namespace Models
         // The property name.
         shared_ptr<string> propertyKey_ {};
         // The property type.
-        // 
-        // Valid values:
-        // 
-        // *   1: system property
-        // *   2: custom property
         shared_ptr<int32_t> propertyType_ {};
-        // Details about property values.
+        // An array of property values.
         shared_ptr<vector<UserSetPropertiesModels::PropertyValues>> propertyValues_ {};
         // The user ID.
         shared_ptr<int64_t> userId_ {};
@@ -387,15 +382,10 @@ namespace Models
 
     protected:
       // The connection status.
-      // 
-      // Valid values:
-      // 
-      // *   0: disconnected
-      // *   1: connecting
       shared_ptr<string> connectionStatus_ {};
-      // The ID of the cloud computer.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The name of the cloud computer.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
       // The display name of the enterprise AD account.
       shared_ptr<string> displayName_ {};
@@ -406,23 +396,18 @@ namespace Models
       shared_ptr<string> endUserId_ {};
       // The username of the authorized user.
       shared_ptr<string> endUserName_ {};
-      // The mobile number of the authorized user.
+      // The phone number of the authorized user.
       shared_ptr<string> endUserPhone_ {};
-      // The remarks.
+      // The user remarks.
       shared_ptr<string> endUserRemark_ {};
       // The user account type.
-      // 
-      // Valid values:
-      // 
-      // *   SIMPLE: convenience account
-      // *   AD_CONNECTOR: enterprise Active Directory (AD) account
       shared_ptr<string> endUserType_ {};
-      // The appended information.
+      // Additional information.
       shared_ptr<EndUsers::ExternalInfo> externalInfo_ {};
-      // The ID of the cloud computer that is used by the user.
+      // The ID of the virtual cloud desktop assigned to the user.
       shared_ptr<string> userDesktopId_ {};
       shared_ptr<string> userPrincipalName_ {};
-      // Details about the seats of users.
+      // A list of user seat information.
       shared_ptr<vector<EndUsers::UserSetPropertiesModels>> userSetPropertiesModels_ {};
     };
 
@@ -481,17 +466,17 @@ namespace Models
 
 
   protected:
-    // The authorized users.
+    // A list of authorized user information.
     shared_ptr<vector<DescribeUsersInGroupResponseBody::EndUsers>> endUsers_ {};
-    // The token that is used to start the next query.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The total number of authorized users that are connected to cloud computers of the cloud computer share.
+    // The total number of authorized users in the cloud desktop group who meet the query conditions and are connected to a cloud desktop.
     shared_ptr<int32_t> onlineUsersCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> userGroupName_ {};
     shared_ptr<string> userOuPath_ {};
-    // The total number of authorized users of the cloud computer share.
+    // The total number of authorized users in the cloud desktop group who meet the query conditions.
     shared_ptr<int32_t> usersCount_ {};
   };
 

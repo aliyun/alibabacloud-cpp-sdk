@@ -124,34 +124,27 @@ namespace Models
 
 
   protected:
-    // The region that you can use to filter templates.
+    // Region filter for template queries.
     // 
-    // >  If you specify this parameter, only templates that are created in the specified region are returned.
+    // > If you set this parameter, results exclude configurations for other regions.
     shared_ptr<string> bizRegionId_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is not available for public use.
     shared_ptr<string> bizType_ {};
-    // The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
+    // Cloud Desktop image ID. You can find this ID on the Image Management page. Supported image types include OS images and custom images.
     shared_ptr<string> imageId_ {};
-    // The keyword that you can use to search for the template. It can be the template ID or the template name. Fuzzy search is supported.
+    // Keyword for fuzzy search. Searches template IDs and template names.
     shared_ptr<string> keyword_ {};
-    // The page number.
+    // Page number for paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // Maximum number of entries per page for paged queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The service type. Set the value to `CloudDesktop`.
-    // 
-    // *
+    // Product type. Set this parameter to `CloudDesktop`.
     shared_ptr<string> productType_ {};
-    // The IDs of the templates that you want to query.
+    // List of template IDs to query.
     shared_ptr<vector<string>> templateIds_ {};
-    // The name of the template. You can search for template by name.
+    // Query by template name.
     shared_ptr<string> templateName_ {};
-    // The type of the template that you want to query. If you leave this parameter empty, all types of templates are queried.
-    // 
-    // Valid values:
-    // 
-    // *   USER_TEMPLATE: custom templates.
-    // *   SYSTEM_TEMPLATE: system templates provided by Alibaba Cloud.
+    // Template type to query. If you omit this parameter, the system returns all template types.
     shared_ptr<string> templateType_ {};
   };
 

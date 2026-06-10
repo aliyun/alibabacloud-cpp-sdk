@@ -101,15 +101,25 @@ namespace Models
 
 
   protected:
+    // The IDs of the cloud phones to include in this rule.
     shared_ptr<vector<string>> authAndroidId_ {};
     shared_ptr<vector<string>> authDesktopGroupId_ {};
+    // The IDs of the cloud desktops to include in this rule.
     shared_ptr<vector<string>> authDesktopId_ {};
+    // The maximum downstream bandwidth. Unit: Mbps.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> download_ {};
+    // The ID of the premium bandwidth plan.
+    // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
+    // The name of the QoS rule.
+    // 
     // This parameter is required.
     shared_ptr<string> qosRuleName_ {};
+    // The maximum upstream bandwidth. Unit: Mbps.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> upload_ {};
   };

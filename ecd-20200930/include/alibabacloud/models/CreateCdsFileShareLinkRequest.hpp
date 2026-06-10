@@ -171,97 +171,97 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     prohibits file download
+    //   prohibits file download
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     allows file download
+    //   allows file download
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     shared_ptr<bool> disableDownload_ {};
     // Specifies whether to prohibit the preview of the files that are being shared.
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     prohibits file preview
+    //   prohibits file preview
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     allows file preview
+    //   allows file preview
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     shared_ptr<bool> disablePreview_ {};
     // Specifies whether to prohibit the dump of the files that are being shared.
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     prohibits file dump
+    //   prohibits file dump
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     :
+    //   :
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     allows file dump
+    //   allows file dump
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     .
+    //   .
     shared_ptr<bool> disableSave_ {};
     // The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
     shared_ptr<int64_t> downloadLimit_ {};
@@ -271,6 +271,7 @@ namespace Models
     shared_ptr<string> expiration_ {};
     // The file IDs.
     shared_ptr<vector<string>> fileIds_ {};
+    // Team space ID.
     shared_ptr<string> groupId_ {};
     // The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be previewed.
     shared_ptr<int64_t> previewLimit_ {};

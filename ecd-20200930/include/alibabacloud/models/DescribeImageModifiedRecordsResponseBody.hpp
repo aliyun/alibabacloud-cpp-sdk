@@ -120,26 +120,18 @@ namespace Models
 
 
     protected:
-      // The ID of the original image.
+      // ID of the original image before modification.
       shared_ptr<string> imageId_ {};
-      // The name of the original image.
+      // Name of the original image before modification.
       shared_ptr<string> imageName_ {};
-      // The ID of the new image after the image was modified.
+      // ID of the new image after modification.
       shared_ptr<string> newImageId_ {};
-      // The name of the new image after the image was modified.
+      // Name of the new image after modification.
       shared_ptr<string> newImageName_ {};
       shared_ptr<string> reason_ {};
-      // The status of the image modification.
-      // 
-      // Valid values:
-      // 
-      // *   0: The image is being modified.
-      // 
-      // *   1: The image is successfully modified.
-      // 
-      // *   2: The image fails to be modified.
+      // Status of the image modification.
       shared_ptr<int32_t> status_ {};
-      // The time when the image was last modified.
+      // Time when the image was last modified.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -176,13 +168,13 @@ namespace Models
 
 
   protected:
-    // The image change records.
+    // Collection of image modification records.
     shared_ptr<vector<DescribeImageModifiedRecordsResponseBody::ImageModifiedRecords>> imageModifiedRecords_ {};
-    // If the NextToken parameter is empty, no next page exists.
+    // Token for the next page of results. An empty NextToken means no more results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of image modification records.
+    // Total number of image modification records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

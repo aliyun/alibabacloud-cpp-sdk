@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The list of file IDs to query.
     shared_ptr<vector<string>> fileIds_ {};
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

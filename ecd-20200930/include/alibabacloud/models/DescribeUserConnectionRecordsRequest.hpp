@@ -175,21 +175,21 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   SIMPLE: convenience account
+    // - SIMPLE: convenience account
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   AD_CONNECTOR: enterprise AD account
+    // - AD_CONNECTOR: enterprise AD account
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> endUserType_ {};
     // The number of entries to return on each page. Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};

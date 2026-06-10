@@ -266,21 +266,21 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   SYSTEM
+      // - SYSTEM
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CUSTOM
+      // - CUSTOM
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> imageType_ {};
       // The name of the image.
       shared_ptr<string> name_ {};
@@ -290,61 +290,61 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Ubuntu
+      // - Ubuntu
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Windows Server 2022
+      // - Windows Server 2022
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   UOS
+      // - UOS
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CentOS
+      // - CentOS
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Windows Server 2019
+      // - Windows Server 2019
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   SQL Server 2016
+      // - SQL Server 2016
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Windows 10
+      // - Windows 10
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> platform_ {};
       // The creation progress of the image. Unit: %.
       shared_ptr<string> progress_ {};
@@ -352,16 +352,17 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   HDX: High-definition Experience (HDX) protocol
-      // *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
+      // - HDX: High-definition Experience (HDX) protocol
+      // 
+      // - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
       shared_ptr<string> protocolType_ {};
       // The type of the image session.
       // 
       // Valid values:
       // 
-      // *   SINGLE_SESSION: single-session image.
+      // - SINGLE_SESSION: single-session image.
       // 
-      // *   MULTIPLE_SESSION: multi-session image.
+      // - MULTIPLE_SESSION: multi-session image.
       shared_ptr<string> sessionType_ {};
       // The number of shared images.
       shared_ptr<int32_t> sharedCount_ {};
@@ -371,29 +372,29 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Creating
+      // - Creating
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Available
+      // - Available
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CreateFailed
+      // - CreateFailed
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> status_ {};
       // The languages of the operating system.
       shared_ptr<vector<string>> supportedLanguages_ {};

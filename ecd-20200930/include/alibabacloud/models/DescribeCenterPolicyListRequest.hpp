@@ -118,37 +118,21 @@ namespace Models
     shared_ptr<string> academicProxy_ {};
     // The business type.
     // 
-    // Valid values:
-    // 
-    // *   1: public cloud
-    // *   8: commercial edition.
-    // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
     shared_ptr<string> modelLibrary_ {};
-    // The page number.\\
-    // Default value: 1.
+    // The page number to return in a paged query.<br>Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of the cloud computer policies.
+    // The list of Cloud Desktop policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
     shared_ptr<string> portProxy_ {};
     // The resource type.
     // 
-    // Valid values:
-    // 
-    // *   app: cloud applications.
-    // *   desktop: cloud computers.
-    // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The effective scope of the cloud computer policy.
-    // 
-    // Valid values:
-    // 
-    // *   IP: The policy applies to specific IP addresses.
-    // *   GLOBAL: The policy applies globally.
+    // The scope where the Cloud Desktop policy takes effect.
     shared_ptr<string> scope_ {};
   };
 

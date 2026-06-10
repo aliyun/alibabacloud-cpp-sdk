@@ -105,27 +105,23 @@ namespace Models
   protected:
     shared_ptr<int64_t> customEndTimePeriod_ {};
     shared_ptr<int64_t> customStartTimePeriod_ {};
-    // The ID of the cloud computer share.
+    // The ID of the desktop group.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // Specifies whether to ignore deletion flags.
-    // 
-    // Default value: true. Valid values:
-    // 
-    // *   true: ignores deletion flags. The cloud computers that were deleted are returned.
-    // *   false: does not ignore deletion flags. The cloud computers that were deleted are not returned.
+    // Specifies whether to return deleted desktops.
     shared_ptr<bool> ignoreDeleted_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return on a single page.
     // 
-    // *   Default value: 10.
-    // *   Maximum value: 100.
+    // - Maximum value: 100.
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to start the next query. If this parameter is empty, all results are returned.
     shared_ptr<string> nextToken_ {};
-    // The billing method of the cloud computer share.
+    // The billing method.
     shared_ptr<string> payType_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -101,10 +101,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to include the maximum value in the range. The default value is `false`.
       shared_ptr<bool> includeMax_ {};
+      // Specifies whether to include the minimum value in the range. The default value is `true`.
       shared_ptr<bool> includeMin_ {};
+      // The label for the value range. This label is returned in the response.
       shared_ptr<string> label_ {};
+      // The maximum value of the value range.
       shared_ptr<float> max_ {};
+      // The minimum value of the value range.
       shared_ptr<float> min_ {};
     };
 
@@ -141,9 +146,13 @@ namespace Models
 
 
   protected:
+    // The end date of the query period. The date must be in the `YYYY-MM-DD` format. The default value is T-1.
     shared_ptr<string> endDate_ {};
+    // The name of the metric to query.
     shared_ptr<string> metricName_ {};
+    // An array of custom value ranges.
     shared_ptr<vector<QueryHistoryMetricDistributionRequest::Ranges>> ranges_ {};
+    // The start date of the query period. The date must be in the `YYYY-MM-DD` format. The default value is T-1.
     shared_ptr<string> startDate_ {};
   };
 

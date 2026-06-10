@@ -228,17 +228,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The IPv6 level.
       // 
-      // >  IPv6 is not supported.
-      // 
-      // Valid value:
-      // 
-      // *   DISABLED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // > IPv6 is not supported.
       shared_ptr<string> ipv6Level_ {};
       // The name of the CEN instance.
       shared_ptr<string> name_ {};
@@ -248,35 +238,17 @@ namespace Models
       // 
       // Valid value:
       // 
-      // *   REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
+      // - REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
       shared_ptr<string> protectionLevel_ {};
       // The status of the CEN instance.
       // 
       // Valid values:
       // 
-      // *   Creating
+      // - Creating
       // 
-      //     <!-- -->
+      // - Active
       // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Active
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Deleting
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // - Deleting
       shared_ptr<string> status_ {};
       // The tags of the CEN instance.
       shared_ptr<vector<Cens::Tags>> tags_ {};

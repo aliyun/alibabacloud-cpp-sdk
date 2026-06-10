@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // File ID.
       shared_ptr<string> fileId_ {};
+      // File upload task ID.
       shared_ptr<string> uploadId_ {};
+      // File upload URL. Valid for 15 minutes by default.
       shared_ptr<string> uploadUrl_ {};
     };
 
@@ -102,8 +105,9 @@ namespace Models
 
 
   protected:
+    // File upload response object.
     shared_ptr<CreateCdsFileResponseBody::FileModel> fileModel_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

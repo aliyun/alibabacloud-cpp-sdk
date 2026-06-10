@@ -195,8 +195,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   PostPaid: pay-as-you-go.
-    // *   PrePaid: subscription.
+    // - PostPaid: pay-as-you-go.
+    // 
+    // - PrePaid: subscription.
     shared_ptr<string> chargeType_ {};
     // The IDs of the cloud computer shares.
     shared_ptr<vector<string>> desktopGroupId_ {};

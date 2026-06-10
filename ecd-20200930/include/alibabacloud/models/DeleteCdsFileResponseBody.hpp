@@ -81,8 +81,9 @@ namespace Models
     // 
     // Valid value:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> data_ {};
     // Error message. This parameter is not returned if the value of Code is `success`.
     shared_ptr<string> message_ {};
@@ -92,8 +93,9 @@ namespace Models
     // 
     // Valid value:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

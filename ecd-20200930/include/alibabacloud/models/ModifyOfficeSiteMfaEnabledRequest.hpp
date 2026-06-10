@@ -61,21 +61,21 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
     // This parameter is required.
     shared_ptr<bool> mfaEnabled_ {};

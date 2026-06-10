@@ -57,11 +57,9 @@ namespace Models
 
 
   protected:
-    // The page number.\\
-    // Default value: 1.
+    // The page number.<br>Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.\\
-    // Default value: 50.
+    // The number of entries per page.<br>Default value: 50.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 

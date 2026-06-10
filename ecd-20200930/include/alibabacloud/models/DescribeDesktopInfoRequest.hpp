@@ -70,10 +70,10 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The IDs of the cloud computers. You can specify 1 to 100 IDs.
+    // Desktop ID. Set 1 to 100.
     shared_ptr<vector<string>> desktopId_ {};
     shared_ptr<bool> needExtraInfo_ {};
-    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+    // Region ID. Call [](t2167755.xdita#)to get a list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

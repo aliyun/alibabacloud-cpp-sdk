@@ -75,11 +75,22 @@ namespace Models
 
 
   protected:
+    // The enterprise cloud disk ID.
+    // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
+    // The team drive name.
     shared_ptr<string> groupName_ {};
+    // The number of entries per page for paged queries.
+    // 
+    // - Maximum: 100
+    // 
+    // - Default: 20
     shared_ptr<int32_t> maxResults_ {};
+    // The token that marks the start of the next query. An empty NextToken means no more results.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

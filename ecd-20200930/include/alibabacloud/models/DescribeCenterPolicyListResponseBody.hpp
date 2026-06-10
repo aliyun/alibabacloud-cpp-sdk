@@ -392,13 +392,13 @@ namespace Models
       protected:
         // The rule description.
         shared_ptr<string> description_ {};
-        // The product ID (PID).
+        // The product ID.
         shared_ptr<string> productId_ {};
-        // Indicates whether USB redirection is allowed.
+        // The USB redirection type.
         shared_ptr<int64_t> usbRedirectType_ {};
-        // The type of the USB redirection rule.
+        // The USB redirection rule type.
         shared_ptr<int64_t> usbRuleType_ {};
-        // The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> vendorId_ {};
       };
 
@@ -598,13 +598,13 @@ namespace Models
       protected:
         // The device name.
         shared_ptr<string> deviceName_ {};
-        // The product ID (PID).
+        // The product ID.
         shared_ptr<string> devicePid_ {};
         // The peripheral type.
         shared_ptr<string> deviceType_ {};
-        // The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+        // The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
         shared_ptr<string> deviceVid_ {};
-        // The link optimization command.
+        // The link optimization instruction.
         shared_ptr<string> optCommand_ {};
         shared_ptr<string> platforms_ {};
         // The redirection type.
@@ -695,7 +695,7 @@ namespace Models
       protected:
         // The client type.
         shared_ptr<string> clientType_ {};
-        // Indicates whether a specific client type can connect to cloud computers.
+        // Indicates whether clients of a specific type can log on to Cloud Desktop.
         shared_ptr<string> status_ {};
       };
 
@@ -783,19 +783,19 @@ namespace Models
 
 
       protected:
-        // The object to which the security group rule applies. The value is an IPv4 CIDR block.
+        // The target of the security group control rule, specified as an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // The description of the security group rule.
+        // The description of the security group control rule.
         shared_ptr<string> description_ {};
-        // The protocol type of the security group rule.
+        // The protocol type of the security group control rule.
         shared_ptr<string> ipProtocol_ {};
-        // The authorization policy of the security group rule.
+        // The authorization policy of the security group control rule.
         shared_ptr<string> policy_ {};
-        // The port range of the security group rule.
+        // The port range of the security group control rule.
         shared_ptr<string> portRange_ {};
-        // The priority of the security group rule. A smaller value indicates a higher priority.
+        // The priority of the security group control rule. A smaller number indicates a higher priority.
         shared_ptr<string> priority_ {};
-        // The direction of the security group rule.
+        // The direction of the security group control rule.
         shared_ptr<string> type_ {};
       };
 
@@ -837,9 +837,9 @@ namespace Models
 
 
       protected:
-        // The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
+        // The client access IP address range, specified as an IPv4 CIDR block.
         shared_ptr<string> cidrIp_ {};
-        // The remarks on the client CIDR block.
+        // The description of the client access IP address range.
         shared_ptr<string> description_ {};
       };
 
@@ -1859,20 +1859,20 @@ namespace Models
 
     protected:
       shared_ptr<string> academicProxy_ {};
-      // Indicates whether the admin permissions are granted to end users.
+      // Indicates whether users have administrative permission after connecting to Cloud Desktop.
       // 
-      // >  This parameter is in private preview and only available to specific users.
+      // > This feature is in invitational preview and is not publicly available.
       shared_ptr<string> adminAccess_ {};
       shared_ptr<string> adminKeyboardOnFullScreen_ {};
       shared_ptr<string> adminKeyboardOnWindows_ {};
       shared_ptr<int32_t> adminMonitor_ {};
-      // Indicates whether anti-screenshot is enabled.
+      // Indicates whether screenshot prevention is enabled.
       shared_ptr<string> appContentProtection_ {};
-      // The client IP address whitelists.
+      // The client access IP address whitelist.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The security group rules.
+      // The list of security group control rules.
       shared_ptr<vector<DescribePolicyGroups::AuthorizeSecurityPolicyRules>> authorizeSecurityPolicyRules_ {};
-      // Indicates whether on-premises webcam redirection is enabled.
+      // Indicates whether local camera redirection is enabled.
       shared_ptr<string> cameraRedirect_ {};
       shared_ptr<string> clientControlMenu_ {};
       shared_ptr<string> clientCreateSnapshot_ {};
@@ -1881,59 +1881,59 @@ namespace Models
       shared_ptr<string> clientShutdown_ {};
       // The logon method control rules.
       shared_ptr<vector<DescribePolicyGroups::ClientTypes>> clientTypes_ {};
-      // The read/write permissions on the clipboard.
+      // Clipboard permissions.
       shared_ptr<string> clipboard_ {};
-      // Indicates whether color enhancement is enabled for design and 3D applications.
+      // Indicates whether to enable color enhancement for design and 3D application scenarios.
       shared_ptr<string> colorEnhancement_ {};
       shared_ptr<string> cpdDriveClipboard_ {};
-      // The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
+      // The CPU frequency reduction duration. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> cpuDownGradeDuration_ {};
       shared_ptr<string> cpuOverload_ {};
-      // The CPU processors.
+      // Process names.
       shared_ptr<vector<string>> cpuProcessors_ {};
-      // The CPU spike protection policy.
+      // CPU protection mode switch.
       shared_ptr<string> cpuProtectedMode_ {};
-      // The overall CPU usage. Valid values: 70 to 90. Unit: percentage (%).
+      // The overall CPU usage percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> cpuRateLimit_ {};
       // The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
       shared_ptr<int32_t> cpuSampleDuration_ {};
-      // The single-CPU usage. Valid values: 70 to 100. Unit: %.
+      // The single-core CPU usage percentage. Valid values: 70 to 100.
       shared_ptr<int32_t> cpuSingleRateLimit_ {};
-      // The number of cloud computers that are associated with the policy.
+      // The number of Cloud Desktop instances associated with this policy.
       shared_ptr<int32_t> desktopCount_ {};
-      // The number of cloud computer shares that are associated with the policy.
+      // The number of Cloud Desktop pools associated with this policy.
       shared_ptr<int32_t> desktopGroupCount_ {};
-      // The device redirection rules.
+      // Device redirection rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRedirects>> deviceRedirects_ {};
-      // The custom peripheral rules.
+      // Custom peripheral rules.
       shared_ptr<vector<DescribePolicyGroups::DeviceRules>> deviceRules_ {};
-      // Indicates whether the session is retained after disconnection.
+      // Retain session after disconnection.
       // 
-      // >  This parameter applies only to cloud application policies.
+      // > This parameter applies only to Cloud Application policies.
       shared_ptr<string> disconnectKeepSession_ {};
-      // The retention period of the session after disconnection. Unit: seconds.
+      // The duration to retain the session after disconnection. Unit: seconds.
       // 
-      // >  This parameter applies only to cloud application policies.
+      // > This parameter applies only to Cloud Application policies.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
       shared_ptr<string> diskOverload_ {};
-      // The display mode.
+      // Display mode.
       shared_ptr<string> displayMode_ {};
-      // The field where the domain resolution policy is applied.
+      // The field that takes effect for domain name resolution.
       shared_ptr<string> domainRegisterValue_ {};
-      // The domain resolution policies.
+      // Details of the domain name resolution policy.
       shared_ptr<vector<DescribePolicyGroups::DomainResolveRule>> domainResolveRule_ {};
-      // Indicates whether domain name resolution is allowed.
+      // The domain name resolution policy switch.
       shared_ptr<string> domainResolveRuleType_ {};
-      // Indicates whether end users are allowed to request administrator help.
+      // User requests administrator assistance.
       shared_ptr<string> endUserApplyAdminCoordinate_ {};
       shared_ptr<string> endUserCount_ {};
-      // Indicates whether end users in the same office network can share cloud computers.
+      // Users on the same office network share Cloud Desktop.
       shared_ptr<string> endUserGroupCoordinate_ {};
       shared_ptr<string> externalDrive_ {};
       shared_ptr<string> fileTransferAddress_ {};
       shared_ptr<string> fileTransferSpeed_ {};
       shared_ptr<string> fileTransferSpeedLocation_ {};
-      // Indicates whether image quality control is enabled. For optimal computer performance and user experience in professional design scenarios, we recommend enabling this feature.
+      // Indicates whether to enable visual quality policies for graphics-intensive Cloud Desktop instances. Enable this policy if you have high performance and user experience requirements, such as in professional design scenarios.
       shared_ptr<string> gpuAcceleration_ {};
       shared_ptr<string> hoverConfigMsg_ {};
       shared_ptr<string> hoverHibernate_ {};
@@ -1941,7 +1941,7 @@ namespace Models
       shared_ptr<string> hoverShutdown_ {};
       // The web client access policy.
       shared_ptr<string> html5Access_ {};
-      // The file transfer feature on the web client.
+      // The web client file transfer policy.
       shared_ptr<string> html5FileTransfer_ {};
       // The network communication protocol.
       shared_ptr<string> internetCommunicationProtocol_ {};
@@ -1949,31 +1949,31 @@ namespace Models
       shared_ptr<string> keyboardControl_ {};
       shared_ptr<string> kmsServer_ {};
       shared_ptr<string> kmsServerConfig_ {};
-      // The read/write permissions on the on-premises drive.
+      // Local disk mapping permissions.
       shared_ptr<string> localDrive_ {};
-      // The maximum duration to retry reconnecting to cloud computers after an unexpected disconnection (non-human causes). Valid values: 30 to 7200. Unit: seconds.
+      // The maximum retry time for reconnection if the Cloud Desktop disconnects due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
       shared_ptr<int32_t> maxReconnectTime_ {};
-      // The memory underclocking duration per process. Valid values: 30 to 120. Unit: seconds.
+      // The memory frequency reduction duration per worker. Valid values: 30 to 120. Unit: seconds.
       shared_ptr<int32_t> memoryDownGradeDuration_ {};
       shared_ptr<string> memoryOverload_ {};
-      // The memory processors.
+      // Process names.
       shared_ptr<vector<string>> memoryProcessors_ {};
-      // The memory spike protection policy.
+      // Memory protection mode switch.
       shared_ptr<string> memoryProtectedMode_ {};
-      // The overall memory usage. Valid values: 70 to 90. Unit: %.
+      // The overall memory usage percentage. Valid values: 70 to 90.
       shared_ptr<int32_t> memoryRateLimit_ {};
       // The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
       shared_ptr<int32_t> memorySampleDuration_ {};
-      // The memory usage per process. Valid values: 30 to 60. Unit: %.
+      // The memory usage percentage per worker. Valid values: 30 to 60.
       shared_ptr<int32_t> memorySingleRateLimit_ {};
-      // Indicates whether the Restart button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+      // Indicates whether to provide a restart button in the Cloud Desktop floating ball when connecting to Cloud Desktop from a mobile client (Android client<props="china"> and iOS client).
       // 
-      // >  This feature applies to only mobile clients of version 7.4.0 or later.
+      // > This feature applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileRestart_ {};
       shared_ptr<string> mobileSafeMenu_ {};
-      // Indicates whether the Stop button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+      // Indicates whether to provide a shutdown button in the Cloud Desktop floating ball when connecting to Cloud Desktop from a mobile client (Android client<props="china"> and iOS client).
       // 
-      // >  This feature applies to only mobile clients of version 7.4.0 or later.
+      // > This feature applies only to mobile clients of V7.4 or later.
       shared_ptr<string> mobileShutdown_ {};
       shared_ptr<string> mobileWuyingKeeper_ {};
       shared_ptr<string> mobileWyAssistant_ {};
@@ -1981,137 +1981,137 @@ namespace Models
       shared_ptr<string> multiScreen_ {};
       // The policy name.
       shared_ptr<string> name_ {};
-      // The network redirection policy.
+      // Network redirection.
       // 
-      // >  This parameter is in private preview and only available to specific users.
+      // > This feature is in invitational preview and is not publicly available.
       shared_ptr<string> netRedirect_ {};
-      // The network redirection policies.
+      // Details of the network redirection policy.
       // 
-      // >  This parameter is in private preview and only available to specific users.
+      // > This feature is in invitational preview and is not publicly available.
       shared_ptr<vector<DescribePolicyGroups::NetRedirectRule>> netRedirectRule_ {};
       shared_ptr<string> networkPrinter_ {};
-      // Indicates whether a disconnection is enforced upon inactivity.
+      // Disconnect on no operation.
       // 
-      // >  This parameter applies only to cloud application policies.
+      // > This parameter applies only to Cloud Application policies.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The duration of disconnection after inactivity. Unit: seconds.
+      // The duration before disconnecting due to no operation. Unit: seconds.
       // 
-      // >  This parameter applies only to cloud application policies.
+      // > This parameter applies only to Cloud Application policies.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       shared_ptr<string> organizationCount_ {};
       // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The type of the policy.
+      // The policy type.
       shared_ptr<string> policyGroupType_ {};
-      // The status of the cloud computer policy.
+      // The status of the Cloud Desktop policy.
       shared_ptr<string> policyStatus_ {};
       shared_ptr<string> portProxy_ {};
       // The printer redirection policy.
       shared_ptr<string> printerRedirection_ {};
-      // Indicates whether image quality enhancement is enabled for design and 3D applications.
+      // Indicates whether to enable visual quality enhancement for design and 3D application scenarios.
       shared_ptr<string> qualityEnhancement_ {};
       // Indicates whether custom screen recording is enabled.
       shared_ptr<string> recordContent_ {};
-      // The duration for which custom screen recordings are kept before they expire. Default value: 30 days.
+      // The expiration time of custom screen recording files. Default value: 30 days.
       shared_ptr<int64_t> recordContentExpires_ {};
-      // The duration of screen recording after the specified event is detected. Unit: minutes. Valid values: 10 to 60.
+      // The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
       shared_ptr<int32_t> recordEventDuration_ {};
-      // The absolute paths to screen recording files.
+      // The absolute paths for file monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventFilePaths_ {};
-      // The absolute paths to screen recording registries.
+      // The absolute paths for registry monitoring in screen recording audit.
       shared_ptr<vector<string>> recordEventRegisters_ {};
       // Indicates whether screen recording is enabled.
       shared_ptr<string> recording_ {};
-      // Indicates whether audio files generated on cloud computers are recorded.
+      // The option for recording Cloud Desktop audio.
       shared_ptr<string> recordingAudio_ {};
-      // The length of the screen recording file. Unit: minutes. Screen recording files are split by the specified length and uploaded to OSS buckets. Once a file reaches 300 MB, the system prioritizes rolling updates for that file.
+      // The viewing duration of screen recording files. Unit: minutes. The recorded files are automatically split based on the duration you set and uploaded to the bucket. Files are rolled over when they reach 300 MB.
       shared_ptr<int32_t> recordingDuration_ {};
-      // The end time of screen recording. The value is in the HH:MM:SS format. The value is meaningful only when you set Recording to period.
+      // The end time of screen recording, in HH:MM:SS format. This parameter is valid only when Recording is set to period.
       shared_ptr<string> recordingEndTime_ {};
-      // The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
+      // The retention period of screen recording files. Valid values: 1 to 180 days.
       shared_ptr<int64_t> recordingExpires_ {};
-      // The frame rate of screen recording. Unit: fps.
+      // The frame rate of screen recording. Unit: FPS (frames per second).
       shared_ptr<int64_t> recordingFps_ {};
-      // The start time of screen recording. The value is in the HH:MM:SS format. The value is meaningful only when you set Recording to period.
+      // The start time of screen recording, in HH:MM:SS format. This parameter is valid only when Recording is set to period.
       shared_ptr<string> recordingStartTime_ {};
-      // Indicates whether to notify end users when screen recording is enabled.
+      // Notify end users that screen recording is enabled.
       shared_ptr<string> recordingUserNotify_ {};
-      // The notification sent to end users when screen recording is enabled.
+      // The message to notify end users that screen recording is enabled.
       shared_ptr<string> recordingUserNotifyMessage_ {};
-      // The keyboard and mouse control permissions during remote assistance.
+      // Remote assistance keyboard and mouse control permissions.
       shared_ptr<string> remoteCoordinate_ {};
       shared_ptr<int32_t> resolutionDpi_ {};
-      // The height of the resolution. Unit: pixel.
+      // The height of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionHeight_ {};
       // The resolution type.
       shared_ptr<string> resolutionModel_ {};
-      // The width of the resolution. Unit: pixel.
+      // The width of the resolution. Unit: pixels.
       shared_ptr<int32_t> resolutionWidth_ {};
-      // The number of resource groups that are associated with the policy.
+      // The number of resource groups associated with this policy.
       shared_ptr<int32_t> resourceGroupCount_ {};
       shared_ptr<string> safeMenu_ {};
-      // The effective scope of the policy.
+      // The scope where the policy takes effect.
       shared_ptr<string> scope_ {};
-      // The effective scopes specified by CIDR blocks.
+      // The effective CIDR blocks.
       shared_ptr<vector<string>> scopeValue_ {};
       shared_ptr<string> screenDisplayMode_ {};
-      // Indicates whether smoothness enhancement is enabled for daily office use.
+      // Indicates whether to enable smoothness enhancement for daily office scenarios.
       shared_ptr<string> smoothEnhancement_ {};
-      // Indicates whether the metric status entry is displayed in the DesktopAssistant menu.
+      // Indicates whether to provide an entry point for status monitoring in the Cloud Desktop floating ball.
       shared_ptr<string> statusMonitor_ {};
-      // The streaming mode.
+      // Streaming mode adaptation scenario.
       shared_ptr<string> streamingMode_ {};
-      // The target frame rate. Valid values: 10 to 60. Unit: fps.
+      // The target frame rate. Valid values: 10 to 60.
       shared_ptr<int32_t> targetFps_ {};
-      // Indicates whether the application taskbar is displayed.
+      // Application taskbar.
       // 
-      // >  This parameter applies only to cloud application policies.
+      // > This parameter applies only to Cloud Application policies.
       shared_ptr<string> taskbar_ {};
-      // The USB redirection policy.
+      // USB redirection.
       shared_ptr<string> usbRedirect_ {};
-      // The USB redirection rules.
+      // USB redirection rules.
       shared_ptr<vector<DescribePolicyGroups::UsbSupplyRedirectRule>> usbSupplyRedirectRule_ {};
       shared_ptr<string> useTime_ {};
-      // The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+      // The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncAvgKbps_ {};
-      // The maximum QP for video files. Higher QP values result in lower video quality. Valid values: 0 to 51.
+      // The maximum QP for video encoding, representing the lowest quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMaxQP_ {};
-      // The minimum quantizer parameter (QP) for video files. A lower QP means better video quality. Valid values: 0 to 51.
+      // The minimum QP for video encoding, representing the highest quality. Valid values: 0 to 51.
       shared_ptr<int32_t> videoEncMinQP_ {};
-      // The peak bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+      // The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
       shared_ptr<int32_t> videoEncPeakKbps_ {};
-      // The video encoding policy.
+      // Video encoding policy.
       shared_ptr<string> videoEncPolicy_ {};
-      // Indicates whether multimedia redirection is enabled.
+      // Multimedia redirection.
       shared_ptr<string> videoRedirect_ {};
-      // The image quality policy.
+      // The image display quality policy.
       shared_ptr<string> visualQuality_ {};
-      // The watermark policy.
+      // Watermark.
       shared_ptr<string> watermark_ {};
-      // Indicates whether anti-screen capture is enabled for invisible watermarks.
+      // Blind watermark anti-photo feature.
       shared_ptr<string> watermarkAntiCam_ {};
-      // The font color of the watermark. Valid values: 0 to 16777215.
+      // The watermark font color. Valid values: 0 to 16777215.
       shared_ptr<int32_t> watermarkColor_ {};
-      // If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
+      // If you set the `WatermarkType` parameter to `custom`, you must also specify the custom text using the `WatermarkCustomText` parameter.
       shared_ptr<string> watermarkCustomText_ {};
-      // The watermark rotation. Valid values: -10 to -30.
+      // The watermark tilt angle. Valid values: -10 to -30.
       shared_ptr<double> watermarkDegree_ {};
-      // The font size of the watermark. Valid values: 10 to 20.
+      // The watermark font size. Valid values: 10 to 20.
       shared_ptr<int32_t> watermarkFontSize_ {};
-      // The font style of the watermark.
+      // The watermark font style.
       shared_ptr<string> watermarkFontStyle_ {};
-      // The enhancement level for invisible watermarks.
+      // Enhanced blind watermark feature.
       shared_ptr<string> watermarkPower_ {};
       // The number of watermark rows.
       shared_ptr<int32_t> watermarkRowAmount_ {};
-      // Indicates whether security priority is enabled for invisible watermarks.
+      // Blind watermark security priority rule.
       shared_ptr<string> watermarkSecurity_ {};
       shared_ptr<string> watermarkShadow_ {};
-      // The watermark transparency. A higher value means the watermark is less transparent. Valid values: 10 to 100.
+      // The watermark transparency. A larger value indicates lower transparency. Valid values: 10 to 100.
       shared_ptr<int32_t> watermarkTransparencyValue_ {};
       // The watermark type.
       shared_ptr<string> watermarkType_ {};
-      // Indicates whether the Xiaoying AI Assistant entry is displayed in the DesktopAssistant menu.
+      // Indicates whether to provide an entry point for Wuying AI Assistant in the Cloud Desktop floating ball.
       shared_ptr<string> wyAssistant_ {};
     };
 
@@ -2141,11 +2141,11 @@ namespace Models
 
 
   protected:
-    // The details about the cloud computer policies.
+    // Details of Cloud Desktop policies.
     shared_ptr<vector<DescribeCenterPolicyListResponseBody::DescribePolicyGroups>> describePolicyGroups_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

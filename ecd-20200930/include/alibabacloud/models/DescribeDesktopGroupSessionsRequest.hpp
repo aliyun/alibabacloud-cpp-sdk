@@ -160,33 +160,10 @@ namespace Models
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
     // The type of the session.
-    // 
-    // Valid values:
-    // 
-    // *   0: single-session
-    // *   1: multi-session
     shared_ptr<int32_t> ownType_ {};
-    // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The ID of the region. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
     shared_ptr<string> regionId_ {};
     // The status of the session.
-    // 
-    // Valid values:
-    // 
-    // *   Connected
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Disconnected
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> sessionStatus_ {};
     // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};

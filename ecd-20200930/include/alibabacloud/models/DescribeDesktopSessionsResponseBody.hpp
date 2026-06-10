@@ -153,9 +153,13 @@ namespace Models
 
 
       protected:
+        // The model of the terminal device.
         shared_ptr<string> model_ {};
+        // The type of the terminal device.
         shared_ptr<string> productName_ {};
+        // The serial number of the terminal device.
         shared_ptr<string> serialNumber_ {};
+        // The universally unique identifier (UUID) of the logon device.
         shared_ptr<string> uuid_ {};
       };
 
@@ -197,7 +201,9 @@ namespace Models
 
 
       protected:
+        // The ID of the resource group.
         shared_ptr<string> id_ {};
+        // The name of the resource group.
         shared_ptr<string> name_ {};
       };
 
@@ -373,67 +379,49 @@ namespace Models
 
 
     protected:
+      // The type of the account.
       shared_ptr<string> accountType_ {};
       // The IP address of the client.
       shared_ptr<string> clientIp_ {};
-      // The client OS.
+      // The operating system of the client.
       shared_ptr<string> clientOS_ {};
-      // The client version.
+      // The version of the client.
       shared_ptr<string> clientVersion_ {};
       // The ID of the cloud computer.
       shared_ptr<string> desktopId_ {};
       // The name of the cloud computer.
       shared_ptr<string> desktopName_ {};
+      // The type of the office network.
       shared_ptr<string> directoryType_ {};
-      // The duration of the remote assistance. Unit: seconds.
+      // The duration of remote assistance initiated by the end user. Unit: seconds.
       shared_ptr<int64_t> endUserApplyCoordinateTime_ {};
       // The ID of the end user.
       shared_ptr<string> endUserId_ {};
       // The duration of the last connection to the cloud computer. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The ID of the office network.
+      // The ID of the workspace.
       shared_ptr<string> officeSiteId_ {};
-      // The name of the office network.
+      // The name of the office site.
       shared_ptr<string> officeSiteName_ {};
-      // Indicates whether the switch to check session status of cloud computers is turned on.
+      // Indicates the session status of the cloud desktop.
       shared_ptr<string> osSessionStatus_ {};
-      // The OS.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // *   Windows
+      // The operating system type.
       shared_ptr<string> osType_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // *   HDX
-      // *   ASP
       shared_ptr<string> protocolType_ {};
+      // The information about the resource group.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The end time of the session.
+      // The time when the session ended.
       shared_ptr<string> sessionEndTime_ {};
-      // The idle duration of the session. Unit: seconds.
+      // The duration for which the session was idle. Unit: seconds.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // The start time of the session.
+      // The time when the session started.
       shared_ptr<string> sessionStartTime_ {};
-      // The state of the session.
-      // 
-      // Valid values:
-      // 
-      // *   Connected
-      // *   Disconnected
+      // The connection status of the session.
       shared_ptr<string> sessionStatus_ {};
-      // The billing method of cloud computers.
-      // 
-      // Valid values:
-      // 
-      // *   duration: hourly plan (available for users in the whitelist)
-      // *   postPaid: pay-as-you-go
-      // *   monthPackage: monthly subscription (120-hour computing plan and 250-hour computing plan)
-      // *   prePaid: monthly subscription (Unlimited computing plan)
+      // The billing method of the cloud computer.
       shared_ptr<string> subPayType_ {};
+      // The description of the terminal device.
       shared_ptr<Sessions::TerminalInfo> terminalInfo_ {};
       // The total connection duration. Unit: seconds.
       shared_ptr<int64_t> totalConnectionTime_ {};
@@ -467,9 +455,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of sessions.
+    // The session details.
     shared_ptr<vector<DescribeDesktopSessionsResponseBody::Sessions>> sessions_ {};
-    // The total number of entries returned.
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

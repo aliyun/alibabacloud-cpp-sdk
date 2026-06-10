@@ -69,17 +69,18 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer.
+    // The ID of the cloud desktop.
     shared_ptr<string> desktopId_ {};
     shared_ptr<vector<string>> desktopIds_ {};
-    // The new hostname of the cloud computer. The hostname must meet the following requirements:
+    // The new hostname of the cloud desktop. The hostname must meet the following requirements:
     // 
-    // *   The hostname must be 2 to 15 characters in length.
-    // *   The hostname can contain only letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+    // - The hostname must be 2 to 15 characters in length.
+    // 
+    // - The hostname can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen, contain consecutive hyphens, or consist of only digits.
     // 
     // This parameter is required.
     shared_ptr<string> newHostName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the available regions for Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

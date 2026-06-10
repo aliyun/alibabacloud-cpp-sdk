@@ -145,44 +145,33 @@ namespace Models
 
 
     protected:
-      // The time when the automatic snapshot policy was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
+      // The time when the policy was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The cron expression that specifies when Elastic Desktop Service creates snapshots on the cloud computers.
+      // The cron expression that is used to create snapshots.
       shared_ptr<string> cronExpression_ {};
       // The number of cloud computers to which the automatic snapshot policy is applied.
       shared_ptr<int32_t> desktopNum_ {};
+      // The disk type for which the automatic snapshot policy is created.
+      // 
+      // Valid values:
+      // 
+      // - SYSTEM: system disk
+      // 
+      // - DATA: data disk
       shared_ptr<string> diskType_ {};
       // The ID of the automatic snapshot policy.
       shared_ptr<string> policyId_ {};
       // The name of the automatic snapshot policy.
       shared_ptr<string> policyName_ {};
-      // The ID of the region to which the automatic snapshot policy belongs.
+      // The ID of the region where the automatic snapshot policy resides.
       shared_ptr<string> regionId_ {};
-      // The retention period of the automatic snapshots. Unit: days. Valid values: 1 to 180.
+      // The retention period of automatic snapshots. Unit: days. Valid values: 1 to 180.
       shared_ptr<string> retentionDays_ {};
       // The status of the automatic snapshot policy.
-      // 
-      // Valid values:
-      // 
-      // *   Expire: The automatic snapshot policy cannot be used because you have overdue payments in your account.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Normal: The automatic snapshot policy is normal.
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> status_ {};
-      // The points in time at which the auto snapshots were created.
+      // The points in time when automatic snapshots are created.
       // 
-      // The parameter values are a JSON array. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time are returned. The points in time are separated with commas (,).
+      // The value is a JSON array of integers. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time can be specified.
       shared_ptr<string> timePoints_ {};
     };
 
@@ -212,11 +201,11 @@ namespace Models
 
 
   protected:
-    // The details of the queried automatic snapshot policies.
+    // The automatic snapshot policies.
     shared_ptr<vector<DescribeAutoSnapshotPolicyResponseBody::AutoSnapshotPolicies>> autoSnapshotPolicies_ {};
-    // The token that is used to start the next query. If this parameter is empty, all results haven been returned.
+    // The pagination token that is used in the next request to retrieve a new page of results. If the return value is empty, no more results are returned.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

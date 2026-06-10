@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The number of AD users who have been assigned a cloud desktop.
     shared_ptr<int64_t> adAssignedUserCount_ {};
+    // The number of users who have been assigned a cloud desktop.
     shared_ptr<int64_t> assignedUserCount_ {};
+    // The number of online users. Online users include convenience users and AD users.
     shared_ptr<int64_t> onlineUserCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of convenience users who have been assigned a cloud desktop.
     shared_ptr<int64_t> simpleAssignedUserCount_ {};
   };
 

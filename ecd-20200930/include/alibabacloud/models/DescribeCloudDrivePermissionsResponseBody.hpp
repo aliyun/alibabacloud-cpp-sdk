@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // List of end user IDs.
       shared_ptr<vector<string>> endUsers_ {};
+      // File transfer permission between the enterprise cloud drive and on-premises devices for the user.
       shared_ptr<string> permission_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // List of enterprise cloud drive permission information.
     shared_ptr<vector<DescribeCloudDrivePermissionsResponseBody::CloudDrivePermissionModels>> cloudDrivePermissionModels_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

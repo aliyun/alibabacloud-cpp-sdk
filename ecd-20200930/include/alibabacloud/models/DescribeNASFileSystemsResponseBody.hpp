@@ -183,9 +183,9 @@ namespace Models
 
 
       protected:
-        // The ID of the cloud computer share.
+        // The ID of the desktop group.
         shared_ptr<string> desktopGroupId_ {};
-        // The name of the cloud computer share.
+        // The name of the desktop group.
         shared_ptr<string> desktopGroupName_ {};
       };
 
@@ -227,9 +227,9 @@ namespace Models
 
 
       protected:
-        // The ID of the delivery group.
+        // The ID of the application delivery group.
         shared_ptr<string> appInstanceGroupId_ {};
-        // The name of the delivery group.
+        // The name of the application delivery group.
         shared_ptr<string> appInstanceGroupName_ {};
       };
 
@@ -421,20 +421,21 @@ namespace Models
 
 
     protected:
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<bool> allowOperateUserDrive_ {};
-      // The application delivery groups that are associated with the UPM-supported NAS file systems.
+      // The application delivery groups associated with the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::AppInstanceGroups>> appInstanceGroups_ {};
-      // The total capacity of the NAS file system. Unit: GiB.
+      // The storage capacity of the NAS file system, in GiB.
       // 
-      // *   The Capacity type has 10 PiB of storage, which is equal to 10,485,760 GiB.
-      // *   The Performance type has 1 PiB of storage, which is equal to 1,048,576 GiB.
+      // - If the storage type is capacity type, the capacity is 10 PiB (10,485,760 GiB).
+      // 
+      // - If the storage type is performance type, the capacity is 1 PiB (1,048,576 GiB).
       shared_ptr<int64_t> capacity_ {};
-      // The time when the NAS file system was created.
+      // The creation time of the NAS file system.
       shared_ptr<string> createTime_ {};
       // The description of the NAS file system.
       shared_ptr<string> description_ {};
-      // The cloud computer shares that are associated with the UPM-supported NAS file systems.
+      // The desktop groups associated with the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::DesktopGroups>> desktopGroups_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> encryptionEnabled_ {};
@@ -442,56 +443,35 @@ namespace Models
       shared_ptr<string> fileSystemId_ {};
       // The name of the NAS file system.
       shared_ptr<string> fileSystemName_ {};
-      // The status of the NAS file system. The possible values include:
-      // 
-      // *   Pending: The NAS file system is being created.
-      // *   Running: The NAS file system is running.
-      // *   Stopped: The NAS file system is stopped.
-      // *   Deleting: The NAS file system is being deleted.
-      // *   Deleted: The NAS file system is deleted.
-      // *   Invalid: The NAS file system is invalid.
+      // The status of the NAS file system.
       shared_ptr<string> fileSystemStatus_ {};
-      // The type of the NAS file system. The only valid value is `standard`.
+      // The type of the NAS file system. Currently, only the standard type is supported. The value is always `standard`.
       shared_ptr<string> fileSystemType_ {};
-      // The used capacity of the NAS file system. Unit: bytes.
+      // The amount of storage used by the NAS file system, in bytes.
       shared_ptr<int64_t> meteredSize_ {};
       // The domain name of the mount target.
       shared_ptr<string> mountTargetDomain_ {};
-      // The status of the mount target. The possible values include:
-      // 
-      // *   Pending: The mount target is being created.
-      // *   Active: The mount target is enabled.
-      // *   Inactive: The mount target is disabled.
-      // *   Deleting: The mount target is being deleted.
-      // *   Invalid: The mount target is invalid.
+      // The status of the mount target.
       shared_ptr<string> mountTargetStatus_ {};
       // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
       // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
-      // The office networks.
+      // The office networks associated with the file system.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
       shared_ptr<string> productType_ {};
       // Indicates whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // The storage type of the NAS file system.
-      // 
-      // Valid values:
-      // 
-      // *   Upm: the UPM-supported NAS file system.
-      // *   ShareNas: the shared NAS file system.
+      // The use case of the NAS file system.
       shared_ptr<string> scene_ {};
       shared_ptr<int64_t> sizeQuota_ {};
-      // The storage type of the NAS file system. Valid values:
-      // 
-      // *   Capacity
-      // *   Performance
+      // The storage type of the NAS file system.
       shared_ptr<string> storageType_ {};
-      // Indicates whether the Server Message Block (SMB) access control list (ACL) feature was enabled.
+      // Indicates whether the Server Message Block (SMB) access control list (ACL) feature is supported.
       shared_ptr<bool> supportAcl_ {};
-      // The ID of the zone where the NAS file system resides.
+      // The ID of the zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -521,11 +501,11 @@ namespace Models
 
 
   protected:
-    // The NAS file systems.
+    // The details of the NAS file systems.
     shared_ptr<vector<DescribeNASFileSystemsResponseBody::FileSystems>> fileSystems_ {};
-    // The token that determines the start point of the next query. This parameter is empty if no additional results exist.
+    // The token for the next page of results. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

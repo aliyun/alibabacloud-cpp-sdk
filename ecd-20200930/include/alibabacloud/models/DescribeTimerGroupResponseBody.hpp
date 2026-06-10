@@ -124,6 +124,7 @@ namespace Models
             DARABONBA_PTR_TO_JSON(Enforce, enforce_);
             DARABONBA_PTR_TO_JSON(ImageId, imageId_);
             DARABONBA_PTR_TO_JSON(Interval, interval_);
+            DARABONBA_PTR_TO_JSON(IpSegments, ipSegments_);
             DARABONBA_PTR_TO_JSON(LockScreenTime, lockScreenTime_);
             DARABONBA_PTR_TO_JSON(NotificationTime, notificationTime_);
             DARABONBA_PTR_TO_JSON(OperationType, operationType_);
@@ -144,6 +145,7 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(Enforce, enforce_);
             DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
             DARABONBA_PTR_FROM_JSON(Interval, interval_);
+            DARABONBA_PTR_FROM_JSON(IpSegments, ipSegments_);
             DARABONBA_PTR_FROM_JSON(LockScreenTime, lockScreenTime_);
             DARABONBA_PTR_FROM_JSON(NotificationTime, notificationTime_);
             DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
@@ -170,9 +172,9 @@ namespace Models
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->appointmentTimer_ == nullptr
         && this->createSnapshot_ == nullptr && this->endCronExpression_ == nullptr && this->enforce_ == nullptr && this->imageId_ == nullptr && this->interval_ == nullptr
-        && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->patchId_ == nullptr && this->processWhitelist_ == nullptr
-        && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr && this->triggerType_ == nullptr
-        && this->verificationNotificationTime_ == nullptr && this->verificationTime_ == nullptr; };
+        && this->ipSegments_ == nullptr && this->lockScreenTime_ == nullptr && this->notificationTime_ == nullptr && this->operationType_ == nullptr && this->patchId_ == nullptr
+        && this->processWhitelist_ == nullptr && this->resetType_ == nullptr && this->startCronExpression_ == nullptr && this->timerOrder_ == nullptr && this->timezone_ == nullptr
+        && this->triggerType_ == nullptr && this->verificationNotificationTime_ == nullptr && this->verificationTime_ == nullptr; };
           // appointmentTimer Field Functions 
           bool hasAppointmentTimer() const { return this->appointmentTimer_ != nullptr;};
           void deleteAppointmentTimer() { this->appointmentTimer_ = nullptr;};
@@ -213,6 +215,15 @@ namespace Models
           void deleteInterval() { this->interval_ = nullptr;};
           inline int32_t getInterval() const { DARABONBA_PTR_GET_DEFAULT(interval_, 0) };
           inline SegmentTimers& setInterval(int32_t interval) { DARABONBA_PTR_SET_VALUE(interval_, interval) };
+
+
+          // ipSegments Field Functions 
+          bool hasIpSegments() const { return this->ipSegments_ != nullptr;};
+          void deleteIpSegments() { this->ipSegments_ = nullptr;};
+          inline const vector<string> & getIpSegments() const { DARABONBA_PTR_GET_CONST(ipSegments_, vector<string>) };
+          inline vector<string> getIpSegments() { DARABONBA_PTR_GET(ipSegments_, vector<string>) };
+          inline SegmentTimers& setIpSegments(const vector<string> & ipSegments) { DARABONBA_PTR_SET_VALUE(ipSegments_, ipSegments) };
+          inline SegmentTimers& setIpSegments(vector<string> && ipSegments) { DARABONBA_PTR_SET_RVALUE(ipSegments_, ipSegments) };
 
 
           // lockScreenTime Field Functions 
@@ -302,12 +313,16 @@ namespace Models
 
 
         protected:
+          // The time to execute the scheduled task, specified as a Unix timestamp in milliseconds.
           shared_ptr<int64_t> appointmentTimer_ {};
           shared_ptr<bool> createSnapshot_ {};
           shared_ptr<string> endCronExpression_ {};
           shared_ptr<bool> enforce_ {};
+          // The image ID for a scheduled image-change task.
           shared_ptr<string> imageId_ {};
           shared_ptr<int32_t> interval_ {};
+          shared_ptr<vector<string>> ipSegments_ {};
+          // The duration of user inactivity, in seconds, before the screen locks. This feature applies only to cloud computers joined to an Active Directory (AD) domain.
           shared_ptr<int32_t> lockScreenTime_ {};
           shared_ptr<int32_t> notificationTime_ {};
           shared_ptr<string> operationType_ {};
@@ -407,53 +422,25 @@ namespace Models
 
 
       protected:
-        // Indicates whether end users can configure scheduled tasks.
+        // Whether to allow end users to configure the scheduled task.
         shared_ptr<bool> allowClientSetting_ {};
-        // The CRON expression for the scheduled task.
+        // The cron expression for the scheduled task.
         shared_ptr<string> cronExpression_ {};
-        // Specifies whether to forcibly execute the scheduled task. A value of true specifies the scheduled task will run forcefully, ignoring the cloud computer and connection status.
+        // Specifies whether to force the execution of the scheduled task. If set to `true`, the task runs regardless of the cloud computer\\"s status or connection state.
         shared_ptr<bool> enforce_ {};
-        // The interval at which the scheduled task is executed. Unit: minutes.
+        // The interval. Unit: minutes.
         shared_ptr<int32_t> interval_ {};
         shared_ptr<int32_t> notificationTime_ {};
-        // The type of the scheduled disconnection task.
-        // 
-        // Valid values:
-        // 
-        // *   Hibernate: scheduled hibernation.
-        // *   Shutdown: scheduled shutdown.
+        // The operation to perform when `TimerType` is set to `NoConnect`.
         shared_ptr<string> operationType_ {};
-        // The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+        // The process whitelist for smart detection. A scheduled task based on user inactivity does not run if a whitelisted process is running.
         shared_ptr<vector<string>> processWhitelist_ {};
-        // The reset operation of the scheduled task.
-        // 
-        // Valid values:
-        // 
-        // *   RESET_TYPE_SYSTEM: resets the system disk.
-        // *   RESET_TYPE_USER_DISK: resets the data disk.
-        // *   RESET_TYPE_BOTH: resets the system disk and data disk.
+        // The reset type for the scheduled reset task.
         shared_ptr<string> resetType_ {};
         shared_ptr<vector<ConfigTimers::SegmentTimers>> segmentTimers_ {};
         // The type of the scheduled task.
-        // 
-        // Valid values:
-        // 
-        // *   NoOperationDisconnect: scheduled disconnection upon inactivity.
-        // *   NoConnect: scheduled disconnection upon specified operation (OperationType).
-        // *   TimerBoot: scheduled start.
-        // *   TimerReset: scheduled reset.
-        // *   NoOperationShutdown: scheduled shutdown upon inactivity.
-        // *   NoOperationHibernate: scheduled hibernation upon inactivity.
-        // *   TimerShutdown: scheduled shutdown.
-        // *   NoOperationReboot: scheduled restart upon inactivity.
-        // *   TimerReboot: scheduled restart.
         shared_ptr<string> timerType_ {};
-        // The method to trigger the scheduled task upon inactivity.
-        // 
-        // Valid values:
-        // 
-        // *   Advanced: intelligent detection.
-        // *   Standard: standard detection.
+        // The detection method for user inactivity.
         shared_ptr<string> triggerType_ {};
       };
 
@@ -557,42 +544,31 @@ namespace Models
 
 
     protected:
-      // The number of resources that are bound to the configuration group.
+      // The number of resources associated with the timer group.
       shared_ptr<int32_t> bindCount_ {};
-      // The number of bound resources.
+      // A map of associated resource counts, categorized by resource type.
       shared_ptr<map<string, int32_t>> bindCountMap_ {};
-      // The scheduled tasks.
+      // The configurations of the scheduled tasks.
       shared_ptr<vector<Data::ConfigTimers>> configTimers_ {};
-      // The description of the configuration group.
+      // The description of the timer group.
       shared_ptr<string> description_ {};
-      // The ID of the configuration group.
+      // The ID of the timer group.
       shared_ptr<string> groupId_ {};
+      // An internal code used by the frontend to display the description of a system-scheduled task.
       shared_ptr<string> innerTimerDesc_ {};
+      // An internal code used by the frontend to display the name of a system-scheduled task.
       shared_ptr<string> innerTimerName_ {};
+      // Indicates that resources cannot be bound to or unbound from this timer group.
       shared_ptr<bool> isBind_ {};
+      // Indicates that this timer group cannot be modified.
       shared_ptr<bool> isUpdate_ {};
-      // The name of the configuration group.
+      // The name of the timer group.
       shared_ptr<string> name_ {};
-      // The service type of the configuration group.
-      // 
-      // Valid value:
-      // 
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // The product type that the timer group supports.
       shared_ptr<string> productType_ {};
-      // The state of the configuration group.
-      // 
-      // Valid values:
-      // 
-      // *   AVAILABLE: The configuration group is available.
-      // *   UNAVAILABLE: The configuration group is deleted.
-      // *   DELETING: The configuration group is being deleted.
-      // *   UPDATING: The configuration group is being modified.
+      // The status of the timer group.
       shared_ptr<string> status_ {};
-      // The type of the configuration group.
-      // 
-      // Valid value:
-      // 
-      // *   Timer: the scheduled task type.
+      // The type of the timer group.
       shared_ptr<string> type_ {};
     };
 
@@ -615,9 +591,9 @@ namespace Models
 
 
   protected:
-    // The configuration group.
+    // The details of the timer group.
     shared_ptr<DescribeTimerGroupResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

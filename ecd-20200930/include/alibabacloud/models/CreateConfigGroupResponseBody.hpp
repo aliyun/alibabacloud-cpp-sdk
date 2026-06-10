@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration group.
+    // Configuration group ID.
     shared_ptr<string> groupId_ {};
-    // The creation result of the configuration group.
+    // Result message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

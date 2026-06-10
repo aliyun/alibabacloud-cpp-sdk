@@ -103,20 +103,8 @@ namespace Models
     // The number of entries returned per page. Maximum value: 200.
     shared_ptr<int32_t> pageSize_ {};
     // The task status.
-    // 
-    // Valid values:
-    // 
-    // *   INIT: initializing
-    // *   FAILED
-    // *   RUNNING
-    // *   EXPIRED
-    // *   FINISHED
     shared_ptr<vector<string>> status_ {};
     // The sub-type of the report export task.
-    // 
-    // Valid value:
-    // 
-    // *   DESKTOP: cloud computer
     shared_ptr<string> subType_ {};
     // The ID of the report export task.
     shared_ptr<string> taskId_ {};
@@ -124,7 +112,7 @@ namespace Models
     // 
     // Valid value:
     // 
-    // *   RESOURCE_REPORT
+    // - RESOURCE_REPORT
     shared_ptr<string> taskType_ {};
   };
 

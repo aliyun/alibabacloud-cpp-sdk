@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The ID of the enterprise network drive.
+    // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
+    // The end user ID.
+    // 
+    // If specified, the query returns only the personal drive of that user. If left empty, the query returns the personal drives of all users.
     shared_ptr<string> endUserId_ {};
+    // The number of entries per page.
+    // 
+    // - Maximum: 100.
+    // 
+    // - Default: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. This is the `NextToken` value from the previous response. Leave this parameter empty for the first request.
     shared_ptr<string> nextToken_ {};
+    // The region ID. To obtain a list of supported regions, call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html).
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

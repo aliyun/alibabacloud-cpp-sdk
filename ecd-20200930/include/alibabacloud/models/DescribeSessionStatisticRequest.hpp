@@ -90,8 +90,9 @@ namespace Models
     shared_ptr<string> officeSiteId_ {};
     // The query interval. Unit: seconds. Valid values:
     // 
-    // *   60
-    // *   120
+    // - 60
+    // 
+    // - 120
     shared_ptr<int32_t> period_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

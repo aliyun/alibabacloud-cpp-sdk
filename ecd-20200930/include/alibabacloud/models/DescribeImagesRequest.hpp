@@ -178,21 +178,21 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true
+    // - true
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   false
+    // - false
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<bool> gpuCategory_ {};
     // The version of the GPU driver.
     shared_ptr<string> gpuDriverVersion_ {};
@@ -208,8 +208,9 @@ namespace Models
     shared_ptr<string> languageType_ {};
     // The maximum number of entries to return on each page.
     // 
-    // *   Maximum value: 100.
-    // *   Default value: 10.
+    // - Maximum value: 100.
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the next query. If you do not specify this parameter, all results are returned.
     shared_ptr<string> nextToken_ {};
@@ -217,28 +218,29 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   Linux
+    // - Linux
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   Windows
+    // - Windows
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> osType_ {};
     // The protocol type.
     // 
     // Valid values:
     // 
-    // *   HDX: High-definition Experience (HDX) protocol
-    // *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
+    // - HDX: High-definition Experience (HDX) protocol
+    // 
+    // - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
     shared_ptr<string> protocolType_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 

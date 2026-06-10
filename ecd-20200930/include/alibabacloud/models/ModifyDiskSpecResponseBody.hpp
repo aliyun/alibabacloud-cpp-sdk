@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the order. You can obtain the ID of an order from the [Expenses and Costs > Orders](https://usercenter2-intl.aliyun.com/order/list) page.
+    // The order ID. You can find the order ID in <props="china">[Expenses and Costs > My Orders](https://billing-cost.console.aliyun.com/order/list). <props="intl">[Expenses and Costs > Order Management](https://usercenter2-intl.aliyun.com/order/list).
     shared_ptr<string> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

@@ -145,41 +145,25 @@ namespace Models
 
 
     protected:
-      // The connection status of the user.
-      // 
-      // Valid values:
-      // 
-      // *   Connected
-      // *   Disconnected
+      // User connection status.
       shared_ptr<string> connectionStatus_ {};
-      // The version of the cloud computer image.
+      // Desktop image version number.
       shared_ptr<string> currentAppVersion_ {};
-      // The ID of the cloud computer pool.
+      // Desktop group ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The ID of the cloud computer.
+      // Desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The status of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Stopped
-      // *   Failed
-      // *   Starting
-      // *   Running
-      // *   Stopping
-      // *   Expired
-      // *   Deleted
-      // *   Pending
+      // The status of the cloud desktop.
       shared_ptr<string> desktopStatus_ {};
-      // The information about flags that are used to manage cloud computers.
+      // The management flag.
       shared_ptr<vector<string>> managementFlag_ {};
-      // The size of the update package. Unit: KB.
+      // Upgrade package size, in KB.
       shared_ptr<int64_t> newAppSize_ {};
-      // The version number of the image that can be updated on the cloud computer.
+      // Desktop upgradable image version number.
       shared_ptr<string> newAppVersion_ {};
-      // The description of the image version that can be updated.
+      // Description of the upgradable image version.
       shared_ptr<string> releaseNote_ {};
-      // The time when the cloud computer was first started.
+      // Desktop first startup time.
       shared_ptr<string> startTime_ {};
     };
 
@@ -202,9 +186,9 @@ namespace Models
 
 
   protected:
-    // The basic information about cloud computers.
+    // Basic desktop information.
     shared_ptr<vector<DescribeDesktopInfoResponseBody::Desktops>> desktops_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

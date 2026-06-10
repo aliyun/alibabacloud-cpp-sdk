@@ -109,10 +109,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to include the maximum value. Default value: false.
       shared_ptr<bool> includeMax_ {};
+      // Specifies whether to include the minimum value. Default value: true.
       shared_ptr<bool> includeMin_ {};
+      // The range label, which is used for the return value.
       shared_ptr<string> label_ {};
+      // The maximum value.
       shared_ptr<float> max_ {};
+      // The minimum value.
       shared_ptr<float> min_ {};
     };
 
@@ -180,13 +185,21 @@ namespace Models
 
 
   protected:
+    // The start date of the statistics. The format is `YYYY-MM-DD`. The default value is T-1.
     shared_ptr<string> dataDate_ {};
+    // The desktop ID list. A maximum of 100 IDs are supported.
     shared_ptr<vector<string>> desktopId_ {};
+    // The metric to query.
     shared_ptr<string> metricName_ {};
+    // The page number, which must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size. Valid values: 1 to 200. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The list of custom numeric ranges.
     shared_ptr<QueryHistoryAvgMetricListRequest::Range> range_ {};
+    // The desktop region.
     shared_ptr<string> resourceRegionId_ {};
+    // The sorting method.
     shared_ptr<string> sortType_ {};
   };
 

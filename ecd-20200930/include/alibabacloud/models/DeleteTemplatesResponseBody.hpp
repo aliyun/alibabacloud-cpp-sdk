@@ -98,8 +98,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   true: The request is successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -79,8 +79,11 @@ namespace Models
 
 
     protected:
+      // The display type of the table header. You can invoke [ModifyCustomizedListHeaders](https://help.aliyun.com/document_detail/452324.html) to change it.
       shared_ptr<string> displayType_ {};
+      // The key of the table header.
       shared_ptr<string> headerKey_ {};
+      // The name of the table header.
       shared_ptr<string> headerName_ {};
     };
 
@@ -103,7 +106,9 @@ namespace Models
 
 
   protected:
+    // The list of table headers.
     shared_ptr<vector<DescribeCustomizedListHeadersResponseBody::Headers>> headers_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

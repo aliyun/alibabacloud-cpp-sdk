@@ -118,30 +118,25 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The array of cloud computer policy IDs to be excluded.
+    // The list of cloud computer policy IDs to exclude from the query results.
     shared_ptr<vector<string>> externalPolicyGroupIds_ {};
     // The number of entries per page.
     // 
-    // *   Valid values: 1 to 100
-    // *   Default value: 10
+    // - Maximum value: 100
+    // 
+    // - Default value: 10
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous response. Do not set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int32_t> pageNumber_ {};
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of the cloud computer policies.
+    // The list of cloud computer policy IDs.
     shared_ptr<vector<string>> policyGroupId_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The effective scope of the cloud computer policy.
-    // 
-    // Valid values:
-    // 
-    // *   ALL
-    // *   IP
-    // *   GLOBAL
     shared_ptr<string> scope_ {};
   };
 

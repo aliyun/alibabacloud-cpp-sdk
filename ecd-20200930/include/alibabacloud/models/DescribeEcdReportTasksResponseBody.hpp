@@ -174,7 +174,7 @@ namespace Models
       // 
       // Valid value:
       // 
-      // *   DESKTOP: cloud computer
+      // - DESKTOP: cloud computer
       shared_ptr<string> subType_ {};
       // The ID of the report export task.
       shared_ptr<string> taskId_ {};
@@ -182,7 +182,7 @@ namespace Models
       // 
       // Valid value:
       // 
-      // *   RESOURCE_REPORT
+      // - RESOURCE_REPORT
       shared_ptr<string> taskType_ {};
     };
 

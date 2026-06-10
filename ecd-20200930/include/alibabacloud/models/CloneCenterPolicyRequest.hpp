@@ -79,8 +79,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   1: public cloud
-    // *   8: commercial edition.
+    // - 1: public cloud
+    // 
+    // - 8: commercial edition.
     // 
     // This parameter is required.
     shared_ptr<int32_t> businessType_ {};
@@ -100,8 +101,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   app: cloud applications.
-    // *   desktop: cloud computers.
+    // - app: cloud applications.
+    // 
+    // - desktop: cloud computers.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

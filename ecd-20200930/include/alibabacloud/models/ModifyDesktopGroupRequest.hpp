@@ -281,117 +281,94 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-creation of cloud computers for the subscription cloud computer share. You must specify this parameter when `ChargeType` is set to `PrePaid`.
-    // 
-    // Valid values:
-    // 
-    // *   0: disable auto-creation of cloud computers.
-    // *   1: enables auto-creation of cloud computers.
+    // Specifies whether to enable automatic creation of cloud computers in a subscription shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`.
     shared_ptr<int32_t> allowAutoSetup_ {};
-    // The maximum number of standby cloud computers that can be reserved within the pay-as-you-go cloud computer share. You must specify this property only when `ChargeType` is set to `PostPaid`. Valid values:
+    // The number of cloud computers to reserve in a pay-as-you-go shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PostPaid`. Valid values:
     // 
-    // *   0: does not reserve any cloud computer.
-    // *   N: reserves N cloud computers (1≤ N ≤ 100).
+    // - 0: No cloud computers are reserved.
     // 
-    // >  Setting this parameter to 0 means no cloud computers will be reserved within the cloud computer share. In this case, the system must create, start, and assign cloud computers to end users upon request, which can be time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
+    // - N: N cloud computers are reserved (1 ≤ N ≤ 100).
+    // 
+    // > If you do not reserve any cloud computers, the system must create and start one when an end user requests a connection. This process takes longer. Reserve a specific number of cloud computers to ensure a good user experience.
     shared_ptr<int32_t> allowBufferCount_ {};
-    // The number of concurrent sessions allowed for each cloud computer within the multi-session many-to-many share.
+    // The number of concurrent sessions that each cloud computer in a multi-session shared cloud computer group can support.
     // 
-    // >  This parameter is not publicly available.
+    // > This parameter is not yet available.
     shared_ptr<int64_t> bindAmount_ {};
-    // *   For subscription cloud computer shares, this parameter specifies the number of purchased cloud computers. Valid values: 0 to 200.
-    // *   For pay-as-you-go cloud computer shares, this parameter specifies the minimum number of cloud computers created in the initial batch. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
+    // - For a subscription shared cloud computer group: the number of cloud computers to purchase. Valid values: 0 to 200.
+    // 
+    // - For a pay-as-you-go shared cloud computer group: the minimum number of cloud computers to create in the pool. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
     shared_ptr<int32_t> buyDesktopsCount_ {};
-    // The type of the cloud computer share.
+    // The type of the shared cloud computer group.
     // 
-    // >  This parameter is not publicly available.
-    // 
-    // Valid values:
-    // 
-    // *   teacher: teacher-oriented.
-    // *   student: student-oriented.
+    // > This parameter is not yet available.
     shared_ptr<string> classify_ {};
     // The remarks.
     shared_ptr<string> comments_ {};
-    // The maximum period of time during which the session is connected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds. Valid values: 900000 to 345600000. That is, the session can be connected for 15 to 5,760 minutes (4 days).
+    // The maximum duration of a session. When the session duration reaches this value, the session is automatically disconnected. Unit: milliseconds. Valid values: 900000 (15 minutes) to 345600000 (4 days).
     shared_ptr<int64_t> connectDuration_ {};
     shared_ptr<int64_t> deleteDuration_ {};
-    // The ID of the cloud computer share.
+    // The ID of the shared cloud computer group.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // The name of the cloud computer share.
+    // Shared cloud desktop name.
     shared_ptr<string> desktopGroupName_ {};
     // Specifies whether to disable session management.
     shared_ptr<bool> disableSessionConfig_ {};
-    // The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
+    // The ID of the NAS file system used for user data roaming.
     // 
-    // >  This parameter is unavailable.
+    // > This parameter is not yet available.
     shared_ptr<string> fileSystemId_ {};
-    // After an end user connects to a cloud computer, the session is established. If the system does not detect inputs from the keyboard or mouse within the specified period of time, the session is closed. Unit: milliseconds. Valid values: 360000 to 3600000 (6 minutes to 60 minutes)
+    // The maximum idle time for a session. If there is no keyboard or mouse input within this time, the session disconnects. Unit: milliseconds. Valid values: 360000 (6 minutes) to 3600000 (60 minutes).
     // 
-    // End users can receive a prompt to save data before sessions are disconnected. The system sends the prompt 30 seconds before the specified period of time is reached. To prevent data loss, end users must save the data of the sessions.
+    // Thirty seconds before the session disconnects, the end user receives a message to save their data. The end user must save their data to prevent data loss.
     // 
-    // >  This parameter is suitable only for cloud computers whose image version is v1.0.2 or later.
+    // > This parameter is applicable only to cloud computers with an image version of 1.0.2 or later.
     shared_ptr<int64_t> idleDisconnectDuration_ {};
-    // The IDs of the images.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // The retention period of a session after it is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5,760 minutes (4 days) after it is disconnected. If you set this parameter to 0, the session is permanently retained after it is disconnected.
+    // The duration to keep a session active after it disconnects. Unit: milliseconds. Valid values range from 180000 (3 minutes) to 345600000 (4 days). A value of 0 means the session is always kept active.
     // 
-    // When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can continue to access data of the session.
+    // When a session disconnects, either intentionally or unexpectedly, a timer begins. If the user fails to reconnect within this duration, the session is logged off, and any unsaved data is destroyed. If the user reconnects within this duration, they can resume the original session and access the data from before the disconnection.
     shared_ptr<int64_t> keepDuration_ {};
-    // The load balancing policy for the multi-session many-to-many share.
+    // The load balancing policy for a multi-session shared cloud computer group that contains multiple cloud computers.
     // 
-    // >  This parameter is not publicly available.
-    // 
-    // Valid values:
-    // 
-    // *   0: depth first.
-    // *   1: breadth first.
+    // > This parameter is not yet available.
     shared_ptr<int64_t> loadPolicy_ {};
-    // The maximum number of cloud computers allowed in the pay-as-you-go cloud computer share. Valid values: 0 to 500.
+    // The maximum number of cloud computers that a pay-as-you-go shared cloud computer group can contain. Valid values: 0 to 500.
     shared_ptr<int32_t> maxDesktopsCount_ {};
-    // The maximum number of auto-created cloud computers allowed in the subscription cloud computer share. You must specify this parameter when `ChargeType` is set to `PrePaid`. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
+    // The maximum number of cloud computers that are automatically created in a subscription shared cloud computer group. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`. Default value: 1. Valid values: 0 to the value of `MaxDesktopsCount`.
     shared_ptr<int32_t> minDesktopsCount_ {};
-    // The ID of the cloud computer template.
+    // The cloud computer template ID.
     shared_ptr<string> ownBundleId_ {};
-    // The ID of the security policy.
+    // The policy ID.
     shared_ptr<string> policyGroupId_ {};
-    // The IDs of policy groups.
+    // The list of policy group IDs.
     shared_ptr<vector<string>> policyGroupIds_ {};
     // Specifies whether to enable user data roaming.
     // 
-    // >  This parameter is unavailable.
+    // > This parameter is not yet available.
     shared_ptr<bool> profileFollowSwitch_ {};
-    // The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
+    // The session usage threshold. This threshold is a condition for triggering auto scaling in a multi-session shared cloud computer group. The session usage is calculated using the following formula:
     // 
-    // `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+    // `Session usage = Number of active sessions / (Total number of cloud computers × Maximum number of sessions per cloud computer) × 100%`
     // 
-    // If the session ratio exceeds the threshold, new cloud computers are provisioned. If it falls below the threshold, additional cloud computers are removed.
+    // When the session usage reaches this threshold, new cloud computers are created. If the session usage is below this threshold, idle cloud computers are deleted.
     // 
-    // >  This parameter is not publicly available.
+    // > This parameter is not yet available.
     shared_ptr<float> ratioThreshold_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions that WUYING Workspace supports.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The disk reset type of cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   0: does not reset disks.
-    // 
-    // *   1: resets only the system disks.
-    // 
-    // *   2: resets only the user disks.
-    // 
-    // *   3: resets the system disks and user disks.
+    // The reset type for the cloud computers.
     shared_ptr<int64_t> resetType_ {};
-    // The ID of the scaling policy group.
+    // The ID of the auto scaling policy group.
     // 
-    // >  This parameter is unavailable.
+    // > This parameter is not yet available.
     shared_ptr<string> scaleStrategyId_ {};
-    // The period of time before the idle cloud computer enters the Stopped state. When the specified period of time is reached, the cloud computer is automatically stopped. If an end user connects to the stopped cloud computer, the cloud computer automatically starts. Unit: milliseconds.
+    // The idle shutdown time. The cloud computer automatically shuts down when it is idle for this amount of time. If a user connects to a shutdown cloud computer, it automatically starts. Unit: milliseconds.
     shared_ptr<int64_t> stopDuration_ {};
   };
 

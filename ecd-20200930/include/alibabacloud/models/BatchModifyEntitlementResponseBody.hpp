@@ -112,11 +112,15 @@ namespace Models
         // 
         // Valid values:
         // 
-        // *   FAILED
-        // *   NOT_STARTED
-        // *   STARTED
-        // *   PROCESSING
-        // *   FINISHED
+        // - FAILED
+        // 
+        // - NOT_STARTED
+        // 
+        // - STARTED
+        // 
+        // - PROCESSING
+        // 
+        // - FINISHED
         shared_ptr<string> innerStatus_ {};
       };
 
@@ -152,11 +156,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   FAILED
-      // *   NOT_STARTED
-      // *   STARTED
-      // *   PROCESSING
-      // *   FINISHED
+      // - FAILED
+      // 
+      // - NOT_STARTED
+      // 
+      // - STARTED
+      // 
+      // - PROCESSING
+      // 
+      // - FINISHED
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

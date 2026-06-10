@@ -69,11 +69,11 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computers.
+    // The IDs of the cloud desktops.
     shared_ptr<vector<string>> desktopId_ {};
     // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> taskId_ {};
   };

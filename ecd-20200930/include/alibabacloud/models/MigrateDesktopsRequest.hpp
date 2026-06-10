@@ -78,20 +78,21 @@ namespace Models
 
 
   protected:
-    // The IDs of the cloud computers. You can specify 1 to 100 IDs.
+    // The IDs of the cloud computers to migrate. You can specify 1 to 100 IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> desktopId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. To get a list of supported regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // This parameter is not publicly available.
     shared_ptr<string> targetMemberIp_ {};
-    // The ID of the destination office network.
+    // The ID of the target office network.
     // 
     // This parameter is required.
     shared_ptr<string> targetOfficeSiteId_ {};
-    // > This parameter is for internal use only.
+    // This parameter is not publicly available.
     shared_ptr<string> targetSubnetId_ {};
   };
 

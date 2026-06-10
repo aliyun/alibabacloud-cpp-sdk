@@ -110,9 +110,9 @@ namespace Models
 
 
     protected:
-      // 应用管控策略ID
+      // The application control policy ID.
       shared_ptr<string> appRuleId_ {};
-      // 站点ID。
+      // The site ID.
       shared_ptr<string> siteId_ {};
     };
 
@@ -246,7 +246,7 @@ namespace Models
     protected:
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+      // The region ID. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
       shared_ptr<string> regionId_ {};
       // The ID of the cloud computer type.
       shared_ptr<string> resourceInstanceType_ {};
@@ -255,13 +255,8 @@ namespace Models
       // The subnet ID.
       shared_ptr<string> subnetId_ {};
       // Specifies whether to enable disk encryption.
-      // 
-      // Valid values:
-      // 
-      // *   false (default): disables disk encryption.
-      // *   true: enables disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The ID of the Key Management Service (KMS) key that you want to use to encrypt disks. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query KMS keys.
+      // The ID of the Key Management Service (KMS) key that you want to use to encrypt disks. You can call the [](t22712.xdita#)operation to query KMS keys.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -307,9 +302,9 @@ namespace Models
       shared_ptr<string> performanceLevel_ {};
       // The size of the data disk. Unit: GiB. Valid values: 40 to 2040. Increments: 10 GiB.
       // 
-      // **
+      // >Notice: 
       // 
-      // **Keep in mind** that the larger the ESSD disk capacity, the higher the available PL (for example, PL2 is available for disks larger than 460 GiB). A higher PL comes with a higher cost. Select an ESSD based on your specific needs.
+      // The larger the ESSD disk capacity, the higher the available PL (for example, PL2 is available for disks larger than 460 GiB). A higher PL comes with a higher cost. Select an ESSD based on your specific needs.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -484,11 +479,7 @@ namespace Models
   protected:
     shared_ptr<bool> autoPay_ {};
     shared_ptr<bool> autoRenew_ {};
-    // >  This parameter is not publicly available.
-    // 
-    // Valid values:
-    // 
-    // *   1: the Enterprise edition.
+    // > This parameter is not publicly available.
     shared_ptr<string> bizType_ {};
     shared_ptr<string> chargeType_ {};
     // The data disks.
@@ -497,8 +488,9 @@ namespace Models
     shared_ptr<string> defaultLanguage_ {};
     // The template description. It must meet the following criteria:
     // 
-    // *   It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-    // *   It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
+    // - It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // 
+    // - It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
     shared_ptr<string> description_ {};
     // The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
     shared_ptr<string> imageId_ {};
@@ -508,38 +500,32 @@ namespace Models
     shared_ptr<string> policyGroupId_ {};
     shared_ptr<bool> postPaidAfterUsedUp_ {};
     // The service type. Set the value to `CloudDesktop`.
-    // 
-    // *
     shared_ptr<string> productType_ {};
     // The regions of the template. You can create cloud computers by using a template only within the same region as the template itself.
     // 
-    // >  You can specify up to 20 regions.
+    // > You can specify up to 20 regions.
     shared_ptr<vector<CreateTemplateRequest::RegionConfigList>> regionConfigList_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The tags added to cloud computers. Specify tags in key-value pairs. You can specify up to 20 tags.
     shared_ptr<vector<CreateTemplateRequest::ResourceTagList>> resourceTagList_ {};
-    // 区域配置管理
+    // The site configurations.
     shared_ptr<vector<CreateTemplateRequest::SiteConfigList>> siteConfigList_ {};
     // The performance level (PL) of the system disk.
     // 
-    // >  Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
-    // 
-    // Valid values:
-    // 
-    // *   PL1: a PL1 ESSD.
-    // *   PL0: a PL0 ESSD.
-    // *   AutoPL: an AutoPL ESSD.
+    // > Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
     shared_ptr<string> systemDiskPerformanceLevel_ {};
     // The size of the system disk. Unit: GiB. Valid values: 40 to 500. Increments: 10 GiB.
     // 
-    // >  The system disk size must be at least as large as the configured image size.
+    // > The system disk size must be at least as large as the configured image size.
     shared_ptr<int32_t> systemDiskSize_ {};
     // The template name. It must meet the following criteria:
     // 
-    // *   It can be 2 to 126 characters in length.
-    // *   It must begin with a letter and cannot start with `http://` or `https://`.
-    // *   It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
+    // - It can be 2 to 126 characters in length.
+    // 
+    // - It must begin with a letter and cannot start with `http://` or `https://`.
+    // 
+    // - It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};

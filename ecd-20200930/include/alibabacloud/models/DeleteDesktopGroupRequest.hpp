@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer share.
+    // Shared desktop group ID.
     // 
     // This parameter is required.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID.
+    // Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -161,19 +161,33 @@ namespace Models
 
 
   protected:
+    // The creation time of the cloud computer. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
     shared_ptr<string> creationTimeStart_ {};
+    // A list of cloud computer IDs.
     shared_ptr<vector<string>> desktopIds_ {};
+    // The ID of the end user.
     shared_ptr<string> endUserId_ {};
+    // The ID of the cloud computer share.
     shared_ptr<string> groupId_ {};
+    // The hostname.
     shared_ptr<string> hostName_ {};
+    // The ID of the image.
     shared_ptr<string> imageId_ {};
+    // Specifies whether to include cloud computers in cloud computer shares in the response.
     shared_ptr<bool> includeDesktopGroup_ {};
+    // > This parameter is not yet available.
     shared_ptr<string> keyword_ {};
+    // The maximum number of entries to return per page. Maximum: 100. Default: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token returned from the previous call to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The ID of the office network.
     shared_ptr<string> officeSiteId_ {};
+    // The start of the time range to query for operations. The time must be in the `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"` format and in UTC.
     shared_ptr<string> operationTimeStart_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the region to search.
     shared_ptr<string> searchRegionId_ {};
   };
 

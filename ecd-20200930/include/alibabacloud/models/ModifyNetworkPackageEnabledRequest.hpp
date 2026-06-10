@@ -58,30 +58,12 @@ namespace Models
 
   protected:
     // Specifies whether to restore the premium bandwidth plan of the cloud computer.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<bool> enabled_ {};
     // The ID of the premium bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> networkPackageId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The region ID. You can call the [](t2167755.xdita#)operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

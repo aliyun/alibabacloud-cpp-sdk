@@ -95,27 +95,7 @@ namespace Models
 
 
       protected:
-        // The whitelist path.
         shared_ptr<string> path_ {};
-        // The path type.
-        // 
-        // Valid values:
-        // 
-        // *   file
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   folder
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> type_ {};
       };
 
@@ -157,27 +137,7 @@ namespace Models
 
 
       protected:
-        // The blacklist path.
         shared_ptr<string> path_ {};
-        // The path type.
-        // 
-        // Valid values:
-        // 
-        // *   file
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   folder
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> type_ {};
       };
 
@@ -202,9 +162,7 @@ namespace Models
 
 
     protected:
-      // The directory in the blacklist.
       shared_ptr<UserProfilePathRule::BlackPath> blackPath_ {};
-      // The directories that you want to configure in the whitelist.
       shared_ptr<vector<UserProfilePathRule::WhitePaths>> whitePaths_ {};
     };
 
@@ -241,41 +199,10 @@ namespace Models
 
 
   protected:
-    // The desktop group ID.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The directories that you want to configure in the blacklist and whitelist.
     shared_ptr<vector<SetUserProfilePathRulesRequest::UserProfilePathRule>> userProfilePathRule_ {};
-    // The directory type that you want to configure.
-    // 
-    // Valid values:
-    // 
-    // *   Both_Default_DesktopGroup
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DesktopGroup
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Default
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> userProfileRuleType_ {};
   };
 

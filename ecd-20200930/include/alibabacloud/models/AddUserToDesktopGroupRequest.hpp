@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_TO_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_TO_JSON(OrgId, orgId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SimpleUserGroupId, simpleUserGroupId_);
       DARABONBA_PTR_TO_JSON(UserGroupName, userGroupName_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_FROM_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SimpleUserGroupId, simpleUserGroupId_);
       DARABONBA_PTR_FROM_JSON(UserGroupName, userGroupName_);
@@ -45,8 +47,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->desktopGroupId_ == nullptr && this->desktopGroupIds_ == nullptr && this->endUserIds_ == nullptr && this->regionId_ == nullptr && this->simpleUserGroupId_ == nullptr
-        && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr; };
+        && this->desktopGroupId_ == nullptr && this->desktopGroupIds_ == nullptr && this->endUserIds_ == nullptr && this->orgId_ == nullptr && this->regionId_ == nullptr
+        && this->simpleUserGroupId_ == nullptr && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline AddUserToDesktopGroupRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
 
 
+    // orgId Field Functions 
+    bool hasOrgId() const { return this->orgId_ != nullptr;};
+    void deleteOrgId() { this->orgId_ = nullptr;};
+    inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+    inline AddUserToDesktopGroupRequest& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -108,15 +117,16 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25693.html).
+    // A client token that ensures the idempotence of a request. Generate a unique value for this parameter from your client. The token can contain only ASCII characters and must be no more than 64 characters long. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The ID of the cloud computer share.
+    // The ID of the shared cloud desktop to which to add an authorized user.
     shared_ptr<string> desktopGroupId_ {};
-    // The IDs of the cloud computer shares.
+    // A list of shared cloud desktop group IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
-    // The IDs of the users to whom you want to grant permissions.
+    // A list of users to authorize.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The ID of the region.
+    shared_ptr<string> orgId_ {};
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain a list of regions where WUYING Workspace is available.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

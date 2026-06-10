@@ -147,7 +147,7 @@ namespace Models
     // 
     // Valid values:
     // 
-    // * ALIYUN::GWS::INSTANCE: cloud computer.
+    // - ALIYUN::GWS::INSTANCE: cloud computer.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

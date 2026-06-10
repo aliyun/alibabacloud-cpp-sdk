@@ -185,77 +185,77 @@ namespace Models
       // 
       // Default values:
       // 
-      // *   CONFIGUSERFAILED
+      // - CONFIGUSERFAILED
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   REGISTERING
+      // - REGISTERING
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   REGISTERED
+      // - REGISTERED
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   NEEDCONFIGTRUST
+      // - NEEDCONFIGTRUST
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CONFIGUSERING
+      // - CONFIGUSERING
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CONFIGTRUSTFAILED
+      // - CONFIGTRUSTFAILED
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   ERROR
+      // - ERROR
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   CONFIGTRUSTING
+      // - CONFIGTRUSTING
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   NEEDCONFIGUSER
+      // - NEEDCONFIGUSER
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> officeSiteStatus_ {};
       // The ID of the region where the office network resides.
       shared_ptr<string> regionId_ {};
@@ -271,9 +271,11 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   standard (default): standard, exclusive VPC
-      // *   customized: custom, user VPC
-      // *   basic: basic, shared VPC
+      // - standard (default): standard, exclusive VPC
+      // 
+      // - customized: custom, user VPC
+      // 
+      // - basic: basic, shared VPC
       shared_ptr<string> vpcType_ {};
       // The number of cloud computers that are about to expire in the office network.
       shared_ptr<int32_t> willExpiredEdsCount_ {};

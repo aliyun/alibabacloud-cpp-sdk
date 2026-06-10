@@ -199,21 +199,21 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Expired
+      // - Expired
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Normal
+      // - Normal
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> businessStatus_ {};
       // The time when the premium bandwidth plan was created.
       shared_ptr<string> createTime_ {};
@@ -221,19 +221,21 @@ namespace Models
       shared_ptr<vector<string>> eipAddresses_ {};
       // The time when the premium bandwidth plan expires.
       // 
-      // *   If the plan is a subscription one, the time when the plan expires is returned.
-      // *   If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
+      // - If the plan is a subscription one, the time when the plan expires is returned.
+      // 
+      // - If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
       shared_ptr<string> expiredTime_ {};
       // The charge type of the premium bandwidth plan.
       // 
-      // *   Valid value when the `PayType` parameter is set to `PrePaid`:
+      // - Valid value when the `PayType` parameter is set to `PrePaid`:
       // 
-      //     *   PayByBandwidth: charges by fixed bandwidth.
+      //   - PayByBandwidth: charges by fixed bandwidth.
       // 
-      // *   Valid values when the `PayType` parameter is set to `PostPaid`:
+      // - Valid values when the `PayType` parameter is set to `PostPaid`:
       // 
-      //     *   PayByTraffic: charges by data transfer.
-      //     *   PayByBandwidth: charges by fixed bandwidth.
+      //   - PayByTraffic: charges by data transfer.
+      // 
+      //   - PayByBandwidth: charges by fixed bandwidth.
       shared_ptr<string> internetChargeType_ {};
       // The ID of the premium bandwidth plan.
       shared_ptr<string> networkPackageId_ {};
@@ -241,37 +243,37 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Creating
+      // - Creating
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Released
+      // - Released
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   InUse
+      // - InUse
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   Releasing
+      // - Releasing
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> networkPackageStatus_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
@@ -281,16 +283,19 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   standard: advanced office network
-      // *   customized: custom office network
-      // *   basic: basic office network
+      // - standard: advanced office network
+      // 
+      // - customized: custom office network
+      // 
+      // - basic: basic office network
       shared_ptr<string> officeSiteVpcType_ {};
       // The billing method of the premium bandwidth plan.
       // 
       // Valid values:
       // 
-      // *   PostPaid: pay-as-you-go
-      // *   PrePaid: subscription
+      // - PostPaid: pay-as-you-go
+      // 
+      // - PrePaid: subscription
       shared_ptr<string> payType_ {};
       // The time when the reserved network bandwidth took effect.
       shared_ptr<string> reservationActiveTime_ {};
@@ -300,9 +305,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   PayByTraffic: charges by data transfer.
+      // - PayByTraffic: charges by data transfer.
       // 
-      // *   PayByBandwidth: charges by fixed bandwidth.
+      // - PayByBandwidth: charges by fixed bandwidth.
       shared_ptr<string> reservationInternetChargeType_ {};
     };
 

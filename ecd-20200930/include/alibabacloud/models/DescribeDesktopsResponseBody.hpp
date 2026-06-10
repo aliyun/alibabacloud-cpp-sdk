@@ -290,11 +290,11 @@ namespace Models
 
 
       protected:
-        // The ID of the end user that connects to the cloud computer.
+        // The user ID connected to the desktop.
         shared_ptr<string> endUserId_ {};
-        // The time when the cloud computer session was established.
+        // The time when the desktop session was established.
         shared_ptr<string> establishmentTime_ {};
-        // The name of the external user.
+        // The external user name.
         shared_ptr<string> externalUserName_ {};
       };
 
@@ -336,9 +336,9 @@ namespace Models
 
 
       protected:
-        // The ID of the enterprise resource group.
+        // The enterprise resource group ID.
         shared_ptr<string> id_ {};
-        // The name of the enterprise resource group.
+        // The enterprise resource group name.
         shared_ptr<string> name_ {};
       };
 
@@ -522,17 +522,17 @@ namespace Models
 
 
       protected:
-        // The current image version of the cloud computer.
+        // The current image version number of the desktop.
         shared_ptr<string> currentAppVersion_ {};
-        // The version number to which the image of the cloud computer can be updated.
+        // The image version number to which the desktop can be upgraded.
         shared_ptr<string> newAppVersion_ {};
-        // The description of the version to which the image of the cloud computer can be updated.
+        // The description of the upgradeable image version.
         shared_ptr<string> releaseNote_ {};
-        // The English description of the version to which the image of the cloud computer can be updated.
+        // The English description of the upgradeable version.
         shared_ptr<string> releaseNoteEn_ {};
-        // The Japanese description of the image version to which the cloud desktop can be updated.
+        // The Japanese description of the upgradeable version.
         shared_ptr<string> releaseNoteJp_ {};
-        // The size of the installation package for the image to which the cloud desktop can be updated. Unit: KB.
+        // The size of the upgradeable version installation package. Unit: KB.
         shared_ptr<int64_t> size_ {};
       };
 
@@ -601,46 +601,23 @@ namespace Models
 
 
       protected:
-        // The type of the disk. Valid values:
+        // The disk type.
         // 
-        // *   cloud_efficiency: ultra disk.
-        // *   cloud_auto: standard SSD.
-        // *   cloud_essd: enhanced SSD (ESSD).
+        // - cloud_efficiency (ultra disk)
+        // 
+        //   - cloud_auto (extreme disk)
+        // 
+        //   - cloud_essd (enhanced SSD disk, supported only on select instance types)
         shared_ptr<string> diskCategory_ {};
         // The disk ID.
         shared_ptr<string> diskId_ {};
         // The disk size. Unit: GiB.
         shared_ptr<int32_t> diskSize_ {};
-        // The type of the disk.
-        // 
-        // Valid values:
-        // 
-        // *   SYSTEM: system disk
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   DATA: data disk
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // The disk type.
         shared_ptr<string> diskType_ {};
-        // The performance level (PL) of the disk when an enterprise SSD (ESSD) is used.
+        // The performance level of ESSD disks, if the disk uses ESSD.
         // 
-        // For more information about the differences among enterprise SSDs (ESSDs) at different PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-        // 
-        // Valid values:
-        // 
-        // *   PL1
-        // *   PL0
-        // *   PL3
-        // *   PL2
+        // For differences between performance levels, see [](t583241.xdita#).
         shared_ptr<string> performanceLevel_ {};
       };
 
@@ -1327,215 +1304,135 @@ namespace Models
     protected:
       shared_ptr<string> accountType_ {};
       shared_ptr<vector<string>> agentProviderList_ {};
-      // The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
+      // The number of concurrent sessions allowed per desktop in a multi-session desktop pool.
       shared_ptr<int32_t> bindAmount_ {};
-      // The ID of the template used to create the cloud computer.
+      // The desktop template ID used by the desktop.
       shared_ptr<string> bundleId_ {};
-      // The name of the template used to create the cloud computer.
+      // The desktop template name used by the desktop.
       shared_ptr<string> bundleName_ {};
-      // The billing method of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Postpaid (default): pay-as-you-go
-      // *   PrePaid: subscription
+      // The billing method for the desktop.
       shared_ptr<string> chargeType_ {};
-      // The connection status of the end user.
-      // 
-      // Valid values:
-      // 
-      // *   Unknown
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Connected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Disconnected
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The connection status of the user.
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the cloud computer was created.
+      // The time when the desktop was created.
       shared_ptr<string> creationTime_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<string> dataDiskCategory_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<string> dataDiskSize_ {};
       shared_ptr<vector<Desktops::DesktopDurationList>> desktopDurationList_ {};
-      // The ID of the cloud computer pool to which cloud computers belong. Default value: null.``
+      // The desktop pool ID that the desktop belongs to. Default value: `null`.
       shared_ptr<string> desktopGroupId_ {};
-      // The cloud computer ID.
+      // The desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The desktop name.
       shared_ptr<string> desktopName_ {};
-      // The cloud computer status.
+      // The desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // The cloud computer type.
+      // The desktop instance type.
       shared_ptr<string> desktopType_ {};
-      // The directory ID, which is the same as the office network ID (OfficeSiteId).
+      // The directory ID. This is the same as the office site ID (OfficeSiteId).
       shared_ptr<string> directoryId_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<string> directoryType_ {};
-      // The information about the disks.
+      // Disk information.
       shared_ptr<vector<Desktops::Disks>> disks_ {};
       shared_ptr<string> domainType_ {};
-      // The number of times for which the cloud desktop can be downgraded.
+      // The number of times the desktop can be downgraded.
       shared_ptr<int64_t> downgradeQuota_ {};
-      // The number of times for which the cloud desktop has been downgraded.
+      // The number of times the desktop has been downgraded.
       shared_ptr<int64_t> downgradedTimes_ {};
-      // The end user IDs.
+      // The authorized user IDs for the desktop.
       shared_ptr<vector<string>> endUserIds_ {};
       shared_ptr<string> entraDomainName_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
-      // The time when a subscription cloud computer expired.
+      // The expiration time for subscription desktops.
       shared_ptr<string> expiredTime_ {};
-      // The information about the image version of the cloud computer.
+      // The image version information for the desktop.
       shared_ptr<Desktops::FotaUpdate> fotaUpdate_ {};
-      // Indicates whether the cloud computer uses GPUs.
+      // Whether the desktop is a GPU desktop.
       shared_ptr<int64_t> gpuCategory_ {};
-      // The number of GPU cores.
+      // The number of GPUs.
       shared_ptr<float> gpuCount_ {};
-      // The GPU driver version used by the cloud computer.
+      // The GPU driver version for the desktop.
       shared_ptr<string> gpuDriverVersion_ {};
-      // The GPU Specifications.
+      // The GPU specification.
       shared_ptr<string> gpuSpec_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<bool> hibernationBeta_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<bool> hibernationOptionsConfigured_ {};
-      // The hostname of the cloud desktop.
+      // The host name.
       shared_ptr<string> hostName_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       shared_ptr<bool> isLdap_ {};
-      // The flag that is used to manage the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   Migrating: The cloud computer is being migrated.
-      // *   Updating: The configurations of the cloud computer are being updated.
-      // *   NoFlag: No flags are available.
+      // The management flag.
       shared_ptr<string> managementFlag_ {};
-      // The flags that are used to manage the cloud computers.
+      // The management flags.
       shared_ptr<vector<string>> managementFlags_ {};
       // The memory size. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the supplementary network interface controller (NIC) created by EDS within an RAM user or Active Directory (AD) user. You cannot modify the ID.
+      // The ID of the secondary ENI created by the desktop service under a RAM or AD user. This value cannot be modified.
       shared_ptr<string> networkInterfaceId_ {};
-      // The IP address of the supplementary NIC created by EDS within an RAM or AD user.
+      // The IP address of the secondary ENI created by the desktop service under a RAM or AD user.
       shared_ptr<string> networkInterfaceIp_ {};
-      // The office network ID.
+      // The office site ID.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The office site name.
       shared_ptr<string> officeSiteName_ {};
-      // The account type of the office network.
-      // 
-      // Valid values:
-      // 
-      // *   SIMPLE: convenience account
-      // *   AD_CONNECTOR: enterprise AD account
+      // The account system type for the office site.
       shared_ptr<string> officeSiteType_ {};
-      // The VPC type of the office network.
-      // 
-      // Valid values:
-      // 
-      // *   standard
-      // *   customized
-      // *   basic
+      // The VPC type of the office site.
       shared_ptr<string> officeSiteVpcType_ {};
-      // The OS that is defined in the desktop template.
+      // The operating system type.
       shared_ptr<string> osType_ {};
       shared_ptr<Desktops::OsUpdate> osUpdate_ {};
-      // The information about the OS platform.
-      // 
-      // Valid values:
-      // 
-      // *   Ubuntu
-      // *   Windows Server 2022
-      // *   UOS
-      // *   CentOS
-      // *   Windows Server 2019
-      // *   Windows Server 2016
+      // The operating system platform information.
       shared_ptr<string> platform_ {};
-      // The policy ID.
+      // The desktop policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // The IDs of the cloud computer policies.
+      // The collection of desktop policy IDs.
       shared_ptr<vector<string>> policyGroupIdList_ {};
       // The policy name.
       shared_ptr<string> policyGroupName_ {};
-      // The names of the cloud computer policies.
+      // The list of desktop policy names.
       shared_ptr<vector<string>> policyGroupNameList_ {};
-      // The progress of creating the cloud computer.
+      // The creation progress of the desktop.
       shared_ptr<string> progress_ {};
-      // The protocol.
-      // 
-      // Valid values:
-      // 
-      // *   HDX
-      // *   ASP
+      // The protocol type.
       shared_ptr<string> protocolType_ {};
-      // The information about the enterprise resource groups.
+      // The list of enterprise resource group information.
       shared_ptr<vector<Desktops::ResourceGroups>> resourceGroups_ {};
       shared_ptr<string> serialNumber_ {};
-      // The type of the session.
-      // 
-      // Valid values:
-      // 
-      // *   SINGLE_SESSION
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   MULTIPLE_SESSION
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
+      // The session type.
       shared_ptr<string> sessionType_ {};
-      // The session information about cloud computers connected by end users.
+      // Session information for the desktop user.
       shared_ptr<vector<Desktops::Sessions>> sessions_ {};
       // The snapshot policy ID.
       shared_ptr<string> snapshotPolicyId_ {};
-      // The name of the snapshot policy.
+      // The snapshot policy name.
       shared_ptr<string> snapshotPolicyName_ {};
       // The standard start time.
       shared_ptr<string> standardStartTime_ {};
-      // The time when the cloud computer was first started.
+      // The first time the desktop started.
       shared_ptr<string> startTime_ {};
-      // Indicates whether the cloud desktop supports hibernation.
+      // Whether hibernation is supported.
       shared_ptr<bool> supportHibernation_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<string> systemDiskCategory_ {};
-      // >  This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in invitational preview and is not available for use.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // Details about the tags.
+      // Tag information.
       shared_ptr<vector<Desktops::Tags>> tags_ {};
-      // Indicates whether disk encryption is enabled.
+      // Whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
+      // The ID of the KMS key used when disk encryption is enabled. You can obtain it through the [](t22712.xdita#)interface.
       shared_ptr<string> volumeEncryptionKey_ {};
-      // The zone type. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
+      // The type of zone to query. Default value: `AvailabilityZone`, which refers to standard cloud availability zones.
       shared_ptr<string> zoneType_ {};
     };
 
@@ -1586,17 +1483,17 @@ namespace Models
 
 
   protected:
-    // The cloud computers.
+    // Details about the desktops.
     shared_ptr<vector<DescribeDesktopsResponseBody::Desktops>> desktops_ {};
-    // The token that is used for the next query. If this parameter is left empty, all results are returned.
+    // The token that starts the next query. An empty NextToken means no more results.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries to return on each page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of cloud computers.
+    // The total number of desktops.
     shared_ptr<int32_t> totalCount_ {};
   };
 

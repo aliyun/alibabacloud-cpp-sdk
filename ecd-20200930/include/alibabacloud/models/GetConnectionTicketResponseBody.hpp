@@ -100,15 +100,17 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
     // 
-    //     import base64
-    //     response = {
-    //         "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
-    //         "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
-    //     }
-    //     f = open (\\"xxx.ica\\", \\"w\\")
-    //     out = base64.b64decode(response[\\"Ticket\\"])
-    //     f.write(out)
-    //     f.close()
+    // ```
+    // import base64
+    // response = {
+    //     "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
+    //     "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
+    // }
+    // f = open (\\"xxx.ica\\", \\"w\\")
+    // out = base64.b64decode(response[\\"Ticket\\"])
+    // f.write(out)
+    // f.close()
+    // ```
     shared_ptr<string> taskCode_ {};
     // The ID of the cloud computer connection task.
     shared_ptr<string> taskId_ {};
@@ -118,29 +120,29 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   FAILED: The credential fails to be obtained.
+    // - FAILED: The credential fails to be obtained.
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   RUNNING: The credential is being obtained.
+    // - RUNNING: The credential is being obtained.
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    // *   FINISHED: The credential is obtained.
+    // - FINISHED: The credential is obtained.
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     shared_ptr<string> taskStatus_ {};
     // The credentials for connecting to the cloud computer.
     shared_ptr<string> ticket_ {};

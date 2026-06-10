@@ -71,13 +71,13 @@ namespace Models
 
 
   protected:
-    // The ID of the shared group.
+    // The ID of the desktop group.
     shared_ptr<string> desktopGroupId_ {};
-    // The IDs of the shared groups.
+    // The desktop group IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
-    // The IDs of the orders.
+    // The order IDs.
     shared_ptr<vector<string>> orderIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

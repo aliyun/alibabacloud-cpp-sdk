@@ -179,48 +179,38 @@ namespace Models
 
 
   protected:
-    // Specifies whether to turn on the switch to check session status of cloud computers.
+    // Specifies whether to check the session status within the cloud computer.
     shared_ptr<bool> checkOsSession_ {};
-    // The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
+    // The ID of the cloud computer. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
     // The name of the cloud computer.
     shared_ptr<string> desktopName_ {};
-    // The end of the time range to query.
+    // The end time of the query.
     shared_ptr<string> endTime_ {};
     // The ID of the end user.
     shared_ptr<string> endUserId_ {};
-    // The user ID. This parameter functions the same as the `EndUserId` parameter. You only need to include one of them in your request.
+    // The ID of the end user. This parameter is the same as the `EndUserId` parameter. Specify only one of them.
     shared_ptr<string> endUserIdFilter_ {};
+    // Specifies whether to return information about the terminal.
     shared_ptr<bool> fillHardwareInfo_ {};
+    // The language of the returned information.
     shared_ptr<string> language_ {};
-    // The office network ID.
+    // The ID of the cloud computer.
     shared_ptr<string> officeSiteId_ {};
-    // The page number.
+    // The page number for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The maximum number of entries to return on each page for a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The ID of the region. Call [](t2167755.xdita#)to obtain a list of regions that Elastic Desktop Service (EDS) supports.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The state of the session.
-    // 
-    // Valid values:
-    // 
-    // *   Connected
-    // *   Disconnected
+    // The connection status of the session.
     shared_ptr<string> sessionStatus_ {};
-    // The start of the time range to query.
+    // The start time of the query.
     shared_ptr<string> startTime_ {};
-    // The billing method of cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   duration: hourly plan (available for users in the whitelist)
-    // *   postPaid: pay-as-you-go
-    // *   monthPackage: monthly subscription (the 120-hour/250-hour computing plan)
-    // *   prePaid: monthly subscription (the Unlimited computing plan)
+    // The billing method of the cloud computer.
     shared_ptr<string> subPayType_ {};
   };
 

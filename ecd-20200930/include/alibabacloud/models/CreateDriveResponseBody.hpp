@@ -213,7 +213,7 @@ namespace Models
       shared_ptr<string> driveId_ {};
       // The ID of the external user-level storage resource.
       // 
-      // >  A value is returned for this parameter only if ResourceType is set to PDS.
+      // > A value is returned for this parameter only if ResourceType is set to PDS.
       shared_ptr<string> externalDriveId_ {};
       // The ID of the external user.
       shared_ptr<string> externalUserId_ {};
@@ -225,33 +225,39 @@ namespace Models
       shared_ptr<string> id_ {};
       // The name of the storage resource.
       shared_ptr<string> name_ {};
-      // >  This parameter is deprecated.
+      // > This parameter is deprecated.
       shared_ptr<bool> profileRoaming_ {};
       // The status of the user-level storage resource.
       // 
       // Valid values:
       // 
-      // *   INIT: initializing
-      // *   MAINTAIN: maintaining
-      // *   DELETING
-      // *   INVALID
-      // *   NORMAL
-      // *   FAIL: failed
+      // - INIT: initializing
+      // 
+      // - MAINTAIN: maintaining
+      // 
+      // - DELETING
+      // 
+      // - INVALID
+      // 
+      // - NORMAL
+      // 
+      // - FAIL: failed
       shared_ptr<string> status_ {};
       // The total amount of the user-level storage resource capacity.
       // 
-      // >  Unit: bytes.
+      // > Unit: bytes.
       shared_ptr<int64_t> totalSize_ {};
       // The usage of the storage resource.
       // 
       // Valid values:
       // 
-      // *   DESKTOP: data disk space
-      // *   USER_PROFILE: space for personal data of the user
+      // - DESKTOP: data disk space
+      // 
+      // - USER_PROFILE: space for personal data of the user
       shared_ptr<string> type_ {};
       // The amount of user-level storage resource capacity used.
       // 
-      // >  Unit: bytes.
+      // > Unit: bytes.
       shared_ptr<int64_t> usedSize_ {};
       // The user ID.
       shared_ptr<string> userId_ {};

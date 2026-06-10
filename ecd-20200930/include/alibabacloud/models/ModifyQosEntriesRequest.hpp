@@ -107,13 +107,19 @@ namespace Models
 
 
   protected:
+    // The IDs of the cloud phones to bind to the QoS rule.
     shared_ptr<vector<string>> authAndroidId_ {};
     shared_ptr<vector<string>> authDesktopGroupId_ {};
+    // The IDs of the cloud desktops to bind to the QoS rule.
     shared_ptr<vector<string>> authDesktopId_ {};
+    // The ID of the QoS rule.
+    // 
     // This parameter is required.
     shared_ptr<string> qosRuleId_ {};
+    // The IDs of the cloud phones to unbind from the QoS rule.
     shared_ptr<vector<string>> revokeAndroidId_ {};
     shared_ptr<vector<string>> revokeDesktopGroupId_ {};
+    // The IDs of the cloud desktops to unbind from the QoS rule.
     shared_ptr<vector<string>> revokeDesktopId_ {};
   };
 

@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The ID of the cloud computer.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The target size of the system disk. Valid values: 80-500 GiB. The value must be a multiple of 10.
+      // The new size of the system disk, in GiB. The value must be a multiple of 10 in the range of 80 to 500.
       shared_ptr<int32_t> rootDiskSizeGib_ {};
-      // The target size of the data disk. Valid values: 80-500 GiB. The value must be a multiple of 10.
+      // The new size of the data disk, in GiB. The value must be a multiple of 10 in the range of 20 to 2,040.
       shared_ptr<int32_t> userDiskSizeGib_ {};
     };
 
@@ -188,91 +188,36 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the auto-payment feature.
-    // 
-    // Default value: true. Valid values:
-    // 
-    // *   true: enables the auto-payment feature.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     Make sure that you have sufficient balance in your Alibaba Cloud account. Otherwise, an exception occurs on your order.
-    // 
-    //     <!-- -->
-    // 
-    // *   false: disables the auto-payment feature. In this case, an order is generated, and no payment is automatically made.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     You can log on to the Elastic Desktop Service console and complete the payment based on the order ID on the Orders page.
-    // 
-    //     <!-- -->
+    // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
-    // The ID of a cloud computer.
+    // The ID of the cloud desktop.
     shared_ptr<string> desktopId_ {};
-    // The destination instance type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
+    // The new desktop type. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported desktop types.
     // 
     // This parameter is required.
     shared_ptr<string> desktopType_ {};
-    // The ID of the promotional activity.
+    // The promotion ID.
     shared_ptr<string> promotionId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to obtain a list of regions that Elastic Desktop Service supports.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<int64_t> resellerOwnerUid_ {};
-    // The array of resource specification templates.
+    // A list of resource specification templates.
     shared_ptr<vector<ModifyDesktopSpecRequest::ResourceSpecs>> resourceSpecs_ {};
     // The resource type.
     // 
-    // > This parameter is optional for non-subscribed cloud computers.
+    // > This parameter is required only for cloud desktops that use the subscription billing method.
     shared_ptr<string> resourceType_ {};
-    // The size of the new system disk. Unit: GiB. Valid values: 80 to 500 GiB. The value must be a multiple of 10.
+    // The new size of the system disk, in GiB. The value must be a multiple of 10 in the range of 80 to 500.
     shared_ptr<int32_t> rootDiskSizeGib_ {};
-    // The performance level (PL) of the data disk. Default value: PL0.
-    // 
-    // Valid values:
-    // 
-    // *   PL1
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   PL0
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   PL3
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   PL2
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The performance level of the data disk.
     shared_ptr<string> userDiskPerformanceLevel_ {};
-    // The destination data disk size. Unit: GiB.
+    // The new size of the data disk, in GiB.
     // 
-    // *   The data disk size of a non-graphical cloud computer ranges from 20 to 1020 GiB and must be a multiple of 10.
-    // *   The data disk size of a graphical cloud computer ranges from 40 to 1020 GiB and must be a multiple of 10.
+    // - For non-graphics-accelerated desktop types, the value must be a multiple of 10 in the range of 20 to 1,020.
+    // 
+    // - For graphics-accelerated desktop types, the value must be a multiple of 10 in the range of 40 to 1,020.
     shared_ptr<int32_t> userDiskSizeGib_ {};
   };
 

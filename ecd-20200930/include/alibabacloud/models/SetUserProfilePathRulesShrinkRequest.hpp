@@ -66,41 +66,10 @@ namespace Models
 
 
   protected:
-    // The desktop group ID.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The directories that you want to configure in the blacklist and whitelist.
     shared_ptr<string> userProfilePathRuleShrink_ {};
-    // The directory type that you want to configure.
-    // 
-    // Valid values:
-    // 
-    // *   Both_Default_DesktopGroup
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DesktopGroup
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Default
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> userProfileRuleType_ {};
   };
 

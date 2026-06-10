@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_TO_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_TO_JSON(OrgId, orgId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SimpleUserGroupId, simpleUserGroupId_);
       DARABONBA_PTR_TO_JSON(UserGroupName, userGroupName_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DesktopGroupId, desktopGroupId_);
       DARABONBA_PTR_FROM_JSON(DesktopGroupIds, desktopGroupIds_);
       DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
+      DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SimpleUserGroupId, simpleUserGroupId_);
       DARABONBA_PTR_FROM_JSON(UserGroupName, userGroupName_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->desktopGroupId_ == nullptr
-        && this->desktopGroupIds_ == nullptr && this->endUserIds_ == nullptr && this->regionId_ == nullptr && this->simpleUserGroupId_ == nullptr && this->userGroupName_ == nullptr
-        && this->userOuPath_ == nullptr; };
+        && this->desktopGroupIds_ == nullptr && this->endUserIds_ == nullptr && this->orgId_ == nullptr && this->regionId_ == nullptr && this->simpleUserGroupId_ == nullptr
+        && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr; };
     // desktopGroupId Field Functions 
     bool hasDesktopGroupId() const { return this->desktopGroupId_ != nullptr;};
     void deleteDesktopGroupId() { this->desktopGroupId_ = nullptr;};
@@ -68,6 +70,13 @@ namespace Models
     inline vector<string> getEndUserIds() { DARABONBA_PTR_GET(endUserIds_, vector<string>) };
     inline RemoveUserFromDesktopGroupRequest& setEndUserIds(const vector<string> & endUserIds) { DARABONBA_PTR_SET_VALUE(endUserIds_, endUserIds) };
     inline RemoveUserFromDesktopGroupRequest& setEndUserIds(vector<string> && endUserIds) { DARABONBA_PTR_SET_RVALUE(endUserIds_, endUserIds) };
+
+
+    // orgId Field Functions 
+    bool hasOrgId() const { return this->orgId_ != nullptr;};
+    void deleteOrgId() { this->orgId_ = nullptr;};
+    inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+    inline RemoveUserFromDesktopGroupRequest& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
 
 
     // regionId Field Functions 
@@ -99,13 +108,14 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud computer share.
+    // The ID of the shared cloud desktop from which you revoke the user’s permission.
     shared_ptr<string> desktopGroupId_ {};
-    // The IDs of the cloud computer shares.
+    // A list of shared desktop group IDs.
     shared_ptr<vector<string>> desktopGroupIds_ {};
-    // The IDs of the authorized users that you want to remove.
+    // The list of authorized users to remove.
     shared_ptr<vector<string>> endUserIds_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    shared_ptr<string> orgId_ {};
+    // The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

@@ -155,9 +155,9 @@ namespace Models
 
 
       protected:
-        // 应用管控策略ID
+        // Application control policy ID.
         shared_ptr<string> appRuleId_ {};
-        // 站点名称。
+        // Site name.
         shared_ptr<string> siteId_ {};
       };
 
@@ -199,9 +199,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // Tag key.
         shared_ptr<string> key_ {};
-        // The property value.
+        // Tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -316,25 +316,25 @@ namespace Models
 
 
       protected:
-        // The number of vCPUs.
+        // Number of vCPUs in the Cloud Desktop instance type.
         shared_ptr<int32_t> cpuCount_ {};
-        // The GPU memory information. This parameter is supported only by Graphics cloud computer types.
+        // GPU memory size. This field appears only for graphics instance types.
         shared_ptr<string> gpuSpec_ {};
-        // The memory size. Unit: MiB.
+        // Memory size in MiB.
         shared_ptr<int64_t> memorySize_ {};
-        // The office network ID.
+        // Office site ID.
         shared_ptr<string> officeSiteId_ {};
-        // The region ID.
+        // Region ID.
         shared_ptr<string> regionId_ {};
-        // The ID of the cloud computer type.
+        // Cloud Desktop instance type ID.
         shared_ptr<string> resourceInstanceType_ {};
-        // The snapshot policy ID.
+        // Snapshot policy ID.
         shared_ptr<string> snapshotPolicyId_ {};
-        // The subnet ID.
+        // Subnet ID.
         shared_ptr<string> subnetId_ {};
-        // Indicates whether disk encryption is enabled.
+        // Whether disk encryption is enabled.
         shared_ptr<bool> volumeEncryptionEnable_ {};
-        // The ID of the Key Management Service (KMS) key that is used to encrypt the disk.
+        // KMS key ID used when disk encryption is enabled.
         shared_ptr<string> volumeEncryptionKey_ {};
       };
 
@@ -376,15 +376,9 @@ namespace Models
 
 
       protected:
-        // The PL of the data disk.
-        // 
-        // Valid values:
-        // 
-        // *   PL1: a PL1 ESSD.
-        // *   PL0: a PL0 ESSD.
-        // *   AutoPL: an AutoPL SSD.
+        // Data disk performance level.
         shared_ptr<string> performanceLevel_ {};
-        // The size of the data disk. Unit: GiB.
+        // Data disk size in GiB.
         shared_ptr<string> size_ {};
       };
 
@@ -596,77 +590,48 @@ namespace Models
       shared_ptr<bool> autoPay_ {};
       shared_ptr<bool> autoRenew_ {};
       shared_ptr<string> chargeType_ {};
-      // The sizes of the data disks.
+      // Data disk size and specification configuration.
       shared_ptr<vector<Data::DataDiskList>> dataDiskList_ {};
-      // The default language of the template.
-      // 
-      // Valid values:
-      // 
-      // *   en-US: English.
-      // *   zh-HK: Chinese, Traditional (Hong Kong, China).
-      // *   zh-CN: Simplified Chinese.
-      // *   ja-JP: Japanese.
+      // Default startup language for the template.
       shared_ptr<string> defaultLanguage_ {};
-      // The template description.
+      // Template description.
       shared_ptr<string> description_ {};
-      // The time when the template was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in Coordinated Universal Time (UTC).
+      // Template creation time in UTC.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the template was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // Template modification time in UTC.
       shared_ptr<string> gmtModified_ {};
-      // The image ID.
+      // Image ID.
       shared_ptr<string> imageId_ {};
-      // The image type.
-      // 
-      // Valid values:
-      // 
-      // *   User: a custom image.
-      // *   Shared: a shared image.
-      // *   System: a system image.
-      // *   Community: a community image.
+      // Image type.
       shared_ptr<string> imageType_ {};
       shared_ptr<int32_t> period_ {};
       shared_ptr<string> periodUnit_ {};
-      // The policy ID.
+      // Policy ID.
       shared_ptr<string> policyGroupId_ {};
       shared_ptr<bool> postPaidAfterUsedUp_ {};
-      // The service type.
-      // 
-      // Valid value:
-      // 
-      // *   CloudDesktop: cloud computers.
+      // Product type.
       shared_ptr<string> productType_ {};
-      // The region-related settings.
+      // Region-specific configuration parameters.
       shared_ptr<vector<Data::RegionConfigList>> regionConfigList_ {};
-      // The request ID.
+      // Request ID.
       shared_ptr<string> requestId_ {};
-      // The ID of the resource group.
+      // Resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The tags added to cloud computers. A tag is a key-value pair.
+      // Cloud Desktop tags in key-value format.
       shared_ptr<vector<Data::ResourceTagList>> resourceTagList_ {};
-      // 区域配置管理
+      // Site configuration management.
       shared_ptr<vector<Data::SiteConfigList>> siteConfigList_ {};
-      // The performance level (PL) of the system disk.
-      // 
-      // Valid value:
-      // 
-      // *   PL1: a PL1 Enterprise SSD (ESSD).
-      // *   PL0: a PL0 ESSD.
-      // *   AutoPL: an AutoPL SSD.
+      // System disk type.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
-      // The size of the system disk. Unit: GiB.
+      // System disk size in GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The template ID.
+      // Template ID.
       shared_ptr<string> templateId_ {};
-      // The template name.
+      // Template name.
       shared_ptr<string> templateName_ {};
-      // The template type.
-      // 
-      // Valid values:
-      // 
-      // *   USER_TEMPLATE: custom templates.
-      // *   SYSTEM_TEMPLATE: system templates.
+      // Template type.
       shared_ptr<string> templateType_ {};
-      // The ID of the scheduled task group.
+      // Scheduled task group ID.
       shared_ptr<string> timerGroupId_ {};
       shared_ptr<string> userDuration_ {};
     };
@@ -740,23 +705,23 @@ namespace Models
 
 
   protected:
-    // The modification result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+    // Operation result. Returns `success` if successful. Otherwise, returns an error message.
     shared_ptr<string> code_ {};
-    // The templates.
+    // List of template information.
     shared_ptr<vector<DescribeTemplatesResponseBody::Data>> data_ {};
-    // The HTTP status code returned.
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message returned. This parameter is not returned if the value of Code is `success`.
+    // Error message. This parameter is not returned when Code is `success`.
     shared_ptr<string> message_ {};
-    // The page number.
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // Entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
-    // The total number of templates.
+    // Total count.
     shared_ptr<int32_t> totalCount_ {};
   };
 

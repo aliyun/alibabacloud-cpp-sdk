@@ -128,8 +128,11 @@ namespace Models
 
 
       protected:
+        // The event details.
         shared_ptr<string> eventName_ {};
+        // The time when the event occurred.
         shared_ptr<int32_t> eventTime_ {};
+        // The event type.
         shared_ptr<string> eventType_ {};
       };
 
@@ -245,20 +248,47 @@ namespace Models
 
 
     protected:
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
+      // The name of the end user.
       shared_ptr<string> endUserId_ {};
+      // The event details.
       shared_ptr<vector<RecordFiles::EventDetails>> eventDetails_ {};
+      // The name of the screen recording file.
       shared_ptr<string> fileName_ {};
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The ID of the policy.
       shared_ptr<string> policyId_ {};
+      // The time when the screen recording ended. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> recordEndTime_ {};
+      // The expiration time of the screen recording file.
       shared_ptr<int64_t> recordExpire_ {};
+      // The time when the screen recording started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
       shared_ptr<string> recordStartTime_ {};
+      // The recording type. Valid values:
+      // 
+      // - `alltime`: continuous screen recording.
+      // 
+      // - `period`: interval screen recording.
+      // 
+      // - `event`: event-triggered screen recording.
+      // 
+      // - `session`: session-based screen recording.
       shared_ptr<int32_t> recordType_ {};
+      // The ID of the region where the cloud desktop resides.
       shared_ptr<string> regionId_ {};
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
+      // The name of the resource group.
       shared_ptr<string> resourceGroupName_ {};
+      // The upload status of the screen recording file. Valid values:
+      // 
+      // - `0`: uploaded.
+      // 
+      // - `1`: uploading.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -288,9 +318,11 @@ namespace Models
 
 
   protected:
+    // Details of the screen recording files.
     shared_ptr<vector<DescribeRecordFileResponseBody::RecordFiles>> recordFiles_ {};
-    // RequestId
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

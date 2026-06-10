@@ -203,58 +203,66 @@ namespace Models
 
   protected:
     shared_ptr<string> businessChannel_ {};
-    // The cloud computer IDs. You can specify 1 to 100 office network IDs.
+    // The IDs of the cloud desktops. You can specify up to 100 IDs.
     shared_ptr<vector<string>> desktopId_ {};
-    // The name of the cloud computer.
+    // The name of the cloud desktop.
     shared_ptr<string> desktopName_ {};
+    // The ID of the resource group.
     shared_ptr<vector<string>> desktopStatusList_ {};
-    // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
+    // The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the supported desktop types.
     shared_ptr<string> desktopType_ {};
-    // The end time. The interval between the start time and end time can be up to 30 days. Supported formats:
+    // The end time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format. The interval between the start and end times cannot exceed 30 days.
     // 
-    // *   Format: YYYY-MM-DDThh:mm:ssZ.
+    // - Format: YYYY-MM-DDThh:mm:ssZ.
     shared_ptr<string> endTime_ {};
-    // The end user ID.
+    // The ID of the end user.
+    // 
+    // - Asc: ascending order
+    // 
+    // - Desc: descending order
     shared_ptr<string> endUserId_ {};
     shared_ptr<vector<string>> excludeDesktopStatusList_ {};
-    // The office network IDs.
+    // The ID of the office site.
+    // 
+    // - China (Shanghai)
+    // 
+    // - Singapore
     shared_ptr<string> officeSiteId_ {};
-    // The sorting field. If this parameter is not provided, results are sorted by creation time in descending order. Valid values:
+    // The field by which to sort the results. If you do not specify this parameter, the results are sorted by creation time in descending order. Valid value:
     // 
-    // *   uptime: indicates that the cloud computers are sorted by startup duration.
+    // - `uptime`: Sorts the results by cloud desktop uptime.
     shared_ptr<string> orderBy_ {};
-    // The page number of the current page.\\
-    // Default value: 1
-    shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100.
-    shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The page number to return.<br>Default value: 1.<br>
     // 
-    // *   China (Shanghai)
-    // *   Singapore
+    // - Format: YYYY-MM-DDThh:mm:ssZ.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Maximum value: 100.
+    shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
+    // 
+    // - Shanghai
+    // 
+    // - Singapore
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The query range. This parameter is empty by default. Optional values are:
+    // The query scope. This parameter is empty by default. Valid value:
     // 
-    // *   ADVANCED: indicates that statistics such as the connection duration are queried.
+    // - `ADVANCED`: Queries statistical records, such as connection duration.
+    // 
+    // - postPaid: Pay-as-you-go.
+    // 
+    // - monthPackage: monthly time-based package.
     shared_ptr<string> scope_ {};
-    // The sorting method. Default value: ascending. Valid value:
+    // The sort order. The default is `Asc`. Valid values:
     // 
-    // *   Asc: ascending order
-    // *   Desc: descending.
+    // - `Asc`: ascending order
     shared_ptr<string> sortType_ {};
-    // The start time. Supported formats:
-    // 
-    // *   Format: YYYY-MM-DDThh:mm:ssZ.
+    // The start time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
     shared_ptr<string> startTime_ {};
-    // The way to purchase cloud computers. Valid values:
-    // 
-    // *   prePaid: The monthly purchase is unlimited.
-    // *   postPaid: pay-as-you-go
-    // *   monthPackage: monthly duration.
+    // The billing method of the cloud desktop. Valid values:
     shared_ptr<string> subPayType_ {};
   };
 

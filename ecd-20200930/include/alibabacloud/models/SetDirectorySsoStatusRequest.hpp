@@ -63,8 +63,9 @@ namespace Models
     shared_ptr<string> directoryId_ {};
     // Specifies whether to enable SSO. Valid values:
     // 
-    // *   true: enables SSO.
-    // *   false: disables SSO.
+    // - true: enables SSO.
+    // 
+    // - false: disables SSO.
     // 
     // This parameter is required.
     shared_ptr<bool> enableSso_ {};

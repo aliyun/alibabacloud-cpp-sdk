@@ -121,108 +121,33 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud disk.
+    // Enterprise cloud disk ID.
     // 
     // This parameter is required.
     shared_ptr<string> cdsId_ {};
-    // The policy that is used when the file that you want to upload has the same name as an existing file in the cloud disk.
-    // 
-    // Valid values:
-    // 
-    // *   refuse
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     denies creating the file
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   auto_rename
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     automatically renames the file
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   ignore
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     allows the file to use the same name as the existing file in the cloud disk
-    // 
-    //     <!-- -->
-    // 
-    //     .
-    // 
-    // *   over_write
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     overwrites the existing file in the cloud disk
-    // 
-    //     <!-- -->
-    // 
-    //     .
+    // How to handle files with the same name.
     shared_ptr<string> conflictPolicy_ {};
-    // The user ID.
+    // User ID.
     shared_ptr<string> endUserId_ {};
-    // The hash value of the SHA1 algorithm that is used by the file.
+    // SHA-1 hash value of the file.
     shared_ptr<string> fileHash_ {};
-    // The file size. Unit: bytes.
+    // File size. Unit: Byte.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileLength_ {};
-    // The file name.
+    // File name.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The file type.
-    // 
-    // Valid values:
-    // 
-    // *   file
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   folder
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // File type.
     // 
     // This parameter is required.
     shared_ptr<string> fileType_ {};
+    // Team space ID.
     shared_ptr<string> groupId_ {};
-    // The ID of the parent folder.
+    // Parent file ID. Get this from the `FileId` parameter returned by the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) API.
     shared_ptr<string> parentFileId_ {};
-    // The region ID.
+    // Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to list regions supported by WUYING Workspace.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

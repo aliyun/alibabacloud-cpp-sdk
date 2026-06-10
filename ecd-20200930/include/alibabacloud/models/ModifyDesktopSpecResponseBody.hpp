@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // The ID of the order.
+    // The order ID.
     shared_ptr<string> orderId_ {};
-    // The array of order IDs.
+    // A list of order IDs.
     shared_ptr<vector<int64_t>> orderIds_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

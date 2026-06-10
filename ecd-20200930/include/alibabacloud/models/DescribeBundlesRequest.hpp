@@ -230,69 +230,20 @@ namespace Models
     // The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
     shared_ptr<vector<string>> bundleId_ {};
     // The type of the cloud computer template.
-    // 
-    // Valid values:
-    // 
-    // *   SYSTEM: system template
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CUSTOM: custom template
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> bundleType_ {};
     // Specifies whether to query the inventory status of the cloud computer instance type.
     shared_ptr<bool> checkStock_ {};
     // The number of vCPUs contained in the cloud computer instance type.
     shared_ptr<int32_t> cpuCount_ {};
     // The instance family of the cloud computers.
-    // 
-    // Valid values:
-    // 
-    // *   eds.graphics: graphical instance families
-    // *   eds.hf: instance families with high clock speeds
-    // *   eds.general: general-purpose instance families
     shared_ptr<string> desktopTypeFamily_ {};
-    // >  This parameter is not available for public use.
+    // > This parameter is not available for public use.
     shared_ptr<string> fotaChannel_ {};
     // Specifies whether the cloud computers in the template belong to a cloud computer pool.
-    // 
-    // Valid values:
-    // 
-    // *   true
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   false
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<bool> fromDesktopGroup_ {};
     // The number of GPUs contained in the cloud computer instance type.
     shared_ptr<float> gpuCount_ {};
     // The GPU driver type.
-    // 
-    // Valid values:
-    // 
-    // *   T4
-    // *   A10
-    // *   G28
-    // *   G39
     shared_ptr<string> gpuDriverType_ {};
     // The image IDs.
     shared_ptr<vector<string>> imageId_ {};
@@ -307,33 +258,10 @@ namespace Models
     // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The type of the OS.
-    // 
-    // Valid values:
-    // 
-    // *   Linux
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Windows
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> osType_ {};
     // The protocol type.
-    // 
-    // Valid values:
-    // 
-    // *   HDX: High-definition Experience (HDX) protocol
-    // *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommend)
     shared_ptr<string> protocolType_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+    // The region ID. You can call the [](t2167755.xdita#)operation to query the regions supported by Elastic Desktop Service (EDS).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -341,10 +269,7 @@ namespace Models
     shared_ptr<string> scope_ {};
     // The desktop template that is selected based on specific criteria.
     shared_ptr<bool> selectedBundle_ {};
-    // The type of the session. Valide values:
-    // 
-    // - SingleSession
-    // - MultipleSession
+    // The type of the session.
     shared_ptr<string> sessionType_ {};
     // Specifies whether to return multi-session cloud computer templates. Default value: false.
     shared_ptr<bool> supportMultiSession_ {};

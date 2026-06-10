@@ -179,106 +179,40 @@ namespace Models
 
 
   protected:
-    // The cloud desktop ID. If you do not specify a value for this parameter, events of all cloud desktops in the specified region are queried.
+    // The ID of the cloud desktop. If you omit this parameter, the operation returns events for all cloud desktops in the region.
     shared_ptr<string> desktopId_ {};
-    // The IP address of the cloud desktop. If you do not specify a value for this parameter, the events of all cloud desktops in the specified region are queried.
+    // The IP address of the cloud desktop. If you omit this parameter, the operation returns events for all cloud desktops in the region.
     shared_ptr<string> desktopIp_ {};
-    // The cloud desktop name.
+    // The name of the cloud desktop.
     shared_ptr<string> desktopName_ {};
-    // This parameter is not available to the public.
+    // > This parameter is not in use.
     shared_ptr<string> directoryId_ {};
-    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
-    // If you do not specify a value for this parameter, the current time is used.
+    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.<br>
+    // If you omit this parameter, the operation uses the current time.<br>
     shared_ptr<string> endTime_ {};
-    // The information about the end user that connects to the cloud desktop from the Elastic Desktop Service (EDS) client. The information can be a Resource Access Management (RAM) user ID or an Active Directory (AD) username. If you do not specify a value for this parameter, the events of all end users in the specified region are queried.
+    // The ID of the end user, which can be a RAM user ID or an AD username. If you omit this parameter, the operation returns events for all users in the region.
     shared_ptr<string> endUserId_ {};
-    // The type of the events that you want to query. If you specify multiple values for the EventTypes parameter, the events of all specified types are returned. If you do not specify values for the EventTypes and EventType parameters, all events of end users in the specified region are returned.
-    // 
-    // Valid values:
-    // 
-    // *   DESKTOP_STOP: End users stop the cloud desktop.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   GET_LITE_CONNECTION_TICKET: End users obtain the credential for reconnecting to the cloud desktop upon disconnection.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DESKTOP_DISCONNECT: End users disconnect desktop sessions.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   GET_CONNECTION_TICKET: End users request to connect to the cloud desktop.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   CLIENT_LOGIN: End users log on to the cloud desktop.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DESKTOP_REBOOT: End users restart the cloud desktop.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DESKTOP_CONNECT: End users establish desktop sessions.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   DESKTOP_START: End users start the cloud desktop.
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
+    // The event type to query. If EventTypes is specified, this parameter is ignored. If you omit both this parameter and EventTypes, the operation returns all events.
     shared_ptr<string> eventType_ {};
-    // The array of event types that you want to query. You can specify multiple event types. The response contains all or specified types of events.
+    // An array of event types to query. The operation returns events that match any of the specified types.
     shared_ptr<vector<string>> eventTypes_ {};
     shared_ptr<bool> fillHardwareInfo_ {};
     shared_ptr<string> language_ {};
-    // The number of entries per page.\\
-    // Default value: 100.
+    // The maximum number of entries to return on each page.<br>
+    // Default value: 100.<br>
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous response to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the workspace to which the cloud desktop belongs. If you do not specify a value for this parameter, the events of all workspaces in the specified region are queried.
+    // The ID of the office network to which the cloud desktop belongs. If you omit this parameter, the operation returns events for users in all office networks in the region.
     shared_ptr<string> officeSiteId_ {};
-    // The workspace name.
+    // The name of the office network.
     shared_ptr<string> officeSiteName_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+    // The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
-    // If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
+    // The start of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.<br>
+    // If you omit this parameter, the query returns events that occurred before the time specified by `EndTime`.<br>
     shared_ptr<string> startTime_ {};
   };
 

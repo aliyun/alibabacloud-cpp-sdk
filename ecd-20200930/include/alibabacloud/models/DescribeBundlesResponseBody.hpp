@@ -143,62 +143,10 @@ namespace Models
 
       protected:
         // The PL of the disk.
-        // 
-        // Valid values:
-        // 
-        // *   PL1
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   PL0
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   PL3
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   PL2
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> diskPerformanceLevel_ {};
         // The size of the disk. Unit: GiB.
         shared_ptr<int32_t> diskSize_ {};
         // The type of the disk.
-        // 
-        // Valid values:
-        // 
-        // *   SYSTEM: system disk
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   DATA: data disk
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
         shared_ptr<string> diskType_ {};
       };
 
@@ -438,34 +386,10 @@ namespace Models
       // The name of the cloud computer template.
       shared_ptr<string> bundleName_ {};
       // The type of the cloud computer template.
-      // 
-      // Valid values:
-      // 
-      // *   SYSTEM: system template
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   CUSTOM: custom template
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> bundleType_ {};
       // The time when the cloud computer template was created.
       shared_ptr<string> creationTime_ {};
       // The category of the data disk.
-      // 
-      // Valid values:
-      // 
-      // *   cloud_efficiency: the ultra disk
-      // *   cloud_auto: the standard SSD.
-      // *   cloud_essd: the ESSD. Take note that only specific cloud computer types support ESSDs.
       shared_ptr<string> dataDiskCategory_ {};
       // The description of the cloud computer template.
       shared_ptr<string> description_ {};
@@ -474,12 +398,6 @@ namespace Models
       // The details of the cloud computer instance type.
       shared_ptr<Bundles::DesktopTypeAttribute> desktopTypeAttribute_ {};
       // The instance family of the cloud computer.
-      // 
-      // Valid values:
-      // 
-      // *   eds.graphics: graphical instance family
-      // *   eds.hf: instance family with a high clock speed
-      // *   eds.general: general-purpose instance family
       shared_ptr<string> desktopTypeFamily_ {};
       // Details of the disks.
       shared_ptr<vector<Bundles::Disks>> disks_ {};
@@ -490,109 +408,18 @@ namespace Models
       // The status of the image.
       shared_ptr<string> imageStatus_ {};
       // The OS language of the image.
-      // 
-      // Valid values:
-      // 
-      // *   en-US: English
-      // *   zh-HK: Chinese, Traditional (Hong Kong, China)
-      // *   zh-CN: Simplified Chinese
-      // *   ja-JP: Japanese
       shared_ptr<string> language_ {};
       // The type of the OS.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> osType_ {};
       // The OS.
-      // 
-      // Valid values:
-      // 
-      // *   Ubuntu
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows Server 2022
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   UOS
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   CentOS
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows Server 2019
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows Server 2016
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> platform_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // *   HDX: HDX protocol
-      // *   ASP: in-house ASP
       shared_ptr<string> protocolType_ {};
       // The session type.
-      // 
-      // Valid values:
-      // 
-      // *   0: single-session
-      // *   1: multi-session
       shared_ptr<string> sessionType_ {};
       // The inventory status of the cloud computer instance type. This parameter is returned only if you set the `CheckStock` parameter to `true`.
       shared_ptr<string> stockState_ {};
       // The category of the system disk.
-      // 
-      // Valid values:
-      // 
-      // *   cloud_efficiency: the ultra disk
-      // *   cloud_auto: the standard SSD.
-      // *   cloud_essd: the Enterprise SSD (ESSD). Take note that only specific cloud computer types support ESSDs.
       shared_ptr<string> systemDiskCategory_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};

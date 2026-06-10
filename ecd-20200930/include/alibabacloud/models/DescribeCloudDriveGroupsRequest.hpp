@@ -153,15 +153,17 @@ namespace Models
     shared_ptr<string> directoryName_ {};
     // The team space status. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled
+    // 
+    // - disabled
     // 
     // Default value: enabled.
     shared_ptr<string> driveStatus_ {};
     // Specifies whether the space is increased.
     // 
-    // *   binding: increased
-    // *   unbound: not increased
+    // - binding: increased
+    // 
+    // - unbound: not increased
     // 
     // Default value: null. The default value indicates that all spaces are queried.
     shared_ptr<string> driveType_ {};
@@ -171,15 +173,17 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The team type.
     // 
-    // *   org: organizational structure
-    // *   directory: workspace
+    // - org: organizational structure
+    // 
+    // - directory: workspace
     // 
     // Default value: null. The default value indicates that all types of teams are queried.
     shared_ptr<string> groupType_ {};
     // The number of entries to return on each page.
     // 
-    // *   Valid values: 1 to 100
-    // *   Default value: 20
+    // - Valid values: 1 to 100
+    // 
+    // - Default value: 20
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};

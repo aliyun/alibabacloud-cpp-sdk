@@ -149,19 +149,50 @@ namespace Models
 
 
   protected:
+    // The ID of the cloud desktop.
     shared_ptr<string> desktopId_ {};
+    // The end of the time range to query.
     shared_ptr<string> endTime_ {};
+    // The ID of the end user.
     shared_ptr<string> endUserId_ {};
+    // The name of the recording file.
     shared_ptr<string> fileName_ {};
+    // The sorting basis. If you do not specify this parameter, the results are sorted by screen recording start time in descending order. Valid value:
+    // 
+    // - `startTime`: the start time of a screen recording.
     shared_ptr<string> orderBy_ {};
+    // The sorting order. Valid values:
+    // 
+    // - `asc`: ascending
+    // 
+    // - `desc`: descending
     shared_ptr<string> orderSort_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The type of the screen recording. Valid values:
+    // 
+    // - `alltime`: full-time recording
+    // 
+    // - `period`: recording at intervals
+    // 
+    // - `event`: event-triggered recording
+    // 
+    // - `session`: session-based recording
     shared_ptr<string> recordType_ {};
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that are supported by Elastic Desktop Service.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceType_ {};
+    // The beginning of the time range to query.
     shared_ptr<string> startTime_ {};
+    // The status of the screen recording file. Valid values:
+    // 
+    // - `0`: The file is uploaded.
+    // 
+    // - `1`: The file is being uploaded.
     shared_ptr<int32_t> status_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The cloud computer policy ID.
+    // Cloud desktop policy ID.
     shared_ptr<string> policyGroupId_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

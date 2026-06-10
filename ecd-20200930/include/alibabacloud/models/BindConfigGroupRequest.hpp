@@ -94,7 +94,7 @@ namespace Models
       // 
       // Valid value:
       // 
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // - CLOUD_DESKTOP: the cloud computer service.
       shared_ptr<string> productType_ {};
       // The ID of the resource.
       shared_ptr<string> resourceId_ {};
@@ -104,8 +104,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   RESOURCE_GROUP: the resource group
-      // *   CLOUD_DESKTOP: the cloud computer service.
+      // - RESOURCE_GROUP: the resource group
+      // 
+      // - CLOUD_DESKTOP: the cloud computer service.
       shared_ptr<string> resourceType_ {};
     };
 

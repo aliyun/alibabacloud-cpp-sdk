@@ -89,19 +89,19 @@ namespace Models
   protected:
     // The IDs of the NAS file systems.
     shared_ptr<vector<string>> fileSystemId_ {};
-    // Specifies whether to include only NAS file systems that support the User Profile Management (UPM) feature in the query results.
+    // Specifies whether to return only NAS file systems that are compatible with User Profile Management (UPM).
     shared_ptr<bool> matchCompatibleProfile_ {};
     // The number of entries to return on each page.
     // 
-    // Maximum value: 100.
+    // - Maximum value: 100.
     // 
-    // Default value: 10.
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the query.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
     // The ID of the office network.
     shared_ptr<string> officeSiteId_ {};
-    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Elastic Desktop Service (EDS) is available.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

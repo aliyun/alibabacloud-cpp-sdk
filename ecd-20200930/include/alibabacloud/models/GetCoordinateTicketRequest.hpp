@@ -91,17 +91,17 @@ namespace Models
     // 
     // Set the value to TENANT_ADMIN.
     // 
-    // *   The value of
+    // - The value of
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     TENANT_ADMIN
+    //   TENANT_ADMIN
     // 
-    //     <!-- -->
+    //   <!-- -->
     // 
-    //     specifies an administrator.
+    //   specifies an administrator.
     // 
     // This parameter is required.
     shared_ptr<string> userType_ {};

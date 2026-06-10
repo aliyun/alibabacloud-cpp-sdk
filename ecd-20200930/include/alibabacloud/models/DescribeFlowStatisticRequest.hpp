@@ -90,7 +90,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> officeSiteId_ {};
-    // The number of the page to return.\\
+    // The number of the page to return.<br>
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries to return on each page.
@@ -99,9 +99,11 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   3600: 1 hour
-    // *   10800: 3 hours
-    // *   86400: 24 hours
+    // - 3600: 1 hour
+    // 
+    // - 10800: 3 hours
+    // 
+    // - 86400: 24 hours
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};

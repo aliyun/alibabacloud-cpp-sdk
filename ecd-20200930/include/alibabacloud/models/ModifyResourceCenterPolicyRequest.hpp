@@ -91,7 +91,7 @@ namespace Models
   protected:
     // The IDs of the cloud computer policies that you want to associate with cloud computers.
     // 
-    // >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If multiple cloud computer policies are configured for global enforcement, only the earliest-associated policy will take effect
+    // > You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If multiple cloud computer policies are configured for global enforcement, only the earliest-associated policy will take effect
     // 
     // This parameter is required.
     shared_ptr<vector<string>> policyGroupIds_ {};
@@ -99,7 +99,7 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   general: a general policy.
+    // - general: a general policy.
     // 
     // This parameter is required.
     shared_ptr<string> policyGroupType_ {};
@@ -107,10 +107,13 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   app: cloud applications.
-    // *   resourceGroup: resource groups.
-    // *   desktop: cloud computers.
-    // *   desktopGroup: cloud computer shares.
+    // - app: cloud applications.
+    // 
+    // - resourceGroup: resource groups.
+    // 
+    // - desktop: cloud computers.
+    // 
+    // - desktopGroup: cloud computer shares.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
@@ -126,8 +129,9 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   app: cloud applications.
-    // *   desktop: cloud computers.
+    // - app: cloud applications.
+    // 
+    // - desktop: cloud computers.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

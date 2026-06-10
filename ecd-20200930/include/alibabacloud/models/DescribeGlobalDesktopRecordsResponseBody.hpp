@@ -141,9 +141,9 @@ namespace Models
 
 
       protected:
-        // The end user ID.
+        // The ID of the end user.
         shared_ptr<string> endUserId_ {};
-        // The time when the session was created.
+        // The time the session was created.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
       protected:
-        // The ID of the enterprise resource group.
+        // The ID of the resource group.
         shared_ptr<string> resourceGroupId_ {};
-        // The queried resource group name.
+        // The name of the resource group.
         shared_ptr<string> resourceGroupName_ {};
       };
 
@@ -386,66 +386,71 @@ namespace Models
 
 
     protected:
-      // The connection status of the cloud desktop.
+      // The connection status.
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The ID of the cloud computer share.
+      // The ID of the desktop group.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the cloud computer share.
+      // The name of the desktop group.
       shared_ptr<string> desktopGroupName_ {};
-      // The cloud computer IDs.
+      // The ID of the cloud desktop.
       shared_ptr<string> desktopId_ {};
-      // The cloud computer name.
+      // The name of the cloud desktop.
       shared_ptr<string> desktopName_ {};
-      // 桌面状态
+      // The desktop status.
       shared_ptr<string> desktopStatus_ {};
-      // The end user ID.
+      // The ID of the end user.
       shared_ptr<string> endUserId_ {};
-      // The list of assigned terminal user IDs.
+      // A list of assigned end user IDs.
       shared_ptr<vector<string>> endUserIds_ {};
-      // The size of the GPU memory.
+      // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
-      // The duration of the last connection to the cloud computer. Unit: seconds
+      // The duration of the last connection, in seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
-      // The memory of the cloud computer. Unit: MiB.
+      // The memory size of the cloud desktop, in MiB.
       shared_ptr<int64_t> memory_ {};
-      // The office network ID.
+      // The ID of the office site.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The name of the office site.
       shared_ptr<string> officeSiteName_ {};
+      // The office site type.
       shared_ptr<string> officeSiteType_ {};
-      // The OS type. Valid values:
+      // The operating system type. Valid values:
       // 
-      // *   Windows
-      // *   Linux
+      // - `Windows`
+      // 
+      // - `Linux`
       shared_ptr<string> osType_ {};
-      // The specific model of the operating system.
+      // The operating system version.
       shared_ptr<string> platform_ {};
-      // Protocol type.
+      // The protocol type. Valid values:
       // 
-      // *   HDX
-      // *   ASP
+      // - `HDX`
+      // 
+      // - `ASP`
       shared_ptr<string> protocolType_ {};
-      // The ID of the region where the instance resides.
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
-      // The name of the enterprise resource group.
+      // A list of resource groups.
       shared_ptr<vector<Sessions::ResourceGroups>> resourceGroups_ {};
-      // The idle duration of the session. Unit: minutes.
+      // The idle duration of the session, in minutes.
       shared_ptr<int64_t> sessionIdleTime_ {};
-      // The session details.
+      // A list of sessions.
       shared_ptr<vector<Sessions::SessionsItem>> sessions_ {};
-      // The time when the status of the cloud computer was changed.
+      // The time when the cloud desktop status changed.
       shared_ptr<int64_t> statusChangeTime_ {};
-      // The billing method of the cloud computer. Valid values:
+      // The billing method for the cloud desktop. Valid values:
       // 
-      // *   prePaid: The monthly purchase is unlimited.
-      // *   postPaid: pay-as-you-go
-      // *   monthPackage: monthly duration.
+      // - `prePaid`: Subscription.
+      // 
+      // - `postPaid`: Pay-as-you-go.
+      // 
+      // - `monthPackage`: Monthly usage package.
       shared_ptr<string> subPayType_ {};
-      // The total connection duration. Unit: seconds
+      // The total connection duration, in seconds.
       shared_ptr<int64_t> totalConnectionTime_ {};
-      // The startup duration of the cloud computer. Unit: seconds
+      // The cloud desktop uptime, in seconds.
       shared_ptr<int64_t> upTime_ {};
     };
 
@@ -477,9 +482,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session details.
+    // A list of sessions.
     shared_ptr<vector<DescribeGlobalDesktopRecordsResponseBody::Sessions>> sessions_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

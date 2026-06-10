@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The ID of the region. Set the value to `cn-shanghai`.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

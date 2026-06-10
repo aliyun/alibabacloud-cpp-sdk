@@ -201,47 +201,21 @@ namespace Models
 
     protected:
       shared_ptr<VirtualMFADevices::AdUser> adUser_ {};
-      // The number of consecutive failures to bind the virtual MFA device, or the number of failures on the verification of the virtual MFA device.
+      // The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
       shared_ptr<int32_t> consecutiveFails_ {};
-      // > This parameter is in invitational preview and is not publicly available.
+      // > This parameter is in private preview.
       shared_ptr<string> directoryId_ {};
-      // The name of the AD user who uses the virtual MFA device.
+      // The AD username of the bound user.
       shared_ptr<string> endUserId_ {};
-      // The time when the virtual MFA device was started. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the virtual MFA device was enabled. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
       shared_ptr<string> gmtEnabled_ {};
-      // The time when a locked virtual MFA device was automatically unlocked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the locked virtual MFA device is automatically unlocked. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
       shared_ptr<string> gmtUnlock_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> officeSiteId_ {};
-      // The serial number of the virtual MFA device, which is a unique identifier.
+      // The serial number of the virtual MFA device.
       shared_ptr<string> serialNumber_ {};
       // The status of the virtual MFA device.
-      // 
-      // Valid values:
-      // 
-      // *   LOCKED
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   UNBOUND
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   NORMAL
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> status_ {};
     };
 
@@ -271,11 +245,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+    // The token to retrieve the next page of results. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Details of the virtual MFA devices.
+    // A list of virtual MFA devices.
     shared_ptr<vector<DescribeVirtualMFADevicesResponseBody::VirtualMFADevices>> virtualMFADevices_ {};
   };
 

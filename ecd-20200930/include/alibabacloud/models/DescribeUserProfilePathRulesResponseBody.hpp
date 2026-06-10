@@ -114,27 +114,7 @@ namespace Models
 
 
         protected:
-          // The path.
           shared_ptr<string> path_ {};
-          // The path type.
-          // 
-          // Valid values:
-          // 
-          // *   file
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          // *   folder
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
           shared_ptr<string> type_ {};
         };
 
@@ -176,27 +156,7 @@ namespace Models
 
 
         protected:
-          // The path.
           shared_ptr<string> path_ {};
-          // The path type.
-          // 
-          // Valid values:
-          // 
-          // *   file
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          // *   folder
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
-          // 
-          //     <!-- -->
           shared_ptr<string> type_ {};
         };
 
@@ -221,9 +181,7 @@ namespace Models
 
 
       protected:
-        // The blacklist that is configured.
         shared_ptr<Rules::BlackPath> blackPath_ {};
-        // The directories in the whitelist.
         shared_ptr<vector<Rules::WhitePaths>> whitePaths_ {};
       };
 
@@ -253,29 +211,8 @@ namespace Models
 
 
     protected:
-      // The desktop group ID.
       shared_ptr<string> desktopGroupId_ {};
-      // The directory rules.
       shared_ptr<vector<UserProfilePathRule::Rules>> rules_ {};
-      // The directory type that is configured for the directory.
-      // 
-      // Valid values:
-      // 
-      // *   DesktopGroup
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Default
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> userProfileRuleType_ {};
     };
 
@@ -298,9 +235,7 @@ namespace Models
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The directory blacklist and whitelist.
     shared_ptr<DescribeUserProfilePathRulesResponseBody::UserProfilePathRule> userProfilePathRule_ {};
   };
 

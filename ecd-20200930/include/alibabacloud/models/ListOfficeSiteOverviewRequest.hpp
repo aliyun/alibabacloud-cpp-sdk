@@ -91,8 +91,9 @@ namespace Models
     shared_ptr<bool> forceRefresh_ {};
     // The number of entries to return on each page.
     // 
-    // *   Valid values: 1 to 100
-    // *   Default value: 10
+    // - Valid values: 1 to 100
+    // 
+    // - Default value: 10
     shared_ptr<int32_t> maxResults_ {};
     // The token that determines the start point of the next query. If this is your first query or no next query is to be sent, skip this parameter. If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
     shared_ptr<string> nextToken_ {};
@@ -102,9 +103,11 @@ namespace Models
     // 
     // Default values:
     // 
-    // *   1 (default): queries non-pooled cloud computers in the office network.
-    // *   2: queries pooled cloud computers in the office network.
-    // *   3: queries all cloud computers in the office network.
+    // - 1 (default): queries non-pooled cloud computers in the office network.
+    // 
+    // - 2: queries pooled cloud computers in the office network.
+    // 
+    // - 3: queries all cloud computers in the office network.
     shared_ptr<int32_t> queryRange_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
     // 

@@ -57,31 +57,9 @@ namespace Models
 
 
   protected:
-    // The desktop group ID. This parameter is required when you set RuleType parameter to DesktopGroup.
     shared_ptr<string> desktopGroupId_ {};
-    // The region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The rule type that you want to configure for the directory.
-    // 
-    // Valid values:
-    // 
-    // *   DesktopGroup
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    // *   Default
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
-    // 
-    //     <!-- -->
     shared_ptr<string> ruleType_ {};
   };
 

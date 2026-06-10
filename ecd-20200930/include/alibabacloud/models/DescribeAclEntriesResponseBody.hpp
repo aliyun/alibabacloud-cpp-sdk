@@ -85,8 +85,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   allow: whitelist
-      // *   disable: blacklist
+      // - allow: whitelist
+      // 
+      // - disable: blacklist
       shared_ptr<string> policy_ {};
       // The ID of the instance to which the ACL applies. You can specify an office network ID or a cloud computer ID.
       shared_ptr<string> sourceId_ {};
@@ -94,8 +95,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   desktop: cloud computer
-      // *   vpc: office network
+      // - desktop: cloud computer
+      // 
+      // - vpc: office network
       shared_ptr<string> sourceType_ {};
     };
 

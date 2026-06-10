@@ -139,8 +139,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   0: depth-first
-      // *   1: breadth first.
+      // - 0: depth-first
+      // 
+      // - 1: breadth first.
       shared_ptr<int32_t> loadPolicy_ {};
       // One option for the auto scaling policy. This option specifies the maximum number of cloud computers that you can create in the cloud computer pool. Valid values: 0 to 200.
       shared_ptr<int32_t> maxResAmount_ {};
@@ -156,37 +157,37 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   drop
+      // - drop
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   normal
+      // - normal
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   peak
+      // - peak
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      // *   rise
+      // - rise
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       // 
-      //     <!-- -->
+      //   <!-- -->
       shared_ptr<string> type_ {};
     };
 

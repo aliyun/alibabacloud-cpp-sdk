@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // > This parameter is for internal use only.
     shared_ptr<int32_t> bizType_ {};
+    // The office site ID.
     shared_ptr<string> officeSiteId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The ID of the region to search. This filters the results to show only resources from the specified region.
     shared_ptr<string> searchRegionId_ {};
   };
 

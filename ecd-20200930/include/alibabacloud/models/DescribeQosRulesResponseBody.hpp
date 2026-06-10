@@ -116,12 +116,18 @@ namespace Models
 
 
     protected:
+      // The number of associated cloud desktops.
       shared_ptr<string> desktopCount_ {};
       shared_ptr<int32_t> desktopGroupCount_ {};
+      // The download bandwidth.
       shared_ptr<string> download_ {};
+      // The network package ID.
       shared_ptr<string> networkPackageId_ {};
+      // The QoS rule ID.
       shared_ptr<string> qosRuleId_ {};
+      // The QoS rule name.
       shared_ptr<string> qosRuleName_ {};
+      // The upload bandwidth.
       shared_ptr<string> upload_ {};
     };
 
@@ -144,7 +150,9 @@ namespace Models
 
 
   protected:
+    // A list of QoS rules.
     shared_ptr<vector<DescribeQosRulesResponseBody::QosRules>> qosRules_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

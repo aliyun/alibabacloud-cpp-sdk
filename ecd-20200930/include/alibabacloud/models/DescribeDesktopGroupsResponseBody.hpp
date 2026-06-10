@@ -72,6 +72,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_TO_JSON(OfficeSiteType, officeSiteType_);
+        DARABONBA_PTR_TO_JSON(OrgId, orgId_);
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(OwnBundleId, ownBundleId_);
         DARABONBA_PTR_TO_JSON(OwnBundleName, ownBundleName_);
@@ -134,6 +135,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteType, officeSiteType_);
+        DARABONBA_PTR_FROM_JSON(OrgId, orgId_);
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(OwnBundleId, ownBundleId_);
         DARABONBA_PTR_FROM_JSON(OwnBundleName, ownBundleName_);
@@ -253,75 +255,9 @@ namespace Models
 
 
       protected:
-        // The total number of cloud computers.
+        // The number of cloud desktops in the specified status.
         shared_ptr<int32_t> count_ {};
-        // The status of the cloud computer.
-        // 
-        // Valid values:
-        // 
-        // *   Stopped
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Starting
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Rebuilding
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Running
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Stopping
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Expired
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Deleted
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        // *   Pending
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
-        // 
-        //     <!-- -->
+        // The status of the cloud desktop.
         shared_ptr<string> status_ {};
       };
 
@@ -332,12 +268,12 @@ namespace Models
         && this->entraDomainName_ == nullptr && this->envId_ == nullptr && this->envType_ == nullptr && this->expiredTime_ == nullptr && this->expiredTimes_ == nullptr
         && this->gpuCount_ == nullptr && this->gpuDriverVersion_ == nullptr && this->gpuSpec_ == nullptr && this->idleDisconnectDuration_ == nullptr && this->imageId_ == nullptr
         && this->isLdap_ == nullptr && this->keepDuration_ == nullptr && this->loadPolicy_ == nullptr && this->maxDesktopsCount_ == nullptr && this->memory_ == nullptr
-        && this->minDesktopsCount_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr
-        && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr && this->ownType_ == nullptr && this->payType_ == nullptr && this->policyGroupId_ == nullptr
-        && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr && this->qosRuleId_ == nullptr
-        && this->ratioThreshold_ == nullptr && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr && this->status_ == nullptr && this->stopDuration_ == nullptr
-        && this->subnetId_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->userGroupName_ == nullptr
-        && this->userOuPath_ == nullptr && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
+        && this->minDesktopsCount_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->orgId_ == nullptr
+        && this->osType_ == nullptr && this->ownBundleId_ == nullptr && this->ownBundleName_ == nullptr && this->ownType_ == nullptr && this->payType_ == nullptr
+        && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->protocolType_ == nullptr
+        && this->qosRuleId_ == nullptr && this->ratioThreshold_ == nullptr && this->resetType_ == nullptr && this->simpleUserGroupId_ == nullptr && this->status_ == nullptr
+        && this->stopDuration_ == nullptr && this->subnetId_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr
+        && this->userGroupName_ == nullptr && this->userOuPath_ == nullptr && this->version_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -587,6 +523,13 @@ namespace Models
       inline DesktopGroups& setOfficeSiteType(string officeSiteType) { DARABONBA_PTR_SET_VALUE(officeSiteType_, officeSiteType) };
 
 
+      // orgId Field Functions 
+      bool hasOrgId() const { return this->orgId_ != nullptr;};
+      void deleteOrgId() { this->orgId_ = nullptr;};
+      inline string getOrgId() const { DARABONBA_PTR_GET_DEFAULT(orgId_, "") };
+      inline DesktopGroups& setOrgId(string orgId) { DARABONBA_PTR_SET_VALUE(orgId_, orgId) };
+
+
       // osType Field Functions 
       bool hasOsType() const { return this->osType_ != nullptr;};
       void deleteOsType() { this->osType_ = nullptr;};
@@ -770,204 +713,124 @@ namespace Models
 
     protected:
       shared_ptr<string> accountType_ {};
-      // The number of concurrent sessions allowed for each cloud computer within the multi-session many-to-many share.
+      // The number of concurrent sessions allowed per cloud desktop in a multi-session shared cloud desktop group.
       shared_ptr<int64_t> bindAmount_ {};
-      // This parameter is applicable only to subscription cloud computer shares. It defines the initial number of cloud computers that are purchased. Valid values: 0 to 200.
+      // The number of cloud desktops that you purchase. This parameter applies only to subscription shared cloud desktop groups. Valid values: 0 to 200.
       shared_ptr<int32_t> buyDesktopsCount_ {};
-      // The remarks.
+      // The comments on the shared cloud desktop group.
       shared_ptr<string> comments_ {};
-      // The maximum period of time during which a session is connected. When the specified maximum period of time is reached, the session is automatically disconnected. Unit: milliseconds.
+      // The maximum session duration, in milliseconds. When this duration is reached, the session is automatically disconnected.
       shared_ptr<int64_t> connectDuration_ {};
-      // The number of cloud computers in each state.
+      // The number of cloud desktops in each status.
       shared_ptr<vector<DesktopGroups::CountPerStatus>> countPerStatus_ {};
-      // The number of vCPUs.
+      // The number of vCPU cores.
       shared_ptr<int32_t> cpu_ {};
-      // The time when the cloud computer pool was created.
+      // The time when the shared cloud desktop group was created.
       shared_ptr<string> createTime_ {};
-      // The Alibaba Cloud account that creates the cloud computer pool.
+      // The ID of the Alibaba Cloud account that created the shared cloud desktop group.
       shared_ptr<string> creator_ {};
-      // The category of the user disk.
-      // 
-      // Valid values:
-      // 
-      // *   cloud_efficiency: ultra disk
-      // *   cloud_ssd: standard SSD
-      // *   cloud_essd: enhanced SSD (ESSD)
+      // The type of the data disk.
       shared_ptr<string> dataDiskCategory_ {};
-      // The user disk capacity. Unit: GiB.
+      // The data disk size in GiB.
       shared_ptr<string> dataDiskSize_ {};
-      // The number of cloud computers that are created.
+      // The number of cloud desktops created.
       shared_ptr<int32_t> desktopCount_ {};
-      // The ID of the cloud computer share.
+      // The ID of the shared cloud desktop group.
       shared_ptr<string> desktopGroupId_ {};
-      // The name of the cloud computer share.
+      // The name of the shared cloud desktop group.
       shared_ptr<string> desktopGroupName_ {};
-      // The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the cloud computer types supported by WUYING Workspace.
+      // The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the desktop types supported by WUYING Workspace.
       shared_ptr<string> desktopType_ {};
-      // The number of users who can access the cloud computer share.
+      // The number of authorized users of the shared cloud desktop group.
       shared_ptr<int32_t> endUserCount_ {};
       shared_ptr<string> entraDomainName_ {};
       shared_ptr<string> envId_ {};
       shared_ptr<string> envType_ {};
-      // The expiration date of the subscription cloud computer share.
+      // The time when the subscription shared cloud desktop group expires.
       shared_ptr<string> expiredTime_ {};
       shared_ptr<vector<string>> expiredTimes_ {};
-      // The number of GPUs.
+      // The number of vGPU cores.
       shared_ptr<float> gpuCount_ {};
-      // The version of the GPU driver.
+      // The GPU driver version.
       shared_ptr<string> gpuDriverVersion_ {};
-      // The GPU memory.
+      // The GPU memory size.
       shared_ptr<string> gpuSpec_ {};
-      // The period of time after which a session is closed. After an end user connects to a cloud computer, the session is established. If the system does not detect inputs from the keyboard or mouse within the specified period of time, the session is closed. Unit: milliseconds.
+      // The amount of time, in milliseconds, that a session can remain idle. If a session remains idle for longer than this duration, it is automatically disconnected. A session is considered idle if there is no keyboard or mouse activity.
       shared_ptr<int64_t> idleDisconnectDuration_ {};
       // The ID of the image.
       shared_ptr<string> imageId_ {};
       shared_ptr<bool> isLdap_ {};
-      // The keep-alive duration of a session after the session is disconnected. Valid values: 180000 (3 minutes) to 345600000 (4 days). Unit: milliseconds. If you set this parameter to 0, the session is permanently retained after it is disconnected.
+      // The duration, in milliseconds, to retain a disconnected session. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session is always retained.
       // 
-      // When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can continue to access data of the session.
+      // When a session disconnects, the user can reconnect within this period to resume their work. If the user fails to reconnect in time, the session is terminated and unsaved data is lost.
       shared_ptr<int64_t> keepDuration_ {};
-      // The load balancing policy for the multi-session many-to-many share.
-      // 
-      // Valid values:
-      // 
-      // *   0: depth-first
-      // *   1: breadth-first
+      // The load balancing policy for the multi-session shared cloud desktop group.
       shared_ptr<int64_t> loadPolicy_ {};
-      // *   For pay-as-you-go cloud computer shares, this parameter defines the maximum number of cloud computers allowed.
-      // *   For subscription cloud computer shares, this parameter defines the total number of cloud computers, including both the initially purchased cloud computers (`BuyDesktopsCount`) and those that can be auto-created.
+      // - For a pay-as-you-go shared cloud desktop group, this parameter specifies the maximum number of cloud desktops that the group can contain.
+      // 
+      // - For a subscription shared cloud desktop group, this parameter specifies the total number of cloud desktops, which is the sum of the initially purchased desktops (indicated by the `BuyDesktopsCount` parameter) and the desktops that can be automatically created.
       shared_ptr<int32_t> maxDesktopsCount_ {};
-      // The memory size. Unit: MiB.
+      // The memory size in MiB.
       shared_ptr<int64_t> memory_ {};
-      // *   For pay-as-you-go cloud computer shares, this parameter defines the minimum number of cloud computers allowed.
-      // *   For subscription cloud computer shares, this parameter defines the number of cloud computers that are initially purchased (`BuyDesktopsCount`).
+      // - For a pay-as-you-go shared cloud desktop group, this specifies the minimum number of cloud desktops to maintain in the group.
+      // 
+      // - For a subscription shared cloud desktop group, this parameter has the same value as `BuyDesktopsCount` and specifies the number of cloud desktops that you initially purchase.
       shared_ptr<int32_t> minDesktopsCount_ {};
-      // The ID of the office network in which the cloud computer network resides.
+      // The ID of the office network.
       shared_ptr<string> officeSiteId_ {};
-      // The ID of the office network in which the cloud computer share resides.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
       // The account type of the office network.
-      // 
-      // Valid values:
-      // 
-      // *   PERSONAL: individual office network
-      // *   SIMPLE: convenience office network
-      // *   AD_CONNECTOR: enterprise Active Directory (AD) office network
-      // *   RAM: Resource Access Management (RAM)-based office network
       shared_ptr<string> officeSiteType_ {};
+      shared_ptr<string> orgId_ {};
       // The OS.
-      // 
-      // Valid values:
-      // 
-      // *   Linux
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   Windows
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> osType_ {};
-      // The ID of the cloud computer template.
+      // The ID of the cloud desktop template.
       shared_ptr<string> ownBundleId_ {};
-      // The name of the cloud computer template.
+      // The name of the cloud desktop template.
       shared_ptr<string> ownBundleName_ {};
-      // The type of the cloud computer share.
-      // 
-      // Valid values:
-      // 
-      // *   0: a single-session many-to-many share.
-      // *   1: a multi-session many-to-many share.
+      // The type of the shared cloud desktop group.
       shared_ptr<int64_t> ownType_ {};
-      // The billing method of the cloud computer pool.
-      // 
-      // Valid values:
-      // 
-      // *   PostPaid: pay-as-you-go
-      // *   PrePaid: subscription
+      // The billing method.
       shared_ptr<string> payType_ {};
-      // The ID of the applied policy.
+      // The ID of the policy associated with the shared cloud desktop group.
       shared_ptr<string> policyGroupId_ {};
       shared_ptr<vector<string>> policyGroupIdList_ {};
-      // The name of the applied policy.
+      // The name of the policy associated with the shared cloud desktop group.
       shared_ptr<string> policyGroupName_ {};
       shared_ptr<vector<string>> policyGroupNameList_ {};
       // The protocol type.
-      // 
-      // Valid values:
-      // 
-      // *   HDX
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      // *   ASP
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
-      // 
-      //     <!-- -->
       shared_ptr<string> protocolType_ {};
       shared_ptr<string> qosRuleId_ {};
-      // The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
+      // The session utilization threshold that triggers auto scaling for a multi-session shared cloud desktop group. Session utilization is calculated by using the following formula:
       // 
-      // `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+      // `Session utilization = Number of active sessions / (Total number of cloud desktops × Maximum number of sessions per cloud desktop) × 100%`
       // 
-      // When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
+      // When the session utilization exceeds this threshold, the system scales out by creating new cloud desktops. When the utilization falls below this threshold, the system scales in by removing idle cloud desktops.
       shared_ptr<float> ratioThreshold_ {};
-      // The reset option for the cloud computer share.
-      // 
-      // Valid values:
-      // 
-      // *   0: does not reset any disk.
-      // *   1: resets only the system disk.
-      // *   2: resets only the data disk.
-      // *   3: resets the system disk and data disk.
+      // The reset type of the shared cloud desktop group.
       shared_ptr<int64_t> resetType_ {};
       shared_ptr<string> simpleUserGroupId_ {};
-      // The status of the cloud computer share.
-      // 
-      // Valid values:
-      // 
-      // *   0: The cloud computer share is unpaid.
-      // *   1: The cloud computer share is normal.
-      // *   2: The cloud computer share expired, or your account has an overdue payment.
+      // The status of the shared cloud desktop group.
       shared_ptr<int32_t> status_ {};
-      // The period of time after which an idle cloud computer is stopped. When the specified period of time is reached, the cloud computer is automatically stopped. If an end user connects to the stopped cloud computer, the cloud computer is automatically started. Unit: milliseconds.
+      // The period of inactivity, in milliseconds, after which an idle cloud desktop is automatically stopped. If a user tries to connect to a stopped desktop, the desktop is automatically started.
       shared_ptr<int64_t> stopDuration_ {};
       // The ID of the subnet.
       shared_ptr<string> subnetId_ {};
-      // The category of the system disk.
-      // 
-      // Valid values:
-      // 
-      // *   cloud_efficiency: ultra disk
-      // *   cloud_ssd: standard SSD
-      // *   cloud_essd: enhanced SSD (ESSD)
+      // The type of the system disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The system disk capacity. Unit: GiB.
+      // The system disk size in GiB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The tags.
+      // The tags attached to the shared cloud desktop group.
       shared_ptr<vector<DesktopGroups::Tags>> tags_ {};
       shared_ptr<string> userGroupName_ {};
-      // The user\\"s organizational unit path.
+      // The path of the organizational unit (OU).
       shared_ptr<string> userOuPath_ {};
-      // The version number of the cloud computer share.
+      // The version number of the shared cloud desktop group.
       shared_ptr<int32_t> version_ {};
       // Indicates whether disk encryption is enabled.
       shared_ptr<bool> volumeEncryptionEnabled_ {};
-      // The ID of the Key Management Service (KMS) key for disk encryption.
+      // The ID of the KMS key used for disk encryption.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -997,9 +860,9 @@ namespace Models
 
 
   protected:
-    // The cloud computer shares.
+    // The details of the shared cloud desktop groups.
     shared_ptr<vector<DescribeDesktopGroupsResponseBody::DesktopGroups>> desktopGroups_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token used to retrieve the next page of results. If this parameter is not returned, it indicates that all results have been returned.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

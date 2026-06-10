@@ -270,7 +270,7 @@ AddFilePermissionResponse Client::addFilePermission(const AddFilePermissionReque
 }
 
 /**
- * @summary Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
+ * @summary Adds authorized users to a shared cloud desktop group, automatically assigning cloud desktops within the group to these users based on rules defined by an administrator.
  *
  * @param request AddUserToDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -293,6 +293,10 @@ AddUserToDesktopGroupResponse Client::addUserToDesktopGroupWithOptions(const Add
 
   if (!!request.hasEndUserIds()) {
     query["EndUserIds"] = request.getEndUserIds();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasRegionId()) {
@@ -329,7 +333,7 @@ AddUserToDesktopGroupResponse Client::addUserToDesktopGroupWithOptions(const Add
 }
 
 /**
- * @summary Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
+ * @summary Adds authorized users to a shared cloud desktop group, automatically assigning cloud desktops within the group to these users based on rules defined by an administrator.
  *
  * @param request AddUserToDesktopGroupRequest
  * @return AddUserToDesktopGroupResponse
@@ -570,7 +574,7 @@ ApplyCoordinatePrivilegeResponse Client::applyCoordinatePrivilege(const ApplyCoo
 }
 
 /**
- * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -621,7 +625,7 @@ ApplyCoordinationForMonitoringResponse Client::applyCoordinationForMonitoringWit
 }
 
 /**
- * @summary (Administrator) initiates a remote assistance request to the end user. This operation is mainly used in administrator assistance scenarios and education scenarios.
+ * @summary Applies for coordination monitoring. This operation is mainly used in administrator assistance scenarios and education scenarios.
  *
  * @param request ApplyCoordinationForMonitoringRequest
  * @return ApplyCoordinationForMonitoringResponse
@@ -980,9 +984,9 @@ AttachEndUserResponse Client::attachEndUser(const AttachEndUserRequest &request)
 /**
  * @summary Assigns multiple cloud computers to users in a batch.
  *
- * @description *   The cloud computers for which you want to change their policies must be in the Running state.
- * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
- * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+ * @description - The target cloud computers must be in the Running state.
+ * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
+ * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1039,9 +1043,9 @@ BatchModifyEntitlementResponse Client::batchModifyEntitlementWithOptions(const B
 /**
  * @summary Assigns multiple cloud computers to users in a batch.
  *
- * @description *   The cloud computers for which you want to change their policies must be in the Running state.
- * *   After you call this operation, the assignment result is immediately returned. You can call the [DescribeDesktops](https://help.aliyun.com/document_detail/436815.html) operation to query the assignment of the cloud computer. The value of the `ManagementFlags` response parameter indicates the assignment of the cloud computer. A value of `ASSIGNING` indicates that the cloud computer is being assigned, and other values indicate that the cloud computer is assigned.
- * *   We recommend that you check the assignment every 2 to 5 seconds and perform the checks within 50 seconds. Typically, 1 to 5 seconds are required to complete the assignment.
+ * @description - The target cloud computers must be in the Running state.
+ * - This is an asynchronous API. To check the assignment status, call [](t2167745.xdita#)and refer to the `ManagementFlags` parameter. A value of `ASSIGNING` means it is in progress; otherwise, it is complete.
+ * - Recommended polling interval: 2–5 seconds (max duration: 50s). The process usually takes 1–5 seconds.
  *
  * @param request BatchModifyEntitlementRequest
  * @return BatchModifyEntitlementResponse
@@ -1522,6 +1526,8 @@ ConfigADConnectorTrustResponse Client::configADConnectorTrust(const ConfigADConn
 }
 
 /**
+ * @summary Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+ *
  * @param request ConfigADConnectorUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfigADConnectorUserResponse
@@ -1567,6 +1573,8 @@ ConfigADConnectorUserResponse Client::configADConnectorUserWithOptions(const Con
 }
 
 /**
+ * @summary Specify an organizational unit (OU) and administrator for the Active Directory (AD) office network (formerly known as workspace).
+ *
  * @param request ConfigADConnectorUserRequest
  * @return ConfigADConnectorUserResponse
  */
@@ -1576,7 +1584,7 @@ ConfigADConnectorUserResponse Client::configADConnectorUser(const ConfigADConnec
 }
 
 /**
- * @summary Makes a copy of a file or folder on a drive.
+ * @summary Create a copy of a file or folder in the cloud drive.
  *
  * @param request CopyCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1639,7 +1647,7 @@ CopyCdsFileResponse Client::copyCdsFileWithOptions(const CopyCdsFileRequest &req
 }
 
 /**
- * @summary Makes a copy of a file or folder on a drive.
+ * @summary Create a copy of a file or folder in the cloud drive.
  *
  * @param request CopyCdsFileRequest
  * @return CopyCdsFileResponse
@@ -1802,15 +1810,15 @@ CreateADConnectorDirectoryResponse Client::createADConnectorDirectory(const Crea
 }
 
 /**
- * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+ * @summary WUYING Workspace supports two account types: convenience accounts and Enterprise AD accounts. This operation creates an office network (formerly known as a workspace) for Enterprise AD accounts.
  *
- * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
- * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
- * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
- * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
- *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
- * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+ * @description When you create an AD office network, an AD Connector is automatically created to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * After creating an AD office network, you must also configure the AD domain. Follow these steps:
+ * 1. Configure a conditional forwarder on your DNS server.
+ * 2. Establish a trust relationship on your domain controller, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure this trust for the AD office network.
+ * 3. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to list the organizational units (OUs) in your AD domain. Then, call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OUs and an administrator for the AD office network.
+ *    > If you provide domain administrator credentials (DomainUserName and DomainPassword) when you create the AD office network, you only need to configure a conditional forwarder. If you do not provide these credentials, you must configure a conditional forwarder, establish a trust relationship, and specify the organizational units (OUs).
+ * For more information, see [Create and manage office networks for enterprise AD accounts](https://help.aliyun.com/document_detail/214469.html).
  *
  * @param request CreateADConnectorOfficeSiteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1933,15 +1941,15 @@ CreateADConnectorOfficeSiteResponse Client::createADConnectorOfficeSiteWithOptio
 }
 
 /**
- * @summary Creates an enterprise Active Directory (AD) office network (formerly workspace). Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+ * @summary WUYING Workspace supports two account types: convenience accounts and Enterprise AD accounts. This operation creates an office network (formerly known as a workspace) for Enterprise AD accounts.
  *
- * @description When you create an enterprise AD office network, the system automatically creates an AD connector to connect to an enterprise AD. You are charged for the AD connector. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * After you call this operation to create an AD office network, you must perform the following steps to complete AD domain setting:
- * 1.  Configure a conditional forwarder in a Domain Name System (DNS) server.
- * 2.  Configure a trust relationship in an AD domain controller and call the [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) operation to configure the trust relationship with the AD office network.
- * 3.  Call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to query a list of organizational units (OUs) of the AD domain, and call the [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) operation to specify an OU and administrator for the AD office network.
- *     >  When you create the AD office network, take note of the DomainUserName and DomainPassword parameters. If you specify the parameters, you need to only configure a conditional forwarder. If you do not specify the parameters, you must configure a conditional forwarder, trust relationship, and OU as prompted.
- * For more information, see [Create and manage enterprise AD office networks](https://help.aliyun.com/document_detail/214469.html).
+ * @description When you create an AD office network, an AD Connector is automatically created to connect to your enterprise AD. You are charged for the AD Connector. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * After creating an AD office network, you must also configure the AD domain. Follow these steps:
+ * 1. Configure a conditional forwarder on your DNS server.
+ * 2. Establish a trust relationship on your domain controller, and then call [ConfigADConnectorTrust](https://help.aliyun.com/document_detail/311258.html) to configure this trust for the AD office network.
+ * 3. Call [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) to list the organizational units (OUs) in your AD domain. Then, call [ConfigADConnectorUser](https://help.aliyun.com/document_detail/311262.html) to specify the OUs and an administrator for the AD office network.
+ *    > If you provide domain administrator credentials (DomainUserName and DomainPassword) when you create the AD office network, you only need to configure a conditional forwarder. If you do not provide these credentials, you must configure a conditional forwarder, establish a trust relationship, and specify the organizational units (OUs).
+ * For more information, see [Create and manage office networks for enterprise AD accounts](https://help.aliyun.com/document_detail/214469.html).
  *
  * @param request CreateADConnectorOfficeSiteRequest
  * @return CreateADConnectorOfficeSiteResponse
@@ -2022,9 +2030,7 @@ CreateAndBindNasFileSystemResponse Client::createAndBindNasFileSystem(const Crea
 }
 
 /**
- * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
- *
- * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+ * @summary Creates an automatic snapshot policy that schedules snapshots for WUYING Workspace based on a cron expression.
  *
  * @param request CreateAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2071,9 +2077,7 @@ CreateAutoSnapshotPolicyResponse Client::createAutoSnapshotPolicyWithOptions(con
 }
 
 /**
- * @summary Creates an automatic snapshot policy. WUYING WorkSpace automatically creates snapshots based on the time specified by the cron expression in the automatic snapshot policy.
- *
- * @description You can call the operation to create an automatic snapshot policy based on a CRON expression. Then, the system automatically creates snapshots of a cloud desktop based on the policy.
+ * @summary Creates an automatic snapshot policy that schedules snapshots for WUYING Workspace based on a cron expression.
  *
  * @param request CreateAutoSnapshotPolicyRequest
  * @return CreateAutoSnapshotPolicyResponse
@@ -2232,9 +2236,9 @@ CreateBundleResponse Client::createBundle(const CreateBundleRequest &request) {
 }
 
 /**
- * @summary Uploads a file to a cloud disk.
+ * @summary Create a folder or initiate a file upload task in the cloud disk.
  *
- * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+ * @description Call this API to create a folder directly in the enterprise cloud disk. To upload a file, call this API to obtain an upload URL. Then use that URL with the [CompleteCdsFile](https://help.aliyun.com/document_detail/2247620.html) API to complete the upload.
  *
  * @param request CreateCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2301,9 +2305,9 @@ CreateCdsFileResponse Client::createCdsFileWithOptions(const CreateCdsFileReques
 }
 
 /**
- * @summary Uploads a file to a cloud disk.
+ * @summary Create a folder or initiate a file upload task in the cloud disk.
  *
- * @description After the RAM permissions are authenticated, you can call the CreateCdsFile operation to obtain the upload URL of a file and upload the file to a cloud disk.
+ * @description Call this API to create a folder directly in the enterprise cloud disk. To upload a file, call this API to obtain an upload URL. Then use that URL with the [CompleteCdsFile](https://help.aliyun.com/document_detail/2247620.html) API to complete the upload.
  *
  * @param request CreateCdsFileRequest
  * @return CreateCdsFileResponse
@@ -2314,7 +2318,7 @@ CreateCdsFileResponse Client::createCdsFile(const CreateCdsFileRequest &request)
 }
 
 /**
- * @summary Creates a file sharing task.
+ * @summary Create a file share.
  *
  * @param request CreateCdsFileShareLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2397,7 +2401,7 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLinkWithOptions(const C
 }
 
 /**
- * @summary Creates a file sharing task.
+ * @summary Create a file share.
  *
  * @param request CreateCdsFileShareLinkRequest
  * @return CreateCdsFileShareLinkResponse
@@ -2408,7 +2412,7 @@ CreateCdsFileShareLinkResponse Client::createCdsFileShareLink(const CreateCdsFil
 }
 
 /**
- * @summary Creates a center policy.
+ * @summary You can create a region-independent cloud desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2967,7 +2971,7 @@ CreateCenterPolicyResponse Client::createCenterPolicyWithOptions(const CreateCen
 }
 
 /**
- * @summary Creates a center policy.
+ * @summary You can create a region-independent cloud desktop policy.
  *
  * @param request CreateCenterPolicyRequest
  * @return CreateCenterPolicyResponse
@@ -2978,9 +2982,9 @@ CreateCenterPolicyResponse Client::createCenterPolicy(const CreateCenterPolicyRe
 }
 
 /**
- * @summary Authorizes a user to use a team space.
+ * @summary Disk organization authorization.
  *
- * @description The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+ * @description The disk team list is synchronized from the EDS client -> User Management -> organization chart. If a user wants to use a team space, you can move the user to the specified organization in the User Management interface. The user can then see the team space menu bar in the disk client.
  *
  * @param request CreateCloudDriveGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3027,9 +3031,9 @@ CreateCloudDriveGroupResponse Client::createCloudDriveGroupWithOptions(const Cre
 }
 
 /**
- * @summary Authorizes a user to use a team space.
+ * @summary Disk organization authorization.
  *
- * @description The list of teams of a cloud disk in Cloud Drive Service is synchronized from the Organization tab in the Elastic Desktop Service (EDS) console. You can choose Users > Manager User > User > Organization in the console. If you want to authorize a user to use a team space, you must move the user to the corresponding organization. After you move the user, the user can view the menu bar of the team space on a Cloud Drive Service client.
+ * @description The disk team list is synchronized from the EDS client -> User Management -> organization chart. If a user wants to use a team space, you can move the user to the specified organization in the User Management interface. The user can then see the team space menu bar in the disk client.
  *
  * @param request CreateCloudDriveGroupRequest
  * @return CreateCloudDriveGroupResponse
@@ -3040,9 +3044,9 @@ CreateCloudDriveGroupResponse Client::createCloudDriveGroup(const CreateCloudDri
 }
 
 /**
- * @summary Creates an enterprise drive.
+ * @summary Create a PDS (formerly Wuying Cloud Disk)
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
+ * @description Before using this interface, make sure you understand the billing methods and pricing of Drive and Photo Service. For more information, see [Overview of Drive and Photo Service](https://help.aliyun.com/document_detail/386301.html).
  *
  * @param request CreateCloudDriveServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3141,9 +3145,9 @@ CreateCloudDriveServiceResponse Client::createCloudDriveServiceWithOptions(const
 }
 
 /**
- * @summary Creates an enterprise drive.
+ * @summary Create a PDS (formerly Wuying Cloud Disk)
  *
- * @description Before you call this operation, make sure that you understand the billing methods and pricing of Enterprise Drive Service (formerly Cloud Drive Service). For more information, see [Overview](https://help.aliyun.com/document_detail/386301.html).
+ * @description Before using this interface, make sure you understand the billing methods and pricing of Drive and Photo Service. For more information, see [Overview of Drive and Photo Service](https://help.aliyun.com/document_detail/386301.html).
  *
  * @param request CreateCloudDriveServiceRequest
  * @return CreateCloudDriveServiceResponse
@@ -3154,7 +3158,7 @@ CreateCloudDriveServiceResponse Client::createCloudDriveService(const CreateClou
 }
 
 /**
- * @summary Creates the users of a cloud disk.
+ * @summary Creates personal cloud drives for users within your enterprise cloud drive.
  *
  * @param request CreateCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3201,7 @@ CreateCloudDriveUsersResponse Client::createCloudDriveUsersWithOptions(const Cre
 }
 
 /**
- * @summary Creates the users of a cloud disk.
+ * @summary Creates personal cloud drives for users within your enterprise cloud drive.
  *
  * @param request CreateCloudDriveUsersRequest
  * @return CreateCloudDriveUsersResponse
@@ -3208,7 +3212,7 @@ CreateCloudDriveUsersResponse Client::createCloudDriveUsers(const CreateCloudDri
 }
 
 /**
- * @summary Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
+ * @summary Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
  *
  * @param request CreateConfigGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3259,7 +3263,7 @@ CreateConfigGroupResponse Client::createConfigGroupWithOptions(const CreateConfi
 }
 
 /**
- * @summary Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
+ * @summary Create a configuration group. A configuration group contains settings for scheduled tasks on cloud desktops.
  *
  * @param request CreateConfigGroupRequest
  * @return CreateConfigGroupResponse
@@ -3270,10 +3274,10 @@ CreateConfigGroupResponse Client::createConfigGroup(const CreateConfigGroupReque
 }
 
 /**
- * @summary Creates a shared group.
+ * @summary Creating a shared EDS.
  *
- * @description *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
- * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
+ * @description - To learn more about shared desktops, including their features, use cases, limitations, and scaling policies, see [Shared desktop (formerly desktop pool) overview](https://help.aliyun.com/document_detail/290959.html).
+ * - Before calling this API, ensure you have created the necessary resources, such as an office network, a desktop template, and a policy.
  *
  * @param request CreateDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3544,10 +3548,10 @@ CreateDesktopGroupResponse Client::createDesktopGroupWithOptions(const CreateDes
 }
 
 /**
- * @summary Creates a shared group.
+ * @summary Creating a shared EDS.
  *
- * @description *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
- * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
+ * @description - To learn more about shared desktops, including their features, use cases, limitations, and scaling policies, see [Shared desktop (formerly desktop pool) overview](https://help.aliyun.com/document_detail/290959.html).
+ * - Before calling this API, ensure you have created the necessary resources, such as an office network, a desktop template, and a policy.
  *
  * @param request CreateDesktopGroupRequest
  * @return CreateDesktopGroupResponse
@@ -3660,15 +3664,103 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
 }
 
 /**
- * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+ * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
  *
- * @description Before you create cloud computers, complete the following preparations:
- * *   An office network (formerly called workspace) and users are created. For more information, see:
- *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
- * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
- * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
- * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+ * @description Before you create a cloud desktop, meet the following requirements:
+ * - Create an office site (formerly a workspace) and users:
+ *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
+ * **Request examples**
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop from a bundle
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "BundleId": "b-enterprise_office_8c16g_windows2022"
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop with custom settings
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "ImageId": "desktopimage-windows-server-2022-64-asp",
+ *     "SystemDiskSize": "40",
+ *     "DataDiskSize": "0",
+ *     "DefaultLanguage": "zh-CN",
+ *     "DesktopType": "eds.enterprise_office.4c8g"
+ *   }
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop with a monthly usage package
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "ImageId": "desktopimage-windows-server-2022-64-asp",
+ *     "SystemDiskSize": "40",
+ *     "DataDiskSize": "0",
+ *     "DefaultLanguage": "zh-CN",
+ *     "DesktopType": "eds.enterprise_office.4c8g"
+ *   },
+ *   "MonthDesktopSetting": {
+ *     "UseDuration": "120"
+ *   },
+ *   "Period": "1",
+ *   "PeriodUnit": "Month"
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create an agent resource
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "BundleId": "b-openclaw-linux",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "DesktopType": "cloud.space.4c.8g"
+ *   },
+ *   "PurchaseOptions": {
+ *     "MonthlyCredits": "120"
+ *   },
+ *   "Period": "1",
+ *   "PeriodUnit": "Month"
+ * }
+ * ```
+ * </details>
+ * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
  *
  * @param tmpReq CreateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3865,15 +3957,103 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 }
 
 /**
- * @summary Creates cloud computers. If you specify end users when you create cloud computers, the cloud computers are assigned to the end users after the cloud computers are created.
+ * @summary Creates one or more Elastic Desktop Service (EDS) desktops. If you provide user information, the desktops are automatically assigned to the specified users.
  *
- * @description Before you create cloud computers, complete the following preparations:
- * *   An office network (formerly called workspace) and users are created. For more information, see:
- *     *   Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     *   Active Directory (AD) office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create an AD user](https://help.aliyun.com/document_detail/188619.html).
- * *   Make sure a cloud computer template exists. If no cloud computer template exists, call the [CreateBundle](https://help.aliyun.com/document_detail/188883.html) operation to create a template.
- * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
- * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
+ * @description Before you create a cloud desktop, meet the following requirements:
+ * - Create an office site (formerly a workspace) and users:
+ *   - Simple office site: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *   - AD connector office site: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or use an existing policy.
+ * **Request examples**
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop from a bundle
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "BundleId": "b-enterprise_office_8c16g_windows2022"
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop with custom settings
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "ImageId": "desktopimage-windows-server-2022-64-asp",
+ *     "SystemDiskSize": "40",
+ *     "DataDiskSize": "0",
+ *     "DefaultLanguage": "zh-CN",
+ *     "DesktopType": "eds.enterprise_office.4c8g"
+ *   }
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create a cloud desktop with a monthly usage package
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "PolicyGroupId": "system-all-enabled-policy",
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "ImageId": "desktopimage-windows-server-2022-64-asp",
+ *     "SystemDiskSize": "40",
+ *     "DataDiskSize": "0",
+ *     "DefaultLanguage": "zh-CN",
+ *     "DesktopType": "eds.enterprise_office.4c8g"
+ *   },
+ *   "MonthDesktopSetting": {
+ *     "UseDuration": "120"
+ *   },
+ *   "Period": "1",
+ *   "PeriodUnit": "Month"
+ * }
+ * ```
+ * </details>
+ * <details>
+ * <summary>
+ * Example: Create an agent resource
+ * </summary>
+ * ```
+ * {
+ *   "RegionId": "cn-hangzhou",
+ *   "BundleId": "b-openclaw-linux",
+ *   "DesktopName": "test-desktop-name",
+ *   "Amount": "1",
+ *   "OfficeSiteId": "cn-hangzhou+dir-xxx",// You must create an office site in advance.
+ *   "ChargeType": "PostPaid",
+ *   "DesktopAttachment": {
+ *     "DesktopType": "cloud.space.4c.8g"
+ *   },
+ *   "PurchaseOptions": {
+ *     "MonthlyCredits": "120"
+ *   },
+ *   "Period": "1",
+ *   "PeriodUnit": "Month"
+ * }
+ * ```
+ * </details>
+ * To automatically run user commands on a cloud desktop, configure the `UserCommands` parameter.
  *
  * @param request CreateDesktopsRequest
  * @return CreateDesktopsResponse
@@ -4136,7 +4316,7 @@ CreateForwardEntryResponse Client::createForwardEntry(const CreateForwardEntryRe
 }
 
 /**
- * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+ * @summary Create a custom image from an existing WUYING Workspace. Use this image to quickly deploy more workspaces with identical configurations. Avoid repeating configuration steps each time you create a new workspace.
  *
  * @param request CreateImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4203,7 +4383,7 @@ CreateImageResponse Client::createImageWithOptions(const CreateImageRequest &req
 }
 
 /**
- * @summary Creates a custom image based on a deployed cloud computer. Then, you can use the custom image to create cloud computers that have the same configurations. This prevents the repeated settings when you create cloud computers.
+ * @summary Create a custom image from an existing WUYING Workspace. Use this image to quickly deploy more workspaces with identical configurations. Avoid repeating configuration steps each time you create a new workspace.
  *
  * @param request CreateImageRequest
  * @return CreateImageResponse
@@ -4348,7 +4528,7 @@ CreateNatGatewayResponse Client::createNatGateway(const CreateNatGatewayRequest 
 }
 
 /**
- * @summary Creates a premium bandwidth plan for an office network.
+ * @summary Creates a network package for an office network.
  *
  * @param request CreateNetworkPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4423,7 +4603,7 @@ CreateNetworkPackageResponse Client::createNetworkPackageWithOptions(const Creat
 }
 
 /**
- * @summary Creates a premium bandwidth plan for an office network.
+ * @summary Creates a network package for an office network.
  *
  * @param request CreateNetworkPackageRequest
  * @return CreateNetworkPackageResponse
@@ -4434,9 +4614,9 @@ CreateNetworkPackageResponse Client::createNetworkPackage(const CreateNetworkPac
 }
 
 /**
- * @summary Enables global acceleration for office networks.
+ * @summary Enables the Global Accelerator (GA) service for an office network.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4483,9 +4663,9 @@ CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary Enables global acceleration for office networks.
+ * @summary Enables the Global Accelerator (GA) service for an office network.
  *
- * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+ * @description Before you call this operation, ensure you fully understand the billing methods and [pricing](t2208086.xdita#) of the GA service.
  *
  * @param request CreateOfficeSiteAcceleratorRequest
  * @return CreateOfficeSiteAcceleratorResponse
@@ -4498,7 +4678,7 @@ CreateOfficeSiteAcceleratorResponse Client::createOfficeSiteAccelerator(const Cr
 /**
  * @summary Creates a cloud computer policy.
  *
- * @description A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+ * @description A cloud computer policy is a set of rules for performance and security. These rules configure features such as local disk mapping, USB redirection, watermarks, and DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
  *
  * @param request CreatePolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4755,7 +4935,7 @@ CreatePolicyGroupResponse Client::createPolicyGroupWithOptions(const CreatePolic
 /**
  * @summary Creates a cloud computer policy.
  *
- * @description A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+ * @description A cloud computer policy is a set of rules for performance and security. These rules configure features such as local disk mapping, USB redirection, watermarks, and DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
  *
  * @param request CreatePolicyGroupRequest
  * @return CreatePolicyGroupResponse
@@ -4766,7 +4946,9 @@ CreatePolicyGroupResponse Client::createPolicyGroup(const CreatePolicyGroupReque
 }
 
 /**
- * @summary Creates a Quality of Service (QoS) rule.
+ * @summary Creates a QoS rule.
+ *
+ * @description Creates a QoS rule to manage network bandwidth for resources such as cloud desktops and cloud phones.
  *
  * @param request CreateQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4821,7 +5003,9 @@ CreateQosRuleResponse Client::createQosRuleWithOptions(const CreateQosRuleReques
 }
 
 /**
- * @summary Creates a Quality of Service (QoS) rule.
+ * @summary Creates a QoS rule.
+ *
+ * @description Creates a QoS rule to manage network bandwidth for resources such as cloud desktops and cloud phones.
  *
  * @param request CreateQosRuleRequest
  * @return CreateQosRuleResponse
@@ -5026,7 +5210,7 @@ CreateRouteTableResponse Client::createRouteTable(const CreateRouteTableRequest 
 }
 
 /**
- * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+ * @summary Elastic Desktop Service (EDS) supports two types of accounts: convenience accounts and enterprise AD accounts. Use this API to create an office network (formerly a workspace) that uses convenience accounts.
  *
  * @param request CreateSimpleOfficeSiteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5141,7 +5325,7 @@ CreateSimpleOfficeSiteResponse Client::createSimpleOfficeSiteWithOptions(const C
 }
 
 /**
- * @summary Creates an office network of the convenience account type. Elastic Desktop Service supports the following types of accounts: convenience accounts and enterprise AD accounts.
+ * @summary Elastic Desktop Service (EDS) supports two types of accounts: convenience accounts and enterprise AD accounts. Use this API to create an office network (formerly a workspace) that uses convenience accounts.
  *
  * @param request CreateSimpleOfficeSiteRequest
  * @return CreateSimpleOfficeSiteResponse
@@ -5337,8 +5521,8 @@ CreateSubnetResponse Client::createSubnet(const CreateSubnetRequest &request) {
  * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
  *
  * @description When you call this operation, take note of the following item:
- * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
- * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+ * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+ * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
  *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5460,8 +5644,8 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
  * @summary Creates a custom cloud computer template. A cloud computer template (or simply "template") simplifies the process of creating cloud computers by providing a predefined set of configurations. This eliminates the need to manually configure each setting, saving significant time and effort.
  *
  * @description When you call this operation, take note of the following item:
- * *   Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
- * *   For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn’t match the region where the template is used to create a cloud computer, those parameters will not take effect.
+ * - Most parameters in templates are optional. When you create a template, Elastic Desktop Service (EDS) does not validate the existence or correctness of the parameter values you specify. The parameter values in the template are only verified when you use the template to create cloud computers.
+ * - For parameters that include the region attribute in the template, it\\"s important to note that if the specified region doesn\\"t match the region where the template is used to create a cloud computer, those parameters will not take effect.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -5726,7 +5910,7 @@ DeleteCloudDriveGroupsResponse Client::deleteCloudDriveGroups(const DeleteCloudD
 }
 
 /**
- * @summary Deletes users from a cloud disk in Cloud Drive Service.
+ * @summary Delete the personal drive of a user in WUYING Workspace.
  *
  * @param request DeleteCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5765,7 +5949,7 @@ DeleteCloudDriveUsersResponse Client::deleteCloudDriveUsersWithOptions(const Del
 }
 
 /**
- * @summary Deletes users from a cloud disk in Cloud Drive Service.
+ * @summary Delete the personal drive of a user in WUYING Workspace.
  *
  * @param request DeleteCloudDriveUsersRequest
  * @return DeleteCloudDriveUsersResponse
@@ -5822,11 +6006,11 @@ DeleteConfigGroupResponse Client::deleteConfigGroup(const DeleteConfigGroupReque
 }
 
 /**
- * @summary Releases a cloud computer share.
+ * @summary Release a shared cloud computer.
  *
- * @description *   Before releasing a cloud computer share, ensure that no cloud computers within it are in the Connected state and that no end users have access permissions to it.
- * *   You cannot delete a cloud computer share with an active subscription if it contains cloud computers that have not yet expired.
- * *   Deleting a pay-as-you-go cloud computer share will release all pay-as-you-go cloud computers within it.
+ * @description - Before you call this operation, make sure that the shared desktop group contains no connected desktops or authorized users.
+ * - You cannot delete a subscription desktop group if the subscription desktops in the group have not expired.
+ * - If you delete a pay-as-you-go desktop group, the pay-as-you-go desktops in the group are also released.
  *
  * @param request DeleteDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5865,11 +6049,11 @@ DeleteDesktopGroupResponse Client::deleteDesktopGroupWithOptions(const DeleteDes
 }
 
 /**
- * @summary Releases a cloud computer share.
+ * @summary Release a shared cloud computer.
  *
- * @description *   Before releasing a cloud computer share, ensure that no cloud computers within it are in the Connected state and that no end users have access permissions to it.
- * *   You cannot delete a cloud computer share with an active subscription if it contains cloud computers that have not yet expired.
- * *   Deleting a pay-as-you-go cloud computer share will release all pay-as-you-go cloud computers within it.
+ * @description - Before you call this operation, make sure that the shared desktop group contains no connected desktops or authorized users.
+ * - You cannot delete a subscription desktop group if the subscription desktops in the group have not expired.
+ * - If you delete a pay-as-you-go desktop group, the pay-as-you-go desktops in the group are also released.
  *
  * @param request DeleteDesktopGroupRequest
  * @return DeleteDesktopGroupResponse
@@ -5880,7 +6064,7 @@ DeleteDesktopGroupResponse Client::deleteDesktopGroup(const DeleteDesktopGroupRe
 }
 
 /**
- * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+ * @summary Releases one or more pay-as-you-go or expired subscription cloud computers.
  *
  * @param request DeleteDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5919,7 +6103,7 @@ DeleteDesktopsResponse Client::deleteDesktopsWithOptions(const DeleteDesktopsReq
 }
 
 /**
- * @summary Releases pay-as-you-go cloud computers or expired subscription cloud computers.
+ * @summary Releases one or more pay-as-you-go or expired subscription cloud computers.
  *
  * @param request DeleteDesktopsRequest
  * @return DeleteDesktopsResponse
@@ -6178,8 +6362,8 @@ DeleteForwardEntryResponse Client::deleteForwardEntry(const DeleteForwardEntryRe
 /**
  * @summary Deletes one or more custom images.
  *
- * @description *   Images include system images and custom images. System images cannot be deleted.
- * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+ * @description - Images include system images and custom images. System images cannot be deleted.
+ * - If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
  *
  * @param request DeleteImagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6220,8 +6404,8 @@ DeleteImagesResponse Client::deleteImagesWithOptions(const DeleteImagesRequest &
 /**
  * @summary Deletes one or more custom images.
  *
- * @description *   Images include system images and custom images. System images cannot be deleted.
- * *   If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
+ * @description - Images include system images and custom images. System images cannot be deleted.
+ * - If an image that you want to delete is referenced by a cloud computer template, call the [DeleteBundles](https://help.aliyun.com/document_detail/436972.html) operation to delete the cloud computer template before you delete the image.
  *
  * @param request DeleteImagesRequest
  * @return DeleteImagesResponse
@@ -6235,7 +6419,8 @@ DeleteImagesResponse Client::deleteImages(const DeleteImagesRequest &request) {
  * @summary Deletes NAS file systems.
  *
  * @description Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
- * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+ * >Warning: 
+ * If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
  *
  * @param request DeleteNASFileSystemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6273,7 +6458,8 @@ DeleteNASFileSystemsResponse Client::deleteNASFileSystemsWithOptions(const Delet
  * @summary Deletes NAS file systems.
  *
  * @description Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
- * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
+ * >Warning: 
+ * If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
  *
  * @param request DeleteNASFileSystemsRequest
  * @return DeleteNASFileSystemsResponse
@@ -6330,7 +6516,7 @@ DeleteNatGatewayResponse Client::deleteNatGateway(const DeleteNatGatewayRequest 
 }
 
 /**
- * @summary Deletes one or more premium bandwidth plans.
+ * @summary You can delete one or more public network premium bandwidth allocations.
  *
  * @param request DeleteNetworkPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6369,7 +6555,7 @@ DeleteNetworkPackagesResponse Client::deleteNetworkPackagesWithOptions(const Del
 }
 
 /**
- * @summary Deletes one or more premium bandwidth plans.
+ * @summary You can delete one or more public network premium bandwidth allocations.
  *
  * @param request DeleteNetworkPackagesRequest
  * @return DeleteNetworkPackagesResponse
@@ -6380,7 +6566,7 @@ DeleteNetworkPackagesResponse Client::deleteNetworkPackages(const DeleteNetworkP
 }
 
 /**
- * @summary Deletes Global Accelerator (GA) configuration.
+ * @summary Deletes a Global Accelerator (GA) configuration.
  *
  * @param request DeleteOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6415,7 +6601,7 @@ DeleteOfficeSiteAcceleratorResponse Client::deleteOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary Deletes Global Accelerator (GA) configuration.
+ * @summary Deletes a Global Accelerator (GA) configuration.
  *
  * @param request DeleteOfficeSiteAcceleratorRequest
  * @return DeleteOfficeSiteAcceleratorResponse
@@ -6429,9 +6615,9 @@ DeleteOfficeSiteAcceleratorResponse Client::deleteOfficeSiteAccelerator(const De
  * @summary Deletes office networks (formerly workspaces).
  *
  * @description Before you delete an office network, make sure that the following operations are complete:
- * *   All cloud computers in the office network are released.
- * *   The data that you want to retain is backed up.
- * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+ * - All cloud computers in the office network are released.
+ * - The data that you want to retain is backed up.
+ * > Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
  *
  * @param request DeleteOfficeSitesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6469,9 +6655,9 @@ DeleteOfficeSitesResponse Client::deleteOfficeSitesWithOptions(const DeleteOffic
  * @summary Deletes office networks (formerly workspaces).
  *
  * @description Before you delete an office network, make sure that the following operations are complete:
- * *   All cloud computers in the office network are released.
- * *   The data that you want to retain is backed up.
- * >  Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
+ * - All cloud computers in the office network are released.
+ * - The data that you want to retain is backed up.
+ * > Resources and data on cloud computers in an office network cannot be restored after you delete it. Proceed with caution.
  *
  * @param request DeleteOfficeSitesRequest
  * @return DeleteOfficeSitesResponse
@@ -6484,8 +6670,8 @@ DeleteOfficeSitesResponse Client::deleteOfficeSites(const DeleteOfficeSitesReque
 /**
  * @summary Deletes one or more custom cloud computer policies.
  *
- * @description *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
- * *   You cannot delete the cloud computer policies that are associated with cloud computers.
+ * @description - You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+ * - You cannot delete the cloud computer policies that are associated with cloud computers.
  *
  * @param request DeletePolicyGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6522,8 +6708,8 @@ DeletePolicyGroupsResponse Client::deletePolicyGroupsWithOptions(const DeletePol
 /**
  * @summary Deletes one or more custom cloud computer policies.
  *
- * @description *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
- * *   You cannot delete the cloud computer policies that are associated with cloud computers.
+ * @description - You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+ * - You cannot delete the cloud computer policies that are associated with cloud computers.
  *
  * @param request DeletePolicyGroupsRequest
  * @return DeletePolicyGroupsResponse
@@ -6534,7 +6720,7 @@ DeletePolicyGroupsResponse Client::deletePolicyGroups(const DeletePolicyGroupsRe
 }
 
 /**
- * @summary Deletes a traffic throttling rule from a QoS policy.
+ * @summary Delete a rate-limiting rule.
  *
  * @param request DeleteQosRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6565,7 +6751,7 @@ DeleteQosRulesResponse Client::deleteQosRulesWithOptions(const DeleteQosRulesReq
 }
 
 /**
- * @summary Deletes a traffic throttling rule from a QoS policy.
+ * @summary Delete a rate-limiting rule.
  *
  * @param request DeleteQosRulesRequest
  * @return DeleteQosRulesResponse
@@ -6988,9 +7174,7 @@ DescribeAclEntriesResponse Client::describeAclEntries(const DescribeAclEntriesRe
 }
 
 /**
- * @summary Queries the automatic snapshot policy.
- *
- * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+ * @summary Queries the details of automatic snapshot policies.
  *
  * @param request DescribeAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7037,9 +7221,7 @@ DescribeAutoSnapshotPolicyResponse Client::describeAutoSnapshotPolicyWithOptions
 }
 
 /**
- * @summary Queries the automatic snapshot policy.
- *
- * @description You can view an automatic snapshot policy that is associated with a cloud desktop in the Elastic Desktop Service (EDS) console. To view the automatic snapshot policy, you can go to the EDS console, choose Deployment > Snapshots in the left-side navigation pane, and then view an automatic snapshot policy on the Snapshots page.
+ * @summary Queries the details of automatic snapshot policies.
  *
  * @param request DescribeAutoSnapshotPolicyRequest
  * @return DescribeAutoSnapshotPolicyResponse
@@ -7288,7 +7470,7 @@ DescribeCensResponse Client::describeCens(const DescribeCensRequest &request) {
 }
 
 /**
- * @summary Queries center policies.
+ * @summary Query details of policies that are not region-specific.
  *
  * @param request DescribeCenterPolicyListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7351,7 +7533,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyListWithOptions(con
 }
 
 /**
- * @summary Queries center policies.
+ * @summary Query details of policies that are not region-specific.
  *
  * @param request DescribeCenterPolicyListRequest
  * @return DescribeCenterPolicyListResponse
@@ -7362,9 +7544,7 @@ DescribeCenterPolicyListResponse Client::describeCenterPolicyList(const Describe
 }
 
 /**
- * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
- *
- * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+ * @summary Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
  *
  * @param request DescribeClientEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7455,9 +7635,7 @@ DescribeClientEventsResponse Client::describeClientEventsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the operation logs of end users. For example, the logs record the events that end users start and stop cloud desktops, and disconnect desktop sessions.
- *
- * @description You can audit the operation logs of regular users to improve security. The operation logs record events such as desktop startup, shutdown, and session disconnection.
+ * @summary Query end-user operation logs for events such as starting and stopping a WUYING Workspace, and disconnecting from sessions.
  *
  * @param request DescribeClientEventsRequest
  * @return DescribeClientEventsResponse
@@ -7468,7 +7646,9 @@ DescribeClientEventsResponse Client::describeClientEvents(const DescribeClientEv
 }
 
 /**
- * @summary Queries team spaces in a cloud disk.
+ * @summary Lists cloud disk group drives.
+ *
+ * @description Cloud disk team drives are synced from the Alibaba Cloud Workspace client to User Management > organization chart. To use a team drive, you can move users to the target organization in the User Management interface. Users then see the team drive menu bar in the cloud disk client.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7515,7 +7695,9 @@ DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrivesWithOpt
 }
 
 /**
- * @summary Queries team spaces in a cloud disk.
+ * @summary Lists cloud disk group drives.
+ *
+ * @description Cloud disk team drives are synced from the Alibaba Cloud Workspace client to User Management > organization chart. To use a team drive, you can move users to the target organization in the User Management interface. Users then see the team drive menu bar in the cloud disk client.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @return DescribeCloudDiskGroupDrivesResponse
@@ -7526,7 +7708,9 @@ DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrives(const 
 }
 
 /**
- * @summary Queries team spaces from the drive.
+ * @summary Lists cloud disk groups.
+ *
+ * @description After you enable security protection, the system automatically scans Cloud Desktop for system vulnerabilities once a day.
  *
  * @param request DescribeCloudDiskGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7573,7 +7757,9 @@ DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroupsWithOptions(const
 }
 
 /**
- * @summary Queries team spaces from the drive.
+ * @summary Lists cloud disk groups.
+ *
+ * @description After you enable security protection, the system automatically scans Cloud Desktop for system vulnerabilities once a day.
  *
  * @param request DescribeCloudDiskGroupsRequest
  * @return DescribeCloudDiskGroupsResponse
@@ -7584,7 +7770,7 @@ DescribeCloudDiskGroupsResponse Client::describeCloudDiskGroups(const DescribeCl
 }
 
 /**
- * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
+ * @summary Query the list and basic information of all team shared drives in the enterprise cloud drive.
  *
  * @param request DescribeCloudDriveGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7659,7 +7845,7 @@ DescribeCloudDriveGroupsResponse Client::describeCloudDriveGroupsWithOptions(con
 }
 
 /**
- * @summary Queries the list and basic information of all team shared disks in an enterprise drive.
+ * @summary Query the list and basic information of all team shared drives in the enterprise cloud drive.
  *
  * @param request DescribeCloudDriveGroupsRequest
  * @return DescribeCloudDriveGroupsResponse
@@ -7670,7 +7856,7 @@ DescribeCloudDriveGroupsResponse Client::describeCloudDriveGroups(const Describe
 }
 
 /**
- * @summary Queries the permission settings on the enterprise drive.
+ * @summary Query the permission settings details of the enterprise cloud drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7705,7 +7891,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissionsWithO
 }
 
 /**
- * @summary Queries the permission settings on the enterprise drive.
+ * @summary Query the permission settings details of the enterprise cloud drive.
  *
  * @param request DescribeCloudDrivePermissionsRequest
  * @return DescribeCloudDrivePermissionsResponse
@@ -7716,7 +7902,7 @@ DescribeCloudDrivePermissionsResponse Client::describeCloudDrivePermissions(cons
 }
 
 /**
- * @summary Queries users of cloud disks in Cloud Drive Service.
+ * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7763,7 +7949,7 @@ DescribeCloudDriveUsersResponse Client::describeCloudDriveUsersWithOptions(const
 }
 
 /**
- * @summary Queries users of cloud disks in Cloud Drive Service.
+ * @summary Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
  *
  * @param request DescribeCloudDriveUsersRequest
  * @return DescribeCloudDriveUsersResponse
@@ -7774,7 +7960,7 @@ DescribeCloudDriveUsersResponse Client::describeCloudDriveUsers(const DescribeCl
 }
 
 /**
- * @summary Queries configuration groups.
+ * @summary Query the configuration group list information.
  *
  * @param request DescribeConfigGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7837,7 +8023,7 @@ DescribeConfigGroupResponse Client::describeConfigGroupWithOptions(const Describ
 }
 
 /**
- * @summary Queries configuration groups.
+ * @summary Query the configuration group list information.
  *
  * @param request DescribeConfigGroupRequest
  * @return DescribeConfigGroupResponse
@@ -7848,7 +8034,7 @@ DescribeConfigGroupResponse Client::describeConfigGroup(const DescribeConfigGrou
 }
 
 /**
- * @summary Queries the header information of the cloud computer list.
+ * @summary Obtain the table header information of the WUYING Workspace list page.
  *
  * @param request DescribeCustomizedListHeadersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7887,7 +8073,7 @@ DescribeCustomizedListHeadersResponse Client::describeCustomizedListHeadersWithO
 }
 
 /**
- * @summary Queries the header information of the cloud computer list.
+ * @summary Obtain the table header information of the WUYING Workspace list page.
  *
  * @param request DescribeCustomizedListHeadersRequest
  * @return DescribeCustomizedListHeadersResponse
@@ -7984,7 +8170,7 @@ DescribeDesktopGroupSessionsResponse Client::describeDesktopGroupSessions(const 
 }
 
 /**
- * @summary Queries cloud computer shares.
+ * @summary Returns a detailed list of shared cloud desktops.
  *
  * @param request DescribeDesktopGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8095,7 +8281,7 @@ DescribeDesktopGroupsResponse Client::describeDesktopGroupsWithOptions(const Des
 }
 
 /**
- * @summary Queries cloud computer shares.
+ * @summary Returns a detailed list of shared cloud desktops.
  *
  * @param request DescribeDesktopGroupsRequest
  * @return DescribeDesktopGroupsResponse
@@ -8106,7 +8292,7 @@ DescribeDesktopGroupsResponse Client::describeDesktopGroups(const DescribeDeskto
 }
 
 /**
- * @summary Queries the basic information about cloud computers.
+ * @summary Describes basic information about cloud desktops.
  *
  * @param request DescribeDesktopInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8149,7 +8335,7 @@ DescribeDesktopInfoResponse Client::describeDesktopInfoWithOptions(const Describ
 }
 
 /**
- * @summary Queries the basic information about cloud computers.
+ * @summary Describes basic information about cloud desktops.
  *
  * @param request DescribeDesktopInfoRequest
  * @return DescribeDesktopInfoResponse
@@ -8160,7 +8346,9 @@ DescribeDesktopInfoResponse Client::describeDesktopInfo(const DescribeDesktopInf
 }
 
 /**
- * @summary Queries the list and metadata of cloud computers in a specific region.
+ * @summary Lists cloud computers and their metadata from all regions.
+ *
+ * @description This operation is centralized, available only in the China (Shanghai) and Singapore regions.
  *
  * @param request DescribeDesktopMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8243,7 +8431,9 @@ DescribeDesktopMetadataResponse Client::describeDesktopMetadataWithOptions(const
 }
 
 /**
- * @summary Queries the list and metadata of cloud computers in a specific region.
+ * @summary Lists cloud computers and their metadata from all regions.
+ *
+ * @description This operation is centralized, available only in the China (Shanghai) and Singapore regions.
  *
  * @param request DescribeDesktopMetadataRequest
  * @return DescribeDesktopMetadataResponse
@@ -8424,9 +8614,9 @@ DescribeDesktopOversoldUserGroupResponse Client::describeDesktopOversoldUserGrou
 }
 
 /**
- * @summary Queries the detailed session information of a cloud computer.
+ * @summary Queries the detailed session information for cloud computers.
  *
- * @description You can only query data within the last 30 days.
+ * @description You can retrieve data only from the last 30 days.
  *
  * @param request DescribeDesktopSessionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8517,9 +8707,9 @@ DescribeDesktopSessionsResponse Client::describeDesktopSessionsWithOptions(const
 }
 
 /**
- * @summary Queries the detailed session information of a cloud computer.
+ * @summary Queries the detailed session information for cloud computers.
  *
- * @description You can only query data within the last 30 days.
+ * @description You can retrieve data only from the last 30 days.
  *
  * @param request DescribeDesktopSessionsRequest
  * @return DescribeDesktopSessionsResponse
@@ -8530,9 +8720,7 @@ DescribeDesktopSessionsResponse Client::describeDesktopSessions(const DescribeDe
 }
 
 /**
- * @summary Queries the instance types of cloud computers.
- *
- * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+ * @summary Retrieves cloud computer specifications.
  *
  * @param request DescribeDesktopTypesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8647,9 +8835,7 @@ DescribeDesktopTypesResponse Client::describeDesktopTypesWithOptions(const Descr
 }
 
 /**
- * @summary Queries the instance types of cloud computers.
- *
- * @description When no values are specified for the `InstanceTypeFamily` and `DesktopTypeId` parameters for a cloud desktop, all types of cloud desktops are queried.
+ * @summary Retrieves cloud computer specifications.
  *
  * @param request DescribeDesktopTypesRequest
  * @return DescribeDesktopTypesResponse
@@ -8660,7 +8846,7 @@ DescribeDesktopTypesResponse Client::describeDesktopTypes(const DescribeDesktopT
 }
 
 /**
- * @summary Queries the details of cloud computers.
+ * @summary Query the details of your cloud computers.
  *
  * @param request DescribeDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8839,7 +9025,7 @@ DescribeDesktopsResponse Client::describeDesktopsWithOptions(const DescribeDeskt
 }
 
 /**
- * @summary Queries the details of cloud computers.
+ * @summary Query the details of your cloud computers.
  *
  * @param request DescribeDesktopsRequest
  * @return DescribeDesktopsResponse
@@ -8850,7 +9036,7 @@ DescribeDesktopsResponse Client::describeDesktops(const DescribeDesktopsRequest 
 }
 
 /**
- * @summary Queries the cloud computers in a share by billing method.
+ * @summary Find cloud computers in a shared cloud computer by billing method.
  *
  * @param request DescribeDesktopsInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8909,7 +9095,7 @@ DescribeDesktopsInGroupResponse Client::describeDesktopsInGroupWithOptions(const
 }
 
 /**
- * @summary Queries the cloud computers in a share by billing method.
+ * @summary Find cloud computers in a shared cloud computer by billing method.
  *
  * @param request DescribeDesktopsInGroupRequest
  * @return DescribeDesktopsInGroupResponse
@@ -9188,7 +9374,7 @@ DescribeEcdReportTasksResponse Client::describeEcdReportTasks(const DescribeEcdR
 }
 
 /**
- * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
+ * @summary Query the inbound bandwidth and outbound bandwidth of a cloud computer, or the inbound bandwidth and outbound bandwidth for public network access of premium public bandwidth, along with their monitoring data.
  *
  * @param request DescribeFlowMetricRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9243,7 +9429,7 @@ DescribeFlowMetricResponse Client::describeFlowMetricWithOptions(const DescribeF
 }
 
 /**
- * @summary Queries the monitoring data of the desktop inbound bandwidth and the desktop outbound bandwidth, or the monitoring data of the workspace bandwidth originated from or destined for the Internet.
+ * @summary Query the inbound bandwidth and outbound bandwidth of a cloud computer, or the inbound bandwidth and outbound bandwidth for public network access of premium public bandwidth, along with their monitoring data.
  *
  * @param request DescribeFlowMetricRequest
  * @return DescribeFlowMetricResponse
@@ -9514,12 +9700,12 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 }
 
 /**
- * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+ * @summary Queries basic information and usage duration for all recent Cloud Desktops.
  *
- * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
- * *   By default, you can query all cloud computers that are deleted or not deleted.
- * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
- * *   Sort criteria cannot be shared with other criteria.
+ * @description - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
+ * - By default, this operation returns both active and deleted Cloud Desktops.
+ * - You can query only Cloud Desktops deleted within the last three months.
+ * - You cannot use the sort condition with other query conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9618,12 +9804,12 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 }
 
 /**
- * @summary Queries the basic information of all cloud computers and the corresponding usage duration records.
+ * @summary Queries basic information and usage duration for all recent Cloud Desktops.
  *
- * @description *   Domestic site users query site selection Shanghai, international site users choose Singapore.
- * *   By default, you can query all cloud computers that are deleted or not deleted.
- * *   Deleted cloud computers can be queried only if the deletion time is less than three months.
- * *   Sort criteria cannot be shared with other criteria.
+ * @description - Select China (Shanghai) for the Alibaba Cloud China site and Singapore for the Alibaba Cloud International site.
+ * - By default, this operation returns both active and deleted Cloud Desktops.
+ * - You can query only Cloud Desktops deleted within the last three months.
+ * - You cannot use the sort condition with other query conditions.
  *
  * @param request DescribeGlobalDesktopRecordsRequest
  * @return DescribeGlobalDesktopRecordsResponse
@@ -9634,7 +9820,9 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecords(const 
 }
 
 /**
- * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
+ * @summary Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+ *
+ * @description - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
  *
  * @param request DescribeGlobalTimerBatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9689,7 +9877,9 @@ DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatchesWithOptions
 }
 
 /**
- * @summary Queries the batch information in the execution history of scheduled tasks and returns the summary task execution results.
+ * @summary Queries for batch information from the execution history of scheduled tasks and returns aggregated results.
+ *
+ * @description - This API uses a centralized endpoint. You can call this API only from the China (Shanghai) or Singapore (Singapore) regions.
  *
  * @param request DescribeGlobalTimerBatchesRequest
  * @return DescribeGlobalTimerBatchesResponse
@@ -9700,7 +9890,7 @@ DescribeGlobalTimerBatchesResponse Client::describeGlobalTimerBatches(const Desc
 }
 
 /**
- * @summary Queries the execution records of scheduled tasks on cloud computers.
+ * @summary This operation queries the scheduled task execution records for EDS across all regions.
  *
  * @param request DescribeGlobalTimerRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9783,7 +9973,7 @@ DescribeGlobalTimerRecordsResponse Client::describeGlobalTimerRecordsWithOptions
 }
 
 /**
- * @summary Queries the execution records of scheduled tasks on cloud computers.
+ * @summary This operation queries the scheduled task execution records for EDS across all regions.
  *
  * @param request DescribeGlobalTimerRecordsRequest
  * @return DescribeGlobalTimerRecordsResponse
@@ -9844,7 +10034,7 @@ DescribeGuestApplicationsResponse Client::describeGuestApplications(const Descri
 }
 
 /**
- * @summary Queries the image modification records of cloud computers.
+ * @summary Queries the image change records of a cloud computer.
  *
  * @param request DescribeImageModifiedRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9887,7 +10077,7 @@ DescribeImageModifiedRecordsResponse Client::describeImageModifiedRecordsWithOpt
 }
 
 /**
- * @summary Queries the image modification records of cloud computers.
+ * @summary Queries the image change records of a cloud computer.
  *
  * @param request DescribeImageModifiedRecordsRequest
  * @return DescribeImageModifiedRecordsResponse
@@ -10046,8 +10236,10 @@ DescribeImagesResponse Client::describeImages(const DescribeImagesRequest &reque
 }
 
 /**
- * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
- * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+ * @summary Used to query the execution list and status of Cloud Assistant scripts.
+ *
+ * @description - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
+ * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
  *
  * @param request DescribeInvocationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10122,8 +10314,10 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 }
 
 /**
- * @description *   After you run a command, it may not succeed. You can call this operation to query the execution result.
- * *   You can query the information about execution in the last two weeks. A maximum of 100,000 lines of execution information can be retained.
+ * @summary Used to query the execution list and status of Cloud Assistant scripts.
+ *
+ * @description - After you execute a command, it does not necessarily mean that the command was successfully executed or produced the expected effect. You must check the actual execution result based on the return value from the API, and the actual output result prevails.  
+ * - You can query execution information from the past two weeks, with a maximum retention limit of 100,000 records.
  *
  * @param request DescribeInvocationsRequest
  * @return DescribeInvocationsResponse
@@ -10234,7 +10428,7 @@ DescribeKmsKeysResponse Client::describeKmsKeys(const DescribeKmsKeysRequest &re
 }
 
 /**
- * @summary Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+ * @summary Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
  *
  * @param request DescribeModificationPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10309,7 +10503,7 @@ DescribeModificationPriceResponse Client::describeModificationPriceWithOptions(c
 }
 
 /**
- * @summary Queries the price for changing the specifications of a monthly subscription cloud computer with unlimited hours or a premium bandwidth plan.
+ * @summary Query the Upgrade/Downgrade price for monthly subscription cloud desktops with unlimited duration or Internet premium bandwidth.
  *
  * @param request DescribeModificationPriceRequest
  * @return DescribeModificationPriceResponse
@@ -10320,7 +10514,7 @@ DescribeModificationPriceResponse Client::describeModificationPrice(const Descri
 }
 
 /**
- * @summary Queries the information about File Storage NAS (NAS) file systems.
+ * @summary Queries NAS file systems.
  *
  * @param request DescribeNASFileSystemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10371,7 +10565,7 @@ DescribeNASFileSystemsResponse Client::describeNASFileSystemsWithOptions(const D
 }
 
 /**
- * @summary Queries the information about File Storage NAS (NAS) file systems.
+ * @summary Queries NAS file systems.
  *
  * @param request DescribeNASFileSystemsRequest
  * @return DescribeNASFileSystemsResponse
@@ -10502,7 +10696,7 @@ DescribeNetworkPackagesResponse Client::describeNetworkPackages(const DescribeNe
 }
 
 /**
- * @summary Queries office network properties, including office network ID, name, status, and creation time.
+ * @summary Gets all properties of an office network, including its ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10565,7 +10759,7 @@ DescribeOfficeSitesResponse Client::describeOfficeSitesWithOptions(const Describ
 }
 
 /**
- * @summary Queries office network properties, including office network ID, name, status, and creation time.
+ * @summary Gets all properties of an office network, including its ID, name, status, and creation time.
  *
  * @param request DescribeOfficeSitesRequest
  * @return DescribeOfficeSitesResponse
@@ -10576,6 +10770,10 @@ DescribeOfficeSitesResponse Client::describeOfficeSites(const DescribeOfficeSite
 }
 
 /**
+ * @summary Queries metrics such as the online user count and the assigned user count.
+ *
+ * @description Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+ *
  * @param request DescribeOnlineUserCountRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeOnlineUserCountResponse
@@ -10617,6 +10815,10 @@ DescribeOnlineUserCountResponse Client::describeOnlineUserCountWithOptions(const
 }
 
 /**
+ * @summary Queries metrics such as the online user count and the assigned user count.
+ *
+ * @description Before you call this operation, make sure that you are familiar with the resource types and product types of Elastic Desktop Service.
+ *
  * @param request DescribeOnlineUserCountRequest
  * @return DescribeOnlineUserCountResponse
  */
@@ -10626,7 +10828,7 @@ DescribeOnlineUserCountResponse Client::describeOnlineUserCount(const DescribeOn
 }
 
 /**
- * @summary Queries the details of a cloud computer policy.
+ * @summary Retrieves the details of a cloud computer policy.
  *
  * @param request DescribePolicyGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10689,7 +10891,7 @@ DescribePolicyGroupsResponse Client::describePolicyGroupsWithOptions(const Descr
 }
 
 /**
- * @summary Queries the details of a cloud computer policy.
+ * @summary Retrieves the details of a cloud computer policy.
  *
  * @param request DescribePolicyGroupsRequest
  * @return DescribePolicyGroupsResponse
@@ -10700,14 +10902,7 @@ DescribePolicyGroupsResponse Client::describePolicyGroups(const DescribePolicyGr
 }
 
 /**
- * @summary Queries the prices of Elastic Desktop Service (EDS) resources.
- *
- * @description ## Usage notes
- * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
- * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
- * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
- * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
- * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+ * @summary Query the new purchase price of Elastic Desktop Service (EDS) products.
  *
  * @param request DescribePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10810,14 +11005,7 @@ DescribePriceResponse Client::describePriceWithOptions(const DescribePriceReques
 }
 
 /**
- * @summary Queries the prices of Elastic Desktop Service (EDS) resources.
- *
- * @description ## Usage notes
- * The request parameters vary based on the type of desktop resources whose price you want to query. Take note of the following items:
- * *   If you set ResourceType to OfficeSite, you must specify InstanceType.
- * *   If you set ResourceType to Bandwidth, the pay-by-data-transfer metering method is used for network billing.
- * *   If you set ResourceType to Desktop, you must specify InstanceType, RootDiskSizeGib, and UserDiskSizeGib. You can specify OsType, PeriodUnit, Period, and Amount based on your business requirements.
- * > Before you call this operation to query the prices of cloud desktops by setting ResourceType to Desktop, you must know the desktop types and disk sizes that EDS provides. The disk sizes vary based on the desktop types. For more information, see [Cloud desktop types](https://help.aliyun.com/document_detail/188609.html).
+ * @summary Query the new purchase price of Elastic Desktop Service (EDS) products.
  *
  * @param request DescribePriceRequest
  * @return DescribePriceResponse
@@ -10994,7 +11182,7 @@ DescribePriceForRenewDesktopOversoldGroupResponse Client::describePriceForRenewD
 }
 
 /**
- * @summary Queries Quality of Service (QoS) rules.
+ * @summary Queries QoS rules.
  *
  * @param request DescribeQosRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11029,7 +11217,7 @@ DescribeQosRulesResponse Client::describeQosRulesWithOptions(const DescribeQosRu
 }
 
 /**
- * @summary Queries Quality of Service (QoS) rules.
+ * @summary Queries QoS rules.
  *
  * @param request DescribeQosRulesRequest
  * @return DescribeQosRulesResponse
@@ -11040,7 +11228,7 @@ DescribeQosRulesResponse Client::describeQosRules(const DescribeQosRulesRequest 
 }
 
 /**
- * @summary Queries the screen recording files in all regions.
+ * @summary Retrieve screen recording files from all regions.
  *
  * @param request DescribeRecordFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11119,7 +11307,7 @@ DescribeRecordFileResponse Client::describeRecordFileWithOptions(const DescribeR
 }
 
 /**
- * @summary Queries the screen recording files in all regions.
+ * @summary Retrieve screen recording files from all regions.
  *
  * @param request DescribeRecordFileRequest
  * @return DescribeRecordFileResponse
@@ -11212,7 +11400,7 @@ DescribeRecordingsResponse Client::describeRecordings(const DescribeRecordingsRe
 }
 
 /**
- * @summary Queries the refund amount for unsubscribing from a cloud computer.
+ * @summary Query the refund amount for monthly subscription WUYING Workspaces.
  *
  * @param request DescribeRefundPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11255,7 +11443,7 @@ DescribeRefundPriceResponse Client::describeRefundPriceWithOptions(const Describ
 }
 
 /**
- * @summary Queries the refund amount for unsubscribing from a cloud computer.
+ * @summary Query the refund amount for monthly subscription WUYING Workspaces.
  *
  * @param request DescribeRefundPriceRequest
  * @return DescribeRefundPriceResponse
@@ -11312,7 +11500,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the renewal price of an Alibaba Cloud Workspace service.
+ * @summary Retrieves the renewal price for an Elastic Desktop Service product.
  *
  * @param request DescribeRenewalPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11371,7 +11559,7 @@ DescribeRenewalPriceResponse Client::describeRenewalPriceWithOptions(const Descr
 }
 
 /**
- * @summary Queries the renewal price of an Alibaba Cloud Workspace service.
+ * @summary Retrieves the renewal price for an Elastic Desktop Service product.
  *
  * @param request DescribeRenewalPriceRequest
  * @return DescribeRenewalPriceResponse
@@ -11604,8 +11792,8 @@ DescribeSecurityGroupAttributeResponse Client::describeSecurityGroupAttribute(co
 /**
  * @summary Queries the session statistics of a region.
  *
- * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
- * *   You can query session statistics for the past hour.
+ * @description - This is a central operation and can be called only by using services in the China (Shanghai) region.
+ * - You can query session statistics for the past hour.
  *
  * @param request DescribeSessionStatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11658,8 +11846,8 @@ DescribeSessionStatisticResponse Client::describeSessionStatisticWithOptions(con
 /**
  * @summary Queries the session statistics of a region.
  *
- * @description *   This is a central operation and can be called only by using services in the China (Shanghai) region.
- * *   You can query session statistics for the past hour.
+ * @description - This is a central operation and can be called only by using services in the China (Shanghai) region.
+ * - You can query session statistics for the past hour.
  *
  * @param request DescribeSessionStatisticRequest
  * @return DescribeSessionStatisticResponse
@@ -11670,7 +11858,7 @@ DescribeSessionStatisticResponse Client::describeSessionStatistic(const Describe
 }
 
 /**
- * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+ * @summary Queries the snapshots and their details for a cloud desktop.
  *
  * @param request DescribeSnapshotsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11749,7 +11937,7 @@ DescribeSnapshotsResponse Client::describeSnapshotsWithOptions(const DescribeSna
 }
 
 /**
- * @summary Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+ * @summary Queries the snapshots and their details for a cloud desktop.
  *
  * @param request DescribeSnapshotsRequest
  * @return DescribeSnapshotsResponse
@@ -11888,7 +12076,7 @@ DescribeSubnetsResponse Client::describeSubnets(const DescribeSubnetsRequest &re
 }
 
 /**
- * @summary Queries the details of cloud computer templates.
+ * @summary Query the details of Cloud Desktop templates.
  *
  * @param request DescribeTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11955,7 +12143,7 @@ DescribeTemplatesResponse Client::describeTemplatesWithOptions(const DescribeTem
 }
 
 /**
- * @summary Queries the details of cloud computer templates.
+ * @summary Query the details of Cloud Desktop templates.
  *
  * @param request DescribeTemplatesRequest
  * @return DescribeTemplatesResponse
@@ -11966,7 +12154,7 @@ DescribeTemplatesResponse Client::describeTemplates(const DescribeTemplatesReque
 }
 
 /**
- * @summary Queries a scheduled task configuration group.
+ * @summary Retrieves details for a specified configuration group.
  *
  * @param request DescribeTimerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12001,7 +12189,7 @@ DescribeTimerGroupResponse Client::describeTimerGroupWithOptions(const DescribeT
 }
 
 /**
- * @summary Queries a scheduled task configuration group.
+ * @summary Retrieves details for a specified configuration group.
  *
  * @param request DescribeTimerGroupRequest
  * @return DescribeTimerGroupResponse
@@ -12172,8 +12360,6 @@ DescribeUserConnectionRecordsResponse Client::describeUserConnectionRecords(cons
 }
 
 /**
- * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
- *
  * @param request DescribeUserProfilePathRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeUserProfilePathRulesResponse
@@ -12211,8 +12397,6 @@ DescribeUserProfilePathRulesResponse Client::describeUserProfilePathRulesWithOpt
 }
 
 /**
- * @summary Queries the configurations of the user profile management (UPM) directory blacklist and whitelist.
- *
  * @param request DescribeUserProfilePathRulesRequest
  * @return DescribeUserProfilePathRulesResponse
  */
@@ -12222,7 +12406,7 @@ DescribeUserProfilePathRulesResponse Client::describeUserProfilePathRules(const 
 }
 
 /**
- * @summary Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+ * @summary This operation queries the details of all authorized users in a cloud desktop group, including their usernames, email addresses, phone numbers, and the IDs of their authorized cloud desktops.
  *
  * @param request DescribeUsersInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12289,7 +12473,7 @@ DescribeUsersInGroupResponse Client::describeUsersInGroupWithOptions(const Descr
 }
 
 /**
- * @summary Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+ * @summary This operation queries the details of all authorized users in a cloud desktop group, including their usernames, email addresses, phone numbers, and the IDs of their authorized cloud desktops.
  *
  * @param request DescribeUsersInGroupRequest
  * @return DescribeUsersInGroupResponse
@@ -12346,7 +12530,7 @@ DescribeUsersPasswordResponse Client::describeUsersPassword(const DescribeUsersP
 }
 
 /**
- * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
+ * @summary Retrieves the virtual multi-factor authentication (MFA) device associated with an Active Directory (AD) account.
  *
  * @param request DescribeVirtualMFADevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12397,7 +12581,7 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevicesWithOptions(c
 }
 
 /**
- * @summary Queries the virtual multi-factor authentication (MFA) devices that are associated with Active Directory (AD) accounts.
+ * @summary Retrieves the virtual multi-factor authentication (MFA) device associated with an Active Directory (AD) account.
  *
  * @param request DescribeVirtualMFADevicesRequest
  * @return DescribeVirtualMFADevicesResponse
@@ -12408,7 +12592,7 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevices(const Descri
 }
 
 /**
- * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+ * @summary Queries the zones supported by Elastic Desktop Service (EDS) in a region.
  *
  * @param request DescribeZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12447,7 +12631,7 @@ DescribeZonesResponse Client::describeZonesWithOptions(const DescribeZonesReques
 }
 
 /**
- * @summary Queries the zones in a region in which Elastic Desktop Service is supported.
+ * @summary Queries the zones supported by Elastic Desktop Service (EDS) in a region.
  *
  * @param request DescribeZonesRequest
  * @return DescribeZonesResponse
@@ -13306,7 +13490,7 @@ GetCoordinateTicketResponse Client::getCoordinateTicket(const GetCoordinateTicke
 }
 
 /**
- * @summary Queries the information about a cloud computer share.
+ * @summary Queries the details of a cloud computer share.
  *
  * @param request GetDesktopGroupDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13341,7 +13525,7 @@ GetDesktopGroupDetailResponse Client::getDesktopGroupDetailWithOptions(const Get
 }
 
 /**
- * @summary Queries the information about a cloud computer share.
+ * @summary Queries the details of a cloud computer share.
  *
  * @param request GetDesktopGroupDetailRequest
  * @return GetDesktopGroupDetailResponse
@@ -13400,8 +13584,6 @@ GetOfficeSiteSsoStatusResponse Client::getOfficeSiteSsoStatus(const GetOfficeSit
 /**
  * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
  *
- * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
- *
  * @param request GetSpMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSpMetadataResponse
@@ -13441,8 +13623,6 @@ GetSpMetadataResponse Client::getSpMetadataWithOptions(const GetSpMetadataReques
 /**
  * @summary Obtains the metadata of a Security Assertion Markup Language (SAML) 2.0-based service provider (SP).
  *
- * @description You can call this operation only for workspaces of the Active Directory (AD) and convenience account types.
- *
  * @param request GetSpMetadataRequest
  * @return GetSpMetadataResponse
  */
@@ -13453,8 +13633,6 @@ GetSpMetadataResponse Client::getSpMetadata(const GetSpMetadataRequest &request)
 
 /**
  * @summary Hibernates cloud desktops.
- *
- * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
  *
  * @param request HibernateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13490,8 +13668,6 @@ HibernateDesktopsResponse Client::hibernateDesktopsWithOptions(const HibernateDe
 
 /**
  * @summary Hibernates cloud desktops.
- *
- * @description Hibernating a cloud desktop is in private preview. If you want to try this feature, submit a ticket.
  *
  * @param request HibernateDesktopsRequest
  * @return HibernateDesktopsResponse
@@ -13586,9 +13762,7 @@ ListCdsFilesResponse Client::listCdsFiles(const ListCdsFilesRequest &request) {
 }
 
 /**
- * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
- *
- * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+ * @summary If you use an Active Directory (AD) directory to connect to your enterprise AD, call this operation to retrieve user information from your enterprise AD.
  *
  * @param request ListDirectoryUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13651,9 +13825,7 @@ ListDirectoryUsersResponse Client::listDirectoryUsersWithOptions(const ListDirec
 }
 
 /**
- * @summary Obtains the user information in the AD system if you use an AD directory to connect to an AD system.
- *
- * @description If you use an AD directory to connect to an AD system, you can call this operation to obtain the user information in the AD system.
+ * @summary If you use an Active Directory (AD) directory to connect to your enterprise AD, call this operation to retrieve user information from your enterprise AD.
  *
  * @param request ListDirectoryUsersRequest
  * @return ListDirectoryUsersResponse
@@ -13834,7 +14006,7 @@ ListOfficeSiteOverviewResponse Client::listOfficeSiteOverview(const ListOfficeSi
 }
 
 /**
- * @summary Queries information about Active Directory (AD) accounts after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+ * @summary Queries information about Active Directory (AD) accounts in an AD office network (formerly known as a workspace) that is connected to an AD domain.
  *
  * @param request ListOfficeSiteUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13897,7 +14069,7 @@ ListOfficeSiteUsersResponse Client::listOfficeSiteUsersWithOptions(const ListOff
 }
 
 /**
- * @summary Queries information about Active Directory (AD) accounts after an enterprise AD office network (formerly workspace) interconnects to an AD domain.
+ * @summary Queries information about Active Directory (AD) accounts in an AD office network (formerly known as a workspace) that is connected to an AD domain.
  *
  * @param request ListOfficeSiteUsersRequest
  * @return ListOfficeSiteUsersResponse
@@ -13974,7 +14146,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Gets the download URL of the transferred file.
+ * @summary Retrieves the download URLs for transferred files.
  *
  * @param request ListTransferFileDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14009,7 +14181,7 @@ ListTransferFileDownloadUrlResponse Client::listTransferFileDownloadUrlWithOptio
 }
 
 /**
- * @summary Gets the download URL of the transferred file.
+ * @summary Retrieves the download URLs for transferred files.
  *
  * @param request ListTransferFileDownloadUrlRequest
  * @return ListTransferFileDownloadUrlResponse
@@ -14178,7 +14350,7 @@ LockVirtualMFADeviceResponse Client::lockVirtualMFADevice(const LockVirtualMFADe
 }
 
 /**
- * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+ * @summary Migrates one or more cloud computers to a new office network.
  *
  * @param request MigrateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14225,7 +14397,7 @@ MigrateDesktopsResponse Client::migrateDesktopsWithOptions(const MigrateDesktops
 }
 
 /**
- * @summary Migrates cloud computers from the current office network (formerly called workspace) to the new office network.
+ * @summary Migrates one or more cloud computers to a new office network.
  *
  * @param request MigrateDesktopsRequest
  * @return MigrateDesktopsResponse
@@ -14532,7 +14704,7 @@ ModifyAclEntriesResponse Client::modifyAclEntries(const ModifyAclEntriesRequest 
 }
 
 /**
- * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+ * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
  *
  * @param request ModifyAutoSnapshotPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14583,7 +14755,7 @@ ModifyAutoSnapshotPolicyResponse Client::modifyAutoSnapshotPolicyWithOptions(con
 }
 
 /**
- * @summary Modifies the parameters of an automatic snapshot policy, such as the policy name and snapshot retention period.
+ * @summary Modifies the name and snapshot retention period of an automatic snapshot policy.
  *
  * @param request ModifyAutoSnapshotPolicyRequest
  * @return ModifyAutoSnapshotPolicyResponse
@@ -14726,7 +14898,7 @@ ModifyCdsFileResponse Client::modifyCdsFile(const ModifyCdsFileRequest &request)
 }
 
 /**
- * @summary Modify the file sharing settings.
+ * @summary Modifies the link for file sharing.
  *
  * @param request ModifyCdsFileShareLinkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14825,7 +14997,7 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLinkWithOptions(const M
 }
 
 /**
- * @summary Modify the file sharing settings.
+ * @summary Modifies the link for file sharing.
  *
  * @param request ModifyCdsFileShareLinkRequest
  * @return ModifyCdsFileShareLinkResponse
@@ -14836,7 +15008,7 @@ ModifyCdsFileShareLinkResponse Client::modifyCdsFileShareLink(const ModifyCdsFil
 }
 
 /**
- * @summary Modifies a center policy.
+ * @summary Modifies a configuration that does not have a region-specific policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15403,7 +15575,7 @@ ModifyCenterPolicyResponse Client::modifyCenterPolicyWithOptions(const ModifyCen
 }
 
 /**
- * @summary Modifies a center policy.
+ * @summary Modifies a configuration that does not have a region-specific policy.
  *
  * @param request ModifyCenterPolicyRequest
  * @return ModifyCenterPolicyResponse
@@ -15472,7 +15644,11 @@ ModifyCloudDriveGroupsResponse Client::modifyCloudDriveGroups(const ModifyCloudD
 }
 
 /**
- * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+ * @summary The default policy for the enterprise file storage is that all users can upload files from on-premises devices to the enterprise file storage, but cannot download files from the enterprise file storage to on-premises devices. You can invoke this API to add users with exception permissions.
+ *
+ * @description When accessing the file storage within WUYING Workspace, file uploads and downloads between them are always allowed because both reside in a secure environment. However, if the visibility of the file storage on WUYING Terminal has been enabled, end users can directly access the file storage through the WUYING Terminal interface.
+ * To prevent end users from transferring sensitive data from WUYING Workspace to on-premises devices via the file storage, the default policy allows users to upload files from on-premises devices to the enterprise file storage but prohibits downloading files from the enterprise file storage to on-premises devices. This default policy applies to all users of the file storage, and you do not need to configure its scope.
+ * If needed, you can invoke this API to control user permissions for file transfer between the enterprise file storage and on-premises devices. Users added here will be exempt from the default policy.
  *
  * @param request ModifyCloudDrivePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15519,7 +15695,11 @@ ModifyCloudDrivePermissionResponse Client::modifyCloudDrivePermissionWithOptions
 }
 
 /**
- * @summary Modifies the user permissions on Cloud Drive Service, and configures users who have the download permissions and upload and download permissions. By default, the users that are not configured the preceding permissions only have the upload permissions.
+ * @summary The default policy for the enterprise file storage is that all users can upload files from on-premises devices to the enterprise file storage, but cannot download files from the enterprise file storage to on-premises devices. You can invoke this API to add users with exception permissions.
+ *
+ * @description When accessing the file storage within WUYING Workspace, file uploads and downloads between them are always allowed because both reside in a secure environment. However, if the visibility of the file storage on WUYING Terminal has been enabled, end users can directly access the file storage through the WUYING Terminal interface.
+ * To prevent end users from transferring sensitive data from WUYING Workspace to on-premises devices via the file storage, the default policy allows users to upload files from on-premises devices to the enterprise file storage but prohibits downloading files from the enterprise file storage to on-premises devices. This default policy applies to all users of the file storage, and you do not need to configure its scope.
+ * If needed, you can invoke this API to control user permissions for file transfer between the enterprise file storage and on-premises devices. Users added here will be exempt from the default policy.
  *
  * @param request ModifyCloudDrivePermissionRequest
  * @return ModifyCloudDrivePermissionResponse
@@ -15530,7 +15710,7 @@ ModifyCloudDrivePermissionResponse Client::modifyCloudDrivePermission(const Modi
 }
 
 /**
- * @summary Modifies users of a cloud disk in Cloud Drive Service.
+ * @summary Modify basic properties of a user\\"s personal disk, such as the status and storage capacity limit.
  *
  * @param request ModifyCloudDriveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15577,7 +15757,7 @@ ModifyCloudDriveUsersResponse Client::modifyCloudDriveUsersWithOptions(const Mod
 }
 
 /**
- * @summary Modifies users of a cloud disk in Cloud Drive Service.
+ * @summary Modify basic properties of a user\\"s personal disk, such as the status and storage capacity limit.
  *
  * @param request ModifyCloudDriveUsersRequest
  * @return ModifyCloudDriveUsersResponse
@@ -15692,11 +15872,13 @@ ModifyCustomizedListHeadersResponse Client::modifyCustomizedListHeaders(const Mo
 }
 
 /**
- * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+ * @summary Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
  *
- * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
- * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+ * @description - Before calling this operation, ensure you understand the billing methods for cloud desktops. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * - Ensure the cloud desktop is in the running or stopped state and has no overdue payments.
+ * - After you pay for the order, the system begins to convert the billing method. While the desktop is in the updating state, you cannot perform other operations, such as starting, stopping, or changing its configuration.
+ * <props="china">
+ * When you convert from subscription to pay-as-you-go, refund limits apply. For more information, see [Convert Subscription to Pay-As-You-Go](https://help.aliyun.com/document_detail/439964.html).
  *
  * @param request ModifyDesktopChargeTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15759,11 +15941,13 @@ ModifyDesktopChargeTypeResponse Client::modifyDesktopChargeTypeWithOptions(const
 }
 
 /**
- * @summary Changes the billing method of cloud computers to subscription or pay-as-you-go.
+ * @summary Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
  *
- * @description *   Before you call this operation, make sure that you fully understand the billing methods of cloud computers. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
- * *   Before you call this operation, make sure that the cloud computers whose billing method you want to change are in the Running or Stopped state and you have no overdue payments in your Alibaba Cloud account.
- * *   After the order payment is completed, the system starts to change the billing method of the cloud computers. During the change, you cannot perform operations, such as starting or stopping the cloud computers, and changing configurations of the cloud computers.
+ * @description - Before calling this operation, ensure you understand the billing methods for cloud desktops. For more information, see [billing overview](https://help.aliyun.com/document_detail/188395.html).
+ * - Ensure the cloud desktop is in the running or stopped state and has no overdue payments.
+ * - After you pay for the order, the system begins to convert the billing method. While the desktop is in the updating state, you cannot perform other operations, such as starting, stopping, or changing its configuration.
+ * <props="china">
+ * When you convert from subscription to pay-as-you-go, refund limits apply. For more information, see [Convert Subscription to Pay-As-You-Go](https://help.aliyun.com/document_detail/439964.html).
  *
  * @param request ModifyDesktopChargeTypeRequest
  * @return ModifyDesktopChargeTypeResponse
@@ -15774,9 +15958,9 @@ ModifyDesktopChargeTypeResponse Client::modifyDesktopChargeType(const ModifyDesk
 }
 
 /**
- * @summary Modifies a cloud computer share.
+ * @summary Modifies a shared cloud computer group.
  *
- * @description Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
+ * @description After you create a shared cloud computer group, the system automatically provisions cloud computers in the group based on its auto scaling policy and end-user connections. All cloud computers in the group use the same cloud computer template and security policy. You can modify the group’s configuration as needed, such as the group name, cloud computer template, and associated policies.
  *
  * @param request ModifyDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15911,9 +16095,9 @@ ModifyDesktopGroupResponse Client::modifyDesktopGroupWithOptions(const ModifyDes
 }
 
 /**
- * @summary Modifies a cloud computer share.
+ * @summary Modifies a shared cloud computer group.
  *
- * @description Once a cloud computer share is created, the system automatically provisions cloud computers according to the auto-scaling policy and user connections, all based on the same template and security policy. You can adjust the cloud computer share\\"s configurations, including the share name, template, and policy, for different business scenarios.
+ * @description After you create a shared cloud computer group, the system automatically provisions cloud computers in the group based on its auto scaling policy and end-user connections. All cloud computers in the group use the same cloud computer template and security policy. You can modify the group’s configuration as needed, such as the group name, cloud computer template, and associated policies.
  *
  * @param request ModifyDesktopGroupRequest
  * @return ModifyDesktopGroupResponse
@@ -15924,9 +16108,9 @@ ModifyDesktopGroupResponse Client::modifyDesktopGroup(const ModifyDesktopGroupRe
 }
 
 /**
- * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+ * @summary Modifies the hostname of a Windows cloud desktop in an AD workspace.
  *
- * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+ * @description You can only modify the hostname of Windows cloud desktops in an AD workspace. Modifying the hostname rebuilds the cloud desktop.
  *
  * @param request ModifyDesktopHostNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15969,9 +16153,9 @@ ModifyDesktopHostNameResponse Client::modifyDesktopHostNameWithOptions(const Mod
 }
 
 /**
- * @summary Modifies the hostname of a Windows cloud computer in the Active Directory (AD) office network.
+ * @summary Modifies the hostname of a Windows cloud desktop in an AD workspace.
  *
- * @description The Windows cloud computer whose hostname you want to modify must be in an AD office network. After the hostname is modified, the cloud computer is re-created.
+ * @description You can only modify the hostname of Windows cloud desktops in an AD workspace. Modifying the hostname rebuilds the cloud desktop.
  *
  * @param request ModifyDesktopHostNameRequest
  * @return ModifyDesktopHostNameResponse
@@ -15982,7 +16166,7 @@ ModifyDesktopHostNameResponse Client::modifyDesktopHostName(const ModifyDesktopH
 }
 
 /**
- * @summary Changes the name of a cloud computer to a new name.
+ * @summary Modifies the name of a specified cloud desktop.
  *
  * @param request ModifyDesktopNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16029,7 +16213,7 @@ ModifyDesktopNameResponse Client::modifyDesktopNameWithOptions(const ModifyDeskt
 }
 
 /**
- * @summary Changes the name of a cloud computer to a new name.
+ * @summary Modifies the name of a specified cloud desktop.
  *
  * @param request ModifyDesktopNameRequest
  * @return ModifyDesktopNameResponse
@@ -16230,18 +16414,18 @@ ModifyDesktopOversoldUserGroupResponse Client::modifyDesktopOversoldUserGroup(co
 }
 
 /**
- * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+ * @summary Modifies the desktop type and expands the disks of a cloud desktop.
  *
- * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
- * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
- * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
- *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
- *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
- *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
- *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
- *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
- *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
- * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+ * @description This operation modifies the configuration of a cloud desktop, including its desktop type and disk sizes.
+ * - Before you modify the configuration, ensure you understand the supported desktop types and disk sizes. For more information, see [Cloud desktop specifications](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported desktop types.
+ * - When you call this operation, you must modify the desktop type, the system disk size, or the data disk size. This requires specifying at least one of the corresponding parameters: `DesktopType`, `RootDiskSizeGib`, or `UserDiskSizeGib`. Note the following:
+ *   - A desktop type includes vCPU, memory, and GPU configurations. You can change the desktop type but cannot modify these resources individually.
+ *   - You cannot change a desktop type between general-purpose and non-general-purpose, or between graphics-accelerated and non-graphics-accelerated.
+ *   - Both the system disk and the data disk support expansion, but not shrinking.
+ *   - If the cloud desktop uses the subscription billing method, the system calculates the price difference based on the configuration change. You must pay the price difference, or you will receive a refund.
+ *   - For the same cloud desktop, wait at least five minutes between configuration change operations.
+ *   - The cloud desktop must be in the Stopped state.
+ * - This operation does not affect the personal data stored on the cloud desktop.
  *
  * @param request ModifyDesktopSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16312,18 +16496,18 @@ ModifyDesktopSpecResponse Client::modifyDesktopSpecWithOptions(const ModifyDeskt
 }
 
 /**
- * @summary Changes the instance type of a cloud computer and scales up the disks of the cloud computer.
+ * @summary Modifies the desktop type and expands the disks of a cloud desktop.
  *
- * @description Changing the configurations of a cloud computer includes changing the instance type of the cloud computer and scaling up the disks of the cloud computer.
- * *   Before you change the configurations of a cloud computer, you must understand the instance types and disk sizes supported by cloud computers. For more information, see [Cloud computer types](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
- * *   You must change at least one of the following configurations: instance type, system disk size, and data disk size of the cloud computer. You must specify at least one of the following parameters: `DesktopType`, `RootDiskSizeGib`, and `UserDiskSizeGib`. Take note of the following items:
- *     *   The instance type of a cloud computer includes the configurations of vCPUs, memory, and GPUs. You can only change an instance type to another. You cannot change only one of the configurations.
- *     *   You cannot change a cloud computer between the General Office type and the non-General Office type. You cannot yet change a cloud computer between the Graphics type and the non-Graphics type.
- *     *   The system disk and data disks of a cloud computer can only be scaled up and cannot be scaled down.
- *     *   If the billing method of the cloud computer is subscription, the system calculates the price difference based on the configuration difference between the original cloud computer and the new cloud computer. You must make up for the price difference or receive a refund for the price difference.
- *     *   We recommend that you do not change the configurations of a cloud computer twice within 5 minutes.
- *     *   When you change the configurations of a cloud computer, the cloud computer must be in the Stopped state.
- * *   After you change the configurations of a cloud computer, the personal data on the cloud computer is not affected.
+ * @description This operation modifies the configuration of a cloud desktop, including its desktop type and disk sizes.
+ * - Before you modify the configuration, ensure you understand the supported desktop types and disk sizes. For more information, see [Cloud desktop specifications](https://help.aliyun.com/document_detail/188609.html). You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the supported desktop types.
+ * - When you call this operation, you must modify the desktop type, the system disk size, or the data disk size. This requires specifying at least one of the corresponding parameters: `DesktopType`, `RootDiskSizeGib`, or `UserDiskSizeGib`. Note the following:
+ *   - A desktop type includes vCPU, memory, and GPU configurations. You can change the desktop type but cannot modify these resources individually.
+ *   - You cannot change a desktop type between general-purpose and non-general-purpose, or between graphics-accelerated and non-graphics-accelerated.
+ *   - Both the system disk and the data disk support expansion, but not shrinking.
+ *   - If the cloud desktop uses the subscription billing method, the system calculates the price difference based on the configuration change. You must pay the price difference, or you will receive a refund.
+ *   - For the same cloud desktop, wait at least five minutes between configuration change operations.
+ *   - The cloud desktop must be in the Stopped state.
+ * - This operation does not affect the personal data stored on the cloud desktop.
  *
  * @param request ModifyDesktopSpecRequest
  * @return ModifyDesktopSpecResponse
@@ -16446,10 +16630,10 @@ ModifyDesktopsPolicyGroupResponse Client::modifyDesktopsPolicyGroup(const Modify
 }
 
 /**
- * @summary Changes the performance level (PL) of a system disk or data disk.
+ * @summary Modify the performance level of a cloud desktop\\"s system disk or data disk.
  *
- * @description When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
- * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
+ * @description When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
+ * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
  *
  * @param request ModifyDiskSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16504,10 +16688,10 @@ ModifyDiskSpecResponse Client::modifyDiskSpecWithOptions(const ModifyDiskSpecReq
 }
 
 /**
- * @summary Changes the performance level (PL) of a system disk or data disk.
+ * @summary Modify the performance level of a cloud desktop\\"s system disk or data disk.
  *
- * @description When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
- * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
+ * @description When you create a WUYING Workspace, you can define its specifications using a custom template. Graphics and High-frequency workspaces use Enhanced SSDs (ESSDs) by default, which lets you set the disk capacity and performance level. You can modify the performance level of the system disk or data disk as needed.
+ * > Only Graphics and High-frequency WUYING Workspaces support modifying the disk performance level.
  *
  * @param request ModifyDiskSpecRequest
  * @return ModifyDiskSpecResponse
@@ -16886,7 +17070,7 @@ ModifyNetworkPackageEnabledResponse Client::modifyNetworkPackageEnabled(const Mo
 }
 
 /**
- * @summary Modifies Global Accelerator (GA) configuration.
+ * @summary Modifies the Global Accelerator (GA) configuration.
  *
  * @param request ModifyOfficeSiteAcceleratorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16925,7 +17109,7 @@ ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAcceleratorWithOptio
 }
 
 /**
- * @summary Modifies Global Accelerator (GA) configuration.
+ * @summary Modifies the Global Accelerator (GA) configuration.
  *
  * @param request ModifyOfficeSiteAcceleratorRequest
  * @return ModifyOfficeSiteAcceleratorResponse
@@ -16936,7 +17120,7 @@ ModifyOfficeSiteAcceleratorResponse Client::modifyOfficeSiteAccelerator(const Mo
 }
 
 /**
- * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+ * @summary Modifies basic attributes of an office site (formerly a workspace), such as its name and whether to grant users local administrative permissions on their cloud computers.
  *
  * @param request ModifyOfficeSiteAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17015,7 +17199,7 @@ ModifyOfficeSiteAttributeResponse Client::modifyOfficeSiteAttributeWithOptions(c
 }
 
 /**
- * @summary Modifies the basic properties of an office network, including the name and local administrator permission settings.
+ * @summary Modifies basic attributes of an office site (formerly a workspace), such as its name and whether to grant users local administrative permissions on their cloud computers.
  *
  * @param request ModifyOfficeSiteAttributeRequest
  * @return ModifyOfficeSiteAttributeResponse
@@ -17176,7 +17360,7 @@ ModifyOfficeSiteMfaEnabledResponse Client::modifyOfficeSiteMfaEnabled(const Modi
 }
 
 /**
- * @summary Modifies the cloud computer policy.
+ * @summary Modifies cloud computer policies.
  *
  * @param request ModifyPolicyGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17443,7 +17627,7 @@ ModifyPolicyGroupResponse Client::modifyPolicyGroupWithOptions(const ModifyPolic
 }
 
 /**
- * @summary Modifies the cloud computer policy.
+ * @summary Modifies cloud computer policies.
  *
  * @param request ModifyPolicyGroupRequest
  * @return ModifyPolicyGroupResponse
@@ -17454,7 +17638,7 @@ ModifyPolicyGroupResponse Client::modifyPolicyGroup(const ModifyPolicyGroupReque
 }
 
 /**
- * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
+ * @summary Modifies the resource bindings of a QoS rule.
  *
  * @param request ModifyQosEntriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17509,7 +17693,7 @@ ModifyQosEntriesResponse Client::modifyQosEntriesWithOptions(const ModifyQosEntr
 }
 
 /**
- * @summary Modifies the resources that a Quality of Service (QoS) rule applies to.
+ * @summary Modifies the resource bindings of a QoS rule.
  *
  * @param request ModifyQosEntriesRequest
  * @return ModifyQosEntriesResponse
@@ -17520,7 +17704,7 @@ ModifyQosEntriesResponse Client::modifyQosEntries(const ModifyQosEntriesRequest 
 }
 
 /**
- * @summary Modifies a Quality of Service (QoS) rule.
+ * @summary You can modify a rate limiting rule.
  *
  * @param request ModifyQosRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17563,7 +17747,7 @@ ModifyQosRuleResponse Client::modifyQosRuleWithOptions(const ModifyQosRuleReques
 }
 
 /**
- * @summary Modifies a Quality of Service (QoS) rule.
+ * @summary You can modify a rate limiting rule.
  *
  * @param request ModifyQosRuleRequest
  * @return ModifyQosRuleResponse
@@ -17698,10 +17882,10 @@ ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttribute(const 
 }
 
 /**
- * @summary Modifies a custom cloud computer template.
+ * @summary Modifies all parameters of a custom WUYING Workspace template.
  *
- * @description **
- * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+ * @description >Warning: 
+ * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
  *
  * @param request ModifyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17816,10 +18000,10 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 }
 
 /**
- * @summary Modifies a custom cloud computer template.
+ * @summary Modifies all parameters of a custom WUYING Workspace template.
  *
- * @description **
- * **Warning** This operation employs the full parameter update logic to maintain compatibility between the no-configuration logic and the default update logic. In other words, any unspecified parameters are treated as empty.
+ * @description >Warning: 
+ * This operation updates all parameters. To ensure compatibility with the default upgrade logic, any parameter that you do not specify is set to empty.
  *
  * @param request ModifyTemplateRequest
  * @return ModifyTemplateResponse
@@ -17884,7 +18068,7 @@ ModifyTemplateBaseInfoResponse Client::modifyTemplateBaseInfo(const ModifyTempla
 }
 
 /**
- * @summary Modifies a scheduled task configuration group.
+ * @summary Modify configuration group settings, such as those for scheduled tasks.
  *
  * @param request ModifyTimerGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17931,7 +18115,7 @@ ModifyTimerGroupResponse Client::modifyTimerGroupWithOptions(const ModifyTimerGr
 }
 
 /**
- * @summary Modifies a scheduled task configuration group.
+ * @summary Modify configuration group settings, such as those for scheduled tasks.
  *
  * @param request ModifyTimerGroupRequest
  * @return ModifyTimerGroupResponse
@@ -18054,7 +18238,7 @@ ModifyUserToDesktopGroupResponse Client::modifyUserToDesktopGroup(const ModifyUs
 }
 
 /**
- * @summary Moves a file or folder on the drive to a new location.
+ * @summary Move files or folders.
  *
  * @param request MoveCdsFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18109,7 +18293,7 @@ MoveCdsFileResponse Client::moveCdsFileWithOptions(const MoveCdsFileRequest &req
 }
 
 /**
- * @summary Moves a file or folder on the drive to a new location.
+ * @summary Move files or folders.
  *
  * @param request MoveCdsFileRequest
  * @return MoveCdsFileResponse
@@ -18120,7 +18304,12 @@ MoveCdsFileResponse Client::moveCdsFile(const MoveCdsFileRequest &request) {
 }
 
 /**
- * @summary 查询历史活跃用户数量
+ * @summary Queries the historical daily and monthly active user counts for a specified date.
+ *
+ * @description ## Usage notes
+ * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
+ * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
+ * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
  *
  * @param request QueryHistoryActiveUserCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18151,7 +18340,12 @@ QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCountWithOptio
 }
 
 /**
- * @summary 查询历史活跃用户数量
+ * @summary Queries the historical daily and monthly active user counts for a specified date.
+ *
+ * @description ## Usage notes
+ * - The `AliUid` parameter is automatically resolved from your AccessKey pair and does not need to be specified in the request.
+ * - The `BusinessChannel` parameter defaults to Enterprise Edition, but you can select other business channels.
+ * - By default, the query returns data for the previous day (T-1). To query for a different day, use the `DataDate` parameter in YYYY-MM-DD format.
  *
  * @param request QueryHistoryActiveUserCountRequest
  * @return QueryHistoryActiveUserCountResponse
@@ -18162,7 +18356,15 @@ QueryHistoryActiveUserCountResponse Client::queryHistoryActiveUserCount(const Qu
 }
 
 /**
- * @summary 查询桌面平均指标列表
+ * @summary Retrieves historical average monitoring metrics for a desktop resource over a specified date range.
+ *
+ * @description ## Request
+ * - This API retrieves historical average monitoring metrics for desktop resources that meet specified criteria within a time range.
+ * - The `DataDate` and `EndDate` parameters specify the time range. If omitted, the query defaults to the previous day.
+ * - You can filter results by criteria such as desktop ID, name, and custom numeric ranges.
+ * - The response contains the details of each matching desktop resource and its corresponding average values.
+ * - Use the `PageNum` and `PageSize` pagination parameters to control the number of results returned.
+ * - Note: When using the `Ranges` parameter, ensure that you provide reasonable intervals. Unreasonable intervals can degrade query performance or lead to invalid results.
  *
  * @param tmpReq QueryHistoryAvgMetricListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18227,7 +18429,15 @@ QueryHistoryAvgMetricListResponse Client::queryHistoryAvgMetricListWithOptions(c
 }
 
 /**
- * @summary 查询桌面平均指标列表
+ * @summary Retrieves historical average monitoring metrics for a desktop resource over a specified date range.
+ *
+ * @description ## Request
+ * - This API retrieves historical average monitoring metrics for desktop resources that meet specified criteria within a time range.
+ * - The `DataDate` and `EndDate` parameters specify the time range. If omitted, the query defaults to the previous day.
+ * - You can filter results by criteria such as desktop ID, name, and custom numeric ranges.
+ * - The response contains the details of each matching desktop resource and its corresponding average values.
+ * - Use the `PageNum` and `PageSize` pagination parameters to control the number of results returned.
+ * - Note: When using the `Ranges` parameter, ensure that you provide reasonable intervals. Unreasonable intervals can degrade query performance or lead to invalid results.
  *
  * @param request QueryHistoryAvgMetricListRequest
  * @return QueryHistoryAvgMetricListResponse
@@ -18238,7 +18448,14 @@ QueryHistoryAvgMetricListResponse Client::queryHistoryAvgMetricList(const QueryH
 }
 
 /**
- * @summary 查询桌面历史指标分布
+ * @summary Queries the historical distribution of a specific metric over a specified time period.
+ *
+ * @description ## Request
+ * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
+ * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
+ * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
+ * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
+ * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
  *
  * @param request QueryHistoryMetricDistributionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18281,7 +18498,14 @@ QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistributionWit
 }
 
 /**
- * @summary 查询桌面历史指标分布
+ * @summary Queries the historical distribution of a specific metric over a specified time period.
+ *
+ * @description ## Request
+ * This API queries the value distribution for specific metrics, such as CPU usage and memory usage, within a given date range. You can define custom value ranges for more detailed statistics. The API supports both the enterprise edition and commercial edition. By default, it returns statistics for the previous day (T-1).
+ * - **BusinessChannel**: Defaults to the enterprise edition. The commercial edition is also available.
+ * - **StartDate & EndDate**: Both default to T-1 (the previous day). The date must be in the `YYYY-MM-DD` format.
+ * - **MetricName**: The metric to query. For a list of valid metrics, see the parameter description in this topic.
+ * - **Ranges**: Defines multiple value ranges for a more detailed analysis. For each range, you can set a minimum value, a maximum value, and whether to include these boundary values.
  *
  * @param request QueryHistoryMetricDistributionRequest
  * @return QueryHistoryMetricDistributionResponse
@@ -18292,7 +18516,15 @@ QueryHistoryMetricDistributionResponse Client::queryHistoryMetricDistribution(co
 }
 
 /**
- * @summary Query and sort historical usage duration by user or desktop dimension.
+ * @summary Queries and ranks historical usage duration by end user or desktop.
+ *
+ * @description ## Usage notes
+ * - **Date range**: You can query data within the last 90 days.
+ * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
+ * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
+ * - **Authentication**: This operation uses an AccessKey for authentication.
+ * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
+ * - **Billing**: This API operation is free of charge.
  *
  * @param request QueryHistoryUsageDurationRankRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18339,7 +18571,15 @@ QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRankWithO
 }
 
 /**
- * @summary Query and sort historical usage duration by user or desktop dimension.
+ * @summary Queries and ranks historical usage duration by end user or desktop.
+ *
+ * @description ## Usage notes
+ * - **Date range**: You can query data within the last 90 days.
+ * - **Pagination**: This operation uses the`NextToken` parameter for pagination. To retrieve the next page of results, use the `NextToken` value from the previous response.
+ * - **Default and maximum limits**: This operation returns 5 records by default, with a maximum of 200 records per page.
+ * - **Authentication**: This operation uses an AccessKey for authentication.
+ * - **Caller account information**: You do not need to specify an Alibaba Cloud account ID (AliUid). The system automatically resolves it.
+ * - **Billing**: This API operation is free of charge.
  *
  * @param request QueryHistoryUsageDurationRankRequest
  * @return QueryHistoryUsageDurationRankResponse
@@ -18350,9 +18590,9 @@ QueryHistoryUsageDurationRankResponse Client::queryHistoryUsageDurationRank(cons
 }
 
 /**
- * @summary Restart cloud computers.
+ * @summary Reboots one or more desktops.
  *
- * @description The cloud computers that you want to restart must be in the Running state.
+ * @description The desktops must be in the Running state.
  *
  * @param request RebootDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18399,9 +18639,9 @@ RebootDesktopsResponse Client::rebootDesktopsWithOptions(const RebootDesktopsReq
 }
 
 /**
- * @summary Restart cloud computers.
+ * @summary Reboots one or more desktops.
  *
- * @description The cloud computers that you want to restart must be in the Running state.
+ * @description The desktops must be in the Running state.
  *
  * @param request RebootDesktopsRequest
  * @return RebootDesktopsResponse
@@ -18412,14 +18652,14 @@ RebootDesktopsResponse Client::rebootDesktops(const RebootDesktopsRequest &reque
 }
 
 /**
- * @summary Rebuilds images for one or more cloud computers.
+ * @summary Replaces the image of one or more cloud computers.
  *
- * @description Before you proceed, take note of the following limits:
- * *   You cannot convert a cloud computer\\"s operating system image from one type to another (e.g., Windows to Linux or vice versa) in China (Hong Kong) or overseas regions.
- * *   GPU and non-GPU images are not interchangeable, as graphic-based cloud computers can only use GPU-accelerated images, while other cloud computers are limited to non-GPU-accelerated images.
- * When a cloud computer’s image is updated, the system initializes its system disk by using the new image, resulting in the following effects:
- * *   All data on the original system disk is erased. Snapshots created from the original system disk become unavailable and are automatically deleted.
- * *   If the OS changes, data on the original data disk is cleared, and snapshots created from the original data disk become unavailable and are automatically deleted. If the OS remains the same, data on the original data disk is retained, and snapshots from the original data disk remain available.
+ * @description This operation is subject to the following limitations:
+ * - For cloud computers in the China (Hong Kong) region and regions outside the Chinese mainland, you cannot switch to an image with a different operating system. For example, you cannot switch from a Windows image to a Linux image.
+ * - You cannot switch between GPU images and non-GPU images. Graphics-optimized cloud computers must use GPU images, and non-graphics cloud computers can only use non-GPU images.
+ * Changing the image re-initializes the cloud computer\\"s system disk with the new image. This action has the following effects:
+ * - All data on the original system disk is erased. Any snapshots created from the original system disk become invalid, and the system automatically deletes them.
+ * - If the new image has a different operating system, all data on the data disk is erased. Snapshots created from the data disk become invalid, and the system automatically deletes them. If the new image has the same operating system, data on the data disk is retained and its snapshots remain usable.
  *
  * @param request RebuildDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18470,14 +18710,14 @@ RebuildDesktopsResponse Client::rebuildDesktopsWithOptions(const RebuildDesktops
 }
 
 /**
- * @summary Rebuilds images for one or more cloud computers.
+ * @summary Replaces the image of one or more cloud computers.
  *
- * @description Before you proceed, take note of the following limits:
- * *   You cannot convert a cloud computer\\"s operating system image from one type to another (e.g., Windows to Linux or vice versa) in China (Hong Kong) or overseas regions.
- * *   GPU and non-GPU images are not interchangeable, as graphic-based cloud computers can only use GPU-accelerated images, while other cloud computers are limited to non-GPU-accelerated images.
- * When a cloud computer’s image is updated, the system initializes its system disk by using the new image, resulting in the following effects:
- * *   All data on the original system disk is erased. Snapshots created from the original system disk become unavailable and are automatically deleted.
- * *   If the OS changes, data on the original data disk is cleared, and snapshots created from the original data disk become unavailable and are automatically deleted. If the OS remains the same, data on the original data disk is retained, and snapshots from the original data disk remain available.
+ * @description This operation is subject to the following limitations:
+ * - For cloud computers in the China (Hong Kong) region and regions outside the Chinese mainland, you cannot switch to an image with a different operating system. For example, you cannot switch from a Windows image to a Linux image.
+ * - You cannot switch between GPU images and non-GPU images. Graphics-optimized cloud computers must use GPU images, and non-graphics cloud computers can only use non-GPU images.
+ * Changing the image re-initializes the cloud computer\\"s system disk with the new image. This action has the following effects:
+ * - All data on the original system disk is erased. Any snapshots created from the original system disk become invalid, and the system automatically deletes them.
+ * - If the new image has a different operating system, all data on the data disk is erased. Snapshots created from the data disk become invalid, and the system automatically deletes them. If the new image has the same operating system, data on the data disk is retained and its snapshots remain usable.
  *
  * @param request RebuildDesktopsRequest
  * @return RebuildDesktopsResponse
@@ -18602,7 +18842,7 @@ RemoveFilePermissionResponse Client::removeFilePermission(const RemoveFilePermis
 }
 
 /**
- * @summary Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
+ * @summary Removes specified authorized users from a shared desktop group. After an authorized user is removed, that user can no longer connect to the cloud desktops in the group.
  *
  * @param request RemoveUserFromDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18621,6 +18861,10 @@ RemoveUserFromDesktopGroupResponse Client::removeUserFromDesktopGroupWithOptions
 
   if (!!request.hasEndUserIds()) {
     query["EndUserIds"] = request.getEndUserIds();
+  }
+
+  if (!!request.hasOrgId()) {
+    query["OrgId"] = request.getOrgId();
   }
 
   if (!!request.hasRegionId()) {
@@ -18657,7 +18901,7 @@ RemoveUserFromDesktopGroupResponse Client::removeUserFromDesktopGroupWithOptions
 }
 
 /**
- * @summary Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
+ * @summary Removes specified authorized users from a shared desktop group. After an authorized user is removed, that user can no longer connect to the cloud desktops in the group.
  *
  * @param request RemoveUserFromDesktopGroupRequest
  * @return RemoveUserFromDesktopGroupResponse
@@ -18722,7 +18966,7 @@ RemoveUserFromDesktopOversoldUserGroupResponse Client::removeUserFromDesktopOver
 }
 
 /**
- * @summary Renews a shared cloud computer.
+ * @summary Renews the subscription for a cloud computer pool.
  *
  * @param request RenewDesktopGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18777,7 +19021,7 @@ RenewDesktopGroupResponse Client::renewDesktopGroupWithOptions(const RenewDeskto
 }
 
 /**
- * @summary Renews a shared cloud computer.
+ * @summary Renews the subscription for a cloud computer pool.
  *
  * @param request RenewDesktopGroupRequest
  * @return RenewDesktopGroupResponse
@@ -18838,7 +19082,7 @@ RenewDesktopOversoldGroupResponse Client::renewDesktopOversoldGroup(const RenewD
 }
 
 /**
- * @summary Renews monthly subscription cloud computers.
+ * @summary Renews one or more subscription-based WUYING Workspace instances.
  *
  * @param request RenewDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18901,7 +19145,7 @@ RenewDesktopsResponse Client::renewDesktopsWithOptions(const RenewDesktopsReques
 }
 
 /**
- * @summary Renews monthly subscription cloud computers.
+ * @summary Renews one or more subscription-based WUYING Workspace instances.
  *
  * @param request RenewDesktopsRequest
  * @return RenewDesktopsResponse
@@ -18912,7 +19156,7 @@ RenewDesktopsResponse Client::renewDesktops(const RenewDesktopsRequest &request)
 }
 
 /**
- * @summary Renews premium bandwidth plans.
+ * @summary Renews subscription-based premium public bandwidth.
  *
  * @param request RenewNetworkPackagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18971,7 +19215,7 @@ RenewNetworkPackagesResponse Client::renewNetworkPackagesWithOptions(const Renew
 }
 
 /**
- * @summary Renews premium bandwidth plans.
+ * @summary Renews subscription-based premium public bandwidth.
  *
  * @param request RenewNetworkPackagesRequest
  * @return RenewNetworkPackagesResponse
@@ -18982,9 +19226,9 @@ RenewNetworkPackagesResponse Client::renewNetworkPackages(const RenewNetworkPack
 }
 
 /**
- * @summary Resets cloud computers of a cloud computer share.
+ * @summary Resets cloud desktops in a shared cloud desktop group.
  *
- * @description >  You can call this operation to reset only cloud computers from a cloud computer share.
+ * @description > This operation applies only to shared cloud desktops. It does not support resetting standard cloud desktops.
  *
  * @param request ResetDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19047,9 +19291,9 @@ ResetDesktopsResponse Client::resetDesktopsWithOptions(const ResetDesktopsReques
 }
 
 /**
- * @summary Resets cloud computers of a cloud computer share.
+ * @summary Resets cloud desktops in a shared cloud desktop group.
  *
- * @description >  You can call this operation to reset only cloud computers from a cloud computer share.
+ * @description > This operation applies only to shared cloud desktops. It does not support resetting standard cloud desktops.
  *
  * @param request ResetDesktopsRequest
  * @return ResetDesktopsResponse
@@ -19110,12 +19354,12 @@ ResetNASDefaultMountTargetResponse Client::resetNASDefaultMountTarget(const Rese
 }
 
 /**
- * @summary Restores the data of a disk from a snapshot.
+ * @summary Recovers disk data from a snapshot.
  *
- * @description Before you call this operation, make sure that the following operations are performed:
- * *   The data that you want to retain is backed up.
- *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
- * *   The cloud computer to which the disk belongs is stopped.
+ * @description When calling this interface, ensure the following:
+ * - You must back up any data on the disk that you want to save.
+ *   > Data recovery is an irreversible operation. After you call this interface, the disk will revert to its state at the time the snapshot was created. Any data created between the snapshot creation time and the current time will be lost. Therefore, back up important data.
+ * - You must shut down the cloud computer to which the disk belongs.
  *
  * @param request ResetSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19154,12 +19398,12 @@ ResetSnapshotResponse Client::resetSnapshotWithOptions(const ResetSnapshotReques
 }
 
 /**
- * @summary Restores the data of a disk from a snapshot.
+ * @summary Recovers disk data from a snapshot.
  *
- * @description Before you call this operation, make sure that the following operations are performed:
- * *   The data that you want to retain is backed up.
- *     > The disk restoration operation is irreversible. After you call this operation, the disk is restored to the status at the point in time when the snapshot was created. Data that is generated between the snapshot creation time and the current time is lost. Before you restore the disk based on the snapshot, make sure that you back up data.
- * *   The cloud computer to which the disk belongs is stopped.
+ * @description When calling this interface, ensure the following:
+ * - You must back up any data on the disk that you want to save.
+ *   > Data recovery is an irreversible operation. After you call this interface, the disk will revert to its state at the time the snapshot was created. Any data created between the snapshot creation time and the current time will be lost. Therefore, back up important data.
+ * - You must shut down the cloud computer to which the disk belongs.
  *
  * @param request ResetSnapshotRequest
  * @return ResetSnapshotResponse
@@ -19228,9 +19472,7 @@ RevokeCoordinatePrivilegeResponse Client::revokeCoordinatePrivilege(const Revoke
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
- *
- * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+ * @summary Runs a PowerShell or Bat script on one or more cloud computers that run Windows.
  *
  * @param request RunCommandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19289,9 +19531,7 @@ RunCommandResponse Client::runCommandWithOptions(const RunCommandRequest &reques
 }
 
 /**
- * @summary Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
- *
- * @description You can use the RunCommand operation to run scripts only on Windows cloud desktops.
+ * @summary Runs a PowerShell or Bat script on one or more cloud computers that run Windows.
  *
  * @param request RunCommandRequest
  * @return RunCommandResponse
@@ -19738,7 +19978,7 @@ SetOfficeSiteSsoStatusResponse Client::setOfficeSiteSsoStatus(const SetOfficeSit
 }
 
 /**
- * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+ * @summary 设置UPM用户目录黑白名单规则
  *
  * @param tmpReq SetUserProfilePathRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19787,7 +20027,7 @@ SetUserProfilePathRulesResponse Client::setUserProfilePathRulesWithOptions(const
 }
 
 /**
- * @summary Configures directories in the blacklist and whitelist based on the user profile management (UPM) feature.
+ * @summary 设置UPM用户目录黑白名单规则
  *
  * @param request SetUserProfilePathRulesRequest
  * @return SetUserProfilePathRulesResponse
@@ -19848,9 +20088,9 @@ StartDesktopsResponse Client::startDesktops(const StartDesktopsRequest &request)
 }
 
 /**
- * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+ * @summary Stops one or more running cloud desktops. After a successful call, the specified cloud desktops enter the Stopped state.
  *
- * @description The cloud computers that you want to stop must be in the Running state.
+ * @description The cloud desktops must be in the Running state.
  *
  * @param request StopDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19901,9 +20141,9 @@ StopDesktopsResponse Client::stopDesktopsWithOptions(const StopDesktopsRequest &
 }
 
 /**
- * @summary Stop cloud computers that are in the Running state. After the operation is successfully called, the cloud computers enter the Stopped state.
+ * @summary Stops one or more running cloud desktops. After a successful call, the specified cloud desktops enter the Stopped state.
  *
- * @description The cloud computers that you want to stop must be in the Running state.
+ * @description The cloud desktops must be in the Running state.
  *
  * @param request StopDesktopsRequest
  * @return StopDesktopsResponse
