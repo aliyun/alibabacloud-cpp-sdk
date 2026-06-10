@@ -133,17 +133,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Whether the shift succeeded
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether processing is synchronous
     shared_ptr<bool> synchro_ {};
   };
 

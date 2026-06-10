@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // business ID
     shared_ptr<string> bizId_ {};
   };
 

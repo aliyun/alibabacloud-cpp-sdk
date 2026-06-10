@@ -80,6 +80,14 @@ namespace Models
 
 
     protected:
+      // Configuration values. Valid values:  
+      // - cc_rule: CC rule.  
+      // - ddos_dispatch: DDoS filter interaction scheduling.  
+      // - edge_safe: Edge application security.  
+      // - blocked_regions: Geo-blocking.  
+      // - http_acl_policy: Precise ACL rule.  
+      // - bot_manager: Bot traffic Management.  
+      // - ip_reputation: IP reputation investigation.
       Darabonba::Json configs_ {};
     };
 
@@ -168,17 +176,27 @@ namespace Models
 
 
   protected:
+    // Details of access denied
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message. Not currently used. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Task object
     shared_ptr<QuerySupabaseAuthConfigsForAdminResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // Fault message
     shared_ptr<string> rootErrorMsg_ {};
+    // Is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

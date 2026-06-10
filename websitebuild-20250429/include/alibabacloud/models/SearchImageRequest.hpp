@@ -170,21 +170,46 @@ namespace Models
 
 
   protected:
+    // Color
     shared_ptr<string> colorHex_ {};
+    // Indicates whether the image contains a person.
     shared_ptr<bool> hasPerson_ {};
+    // Image category. Valid values:
+    // - normal: Illustrations or article images.
+    // - banner: Background images or image carousels.
+    // - goods: Product or service images.
     shared_ptr<string> imageCategory_ {};
+    // Image aspect ratio, including:
+    // "16:9"
+    // "4:3"
+    // "2:1"
+    // "1:1"
+    // "3:4"
+    // "9:16"
     shared_ptr<string> imageRatio_ {};
+    // Maximum image height.
     shared_ptr<int32_t> maxHeight_ {};
+    // Number of items per page in a paged query. Maximum value is 100. Default value is 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Maximum image width (inclusive).
     shared_ptr<int32_t> maxWidth_ {};
+    // Minimum image height
     shared_ptr<int32_t> minHeight_ {};
+    // Minimum image width (inclusive).
     shared_ptr<int32_t> minWidth_ {};
+    // Query credential (Token). Set this parameter to the NextToken value returned in the previous API call. You do not need to set this parameter for the initial API call. If NextToken is specified, the request parameters PageSize and PageNumber become invalid, and the TotalCount in the returned data is also invalid.
     shared_ptr<string> nextToken_ {};
     // Osskey。
     shared_ptr<string> ossKey_ {};
+    // Number of results to return. Default value is 10.
     shared_ptr<int32_t> size_ {};
+    // Starting position of the return result. Valid values: 0 to 499. Default value is 0.
     shared_ptr<int32_t> start_ {};
+    // Tags.
     shared_ptr<vector<string>> tags_ {};
+    // Description text for searching images.
+    // 
+    // > Supports up to 512 characters.
     shared_ptr<string> text_ {};
   };
 

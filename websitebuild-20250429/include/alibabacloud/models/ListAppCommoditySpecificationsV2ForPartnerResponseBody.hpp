@@ -154,9 +154,13 @@ namespace Models
 
 
       protected:
+        // API status or POP error code
         shared_ptr<string> code_ {};
+        // Default Value
         shared_ptr<map<string, ModuleNextComponentsValue>> components_ {};
+        // Website Name
         shared_ptr<string> name_ {};
+        // Frame rate.
         shared_ptr<map<string, ModuleNextPropertiesValue>> properties_ {};
       };
 
@@ -220,9 +224,13 @@ namespace Models
 
 
       protected:
+        // API status or POP error code.
         shared_ptr<string> code_ {};
+        // Default Value
         shared_ptr<map<string, ModuleDataComponentsValue>> components_ {};
+        // File name.
         shared_ptr<string> name_ {};
+        // Duration.
         shared_ptr<map<string, ModuleDataPropertiesValue>> properties_ {};
       };
 
@@ -297,14 +305,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Request result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Next feature ID
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether there is a next page.
       shared_ptr<bool> nextPage_ {};
+      // Paging size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether there is a previous page.
       shared_ptr<bool> prePage_ {};
+      // For the current query, aside from pagination limits, the server-side processes at most the latest 1 000 records. If the result exceeds 1 000 records, **ResultLimit** is **true**. You can narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -408,19 +425,34 @@ namespace Models
 
 
   protected:
+    // permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.
+    // 
+    // Value range: 10–100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response data
     shared_ptr<ListAppCommoditySpecificationsV2ForPartnerResponseBody::Module> module_ {};
+    // Token for the start of the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is synchronous processing enabled
     shared_ptr<bool> synchro_ {};
   };
 

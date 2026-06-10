@@ -49,6 +49,9 @@ namespace Models
 
   protected:
     shared_ptr<string> siteHost_ {};
+    // Credential for connecting to the cloud application.  
+    // > This parameter appears when the API is invoked again (not on the first invocation).
+    // 
     // This parameter is required.
     shared_ptr<string> ticket_ {};
   };

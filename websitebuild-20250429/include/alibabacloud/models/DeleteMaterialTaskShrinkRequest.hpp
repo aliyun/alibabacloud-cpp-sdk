@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // List of job IDs
+    // 
     // This parameter is required.
     shared_ptr<string> taskIdsShrink_ {};
   };

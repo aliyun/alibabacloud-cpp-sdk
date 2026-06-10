@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The job ID returned upon successful invocation. Note: Keep this ID securely. You need this ID to query the device creation status.
     shared_ptr<string> taskId_ {};
   };
 

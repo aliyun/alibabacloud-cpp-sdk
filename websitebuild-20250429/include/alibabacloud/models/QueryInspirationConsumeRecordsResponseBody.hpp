@@ -89,13 +89,17 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Next& obj) { 
           DARABONBA_PTR_TO_JSON(Amount, amount_);
+          DARABONBA_PTR_TO_JSON(AmountStr, amountStr_);
           DARABONBA_PTR_TO_JSON(ConsumeTime, consumeTime_);
+          DARABONBA_PTR_TO_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_TO_JSON(MetaData, metaData_);
           DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
         };
         friend void from_json(const Darabonba::Json& j, Next& obj) { 
           DARABONBA_PTR_FROM_JSON(Amount, amount_);
+          DARABONBA_PTR_FROM_JSON(AmountStr, amountStr_);
           DARABONBA_PTR_FROM_JSON(ConsumeTime, consumeTime_);
+          DARABONBA_PTR_FROM_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_FROM_JSON(MetaData, metaData_);
           DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
         };
@@ -111,7 +115,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->amount_ == nullptr
-        && this->consumeTime_ == nullptr && this->metaData_ == nullptr && this->sceneName_ == nullptr; };
+        && this->amountStr_ == nullptr && this->consumeTime_ == nullptr && this->consumeType_ == nullptr && this->metaData_ == nullptr && this->sceneName_ == nullptr; };
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
@@ -119,11 +123,25 @@ namespace Models
         inline Next& setAmount(int64_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
+        // amountStr Field Functions 
+        bool hasAmountStr() const { return this->amountStr_ != nullptr;};
+        void deleteAmountStr() { this->amountStr_ = nullptr;};
+        inline string getAmountStr() const { DARABONBA_PTR_GET_DEFAULT(amountStr_, "") };
+        inline Next& setAmountStr(string amountStr) { DARABONBA_PTR_SET_VALUE(amountStr_, amountStr) };
+
+
         // consumeTime Field Functions 
         bool hasConsumeTime() const { return this->consumeTime_ != nullptr;};
         void deleteConsumeTime() { this->consumeTime_ = nullptr;};
         inline string getConsumeTime() const { DARABONBA_PTR_GET_DEFAULT(consumeTime_, "") };
         inline Next& setConsumeTime(string consumeTime) { DARABONBA_PTR_SET_VALUE(consumeTime_, consumeTime) };
+
+
+        // consumeType Field Functions 
+        bool hasConsumeType() const { return this->consumeType_ != nullptr;};
+        void deleteConsumeType() { this->consumeType_ = nullptr;};
+        inline string getConsumeType() const { DARABONBA_PTR_GET_DEFAULT(consumeType_, "") };
+        inline Next& setConsumeType(string consumeType) { DARABONBA_PTR_SET_VALUE(consumeType_, consumeType) };
 
 
         // metaData Field Functions 
@@ -141,9 +159,15 @@ namespace Models
 
 
       protected:
+        // Quantity of inspiration value consumed
         shared_ptr<int64_t> amount_ {};
+        shared_ptr<string> amountStr_ {};
+        // Consumption Time
         shared_ptr<string> consumeTime_ {};
+        shared_ptr<string> consumeType_ {};
+        // Extension information (in JSON string format)
         shared_ptr<string> metaData_ {};
+        // Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
         shared_ptr<string> sceneName_ {};
       };
 
@@ -151,13 +175,17 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Data& obj) { 
           DARABONBA_PTR_TO_JSON(Amount, amount_);
+          DARABONBA_PTR_TO_JSON(AmountStr, amountStr_);
           DARABONBA_PTR_TO_JSON(ConsumeTime, consumeTime_);
+          DARABONBA_PTR_TO_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_TO_JSON(MetaData, metaData_);
           DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
         };
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(Amount, amount_);
+          DARABONBA_PTR_FROM_JSON(AmountStr, amountStr_);
           DARABONBA_PTR_FROM_JSON(ConsumeTime, consumeTime_);
+          DARABONBA_PTR_FROM_JSON(ConsumeType, consumeType_);
           DARABONBA_PTR_FROM_JSON(MetaData, metaData_);
           DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
         };
@@ -173,7 +201,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->amount_ == nullptr
-        && this->consumeTime_ == nullptr && this->metaData_ == nullptr && this->sceneName_ == nullptr; };
+        && this->amountStr_ == nullptr && this->consumeTime_ == nullptr && this->consumeType_ == nullptr && this->metaData_ == nullptr && this->sceneName_ == nullptr; };
         // amount Field Functions 
         bool hasAmount() const { return this->amount_ != nullptr;};
         void deleteAmount() { this->amount_ = nullptr;};
@@ -181,11 +209,25 @@ namespace Models
         inline Data& setAmount(int64_t amount) { DARABONBA_PTR_SET_VALUE(amount_, amount) };
 
 
+        // amountStr Field Functions 
+        bool hasAmountStr() const { return this->amountStr_ != nullptr;};
+        void deleteAmountStr() { this->amountStr_ = nullptr;};
+        inline string getAmountStr() const { DARABONBA_PTR_GET_DEFAULT(amountStr_, "") };
+        inline Data& setAmountStr(string amountStr) { DARABONBA_PTR_SET_VALUE(amountStr_, amountStr) };
+
+
         // consumeTime Field Functions 
         bool hasConsumeTime() const { return this->consumeTime_ != nullptr;};
         void deleteConsumeTime() { this->consumeTime_ = nullptr;};
         inline string getConsumeTime() const { DARABONBA_PTR_GET_DEFAULT(consumeTime_, "") };
         inline Data& setConsumeTime(string consumeTime) { DARABONBA_PTR_SET_VALUE(consumeTime_, consumeTime) };
+
+
+        // consumeType Field Functions 
+        bool hasConsumeType() const { return this->consumeType_ != nullptr;};
+        void deleteConsumeType() { this->consumeType_ = nullptr;};
+        inline string getConsumeType() const { DARABONBA_PTR_GET_DEFAULT(consumeType_, "") };
+        inline Data& setConsumeType(string consumeType) { DARABONBA_PTR_SET_VALUE(consumeType_, consumeType) };
 
 
         // metaData Field Functions 
@@ -203,9 +245,15 @@ namespace Models
 
 
       protected:
+        // Quantity of inspiration value consumed
         shared_ptr<int64_t> amount_ {};
+        shared_ptr<string> amountStr_ {};
+        // Consumption time
         shared_ptr<string> consumeTime_ {};
+        shared_ptr<string> consumeType_ {};
+        // Extension information (in JSON string format)
         shared_ptr<string> metaData_ {};
+        // Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
         shared_ptr<string> sceneName_ {};
       };
 
@@ -280,14 +328,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Request Result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Next feature ID
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether there is a next page.
       shared_ptr<bool> nextPage_ {};
+      // Paging size.
       shared_ptr<int32_t> pageSize_ {};
+      // Whether there is a previous page.
       shared_ptr<bool> prePage_ {};
+      // In addition to paging limits, the server-side processes at most the latest 1 000 records for the current query. If the result exceeds 1 000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -376,17 +433,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application Name. Query the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message. Not currently used. Please ignore.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Whether the deletion succeeded
     shared_ptr<QueryInspirationConsumeRecordsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

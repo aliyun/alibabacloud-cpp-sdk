@@ -77,9 +77,20 @@ namespace Models
   protected:
     // This parameter is required.
     shared_ptr<string> liveToken_ {};
+    // Set the operation to perform on the alert. Valid values:
+    // 
+    // - **deal**: Handle the alert (fencing)
+    // - **ignore**: Ignore
+    // - **mark_mis_info**: Mark as false positive (add to whitelist)
+    // - **rm_mark_mis_info**: Unmark as false positive (remove from whitelist)
+    // - **offline_handled**: Mark as Completed
+    // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
+    // Error parameter.
     shared_ptr<string> params_ {};
+    // Product code
+    // 
     // This parameter is required.
     shared_ptr<string> product_ {};
     shared_ptr<string> siteHost_ {};

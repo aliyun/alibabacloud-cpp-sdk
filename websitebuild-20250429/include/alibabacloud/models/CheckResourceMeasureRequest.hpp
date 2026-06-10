@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Belonging ID (site ID or Alibaba Cloud User ID)
     shared_ptr<string> belongId_ {};
+    // Belonging ID Type (siteId, uid)
     shared_ptr<string> belongIdType_ {};
+    // ESP business type
     shared_ptr<string> bizType_ {};
+    // ESP business ID
     shared_ptr<string> espBizId_ {};
+    // Order module information (when empty, espBizId and bizType cannot be empty)
     shared_ptr<string> orderComponentParams_ {};
+    // Resource identity
     shared_ptr<string> resourceCode_ {};
+    // Resource value; default is empty. Required only for feature-type resources. 0 indicates not supported, and 1 indicates supported.
     shared_ptr<int64_t> resourceValue_ {};
   };
 

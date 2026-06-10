@@ -122,8 +122,11 @@ namespace Models
 
 
       protected:
+        // error message.
         shared_ptr<string> data_ {};
+        // primary key
         shared_ptr<int32_t> id_ {};
+        // Website Name
         shared_ptr<string> name_ {};
       };
 
@@ -160,9 +163,13 @@ namespace Models
 
 
     protected:
+      // Unique ID of the sentence
       shared_ptr<string> chatId_ {};
+      // session ID
       shared_ptr<string> conversationId_ {};
+      // object ID
       shared_ptr<vector<Module::Events>> events_ {};
+      // ID of the last SSE event
       shared_ptr<int32_t> lastEventId_ {};
     };
 
@@ -251,17 +258,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message, used to replace `%s` in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // returned object.
     shared_ptr<ListAIStaffChatEventsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

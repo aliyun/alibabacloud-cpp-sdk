@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Session ID
     shared_ptr<string> conversationId_ {};
+    // Directory depth (optional; null or 0 returns all levels)
     shared_ptr<int32_t> deep_ {};
+    // Directory path (optional)
     shared_ptr<string> filePath_ {};
   };
 

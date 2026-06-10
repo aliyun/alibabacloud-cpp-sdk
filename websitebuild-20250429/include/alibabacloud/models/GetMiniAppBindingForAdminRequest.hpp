@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Channel
     shared_ptr<string> channel_ {};
+    // Miniapp ID
     shared_ptr<string> platformAppid_ {};
   };
 

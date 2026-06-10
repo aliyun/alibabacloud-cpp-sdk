@@ -124,15 +124,25 @@ namespace Models
 
 
   protected:
+    // Job completion time
     shared_ptr<string> completeTime_ {};
+    // Completion time display format
     shared_ptr<string> completeTimeFormat_ {};
+    // Reason for failure
     shared_ptr<string> failReason_ {};
+    // List of final files
     shared_ptr<vector<string>> finalFileUrls_ {};
+    // Task Status
     shared_ptr<string> status_ {};
+    // Job substatus
     shared_ptr<string> subStatus_ {};
+    // Submitted At.
     shared_ptr<string> submitTime_ {};
+    // Job ID.
     shared_ptr<string> taskId_ {};
+    // Job parameter
     shared_ptr<string> taskParam_ {};
+    // Task Type.
     shared_ptr<string> taskType_ {};
   };
 

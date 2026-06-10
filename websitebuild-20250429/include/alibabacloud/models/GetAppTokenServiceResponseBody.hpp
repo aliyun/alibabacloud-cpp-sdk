@@ -88,6 +88,7 @@ namespace Models
 
 
     protected:
+      // Extension information
       shared_ptr<string> extend_ {};
       // trial,draft,live,refunded,expired,released
       shared_ptr<string> status_ {};
@@ -178,17 +179,29 @@ namespace Models
 
 
   protected:
+    // Permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:  
+    // - false: Retry is not allowed.  
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message. This field is not currently used. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Application module
     shared_ptr<GetAppTokenServiceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Application instance business ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // File ID
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
+    // Modified file Name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

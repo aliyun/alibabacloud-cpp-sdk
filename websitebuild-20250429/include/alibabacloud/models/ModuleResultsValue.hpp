@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Whether the check is passed
     shared_ptr<bool> passed_ {};
+    // Resource identity
     shared_ptr<string> resourceCode_ {};
+    // Error code when failed; null when passed
     shared_ptr<string> errorCode_ {};
+    // Error message when failed; null when passed
     shared_ptr<string> errorMessage_ {};
   };
 

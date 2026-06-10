@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Appended message metadata (JSON format)
     shared_ptr<string> addedMetaData_ {};
+    // Message content
     shared_ptr<string> content_ {};
+    // Session ID
     shared_ptr<string> conversationId_ {};
+    // Message ID
     shared_ptr<string> messageId_ {};
   };
 

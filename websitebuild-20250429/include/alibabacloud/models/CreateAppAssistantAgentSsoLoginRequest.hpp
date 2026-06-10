@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Platform Type
     shared_ptr<string> platformType_ {};
+    // Target URL
     shared_ptr<string> targetUrl_ {};
   };
 

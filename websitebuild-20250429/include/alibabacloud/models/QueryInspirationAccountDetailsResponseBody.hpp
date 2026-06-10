@@ -90,18 +90,22 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Next& obj) { 
           DARABONBA_PTR_TO_JSON(AcquisitionTime, acquisitionTime_);
           DARABONBA_PTR_TO_JSON(Balance, balance_);
+          DARABONBA_PTR_TO_JSON(BalanceStr, balanceStr_);
           DARABONBA_PTR_TO_JSON(EndDate, endDate_);
           DARABONBA_PTR_TO_JSON(Expired, expired_);
           DARABONBA_PTR_TO_JSON(InitQuota, initQuota_);
+          DARABONBA_PTR_TO_JSON(InitQuotaStr, initQuotaStr_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(SourceTypeName, sourceTypeName_);
         };
         friend void from_json(const Darabonba::Json& j, Next& obj) { 
           DARABONBA_PTR_FROM_JSON(AcquisitionTime, acquisitionTime_);
           DARABONBA_PTR_FROM_JSON(Balance, balance_);
+          DARABONBA_PTR_FROM_JSON(BalanceStr, balanceStr_);
           DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
           DARABONBA_PTR_FROM_JSON(Expired, expired_);
           DARABONBA_PTR_FROM_JSON(InitQuota, initQuota_);
+          DARABONBA_PTR_FROM_JSON(InitQuotaStr, initQuotaStr_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(SourceTypeName, sourceTypeName_);
         };
@@ -117,8 +121,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->acquisitionTime_ == nullptr
-        && this->balance_ == nullptr && this->endDate_ == nullptr && this->expired_ == nullptr && this->initQuota_ == nullptr && this->sourceType_ == nullptr
-        && this->sourceTypeName_ == nullptr; };
+        && this->balance_ == nullptr && this->balanceStr_ == nullptr && this->endDate_ == nullptr && this->expired_ == nullptr && this->initQuota_ == nullptr
+        && this->initQuotaStr_ == nullptr && this->sourceType_ == nullptr && this->sourceTypeName_ == nullptr; };
         // acquisitionTime Field Functions 
         bool hasAcquisitionTime() const { return this->acquisitionTime_ != nullptr;};
         void deleteAcquisitionTime() { this->acquisitionTime_ = nullptr;};
@@ -131,6 +135,13 @@ namespace Models
         void deleteBalance() { this->balance_ = nullptr;};
         inline int64_t getBalance() const { DARABONBA_PTR_GET_DEFAULT(balance_, 0L) };
         inline Next& setBalance(int64_t balance) { DARABONBA_PTR_SET_VALUE(balance_, balance) };
+
+
+        // balanceStr Field Functions 
+        bool hasBalanceStr() const { return this->balanceStr_ != nullptr;};
+        void deleteBalanceStr() { this->balanceStr_ = nullptr;};
+        inline string getBalanceStr() const { DARABONBA_PTR_GET_DEFAULT(balanceStr_, "") };
+        inline Next& setBalanceStr(string balanceStr) { DARABONBA_PTR_SET_VALUE(balanceStr_, balanceStr) };
 
 
         // endDate Field Functions 
@@ -154,6 +165,13 @@ namespace Models
         inline Next& setInitQuota(int64_t initQuota) { DARABONBA_PTR_SET_VALUE(initQuota_, initQuota) };
 
 
+        // initQuotaStr Field Functions 
+        bool hasInitQuotaStr() const { return this->initQuotaStr_ != nullptr;};
+        void deleteInitQuotaStr() { this->initQuotaStr_ = nullptr;};
+        inline string getInitQuotaStr() const { DARABONBA_PTR_GET_DEFAULT(initQuotaStr_, "") };
+        inline Next& setInitQuotaStr(string initQuotaStr) { DARABONBA_PTR_SET_VALUE(initQuotaStr_, initQuotaStr) };
+
+
         // sourceType Field Functions 
         bool hasSourceType() const { return this->sourceType_ != nullptr;};
         void deleteSourceType() { this->sourceType_ = nullptr;};
@@ -169,12 +187,21 @@ namespace Models
 
 
       protected:
+        // Acquisition time
         shared_ptr<string> acquisitionTime_ {};
+        // Balance (initQuota - used)
         shared_ptr<int64_t> balance_ {};
+        shared_ptr<string> balanceStr_ {};
+        // Expiration time of the validity period
         shared_ptr<string> endDate_ {};
+        // Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
         shared_ptr<bool> expired_ {};
+        // Quantity obtained (initial quota)
         shared_ptr<int64_t> initQuota_ {};
+        shared_ptr<string> initQuotaStr_ {};
+        // Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
         shared_ptr<string> sourceType_ {};
+        // Display Name of the source type
         shared_ptr<string> sourceTypeName_ {};
       };
 
@@ -183,9 +210,11 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Data& obj) { 
           DARABONBA_PTR_TO_JSON(AcquisitionTime, acquisitionTime_);
           DARABONBA_PTR_TO_JSON(Balance, balance_);
+          DARABONBA_PTR_TO_JSON(BalanceStr, balanceStr_);
           DARABONBA_PTR_TO_JSON(EndDate, endDate_);
           DARABONBA_PTR_TO_JSON(Expired, expired_);
           DARABONBA_PTR_TO_JSON(InitQuota, initQuota_);
+          DARABONBA_PTR_TO_JSON(InitQuotaStr, initQuotaStr_);
           DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(SourceTypeName, sourceTypeName_);
           DARABONBA_PTR_TO_JSON(Status, status_);
@@ -193,9 +222,11 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Data& obj) { 
           DARABONBA_PTR_FROM_JSON(AcquisitionTime, acquisitionTime_);
           DARABONBA_PTR_FROM_JSON(Balance, balance_);
+          DARABONBA_PTR_FROM_JSON(BalanceStr, balanceStr_);
           DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
           DARABONBA_PTR_FROM_JSON(Expired, expired_);
           DARABONBA_PTR_FROM_JSON(InitQuota, initQuota_);
+          DARABONBA_PTR_FROM_JSON(InitQuotaStr, initQuotaStr_);
           DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(SourceTypeName, sourceTypeName_);
           DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -212,8 +243,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->acquisitionTime_ == nullptr
-        && this->balance_ == nullptr && this->endDate_ == nullptr && this->expired_ == nullptr && this->initQuota_ == nullptr && this->sourceType_ == nullptr
-        && this->sourceTypeName_ == nullptr && this->status_ == nullptr; };
+        && this->balance_ == nullptr && this->balanceStr_ == nullptr && this->endDate_ == nullptr && this->expired_ == nullptr && this->initQuota_ == nullptr
+        && this->initQuotaStr_ == nullptr && this->sourceType_ == nullptr && this->sourceTypeName_ == nullptr && this->status_ == nullptr; };
         // acquisitionTime Field Functions 
         bool hasAcquisitionTime() const { return this->acquisitionTime_ != nullptr;};
         void deleteAcquisitionTime() { this->acquisitionTime_ = nullptr;};
@@ -226,6 +257,13 @@ namespace Models
         void deleteBalance() { this->balance_ = nullptr;};
         inline int64_t getBalance() const { DARABONBA_PTR_GET_DEFAULT(balance_, 0L) };
         inline Data& setBalance(int64_t balance) { DARABONBA_PTR_SET_VALUE(balance_, balance) };
+
+
+        // balanceStr Field Functions 
+        bool hasBalanceStr() const { return this->balanceStr_ != nullptr;};
+        void deleteBalanceStr() { this->balanceStr_ = nullptr;};
+        inline string getBalanceStr() const { DARABONBA_PTR_GET_DEFAULT(balanceStr_, "") };
+        inline Data& setBalanceStr(string balanceStr) { DARABONBA_PTR_SET_VALUE(balanceStr_, balanceStr) };
 
 
         // endDate Field Functions 
@@ -247,6 +285,13 @@ namespace Models
         void deleteInitQuota() { this->initQuota_ = nullptr;};
         inline int64_t getInitQuota() const { DARABONBA_PTR_GET_DEFAULT(initQuota_, 0L) };
         inline Data& setInitQuota(int64_t initQuota) { DARABONBA_PTR_SET_VALUE(initQuota_, initQuota) };
+
+
+        // initQuotaStr Field Functions 
+        bool hasInitQuotaStr() const { return this->initQuotaStr_ != nullptr;};
+        void deleteInitQuotaStr() { this->initQuotaStr_ = nullptr;};
+        inline string getInitQuotaStr() const { DARABONBA_PTR_GET_DEFAULT(initQuotaStr_, "") };
+        inline Data& setInitQuotaStr(string initQuotaStr) { DARABONBA_PTR_SET_VALUE(initQuotaStr_, initQuotaStr) };
 
 
         // sourceType Field Functions 
@@ -271,12 +316,21 @@ namespace Models
 
 
       protected:
+        // Acquisition Time
         shared_ptr<string> acquisitionTime_ {};
+        // Balance (initQuota - used)
         shared_ptr<int64_t> balance_ {};
+        shared_ptr<string> balanceStr_ {};
+        // Validity Period expiration time
         shared_ptr<string> endDate_ {};
+        // Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
         shared_ptr<bool> expired_ {};
+        // Quantity obtained (initial quota)
         shared_ptr<int64_t> initQuota_ {};
+        shared_ptr<string> initQuotaStr_ {};
+        // Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
         shared_ptr<string> sourceType_ {};
+        // Source Type Display Name
         shared_ptr<string> sourceTypeName_ {};
         shared_ptr<string> status_ {};
       };
@@ -352,14 +406,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Request result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Decision weight
       shared_ptr<Module::Next> next_ {};
+      // Indicates whether there is a next page.
       shared_ptr<bool> nextPage_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether a previous page exists
       shared_ptr<bool> prePage_ {};
+      // In addition to paging limits, the server-side processes at most the latest 1,000 records for the current query. If the result exceeds 1,000 records, **ResultLimit** is **true**. You can narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -448,17 +511,29 @@ namespace Models
 
 
   protected:
+    // Access denied details
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:
+    // - false: Retry is not allowed.
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // Application Name. Query the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<QueryInspirationAccountDetailsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether processing is synchronous
     shared_ptr<bool> synchro_ {};
   };
 

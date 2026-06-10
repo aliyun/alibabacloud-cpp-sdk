@@ -219,19 +219,44 @@ namespace Models
 
 
       protected:
+        // Bot ID.
         shared_ptr<string> botId_ {};
+        // Current conversation round ID
         shared_ptr<string> chatId_ {};
+        // Current session status
         shared_ptr<string> chatStatus_ {};
+        // ID of the invoked data class API.
         shared_ptr<string> content_ {};
+        // Content type
         shared_ptr<string> contentType_ {};
+        // Session ID
         shared_ptr<string> conversationId_ {};
+        // Creation Time
         shared_ptr<string> gmtCreate_ {};
+        // Updated At
         shared_ptr<string> gmtModified_ {};
+        // Message ID
         shared_ptr<string> messageId_ {};
+        // Business extension metadata (in Map format, must be a JSON string)
         Darabonba::Json metaData_ {};
+        // Indicates the role of the participant in the conversation. Valid values include:
+        // 
+        // - user: User
+        // 
+        // - assistant: Assistant
+        // 
+        // - system: System
+        // - function: Function
+        // 
+        // - plugin: Plugin
+        // 
+        // - tool: Tool
         shared_ptr<string> role_ {};
+        // Section ID of the inspection item.
         shared_ptr<string> sectionId_ {};
+        // Site ID.
         shared_ptr<string> siteId_ {};
+        // File type
         shared_ptr<string> type_ {};
       };
 
@@ -246,6 +271,12 @@ namespace Models
 
 
     protected:
+      // Sender type.  
+      // 
+      // Enumeration values:  
+      // - **ADMIN**: System  
+      // - **CUSTOMER**: Visitor  
+      // - **AGENT**: Agent
       shared_ptr<vector<Module::Messages>> messages_ {};
     };
 
@@ -334,17 +365,27 @@ namespace Models
 
 
   protected:
+    // Permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message. Not currently used. Please ignore.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<ListAIStaffChatMessagesResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

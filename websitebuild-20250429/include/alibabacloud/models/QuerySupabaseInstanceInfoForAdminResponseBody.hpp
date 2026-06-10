@@ -281,29 +281,51 @@ namespace Models
 
 
     protected:
+      // Anonymity key
       shared_ptr<string> anonKey_ {};
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // Database instance creation time
       shared_ptr<string> dbInstanceCreateTime_ {};
+      // Database instance ID
       shared_ptr<string> dbInstanceId_ {};
+      // Database public URL
       shared_ptr<string> dbPublicUrl_ {};
+      // Database type (rds/polardb)
       shared_ptr<string> dbType_ {};
+      // Additional information
       shared_ptr<string> extra_ {};
+      // Instance creation completion time
       shared_ptr<string> instanceCreateFinishedTime_ {};
+      // Instance creation status
       shared_ptr<string> instanceCreateStatus_ {};
+      // Deletion flag
       shared_ptr<int32_t> isDeleted_ {};
+      // RDS database access password
       shared_ptr<string> rdsDatabasePassword_ {};
+      // Service key
       shared_ptr<string> serviceKey_ {};
+      // Status. 0: paused; 1: running
       shared_ptr<int32_t> status_ {};
+      // Supabase Dashboard password
       shared_ptr<string> supabaseDashboardPassword_ {};
+      // Supabase Dashboard username
       shared_ptr<string> supabaseDashboardUserName_ {};
+      // Supabase instance creation time
       shared_ptr<string> supabaseInstanceCreateTime_ {};
+      // Supabase instance ID
       shared_ptr<string> supabaseInstanceId_ {};
       // Supabase Kong URL
       shared_ptr<string> supabaseKongUrl_ {};
+      // Supabase instance PrivateLink address
       shared_ptr<string> supabasePrivateIp_ {};
+      // Supabase instance public endpoint
       shared_ptr<string> supabasePublicIp_ {};
+      // Supabase public URL
       shared_ptr<string> supabasePublicUrl_ {};
+      // Tenant ID
       shared_ptr<string> tenantId_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -392,17 +414,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<QuerySupabaseInstanceInfoForAdminResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

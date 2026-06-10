@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Chat ID (optional; if not provided, the latest chatId is used)
     shared_ptr<string> chatId_ {};
+    // session ID
     shared_ptr<string> conversationId_ {};
+    // Last event ID, used for incremental retrieval
     shared_ptr<int32_t> lastEventId_ {};
   };
 

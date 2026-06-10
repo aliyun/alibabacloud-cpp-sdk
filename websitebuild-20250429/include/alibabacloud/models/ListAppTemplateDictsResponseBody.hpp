@@ -128,11 +128,23 @@ namespace Models
 
 
     protected:
+      // Dictionary Code
       shared_ptr<string> dictCode_ {};
+      // Dictionary label
       shared_ptr<string> dictLabel_ {};
+      // Enumeration of template dictionary types
       shared_ptr<string> dictType_ {};
+      // Dictionary value
       shared_ptr<string> dictValue_ {};
+      // Indicates whether a template exists.
       shared_ptr<bool> hasTemplates_ {};
+      // Sorting order. The default is descending.  
+      // 
+      // Enumeration values:  
+      // 
+      // ASC: ascending.  
+      // 
+      // DESC: descending.
       shared_ptr<int32_t> sortOrder_ {};
     };
 
@@ -236,19 +248,34 @@ namespace Models
 
 
   protected:
+    // Detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // application name; queries the application with this name
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.  
+    // 
+    // Value range: 10–100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // response Data
     shared_ptr<vector<ListAppTemplateDictsResponseBody::Module>> module_ {};
+    // Token for the start of the next query. It is empty when there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is processing synchronous
     shared_ptr<bool> synchro_ {};
   };
 

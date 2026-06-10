@@ -85,6 +85,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const History& obj) { 
           DARABONBA_PTR_TO_JSON(CanQuickRevert, canQuickRevert_);
+          DARABONBA_PTR_TO_JSON(CommitHash, commitHash_);
           DARABONBA_PTR_TO_JSON(CurrentStep, currentStep_);
           DARABONBA_PTR_TO_JSON(DeployChannel, deployChannel_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -98,9 +99,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(PublishOrderId, publishOrderId_);
           DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
           DARABONBA_PTR_TO_JSON(Steps, steps_);
+          DARABONBA_PTR_TO_JSON(Subchannel, subchannel_);
         };
         friend void from_json(const Darabonba::Json& j, History& obj) { 
           DARABONBA_PTR_FROM_JSON(CanQuickRevert, canQuickRevert_);
+          DARABONBA_PTR_FROM_JSON(CommitHash, commitHash_);
           DARABONBA_PTR_FROM_JSON(CurrentStep, currentStep_);
           DARABONBA_PTR_FROM_JSON(DeployChannel, deployChannel_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -114,6 +117,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(PublishOrderId, publishOrderId_);
           DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
           DARABONBA_PTR_FROM_JSON(Steps, steps_);
+          DARABONBA_PTR_FROM_JSON(Subchannel, subchannel_);
         };
         History() = default ;
         History(const History &) = default ;
@@ -127,14 +131,21 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->canQuickRevert_ == nullptr
-        && this->currentStep_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr && this->errorStep_ == nullptr && this->isFinish_ == nullptr
-        && this->isSuccess_ == nullptr && this->msg_ == nullptr && this->orderType_ == nullptr && this->percent_ == nullptr && this->publishNumber_ == nullptr
-        && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->steps_ == nullptr; };
+        && this->commitHash_ == nullptr && this->currentStep_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr && this->errorStep_ == nullptr
+        && this->isFinish_ == nullptr && this->isSuccess_ == nullptr && this->msg_ == nullptr && this->orderType_ == nullptr && this->percent_ == nullptr
+        && this->publishNumber_ == nullptr && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->steps_ == nullptr && this->subchannel_ == nullptr; };
         // canQuickRevert Field Functions 
         bool hasCanQuickRevert() const { return this->canQuickRevert_ != nullptr;};
         void deleteCanQuickRevert() { this->canQuickRevert_ = nullptr;};
         inline string getCanQuickRevert() const { DARABONBA_PTR_GET_DEFAULT(canQuickRevert_, "") };
         inline History& setCanQuickRevert(string canQuickRevert) { DARABONBA_PTR_SET_VALUE(canQuickRevert_, canQuickRevert) };
+
+
+        // commitHash Field Functions 
+        bool hasCommitHash() const { return this->commitHash_ != nullptr;};
+        void deleteCommitHash() { this->commitHash_ = nullptr;};
+        inline string getCommitHash() const { DARABONBA_PTR_GET_DEFAULT(commitHash_, "") };
+        inline History& setCommitHash(string commitHash) { DARABONBA_PTR_SET_VALUE(commitHash_, commitHash) };
 
 
         // currentStep Field Functions 
@@ -230,22 +241,48 @@ namespace Models
         inline History& setSteps(vector<string> && steps) { DARABONBA_PTR_SET_RVALUE(steps_, steps) };
 
 
+        // subchannel Field Functions 
+        bool hasSubchannel() const { return this->subchannel_ != nullptr;};
+        void deleteSubchannel() { this->subchannel_ = nullptr;};
+        inline string getSubchannel() const { DARABONBA_PTR_GET_DEFAULT(subchannel_, "") };
+        inline History& setSubchannel(string subchannel) { DARABONBA_PTR_SET_VALUE(subchannel_, subchannel) };
+
+
       protected:
+        // Indicates whether quick rollback is supported.
         shared_ptr<string> canQuickRevert_ {};
+        shared_ptr<string> commitHash_ {};
+        // Current step.
         shared_ptr<string> currentStep_ {};
+        // Deployment channel.
         shared_ptr<string> deployChannel_ {};
+        // Application description.
         shared_ptr<string> description_ {};
+        // Publishing procedure.
         shared_ptr<string> errorStep_ {};
+        // Indicates whether the process is complete.
         shared_ptr<bool> isFinish_ {};
+        // Indicates whether resource allocation to the cost center succeeded.
+        // - true indicates success.
+        // - false indicates failure.
         shared_ptr<bool> isSuccess_ {};
+        // Error message.
         shared_ptr<string> msg_ {};
+        // Sorting type: ASC or DESC.
         shared_ptr<string> orderType_ {};
+        // Transcoding progress.
         shared_ptr<int32_t> percent_ {};
+        // Publish number.
         shared_ptr<string> publishNumber_ {};
+        // Publish order ID.
         shared_ptr<int64_t> publishOrderId_ {};
+        // Published At.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> publishTime_ {};
+        // Specific widget configuration.
         shared_ptr<vector<string>> steps_ {};
+        shared_ptr<string> subchannel_ {};
       };
 
       virtual bool empty() const override { return this->currentPublishOrderId_ == nullptr
@@ -288,10 +325,19 @@ namespace Models
 
 
     protected:
+      // Current publish order ID
       shared_ptr<int64_t> currentPublishOrderId_ {};
+      // Indicates whether to display the history of applying the alert template to application groups. Valid values:
+      // 
+      // - true: Display.
+      // 
+      // - false (default): Do not display.
       shared_ptr<vector<Module::History>> history_ {};
+      // Page number. Default value is 1.
       shared_ptr<int32_t> pageNum_ {};
+      // Paging size.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -395,19 +441,39 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // frontend application Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic message, not currently used. Please ignore.
     shared_ptr<string> dynamicMessage_ {};
+    // fault parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.  
+    // 
+    // Value range: 10 to 100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Data Table module.  
+    // 
+    // - ABTest: experiment Data Table  
+    // 
+    // - ExperimentTool: experiment tool table  
+    // 
+    // - DataDiagnosis: Data Diagnosis
     shared_ptr<ListAppPublishHistoryResponseBody::Module> module_ {};
+    // Token for the start of the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

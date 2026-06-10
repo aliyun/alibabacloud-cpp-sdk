@@ -109,9 +109,13 @@ namespace Models
 
 
     protected:
+      // Expiration UNIX timestamp
       shared_ptr<int64_t> expireTime_ {};
+      // Platform-specific extension fields
       shared_ptr<map<string, string>> extra_ {};
+      // Platform type identifier
       shared_ptr<string> platformType_ {};
+      // SSO免登URL
       shared_ptr<string> ssoUrl_ {};
     };
 
@@ -200,17 +204,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** field of the response.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // response data
     shared_ptr<CreateAppAssistantAgentSsoLoginResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

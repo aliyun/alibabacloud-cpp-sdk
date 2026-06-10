@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Authentication type
     shared_ptr<string> authType_ {};
+    // Business ID
     shared_ptr<string> bizId_ {};
   };
 

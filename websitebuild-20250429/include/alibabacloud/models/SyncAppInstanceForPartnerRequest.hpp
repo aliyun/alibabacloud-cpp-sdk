@@ -160,11 +160,17 @@ namespace Models
 
 
       protected:
+        // Deployment region
         shared_ptr<string> deployArea_ {};
+        // Lingxiao instance ID
         shared_ptr<string> lxInstanceId_ {};
+        // Order ID
         shared_ptr<string> orderId_ {};
+        // Version
         shared_ptr<string> siteVersion_ {};
+        // Template ID
         shared_ptr<string> templateEtag_ {};
+        // Model template ID
         shared_ptr<string> templateId_ {};
       };
 
@@ -287,21 +293,43 @@ namespace Models
 
 
     protected:
+      // Application Type: WEBSITE
       shared_ptr<string> appType_ {};
+      // Website business ID
       shared_ptr<string> bizId_ {};
+      // Logical deletion
       shared_ptr<string> deleted_ {};
+      // Domain name
       shared_ptr<string> domain_ {};
+      // Event end time (UNIX timestamp).
       shared_ptr<string> endTime_ {};
+      // Deletion time
       shared_ptr<string> gmtDelete_ {};
+      // Vulnerability published UNIX timestamp, in milliseconds.
       shared_ptr<string> gmtPublish_ {};
+      // Application icon URL.
       shared_ptr<string> iconUrl_ {};
+      // Website name
       shared_ptr<string> name_ {};
+      // Website configuration information
       shared_ptr<AppInstance::Profile> profile_ {};
       // siteId
       shared_ptr<string> siteHost_ {};
+      // Website SiteID
       shared_ptr<string> slug_ {};
+      // Query start time. If no start and end times are provided, all historical deployment records of the instance are queried.
       shared_ptr<string> startTime_ {};
+      // Instance running status.  
+      // - NotRun: Not running  
+      // - Running: Running  
+      // - WaitTime: Waiting for TriggerTime  
+      // - CheckingCondition: Checking branch conditions  
+      // - WaitResource: Waiting for resources  
+      // - Failure: Execution failed  
+      // - Success: Execution succeeded  
+      // - Checking: Sent to Data Quality check
       shared_ptr<string> status_ {};
+      // Thumbnail URL.
       shared_ptr<string> thumbnailUrl_ {};
       // 123123123131232
       shared_ptr<string> userId_ {};
@@ -347,10 +375,15 @@ namespace Models
 
 
   protected:
+    // Application instance object data
     shared_ptr<SyncAppInstanceForPartnerRequest::AppInstance> appInstance_ {};
+    // Type of system event. CREATE, UPDATE, COMPLETE
     shared_ptr<string> eventType_ {};
+    // Operator ID
     shared_ptr<string> operator_ {};
+    // Source business ID.
     shared_ptr<string> sourceBizId_ {};
+    // Source: MARKET_CLOUD_DREAM
     shared_ptr<string> sourceType_ {};
   };
 

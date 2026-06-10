@@ -84,11 +84,19 @@ namespace Models
 
 
   protected:
+    // Session ID.
     shared_ptr<string> conversationId_ {};
+    // Number of results per query.
+    // 
+    // Valid values: 10 to 100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Token indicating the start of the next query. This value is empty if there is no subsequent query.
     shared_ptr<string> nextToken_ {};
+    // Number of entries per page (10–100).
     shared_ptr<int32_t> pageSize_ {};
+    // Site ID.
     shared_ptr<string> siteId_ {};
+    // Creation Time of the last entry on the previous page (in ISO 8601 format).
     shared_ptr<string> startCreateTime_ {};
   };
 

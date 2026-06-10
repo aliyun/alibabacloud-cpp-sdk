@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Session ID
     shared_ptr<string> conversationId_ {};
+    // Requirement document content
     shared_ptr<string> prd_ {};
   };
 

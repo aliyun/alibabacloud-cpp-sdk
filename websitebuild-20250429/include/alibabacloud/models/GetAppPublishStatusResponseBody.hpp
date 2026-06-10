@@ -68,6 +68,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PublishTime, publishTime_);
         DARABONBA_PTR_TO_JSON(SiteId, siteId_);
         DARABONBA_PTR_TO_JSON(Steps, steps_);
+        DARABONBA_PTR_TO_JSON(Subchannel, subchannel_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(CanQuickRevert, canQuickRevert_);
@@ -85,6 +86,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PublishTime, publishTime_);
         DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
         DARABONBA_PTR_FROM_JSON(Steps, steps_);
+        DARABONBA_PTR_FROM_JSON(Subchannel, subchannel_);
       };
       Module() = default ;
       Module(const Module &) = default ;
@@ -100,7 +102,7 @@ namespace Models
       virtual bool empty() const override { return this->canQuickRevert_ == nullptr
         && this->currentStep_ == nullptr && this->deployChannel_ == nullptr && this->description_ == nullptr && this->errorStep_ == nullptr && this->isFinish_ == nullptr
         && this->isSuccess_ == nullptr && this->msg_ == nullptr && this->orderType_ == nullptr && this->percent_ == nullptr && this->publishNumber_ == nullptr
-        && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->siteId_ == nullptr && this->steps_ == nullptr; };
+        && this->publishOrderId_ == nullptr && this->publishTime_ == nullptr && this->siteId_ == nullptr && this->steps_ == nullptr && this->subchannel_ == nullptr; };
       // canQuickRevert Field Functions 
       bool hasCanQuickRevert() const { return this->canQuickRevert_ != nullptr;};
       void deleteCanQuickRevert() { this->canQuickRevert_ = nullptr;};
@@ -208,23 +210,51 @@ namespace Models
       inline Module& setSteps(vector<string> && steps) { DARABONBA_PTR_SET_RVALUE(steps_, steps) };
 
 
+      // subchannel Field Functions 
+      bool hasSubchannel() const { return this->subchannel_ != nullptr;};
+      void deleteSubchannel() { this->subchannel_ = nullptr;};
+      inline string getSubchannel() const { DARABONBA_PTR_GET_DEFAULT(subchannel_, "") };
+      inline Module& setSubchannel(string subchannel) { DARABONBA_PTR_SET_VALUE(subchannel_, subchannel) };
+
+
     protected:
+      // Indicates whether quick rollback is supported.
       shared_ptr<string> canQuickRevert_ {};
+      // Current operation step of the job.
       shared_ptr<string> currentStep_ {};
+      // Deployment channel
       shared_ptr<string> deployChannel_ {};
+      // Application description
       shared_ptr<string> description_ {};
+      // Publishing procedure
       shared_ptr<string> errorStep_ {};
+      // Indicates whether the job is finished.
       shared_ptr<bool> isFinish_ {};
+      // Indicates whether the invocation succeeded. Valid values:
+      // 
+      // - `true`: The invocation succeeded.
+      // 
+      // - `false`: Failed to invoke.
       shared_ptr<bool> isSuccess_ {};
+      // Additional description information.
       shared_ptr<string> msg_ {};
+      // Sorting type: ASC or DESC.
       shared_ptr<string> orderType_ {};
+      // Job completion percentage.
       shared_ptr<int32_t> percent_ {};
+      // Publish number
       shared_ptr<string> publishNumber_ {};
+      // Publish order ID
       shared_ptr<int64_t> publishOrderId_ {};
+      // Scheduled publish time
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> publishTime_ {};
+      // The site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // Error Level, including FATAL, ERROR, WARNING, and CRITICAL.
       shared_ptr<vector<string>> steps_ {};
+      shared_ptr<string> subchannel_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -312,17 +342,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<GetAppPublishStatusResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

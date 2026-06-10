@@ -172,16 +172,28 @@ namespace Models
 
 
       protected:
+        // Descriptive hues detected in the Image
         shared_ptr<string> descriptiveTones_ {};
+        // Image height
         shared_ptr<int32_t> height_ {};
+        // Image categorization. Valid values:  
+        // - normal: Illustrations or article images.  
+        // - banner: Background images or image carousels.  
+        // - goods: Product or service images.
         shared_ptr<string> imageCategory_ {};
+        // Aspect ratio
         shared_ptr<string> imageRatio_ {};
+        // Image UUID
         shared_ptr<string> imageUuid_ {};
         // oss key
         shared_ptr<string> ossKey_ {};
+        // Quantized color palette (HEX, LAB) extracted by the algorithm
         shared_ptr<string> quantitativePalette_ {};
+        // Image tags
         shared_ptr<string> tagsFromImage_ {};
+        // Temporary access URL of the image
         shared_ptr<string> url_ {};
+        // Image width
         shared_ptr<int32_t> width_ {};
       };
 
@@ -211,8 +223,13 @@ namespace Models
 
 
     protected:
+      // Image List
       shared_ptr<vector<ImageResponse::ImageList>> imageList_ {};
+      // Number of results per query.
+      // 
+      // Value range: 10–100. Default Value: 20.
       shared_ptr<int32_t> maxResults_ {};
+      // Token indicating the start of the next query. It is empty when there is no next query.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -256,11 +273,15 @@ namespace Models
 
 
   protected:
+    // Error code. The ErrorCode field is not returned if the request succeeded. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
+    // error message.
     shared_ptr<string> errorMsg_ {};
+    // Image search Result
     shared_ptr<SearchImageResponseBody::ImageResponse> imageResponse_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<string> success_ {};
   };
 

@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // Number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Token indicating the start of the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
   };
 

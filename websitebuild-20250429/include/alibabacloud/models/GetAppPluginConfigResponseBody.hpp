@@ -139,14 +139,23 @@ namespace Models
 
 
     protected:
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // Creation Time
       shared_ptr<string> gmtCreate_ {};
+      // Updated At
       shared_ptr<string> gmtModified_ {};
+      // Primary key
       shared_ptr<int64_t> id_ {};
+      // Specific widget configuration, formatted as a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig and the toJsonString method of its child classes. Developers should inherit this widget configuration class and implement the corresponding widget configuration. The structure of each widget configuration is identical to the MPS queue configuration structure created on the Dataphin Page.
       shared_ptr<string> pluginConfig_ {};
+      // View Description
       shared_ptr<string> pluginDesc_ {};
+      // ID of the attached API Gateway plugin
       shared_ptr<string> pluginId_ {};
+      // Plugin Name. It can contain uppercase and lowercase English letters, Chinese characters, digits, and underscores (_). The length must be between 4 and 50 characters, and it cannot start with an underscore.
       shared_ptr<string> pluginName_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -190,11 +199,15 @@ namespace Models
 
 
   protected:
+    // API status or POP error code
     shared_ptr<string> code_ {};
+    // Additional information
     shared_ptr<string> message_ {};
+    // Response data
     shared_ptr<GetAppPluginConfigResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

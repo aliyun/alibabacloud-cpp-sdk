@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // Dictionary type
     shared_ptr<string> dictType_ {};
+    // Number of results per query.  
+    // 
+    // Valid range: 10 to 100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Token indicating the start of the next query. This value is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
   };
 

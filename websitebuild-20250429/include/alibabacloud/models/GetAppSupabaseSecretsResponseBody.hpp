@@ -125,9 +125,19 @@ namespace Models
 
 
       protected:
+        // Tag key
         shared_ptr<string> key_ {};
+        // Application name
         shared_ptr<string> name_ {};
+        // The credential type. Valid values:  
+        // - Generic: generic secret.  
+        // - Rds: RDS credential.  
+        // - Redis: Redis/Tair credential.  
+        // - RAMCredentials: RAM credential.  
+        // - ECS: ECS credential.  
+        // - PolarDB: PolarDB credential.
         shared_ptr<string> secretType_ {};
+        // Record value
         shared_ptr<string> value_ {};
       };
 
@@ -142,6 +152,7 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<vector<Module::Secrets>> secrets_ {};
     };
 
@@ -230,17 +241,30 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:  
+    // - false: Retry is not allowed.  
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Returned object.
     shared_ptr<GetAppSupabaseSecretsResponseBody::Module> module_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the operation is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

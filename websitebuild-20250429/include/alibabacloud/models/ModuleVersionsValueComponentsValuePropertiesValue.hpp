@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // Property code (system internal identity)
       shared_ptr<string> code_ {};
+      // Attribute Value encoding (internal System value)
       shared_ptr<string> value_ {};
+      // Property display name (User-visible name)
       shared_ptr<string> name_ {};
     };
 
@@ -121,9 +124,13 @@ namespace Models
 
 
   protected:
+    // Property code (system internal identity)
     shared_ptr<string> code_ {};
+    // Property display name (user-visible name)
     shared_ptr<string> name_ {};
+    // Attribute value code (system internal value)
     shared_ptr<string> value_ {};
+    // List of module Attribute Values
     shared_ptr<vector<ModuleVersionsValueComponentsValuePropertiesValue::Values>> values_ {};
   };
 

@@ -338,30 +338,62 @@ namespace Models
 
 
       protected:
+        // Application Type
         shared_ptr<string> appType_ {};
+        // bizId of the associated application instance
         shared_ptr<string> bizId_ {};
+        // Color
         shared_ptr<string> colorScheme_ {};
+        // Color scheme name
         shared_ptr<string> colorSchemeName_ {};
+        // The actual data volume of the original table copied during DMS lockless change.
         shared_ptr<int32_t> copyCount_ {};
+        // Tenant User Information
         shared_ptr<string> creator_ {};
+        // Creation Time
         shared_ptr<string> gmtCreate_ {};
+        // Updated At
         shared_ptr<string> gmtModified_ {};
+        // Primary key
         shared_ptr<int64_t> id_ {};
+        // Industry. Default value: **common** (General Industry). Valid values:  
+        // 
+        // - **microVideo**: Short Video Industry.  
+        // 
+        // - **common**: General Industry.
         shared_ptr<string> industry_ {};
+        // Industry Name
         shared_ptr<string> industryName_ {};
+        // ID of the last modifier
         shared_ptr<string> lastModifier_ {};
+        // Like count.
         shared_ptr<int32_t> likeCount_ {};
+        // Whether the current user has liked the item.
         shared_ptr<bool> liked_ {};
+        // Fix Content.
         shared_ptr<string> metadata_ {};
+        // Preview URL
         shared_ptr<string> previewUrl_ {};
+        // Edition. Valid values:  
+        // - **BasicVersion**: Basic Edition.  
+        // - **EnterpriseVersion**: Enterprise Edition.  
+        // > This parameter is required only when ProductForm is set to IntegrationForm.
         shared_ptr<string> productVersion_ {};
+        // Edition name.
         shared_ptr<string> productVersionName_ {};
+        // Share Count
         shared_ptr<int32_t> shareCount_ {};
+        // Possible values: unknown, init, testing, online
         shared_ptr<string> status_ {};
+        // Template ID
         shared_ptr<string> templateId_ {};
+        // Template Name
         shared_ptr<string> templateName_ {};
+        // Application thumbnail
         shared_ptr<string> thumbnailUrl_ {};
+        // View count.
         shared_ptr<int32_t> viewCount_ {};
+        // Weight
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -614,32 +646,65 @@ namespace Models
 
 
       protected:
+        // application Type
         shared_ptr<string> appType_ {};
+        // application instance ID
         shared_ptr<string> bizId_ {};
+        // Color
         shared_ptr<string> colorScheme_ {};
+        // Color name
         shared_ptr<string> colorSchemeName_ {};
+        // The actual data volume of the original table copied during DMS lockless change.
         shared_ptr<int32_t> copyCount_ {};
+        // Creator ID.
         shared_ptr<string> creator_ {};
+        // Creation Time
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
+        // Updated At
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtModifiedTime_ {};
+        // primary key
         shared_ptr<int64_t> id_ {};
+        // Industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry to enable the backend to match an algorithm combination suitable for that industry. Valid values:  
+        // 
+        // - **microVideo**: Short video industry.  
+        // - **common**: General industry.
         shared_ptr<string> industry_ {};
+        // Industry Name
         shared_ptr<string> industryName_ {};
+        // Editor ID
         shared_ptr<string> lastModifier_ {};
+        // Number of likes.
         shared_ptr<int32_t> likeCount_ {};
+        // Whether the current user has liked it
         shared_ptr<bool> liked_ {};
+        // Remediation action.
         shared_ptr<string> metadata_ {};
+        // Preview URL
         shared_ptr<string> previewUrl_ {};
+        // Edition. Valid values:  
+        // - **BasicVersion**: Basic Edition.  
+        // - **EnterpriseVersion**: Enterprise Edition.
         shared_ptr<string> productVersion_ {};
+        // Edition name.
         shared_ptr<string> productVersionName_ {};
+        // Share Count
         shared_ptr<int32_t> shareCount_ {};
+        // File Status
         shared_ptr<string> status_ {};
+        // Template ID
         shared_ptr<string> templateId_ {};
+        // Template Name.  
+        // - Maximum length: 128 characters.
         shared_ptr<string> templateName_ {};
+        // Application thumbnail
         shared_ptr<string> thumbnailUrl_ {};
+        // View Count.
         shared_ptr<int32_t> viewCount_ {};
+        // weight
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -714,14 +779,23 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Request Result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Decision weight
       shared_ptr<Module::Next> next_ {};
+      // Whether there is a next page.
       shared_ptr<bool> nextPage_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether there is a previous page.
       shared_ptr<bool> prePage_ {};
+      // For the current query, aside from paging limits, the server-side processes at most the latest 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -825,19 +899,33 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // Application name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message. Not currently used. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
+    // Faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results returned per query.  
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response data
     shared_ptr<ListAppTemplatesResponseBody::Module> module_ {};
+    // Token for starting the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

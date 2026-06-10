@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Template ID
     shared_ptr<string> templateId_ {};
   };
 

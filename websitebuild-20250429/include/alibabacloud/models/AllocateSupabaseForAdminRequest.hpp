@@ -94,13 +94,20 @@ namespace Models
 
 
   protected:
+    // Business ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> env_ {};
+    // Sorting field
     shared_ptr<string> orderColumn_ {};
+    // Sorting type: ASC or DESC
     shared_ptr<string> orderType_ {};
+    // Page number, default is 1
     shared_ptr<int32_t> pageNum_ {};
+    // Page size, default is 10
     shared_ptr<int32_t> pageSize_ {};
+    // User ID
     shared_ptr<string> userId_ {};
   };
 

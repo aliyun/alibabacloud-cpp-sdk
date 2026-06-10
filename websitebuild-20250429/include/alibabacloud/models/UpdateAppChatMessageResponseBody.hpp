@@ -207,22 +207,50 @@ namespace Models
 
 
     protected:
+      // Bot ID
       shared_ptr<string> botId_ {};
+      // The ID of the chat.
       shared_ptr<string> chatId_ {};
+      // Current conversation status
       shared_ptr<string> chatStatus_ {};
+      // The ID of the data class API being invoked.
       shared_ptr<string> content_ {};
+      // Content type.
       shared_ptr<string> contentType_ {};
+      // Session ID.
       shared_ptr<string> conversationId_ {};
+      // Creation Time
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
+      // Updated At.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // Message ID
       shared_ptr<string> messageId_ {};
+      // Business extension metadata (in Map format, must be a JSON string)
       shared_ptr<string> metaData_ {};
+      // The probability of not wearing a mask, not wearing a uniform, or not wearing a hat.
       shared_ptr<int32_t> no_ {};
+      // Indicates the role of a conversation participant. Valid values include:
+      // 
+      // - user: User
+      // 
+      // - assistant: Assistant
+      // 
+      // - system: System
+      // - function: Function
+      // 
+      // - plugin: Plugin
+      // 
+      // - tool: Tool
       shared_ptr<string> role_ {};
+      // Section ID of the checklist item.
       shared_ptr<string> sectionId_ {};
+      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // File type
       shared_ptr<string> type_ {};
     };
 
@@ -311,17 +339,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // dynamic code; not currently used. Please ignore.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The returned object.
     shared_ptr<UpdateAppChatMessageResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

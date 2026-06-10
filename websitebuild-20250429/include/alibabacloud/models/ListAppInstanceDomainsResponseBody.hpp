@@ -393,8 +393,11 @@ namespace Models
 
 
         protected:
+          // ICP filing number of the entity
           shared_ptr<string> icpRecordNumber_ {};
+          // ICP filing number for the website
           shared_ptr<string> icpSiteRecordNumber_ {};
+          // Public security filing number
           shared_ptr<string> policeRecordNumber_ {};
         };
 
@@ -588,6 +591,7 @@ namespace Models
         shared_ptr<string> overallStatus_ {};
         // Domain ownership information
         shared_ptr<Next::Ownership> ownership_ {};
+        // Domain name qualification information
         shared_ptr<Next::Qualification> qualification_ {};
         // Domain resolution information
         shared_ptr<Next::Resolution> resolution_ {};
@@ -910,8 +914,11 @@ namespace Models
 
 
         protected:
+          // ICP entity filing number
           shared_ptr<string> icpRecordNumber_ {};
+          // ICP website filing number
           shared_ptr<string> icpSiteRecordNumber_ {};
+          // Public security filing number
           shared_ptr<string> policeRecordNumber_ {};
         };
 
@@ -1116,6 +1123,7 @@ namespace Models
         shared_ptr<string> overallStatus_ {};
         // Domain ownership information
         shared_ptr<Data::Ownership> ownership_ {};
+        // Domain name qualification information
         shared_ptr<Data::Qualification> qualification_ {};
         // Domain resolution information
         shared_ptr<Data::Resolution> resolution_ {};

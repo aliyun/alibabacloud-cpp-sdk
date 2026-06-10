@@ -124,11 +124,17 @@ namespace Models
 
 
     protected:
+      // Bot ID
       shared_ptr<string> botId_ {};
+      // ID of the chat.
       shared_ptr<string> chatId_ {};
+      // Session ID
       shared_ptr<string> conversationId_ {};
+      // Section ID of the check item.
       shared_ptr<string> sectionId_ {};
+      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // Current point, equivalent to a news title
       shared_ptr<string> title_ {};
     };
 
@@ -217,17 +223,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application name. Query the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<CreateAIStaffConversationResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

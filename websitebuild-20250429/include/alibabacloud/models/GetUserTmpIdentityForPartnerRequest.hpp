@@ -75,10 +75,16 @@ namespace Models
 
 
   protected:
+    // Authorization purpose
     shared_ptr<string> authPurpose_ {};
+    // Customer business ID
     shared_ptr<string> bizId_ {};
+    // Whether the port number supports fuzzy query. To enable fuzzy query, set the value of this parameter to **1**. Any other value or an empty value indicates that fuzzy query is not supported.
     shared_ptr<string> extend_ {};
+    // Service-linked role.  
+    // > For service-linked roles supported by RDS, see [Service-linked Role](https://help.aliyun.com/document_detail/342840.html).
     shared_ptr<string> serviceLinkedRole_ {};
+    // User ID
     shared_ptr<string> userId_ {};
   };
 

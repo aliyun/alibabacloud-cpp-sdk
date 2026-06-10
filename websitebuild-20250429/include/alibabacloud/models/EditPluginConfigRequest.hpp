@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Plugin configuration
     shared_ptr<string> pluginConfig_ {};
+    // Plugin description
     shared_ptr<string> pluginDesc_ {};
+    // Plugin ID
     shared_ptr<string> pluginId_ {};
+    // Plugin name
     shared_ptr<string> pluginName_ {};
   };
 

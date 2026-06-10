@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // Application Instance Business ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // Parent Folder ID
+    // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
+    // File Path
+    // 
     // This parameter is required.
     shared_ptr<string> fileUrl_ {};
+    // File Name
     shared_ptr<string> name_ {};
   };
 

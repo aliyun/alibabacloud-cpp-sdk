@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // session ID
     shared_ptr<string> conversationId_ {};
+    // Specifies whether to restart the application process. This parameter is optional and defaults to false.
     shared_ptr<bool> restart_ {};
   };
 

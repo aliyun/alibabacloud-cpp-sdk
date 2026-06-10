@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // Application instance ID
     shared_ptr<string> bizId_ {};
+    // Indicates whether shared folders are hidden.
     shared_ptr<bool> hiddenPublic_ {};
+    // Indicates whether the request is for the top-level root folder.
+    // 
     // This parameter is required.
     shared_ptr<bool> root_ {};
   };

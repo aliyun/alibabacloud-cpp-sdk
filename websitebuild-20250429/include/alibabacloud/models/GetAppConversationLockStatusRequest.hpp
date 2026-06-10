@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // session ID
     shared_ptr<string> conversationId_ {};
   };
 

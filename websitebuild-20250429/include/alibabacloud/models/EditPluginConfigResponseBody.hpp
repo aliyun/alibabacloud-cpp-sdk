@@ -133,17 +133,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // The application name must start with a letter and can contain letters, digits, underscores (_), and hyphens (-). It supports up to 36 characters.
     shared_ptr<string> appName_ {};
+    // Dynamic code, currently unused. Please ignore.
     shared_ptr<string> dynamicCode_ {};
+    // Error message
     shared_ptr<string> dynamicMessage_ {};
+    // Faulty parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<bool> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether processing is synchronous
     shared_ptr<bool> synchro_ {};
   };
 

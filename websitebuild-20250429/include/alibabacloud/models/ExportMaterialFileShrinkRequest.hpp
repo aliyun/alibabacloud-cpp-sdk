@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Business instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // List of file IDs
+    // 
     // This parameter is required.
     shared_ptr<string> fileIdsShrink_ {};
   };

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Bot ID
     shared_ptr<string> botId_ {};
+    // Session ID
     shared_ptr<string> conversationId_ {};
   };
 

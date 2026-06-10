@@ -114,9 +114,13 @@ namespace Models
 
 
       protected:
+        // Encrypted temporary AccessKey ID
         shared_ptr<string> encryptedAccessKeyId_ {};
+        // Encrypted temporary AccessKey secret
         shared_ptr<string> encryptedAccessKeySecret_ {};
+        // Encrypted Security Token Service token
         shared_ptr<string> encryptedSecurityToken_ {};
+        // Expected expiration time of the certificate
         shared_ptr<string> expiration_ {};
       };
 
@@ -139,7 +143,9 @@ namespace Models
 
 
     protected:
+      // Credential
       shared_ptr<Data::Credentials> credentials_ {};
+      // Indicates whether authorization from the Customer has been obtained.
       shared_ptr<bool> hasCustomRoleAuth_ {};
     };
 
@@ -183,11 +189,15 @@ namespace Models
 
 
   protected:
+    // Result of the request.
     shared_ptr<GetUserTmpIdentityForPartnerResponseBody::Data> data_ {};
+    // error code. The value is interpreted as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code List in this topic.
     shared_ptr<string> errorCode_ {};
+    // error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

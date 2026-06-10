@@ -92,7 +92,9 @@ namespace Models
 
 
     protected:
+      // Are all passed
       shared_ptr<bool> allPassed_ {};
+      // Check results for each resource, key=resourceCode
       shared_ptr<map<string, ModuleResultsValue>> results_ {};
     };
 
@@ -181,17 +183,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Returned object.
     shared_ptr<BatchCheckResourceMeasureResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

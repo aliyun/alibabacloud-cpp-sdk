@@ -196,20 +196,39 @@ namespace Models
 
 
     protected:
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // Indicates whether to display.
       shared_ptr<int32_t> display_ {};
+      // Indicates whether scheduled delivery of resource snapshots is enabled.  
+      // 
+      // Valid values:  
+      // - true: Enabled.  
+      // - false: Shutdown.
       shared_ptr<int32_t> enabled_ {};
+      // Extension information
       shared_ptr<map<string, string>> extend_ {};
+      // Creation Time
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
+      // Updated At
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // primary key
       shared_ptr<int64_t> id_ {};
+      // Plugin configuration
       shared_ptr<string> pluginConfig_ {};
+      // Plugin description
       shared_ptr<string> pluginDesc_ {};
+      // Plugin ID
       shared_ptr<string> pluginId_ {};
+      // Plugin name
       shared_ptr<string> pluginName_ {};
+      // Site name
       shared_ptr<string> siteName_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -313,19 +332,34 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application Name. Query the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // The number of results returned per query.  
+    // 
+    // Valid range: 10 to 100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // task object
     shared_ptr<vector<ListAppPluginConfigsResponseBody::Module>> module_ {};
+    // The token to start the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is synchronous processing enabled
     shared_ptr<bool> synchro_ {};
   };
 

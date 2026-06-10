@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Domain name
     shared_ptr<string> domain_ {};
+    // Search engine type
     shared_ptr<string> seType_ {};
   };
 

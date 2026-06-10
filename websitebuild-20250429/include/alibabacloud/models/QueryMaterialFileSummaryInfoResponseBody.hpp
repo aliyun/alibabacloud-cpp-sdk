@@ -88,7 +88,9 @@ namespace Models
 
 
     protected:
+      // Total file quantity
       shared_ptr<int64_t> fileNum_ {};
+      // Occupied bucket space
       shared_ptr<string> storageSize_ {};
     };
 
@@ -177,17 +179,27 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // The application name. It can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name must not exceed 36 characters.
     shared_ptr<string> appName_ {};
+    // Dynamic error code
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<QueryMaterialFileSummaryInfoResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

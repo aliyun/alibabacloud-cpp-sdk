@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Site ID
     shared_ptr<string> bizId_ {};
+    // Channel information
     shared_ptr<string> channel_ {};
+    // Hyperlink URL
     shared_ptr<string> redirectUri_ {};
   };
 

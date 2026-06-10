@@ -197,9 +197,11 @@ namespace Models
     shared_ptr<string> pricingCycle_ {};
     // Required. The quantity of instances to be ordered.
     shared_ptr<int32_t> quantity_ {};
+    // Resource group ID
     shared_ptr<string> resourceGroupId_ {};
     // Site version
     shared_ptr<string> siteVersion_ {};
+    // List of tags
     shared_ptr<string> tagsShrink_ {};
     shared_ptr<string> version_ {};
   };

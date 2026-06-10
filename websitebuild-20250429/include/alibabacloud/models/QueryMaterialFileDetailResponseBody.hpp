@@ -164,20 +164,33 @@ namespace Models
 
 
   protected:
+    // access denied details
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // application Name. Query the application with this Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
+    // returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // error code. The ErrorCode field is not returned if the request succeeded. The ErrorCode field is returned if the request failed. For more information, see the error code List in this topic.
     shared_ptr<string> errorCode_ {};
+    // error message.
     shared_ptr<string> errorMsg_ {};
+    // response Data
     shared_ptr<AppMaterialFile> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // identity indicating whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // backup parameter.
     shared_ptr<bool> synchro_ {};
   };
 

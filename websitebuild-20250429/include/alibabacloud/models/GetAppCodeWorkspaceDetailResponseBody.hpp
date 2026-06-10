@@ -54,6 +54,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
         DARABONBA_PTR_TO_JSON(ActiveLogicalNumber, activeLogicalNumber_);
+        DARABONBA_PTR_TO_JSON(CommitHash, commitHash_);
         DARABONBA_PTR_TO_JSON(IsDirty, isDirty_);
         DARABONBA_PTR_TO_JSON(MaxLogicalNumber, maxLogicalNumber_);
         DARABONBA_PTR_TO_JSON(SiteId, siteId_);
@@ -61,6 +62,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(ActiveLogicalNumber, activeLogicalNumber_);
+        DARABONBA_PTR_FROM_JSON(CommitHash, commitHash_);
         DARABONBA_PTR_FROM_JSON(IsDirty, isDirty_);
         DARABONBA_PTR_FROM_JSON(MaxLogicalNumber, maxLogicalNumber_);
         DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
@@ -124,19 +126,30 @@ namespace Models
 
 
       protected:
+        // SDK change log
         shared_ptr<string> changeLog_ {};
+        // Creation UTC time in ISO8601 format.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
+        // Logical value
         shared_ptr<int32_t> logicalNumber_ {};
       };
 
       virtual bool empty() const override { return this->activeLogicalNumber_ == nullptr
-        && this->isDirty_ == nullptr && this->maxLogicalNumber_ == nullptr && this->siteId_ == nullptr && this->snapshots_ == nullptr; };
+        && this->commitHash_ == nullptr && this->isDirty_ == nullptr && this->maxLogicalNumber_ == nullptr && this->siteId_ == nullptr && this->snapshots_ == nullptr; };
       // activeLogicalNumber Field Functions 
       bool hasActiveLogicalNumber() const { return this->activeLogicalNumber_ != nullptr;};
       void deleteActiveLogicalNumber() { this->activeLogicalNumber_ = nullptr;};
       inline int32_t getActiveLogicalNumber() const { DARABONBA_PTR_GET_DEFAULT(activeLogicalNumber_, 0) };
       inline Module& setActiveLogicalNumber(int32_t activeLogicalNumber) { DARABONBA_PTR_SET_VALUE(activeLogicalNumber_, activeLogicalNumber) };
+
+
+      // commitHash Field Functions 
+      bool hasCommitHash() const { return this->commitHash_ != nullptr;};
+      void deleteCommitHash() { this->commitHash_ = nullptr;};
+      inline string getCommitHash() const { DARABONBA_PTR_GET_DEFAULT(commitHash_, "") };
+      inline Module& setCommitHash(string commitHash) { DARABONBA_PTR_SET_VALUE(commitHash_, commitHash) };
 
 
       // isDirty Field Functions 
@@ -172,11 +185,14 @@ namespace Models
     protected:
       // 11111
       shared_ptr<int32_t> activeLogicalNumber_ {};
+      shared_ptr<string> commitHash_ {};
       // true
       shared_ptr<bool> isDirty_ {};
       // 1111
       shared_ptr<int32_t> maxLogicalNumber_ {};
+      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // API Guide information.
       shared_ptr<vector<Module::Snapshots>> snapshots_ {};
     };
 
@@ -265,17 +281,30 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:  
+    // - false: Retry is not allowed.  
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Faulty parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Application module
     shared_ptr<GetAppCodeWorkspaceDetailResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

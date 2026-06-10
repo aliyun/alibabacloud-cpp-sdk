@@ -299,35 +299,83 @@ namespace Models
 
 
     protected:
+      // Application type
       shared_ptr<string> appType_ {};
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // color
       shared_ptr<string> colorScheme_ {};
+      // Color name
       shared_ptr<string> colorSchemeName_ {};
+      // The actual data volume of the original table copied during DMS lockless change.
       shared_ptr<int32_t> copyCount_ {};
+      // User ID of the creator.
       shared_ptr<string> creator_ {};
+      // Creation UTC time, in ISO 8601 date format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // modify time
+      // Modify time
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // Primary key
       shared_ptr<int64_t> id_ {};
+      // Industry. Default value: **common** (general industry). Valid values:
+      // 
+      // - **microVideo**: Short video industry.
+      // 
+      // - **common**: General industry.
       shared_ptr<string> industry_ {};
+      // Industry name.
       shared_ptr<string> industryName_ {};
+      // Last modifier
       shared_ptr<string> lastModifier_ {};
+      // Like count.
       shared_ptr<int32_t> likeCount_ {};
+      // Whether the current user has liked it
       shared_ptr<bool> liked_ {};
+      // <props="china">
+      // 
+      // Map of metadata for text segmentation.
+      // 
+      // > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+      // 
+      // > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
+      // 
+      // 
+      // <props="intl">
+      // 
+      // Map of metadata for text segmentation.
+      // 
+      // > In document-search-type knowledge bases, the `file_path` field in the metadata Map is meaningless. Do not use it in your business code.
+      // 
+      // > When retrieving a document-search-type knowledge base, if a segment contains an image, the image URL will be exposed through the `image_url` field in the metadata Map, along with a time-to-live (TTL).
       shared_ptr<string> metadata_ {};
+      // Preview URL
       shared_ptr<string> previewUrl_ {};
+      // Edition. Valid values:
+      // - **BasicVersion**: Basic Edition.
+      // - **EnterpriseVersion**: Enterprise Edition.
+      // > This parameter is required only when ProductForm is set to IntegrationForm.
       shared_ptr<string> productVersion_ {};
+      // Edition Name.
       shared_ptr<string> productVersionName_ {};
+      // Share count
       shared_ptr<int32_t> shareCount_ {};
-      // trial,draft,live,refunded,expired,released
+      // trial, draft, live, refunded, expired, released
       shared_ptr<string> status_ {};
+      // Template ID
       shared_ptr<string> templateId_ {};
+      // Template Name
       shared_ptr<string> templateName_ {};
+      // application thumbnail
       shared_ptr<string> thumbnailUrl_ {};
+      // View count.
       shared_ptr<int32_t> viewCount_ {};
+      // Hot word weight, an integer in the range [1, 5].  
+      // Common value: 4.  
+      // If the effect is not obvious, you can moderately increase the weight. However, if the weight is too high, it may cause negative effects and reduce the accuracy of detecting other words.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -416,17 +464,28 @@ namespace Models
 
 
   protected:
+    // permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error Code
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // whether deletion succeeded
     shared_ptr<GetAppTemplateResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

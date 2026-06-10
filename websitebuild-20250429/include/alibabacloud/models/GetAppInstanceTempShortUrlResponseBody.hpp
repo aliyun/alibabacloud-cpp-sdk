@@ -97,9 +97,13 @@ namespace Models
 
 
     protected:
+      // time-to-live (TTL)
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> expireAtTime_ {};
+      // temporary short URL
       shared_ptr<string> tempShortUrl_ {};
+      // full URL
       shared_ptr<string> url_ {};
     };
 
@@ -188,17 +192,27 @@ namespace Models
 
 
   protected:
+    // access denied details
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic code, currently unused. Please ignore.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // response data
     shared_ptr<GetAppInstanceTempShortUrlResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

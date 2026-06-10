@@ -170,18 +170,31 @@ namespace Models
 
 
     protected:
+      // User ID
       shared_ptr<string> aliyunPk_ {};
+      // bot ID
       shared_ptr<string> botId_ {};
+      // Chat record
       shared_ptr<int32_t> chatNum_ {};
+      // session id
       shared_ptr<string> conversationId_ {};
+      // Creation Time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
+      // Update Time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
+      // Extension information (in JSON string format)
       shared_ptr<string> metaData_ {};
+      // Section ID of the checklist item.
       shared_ptr<string> sectionId_ {};
+      // site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // Current point, equivalent to news title
       shared_ptr<string> title_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -270,17 +283,28 @@ namespace Models
 
 
   protected:
+    // access denied details
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // response Data
     shared_ptr<GetAppConversationResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // is processed synchronously
     shared_ptr<bool> synchro_ {};
   };
 

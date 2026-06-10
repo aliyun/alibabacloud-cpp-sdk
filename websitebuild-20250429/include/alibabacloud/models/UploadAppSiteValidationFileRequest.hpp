@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // business ID
     shared_ptr<string> bizId_ {};
+    // domain name
     shared_ptr<string> domain_ {};
+    // file name
     shared_ptr<string> file_ {};
+    // file content
     shared_ptr<string> fileContent_ {};
+    // file type
     shared_ptr<string> fileType_ {};
+    // site host
     shared_ptr<string> siteHost_ {};
   };
 

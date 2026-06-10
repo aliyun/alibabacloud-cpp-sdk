@@ -98,7 +98,9 @@ namespace Models
 
 
     protected:
+      // tag key
       shared_ptr<string> tagKey_ {};
+      // value of tag 0
       shared_ptr<string> tagValue_ {};
     };
 
@@ -242,9 +244,11 @@ namespace Models
     shared_ptr<string> pricingCycle_ {};
     // Required. The quantity of instances to be ordered.
     shared_ptr<int32_t> quantity_ {};
+    // Resource group ID
     shared_ptr<string> resourceGroupId_ {};
     // Site version
     shared_ptr<string> siteVersion_ {};
+    // List of tags
     shared_ptr<vector<CreateAppInstanceRequest::Tags>> tags_ {};
     shared_ptr<string> version_ {};
   };

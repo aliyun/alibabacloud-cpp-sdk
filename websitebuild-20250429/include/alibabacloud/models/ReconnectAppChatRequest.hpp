@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // Chat record ID
     shared_ptr<string> chatId_ {};
+    // Session ID
     shared_ptr<string> conversationId_ {};
+    // Last management event ID
     shared_ptr<int32_t> lastEventId_ {};
   };
 

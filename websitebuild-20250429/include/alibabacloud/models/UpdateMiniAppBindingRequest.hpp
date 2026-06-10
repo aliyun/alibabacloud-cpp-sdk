@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Channel
     shared_ptr<string> channel_ {};
+    // Configuration key
     shared_ptr<string> settingKey_ {};
+    // Configuration value
     shared_ptr<string> settingValue_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Application instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // Folder name
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Parent folder ID
+    // 
     // This parameter is required.
     shared_ptr<string> parentDirectoryId_ {};
   };

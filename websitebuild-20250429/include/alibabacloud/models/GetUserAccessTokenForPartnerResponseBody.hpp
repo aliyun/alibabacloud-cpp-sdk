@@ -99,10 +99,13 @@ namespace Models
 
 
   protected:
+    // Error code. The value is as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
+    // Response data
     shared_ptr<GetUserAccessTokenForPartnerResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<string> success_ {};
   };
 

@@ -164,20 +164,35 @@ namespace Models
 
 
   protected:
+    // access denied details
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:  
+    // - false: Retry is not allowed.  
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // AppName. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
+    // Dynamic error code
     shared_ptr<string> dynamicCode_ {};
+    // dynamic message
     shared_ptr<string> dynamicMessage_ {};
+    // returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // error code. The ErrorCode field is returned only when the Request fails. If the Request succeeds, the ErrorCode field is not returned. For more information, see the error code List in this topic.
     shared_ptr<string> errorCode_ {};
+    // error message
     shared_ptr<string> errorMsg_ {};
+    // Response data
     shared_ptr<AppMaterialTask> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the Request succeeded.
     shared_ptr<bool> success_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

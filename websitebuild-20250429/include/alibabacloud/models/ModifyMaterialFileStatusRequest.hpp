@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // Business instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // File ID
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> fileIds_ {};
+    // Modified status
+    // 
     // This parameter is required.
     shared_ptr<string> status_ {};
   };

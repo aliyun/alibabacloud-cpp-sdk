@@ -54,13 +54,19 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Module& obj) { 
         DARABONBA_PTR_TO_JSON(Remaining, remaining_);
+        DARABONBA_PTR_TO_JSON(RemainingStr, remainingStr_);
         DARABONBA_PTR_TO_JSON(TotalQuota, totalQuota_);
+        DARABONBA_PTR_TO_JSON(TotalQuotaStr, totalQuotaStr_);
         DARABONBA_PTR_TO_JSON(TotalUsed, totalUsed_);
+        DARABONBA_PTR_TO_JSON(TotalUsedStr, totalUsedStr_);
       };
       friend void from_json(const Darabonba::Json& j, Module& obj) { 
         DARABONBA_PTR_FROM_JSON(Remaining, remaining_);
+        DARABONBA_PTR_FROM_JSON(RemainingStr, remainingStr_);
         DARABONBA_PTR_FROM_JSON(TotalQuota, totalQuota_);
+        DARABONBA_PTR_FROM_JSON(TotalQuotaStr, totalQuotaStr_);
         DARABONBA_PTR_FROM_JSON(TotalUsed, totalUsed_);
+        DARABONBA_PTR_FROM_JSON(TotalUsedStr, totalUsedStr_);
       };
       Module() = default ;
       Module(const Module &) = default ;
@@ -74,12 +80,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->remaining_ == nullptr
-        && this->totalQuota_ == nullptr && this->totalUsed_ == nullptr; };
+        && this->remainingStr_ == nullptr && this->totalQuota_ == nullptr && this->totalQuotaStr_ == nullptr && this->totalUsed_ == nullptr && this->totalUsedStr_ == nullptr; };
       // remaining Field Functions 
       bool hasRemaining() const { return this->remaining_ != nullptr;};
       void deleteRemaining() { this->remaining_ = nullptr;};
       inline int64_t getRemaining() const { DARABONBA_PTR_GET_DEFAULT(remaining_, 0L) };
       inline Module& setRemaining(int64_t remaining) { DARABONBA_PTR_SET_VALUE(remaining_, remaining) };
+
+
+      // remainingStr Field Functions 
+      bool hasRemainingStr() const { return this->remainingStr_ != nullptr;};
+      void deleteRemainingStr() { this->remainingStr_ = nullptr;};
+      inline string getRemainingStr() const { DARABONBA_PTR_GET_DEFAULT(remainingStr_, "") };
+      inline Module& setRemainingStr(string remainingStr) { DARABONBA_PTR_SET_VALUE(remainingStr_, remainingStr) };
 
 
       // totalQuota Field Functions 
@@ -89,6 +102,13 @@ namespace Models
       inline Module& setTotalQuota(int64_t totalQuota) { DARABONBA_PTR_SET_VALUE(totalQuota_, totalQuota) };
 
 
+      // totalQuotaStr Field Functions 
+      bool hasTotalQuotaStr() const { return this->totalQuotaStr_ != nullptr;};
+      void deleteTotalQuotaStr() { this->totalQuotaStr_ = nullptr;};
+      inline string getTotalQuotaStr() const { DARABONBA_PTR_GET_DEFAULT(totalQuotaStr_, "") };
+      inline Module& setTotalQuotaStr(string totalQuotaStr) { DARABONBA_PTR_SET_VALUE(totalQuotaStr_, totalQuotaStr) };
+
+
       // totalUsed Field Functions 
       bool hasTotalUsed() const { return this->totalUsed_ != nullptr;};
       void deleteTotalUsed() { this->totalUsed_ = nullptr;};
@@ -96,10 +116,23 @@ namespace Models
       inline Module& setTotalUsed(int64_t totalUsed) { DARABONBA_PTR_SET_VALUE(totalUsed_, totalUsed) };
 
 
+      // totalUsedStr Field Functions 
+      bool hasTotalUsedStr() const { return this->totalUsedStr_ != nullptr;};
+      void deleteTotalUsedStr() { this->totalUsedStr_ = nullptr;};
+      inline string getTotalUsedStr() const { DARABONBA_PTR_GET_DEFAULT(totalUsedStr_, "") };
+      inline Module& setTotalUsedStr(string totalUsedStr) { DARABONBA_PTR_SET_VALUE(totalUsedStr_, totalUsedStr) };
+
+
     protected:
+      // Remaining (totalQuota - totalUsed)
       shared_ptr<int64_t> remaining_ {};
+      shared_ptr<string> remainingStr_ {};
+      // Total quota (sum of initQuota from all valid accounts)
       shared_ptr<int64_t> totalQuota_ {};
+      shared_ptr<string> totalQuotaStr_ {};
+      // Consumed amount (sum of used from all valid accounts)
       shared_ptr<int64_t> totalUsed_ {};
+      shared_ptr<string> totalUsedStr_ {};
     };
 
     virtual bool empty() const override { return this->accessDeniedDetail_ == nullptr
@@ -187,17 +220,28 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application name; query the application with this name
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Fault parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<QueryInspirationBalanceResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Whether processing is synchronous
     shared_ptr<bool> synchro_ {};
   };
 

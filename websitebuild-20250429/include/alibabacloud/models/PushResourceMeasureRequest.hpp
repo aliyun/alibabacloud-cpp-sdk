@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // Resource usage amount
     shared_ptr<int64_t> amount_ {};
+    // Belonging ID
     shared_ptr<string> belongId_ {};
+    // Belonging ID Type (siteId, uid)
     shared_ptr<string> belongIdType_ {};
+    // Business ID associated with this push, such as session ID, Job ID, or file ID
     shared_ptr<string> bizId_ {};
+    // Metering data, used to flexibly push multiple data points such as model invocation count and token usage (JSON string)
     shared_ptr<string> measureData_ {};
+    // Business extension metadata (in Map format, must be a JSON string)
     shared_ptr<string> metaData_ {};
+    // Resource identity
     shared_ptr<string> resourceCode_ {};
+    // Usage time, format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> useTime_ {};
+    // Usage type
     shared_ptr<string> useType_ {};
   };
 

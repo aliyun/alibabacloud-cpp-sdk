@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // Property encoding (system internal identity)
         shared_ptr<string> code_ {};
+        // Attribute Value encoding (internal system value)
         shared_ptr<string> value_ {};
+        // Property display name (User-visible Name)
         shared_ptr<string> name_ {};
       };
 
@@ -150,9 +153,13 @@ namespace Models
 
 
     protected:
+      // Property encoding (system internal identity)
       shared_ptr<string> code_ {};
+      // Property display name (User-visible Name)
       shared_ptr<string> name_ {};
+      // Attribute Value encoding (internal system value)
       shared_ptr<string> value_ {};
+      // List of module Attribute Values
       shared_ptr<vector<InstanceProperty::Values>> values_ {};
     };
 
@@ -198,10 +205,15 @@ namespace Models
 
 
   protected:
+    // Unique widget encoding (system internal identity)
     shared_ptr<string> code_ {};
+    // The display name of the widget (user-visible name)
     shared_ptr<string> name_ {};
+    // Widget instance attribute configuration
     shared_ptr<vector<ModuleDataComponentsValue::InstanceProperty>> instanceProperty_ {};
+    // Widget instance attribute configuration
     shared_ptr<map<string, ModuleDataComponentsValuePropertiesValue>> properties_ {};
+    // Module attribute status
     shared_ptr<int32_t> moduleAttrStatus_ {};
   };
 

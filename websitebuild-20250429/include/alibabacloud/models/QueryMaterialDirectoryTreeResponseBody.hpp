@@ -87,6 +87,7 @@ namespace Models
 
 
     protected:
+      // Top-level folder
       shared_ptr<vector<AppMaterialDirectory>> directoryList_ {};
     };
 
@@ -197,20 +198,33 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // Application name. Query the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // parameters that caused the error
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
+    // error message.
     shared_ptr<string> errorMsg_ {};
+    // Response data
     shared_ptr<QueryMaterialDirectoryTreeResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // Indicates whether the processing is synchronous.
     shared_ptr<bool> synchro_ {};
   };
 

@@ -247,22 +247,39 @@ namespace Models
 
 
       protected:
+        // Indicates whether an instance has been assigned
         shared_ptr<bool> allocated_ {};
+        // Is this item currently active?
         shared_ptr<bool> available_ {};
+        // Authorization item identity
         shared_ptr<string> code_ {};
+        // Indicates whether configuration has been completed
         shared_ptr<bool> configured_ {};
+        // Is this item entitled in the version?
         shared_ptr<bool> entitled_ {};
+        // Feature source type (PLUGIN/SKILL/CHANNEL/SYSTEM)
         shared_ptr<string> featureType_ {};
+        // Runtime instance ID
         shared_ptr<string> instanceId_ {};
+        // Authorization item Name
         shared_ptr<string> name_ {};
+        // Plugin ID
         shared_ptr<string> pluginId_ {};
+        // Total quota
         shared_ptr<int64_t> quota_ {};
+        // Remaining quantity
         shared_ptr<int64_t> remaining_ {};
+        // Resource domain association identity
         shared_ptr<string> resourceCode_ {};
+        // Resource type (QUOTA/LIMIT)
         shared_ptr<string> resourceType_ {};
+        // Is it running?
         shared_ptr<bool> running_ {};
+        // Authorization Type (FEATURE / RESOURCE / RUNTIME)
         shared_ptr<string> type_ {};
+        // Usage percentage
         shared_ptr<int32_t> usagePercent_ {};
+        // Usage
         shared_ptr<int64_t> used_ {};
       };
 
@@ -285,7 +302,9 @@ namespace Models
 
 
     protected:
+      // BizId of the associated application instance
       shared_ptr<string> bizId_ {};
+      // All entitlements
       shared_ptr<vector<Module::Items>> items_ {};
     };
 
@@ -374,17 +393,28 @@ namespace Models
 
 
   protected:
+    // Permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace `%s` in the **ErrMessage** error message.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<GetAppInstanceEntitlementResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

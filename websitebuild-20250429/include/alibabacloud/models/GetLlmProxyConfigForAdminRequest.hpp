@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Capability Type: llm, image, video
     shared_ptr<string> capability_ {};
   };
 

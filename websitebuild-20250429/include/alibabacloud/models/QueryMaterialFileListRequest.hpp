@@ -165,21 +165,39 @@ namespace Models
 
 
   protected:
+    // Business ID of the application instance
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // Folder ID
+    // 
     // This parameter is required.
     shared_ptr<string> directoryId_ {};
+    // Maximum file size
     shared_ptr<int64_t> maxFileSize_ {};
+    // Number of results per query.
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Minimum file size
     shared_ptr<int64_t> minFileSize_ {};
+    // Website name
     shared_ptr<string> name_ {};
+    // Token indicating the start of the next query. It is empty when there is no subsequent query.
     shared_ptr<string> nextToken_ {};
+    // Sorting field
     shared_ptr<string> orderColumn_ {};
+    // Sorting type: ASC or DESC
     shared_ptr<string> orderType_ {};
+    // Page number. Default value is 1.
     shared_ptr<int32_t> pageNum_ {};
+    // Page size. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Status range
     shared_ptr<vector<string>> statusList_ {};
+    // File suffix list
     shared_ptr<vector<string>> suffixList_ {};
+    // List of file types
     shared_ptr<vector<string>> typeList_ {};
   };
 

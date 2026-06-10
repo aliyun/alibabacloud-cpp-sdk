@@ -20,8 +20,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(PageNum, pageNum_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(PublishEnv, publishEnv_);
       DARABONBA_PTR_TO_JSON(Sort, sort_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(Subchannel, subchannel_);
       DARABONBA_PTR_TO_JSON(WebsiteDomain, websiteDomain_);
     };
     friend void from_json(const Darabonba::Json& j, ListAppPublishHistoryRequest& obj) { 
@@ -32,8 +34,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(PageNum, pageNum_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(PublishEnv, publishEnv_);
       DARABONBA_PTR_FROM_JSON(Sort, sort_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(Subchannel, subchannel_);
       DARABONBA_PTR_FROM_JSON(WebsiteDomain, websiteDomain_);
     };
     ListAppPublishHistoryRequest() = default ;
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
         && this->deployChannel_ == nullptr && this->keyword_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNum_ == nullptr
-        && this->pageSize_ == nullptr && this->sort_ == nullptr && this->status_ == nullptr && this->websiteDomain_ == nullptr; };
+        && this->pageSize_ == nullptr && this->publishEnv_ == nullptr && this->sort_ == nullptr && this->status_ == nullptr && this->subchannel_ == nullptr
+        && this->websiteDomain_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
@@ -99,6 +104,13 @@ namespace Models
     inline ListAppPublishHistoryRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // publishEnv Field Functions 
+    bool hasPublishEnv() const { return this->publishEnv_ != nullptr;};
+    void deletePublishEnv() { this->publishEnv_ = nullptr;};
+    inline string getPublishEnv() const { DARABONBA_PTR_GET_DEFAULT(publishEnv_, "") };
+    inline ListAppPublishHistoryRequest& setPublishEnv(string publishEnv) { DARABONBA_PTR_SET_VALUE(publishEnv_, publishEnv) };
+
+
     // sort Field Functions 
     bool hasSort() const { return this->sort_ != nullptr;};
     void deleteSort() { this->sort_ = nullptr;};
@@ -113,6 +125,13 @@ namespace Models
     inline ListAppPublishHistoryRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // subchannel Field Functions 
+    bool hasSubchannel() const { return this->subchannel_ != nullptr;};
+    void deleteSubchannel() { this->subchannel_ = nullptr;};
+    inline string getSubchannel() const { DARABONBA_PTR_GET_DEFAULT(subchannel_, "") };
+    inline ListAppPublishHistoryRequest& setSubchannel(string subchannel) { DARABONBA_PTR_SET_VALUE(subchannel_, subchannel) };
+
+
     // websiteDomain Field Functions 
     bool hasWebsiteDomain() const { return this->websiteDomain_ != nullptr;};
     void deleteWebsiteDomain() { this->websiteDomain_ = nullptr;};
@@ -121,15 +140,28 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
     shared_ptr<string> deployChannel_ {};
+    // Search keyword
     shared_ptr<string> keyword_ {};
+    // Number of results per query.  
+    // 
+    // Value range: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Token indicating the start of the next query. Empty if there is no next query.
     shared_ptr<string> nextToken_ {};
+    // Page number
     shared_ptr<int32_t> pageNum_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<string> publishEnv_ {};
+    // Sorting method
     shared_ptr<string> sort_ {};
+    // Publish status
     shared_ptr<string> status_ {};
+    shared_ptr<string> subchannel_ {};
+    // Website domain name
     shared_ptr<string> websiteDomain_ {};
   };
 

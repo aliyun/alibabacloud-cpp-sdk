@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // Error code. The values are as follows: If the request succeeds, the ErrorCode field is not returned. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
+    // Error message.
     shared_ptr<string> errorMsg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // The job ID returned when the invocation succeeds. Note: Keep this ID securely. You need this ID to query the logo creation status.
     shared_ptr<string> taskId_ {};
   };
 

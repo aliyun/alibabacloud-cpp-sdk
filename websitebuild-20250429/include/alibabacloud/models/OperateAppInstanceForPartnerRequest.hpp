@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // extension information
     shared_ptr<string> extend_ {};
+    // event type of the operation
     shared_ptr<string> operateEvent_ {};
   };
 

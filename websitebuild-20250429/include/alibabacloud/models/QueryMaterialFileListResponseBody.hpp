@@ -156,13 +156,21 @@ namespace Models
 
 
     protected:
+      // Current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // Request result.
       shared_ptr<vector<AppMaterialFile>> data_ {};
+      // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
+      // Page size.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
+      // For the current query, aside from pagination limits, the server-side processes at most the latest 1 000 records. If the result exceeds 1 000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
+      // Total number of records.
       shared_ptr<int32_t> totalItemNum_ {};
+      // Total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -287,22 +295,41 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed. Valid values:  
+    // - false: Retry is not allowed.  
+    // - true: Retry is allowed.
     shared_ptr<bool> allowRetry_ {};
+    // Application name. It can contain digits, letters, and hyphens (-). It must start with a letter, cannot end with a hyphen (-), and must be no more than 36 characters in length.
     shared_ptr<string> appName_ {};
+    // Dynamic code. Not currently used. Please ignore.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic message.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Error code. The value is interpreted as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For details, see the error code list in this topic.
     shared_ptr<string> errorCode_ {};
+    // Error message.
     shared_ptr<string> errorMsg_ {};
+    // Number of results returned per query.  
+    // 
+    // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response data
     shared_ptr<QueryMaterialFileListResponseBody::Module> module_ {};
+    // Token for starting the next query. This value is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

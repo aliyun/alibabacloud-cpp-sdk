@@ -78,8 +78,11 @@ namespace Models
 
 
     protected:
+      // Authorization status
       shared_ptr<string> authStatus_ {};
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // Miniapp ID
       shared_ptr<string> platformAppid_ {};
     };
 
@@ -102,6 +105,7 @@ namespace Models
 
 
   protected:
+    // Request result.
     shared_ptr<GetMiniAppBindingForAdminResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

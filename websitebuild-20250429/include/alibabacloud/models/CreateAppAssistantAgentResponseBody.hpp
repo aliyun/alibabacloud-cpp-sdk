@@ -132,7 +132,9 @@ namespace Models
 
 
       protected:
+        // Extension Fields
         shared_ptr<map<string, string>> extra_ {};
+        // Raw embed script
         shared_ptr<string> rawScript_ {};
       };
 
@@ -176,7 +178,9 @@ namespace Models
 
 
       protected:
+        // Extension field
         shared_ptr<map<string, string>> extra_ {};
+        // Username
         shared_ptr<string> username_ {};
       };
 
@@ -275,17 +279,29 @@ namespace Models
 
 
     protected:
+      // Agent ID (returned by platform)
       shared_ptr<string> agentId_ {};
+      // Agent Name
       shared_ptr<string> agentName_ {};
+      // Associated application instance bizId
       shared_ptr<string> bizId_ {};
+      // Credential
       shared_ptr<Module::Credential> credential_ {};
+      // Embed Configuration
       shared_ptr<Module::EmbedConfig> embedConfig_ {};
+      // Extension parameters
       shared_ptr<map<string, string>> extraParams_ {};
+      // Creation Time
       shared_ptr<string> gmtCreate_ {};
+      // Updated At
       shared_ptr<string> gmtModified_ {};
+      // Agent platform appId
       shared_ptr<string> platformAppId_ {};
+      // Platform Type
       shared_ptr<string> platformType_ {};
+      // Status
       shared_ptr<string> status_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -374,17 +390,28 @@ namespace Models
 
 
   protected:
+    // Permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // App name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Response data
     shared_ptr<CreateAppAssistantAgentResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

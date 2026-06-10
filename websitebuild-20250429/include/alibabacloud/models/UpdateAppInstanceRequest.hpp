@@ -92,7 +92,13 @@ namespace Models
 
 
     protected:
+      // The tag key of the instance. Valid values for N: **1** to **20**. If you specify this parameter, it cannot be an empty string.
+      // 
+      // It can contain up to 64 characters, must not start with `aliyun` or `acs:`, and must not contain `http://` or `https://`.
       shared_ptr<string> tagKey_ {};
+      // The tag value of the instance. Valid values for N: **1** to **20**. If you specify this parameter, it can be an empty string.
+      // 
+      // It can contain up to 128 characters, must not start with `aliyun` or `acs:`, and must not contain `http://` or `https://`.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -194,18 +200,31 @@ namespace Models
 
 
   protected:
+    // Application type
     shared_ptr<string> applicationType_ {};
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Ensures the idempotence of the request. Generate a unique value from your client for this parameter to guarantee uniqueness across different requests. ClientToken supports only ASCII characters and must not exceed 64 characters.
     shared_ptr<string> clientToken_ {};
+    // Deployment area
     shared_ptr<string> deployArea_ {};
+    // Application description
     shared_ptr<string> description_ {};
+    // Extension information
     shared_ptr<string> extend_ {};
+    // Application icon
     shared_ptr<string> iconUrl_ {};
+    // Application name
     shared_ptr<string> name_ {};
+    // Payment type
     shared_ptr<string> paymentType_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
+    // Website version
     shared_ptr<string> siteVersion_ {};
+    // Tags.
     shared_ptr<vector<UpdateAppInstanceRequest::Tags>> tags_ {};
+    // Application thumbnail
     shared_ptr<string> thumbnailUrl_ {};
   };
 

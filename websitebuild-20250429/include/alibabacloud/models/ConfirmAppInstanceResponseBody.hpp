@@ -204,7 +204,6 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     shared_ptr<ConfirmAppInstanceResponseBody::Module> module_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> rootErrorCode_ {};
     shared_ptr<string> rootErrorMsg_ {};

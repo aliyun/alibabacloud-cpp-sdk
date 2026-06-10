@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Application instance object data
     shared_ptr<string> appInstanceShrink_ {};
+    // Type of system event. CREATE, UPDATE, COMPLETE
     shared_ptr<string> eventType_ {};
+    // Operator ID
     shared_ptr<string> operator_ {};
+    // Source business ID.
     shared_ptr<string> sourceBizId_ {};
+    // Source: MARKET_CLOUD_DREAM
     shared_ptr<string> sourceType_ {};
   };
 

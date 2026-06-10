@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Session ID
     shared_ptr<string> conversationId_ {};
+    // Number of data entries per page (10–100)
     shared_ptr<int32_t> pageSize_ {};
+    // gmtCreate of the last entry on the previous page; omit for the first page
     shared_ptr<string> startCreateTime_ {};
   };
 

@@ -118,12 +118,19 @@ namespace Models
 
 
     protected:
+      // Authorization status
       shared_ptr<string> authStatus_ {};
+      // Business ID
       shared_ptr<string> bizId_ {};
+      // ICP filing status
       shared_ptr<bool> icpFiled_ {};
+      // Miniapp ID
       shared_ptr<string> platformAppid_ {};
+      // Preview QR code
       shared_ptr<string> previewQrCodeUrl_ {};
+      // Production QR code
       shared_ptr<string> productionQrCodeUrl_ {};
+      // Extension information
       shared_ptr<map<string, string>> settingValues_ {};
     };
 
@@ -146,6 +153,7 @@ namespace Models
 
 
   protected:
+    // Request result.
     shared_ptr<GetMiniAppBindingResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

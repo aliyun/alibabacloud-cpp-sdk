@@ -83,7 +83,9 @@ namespace Models
 
 
   protected:
+    // Property code, such as "aliyun_commodity_agreement"
     shared_ptr<string> code_ {};
+    // List of attribute values
     shared_ptr<vector<ModuleNextPropertiesValue::Values>> values_ {};
   };
 

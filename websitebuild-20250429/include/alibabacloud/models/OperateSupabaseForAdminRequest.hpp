@@ -140,18 +140,30 @@ namespace Models
 
 
   protected:
+    // Business ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
     shared_ptr<string> env_ {};
+    // SQL statement
     shared_ptr<string> executeSql_ {};
+    // Operation Type
     shared_ptr<string> operateType_ {};
+    // ORDER BY clause
     shared_ptr<string> orderByClause_ {};
+    // Sorting field
     shared_ptr<string> orderColumn_ {};
+    // Sorting type: ASC|DESC
     shared_ptr<string> orderType_ {};
+    // Page number
     shared_ptr<int32_t> pageNum_ {};
+    // Page size
     shared_ptr<int32_t> pageSize_ {};
+    // Table name
     shared_ptr<string> tableName_ {};
+    // User ID
     shared_ptr<string> userId_ {};
+    // WHERE clause
     shared_ptr<string> whereClause_ {};
   };
 

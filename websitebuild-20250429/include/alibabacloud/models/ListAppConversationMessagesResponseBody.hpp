@@ -211,20 +211,47 @@ namespace Models
 
 
     protected:
+      // Bot ID
       shared_ptr<string> botId_ {};
+      // Chat ID.
       shared_ptr<string> chatId_ {};
+      // Current chat status.
       shared_ptr<string> chatStatus_ {};
+      // The ID of the data class API invoked.
       shared_ptr<string> content_ {};
+      // Content type
       shared_ptr<string> contentType_ {};
+      // Session ID
       shared_ptr<string> conversationId_ {};
+      // Creation Time
       shared_ptr<string> gmtCreate_ {};
+      // Updated At
       shared_ptr<string> gmtModified_ {};
+      // Message ID.
       shared_ptr<string> messageId_ {};
+      // Business extension metadata (in Map format, must be a JSON string).
       shared_ptr<string> metaData_ {};
+      // Region ordinal number. This parameter is deprecated.
       shared_ptr<int32_t> no_ {};
+      // Role of the conversation participant. Valid values include:
+      // 
+      // - user: User
+      // 
+      // - assistant: Assistant
+      // 
+      // - system: System
+      // 
+      // - function: Function
+      // 
+      // - plugin: Plugin
+      // 
+      // - tool: Tool
       shared_ptr<string> role_ {};
+      // Section ID of the inspection item.
       shared_ptr<string> sectionId_ {};
+      // Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
       shared_ptr<string> siteId_ {};
+      // File type
       shared_ptr<string> type_ {};
     };
 
@@ -328,19 +355,34 @@ namespace Models
 
 
   protected:
+    // permission denied information
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // faulty parameter(s).
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.  
+    // 
+    // Value range: 10–100. Default Value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response Data
     shared_ptr<vector<ListAppConversationMessagesResponseBody::Module>> module_ {};
+    // Token for the start of the next query. It is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

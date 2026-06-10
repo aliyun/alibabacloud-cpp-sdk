@@ -132,7 +132,9 @@ namespace Models
 
 
       protected:
+        // Extension fields
         shared_ptr<map<string, string>> extra_ {};
+        // Raw embed script
         shared_ptr<string> rawScript_ {};
       };
 
@@ -203,12 +205,15 @@ namespace Models
 
 
       protected:
-        // API Key
+        // API key
         shared_ptr<string> apiKey_ {};
         // API Secret
         shared_ptr<string> apiSecret_ {};
+        // Extension field
         shared_ptr<map<string, string>> extra_ {};
+        // Password
         shared_ptr<string> password_ {};
+        // Username
         shared_ptr<string> username_ {};
       };
 
@@ -307,17 +312,29 @@ namespace Models
 
 
     protected:
+      // Agent ID (returned by the platform)
       shared_ptr<string> agentId_ {};
+      // Agent Name
       shared_ptr<string> agentName_ {};
+      // bizId of the associated application instance
       shared_ptr<string> bizId_ {};
+      // Credential
       shared_ptr<Module::Credential> credential_ {};
+      // Embed configuration
       shared_ptr<Module::EmbedConfig> embedConfig_ {};
+      // Extension parameters
       shared_ptr<map<string, string>> extraParams_ {};
+      // Creation Time
       shared_ptr<string> gmtCreate_ {};
+      // Updated At
       shared_ptr<string> gmtModified_ {};
+      // Agent platform appId
       shared_ptr<string> platformAppId_ {};
+      // Platform Type
       shared_ptr<string> platformType_ {};
+      // Status
       shared_ptr<string> status_ {};
+      // User ID
       shared_ptr<string> userId_ {};
     };
 
@@ -406,17 +423,28 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // is retry allowed
     shared_ptr<bool> allowRetry_ {};
+    // App Name.
     shared_ptr<string> appName_ {};
+    // dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Returned error parameters
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // response Data
     shared_ptr<vector<ListAppAssistantAgentsResponseBody::Module>> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

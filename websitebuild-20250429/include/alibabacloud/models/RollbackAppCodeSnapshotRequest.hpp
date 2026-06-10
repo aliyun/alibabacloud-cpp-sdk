@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // site ID
     shared_ptr<string> siteId_ {};
+    // Target snapshot version number
     shared_ptr<int32_t> targetLogicalNumber_ {};
   };
 

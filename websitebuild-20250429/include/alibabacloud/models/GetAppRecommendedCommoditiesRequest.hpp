@@ -66,9 +66,11 @@ namespace Models
 
 
   protected:
+    // Application instance business ID (required in scenario 1, used to filter instance versions during query)
     shared_ptr<string> bizId_ {};
     shared_ptr<string> extend_ {};
     shared_ptr<string> resourceConditions_ {};
+    // Scenarios: ai_chat | inspiration
     shared_ptr<string> scene_ {};
   };
 

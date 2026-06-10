@@ -37,7 +37,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 分配Supabase实例
+ * @summary Assign a Supabase instance to a resource
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request AllocateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -92,7 +94,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdminWithOptions(con
 }
 
 /**
- * @summary 分配Supabase实例
+ * @summary Assign a Supabase instance to a resource
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request AllocateSupabaseForAdminRequest
  * @return AllocateSupabaseForAdminResponse
@@ -103,7 +107,9 @@ AllocateSupabaseForAdminResponse Client::allocateSupabaseForAdmin(const Allocate
 }
 
 /**
- * @summary 批量校验资源计量
+ * @summary Batch check resource usage
+ *
+ * @description Operation resource-related Supabase instance information
  *
  * @param request BatchCheckResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -154,7 +160,9 @@ BatchCheckResourceMeasureResponse Client::batchCheckResourceMeasureWithOptions(c
 }
 
 /**
- * @summary 批量校验资源计量
+ * @summary Batch check resource usage
+ *
+ * @description Operation resource-related Supabase instance information
  *
  * @param request BatchCheckResourceMeasureRequest
  * @return BatchCheckResourceMeasureResponse
@@ -219,7 +227,9 @@ BindAppDomainResponse Client::bindAppDomain(const BindAppDomainRequest &request)
 }
 
 /**
- * @summary 校验资源计量
+ * @summary Check resource usage
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request CheckResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -274,7 +284,9 @@ CheckResourceMeasureResponse Client::checkResourceMeasureWithOptions(const Check
 }
 
 /**
- * @summary 校验资源计量
+ * @summary Check resource usage
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request CheckResourceMeasureRequest
  * @return CheckResourceMeasureResponse
@@ -285,7 +297,9 @@ CheckResourceMeasureResponse Client::checkResourceMeasure(const CheckResourceMea
 }
 
 /**
- * @summary 校验用户资源计量
+ * @summary Validate user resource metering
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request CheckUserResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -340,7 +354,9 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasureWithOptions(con
 }
 
 /**
- * @summary 校验用户资源计量
+ * @summary Validate user resource metering
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request CheckUserResourceMeasureRequest
  * @return CheckUserResourceMeasureResponse
@@ -352,6 +368,8 @@ CheckUserResourceMeasureResponse Client::checkUserResourceMeasure(const CheckUse
 
 /**
  * @summary 试用转正
+ *
+ * @description 查询应用实例信息
  *
  * @param request ConfirmAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -428,6 +446,8 @@ ConfirmAppInstanceResponse Client::confirmAppInstanceWithOptions(const ConfirmAp
 /**
  * @summary 试用转正
  *
+ * @description 查询应用实例信息
+ *
  * @param request ConfirmAppInstanceRequest
  * @return ConfirmAppInstanceResponse
  */
@@ -438,6 +458,8 @@ ConfirmAppInstanceResponse Client::confirmAppInstance(const ConfirmAppInstanceRe
 
 /**
  * @summary 复制插件配置
+ *
+ * @description 获取生码插件配置信息
  *
  * @param request CopyAppPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -474,6 +496,8 @@ CopyAppPluginConfigResponse Client::copyAppPluginConfigWithOptions(const CopyApp
 /**
  * @summary 复制插件配置
  *
+ * @description 获取生码插件配置信息
+ *
  * @param request CopyAppPluginConfigRequest
  * @return CopyAppPluginConfigResponse
  */
@@ -483,7 +507,9 @@ CopyAppPluginConfigResponse Client::copyAppPluginConfig(const CopyAppPluginConfi
 }
 
 /**
- * @summary 异步发起AI员工对话
+ * @summary Initiate an AI employee conversation asynchronously
+ *
+ * @description Wan Xiaozhi 2.0 AI conversation
  *
  * @param request CreateAIStaffChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -534,7 +560,9 @@ CreateAIStaffChatResponse Client::createAIStaffChatWithOptions(const CreateAISta
 }
 
 /**
- * @summary 异步发起AI员工对话
+ * @summary Initiate an AI employee conversation asynchronously
+ *
+ * @description Wan Xiaozhi 2.0 AI conversation
  *
  * @param request CreateAIStaffChatRequest
  * @return CreateAIStaffChatResponse
@@ -545,7 +573,9 @@ CreateAIStaffChatResponse Client::createAIStaffChat(const CreateAIStaffChatReque
 }
 
 /**
- * @summary 创建AI员工会话
+ * @summary Create an AI agent session
+ *
+ * @description Wan Xiaozhi 2.0 API for creating an AI session
  *
  * @param request CreateAIStaffConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -576,7 +606,9 @@ CreateAIStaffConversationResponse Client::createAIStaffConversationWithOptions(c
 }
 
 /**
- * @summary 创建AI员工会话
+ * @summary Create an AI agent session
+ *
+ * @description Wan Xiaozhi 2.0 API for creating an AI session
  *
  * @param request CreateAIStaffConversationRequest
  * @return CreateAIStaffConversationResponse
@@ -587,7 +619,9 @@ CreateAIStaffConversationResponse Client::createAIStaffConversation(const Create
 }
 
 /**
- * @summary 创建应用助手智能体
+ * @summary Create Application Assistant Agent
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppAssistantAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -626,7 +660,9 @@ CreateAppAssistantAgentResponse Client::createAppAssistantAgentWithOptions(const
 }
 
 /**
- * @summary 创建应用助手智能体
+ * @summary Create Application Assistant Agent
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppAssistantAgentRequest
  * @return CreateAppAssistantAgentResponse
@@ -637,7 +673,9 @@ CreateAppAssistantAgentResponse Client::createAppAssistantAgent(const CreateAppA
 }
 
 /**
- * @summary 生成应用助手SSO免登
+ * @summary Generate application assistant SSO logon
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +714,9 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLoginW
 }
 
 /**
- * @summary 生成应用助手SSO免登
+ * @summary Generate application assistant SSO logon
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppAssistantAgentSsoLoginRequest
  * @return CreateAppAssistantAgentSsoLoginResponse
@@ -687,7 +727,7 @@ CreateAppAssistantAgentSsoLoginResponse Client::createAppAssistantAgentSsoLogin(
 }
 
 /**
- * @summary 万小智发起AI对话
+ * @summary Wan Xiaozhi initiates an AI conversation
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -748,7 +788,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 万小智发起AI对话
+ * @summary Wan Xiaozhi initiates an AI conversation
  *
  * @param request CreateAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +835,7 @@ CreateAppChatResponse Client::createAppChatWithOptions(const CreateAppChatReques
 }
 
 /**
- * @summary 万小智发起AI对话
+ * @summary Wan Xiaozhi initiates an AI conversation
  *
  * @param request CreateAppChatRequest
  * @return CreateAppChatResponse
@@ -962,7 +1002,9 @@ CreateAppInstanceTicketResponse Client::createAppInstanceTicket(const CreateAppI
 }
 
 /**
- * @summary 应用实例创建 LLM 网关 API-KEY
+ * @summary Create an LLM gateway API key for an application instance
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppLlmApiKeyForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1005,7 +1047,9 @@ CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartnerWithOpt
 }
 
 /**
- * @summary 应用实例创建 LLM 网关 API-KEY
+ * @summary Create an LLM gateway API key for an application instance
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppLlmApiKeyForPartnerRequest
  * @return CreateAppLlmApiKeyForPartnerResponse
@@ -1016,7 +1060,9 @@ CreateAppLlmApiKeyForPartnerResponse Client::createAppLlmApiKeyForPartner(const 
 }
 
 /**
- * @summary Activate the Wanxiaozhi Inspiration Value service
+ * @summary Activate the Wanxiao Zhi Inspiration Value service
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppTokenServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,7 +1093,9 @@ CreateAppTokenServiceResponse Client::createAppTokenServiceWithOptions(const Cre
 }
 
 /**
- * @summary Activate the Wanxiaozhi Inspiration Value service
+ * @summary Activate the Wanxiao Zhi Inspiration Value service
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request CreateAppTokenServiceRequest
  * @return CreateAppTokenServiceResponse
@@ -1058,7 +1106,7 @@ CreateAppTokenServiceResponse Client::createAppTokenService(const CreateAppToken
 }
 
 /**
- * @summary 提交创建Logo任务
+ * @summary Commit a job to create a logo.
  *
  * @param request CreateLogoTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1101,7 +1149,7 @@ CreateLogoTaskResponse Client::createLogoTaskWithOptions(const CreateLogoTaskReq
 }
 
 /**
- * @summary 提交创建Logo任务
+ * @summary Commit a job to create a logo.
  *
  * @param request CreateLogoTaskRequest
  * @return CreateLogoTaskResponse
@@ -1112,7 +1160,7 @@ CreateLogoTaskResponse Client::createLogoTask(const CreateLogoTaskRequest &reque
 }
 
 /**
- * @summary 创建素材中心文件夹
+ * @summary Create a subfolder under the parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1151,7 +1199,7 @@ CreateMaterialDirectoryResponse Client::createMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary 创建素材中心文件夹
+ * @summary Create a subfolder under the parent folder.
  *
  * @param request CreateMaterialDirectoryRequest
  * @return CreateMaterialDirectoryResponse
@@ -1256,6 +1304,8 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirect(const DeleteAppD
 /**
  * @summary 删除文件
  *
+ * @description 查询应用实例信息
+ *
  * @param request DeleteAppFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteAppFileResponse
@@ -1291,6 +1341,8 @@ DeleteAppFileResponse Client::deleteAppFileWithOptions(const DeleteAppFileReques
 /**
  * @summary 删除文件
  *
+ * @description 查询应用实例信息
+ *
  * @param request DeleteAppFileRequest
  * @return DeleteAppFileResponse
  */
@@ -1300,7 +1352,9 @@ DeleteAppFileResponse Client::deleteAppFile(const DeleteAppFileRequest &request)
 }
 
 /**
- * @summary 删除文件
+ * @summary Delete file
+ *
+ * @description Query application instance information
  *
  * @param request DeleteAppInstanceFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1335,7 +1389,9 @@ DeleteAppInstanceFileResponse Client::deleteAppInstanceFileWithOptions(const Del
 }
 
 /**
- * @summary 删除文件
+ * @summary Delete file
+ *
+ * @description Query application instance information
  *
  * @param request DeleteAppInstanceFileRequest
  * @return DeleteAppInstanceFileResponse
@@ -1346,7 +1402,9 @@ DeleteAppInstanceFileResponse Client::deleteAppInstanceFile(const DeleteAppInsta
 }
 
 /**
- * @summary 删除Supabase密钥
+ * @summary Delete Supabase key
+ *
+ * @description Operation resource corresponds to the supabase instance information
  *
  * @param request DeleteAppSupabaseSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1381,7 +1439,9 @@ DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecretsWithOptions(con
 }
 
 /**
- * @summary 删除Supabase密钥
+ * @summary Delete Supabase key
+ *
+ * @description Operation resource corresponds to the supabase instance information
  *
  * @param request DeleteAppSupabaseSecretsRequest
  * @return DeleteAppSupabaseSecretsResponse
@@ -1392,7 +1452,7 @@ DeleteAppSupabaseSecretsResponse Client::deleteAppSupabaseSecrets(const DeleteAp
 }
 
 /**
- * @summary 删除素材中心文件夹
+ * @summary Delete a material folder
  *
  * @param request DeleteMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1427,7 +1487,7 @@ DeleteMaterialDirectoryResponse Client::deleteMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary 删除素材中心文件夹
+ * @summary Delete a material folder
  *
  * @param request DeleteMaterialDirectoryRequest
  * @return DeleteMaterialDirectoryResponse
@@ -1438,7 +1498,7 @@ DeleteMaterialDirectoryResponse Client::deleteMaterialDirectory(const DeleteMate
 }
 
 /**
- * @summary 删除素材生产任务
+ * @summary Delete Material Generation Job
  *
  * @param tmpReq DeleteMaterialTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1475,7 +1535,7 @@ DeleteMaterialTaskResponse Client::deleteMaterialTaskWithOptions(const DeleteMat
 }
 
 /**
- * @summary 删除素材生产任务
+ * @summary Delete Material Generation Job
  *
  * @param request DeleteMaterialTaskRequest
  * @return DeleteMaterialTaskResponse
@@ -1594,7 +1654,7 @@ DispatchConsoleAPIForPartnerResponse Client::dispatchConsoleAPIForPartner(const 
 }
 
 /**
- * @summary 编辑插件配置
+ * @summary Edit plugin configuration.
  *
  * @param request EditPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1641,7 +1701,7 @@ EditPluginConfigResponse Client::editPluginConfigWithOptions(const EditPluginCon
 }
 
 /**
- * @summary 编辑插件配置
+ * @summary Edit plugin configuration.
  *
  * @param request EditPluginConfigRequest
  * @return EditPluginConfigResponse
@@ -1652,7 +1712,7 @@ EditPluginConfigResponse Client::editPluginConfig(const EditPluginConfigRequest 
 }
 
 /**
- * @summary 导出素材文件
+ * @summary Export material files
  *
  * @param tmpReq ExportMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +1753,7 @@ ExportMaterialFileResponse Client::exportMaterialFileWithOptions(const ExportMat
 }
 
 /**
- * @summary 导出素材文件
+ * @summary Export material files
  *
  * @param request ExportMaterialFileRequest
  * @return ExportMaterialFileResponse
@@ -1704,7 +1764,9 @@ ExportMaterialFileResponse Client::exportMaterialFile(const ExportMaterialFileRe
 }
 
 /**
- * @summary 获取AI员工站点预览地址
+ * @summary WanXiaoZhi 2.0 - Obtain Site Preview URL
+ *
+ * @description WanXiaoZhi 2.0 - Obtain Site Preview URL
  *
  * @param request GetAIStaffPreviewUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1739,7 +1801,9 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrlWithOptions(const GetAI
 }
 
 /**
- * @summary 获取AI员工站点预览地址
+ * @summary WanXiaoZhi 2.0 - Obtain Site Preview URL
+ *
+ * @description WanXiaoZhi 2.0 - Obtain Site Preview URL
  *
  * @param request GetAIStaffPreviewUrlRequest
  * @return GetAIStaffPreviewUrlResponse
@@ -1750,7 +1814,9 @@ GetAIStaffPreviewUrlResponse Client::getAIStaffPreviewUrl(const GetAIStaffPrevie
 }
 
 /**
- * @summary 获取代码工作区详情
+ * @summary Retrieve code workspace details
+ *
+ * @description Query application instance information
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1781,7 +1847,9 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetailWithOptions(c
 }
 
 /**
- * @summary 获取代码工作区详情
+ * @summary Retrieve code workspace details
+ *
+ * @description Query application instance information
  *
  * @param request GetAppCodeWorkspaceDetailRequest
  * @return GetAppCodeWorkspaceDetailResponse
@@ -1792,7 +1860,9 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetail(const GetApp
 }
 
 /**
- * @summary 获取对话详情
+ * @summary Retrieve conversation details
+ *
+ * @description Wan Xiaozhi 2.0 API for creating an AI session
  *
  * @param request GetAppConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1827,7 +1897,9 @@ GetAppConversationResponse Client::getAppConversationWithOptions(const GetAppCon
 }
 
 /**
- * @summary 获取对话详情
+ * @summary Retrieve conversation details
+ *
+ * @description Wan Xiaozhi 2.0 API for creating an AI session
  *
  * @param request GetAppConversationRequest
  * @return GetAppConversationResponse
@@ -1838,7 +1910,9 @@ GetAppConversationResponse Client::getAppConversation(const GetAppConversationRe
 }
 
 /**
- * @summary 获取会话锁定状态
+ * @summary Obtain session lock status
+ *
+ * @description Wan Xiaozhi 2.0 API for creating AI sessions
  *
  * @param request GetAppConversationLockStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1869,7 +1943,9 @@ GetAppConversationLockStatusResponse Client::getAppConversationLockStatusWithOpt
 }
 
 /**
- * @summary 获取会话锁定状态
+ * @summary Obtain session lock status
+ *
+ * @description Wan Xiaozhi 2.0 API for creating AI sessions
  *
  * @param request GetAppConversationLockStatusRequest
  * @return GetAppConversationLockStatusResponse
@@ -1881,6 +1957,8 @@ GetAppConversationLockStatusResponse Client::getAppConversationLockStatus(const 
 
 /**
  * @summary 查询数据库表结构
+ *
+ * @description 查询应用实例信息
  *
  * @param request GetAppDatabaseTableSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1917,6 +1995,8 @@ GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemasWithOptions
 /**
  * @summary 查询数据库表结构
  *
+ * @description 查询应用实例信息
+ *
  * @param request GetAppDatabaseTableSchemasRequest
  * @return GetAppDatabaseTableSchemasResponse
  */
@@ -1927,6 +2007,8 @@ GetAppDatabaseTableSchemasResponse Client::getAppDatabaseTableSchemas(const GetA
 
 /**
  * @summary 读取文件及修改时间
+ *
+ * @description 获取生码插件配置信息
  *
  * @param request GetAppFileContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1962,6 +2044,8 @@ GetAppFileContentResponse Client::getAppFileContentWithOptions(const GetAppFileC
 
 /**
  * @summary 读取文件及修改时间
+ *
+ * @description 获取生码插件配置信息
  *
  * @param request GetAppFileContentRequest
  * @return GetAppFileContentResponse
@@ -2016,6 +2100,8 @@ GetAppInstanceResponse Client::getAppInstance(const GetAppInstanceRequest &reque
 /**
  * @summary GetAppInstanceEntitlement
  *
+ * @description Query application instance information
+ *
  * @param request GetAppInstanceEntitlementRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppInstanceEntitlementResponse
@@ -2047,6 +2133,8 @@ GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlementWithOptions(c
 /**
  * @summary GetAppInstanceEntitlement
  *
+ * @description Query application instance information
+ *
  * @param request GetAppInstanceEntitlementRequest
  * @return GetAppInstanceEntitlementResponse
  */
@@ -2057,6 +2145,8 @@ GetAppInstanceEntitlementResponse Client::getAppInstanceEntitlement(const GetApp
 
 /**
  * @summary Query application instance information
+ *
+ * @description 查询应用实例信息
  *
  * @param request GetAppInstanceForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2093,6 +2183,8 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdminWithOptions(const G
 /**
  * @summary Query application instance information
  *
+ * @description 查询应用实例信息
+ *
  * @param request GetAppInstanceForAdminRequest
  * @return GetAppInstanceForAdminResponse
  */
@@ -2103,6 +2195,8 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstan
 
 /**
  * @summary Query instance details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2135,6 +2229,8 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 /**
  * @summary Query instance details
  *
+ * @description Obtain the configuration information of the code generation plugin
+ *
  * @param request GetAppInstanceForPartnerRequest
  * @return GetAppInstanceForPartnerResponse
  */
@@ -2144,7 +2240,9 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartner(const GetAppIn
 }
 
 /**
- * @summary 获取应用临时短链
+ * @summary Obtain a temporary short URL for the application
+ *
+ * @description Obtain configuration information of the code generation plugin
  *
  * @param request GetAppInstanceTempShortUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2175,7 +2273,9 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrlWithOptions
 }
 
 /**
- * @summary 获取应用临时短链
+ * @summary Obtain a temporary short URL for the application
+ *
+ * @description Obtain configuration information of the code generation plugin
  *
  * @param request GetAppInstanceTempShortUrlRequest
  * @return GetAppInstanceTempShortUrlResponse
@@ -2186,7 +2286,9 @@ GetAppInstanceTempShortUrlResponse Client::getAppInstanceTempShortUrl(const GetA
 }
 
 /**
- * @summary 生码-获取插件配置信息
+ * @summary Obtain plugin configuration information.
+ *
+ * @description Obtain the configuration information of the code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2221,7 +2323,9 @@ GetAppPluginConfigResponse Client::getAppPluginConfigWithOptions(const GetAppPlu
 }
 
 /**
- * @summary 生码-获取插件配置信息
+ * @summary Obtain plugin configuration information.
+ *
+ * @description Obtain the configuration information of the code generation plugin.
  *
  * @param request GetAppPluginConfigRequest
  * @return GetAppPluginConfigResponse
@@ -2232,7 +2336,9 @@ GetAppPluginConfigResponse Client::getAppPluginConfig(const GetAppPluginConfigRe
 }
 
 /**
- * @summary 发布状态查询
+ * @summary Query publishing status
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppPublishStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2271,7 +2377,9 @@ GetAppPublishStatusResponse Client::getAppPublishStatusWithOptions(const GetAppP
 }
 
 /**
- * @summary 发布状态查询
+ * @summary Query publishing status
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppPublishStatusRequest
  * @return GetAppPublishStatusResponse
@@ -2282,7 +2390,9 @@ GetAppPublishStatusResponse Client::getAppPublishStatus(const GetAppPublishStatu
 }
 
 /**
- * @summary 查询万小智推荐商品
+ * @summary Query recommended products
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2325,7 +2435,9 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommoditiesWithOpt
 }
 
 /**
- * @summary 查询万小智推荐商品
+ * @summary Query recommended products
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request GetAppRecommendedCommoditiesRequest
  * @return GetAppRecommendedCommoditiesResponse
@@ -2336,7 +2448,9 @@ GetAppRecommendedCommoditiesResponse Client::getAppRecommendedCommodities(const 
 }
 
 /**
- * @summary 需求查询
+ * @summary Requirement query
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request GetAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2367,7 +2481,9 @@ GetAppRequirementResponse Client::getAppRequirementWithOptions(const GetAppRequi
 }
 
 /**
- * @summary 需求查询
+ * @summary Requirement query
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request GetAppRequirementRequest
  * @return GetAppRequirementResponse
@@ -2378,7 +2494,9 @@ GetAppRequirementResponse Client::getAppRequirement(const GetAppRequirementReque
 }
 
 /**
- * @summary 获取沙箱预览地址
+ * @summary Obtain sandbox preview URL
+ *
+ * @description Wan Xiaozhi 2.0 - Obtain site preview URL
  *
  * @param request GetAppSandboxPreviewUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2413,7 +2531,9 @@ GetAppSandboxPreviewUrlResponse Client::getAppSandboxPreviewUrlWithOptions(const
 }
 
 /**
- * @summary 获取沙箱预览地址
+ * @summary Obtain sandbox preview URL
+ *
+ * @description Wan Xiaozhi 2.0 - Obtain site preview URL
  *
  * @param request GetAppSandboxPreviewUrlRequest
  * @return GetAppSandboxPreviewUrlResponse
@@ -2424,7 +2544,9 @@ GetAppSandboxPreviewUrlResponse Client::getAppSandboxPreviewUrl(const GetAppSand
 }
 
 /**
- * @summary 查询SEO索引状态
+ * @summary Query SEO index status
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppSeoStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2463,7 +2585,9 @@ GetAppSeoStatusResponse Client::getAppSeoStatusWithOptions(const GetAppSeoStatus
 }
 
 /**
- * @summary 查询SEO索引状态
+ * @summary Query SEO index status
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppSeoStatusRequest
  * @return GetAppSeoStatusResponse
@@ -2474,7 +2598,9 @@ GetAppSeoStatusResponse Client::getAppSeoStatus(const GetAppSeoStatusRequest &re
 }
 
 /**
- * @summary SEO索引图表
+ * @summary SEO Index Chart
+ *
+ * @description Obtain plugin configuration information
  *
  * @param request GetAppSeoTrendsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2513,7 +2639,9 @@ GetAppSeoTrendsResponse Client::getAppSeoTrendsWithOptions(const GetAppSeoTrends
 }
 
 /**
- * @summary SEO索引图表
+ * @summary SEO Index Chart
+ *
+ * @description Obtain plugin configuration information
  *
  * @param request GetAppSeoTrendsRequest
  * @return GetAppSeoTrendsResponse
@@ -2524,7 +2652,9 @@ GetAppSeoTrendsResponse Client::getAppSeoTrends(const GetAppSeoTrendsRequest &re
 }
 
 /**
- * @summary 获取站点地图
+ * @summary Retrieve site map
+ *
+ * @description Retrieve QR code plugin configuration information
  *
  * @param request GetAppSitemapRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2563,7 +2693,9 @@ GetAppSitemapResponse Client::getAppSitemapWithOptions(const GetAppSitemapReques
 }
 
 /**
- * @summary 获取站点地图
+ * @summary Retrieve site map
+ *
+ * @description Retrieve QR code plugin configuration information
  *
  * @param request GetAppSitemapRequest
  * @return GetAppSitemapResponse
@@ -2574,7 +2706,9 @@ GetAppSitemapResponse Client::getAppSitemap(const GetAppSitemapRequest &request)
 }
 
 /**
- * @summary Supabase认证设置查询
+ * @summary Query Supabase authentication settings
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource.
  *
  * @param request GetAppSupabaseAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2609,7 +2743,9 @@ GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfigWithOptions(con
 }
 
 /**
- * @summary Supabase认证设置查询
+ * @summary Query Supabase authentication settings
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource.
  *
  * @param request GetAppSupabaseAuthConfigRequest
  * @return GetAppSupabaseAuthConfigResponse
@@ -2620,7 +2756,9 @@ GetAppSupabaseAuthConfigResponse Client::getAppSupabaseAuthConfig(const GetAppSu
 }
 
 /**
- * @summary 获取Supabase实例信息
+ * @summary Obtain Supabase instance information
+ *
+ * @description Query application instance information
  *
  * @param request GetAppSupabaseInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2651,7 +2789,9 @@ GetAppSupabaseInstanceResponse Client::getAppSupabaseInstanceWithOptions(const G
 }
 
 /**
- * @summary 获取Supabase实例信息
+ * @summary Obtain Supabase instance information
+ *
+ * @description Query application instance information
  *
  * @param request GetAppSupabaseInstanceRequest
  * @return GetAppSupabaseInstanceResponse
@@ -2662,7 +2802,9 @@ GetAppSupabaseInstanceResponse Client::getAppSupabaseInstance(const GetAppSupaba
 }
 
 /**
- * @summary 查询Supabase密钥
+ * @summary Query Supabase keys
+ *
+ * @description The supabase instance information corresponding to the operated resource
  *
  * @param request GetAppSupabaseSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2697,7 +2839,9 @@ GetAppSupabaseSecretsResponse Client::getAppSupabaseSecretsWithOptions(const Get
 }
 
 /**
- * @summary 查询Supabase密钥
+ * @summary Query Supabase keys
+ *
+ * @description The supabase instance information corresponding to the operated resource
  *
  * @param request GetAppSupabaseSecretsRequest
  * @return GetAppSupabaseSecretsResponse
@@ -2708,7 +2852,9 @@ GetAppSupabaseSecretsResponse Client::getAppSupabaseSecrets(const GetAppSupabase
 }
 
 /**
- * @summary 模板详情查询
+ * @summary Query template details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2739,7 +2885,9 @@ GetAppTemplateResponse Client::getAppTemplateWithOptions(const GetAppTemplateReq
 }
 
 /**
- * @summary 模板详情查询
+ * @summary Query template details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request GetAppTemplateRequest
  * @return GetAppTemplateResponse
@@ -2750,7 +2898,9 @@ GetAppTemplateResponse Client::getAppTemplate(const GetAppTemplateRequest &reque
 }
 
 /**
- * @summary 查询万小智灵感值服务
+ * @summary Query the Wan Xiaozhi Inspiration Value service
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAppTokenServiceResponse
@@ -2772,7 +2922,9 @@ GetAppTokenServiceResponse Client::getAppTokenServiceWithOptions(const Darabonba
 }
 
 /**
- * @summary 查询万小智灵感值服务
+ * @summary Query the Wan Xiaozhi Inspiration Value service
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @return GetAppTokenServiceResponse
  */
@@ -2782,7 +2934,9 @@ GetAppTokenServiceResponse Client::getAppTokenService() {
 }
 
 /**
- * @summary 获取工作区目录结构
+ * @summary Obtain the workspace directory structure
+ *
+ * @description Query application instance information
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2821,7 +2975,9 @@ GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectoryWithOptions(con
 }
 
 /**
- * @summary 获取工作区目录结构
+ * @summary Obtain the workspace directory structure
+ *
+ * @description Query application instance information
  *
  * @param request GetAppWorkspaceDirectoryRequest
  * @return GetAppWorkspaceDirectoryResponse
@@ -2832,7 +2988,7 @@ GetAppWorkspaceDirectoryResponse Client::getAppWorkspaceDirectory(const GetAppWo
 }
 
 /**
- * @summary 查询Logo创建任务
+ * @summary Query the Logo creation job
  *
  * @param request GetCreateLogoTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2863,7 +3019,7 @@ GetCreateLogoTaskResponse Client::getCreateLogoTaskWithOptions(const GetCreateLo
 }
 
 /**
- * @summary 查询Logo创建任务
+ * @summary Query the Logo creation job
  *
  * @param request GetCreateLogoTaskRequest
  * @return GetCreateLogoTaskResponse
@@ -2874,7 +3030,7 @@ GetCreateLogoTaskResponse Client::getCreateLogoTask(const GetCreateLogoTaskReque
 }
 
 /**
- * @summary 提供给服务商的域名查询接口
+ * @summary Domain name query API provided to service providers
  *
  * @param request GetDomainInfoForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2913,7 +3069,7 @@ GetDomainInfoForPartnerResponse Client::getDomainInfoForPartnerWithOptions(const
 }
 
 /**
- * @summary 提供给服务商的域名查询接口
+ * @summary Domain name query API provided to service providers
  *
  * @param request GetDomainInfoForPartnerRequest
  * @return GetDomainInfoForPartnerResponse
@@ -2924,7 +3080,7 @@ GetDomainInfoForPartnerResponse Client::getDomainInfoForPartner(const GetDomainI
 }
 
 /**
- * @summary 查询域名备案信息
+ * @summary Query ICP filing information of a domain name
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2959,7 +3115,7 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartnerWithOptions
 }
 
 /**
- * @summary 查询域名备案信息
+ * @summary Query ICP filing information of a domain name
  *
  * @param request GetIcpFilingInfoForPartnerRequest
  * @return GetIcpFilingInfoForPartnerResponse
@@ -2970,7 +3126,9 @@ GetIcpFilingInfoForPartnerResponse Client::getIcpFilingInfoForPartner(const GetI
 }
 
 /**
- * @summary 查询LLM Proxy配置
+ * @summary Query LLM Proxy configuration
+ *
+ * @description Query the Supabase instance configuration information corresponding to the resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3005,7 +3163,9 @@ GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdminWithOptions(c
 }
 
 /**
- * @summary 查询LLM Proxy配置
+ * @summary Query LLM Proxy configuration
+ *
+ * @description Query the Supabase instance configuration information corresponding to the resource.
  *
  * @param request GetLlmProxyConfigForAdminRequest
  * @return GetLlmProxyConfigForAdminResponse
@@ -3016,7 +3176,7 @@ GetLlmProxyConfigForAdminResponse Client::getLlmProxyConfigForAdmin(const GetLlm
 }
 
 /**
- * @summary 获取小程序授权链接
+ * @summary Obtain miniapp authorization link
  *
  * @param request GetMiniAppAuthUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3055,7 +3215,7 @@ GetMiniAppAuthUrlResponse Client::getMiniAppAuthUrlWithOptions(const GetMiniAppA
 }
 
 /**
- * @summary 获取小程序授权链接
+ * @summary Obtain miniapp authorization link
  *
  * @param request GetMiniAppAuthUrlRequest
  * @return GetMiniAppAuthUrlResponse
@@ -3066,7 +3226,9 @@ GetMiniAppAuthUrlResponse Client::getMiniAppAuthUrl(const GetMiniAppAuthUrlReque
 }
 
 /**
- * @summary 查询站点绑定的小程序
+ * @summary Query the miniapp attached to a site
+ *
+ * @description Obtain the QR code plugin configuration information
  *
  * @param tmpReq GetMiniAppBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3111,7 +3273,9 @@ GetMiniAppBindingResponse Client::getMiniAppBindingWithOptions(const GetMiniAppB
 }
 
 /**
- * @summary 查询站点绑定的小程序
+ * @summary Query the miniapp attached to a site
+ *
+ * @description Obtain the QR code plugin configuration information
  *
  * @param request GetMiniAppBindingRequest
  * @return GetMiniAppBindingResponse
@@ -3122,7 +3286,7 @@ GetMiniAppBindingResponse Client::getMiniAppBinding(const GetMiniAppBindingReque
 }
 
 /**
- * @summary 根据条件查询应用实例绑定的小程序
+ * @summary Query the miniapp attached to an application instance based on conditions
  *
  * @param request GetMiniAppBindingForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3161,7 +3325,7 @@ GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdminWithOptions(c
 }
 
 /**
- * @summary 根据条件查询应用实例绑定的小程序
+ * @summary Query the miniapp attached to an application instance based on conditions
  *
  * @param request GetMiniAppBindingForAdminRequest
  * @return GetMiniAppBindingForAdminResponse
@@ -3173,6 +3337,8 @@ GetMiniAppBindingForAdminResponse Client::getMiniAppBindingForAdmin(const GetMin
 
 /**
  * @summary 生成文件上传策略
+ *
+ * @description 获取生码插件配置信息
  *
  * @param request GetOssUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3205,6 +3371,8 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicyWithOptions(const GetOssUpl
 /**
  * @summary 生成文件上传策略
  *
+ * @description 获取生码插件配置信息
+ *
  * @param request GetOssUploadPolicyRequest
  * @return GetOssUploadPolicyResponse
  */
@@ -3215,6 +3383,8 @@ GetOssUploadPolicyResponse Client::getOssUploadPolicy(const GetOssUploadPolicyRe
 
 /**
  * @summary 获取临时下载地址
+ *
+ * @description 获取生码插件配置信息
  *
  * @param request GetTempDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3247,6 +3417,8 @@ GetTempDownloadUrlResponse Client::getTempDownloadUrlWithOptions(const GetTempDo
 /**
  * @summary 获取临时下载地址
  *
+ * @description 获取生码插件配置信息
+ *
  * @param request GetTempDownloadUrlRequest
  * @return GetTempDownloadUrlResponse
  */
@@ -3256,7 +3428,7 @@ GetTempDownloadUrlResponse Client::getTempDownloadUrl(const GetTempDownloadUrlRe
 }
 
 /**
- * @summary 通过授权码得到accessToken
+ * @summary Exchange temporary AccessKey for accessToken
  *
  * @param request GetUserAccessTokenForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3291,7 +3463,7 @@ GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartnerWithOpt
 }
 
 /**
- * @summary 通过授权码得到accessToken
+ * @summary Exchange temporary AccessKey for accessToken
  *
  * @param request GetUserAccessTokenForPartnerRequest
  * @return GetUserAccessTokenForPartnerResponse
@@ -3302,7 +3474,7 @@ GetUserAccessTokenForPartnerResponse Client::getUserAccessTokenForPartner(const 
 }
 
 /**
- * @summary 合作伙伴获取用户SLR角色授权临时凭证
+ * @summary Partnership obtains temporary credentials for User SLR role authorization
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3349,7 +3521,7 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartnerWithOpt
 }
 
 /**
- * @summary 合作伙伴获取用户SLR角色授权临时凭证
+ * @summary Partnership obtains temporary credentials for User SLR role authorization
  *
  * @param request GetUserTmpIdentityForPartnerRequest
  * @return GetUserTmpIdentityForPartnerResponse
@@ -3360,7 +3532,7 @@ GetUserTmpIdentityForPartnerResponse Client::getUserTmpIdentityForPartner(const 
 }
 
 /**
- * @summary 检查AccessToken
+ * @summary Introspection analysis of免登 accessToken
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3395,7 +3567,7 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary 检查AccessToken
+ * @summary Introspection analysis of免登 accessToken
  *
  * @param request IntrospectAppInstanceTicketForPreviewRequest
  * @return IntrospectAppInstanceTicketForPreviewResponse
@@ -3406,7 +3578,9 @@ IntrospectAppInstanceTicketForPreviewResponse Client::introspectAppInstanceTicke
 }
 
 /**
- * @summary 获取AI员工对话增量SSE事件
+ * @summary Obtain incremental SSE events of AI employee conversations
+ *
+ * @description Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
  *
  * @param request ListAIStaffChatEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3451,7 +3625,9 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEventsWithOptions(const Lis
 }
 
 /**
- * @summary 获取AI员工对话增量SSE事件
+ * @summary Obtain incremental SSE events of AI employee conversations
+ *
+ * @description Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
  *
  * @param request ListAIStaffChatEventsRequest
  * @return ListAIStaffChatEventsResponse
@@ -3462,7 +3638,9 @@ ListAIStaffChatEventsResponse Client::listAIStaffChatEvents(const ListAIStaffCha
 }
 
 /**
- * @summary 分页查询AI员工对话消息列表
+ * @summary Paged query of AI employee conversation message list
+ *
+ * @description Wan Xiaozhi 2.0 - API for querying AI session history information
  *
  * @param request ListAIStaffChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3507,7 +3685,9 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessagesWithOptions(const
 }
 
 /**
- * @summary 分页查询AI员工对话消息列表
+ * @summary Paged query of AI employee conversation message list
+ *
+ * @description Wan Xiaozhi 2.0 - API for querying AI session history information
  *
  * @param request ListAIStaffChatMessagesRequest
  * @return ListAIStaffChatMessagesResponse
@@ -3518,7 +3698,9 @@ ListAIStaffChatMessagesResponse Client::listAIStaffChatMessages(const ListAIStaf
 }
 
 /**
- * @summary 查询应用助手智能体列表
+ * @summary Query the list of application assistant agents
+ *
+ * @description Query application instance information
  *
  * @param request ListAppAssistantAgentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3553,7 +3735,9 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgentsWithOptions(const L
 }
 
 /**
- * @summary 查询应用助手智能体列表
+ * @summary Query the list of application assistant agents
+ *
+ * @description Query application instance information
  *
  * @param request ListAppAssistantAgentsRequest
  * @return ListAppAssistantAgentsResponse
@@ -3564,7 +3748,9 @@ ListAppAssistantAgentsResponse Client::listAppAssistantAgents(const ListAppAssis
 }
 
 /**
- * @summary 查询指定聊天的消息列表
+ * @summary Query the message list of a specified chat
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history information query API
  *
  * @param request ListAppChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3611,7 +3797,9 @@ ListAppChatMessagesResponse Client::listAppChatMessagesWithOptions(const ListApp
 }
 
 /**
- * @summary 查询指定聊天的消息列表
+ * @summary Query the message list of a specified chat
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history information query API
  *
  * @param request ListAppChatMessagesRequest
  * @return ListAppChatMessagesResponse
@@ -3624,7 +3812,9 @@ ListAppChatMessagesResponse Client::listAppChatMessages(const ListAppChatMessage
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary 获取商品配置信息
+ * @summary Product information data
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListAppCommoditySpecificationsForPartnerResponse
@@ -3648,7 +3838,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 /**
  * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
  *
- * @summary 获取商品配置信息
+ * @summary Product information data
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @return ListAppCommoditySpecificationsForPartnerResponse
  */
@@ -3658,7 +3850,9 @@ ListAppCommoditySpecificationsForPartnerResponse Client::listAppCommoditySpecifi
 }
 
 /**
- * @summary 网站信息查询
+ * @summary Query website building product details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3693,7 +3887,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary 网站信息查询
+ * @summary Query website building product details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request ListAppCommoditySpecificationsV2ForPartnerRequest
  * @return ListAppCommoditySpecificationsV2ForPartnerResponse
@@ -3704,7 +3900,9 @@ ListAppCommoditySpecificationsV2ForPartnerResponse Client::listAppCommoditySpeci
 }
 
 /**
- * @summary 分页查询对话消息列表
+ * @summary Paged query of conversation message list
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history information query API
  *
  * @param request ListAppConversationMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3755,7 +3953,9 @@ ListAppConversationMessagesResponse Client::listAppConversationMessagesWithOptio
 }
 
 /**
- * @summary 分页查询对话消息列表
+ * @summary Paged query of conversation message list
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history information query API
  *
  * @param request ListAppConversationMessagesRequest
  * @return ListAppConversationMessagesResponse
@@ -3766,7 +3966,9 @@ ListAppConversationMessagesResponse Client::listAppConversationMessages(const Li
 }
 
 /**
- * @summary 搜索对话列表
+ * @summary Search session list
+ *
+ * @description Wan Xiaozhi 2.0 Create AI Session API
  *
  * @param request ListAppConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3825,7 +4027,9 @@ ListAppConversationsResponse Client::listAppConversationsWithOptions(const ListA
 }
 
 /**
- * @summary 搜索对话列表
+ * @summary Search session list
+ *
+ * @description Wan Xiaozhi 2.0 Create AI Session API
  *
  * @param request ListAppConversationsRequest
  * @return ListAppConversationsResponse
@@ -4048,7 +4252,9 @@ ListAppInstancesResponse Client::listAppInstances(const ListAppInstancesRequest 
 }
 
 /**
- * @summary 获取码农插件配置列表
+ * @summary Retrieve the list of Code Farmer plugin configurations
+ *
+ * @description Retrieve the configuration information of the code generation plugin
  *
  * @param request ListAppPluginConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4087,7 +4293,9 @@ ListAppPluginConfigsResponse Client::listAppPluginConfigsWithOptions(const ListA
 }
 
 /**
- * @summary 获取码农插件配置列表
+ * @summary Retrieve the list of Code Farmer plugin configurations
+ *
+ * @description Retrieve the configuration information of the code generation plugin
  *
  * @param request ListAppPluginConfigsRequest
  * @return ListAppPluginConfigsResponse
@@ -4098,7 +4306,9 @@ ListAppPluginConfigsResponse Client::listAppPluginConfigs(const ListAppPluginCon
 }
 
 /**
- * @summary 应用插件列表
+ * @summary List of code generation plugins
+ *
+ * @description Obtain configuration information of code generation plugins
  *
  * @param request ListAppPluginsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4145,7 +4355,9 @@ ListAppPluginsResponse Client::listAppPluginsWithOptions(const ListAppPluginsReq
 }
 
 /**
- * @summary 应用插件列表
+ * @summary List of code generation plugins
+ *
+ * @description Obtain configuration information of code generation plugins
  *
  * @param request ListAppPluginsRequest
  * @return ListAppPluginsResponse
@@ -4156,7 +4368,9 @@ ListAppPluginsResponse Client::listAppPlugins(const ListAppPluginsRequest &reque
 }
 
 /**
- * @summary 发布历史查询
+ * @summary Query publish history
+ *
+ * @description Query application instance information
  *
  * @param request ListAppPublishHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4193,12 +4407,20 @@ ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const Lis
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasPublishEnv()) {
+    query["PublishEnv"] = request.getPublishEnv();
+  }
+
   if (!!request.hasSort()) {
     query["Sort"] = request.getSort();
   }
 
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasSubchannel()) {
+    query["Subchannel"] = request.getSubchannel();
   }
 
   if (!!request.hasWebsiteDomain()) {
@@ -4223,7 +4445,9 @@ ListAppPublishHistoryResponse Client::listAppPublishHistoryWithOptions(const Lis
 }
 
 /**
- * @summary 发布历史查询
+ * @summary Query publish history
+ *
+ * @description Query application instance information
  *
  * @param request ListAppPublishHistoryRequest
  * @return ListAppPublishHistoryResponse
@@ -4234,7 +4458,9 @@ ListAppPublishHistoryResponse Client::listAppPublishHistory(const ListAppPublish
 }
 
 /**
- * @summary 字典列表查询
+ * @summary Query dictionary list
+ *
+ * @description Query application instance information
  *
  * @param request ListAppTemplateDictsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4273,7 +4499,9 @@ ListAppTemplateDictsResponse Client::listAppTemplateDictsWithOptions(const ListA
 }
 
 /**
- * @summary 字典列表查询
+ * @summary Query dictionary list
+ *
+ * @description Query application instance information
  *
  * @param request ListAppTemplateDictsRequest
  * @return ListAppTemplateDictsResponse
@@ -4284,7 +4512,9 @@ ListAppTemplateDictsResponse Client::listAppTemplateDicts(const ListAppTemplateD
 }
 
 /**
- * @summary 模板列表查询
+ * @summary Query template list
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request ListAppTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4351,7 +4581,9 @@ ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTempla
 }
 
 /**
- * @summary 模板列表查询
+ * @summary Query template list
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request ListAppTemplatesRequest
  * @return ListAppTemplatesResponse
@@ -4362,7 +4594,9 @@ ListAppTemplatesResponse Client::listAppTemplates(const ListAppTemplatesRequest 
 }
 
 /**
- * @summary 查询支付宝ISV插件配置
+ * @summary Query Alipay ISV plugin configuration
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4401,7 +4635,9 @@ ListIsvPaymentPluginConfigsResponse Client::listIsvPaymentPluginConfigsWithOptio
 }
 
 /**
- * @summary 查询支付宝ISV插件配置
+ * @summary Query Alipay ISV plugin configuration
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request ListIsvPaymentPluginConfigsRequest
  * @return ListIsvPaymentPluginConfigsResponse
@@ -4478,7 +4714,7 @@ ModifyAppInstanceSpecResponse Client::modifyAppInstanceSpec(const ModifyAppInsta
 }
 
 /**
- * @summary 修改素材中心文件夹
+ * @summary Modify a material folder
  *
  * @param request ModifyMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4517,7 +4753,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectoryWithOptions(const
 }
 
 /**
- * @summary 修改素材中心文件夹
+ * @summary Modify a material folder
  *
  * @param request ModifyMaterialDirectoryRequest
  * @return ModifyMaterialDirectoryResponse
@@ -4528,7 +4764,7 @@ ModifyMaterialDirectoryResponse Client::modifyMaterialDirectory(const ModifyMate
 }
 
 /**
- * @summary 修改素材文件
+ * @summary Modify a material file
  *
  * @param request ModifyMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4567,7 +4803,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFileWithOptions(const ModifyMat
 }
 
 /**
- * @summary 修改素材文件
+ * @summary Modify a material file
  *
  * @param request ModifyMaterialFileRequest
  * @return ModifyMaterialFileResponse
@@ -4578,7 +4814,7 @@ ModifyMaterialFileResponse Client::modifyMaterialFile(const ModifyMaterialFileRe
 }
 
 /**
- * @summary 修改素材文件状态
+ * @summary Modify the status of a material file
  *
  * @param tmpReq ModifyMaterialFileStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4623,7 +4859,7 @@ ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatusWithOptions(con
 }
 
 /**
- * @summary 修改素材文件状态
+ * @summary Modify the status of a material file
  *
  * @param request ModifyMaterialFileStatusRequest
  * @return ModifyMaterialFileStatusResponse
@@ -4634,7 +4870,7 @@ ModifyMaterialFileStatusResponse Client::modifyMaterialFileStatus(const ModifyMa
 }
 
 /**
- * @summary 移动素材中心文件夹
+ * @summary Shift material folder
  *
  * @param request MoveMaterialDirectoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4677,7 +4913,7 @@ MoveMaterialDirectoryResponse Client::moveMaterialDirectoryWithOptions(const Mov
 }
 
 /**
- * @summary 移动素材中心文件夹
+ * @summary Shift material folder
  *
  * @param request MoveMaterialDirectoryRequest
  * @return MoveMaterialDirectoryResponse
@@ -4688,7 +4924,7 @@ MoveMaterialDirectoryResponse Client::moveMaterialDirectory(const MoveMaterialDi
 }
 
 /**
- * @summary 移动素材文件
+ * @summary Shift material files
  *
  * @param tmpReq MoveMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4733,7 +4969,7 @@ MoveMaterialFileResponse Client::moveMaterialFileWithOptions(const MoveMaterialF
 }
 
 /**
- * @summary 移动素材文件
+ * @summary Shift material files
  *
  * @param request MoveMaterialFileRequest
  * @return MoveMaterialFileResponse
@@ -4744,7 +4980,7 @@ MoveMaterialFileResponse Client::moveMaterialFile(const MoveMaterialFileRequest 
 }
 
 /**
- * @summary 合作伙伴操作应用
+ * @summary Operate application for Partnership
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4779,7 +5015,7 @@ OperateAppInstanceForPartnerResponse Client::operateAppInstanceForPartnerWithOpt
 }
 
 /**
- * @summary 合作伙伴操作应用
+ * @summary Operate application for Partnership
  *
  * @param request OperateAppInstanceForPartnerRequest
  * @return OperateAppInstanceForPartnerResponse
@@ -4790,7 +5026,7 @@ OperateAppInstanceForPartnerResponse Client::operateAppInstanceForPartner(const 
 }
 
 /**
- * @summary 合作伙伴操作应用服务
+ * @summary Partnership operates application services.
  *
  * @param request OperateAppServiceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4833,7 +5069,7 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartnerWithOptio
 }
 
 /**
- * @summary 合作伙伴操作应用服务
+ * @summary Partnership operates application services.
  *
  * @param request OperateAppServiceForPartnerRequest
  * @return OperateAppServiceForPartnerResponse
@@ -4844,7 +5080,9 @@ OperateAppServiceForPartnerResponse Client::operateAppServiceForPartner(const Op
 }
 
 /**
- * @summary 切换模板点赞统计
+ * @summary Switch template like statistics
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request OperateAppTemplateLikeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4879,7 +5117,9 @@ OperateAppTemplateLikeResponse Client::operateAppTemplateLikeWithOptions(const O
 }
 
 /**
- * @summary 切换模板点赞统计
+ * @summary Switch template like statistics
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request OperateAppTemplateLikeRequest
  * @return OperateAppTemplateLikeResponse
@@ -4890,7 +5130,9 @@ OperateAppTemplateLikeResponse Client::operateAppTemplateLike(const OperateAppTe
 }
 
 /**
- * @summary 通用Supabase操作
+ * @summary Supabase instance information corresponding to the operation resource
+ *
+ * @description Supabase instance information corresponding to the operation resource
  *
  * @param request OperateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4965,7 +5207,9 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
 }
 
 /**
- * @summary 通用Supabase操作
+ * @summary Supabase instance information corresponding to the operation resource
+ *
+ * @description Supabase instance information corresponding to the operation resource
  *
  * @param request OperateSupabaseForAdminRequest
  * @return OperateSupabaseForAdminResponse
@@ -4976,7 +5220,9 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdmin(const OperateSup
 }
 
 /**
- * @summary 发布应用实例
+ * @summary Publish application instance
+ *
+ * @description Query application instance information
  *
  * @param request PublishAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5027,7 +5273,9 @@ PublishAppInstanceResponse Client::publishAppInstanceWithOptions(const PublishAp
 }
 
 /**
- * @summary 发布应用实例
+ * @summary Publish application instance
+ *
+ * @description Query application instance information
  *
  * @param request PublishAppInstanceRequest
  * @return PublishAppInstanceResponse
@@ -5038,7 +5286,9 @@ PublishAppInstanceResponse Client::publishAppInstance(const PublishAppInstanceRe
 }
 
 /**
- * @summary 推送资源计量数据
+ * @summary Push resource metering data
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request PushResourceMeasureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5101,7 +5351,9 @@ PushResourceMeasureResponse Client::pushResourceMeasureWithOptions(const PushRes
 }
 
 /**
- * @summary 推送资源计量数据
+ * @summary Push resource metering data
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request PushResourceMeasureRequest
  * @return PushResourceMeasureResponse
@@ -5112,7 +5364,9 @@ PushResourceMeasureResponse Client::pushResourceMeasure(const PushResourceMeasur
 }
 
 /**
- * @summary 查询灵感值获取明细
+ * @summary Query the details of inspiration value acquisition (quota account list, including expiration mark)
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5167,7 +5421,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetailsWit
 }
 
 /**
- * @summary 查询灵感值获取明细
+ * @summary Query the details of inspiration value acquisition (quota account list, including expiration mark)
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @return QueryInspirationAccountDetailsResponse
@@ -5178,7 +5434,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetails(co
 }
 
 /**
- * @summary 查询灵感值余额总览
+ * @summary Query the overview of inspiration balance
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryInspirationBalanceResponse
@@ -5200,7 +5458,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalanceWithOptions(const
 }
 
 /**
- * @summary 查询灵感值余额总览
+ * @summary Query the overview of inspiration balance
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @return QueryInspirationBalanceResponse
  */
@@ -5210,7 +5470,9 @@ QueryInspirationBalanceResponse Client::queryInspirationBalance() {
 }
 
 /**
- * @summary 查询灵感值消耗明细
+ * @summary Query inspiration value consumption details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5265,7 +5527,9 @@ QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecordsWit
 }
 
 /**
- * @summary 查询灵感值消耗明细
+ * @summary Query inspiration value consumption details
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request QueryInspirationConsumeRecordsRequest
  * @return QueryInspirationConsumeRecordsResponse
@@ -5276,7 +5540,7 @@ QueryInspirationConsumeRecordsResponse Client::queryInspirationConsumeRecords(co
 }
 
 /**
- * @summary 查询素材中心文件夹树结构
+ * @summary Query the material folder tree
  *
  * @param request QueryMaterialDirectoryTreeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5315,7 +5579,7 @@ QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTreeWithOptions
 }
 
 /**
- * @summary 查询素材中心文件夹树结构
+ * @summary Query the material folder tree
  *
  * @param request QueryMaterialDirectoryTreeRequest
  * @return QueryMaterialDirectoryTreeResponse
@@ -5326,7 +5590,7 @@ QueryMaterialDirectoryTreeResponse Client::queryMaterialDirectoryTree(const Quer
 }
 
 /**
- * @summary 查询素材文件详情
+ * @summary Query Material File Details
  *
  * @param request QueryMaterialFileDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5361,7 +5625,7 @@ QueryMaterialFileDetailResponse Client::queryMaterialFileDetailWithOptions(const
 }
 
 /**
- * @summary 查询素材文件详情
+ * @summary Query Material File Details
  *
  * @param request QueryMaterialFileDetailRequest
  * @return QueryMaterialFileDetailResponse
@@ -5372,7 +5636,7 @@ QueryMaterialFileDetailResponse Client::queryMaterialFileDetail(const QueryMater
 }
 
 /**
- * @summary Query Material File List
+ * @summary Query the list of material files
  *
  * @param tmpReq QueryMaterialFileListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5469,7 +5733,7 @@ QueryMaterialFileListResponse Client::queryMaterialFileListWithOptions(const Que
 }
 
 /**
- * @summary Query Material File List
+ * @summary Query the list of material files
  *
  * @param request QueryMaterialFileListRequest
  * @return QueryMaterialFileListResponse
@@ -5480,7 +5744,7 @@ QueryMaterialFileListResponse Client::queryMaterialFileList(const QueryMaterialF
 }
 
 /**
- * @summary 查询素材中心文件概要信息
+ * @summary Query file overview
  *
  * @param tmpReq QueryMaterialFileSummaryInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5553,7 +5817,7 @@ QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfoWithOpt
 }
 
 /**
- * @summary 查询素材中心文件概要信息
+ * @summary Query file overview
  *
  * @param request QueryMaterialFileSummaryInfoRequest
  * @return QueryMaterialFileSummaryInfoResponse
@@ -5564,7 +5828,7 @@ QueryMaterialFileSummaryInfoResponse Client::queryMaterialFileSummaryInfo(const 
 }
 
 /**
- * @summary 查询素材生产任务详情
+ * @summary Query the details of a Material generation Job
  *
  * @param request QueryMaterialTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5595,7 +5859,7 @@ QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetailWithOptions(const
 }
 
 /**
- * @summary 查询素材生产任务详情
+ * @summary Query the details of a Material generation Job
  *
  * @param request QueryMaterialTaskDetailRequest
  * @return QueryMaterialTaskDetailResponse
@@ -5606,7 +5870,7 @@ QueryMaterialTaskDetailResponse Client::queryMaterialTaskDetail(const QueryMater
 }
 
 /**
- * @summary 查询素材生产任务列表
+ * @summary Query the list of Material generation Jobs
  *
  * @param tmpReq QueryMaterialTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5675,7 +5939,7 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskListWithOptions(const Que
 }
 
 /**
- * @summary 查询素材生产任务列表
+ * @summary Query the list of Material generation Jobs
  *
  * @param request QueryMaterialTaskListRequest
  * @return QueryMaterialTaskListResponse
@@ -5686,7 +5950,9 @@ QueryMaterialTaskListResponse Client::queryMaterialTaskList(const QueryMaterialT
 }
 
 /**
- * @summary 查询Supabase Auth配置信息
+ * @summary Query the auth configuration information of the Supabase instance corresponding to the resource
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource
  *
  * @param request QuerySupabaseAuthConfigsForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5745,7 +6011,9 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
 }
 
 /**
- * @summary 查询Supabase Auth配置信息
+ * @summary Query the auth configuration information of the Supabase instance corresponding to the resource
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource
  *
  * @param request QuerySupabaseAuthConfigsForAdminRequest
  * @return QuerySupabaseAuthConfigsForAdminResponse
@@ -5756,7 +6024,9 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
 }
 
 /**
- * @summary 查询Supabase配置信息
+ * @summary Query the Supabase instance configuration information corresponding to the resource.
+ *
+ * @description Query the Supabase instance configuration information corresponding to the resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5811,7 +6081,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdminWithOpt
 }
 
 /**
- * @summary 查询Supabase配置信息
+ * @summary Query the Supabase instance configuration information corresponding to the resource.
+ *
+ * @description Query the Supabase instance configuration information corresponding to the resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @return QuerySupabaseConfigsForAdminResponse
@@ -5822,7 +6094,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdmin(const 
 }
 
 /**
- * @summary 查询Supabase实例信息
+ * @summary Query the Supabase instance information corresponding to the resource
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5877,7 +6151,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary 查询Supabase实例信息
+ * @summary Query the Supabase instance information corresponding to the resource
+ *
+ * @description Query the Supabase instance information corresponding to the resource
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @return QuerySupabaseInstanceInfoForAdminResponse
@@ -5888,7 +6164,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary 重新连接AI对话
+ * @summary Reconnect AI conversation
+ *
+ * @description Obtain QR code plugin Configuration Information
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5941,7 +6219,9 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 重新连接AI对话
+ * @summary Reconnect AI conversation
+ *
+ * @description Obtain QR code plugin Configuration Information
  *
  * @param request ReconnectAppChatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5980,7 +6260,9 @@ ReconnectAppChatResponse Client::reconnectAppChatWithOptions(const ReconnectAppC
 }
 
 /**
- * @summary 重新连接AI对话
+ * @summary Reconnect AI conversation
+ *
+ * @description Obtain QR code plugin Configuration Information
  *
  * @param request ReconnectAppChatRequest
  * @return ReconnectAppChatResponse
@@ -6041,7 +6323,7 @@ RefreshAppInstanceTicketResponse Client::refreshAppInstanceTicket(const RefreshA
 }
 
 /**
- * @summary 渠道业务退款接口
+ * @summary Refund for channel partner website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6084,7 +6366,7 @@ RefundAppInstanceForPartnerResponse Client::refundAppInstanceForPartnerWithOptio
 }
 
 /**
- * @summary 渠道业务退款接口
+ * @summary Refund for channel partner website building service.
  *
  * @param request RefundAppInstanceForPartnerRequest
  * @return RefundAppInstanceForPartnerResponse
@@ -6157,7 +6439,9 @@ RenewAppInstanceResponse Client::renewAppInstance(const RenewAppInstanceRequest 
 }
 
 /**
- * @summary 续期/刷新沙箱环境
+ * @summary Renewal/Purge Sandbox Environment
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request RenewAppSandboxRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6188,7 +6472,9 @@ RenewAppSandboxResponse Client::renewAppSandboxWithOptions(const RenewAppSandbox
 }
 
 /**
- * @summary 续期/刷新沙箱环境
+ * @summary Renewal/Purge Sandbox Environment
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request RenewAppSandboxRequest
  * @return RenewAppSandboxResponse
@@ -6199,7 +6485,9 @@ RenewAppSandboxResponse Client::renewAppSandbox(const RenewAppSandboxRequest &re
 }
 
 /**
- * @summary 代码快照回滚
+ * @summary Code snapshot rollback
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6234,7 +6522,9 @@ RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshotWithOptions(const
 }
 
 /**
- * @summary 代码快照回滚
+ * @summary Code snapshot rollback
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request RollbackAppCodeSnapshotRequest
  * @return RollbackAppCodeSnapshotResponse
@@ -6245,7 +6535,9 @@ RollbackAppCodeSnapshotResponse Client::rollbackAppCodeSnapshot(const RollbackAp
 }
 
 /**
- * @summary 回滚应用实例发布
+ * @summary Roll back application instance deployment
+ *
+ * @description Query application instance information
  *
  * @param request RollbackAppInstancePublishRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6288,7 +6580,9 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublishWithOptions
 }
 
 /**
- * @summary 回滚应用实例发布
+ * @summary Roll back application instance deployment
+ *
+ * @description Query application instance information
  *
  * @param request RollbackAppInstancePublishRequest
  * @return RollbackAppInstancePublishResponse
@@ -6299,7 +6593,9 @@ RollbackAppInstancePublishResponse Client::rollbackAppInstancePublish(const Roll
 }
 
 /**
- * @summary 保存需求
+ * @summary Save requirements
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request SaveAppRequirementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6336,7 +6632,9 @@ SaveAppRequirementResponse Client::saveAppRequirementWithOptions(const SaveAppRe
 }
 
 /**
- * @summary 保存需求
+ * @summary Save requirements
+ *
+ * @description Obtain barcode generation plugin configuration information
  *
  * @param request SaveAppRequirementRequest
  * @return SaveAppRequirementResponse
@@ -6347,7 +6645,9 @@ SaveAppRequirementResponse Client::saveAppRequirement(const SaveAppRequirementRe
 }
 
 /**
- * @summary 保存Supabase密钥
+ * @summary Save Supabase key
+ *
+ * @description The supabase instance information corresponding to the operation resource
  *
  * @param request SaveAppSupabaseSecretsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6382,7 +6682,9 @@ SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecretsWithOptions(const S
 }
 
 /**
- * @summary 保存Supabase密钥
+ * @summary Save Supabase key
+ *
+ * @description The supabase instance information corresponding to the operation resource
  *
  * @param request SaveAppSupabaseSecretsRequest
  * @return SaveAppSupabaseSecretsResponse
@@ -6393,7 +6695,7 @@ SaveAppSupabaseSecretsResponse Client::saveAppSupabaseSecrets(const SaveAppSupab
 }
 
 /**
- * @summary 图片检索
+ * @summary Image retrieval
  *
  * @param tmpReq SearchImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6486,7 +6788,7 @@ SearchImageResponse Client::searchImageWithOptions(const SearchImageRequest &tmp
 }
 
 /**
- * @summary 图片检索
+ * @summary Image retrieval
  *
  * @param request SearchImageRequest
  * @return SearchImageResponse
@@ -6561,6 +6863,8 @@ SetAppDomainCertificateResponse Client::setAppDomainCertificate(const SetAppDoma
 /**
  * @summary 提交SEO索引
  *
+ * @description 获取生码插件配置信息
+ *
  * @param request SubmitAppSeoIndexRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitAppSeoIndexResponse
@@ -6604,6 +6908,8 @@ SubmitAppSeoIndexResponse Client::submitAppSeoIndexWithOptions(const SubmitAppSe
 /**
  * @summary 提交SEO索引
  *
+ * @description 获取生码插件配置信息
+ *
  * @param request SubmitAppSeoIndexRequest
  * @return SubmitAppSeoIndexResponse
  */
@@ -6613,7 +6919,7 @@ SubmitAppSeoIndexResponse Client::submitAppSeoIndex(const SubmitAppSeoIndexReque
 }
 
 /**
- * @summary 提交素材生产任务
+ * @summary Submit a Material Generation Job
  *
  * @param request SubmitMaterialTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6648,7 +6954,7 @@ SubmitMaterialTaskResponse Client::submitMaterialTaskWithOptions(const SubmitMat
 }
 
 /**
- * @summary 提交素材生产任务
+ * @summary Submit a Material Generation Job
  *
  * @param request SubmitMaterialTaskRequest
  * @return SubmitMaterialTaskResponse
@@ -6660,6 +6966,8 @@ SubmitMaterialTaskResponse Client::submitMaterialTask(const SubmitMaterialTaskRe
 
 /**
  * @summary 切换到指定对话
+ *
+ * @description 万小智2.0创建AI会话接口
  *
  * @param request SwitchAppConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6700,6 +7008,8 @@ SwitchAppConversationResponse Client::switchAppConversationWithOptions(const Swi
 /**
  * @summary 切换到指定对话
  *
+ * @description 万小智2.0创建AI会话接口
+ *
  * @param request SwitchAppConversationRequest
  * @return SwitchAppConversationResponse
  */
@@ -6709,7 +7019,7 @@ SwitchAppConversationResponse Client::switchAppConversation(const SwitchAppConve
 }
 
 /**
- * @summary 合作伙伴同步应用实例
+ * @summary Partnership synchronizes application instance
  *
  * @param tmpReq SyncAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6762,7 +7072,7 @@ SyncAppInstanceForPartnerResponse Client::syncAppInstanceForPartnerWithOptions(c
 }
 
 /**
- * @summary 合作伙伴同步应用实例
+ * @summary Partnership synchronizes application instance
  *
  * @param request SyncAppInstanceForPartnerRequest
  * @return SyncAppInstanceForPartnerResponse
@@ -6819,7 +7129,9 @@ UnbindAppDomainResponse Client::unbindAppDomain(const UnbindAppDomainRequest &re
 }
 
 /**
- * @summary 更新消息内容
+ * @summary Update message content
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history query API
  *
  * @param request UpdateAppChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6862,7 +7174,9 @@ UpdateAppChatMessageResponse Client::updateAppChatMessageWithOptions(const Updat
 }
 
 /**
- * @summary 更新消息内容
+ * @summary Update message content
+ *
+ * @description Wan Xiaozhi 2.0 - AI session history query API
  *
  * @param request UpdateAppChatMessageRequest
  * @return UpdateAppChatMessageResponse
@@ -6873,7 +7187,9 @@ UpdateAppChatMessageResponse Client::updateAppChatMessage(const UpdateAppChatMes
 }
 
 /**
- * @summary 编辑JSX代码
+ * @summary Edit JSX Code
+ *
+ * @description Retrieve the configuration information of the code generation plugin
  *
  * @param request UpdateAppCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6908,7 +7224,9 @@ UpdateAppCodeResponse Client::updateAppCodeWithOptions(const UpdateAppCodeReques
 }
 
 /**
- * @summary 编辑JSX代码
+ * @summary Edit JSX Code
+ *
+ * @description Retrieve the configuration information of the code generation plugin
  *
  * @param request UpdateAppCodeRequest
  * @return UpdateAppCodeResponse
@@ -6919,7 +7237,9 @@ UpdateAppCodeResponse Client::updateAppCode(const UpdateAppCodeRequest &request)
 }
 
 /**
- * @summary 更新文件
+ * @summary Update file
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request UpdateAppFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6958,7 +7278,9 @@ UpdateAppFileResponse Client::updateAppFileWithOptions(const UpdateAppFileReques
 }
 
 /**
- * @summary 更新文件
+ * @summary Update file
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request UpdateAppFileRequest
  * @return UpdateAppFileResponse
@@ -6969,7 +7291,9 @@ UpdateAppFileResponse Client::updateAppFile(const UpdateAppFileRequest &request)
 }
 
 /**
- * @summary 建站实例变配
+ * @summary Upgrade/Downgrade website instance.
+ *
+ * @description Query application instance information
  *
  * @param tmpReq UpdateAppInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7056,7 +7380,9 @@ UpdateAppInstanceResponse Client::updateAppInstanceWithOptions(const UpdateAppIn
 }
 
 /**
- * @summary 建站实例变配
+ * @summary Upgrade/Downgrade website instance.
+ *
+ * @description Query application instance information
  *
  * @param request UpdateAppInstanceRequest
  * @return UpdateAppInstanceResponse
@@ -7125,7 +7451,9 @@ UpdateAppSeoStatusResponse Client::updateAppSeoStatus(const UpdateAppSeoStatusRe
 }
 
 /**
- * @summary Supabase认证配置更新
+ * @summary Update Supabase authentication configuration
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource
  *
  * @param request UpdateAppSupabaseAuthConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7160,7 +7488,9 @@ UpdateAppSupabaseAuthConfigResponse Client::updateAppSupabaseAuthConfigWithOptio
 }
 
 /**
- * @summary Supabase认证配置更新
+ * @summary Update Supabase authentication configuration
+ *
+ * @description Query the auth configuration information of the Supabase instance corresponding to the resource
  *
  * @param request UpdateAppSupabaseAuthConfigRequest
  * @return UpdateAppSupabaseAuthConfigResponse
@@ -7171,7 +7501,9 @@ UpdateAppSupabaseAuthConfigResponse Client::updateAppSupabaseAuthConfig(const Up
 }
 
 /**
- * @summary 更新Supabase密钥
+ * @summary Update Supabase key
+ *
+ * @description Operation resource corresponds to the supabase instance information
  *
  * @param request UpdateAppSupabaseSecretRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7218,7 +7550,9 @@ UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecretWithOptions(const
 }
 
 /**
- * @summary 更新Supabase密钥
+ * @summary Update Supabase key
+ *
+ * @description Operation resource corresponds to the supabase instance information
  *
  * @param request UpdateAppSupabaseSecretRequest
  * @return UpdateAppSupabaseSecretResponse
@@ -7229,7 +7563,7 @@ UpdateAppSupabaseSecretResponse Client::updateAppSupabaseSecret(const UpdateAppS
 }
 
 /**
- * @summary 更新绑定小程序信息
+ * @summary Update miniapp binding information
  *
  * @param request UpdateMiniAppBindingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7272,7 +7606,7 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBindingWithOptions(const Updat
 }
 
 /**
- * @summary 更新绑定小程序信息
+ * @summary Update miniapp binding information
  *
  * @param request UpdateMiniAppBindingRequest
  * @return UpdateMiniAppBindingResponse
@@ -7283,7 +7617,9 @@ UpdateMiniAppBindingResponse Client::updateMiniAppBinding(const UpdateMiniAppBin
 }
 
 /**
- * @summary 上传到站点根目录
+ * @summary Upload to the site root directory
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request UploadAppSiteValidationFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7334,7 +7670,9 @@ UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFileWithOptio
 }
 
 /**
- * @summary 上传到站点根目录
+ * @summary Upload to the site root directory
+ *
+ * @description Obtain the configuration information of the code generation plugin
  *
  * @param request UploadAppSiteValidationFileRequest
  * @return UploadAppSiteValidationFileResponse
@@ -7345,7 +7683,7 @@ UploadAppSiteValidationFileResponse Client::uploadAppSiteValidationFile(const Up
 }
 
 /**
- * @summary 上传素材文件
+ * @summary Upload material files
  *
  * @param request UploadMaterialFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7388,7 +7726,7 @@ UploadMaterialFileResponse Client::uploadMaterialFileWithOptions(const UploadMat
 }
 
 /**
- * @summary 上传素材文件
+ * @summary Upload material files
  *
  * @param request UploadMaterialFileRequest
  * @return UploadMaterialFileResponse

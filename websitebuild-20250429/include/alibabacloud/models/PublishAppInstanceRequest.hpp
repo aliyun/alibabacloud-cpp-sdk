@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Business ID
     shared_ptr<string> bizId_ {};
+    // Deployment channel
     shared_ptr<string> deployChannel_ {};
+    // Publish description
     shared_ptr<string> description_ {};
+    // Logical version number
     shared_ptr<int32_t> logicalNumber_ {};
+    // Publish number
     shared_ptr<string> publishNumber_ {};
+    // action
     shared_ptr<string> weappAction_ {};
   };
 

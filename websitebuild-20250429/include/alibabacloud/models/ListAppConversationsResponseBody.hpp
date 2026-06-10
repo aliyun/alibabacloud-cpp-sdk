@@ -201,17 +201,29 @@ namespace Models
       protected:
         // aliyun_pk
         shared_ptr<string> aliyunPk_ {};
+        // Bot ID
         shared_ptr<string> botId_ {};
+        // Chat records
         shared_ptr<int32_t> chatNum_ {};
+        // Session ID
         shared_ptr<string> conversationId_ {};
+        // Creation Time
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
+        // Update Time.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtModifiedTime_ {};
+        // Extension information (in JSON string format)
         shared_ptr<string> metaData_ {};
+        // Section ID of the checklist item.
         shared_ptr<string> sectionId_ {};
+        // Site ID. You can obtain it by invoking the [ListSites](~~ListSites~~) API.
         shared_ptr<string> siteId_ {};
+        // Current viewpoint, equivalent to the news title.
         shared_ptr<string> title_ {};
+        // User ID
         shared_ptr<string> userId_ {};
       };
 
@@ -248,9 +260,13 @@ namespace Models
 
 
     protected:
+      // Request result.
       shared_ptr<vector<Module::Data>> data_ {};
+      // Page number. The default value is 1.
       shared_ptr<int32_t> pageNum_ {};
+      // Paging size.
       shared_ptr<int32_t> pageSize_ {};
+      // Resource count that matches the filter condition.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -354,19 +370,33 @@ namespace Models
 
 
   protected:
+    // Detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // Indicates whether retry is allowed
     shared_ptr<bool> allowRetry_ {};
+    // Application name. Queries the application with this name.
     shared_ptr<string> appName_ {};
+    // Dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // Error message
     shared_ptr<string> dynamicMessage_ {};
+    // Faulty parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
+    // Number of results per query.  
+    // 
+    // Value range: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // Response data
     shared_ptr<ListAppConversationsResponseBody::Module> module_ {};
+    // Token indicating the start of the next query. This field is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // ID of the request
     shared_ptr<string> requestId_ {};
+    // Error code
     shared_ptr<string> rootErrorCode_ {};
+    // Abnormal message
     shared_ptr<string> rootErrorMsg_ {};
+    // Reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

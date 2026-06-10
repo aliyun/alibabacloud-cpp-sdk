@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Website building business ID
     shared_ptr<string> bizId_ {};
+    // Idempotent token
     shared_ptr<string> clientToken_ {};
+    // Refund reason
     shared_ptr<string> refundReason_ {};
+    // User ID
     shared_ptr<string> userId_ {};
   };
 

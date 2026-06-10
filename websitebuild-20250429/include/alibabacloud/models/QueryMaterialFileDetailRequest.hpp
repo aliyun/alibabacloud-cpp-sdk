@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Application instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // File ID
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };

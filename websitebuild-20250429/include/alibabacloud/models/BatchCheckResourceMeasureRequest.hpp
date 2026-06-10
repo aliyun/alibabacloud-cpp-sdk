@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Belonging ID (website ID or Alibaba Cloud User ID)
     shared_ptr<string> belongId_ {};
+    // Belonging ID Type (siteId, uid)
     shared_ptr<string> belongIdType_ {};
+    // ESP business type
     shared_ptr<string> bizType_ {};
+    // ESP business ID
     shared_ptr<string> espBizId_ {};
+    // Order module information (automatically completed if empty)
     shared_ptr<string> orderComponentParams_ {};
+    // List of resource check items, in JSON array format
     shared_ptr<string> resourceCheckItems_ {};
   };
 
