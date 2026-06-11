@@ -1,0 +1,26 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_AGENCY20250227MODEL_HPP_
+#define ALIBABACLOUD_AGENCY20250227MODEL_HPP_
+#include <darabonba/Core.hpp>
+#include <alibabacloud/models/GetBillDetailFileListRequest.hpp>
+#include <alibabacloud/models/GetBillDetailFileListResponseBody.hpp>
+#include <alibabacloud/models/GetBillDetailFileListResponse.hpp>
+#include <alibabacloud/models/GetCommissionDetailFileListRequest.hpp>
+#include <alibabacloud/models/GetCommissionDetailFileListResponseBody.hpp>
+#include <alibabacloud/models/GetCommissionDetailFileListResponse.hpp>
+#include <alibabacloud/models/GetCustomerOrderListRequest.hpp>
+#include <alibabacloud/models/GetCustomerOrderListShrinkRequest.hpp>
+#include <alibabacloud/models/GetCustomerOrderListResponseBody.hpp>
+#include <alibabacloud/models/GetCustomerOrderListResponse.hpp>
+#include <alibabacloud/models/GetRenewalRateListRequest.hpp>
+#include <alibabacloud/models/GetRenewalRateListResponseBody.hpp>
+#include <alibabacloud/models/GetRenewalRateListResponse.hpp>
+#include <alibabacloud/models/GetSubPartnerListRequest.hpp>
+#include <alibabacloud/models/GetSubPartnerListResponseBody.hpp>
+#include <alibabacloud/models/GetSubPartnerListResponse.hpp>
+#include <alibabacloud/models/GetSubPartnerOrderListRequest.hpp>
+#include <alibabacloud/models/GetSubPartnerOrderListShrinkRequest.hpp>
+#include <alibabacloud/models/GetSubPartnerOrderListResponseBody.hpp>
+#include <alibabacloud/models/GetSubPartnerOrderListResponse.hpp>
+
+#endif
