@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // A comma-separated list of context IDs.
     shared_ptr<string> contextIds_ {};
+    // The filter condition, specified as a JSON string in the query. The syntax is the same as the `filter` parameter of the `SearchContext` operation.
     shared_ptr<string> filter_ {};
   };
 

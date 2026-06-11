@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 精确匹配
+    // The value to filter by. Set to `true` to return only enabled resources. Set to `false` to return only disabled resources.
     shared_ptr<bool> eq_ {};
   };
 

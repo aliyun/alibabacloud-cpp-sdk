@@ -169,33 +169,33 @@ namespace Models
 
 
   protected:
-    // Automatic recovery wait time.
+    // The wait time for automatic recovery.
     shared_ptr<int32_t> autoRecoverSeconds_ {};
-    // Event closure timeout.
+    // The timeout period for closing an event.
     shared_ptr<int64_t> closeExpire_ {};
-    // List of teams or roles involved in collaboration.
+    // A list of collaborating teams or roles.
     shared_ptr<vector<IncidentPlanCorporationStruct>> corporation_ {};
-    // Contingency plan description.
+    // The description of the plan.
     shared_ptr<string> description_ {};
-    // List of escalation policy IDs.
+    // A list of escalation policy IDs.
     shared_ptr<vector<string>> escalationId_ {};
-    // Creation time.
+    // The time when the plan was created.
     shared_ptr<int64_t> gmtCreate_ {};
-    // Last modification time.
+    // The time when the plan was last modified.
     shared_ptr<int64_t> gmtModified_ {};
-    // Grouping field path.
+    // The grouping field path.
     shared_ptr<vector<IncidentPlanFieldPath>> groupBy_ {};
-    // Event contingency plan ID.
+    // The incident plan ID.
     shared_ptr<string> incidentPlanId_ {};
-    // Contingency plan name.
+    // The name of the plan.
     shared_ptr<string> name_ {};
-    // List of resource field mapping paths.
+    // A list of resource field mapping paths.
     shared_ptr<vector<IncidentPlanFieldPath>> resourceFiled_ {};
-    // Status.
+    // The status.
     shared_ptr<string> status_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
-    // Workspace name.
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

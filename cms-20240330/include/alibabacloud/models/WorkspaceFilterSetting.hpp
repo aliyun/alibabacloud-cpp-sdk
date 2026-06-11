@@ -54,7 +54,9 @@ namespace Models
 
 
   protected:
+    // The tag filter.
     shared_ptr<FilterSetting> tagSelector_ {};
+    // A list of workspace UUIDs.
     shared_ptr<vector<string>> workspaceUuids_ {};
   };
 

@@ -147,31 +147,31 @@ namespace Models
 
 
   protected:
-    // Transformation operation.
+    // The transform operations.
     shared_ptr<vector<TransformAction>> actions_ {};
-    // Create Time.
+    // The time when the converter was created.
     shared_ptr<string> createTime_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Whether enabled.
+    // Indicates whether the converter is enabled.
     shared_ptr<bool> enable_ {};
-    // Filter Setting.
+    // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Exit after matching processing.
+    // Indicates whether to exit after a match is processed.
     shared_ptr<bool> quitAfterMatch_ {};
-    // Sort order.
+    // The sort ID.
     shared_ptr<int32_t> sortId_ {};
-    // transformer Id
+    // The transformer ID.
     shared_ptr<string> transformerId_ {};
-    // Name.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> transformerName_ {};
-    // Update Time.
+    // The time when the converter was last updated.
     shared_ptr<string> updateTime_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

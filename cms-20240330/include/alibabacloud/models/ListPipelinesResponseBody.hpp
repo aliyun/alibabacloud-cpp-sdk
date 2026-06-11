@@ -110,13 +110,21 @@ namespace Models
 
 
     protected:
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description of the pipeline.
       shared_ptr<string> description_ {};
+      // The pipeline name.
       shared_ptr<string> pipelineName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The update time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // The workspace ID.
       shared_ptr<string> workspace_ {};
     };
 
@@ -153,10 +161,13 @@ namespace Models
 
 
   protected:
+    // The number of results returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. If this parameter is not empty, use it in a subsequent request to get the next page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // A list of pipelines.
     shared_ptr<vector<ListPipelinesResponseBody::Pipelines>> pipelines_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // Contact ID.
+      // The ID of the contact.
       shared_ptr<string> contactId_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
     };
 
@@ -155,15 +155,15 @@ namespace Models
 
 
     protected:
-      // Description.
+      // The description.
       shared_ptr<string> description_ {};
-      // Event Escalation ID.
+      // The ID of the event escalation.
       shared_ptr<string> incidentEscalationId_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
-      // Escalation phase index.
+      // The index of the escalation stage.
       shared_ptr<string> stageIndex_ {};
-      // Title.
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -205,9 +205,9 @@ namespace Models
 
 
     protected:
-      // Channel.
+      // The channel.
       shared_ptr<string> channel_ {};
-      // Contact ID (masked).
+      // The masked ID of the contact.
       shared_ptr<string> contactMask_ {};
     };
 
@@ -249,9 +249,9 @@ namespace Models
 
 
     protected:
-      // Acknowledgement level.
+      // The confirmation level.
       shared_ptr<string> breakLevel_ {};
-      // Verification time.
+      // The verification time.
       shared_ptr<int64_t> verifyTime_ {};
     };
 
@@ -330,23 +330,23 @@ namespace Models
 
 
   protected:
-    // Acknowledgement Information Structure.
+    // The structure of the confirmation information.
     shared_ptr<IncidentMemberStruct::Acknowledge> acknowledge_ {};
-    // Contact ID.
+    // The ID of the contact.
     shared_ptr<string> contactId_ {};
-    // Contact list.
+    // A list of contacts.
     shared_ptr<vector<IncidentMemberStruct::Contacts>> contacts_ {};
-    // Escalation phase information.
+    // Information about the escalation stage.
     shared_ptr<IncidentMemberStruct::Escalation> escalation_ {};
-    // Incident ID.
+    // The ID of the event.
     shared_ptr<string> incidentId_ {};
-    // Event Member ID.
+    // The ID of the event member.
     shared_ptr<string> incidentMemberId_ {};
-    // Schedule group.
+    // The scheduling group.
     shared_ptr<IncidentMemberStruct::ScheduleGroup> scheduleGroup_ {};
-    // Time.
+    // The time.
     shared_ptr<int64_t> time_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

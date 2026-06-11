@@ -97,19 +97,19 @@ namespace Models
 
 
   protected:
-    // Description information.
+    // The description.
     shared_ptr<string> description_ {};
-    // Incident ID.
+    // The event ID.
     shared_ptr<string> incidentId_ {};
-    // The unique ID of this resource in the event.
+    // The unique ID of the resource in the event.
     shared_ptr<string> incidentResourceId_ {};
-    // Event resource details object.
+    // The details object for the event resource.
     shared_ptr<IncidentResourceDetail> resource_ {};
-    // Source.
+    // The source.
     shared_ptr<string> source_ {};
-    // Time.
+    // The timestamp.
     shared_ptr<int64_t> time_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<int64_t> userId_ {};
   };
 

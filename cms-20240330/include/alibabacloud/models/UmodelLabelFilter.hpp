@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 标签名
+    // The key of the label used for filtering.
     shared_ptr<string> name_ {};
-    // 标签过滤操作符，仅支持 = 或 !=
+    // The logical operator used to compare the label\\"s value.
     shared_ptr<string> operator_ {};
-    // 标签值
+    // The value of the label to match.
     shared_ptr<string> value_ {};
   };
 

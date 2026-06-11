@@ -112,13 +112,21 @@ namespace Models
 
 
     protected:
+      // The time when the memory store was created.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description of the memory store.
       shared_ptr<string> description_ {};
+      // The name of the memory store.
       shared_ptr<string> memoryStoreName_ {};
+      // The ID of the region.
       shared_ptr<string> regionId_ {};
+      // The time when the memory store was last updated.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // Workspace
       shared_ptr<string> workspace_ {};
     };
 
@@ -162,9 +170,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of returned entries.
     shared_ptr<int32_t> maxResults_ {};
+    // The list of memory stores.
     shared_ptr<vector<ListMemoryStoresResponseBody::MemoryStores>> memoryStores_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<int32_t> total_ {};
   };

@@ -81,10 +81,15 @@ namespace Models
 
 
   protected:
+    // The updated text for the long-term memory.
     shared_ptr<string> content_ {};
+    // The experience object.
     Darabonba::Json experience_ {};
+    // A set of key-value pairs to attach to an object for storing custom information.
     Darabonba::Json metadata_ {};
+    // The payload to update.
     Darabonba::Json payload_ {};
+    // The trigger condition.
     shared_ptr<string> triggerCondition_ {};
   };
 

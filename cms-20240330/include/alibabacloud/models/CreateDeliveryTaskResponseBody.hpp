@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // Id of the request
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the delivery task.
     shared_ptr<string> taskId_ {};
   };
 

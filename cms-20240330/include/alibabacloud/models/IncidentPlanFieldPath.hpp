@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Field alias.
+    // The field alias.
     shared_ptr<string> fieldAlias_ {};
-    // List of field paths.
+    // A list of field paths.
     shared_ptr<vector<string>> fieldPath_ {};
   };
 

@@ -67,9 +67,10 @@ namespace Models
 
   protected:
     shared_ptr<int32_t> maxResults_ {};
-    // Optional cloud product
+    // The namespace of the cloud product. This parameter is optional.
     shared_ptr<string> namespace_ {};
     shared_ptr<string> nextToken_ {};
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

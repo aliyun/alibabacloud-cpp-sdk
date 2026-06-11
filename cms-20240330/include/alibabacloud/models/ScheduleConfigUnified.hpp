@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // 调度间隔（秒），type=FIXED 时使用
+    // The interval between scheduled runs, in seconds.
     shared_ptr<int32_t> intervalSecs_ {};
-    // 调度类型
+    // The type of the schedule.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

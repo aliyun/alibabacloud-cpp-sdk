@@ -24,6 +24,7 @@
 #include <alibabacloud/models/AlertRuleQuery.hpp>
 #include <alibabacloud/models/AlertRuleRcaConfig.hpp>
 #include <alibabacloud/models/AlertRuleSend.hpp>
+#include <alibabacloud/models/AlertRuleTemplate.hpp>
 #include <alibabacloud/models/ArmsIntegrationConfig.hpp>
 #include <alibabacloud/models/ApmCompositeCompareConfig.hpp>
 #include <alibabacloud/models/ApmThresholdConfig.hpp>
@@ -62,6 +63,7 @@
 #include <alibabacloud/models/StatusFilter.hpp>
 #include <alibabacloud/models/UuidFilter.hpp>
 #include <alibabacloud/models/Filter.hpp>
+#include <alibabacloud/models/FilterCondition.hpp>
 #include <alibabacloud/models/IncidentContactStruct.hpp>
 #include <alibabacloud/models/NotifyChannel.hpp>
 #include <alibabacloud/models/IncidentEscalationStageForView.hpp>
@@ -82,6 +84,9 @@
 #include <alibabacloud/models/IncidentPlanStruct.hpp>
 #include <alibabacloud/models/IncidentResourceDetail.hpp>
 #include <alibabacloud/models/IncidentResourceStruct.hpp>
+#include <alibabacloud/models/IncidentResponsePlanForModify.hpp>
+#include <alibabacloud/models/IncidentResponsePlanForSNSModify.hpp>
+#include <alibabacloud/models/IncidentResponsePlanForSNSView.hpp>
 #include <alibabacloud/models/IncidentStruct.hpp>
 #include <alibabacloud/models/IncidentTimeline.hpp>
 #include <alibabacloud/models/IncidentTimelineForView.hpp>
@@ -99,6 +104,8 @@
 #include <alibabacloud/models/NotifyRouteForSubscription.hpp>
 #include <alibabacloud/models/WorkspaceFilterSetting.hpp>
 #include <alibabacloud/models/NotifyStrategyForModify.hpp>
+#include <alibabacloud/models/NotifyStrategyForSNSModify.hpp>
+#include <alibabacloud/models/NotifyStrategyForSNSView.hpp>
 #include <alibabacloud/models/NotifyStrategyForView.hpp>
 #include <alibabacloud/models/Pagination.hpp>
 #include <alibabacloud/models/PrometheusManagedInstance.hpp>
@@ -108,9 +115,17 @@
 #include <alibabacloud/models/RumDnsResponse.hpp>
 #include <alibabacloud/models/ServerResponseManageAlertRulesResult.hpp>
 #include <alibabacloud/models/ServerResponseQueryAlertRulesResult.hpp>
+#include <alibabacloud/models/SubscriptionAndNotifyStrategyForListView.hpp>
+#include <alibabacloud/models/SubscriptionForSNSModify.hpp>
 #include <alibabacloud/models/SubscriptionForModify.hpp>
+#include <alibabacloud/models/SubscriptionOp.hpp>
+#include <alibabacloud/models/SubscriptionAndNotifyStrategyForModify.hpp>
+#include <alibabacloud/models/SubscriptionForSNSView.hpp>
 #include <alibabacloud/models/SubscriptionForView.hpp>
+#include <alibabacloud/models/SubscriptionAndNotifyStrategyForView.hpp>
 #include <alibabacloud/models/Tag.hpp>
+#include <alibabacloud/models/TagCondition.hpp>
+#include <alibabacloud/models/TagSelector.hpp>
 #include <alibabacloud/models/TransformerForModify.hpp>
 #include <alibabacloud/models/TransformerForView.hpp>
 #include <alibabacloud/models/AddContextsRequest.hpp>
@@ -464,6 +479,9 @@
 #include <alibabacloud/models/ManageAlertRulesRequest.hpp>
 #include <alibabacloud/models/ManageAlertRulesShrinkRequest.hpp>
 #include <alibabacloud/models/ManageAlertRulesResponse.hpp>
+#include <alibabacloud/models/OpenCmsServiceRequest.hpp>
+#include <alibabacloud/models/OpenCmsServiceResponseBody.hpp>
+#include <alibabacloud/models/OpenCmsServiceResponse.hpp>
 #include <alibabacloud/models/PutWorkspaceRequest.hpp>
 #include <alibabacloud/models/PutWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/PutWorkspaceResponse.hpp>

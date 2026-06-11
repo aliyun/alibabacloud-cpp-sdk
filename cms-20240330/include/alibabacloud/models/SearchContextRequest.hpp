@@ -86,12 +86,19 @@ namespace Models
 
 
   protected:
+    // Filter conditions
     Darabonba::Json filter_ {};
+    // Whether to format
     shared_ptr<bool> formatted_ {};
+    // Limit the number of items returned
     shared_ptr<int32_t> limit_ {};
+    // Query content
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // Retrieval option
     shared_ptr<string> retrievalOption_ {};
+    // Similarity threshold
     shared_ptr<double> threshold_ {};
   };
 

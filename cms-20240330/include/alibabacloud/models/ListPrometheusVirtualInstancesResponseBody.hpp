@@ -112,21 +112,21 @@ namespace Models
 
 
     protected:
-      // Creation time
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // HTTP API URL.
+      // The HTTP API URL.
       shared_ptr<string> httpApiUrl_ {};
-      // Applicable data source type: PROMETHEUS_DS
+      // Returned for the `PROMETHEUS_DS` data source type.
       // 
-      // Prometheus instance ID
+      // The Prometheus instance ID.
       shared_ptr<string> instanceId_ {};
-      // Applicable query type: CMS_BASIC_QUERY.
+      // Returned for the `CMS_BASIC_QUERY` query type.
       // 
-      // Namespace of the metric
+      // The namespace of the metric.
       shared_ptr<string> namespace_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -170,12 +170,15 @@ namespace Models
 
 
   protected:
-    // Instance information.
+    // A list of instances.
     shared_ptr<vector<ListPrometheusVirtualInstancesResponseBody::Instances>> instances_ {};
+    // The maximum number of entries returned on each page.
     shared_ptr<string> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. If all results are returned, this parameter is left empty.
     shared_ptr<string> nextToken_ {};
-    // ID of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<string> totalCount_ {};
   };
 

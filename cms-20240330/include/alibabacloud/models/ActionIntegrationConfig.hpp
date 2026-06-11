@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // 行动集成 ID 列表
+    // A list of actions to perform.
     shared_ptr<vector<string>> actions_ {};
-    // 是否启用行动集成
+    // Indicates whether action integration is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

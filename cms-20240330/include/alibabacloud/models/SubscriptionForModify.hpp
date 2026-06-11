@@ -105,11 +105,11 @@ namespace Models
 
 
     protected:
-      // Alert push action plan ID list.
+      // A list of alert push action plan IDs.
       shared_ptr<vector<string>> alertActionIds_ {};
       // Action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // Action integration plan ID list.
+      // A list of action integration plan IDs.
       shared_ptr<vector<string>> restoreActionIds_ {};
       // Template UUID.
       shared_ptr<string> templateUuid_ {};
@@ -223,7 +223,7 @@ namespace Models
     shared_ptr<SubscriptionForModify::AgentConfig> agentConfig_ {};
     // Description.
     shared_ptr<string> description_ {};
-    // Filtering settings.
+    // Filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
     // Notification policy UUID.
     shared_ptr<string> notifyStrategyId_ {};

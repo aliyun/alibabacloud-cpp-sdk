@@ -119,11 +119,17 @@ namespace Models
 
 
     protected:
+      // The card template.
       shared_ptr<string> cardTemplate_ {};
+      // Specifies whether to enable the daily on-duty report.
       shared_ptr<bool> dailyNoc_ {};
+      // The time for the daily on-duty report.
       shared_ptr<string> dailyNocTime_ {};
+      // The signature key for DingTalk.
       shared_ptr<string> dingSignKey_ {};
+      // Specifies whether to enable outbound requests.
       shared_ptr<bool> enableOutgoing_ {};
+      // The authentication token.
       shared_ptr<string> token_ {};
     };
 
@@ -196,14 +202,23 @@ namespace Models
 
 
   protected:
+    // The time when the bot was created.
     shared_ptr<string> createTime_ {};
+    // The extension fields.
     shared_ptr<MergeRobot::Extend> extend_ {};
+    // The time when the bot was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The unique identifier of the bot.
     shared_ptr<string> identifier_ {};
+    // The language preference.
     shared_ptr<string> lang_ {};
+    // The name of the bot.
     shared_ptr<string> name_ {};
+    // The source system of the bot.
     shared_ptr<string> source_ {};
+    // The type of the bot.
     shared_ptr<string> type_ {};
+    // The webhook address.
     shared_ptr<string> webhook_ {};
   };
 

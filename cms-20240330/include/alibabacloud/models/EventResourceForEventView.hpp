@@ -89,9 +89,13 @@ namespace Models
 
 
     protected:
+      // The product domain to which the resource belongs.
       shared_ptr<string> domain_ {};
+      // The instance ID.
       shared_ptr<string> entityId_ {};
+      // The specific type of the resource.
       shared_ptr<string> entityType_ {};
+      // Extra properties of the resource.
       Darabonba::Json prop_ {};
     };
 
@@ -116,7 +120,9 @@ namespace Models
 
 
   protected:
+    // The resource entity.
     shared_ptr<EventResourceForEventView::Entity> entity_ {};
+    // The tags.
     Darabonba::Json tags_ {};
   };
 

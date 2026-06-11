@@ -102,8 +102,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether to include Large Language Model (LLM) output in the memory extraction.
       shared_ptr<bool> includeOutput_ {};
+      // The query to filter traces from Simple Log Service.
       shared_ptr<string> query_ {};
+      // The workspace where the trace is located.
       shared_ptr<string> workspace_ {};
     };
 
@@ -145,7 +148,9 @@ namespace Models
 
 
     protected:
+      // The name of the Simple Log Service Logstore.
       shared_ptr<string> logstore_ {};
+      // The name of the Simple Log Service Project.
       shared_ptr<string> project_ {};
     };
 
@@ -253,20 +258,35 @@ namespace Models
 
 
   protected:
+    // The Unix timestamp (in milliseconds) when the memory store was created.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // A list of custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
+    // The description of the memory store.
     shared_ptr<string> description_ {};
+    // The built-in extraction strategies. Valid values are `Episodic`, `Summary`, and `Fact`.
     shared_ptr<vector<string>> extractionStrategies_ {};
+    // The name of the memory store.
     shared_ptr<string> memoryStoreName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The configuration for short-term memory storage.
     shared_ptr<GetMemoryStoreResponseBody::ShortTermStorage> shortTermStorage_ {};
+    // The short-term memory retention time, in seconds.
     shared_ptr<int32_t> shortTermTtl_ {};
+    // The memory source.
     shared_ptr<string> sourceType_ {};
+    // The configuration for the trace source. This parameter is returned only when `sourceType` is set to `Trace`.
     shared_ptr<GetMemoryStoreResponseBody::TraceSourceConfig> traceSourceConfig_ {};
+    // The Unix timestamp (in milliseconds) when the memory store was last updated.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

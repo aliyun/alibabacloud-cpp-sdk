@@ -111,9 +111,9 @@ namespace Models
 
 
       protected:
-        // Tag key.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // Tag value.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -155,9 +155,9 @@ namespace Models
 
 
       protected:
-        // Security group ID.
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // VSwitch ID.
+        // The vSwitch ID.
         shared_ptr<string> vswitchId_ {};
       };
 
@@ -278,11 +278,11 @@ namespace Models
 
 
           protected:
-            // The operation to be performed.
+            // The operation to perform.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
-            // List of tag values.
+            // The list of tag values.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -335,11 +335,11 @@ namespace Models
 
 
           protected:
-            // The operation to be performed.
+            // The operation to perform.
             shared_ptr<string> op_ {};
             // The tag key of the instance.
             shared_ptr<string> tagKey_ {};
-            // List of tag values.
+            // The list of tag values.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -381,9 +381,9 @@ namespace Models
 
 
           protected:
-            // IP segment.
+            // The IP address CIDR block.
             shared_ptr<string> ipCidr_ {};
-            // Key for the IP field.
+            // The key of the IP address field.
             shared_ptr<string> ipFieldKey_ {};
           };
 
@@ -436,11 +436,11 @@ namespace Models
 
 
           protected:
-            // Unique identifier for the field.
+            // The unique identifier of the field.
             shared_ptr<string> fieldKey_ {};
-            // Field content.
+            // The field content.
             shared_ptr<vector<string>> fieldValues_ {};
-            // Operation to be performed.
+            // The operation to perform.
             shared_ptr<string> op_ {};
           };
 
@@ -493,11 +493,11 @@ namespace Models
 
 
           protected:
-            // Operation to be performed.
+            // The operation to perform.
             shared_ptr<string> op_ {};
-            // Tag key.
+            // The tag key.
             shared_ptr<string> tagKey_ {};
-            // Tag values.
+            // The tag values.
             shared_ptr<vector<string>> tagValues_ {};
           };
 
@@ -584,23 +584,23 @@ namespace Models
 
 
         protected:
-          // Annotations.
+          // The comments.
           shared_ptr<vector<EntityRules::Annotations>> annotations_ {};
-          // List of entity types.
+          // The list of entity types.
           shared_ptr<vector<string>> entityTypes_ {};
-          // List of field rules.
+          // The list of property rules.
           shared_ptr<vector<EntityRules::FieldRules>> fieldRules_ {};
-          // Instance ID.
+          // The instance ID.
           shared_ptr<vector<string>> instanceIds_ {};
-          // IP matching rule.
+          // The IP address matching rule.
           shared_ptr<EntityRules::IpMatchRule> ipMatchRule_ {};
-          // Labels.
+          // The labels.
           shared_ptr<vector<EntityRules::Labels>> labels_ {};
-          // List of region IDs.
+          // The list of region IDs.
           shared_ptr<vector<string>> regionIds_ {};
-          // Resource group ID.
+          // The resource group ID.
           shared_ptr<string> resourceGroupId_ {};
-          // Tag values.
+          // The tags.
           shared_ptr<vector<EntityRules::Tags>> tags_ {};
         };
 
@@ -666,21 +666,21 @@ namespace Models
 
 
       protected:
-        // Description.
+        // The description.
         shared_ptr<string> description_ {};
-        // Entity group ID.
+        // The entity group ID.
         shared_ptr<string> entityGroupId_ {};
-        // Entity group name.
+        // The entity group name.
         shared_ptr<string> entityGroupName_ {};
-        // Entity rules.
+        // The entity rules.
         shared_ptr<EntityGroup::EntityRules> entityRules_ {};
-        // For querying
+        // The query condition.
         shared_ptr<string> query_ {};
-        // Region ID.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // User ID.
+        // The user ID.
         shared_ptr<string> userId_ {};
-        // Workspace.
+        // The workspace.
         shared_ptr<string> workspace_ {};
       };
 
@@ -740,13 +740,13 @@ namespace Models
 
 
       protected:
-        // Cluster ID.
+        // The cluster ID.
         shared_ptr<string> clusterId_ {};
-        // Cluster type.
+        // The cluster type.
         shared_ptr<string> clusterType_ {};
-        // VPC CIDR.
+        // The CIDR block of the VPC.
         shared_ptr<string> vpcCidr_ {};
-        // VPC ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -847,29 +847,29 @@ namespace Models
 
 
     protected:
-      // Bound resource information.
+      // The information about the attached resource.
       shared_ptr<Policy::BindResource> bindResource_ {};
-      // Cs umodel status
+      // The installation status of umodel in the container environment.
       shared_ptr<bool> csUmodelStatus_ {};
-      // Entity group.
+      // The entity group.
       shared_ptr<Policy::EntityGroup> entityGroup_ {};
-      // Policy management information.
+      // The policy management information.
       shared_ptr<Policy::ManagedInfo> managedInfo_ {};
-      // Policy ID.
+      // The policy ID.
       shared_ptr<string> policyId_ {};
-      // Rule name.
+      // The rule name.
       shared_ptr<string> policyName_ {};
-      // Access policy type.
+      // The type of the integration policy.
       shared_ptr<string> policyType_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Resource group ID.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // Tag keys.
+      // The tags.
       shared_ptr<vector<Policy::Tags>> tags_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
-      // Workspace.
+      // The workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -892,9 +892,9 @@ namespace Models
 
 
   protected:
-    // Access policy.
+    // The integration policy.
     shared_ptr<GetIntegrationPolicyResponseBody::Policy> policy_ {};
-    // ID of the request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

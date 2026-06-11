@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // Element content
+    // The content of the element.
     shared_ptr<vector<Darabonba::Json>> elements_ {};
-    // Method
+    // The method.
     shared_ptr<string> method_ {};
   };
 

@@ -160,16 +160,26 @@ namespace Models
   protected:
     shared_ptr<string> agentId_ {};
     shared_ptr<string> appId_ {};
+    // The time when the memory was created.
     shared_ptr<string> createdAt_ {};
+    // The expiration time.
     shared_ptr<string> expirationDate_ {};
+    // The memory ID.
     shared_ptr<string> id_ {};
+    // This property is mutable.
     shared_ptr<string> immutable_ {};
+    // The memory content.
     shared_ptr<string> memory_ {};
+    // The metadata.
     shared_ptr<string> metadata_ {};
+    // The organization.
     shared_ptr<string> organization_ {};
+    // The owner of the memory.
     shared_ptr<string> owner_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<string> runId_ {};
+    // The time when the memory was last updated.
     shared_ptr<string> updatedAt_ {};
     shared_ptr<string> userId_ {};
   };

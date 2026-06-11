@@ -63,10 +63,11 @@ namespace Models
 
 
   protected:
+    // The details of the created or updated alert rule.
     shared_ptr<AlertRuleV2> alertRule_ {};
-    // 成功删除的规则数量
+    // The number of deleted alert rules.
     shared_ptr<int32_t> deletedCount_ {};
-    // 成功删除的规则 UUID 列表
+    // A list of UUIDs of deleted alert rules.
     shared_ptr<vector<string>> deletedUuidList_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the context store.
     shared_ptr<string> contextStoreName_ {};
+    // The context type.
     shared_ptr<string> contextType_ {};
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

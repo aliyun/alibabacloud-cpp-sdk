@@ -38,8 +38,8 @@ namespace Models
 
 
   protected:
-    // Whether to forcibly delete the cloud-native all-in-one machine,
-    // default value: `false`.
+    // Specifies whether to force delete the cloud native appliance.
+    // Default: `false`.
     shared_ptr<bool> force_ {};
   };
 

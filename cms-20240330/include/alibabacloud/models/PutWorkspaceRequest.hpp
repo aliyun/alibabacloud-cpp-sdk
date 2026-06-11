@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Description of the workspace
+    // The description of the workspace.
     shared_ptr<string> description_ {};
-    // Display name of the workspace
+    // The display name of the workspace.
     shared_ptr<string> displayName_ {};
-    // Name of the Log Service project
+    // The name of the Simple Log Service project.
     // 
     // This parameter is required.
     shared_ptr<string> slsProject_ {};

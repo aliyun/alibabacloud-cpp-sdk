@@ -166,17 +166,29 @@ namespace Models
 
 
     protected:
+      // The actor ID.
       shared_ptr<string> actorId_ {};
+      // The agent ID of the application.
       shared_ptr<string> agentId_ {};
+      // The creation time.
       shared_ptr<string> createdAt_ {};
+      // The memory hash value.
       shared_ptr<string> hash_ {};
+      // The memory ID.
       shared_ptr<string> id_ {};
+      // The memory content.
       shared_ptr<string> memory_ {};
+      // The metadata.
       Darabonba::Json metadata_ {};
+      // The sender\\"s role.
       shared_ptr<string> role_ {};
+      // The run ID.
       shared_ptr<string> runId_ {};
+      // The similarity score.
       shared_ptr<double> score_ {};
+      // The update time.
       shared_ptr<string> updatedAt_ {};
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -227,8 +239,11 @@ namespace Models
 
 
     protected:
+      // The destination.
       shared_ptr<string> destination_ {};
+      // The relationship.
       shared_ptr<string> relationship_ {};
+      // The source.
       shared_ptr<string> source_ {};
     };
 
@@ -260,8 +275,11 @@ namespace Models
 
 
   protected:
+    // A list of relationships.
     shared_ptr<vector<SearchMemoriesResponseBody::Relations>> relations_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of search results.
     shared_ptr<vector<SearchMemoriesResponseBody::Results>> results_ {};
   };
 

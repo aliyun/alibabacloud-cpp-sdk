@@ -98,16 +98,17 @@ namespace Models
 
 
     protected:
-      // SLS project
+      // The SLS project.
       shared_ptr<string> project_ {};
       // The region where the SLS project is located.
       shared_ptr<string> regionId_ {};
-      // LogStore/MetricStore name.
+      // The name of the LogStore or MetricStore.
       shared_ptr<string> store_ {};
-      // Type of SLS data sub-source:
+      // The type of the SLS sub-data source. Valid values:
       // 
-      // - SLS_LOG_DS: LogStore data source.
-      // - SLS_METRIC_DS: MetricStore data source.
+      // - SLS_LOG_DS: A LogStore data source.
+      // 
+      // - SLS_METRIC_DS: A MetricStore data source.
       shared_ptr<string> type_ {};
     };
 
@@ -166,31 +167,42 @@ namespace Models
 
 
   protected:
-    // Applicable data source type: APM_DS.
-    // Application type: 
+    // Applies to the APM_DS data source type.
     // 
-    // - apm.
+    // The type of the application. Valid value:
+    // 
+    // - apm
     shared_ptr<string> appType_ {};
-    // Applicable data source type: SLS_MULTI_DS.
-    // List of sub-data sources.
+    // Applies to the SLS_MULTI_DS data source type.
+    // 
+    // A list of sub-data sources.
     shared_ptr<vector<AlertRuleDataSource::DsList>> dsList_ {};
-    // Applicable data source type: PROMETHEUS_DS.
-    // Prometheus instance ID.
+    // Applies to the PROMETHEUS_DS data source type.
+    // 
+    // The ID of the Prometheus instance.
     shared_ptr<string> instanceId_ {};
-    // Applicable data source type: ENTERPRISE_DS.
-    // Name of the enterprise cloud monitoring metric repository.
+    // Applies to the ENTERPRISE_DS data source type.
+    // 
+    // The name of the Hybrid Cloud Monitoring metric repository.
     shared_ptr<string> namespace_ {};
-    // Applicable data source types: APM_DS, PROMETHEUS_DS.
-    // The regionId to which the data source belongs.
+    // Applies to the APM_DS and PROMETHEUS_DS data source types.
+    // 
+    // The ID of the region where the data source is located.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> tenantId_ {};
-    // Data source type.
+    // The data source type.
+    // 
     // Valid values:
-    // - PROMETHEUS_DS: Prometheus data source.
-    // - SLS_MULTI_DS: SLS data source.
-    // - APM_DS: Application monitoring data source.
-    // - CMS_BASIC_DS: Basic cloud monitoring data source.
-    // - ENTERPRISE_DS: Enterprise cloud monitoring data source.
+    // 
+    // - PROMETHEUS_DS: A Prometheus data source.
+    // 
+    // - SLS_MULTI_DS: An SLS data source.
+    // 
+    // - APM_DS: An Application Monitoring data source.
+    // 
+    // - CMS_BASIC_DS: A basic Cloud Monitor data source.
+    // 
+    // - ENTERPRISE_DS: A Hybrid Cloud Monitoring data source.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

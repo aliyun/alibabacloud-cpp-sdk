@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // prometheus: Checks the activation status of the Prometheus service. The service is billed by reported data volume or written data volume.
     shared_ptr<string> product_ {};
+    // prometheus: Checks whether the Prometheus product that is billed by reported data volume is activated.prometheusgb: Checks whether the Prometheus product that is billed by written data volume is activated.
     shared_ptr<string> service_ {};
   };
 

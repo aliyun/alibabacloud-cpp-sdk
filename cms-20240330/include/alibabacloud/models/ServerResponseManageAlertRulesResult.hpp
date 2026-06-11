@@ -115,22 +115,23 @@ namespace Models
 
 
   protected:
-    // 响应码
+    // The operation status code.
     shared_ptr<string> code_ {};
+    // The result of the operation.
     shared_ptr<ManageAlertRulesResult> data_ {};
-    // 错误消息
+    // A message detailing the outcome of the request, such as a success message or an error description.
     shared_ptr<string> message_ {};
-    // 分页 Token
+    // The token used to retrieve the next page of results. If the token is not returned, there are no more results.
     shared_ptr<string> nextToken_ {};
-    // 页码
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // 每页大小
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // 请求 ID
+    // The unique ID for the request. Provide this ID when contacting support for assistance.
     shared_ptr<string> requestId_ {};
-    // 是否成功
+    // Indicates whether the request succeeded (`true`) or failed (`false`).
     shared_ptr<bool> success_ {};
-    // 总数
+    // The total number of entries that match the query.
     shared_ptr<int32_t> total_ {};
   };
 

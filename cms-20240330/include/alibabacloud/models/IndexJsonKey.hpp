@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether the field contains Chinese characters.
+    // 
+    // - `true`: The field contains Chinese characters.
+    // 
+    // - `false`: The field does not contain Chinese characters.
     shared_ptr<bool> chn_ {};
+    // The field type.
     shared_ptr<string> type_ {};
   };
 

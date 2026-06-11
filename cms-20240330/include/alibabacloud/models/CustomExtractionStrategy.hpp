@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Description
     shared_ptr<string> description_ {};
+    // Extraction prompt
     shared_ptr<string> extractionPrompt_ {};
+    // Policy Name
     shared_ptr<string> strategyName_ {};
+    // Policy type. Supports "Episodic", "Summary", and "Fact".
     shared_ptr<string> strategyType_ {};
+    // Update prompt
     shared_ptr<string> updatePrompt_ {};
   };
 

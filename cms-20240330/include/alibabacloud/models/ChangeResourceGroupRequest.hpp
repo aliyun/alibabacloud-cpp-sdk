@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

@@ -92,9 +92,13 @@ namespace Models
 
 
     protected:
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type.
       shared_ptr<string> resourceType_ {};
+      // The tag key.
       shared_ptr<string> tagKey_ {};
+      // The tag value.
       shared_ptr<string> tagValue_ {};
     };
 
@@ -131,9 +135,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of tags.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

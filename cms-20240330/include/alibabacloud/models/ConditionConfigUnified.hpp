@@ -119,23 +119,23 @@ namespace Models
 
 
   protected:
-    // 聚合函数（APM_SIMPLE_CONDITION）
+    // The aggregation method for metric data points over the evaluation period. Valid values include `AVG`, `SUM`, and `MAX`.
     shared_ptr<string> aggregate_ {};
-    // 多条比较（APM_COMPOSITE_CONDITION）
+    // A list of composite comparison configurations for APM alerts. Each item is an `ApmCompositeCompareConfig` object.
     shared_ptr<vector<ApmCompositeCompareConfig>> compareList_ {};
-    // 持续时间（秒），PROMETHEUS_SIMPLE / UMODEL_METRICSET 使用
+    // The number of seconds a condition must be true before triggering an alert.
     shared_ptr<int32_t> durationSecs_ {};
-    // 比较操作符（UMODEL_METRICSET_CONDITION 或 APM_SIMPLE_CONDITION）
+    // The comparison operator used to evaluate the metric against the threshold.
     shared_ptr<string> operator_ {};
-    // 条件间逻辑关系（APM_COMPOSITE_CONDITION）
+    // The logical relationship between multiple conditions. Valid values are `AND` and `OR`.
     shared_ptr<string> relation_ {};
-    // 严重等级（UMODEL / PROMETHEUS_SIMPLE / APM_COMPOSITE）
+    // The alert severity. Valid values are `CRITICAL`, `WARNING`, and `INFO`.
     shared_ptr<string> severity_ {};
-    // 阈值（UMODEL_METRICSET_CONDITION）
+    // The value against which the metric is evaluated to trigger an alert.
     shared_ptr<double> threshold_ {};
-    // 多阈值列表（APM_SIMPLE_CONDITION）
+    // A list of threshold configurations for Application Performance Monitoring (APM) alerts. Each item is an `ApmThresholdConfig` object.
     shared_ptr<vector<ApmThresholdConfig>> thresholdList_ {};
-    // 检测条件类型
+    // The type of the alert condition.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

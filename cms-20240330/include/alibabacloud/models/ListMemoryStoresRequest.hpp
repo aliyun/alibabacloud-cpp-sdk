@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return. The maximum value is 200.
     shared_ptr<int32_t> maxResults_ {};
+    // The name of the memory store.
     shared_ptr<string> memoryStoreName_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

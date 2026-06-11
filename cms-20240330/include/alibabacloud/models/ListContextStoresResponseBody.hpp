@@ -131,15 +131,25 @@ namespace Models
 
 
     protected:
+      // The name of the context store.
       shared_ptr<string> contextStoreName_ {};
+      // The context type.
       shared_ptr<string> contextType_ {};
+      // The creation time of the context store. The value is a Unix timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description of the context store.
       shared_ptr<string> description_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The status of the context store.
       shared_ptr<string> status_ {};
+      // The last update time of the context store. The value is a Unix timestamp in milliseconds.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // The ID of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -183,10 +193,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. If this field is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // A list of context stores.
     shared_ptr<vector<ListContextStoresResponseBody::Results>> results_ {};
+    // The total number of context stores.
     shared_ptr<int32_t> total_ {};
   };
 

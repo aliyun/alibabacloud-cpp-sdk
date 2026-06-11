@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // The ID of the written record or event.
       shared_ptr<string> contextId_ {};
+      // The write status. Can be "accepted", "queued", or "created".
       shared_ptr<string> status_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // An array of objects containing the results of the write operation.
     shared_ptr<vector<AddContextsResponseBody::Results>> results_ {};
   };
 

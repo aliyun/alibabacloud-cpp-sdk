@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The request parameters for querying alert rules.
     shared_ptr<string> bodyShrink_ {};
+    // The client token used to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
+    // The maximum number of results to return per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. If you do not specify this parameter, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
   };
 

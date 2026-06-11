@@ -70,9 +70,17 @@ namespace Models
 
 
   protected:
+    // Indicates whether the value contains Chinese characters.
+    // 
+    // - `true`: Contains Chinese characters.
+    // 
+    // - `false`: Does not contain Chinese characters.
     shared_ptr<bool> chn_ {};
+    // Specifies the model name.
     shared_ptr<string> embedding_ {};
+    // Describes the json keys.
     shared_ptr<map<string, IndexJsonKey>> jsonKeys_ {};
+    // Specifies the field type.
     shared_ptr<string> type_ {};
   };
 

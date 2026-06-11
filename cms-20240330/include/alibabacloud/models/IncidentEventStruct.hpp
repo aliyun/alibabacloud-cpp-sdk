@@ -165,33 +165,33 @@ namespace Models
 
 
   protected:
-    // Automatic recovery time.
+    // The time of automatic recovery.
     shared_ptr<int64_t> autoRecoverTime_ {};
-    // Content.
+    // The content.
     shared_ptr<string> content_ {};
-    // Count.
+    // The total count.
     shared_ptr<int32_t> count_ {};
-    // Dimension.
+    // The dimension.
     shared_ptr<map<string, string>> dimension_ {};
-    // Used for grouping dimensions.
+    // The dimension for grouping.
     shared_ptr<map<string, string>> groupBy_ {};
-    // Incident Event Id.
+    // The incident event ID.
     shared_ptr<string> incidentEventId_ {};
-    // Incident Id.
+    // The incident ID.
     shared_ptr<string> incidentId_ {};
-    // Last time.
+    // The time of the last occurrence.
     shared_ptr<int64_t> lastTime_ {};
-    // Manual recovery time.
+    // The time of manual recovery.
     shared_ptr<int64_t> recoverTime_ {};
-    // Describes the resource information associated with the event.
+    // The resource associated with the event.
     shared_ptr<map<string, string>> resource_ {};
-    // Status.
+    // The status.
     shared_ptr<int64_t> status_ {};
-    // Time.
+    // The time.
     shared_ptr<string> time_ {};
-    // Title.
+    // The title.
     shared_ptr<string> title_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

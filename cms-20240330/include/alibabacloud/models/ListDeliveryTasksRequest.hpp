@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // The keywords for a fuzzy search by task name or task ID. The search uses `LIKE` semantics.
     shared_ptr<string> keyWords_ {};
+    // The number of entries to return on each page. Default value: 20. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used to retrieve the next page of results. You do not need to specify this parameter for the first request. For subsequent requests, set this parameter to the `nextToken` value that is returned in the previous response.
     shared_ptr<string> nextToken_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // A list of tags.
     shared_ptr<vector<ListDeliveryTasksRequest::Tag>> tag_ {};
   };
 

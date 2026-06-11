@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The status code of the response. A status code of `200` indicates a successful request.
     shared_ptr<string> code_ {};
+    // The response payload.
     shared_ptr<QueryAlertRulesResult> data_ {};
+    // The response message. If the request fails, this field contains details about the error.
     shared_ptr<string> message_ {};
+    // The token to retrieve the next page of results. A null value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique request ID, used for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: `true` and `false`.
     shared_ptr<bool> success_ {};
+    // The total number of alert rules that match the query.
     shared_ptr<int32_t> total_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The time when the instance was created.
     shared_ptr<string> createTime_ {};
+    // The type of the instance.
     shared_ptr<string> instanceType_ {};
+    // The ID of the Prometheus instance that is associated with Real User Monitoring (RUM).
     shared_ptr<string> prometheusInstanceId_ {};
+    // The name of the Prometheus instance that is associated with RUM.
     shared_ptr<string> prometheusInstanceName_ {};
+    // The ID of the Alibaba Cloud region.
     shared_ptr<string> regionId_ {};
+    // The status of the instance.
     shared_ptr<string> status_ {};
+    // The Cloud Monitor 2.0 workspace.
     shared_ptr<string> workspace_ {};
   };
 

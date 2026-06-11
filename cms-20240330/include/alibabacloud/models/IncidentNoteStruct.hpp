@@ -97,13 +97,13 @@ namespace Models
 
 
     protected:
-      // Contact.
+      // The contact.
       shared_ptr<string> contact_ {};
-      // Contact ID.
+      // The contact ID.
       shared_ptr<string> contactId_ {};
-      // Name.
+      // The name.
       shared_ptr<string> name_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -162,19 +162,19 @@ namespace Models
 
 
   protected:
-    // Content.
+    // The content.
     shared_ptr<string> content_ {};
-    // Content format.
+    // The content format.
     shared_ptr<string> format_ {};
-    // Incident ID.
+    // The event ID.
     shared_ptr<string> incidentId_ {};
-    // Note ID.
+    // The record ID.
     shared_ptr<string> noteId_ {};
-    // Operator.
+    // The operator.
     shared_ptr<IncidentNoteStruct::Operator> operator_ {};
-    // Time.
+    // The time.
     shared_ptr<int64_t> time_ {};
-    // Type.
+    // The type.
     shared_ptr<string> type_ {};
   };
 

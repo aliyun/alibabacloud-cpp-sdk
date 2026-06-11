@@ -79,11 +79,11 @@ namespace Models
 
 
     protected:
-      // Left-hand operand of the condition, formatted as $<query_idx>.<result_set_field_name>.
+      // The left operand of the condition. The format is $\\<query_idx>.\\<field_name_in_result_set>.
       shared_ptr<string> firstField_ {};
-      // Comparison operator; valid values: <, >, ==, !=, <=, >=.
+      // The comparison operator. Valid values are <, >, ==, !=, <=, and >=.
       shared_ptr<string> oper_ {};
-      // Right-hand operand of the condition, formatted as $<query_idx>.<result_set_field_name>.
+      // The right operand of the condition. The format is $\\<query_idx>.\\<field_name_in_result_set>.
       shared_ptr<string> secondField_ {};
     };
 
@@ -106,20 +106,29 @@ namespace Models
 
 
   protected:
-    // List of connection conditions.
+    // The list of join conditions.
     shared_ptr<vector<AlertRuleSlsQueryJoin::Conditions>> conditions_ {};
-    // Set operation type.
-    // CrossJoin: Cartesian product
-    // FullJoin: Full outer join
-    // InnerJoin: Inner join
-    // LeftExclude: Left anti join
-    // RightExclude: Right anti join
-    // LeftJoin: Left outer join
-    // RightJoin: Right outer join
-    // NoJoin: No merge
-    // Concat: Concatenation
+    // The type of the collection operation.
     // 
-    // See also: https://help.aliyun.com/zh/sls/user-guide/set-query-statistics-statement
+    // - CrossJoin: The Cartesian product.
+    // 
+    // - FullJoin: The full join.
+    // 
+    // - InnerJoin: The inner join.
+    // 
+    // - LeftExclude: The left exclusion.
+    // 
+    // - RightExclude: The right exclusion.
+    // 
+    // - LeftJoin: The left join.
+    // 
+    // - RightJoin: The right join.
+    // 
+    // - NoJoin: No merge operation is performed.
+    // 
+    // - Concat: Concatenation.
+    // 
+    // For more information, see https\\://www\\.alibabacloud.com/help/en/sls/user-guide/set-operations.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -112,13 +112,21 @@ namespace Models
 
 
     protected:
+      // The time the dataset was created, as a UNIX timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The name of the dataset.
       shared_ptr<string> datasetName_ {};
+      // The description of the dataset.
       shared_ptr<string> description_ {};
+      // The ID of the region where the dataset resides.
       shared_ptr<string> regionId_ {};
+      // The time the dataset was last updated, as a UNIX timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // The ID of the workspace that contains the dataset.
       shared_ptr<string> workspace_ {};
     };
 
@@ -162,10 +170,15 @@ namespace Models
 
 
   protected:
+    // A list of dataset objects.
     shared_ptr<vector<ListDatasetsResponseBody::Datasets>> datasets_ {};
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // A token to retrieve the next page of results. This element is returned only when the result set is truncated.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of datasets that match the query.
     shared_ptr<int32_t> total_ {};
   };
 

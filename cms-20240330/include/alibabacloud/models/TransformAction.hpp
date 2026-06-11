@@ -118,14 +118,23 @@ namespace Models
 
 
   protected:
+    // The filter configuration.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // The label name.
     shared_ptr<string> labelKey_ {};
+    // The mapping configuration.
     shared_ptr<map<string, string>> mapping_ {};
+    // The regular expression.
     shared_ptr<string> regExp_ {};
+    // The reference path.
     shared_ptr<string> source_ {};
+    // The target location.
     shared_ptr<string> target_ {};
+    // The transform type.
     shared_ptr<string> type_ {};
+    // The value to set.
     shared_ptr<string> value_ {};
+    // The variable name.
     shared_ptr<string> variable_ {};
   };
 

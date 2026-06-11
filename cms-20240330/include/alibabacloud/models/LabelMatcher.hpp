@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The label key to match.
     shared_ptr<string> key_ {};
+    // The label value to match.
     shared_ptr<string> value_ {};
   };
 

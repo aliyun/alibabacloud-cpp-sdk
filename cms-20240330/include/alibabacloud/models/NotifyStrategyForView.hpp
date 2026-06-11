@@ -157,13 +157,13 @@ namespace Models
 
 
       protected:
-        // Effective days (Monday to Sunday).
+        // The days of the week when the policy is effective (Monday to Sunday).
         shared_ptr<vector<int32_t>> dayInWeek_ {};
-        // End time (in minutes).
+        // The end time in minutes.
         shared_ptr<int32_t> endTimeInMinute_ {};
-        // Start time (in minutes).
+        // The start time in minutes.
         shared_ptr<int32_t> startTimeInMinute_ {};
-        // Time Zone.
+        // The time zone.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -218,13 +218,13 @@ namespace Models
 
 
       protected:
-        // Channel type.
+        // The channel type.
         // 
         // This parameter is required.
         shared_ptr<string> channelType_ {};
-        // Enabled notification types.
+        // The enabled notification types.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // Channel recipient.
+        // The channel receivers.
         // 
         // This parameter is required.
         shared_ptr<vector<string>> receivers_ {};
@@ -283,15 +283,15 @@ namespace Models
 
 
     protected:
-      // Notification channel.
+      // The notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
       shared_ptr<string> digitalEmployeeName_ {};
-      // Field.
+      // The field.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
       shared_ptr<bool> enableRca_ {};
-      // Routing settings.
+      // The routing settings.
       shared_ptr<FilterSetting> filterSetting_ {};
-      // Severity level list.
+      // The list of severity levels.
       shared_ptr<vector<string>> severities_ {};
     };
 
@@ -333,7 +333,9 @@ namespace Models
 
 
     protected:
+      // The event state at which to stop.
       shared_ptr<string> endIncidentState_ {};
+      // The interval for repeated notifications.
       shared_ptr<int32_t> repeatInterval_ {};
     };
 
@@ -388,8 +390,11 @@ namespace Models
 
 
     protected:
+      // The list of alert action IDs.
       shared_ptr<vector<string>> alertActionIds_ {};
+      // The list of recovery action IDs.
       shared_ptr<vector<string>> restoreActionIds_ {};
+      // The template UUID.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -451,13 +456,13 @@ namespace Models
 
 
     protected:
-      // Grouping Keys
+      // The merge keys.
       shared_ptr<vector<string>> groupingKeys_ {};
-      // Check interval in minutes.
+      // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
-      // Silence duration in seconds.
+      // The silence period in seconds.
       shared_ptr<int32_t> silenceSec_ {};
-      // Trigger count.
+      // The number of triggers.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -499,11 +504,11 @@ namespace Models
 
 
     protected:
-      // Notification type.
+      // The notification type.
       // 
       // This parameter is required.
       shared_ptr<string> targetType_ {};
-      // Template UUID.
+      // The template UUID.
       // 
       // This parameter is required.
       shared_ptr<string> templateUuid_ {};
@@ -673,43 +678,51 @@ namespace Models
 
 
   protected:
+    // The automatic recovery time.
     shared_ptr<int32_t> autoRecoverSeconds_ {};
-    // Create Time.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // Notification channel template.
+    // The notification channel templates.
     shared_ptr<vector<NotifyStrategyForView::CustomTemplateEntries>> customTemplateEntries_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Whether enabled.
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
+    // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Grouping Setting.
+    // The merge settings.
     // 
     // This parameter is required.
     shared_ptr<NotifyStrategyForView::GroupingSetting> groupingSetting_ {};
-    // Whether to notify on recovery.
+    // Indicates whether to send a notification upon recovery.
     shared_ptr<bool> ignoreRestoredNotification_ {};
+    // The list of associated escalation policies.
     shared_ptr<vector<Darabonba::Json>> incidentEscalationPolicies_ {};
-    // UUID
+    // The UUID.
     shared_ptr<string> notifyStrategyId_ {};
-    // Name.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> notifyStrategyName_ {};
+    // The push settings.
     shared_ptr<NotifyStrategyForView::PushingSetting> pushingSetting_ {};
+    // The list of receiver names.
     shared_ptr<vector<string>> receiverNames_ {};
+    // The settings for repeated notifications.
     shared_ptr<NotifyStrategyForView::RepeatNotifySetting> repeatNotifySetting_ {};
-    // Notification channel routing configuration.
+    // The routing settings for notification channels.
     // 
     // This parameter is required.
     shared_ptr<vector<NotifyStrategyForView::Routes>> routes_ {};
+    // The source type of the synchronization policy.
     shared_ptr<string> syncFromType_ {};
-    // Update Time.
+    // The update time.
     shared_ptr<string> updateTime_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // The workspace.
     shared_ptr<string> workspace_ {};
+    // The workspace filter settings.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

@@ -122,7 +122,9 @@ namespace Models
 
 
       protected:
+        // The key of the resource tag.
         shared_ptr<string> key_ {};
+        // The value of the resource tag.
         shared_ptr<string> value_ {};
       };
 
@@ -166,7 +168,9 @@ namespace Models
 
 
       protected:
+        // Detailed configuration for the sink. The available key-value pairs depend on the specified `sinkType`.
         shared_ptr<map<string, string>> sinkConfigs_ {};
+        // The type of the sink.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -200,6 +204,7 @@ namespace Models
 
 
       protected:
+        // A list of EventBridge tasks.
         shared_ptr<vector<string>> taskNameList_ {};
       };
 
@@ -316,20 +321,36 @@ namespace Models
 
 
     protected:
+      // The time when the delivery task was created.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The ID of the Prometheus instance that serves as the data source.
       shared_ptr<string> dataSourceId_ {};
+      // A key-value map of additional labels to attach to all delivered metrics.
       shared_ptr<map<string, string>> externalLabels_ {};
+      // Additional information.
       shared_ptr<DeliveryTasks::ExtraInfo> extraInfo_ {};
+      // A key-value map of metric label filters. These filters are used with `labelFiltersType` to determine which metrics to deliver.
       shared_ptr<map<string, string>> labelFilters_ {};
+      // The filtering mode for metric labels.
       shared_ptr<string> labelFiltersType_ {};
+      // The ID of the resource group to which the task belongs.
       shared_ptr<string> resourceGroupId_ {};
+      // A list of sinks.
       shared_ptr<vector<DeliveryTasks::SinkList>> sinkList_ {};
+      // The current status of the delivery task.
       shared_ptr<string> status_ {};
+      // The resource tags attached to the task.
       shared_ptr<vector<DeliveryTasks::Tags>> tags_ {};
+      // The description of the delivery task.
       shared_ptr<string> taskDescription_ {};
+      // The ID of the delivery task.
       shared_ptr<string> taskId_ {};
+      // The name of the delivery task.
       shared_ptr<string> taskName_ {};
+      // The time when the task was last updated.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -374,10 +395,15 @@ namespace Models
 
 
   protected:
+    // A list of delivery tasks.
     shared_ptr<vector<ListDeliveryTasksResponseBody::DeliveryTasks>> deliveryTasks_ {};
+    // The maximum number of results to return. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token used to retrieve the next page of results. If this parameter is not returned, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

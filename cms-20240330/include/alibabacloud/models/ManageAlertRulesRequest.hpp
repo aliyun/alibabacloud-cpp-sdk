@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // A unified request body for managing alert rules with the CREATE, UPDATE, PATCH, and BATCH_DELETE actions. The required fields depend on the specified action.
     shared_ptr<ManageAlertRulesUnifiedActionInput> body_ {};
   };
 

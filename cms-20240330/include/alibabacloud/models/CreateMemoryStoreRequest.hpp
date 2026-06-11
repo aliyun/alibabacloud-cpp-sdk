@@ -90,8 +90,11 @@ namespace Models
 
 
     protected:
+      // Specifies whether to include the output in the trace.
       shared_ptr<bool> includeOutput_ {};
+      // The query to filter traces.
       shared_ptr<string> query_ {};
+      // The name of the workspace that contains the trace source.
       shared_ptr<string> workspace_ {};
     };
 
@@ -154,14 +157,23 @@ namespace Models
 
 
   protected:
+    // A list of custom extraction strategies.
     shared_ptr<vector<CustomExtractionStrategy>> customExtractionStrategies_ {};
+    // The description of the MemoryStore.
     shared_ptr<string> description_ {};
+    // The extraction strategies to use. Valid values include `Episodic`, `Summary`, and `Fact`.
     shared_ptr<vector<string>> extractionStrategies_ {};
+    // The name of the MemoryStore. The name must be unique within the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> memoryStoreName_ {};
+    // The short-term TTL, which is the number of conversation rounds to retain.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> shortTermTtl_ {};
+    // The source type of the memory. Valid values are `None` and `Trace`.
     shared_ptr<string> sourceType_ {};
+    // Configuration for the trace source. Required if `sourceType` is `Trace`.
     shared_ptr<CreateMemoryStoreRequest::TraceSourceConfig> traceSourceConfig_ {};
   };
 

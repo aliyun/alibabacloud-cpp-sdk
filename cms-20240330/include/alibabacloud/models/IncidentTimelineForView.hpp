@@ -126,15 +126,25 @@ namespace Models
 
 
   protected:
+    // The type of status change.
     shared_ptr<string> changeType_ {};
+    // The content of the timeline event.
     Darabonba::Json content_ {};
+    // The unique identifier of the incident.
     shared_ptr<string> incidentUuid_ {};
+    // Information about the operator.
     shared_ptr<ContactForIncidentView> operator_ {};
+    // The UNIX timestamp when the timeline event occurred.
     shared_ptr<int64_t> time_ {};
+    // The unique identifier of the timeline record.
     shared_ptr<string> timelineUuid_ {};
+    // The title of the timeline event.
     shared_ptr<string> title_ {};
+    // The type of the timeline event.
     shared_ptr<string> type_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

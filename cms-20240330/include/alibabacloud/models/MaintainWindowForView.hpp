@@ -113,13 +113,13 @@ namespace Models
 
 
     protected:
-      // Effective days (Monday to Sunday).
+      // The days of the week when the policy is effective.
       shared_ptr<vector<int32_t>> dayInWeek_ {};
-      // End time (in minutes).
+      // The end time in minutes.
       shared_ptr<int32_t> endTimeInMinute_ {};
-      // Start time (in minutes).
+      // The start time in minutes.
       shared_ptr<int32_t> startTimeInMinute_ {};
-      // Time Zone.
+      // The time zone.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -223,33 +223,33 @@ namespace Models
 
 
   protected:
-    // Creation time.
+    // The time when the policy was created.
     shared_ptr<string> createTime_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Effective time range.
+    // The effective time range.
     shared_ptr<MaintainWindowForView::EffectTimeRange> effectTimeRange_ {};
-    // Crontab expression.
+    // The crontab expression.
     shared_ptr<string> effective_ {};
-    // Whether enabled.
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
-    // Effective end time.
+    // The end time of the effective period.
     shared_ptr<string> endTime_ {};
-    // Filtering conditions.
+    // The filter conditions.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // UUID
+    // The UUID.
     shared_ptr<string> maintainWindowId_ {};
-    // Name.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> maintainWindowName_ {};
-    // Effective start time.
+    // The start time of the effective period.
     shared_ptr<string> startTime_ {};
-    // Update time.
+    // The last time the resource was updated.
     shared_ptr<string> updateTime_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

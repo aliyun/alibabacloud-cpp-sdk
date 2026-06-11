@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // 过滤字段名
+    // The field name to filter on.
     shared_ptr<string> field_ {};
-    // 过滤操作符，仅支持 = 或 !=
+    // The comparison operator to use. Supported operators include `=`, `>`, `<`, `!=`, `IN`, and `NOT IN`.
     shared_ptr<string> operator_ {};
-    // 过滤值
+    // The value to compare the field against.
     shared_ptr<string> value_ {};
   };
 

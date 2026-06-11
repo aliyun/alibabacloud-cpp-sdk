@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The language. Valid values: zh and en. The default value is zh.
     shared_ptr<string> aliyunLang_ {};
+    // Tag filtering.
     shared_ptr<string> category_ {};
+    // Specifies whether to use regular expressions for the search. The default value is false.
     shared_ptr<bool> regexp_ {};
+    // The search keyword. You can search for add-ons by name, description, or keyword.
     shared_ptr<string> search_ {};
   };
 

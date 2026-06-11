@@ -153,25 +153,26 @@ namespace Models
 
 
   protected:
-    // List of contact IDs.
+    // A list of contact IDs.
     shared_ptr<vector<string>> contacts_ {};
-    // List of custom webhook notification object IDs.
+    // A list of custom webhook notification object IDs.
     shared_ptr<vector<string>> customWebhooks_ {};
+    // A list of DingTalk Cool App webhook notification object IDs.
     shared_ptr<vector<string>> dingCoolAppWebhooks_ {};
-    // List of DingTalk webhook notification object IDs.
+    // A list of DingTalk webhook notification object IDs.
     shared_ptr<vector<string>> dingWebhooks_ {};
-    // List of Feishu webhook notification object IDs.
+    // A list of Lark webhook notification object IDs.
     shared_ptr<vector<string>> fsWebhooks_ {};
-    // List of contact group IDs.
+    // A list of contact group IDs.
     shared_ptr<vector<string>> groups_ {};
-    // Notification time window; notifications are sent only during this period.
+    // The notification period. Notifications are sent only within this period.
     shared_ptr<AlertRuleTimeSpan> notifyTime_ {};
     shared_ptr<map<string, Darabonba::Json>> qwencloudContacts_ {};
-    // Notification silence duration, in seconds.
+    // The notification silence period. Unit: seconds.
     shared_ptr<int64_t> silenceTime_ {};
-    // List of Slack webhook notification object IDs.
+    // A list of Slack webhook notification object IDs.
     shared_ptr<vector<string>> slackWebhooks_ {};
-    // List of WeChat webhook notification object IDs.
+    // A list of WeChat webhook notification object IDs.
     shared_ptr<vector<string>> wxWebhooks_ {};
   };
 

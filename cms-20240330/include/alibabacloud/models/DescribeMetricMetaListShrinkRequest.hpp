@@ -95,11 +95,29 @@ namespace Models
 
   protected:
     shared_ptr<string> keywords_ {};
+    // The labels used to filter resources. The following labels are supported:
+    // 
+    // - `metricCategory`: The metric category.
+    // 
+    // - `alertEnable`: Indicates whether to enable alerts.
+    // 
+    // - `alertUnit`: The recommended unit for alerts.
+    // 
+    // - `unitFactor`: The unit conversion factor.
+    // 
+    // - `minAlertPeriod`: The minimum alert period.
+    // 
+    // - `productCategory`: The product category.
     shared_ptr<string> labelsShrink_ {};
+    // The source of the metadata. Valid values: `CMS` for CloudMonitor metrics and `PROM_BASIC` for basic Prometheus metrics.
     shared_ptr<string> metaFormat_ {};
+    // The name of the metric.
     shared_ptr<string> metricName_ {};
+    // The namespace of the product.
     shared_ptr<string> namespace_ {};
+    // The number of the page to return. Default value: `1`.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: `2000`.
     shared_ptr<int32_t> pageSize_ {};
   };
 

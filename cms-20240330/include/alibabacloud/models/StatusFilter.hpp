@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Filters the results to include only resources with the specified status.
     shared_ptr<string> eq_ {};
   };
 

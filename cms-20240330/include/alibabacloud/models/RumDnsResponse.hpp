@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The domain name for RUM reporting.
     shared_ptr<string> domain_ {};
+    // The message returned if initialization fails.
     shared_ptr<string> message_ {};
+    // The DNS initialization status of the domain name.
     shared_ptr<bool> result_ {};
   };
 

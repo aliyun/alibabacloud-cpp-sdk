@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Returns only resources whose display name contains the specified string. The match is case-sensitive.
     shared_ptr<string> contains_ {};
+    // Returns only resources whose display name does not contain the specified string. The match is case-sensitive.
     shared_ptr<string> notContains_ {};
   };
 

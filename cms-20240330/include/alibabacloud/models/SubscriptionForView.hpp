@@ -121,13 +121,13 @@ namespace Models
 
 
     protected:
-      // Alert push action integration ID list.
+      // A list of action integration IDs for alert pushes.
       shared_ptr<vector<string>> alertActionIds_ {};
-      // Action plan ID.
+      // The action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // Recovery push action integration ID list.
+      // A list of action integration IDs for recovery pushes.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // Template UUID.
+      // The template UUID.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -294,31 +294,32 @@ namespace Models
 
   protected:
     shared_ptr<SubscriptionForView::AgentConfig> agentConfig_ {};
-    // Create Time.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // Description.
+    // The description.
     shared_ptr<string> description_ {};
-    // Whether enabled.
+    // Indicates whether the subscription is enabled.
     shared_ptr<bool> enable_ {};
-    // Filtering settings.
+    // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // Notification policy UUID.
+    // The UUID of the notification policy.
     shared_ptr<string> notifyStrategyId_ {};
-    // Push settings.
+    // The push settings.
     shared_ptr<SubscriptionForView::PushingSetting> pushingSetting_ {};
-    // UUID
+    // The UUID.
     shared_ptr<string> subscriptionId_ {};
-    // Name.
+    // The name.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
     shared_ptr<string> subscriptionType_ {};
+    // The source type of the synchronization policy.
     shared_ptr<string> syncFromType_ {};
-    // Update Time.
+    // The update time.
     shared_ptr<string> updateTime_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // Specifies the workspace.
     shared_ptr<string> workspace_ {};
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };

@@ -96,12 +96,19 @@ namespace Models
 
 
   protected:
+    // The application\\"s agent ID.
     shared_ptr<string> agentId_ {};
+    // The Application ID.
     shared_ptr<string> appId_ {};
+    // The filter criteria.
     Darabonba::Json filters_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The Run ID.
     shared_ptr<string> runId_ {};
+    // The User ID.
     shared_ptr<string> userId_ {};
   };
 

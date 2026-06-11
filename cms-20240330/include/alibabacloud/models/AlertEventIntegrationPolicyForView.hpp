@@ -156,21 +156,33 @@ namespace Models
 
 
   protected:
-    // UUID
+    // The universally unique identifier (UUID).
     shared_ptr<string> alertEventIntegrationPolicyId_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> alertEventIntegrationPolicyName_ {};
+    // The time when the policy was created.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
+    // The filter configuration.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // The subscription settings.
     shared_ptr<string> integrationSetting_ {};
+    // The key for the integration\\"s reporting endpoint.
     shared_ptr<string> token_ {};
+    // The transformation settings.
     shared_ptr<vector<TransformAction>> transformerSetting_ {};
+    // The type.
     shared_ptr<string> type_ {};
+    // The time when the policy was last updated.
     shared_ptr<string> updateTime_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

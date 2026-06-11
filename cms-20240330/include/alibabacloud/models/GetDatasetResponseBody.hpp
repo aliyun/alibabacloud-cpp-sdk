@@ -107,15 +107,25 @@ namespace Models
 
 
   protected:
+    // The time the dataset was created, as a Unix timestamp.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The name of the dataset.
     shared_ptr<string> datasetName_ {};
+    // The description of the dataset.
     shared_ptr<string> description_ {};
+    // The ID of the region where the dataset is located.
     shared_ptr<string> regionId_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
+    // The data schema of the dataset.
     shared_ptr<map<string, IndexKey>> schema_ {};
+    // The time the dataset was last updated, as a Unix timestamp.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
+    // The workspace ID.
     shared_ptr<string> workspace_ {};
   };
 

@@ -89,10 +89,15 @@ namespace Models
 
 
   protected:
+    // The name of the robot. Fuzzy search by prefix is supported.
     shared_ptr<string> name_ {};
+    // The number of the page to return. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The robot IDs.
     shared_ptr<vector<string>> robotIds_ {};
+    // The robot types.
     shared_ptr<vector<string>> types_ {};
     shared_ptr<string> workspace_ {};
   };

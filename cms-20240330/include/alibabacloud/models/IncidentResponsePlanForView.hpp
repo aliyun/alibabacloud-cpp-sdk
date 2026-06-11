@@ -176,20 +176,35 @@ namespace Models
 
 
   protected:
+    // The automatic recovery time.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
+    // The time when the plan was created.
     shared_ptr<string> createTime_ {};
+    // The description of the response plan.
     shared_ptr<string> description_ {};
+    // Indicates whether the response plan is enabled.
     shared_ptr<bool> enabled_ {};
+    // A list of the IDs of associated escalation policies.
     shared_ptr<vector<string>> escalationId_ {};
+    // The response pattern.
     shared_ptr<string> mode_ {};
+    // The name of the response plan.
     shared_ptr<string> name_ {};
+    // The push notification settings.
     shared_ptr<PushingSetting> pushingSetting_ {};
+    // The settings for repeated notifications.
     shared_ptr<RepeatNotifySetting> repeatNotifySetting_ {};
+    // The source.
     shared_ptr<string> source_ {};
+    // The source type of the synchronization policy.
     shared_ptr<string> syncFromType_ {};
+    // The type of the response plan.
     shared_ptr<string> type_ {};
+    // The time when the plan was last updated.
     shared_ptr<string> updateTime_ {};
+    // The globally unique identifier.
     shared_ptr<string> uuid_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

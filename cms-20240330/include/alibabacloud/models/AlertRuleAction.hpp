@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // A list of action integration IDs.
     shared_ptr<vector<string>> actions_ {};
   };
 

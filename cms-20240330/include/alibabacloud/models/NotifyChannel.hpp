@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // The type of the notification channel.
     shared_ptr<string> channelType_ {};
+    // The list of enabled sub-channels.
     shared_ptr<vector<string>> enabledSubChannels_ {};
+    // The list of receivers.
     shared_ptr<vector<string>> receivers_ {};
   };
 

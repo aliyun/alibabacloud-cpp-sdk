@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The advanced configuration.
     shared_ptr<string> advancedConfig_ {};
+    // The business trace identifier.
     shared_ptr<string> bizTraceCode_ {};
+    // The business trace ID.
     shared_ptr<string> bizTraceId_ {};
+    // The business trace name.
     shared_ptr<string> bizTraceName_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The list of configuration rules.
     shared_ptr<string> ruleConfig_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

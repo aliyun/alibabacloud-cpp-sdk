@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // The Logstore name.
         shared_ptr<string> logstore_ {};
+        // The Log Service Project name.
         shared_ptr<string> project_ {};
+        // The query statement to filter logs.
         shared_ptr<string> query_ {};
       };
 
@@ -132,7 +135,9 @@ namespace Models
 
 
     protected:
+      // The Log Service Logstore configuration. This parameter is required when `source.type` is set to `logstore`.
       shared_ptr<Source::Logstore> logstore_ {};
+      // The data source type.
       shared_ptr<string> type_ {};
     };
 
@@ -195,7 +200,9 @@ namespace Models
 
 
       protected:
+        // The dataset name.
         shared_ptr<string> dataset_ {};
+        // The workspace ID.
         shared_ptr<string> workspace_ {};
       };
 
@@ -218,7 +225,9 @@ namespace Models
 
 
     protected:
+      // The destination dataset configuration. This parameter is required when `sink.type` is set to `dataset`.
       shared_ptr<Sink::Dataset> dataset_ {};
+      // The sink type.
       shared_ptr<string> type_ {};
     };
 
@@ -290,8 +299,11 @@ namespace Models
 
 
       protected:
+        // The node ID.
         shared_ptr<string> id_ {};
+        // The node parameters.
         Darabonba::Json parameters_ {};
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -306,6 +318,7 @@ namespace Models
 
 
     protected:
+      // The pipeline nodes.
       shared_ptr<vector<Pipeline::Nodes>> nodes_ {};
     };
 
@@ -370,7 +383,9 @@ namespace Models
 
 
       protected:
+        // The start timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The execution interval in seconds.
         shared_ptr<string> interval_ {};
       };
 
@@ -412,7 +427,9 @@ namespace Models
 
 
       protected:
+        // The start timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The end timestamp.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -444,8 +461,11 @@ namespace Models
 
 
     protected:
+      // The execution mode. Set to `runOnce` for a single execution, or `scheduled` for a recurring execution.
       shared_ptr<string> mode_ {};
+      // The configuration for a one-time execution. This parameter is required when `executePolicy.mode` is set to `runOnce`.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
+      // The configuration for a scheduled execution. This parameter is required when `executePolicy.mode` is set to `scheduled`.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -502,11 +522,17 @@ namespace Models
 
 
   protected:
+    // The pipeline description.
     shared_ptr<string> description_ {};
+    // The execution policy.
     shared_ptr<CreatePipelineRequest::ExecutePolicy> executePolicy_ {};
+    // The pipeline configuration.
     shared_ptr<CreatePipelineRequest::Pipeline> pipeline_ {};
+    // The pipeline name.
     shared_ptr<string> pipelineName_ {};
+    // The data sink for the processed output.
     shared_ptr<CreatePipelineRequest::Sink> sink_ {};
+    // The data source.
     shared_ptr<CreatePipelineRequest::Source> source_ {};
   };
 

@@ -100,23 +100,23 @@ namespace Models
 
 
   protected:
-    // 一周中发送通知的星期，1-7
+    // The active days of the week.
     shared_ptr<vector<int32_t>> activeDays_ {};
-    // 每天通知生效结束时间
+    // The end of the daily active time window. On active days, the system sends notifications only before this time. Format: `HH:mm`.
     shared_ptr<string> activeEndTime_ {};
-    // 每天通知生效开始时间
+    // The start of the daily active time window. On active days, the system sends notifications only after this time. Format: `HH:mm`.
     shared_ptr<string> activeStartTime_ {};
-    // 通知渠道列表
+    // The notification channels that receive alerts.
     // 
     // This parameter is required.
     shared_ptr<vector<DirectNotifyChannel>> channels_ {};
-    // 通道沉默周期（秒）
+    // The silence time in seconds. After sending a notification, the system suppresses new notifications for the same alert for this duration.
     shared_ptr<int32_t> silenceTimeSecs_ {};
-    // 通知配置类型
+    // The type of the notification configuration.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // UTC 时区偏移量
+    // The UTC offset for `activeStartTime` and `activeEndTime`. The format is `[+/-]HH:mm`. For example, `+08:00` represents the UTC+8 time zone.
     shared_ptr<string> utcOffset_ {};
   };
 

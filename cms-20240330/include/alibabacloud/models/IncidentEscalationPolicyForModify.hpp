@@ -70,9 +70,14 @@ namespace Models
 
 
   protected:
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
+    // The list of escalation stages. This list defines multiple progressive escalation steps. Each stage contains trigger conditions and notification targets.
     shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

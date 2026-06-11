@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 是否启用 ARMS 集成
+    // Whether ARMS integration is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

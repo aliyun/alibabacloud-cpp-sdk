@@ -64,6 +64,7 @@ namespace Models
 
 
     protected:
+      // The dataset name.
       shared_ptr<string> name_ {};
     };
 
@@ -135,8 +136,11 @@ namespace Models
 
 
       protected:
+        // The Log Service Logstore name.
         shared_ptr<string> logstore_ {};
+        // The Log Service Project name.
         shared_ptr<string> project_ {};
+        // The start time.
         shared_ptr<string> startTime_ {};
       };
 
@@ -161,7 +165,9 @@ namespace Models
 
 
     protected:
+      // The metadata field.
       shared_ptr<map<string, string>> metadataField_ {};
+      // The data source.
       shared_ptr<Config::Source> source_ {};
     };
 
@@ -200,9 +206,13 @@ namespace Models
 
 
   protected:
+    // The configuration.
     shared_ptr<UpdateContextStoreRequest::Config> config_ {};
+    // The context type.
     shared_ptr<string> contextType_ {};
+    // The dataset.
     shared_ptr<UpdateContextStoreRequest::Dataset> dataset_ {};
+    // The description.
     shared_ptr<string> description_ {};
   };
 

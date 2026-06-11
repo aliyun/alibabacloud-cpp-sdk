@@ -118,7 +118,9 @@ namespace Models
 
 
       protected:
+        // The name of the Log Service Logstore.
         shared_ptr<string> logstore_ {};
+        // The name of the Log Service project.
         shared_ptr<string> project_ {};
         shared_ptr<string> query_ {};
       };
@@ -142,7 +144,9 @@ namespace Models
 
 
     protected:
+      // The configuration of the Log Service Logstore.
       shared_ptr<Source::Logstore> logstore_ {};
+      // The type of the data source.
       shared_ptr<string> type_ {};
     };
 
@@ -205,7 +209,9 @@ namespace Models
 
 
       protected:
+        // The dataset name.
         shared_ptr<string> dataset_ {};
+        // The workspace ID.
         shared_ptr<string> workspace_ {};
       };
 
@@ -228,7 +234,9 @@ namespace Models
 
 
     protected:
+      // The dataset configuration.
       shared_ptr<Sink::Dataset> dataset_ {};
+      // The sink type.
       shared_ptr<string> type_ {};
     };
 
@@ -300,8 +308,11 @@ namespace Models
 
 
       protected:
+        // The node ID.
         shared_ptr<string> id_ {};
+        // The parameters for the node.
         Darabonba::Json parameters_ {};
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -316,6 +327,7 @@ namespace Models
 
 
     protected:
+      // The nodes in the pipeline.
       shared_ptr<vector<Pipeline::Nodes>> nodes_ {};
     };
 
@@ -380,7 +392,9 @@ namespace Models
 
 
       protected:
+        // The start time of the execution, as a Unix timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The execution interval in seconds.
         shared_ptr<string> interval_ {};
       };
 
@@ -422,7 +436,9 @@ namespace Models
 
 
       protected:
+        // The start time of the execution, as a Unix timestamp.
         shared_ptr<int64_t> fromTime_ {};
+        // The end time of the execution, as a Unix timestamp.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -454,8 +470,11 @@ namespace Models
 
 
     protected:
+      // The execution mode.
       shared_ptr<string> mode_ {};
+      // The configuration for a one-time execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
+      // The configuration for a scheduled execution.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -548,18 +567,31 @@ namespace Models
 
 
   protected:
+    // The creation time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The description of the pipeline.
     shared_ptr<string> description_ {};
+    // The execution policy.
     shared_ptr<GetPipelineResponseBody::ExecutePolicy> executePolicy_ {};
+    // The pipeline configuration.
     shared_ptr<GetPipelineResponseBody::Pipeline> pipeline_ {};
+    // The pipeline name.
     shared_ptr<string> pipelineName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The pipeline\\"s data sink.
     shared_ptr<GetPipelineResponseBody::Sink> sink_ {};
+    // The pipeline\\"s data source.
     shared_ptr<GetPipelineResponseBody::Source> source_ {};
+    // The update time.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
+    // The workspace ID.
     shared_ptr<string> workspace_ {};
   };
 

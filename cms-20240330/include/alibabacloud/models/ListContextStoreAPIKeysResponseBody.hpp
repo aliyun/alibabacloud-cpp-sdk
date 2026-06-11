@@ -103,11 +103,17 @@ namespace Models
 
 
     protected:
+      // The complete API key value.
       shared_ptr<string> apiKey_ {};
+      // The name of the context store.
       shared_ptr<string> contextStoreName_ {};
+      // The time when the API key was created, represented as a Unix timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The display name of the API key. This name helps you identify the purpose of the key.
       shared_ptr<string> name_ {};
+      // The ID of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -151,10 +157,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // A pagination token. To retrieve the next page of results, include this value in the `nextToken` parameter of your next request. If this parameter is not returned, there are no more results.
     shared_ptr<string> nextToken_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The list of API keys.
     shared_ptr<vector<ListContextStoreAPIKeysResponseBody::Results>> results_ {};
+    // The total count of entries that match the query.
     shared_ptr<int32_t> total_ {};
   };
 

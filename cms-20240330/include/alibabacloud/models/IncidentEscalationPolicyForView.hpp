@@ -153,19 +153,37 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enable_ {};
+    // The list of escalation stages.
     shared_ptr<vector<IncidentEscalationStageForView>> escalationStageList_ {};
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The owner type.
+    // 
+    // - **USER**: User. This is the default value.
+    // 
+    // - **APP**: Application.
     shared_ptr<string> ownerType_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The source.
     shared_ptr<string> source_ {};
+    // The source type of the synchronization policy.
     shared_ptr<string> syncFromType_ {};
+    // The update time.
     shared_ptr<string> updateTime_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The globally unique identifier.
     shared_ptr<string> uuid_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
   };
 

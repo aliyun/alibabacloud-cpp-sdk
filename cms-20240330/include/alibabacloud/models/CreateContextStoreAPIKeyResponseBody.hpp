@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The value of the API key. This value is returned only upon creation. Store it in a secure location.
     shared_ptr<string> apiKey_ {};
+    // The display name of the API key.
     shared_ptr<string> name_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -116,7 +116,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -160,7 +162,9 @@ namespace Models
 
 
       protected:
+        // The sink configuration. The structure of this object depends on the value of `sinkType`. For details, see CreateDeliveryTask.
         shared_ptr<map<string, string>> sinkConfigs_ {};
+        // The sink type.
         shared_ptr<string> sinkType_ {};
       };
 
@@ -194,6 +198,7 @@ namespace Models
 
 
       protected:
+        // The names of the associated EventBridge tasks.
         shared_ptr<vector<string>> taskNameList_ {};
       };
 
@@ -310,20 +315,36 @@ namespace Models
 
 
     protected:
+      // The creation time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The data source ID (the Prometheus instance ID).
       shared_ptr<string> dataSourceId_ {};
+      // A map of key-value pairs to add as external labels to all delivered metrics.
       shared_ptr<map<string, string>> externalLabels_ {};
+      // The extra information.
       shared_ptr<DeliveryTask::ExtraInfo> extraInfo_ {};
+      // The label filters, used with `labelFiltersType`. In each filter, the key is the metric label and the value is the value to match.
       shared_ptr<map<string, string>> labelFilters_ {};
+      // The label filter type.
       shared_ptr<string> labelFiltersType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // An array of sink configurations.
       shared_ptr<vector<DeliveryTask::SinkList>> sinkList_ {};
+      // The task status.
       shared_ptr<string> status_ {};
+      // The tags attached to the task.
       shared_ptr<vector<DeliveryTask::Tags>> tags_ {};
+      // The task description.
       shared_ptr<string> taskDescription_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task name.
       shared_ptr<string> taskName_ {};
+      // The update time.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
     };
@@ -347,7 +368,9 @@ namespace Models
 
 
   protected:
+    // The delivery task details.
     shared_ptr<GetDeliveryTaskResponseBody::DeliveryTask> deliveryTask_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

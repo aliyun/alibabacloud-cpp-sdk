@@ -109,12 +109,19 @@ namespace Models
 
 
   protected:
+    // A list of contact IDs for filtering.
     shared_ptr<vector<string>> contacts_ {};
+    // A list of custom webhook IDs for filtering.
     shared_ptr<vector<string>> customWebhooks_ {};
+    // A list of DingTalk webhook IDs for filtering.
     shared_ptr<vector<string>> dingWebhooks_ {};
+    // A list of Lark webhook IDs for filtering.
     shared_ptr<vector<string>> fsWebhooks_ {};
+    // A list of contact group IDs for filtering.
     shared_ptr<vector<string>> groups_ {};
+    // A list of Slack webhook IDs for filtering.
     shared_ptr<vector<string>> slackWebhooks_ {};
+    // A list of WeChat webhook IDs for filtering.
     shared_ptr<vector<string>> wxWebhooks_ {};
   };
 

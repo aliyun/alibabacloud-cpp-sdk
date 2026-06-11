@@ -147,7 +147,9 @@ namespace Models
 
 
         protected:
+          // The security group ID.
           shared_ptr<string> securityGroupId_ {};
+          // The vSwitch ID.
           shared_ptr<string> vswitchId_ {};
         };
 
@@ -242,17 +244,29 @@ namespace Models
 
 
       protected:
+        // The host IP address.
         shared_ptr<string> hostIp_ {};
+        // The IP address of the workload.
         shared_ptr<string> ip_ {};
+        // Indicates whether the component is a managed component.
         shared_ptr<bool> managed_ {};
+        // The policy management information.
         shared_ptr<Workloads::ManagedInfo> managedInfo_ {};
+        // The details.
         shared_ptr<string> message_ {};
+        // The workload name.
         shared_ptr<string> name_ {};
+        // The workload namespace.
         shared_ptr<string> namespace_ {};
+        // The kind of the parent reference.
         shared_ptr<string> ownerReferenceKind_ {};
+        // The name of the parent reference.
         shared_ptr<string> ownerReferenceName_ {};
+        // The start time.
         shared_ptr<string> startTime_ {};
+        // The status.
         shared_ptr<string> status_ {};
+        // The workload version.
         shared_ptr<string> version_ {};
       };
 
@@ -330,11 +344,17 @@ namespace Models
 
 
       protected:
+        // The time of the first transition.
         shared_ptr<string> firstTransitionTime_ {};
+        // The time of the last transition.
         shared_ptr<string> lastTransitionTime_ {};
+        // The details.
         shared_ptr<string> message_ {};
+        // The reason for the failure.
         shared_ptr<string> reason_ {};
+        // The phase status.
         shared_ptr<string> status_ {};
+        // The phase type.
         shared_ptr<string> type_ {};
       };
 
@@ -411,14 +431,23 @@ namespace Models
 
 
     protected:
+      // The add-on details.
       shared_ptr<AddonMeta> addonMeta_ {};
+      // The collector name.
       shared_ptr<string> collectorName_ {};
+      // The collector type.
       shared_ptr<string> collectorType_ {};
+      // The phase status.
       shared_ptr<vector<Collectors::Conditions>> conditions_ {};
+      // Indicates whether the component is a managed component.
       shared_ptr<bool> managed_ {};
+      // The name of the add-on release.
       shared_ptr<string> releaseName_ {};
+      // The collector status.
       shared_ptr<string> state_ {};
+      // The component version.
       shared_ptr<string> version_ {};
+      // The list of workloads.
       shared_ptr<vector<Collectors::Workloads>> workloads_ {};
     };
 
@@ -441,7 +470,9 @@ namespace Models
 
 
   protected:
+    // The list of collectors.
     shared_ptr<vector<ListIntegrationPolicyCollectorsResponseBody::Collectors>> collectors_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

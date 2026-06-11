@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The state that ends the management event.
     shared_ptr<string> endIncidentState_ {};
+    // The interval between repeated notifications.
     shared_ptr<string> repeatInterval_ {};
   };
 

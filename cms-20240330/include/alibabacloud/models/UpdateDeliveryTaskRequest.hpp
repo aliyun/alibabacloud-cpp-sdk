@@ -87,7 +87,9 @@ namespace Models
 
 
     protected:
+      // The detailed configuration of the sink. The meaning of the key-value pairs depends on the specified sinkType.
       shared_ptr<map<string, string>> sinkConfigs_ {};
+      // The sink type.
       shared_ptr<string> sinkType_ {};
     };
 
@@ -164,14 +166,23 @@ namespace Models
 
 
   protected:
+    // The data source ID (Prometheus instance ID).
     shared_ptr<string> dataSourceId_ {};
+    // Additional labels to attach to all delivered metrics, specified as key-value pairs.
     shared_ptr<map<string, string>> externalLabels_ {};
+    // The labels for filtering metrics. This operation replaces the entire existing filter; incremental updates are not supported.
     shared_ptr<map<string, string>> labelFilters_ {};
+    // The metric filtering mode.
     shared_ptr<string> labelFiltersType_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The list of sinks.
     shared_ptr<vector<UpdateDeliveryTaskRequest::SinkList>> sinkList_ {};
+    // The status of the delivery task.
     shared_ptr<string> status_ {};
+    // The task description.
     shared_ptr<string> taskDescription_ {};
+    // The name of the delivery task. The name can include Chinese characters, English letters, underscores (_), and hyphens (-).
     shared_ptr<string> taskName_ {};
   };
 

@@ -230,25 +230,45 @@ namespace Models
 
 
   protected:
+    // The UNIX timestamp of the automatic recovery.
     shared_ptr<int64_t> autoRecoverTime_ {};
+    // The details of the event.
     shared_ptr<CmsEventForView> content_ {};
+    // The number of times the event was triggered.
     shared_ptr<int32_t> count_ {};
+    // The dimension information of the event.
     Darabonba::Json dimension_ {};
+    // The information about the associated resource.
     shared_ptr<EventResourceForIncidentView> eventResource_ {};
+    // The criteria for grouping.
     Darabonba::Json groupBy_ {};
+    // The unique ID of the event.
     shared_ptr<string> incidentEventUuid_ {};
+    // The unique ID of the incident to which the event belongs.
     shared_ptr<string> incidentUuid_ {};
+    // The key-value pairs of custom tags.
     Darabonba::Json labels_ {};
+    // The UNIX timestamp of the last occurrence.
     shared_ptr<int64_t> lastTime_ {};
+    // The UNIX timestamp of the recovery.
     shared_ptr<int64_t> recoverTime_ {};
+    // The list of search index fields.
     shared_ptr<vector<string>> searchIndex_ {};
+    // The severity level of the event.
     shared_ptr<string> severity_ {};
+    // The statistics on the number of events for each severity level.
     Darabonba::Json severityCountMap_ {};
+    // The current status code of the event.
     shared_ptr<int32_t> state_ {};
+    // The text index field.
     shared_ptr<string> textIndex_ {};
+    // The UNIX timestamp when the event occurred.
     shared_ptr<int64_t> time_ {};
+    // The title of the event.
     shared_ptr<string> title_ {};
+    // The ID of the user who created or triggered the event.
     shared_ptr<string> userId_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

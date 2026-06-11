@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // 告警等级
+    // The severity of the alert.
     // 
     // This parameter is required.
     shared_ptr<string> severity_ {};
-    // 阈值
+    // The metric value that triggers the alert.
     // 
     // This parameter is required.
     shared_ptr<float> threshold_ {};

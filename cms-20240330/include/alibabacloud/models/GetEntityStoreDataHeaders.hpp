@@ -52,7 +52,7 @@ namespace Models
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // Content encoding type for the compression algorithm
+    // The content encoding type of the compression algorithm.
     shared_ptr<string> acceptEncoding_ {};
   };
 

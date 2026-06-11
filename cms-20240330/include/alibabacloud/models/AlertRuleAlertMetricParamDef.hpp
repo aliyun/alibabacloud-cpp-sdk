@@ -91,8 +91,11 @@ namespace Models
 
 
     protected:
+      // The Chinese display name of the option.
       shared_ptr<string> labelCn_ {};
+      // The English display name of the option.
       shared_ptr<string> labelEn_ {};
+      // The value.
       shared_ptr<string> value_ {};
     };
 
@@ -158,13 +161,21 @@ namespace Models
 
 
   protected:
+    // The maximum width of the input control. This parameter is valid only for SELECT_PARAM and INPUT_PARAM.
     shared_ptr<int32_t> maxWidth_ {};
+    // The minimum width of the input control. This parameter is valid only for SELECT_PARAM and INPUT_PARAM.
     shared_ptr<int32_t> minWidth_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The Chinese placeholder text displayed on the frontend. This parameter is valid only for INPUT_PARAM.
     shared_ptr<string> placeholderCn_ {};
+    // The English placeholder text displayed on the frontend. This parameter is valid only for INPUT_PARAM.
     shared_ptr<string> placeholderEn_ {};
+    // ● TEXT_PARAM: A read-only text parameter defined by the backend. No user input control is displayed on the frontend.● INPUT_PARAM: An input box parameter.● SELECT_PARAM: A selection box parameter.
     shared_ptr<string> type_ {};
+    // The value.
     shared_ptr<string> value_ {};
+    // The list of available options in the drop-down list. This parameter is valid only for SELECT_PARAM.
     shared_ptr<vector<AlertRuleAlertMetricParamDef::Values>> values_ {};
   };
 

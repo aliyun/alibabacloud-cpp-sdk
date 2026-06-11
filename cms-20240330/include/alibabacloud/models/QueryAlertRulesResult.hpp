@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // 告警规则列表
+    // The list of alert rules for the current page.
     shared_ptr<vector<AlertRuleV2>> alertRules_ {};
-    // 符合查询条件的总告警规则数
+    // The total number of alert rules that match the query.
     shared_ptr<int64_t> totalCount_ {};
   };
 

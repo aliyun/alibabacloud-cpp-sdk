@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // 分组维度
+    // An array of dimension keys used to group the results.
     shared_ptr<vector<string>> groupBy_ {};
-    // 指标代码
+    // The unique code that identifies the metric.
     // 
     // This parameter is required.
     shared_ptr<string> measureCode_ {};
-    // 查询时间窗口（秒）
+    // The aggregation period in seconds, which determines the time granularity of data points.
     // 
     // This parameter is required.
     shared_ptr<int32_t> windowSecs_ {};

@@ -63,8 +63,11 @@ namespace Models
 
 
   protected:
+    // The filter criteria. Only alert rules that match these criteria are returned.
     shared_ptr<QueryAlertRulesFilter> filter_ {};
+    // The pagination settings for the query. If omitted, the system returns the first page of results with the default page size.
     shared_ptr<Pagination> pagination_ {};
+    // The ID of the workspace that contains the alert rules.
     shared_ptr<string> workspace_ {};
   };
 

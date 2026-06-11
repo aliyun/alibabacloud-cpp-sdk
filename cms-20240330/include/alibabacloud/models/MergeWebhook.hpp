@@ -142,17 +142,29 @@ namespace Models
 
 
   protected:
+    // The content type.
     shared_ptr<string> contentType_ {};
+    // An extension field used to store additional configurations.
     shared_ptr<string> extend_ {};
+    // The creation time.
     shared_ptr<string> gmtCreate_ {};
+    // The last modification time.
     Darabonba::Json gmtModified_ {};
+    // The request header.
     shared_ptr<string> headers_ {};
+    // The unique identifier of the webhook.
     shared_ptr<string> identifier_ {};
+    // The language preference.
     shared_ptr<string> lang_ {};
+    // The HTTP request method.
     shared_ptr<string> method_ {};
+    // The name of the webhook.
     shared_ptr<string> name_ {};
+    // The source system of the webhook.
     shared_ptr<string> source_ {};
+    // The type of the webhook. It indicates the destination platform.
     shared_ptr<string> type_ {};
+    // The webhook URL used to send requests.
     shared_ptr<string> webhook_ {};
   };
 

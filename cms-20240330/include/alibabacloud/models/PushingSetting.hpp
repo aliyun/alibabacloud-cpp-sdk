@@ -62,8 +62,11 @@ namespace Models
 
 
   protected:
+    // The list of alert action IDs.
     shared_ptr<vector<string>> alertActionIds_ {};
+    // The list of restore action IDs.
     shared_ptr<vector<string>> restoreActionIds_ {};
+    // The UUID of the message template.
     shared_ptr<string> templateUuid_ {};
   };
 

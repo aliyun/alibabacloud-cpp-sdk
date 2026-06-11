@@ -252,27 +252,49 @@ namespace Models
 
 
   protected:
+    // The details of the incident.
     shared_ptr<string> content_ {};
+    // The list of escalation policies.
     shared_ptr<vector<IncidentEscalationPolicyForView>> escalations_ {};
+    // The group identifier.
     shared_ptr<string> groupUuid_ {};
+    // The key-value pairs for grouping.
     shared_ptr<map<string, string>> groupingKeys_ {};
+    // The unique identifier of the incident.
     shared_ptr<string> incidentId_ {};
+    // The name of the notification policy.
     shared_ptr<string> notifyStrategyName_ {};
+    // The UUID of the associated notification policy, which is used to trigger notifications.
     shared_ptr<string> notifyStrategyUuid_ {};
+    // The information about the operator.
     shared_ptr<ContactForIncidentView> operator_ {};
+    // The list of owners.
     shared_ptr<vector<ContactForIncidentView>> owners_ {};
+    // The list of participants.
     shared_ptr<vector<ContactForIncidentView>> participants_ {};
+    // The response plan.
     shared_ptr<IncidentResponsePlanForView> plan_ {};
+    // The list of associated resources.
     shared_ptr<vector<EventResourceForIncidentView>> relatedResources_ {};
+    // The root cause category.
     shared_ptr<string> rootCauseCategory_ {};
+    // The severity level of the incident.
     shared_ptr<string> severity_ {};
+    // The description of the solution.
     shared_ptr<string> solution_ {};
+    // The current state of the incident.
     shared_ptr<string> state_ {};
+    // The name of the subscription policy.
     shared_ptr<string> subscriptionName_ {};
+    // The UUID of the subscription policy.
     shared_ptr<string> subscriptionUuid_ {};
+    // The timestamp when the incident was created.
     shared_ptr<int64_t> time_ {};
+    // The title of the incident.
     shared_ptr<string> title_ {};
+    // The ID of the user who created the incident.
     shared_ptr<string> userId_ {};
+    // The name of the workspace.
     shared_ptr<string> workspace_ {};
   };
 

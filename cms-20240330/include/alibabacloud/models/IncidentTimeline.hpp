@@ -112,23 +112,23 @@ namespace Models
 
 
   protected:
-    // Subtype.
+    // The child type.
     shared_ptr<string> childType_ {};
-    // Content.
+    // The content.
     shared_ptr<string> content_ {};
-    // Incident ID.
+    // The ID of the event.
     shared_ptr<string> incidentId_ {};
-    // Timeline node unique ID.
+    // The unique ID of the timeline node.
     shared_ptr<string> incidentTimelineId_ {};
-    // Time.
+    // The timestamp.
     shared_ptr<int64_t> time_ {};
-    // Parent timeline ID.
+    // The ID of the timeline.
     shared_ptr<string> timelineId_ {};
-    // Title.
+    // The timeline title.
     shared_ptr<string> title_ {};
-    // Type.
+    // The type.
     shared_ptr<string> type_ {};
-    // User ID.
+    // The user ID.
     shared_ptr<string> userId_ {};
   };
 

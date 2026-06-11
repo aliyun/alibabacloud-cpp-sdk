@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // 维度键
+    // The tag key to filter by. For example, to filter traces by region, set this parameter to `RegionId`.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // 过滤类型
+    // The comparison operator used to match the tag\\"s value. Valid values: `EQUAL` and `NOT_EQUAL`.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // 过滤值（type 为 ALL/DISABLED 时可为空）
+    // The value to compare against the tag\\"s value. Used with the `key` and `type` parameters to form a complete filter condition.
     shared_ptr<string> value_ {};
   };
 

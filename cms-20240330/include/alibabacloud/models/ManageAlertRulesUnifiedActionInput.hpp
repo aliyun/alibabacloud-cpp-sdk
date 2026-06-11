@@ -205,32 +205,39 @@ namespace Models
 
 
   protected:
-    // 操作类型
+    // The action to perform on the alert rule. For example, `create` or `update`.
     // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // The action integration configuration for triggering automated workflows or actions in external systems.
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
-    // 注解
+    // A collection of key-value pairs attached to the alert as annotations. Use annotations to provide additional, non-identifying information, such as descriptions or runbook links.
     shared_ptr<map<string, string>> annotations_ {};
+    // Configuration for integrating with Application Real-Time Monitoring Service (ARMS).
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
+    // The condition configuration that specifies the trigger criteria for the alert.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
-    // 内容模板
+    // The content template for the alert notification. You can use variables to customize the message.
     shared_ptr<string> contentTemplate_ {};
+    // The data source configuration for the alert rule.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
-    // 显示名称
+    // The display name of the alert rule, as shown in the console.
     shared_ptr<string> displayName_ {};
-    // 是否启用
+    // Specifies whether the alert rule is enabled. A value of `true` indicates the rule is active, and `false` indicates it is inactive. Default: `true`.
     shared_ptr<bool> enabled_ {};
-    // 标签
+    // A collection of key-value pairs attached to the alert rule as labels. Use labels for categorization and filtering.
     shared_ptr<map<string, string>> labels_ {};
+    // The notification configuration that specifies how and where to send alert notifications.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
+    // The query configuration that defines the data for rule evaluation.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
+    // The schedule configuration that determines how often the system evaluates the rule.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // 规则 UUID（UPDATE/PATCH 必填）
+    // The unique identifier (UUID) of the alert rule. This parameter is required when you update or delete an existing rule.
     shared_ptr<string> uuid_ {};
-    // 待删除规则 UUID 列表（BATCH_DELETE）
+    // A list of UUIDs. Use this parameter to perform bulk actions on multiple rules, such as batch deletion.
     shared_ptr<vector<string>> uuidList_ {};
-    // 工作空间（CREATE/UPDATE 等）
+    // The ID of the workspace that contains the alert rule.
     shared_ptr<string> workspace_ {};
   };
 

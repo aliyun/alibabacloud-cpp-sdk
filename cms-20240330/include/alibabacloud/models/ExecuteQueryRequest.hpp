@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The query statement to execute.
+    // 
     // This parameter is required.
     shared_ptr<string> query_ {};
+    // The query type. Valid values: SQL and SPL.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

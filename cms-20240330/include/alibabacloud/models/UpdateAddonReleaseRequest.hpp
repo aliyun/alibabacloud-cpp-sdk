@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Addon version information.
+    // The version of the add-on.
     shared_ptr<string> addonVersion_ {};
-    // Whether to pre-check this request.
+    // Specifies whether to perform a dry run for the request.
     shared_ptr<bool> dryRun_ {};
-    // Entity discovery rules.
+    // The entity discovery rules.
     shared_ptr<EntityDiscoverRule> entityRules_ {};
-    // Metadata information.
+    // The metadata.
     shared_ptr<string> values_ {};
   };
 

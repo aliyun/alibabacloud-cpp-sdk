@@ -129,23 +129,23 @@ namespace Models
 
 
     protected:
-      // Dashboard engine:
-      // grafana: shared grafana.
-      // cms: cms self-developed dashboard engine.
+      // The dashboard engine. Valid values:
+      // grafana: shared Grafana.
+      // cms: the self-developed dashboard engine of CloudMonitor.
       shared_ptr<string> engine_ {};
-      // UID of the dashboard folder.
+      // The UID of the dashboard folder.
       shared_ptr<string> folderUid_ {};
-      // Dashboard name
+      // The dashboard name.
       shared_ptr<string> name_ {};
-      // Region
+      // The region.
       shared_ptr<string> region_ {};
-      // List of tags.
+      // The list of tags.
       shared_ptr<vector<string>> tags_ {};
-      // Title of the UI module (not name)
+      // The title of the UI module. This is different from the name parameter.
       shared_ptr<string> title_ {};
-      // ID of the current Alibaba Cloud primary account, read-only
+      // The ID of the current Alibaba Cloud account. This parameter is read-only.
       shared_ptr<string> uid_ {};
-      // pagerDuty integration webhook. Supports V1 and V2 versions
+      // The webhook URL for PagerDuty integration. V1 and V2 are supported.
       shared_ptr<string> url_ {};
     };
 
@@ -175,11 +175,11 @@ namespace Models
 
 
   protected:
-    // List of dashboards.
+    // The list of dashboards.
     shared_ptr<vector<ListIntegrationPolicyDashboardsResponseBody::Dashboards>> dashboards_ {};
-    // ID of the request
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Number of components.
+    // The number of components.
     shared_ptr<int32_t> total_ {};
   };
 

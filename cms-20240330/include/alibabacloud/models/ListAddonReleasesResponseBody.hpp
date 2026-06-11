@@ -15,11 +15,13 @@ namespace Models
   class ListAddonReleasesResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListAddonReleasesResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(releases, releases_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(total, total_);
     };
     friend void from_json(const Darabonba::Json& j, ListAddonReleasesResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(releases, releases_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(total, total_);
@@ -146,9 +148,9 @@ namespace Models
 
 
       protected:
-        // Number of ready sub-Releases.
+        // The number of ready sub-releases.
         shared_ptr<int32_t> ready_ {};
-        // Number of sub-Releases.
+        // The total number of sub-releases.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -217,15 +219,15 @@ namespace Models
 
 
       protected:
-        // First transition time.
+        // The timestamp of the first status transition.
         shared_ptr<string> firstTransitionTime_ {};
-        // Last transition time.
+        // The timestamp of the last status transition.
         shared_ptr<string> lastTransitionTime_ {};
-        // Details.
+        // A detailed message about the status.
         shared_ptr<string> message_ {};
-        // Phase status.
+        // The status of the condition.
         shared_ptr<string> status_ {};
-        // Phase type.
+        // The type of the condition.
         shared_ptr<string> type_ {};
       };
 
@@ -439,66 +441,73 @@ namespace Models
 
 
     protected:
-      // Addon name.
+      // The name of the add-on.
       shared_ptr<string> addonName_ {};
-      // Number of alert rules.
+      // The number of alert rules.
       shared_ptr<int64_t> alertRuleCount_ {};
-      // API version.
+      // The API version.
       shared_ptr<string> apiVersion_ {};
-      // Installation phase information.
+      // The conditions of the release.
       shared_ptr<vector<Releases::Conditions>> conditions_ {};
-      // Component configuration information.
+      // The configuration of the add-on.
       shared_ptr<string> config_ {};
-      // Access time.
+      // The installation time of the add-on.
       shared_ptr<string> createTime_ {};
-      // Number of dashboards.
+      // The number of dashboards.
       shared_ptr<int64_t> dashboardCount_ {};
-      // Entity details.
+      // Details of the entity rules.
       shared_ptr<EntityGroupBase> entityRules_ {};
-      // Environment type.
+      // The environment type.
       shared_ptr<string> envType_ {};
-      // Environment ID.
+      // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // Number of plugins.
+      // The number of exporters.
       shared_ptr<int64_t> exporterCount_ {};
-      // Whether there is a configuration.
+      // Indicates whether a configuration exists.
       shared_ptr<bool> haveConfig_ {};
-      // Access user ID.
+      // The ID of the user who installed the add-on.
       shared_ptr<string> installUserId_ {};
-      // Language.
+      // The language.
       shared_ptr<string> language_ {};
-      // Whether it is a managed component.
+      // Indicates whether the add-on is managed.
       shared_ptr<bool> managed_ {};
-      // Starting version number for the remaining list.
+      // The next available version of the add-on.
       shared_ptr<string> nextVersion_ {};
-      // Parent AddonReleaseId.
+      // The ID of the parent release.
       shared_ptr<string> parentAddonReleaseId_ {};
-      // Policy ID.
+      // The policy ID.
       shared_ptr<string> policyId_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Release ID.
+      // The release ID.
       shared_ptr<string> releaseId_ {};
-      // Release name.
+      // The release name.
       shared_ptr<string> releaseName_ {};
-      // Component scenario.
+      // The usage scenario of the add-on.
       shared_ptr<string> scene_ {};
-      // Status.
+      // The status of the release.
       shared_ptr<string> status_ {};
-      // Sub-AddonRelease statistics.
+      // Statistics about sub-releases.
       shared_ptr<Releases::SubAddonRelease> subAddonRelease_ {};
-      // Update time.
+      // The last update time.
       shared_ptr<string> updateTime_ {};
-      // Owner user ID.
+      // The ID of the owner.
       shared_ptr<string> userId_ {};
-      // Component version.
+      // The version of the add-on.
       shared_ptr<string> version_ {};
-      // Workspace.
+      // The name of the workspace.
       shared_ptr<string> workspace_ {};
     };
 
-    virtual bool empty() const override { return this->releases_ == nullptr
-        && this->requestId_ == nullptr && this->total_ == nullptr; };
+    virtual bool empty() const override { return this->nextToken_ == nullptr
+        && this->releases_ == nullptr && this->requestId_ == nullptr && this->total_ == nullptr; };
+    // nextToken Field Functions 
+    bool hasNextToken() const { return this->nextToken_ != nullptr;};
+    void deleteNextToken() { this->nextToken_ = nullptr;};
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline ListAddonReleasesResponseBody& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+
+
     // releases Field Functions 
     bool hasReleases() const { return this->releases_ != nullptr;};
     void deleteReleases() { this->releases_ = nullptr;};
@@ -523,11 +532,13 @@ namespace Models
 
 
   protected:
-    // Set of add-on component information.
+    // A pagination token to retrieve the next page of results. If this field is empty, no more results are available.
+    shared_ptr<string> nextToken_ {};
+    // The list of add-on releases.
     shared_ptr<vector<ListAddonReleasesResponseBody::Releases>> releases_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of components.
+    // The total number of add-on releases that match the query.
     shared_ptr<int64_t> total_ {};
   };
 

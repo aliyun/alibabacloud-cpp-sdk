@@ -66,6 +66,7 @@ namespace Models
 
 
     protected:
+      // The name of the dataset.
       shared_ptr<string> name_ {};
     };
 
@@ -137,8 +138,12 @@ namespace Models
 
 
       protected:
+        // The name of the Log Service Logstore.
         shared_ptr<string> logstore_ {};
+        // The name of the Log Service project.
         shared_ptr<string> project_ {};
+        // The effective start time.
+        // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
         shared_ptr<string> startTime_ {};
       };
@@ -164,7 +169,9 @@ namespace Models
 
 
     protected:
+      // The metadata fields.
       shared_ptr<map<string, string>> metadataField_ {};
+      // The configuration source.
       shared_ptr<Config::Source> source_ {};
     };
 
@@ -210,12 +217,19 @@ namespace Models
 
 
   protected:
+    // The configuration.
     shared_ptr<CreateContextStoreRequest::Config> config_ {};
+    // The name of the context store.
+    // 
     // This parameter is required.
     shared_ptr<string> contextStoreName_ {};
+    // The type of the context store.
+    // 
     // This parameter is required.
     shared_ptr<string> contextType_ {};
+    // The properties of the dataset.
     shared_ptr<CreateContextStoreRequest::Dataset> dataset_ {};
+    // The description of the context store.
     shared_ptr<string> description_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The name of the add-on release.
     shared_ptr<string> addonReleaseName_ {};
+    // The collector type.
+    // 
     // This parameter is required.
     shared_ptr<string> collectorType_ {};
+    // The language.
     shared_ptr<string> language_ {};
   };
 

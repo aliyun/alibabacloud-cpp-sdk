@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The new description for the dataset.
     shared_ptr<string> description_ {};
   };
 

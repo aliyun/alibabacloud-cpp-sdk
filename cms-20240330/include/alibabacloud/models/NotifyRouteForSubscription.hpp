@@ -90,9 +90,13 @@ namespace Models
 
 
     protected:
+      // The active days of the week, specified as an array of integers.
       shared_ptr<vector<int32_t>> dayInWeek_ {};
+      // The end of the active period, in minutes from 00:00. The value ranges from 0 to 1439.
       shared_ptr<int32_t> endTimeInMinute_ {};
+      // The start of the active period, in minutes from 00:00. The value ranges from 0 to 1439.
       shared_ptr<int32_t> startTimeInMinute_ {};
+      // The time zone for the effect time range, specified in the IANA Time Zone Database format. For example, `UTC` or `Asia/Shanghai`.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -147,8 +151,11 @@ namespace Models
 
 
     protected:
+      // The channel type. For example, `Email`, `SMS`, or `Webhook`.
       shared_ptr<string> channelType_ {};
+      // A list of enabled sub-channels. Applicable to channels that support finer-grained topics or categories.
       shared_ptr<vector<string>> enabledSubChannels_ {};
+      // A list of notification receivers. The receiver format depends on the `channelType`.
       shared_ptr<vector<string>> receivers_ {};
     };
 
@@ -173,7 +180,9 @@ namespace Models
 
 
   protected:
+    // An array of objects, each defining a notification channel.
     shared_ptr<vector<NotifyRouteForSubscription::Channels>> channels_ {};
+    // The active period for the notification rule.
     shared_ptr<NotifyRouteForSubscription::EffectTimeRange> effectTimeRange_ {};
   };
 

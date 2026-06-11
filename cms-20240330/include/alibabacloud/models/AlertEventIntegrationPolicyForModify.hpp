@@ -91,12 +91,19 @@ namespace Models
 
 
   protected:
+    // The name.
+    // 
     // This parameter is required.
     shared_ptr<string> alertEventIntegrationPolicyName_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // The subscription settings.
     shared_ptr<string> integrationSetting_ {};
+    // The transform settings.
     shared_ptr<vector<TransformAction>> transformerSetting_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

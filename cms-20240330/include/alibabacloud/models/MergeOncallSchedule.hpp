@@ -96,12 +96,19 @@ namespace Models
 
 
   protected:
+    // Details of the on-call schedule.
     Darabonba::Json detail_ {};
+    // The UTC time when the on-call schedule was created.
     shared_ptr<string> gmtCreate_ {};
+    // The UTC time when the on-call schedule was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The unique identifier of the on-call schedule.
     shared_ptr<string> identifier_ {};
+    // The name of the on-call schedule.
     shared_ptr<string> name_ {};
+    // The creation source of the on-call schedule.
     shared_ptr<string> source_ {};
+    // The workspace that the on-call schedule belongs to.
     shared_ptr<string> workspace_ {};
   };
 

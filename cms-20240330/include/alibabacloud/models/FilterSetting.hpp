@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The field.
       shared_ptr<string> field_ {};
+      // The comparison operator.
       shared_ptr<string> op_ {};
+      // The value.
       shared_ptr<string> value_ {};
     };
 
@@ -112,8 +115,11 @@ namespace Models
 
 
   protected:
+    // The subscription conditions.
     shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
+    // The expression.
     shared_ptr<string> expression_ {};
+    // The relationship between conditions.
     shared_ptr<string> relation_ {};
   };
 

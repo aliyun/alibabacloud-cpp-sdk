@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Prometheus 实例 ID（type=PROMETHEUS 时使用）
+    // The unique instance ID.
     shared_ptr<string> instanceId_ {};
-    // 地域 ID（各类型可选，缺省与规则/网关一致）
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // 数据源类型
+    // The type of the data source.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

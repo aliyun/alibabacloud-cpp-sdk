@@ -87,13 +87,14 @@ namespace Models
 
 
   protected:
-    // Alert Action Integration Configuration.
+    // The integrated alert action configuration.
     shared_ptr<AlertRuleAction> action_ {};
-    // Alert Notification Configuration.
+    // The alert notification configuration.
     shared_ptr<AlertRuleNotification> notification_ {};
+    // The list of notification policies. Each policy defines the notification method or policy name to use for a specific alert state, such as trigger or recovery.
     shared_ptr<vector<string>> notifyStrategies_ {};
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // Whether to deliver alert events to ARMS Alert Management.
+    // Specifies whether to deliver alert events to Alert Management of Application Real-Time Monitoring Service (ARMS).
     shared_ptr<bool> sendToArms_ {};
   };
 

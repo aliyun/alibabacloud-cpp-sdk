@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The domain of the resource type.
     shared_ptr<string> domain_ {};
+    // The entity ID.
     shared_ptr<string> entityId_ {};
+    // The entity type.
     shared_ptr<string> entityType_ {};
+    // The string that describes the properties of the resource.
     shared_ptr<string> probs_ {};
+    // The tags.
     shared_ptr<string> tags_ {};
   };
 

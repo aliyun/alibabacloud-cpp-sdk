@@ -211,21 +211,37 @@ namespace Models
 
 
     protected:
+      // The unique agent ID.
       shared_ptr<string> agentId_ {};
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // A list of categories to apply to the context item.
       shared_ptr<vector<string>> categories_ {};
+      // The content of the context item.
       shared_ptr<string> content_ {};
+      // The custom instructions for processing the context.
       shared_ptr<string> customInstructions_ {};
+      // An object containing experience information for the context.
       Darabonba::Json experience_ {};
+      // The expiration timestamp for the context item.
       shared_ptr<string> expirationDate_ {};
+      // Specifies whether the context item is immutable. If set to `true`, the item cannot be changed after it is created. The default value is `false`.
       shared_ptr<bool> immutable_ {};
+      // Specifies whether to perform inference based on the context. The default value is `false`.
       shared_ptr<bool> infer_ {};
+      // A map of key-value pairs to apply as labels.
       shared_ptr<map<string, string>> labels_ {};
+      // An array of message objects.
       shared_ptr<vector<Darabonba::Json>> messages_ {};
+      // Key-value pairs to store as metadata.
       Darabonba::Json metadata_ {};
+      // The run ID.
       shared_ptr<string> runId_ {};
+      // The timestamp of the context item.
       shared_ptr<int64_t> timestamp_ {};
+      // The condition that triggers the context.
       shared_ptr<string> triggerCondition_ {};
+      // The unique user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -255,10 +271,15 @@ namespace Models
 
 
   protected:
+    // The context type.
+    // 
     // This parameter is required.
     shared_ptr<string> contextType_ {};
+    // An array of context items.
+    // 
     // This parameter is required.
     shared_ptr<vector<AddContextsRequest::Items>> items_ {};
+    // The memory type.
     shared_ptr<string> memoryType_ {};
   };
 

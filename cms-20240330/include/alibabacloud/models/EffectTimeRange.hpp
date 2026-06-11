@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The values 0 to 6 indicate Sunday to Saturday.
     shared_ptr<vector<int32_t>> dayInWeek_ {};
+    // The end time in minutes.
     shared_ptr<int32_t> endTimeInMinute_ {};
+    // The start time in minutes.
     shared_ptr<int32_t> startTimeInMinute_ {};
+    // The time zone.
     shared_ptr<string> timeZone_ {};
   };
 

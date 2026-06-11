@@ -176,32 +176,33 @@ namespace Models
 
 
   protected:
-    // 是否启用数据完整性检查
+    // Specifies whether to check for data completeness. A value of `true` enables the check.
     shared_ptr<bool> enableDataCompleteCheck_ {};
-    // 实体所属域
+    // Specifies the domain of the entity, such as `acs` for Alibaba Cloud services.
     shared_ptr<string> entityDomain_ {};
-    // 需要附带返回的实体字段
+    // A list of entity fields to include in the response.
     shared_ptr<vector<UmodelEntityField>> entityFields_ {};
-    // 实体过滤列表
+    // A list of filters for selecting specific entities.
     shared_ptr<vector<UmodelEntityFilter>> entityFilters_ {};
-    // 实体类型
+    // Specifies the type of the entity, such as `EcsInstance`.
     shared_ptr<string> entityType_ {};
+    // Specifies the expression to post-process query results.
     shared_ptr<string> expr_ {};
-    // APM 过滤条件列表
+    // A list of Application Performance Monitoring (APM) filter configurations.
     shared_ptr<vector<ApmFilterConfig>> filterList_ {};
-    // 标签过滤条件
+    // A list of filters that match labels.
     shared_ptr<vector<UmodelLabelFilter>> labelFilters_ {};
-    // APM 度量配置列表
+    // A list of APM measure configurations.
     shared_ptr<vector<ApmMeasureConfig>> measureList_ {};
-    // 指标名称（type=UMODEL_METRICSET_QUERY）
+    // Specifies the name of the metric to query.
     shared_ptr<string> metric_ {};
-    // 指标集名称（type=UMODEL_METRICSET_QUERY）
+    // Specifies the metric set that contains the metric.
     shared_ptr<string> metricSet_ {};
-    // Prometheus 查询语句（type=PROMETHEUS_SINGLE_QUERY）
+    // Specifies the query string in Prometheus Query Language (PromQL).
     shared_ptr<string> promQl_ {};
-    // 服务 ID 列表（type=APM_MULTI_QUERY）
+    // A list of service IDs to query.
     shared_ptr<vector<string>> serviceIdList_ {};
-    // 查询类型
+    // The query type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

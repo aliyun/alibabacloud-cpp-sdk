@@ -101,13 +101,21 @@ namespace Models
 
 
   protected:
+    // The number of loop notifications.
     shared_ptr<int32_t> cycleNotifyCount_ {};
+    // The loop notification interval.
     shared_ptr<int32_t> cycleNotifyInterval_ {};
+    // The effective time range.
     shared_ptr<EffectTimeRange> effectTimeRange_ {};
+    // The stage index.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> index_ {};
+    // The list of notification channels.
     shared_ptr<vector<NotifyChannel>> notifyChannels_ {};
+    // The target event state.
     shared_ptr<string> targetIncidentState_ {};
+    // The trigger delay time.
     shared_ptr<int32_t> triggerDelay_ {};
   };
 

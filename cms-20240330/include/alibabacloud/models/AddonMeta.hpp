@@ -181,9 +181,13 @@ namespace Models
 
 
         protected:
+          // The description of the protocol.
           shared_ptr<string> description_ {};
+          // The display icon for the protocol.
           shared_ptr<string> icon_ {};
+          // The display name of the protocol.
           shared_ptr<string> label_ {};
+          // The name of the protocol.
           shared_ptr<string> name_ {};
         };
 
@@ -217,6 +221,7 @@ namespace Models
 
 
         protected:
+          // The Prometheus Query Language (PromQL) for the check rule.
           shared_ptr<vector<string>> promQL_ {};
         };
 
@@ -276,9 +281,13 @@ namespace Models
 
 
         protected:
+          // Indicates whether group mode is used.
           shared_ptr<bool> entityGroupMode_ {};
+          // The entity type.
           shared_ptr<string> entityType_ {};
+          // Indicates whether single-entity mode is used.
           shared_ptr<bool> singleEntityMode_ {};
+          // The field in the entity from which to fetch the VPC ID.
           shared_ptr<string> vpcIdFieldKey_ {};
         };
 
@@ -355,14 +364,23 @@ namespace Models
 
 
       protected:
+        // Indicates whether the alert rule is enabled by default after installation.
         shared_ptr<string> alertDefaultStatus_ {};
+        // The default mode. This integration mode does not require attaching an entity.
         shared_ptr<bool> bindDefaultPolicy_ {};
+        // Information about the attached target entity.
         shared_ptr<Policies::BindEntity> bindEntity_ {};
+        // Indicates whether the component is installed by default.
         shared_ptr<bool> defaultInstall_ {};
+        // Indicates whether to enable internal authorization token allocation.
         shared_ptr<bool> enableServiceAccount_ {};
+        // The data check rule after the component is integrated.
         shared_ptr<Policies::MetricCheckRule> metricCheckRule_ {};
+        // Indicates whether to prompt for a workload restart after integration.
         shared_ptr<bool> needRestartAfterIntegration_ {};
+        // The list of supported client protocols.
         shared_ptr<vector<Policies::Protocols>> protocols_ {};
+        // The name of the target component for redirection.
         shared_ptr<string> targetAddonName_ {};
       };
 
@@ -419,8 +437,11 @@ namespace Models
 
 
       protected:
+        // The supported cluster types.
         shared_ptr<vector<string>> clusterTypes_ {};
+        // The probe dependency description. This is the component name. In later versions, this field is replaced by the collectors field.
         shared_ptr<map<string, bool>> features_ {};
+        // The list of dependent services.
         shared_ptr<vector<string>> services_ {};
       };
 
@@ -462,7 +483,9 @@ namespace Models
 
 
       protected:
+        // The group name of the CommonSchema.
         shared_ptr<string> group_ {};
+        // The group version of the CommonSchema.
         shared_ptr<string> version_ {};
       };
 
@@ -532,13 +555,21 @@ namespace Models
 
 
     protected:
+      // The list of attached CommonSchemas.
       shared_ptr<vector<Environments::CommonSchemaRefs>> commonSchemaRefs_ {};
+      // The dependency description.
       shared_ptr<Environments::Dependencies> dependencies_ {};
+      // The description of the environment type.
       shared_ptr<string> description_ {};
+      // Indicates whether the environment type is enabled.
       shared_ptr<bool> enable_ {};
+      // The display name of the environment type.
       shared_ptr<string> label_ {};
+      // The name of the environment type.
       shared_ptr<string> name_ {};
+      // Information about the control policy group for the component.
       shared_ptr<Environments::Policies> policies_ {};
+      // The policy type.
       shared_ptr<string> policyType_ {};
     };
 
@@ -589,8 +620,11 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The name of the diagram.
       shared_ptr<string> name_ {};
+      // The URL of the diagram.
       shared_ptr<string> url_ {};
     };
 
@@ -705,19 +739,37 @@ namespace Models
 
 
   protected:
+    // The alias of the component. This is the display name.
     shared_ptr<string> alias_ {};
+    // The categorization information of the component.
     shared_ptr<vector<string>> categories_ {};
+    // A list of component diagrams.
     shared_ptr<vector<AddonMeta::Dashboards>> dashboards_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The list of supported environment types.
     shared_ptr<vector<AddonMeta::Environments>> environments_ {};
+    // The icon of the component.
     shared_ptr<string> icon_ {};
+    // The list of keywords.
     shared_ptr<vector<string>> keywords_ {};
+    // The language. Valid values:
+    // 
+    // - zh: Chinese (default)
+    // 
+    // - en: English
     shared_ptr<string> language_ {};
+    // The last time the component was integrated.
     shared_ptr<string> latestReleaseCreateTime_ {};
+    // The name of the component.
     shared_ptr<string> name_ {};
+    // Indicates whether the component can be installed only once under a policy.
     shared_ptr<bool> once_ {};
+    // The scenario.
     shared_ptr<string> scene_ {};
+    // The version number.
     shared_ptr<string> version_ {};
+    // The sorting weight of the component.
     shared_ptr<int32_t> weight_ {};
   };
 

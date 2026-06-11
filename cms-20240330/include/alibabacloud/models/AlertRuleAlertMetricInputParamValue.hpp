@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The name of the predefined metric parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The value of the predefined metric parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> value_ {};
   };

@@ -91,9 +91,13 @@ namespace Models
 
 
     protected:
+      // The number of scanned or processed log entries.
       shared_ptr<int32_t> affectedRows_ {};
+      // The number of log entries returned.
       shared_ptr<int32_t> count_ {};
+      // The query execution time in milliseconds.
       shared_ptr<int64_t> elapsedMillisecond_ {};
+      // The query completion status. A value of `Complete` indicates that the query has finished.
       shared_ptr<string> progress_ {};
     };
 
@@ -125,8 +129,11 @@ namespace Models
 
 
   protected:
+    // An array of log entries. Each object in the array represents a log entry.
     shared_ptr<vector<map<string, string>>> data_ {};
+    // Metadata about the query execution.
     shared_ptr<ExecuteQueryResponseBody::Meta> meta_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 
