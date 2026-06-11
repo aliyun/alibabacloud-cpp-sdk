@@ -305,6 +305,9 @@
 #include <alibabacloud/models/RunClusterInspectRequest.hpp>
 #include <alibabacloud/models/RunClusterInspectResponseBody.hpp>
 #include <alibabacloud/models/RunClusterInspectResponse.hpp>
+#include <alibabacloud/models/RunNodeOperationRequest.hpp>
+#include <alibabacloud/models/RunNodeOperationResponseBody.hpp>
+#include <alibabacloud/models/RunNodeOperationResponse.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolRequest.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolResponseBody.hpp>
 #include <alibabacloud/models/ScaleClusterNodePoolResponse.hpp>

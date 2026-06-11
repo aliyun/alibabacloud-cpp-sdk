@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Node pool name.
+    // The name of the node pool.
     shared_ptr<string> nodepoolName_ {};
   };
 

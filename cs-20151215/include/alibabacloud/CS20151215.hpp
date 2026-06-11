@@ -335,7 +335,7 @@ namespace CS20151215
       Models::CreateClusterInspectConfigResponse createClusterInspectConfig(const string &clusterId, const Models::CreateClusterInspectConfigRequest &request);
 
       /**
-       * @summary A node pool is a logical collection of nodes that share the same properties, enabling unified management and O&M operations such as node upgrades and Auto Scaling. You can further leverage the automated O&M capabilities of node pools to reduce operational costs—for example, by automatically patching OS CVE vulnerabilities, automatically recovering failed nodes, and automatically upgrading kubelet and containerd versions. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+       * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @param headers map
@@ -345,7 +345,7 @@ namespace CS20151215
       Models::CreateClusterNodePoolResponse createClusterNodePoolWithOptions(const string &ClusterId, const Models::CreateClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary A node pool is a logical collection of nodes that share the same properties, enabling unified management and O&M operations such as node upgrades and Auto Scaling. You can further leverage the automated O&M capabilities of node pools to reduce operational costs—for example, by automatically patching OS CVE vulnerabilities, automatically recovering failed nodes, and automatically upgrading kubelet and containerd versions. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+       * @summary A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
        *
        * @param request CreateClusterNodePoolRequest
        * @return CreateClusterNodePoolResponse
@@ -893,7 +893,7 @@ namespace CS20151215
       Models::DescribeClusterLogsResponse describeClusterLogs(const string &ClusterId);
 
       /**
-       * @summary You can call the DescribeClusterNodePoolDetail operation with a node pool ID to query the configuration of a specific node pool in a cluster.
+       * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -902,14 +902,14 @@ namespace CS20151215
       Models::DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetailWithOptions(const string &ClusterId, const string &NodepoolId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the DescribeClusterNodePoolDetail operation with a node pool ID to query the configuration of a specific node pool in a cluster.
+       * @summary You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
        *
        * @return DescribeClusterNodePoolDetailResponse
        */
       Models::DescribeClusterNodePoolDetailResponse describeClusterNodePoolDetail(const string &ClusterId, const string &NodepoolId);
 
       /**
-       * @summary Lists all node pools in a cluster.
+       * @summary Queries the node pools in a cluster.
        *
        * @param request DescribeClusterNodePoolsRequest
        * @param headers map
@@ -919,7 +919,7 @@ namespace CS20151215
       Models::DescribeClusterNodePoolsResponse describeClusterNodePoolsWithOptions(const string &ClusterId, const Models::DescribeClusterNodePoolsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists all node pools in a cluster.
+       * @summary Queries the node pools in a cluster.
        *
        * @param request DescribeClusterNodePoolsRequest
        * @return DescribeClusterNodePoolsResponse
@@ -2017,7 +2017,7 @@ namespace CS20151215
       Models::ModifyClusterAddonResponse modifyClusterAddon(const string &clusterId, const string &componentId, const Models::ModifyClusterAddonRequest &request);
 
       /**
-       * @summary You can call the ModifyClusterNodePool API to update the configuration of a node pool by specifying its node pool ID.
+       * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
        *
        * @param request ModifyClusterNodePoolRequest
        * @param headers map
@@ -2027,7 +2027,7 @@ namespace CS20151215
       Models::ModifyClusterNodePoolResponse modifyClusterNodePoolWithOptions(const string &ClusterId, const string &NodepoolId, const Models::ModifyClusterNodePoolRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the ModifyClusterNodePool API to update the configuration of a node pool by specifying its node pool ID.
+       * @summary Call the ModifyClusterNodePool operation to update the configurations of a node pool.
        *
        * @param request ModifyClusterNodePoolRequest
        * @return ModifyClusterNodePoolResponse
@@ -2353,6 +2353,24 @@ namespace CS20151215
        * @return RunClusterInspectResponse
        */
       Models::RunClusterInspectResponse runClusterInspect(const string &clusterId, const Models::RunClusterInspectRequest &request);
+
+      /**
+       * @summary 执行节点上的运维操作
+       *
+       * @param request RunNodeOperationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RunNodeOperationResponse
+       */
+      Models::RunNodeOperationResponse runNodeOperationWithOptions(const string &clusterId, const string &nodepoolId, const string &nodeName, const Models::RunNodeOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 执行节点上的运维操作
+       *
+       * @param request RunNodeOperationRequest
+       * @return RunNodeOperationResponse
+       */
+      Models::RunNodeOperationResponse runNodeOperation(const string &clusterId, const string &nodepoolId, const string &nodeName, const Models::RunNodeOperationRequest &request);
 
       /**
        * @summary Scales out a node pool.

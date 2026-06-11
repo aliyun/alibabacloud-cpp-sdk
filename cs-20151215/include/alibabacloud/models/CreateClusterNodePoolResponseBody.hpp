@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> nodepoolId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 
