@@ -318,11 +318,13 @@ namespace Models
     shared_ptr<AuthConfig> authConfig_ {};
     // $.parameters[0].schema.properties.deployConfigs.items.example
     shared_ptr<string> basePath_ {};
+    // ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
     // $.parameters[0].schema.example
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // $.parameters[0].schema.properties.aiProtocols.items.description
     shared_ptr<string> description_ {};
+    // Whether to preview without execution.
     shared_ptr<bool> dryRun_ {};
     // Create an API of HTTP type
     shared_ptr<bool> enableAuth_ {};
@@ -342,6 +344,7 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // $.parameters[0].schema.properties.authConfig.example
     shared_ptr<string> resourceGroupId_ {};
+    // The conflict merge strategy for import.
     shared_ptr<string> strategy_ {};
     // $.parameters[0].schema.properties.deployConfigs.description
     shared_ptr<string> type_ {};

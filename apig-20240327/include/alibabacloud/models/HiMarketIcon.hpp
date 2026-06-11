@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Specifies the icon type. Example: `URL`.
     shared_ptr<string> type_ {};
+    // The value of the icon, based on the specified `type`. For example, if `type` is `URL`, this is the URL of the icon.
     shared_ptr<string> value_ {};
   };
 

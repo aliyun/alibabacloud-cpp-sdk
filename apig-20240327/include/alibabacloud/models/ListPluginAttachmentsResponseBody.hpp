@@ -176,10 +176,15 @@ namespace Models
 
       protected:
         // The types of resource attachments.
+        // 
         // - HttpApi
+        // 
         // - Operation
+        // 
         // - GatewayRoute
+        // 
         // - GatewayDomain
+        // 
         // - Gateway
         shared_ptr<string> attachResourceType_ {};
         // Indicates if enabled.

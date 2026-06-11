@@ -104,19 +104,23 @@ namespace Models
 
 
   protected:
-    // The list of AK/SK identity configurations.
+    // A list of AK/SK identity configurations.
     shared_ptr<vector<AkSkIdentityConfig>> akSkIdentityConfigs_ {};
-    // The configuration for the API key authentication method.
+    // The identity configuration for API key authentication.
     shared_ptr<ApiKeyIdentityConfig> apikeyIdentityConfig_ {};
-    // The description of the consumer.
+    // The consumer description.
     shared_ptr<string> description_ {};
-    // Indicates if enabled.
+    // Specifies whether to enable the consumer.
     shared_ptr<bool> enable_ {};
-    // The type of the gateway.
+    // The gateway type. Valid values:
+    // 
+    // - API: For a cloud-native API gateway.
+    // 
+    // - AI: For an AI gateway.
     shared_ptr<string> gatewayType_ {};
-    // The configuration of the JWT identity.
+    // The JWT identity configuration.
     shared_ptr<JwtIdentityConfig> jwtIdentityConfig_ {};
-    // The name of the consumer.
+    // The consumer name.
     shared_ptr<string> name_ {};
   };
 

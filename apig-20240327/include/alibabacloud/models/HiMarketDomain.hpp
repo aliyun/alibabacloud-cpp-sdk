@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The custom domain name. This must be a valid DNS hostname.
     shared_ptr<string> domain_ {};
+    // The network type of the endpoint. For example, `VPC` for an internal network or `INTERNET` for a public network.
     shared_ptr<string> networkType_ {};
+    // The port number for the endpoint. For example, `80` for HTTP or `443` for HTTPS.
     shared_ptr<int32_t> port_ {};
+    // The communication protocol. Valid values include `HTTP` and `HTTPS`.
     shared_ptr<string> protocol_ {};
   };
 

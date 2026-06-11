@@ -79,6 +79,7 @@ namespace Models
 
 
   protected:
+    // 网关Id
     shared_ptr<string> gatewayId_ {};
     // The API name.
     shared_ptr<string> name_ {};

@@ -100,9 +100,13 @@ namespace Models
 
 
     protected:
+      // Maps additional claims from the ID token to custom user attributes. For each mapping, the key is the target attribute in your system, and the value is the name of the claim from the ID token.
       shared_ptr<map<string, string>> customFields_ {};
+      // The ID token claim that maps to the user\\"s email address. The `email` claim is a common choice.
       shared_ptr<string> emailField_ {};
+      // The ID token claim that maps to the user\\"s unique ID. The `sub` claim is a common choice.
       shared_ptr<string> userIdField_ {};
+      // The ID token claim that maps to the user\\"s display name. Common choices include `name` and `preferred_username`.
       shared_ptr<string> userNameField_ {};
     };
 
@@ -208,14 +212,23 @@ namespace Models
 
 
     protected:
+      // The URL of the identity provider\\"s authorization endpoint.
       shared_ptr<string> authorizationEndpoint_ {};
+      // The client ID obtained from the identity provider after registering your application.
       shared_ptr<string> clientId_ {};
+      // The client secret obtained from the identity provider after registering your application.
       shared_ptr<string> clientSecret_ {};
+      // The identity provider\\"s unique issuer URL, used to validate ID tokens.
       shared_ptr<string> issuer_ {};
+      // The provider\\"s JWK Set URI. This URI provides the public keys needed to verify ID token signatures.
       shared_ptr<string> jwkSetUri_ {};
+      // The application\\"s redirect URI. The provider sends the authorization code to this URI after successful authentication. You must register this URI with the identity provider.
       shared_ptr<string> redirectUri_ {};
+      // A space-separated list of scopes to request from the provider. The `openid` scope is required for OIDC authentication. For example: `openid profile email`.
       shared_ptr<string> scopes_ {};
+      // The URL of the identity provider\\"s token endpoint.
       shared_ptr<string> tokenEndpoint_ {};
+      // The URL of the identity provider\\"s user info endpoint.
       shared_ptr<string> userInfoEndpoint_ {};
     };
 
@@ -276,12 +289,19 @@ namespace Models
 
 
   protected:
+    // Configuration settings for the authorization code grant type.
     shared_ptr<HiMarketOidcConfig::AuthCodeConfig> authCodeConfig_ {};
+    // Enables or disables this identity provider. If set to `false`, users cannot sign in with this provider.
     shared_ptr<bool> enabled_ {};
+    // The OAuth 2.0 grant type. For OIDC, this must be `authorization_code`.
     shared_ptr<string> grantType_ {};
+    // Specifies how to map claims from an ID token to user attributes in your system.
     shared_ptr<HiMarketOidcConfig::IdentityMapping> identityMapping_ {};
+    // The URL for the provider\\"s logo. This logo appears on the sign-in page.
     shared_ptr<string> logoUrl_ {};
+    // The provider\\"s display name. This name appears on the sign-in page.
     shared_ptr<string> name_ {};
+    // The unique identifier for the identity provider.
     shared_ptr<string> provider_ {};
   };
 

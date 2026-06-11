@@ -100,11 +100,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response code.
     shared_ptr<string> code_ {};
     // The API definition.
     shared_ptr<ExportHttpApiResponseBody::Data> data_ {};
-    // The response message returned.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

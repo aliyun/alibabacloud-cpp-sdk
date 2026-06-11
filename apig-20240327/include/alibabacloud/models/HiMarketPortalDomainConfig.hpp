@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The domain protocol.
     shared_ptr<string> protocol_ {};
+    // The domain type.
     shared_ptr<string> type_ {};
   };
 

@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // An object containing error logs, where each key is a string identifying an error and the value is a string describing that error.
     shared_ptr<vector<Darabonba::Json>> errorLogs_ {};
+    // The unique identifier of the plugin.
     shared_ptr<string> pluginId_ {};
+    // Indicates if the service is healthy. `true` indicates normal operation, and `false` indicates an issue.
     shared_ptr<bool> serviceHealthy_ {};
   };
 

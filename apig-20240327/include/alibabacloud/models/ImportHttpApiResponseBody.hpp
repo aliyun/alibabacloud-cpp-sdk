@@ -149,12 +149,13 @@ namespace Models
 
 
         protected:
-          // The action that will be performed for the operation after the dry run.
+          // Indicates whether the operation creates or updates a resource.
           // 
-          // *   Create: The operation is created.
-          // *   Update: The operation is updated.
+          // - `Create`: Creates a new resource.
+          // 
+          // - `Update`: Updates an existing resource.
           shared_ptr<string> action_ {};
-          // The HTTP method of the operation.
+          // The operation method.
           shared_ptr<string> method_ {};
           // The operation name.
           shared_ptr<string> name_ {};
@@ -200,12 +201,13 @@ namespace Models
 
 
         protected:
-          // The action that will be performed for the data struct after the dry run.
+          // Indicates whether the data structure will be created or updated.
           // 
-          // *   Create: The data struct is created.
-          // *   Update: The data struct is updated.
+          // - `Create`: Creates a new data structure.
+          // 
+          // - `Update`: Updates an existing data structure.
           shared_ptr<string> action_ {};
-          // The data struct name.
+          // The data structure name.
           shared_ptr<string> name_ {};
         };
 
@@ -256,9 +258,9 @@ namespace Models
 
 
         protected:
-          // The error message.
+          // The reason for the dry run failure.
           shared_ptr<string> errorMessage_ {};
-          // The HTTP method of the operation.
+          // The operation method.
           shared_ptr<string> method_ {};
           // The operation path.
           shared_ptr<string> path_ {};
@@ -302,9 +304,9 @@ namespace Models
 
 
         protected:
-          // The error message.
+          // The reason for the dry run failure.
           shared_ptr<string> errorMessage_ {};
-          // The data struct name.
+          // The data structure name.
           shared_ptr<string> name_ {};
         };
 
@@ -382,20 +384,20 @@ namespace Models
 
 
       protected:
-        // The error messages. If an error message is returned, the API fails to be imported.
+        // Global error messages. If this list is not empty, the API import fails.
         shared_ptr<vector<string>> errorMessages_ {};
-        // The existing APIs. If an existing API is returned, the import updates the existing API.
+        // Details of the existing API. If this field is populated, the import operation updates this API.
         shared_ptr<HttpApiApiInfo> existHttpApiInfo_ {};
-        // The data structs that fail the dry run.
+        // Data structures that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
-        // The operations that fail the dry run.
+        // Operations that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
         shared_ptr<string> mcpToolsDefinition_ {};
-        // The data structs that pass the dry run.
+        // Data structures that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessComponents>> successComponents_ {};
-        // The operations that pass the dry run.
+        // Operations that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
-        // The alerts. If an alert is returned, specific operations or structs may fail to be imported.
+        // Global warning messages. If this list is not empty, some operations or data structures might not be imported.
         shared_ptr<vector<string>> warningMessages_ {};
       };
 
@@ -425,9 +427,9 @@ namespace Models
 
 
     protected:
-      // The dry run result.
+      // The results of the dry run.
       shared_ptr<Data::DryRunInfo> dryRunInfo_ {};
-      // The API ID.
+      // The unique ID of the HTTP API.
       shared_ptr<string> httpApiId_ {};
       // The API name.
       shared_ptr<string> name_ {};
@@ -466,11 +468,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The API information.
+    // Details of the imported API.
     shared_ptr<ImportHttpApiResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

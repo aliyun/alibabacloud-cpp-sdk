@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the publication.
     shared_ptr<string> publicationId_ {};
   };
 

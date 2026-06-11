@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // A key-value map for extracting fields. Keys are custom names, and values are paths to the data within the request or response body.
       shared_ptr<map<string, AiStatisticsPathField>> fieldPaths_ {};
+      // The API endpoint path to which this configuration applies, such as /user/id.
       shared_ptr<string> path_ {};
     };
 
@@ -106,8 +108,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to record the body of incoming requests.
     shared_ptr<bool> logRequestContent_ {};
+    // Specifies whether to record the body of outgoing responses.
     shared_ptr<bool> logResponseContent_ {};
+    // An array of configurations for extracting data from specific paths.
     shared_ptr<vector<AiStatisticsConfig::PathFieldConfigs>> pathFieldConfigs_ {};
   };
 

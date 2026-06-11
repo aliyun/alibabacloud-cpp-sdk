@@ -88,9 +88,13 @@ namespace Models
 
 
     protected:
+      // The name of the fallback service.
       shared_ptr<string> name_ {};
+      // Determines whether to pass the original model name to the fallback service. If `true`, the model name from the original request is used. If `false`, the value of `targetModelName` is used instead.
       shared_ptr<bool> passThroughModelName_ {};
+      // The unique ID of the fallback service.
       shared_ptr<string> serviceId_ {};
+      // The name of the model to use for the fallback request.
       shared_ptr<string> targetModelName_ {};
     };
 
@@ -113,7 +117,9 @@ namespace Models
 
 
   protected:
+    // Determines whether fallback is triggered solely by the upstream service\\"s status code. If `true`, fallback occurs only if the upstream service returns an error code. If `false`, other conditions, such as timeouts, can also trigger the fallback.
     shared_ptr<bool> onlyRedirectUpstreamCode_ {};
+    // A list of fallback service configurations.
     shared_ptr<vector<AiFallbackConfig::ServiceConfigs>> serviceConfigs_ {};
   };
 

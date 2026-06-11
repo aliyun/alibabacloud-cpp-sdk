@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // The routes.
+      // An array of route objects.
       shared_ptr<vector<HttpRoute>> items_ {};
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of available entries.
       shared_ptr<int32_t> totalSize_ {};
     };
 
@@ -138,11 +138,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // The response status code.
     shared_ptr<string> code_ {};
-    // The response payload.
+    // The response data.
     shared_ptr<ListHttpApiRoutesResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

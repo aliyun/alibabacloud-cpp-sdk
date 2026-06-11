@@ -77,8 +77,11 @@ namespace Models
 
 
     protected:
+      // The AccessKey ID.
       shared_ptr<string> ak_ {};
+      // The HMAC mode.
       shared_ptr<string> mode_ {};
+      // The AccessKey Secret.
       shared_ptr<string> sk_ {};
     };
 
@@ -93,6 +96,7 @@ namespace Models
 
 
   protected:
+    // The authentication credentials.
     shared_ptr<vector<HiMarketHmacConfig::Credentials>> credentials_ {};
   };
 

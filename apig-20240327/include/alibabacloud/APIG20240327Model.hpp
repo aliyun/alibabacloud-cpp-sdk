@@ -91,6 +91,9 @@
 #include <alibabacloud/models/SslCertMetaInfo.hpp>
 #include <alibabacloud/models/TlsCipherSuitesConfig.hpp>
 #include <alibabacloud/models/ValidationOptions.hpp>
+#include <alibabacloud/models/AddGatewayQuotaRuleRequest.hpp>
+#include <alibabacloud/models/AddGatewayQuotaRuleResponseBody.hpp>
+#include <alibabacloud/models/AddGatewayQuotaRuleResponse.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/AddGatewaySecurityGroupRuleResponse.hpp>
@@ -164,6 +167,9 @@
 #include <alibabacloud/models/DeleteEnvironmentResponse.hpp>
 #include <alibabacloud/models/DeleteGatewayResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewayResponse.hpp>
+#include <alibabacloud/models/DeleteGatewayQuotaRuleRequest.hpp>
+#include <alibabacloud/models/DeleteGatewayQuotaRuleResponseBody.hpp>
+#include <alibabacloud/models/DeleteGatewayQuotaRuleResponse.hpp>
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleRequest.hpp>
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleResponseBody.hpp>
 #include <alibabacloud/models/DeleteGatewaySecurityGroupRuleResponse.hpp>
@@ -213,6 +219,12 @@
 #include <alibabacloud/models/GetEnvironmentResponse.hpp>
 #include <alibabacloud/models/GetGatewayResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayResponse.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleRequest.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleResponse.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageRequest.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponse.hpp>
 #include <alibabacloud/models/GetHttpApiResponseBody.hpp>
 #include <alibabacloud/models/GetHttpApiResponse.hpp>
 #include <alibabacloud/models/GetHttpApiOperationResponseBody.hpp>
@@ -264,6 +276,9 @@
 #include <alibabacloud/models/ListExternalServicesResponse.hpp>
 #include <alibabacloud/models/ListGatewayFeaturesResponseBody.hpp>
 #include <alibabacloud/models/ListGatewayFeaturesResponse.hpp>
+#include <alibabacloud/models/ListGatewayQuotaRulesRequest.hpp>
+#include <alibabacloud/models/ListGatewayQuotaRulesResponseBody.hpp>
+#include <alibabacloud/models/ListGatewayQuotaRulesResponse.hpp>
 #include <alibabacloud/models/ListGatewaysRequest.hpp>
 #include <alibabacloud/models/ListGatewaysShrinkRequest.hpp>
 #include <alibabacloud/models/ListGatewaysResponseBody.hpp>
@@ -314,6 +329,9 @@
 #include <alibabacloud/models/QueryConsumerAuthorizationRulesResponse.hpp>
 #include <alibabacloud/models/RemoveConsumerAuthorizationRuleResponseBody.hpp>
 #include <alibabacloud/models/RemoveConsumerAuthorizationRuleResponse.hpp>
+#include <alibabacloud/models/ResetGatewayQuotaRuleRequest.hpp>
+#include <alibabacloud/models/ResetGatewayQuotaRuleResponseBody.hpp>
+#include <alibabacloud/models/ResetGatewayQuotaRuleResponse.hpp>
 #include <alibabacloud/models/RestartGatewayResponseBody.hpp>
 #include <alibabacloud/models/RestartGatewayResponse.hpp>
 #include <alibabacloud/models/SyncMCPServersRequest.hpp>
@@ -347,6 +365,12 @@
 #include <alibabacloud/models/UpdateGatewayNameRequest.hpp>
 #include <alibabacloud/models/UpdateGatewayNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateGatewayNameResponse.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleRequest.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleResponseBody.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleResponse.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleStatusRequest.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleStatusResponseBody.hpp>
+#include <alibabacloud/models/UpdateGatewayQuotaRuleStatusResponse.hpp>
 #include <alibabacloud/models/UpdateHttpApiRequest.hpp>
 #include <alibabacloud/models/UpdateHttpApiResponseBody.hpp>
 #include <alibabacloud/models/UpdateHttpApiResponse.hpp>

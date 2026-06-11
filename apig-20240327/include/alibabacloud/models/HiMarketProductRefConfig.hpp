@@ -115,12 +115,19 @@ namespace Models
 
 
     protected:
+      // Unique identifier for the agent API.
       shared_ptr<string> agentApiId_ {};
+      // The name of the agent API.
       shared_ptr<string> agentApiName_ {};
+      // Unique identifier for the MCP route.
       shared_ptr<string> mcpRouteId_ {};
+      // Unique identifier for the MCP server.
       shared_ptr<string> mcpServerId_ {};
+      // The name of the MCP server.
       shared_ptr<string> mcpServerName_ {};
+      // Unique identifier for the model API.
       shared_ptr<string> modelApiId_ {};
+      // The name of the model API.
       shared_ptr<string> modelApiName_ {};
     };
 
@@ -143,7 +150,9 @@ namespace Models
 
 
   protected:
+    // Reference settings for the API gateway.
     shared_ptr<HiMarketProductRefConfig::ApigRefConfig> apigRefConfig_ {};
+    // Unique identifier for the gateway.
     shared_ptr<string> gatewayId_ {};
   };
 

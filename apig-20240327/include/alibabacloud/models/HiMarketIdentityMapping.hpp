@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The identity provider attribute that maps to the user\\"s email address.
     shared_ptr<string> emailField_ {};
+    // The identity provider attribute that maps to the user\\"s unique ID.
     shared_ptr<string> userIdField_ {};
+    // The identity provider attribute that maps to the username.
     shared_ptr<string> userNameField_ {};
   };
 

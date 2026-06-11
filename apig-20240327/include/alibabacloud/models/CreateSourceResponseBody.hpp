@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // Source ID
       shared_ptr<string> sourceId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The response status code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<CreateSourceResponseBody::Data> data_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

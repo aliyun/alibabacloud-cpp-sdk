@@ -135,7 +135,9 @@ namespace Models
 
 
       protected:
+        // The key of the label.
         shared_ptr<string> key_ {};
+        // The value of the label.
         shared_ptr<string> value_ {};
       };
 
@@ -158,7 +160,9 @@ namespace Models
 
 
     protected:
+      // The labels of the version.
       shared_ptr<vector<Versions::Labels>> labels_ {};
+      // The version name.
       shared_ptr<string> name_ {};
     };
 
@@ -213,7 +217,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The port number.
       shared_ptr<int32_t> port_ {};
-      // The protocol. Valid values: TCP and UDP.
+      // The protocol. Valid values: `TCP` or `UDP`.
       shared_ptr<string> protocol_ {};
     };
 
@@ -396,53 +400,49 @@ namespace Models
 
 
   protected:
-    // The address details, which can be IP addresses or domain names.
+    // A list of service addresses, such as IP addresses or domain names.
     shared_ptr<vector<string>> addresses_ {};
-    // The agent service configuration
+    // The agent service configuration.
     shared_ptr<AgentServiceConfig> agentServiceConfig_ {};
-    // The AI service configurations.
+    // The AI service configuration.
     shared_ptr<AiServiceConfig> aiServiceConfig_ {};
-    // The creation time (unix timestamp).
+    // The creation timestamp.
     shared_ptr<int64_t> createTimestamp_ {};
-    // The express type
+    // The execution type for the cloud workflow.
     shared_ptr<string> expressType_ {};
     // The gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // The service group name.
+    // The name of the service group.
     shared_ptr<string> groupName_ {};
-    // The health check configurations.
+    // The health check configuration.
     shared_ptr<ServiceHealthCheck> healthCheck_ {};
-    // The health check status.
-    // 
-    // Valid values:
-    // 
-    // *   Unhealthy
-    // *   Healthy
+    // The health status. Valid values: `Healthy` or `Unhealthy`.
     shared_ptr<string> healthStatus_ {};
-    // The label details for service version configuration
+    // A list of labels for the service.
     shared_ptr<vector<LabelDetail>> labelDetails_ {};
     // The service name.
     shared_ptr<string> name_ {};
-    // The namespace of the service.
+    // The namespace.
     shared_ptr<string> namespace_ {};
-    // The outlier endpoints list
+    // A list of outlier endpoints.
     shared_ptr<vector<string>> outlierEndpoints_ {};
-    // The list of objects containing port details.
+    // A list of port configurations.
     shared_ptr<vector<Service::Ports>> ports_ {};
-    // The service protocol type.
+    // The service protocol.
     shared_ptr<string> protocol_ {};
-    // The function qualifier name.
+    // The function qualifier.
     shared_ptr<string> qualifier_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The service unique ID.
+    // The unique service ID.
     shared_ptr<string> serviceId_ {};
-    // The source type.
+    // The source type of the service.
     shared_ptr<string> sourceType_ {};
-    // The list of unhealthy endpoints.
+    // A list of unhealthy endpoints.
     shared_ptr<vector<string>> unhealthyEndpoints_ {};
-    // The last modified time (unix timestamp).
+    // The update timestamp.
     shared_ptr<int64_t> updateTimestamp_ {};
+    // A list of service versions.
     shared_ptr<vector<Service::Versions>> versions_ {};
   };
 

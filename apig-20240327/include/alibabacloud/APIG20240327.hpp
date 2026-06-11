@@ -21,6 +21,44 @@ namespace APIG20240327
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 新增网关配额限流规则
+       *
+       * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+       * > 
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request AddGatewayQuotaRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddGatewayQuotaRuleResponse
+       */
+      Models::AddGatewayQuotaRuleResponse addGatewayQuotaRuleWithOptions(const string &gatewayId, const Models::AddGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 新增网关配额限流规则
+       *
+       * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+       * > 
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request AddGatewayQuotaRuleRequest
+       * @return AddGatewayQuotaRuleResponse
+       */
+      Models::AddGatewayQuotaRuleResponse addGatewayQuotaRule(const string &gatewayId, const Models::AddGatewayQuotaRuleRequest &request);
+
+      /**
        * @summary Adds a security group that authorizes an instance to access services.
        *
        * @param request AddGatewaySecurityGroupRuleRequest
@@ -191,7 +229,7 @@ namespace APIG20240327
       Models::CreateEnvironmentResponse createEnvironment(const Models::CreateEnvironmentRequest &request);
 
       /**
-       * @summary Creates a cloud-native gateway.
+       * @summary The zone information.
        *
        * @param request CreateGatewayRequest
        * @param headers map
@@ -201,7 +239,7 @@ namespace APIG20240327
       Models::CreateGatewayResponse createGatewayWithOptions(const Models::CreateGatewayRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud-native gateway.
+       * @summary The zone information.
        *
        * @param request CreateGatewayRequest
        * @return CreateGatewayResponse
@@ -209,7 +247,7 @@ namespace APIG20240327
       Models::CreateGatewayResponse createGateway(const Models::CreateGatewayRequest &request);
 
       /**
-       * @summary Creates an HTTP API.
+       * @summary $.parameters[0].schema.properties.ingressConfig.example
        *
        * @param request CreateHttpApiRequest
        * @param headers map
@@ -219,7 +257,7 @@ namespace APIG20240327
       Models::CreateHttpApiResponse createHttpApiWithOptions(const Models::CreateHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an HTTP API.
+       * @summary $.parameters[0].schema.properties.ingressConfig.example
        *
        * @param request CreateHttpApiRequest
        * @return CreateHttpApiResponse
@@ -393,7 +431,7 @@ namespace APIG20240327
       Models::CreateServiceVersionResponse createServiceVersion(const string &serviceId, const Models::CreateServiceVersionRequest &request);
 
       /**
-       * @summary Creates a service source.
+       * @summary Create a source.
        *
        * @param request CreateSourceRequest
        * @param headers map
@@ -403,7 +441,7 @@ namespace APIG20240327
       Models::CreateSourceResponse createSourceWithOptions(const Models::CreateSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service source.
+       * @summary Create a source.
        *
        * @param request CreateSourceRequest
        * @return CreateSourceResponse
@@ -493,6 +531,28 @@ namespace APIG20240327
        * @return DeleteGatewayResponse
        */
       Models::DeleteGatewayResponse deleteGateway(const string &gatewayId);
+
+      /**
+       * @summary 删除网关配额限流规则
+       *
+       * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+       *
+       * @param request DeleteGatewayQuotaRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteGatewayQuotaRuleResponse
+       */
+      Models::DeleteGatewayQuotaRuleResponse deleteGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::DeleteGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除网关配额限流规则
+       *
+       * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+       *
+       * @param request DeleteGatewayQuotaRuleRequest
+       * @return DeleteGatewayQuotaRuleResponse
+       */
+      Models::DeleteGatewayQuotaRuleResponse deleteGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::DeleteGatewayQuotaRuleRequest &request);
 
       /**
        * @summary Deletes a security group rule from a Cloud-native API Gateway instance.
@@ -627,6 +687,8 @@ namespace APIG20240327
       /**
        * @summary Deletes a key value.
        *
+       * @description 接口支持创建多个服务。
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return DeleteSecretResponse
@@ -635,6 +697,8 @@ namespace APIG20240327
 
       /**
        * @summary Deletes a key value.
+       *
+       * @description 接口支持创建多个服务。
        *
        * @return DeleteSecretResponse
        */
@@ -673,7 +737,7 @@ namespace APIG20240327
       Models::DeleteServiceVersionResponse deleteServiceVersion(const string &serviceId, const string &name);
 
       /**
-       * @summary Deletes a service source.
+       * @summary Delete a service source.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -682,14 +746,14 @@ namespace APIG20240327
       Models::DeleteSourceResponse deleteSourceWithOptions(const string &sourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a service source.
+       * @summary Delete a service source.
        *
        * @return DeleteSourceResponse
        */
       Models::DeleteSourceResponse deleteSource(const string &sourceId);
 
       /**
-       * @summary Deploy HttpApi
+       * @summary Deploy an HTTP API, including REST and HTTP API routes.
        *
        * @param request DeployHttpApiRequest
        * @param headers map
@@ -699,7 +763,7 @@ namespace APIG20240327
       Models::DeployHttpApiResponse deployHttpApiWithOptions(const string &httpApiId, const Models::DeployHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploy HttpApi
+       * @summary Deploy an HTTP API, including REST and HTTP API routes.
        *
        * @param request DeployHttpApiRequest
        * @return DeployHttpApiResponse
@@ -723,7 +787,7 @@ namespace APIG20240327
       Models::DeployMcpServerResponse deployMcpServer(const string &mcpServerId);
 
       /**
-       * @summary Exports an HTTP API.
+       * @summary Exports the specified HTTP API.
        *
        * @param request ExportHttpApiRequest
        * @param headers map
@@ -733,7 +797,7 @@ namespace APIG20240327
       Models::ExportHttpApiResponse exportHttpApiWithOptions(const string &httpApiId, const Models::ExportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports an HTTP API.
+       * @summary Exports the specified HTTP API.
        *
        * @param request ExportHttpApiRequest
        * @return ExportHttpApiResponse
@@ -847,6 +911,50 @@ namespace APIG20240327
       Models::GetGatewayResponse getGateway(const string &gatewayId);
 
       /**
+       * @summary 查询网关配额限流规则详情
+       *
+       * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+       *
+       * @param request GetGatewayQuotaRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayQuotaRuleResponse
+       */
+      Models::GetGatewayQuotaRuleResponse getGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::GetGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关配额限流规则详情
+       *
+       * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+       *
+       * @param request GetGatewayQuotaRuleRequest
+       * @return GetGatewayQuotaRuleResponse
+       */
+      Models::GetGatewayQuotaRuleResponse getGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::GetGatewayQuotaRuleRequest &request);
+
+      /**
+       * @summary 查询网关配额限流规则主体用量详情
+       *
+       * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+       *
+       * @param request GetGatewayQuotaRuleSubjectUsageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayQuotaRuleSubjectUsageResponse
+       */
+      Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsageWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关配额限流规则主体用量详情
+       *
+       * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+       *
+       * @param request GetGatewayQuotaRuleSubjectUsageRequest
+       * @return GetGatewayQuotaRuleSubjectUsageResponse
+       */
+      Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsage(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request);
+
+      /**
        * @summary Read HttpApi
        *
        * @param headers map
@@ -895,9 +1003,9 @@ namespace APIG20240327
       Models::GetHttpApiRouteResponse getHttpApiRoute(const string &httpApiId, const string &routeId);
 
       /**
-       * @summary Queries the detailed information of an MCP server.
+       * @summary Get the MCP server.
        *
-       * @description You can call this operation to create multiple services at a time.
+       * @description This API supports creating multiple services.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -906,9 +1014,9 @@ namespace APIG20240327
       Models::GetMcpServerResponse getMcpServerWithOptions(const string &mcpServerId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed information of an MCP server.
+       * @summary Get the MCP server.
        *
-       * @description You can call this operation to create multiple services at a time.
+       * @description This API supports creating multiple services.
        *
        * @return GetMcpServerResponse
        */
@@ -1003,6 +1111,8 @@ namespace APIG20240327
       /**
        * @summary Gets the key value.
        *
+       * @description 接口支持创建多个服务。
+       *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSecretValueResponse
@@ -1011,6 +1121,8 @@ namespace APIG20240327
 
       /**
        * @summary Gets the key value.
+       *
+       * @description 接口支持创建多个服务。
        *
        * @return GetSecretValueResponse
        */
@@ -1067,7 +1179,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
-       * @summary Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+       * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
        *
        * @param request ImportHttpApiRequest
        * @param headers map
@@ -1077,7 +1189,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApiWithOptions(const Models::ImportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+       * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
        *
        * @param request ImportHttpApiRequest
        * @return ImportHttpApiResponse
@@ -1181,6 +1293,8 @@ namespace APIG20240327
       /**
        * @summary 获取网关外的服务信息
        *
+       * @description 接口支持创建多个服务。
+       *
        * @param request ListExternalServicesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1190,6 +1304,8 @@ namespace APIG20240327
 
       /**
        * @summary 获取网关外的服务信息
+       *
+       * @description 接口支持创建多个服务。
        *
        * @param request ListExternalServicesRequest
        * @return ListExternalServicesResponse
@@ -1211,6 +1327,28 @@ namespace APIG20240327
        * @return ListGatewayFeaturesResponse
        */
       Models::ListGatewayFeaturesResponse listGatewayFeatures(const string &gatewayId);
+
+      /**
+       * @summary 查询网关周期配额规则列表
+       *
+       * @description 该接口用于查询网关上绑定的消费者配额规则列表
+       *
+       * @param request ListGatewayQuotaRulesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGatewayQuotaRulesResponse
+       */
+      Models::ListGatewayQuotaRulesResponse listGatewayQuotaRulesWithOptions(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关周期配额规则列表
+       *
+       * @description 该接口用于查询网关上绑定的消费者配额规则列表
+       *
+       * @param request ListGatewayQuotaRulesRequest
+       * @return ListGatewayQuotaRulesResponse
+       */
+      Models::ListGatewayQuotaRulesResponse listGatewayQuotaRules(const string &gatewayId, const Models::ListGatewayQuotaRulesRequest &request);
 
       /**
        * @summary Queries a list of instances.
@@ -1249,7 +1387,7 @@ namespace APIG20240327
       Models::ListHttpApiOperationsResponse listHttpApiOperations(const string &httpApiId, const Models::ListHttpApiOperationsRequest &request);
 
       /**
-       * @summary Queries the routes of an HTTP API.
+       * @summary Gets the route list for an HTTP API.
        *
        * @param request ListHttpApiRoutesRequest
        * @param headers map
@@ -1259,7 +1397,7 @@ namespace APIG20240327
       Models::ListHttpApiRoutesResponse listHttpApiRoutesWithOptions(const string &httpApiId, const Models::ListHttpApiRoutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the routes of an HTTP API.
+       * @summary Gets the route list for an HTTP API.
        *
        * @param request ListHttpApiRoutesRequest
        * @return ListHttpApiRoutesResponse
@@ -1423,7 +1561,9 @@ namespace APIG20240327
       Models::ListSecretReferencesResponse listSecretReferences(const string &secretId, const Models::ListSecretReferencesRequest &request);
 
       /**
-       * @summary 查询密钥列表
+       * @summary List keys.
+       *
+       * @description The API supports creating multiple services.
        *
        * @param request ListSecretsRequest
        * @param headers map
@@ -1433,7 +1573,9 @@ namespace APIG20240327
       Models::ListSecretsResponse listSecretsWithOptions(const Models::ListSecretsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询密钥列表
+       * @summary List keys.
+       *
+       * @description The API supports creating multiple services.
        *
        * @param request ListSecretsRequest
        * @return ListSecretsResponse
@@ -1525,6 +1667,44 @@ namespace APIG20240327
        * @return RemoveConsumerAuthorizationRuleResponse
        */
       Models::RemoveConsumerAuthorizationRuleResponse removeConsumerAuthorizationRule(const string &consumerAuthorizationRuleId);
+
+      /**
+       * @summary 重置网关配额限流规则
+       *
+       * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+       * > 
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request ResetGatewayQuotaRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetGatewayQuotaRuleResponse
+       */
+      Models::ResetGatewayQuotaRuleResponse resetGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::ResetGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重置网关配额限流规则
+       *
+       * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+       * > 
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request ResetGatewayQuotaRuleRequest
+       * @return ResetGatewayQuotaRuleResponse
+       */
+      Models::ResetGatewayQuotaRuleResponse resetGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::ResetGatewayQuotaRuleRequest &request);
 
       /**
        * @summary Restarts an instance.
@@ -1689,7 +1869,7 @@ namespace APIG20240327
       /**
        * @deprecated OpenAPI UpdateEnvironment is deprecated
        *
-       * @summary Modifies an environment.
+       * @summary UpdateEnvironment
        *
        * @param request UpdateEnvironmentRequest
        * @param headers map
@@ -1701,7 +1881,7 @@ namespace APIG20240327
       /**
        * @deprecated OpenAPI UpdateEnvironment is deprecated
        *
-       * @summary Modifies an environment.
+       * @summary UpdateEnvironment
        *
        * @param request UpdateEnvironmentRequest
        * @return UpdateEnvironmentResponse
@@ -1727,7 +1907,7 @@ namespace APIG20240327
       Models::UpdateGatewayFeatureResponse updateGatewayFeature(const string &gatewayId, const string &name, const Models::UpdateGatewayFeatureRequest &request);
 
       /**
-       * @summary Changes the name of a Cloud-native API Gateway instance.
+       * @summary The response message returned.
        *
        * @param request UpdateGatewayNameRequest
        * @param headers map
@@ -1737,12 +1917,70 @@ namespace APIG20240327
       Models::UpdateGatewayNameResponse updateGatewayNameWithOptions(const string &gatewayId, const Models::UpdateGatewayNameRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the name of a Cloud-native API Gateway instance.
+       * @summary The response message returned.
        *
        * @param request UpdateGatewayNameRequest
        * @return UpdateGatewayNameResponse
        */
       Models::UpdateGatewayNameResponse updateGatewayName(const string &gatewayId, const Models::UpdateGatewayNameRequest &request);
+
+      /**
+       * @summary 更新网关配额限流规则
+       *
+       * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request UpdateGatewayQuotaRuleRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayQuotaRuleResponse
+       */
+      Models::UpdateGatewayQuotaRuleResponse updateGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::UpdateGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 更新网关配额限流规则
+       *
+       * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+       * >  推荐调用逻辑：
+       * > - 一、先 dryRun 预检检验是否存在规则冲突
+       * > - - 传dryRun=true
+       * > - - 返回含conflictHash的冲突预览
+       * > - 二、确认后正式提交
+       * > - - 无冲突：dryRun=false,overwrite=false
+       * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+       *
+       * @param request UpdateGatewayQuotaRuleRequest
+       * @return UpdateGatewayQuotaRuleResponse
+       */
+      Models::UpdateGatewayQuotaRuleResponse updateGatewayQuotaRule(const string &gatewayId, const string &ruleId, const Models::UpdateGatewayQuotaRuleRequest &request);
+
+      /**
+       * @summary 启/停用网关配额限流规则
+       *
+       * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+       *
+       * @param request UpdateGatewayQuotaRuleStatusRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGatewayQuotaRuleStatusResponse
+       */
+      Models::UpdateGatewayQuotaRuleStatusResponse updateGatewayQuotaRuleStatusWithOptions(const string &gatewayId, const string &ruleId, const Models::UpdateGatewayQuotaRuleStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启/停用网关配额限流规则
+       *
+       * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+       *
+       * @param request UpdateGatewayQuotaRuleStatusRequest
+       * @return UpdateGatewayQuotaRuleStatusResponse
+       */
+      Models::UpdateGatewayQuotaRuleStatusResponse updateGatewayQuotaRuleStatus(const string &gatewayId, const string &ruleId, const Models::UpdateGatewayQuotaRuleStatusRequest &request);
 
       /**
        * @summary Updates an HTTP API.
@@ -1781,7 +2019,7 @@ namespace APIG20240327
       Models::UpdateHttpApiOperationResponse updateHttpApiOperation(const string &httpApiId, const string &operationId, const Models::UpdateHttpApiOperationRequest &request);
 
       /**
-       * @summary Updates the route of an HTTP API.
+       * @summary Updates a route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @param headers map
@@ -1791,7 +2029,7 @@ namespace APIG20240327
       Models::UpdateHttpApiRouteResponse updateHttpApiRouteWithOptions(const string &httpApiId, const string &routeId, const Models::UpdateHttpApiRouteRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the route of an HTTP API.
+       * @summary Updates a route of an HTTP API.
        *
        * @param request UpdateHttpApiRouteRequest
        * @return UpdateHttpApiRouteResponse
@@ -1879,7 +2117,7 @@ namespace APIG20240327
       Models::UpdateSecretResponse updateSecret(const string &secretId, const Models::UpdateSecretRequest &request);
 
       /**
-       * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+       * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
        *
        * @param request UpdateServiceRequest
        * @param headers map
@@ -1889,7 +2127,7 @@ namespace APIG20240327
       Models::UpdateServiceResponse updateServiceWithOptions(const string &serviceId, const Models::UpdateServiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+       * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
        *
        * @param request UpdateServiceRequest
        * @return UpdateServiceResponse

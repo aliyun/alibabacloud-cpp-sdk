@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The category to which the field belongs, used for grouping and organizing fields.
     shared_ptr<string> category_ {};
+    // A detailed description that provides additional context about the field\\"s purpose and usage.
     shared_ptr<string> description_ {};
+    // The unique key used to identify the field in statistical results.
     shared_ptr<string> fieldKey_ {};
+    // Specifies whether the field is an input or an output. Valid values are typically `IN` or `OUT`.
     shared_ptr<string> io_ {};
+    // The JSONPath expression to extract the field value from the source data.
     shared_ptr<string> jsonPath_ {};
+    // The display name of the field, used for labeling in user interfaces or reports.
     shared_ptr<string> name_ {};
+    // Specifies whether logging is enabled for this field. If set to `true`, the system records the field\\"s value in logs.
     shared_ptr<bool> recordEnabled_ {};
+    // A rule or condition applied to the extracted field. The rule\\"s format and effect are implementation-specific.
     shared_ptr<string> rule_ {};
+    // Indicates whether the field contains sensitive information. If set to `true`, the system may apply masking or other security measures.
     shared_ptr<bool> sensitive_ {};
+    // The data source from which the field is extracted. For example, `Request` or `Response`.
     shared_ptr<string> source_ {};
   };
 

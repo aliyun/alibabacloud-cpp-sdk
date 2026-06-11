@@ -122,7 +122,9 @@ namespace Models
 
 
       protected:
+        // The location in the request to search for the `pattern`. For example: `header` or `query`.
         shared_ptr<string> matchType_ {};
+        // The pattern for matching a consumer. This can be a regular expression.
         shared_ptr<string> pattern_ {};
       };
 
@@ -152,8 +154,11 @@ namespace Models
 
 
     protected:
+      // Contains rules that override the default settings for specific consumers.
       shared_ptr<RiskConfig::ConsumerRules> consumerRules_ {};
+      // The default risk level for this risk type. For example: `low`, `medium`, or `high`.
       shared_ptr<string> level_ {};
+      // The type of risk to configure. For example: `profanity` or `spam`.
       shared_ptr<string> type_ {};
     };
 
@@ -213,9 +218,13 @@ namespace Models
 
 
     protected:
+      // The risk level to apply to the specified consumer and risk type. For example: `low`, `medium`, or `high`.
       shared_ptr<string> level_ {};
+      // The match type for identifying the consumer. For example: `header` or `query`.
       shared_ptr<string> matchType_ {};
+      // The identifier of the consumer.
       shared_ptr<string> name_ {};
+      // The type of risk to configure. For example: `profanity` or `spam`.
       shared_ptr<string> type_ {};
     };
 
@@ -284,10 +293,15 @@ namespace Models
 
 
     protected:
+      // The match type for identifying the consumer. For example: `header` or `query`.
       shared_ptr<string> matchType_ {};
+      // The modality type for this rule. For example: `text` or `image`.
       shared_ptr<string> modalityType_ {};
+      // The identifier of the consumer.
       shared_ptr<string> name_ {};
+      // The identifier of the response check service for text content for this consumer.
       shared_ptr<string> responseCheckService_ {};
+      // The identifier of the response check service for image content for this consumer.
       shared_ptr<string> responseImageCheckService_ {};
     };
 
@@ -356,10 +370,15 @@ namespace Models
 
 
     protected:
+      // The match type for identifying the consumer. For example: `header` or `query`.
       shared_ptr<string> matchType_ {};
+      // The modality type for this rule. For example: `text` or `image`.
       shared_ptr<string> modalityType_ {};
+      // The identifier of the consumer.
       shared_ptr<string> name_ {};
+      // The identifier of the request check service for text content for this consumer.
       shared_ptr<string> requestCheckService_ {};
+      // The identifier of the request check service for image content for this consumer.
       shared_ptr<string> requestImageCheckService_ {};
     };
 
@@ -490,21 +509,37 @@ namespace Models
 
 
   protected:
+    // The buffer limit in bytes for streaming content checks. The service buffers content up to this limit before sending it for analysis.
     shared_ptr<int32_t> bufferLimit_ {};
+    // Specifies whether to check the content of incoming requests.
     shared_ptr<bool> checkRequest_ {};
+    // Specifies whether to check incoming requests for image content. Requires `checkRequest` to be `true`.
     shared_ptr<bool> checkRequestImage_ {};
+    // Specifies whether to check the content of outgoing responses.
     shared_ptr<bool> checkResponse_ {};
+    // Specifies whether to check outgoing responses for image content. Requires `checkResponse` to be `true`.
     shared_ptr<bool> checkResponseImage_ {};
+    // Specifies consumer-specific configurations for the request check service.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRequestCheckService>> consumerRequestCheckService_ {};
+    // Specifies consumer-specific configurations for the response check service.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerResponseCheckService>> consumerResponseCheckService_ {};
+    // Specifies customized risk thresholds for different consumers.
     shared_ptr<vector<AiSecurityGuardConfig::ConsumerRiskLevel>> consumerRiskLevel_ {};
+    // Controls whether the AI Security Guard plugin is enabled or disabled.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
+    // The identifier of the request check service for text content.
     shared_ptr<string> requestCheckService_ {};
+    // The identifier of the request check service for image content.
     shared_ptr<string> requestImageCheckService_ {};
+    // The identifier of the response check service for text content.
     shared_ptr<string> responseCheckService_ {};
+    // The identifier of the response check service for image content.
     shared_ptr<string> responseImageCheckService_ {};
+    // The risk alert level. The service triggers an alert when a detected risk meets or exceeds this level.
     shared_ptr<string> riskAlertLevel_ {};
+    // Specifies general risk configurations.
     shared_ptr<vector<AiSecurityGuardConfig::RiskConfig>> riskConfig_ {};
+    // The service address of the security check endpoint.
     shared_ptr<string> serviceAddress_ {};
   };
 

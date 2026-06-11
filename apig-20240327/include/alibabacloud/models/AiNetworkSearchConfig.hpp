@@ -113,10 +113,15 @@ namespace Models
 
 
     protected:
+      // Whether to enable the search query rewrite feature.
       shared_ptr<bool> enable_ {};
+      // The maximum number of rewritten queries to generate.
       shared_ptr<int32_t> maxCount_ {};
+      // The name of the model to use for query rewriting.
       shared_ptr<string> modelName_ {};
+      // The ID of the query rewriting service.
       shared_ptr<string> serviceId_ {};
+      // Timeout for the query rewriting operation, in milliseconds.
       shared_ptr<int32_t> timeoutMillisecond_ {};
     };
 
@@ -195,14 +200,23 @@ namespace Models
 
 
   protected:
+    // Whether the network search feature is enabled by default.
     shared_ptr<bool> defaultEnable_ {};
+    // The default language for the search query.
     shared_ptr<string> defaultLang_ {};
+    // Whether to include references in the search results.
     shared_ptr<bool> needReference_ {};
+    // The status of the AI plugin.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
+    // The format of the references.
     shared_ptr<string> referenceFormat_ {};
+    // The location of the references in the response.
     shared_ptr<string> referenceLocation_ {};
+    // The search engine configuration.
     shared_ptr<AiNetworkConfigSearchEngine> searchEngineConfig_ {};
+    // A list of search engine configurations for the network search.
     shared_ptr<vector<AiNetworkConfigSearchEngine>> searchFrom_ {};
+    // Configuration for search query rewriting.
     shared_ptr<AiNetworkSearchConfig::SearchRewrite> searchRewrite_ {};
   };
 

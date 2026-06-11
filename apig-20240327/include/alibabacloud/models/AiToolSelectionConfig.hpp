@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // The name of the model used for reranking.
         shared_ptr<string> modelName_ {};
+        // The ID of the model service used for reranking.
         shared_ptr<string> serviceId_ {};
+        // The request timeout in milliseconds for the reranking model service.
         shared_ptr<int32_t> timeoutMillisecond_ {};
       };
 
@@ -164,11 +167,17 @@ namespace Models
 
 
     protected:
+      // The fallback strategy used if tool reranking fails or returns no results.
       shared_ptr<string> fallbackStrategy_ {};
+      // The method for filtering tools after reranking.
       shared_ptr<string> filteringMethod_ {};
+      // Model service configuration for tool reranking.
       shared_ptr<ToolReranking::ModelService> modelService_ {};
+      // The minimum score a tool must have to be selected. Tools with scores below this threshold are filtered out.
       shared_ptr<float> scoreThreshold_ {};
+      // The percentage of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a percentage-based method.
       shared_ptr<int32_t> topKPercent_ {};
+      // The number of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a count-based method.
       shared_ptr<int32_t> topNCount_ {};
     };
 
@@ -231,6 +240,7 @@ namespace Models
 
 
       protected:
+        // The minimum number of messages in the conversation history required to activate query rewriting.
         shared_ptr<int32_t> messageCountThreshold_ {};
       };
 
@@ -272,7 +282,9 @@ namespace Models
 
 
       protected:
+        // The custom prompt template for query rewriting. This parameter is required if `type` is set to `custom`.
         shared_ptr<string> customPrompt_ {};
+        // The type of prompt, such as default or custom.
         shared_ptr<string> type_ {};
       };
 
@@ -323,8 +335,11 @@ namespace Models
 
 
       protected:
+        // The name of the model used for query rewriting.
         shared_ptr<string> modelName_ {};
+        // The ID of the model service used for query rewriting.
         shared_ptr<string> serviceId_ {};
+        // The request timeout in milliseconds for the query rewriting model service.
         shared_ptr<int32_t> timeoutMillisecond_ {};
       };
 
@@ -366,7 +381,9 @@ namespace Models
 
 
       protected:
+        // The strategy for selecting the conversation context.
         shared_ptr<string> type_ {};
+        // The value associated with the context selection strategy, such as the number of messages to include.
         shared_ptr<int32_t> value_ {};
       };
 
@@ -431,12 +448,19 @@ namespace Models
 
 
     protected:
+      // Method for selecting the conversation context for query rewriting.
       shared_ptr<QueryRewriting::ContextSelection> contextSelection_ {};
+      // Whether to enable query rewriting.
       shared_ptr<bool> enabled_ {};
+      // The fallback strategy used if query rewriting fails or returns no results.
       shared_ptr<string> fallbackStrategy_ {};
+      // The maximum number of tokens to generate for the rewritten query.
       shared_ptr<int32_t> maxOutputTokens_ {};
+      // Model service configuration for query rewriting.
       shared_ptr<QueryRewriting::ModelService> modelService_ {};
+      // Prompt configuration for query rewriting.
       shared_ptr<QueryRewriting::PromptConfig> promptConfig_ {};
+      // Conditions for activating query rewriting.
       shared_ptr<QueryRewriting::TriggerConditions> triggerConditions_ {};
     };
 
@@ -468,6 +492,7 @@ namespace Models
 
 
     protected:
+      // The minimum number of tools required to activate tool selection.
       shared_ptr<int32_t> toolCountThreshold_ {};
     };
 
@@ -510,9 +535,13 @@ namespace Models
 
 
   protected:
+    // Conditions for activating the tool selection feature.
     shared_ptr<AiToolSelectionConfig::EnableConditions> enableConditions_ {};
+    // The status of the AI tool selection plugin.
     shared_ptr<AiPluginStatus> pluginStatus_ {};
+    // Configuration for query rewriting, which optimizes user queries before tool selection.
     shared_ptr<AiToolSelectionConfig::QueryRewriting> queryRewriting_ {};
+    // Configuration for tool reranking, which controls how tools are scored and filtered.
     shared_ptr<AiToolSelectionConfig::ToolReranking> toolReranking_ {};
   };
 

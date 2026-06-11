@@ -37,6 +37,111 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 新增网关配额限流规则
+ *
+ * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * > 
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request AddGatewayQuotaRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddGatewayQuotaRuleResponse
+ */
+AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string &gatewayId, const AddGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConflictHash()) {
+    body["conflictHash"] = request.getConflictHash();
+  }
+
+  if (!!request.hasConsumerGroupIds()) {
+    body["consumerGroupIds"] = request.getConsumerGroupIds();
+  }
+
+  if (!!request.hasConsumerIds()) {
+    body["consumerIds"] = request.getConsumerIds();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOverwrite()) {
+    body["overwrite"] = request.getOverwrite();
+  }
+
+  if (!!request.hasPeriodType()) {
+    body["periodType"] = request.getPeriodType();
+  }
+
+  if (!!request.hasQuotaDimension()) {
+    body["quotaDimension"] = request.getQuotaDimension();
+  }
+
+  if (!!request.hasQuotaLimit()) {
+    body["quotaLimit"] = request.getQuotaLimit();
+  }
+
+  if (!!request.hasRuleName()) {
+    body["ruleName"] = request.getRuleName();
+  }
+
+  if (!!request.hasTimezone()) {
+    body["timezone"] = request.getTimezone();
+  }
+
+  if (!!request.hasWindowAlignment()) {
+    body["windowAlignment"] = request.getWindowAlignment();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "AddGatewayQuotaRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddGatewayQuotaRuleResponse>();
+}
+
+/**
+ * @summary 新增网关配额限流规则
+ *
+ * @description 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ * > 
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request AddGatewayQuotaRuleRequest
+ * @return AddGatewayQuotaRuleResponse
+ */
+AddGatewayQuotaRuleResponse Client::addGatewayQuotaRule(const string &gatewayId, const AddGatewayQuotaRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return addGatewayQuotaRuleWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
  * @summary Adds a security group that authorizes an instance to access services.
  *
  * @param request AddGatewaySecurityGroupRuleRequest
@@ -602,7 +707,7 @@ CreateEnvironmentResponse Client::createEnvironment(const CreateEnvironmentReque
 }
 
 /**
- * @summary Creates a cloud-native gateway.
+ * @summary The zone information.
  *
  * @param request CreateGatewayRequest
  * @param headers map
@@ -675,7 +780,7 @@ CreateGatewayResponse Client::createGatewayWithOptions(const CreateGatewayReques
 }
 
 /**
- * @summary Creates a cloud-native gateway.
+ * @summary The zone information.
  *
  * @param request CreateGatewayRequest
  * @return CreateGatewayResponse
@@ -687,7 +792,7 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
 }
 
 /**
- * @summary Creates an HTTP API.
+ * @summary $.parameters[0].schema.properties.ingressConfig.example
  *
  * @param request CreateHttpApiRequest
  * @param headers map
@@ -792,7 +897,7 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
 }
 
 /**
- * @summary Creates an HTTP API.
+ * @summary $.parameters[0].schema.properties.ingressConfig.example
  *
  * @param request CreateHttpApiRequest
  * @return CreateHttpApiResponse
@@ -1391,7 +1496,7 @@ CreateServiceVersionResponse Client::createServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Creates a service source.
+ * @summary Create a source.
  *
  * @param request CreateSourceRequest
  * @param headers map
@@ -1440,7 +1545,7 @@ CreateSourceResponse Client::createSourceWithOptions(const CreateSourceRequest &
 }
 
 /**
- * @summary Creates a service source.
+ * @summary Create a source.
  *
  * @param request CreateSourceRequest
  * @return CreateSourceResponse
@@ -1633,6 +1738,49 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteGatewayWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 删除网关配额限流规则
+ *
+ * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ *
+ * @param request DeleteGatewayQuotaRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteGatewayQuotaRuleResponse
+ */
+DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const DeleteGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteGatewayQuotaRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteGatewayQuotaRuleResponse>();
+}
+
+/**
+ * @summary 删除网关配额限流规则
+ *
+ * @description 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ *
+ * @param request DeleteGatewayQuotaRuleRequest
+ * @return DeleteGatewayQuotaRuleResponse
+ */
+DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRule(const string &gatewayId, const string &ruleId, const DeleteGatewayQuotaRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
 }
 
 /**
@@ -1935,6 +2083,8 @@ DeletePolicyAttachmentResponse Client::deletePolicyAttachment(const string &poli
 /**
  * @summary Deletes a key value.
  *
+ * @description 接口支持创建多个服务。
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteSecretResponse
@@ -1959,6 +2109,8 @@ DeleteSecretResponse Client::deleteSecretWithOptions(const string &secretId, con
 
 /**
  * @summary Deletes a key value.
+ *
+ * @description 接口支持创建多个服务。
  *
  * @return DeleteSecretResponse
  */
@@ -2041,7 +2193,7 @@ DeleteServiceVersionResponse Client::deleteServiceVersion(const string &serviceI
 }
 
 /**
- * @summary Deletes a service source.
+ * @summary Delete a service source.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2066,7 +2218,7 @@ DeleteSourceResponse Client::deleteSourceWithOptions(const string &sourceId, con
 }
 
 /**
- * @summary Deletes a service source.
+ * @summary Delete a service source.
  *
  * @return DeleteSourceResponse
  */
@@ -2077,7 +2229,7 @@ DeleteSourceResponse Client::deleteSource(const string &sourceId) {
 }
 
 /**
- * @summary Deploy HttpApi
+ * @summary Deploy an HTTP API, including REST and HTTP API routes.
  *
  * @param request DeployHttpApiRequest
  * @param headers map
@@ -2118,7 +2270,7 @@ DeployHttpApiResponse Client::deployHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Deploy HttpApi
+ * @summary Deploy an HTTP API, including REST and HTTP API routes.
  *
  * @param request DeployHttpApiRequest
  * @return DeployHttpApiResponse
@@ -2166,7 +2318,7 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 }
 
 /**
- * @summary Exports an HTTP API.
+ * @summary Exports the specified HTTP API.
  *
  * @param request ExportHttpApiRequest
  * @param headers map
@@ -2207,7 +2359,7 @@ ExportHttpApiResponse Client::exportHttpApiWithOptions(const string &httpApiId, 
 }
 
 /**
- * @summary Exports an HTTP API.
+ * @summary Exports the specified HTTP API.
  *
  * @param request ExportHttpApiRequest
  * @return ExportHttpApiResponse
@@ -2508,6 +2660,116 @@ GetGatewayResponse Client::getGateway(const string &gatewayId) {
 }
 
 /**
+ * @summary 查询网关配额限流规则详情
+ *
+ * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+ *
+ * @param request GetGatewayQuotaRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayQuotaRuleResponse
+ */
+GetGatewayQuotaRuleResponse Client::getGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const GetGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConsumerPageNumber()) {
+    query["consumerPageNumber"] = request.getConsumerPageNumber();
+  }
+
+  if (!!request.hasConsumerPageSize()) {
+    query["consumerPageSize"] = request.getConsumerPageSize();
+  }
+
+  if (!!request.hasWithConsumers()) {
+    query["withConsumers"] = request.getWithConsumers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayQuotaRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayQuotaRuleResponse>();
+}
+
+/**
+ * @summary 查询网关配额限流规则详情
+ *
+ * @description 该接口用于查询 AI 网关上某条消费者配额规则。
+ *
+ * @param request GetGatewayQuotaRuleRequest
+ * @return GetGatewayQuotaRuleResponse
+ */
+GetGatewayQuotaRuleResponse Client::getGatewayQuotaRule(const string &gatewayId, const string &ruleId, const GetGatewayQuotaRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询网关配额限流规则主体用量详情
+ *
+ * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ *
+ * @param request GetGatewayQuotaRuleSubjectUsageRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGatewayQuotaRuleSubjectUsageResponse
+ */
+GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsageWithOptions(const string &gatewayId, const string &ruleId, const string &subjectId, const GetGatewayQuotaRuleSubjectUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetGatewayQuotaRuleSubjectUsage"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId) , "/subjects/" , Darabonba::Encode::Encoder::percentEncode(subjectId) , "/usage")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGatewayQuotaRuleSubjectUsageResponse>();
+}
+
+/**
+ * @summary 查询网关配额限流规则主体用量详情
+ *
+ * @description 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+ *
+ * @param request GetGatewayQuotaRuleSubjectUsageRequest
+ * @return GetGatewayQuotaRuleSubjectUsageResponse
+ */
+GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(const string &gatewayId, const string &ruleId, const string &subjectId, const GetGatewayQuotaRuleSubjectUsageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGatewayQuotaRuleSubjectUsageWithOptions(gatewayId, ruleId, subjectId, request, headers, runtime);
+}
+
+/**
  * @summary Read HttpApi
  *
  * @param headers map
@@ -2616,9 +2878,9 @@ GetHttpApiRouteResponse Client::getHttpApiRoute(const string &httpApiId, const s
 }
 
 /**
- * @summary Queries the detailed information of an MCP server.
+ * @summary Get the MCP server.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This API supports creating multiple services.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2643,9 +2905,9 @@ GetMcpServerResponse Client::getMcpServerWithOptions(const string &mcpServerId, 
 }
 
 /**
- * @summary Queries the detailed information of an MCP server.
+ * @summary Get the MCP server.
  *
- * @description You can call this operation to create multiple services at a time.
+ * @description This API supports creating multiple services.
  *
  * @return GetMcpServerResponse
  */
@@ -2851,6 +3113,8 @@ GetSecretResponse Client::getSecret(const string &secretId) {
 /**
  * @summary Gets the key value.
  *
+ * @description 接口支持创建多个服务。
+ *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSecretValueResponse
@@ -2875,6 +3139,8 @@ GetSecretValueResponse Client::getSecretValueWithOptions(const string &name, con
 
 /**
  * @summary Gets the key value.
+ *
+ * @description 接口支持创建多个服务。
  *
  * @return GetSecretValueResponse
  */
@@ -3002,7 +3268,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+ * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
  *
  * @param request ImportHttpApiRequest
  * @param headers map
@@ -3083,7 +3349,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 }
 
 /**
- * @summary Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+ * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
  *
  * @param request ImportHttpApiRequest
  * @return ImportHttpApiResponse
@@ -3398,6 +3664,8 @@ ListEnvironmentsResponse Client::listEnvironments(const ListEnvironmentsRequest 
 /**
  * @summary 获取网关外的服务信息
  *
+ * @description 接口支持创建多个服务。
+ *
  * @param request ListExternalServicesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3447,6 +3715,8 @@ ListExternalServicesResponse Client::listExternalServicesWithOptions(const strin
 /**
  * @summary 获取网关外的服务信息
  *
+ * @description 接口支持创建多个服务。
+ *
  * @param request ListExternalServicesRequest
  * @return ListExternalServicesResponse
  */
@@ -3490,6 +3760,71 @@ ListGatewayFeaturesResponse Client::listGatewayFeatures(const string &gatewayId)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
+}
+
+/**
+ * @summary 查询网关周期配额规则列表
+ *
+ * @description 该接口用于查询网关上绑定的消费者配额规则列表
+ *
+ * @param request ListGatewayQuotaRulesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGatewayQuotaRulesResponse
+ */
+ListGatewayQuotaRulesResponse Client::listGatewayQuotaRulesWithOptions(const string &gatewayId, const ListGatewayQuotaRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["pageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListGatewayQuotaRules"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGatewayQuotaRulesResponse>();
+}
+
+/**
+ * @summary 查询网关周期配额规则列表
+ *
+ * @description 该接口用于查询网关上绑定的消费者配额规则列表
+ *
+ * @param request ListGatewayQuotaRulesRequest
+ * @return ListGatewayQuotaRulesResponse
+ */
+ListGatewayQuotaRulesResponse Client::listGatewayQuotaRules(const string &gatewayId, const ListGatewayQuotaRulesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGatewayQuotaRulesWithOptions(gatewayId, request, headers, runtime);
 }
 
 /**
@@ -3665,7 +4000,7 @@ ListHttpApiOperationsResponse Client::listHttpApiOperations(const string &httpAp
 }
 
 /**
- * @summary Queries the routes of an HTTP API.
+ * @summary Gets the route list for an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @param headers map
@@ -3754,7 +4089,7 @@ ListHttpApiRoutesResponse Client::listHttpApiRoutesWithOptions(const string &htt
 }
 
 /**
- * @summary Queries the routes of an HTTP API.
+ * @summary Gets the route list for an HTTP API.
  *
  * @param request ListHttpApiRoutesRequest
  * @return ListHttpApiRoutesResponse
@@ -4382,7 +4717,9 @@ ListSecretReferencesResponse Client::listSecretReferences(const string &secretId
 }
 
 /**
- * @summary 查询密钥列表
+ * @summary List keys.
+ *
+ * @description The API supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @param headers map
@@ -4427,7 +4764,9 @@ ListSecretsResponse Client::listSecretsWithOptions(const ListSecretsRequest &req
 }
 
 /**
- * @summary 查询密钥列表
+ * @summary List keys.
+ *
+ * @description The API supports creating multiple services.
  *
  * @param request ListSecretsRequest
  * @return ListSecretsResponse
@@ -4719,6 +5058,91 @@ RemoveConsumerAuthorizationRuleResponse Client::removeConsumerAuthorizationRule(
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return removeConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, headers, runtime);
+}
+
+/**
+ * @summary 重置网关配额限流规则
+ *
+ * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+ * > 
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request ResetGatewayQuotaRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ResetGatewayQuotaRuleResponse
+ */
+ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const ResetGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasConflictHash()) {
+    body["conflictHash"] = request.getConflictHash();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOverwrite()) {
+    body["overwrite"] = request.getOverwrite();
+  }
+
+  if (!!request.hasPeriodType()) {
+    body["periodType"] = request.getPeriodType();
+  }
+
+  if (!!request.hasQuotaLimit()) {
+    body["quotaLimit"] = request.getQuotaLimit();
+  }
+
+  if (!!request.hasTimezone()) {
+    body["timezone"] = request.getTimezone();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ResetGatewayQuotaRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId) , "/reset")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ResetGatewayQuotaRuleResponse>();
+}
+
+/**
+ * @summary 重置网关配额限流规则
+ *
+ * @description 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+ * > 
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request ResetGatewayQuotaRuleRequest
+ * @return ResetGatewayQuotaRuleResponse
+ */
+ResetGatewayQuotaRuleResponse Client::resetGatewayQuotaRule(const string &gatewayId, const string &ruleId, const ResetGatewayQuotaRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return resetGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
 }
 
 /**
@@ -5218,7 +5642,7 @@ UpdateDomainResponse Client::updateDomain(const string &domainId, const UpdateDo
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary Modifies an environment.
+ * @summary UpdateEnvironment
  *
  * @param request UpdateEnvironmentRequest
  * @param headers map
@@ -5257,7 +5681,7 @@ UpdateEnvironmentResponse Client::updateEnvironmentWithOptions(const string &env
 /**
  * @deprecated OpenAPI UpdateEnvironment is deprecated
  *
- * @summary Modifies an environment.
+ * @summary UpdateEnvironment
  *
  * @param request UpdateEnvironmentRequest
  * @return UpdateEnvironmentResponse
@@ -5314,7 +5738,7 @@ UpdateGatewayFeatureResponse Client::updateGatewayFeature(const string &gatewayI
 }
 
 /**
- * @summary Changes the name of a Cloud-native API Gateway instance.
+ * @summary The response message returned.
  *
  * @param request UpdateGatewayNameRequest
  * @param headers map
@@ -5347,7 +5771,7 @@ UpdateGatewayNameResponse Client::updateGatewayNameWithOptions(const string &gat
 }
 
 /**
- * @summary Changes the name of a Cloud-native API Gateway instance.
+ * @summary The response message returned.
  *
  * @param request UpdateGatewayNameRequest
  * @return UpdateGatewayNameResponse
@@ -5356,6 +5780,150 @@ UpdateGatewayNameResponse Client::updateGatewayName(const string &gatewayId, con
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateGatewayNameWithOptions(gatewayId, request, headers, runtime);
+}
+
+/**
+ * @summary 更新网关配额限流规则
+ *
+ * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request UpdateGatewayQuotaRuleRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayQuotaRuleResponse
+ */
+UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const UpdateGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAddIds()) {
+    body["addIds"] = request.getAddIds();
+  }
+
+  if (!!request.hasConflictHash()) {
+    body["conflictHash"] = request.getConflictHash();
+  }
+
+  if (!!request.hasConsumerGroupIds()) {
+    body["consumerGroupIds"] = request.getConsumerGroupIds();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["dryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasOverwrite()) {
+    body["overwrite"] = request.getOverwrite();
+  }
+
+  if (!!request.hasQuotaLimit()) {
+    body["quotaLimit"] = request.getQuotaLimit();
+  }
+
+  if (!!request.hasRemoveIds()) {
+    body["removeIds"] = request.getRemoveIds();
+  }
+
+  if (!!request.hasRuleName()) {
+    body["ruleName"] = request.getRuleName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayQuotaRule"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayQuotaRuleResponse>();
+}
+
+/**
+ * @summary 更新网关配额限流规则
+ *
+ * @description 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+ * >  推荐调用逻辑：
+ * > - 一、先 dryRun 预检检验是否存在规则冲突
+ * > - - 传dryRun=true
+ * > - - 返回含conflictHash的冲突预览
+ * > - 二、确认后正式提交
+ * > - - 无冲突：dryRun=false,overwrite=false
+ * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+ *
+ * @param request UpdateGatewayQuotaRuleRequest
+ * @return UpdateGatewayQuotaRuleResponse
+ */
+UpdateGatewayQuotaRuleResponse Client::updateGatewayQuotaRule(const string &gatewayId, const string &ruleId, const UpdateGatewayQuotaRuleRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
+}
+
+/**
+ * @summary 启/停用网关配额限流规则
+ *
+ * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ *
+ * @param request UpdateGatewayQuotaRuleStatusRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGatewayQuotaRuleStatusResponse
+ */
+UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatusWithOptions(const string &gatewayId, const string &ruleId, const UpdateGatewayQuotaRuleStatusRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasClearHistory()) {
+    body["clearHistory"] = request.getClearHistory();
+  }
+
+  if (!!request.hasEnable()) {
+    body["enable"] = request.getEnable();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGatewayQuotaRuleStatus"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/gateways/" , Darabonba::Encode::Encoder::percentEncode(gatewayId) , "/quota-rules/" , Darabonba::Encode::Encoder::percentEncode(ruleId) , "/status")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGatewayQuotaRuleStatusResponse>();
+}
+
+/**
+ * @summary 启/停用网关配额限流规则
+ *
+ * @description 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+ *
+ * @param request UpdateGatewayQuotaRuleStatusRequest
+ * @return UpdateGatewayQuotaRuleStatusResponse
+ */
+UpdateGatewayQuotaRuleStatusResponse Client::updateGatewayQuotaRuleStatus(const string &gatewayId, const string &ruleId, const UpdateGatewayQuotaRuleStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGatewayQuotaRuleStatusWithOptions(gatewayId, ruleId, request, headers, runtime);
 }
 
 /**
@@ -5497,7 +6065,7 @@ UpdateHttpApiOperationResponse Client::updateHttpApiOperation(const string &http
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @param headers map
@@ -5554,7 +6122,7 @@ UpdateHttpApiRouteResponse Client::updateHttpApiRouteWithOptions(const string &h
 }
 
 /**
- * @summary Updates the route of an HTTP API.
+ * @summary Updates a route of an HTTP API.
  *
  * @param request UpdateHttpApiRouteRequest
  * @return UpdateHttpApiRouteResponse
@@ -5814,7 +6382,7 @@ UpdateSecretResponse Client::updateSecret(const string &secretId, const UpdateSe
 }
 
 /**
- * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+ * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
  *
  * @param request UpdateServiceRequest
  * @param headers map
@@ -5879,7 +6447,7 @@ UpdateServiceResponse Client::updateServiceWithOptions(const string &serviceId, 
 }
 
 /**
- * @summary Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+ * @summary Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse

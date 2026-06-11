@@ -182,18 +182,19 @@ namespace Models
 
 
       protected:
-        // The service port (omit for dynamic ports).
+        // The service port. This parameter is not required for dynamic ports.
         shared_ptr<int32_t> port_ {};
         // The service protocol. Valid values:
         // 
-        // *   HTTP
-        // *   HTTPS
+        // - HTTP
+        // 
+        // - HTTPS
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
         // The service version.
         shared_ptr<string> version_ {};
-        // The traffic weight percentage.
+        // The percentage of traffic.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -216,14 +217,9 @@ namespace Models
 
 
     protected:
-      // The backend service scenario. Valid values:
-      // 
-      // *   SingleService
-      // *   MultiServiceByRatio
-      // *   Redirect
-      // *   Mock
+      // The backend service scenario.
       shared_ptr<string> scene_ {};
-      // The list of backend services.
+      // A list of backend services.
       shared_ptr<vector<BackendConfig::Services>> services_ {};
     };
 
@@ -290,15 +286,15 @@ namespace Models
 
 
   protected:
-    // The backend service configurations for the route.
+    // The configuration of the backend service for the route.
     shared_ptr<UpdateHttpApiRouteRequest::BackendConfig> backendConfig_ {};
-    // The route description.
+    // The description of the route.
     shared_ptr<string> description_ {};
-    // The list of domain IDs.
+    // A list of domain name IDs.
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The route match rule.
+    // The route matching rule.
     shared_ptr<HttpRouteMatch> match_ {};
     shared_ptr<UpdateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};

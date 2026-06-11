@@ -121,13 +121,13 @@ namespace Models
 
 
     protected:
-      // The domain name ID.
+      // Domain ID.
       shared_ptr<string> domainId_ {};
-      // The domain name.
+      // Domain name.
       shared_ptr<string> name_ {};
-      // The network type.
+      // Network type.
       shared_ptr<string> networkType_ {};
-      // The protocol.
+      // Protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -221,11 +221,11 @@ namespace Models
 
 
       protected:
-        // Routing mode
+        // Routing mode.
         shared_ptr<string> mode_ {};
-        // Queue size
+        // Queue size.
         shared_ptr<int32_t> queueSize_ {};
-        // Max traffic ratio per single service
+        // Maximum traffic ratio for a single service.
         shared_ptr<float> rateLimit_ {};
       };
 
@@ -329,31 +329,31 @@ namespace Models
 
 
     protected:
-      // Legacy gateway service ID for backward compatibility
+      // Gateway service ID.
       shared_ptr<string> gatewayServiceId_ {};
-      // Intent classification code
+      // Intent code.
       shared_ptr<string> intentCode_ {};
-      // Match conditions
+      // Matching conditions.
       shared_ptr<HttpApiBackendMatchConditions> match_ {};
-      // The model name.
+      // Model name.
       shared_ptr<string> modelName_ {};
-      // The model name matching rule.
+      // Model name matching rule.
       shared_ptr<string> modelNamePattern_ {};
-      // Multi-service routing strategy type
+      // Multi-service routing strategy type.
       shared_ptr<string> multiServiceRouteStrategy_ {};
-      // Service display name
+      // Service display name.
       shared_ptr<string> name_ {};
-      // Observability metrics-based routing config
+      // Observability-based routing configuration.
       shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
-      // Service port number
+      // Service port number.
       shared_ptr<int32_t> port_ {};
-      // Service protocol
+      // Service protocol (HTTP/HTTPS).
       shared_ptr<string> protocol_ {};
-      // The service ID.
+      // Service ID.
       shared_ptr<string> serviceId_ {};
-      // Service version tag for tag-based routing scenarios
+      // Service version tag.
       shared_ptr<string> version_ {};
-      // The service weight.
+      // Service weight.
       shared_ptr<int64_t> weight_ {};
     };
 
@@ -456,11 +456,11 @@ namespace Models
 
 
     protected:
-      // The domain name ID.
+      // Domain ID.
       shared_ptr<string> domainId_ {};
-      // The domain name.
+      // Domain name.
       shared_ptr<string> name_ {};
-      // The protocol.
+      // Protocol.
       shared_ptr<string> protocol_ {};
     };
 
@@ -603,34 +603,34 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic deployment.
+    // Whether to enable automatic deployment.
     shared_ptr<bool> autoDeploy_ {};
-    // The publishing scenario.
+    // Deployment scenario.
     shared_ptr<string> backendScene_ {};
     shared_ptr<vector<string>> builtinRouteNames_ {};
-    // The IDs of the custom domain names.
+    // List of custom domain IDs.
     shared_ptr<vector<string>> customDomainIds_ {};
-    // The information about the custom domain names.
+    // List of custom domain details.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
     shared_ptr<vector<string>> envDomainIds_ {};
     shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
-    // The environment ID.
+    // Environment ID.
     shared_ptr<string> environmentId_ {};
-    // The instance ID.
+    // Gateway instance ID.
     shared_ptr<string> gatewayId_ {};
-    // The instance information.
+    // Gateway information.
     shared_ptr<GatewayInfo> gatewayInfo_ {};
-    // 网关类型
+    // Gateway type.
     shared_ptr<string> gatewayType_ {};
-    // The Mock settings.
+    // Mock configuration.
     shared_ptr<HttpApiMockContract> mock_ {};
-    // The policy configurations.
+    // List of policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
-    // routeBackend
+    // Backend service information.
     shared_ptr<Backend> routeBackend_ {};
-    // The service configurations.
+    // List of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The information about the sub-domain names.
+    // List of second-level domain details.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
   };
 

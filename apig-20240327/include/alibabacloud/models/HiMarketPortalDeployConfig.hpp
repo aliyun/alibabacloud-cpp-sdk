@@ -128,13 +128,21 @@ namespace Models
 
 
     protected:
+      // The ID of the application in Serverless App Engine.
       shared_ptr<string> appId_ {};
+      // The ID of the namespace that logically isolates the application.
       shared_ptr<string> namespaceId_ {};
+      // The name of the OIDC role that grants permissions to the application.
       shared_ptr<string> oidcRoleName_ {};
+      // The ID of the region in which to deploy the application.
       shared_ptr<string> regionId_ {};
+      // The desired number of application replicas.
       shared_ptr<string> replicas_ {};
+      // The ID of the security group to apply to the application instances. A security group acts as a virtual firewall.
       shared_ptr<string> securityGroupId_ {};
+      // The ID of the vSwitch within the specified VPC. Serverless App Engine launches application instances in the vSwitch\\"s zone.
       shared_ptr<string> vSwitchId_ {};
+      // The ID of the VPC to connect the application to.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -171,9 +179,13 @@ namespace Models
 
 
   protected:
+    // Additional information about the deployment status, such as error details.
     shared_ptr<string> message_ {};
+    // The target deployment platform. For example, set this to `SAE` to deploy on Serverless App Engine.
     shared_ptr<string> platform_ {};
+    // Configuration settings for deploying to Serverless App Engine (SAE). This object is required when the `platform` is `SAE`.
     shared_ptr<HiMarketPortalDeployConfig::SaeConfig> saeConfig_ {};
+    // The current status of the deployment. Possible values include `succeeded`, `failed`, and `in_progress`.
     shared_ptr<string> status_ {};
   };
 
