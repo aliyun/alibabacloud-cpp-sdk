@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DELETEPROMPTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DELETEPROMPTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace AIRegistry20260317
+{
+namespace Models
+{
+  class DeletePromptRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DeletePromptRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
+      DARABONBA_PTR_TO_JSON(PromptKey, promptKey_);
+    };
+    friend void from_json(const Darabonba::Json& j, DeletePromptRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
+      DARABONBA_PTR_FROM_JSON(PromptKey, promptKey_);
+    };
+    DeletePromptRequest() = default ;
+    DeletePromptRequest(const DeletePromptRequest &) = default ;
+    DeletePromptRequest(DeletePromptRequest &&) = default ;
+    DeletePromptRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeletePromptRequest() = default ;
+    DeletePromptRequest& operator=(const DeletePromptRequest &) = default ;
+    DeletePromptRequest& operator=(DeletePromptRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->namespaceId_ == nullptr
+        && this->promptKey_ == nullptr; };
+    // namespaceId Field Functions 
+    bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
+    void deleteNamespaceId() { this->namespaceId_ = nullptr;};
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline DeletePromptRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
+
+
+    // promptKey Field Functions 
+    bool hasPromptKey() const { return this->promptKey_ != nullptr;};
+    void deletePromptKey() { this->promptKey_ = nullptr;};
+    inline string getPromptKey() const { DARABONBA_PTR_GET_DEFAULT(promptKey_, "") };
+    inline DeletePromptRequest& setPromptKey(string promptKey) { DARABONBA_PTR_SET_VALUE(promptKey_, promptKey) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<string> namespaceId_ {};
+    // This parameter is required.
+    shared_ptr<string> promptKey_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace AIRegistry20260317
+#endif
