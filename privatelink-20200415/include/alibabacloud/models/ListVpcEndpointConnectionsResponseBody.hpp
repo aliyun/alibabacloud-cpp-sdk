@@ -176,29 +176,28 @@ namespace Models
       protected:
         // The endpoint ENI ID.
         shared_ptr<string> eniId_ {};
-        // The ID of the replaced endpoint ENI in smooth migration scenarios.
+        // The ID of the endpoint ENI that is replaced in the smooth migration scenario.
         shared_ptr<string> replacedEniId_ {};
-        // The ID of the replaced service resource in smooth migration scenarios.
+        // The ID of the service resource that is replaced in the smooth migration scenario.
         shared_ptr<string> replacedResourceId_ {};
         // The service resource ID.
         shared_ptr<string> resourceId_ {};
-        // The ID of the vSwitch to which the endpoint belongs.
+        // The vSwitch to which the endpoint belongs.
         shared_ptr<string> vSwitchId_ {};
         // The domain name of the zone.
         shared_ptr<string> zoneDomain_ {};
         // The zone ID.
         shared_ptr<string> zoneId_ {};
         // The state of the zone. Valid values:
-        // 
-        // *   **Creating**: The zone is being created.
-        // *   **Wait**: The zone is to be connected.
-        // *   **Connected**: The zone is connected.
-        // *   **Deleting**: The zone is being deleted.
-        // *   **Disconnecting**: The zone is being disconnected.
-        // *   **Disconnected**: The zone is disconnected.
-        // *   **Connecting**: The zone is being connected.
-        // *   **Migrating**: The zone is being migrated.
-        // *   **Migrated**: The zone is migrated.
+        // - **Creating**: The zone is being created.
+        // - **Wait**: The zone is waiting to be connected.
+        // - **Connected**: The zone is connected.
+        // - **Deleting**: The zone is being deleted.
+        // - **Disconnecting**: The zone is being disconnected.
+        // - **Disconnected**: The zone is disconnected.
+        // - **Connecting**: The zone is being connected.
+        // - **Migrating**: The zone is being migrated.
+        // - **Migrated**: The zone is migrated.
         shared_ptr<string> zoneStatus_ {};
       };
 
@@ -300,39 +299,51 @@ namespace Models
 
 
     protected:
-      // The bandwidth of the endpoint connection. Valid values: **1024 to 10240**. Unit: Mbit/s.
+      // The bandwidth of the endpoint connection. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The state of the endpoint connection. Valid values:
       // 
-      // *   **Pending**: The connection is being modified.
-      // *   **Connecting**: The connection is being established.
-      // *   **Connected**: The connection is established.
-      // *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-      // *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-      // *   **Deleting**: The connection is being deleted.
-      // *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
+      // - **Pending**: The endpoint connection is being modified.
+      // 
+      // - **Connecting**: The endpoint connection is being established.
+      // 
+      // - **Connected**: The endpoint is connected to the endpoint service.
+      // 
+      // - **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+      // 
+      // - **Disconnected**: The endpoint is disconnected from the endpoint service.
+      // 
+      // - **Deleting**: The endpoint connection is being deleted.
+      // 
+      // - **ServiceDeleted**: The corresponding endpoint service is deleted.
       shared_ptr<string> connectionStatus_ {};
       // The endpoint ID.
       shared_ptr<string> endpointId_ {};
       // The ID of the Alibaba Cloud account to which the endpoint belongs.
       shared_ptr<int64_t> endpointOwnerId_ {};
+      // The region ID of the endpoint.
       shared_ptr<string> endpointRegionId_ {};
       // The ID of the virtual private cloud (VPC) to which the endpoint belongs.
       shared_ptr<string> endpointVpcId_ {};
-      // The time when the endpoint connection was modified.
+      // The time when the connection was modified.
       shared_ptr<string> modifiedTime_ {};
       // The ID of the resource group to which the endpoint belongs.
       shared_ptr<string> resourceGroupId_ {};
       // Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> resourceOwner_ {};
       // The endpoint service ID.
       shared_ptr<string> serviceId_ {};
+      // The region ID of the endpoint service.
       shared_ptr<string> serviceRegionId_ {};
+      // - Scalability: automatic scaling. In this mode, the bandwidth configured for the endpoint connection does not take effect.
+      // 
+      // - BandwidthLimit: the bandwidth limit of the endpoint connection. The bandwidth limit is the value of Bandwidth.
       shared_ptr<string> trafficControlMode_ {};
-      // The zones.
+      // The zone information.
       shared_ptr<vector<Connections::Zones>> zones_ {};
     };
 
@@ -376,18 +387,17 @@ namespace Models
 
 
   protected:
-    // The endpoint connections.
+    // The information about the endpoint connections.
     shared_ptr<vector<ListVpcEndpointConnectionsResponseBody::Connections>> connections_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-    // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // The token that is used for the next query. Valid values:
+    // - If **NextToken** is empty, no next query is to be sent.
+    // - If a value of **NextToken** is returned, the value is the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The number of entries returned in the endpoint connection list.
     shared_ptr<string> totalCount_ {};
   };
 

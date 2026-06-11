@@ -186,54 +186,71 @@ namespace Models
 
 
   protected:
-    // The protocol. Valid values:
+    // The IP version of the endpoint. Valid values:
     // 
-    // *   **IPv4** (default)
-    // *   **DualStack**
+    // - **IPv4**: IPv4 (default).
+    // 
+    // - **DualStack**: Dual-stack.
     shared_ptr<string> addressIpVersion_ {};
-    // The bandwidth of the endpoint connection. Unit: Mbit/s.
+    // The bandwidth of the endpoint connection, in Mbps.
     shared_ptr<int64_t> bandwidth_ {};
-    // The state of the endpoint connection. Valid values:
+    // The connection status of the endpoint. Valid values:
     // 
-    // *   **Pending**: The connection is being modified.
-    // *   **Connecting**: The connection is being established.
-    // *   **Connected**: The connection is established.
-    // *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-    // *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-    // *   **Deleting**: The connection is being deleted.
+    // - **Pending**: The endpoint is being modified.
+    // 
+    // - **Connecting**: The endpoint is being connected.
+    // 
+    // - **Connected**: The endpoint is connected.
+    // 
+    // - **Disconnecting**: The endpoint is being disconnected.
+    // 
+    // - **Disconnected**: The endpoint is disconnected.
+    // 
+    // - **Deleting**: The endpoint is being deleted.
     shared_ptr<string> connectionStatus_ {};
-    // The time when the endpoint was created.
+    // The time the endpoint was created.
     shared_ptr<string> createTime_ {};
+    // The cross-region bandwidth in Mbps. This parameter is returned only when the endpoint and the endpoint service are in different regions.
     shared_ptr<int32_t> crossRegionBandwidth_ {};
-    // The service state of the endpoint. Valid values:
+    // The business status of the endpoint. Valid values:
     // 
-    // *   **Normal**: The endpoint runs as expected.
-    // *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+    // - **Normal**: The endpoint is running as expected.
+    // 
+    // - **FinancialLocked**: The endpoint is locked due to overdue payments.
     shared_ptr<string> endpointBusinessStatus_ {};
     // The description of the endpoint.
     shared_ptr<string> endpointDescription_ {};
-    // The domain name of the endpoint.
+    // The endpoint domain name.
     shared_ptr<string> endpointDomain_ {};
-    // The endpoint ID.
+    // The ID of the endpoint.
     shared_ptr<string> endpointId_ {};
     // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
-    // The state of the endpoint. Valid values:
+    // The status of the endpoint. Valid values:
     // 
-    // *   **Creating**: The endpoint is being created.
-    // *   **Active**: The endpoint is available.
-    // *   **Pending**: The endpoint is being modified.
-    // *   **Deleting**: The endpoint is being deleted.
+    // - **Creating**: The endpoint is being created.
+    // 
+    // - **Active**: The endpoint is available.
+    // 
+    // - **Pending**: The endpoint is being modified.
+    // 
+    // - **Deleting**: The endpoint is being deleted.
     shared_ptr<string> endpointStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the endpoint service with which the endpoint is associated.
+    // The ID of the associated endpoint service.
     shared_ptr<string> serviceId_ {};
-    // The name of the endpoint service with which the endpoint is associated.
+    // The name of the associated endpoint service.
     shared_ptr<string> serviceName_ {};
+    // The region ID of the endpoint service.
     shared_ptr<string> serviceRegionId_ {};
-    // The ID of the VPC to which the endpoint belongs.
+    // The ID of the VPC that contains the endpoint.
     shared_ptr<string> vpcId_ {};
+    // Indicates whether zone affinity is enabled. Valid values:
+    // 
+    // - **true**: Zone affinity is enabled.
+    // 
+    // - **false**: Zone affinity is disabled.
     shared_ptr<bool> zoneAffinityEnabled_ {};
   };
 

@@ -84,13 +84,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The key of the tag. The tag key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+      // The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The value of the tag. The tag value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -163,31 +163,33 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: **1** to **1000**. Default value: **50**.
+    // The number of entries to return on each page. Valid values: **1** to **1000**. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The pagination token.
     // 
-    // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-    // *   If a next request is to be performed, set the value to the value of **NextToken** that is returned from the last call.
+    // - If this is your first request, do not specify this parameter.
+    // 
+    // - If more results are available, set this parameter to the **NextToken** value from the previous response to retrieve the next page.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the endpoint.
+    // The region ID.
     // 
-    // You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of the endpoint service that you want to query.
+    // The ID of the endpoint service.
     shared_ptr<string> serviceId_ {};
-    // The name of the endpoint service that you want to query.
+    // The name of the endpoint service.
     shared_ptr<string> serviceName_ {};
+    // The region ID of the endpoint service.
     shared_ptr<string> serviceRegionId_ {};
     // The type of the endpoint service.
     // 
-    // Set the value to **Interface**. You can specify CLB and ALB instances as service resources for the endpoint service.
+    // Only **Interface** is supported. An interface endpoint allows you to use Application Load Balancers (ALBs), Classic Load Balancers (CLBs), and Network Load Balancers (NLBs) as service resources.
     shared_ptr<string> serviceType_ {};
-    // The tags.
+    // A list of tags to filter resources. You can specify up to 20 tags.
     shared_ptr<vector<ListVpcEndpointServicesByEndUserRequest::Tag>> tag_ {};
   };
 

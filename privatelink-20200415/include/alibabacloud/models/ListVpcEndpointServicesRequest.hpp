@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+      // The tag key of the instance. You can specify up to 20 tag keys. The key cannot be an empty string.
       // 
-      // The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+      // The key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+      // The tag value of the instance. You can specify up to 20 tag values. The value can be an empty string.
       // 
-      // The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // The value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -209,60 +209,73 @@ namespace Models
 
 
   protected:
-    // The protocol. Valid values:
+    // The IP address version. Valid values:
     // 
-    // *   **IPv4**
-    // *   **DualStack**
+    // - **IPv4**: IPv4 type.
+    // 
+    // - **DualStack**: Dual-stack type.
     shared_ptr<string> addressIpVersion_ {};
-    // Specifies whether to automatically accept endpoint connection requests. Valid values:
+    // Specifies whether to automatically accept endpoint connections. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // - **true**: Automatically accept endpoint connections.
+    // 
+    // - **false**: Do not automatically accept endpoint connections.
     shared_ptr<bool> autoAcceptEnabled_ {};
-    // The number of entries per page. Valid values: **1** to **1000**. Default value: **50**.
+    // The number of entries to return per page. Valid values: **1** to **1000**. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // A pagination token for the next query. Valid values:
     // 
-    // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-    // *   If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
+    // - Leave this parameter empty for the first query or when no further results exist.
+    // 
+    // - If another query is needed, set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID of the endpoint service.
+    // The ID of the region where the endpoint service is deployed.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
+    // Call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to obtain the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The service resource ID.
+    // The ID of the service resource.
     shared_ptr<string> resourceId_ {};
-    // The service state of the endpoint service. Valid values:
+    // The business status of the endpoint service. Valid values:
     // 
-    // *   **Normal**: The endpoint service runs as expected.
-    // *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+    // - **Normal**: The endpoint service is running as expected.
+    // 
+    // - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
     shared_ptr<string> serviceBusinessStatus_ {};
-    // The endpoint service ID.
+    // The ID of the endpoint service.
     shared_ptr<string> serviceId_ {};
     // The name of the endpoint service.
     shared_ptr<string> serviceName_ {};
     // The type of the service resource. Valid values:
     // 
-    // *   **slb**: a Classic Load Balancer (CLB) instance
-    // *   **alb**: an Application Load Balancer (ALB) instance
+    // - **slb**: The service resource is a Classic Load Balancer (CLB) instance.
+    // 
+    // - **alb**: The service resource is an Application Load Balancer (ALB) instance.
+    // 
+    // - **nlb**: The service resource is a Network Load Balancer (NLB) instance.
+    // 
+    // - **gwlb**: The service resource is a Gateway Load Balancer (GWLB) instance.
     shared_ptr<string> serviceResourceType_ {};
-    // The state of the endpoint service. Valid values:
+    // The status of the endpoint service. Valid values:
     // 
-    // *   **Creating**: The endpoint service is being created.
-    // *   **Pending**: The endpoint service is being modified.
-    // *   **Active**: The endpoint service is available.
-    // *   **Deleting**: The endpoint service is being deleted
+    // - **Creating**: The endpoint service is being created.
+    // 
+    // - **Pending**: The endpoint service is being modified.
+    // 
+    // - **Active**: The endpoint service is available.
+    // 
+    // - **Deleting**: The endpoint service is being deleted.
     shared_ptr<string> serviceStatus_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<ListVpcEndpointServicesRequest::Tag>> tag_ {};
-    // Specifies whether to first resolve the domain name of the nearest endpoint that is associated with the endpoint service. Valid values:
+    // Specifies whether zonal affinity is enabled for domain name resolution. Valid values:
     // 
-    // *   **true** (default)
-    // *   **false**
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> zoneAffinityEnabled_ {};
   };
 

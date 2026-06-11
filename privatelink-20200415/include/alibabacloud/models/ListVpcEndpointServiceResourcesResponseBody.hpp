@@ -158,8 +158,9 @@ namespace Models
     protected:
       // Indicates whether automatic resource allocation is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> autoAllocatedEnabled_ {};
       // The IP address of the service resource.
       shared_ptr<string> ip_ {};
@@ -173,8 +174,9 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // Indicates whether IPv6 is enabled for the endpoint service. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> resourceSupportIPv6_ {};
       // The type of the service resource.
       // 
@@ -225,8 +227,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If no value is returned for **NextToken**, no next requests are performed.
+    // 
+    // - If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

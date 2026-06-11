@@ -250,29 +250,39 @@ namespace Models
 
 
   protected:
-    // The protocol. Valid values:
+    // The IP version. Valid values:
     // 
-    // *   **IPv4**
-    // *   **DualStack**
+    // - **IPv4**: Supports IPv4 only.
+    // 
+    // - **DualStack**: Supports both IPv4 and IPv6.
     shared_ptr<string> addressIpVersion_ {};
-    // The bandwidth of the endpoint connection. Unit: Mbit/s.
+    // The connection bandwidth of the endpoint, in Mbps.
     shared_ptr<int32_t> bandwidth_ {};
     // The state of the endpoint connection. Valid values:
     // 
-    // *   **Pending**: The connection is being modified.
-    // *   **Connecting**: The connection is being established.
-    // *   **Connected**: The connection is established.
-    // *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-    // *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-    // *   **Deleting**: The connection is being deleted.
-    shared_ptr<string> connectionStatus_ {};
-    // The time when the endpoint was created.
-    shared_ptr<string> createTime_ {};
-    shared_ptr<int32_t> crossRegionBandwidth_ {};
-    // The service state of the endpoint. Valid values:
+    // - **Pending**: The connection is being modified.
     // 
-    // *   **Normal**: The endpoint runs as expected.
-    // *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+    // - **Connecting**: The endpoint is connecting to the endpoint service.
+    // 
+    // - **Connected**: The endpoint is connected to the endpoint service.
+    // 
+    // - **Disconnecting**: The endpoint is disconnecting from the endpoint service.
+    // 
+    // - **Disconnected**: The endpoint is not connected to the endpoint service.
+    // 
+    // - **Deleting**: The endpoint is being deleted.
+    // 
+    // - **ServiceDeleted**: The associated endpoint service has been deleted.
+    shared_ptr<string> connectionStatus_ {};
+    // The time the endpoint was created.
+    shared_ptr<string> createTime_ {};
+    // The cross-region bandwidth, in Mbps.
+    shared_ptr<int32_t> crossRegionBandwidth_ {};
+    // The business status of the endpoint. Valid values:
+    // 
+    // - **Normal**: The endpoint is running as expected.
+    // 
+    // - **FinancialLocked**: The endpoint is locked due to an overdue payment.
     shared_ptr<string> endpointBusinessStatus_ {};
     // The description of the endpoint.
     shared_ptr<string> endpointDescription_ {};
@@ -282,24 +292,33 @@ namespace Models
     shared_ptr<string> endpointId_ {};
     // The name of the endpoint.
     shared_ptr<string> endpointName_ {};
-    // The state of the endpoint. Valid values:
+    // The status of the endpoint. Valid values:
     // 
-    // *   **Creating**: The endpoint is being created.
-    // *   **Active**: The endpoint is available.
-    // *   **Pending**: The endpoint is being modified.
-    // *   **Deleting**: The endpoint is being deleted.
+    // - **Creating**: The endpoint is being created.
+    // 
+    // - **Active**: The endpoint is available.
+    // 
+    // - **Pending**: The endpoint is being modified.
+    // 
+    // - **Deleting**: The endpoint is being deleted.
     shared_ptr<string> endpointStatus_ {};
-    // The type of the endpoint.
+    // The type of the endpoint. Valid values:
     // 
-    // **Interface** is returned. The value indicates the interface endpoint with which the Classic Load Balancer (CLB) instances are associated.
+    // - **Interface**: an interface endpoint.
+    // 
+    // - **Reverse**: a reverse endpoint.
+    // 
+    // - **GatewayLoadBalancer**: a Gateway Load Balancer endpoint (GWLBe).
     shared_ptr<string> endpointType_ {};
     // The payer. Valid values:
     // 
-    // *   **Endpoint**: the service consumer.
-    // *   **EndpointService**: the service provider.
+    // - **Endpoint**: the service consumer.
+    // 
+    // - **EndpointService**: the service provider.
     shared_ptr<string> payer_ {};
+    // The RAM policy. For more information about policy elements, see [Basic elements of a policy](https://help.aliyun.com/document_detail/93738.html).
     shared_ptr<string> policyDocument_ {};
-    // The region ID of the endpoint.
+    // The ID of the region where the endpoint is located.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -307,22 +326,25 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
     // 
-    // *   **true**: The endpoint and the endpoint service belong to the same Alibaba Cloud account.
-    // *   **false**: The endpoint and the endpoint service do not belong to the same Alibaba Cloud account.
-    shared_ptr<bool> resourceOwner_ {};
-    // The ID of the endpoint service with which the endpoint is associated.
-    shared_ptr<string> serviceId_ {};
-    // The name of the endpoint service with which the endpoint is associated.
-    shared_ptr<string> serviceName_ {};
-    shared_ptr<string> serviceRegionId_ {};
-    // The ID of the virtual private cloud (VPC) to which the endpoint belongs.
-    shared_ptr<string> vpcId_ {};
-    // Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+    // - **true**: Yes.
     // 
-    // *   **true**
-    // *   **false**
+    // - **false**: No.
+    shared_ptr<bool> resourceOwner_ {};
+    // The ID of the associated endpoint service.
+    shared_ptr<string> serviceId_ {};
+    // The name of the associated endpoint service.
+    shared_ptr<string> serviceName_ {};
+    // The region ID of the associated endpoint service.
+    shared_ptr<string> serviceRegionId_ {};
+    // The ID of the VPC to which the endpoint belongs.
+    shared_ptr<string> vpcId_ {};
+    // Indicates whether the endpoint service\\"s domain name resolves to the endpoint\\"s IP address in the nearest zone. Valid values:
+    // 
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
     shared_ptr<bool> zoneAffinityEnabled_ {};
-    // The number of private IP addresses that are assigned to an elastic network interface (ENI) in each zone. Only **1** is returned.
+    // The number of private IP addresses for the elastic network interface (ENI) in each zone. This value is always **1**.
     shared_ptr<int64_t> zonePrivateIpAddressCount_ {};
   };
 

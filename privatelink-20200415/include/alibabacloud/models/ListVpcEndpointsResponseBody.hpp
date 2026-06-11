@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag added to the resource.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag added to the resource.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -306,30 +306,39 @@ namespace Models
 
 
     protected:
-      // The protocol. Valid values:
+      // The IP address family. Valid values:
       // 
-      // *   **IPv4**
-      // *   **DualStack**
+      // - **IPv4**: IPv4.
+      // 
+      // - **DualStack**: dual stack.
       shared_ptr<string> addressIpVersion_ {};
-      // The bandwidth of the endpoint connection. Unit: Mbit/s.
+      // The connection bandwidth of the endpoint, in Mbps.
       shared_ptr<int64_t> bandwidth_ {};
-      // The state of the endpoint connection. Valid values:
+      // The connection status of the endpoint. Valid values:
       // 
-      // *   **Pending**: The endpoint connection is being modified.
-      // *   **Connecting**: The endpoint connection is being established.
-      // *   **Connected**: The endpoint connection is established.
-      // *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-      // *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-      // *   **Deleting**: The endpoint connection is being deleted.
-      // *   **ServiceDeleted**: The corresponding service is deleted.
+      // - **Pending**: The connection is being modified.
+      // 
+      // - **Connecting**: The endpoint is being connected.
+      // 
+      // - **Connected**: The endpoint is connected.
+      // 
+      // - **Disconnecting**: The endpoint is being disconnected.
+      // 
+      // - **Disconnected**: The endpoint is disconnected.
+      // 
+      // - **Deleting**: The endpoint is being deleted.
+      // 
+      // - **ServiceDeleted**: The associated endpoint service has been deleted.
       shared_ptr<string> connectionStatus_ {};
       // The time when the endpoint was created.
       shared_ptr<string> createTime_ {};
+      // The bandwidth of the cross-region connection, in Mbps.
       shared_ptr<int32_t> crossRegionBandwidth_ {};
-      // The service state of the endpoint. Valid values:
+      // The business status of the endpoint. Valid values:
       // 
-      // *   **Normal**: The endpoint runs as expected.
-      // *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+      // - **Normal**: The endpoint is running as expected.
+      // 
+      // - **FinancialLocked**: The endpoint is locked due to an overdue payment.
       shared_ptr<string> endpointBusinessStatus_ {};
       // The description of the endpoint.
       shared_ptr<string> endpointDescription_ {};
@@ -339,42 +348,51 @@ namespace Models
       shared_ptr<string> endpointId_ {};
       // The name of the endpoint.
       shared_ptr<string> endpointName_ {};
-      // The state of the endpoint. Valid values:
+      // The status of the endpoint. Valid values:
       // 
-      // *   **Creating**: The endpoint is being created.
-      // *   **Active**: The endpoint is available.
-      // *   **Pending**: The endpoint is being modified.
-      // *   **Deleting**: The endpoint is being deleted.
+      // - **Creating**: The endpoint is being created.
+      // 
+      // - **Active**: The endpoint is available.
+      // 
+      // - **Pending**: The endpoint is being modified.
+      // 
+      // - **Deleting**: The endpoint is being deleted.
       shared_ptr<string> endpointStatus_ {};
       // The type of the endpoint. Valid values:
       // 
-      // *   **Interface**: interface endpoint
-      // *   **Reverse**: reverse endpoint
+      // - **Interface**: an interface endpoint.
+      // 
+      // - **Reverse**: a reverse endpoint.
+      // 
+      // - **GatewayLoadBalancer**: a gateway load balancer endpoint.
       shared_ptr<string> endpointType_ {};
-      // The Resource Access Management (RAM) policy. For more information about policy definitions, see [Policy elements](https://help.aliyun.com/document_detail/93738.html).
+      // The RAM access policy. For details on the policy syntax, see [Basic elements of a RAM policy](https://help.aliyun.com/document_detail/93738.html).
       shared_ptr<string> policyDocument_ {};
-      // The region ID of the endpoint.
+      // The ID of the region that contains the endpoint.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
       // Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
       // 
-      // *   **true**
-      // *   **false**
-      shared_ptr<bool> resourceOwner_ {};
-      // The ID of the endpoint service that is associated with the endpoint.
-      shared_ptr<string> serviceId_ {};
-      // The name of the endpoint service that is associated with the endpoint.
-      shared_ptr<string> serviceName_ {};
-      shared_ptr<string> serviceRegionId_ {};
-      // The tags added to the resource.
-      shared_ptr<vector<Endpoints::Tags>> tags_ {};
-      // The ID of the virtual private cloud (VPC) to which the endpoint belongs.
-      shared_ptr<string> vpcId_ {};
-      // Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+      // - **true**
       // 
-      // *   **true**
-      // *   **false**
+      // - **false**
+      shared_ptr<bool> resourceOwner_ {};
+      // The ID of the associated endpoint service.
+      shared_ptr<string> serviceId_ {};
+      // The name of the associated endpoint service.
+      shared_ptr<string> serviceName_ {};
+      // The ID of the region where the associated endpoint service is deployed.
+      shared_ptr<string> serviceRegionId_ {};
+      // A list of tags.
+      shared_ptr<vector<Endpoints::Tags>> tags_ {};
+      // The ID of the VPC to which the endpoint belongs.
+      shared_ptr<string> vpcId_ {};
+      // Indicates whether zone-aware DNS resolution is enabled. Valid values:
+      // 
+      // - **true**
+      // 
+      // - **false**
       shared_ptr<bool> zoneAffinityEnabled_ {};
     };
 
@@ -418,18 +436,19 @@ namespace Models
 
 
   protected:
-    // The information about the endpoints.
+    // A list of endpoints.
     shared_ptr<vector<ListVpcEndpointsResponseBody::Endpoints>> endpoints_ {};
-    // The number of entries returned on each page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token to retrieve the next page of results.
     // 
-    // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-    // *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+    // - If **NextToken** is empty, no next page exists.
+    // 
+    // - If a value is returned, use it in your next request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

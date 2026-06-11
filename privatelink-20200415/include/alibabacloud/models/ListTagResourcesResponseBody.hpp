@@ -94,8 +94,9 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The type of the resource. Valid values:
       // 
-      // *   **vpcendpoint**: endpoint
-      // *   **vpcendpointservice**: endpoint service
+      // - **vpcendpoint**: endpoint
+      // 
+      // - **vpcendpointservice**: endpoint service
       shared_ptr<string> resourceType_ {};
       // The key of tag N added to the resource.
       shared_ptr<string> tagKey_ {};
@@ -131,8 +132,9 @@ namespace Models
   protected:
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-    // *   If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
+    // - If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+    // 
+    // - If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

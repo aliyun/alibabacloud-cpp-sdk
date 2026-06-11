@@ -135,9 +135,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag added to the resource.
+        // The tag key of the instance.
         shared_ptr<string> key_ {};
-        // The value of the tag added to the resource.
+        // The tag value of the instance.
         shared_ptr<string> value_ {};
       };
 
@@ -197,9 +197,26 @@ namespace Models
 
 
       protected:
+        // The business status of the region supported by the endpoint service. Valid values:
+        // 
+        // - **Normal**: Normal.
+        // 
+        // - **FinancialLocked**: Locked due to an overdue payment.
         shared_ptr<string> regionBusinessStatus_ {};
+        // The status of the region supported by the endpoint service. Valid values:
+        // 
+        // - **Pending**: The status is being updated.
+        // 
+        // - **Available**: The region is available.
+        // 
+        // - **Deleting**: The region is being deleted.
+        // 
+        // - **Failed**: The operation failed.
+        // 
+        // - **Closed**: The region is closed.
         shared_ptr<string> regionServiceStatus_ {};
         shared_ptr<string> serviceRegionId_ {};
+        // The ID of the region supported by the endpoint service.
         shared_ptr<string> supportedRegionId_ {};
       };
 
@@ -360,37 +377,41 @@ namespace Models
 
 
     protected:
-      // The protocol. Valid values:
+      // The IP address version. Valid values:
       // 
-      // *   **IPv4**
-      // *   **DualStack**
+      // - **IPv4**: IPv4 type.
+      // 
+      // - **DualStack**: Dual-stack type.
       shared_ptr<string> addressIpVersion_ {};
-      // Indicates whether endpoint connection requests are automatically accepted. Valid values:
+      // Specifies whether to automatically accept endpoint connections. Valid values:
       // 
-      // *   **true**: Endpoint connection requests are automatically accepted.
-      // *   **false**: Endpoint connection requests are not automatically accepted.
+      // - **true**: Automatically accept endpoint connections.
+      // 
+      // - **false**: Do not automatically accept endpoint connections.
       shared_ptr<bool> autoAcceptEnabled_ {};
-      // The default maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+      // The default maximum bandwidth. Unit: Mbps.
       shared_ptr<int32_t> connectBandwidth_ {};
-      // The time when the endpoint service was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The time when the endpoint service was created.
       shared_ptr<string> createTime_ {};
-      // The maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+      // The maximum bandwidth of the endpoint connection. Unit: Mbps.
       shared_ptr<int32_t> maxBandwidth_ {};
-      // The minimum bandwidth of the endpoint connection. Unit: Mbit/s.
+      // The minimum bandwidth of the endpoint connection. Unit: Mbps.
       shared_ptr<int32_t> minBandwidth_ {};
       // The payer. Valid values:
       // 
-      // *   **Endpoint**: service consumer
-      // *   **EndpointService**: service provider
+      // - **Endpoint**: the service consumer.
+      // 
+      // - **EndpointService**: the service provider.
       shared_ptr<string> payer_ {};
-      // The region ID of the endpoint service.
+      // The region where the endpoint service is deployed.
       shared_ptr<string> regionId_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The service state of the endpoint service. Valid values:
+      // The business status of the endpoint service. Valid values:
       // 
-      // *   **Normal**: The endpoint service runs as expected.
-      // *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+      // - **Normal**: The endpoint service is running as expected.
+      // 
+      // - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
       shared_ptr<string> serviceBusinessStatus_ {};
       // The description of the endpoint service.
       shared_ptr<string> serviceDescription_ {};
@@ -402,33 +423,45 @@ namespace Models
       shared_ptr<string> serviceName_ {};
       // The type of the service resource. Valid values:
       // 
-      // *   **slb**: Classic Load Balancer (CLB) instance
-      // *   **alb**: Application Load Balancer (ALB) instance
-      // *   **nlb**: Network Load Balancer (NLB) instance
-      shared_ptr<string> serviceResourceType_ {};
-      // The state of the endpoint service. Valid values:
+      // - **slb**: The service resource is a CLB instance.
       // 
-      // *   **Creating**: The endpoint service is being created.
-      // *   **Pending**: The endpoint service is being modified.
-      // *   **Active**: The endpoint service is available.
-      // *   **Deleting**: The endpoint service is being deleted.
+      // - **alb**: The service resource is an ALB instance.
+      // 
+      // - **nlb**: The service resource is an NLB instance.
+      // 
+      // - **gwlb**: The service resource is a GWLB instance.
+      shared_ptr<string> serviceResourceType_ {};
+      // The status of the endpoint service. Valid values:
+      // 
+      // - **Creating**: The endpoint service is being created.
+      // 
+      // - **Pending**: The endpoint service is being modified.
+      // 
+      // - **Active**: The endpoint service is available.
+      // 
+      // - **Deleting**: The endpoint service is being deleted.
       shared_ptr<string> serviceStatus_ {};
       // Indicates whether the endpoint service supports IPv6. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> serviceSupportIPv6_ {};
-      // The type of the endpoint service.
+      // The type of the endpoint service. Valid values:
       // 
-      // *   Only **Interface** may be returned. You can specify CLB, ALB, and NLB instances as the service resources of the endpoint service.
+      // - **Interface**: an interface endpoint. You can add CLB, ALB, and NLB instances as service resources.
+      // 
+      // - **GatewayLoadBalancer**: a Gateway Load Balancer endpoint. You can add GWLB instances as service resources.
       shared_ptr<string> serviceType_ {};
+      // The list of regions supported by the endpoint service. Service consumers can initiate endpoint connections from these regions.
       shared_ptr<vector<Services::SupportedRegionSet>> supportedRegionSet_ {};
-      // The tags added to the resource.
+      // The list of tags.
       shared_ptr<vector<Services::Tags>> tags_ {};
-      // Indicates whether zone affinity is enabled. Valid values:
+      // Specifies whether zonal affinity is enabled. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Yes.
+      // 
+      // - **false**: No.
       shared_ptr<bool> zoneAffinityEnabled_ {};
     };
 
@@ -474,16 +507,17 @@ namespace Models
   protected:
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // A pagination token for the next query. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If **NextToken** is empty, no further results exist.
+    // 
+    // - If **NextToken** has a value, use it as the starting token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The endpoint services.
+    // The collection of endpoint services.
     shared_ptr<vector<ListVpcEndpointServicesResponseBody::Services>> services_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

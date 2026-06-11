@@ -74,8 +74,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-    // *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+    // - If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+    // 
+    // - If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
     shared_ptr<string> nextToken_ {};
     // The region ID of the endpoint that you want to query.
     // 

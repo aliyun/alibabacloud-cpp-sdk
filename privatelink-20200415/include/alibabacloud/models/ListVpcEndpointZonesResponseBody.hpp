@@ -135,30 +135,33 @@ namespace Models
       shared_ptr<string> eniId_ {};
       // The IP address of the endpoint ENI.
       shared_ptr<string> eniIp_ {};
-      // The region ID of the endpoint.
+      // The ID of the region where the endpoint is deployed.
       shared_ptr<string> regionId_ {};
-      // The ID of the vSwitch in the zone. The system automatically creates an endpoint elastic network interface (ENI) in the vSwitch.
+      // The vSwitch in the zone. The system automatically creates an endpoint elastic network interface (ENI) in the vSwitch.
       shared_ptr<string> vSwitchId_ {};
       // The domain name of the zone.
       // 
-      // After the endpoint in the zone is connected to the endpoint service, you can access the service resources of the endpoint service by using the domain name of the zone.
+      // After an endpoint connection is established, use this domain name to access the service resources of the endpoint service.
       shared_ptr<string> zoneDomain_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
-      // Indicates whether the endpoint service supports IPv6. Valid values:
-      // 
-      // *   **true**
-      // *   **false** (default)
+      // The IPv6 address of the endpoint ENI.
       shared_ptr<string> zoneIpv6Address_ {};
-      // The state of the zone. Valid values:
+      // The status of the zone. Valid values:
       // 
-      // *   **Creating**: The zone is being created.
-      // *   **Wait**: The zone is to be connected.
-      // *   **Connected**: The zone is connected.
-      // *   **Deleting**: The zone is being deleted.
-      // *   **Disconnecting**: The zone is being disconnected.
-      // *   **Disconnected**: The zone is disconnected.
-      // *   **Connecting**: The zone is being connected.
+      // - **Creating**: The zone is being created.
+      // 
+      // - **Wait**: The zone is waiting to be connected.
+      // 
+      // - **Connected**: The zone is connected.
+      // 
+      // - **Deleting**: The zone is being deleted.
+      // 
+      // - **Disconnecting**: The zone is being disconnected.
+      // 
+      // - **Disconnected**: The zone is disconnected.
+      // 
+      // - **Connecting**: The zone is being connected.
       shared_ptr<string> zoneStatus_ {};
     };
 
@@ -204,16 +207,17 @@ namespace Models
   protected:
     // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If this parameter is empty, no next page exists.
+    // 
+    // - If a value is returned, use the value to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The information about the zones.
+    // The collection of zone information.
     shared_ptr<vector<ListVpcEndpointZonesResponseBody::Zones>> zones_ {};
   };
 

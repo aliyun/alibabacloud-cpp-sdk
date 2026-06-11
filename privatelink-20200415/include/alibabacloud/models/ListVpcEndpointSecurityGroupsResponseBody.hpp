@@ -79,8 +79,11 @@ namespace Models
       // The ID of the security group that is associated with the endpoint.
       shared_ptr<string> securityGroupId_ {};
       // The associate status of the security group, valid values:
+      // 
       // - Attaching: The security group is being attached.
+      // 
       // - Attached: The security group is attached.
+      // 
       // - Detaching: The security group is being detached.
       shared_ptr<string> securityGroupStatus_ {};
     };
@@ -129,8 +132,9 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If no value is returned for **NextToken**, no next requests are performed.
+    // 
+    // - If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

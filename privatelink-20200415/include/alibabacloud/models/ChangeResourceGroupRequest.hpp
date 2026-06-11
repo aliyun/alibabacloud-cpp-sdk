@@ -67,8 +67,9 @@ namespace Models
     shared_ptr<string> resourceId_ {};
     // The type of resource. Valid values:
     // 
-    // *   **VpcEndpoint**: endpoint
-    // *   **VpcEndpointService**: endpoint service
+    // - **VpcEndpoint**: endpoint
+    // 
+    // - **VpcEndpointService**: endpoint service
     shared_ptr<string> resourceType_ {};
   };
 

@@ -121,9 +121,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag.
+        // The tag key.
         shared_ptr<string> key_ {};
-        // The value of the tag.
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -234,45 +234,60 @@ namespace Models
 
 
     protected:
-      // The protocol. Valid values:
+      // The IP version. Valid values:
       // 
-      // *   **IPv4**
-      // *   **DualStack**
+      // - **IPv4**: The service supports IPv4.
+      // 
+      // - **DualStack**: The service supports both IPv4 and IPv6 (dual stack).
       shared_ptr<string> addressIpVersion_ {};
+      // Specifies whether connection requests are automatically accepted. Valid values:
+      // 
+      // - **true**: Connection requests are automatically accepted.
+      // 
+      // - **false**: Connection requests must be manually accepted.
       shared_ptr<bool> autoAcceptEnabled_ {};
       // The payer. Valid values:
       // 
-      // *   **Endpoint**: the service consumer
-      // *   **EndpointService**: the service provider
+      // - **Endpoint**: the service consumer.
+      // 
+      // - **EndpointService**: the service provider.
       shared_ptr<string> payer_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The domain name of the endpoint service that can be associated with the endpoint.
+      // The domain name of the endpoint service.
       shared_ptr<string> serviceDomain_ {};
-      // The ID of the endpoint service that can be associated with the endpoint.
+      // The ID of the endpoint service.
       shared_ptr<string> serviceId_ {};
-      // The name of the endpoint service that can be associated with the endpoint.
+      // The name of the endpoint service.
       shared_ptr<string> serviceName_ {};
-      // The type of the service resource. Valid values:
+      // The service resource type.
       // 
-      // *   **slb**: Classic Load Balancer (CLB) instance
-      // *   **alb**: Application Load Balancer (ALB) instance
-      // *   **nlb**: Network Load Balancer (NLB) instance
+      // - **slb**: A Classic Load Balancer (CLB) instance.
+      // 
+      // - **alb**: An Application Load Balancer (ALB) instance.
+      // 
+      // - **nlb**: A Network Load Balancer (NLB) instance.
       shared_ptr<string> serviceResourceType_ {};
-      // Indicates whether IPv6 is enabled. Valid values:
+      // Specifies whether the endpoint service supports IPv6. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The endpoint service supports IPv6.
+      // 
+      // - **false**: The endpoint service does not support IPv6.
       shared_ptr<bool> serviceSupportIPv6_ {};
       // The type of the endpoint service.
       // 
-      // Only **Interface** is returned, which indicates an interface endpoint. You can specify **CLB** and **ALB** instances as service resources.
+      // The value is always **Interface**. This indicates an interface endpoint where you can add service resources such as Application Load Balancer (ALB), Classic Load Balancer (CLB), and Network Load Balancer (NLB).
       shared_ptr<string> serviceType_ {};
-      // The list of tags.
+      // A list of tags.
       shared_ptr<vector<Services::Tags>> tags_ {};
       shared_ptr<bool> vpcEndpointPolicySupported_ {};
+      // Specifies whether zone affinity is enabled. Valid values:
+      // 
+      // - **true**: Zone affinity is enabled.
+      // 
+      // - **false**: Zone affinity is disabled.
       shared_ptr<bool> zoneAffinityEnabled_ {};
-      // The zones of the endpoint service that can be associated with the endpoint.
+      // The zones where the endpoint service is available.
       shared_ptr<vector<string>> zones_ {};
     };
 
@@ -318,16 +333,17 @@ namespace Models
   protected:
     // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+    // The token that is used to retrieve the next page of results. Valid values:
     // 
-    // *   If no value is returned for **NextToken**, no next requests are performed.
-    // *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+    // - If this parameter is empty, all results have been returned.
+    // 
+    // - If a value is returned, use it in a subsequent request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about endpoint services.
+    // The endpoint services.
     shared_ptr<vector<ListVpcEndpointServicesByEndUserResponseBody::Services>> services_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 
