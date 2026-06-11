@@ -607,7 +607,6 @@ namespace Models
     shared_ptr<string> modifyUserName_ {};
     shared_ptr<string> prompt_ {};
     shared_ptr<int64_t> publishVersion_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<string> status_ {};
   };

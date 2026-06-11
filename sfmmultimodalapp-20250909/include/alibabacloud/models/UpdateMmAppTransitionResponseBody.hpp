@@ -121,7 +121,6 @@ namespace Models
     shared_ptr<UpdateMmAppTransitionResponseBody::Data> data_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

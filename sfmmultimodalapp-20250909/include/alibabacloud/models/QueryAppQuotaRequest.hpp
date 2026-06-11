@@ -1,0 +1,58 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_QUERYAPPQUOTAREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_QUERYAPPQUOTAREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace SfmMultiModalApp20250909
+{
+namespace Models
+{
+  class QueryAppQuotaRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const QueryAppQuotaRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
+    };
+    friend void from_json(const Darabonba::Json& j, QueryAppQuotaRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
+    };
+    QueryAppQuotaRequest() = default ;
+    QueryAppQuotaRequest(const QueryAppQuotaRequest &) = default ;
+    QueryAppQuotaRequest(QueryAppQuotaRequest &&) = default ;
+    QueryAppQuotaRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~QueryAppQuotaRequest() = default ;
+    QueryAppQuotaRequest& operator=(const QueryAppQuotaRequest &) = default ;
+    QueryAppQuotaRequest& operator=(QueryAppQuotaRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->appId_ == nullptr
+        && this->workspaceId_ == nullptr; };
+    // appId Field Functions 
+    bool hasAppId() const { return this->appId_ != nullptr;};
+    void deleteAppId() { this->appId_ = nullptr;};
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline QueryAppQuotaRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline QueryAppQuotaRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+  protected:
+    shared_ptr<string> appId_ {};
+    shared_ptr<string> workspaceId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace SfmMultiModalApp20250909
+#endif

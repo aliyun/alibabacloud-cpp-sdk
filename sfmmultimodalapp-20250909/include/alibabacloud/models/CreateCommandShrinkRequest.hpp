@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(DomainCode, domainCode_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
+      DARABONBA_PTR_TO_JSON(ReplyMode, replyMode_);
       DARABONBA_PTR_TO_JSON(ToolDescription, toolDescription_);
       DARABONBA_PTR_TO_JSON(ToolExamples, toolExamplesShrink_);
       DARABONBA_PTR_TO_JSON(ToolName, toolName_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(DomainCode, domainCode_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
+      DARABONBA_PTR_FROM_JSON(ReplyMode, replyMode_);
       DARABONBA_PTR_FROM_JSON(ToolDescription, toolDescription_);
       DARABONBA_PTR_FROM_JSON(ToolExamples, toolExamplesShrink_);
       DARABONBA_PTR_FROM_JSON(ToolName, toolName_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->domainCode_ == nullptr && this->domainName_ == nullptr && this->toolDescription_ == nullptr && this->toolExamplesShrink_ == nullptr && this->toolName_ == nullptr
-        && this->toolParamsShrink_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->domainCode_ == nullptr && this->domainName_ == nullptr && this->replyMode_ == nullptr && this->toolDescription_ == nullptr && this->toolExamplesShrink_ == nullptr
+        && this->toolName_ == nullptr && this->toolParamsShrink_ == nullptr && this->workspaceId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -65,6 +67,13 @@ namespace Models
     void deleteDomainName() { this->domainName_ = nullptr;};
     inline string getDomainName() const { DARABONBA_PTR_GET_DEFAULT(domainName_, "") };
     inline CreateCommandShrinkRequest& setDomainName(string domainName) { DARABONBA_PTR_SET_VALUE(domainName_, domainName) };
+
+
+    // replyMode Field Functions 
+    bool hasReplyMode() const { return this->replyMode_ != nullptr;};
+    void deleteReplyMode() { this->replyMode_ = nullptr;};
+    inline string getReplyMode() const { DARABONBA_PTR_GET_DEFAULT(replyMode_, "") };
+    inline CreateCommandShrinkRequest& setReplyMode(string replyMode) { DARABONBA_PTR_SET_VALUE(replyMode_, replyMode) };
 
 
     // toolDescription Field Functions 
@@ -107,6 +116,7 @@ namespace Models
     shared_ptr<string> appId_ {};
     shared_ptr<string> domainCode_ {};
     shared_ptr<string> domainName_ {};
+    shared_ptr<string> replyMode_ {};
     // This parameter is required.
     shared_ptr<string> toolDescription_ {};
     shared_ptr<string> toolExamplesShrink_ {};

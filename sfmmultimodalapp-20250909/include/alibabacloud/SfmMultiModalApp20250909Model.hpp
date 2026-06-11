@@ -36,6 +36,12 @@
 #include <alibabacloud/models/DescribeMmAppRequest.hpp>
 #include <alibabacloud/models/DescribeMmAppResponseBody.hpp>
 #include <alibabacloud/models/DescribeMmAppResponse.hpp>
+#include <alibabacloud/models/DevicePageRequest.hpp>
+#include <alibabacloud/models/DevicePageResponseBody.hpp>
+#include <alibabacloud/models/DevicePageResponse.hpp>
+#include <alibabacloud/models/DeviceUpdateRequest.hpp>
+#include <alibabacloud/models/DeviceUpdateResponseBody.hpp>
+#include <alibabacloud/models/DeviceUpdateResponse.hpp>
 #include <alibabacloud/models/ListCommandRequest.hpp>
 #include <alibabacloud/models/ListCommandResponseBody.hpp>
 #include <alibabacloud/models/ListCommandResponse.hpp>
@@ -59,6 +65,9 @@
 #include <alibabacloud/models/PublishMmAppRequest.hpp>
 #include <alibabacloud/models/PublishMmAppResponseBody.hpp>
 #include <alibabacloud/models/PublishMmAppResponse.hpp>
+#include <alibabacloud/models/QueryAppQuotaRequest.hpp>
+#include <alibabacloud/models/QueryAppQuotaResponseBody.hpp>
+#include <alibabacloud/models/QueryAppQuotaResponse.hpp>
 #include <alibabacloud/models/QueryMemoryConfigRequest.hpp>
 #include <alibabacloud/models/QueryMemoryConfigResponseBody.hpp>
 #include <alibabacloud/models/QueryMemoryConfigResponse.hpp>

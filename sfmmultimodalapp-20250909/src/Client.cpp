@@ -67,6 +67,10 @@ CreateCommandResponse Client::createCommandWithOptions(const CreateCommandReques
     query["DomainName"] = request.getDomainName();
   }
 
+  if (!!request.hasReplyMode()) {
+    query["ReplyMode"] = request.getReplyMode();
+  }
+
   if (!!request.hasToolDescription()) {
     query["ToolDescription"] = request.getToolDescription();
   }
@@ -648,6 +652,114 @@ DescribeMmAppResponse Client::describeMmApp(const DescribeMmAppRequest &request)
 }
 
 /**
+ * @summary 设备信息查询
+ *
+ * @param request DevicePageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DevicePageResponse
+ */
+DevicePageResponse Client::devicePageWithOptions(const DevicePageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasDeviceName()) {
+    query["DeviceName"] = request.getDeviceName();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DevicePage"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DevicePageResponse>();
+}
+
+/**
+ * @summary 设备信息查询
+ *
+ * @param request DevicePageRequest
+ * @return DevicePageResponse
+ */
+DevicePageResponse Client::devicePage(const DevicePageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return devicePageWithOptions(request, runtime);
+}
+
+/**
+ * @summary 修改设备状态
+ *
+ * @param request DeviceUpdateRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeviceUpdateResponse
+ */
+DeviceUpdateResponse Client::deviceUpdateWithOptions(const DeviceUpdateRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasDeviceName()) {
+    query["DeviceName"] = request.getDeviceName();
+  }
+
+  if (!!request.hasRemark()) {
+    query["Remark"] = request.getRemark();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeviceUpdate"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeviceUpdateResponse>();
+}
+
+/**
+ * @summary 修改设备状态
+ *
+ * @param request DeviceUpdateRequest
+ * @return DeviceUpdateResponse
+ */
+DeviceUpdateResponse Client::deviceUpdate(const DeviceUpdateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deviceUpdateWithOptions(request, runtime);
+}
+
+/**
  * @summary 指令列表
  *
  * @param request ListCommandRequest
@@ -1054,6 +1166,52 @@ PublishMmAppResponse Client::publishMmApp(const PublishMmAppRequest &request) {
 }
 
 /**
+ * @summary 额度使用量查询
+ *
+ * @param request QueryAppQuotaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAppQuotaResponse
+ */
+QueryAppQuotaResponse Client::queryAppQuotaWithOptions(const QueryAppQuotaRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppId()) {
+    query["AppId"] = request.getAppId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAppQuota"},
+    {"version" , "2025-09-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAppQuotaResponse>();
+}
+
+/**
+ * @summary 额度使用量查询
+ *
+ * @param request QueryAppQuotaRequest
+ * @return QueryAppQuotaResponse
+ */
+QueryAppQuotaResponse Client::queryAppQuota(const QueryAppQuotaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAppQuotaWithOptions(request, runtime);
+}
+
+/**
  * @summary 查询用户记忆配置
  *
  * @param request QueryMemoryConfigRequest
@@ -1295,6 +1453,10 @@ UpdateCommandResponse Client::updateCommandWithOptions(const UpdateCommandReques
 
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
+  }
+
+  if (!!request.hasReplyMode()) {
+    query["ReplyMode"] = request.getReplyMode();
   }
 
   if (!!request.hasToolDescription()) {

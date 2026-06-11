@@ -110,7 +110,6 @@ namespace Models
 
 
       protected:
-        // id
         shared_ptr<string> id_ {};
         shared_ptr<string> name_ {};
         shared_ptr<string> value_ {};
@@ -198,7 +197,6 @@ namespace Models
     shared_ptr<QueryUserProfileResponseBody::Data> data_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<string> message_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
     shared_ptr<bool> success_ {};
   };

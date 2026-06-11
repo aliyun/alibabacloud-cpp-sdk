@@ -88,7 +88,6 @@ namespace Models
     protected:
       shared_ptr<string> description_ {};
       shared_ptr<string> name_ {};
-      // schema id
       shared_ptr<string> schemaId_ {};
     };
 

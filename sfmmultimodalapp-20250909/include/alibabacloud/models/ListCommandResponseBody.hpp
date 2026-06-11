@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(ModifyUserId, modifyUserId_);
         DARABONBA_PTR_TO_JSON(ModifyUserName, modifyUserName_);
+        DARABONBA_PTR_TO_JSON(ReplyMode, replyMode_);
         DARABONBA_PTR_TO_JSON(ToolExamples, toolExamples_);
         DARABONBA_PTR_TO_JSON(ToolId, toolId_);
         DARABONBA_PTR_TO_JSON(ToolName, toolName_);
@@ -67,6 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(ModifyUserId, modifyUserId_);
         DARABONBA_PTR_FROM_JSON(ModifyUserName, modifyUserName_);
+        DARABONBA_PTR_FROM_JSON(ReplyMode, replyMode_);
         DARABONBA_PTR_FROM_JSON(ToolExamples, toolExamples_);
         DARABONBA_PTR_FROM_JSON(ToolId, toolId_);
         DARABONBA_PTR_FROM_JSON(ToolName, toolName_);
@@ -89,11 +91,15 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ParamDesc, paramDesc_);
           DARABONBA_PTR_TO_JSON(ParamExample, paramExample_);
           DARABONBA_PTR_TO_JSON(ParamName, paramName_);
+          DARABONBA_PTR_TO_JSON(ParamType, paramType_);
+          DARABONBA_PTR_TO_JSON(Required, required_);
         };
         friend void from_json(const Darabonba::Json& j, ToolParams& obj) { 
           DARABONBA_PTR_FROM_JSON(ParamDesc, paramDesc_);
           DARABONBA_PTR_FROM_JSON(ParamExample, paramExample_);
           DARABONBA_PTR_FROM_JSON(ParamName, paramName_);
+          DARABONBA_PTR_FROM_JSON(ParamType, paramType_);
+          DARABONBA_PTR_FROM_JSON(Required, required_);
         };
         ToolParams() = default ;
         ToolParams(const ToolParams &) = default ;
@@ -107,7 +113,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->paramDesc_ == nullptr
-        && this->paramExample_ == nullptr && this->paramName_ == nullptr; };
+        && this->paramExample_ == nullptr && this->paramName_ == nullptr && this->paramType_ == nullptr && this->required_ == nullptr; };
         // paramDesc Field Functions 
         bool hasParamDesc() const { return this->paramDesc_ != nullptr;};
         void deleteParamDesc() { this->paramDesc_ = nullptr;};
@@ -129,18 +135,36 @@ namespace Models
         inline ToolParams& setParamName(string paramName) { DARABONBA_PTR_SET_VALUE(paramName_, paramName) };
 
 
+        // paramType Field Functions 
+        bool hasParamType() const { return this->paramType_ != nullptr;};
+        void deleteParamType() { this->paramType_ = nullptr;};
+        inline string getParamType() const { DARABONBA_PTR_GET_DEFAULT(paramType_, "") };
+        inline ToolParams& setParamType(string paramType) { DARABONBA_PTR_SET_VALUE(paramType_, paramType) };
+
+
+        // required Field Functions 
+        bool hasRequired() const { return this->required_ != nullptr;};
+        void deleteRequired() { this->required_ = nullptr;};
+        inline bool getRequired() const { DARABONBA_PTR_GET_DEFAULT(required_, false) };
+        inline ToolParams& setRequired(bool required) { DARABONBA_PTR_SET_VALUE(required_, required) };
+
+
       protected:
         shared_ptr<string> paramDesc_ {};
         shared_ptr<string> paramExample_ {};
         shared_ptr<string> paramName_ {};
+        shared_ptr<string> paramType_ {};
+        shared_ptr<bool> required_ {};
       };
 
       class ToolExamples : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ToolExamples& obj) { 
+          DARABONBA_ANY_TO_JSON(Parameters, parameters_);
           DARABONBA_PTR_TO_JSON(Query, query_);
         };
         friend void from_json(const Darabonba::Json& j, ToolExamples& obj) { 
+          DARABONBA_ANY_FROM_JSON(Parameters, parameters_);
           DARABONBA_PTR_FROM_JSON(Query, query_);
         };
         ToolExamples() = default ;
@@ -154,7 +178,17 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->query_ == nullptr; };
+        virtual bool empty() const override { return this->parameters_ == nullptr
+        && this->query_ == nullptr; };
+        // parameters Field Functions 
+        bool hasParameters() const { return this->parameters_ != nullptr;};
+        void deleteParameters() { this->parameters_ = nullptr;};
+        inline         const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+        Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
+        inline ToolExamples& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
+        inline ToolExamples& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+
+
         // query Field Functions 
         bool hasQuery() const { return this->query_ != nullptr;};
         void deleteQuery() { this->query_ = nullptr;};
@@ -163,13 +197,14 @@ namespace Models
 
 
       protected:
+        Darabonba::Json parameters_ {};
         shared_ptr<string> query_ {};
       };
 
       virtual bool empty() const override { return this->appId_ == nullptr
         && this->createUserId_ == nullptr && this->createUserName_ == nullptr && this->description_ == nullptr && this->domainCode_ == nullptr && this->domainName_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->modifyUserId_ == nullptr && this->modifyUserName_ == nullptr && this->toolExamples_ == nullptr
-        && this->toolId_ == nullptr && this->toolName_ == nullptr && this->toolParams_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->modifyUserId_ == nullptr && this->modifyUserName_ == nullptr && this->replyMode_ == nullptr
+        && this->toolExamples_ == nullptr && this->toolId_ == nullptr && this->toolName_ == nullptr && this->toolParams_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -240,6 +275,13 @@ namespace Models
       inline ToolInfoList& setModifyUserName(string modifyUserName) { DARABONBA_PTR_SET_VALUE(modifyUserName_, modifyUserName) };
 
 
+      // replyMode Field Functions 
+      bool hasReplyMode() const { return this->replyMode_ != nullptr;};
+      void deleteReplyMode() { this->replyMode_ = nullptr;};
+      inline string getReplyMode() const { DARABONBA_PTR_GET_DEFAULT(replyMode_, "") };
+      inline ToolInfoList& setReplyMode(string replyMode) { DARABONBA_PTR_SET_VALUE(replyMode_, replyMode) };
+
+
       // toolExamples Field Functions 
       bool hasToolExamples() const { return this->toolExamples_ != nullptr;};
       void deleteToolExamples() { this->toolExamples_ = nullptr;};
@@ -283,6 +325,7 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       shared_ptr<string> modifyUserId_ {};
       shared_ptr<string> modifyUserName_ {};
+      shared_ptr<string> replyMode_ {};
       shared_ptr<vector<ToolInfoList::ToolExamples>> toolExamples_ {};
       shared_ptr<string> toolId_ {};
       shared_ptr<string> toolName_ {};

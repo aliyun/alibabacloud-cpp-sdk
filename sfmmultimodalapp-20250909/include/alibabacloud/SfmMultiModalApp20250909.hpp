@@ -191,6 +191,40 @@ namespace SfmMultiModalApp20250909
       Models::DescribeMmAppResponse describeMmApp(const Models::DescribeMmAppRequest &request);
 
       /**
+       * @summary 设备信息查询
+       *
+       * @param request DevicePageRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DevicePageResponse
+       */
+      Models::DevicePageResponse devicePageWithOptions(const Models::DevicePageRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 设备信息查询
+       *
+       * @param request DevicePageRequest
+       * @return DevicePageResponse
+       */
+      Models::DevicePageResponse devicePage(const Models::DevicePageRequest &request);
+
+      /**
+       * @summary 修改设备状态
+       *
+       * @param request DeviceUpdateRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeviceUpdateResponse
+       */
+      Models::DeviceUpdateResponse deviceUpdateWithOptions(const Models::DeviceUpdateRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 修改设备状态
+       *
+       * @param request DeviceUpdateRequest
+       * @return DeviceUpdateResponse
+       */
+      Models::DeviceUpdateResponse deviceUpdate(const Models::DeviceUpdateRequest &request);
+
+      /**
        * @summary 指令列表
        *
        * @param request ListCommandRequest
@@ -308,6 +342,23 @@ namespace SfmMultiModalApp20250909
        * @return PublishMmAppResponse
        */
       Models::PublishMmAppResponse publishMmApp(const Models::PublishMmAppRequest &request);
+
+      /**
+       * @summary 额度使用量查询
+       *
+       * @param request QueryAppQuotaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAppQuotaResponse
+       */
+      Models::QueryAppQuotaResponse queryAppQuotaWithOptions(const Models::QueryAppQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 额度使用量查询
+       *
+       * @param request QueryAppQuotaRequest
+       * @return QueryAppQuotaResponse
+       */
+      Models::QueryAppQuotaResponse queryAppQuota(const Models::QueryAppQuotaRequest &request);
 
       /**
        * @summary 查询用户记忆配置
