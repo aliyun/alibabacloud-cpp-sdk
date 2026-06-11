@@ -2742,9 +2742,9 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
- * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+ * @summary Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
  *
- * @description Retrieves the content of a specified code file from a workspace.
+ * @description Obtains the resource configuration limit information and the instance purchase status of the workspace.
  *
  * @param request GetWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2783,9 +2783,9 @@ GetWorkspaceCodeResponse Client::getWorkspaceCodeWithOptions(const GetWorkspaceC
 }
 
 /**
- * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+ * @summary Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
  *
- * @description Retrieves the content of a specified code file from a workspace.
+ * @description Obtains the resource configuration limit information and the instance purchase status of the workspace.
  *
  * @param request GetWorkspaceCodeRequest
  * @return GetWorkspaceCodeResponse
@@ -4760,9 +4760,9 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const RetrieveKnowle
 }
 
 /**
- * @summary Saves code in a workspace and creates the file if it does not exist.
+ * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
  *
- * @description Saves code in a workspace and optionally publishes it to a repository.
+ * @description 发布工作空间的代码
  *
  * @param request SaveWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4819,9 +4819,9 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCodeWithOptions(const SaveWorkspa
 }
 
 /**
- * @summary Saves code in a workspace and creates the file if it does not exist.
+ * @summary Saves workspace code. If the file does not exist, a new file is automatically created.
  *
- * @description Saves code in a workspace and optionally publishes it to a repository.
+ * @description 发布工作空间的代码
  *
  * @param request SaveWorkspaceCodeRequest
  * @return SaveWorkspaceCodeResponse

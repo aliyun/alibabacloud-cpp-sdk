@@ -57,13 +57,14 @@ namespace Models
 
 
   protected:
-    // If the file is in JSON format, set this parameter to `true` to convert the returned content to YAML format.
+    // If the file is a JSON file and Iac is set to true, the returned content is converted from JSON format to YAML format.
     shared_ptr<string> iac_ {};
-    // The path to the code file. For example: `/Workspace/code/test.py`.
+    // The code file path: /Workspace/code/test.py
+    // Request path.
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
