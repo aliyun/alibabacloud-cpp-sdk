@@ -36,6 +36,23 @@ namespace AISC20260101
        * @return CreateSkillFileCheckResponse
        */
       Models::CreateSkillFileCheckResponse createSkillFileCheck(const Models::CreateSkillFileCheckRequest &request);
+
+      /**
+       * @summary 获取子任务信息
+       *
+       * @param request ListSubTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSubTasksResponse
+       */
+      Models::ListSubTasksResponse listSubTasksWithOptions(const Models::ListSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取子任务信息
+       *
+       * @param request ListSubTasksRequest
+       * @return ListSubTasksResponse
+       */
+      Models::ListSubTasksResponse listSubTasks(const Models::ListSubTasksRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AISC20260101

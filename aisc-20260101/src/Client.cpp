@@ -76,5 +76,59 @@ CreateSkillFileCheckResponse Client::createSkillFileCheck(const CreateSkillFileC
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSkillFileCheckWithOptions(request, runtime);
 }
+
+/**
+ * @summary 获取子任务信息
+ *
+ * @param request ListSubTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSubTasksResponse
+ */
+ListSubTasksResponse Client::listSubTasksWithOptions(const ListSubTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCurrentPage()) {
+    query["CurrentPage"] = request.getCurrentPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRootTaskId()) {
+    query["RootTaskId"] = request.getRootTaskId();
+  }
+
+  if (!!request.hasTaskType()) {
+    query["TaskType"] = request.getTaskType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSubTasks"},
+    {"version" , "2026-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSubTasksResponse>();
+}
+
+/**
+ * @summary 获取子任务信息
+ *
+ * @param request ListSubTasksRequest
+ * @return ListSubTasksResponse
+ */
+ListSubTasksResponse Client::listSubTasks(const ListSubTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listSubTasksWithOptions(request, runtime);
+}
 } // namespace AlibabaCloud
 } // namespace AISC20260101

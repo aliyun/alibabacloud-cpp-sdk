@@ -5,5 +5,8 @@
 #include <alibabacloud/models/CreateSkillFileCheckRequest.hpp>
 #include <alibabacloud/models/CreateSkillFileCheckResponseBody.hpp>
 #include <alibabacloud/models/CreateSkillFileCheckResponse.hpp>
+#include <alibabacloud/models/ListSubTasksRequest.hpp>
+#include <alibabacloud/models/ListSubTasksResponseBody.hpp>
+#include <alibabacloud/models/ListSubTasksResponse.hpp>
 
 #endif
