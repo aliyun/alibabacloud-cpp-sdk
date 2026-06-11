@@ -97,9 +97,13 @@ namespace Models
 
 
     protected:
+      // The URL to preview the scheduling result.
       shared_ptr<string> notebookSchedulePreviewUrl_ {};
+      // The progress of the scheduling task.
       shared_ptr<string> progress_ {};
+      // The output of the scheduling task.
       shared_ptr<string> result_ {};
+      // The status of the scheduling result.
       shared_ptr<string> status_ {};
     };
 
@@ -158,12 +162,23 @@ namespace Models
 
 
   protected:
+    // The status code. A value of Success indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The scheduling result.
     shared_ptr<GetNotebookTaskStatusResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

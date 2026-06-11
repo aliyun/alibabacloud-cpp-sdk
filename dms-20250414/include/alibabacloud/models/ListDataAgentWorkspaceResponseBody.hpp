@@ -180,15 +180,24 @@ namespace Models
 
 
       protected:
+        // The creation time of the workspace, provided as a UNIX timestamp in seconds.
         shared_ptr<int64_t> createTime_ {};
+        // The creator\\"s user ID (UID).
         shared_ptr<string> creator_ {};
+        // The description of the workspace.
         shared_ptr<string> description_ {};
         shared_ptr<bool> isSessionShareEnabled_ {};
+        // The last modification time of the workspace, provided as a UNIX timestamp in seconds.
         shared_ptr<int64_t> modifyTime_ {};
+        // The name of the user\\"s role in the workspace.
         shared_ptr<string> roleName_ {};
+        // The number of members in the workspace.
         shared_ptr<int64_t> totalMember_ {};
+        // The ID of the workspace.
         shared_ptr<string> workspaceId_ {};
+        // The name of the workspace.
         shared_ptr<string> workspaceName_ {};
+        // The status of the workspace.
         shared_ptr<string> workspaceStatus_ {};
       };
 
@@ -232,10 +241,15 @@ namespace Models
 
 
     protected:
+      // The details of the workspaces.
       shared_ptr<vector<Data::Content>> content_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of workspaces on each page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of workspaces.
       shared_ptr<int64_t> totalElements_ {};
+      // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
     };
 
@@ -294,12 +308,19 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListDataAgentWorkspaceResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // This parameter is not used.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is not used.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

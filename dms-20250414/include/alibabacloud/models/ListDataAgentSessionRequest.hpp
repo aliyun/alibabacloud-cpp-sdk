@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Session creation end time
     shared_ptr<int64_t> createEndTime_ {};
+    // Session creation start time
     shared_ptr<int64_t> createStartTime_ {};
+    // Custom Agent ID
     shared_ptr<string> customAgentId_ {};
+    // Current DMS unit
     shared_ptr<string> DMSUnit_ {};
+    // Whether to return only saved sessions
     shared_ptr<bool> isSaved_ {};
+    // Page number for pagination
     shared_ptr<int32_t> pageNumber_ {};
+    // Number of records per page
     shared_ptr<int32_t> pageSize_ {};
+    // Session type. Required when you specify a collaboration workspace.
     shared_ptr<string> queryType_ {};
+    // Data Agent title (supports fuzzy search)
     shared_ptr<string> title_ {};
+    // Collaboration workspace ID
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // The unique ID of the Airflow instance.
+    // 
     // This parameter is required.
     shared_ptr<string> airflowId_ {};
+    // The list of custom Airflow configurations.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> customAirflowCfg_ {};
+    // The DMS workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

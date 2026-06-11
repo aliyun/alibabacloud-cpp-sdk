@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The key for the session playback history.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

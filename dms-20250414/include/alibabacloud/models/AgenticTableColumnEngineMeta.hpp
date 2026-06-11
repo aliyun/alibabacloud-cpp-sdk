@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // Indicates whether the column uses auto-increment.
     shared_ptr<bool> autoIncrement_ {};
+    // The data length of the column. This parameter typically applies to string and binary data types.
     shared_ptr<int64_t> dataLength_ {};
+    // The data precision of the column, which is the total number of digits in a numeric type.
     shared_ptr<int32_t> dataPrecision_ {};
+    // The data scale of the column, which is the number of digits to the right of the decimal point in a numeric type.
     shared_ptr<int32_t> dataScale_ {};
+    // The default value of the column.
     shared_ptr<string> defaultValue_ {};
+    // The character encoding of the column.
     shared_ptr<string> encoding_ {};
+    // Engine-specific attributes or flags for the column.
     shared_ptr<string> extra_ {};
+    // Indicates whether the column is a generated column.
     shared_ptr<bool> generationColumn_ {};
+    // The expression used to generate the column\\"s value. Applies only if `GenerationColumn` is `true`.
     shared_ptr<string> generationExpression_ {};
+    // Indicates whether the column is nullable.
     shared_ptr<bool> nullable_ {};
   };
 

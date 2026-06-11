@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The document name.
+    // 
     // This parameter is required.
     shared_ptr<string> documentName_ {};
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
+    // The new document description.
+    // 
     // This parameter is required.
     shared_ptr<string> newDescription_ {};
   };

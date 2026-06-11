@@ -266,28 +266,49 @@ namespace Models
 
 
     protected:
+      // The ID of the Airflow instance.
       shared_ptr<string> airflowId_ {};
+      // The name of the Airflow instance.
       shared_ptr<string> airflowName_ {};
+      // The specifications of the Airflow instance.
       shared_ptr<string> appSpec_ {};
+      // The application type.
       shared_ptr<string> appType_ {};
+      // The custom configurations.
       shared_ptr<vector<string>> customAirflowCfg_ {};
+      // The DAG directory that Airflow scans.
       shared_ptr<string> dagsDir_ {};
+      // The deployment error message.
       shared_ptr<string> deployErrorMsg_ {};
+      // The description of the Airflow instance.
       shared_ptr<string> description_ {};
+      // The time when the instance was created.
       shared_ptr<string> gmtCreated_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
+      // The OSS path.
       shared_ptr<string> ossPath_ {};
+      // The plugin directory that Airflow scans.
       shared_ptr<string> pluginsDir_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The path to the Python dependencies file (requirements.txt).
       shared_ptr<string> requirementFile_ {};
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
+      // The startup script that runs before Airflow starts.
       shared_ptr<string> startupFile_ {};
+      // The status of the Airflow instance.
       shared_ptr<string> status_ {};
+      // The ID of the vSwitch.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID。
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The number of worker nodes.
       shared_ptr<int32_t> workerServerlessReplicas_ {};
+      // The ID of the DMS workspace.
       shared_ptr<string> workspaceId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -346,13 +367,23 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
-    // Reuqest ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The returned data.
     shared_ptr<GetAirflowResponseBody::Root> root_ {};
+    // Indicates whether the request was successful. The following values are returned:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

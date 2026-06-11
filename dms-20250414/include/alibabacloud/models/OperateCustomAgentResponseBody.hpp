@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // Custom Agent ID
       shared_ptr<string> customAgentId_ {};
+      // Operation message
       shared_ptr<string> message_ {};
+      // Is the operation successful?
       shared_ptr<bool> success_ {};
     };
 
@@ -129,11 +132,19 @@ namespace Models
 
 
   protected:
+    // Return struct
     shared_ptr<OperateCustomAgentResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Is the request successful? Return values are as follows:
+    // 
+    // - True: The request is successful.
+    // 
+    // - False: The request failed.
     shared_ptr<bool> success_ {};
   };
 

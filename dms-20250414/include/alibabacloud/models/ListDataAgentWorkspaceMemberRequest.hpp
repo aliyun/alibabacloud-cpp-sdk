@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token.
     shared_ptr<string> nextToken_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The sort field.
     shared_ptr<string> orderBy_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int64_t> pageSize_ {};
+    // The prefix of the member ID to query.
     shared_ptr<string> searchMemberId_ {};
+    // The prefix of the member name to query.
     shared_ptr<string> searchRoleName_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

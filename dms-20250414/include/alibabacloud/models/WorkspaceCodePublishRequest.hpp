@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The configuration for the code deployment, specified as a JSON string. The `repos` array identifies the Git repositories in the workspace and specifies the branch to deploy. The `exclude` array lists directories to skip during the deployment.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // The workspace ID (numeric ID) for the code deployment.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

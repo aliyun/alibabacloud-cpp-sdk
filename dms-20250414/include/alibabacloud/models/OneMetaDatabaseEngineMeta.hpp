@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The catalog name.
     shared_ptr<string> catalogName_ {};
+    // The character encoding for the database.
     shared_ptr<string> encoding_ {};
+    // The schema name.
     shared_ptr<string> schemaName_ {};
+    // The database storage capacity, in GB.
     shared_ptr<int64_t> storageCapacity_ {};
   };
 

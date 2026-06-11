@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // File ID
       shared_ptr<string> fileId_ {};
     };
 
@@ -108,11 +109,18 @@ namespace Models
 
 
   protected:
+    // Return struct
     shared_ptr<DeleteFileUploadResponseBody::Data> data_ {};
+    // Error code.
     shared_ptr<string> errorCode_ {};
+    // Error message returned when the invocation fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - **true**: The request succeeded.                                 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

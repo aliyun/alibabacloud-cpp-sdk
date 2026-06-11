@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The Notebook session ID.
     shared_ptr<string> sessionId_ {};
+    // The scheduling task ID.
     shared_ptr<string> taskId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -102,10 +102,15 @@ namespace Models
 
 
     protected:
+      // The time when the user was created in RAM. This is a UNIX timestamp in seconds.
       shared_ptr<int64_t> createDate_ {};
+      // The ID of the Alibaba Cloud account to which the user belongs.
       shared_ptr<string> mainAccountId_ {};
+      // The time when the user information was last updated. This is a UNIX timestamp in seconds.
       shared_ptr<int64_t> updateDate_ {};
+      // The UID of the queried RAM user.
       shared_ptr<string> userId_ {};
+      // The name of the queried RAM user.
       shared_ptr<string> userName_ {};
     };
 
@@ -149,10 +154,15 @@ namespace Models
 
 
   protected:
+    // The returned data structure.
     shared_ptr<GetDataAgentSubAccountInfoResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

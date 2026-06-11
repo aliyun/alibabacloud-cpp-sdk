@@ -106,13 +106,21 @@ namespace Models
 
 
   protected:
+    // The catalog type.
     shared_ptr<string> catalogType_ {};
+    // The database\\"s unique identifier.
     shared_ptr<string> databaseUuid_ {};
+    // The table description.
     shared_ptr<string> description_ {};
+    // The engine metadata.
     shared_ptr<AgenticTableEngineMeta> engineMeta_ {};
+    // The table name.
     shared_ptr<string> name_ {};
+    // The table\\"s qualified name.
     shared_ptr<string> qualifiedName_ {};
+    // The table type.
     shared_ptr<string> tableType_ {};
+    // The table\\"s unique identifier.
     shared_ptr<string> tableUuid_ {};
   };
 

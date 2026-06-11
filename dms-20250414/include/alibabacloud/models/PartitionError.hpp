@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The details of the error.
     shared_ptr<string> errorDetail_ {};
+    // The partition values.
     shared_ptr<vector<string>> values_ {};
   };
 

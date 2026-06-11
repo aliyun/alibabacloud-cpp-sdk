@@ -102,10 +102,15 @@ namespace Models
 
 
     protected:
+      // The number of documents in the knowledge base.
       shared_ptr<int32_t> documentCount_ {};
+      // The number of hits for the knowledge base.
       shared_ptr<int64_t> kbHits_ {};
+      // The ID of the knowledge base.
       shared_ptr<string> kbUuid_ {};
+      // The total number of knowledge chunks in the knowledge base.
       shared_ptr<int32_t> totalChunkCount_ {};
+      // The total size of all files in the knowledge base, in bytes.
       shared_ptr<int64_t> totalFileSize_ {};
     };
 
@@ -149,10 +154,15 @@ namespace Models
 
 
   protected:
+    // The object that contains the knowledge base statistics.
     shared_ptr<DescribeKnowledgeBaseStatsResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique ID of the request. Use this ID to troubleshoot errors.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. A value of `true` indicates success, and a value of `false` indicates failure.
     shared_ptr<bool> success_ {};
   };
 

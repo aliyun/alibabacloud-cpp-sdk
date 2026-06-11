@@ -256,27 +256,47 @@ namespace Models
 
 
     protected:
+      // The ID of the Airflow instance.
       shared_ptr<string> airflowId_ {};
+      // The name of the Airflow instance.
       shared_ptr<string> airflowName_ {};
+      // The Airflow instance specifications.
       shared_ptr<string> appSpec_ {};
+      // The application type.
       shared_ptr<string> appType_ {};
+      // The custom configuration.
       shared_ptr<vector<string>> customAirflowCfg_ {};
+      // The DAG directory that Airflow scans.
       shared_ptr<string> dagsDir_ {};
+      // The deployment error message.
       shared_ptr<string> deployErrorMsg_ {};
+      // The description of the Airflow instance.
       shared_ptr<string> description_ {};
+      // The timestamp when the instance was created.
       shared_ptr<string> gmtCreated_ {};
+      // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
+      // The OSS path.
       shared_ptr<string> ossPath_ {};
+      // The plugin directory that Airflow scans.
       shared_ptr<string> pluginsDir_ {};
+      // The configuration file for dependencies.
       shared_ptr<string> requirementFile_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The script that runs before Airflow starts.
       shared_ptr<string> startupFile_ {};
+      // The status of the Airflow instance.
       shared_ptr<string> status_ {};
+      // The VSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The number of worker nodes.
       shared_ptr<int32_t> workerServerlessReplicas_ {};
+      // The DMS workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -335,12 +355,23 @@ namespace Models
 
 
   protected:
+    // Details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Information about the Airflow instance.
     shared_ptr<ConfigAirflowResponseBody::Root> root_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

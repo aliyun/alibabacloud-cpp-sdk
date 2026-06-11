@@ -207,17 +207,40 @@ namespace Models
 
 
       protected:
+        // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
+        // The stage of the custom agent. Valid values:
+        // 
+        // - **debug**: Debug stage
+        // 
+        // - **prod**: Production stage
         shared_ptr<string> customAgentStage_ {};
+        // Indicates whether web search is enabled.
         shared_ptr<bool> enableSearch_ {};
         shared_ptr<string> encryptKey_ {};
         shared_ptr<string> encryptType_ {};
         shared_ptr<vector<string>> kbUuidList_ {};
+        // The language. Valid values:
+        // 
+        // - **CHINESE**: Chinese
+        // 
+        // - **ENGLISH**: English
         shared_ptr<string> language_ {};
+        // A list of MCP server IDs.
         shared_ptr<vector<string>> mcpServerIds_ {};
+        // The mode. Valid values:
+        // 
+        // - **ASK_DATA**: Quick Inquiry Mode
+        // 
+        // - **ANALYSIS**: Analysis Mode
+        // 
+        // - **INSIGHT**: Insight Mode
         shared_ptr<string> mode_ {};
         shared_ptr<int64_t> reportPageWidth_ {};
         shared_ptr<string> reportWaterMark_ {};
+        // The name of the user\\"s OSS bucket.
+        // 
+        // - Analysis files and report artifacts can be uploaded to this OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -290,15 +313,23 @@ namespace Models
 
 
     protected:
-      // Agent Id
+      // The agent ID.
       shared_ptr<string> agentId_ {};
+      // The agent status.
       shared_ptr<string> agentStatus_ {};
+      // The time when the session was created, in Unix milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The ID of the associated file.
       shared_ptr<string> file_ {};
+      // Indicates whether the current user has favorited the session.
       shared_ptr<bool> saved_ {};
+      // The session configuration.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
+      // The agent session ID.
       shared_ptr<string> sessionId_ {};
+      // The session status.
       shared_ptr<string> sessionStatus_ {};
+      // The session title.
       shared_ptr<string> title_ {};
     };
 
@@ -342,11 +373,19 @@ namespace Models
 
 
   protected:
+    // The response structure.
     shared_ptr<CreateDataAgentSessionResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

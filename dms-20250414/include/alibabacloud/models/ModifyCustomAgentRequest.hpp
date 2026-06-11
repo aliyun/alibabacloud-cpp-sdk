@@ -105,8 +105,11 @@ namespace Models
 
 
     protected:
+      // The cron expression for the scheduled task.
       shared_ptr<string> cronExpression_ {};
+      // The query for the scheduled task.
       shared_ptr<string> query_ {};
+      // The ID of a previous session to use as a reference.
       shared_ptr<string> relatedSessionId_ {};
     };
 
@@ -157,8 +160,13 @@ namespace Models
 
 
     protected:
+      // The access type.
+      // 
+      // - `mcp`: Connects via the MCP service.
       shared_ptr<string> accessType_ {};
+      // The UUID of the knowledge base.
       shared_ptr<string> kbUuid_ {};
+      // The ID of the MCP server.
       shared_ptr<string> mcpServerId_ {};
     };
 
@@ -218,9 +226,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether to prevent the agent from asking for user input during execution.
       shared_ptr<bool> skipAskHuman_ {};
+      // Specifies whether to skip the plan confirmation step.
       shared_ptr<bool> skipPlan_ {};
+      // Specifies whether to skip all SQL confirmation steps.
       shared_ptr<bool> skipSqlConfirm_ {};
+      // Specifies whether to skip the confirmation for web report generation.
       shared_ptr<bool> skipWebReportConfirm_ {};
     };
 
@@ -289,10 +301,15 @@ namespace Models
 
 
     protected:
+      // The arguments for the callback.
       shared_ptr<string> callbackArgs_ {};
+      // The prompt to use for the callback.
       shared_ptr<string> callbackPrompt_ {};
+      // The timestamp of the callback.
       shared_ptr<int32_t> callbackTime_ {};
+      // The ID of the tool to call.
       shared_ptr<string> toolId_ {};
+      // The callback type.
       shared_ptr<string> type_ {};
     };
 
@@ -414,21 +431,130 @@ namespace Models
 
 
   protected:
+    // The callback configuration.
     shared_ptr<ModifyCustomAgentRequest::CallbackConfig> callbackConfig_ {};
+    // The ID of the custom agent.
+    // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The data scope for the agent, specified in a **JSON-formatted string**.
+    // 
+    // - General parameters:
+    // 
+    //   - `tableFlag`: Set this to `true` to specify the data scope.
+    // 
+    //   - `scope`: The value must be `personal`.
+    // 
+    //   - `personal`: The parameters for files or databases.
+    // 
+    // **For files**, use the following parameters:
+    // 
+    // - `DataSourceType`: The value must be `remote_data_center`.
+    // 
+    // - `FileId`: The file ID.
+    // 
+    // - `Database`: The database name returned by the `ListDataCenterTable` operation. This is typically the file name.
+    // 
+    // - `Tables`: The table names returned by the `ListDataCenterTable` operation.
+    // 
+    // - `TableIds`: The table IDs returned by the `ListDataCenterTable` operation.
+    // 
+    // - `RegionId`: The current region.
+    // 
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "remote_data_center",
+    //     "FileId": "f-f0jksn001ibmkoo********6v2zn6",
+    //     "Database": "diamonds.csv",
+    //     "Tables": [
+    //       "diamonds"
+    //     ],
+    //     "TableIds": [
+    //       "35hfn94pxl********50pi"
+    //     ],
+    //     "RegionId": "cn-hangzhou"
+    //   }
+    // }
+    // ```
+    // 
+    // **For databases**, use the following parameters:
+    // 
+    // - `DataSourceType`: The value must be `database`.
+    // 
+    // - `DmsInstanceId`: The ID of the DMS instance, which is returned by the data center API.
+    // 
+    // - `DmsDatabaseId`: The ID of the DMS database, which is returned by the data center API.
+    // 
+    // - `FileId`: The instance name. This parameter is deprecated.
+    // 
+    // - `DbName`: The database name returned by the data center API.
+    // 
+    // - `Database`: The database name returned by the data center API.
+    // 
+    // - `Tables`: The table names returned by the data center API.
+    // 
+    // - `TableIds`: The table IDs returned by the data center API.
+    // 
+    // - `Engine`: The database engine type. Valid values: `mysql` and `postgresql`.
+    // 
+    // - `RegionId`: The current region.
+    // 
+    // ```
+    // {
+    //   "tableFlag": true,
+    //   "scope": "personal",
+    //   "personal": {
+    //     "DataSourceType": "database",
+    //     "DmsInstanceId": "284***8",
+    //     "DmsDatabaseId": "769***45",
+    //     "FileId": "pgm-bp15095e*******6t",
+    //     "DbName": "pg_catalog",
+    //     "Database": "pg_catalog",
+    //     "Tables": [
+    //       "pg_aggregate"
+    //     ],
+    //     "TableIds": [
+    //       "5263****31"
+    //     ],
+    //     "Engine": "postgresql",
+    //     "RegionId": "cn-hangzhou"
+    //   }
+    // }
+    // ```
     shared_ptr<string> dataJson_ {};
+    // The description of the custom agent.
     shared_ptr<string> description_ {};
+    // The execution configuration.
     shared_ptr<ModifyCustomAgentRequest::ExecutionConfig> executionConfig_ {};
+    // The system instruction for the custom agent.
+    // 
+    // - The maximum length is 10,000 characters.
     shared_ptr<string> instruction_ {};
+    // A text-based knowledge base for the custom agent.
+    // 
+    // - The maximum length is 10,000 characters.
     shared_ptr<string> knowledge_ {};
+    // The configurations for the external knowledge base.
     shared_ptr<vector<ModifyCustomAgentRequest::KnowledgeConfigList>> knowledgeConfigList_ {};
+    // The name of the custom agent.
     shared_ptr<string> name_ {};
     shared_ptr<string> relatedSessionId_ {};
+    // The configuration for the scheduled task.
     shared_ptr<ModifyCustomAgentRequest::ScheduleTaskConfig> scheduleTaskConfig_ {};
+    // The formatting instructions for the text report.
+    // 
+    // - The maximum length is 10,000 characters.
     shared_ptr<string> textReportConfig_ {};
+    // The formatting instructions for the web report.
+    // 
+    // - The maximum length is 50,000 characters.
     shared_ptr<string> webReportConfig_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

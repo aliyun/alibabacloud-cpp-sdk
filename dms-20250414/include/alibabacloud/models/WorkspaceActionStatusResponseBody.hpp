@@ -95,9 +95,14 @@ namespace Models
 
 
     protected:
+      // The error message if the task fails.
       shared_ptr<string> data_ {};
+      // The time when the task ended.
       shared_ptr<string> endTime_ {};
+      // The time when the task started.
       shared_ptr<string> startTime_ {};
+      // The status of the asynchronous task. Valid values: SUCCESS, ERROR, TIMEOUT, and CANCEL.
+      // 
       // This parameter is required.
       shared_ptr<string> status_ {};
     };
@@ -149,11 +154,21 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<WorkspaceActionStatusResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message that is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

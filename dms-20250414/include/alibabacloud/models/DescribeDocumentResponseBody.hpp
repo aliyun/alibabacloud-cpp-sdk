@@ -176,18 +176,41 @@ namespace Models
 
 
     protected:
+      // The description of the document.
       shared_ptr<string> description_ {};
+      // The number of chunks.
       shared_ptr<int64_t> docsCount_ {};
+      // The name of the document loader.
       shared_ptr<string> documentLoaderName_ {};
+      // The file extension of the document.
       shared_ptr<string> fileExt_ {};
+      // The size of the document in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The creation time of the document, in UTC.
       shared_ptr<string> gmtCreate_ {};
+      // The last modification time of the document, in UTC.
       shared_ptr<string> gmtModified_ {};
+      // The ID of the knowledge base.
       shared_ptr<string> kbUuid_ {};
+      // The keywords of the document.
       shared_ptr<string> keywords_ {};
+      // The name of the document.
       shared_ptr<string> name_ {};
+      // The document state. Possible values are:
+      // 
+      // - **0**: Parsing complete.
+      // 
+      // - **-1**: Not parsed.
+      // 
+      // - **-2**: Parsing in progress.
+      // 
+      // - **-3**: Parsing failed.
+      // 
+      // - **-4**: Parsing canceled.
       shared_ptr<int64_t> state_ {};
+      // The summary of the document.
       shared_ptr<string> summary_ {};
+      // The name of the text splitter.
       shared_ptr<string> textSplitterName_ {};
     };
 
@@ -231,10 +254,19 @@ namespace Models
 
 
   protected:
+    // The details of the document.
     shared_ptr<DescribeDocumentResponseBody::Data> data_ {};
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique request ID. Provide this ID for troubleshooting if an error occurs.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

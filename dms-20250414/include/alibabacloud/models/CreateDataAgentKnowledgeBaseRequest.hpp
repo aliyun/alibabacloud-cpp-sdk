@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The description of the knowledge base.
     shared_ptr<string> description_ {};
+    // The ID of the source industry knowledge base.
     shared_ptr<string> fromKbUuid_ {};
+    // The name of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The UID of the member account to remove.
     shared_ptr<string> memberId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

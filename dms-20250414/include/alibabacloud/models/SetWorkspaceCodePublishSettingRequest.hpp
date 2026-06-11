@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The deployment configuration, provided as a JSON string. The repos array specifies the Git repositories in the workspace, primarily for setting the branch for publishing. The exclude parameter specifies which directories to skip.
+    // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // The numeric ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

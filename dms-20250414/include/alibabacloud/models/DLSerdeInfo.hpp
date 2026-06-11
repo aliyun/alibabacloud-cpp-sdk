@@ -96,12 +96,19 @@ namespace Models
 
 
   protected:
+    // The description of the serialization.
     shared_ptr<string> description_ {};
+    // The name of the class used for deserialization.
     shared_ptr<string> deserializerClass_ {};
+    // The name of the serialization.
     shared_ptr<string> name_ {};
+    // The key-value pairs of parameters related to serialization.
     Darabonba::Json parameters_ {};
+    // The type of serialization.
     shared_ptr<int32_t> serdeType_ {};
+    // The class name of the serialization library.
     shared_ptr<string> serializationLib_ {};
+    // The name of the class used for serialization.
     shared_ptr<string> serializerClass_ {};
   };
 

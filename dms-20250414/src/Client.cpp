@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 为空间添加用户
+ * @summary Adds a user to a specified workspace.
  *
  * @param request AddUserToDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -80,7 +80,7 @@ AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspaceWithOptio
 }
 
 /**
- * @summary 为空间添加用户
+ * @summary Adds a user to a specified workspace.
  *
  * @param request AddUserToDataAgentWorkspaceRequest
  * @return AddUserToDataAgentWorkspaceResponse
@@ -91,7 +91,7 @@ AddUserToDataAgentWorkspaceResponse Client::addUserToDataAgentWorkspace(const Ad
 }
 
 /**
- * @summary 批量新建湖仓表分区
+ * @summary Creates partitions for a data lake table in a batch.
  *
  * @param tmpReq BatchCreateDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -158,7 +158,7 @@ BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量新建湖仓表分区
+ * @summary Creates partitions for a data lake table in a batch.
  *
  * @param request BatchCreateDataLakePartitionsRequest
  * @return BatchCreateDataLakePartitionsResponse
@@ -169,7 +169,7 @@ BatchCreateDataLakePartitionsResponse Client::batchCreateDataLakePartitions(cons
 }
 
 /**
- * @summary 批量删除湖仓表分区
+ * @summary Batch deletes partitions from a data lake table.
  *
  * @param request BatchDeleteDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -224,7 +224,7 @@ BatchDeleteDataLakePartitionsResponse Client::batchDeleteDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量删除湖仓表分区
+ * @summary Batch deletes partitions from a data lake table.
  *
  * @param request BatchDeleteDataLakePartitionsRequest
  * @return BatchDeleteDataLakePartitionsResponse
@@ -235,7 +235,7 @@ BatchDeleteDataLakePartitionsResponse Client::batchDeleteDataLakePartitions(cons
 }
 
 /**
- * @summary 批量更新湖仓表分区
+ * @summary Update partitions in a data lake table in batch.
  *
  * @param tmpReq BatchUpdateDataLakePartitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -294,7 +294,7 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitionsWithO
 }
 
 /**
- * @summary 批量更新湖仓表分区
+ * @summary Update partitions in a data lake table in batch.
  *
  * @param request BatchUpdateDataLakePartitionsRequest
  * @return BatchUpdateDataLakePartitionsResponse
@@ -305,7 +305,9 @@ BatchUpdateDataLakePartitionsResponse Client::batchUpdateDataLakePartitions(cons
 }
 
 /**
- * @summary 更新Airflow实例的自定义配置
+ * @summary Update an Airflow instance\\"s custom configuration
+ *
+ * @description Configure the airflow\\.cfg file for DMS Airflow.
  *
  * @param tmpReq ConfigAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -350,7 +352,9 @@ ConfigAirflowResponse Client::configAirflowWithOptions(const ConfigAirflowReques
 }
 
 /**
- * @summary 更新Airflow实例的自定义配置
+ * @summary Update an Airflow instance\\"s custom configuration
+ *
+ * @description Configure the airflow\\.cfg file for DMS Airflow.
  *
  * @param request ConfigAirflowRequest
  * @return ConfigAirflowResponse
@@ -361,7 +365,9 @@ ConfigAirflowResponse Client::configAirflow(const ConfigAirflowRequest &request)
 }
 
 /**
- * @summary 创建Airflow
+ * @summary Creates an Airflow instance in a workspace.
+ *
+ * @description Creates an Airflow instance in a workspace.
  *
  * @param tmpReq CreateAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -474,7 +480,9 @@ CreateAirflowResponse Client::createAirflowWithOptions(const CreateAirflowReques
 }
 
 /**
- * @summary 创建Airflow
+ * @summary Creates an Airflow instance in a workspace.
+ *
+ * @description Creates an Airflow instance in a workspace.
  *
  * @param request CreateAirflowRequest
  * @return CreateAirflowResponse
@@ -485,7 +493,7 @@ CreateAirflowResponse Client::createAirflow(const CreateAirflowRequest &request)
 }
 
 /**
- * @summary Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+ * @summary Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
  *
  * @param request CreateAirflowLoginTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -516,7 +524,7 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginTokenWithOptions(const
 }
 
 /**
- * @summary Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+ * @summary Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
  *
  * @param request CreateAirflowLoginTokenRequest
  * @return CreateAirflowLoginTokenResponse
@@ -527,7 +535,7 @@ CreateAirflowLoginTokenResponse Client::createAirflowLoginToken(const CreateAirf
 }
 
 /**
- * @summary CreateCustomAgent
+ * @summary Create a custom agent in your personal space or a workspace.
  *
  * @param tmpReq CreateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -628,7 +636,7 @@ CreateCustomAgentResponse Client::createCustomAgentWithOptions(const CreateCusto
 }
 
 /**
- * @summary CreateCustomAgent
+ * @summary Create a custom agent in your personal space or a workspace.
  *
  * @param request CreateCustomAgentRequest
  * @return CreateCustomAgentResponse
@@ -639,7 +647,7 @@ CreateCustomAgentResponse Client::createCustomAgent(const CreateCustomAgentReque
 }
 
 /**
- * @summary CreateDataAgentKnowledgeBase
+ * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
  *
  * @param request CreateDataAgentKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -686,7 +694,7 @@ CreateDataAgentKnowledgeBaseResponse Client::createDataAgentKnowledgeBaseWithOpt
 }
 
 /**
- * @summary CreateDataAgentKnowledgeBase
+ * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
  *
  * @param request CreateDataAgentKnowledgeBaseRequest
  * @return CreateDataAgentKnowledgeBaseResponse
@@ -697,7 +705,7 @@ CreateDataAgentKnowledgeBaseResponse Client::createDataAgentKnowledgeBase(const 
 }
 
 /**
- * @summary CreateDataAgentSession
+ * @summary Create a DataAgent session
  *
  * @param tmpReq CreateDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -750,7 +758,7 @@ CreateDataAgentSessionResponse Client::createDataAgentSessionWithOptions(const C
 }
 
 /**
- * @summary CreateDataAgentSession
+ * @summary Create a DataAgent session
  *
  * @param request CreateDataAgentSessionRequest
  * @return CreateDataAgentSessionResponse
@@ -761,7 +769,7 @@ CreateDataAgentSessionResponse Client::createDataAgentSession(const CreateDataAg
 }
 
 /**
- * @summary 创建DataAgent工作空间
+ * @summary Creates a DataAgent workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -804,7 +812,7 @@ CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspaceWithOptions(con
 }
 
 /**
- * @summary 创建DataAgent工作空间
+ * @summary Creates a DataAgent workspace.
  *
  * @param request CreateDataAgentWorkspaceRequest
  * @return CreateDataAgentWorkspaceResponse
@@ -815,7 +823,7 @@ CreateDataAgentWorkspaceResponse Client::createDataAgentWorkspace(const CreateDa
 }
 
 /**
- * @summary 新建湖仓数据库
+ * @summary Creates a data lake database.
  *
  * @param tmpReq CreateDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -876,7 +884,7 @@ CreateDataLakeDatabaseResponse Client::createDataLakeDatabaseWithOptions(const C
 }
 
 /**
- * @summary 新建湖仓数据库
+ * @summary Creates a data lake database.
  *
  * @param request CreateDataLakeDatabaseRequest
  * @return CreateDataLakeDatabaseResponse
@@ -887,7 +895,7 @@ CreateDataLakeDatabaseResponse Client::createDataLakeDatabase(const CreateDataLa
 }
 
 /**
- * @summary 新建湖仓自定义函数
+ * @summary Creates a user-defined function (UDF) for a data lake.
  *
  * @param tmpReq CreateDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -942,7 +950,7 @@ CreateDataLakeFunctionResponse Client::createDataLakeFunctionWithOptions(const C
 }
 
 /**
- * @summary 新建湖仓自定义函数
+ * @summary Creates a user-defined function (UDF) for a data lake.
  *
  * @param request CreateDataLakeFunctionRequest
  * @return CreateDataLakeFunctionResponse
@@ -953,7 +961,7 @@ CreateDataLakeFunctionResponse Client::createDataLakeFunction(const CreateDataLa
 }
 
 /**
- * @summary 新建湖仓表分区
+ * @summary Creates a partition for a data lake table.
  *
  * @param tmpReq CreateDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1020,7 +1028,7 @@ CreateDataLakePartitionResponse Client::createDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 新建湖仓表分区
+ * @summary Creates a partition for a data lake table.
  *
  * @param request CreateDataLakePartitionRequest
  * @return CreateDataLakePartitionResponse
@@ -1031,7 +1039,7 @@ CreateDataLakePartitionResponse Client::createDataLakePartition(const CreateData
 }
 
 /**
- * @summary 新建湖仓表
+ * @summary Creates a data lake table in Data Management (DMS).
  *
  * @param tmpReq CreateDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1086,7 +1094,7 @@ CreateDataLakeTableResponse Client::createDataLakeTableWithOptions(const CreateD
 }
 
 /**
- * @summary 新建湖仓表
+ * @summary Creates a data lake table in Data Management (DMS).
  *
  * @param request CreateDataLakeTableRequest
  * @return CreateDataLakeTableResponse
@@ -1097,7 +1105,7 @@ CreateDataLakeTableResponse Client::createDataLakeTable(const CreateDataLakeTabl
 }
 
 /**
- * @summary 删除Airflow
+ * @summary Deletes an Airflow instance.
  *
  * @param request DeleteAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1136,7 +1144,7 @@ DeleteAirflowResponse Client::deleteAirflowWithOptions(const DeleteAirflowReques
 }
 
 /**
- * @summary 删除Airflow
+ * @summary Deletes an Airflow instance.
  *
  * @param request DeleteAirflowRequest
  * @return DeleteAirflowResponse
@@ -1147,7 +1155,7 @@ DeleteAirflowResponse Client::deleteAirflow(const DeleteAirflowRequest &request)
 }
 
 /**
- * @summary DeleteCustomAgent
+ * @summary Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
  *
  * @param request DeleteCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1182,7 +1190,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 }
 
 /**
- * @summary DeleteCustomAgent
+ * @summary Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
  *
  * @param request DeleteCustomAgentRequest
  * @return DeleteCustomAgentResponse
@@ -1193,7 +1201,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgent(const DeleteCustomAgentReque
 }
 
 /**
- * @summary DeleteDataAgentKnowledgeBase
+ * @summary Deletes a DataAgent knowledge base.
  *
  * @param request DeleteDataAgentKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1232,7 +1240,7 @@ DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBaseWithOpt
 }
 
 /**
- * @summary DeleteDataAgentKnowledgeBase
+ * @summary Deletes a DataAgent knowledge base.
  *
  * @param request DeleteDataAgentKnowledgeBaseRequest
  * @return DeleteDataAgentKnowledgeBaseResponse
@@ -1243,7 +1251,7 @@ DeleteDataAgentKnowledgeBaseResponse Client::deleteDataAgentKnowledgeBase(const 
 }
 
 /**
- * @summary 删除DataAgent工作空间
+ * @summary Deletes a DataAgent workspace.
  *
  * @param request DeleteDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1278,7 +1286,7 @@ DeleteDataAgentWorkspaceResponse Client::deleteDataAgentWorkspaceWithOptions(con
 }
 
 /**
- * @summary 删除DataAgent工作空间
+ * @summary Deletes a DataAgent workspace.
  *
  * @param request DeleteDataAgentWorkspaceRequest
  * @return DeleteDataAgentWorkspaceResponse
@@ -1289,7 +1297,7 @@ DeleteDataAgentWorkspaceResponse Client::deleteDataAgentWorkspace(const DeleteDa
 }
 
 /**
- * @summary 删除湖仓数据库
+ * @summary Deletes a data lake database.
  *
  * @param request DeleteDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1332,7 +1340,7 @@ DeleteDataLakeDatabaseResponse Client::deleteDataLakeDatabaseWithOptions(const D
 }
 
 /**
- * @summary 删除湖仓数据库
+ * @summary Deletes a data lake database.
  *
  * @param request DeleteDataLakeDatabaseRequest
  * @return DeleteDataLakeDatabaseResponse
@@ -1343,7 +1351,7 @@ DeleteDataLakeDatabaseResponse Client::deleteDataLakeDatabase(const DeleteDataLa
 }
 
 /**
- * @summary 删除湖仓自定义函数
+ * @summary Deletes a user-defined function in a data lake.
  *
  * @param request DeleteDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1398,7 @@ DeleteDataLakeFunctionResponse Client::deleteDataLakeFunctionWithOptions(const D
 }
 
 /**
- * @summary 删除湖仓自定义函数
+ * @summary Deletes a user-defined function in a data lake.
  *
  * @param request DeleteDataLakeFunctionRequest
  * @return DeleteDataLakeFunctionResponse
@@ -1401,7 +1409,7 @@ DeleteDataLakeFunctionResponse Client::deleteDataLakeFunction(const DeleteDataLa
 }
 
 /**
- * @summary 删除湖仓表分区
+ * @summary Deletes a partition from a data lake table.
  *
  * @param tmpReq DeleteDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1462,7 +1470,7 @@ DeleteDataLakePartitionResponse Client::deleteDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 删除湖仓表分区
+ * @summary Deletes a partition from a data lake table.
  *
  * @param request DeleteDataLakePartitionRequest
  * @return DeleteDataLakePartitionResponse
@@ -1473,7 +1481,7 @@ DeleteDataLakePartitionResponse Client::deleteDataLakePartition(const DeleteData
 }
 
 /**
- * @summary 删除湖仓表
+ * @summary Deletes a data lake table.
  *
  * @param request DeleteDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1520,7 +1528,7 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTableWithOptions(const DeleteD
 }
 
 /**
- * @summary 删除湖仓表
+ * @summary Deletes a data lake table.
  *
  * @param request DeleteDataLakeTableRequest
  * @return DeleteDataLakeTableResponse
@@ -1531,7 +1539,7 @@ DeleteDataLakeTableResponse Client::deleteDataLakeTable(const DeleteDataLakeTabl
 }
 
 /**
- * @summary 删除文档
+ * @summary Deletes a document from a specified knowledge base.
  *
  * @param request DeleteDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1566,7 +1574,7 @@ DeleteDocumentResponse Client::deleteDocumentWithOptions(const DeleteDocumentReq
 }
 
 /**
- * @summary 删除文档
+ * @summary Deletes a document from a specified knowledge base.
  *
  * @param request DeleteDocumentRequest
  * @return DeleteDocumentResponse
@@ -1577,7 +1585,7 @@ DeleteDocumentResponse Client::deleteDocument(const DeleteDocumentRequest &reque
 }
 
 /**
- * @summary 删除onemeta3.0的知识库chunks
+ * @summary Deletes chunks from a document in a knowledge base.
  *
  * @param tmpReq DeleteDocumentChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1622,7 +1630,7 @@ DeleteDocumentChunksResponse Client::deleteDocumentChunksWithOptions(const Delet
 }
 
 /**
- * @summary 删除onemeta3.0的知识库chunks
+ * @summary Deletes chunks from a document in a knowledge base.
  *
  * @param request DeleteDocumentChunksRequest
  * @return DeleteDocumentChunksResponse
@@ -1683,7 +1691,9 @@ DeleteFileUploadResponse Client::deleteFileUpload(const DeleteFileUploadRequest 
 }
 
 /**
- * @summary 删除工作空间代码以及目录
+ * @summary Deletes a code file or directory from a workspace.
+ *
+ * @description This operation permanently removes a specified code file or directory.
  *
  * @param request DeleteWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1726,7 +1736,9 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCodeWithOptions(const DeleteW
 }
 
 /**
- * @summary 删除工作空间代码以及目录
+ * @summary Deletes a code file or directory from a workspace.
+ *
+ * @description This operation permanently removes a specified code file or directory.
  *
  * @param request DeleteWorkspaceCodeRequest
  * @return DeleteWorkspaceCodeResponse
@@ -1737,7 +1749,7 @@ DeleteWorkspaceCodeResponse Client::deleteWorkspaceCode(const DeleteWorkspaceCod
 }
 
 /**
- * @summary DescribeCustomAgent
+ * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1772,7 +1784,7 @@ DescribeCustomAgentResponse Client::describeCustomAgentWithOptions(const Describ
 }
 
 /**
- * @summary DescribeCustomAgent
+ * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
  *
  * @param request DescribeCustomAgentRequest
  * @return DescribeCustomAgentResponse
@@ -1783,7 +1795,7 @@ DescribeCustomAgentResponse Client::describeCustomAgent(const DescribeCustomAgen
 }
 
 /**
- * @summary DescribeDataAgentSession
+ * @summary Gets the details of a DataAgent session.
  *
  * @param request DescribeDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1822,7 +1834,7 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSessionWithOptions(con
 }
 
 /**
- * @summary DescribeDataAgentSession
+ * @summary Gets the details of a DataAgent session.
  *
  * @param request DescribeDataAgentSessionRequest
  * @return DescribeDataAgentSessionResponse
@@ -1833,7 +1845,7 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSession(const Describe
 }
 
 /**
- * @summary 获取文档详情
+ * @summary Retrieves the details of a specific document.
  *
  * @param request DescribeDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1868,7 +1880,7 @@ DescribeDocumentResponse Client::describeDocumentWithOptions(const DescribeDocum
 }
 
 /**
- * @summary 获取文档详情
+ * @summary Retrieves the details of a specific document.
  *
  * @param request DescribeDocumentRequest
  * @return DescribeDocumentResponse
@@ -1925,7 +1937,7 @@ DescribeFileUploadSignatureResponse Client::describeFileUploadSignature(const De
 }
 
 /**
- * @summary 获取onemeta3.0的知识库统计信息
+ * @summary Retrieves the statistics of a knowledge base.
  *
  * @param request DescribeKnowledgeBaseStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +1968,7 @@ DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStatsWithOptions
 }
 
 /**
- * @summary 获取onemeta3.0的知识库统计信息
+ * @summary Retrieves the statistics of a knowledge base.
  *
  * @param request DescribeKnowledgeBaseStatsRequest
  * @return DescribeKnowledgeBaseStatsResponse
@@ -1967,7 +1979,7 @@ DescribeKnowledgeBaseStatsResponse Client::describeKnowledgeBaseStats(const Desc
 }
 
 /**
- * @summary 获取知识库中的上传签名
+ * @summary Generates a signature to upload a document to a knowledge base.
  *
  * @param request DescribeKnowledgeBaseUploadSignatureRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1998,7 +2010,7 @@ DescribeKnowledgeBaseUploadSignatureResponse Client::describeKnowledgeBaseUpload
 }
 
 /**
- * @summary 获取知识库中的上传签名
+ * @summary Generates a signature to upload a document to a knowledge base.
  *
  * @param request DescribeKnowledgeBaseUploadSignatureRequest
  * @return DescribeKnowledgeBaseUploadSignatureResponse
@@ -2071,7 +2083,7 @@ FileUploadCallbackResponse Client::fileUploadCallback(const FileUploadCallbackRe
 }
 
 /**
- * @summary 查询 Airflow
+ * @summary Queries the configuration and status of an Airflow instance.
  *
  * @param request GetAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2106,7 +2118,7 @@ GetAirflowResponse Client::getAirflowWithOptions(const GetAirflowRequest &reques
 }
 
 /**
- * @summary 查询 Airflow
+ * @summary Queries the configuration and status of an Airflow instance.
  *
  * @param request GetAirflowRequest
  * @return GetAirflowResponse
@@ -2117,7 +2129,11 @@ GetAirflowResponse Client::getAirflow(const GetAirflowRequest &request) {
 }
 
 /**
- * @summary GetChatContent
+ * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+ *
+ * @description ## Request
+ * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+ * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
  *
  * @param request GetChatContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2174,7 +2190,11 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary GetChatContent
+ * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+ *
+ * @description ## Request
+ * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+ * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
  *
  * @param request GetChatContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2217,7 +2237,11 @@ GetChatContentResponse Client::getChatContentWithOptions(const GetChatContentReq
 }
 
 /**
- * @summary GetChatContent
+ * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+ *
+ * @description ## Request
+ * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+ * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
  *
  * @param request GetChatContentRequest
  * @return GetChatContentResponse
@@ -2228,7 +2252,7 @@ GetChatContentResponse Client::getChatContent(const GetChatContentRequest &reque
 }
 
 /**
- * @summary 获取主账号下的子账号信息
+ * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
  *
  * @param request GetDataAgentSubAccountInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2263,7 +2287,7 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfoWithOptions
 }
 
 /**
- * @summary 获取主账号下的子账号信息
+ * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
  *
  * @param request GetDataAgentSubAccountInfoRequest
  * @return GetDataAgentSubAccountInfoResponse
@@ -2274,7 +2298,7 @@ GetDataAgentSubAccountInfoResponse Client::getDataAgentSubAccountInfo(const GetD
 }
 
 /**
- * @summary 获取空间信息
+ * @summary Retrieves workspace details.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2309,7 +2333,7 @@ GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfoWithOptions(c
 }
 
 /**
- * @summary 获取空间信息
+ * @summary Retrieves workspace details.
  *
  * @param request GetDataAgentWorkspaceInfoRequest
  * @return GetDataAgentWorkspaceInfoResponse
@@ -2320,7 +2344,7 @@ GetDataAgentWorkspaceInfoResponse Client::getDataAgentWorkspaceInfo(const GetDat
 }
 
 /**
- * @summary 获取uc的数据库目录
+ * @summary Retrieves the data catalog of a data lake.
  *
  * @param request GetDataLakeCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2359,7 +2383,7 @@ GetDataLakeCatalogResponse Client::getDataLakeCatalogWithOptions(const GetDataLa
 }
 
 /**
- * @summary 获取uc的数据库目录
+ * @summary Retrieves the data catalog of a data lake.
  *
  * @param request GetDataLakeCatalogRequest
  * @return GetDataLakeCatalogResponse
@@ -2370,7 +2394,7 @@ GetDataLakeCatalogResponse Client::getDataLakeCatalog(const GetDataLakeCatalogRe
 }
 
 /**
- * @summary 获取UC的数据库
+ * @summary Retrieves information about a database in a data lake.
  *
  * @param request GetDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2413,7 +2437,7 @@ GetDataLakeDatabaseResponse Client::getDataLakeDatabaseWithOptions(const GetData
 }
 
 /**
- * @summary 获取UC的数据库
+ * @summary Retrieves information about a database in a data lake.
  *
  * @param request GetDataLakeDatabaseRequest
  * @return GetDataLakeDatabaseResponse
@@ -2424,7 +2448,7 @@ GetDataLakeDatabaseResponse Client::getDataLakeDatabase(const GetDataLakeDatabas
 }
 
 /**
- * @summary 获取湖仓自定义函数详细信息
+ * @summary Retrieves the details of a user-defined function in a data lake.
  *
  * @param request GetDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2471,7 +2495,7 @@ GetDataLakeFunctionResponse Client::getDataLakeFunctionWithOptions(const GetData
 }
 
 /**
- * @summary 获取湖仓自定义函数详细信息
+ * @summary Retrieves the details of a user-defined function in a data lake.
  *
  * @param request GetDataLakeFunctionRequest
  * @return GetDataLakeFunctionResponse
@@ -2482,7 +2506,7 @@ GetDataLakeFunctionResponse Client::getDataLakeFunction(const GetDataLakeFunctio
 }
 
 /**
- * @summary 获取湖仓表分区详情
+ * @summary Retrieves the details of a data lakehouse table partition.
  *
  * @param tmpReq GetDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2539,7 +2563,7 @@ GetDataLakePartitionResponse Client::getDataLakePartitionWithOptions(const GetDa
 }
 
 /**
- * @summary 获取湖仓表分区详情
+ * @summary Retrieves the details of a data lakehouse table partition.
  *
  * @param request GetDataLakePartitionRequest
  * @return GetDataLakePartitionResponse
@@ -2550,7 +2574,7 @@ GetDataLakePartitionResponse Client::getDataLakePartition(const GetDataLakeParti
 }
 
 /**
- * @summary 获取表信息
+ * @summary Retrieves information about a table in a data lake.
  *
  * @param request GetDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2621,7 @@ GetDataLakeTableResponse Client::getDataLakeTableWithOptions(const GetDataLakeTa
 }
 
 /**
- * @summary 获取表信息
+ * @summary Retrieves information about a table in a data lake.
  *
  * @param request GetDataLakeTableRequest
  * @return GetDataLakeTableResponse
@@ -2608,7 +2632,7 @@ GetDataLakeTableResponse Client::getDataLakeTable(const GetDataLakeTableRequest 
 }
 
 /**
- * @summary 调度运行Notebook文件
+ * @summary Submits a task to schedule and run a Notebook file.
  *
  * @param request GetNotebookAndSubmitTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2657,7 +2681,7 @@ GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTaskWithOptions(con
 }
 
 /**
- * @summary 调度运行Notebook文件
+ * @summary Submits a task to schedule and run a Notebook file.
  *
  * @param request GetNotebookAndSubmitTaskRequest
  * @return GetNotebookAndSubmitTaskResponse
@@ -2668,7 +2692,7 @@ GetNotebookAndSubmitTaskResponse Client::getNotebookAndSubmitTask(const GetNoteb
 }
 
 /**
- * @summary 查看Notebook任务运行结果
+ * @summary Retrieves the execution status of a Notebook task.
  *
  * @param request GetNotebookTaskStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2707,7 +2731,7 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatusWithOptions(const Get
 }
 
 /**
- * @summary 查看Notebook任务运行结果
+ * @summary Retrieves the execution status of a Notebook task.
  *
  * @param request GetNotebookTaskStatusRequest
  * @return GetNotebookTaskStatusResponse
@@ -2718,7 +2742,9 @@ GetNotebookTaskStatusResponse Client::getNotebookTaskStatus(const GetNotebookTas
 }
 
 /**
- * @summary 读取工作空间的代码文件内容
+ * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+ *
+ * @description Retrieves the content of a specified code file from a workspace.
  *
  * @param request GetWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2757,7 +2783,9 @@ GetWorkspaceCodeResponse Client::getWorkspaceCodeWithOptions(const GetWorkspaceC
 }
 
 /**
- * @summary 读取工作空间的代码文件内容
+ * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+ *
+ * @description Retrieves the content of a specified code file from a workspace.
  *
  * @param request GetWorkspaceCodeRequest
  * @return GetWorkspaceCodeResponse
@@ -2768,7 +2796,9 @@ GetWorkspaceCodeResponse Client::getWorkspaceCode(const GetWorkspaceCodeRequest 
 }
 
 /**
- * @summary 获取工作空间发布配置
+ * @summary Retrieves the deployment configuration of a workspace.
+ *
+ * @description This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
  *
  * @param request GetWorkspaceCodePublishSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2799,7 +2829,9 @@ GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSettingWit
 }
 
 /**
- * @summary 获取工作空间发布配置
+ * @summary Retrieves the deployment configuration of a workspace.
+ *
+ * @description This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
  *
  * @param request GetWorkspaceCodePublishSettingRequest
  * @return GetWorkspaceCodePublishSettingResponse
@@ -2810,7 +2842,9 @@ GetWorkspaceCodePublishSettingResponse Client::getWorkspaceCodePublishSetting(co
 }
 
 /**
- * @summary 获取工作空间配额
+ * @summary Returns the quota for a workspace.
+ *
+ * @description Retrieves the resource quotas and instance status for a workspace.
  *
  * @param request GetWorkspaceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2841,7 +2875,9 @@ GetWorkspaceQuotaResponse Client::getWorkspaceQuotaWithOptions(const GetWorkspac
 }
 
 /**
- * @summary 获取工作空间配额
+ * @summary Returns the quota for a workspace.
+ *
+ * @description Retrieves the resource quotas and instance status for a workspace.
  *
  * @param request GetWorkspaceQuotaRequest
  * @return GetWorkspaceQuotaResponse
@@ -2852,7 +2888,9 @@ GetWorkspaceQuotaResponse Client::getWorkspaceQuota(const GetWorkspaceQuotaReque
 }
 
 /**
- * @summary 获取可用的Airflow版本列表
+ * @summary Lists the available Airflow versions.
+ *
+ * @description Lists the available Airflow versions.
  *
  * @param request ListAirflowVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2883,7 +2921,9 @@ ListAirflowVersionsResponse Client::listAirflowVersionsWithOptions(const ListAir
 }
 
 /**
- * @summary 获取可用的Airflow版本列表
+ * @summary Lists the available Airflow versions.
+ *
+ * @description Lists the available Airflow versions.
  *
  * @param request ListAirflowVersionsRequest
  * @return ListAirflowVersionsResponse
@@ -2894,7 +2934,7 @@ ListAirflowVersionsResponse Client::listAirflowVersions(const ListAirflowVersion
 }
 
 /**
- * @summary 列出资源Airflow
+ * @summary Retrieves a list of Airflow instances in a workspace.
  *
  * @param request ListAirflowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2941,7 +2981,7 @@ ListAirflowsResponse Client::listAirflowsWithOptions(const ListAirflowsRequest &
 }
 
 /**
- * @summary 列出资源Airflow
+ * @summary Retrieves a list of Airflow instances in a workspace.
  *
  * @param request ListAirflowsRequest
  * @return ListAirflowsResponse
@@ -2952,7 +2992,7 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 }
 
 /**
- * @summary ListCustomAgent
+ * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3003,7 +3043,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary ListCustomAgent
+ * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -3014,7 +3054,7 @@ ListCustomAgentResponse Client::listCustomAgent(const ListCustomAgentRequest &re
 }
 
 /**
- * @summary ListDataAgentSession
+ * @summary Retrieve a list of Data Agent session descriptions.
  *
  * @param request ListDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3081,7 +3121,7 @@ ListDataAgentSessionResponse Client::listDataAgentSessionWithOptions(const ListD
 }
 
 /**
- * @summary ListDataAgentSession
+ * @summary Retrieve a list of Data Agent session descriptions.
  *
  * @param request ListDataAgentSessionRequest
  * @return ListDataAgentSessionResponse
@@ -3092,7 +3132,7 @@ ListDataAgentSessionResponse Client::listDataAgentSession(const ListDataAgentSes
 }
 
 /**
- * @summary 获取主账号下的空间（分页）
+ * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3155,7 +3195,7 @@ ListDataAgentWorkspaceResponse Client::listDataAgentWorkspaceWithOptions(const L
 }
 
 /**
- * @summary 获取主账号下的空间（分页）
+ * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
  *
  * @param request ListDataAgentWorkspaceRequest
  * @return ListDataAgentWorkspaceResponse
@@ -3166,7 +3206,7 @@ ListDataAgentWorkspaceResponse Client::listDataAgentWorkspace(const ListDataAgen
 }
 
 /**
- * @summary 获取空间所有成员
+ * @summary Lists all members in a workspace.
  *
  * @param request ListDataAgentWorkspaceMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3233,7 +3273,7 @@ ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMemberWithOpt
 }
 
 /**
- * @summary 获取空间所有成员
+ * @summary Lists all members in a workspace.
  *
  * @param request ListDataAgentWorkspaceMemberRequest
  * @return ListDataAgentWorkspaceMemberResponse
@@ -3244,7 +3284,7 @@ ListDataAgentWorkspaceMemberResponse Client::listDataAgentWorkspaceMember(const 
 }
 
 /**
- * @summary ListDataCenterDatabase
+ * @summary Lists user-uploaded files in a data center, excluding databases.
  *
  * @param request ListDataCenterDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3291,7 +3331,7 @@ ListDataCenterDatabaseResponse Client::listDataCenterDatabaseWithOptions(const L
 }
 
 /**
- * @summary ListDataCenterDatabase
+ * @summary Lists user-uploaded files in a data center, excluding databases.
  *
  * @param request ListDataCenterDatabaseRequest
  * @return ListDataCenterDatabaseResponse
@@ -3302,7 +3342,7 @@ ListDataCenterDatabaseResponse Client::listDataCenterDatabase(const ListDataCent
 }
 
 /**
- * @summary ListDataCenterTable
+ * @summary Retrieves a list of user-uploaded tables from the data center, for file types only.
  *
  * @param request ListDataCenterTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3365,7 +3405,7 @@ ListDataCenterTableResponse Client::listDataCenterTableWithOptions(const ListDat
 }
 
 /**
- * @summary ListDataCenterTable
+ * @summary Retrieves a list of user-uploaded tables from the data center, for file types only.
  *
  * @param request ListDataCenterTableRequest
  * @return ListDataCenterTableResponse
@@ -3376,7 +3416,7 @@ ListDataCenterTableResponse Client::listDataCenterTable(const ListDataCenterTabl
 }
 
 /**
- * @summary 获取uc的数据库目录列表
+ * @summary Retrieves a list of data lake catalogs.
  *
  * @param request ListDataLakeCatalogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3415,7 +3455,7 @@ ListDataLakeCatalogResponse Client::listDataLakeCatalogWithOptions(const ListDat
 }
 
 /**
- * @summary 获取uc的数据库目录列表
+ * @summary Retrieves a list of data lake catalogs.
  *
  * @param request ListDataLakeCatalogRequest
  * @return ListDataLakeCatalogResponse
@@ -3426,7 +3466,7 @@ ListDataLakeCatalogResponse Client::listDataLakeCatalog(const ListDataLakeCatalo
 }
 
 /**
- * @summary 获取数据库列表
+ * @summary Retrieves a list of databases in a data lake.
  *
  * @param request ListDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3477,7 +3517,7 @@ ListDataLakeDatabaseResponse Client::listDataLakeDatabaseWithOptions(const ListD
 }
 
 /**
- * @summary 获取数据库列表
+ * @summary Retrieves a list of databases in a data lake.
  *
  * @param request ListDataLakeDatabaseRequest
  * @return ListDataLakeDatabaseResponse
@@ -3488,7 +3528,7 @@ ListDataLakeDatabaseResponse Client::listDataLakeDatabase(const ListDataLakeData
 }
 
 /**
- * @summary 获取数据湖函数列表
+ * @summary Retrieves a list of data lake functions.
  *
  * @param request ListDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3543,7 +3583,7 @@ ListDataLakeFunctionResponse Client::listDataLakeFunctionWithOptions(const ListD
 }
 
 /**
- * @summary 获取数据湖函数列表
+ * @summary Retrieves a list of data lake functions.
  *
  * @param request ListDataLakeFunctionRequest
  * @return ListDataLakeFunctionResponse
@@ -3554,7 +3594,7 @@ ListDataLakeFunctionResponse Client::listDataLakeFunction(const ListDataLakeFunc
 }
 
 /**
- * @summary 获取数据湖函数名列表
+ * @summary Retrieves a list of data lake function names.
  *
  * @param request ListDataLakeFunctionNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3609,7 +3649,7 @@ ListDataLakeFunctionNameResponse Client::listDataLakeFunctionNameWithOptions(con
 }
 
 /**
- * @summary 获取数据湖函数名列表
+ * @summary Retrieves a list of data lake function names.
  *
  * @param request ListDataLakeFunctionNameRequest
  * @return ListDataLakeFunctionNameResponse
@@ -3620,7 +3660,7 @@ ListDataLakeFunctionNameResponse Client::listDataLakeFunctionName(const ListData
 }
 
 /**
- * @summary 获取数据湖表分区列表
+ * @summary Retrieves the list of partitions of a data lake table.
  *
  * @param tmpReq ListDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3687,7 +3727,7 @@ ListDataLakePartitionResponse Client::listDataLakePartitionWithOptions(const Lis
 }
 
 /**
- * @summary 获取数据湖表分区列表
+ * @summary Retrieves the list of partitions of a data lake table.
  *
  * @param request ListDataLakePartitionRequest
  * @return ListDataLakePartitionResponse
@@ -3698,7 +3738,7 @@ ListDataLakePartitionResponse Client::listDataLakePartition(const ListDataLakePa
 }
 
 /**
- * @summary 根据筛选条件获取数据湖表分区列表
+ * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
  *
  * @param request ListDataLakePartitionByFilterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3759,7 +3799,7 @@ ListDataLakePartitionByFilterResponse Client::listDataLakePartitionByFilterWithO
 }
 
 /**
- * @summary 根据筛选条件获取数据湖表分区列表
+ * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
  *
  * @param request ListDataLakePartitionByFilterRequest
  * @return ListDataLakePartitionByFilterResponse
@@ -3770,7 +3810,7 @@ ListDataLakePartitionByFilterResponse Client::listDataLakePartitionByFilter(cons
 }
 
 /**
- * @summary 获取数据湖表分区名列表
+ * @summary Retrieves a list of partition names for a data lake table.
  *
  * @param request ListDataLakePartitionNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3825,7 +3865,7 @@ ListDataLakePartitionNameResponse Client::listDataLakePartitionNameWithOptions(c
 }
 
 /**
- * @summary 获取数据湖表分区名列表
+ * @summary Retrieves a list of partition names for a data lake table.
  *
  * @param request ListDataLakePartitionNameRequest
  * @return ListDataLakePartitionNameResponse
@@ -3836,7 +3876,7 @@ ListDataLakePartitionNameResponse Client::listDataLakePartitionName(const ListDa
 }
 
 /**
- * @summary 获取数据湖表列表
+ * @summary Retrieves a list of data lake tables.
  *
  * @param request ListDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3895,7 +3935,7 @@ ListDataLakeTableResponse Client::listDataLakeTableWithOptions(const ListDataLak
 }
 
 /**
- * @summary 获取数据湖表列表
+ * @summary Retrieves a list of data lake tables.
  *
  * @param request ListDataLakeTableRequest
  * @return ListDataLakeTableResponse
@@ -3906,7 +3946,7 @@ ListDataLakeTableResponse Client::listDataLakeTable(const ListDataLakeTableReque
 }
 
 /**
- * @summary 获取数据湖表名列表
+ * @summary Retrieves a list of data lake table names.
  *
  * @param request ListDataLakeTableNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3965,7 +4005,7 @@ ListDataLakeTableNameResponse Client::listDataLakeTableNameWithOptions(const Lis
 }
 
 /**
- * @summary 获取数据湖表名列表
+ * @summary Retrieves a list of data lake table names.
  *
  * @param request ListDataLakeTableNameRequest
  * @return ListDataLakeTableNameResponse
@@ -3976,7 +4016,7 @@ ListDataLakeTableNameResponse Client::listDataLakeTableName(const ListDataLakeTa
 }
 
 /**
- * @summary 获取表信息
+ * @summary Retrieves the basic information about tables in a data lake.
  *
  * @param request ListDataLakeTablebaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4031,7 +4071,7 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfoWithOptions(c
 }
 
 /**
- * @summary 获取表信息
+ * @summary Retrieves the basic information about tables in a data lake.
  *
  * @param request ListDataLakeTablebaseInfoRequest
  * @return ListDataLakeTablebaseInfoResponse
@@ -4042,7 +4082,7 @@ ListDataLakeTablebaseInfoResponse Client::listDataLakeTablebaseInfo(const ListDa
 }
 
 /**
- * @summary 分页查询onemeta3.0的知识库chunks
+ * @summary Queries a list of chunks.
  *
  * @param request ListDocumentChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4097,7 +4137,7 @@ ListDocumentChunksResponse Client::listDocumentChunksWithOptions(const ListDocum
 }
 
 /**
- * @summary 分页查询onemeta3.0的知识库chunks
+ * @summary Queries a list of chunks.
  *
  * @param request ListDocumentChunksRequest
  * @return ListDocumentChunksResponse
@@ -4108,7 +4148,7 @@ ListDocumentChunksResponse Client::listDocumentChunks(const ListDocumentChunksRe
 }
 
 /**
- * @summary 获取文档列表
+ * @summary Lists the documents in a knowledge base.
  *
  * @param request ListDocumentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4163,7 +4203,7 @@ ListDocumentsResponse Client::listDocumentsWithOptions(const ListDocumentsReques
 }
 
 /**
- * @summary 获取文档列表
+ * @summary Lists the documents in a knowledge base.
  *
  * @param request ListDocumentsRequest
  * @return ListDocumentsResponse
@@ -4248,7 +4288,7 @@ ListFileUploadResponse Client::listFileUpload(const ListFileUploadRequest &reque
 }
 
 /**
- * @summary 分页查询onemeta3.0的知识库
+ * @summary Returns a paginated list of knowledge bases.
  *
  * @param request ListKnowledgeBasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4303,7 +4343,7 @@ ListKnowledgeBasesResponse Client::listKnowledgeBasesWithOptions(const ListKnowl
 }
 
 /**
- * @summary 分页查询onemeta3.0的知识库
+ * @summary Returns a paginated list of knowledge bases.
  *
  * @param request ListKnowledgeBasesRequest
  * @return ListKnowledgeBasesResponse
@@ -4314,7 +4354,9 @@ ListKnowledgeBasesResponse Client::listKnowledgeBases(const ListKnowledgeBasesRe
 }
 
 /**
- * @summary 列出工作空间目录下的code文件
+ * @summary Lists code files and directories at a specified path in a workspace.
+ *
+ * @description This operation lists the code files and directories at a specified path in a workspace.
  *
  * @param request ListWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4349,7 +4391,9 @@ ListWorkspaceCodeResponse Client::listWorkspaceCodeWithOptions(const ListWorkspa
 }
 
 /**
- * @summary 列出工作空间目录下的code文件
+ * @summary Lists code files and directories at a specified path in a workspace.
+ *
+ * @description This operation lists the code files and directories at a specified path in a workspace.
  *
  * @param request ListWorkspaceCodeRequest
  * @return ListWorkspaceCodeResponse
@@ -4360,7 +4404,7 @@ ListWorkspaceCodeResponse Client::listWorkspaceCode(const ListWorkspaceCodeReque
 }
 
 /**
- * @summary ModifyCustomAgent
+ * @summary Modify a custom agent in a personal space or workspace
  *
  * @param tmpReq ModifyCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4465,7 +4509,7 @@ ModifyCustomAgentResponse Client::modifyCustomAgentWithOptions(const ModifyCusto
 }
 
 /**
- * @summary ModifyCustomAgent
+ * @summary Modify a custom agent in a personal space or workspace
  *
  * @param request ModifyCustomAgentRequest
  * @return ModifyCustomAgentResponse
@@ -4476,7 +4520,7 @@ ModifyCustomAgentResponse Client::modifyCustomAgent(const ModifyCustomAgentReque
 }
 
 /**
- * @summary OperateCustomAgent
+ * @summary Operate custom agents in personal spaces and workspaces.
  *
  * @param request OperateCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4515,7 +4559,7 @@ OperateCustomAgentResponse Client::operateCustomAgentWithOptions(const OperateCu
 }
 
 /**
- * @summary OperateCustomAgent
+ * @summary Operate custom agents in personal spaces and workspaces.
  *
  * @param request OperateCustomAgentRequest
  * @return OperateCustomAgentResponse
@@ -4526,7 +4570,9 @@ OperateCustomAgentResponse Client::operateCustomAgent(const OperateCustomAgentRe
 }
 
 /**
- * @summary 重新部署Airflow实例
+ * @summary Redeploy an Airflow instance
+ *
+ * @description Redeploys an Airflow instance.
  *
  * @param request RedeployAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4561,7 +4607,9 @@ RedeployAirflowResponse Client::redeployAirflowWithOptions(const RedeployAirflow
 }
 
 /**
- * @summary 重新部署Airflow实例
+ * @summary Redeploy an Airflow instance
+ *
+ * @description Redeploys an Airflow instance.
  *
  * @param request RedeployAirflowRequest
  * @return RedeployAirflowResponse
@@ -4572,7 +4620,7 @@ RedeployAirflowResponse Client::redeployAirflow(const RedeployAirflowRequest &re
 }
 
 /**
- * @summary 从空间中移除用户
+ * @summary Removes a user from a workspace.
  *
  * @param request RemoveUserToDataAgentWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4611,7 +4659,7 @@ RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspaceWit
 }
 
 /**
- * @summary 从空间中移除用户
+ * @summary Removes a user from a workspace.
  *
  * @param request RemoveUserToDataAgentWorkspaceRequest
  * @return RemoveUserToDataAgentWorkspaceResponse
@@ -4622,7 +4670,7 @@ RemoveUserToDataAgentWorkspaceResponse Client::removeUserToDataAgentWorkspace(co
 }
 
 /**
- * @summary 检索知识库
+ * @summary Query a knowledge base
  *
  * @param request RetrieveKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4701,7 +4749,7 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBaseWithOptions(const Ret
 }
 
 /**
- * @summary 检索知识库
+ * @summary Query a knowledge base
  *
  * @param request RetrieveKnowledgeBaseRequest
  * @return RetrieveKnowledgeBaseResponse
@@ -4712,7 +4760,9 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const RetrieveKnowle
 }
 
 /**
- * @summary 保存工作空间代码，如果文件不存在则自动新建
+ * @summary Saves code in a workspace and creates the file if it does not exist.
+ *
+ * @description Saves code in a workspace and optionally publishes it to a repository.
  *
  * @param request SaveWorkspaceCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4721,33 +4771,33 @@ RetrieveKnowledgeBaseResponse Client::retrieveKnowledgeBase(const RetrieveKnowle
 SaveWorkspaceCodeResponse Client::saveWorkspaceCodeWithOptions(const SaveWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasContent()) {
-    query["Content"] = request.getContent();
-  }
-
-  if (!!request.hasForce()) {
-    query["Force"] = request.getForce();
-  }
-
-  if (!!request.hasIac()) {
-    query["Iac"] = request.getIac();
-  }
-
-  if (!!request.hasMtime()) {
-    query["Mtime"] = request.getMtime();
-  }
-
-  if (!!request.hasRepo()) {
-    query["Repo"] = request.getRepo();
-  }
-
   if (!!request.hasWorkspaceId()) {
     query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   json body = {};
+  if (!!request.hasContent()) {
+    body["Content"] = request.getContent();
+  }
+
+  if (!!request.hasForce()) {
+    body["Force"] = request.getForce();
+  }
+
+  if (!!request.hasIac()) {
+    body["Iac"] = request.getIac();
+  }
+
+  if (!!request.hasMtime()) {
+    body["Mtime"] = request.getMtime();
+  }
+
   if (!!request.hasPath()) {
     body["Path"] = request.getPath();
+  }
+
+  if (!!request.hasRepo()) {
+    body["Repo"] = request.getRepo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4769,7 +4819,9 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCodeWithOptions(const SaveWorkspa
 }
 
 /**
- * @summary 保存工作空间代码，如果文件不存在则自动新建
+ * @summary Saves code in a workspace and creates the file if it does not exist.
+ *
+ * @description Saves code in a workspace and optionally publishes it to a repository.
  *
  * @param request SaveWorkspaceCodeRequest
  * @return SaveWorkspaceCodeResponse
@@ -4780,7 +4832,15 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
 }
 
 /**
- * @summary SendChatMessage
+ * @summary Sends a user message to a specified session or ends the session.
+ *
+ * @description ## Request
+ * - The `agent_id` and `session_id` fields are required.
+ * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+ * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+ * - When `message_type` is `additional`, the `question` field is required.
+ * - Use the `quoted_message` field to reference a previous user message.
+ * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
  *
  * @param tmpReq SendChatMessageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4869,7 +4929,15 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
 }
 
 /**
- * @summary SendChatMessage
+ * @summary Sends a user message to a specified session or ends the session.
+ *
+ * @description ## Request
+ * - The `agent_id` and `session_id` fields are required.
+ * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+ * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+ * - When `message_type` is `additional`, the `question` field is required.
+ * - Use the `quoted_message` field to reference a previous user message.
+ * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -4880,7 +4948,9 @@ SendChatMessageResponse Client::sendChatMessage(const SendChatMessageRequest &re
 }
 
 /**
- * @summary 设置工作空间代码发布配置
+ * @summary Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+ *
+ * @description Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
  *
  * @param request SetWorkspaceCodePublishSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4917,7 +4987,9 @@ SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSettingWit
 }
 
 /**
- * @summary 设置工作空间代码发布配置
+ * @summary Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+ *
+ * @description Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
  *
  * @param request SetWorkspaceCodePublishSettingRequest
  * @return SetWorkspaceCodePublishSettingResponse
@@ -4928,7 +5000,9 @@ SetWorkspaceCodePublishSettingResponse Client::setWorkspaceCodePublishSetting(co
 }
 
 /**
- * @summary 设置工作空间配额
+ * @summary Sets the quota for a workspace.
+ *
+ * @description Sets the quota for a specific workspace.
  *
  * @param request SetWorkspaceQuotaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4975,7 +5049,9 @@ SetWorkspaceQuotaResponse Client::setWorkspaceQuotaWithOptions(const SetWorkspac
 }
 
 /**
- * @summary 设置工作空间配额
+ * @summary Sets the quota for a workspace.
+ *
+ * @description Sets the quota for a specific workspace.
  *
  * @param request SetWorkspaceQuotaRequest
  * @return SetWorkspaceQuotaResponse
@@ -4986,7 +5062,7 @@ SetWorkspaceQuotaResponse Client::setWorkspaceQuota(const SetWorkspaceQuotaReque
 }
 
 /**
- * @summary 更新UpdateAirflow
+ * @summary Updates the properties of an Airflow instance.
  *
  * @param tmpReq UpdateAirflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5075,7 +5151,7 @@ UpdateAirflowResponse Client::updateAirflowWithOptions(const UpdateAirflowReques
 }
 
 /**
- * @summary 更新UpdateAirflow
+ * @summary Updates the properties of an Airflow instance.
  *
  * @param request UpdateAirflowRequest
  * @return UpdateAirflowResponse
@@ -5086,7 +5162,7 @@ UpdateAirflowResponse Client::updateAirflow(const UpdateAirflowRequest &request)
 }
 
 /**
- * @summary 更新空间的信息
+ * @summary Updates workspace information.
  *
  * @param request UpdateDataAgentSpaceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5133,7 +5209,7 @@ UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfoWithOptions(con
 }
 
 /**
- * @summary 更新空间的信息
+ * @summary Updates workspace information.
  *
  * @param request UpdateDataAgentSpaceInfoRequest
  * @return UpdateDataAgentSpaceInfoResponse
@@ -5144,7 +5220,7 @@ UpdateDataAgentSpaceInfoResponse Client::updateDataAgentSpaceInfo(const UpdateDa
 }
 
 /**
- * @summary 调整空间成员的角色
+ * @summary Changes the role of a workspace member.
  *
  * @param request UpdateDataAgentWorkspaceMemberRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5187,7 +5263,7 @@ UpdateDataAgentWorkspaceMemberRoleResponse Client::updateDataAgentWorkspaceMembe
 }
 
 /**
- * @summary 调整空间成员的角色
+ * @summary Changes the role of a workspace member.
  *
  * @param request UpdateDataAgentWorkspaceMemberRoleRequest
  * @return UpdateDataAgentWorkspaceMemberRoleResponse
@@ -5198,7 +5274,7 @@ UpdateDataAgentWorkspaceMemberRoleResponse Client::updateDataAgentWorkspaceMembe
 }
 
 /**
- * @summary 更新湖仓数据库
+ * @summary Updates the information of a data lakehouse database.
  *
  * @param tmpReq UpdateDataLakeDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5259,7 +5335,7 @@ UpdateDataLakeDatabaseResponse Client::updateDataLakeDatabaseWithOptions(const U
 }
 
 /**
- * @summary 更新湖仓数据库
+ * @summary Updates the information of a data lakehouse database.
  *
  * @param request UpdateDataLakeDatabaseRequest
  * @return UpdateDataLakeDatabaseResponse
@@ -5270,7 +5346,7 @@ UpdateDataLakeDatabaseResponse Client::updateDataLakeDatabase(const UpdateDataLa
 }
 
 /**
- * @summary 更新湖仓自定义函数
+ * @summary Update a user-defined function in a data lake.
  *
  * @param tmpReq UpdateDataLakeFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5329,7 +5405,7 @@ UpdateDataLakeFunctionResponse Client::updateDataLakeFunctionWithOptions(const U
 }
 
 /**
- * @summary 更新湖仓自定义函数
+ * @summary Update a user-defined function in a data lake.
  *
  * @param request UpdateDataLakeFunctionRequest
  * @return UpdateDataLakeFunctionResponse
@@ -5340,7 +5416,7 @@ UpdateDataLakeFunctionResponse Client::updateDataLakeFunction(const UpdateDataLa
 }
 
 /**
- * @summary 更新湖仓表分区
+ * @summary Updates the partition information of a data lake table.
  *
  * @param tmpReq UpdateDataLakePartitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5399,7 +5475,7 @@ UpdateDataLakePartitionResponse Client::updateDataLakePartitionWithOptions(const
 }
 
 /**
- * @summary 更新湖仓表分区
+ * @summary Updates the partition information of a data lake table.
  *
  * @param request UpdateDataLakePartitionRequest
  * @return UpdateDataLakePartitionResponse
@@ -5410,7 +5486,7 @@ UpdateDataLakePartitionResponse Client::updateDataLakePartition(const UpdateData
 }
 
 /**
- * @summary 更新湖仓表信息
+ * @summary Updates the information of a data lake table.
  *
  * @param tmpReq UpdateDataLakeTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5469,7 +5545,7 @@ UpdateDataLakeTableResponse Client::updateDataLakeTableWithOptions(const UpdateD
 }
 
 /**
- * @summary 更新湖仓表信息
+ * @summary Updates the information of a data lake table.
  *
  * @param request UpdateDataLakeTableRequest
  * @return UpdateDataLakeTableResponse
@@ -5480,7 +5556,7 @@ UpdateDataLakeTableResponse Client::updateDataLakeTable(const UpdateDataLakeTabl
 }
 
 /**
- * @summary 更新文档
+ * @summary Updates the description of a document.
  *
  * @param request UpdateDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5519,7 +5595,7 @@ UpdateDocumentResponse Client::updateDocumentWithOptions(const UpdateDocumentReq
 }
 
 /**
- * @summary 更新文档
+ * @summary Updates the description of a document.
  *
  * @param request UpdateDocumentRequest
  * @return UpdateDocumentResponse
@@ -5530,7 +5606,7 @@ UpdateDocumentResponse Client::updateDocument(const UpdateDocumentRequest &reque
 }
 
 /**
- * @summary 更新onemeta3.0的知识库
+ * @summary Updates a knowledge base.
  *
  * @param request UpdateKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5569,7 +5645,7 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBaseWithOptions(const UpdateK
 }
 
 /**
- * @summary 更新onemeta3.0的知识库
+ * @summary Updates a knowledge base.
  *
  * @param request UpdateKnowledgeBaseRequest
  * @return UpdateKnowledgeBaseResponse
@@ -5580,7 +5656,7 @@ UpdateKnowledgeBaseResponse Client::updateKnowledgeBase(const UpdateKnowledgeBas
 }
 
 /**
- * @summary 上传文档
+ * @summary Uploads a document to a knowledge base.
  *
  * @param tmpReq UploadDocumentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5661,7 +5737,7 @@ UploadDocumentResponse Client::uploadDocumentWithOptions(const UploadDocumentReq
 }
 
 /**
- * @summary 上传文档
+ * @summary Uploads a document to a knowledge base.
  *
  * @param request UploadDocumentRequest
  * @return UploadDocumentResponse
@@ -5672,7 +5748,7 @@ UploadDocumentResponse Client::uploadDocument(const UploadDocumentRequest &reque
 }
 
 /**
- * @summary 更新或插入onemeta3.0的知识库chunks
+ * @summary Upserts document chunks into a knowledge base.
  *
  * @param request UpsertDocumentChunksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5711,7 +5787,7 @@ UpsertDocumentChunksResponse Client::upsertDocumentChunksWithOptions(const Upser
 }
 
 /**
- * @summary 更新或插入onemeta3.0的知识库chunks
+ * @summary Upserts document chunks into a knowledge base.
  *
  * @param request UpsertDocumentChunksRequest
  * @return UpsertDocumentChunksResponse
@@ -5722,7 +5798,9 @@ UpsertDocumentChunksResponse Client::upsertDocumentChunks(const UpsertDocumentCh
 }
 
 /**
- * @summary 工作空间异步操作日志查询接口
+ * @summary Queries the log of an asynchronous task in a workspace.
+ *
+ * @description Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
  *
  * @param request WorkspaceActionLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5757,7 +5835,9 @@ WorkspaceActionLogResponse Client::workspaceActionLogWithOptions(const Workspace
 }
 
 /**
- * @summary 工作空间异步操作日志查询接口
+ * @summary Queries the log of an asynchronous task in a workspace.
+ *
+ * @description Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
  *
  * @param request WorkspaceActionLogRequest
  * @return WorkspaceActionLogResponse
@@ -5768,7 +5848,9 @@ WorkspaceActionLogResponse Client::workspaceActionLog(const WorkspaceActionLogRe
 }
 
 /**
- * @summary 工作空间异步操作状态查询接口
+ * @summary Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+ *
+ * @description Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
  *
  * @param request WorkspaceActionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5803,7 +5885,9 @@ WorkspaceActionStatusResponse Client::workspaceActionStatusWithOptions(const Wor
 }
 
 /**
- * @summary 工作空间异步操作状态查询接口
+ * @summary Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+ *
+ * @description Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
  *
  * @param request WorkspaceActionStatusRequest
  * @return WorkspaceActionStatusResponse
@@ -5814,7 +5898,9 @@ WorkspaceActionStatusResponse Client::workspaceActionStatus(const WorkspaceActio
 }
 
 /**
- * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+ * @summary This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+ *
+ * @description Deploys the code in a workspace.
  *
  * @param request WorkspaceCodePublishRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5851,7 +5937,9 @@ WorkspaceCodePublishResponse Client::workspaceCodePublishWithOptions(const Works
 }
 
 /**
- * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+ * @summary This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+ *
+ * @description Deploys the code in a workspace.
  *
  * @param request WorkspaceCodePublishRequest
  * @return WorkspaceCodePublishResponse

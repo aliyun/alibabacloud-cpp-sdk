@@ -130,13 +130,21 @@ namespace Models
 
 
     protected:
+      // Parameter set that specifies the derived key
       shared_ptr<string> ossCredential_ {};
+      // Time of the request, formatted according to the ISO 8601 date and time standard
       shared_ptr<string> ossDate_ {};
+      // STS token used for uploading to OSS, valid for 1 hour
       shared_ptr<string> ossSecurityToken_ {};
+      // Description information used for signature authentication
       shared_ptr<string> ossSignature_ {};
+      // Specifies the version and algorithm of the signature
       shared_ptr<string> ossSignatureVersion_ {};
+      // Permission constraints and conditions for file upload
       shared_ptr<string> policy_ {};
+      // Path for file upload
       shared_ptr<string> uploadDir_ {};
+      // Target address for file upload
       shared_ptr<string> uploadHost_ {};
     };
 
@@ -180,11 +188,18 @@ namespace Models
 
 
   protected:
+    // Return struct
     shared_ptr<DescribeFileUploadSignatureResponseBody::Data> data_ {};
+    // Error code
     shared_ptr<string> errorCode_ {};
+    // Error message returned when the invocation fails
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. The return value is as follows:
+    // 
+    // - **true**: The request succeeded.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

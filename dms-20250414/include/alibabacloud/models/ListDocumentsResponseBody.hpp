@@ -107,13 +107,25 @@ namespace Models
 
 
   protected:
+    // A list of documents.
     shared_ptr<vector<OneMetaKnowledgeBaseDocument>> data_ {};
+    // The error code, returned only when the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message, returned only when the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The page size.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The unique request ID. Use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of documents that meet the specified criteria. This parameter is not currently supported and always returns 0.
     shared_ptr<int64_t> totalCount_ {};
   };
 

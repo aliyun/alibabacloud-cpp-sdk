@@ -107,13 +107,25 @@ namespace Models
 
 
   protected:
+    // A list of chunks.
     shared_ptr<vector<OneMetaKnowledgeBaseChunk>> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The number of entries returned on this page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The unique request ID. If you encounter an error, provide this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of chunks that meet the filter criteria. (This feature is not yet supported, and the value is always 0.)
     shared_ptr<int64_t> totalCount_ {};
   };
 

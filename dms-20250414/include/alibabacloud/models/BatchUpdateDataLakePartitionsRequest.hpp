@@ -88,15 +88,27 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The information about the partitions to update.
+    // 
     // This parameter is required.
     shared_ptr<vector<DLPartitionInput>> partitionInputs_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
+    // The tenant ID.
+    // 
+    // > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
     shared_ptr<int64_t> tid_ {};
+    // The workspace ID.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

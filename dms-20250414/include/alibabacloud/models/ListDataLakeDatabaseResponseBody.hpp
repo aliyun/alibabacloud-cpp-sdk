@@ -98,12 +98,23 @@ namespace Models
 
 
   protected:
+    // The list of databases.
     shared_ptr<vector<DLDatabase>> databaseList_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The maximum number of entries returned per page. This parameter is used with \\`NextToken\\` for paging.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

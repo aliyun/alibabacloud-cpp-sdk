@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the Airflow instance.
+    // 
     // This parameter is required.
     shared_ptr<string> airflowId_ {};
+    // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

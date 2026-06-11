@@ -148,15 +148,25 @@ namespace Models
 
 
     protected:
+      // The time when the workspace was created. This value is a UNIX timestamp in seconds.
       shared_ptr<string> createTime_ {};
+      // The user ID (UID) of the workspace creator.
       shared_ptr<string> creator_ {};
+      // Indicates whether session sharing is enabled.
       shared_ptr<bool> isSessionShareEnabled_ {};
+      // The time when the workspace was last modified. This value is a UNIX timestamp in seconds.
       shared_ptr<string> modifyTime_ {};
+      // The user\\"s role in the workspace.
       shared_ptr<string> roleName_ {};
+      // The number of members in the workspace.
       shared_ptr<string> totalMember_ {};
+      // The description of the workspace.
       shared_ptr<string> workspaceDesc_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The name of the workspace.
       shared_ptr<string> workspaceName_ {};
+      // The status of the workspace.
       shared_ptr<string> workspaceStatus_ {};
     };
 
@@ -200,10 +210,15 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetDataAgentWorkspaceInfoResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

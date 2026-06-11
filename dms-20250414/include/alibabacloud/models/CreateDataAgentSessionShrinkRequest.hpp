@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The file ID.
     shared_ptr<string> file_ {};
+    // The session configuration.
     shared_ptr<string> sessionConfigShrink_ {};
+    // The session title. Supports Chinese and English. Maximum length: 128 characters.
     shared_ptr<string> title_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

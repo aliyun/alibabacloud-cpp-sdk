@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
-    // 实际删除的行数
+    // The number of deleted chunks.
     shared_ptr<int32_t> data_ {};
+    // The error code returned if the call fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique request ID for the call. If an error occurs, provide this request ID to support.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

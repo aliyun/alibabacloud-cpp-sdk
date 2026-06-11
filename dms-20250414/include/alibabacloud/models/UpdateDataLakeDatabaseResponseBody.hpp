@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // The details of the database.
     shared_ptr<DLDatabase> database_ {};
+    // The error code that is returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message that is returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The ID of the request, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

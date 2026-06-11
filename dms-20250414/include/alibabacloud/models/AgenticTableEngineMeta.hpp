@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // A checksum to verify the table\\"s data integrity.
     shared_ptr<string> checksum_ {};
+    // The time the table was created, in UTC format (`YYYY-MM-DDThh:mm:ssZ`).
     shared_ptr<string> createTime_ {};
+    // The total size of the table\\"s data, in bytes.
     shared_ptr<int64_t> dataBytes_ {};
+    // The character encoding of the table.
     shared_ptr<string> encoding_ {};
+    // The table\\"s storage engine, such as `InnoDB`.
     shared_ptr<string> engine_ {};
+    // A checksum of the table\\"s data and indexes.
     shared_ptr<string> fullChecksum_ {};
+    // The total size of the table\\"s indexes, in bytes.
     shared_ptr<int64_t> indexBytes_ {};
+    // The timestamp of the last DDL (Data Definition Language) operation, in UTC format (`YYYY-MM-DDThh:mm:ssZ`).
     shared_ptr<string> lastDdlTime_ {};
+    // The number of rows in the table.
     shared_ptr<int64_t> numRows_ {};
+    // The table\\"s reference information.
     shared_ptr<string> refInfo_ {};
+    // The table\\"s total storage capacity, in bytes.
     shared_ptr<int64_t> storageCapacity_ {};
+    // The name of the table schema.
     shared_ptr<string> tableSchemaName_ {};
   };
 

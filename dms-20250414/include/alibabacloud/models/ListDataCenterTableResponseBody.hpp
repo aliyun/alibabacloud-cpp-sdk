@@ -176,15 +176,35 @@ namespace Models
 
 
       protected:
+        // The database name.
+        // 
+        // - If `ImportType` is `FILE`, this parameter returns the file name.
         shared_ptr<string> databaseName_ {};
+        // The time when the data table description was last updated.
         shared_ptr<string> descUpdateTime_ {};
+        // The ID of the DMS database.
+        // 
+        // - This parameter is not returned if `ImportType` is `FILE`.
         shared_ptr<int64_t> dmsDbId_ {};
+        // The ID of the DMS instance that hosts the database.
+        // 
+        // - This parameter is not returned if `ImportType` is `FILE`.
         shared_ptr<int64_t> dmsInstanceId_ {};
+        // The time when the data table was created.
         shared_ptr<string> gmtCreated_ {};
+        // The import type. Valid value:
+        // 
+        // - **FILE**: The data is imported from a file.
         shared_ptr<string> importType_ {};
+        // The instance name.
+        // 
+        // - If `ImportType` is `FILE`, this parameter returns the file ID.
         shared_ptr<string> instanceName_ {};
+        // The description of the data table.
         shared_ptr<string> tableDesc_ {};
+        // The ID of the data table.
         shared_ptr<string> tableId_ {};
+        // The table name.
         shared_ptr<string> tableName_ {};
       };
 
@@ -228,10 +248,15 @@ namespace Models
 
 
     protected:
+      // A list of the data tables.
       shared_ptr<vector<Data::Content>> content_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalElements_ {};
+      // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
     };
 
@@ -275,11 +300,19 @@ namespace Models
 
 
   protected:
+    // The data returned in the response.
     shared_ptr<ListDataCenterTableResponseBody::Data> data_ {};
+    // The code that indicates the result of the request. If the request fails, an error code is returned.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

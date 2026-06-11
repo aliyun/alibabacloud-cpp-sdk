@@ -84,12 +84,25 @@ namespace Models
 
 
   protected:
+    // The name of the catalog. To find the catelog name, go to the [Data Lake console](https://dlf.console.aliyun.com/cn-hangzhou/metadata/catalog?spm=a2c4g.11186623.0.0.5a225658pT4Dkr).
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The number of entries to return on each page. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Valid values:
+    // 
+    // - If **NextToken** is empty, no more results are available.
+    // 
+    // - If **NextToken** has a value, it is the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // A keyword to search for database names.
     shared_ptr<string> searchKey_ {};
+    // The tenant ID.
+    // 
+    // > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
     shared_ptr<int64_t> tid_ {};
+    // The workspace ID.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

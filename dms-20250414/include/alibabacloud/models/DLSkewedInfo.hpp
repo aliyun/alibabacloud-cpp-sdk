@@ -64,8 +64,11 @@ namespace Models
 
 
   protected:
+    // A list of skewed column names.
     shared_ptr<vector<string>> skewedColNames_ {};
+    // A mapping of skewed column values to their locations.
     Darabonba::Json skewedColValueLocationMaps_ {};
+    // A list of skewed column values. Each list provides a set of associated values.
     shared_ptr<vector<vector<string>>> skewedColValues_ {};
   };
 

@@ -130,13 +130,21 @@ namespace Models
 
 
     protected:
+      // The credential scope string for the signature.
       shared_ptr<string> ossCredential_ {};
+      // The request time in ISO 8601 format.
       shared_ptr<string> ossDate_ {};
+      // The STS token used for uploading to OSS. It is valid for one hour.
       shared_ptr<string> ossSecurityToken_ {};
+      // The authentication signature.
       shared_ptr<string> ossSignature_ {};
+      // The signature version and algorithm.
       shared_ptr<string> ossSignatureVersion_ {};
+      // The Base64-encoded POST policy that specifies the conditions for the file upload.
       shared_ptr<string> policy_ {};
+      // The path prefix for the file upload.
       shared_ptr<string> uploadDir_ {};
+      // The destination URL for the file upload.
       shared_ptr<string> uploadHost_ {};
     };
 
@@ -180,10 +188,19 @@ namespace Models
 
 
   protected:
+    // The upload signature details.
     shared_ptr<DescribeKnowledgeBaseUploadSignatureResponseBody::Data> data_ {};
+    // The error code if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique ID of the request. If an error occurs, use this ID to troubleshoot the issue.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

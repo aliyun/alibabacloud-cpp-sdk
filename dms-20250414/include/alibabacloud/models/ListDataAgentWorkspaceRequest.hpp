@@ -112,16 +112,28 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // This parameter is reserved for future use.
     shared_ptr<int32_t> maxResults_ {};
+    // This parameter is reserved for future use.
     shared_ptr<string> nextToken_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The field to sort by.
     shared_ptr<string> orderBy_ {};
+    // The page number.
+    // 
     // This parameter is required.
     shared_ptr<string> pageNumber_ {};
+    // The number of entries to return on each page.
+    // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
+    // The workspace type.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceType_ {};
   };

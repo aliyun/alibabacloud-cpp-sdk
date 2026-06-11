@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // This parameter is for internal use.
     shared_ptr<string> callFrom_ {};
+    // The DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The import type.
+    // 
+    // - FILE
     shared_ptr<string> importType_ {};
+    // This parameter is for internal use.
     shared_ptr<string> language_ {};
+    // The keyword for a fuzzy search for databases.
     shared_ptr<string> searchKey_ {};
   };
 

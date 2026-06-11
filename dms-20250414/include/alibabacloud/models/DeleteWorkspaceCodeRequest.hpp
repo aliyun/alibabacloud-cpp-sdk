@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The full path of the code file or directory. The path must be prefixed with `/Workspace/code/`.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The repository information.
     shared_ptr<string> repo_ {};
+    // Specifies whether the item to delete is a symbolic link.
     shared_ptr<bool> symlink_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

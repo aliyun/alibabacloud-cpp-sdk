@@ -213,17 +213,40 @@ namespace Models
 
 
       protected:
+        // The ID of the custom agent.
         shared_ptr<string> customAgentId_ {};
+        // The stage of the custom agent. Valid values:
+        // 
+        // - **debug**: The test stage.
+        // 
+        // - **prod**: The production stage.
         shared_ptr<string> customAgentStage_ {};
+        // Indicates whether web search is enabled.
         shared_ptr<bool> enableSearch_ {};
         shared_ptr<string> encryptKey_ {};
         shared_ptr<string> encryptType_ {};
         shared_ptr<vector<string>> kbUuidList_ {};
+        // The language. Valid values:
+        // 
+        // - **CHINESE**: Chinese
+        // 
+        // - **ENGLISH**: English
         shared_ptr<string> language_ {};
+        // A list of MCP server IDs.
         shared_ptr<vector<string>> mcpServerIds_ {};
+        // The mode. Valid values:
+        // 
+        // - **ASK_DATA**: quick inquiry mode
+        // 
+        // - **ANALYSIS**: analysis mode
+        // 
+        // - **INSIGHT**: insight mode
         shared_ptr<string> mode_ {};
         shared_ptr<int64_t> reportPageWidth_ {};
         shared_ptr<string> reportWaterMark_ {};
+        // The name of the user\\"s OSS bucket.
+        // 
+        // - The service can upload analysis files and reports to this bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -265,7 +288,9 @@ namespace Models
 
 
       protected:
+        // The key of the session replay history item.
         shared_ptr<string> key_ {};
+        // The OSS download URL for the session replay history item.
         shared_ptr<string> url_ {};
       };
 
@@ -362,17 +387,29 @@ namespace Models
 
 
     protected:
+      // The ID of the agent.
       shared_ptr<string> agentId_ {};
+      // The status of the agent.
       shared_ptr<string> agentStatus_ {};
+      // The session replay history.
       shared_ptr<vector<Data::ChatHistoryLocations>> chatHistoryLocations_ {};
+      // The timestamp indicating when the session was created.
       shared_ptr<int64_t> createTime_ {};
+      // Indicates whether the current user has favorited the session in the workspace.
       shared_ptr<string> favoriteInWorkspace_ {};
+      // The ID of the file.
       shared_ptr<string> file_ {};
+      // Indicates whether the current user has favorited the session.
       shared_ptr<bool> saved_ {};
+      // The configuration of the session.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
+      // The ID of the agent session.
       shared_ptr<string> sessionId_ {};
+      // The status of the session.
       shared_ptr<string> sessionStatus_ {};
+      // The title of the session.
       shared_ptr<string> title_ {};
+      // The ID of the session owner.
       shared_ptr<string> userId_ {};
     };
 
@@ -416,11 +453,19 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<DescribeDataAgentSessionResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -99,12 +99,19 @@ namespace Models
 
 
   protected:
+    // An array of column names included in the index.
     shared_ptr<vector<string>> columnNames_ {};
+    // An optional, user-defined description for the index.
     shared_ptr<string> description_ {};
+    // The unique name of the index within the table.
     shared_ptr<string> indexName_ {};
+    // The type of the index, such as PRIMARY, UNIQUE, or NORMAL.
     shared_ptr<string> indexType_ {};
+    // Specifies if the index is the primary key. A table can have only one primary key.
     shared_ptr<bool> primary_ {};
+    // An array of physical column names from the database. Use this parameter when the names in ColumnNames are aliases or logical names.
     shared_ptr<vector<string>> realColumnNames_ {};
+    // Specifies if the index enforces a unique constraint, requiring all its values to be unique across rows.
     shared_ptr<bool> unique_ {};
   };
 

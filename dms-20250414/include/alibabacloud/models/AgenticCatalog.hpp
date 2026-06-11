@@ -134,16 +134,27 @@ namespace Models
 
 
   protected:
+    // A collection of key-value pairs that represents business attributes for the catalog, such as the data owner or department.
     Darabonba::Json catalogBizAttrs_ {};
+    // The type of the catalog. For example, `INTERNAL_METADATA` or `THIRD_PARTY`.
     shared_ptr<string> catalogType_ {};
+    // The unique identifier (UUID) of the catalog. This parameter is system-generated and output-only.
     shared_ptr<string> catalogUuid_ {};
+    // The type of the data source associated with the catalog. For example, `MySQL`, `PostgreSQL`, or `OSS`.
     shared_ptr<string> dataSourceType_ {};
+    // The unique identifier (UUID) of the associated data source.
     shared_ptr<string> dataSourceUuid_ {};
+    // The description of the catalog. It can be up to 2,048 characters long.
     shared_ptr<string> description_ {};
+    // The display name of the catalog. The name can be up to 256 characters long.
     shared_ptr<string> name_ {};
+    // A collection of key-value pairs that represents additional technical properties for the catalog.
     Darabonba::Json properties_ {};
+    // The ID of the region where the catalog is located. For example, `cn-hangzhou`.
     shared_ptr<string> regionId_ {};
+    // The current state of the catalog. Valid values are: `0` (Creating), `1` (Active), `2` (Deleting), and `3` (Error).
     shared_ptr<int32_t> state_ {};
+    // The storage location for the catalog\\"s metadata, such as a database name or a file path.
     shared_ptr<string> storageLocation_ {};
   };
 

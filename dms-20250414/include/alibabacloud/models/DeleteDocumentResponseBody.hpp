@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // Indicates whether the document was deleted. Valid values:
+    // 
+    // - **true**: The deletion was successful.
+    // 
+    // - **false**: The deletion failed.
     shared_ptr<bool> data_ {};
+    // The error code that is returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message that is returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique request ID. Use this ID to troubleshoot errors.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

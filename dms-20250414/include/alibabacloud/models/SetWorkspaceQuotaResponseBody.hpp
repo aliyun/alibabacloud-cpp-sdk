@@ -125,12 +125,19 @@ namespace Models
 
 
     protected:
+      // The compute unit (CU) quota.
       shared_ptr<int64_t> cuQuota_ {};
+      // The amount of compute unit (CU) quota used.
       shared_ptr<int64_t> cuQuotaUsage_ {};
+      // The ID of the billing instance.
       shared_ptr<string> instanceId_ {};
+      // The order ID.
       shared_ptr<string> orderId_ {};
+      // The status of the order.
       shared_ptr<string> state_ {};
+      // The status of the instance.
       shared_ptr<string> status_ {};
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -189,12 +196,19 @@ namespace Models
 
 
   protected:
+    // Details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The returned data.
     shared_ptr<SetWorkspaceQuotaResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // A human-readable message about the request\\"s outcome.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

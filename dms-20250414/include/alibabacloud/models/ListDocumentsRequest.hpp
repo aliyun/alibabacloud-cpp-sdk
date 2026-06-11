@@ -94,13 +94,39 @@ namespace Models
 
 
   protected:
+    // The document property filter. The following properties are supported:
+    // 
+    // - `fileExt`: The document extension.
+    // 
+    // - `state`: The document status.
     shared_ptr<string> filters_ {};
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
+    // The maximum number of documents to return per page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The document name filter. Returns only documents whose names contain this value.
     shared_ptr<string> namePattern_ {};
+    // The pagination token to retrieve the next page of results. Omit this parameter to retrieve the first page. A `NextToken` value in the response indicates that more results are available. To fetch the next page, pass this value in a subsequent request. A `null` value indicates that all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The sort field. Valid values:
+    // 
+    // - `id` (default): The document ID.
+    // 
+    // - `hits`: The number of hits.
+    // 
+    // - `modifyTime`: The modification time.
     shared_ptr<string> sortFieldName_ {};
+    // The sort order. Valid values:
+    // 
+    // - **ASC** (default): Sorts in ascending order.
+    // 
+    // - **DESC**: Sorts in descending order.
     shared_ptr<string> sortOrder_ {};
   };
 

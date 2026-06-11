@@ -21,7 +21,7 @@ namespace Dms20250414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 为空间添加用户
+       * @summary Adds a user to a specified workspace.
        *
        * @param request AddUserToDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace Dms20250414
       Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspaceWithOptions(const Models::AddUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 为空间添加用户
+       * @summary Adds a user to a specified workspace.
        *
        * @param request AddUserToDataAgentWorkspaceRequest
        * @return AddUserToDataAgentWorkspaceResponse
@@ -38,7 +38,7 @@ namespace Dms20250414
       Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspace(const Models::AddUserToDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 批量新建湖仓表分区
+       * @summary Creates partitions for a data lake table in a batch.
        *
        * @param tmpReq BatchCreateDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace Dms20250414
       Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitionsWithOptions(const Models::BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量新建湖仓表分区
+       * @summary Creates partitions for a data lake table in a batch.
        *
        * @param request BatchCreateDataLakePartitionsRequest
        * @return BatchCreateDataLakePartitionsResponse
@@ -55,7 +55,7 @@ namespace Dms20250414
       Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitions(const Models::BatchCreateDataLakePartitionsRequest &request);
 
       /**
-       * @summary 批量删除湖仓表分区
+       * @summary Batch deletes partitions from a data lake table.
        *
        * @param request BatchDeleteDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Dms20250414
       Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitionsWithOptions(const Models::BatchDeleteDataLakePartitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除湖仓表分区
+       * @summary Batch deletes partitions from a data lake table.
        *
        * @param request BatchDeleteDataLakePartitionsRequest
        * @return BatchDeleteDataLakePartitionsResponse
@@ -72,7 +72,7 @@ namespace Dms20250414
       Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitions(const Models::BatchDeleteDataLakePartitionsRequest &request);
 
       /**
-       * @summary 批量更新湖仓表分区
+       * @summary Update partitions in a data lake table in batch.
        *
        * @param tmpReq BatchUpdateDataLakePartitionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace Dms20250414
       Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitionsWithOptions(const Models::BatchUpdateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量更新湖仓表分区
+       * @summary Update partitions in a data lake table in batch.
        *
        * @param request BatchUpdateDataLakePartitionsRequest
        * @return BatchUpdateDataLakePartitionsResponse
@@ -89,7 +89,9 @@ namespace Dms20250414
       Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitions(const Models::BatchUpdateDataLakePartitionsRequest &request);
 
       /**
-       * @summary 更新Airflow实例的自定义配置
+       * @summary Update an Airflow instance\\"s custom configuration
+       *
+       * @description Configure the airflow\\.cfg file for DMS Airflow.
        *
        * @param tmpReq ConfigAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +100,9 @@ namespace Dms20250414
       Models::ConfigAirflowResponse configAirflowWithOptions(const Models::ConfigAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新Airflow实例的自定义配置
+       * @summary Update an Airflow instance\\"s custom configuration
+       *
+       * @description Configure the airflow\\.cfg file for DMS Airflow.
        *
        * @param request ConfigAirflowRequest
        * @return ConfigAirflowResponse
@@ -106,7 +110,9 @@ namespace Dms20250414
       Models::ConfigAirflowResponse configAirflow(const Models::ConfigAirflowRequest &request);
 
       /**
-       * @summary 创建Airflow
+       * @summary Creates an Airflow instance in a workspace.
+       *
+       * @description Creates an Airflow instance in a workspace.
        *
        * @param tmpReq CreateAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +121,9 @@ namespace Dms20250414
       Models::CreateAirflowResponse createAirflowWithOptions(const Models::CreateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Airflow
+       * @summary Creates an Airflow instance in a workspace.
+       *
+       * @description Creates an Airflow instance in a workspace.
        *
        * @param request CreateAirflowRequest
        * @return CreateAirflowResponse
@@ -123,7 +131,7 @@ namespace Dms20250414
       Models::CreateAirflowResponse createAirflow(const Models::CreateAirflowRequest &request);
 
       /**
-       * @summary Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+       * @summary Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
        *
        * @param request CreateAirflowLoginTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +140,7 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginTokenWithOptions(const Models::CreateAirflowLoginTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+       * @summary Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
        *
        * @param request CreateAirflowLoginTokenRequest
        * @return CreateAirflowLoginTokenResponse
@@ -140,7 +148,7 @@ namespace Dms20250414
       Models::CreateAirflowLoginTokenResponse createAirflowLoginToken(const Models::CreateAirflowLoginTokenRequest &request);
 
       /**
-       * @summary CreateCustomAgent
+       * @summary Create a custom agent in your personal space or a workspace.
        *
        * @param tmpReq CreateCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +157,7 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgentWithOptions(const Models::CreateCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateCustomAgent
+       * @summary Create a custom agent in your personal space or a workspace.
        *
        * @param request CreateCustomAgentRequest
        * @return CreateCustomAgentResponse
@@ -157,7 +165,7 @@ namespace Dms20250414
       Models::CreateCustomAgentResponse createCustomAgent(const Models::CreateCustomAgentRequest &request);
 
       /**
-       * @summary CreateDataAgentKnowledgeBase
+       * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
        *
        * @param request CreateDataAgentKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +174,7 @@ namespace Dms20250414
       Models::CreateDataAgentKnowledgeBaseResponse createDataAgentKnowledgeBaseWithOptions(const Models::CreateDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateDataAgentKnowledgeBase
+       * @summary Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
        *
        * @param request CreateDataAgentKnowledgeBaseRequest
        * @return CreateDataAgentKnowledgeBaseResponse
@@ -174,7 +182,7 @@ namespace Dms20250414
       Models::CreateDataAgentKnowledgeBaseResponse createDataAgentKnowledgeBase(const Models::CreateDataAgentKnowledgeBaseRequest &request);
 
       /**
-       * @summary CreateDataAgentSession
+       * @summary Create a DataAgent session
        *
        * @param tmpReq CreateDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +191,7 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSessionWithOptions(const Models::CreateDataAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary CreateDataAgentSession
+       * @summary Create a DataAgent session
        *
        * @param request CreateDataAgentSessionRequest
        * @return CreateDataAgentSessionResponse
@@ -191,7 +199,7 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSession(const Models::CreateDataAgentSessionRequest &request);
 
       /**
-       * @summary 创建DataAgent工作空间
+       * @summary Creates a DataAgent workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +208,7 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspaceWithOptions(const Models::CreateDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建DataAgent工作空间
+       * @summary Creates a DataAgent workspace.
        *
        * @param request CreateDataAgentWorkspaceRequest
        * @return CreateDataAgentWorkspaceResponse
@@ -208,7 +216,7 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspace(const Models::CreateDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 新建湖仓数据库
+       * @summary Creates a data lake database.
        *
        * @param tmpReq CreateDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +225,7 @@ namespace Dms20250414
       Models::CreateDataLakeDatabaseResponse createDataLakeDatabaseWithOptions(const Models::CreateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓数据库
+       * @summary Creates a data lake database.
        *
        * @param request CreateDataLakeDatabaseRequest
        * @return CreateDataLakeDatabaseResponse
@@ -225,7 +233,7 @@ namespace Dms20250414
       Models::CreateDataLakeDatabaseResponse createDataLakeDatabase(const Models::CreateDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 新建湖仓自定义函数
+       * @summary Creates a user-defined function (UDF) for a data lake.
        *
        * @param tmpReq CreateDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +242,7 @@ namespace Dms20250414
       Models::CreateDataLakeFunctionResponse createDataLakeFunctionWithOptions(const Models::CreateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓自定义函数
+       * @summary Creates a user-defined function (UDF) for a data lake.
        *
        * @param request CreateDataLakeFunctionRequest
        * @return CreateDataLakeFunctionResponse
@@ -242,7 +250,7 @@ namespace Dms20250414
       Models::CreateDataLakeFunctionResponse createDataLakeFunction(const Models::CreateDataLakeFunctionRequest &request);
 
       /**
-       * @summary 新建湖仓表分区
+       * @summary Creates a partition for a data lake table.
        *
        * @param tmpReq CreateDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +259,7 @@ namespace Dms20250414
       Models::CreateDataLakePartitionResponse createDataLakePartitionWithOptions(const Models::CreateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓表分区
+       * @summary Creates a partition for a data lake table.
        *
        * @param request CreateDataLakePartitionRequest
        * @return CreateDataLakePartitionResponse
@@ -259,7 +267,7 @@ namespace Dms20250414
       Models::CreateDataLakePartitionResponse createDataLakePartition(const Models::CreateDataLakePartitionRequest &request);
 
       /**
-       * @summary 新建湖仓表
+       * @summary Creates a data lake table in Data Management (DMS).
        *
        * @param tmpReq CreateDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +276,7 @@ namespace Dms20250414
       Models::CreateDataLakeTableResponse createDataLakeTableWithOptions(const Models::CreateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 新建湖仓表
+       * @summary Creates a data lake table in Data Management (DMS).
        *
        * @param request CreateDataLakeTableRequest
        * @return CreateDataLakeTableResponse
@@ -276,7 +284,7 @@ namespace Dms20250414
       Models::CreateDataLakeTableResponse createDataLakeTable(const Models::CreateDataLakeTableRequest &request);
 
       /**
-       * @summary 删除Airflow
+       * @summary Deletes an Airflow instance.
        *
        * @param request DeleteAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +293,7 @@ namespace Dms20250414
       Models::DeleteAirflowResponse deleteAirflowWithOptions(const Models::DeleteAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Airflow
+       * @summary Deletes an Airflow instance.
        *
        * @param request DeleteAirflowRequest
        * @return DeleteAirflowResponse
@@ -293,7 +301,7 @@ namespace Dms20250414
       Models::DeleteAirflowResponse deleteAirflow(const Models::DeleteAirflowRequest &request);
 
       /**
-       * @summary DeleteCustomAgent
+       * @summary Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
        *
        * @param request DeleteCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +310,7 @@ namespace Dms20250414
       Models::DeleteCustomAgentResponse deleteCustomAgentWithOptions(const Models::DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteCustomAgent
+       * @summary Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
        *
        * @param request DeleteCustomAgentRequest
        * @return DeleteCustomAgentResponse
@@ -310,7 +318,7 @@ namespace Dms20250414
       Models::DeleteCustomAgentResponse deleteCustomAgent(const Models::DeleteCustomAgentRequest &request);
 
       /**
-       * @summary DeleteDataAgentKnowledgeBase
+       * @summary Deletes a DataAgent knowledge base.
        *
        * @param request DeleteDataAgentKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +327,7 @@ namespace Dms20250414
       Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBaseWithOptions(const Models::DeleteDataAgentKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DeleteDataAgentKnowledgeBase
+       * @summary Deletes a DataAgent knowledge base.
        *
        * @param request DeleteDataAgentKnowledgeBaseRequest
        * @return DeleteDataAgentKnowledgeBaseResponse
@@ -327,7 +335,7 @@ namespace Dms20250414
       Models::DeleteDataAgentKnowledgeBaseResponse deleteDataAgentKnowledgeBase(const Models::DeleteDataAgentKnowledgeBaseRequest &request);
 
       /**
-       * @summary 删除DataAgent工作空间
+       * @summary Deletes a DataAgent workspace.
        *
        * @param request DeleteDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +344,7 @@ namespace Dms20250414
       Models::DeleteDataAgentWorkspaceResponse deleteDataAgentWorkspaceWithOptions(const Models::DeleteDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除DataAgent工作空间
+       * @summary Deletes a DataAgent workspace.
        *
        * @param request DeleteDataAgentWorkspaceRequest
        * @return DeleteDataAgentWorkspaceResponse
@@ -344,7 +352,7 @@ namespace Dms20250414
       Models::DeleteDataAgentWorkspaceResponse deleteDataAgentWorkspace(const Models::DeleteDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 删除湖仓数据库
+       * @summary Deletes a data lake database.
        *
        * @param request DeleteDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +361,7 @@ namespace Dms20250414
       Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabaseWithOptions(const Models::DeleteDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓数据库
+       * @summary Deletes a data lake database.
        *
        * @param request DeleteDataLakeDatabaseRequest
        * @return DeleteDataLakeDatabaseResponse
@@ -361,7 +369,7 @@ namespace Dms20250414
       Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabase(const Models::DeleteDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 删除湖仓自定义函数
+       * @summary Deletes a user-defined function in a data lake.
        *
        * @param request DeleteDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +378,7 @@ namespace Dms20250414
       Models::DeleteDataLakeFunctionResponse deleteDataLakeFunctionWithOptions(const Models::DeleteDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓自定义函数
+       * @summary Deletes a user-defined function in a data lake.
        *
        * @param request DeleteDataLakeFunctionRequest
        * @return DeleteDataLakeFunctionResponse
@@ -378,7 +386,7 @@ namespace Dms20250414
       Models::DeleteDataLakeFunctionResponse deleteDataLakeFunction(const Models::DeleteDataLakeFunctionRequest &request);
 
       /**
-       * @summary 删除湖仓表分区
+       * @summary Deletes a partition from a data lake table.
        *
        * @param tmpReq DeleteDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +395,7 @@ namespace Dms20250414
       Models::DeleteDataLakePartitionResponse deleteDataLakePartitionWithOptions(const Models::DeleteDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓表分区
+       * @summary Deletes a partition from a data lake table.
        *
        * @param request DeleteDataLakePartitionRequest
        * @return DeleteDataLakePartitionResponse
@@ -395,7 +403,7 @@ namespace Dms20250414
       Models::DeleteDataLakePartitionResponse deleteDataLakePartition(const Models::DeleteDataLakePartitionRequest &request);
 
       /**
-       * @summary 删除湖仓表
+       * @summary Deletes a data lake table.
        *
        * @param request DeleteDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +412,7 @@ namespace Dms20250414
       Models::DeleteDataLakeTableResponse deleteDataLakeTableWithOptions(const Models::DeleteDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除湖仓表
+       * @summary Deletes a data lake table.
        *
        * @param request DeleteDataLakeTableRequest
        * @return DeleteDataLakeTableResponse
@@ -412,7 +420,7 @@ namespace Dms20250414
       Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
 
       /**
-       * @summary 删除文档
+       * @summary Deletes a document from a specified knowledge base.
        *
        * @param request DeleteDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +429,7 @@ namespace Dms20250414
       Models::DeleteDocumentResponse deleteDocumentWithOptions(const Models::DeleteDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除文档
+       * @summary Deletes a document from a specified knowledge base.
        *
        * @param request DeleteDocumentRequest
        * @return DeleteDocumentResponse
@@ -429,7 +437,7 @@ namespace Dms20250414
       Models::DeleteDocumentResponse deleteDocument(const Models::DeleteDocumentRequest &request);
 
       /**
-       * @summary 删除onemeta3.0的知识库chunks
+       * @summary Deletes chunks from a document in a knowledge base.
        *
        * @param tmpReq DeleteDocumentChunksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +446,7 @@ namespace Dms20250414
       Models::DeleteDocumentChunksResponse deleteDocumentChunksWithOptions(const Models::DeleteDocumentChunksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除onemeta3.0的知识库chunks
+       * @summary Deletes chunks from a document in a knowledge base.
        *
        * @param request DeleteDocumentChunksRequest
        * @return DeleteDocumentChunksResponse
@@ -463,7 +471,9 @@ namespace Dms20250414
       Models::DeleteFileUploadResponse deleteFileUpload(const Models::DeleteFileUploadRequest &request);
 
       /**
-       * @summary 删除工作空间代码以及目录
+       * @summary Deletes a code file or directory from a workspace.
+       *
+       * @description This operation permanently removes a specified code file or directory.
        *
        * @param request DeleteWorkspaceCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +482,9 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCodeWithOptions(const Models::DeleteWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除工作空间代码以及目录
+       * @summary Deletes a code file or directory from a workspace.
+       *
+       * @description This operation permanently removes a specified code file or directory.
        *
        * @param request DeleteWorkspaceCodeRequest
        * @return DeleteWorkspaceCodeResponse
@@ -480,7 +492,7 @@ namespace Dms20250414
       Models::DeleteWorkspaceCodeResponse deleteWorkspaceCode(const Models::DeleteWorkspaceCodeRequest &request);
 
       /**
-       * @summary DescribeCustomAgent
+       * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +501,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgentWithOptions(const Models::DescribeCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeCustomAgent
+       * @summary `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
        *
        * @param request DescribeCustomAgentRequest
        * @return DescribeCustomAgentResponse
@@ -497,7 +509,7 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
 
       /**
-       * @summary DescribeDataAgentSession
+       * @summary Gets the details of a DataAgent session.
        *
        * @param request DescribeDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +518,7 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSessionWithOptions(const Models::DescribeDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary DescribeDataAgentSession
+       * @summary Gets the details of a DataAgent session.
        *
        * @param request DescribeDataAgentSessionRequest
        * @return DescribeDataAgentSessionResponse
@@ -514,7 +526,7 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
 
       /**
-       * @summary 获取文档详情
+       * @summary Retrieves the details of a specific document.
        *
        * @param request DescribeDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +535,7 @@ namespace Dms20250414
       Models::DescribeDocumentResponse describeDocumentWithOptions(const Models::DescribeDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文档详情
+       * @summary Retrieves the details of a specific document.
        *
        * @param request DescribeDocumentRequest
        * @return DescribeDocumentResponse
@@ -548,7 +560,7 @@ namespace Dms20250414
       Models::DescribeFileUploadSignatureResponse describeFileUploadSignature(const Models::DescribeFileUploadSignatureRequest &request);
 
       /**
-       * @summary 获取onemeta3.0的知识库统计信息
+       * @summary Retrieves the statistics of a knowledge base.
        *
        * @param request DescribeKnowledgeBaseStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +569,7 @@ namespace Dms20250414
       Models::DescribeKnowledgeBaseStatsResponse describeKnowledgeBaseStatsWithOptions(const Models::DescribeKnowledgeBaseStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取onemeta3.0的知识库统计信息
+       * @summary Retrieves the statistics of a knowledge base.
        *
        * @param request DescribeKnowledgeBaseStatsRequest
        * @return DescribeKnowledgeBaseStatsResponse
@@ -565,7 +577,7 @@ namespace Dms20250414
       Models::DescribeKnowledgeBaseStatsResponse describeKnowledgeBaseStats(const Models::DescribeKnowledgeBaseStatsRequest &request);
 
       /**
-       * @summary 获取知识库中的上传签名
+       * @summary Generates a signature to upload a document to a knowledge base.
        *
        * @param request DescribeKnowledgeBaseUploadSignatureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +586,7 @@ namespace Dms20250414
       Models::DescribeKnowledgeBaseUploadSignatureResponse describeKnowledgeBaseUploadSignatureWithOptions(const Models::DescribeKnowledgeBaseUploadSignatureRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取知识库中的上传签名
+       * @summary Generates a signature to upload a document to a knowledge base.
        *
        * @param request DescribeKnowledgeBaseUploadSignatureRequest
        * @return DescribeKnowledgeBaseUploadSignatureResponse
@@ -599,7 +611,7 @@ namespace Dms20250414
       Models::FileUploadCallbackResponse fileUploadCallback(const Models::FileUploadCallbackRequest &request);
 
       /**
-       * @summary 查询 Airflow
+       * @summary Queries the configuration and status of an Airflow instance.
        *
        * @param request GetAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +620,7 @@ namespace Dms20250414
       Models::GetAirflowResponse getAirflowWithOptions(const Models::GetAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 Airflow
+       * @summary Queries the configuration and status of an Airflow instance.
        *
        * @param request GetAirflowRequest
        * @return GetAirflowResponse
@@ -616,7 +628,11 @@ namespace Dms20250414
       Models::GetAirflowResponse getAirflow(const Models::GetAirflowRequest &request);
 
       /**
-       * @summary GetChatContent
+       * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+       *
+       * @description ## Request
+       * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+       * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
        *
        * @param request GetChatContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +641,11 @@ namespace Dms20250414
       FutureGenerator<Models::GetChatContentResponse> getChatContentWithSSE(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetChatContent
+       * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+       *
+       * @description ## Request
+       * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+       * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
        *
        * @param request GetChatContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -634,7 +654,11 @@ namespace Dms20250414
       Models::GetChatContentResponse getChatContentWithOptions(const Models::GetChatContentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary GetChatContent
+       * @summary Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+       *
+       * @description ## Request
+       * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+       * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
        *
        * @param request GetChatContentRequest
        * @return GetChatContentResponse
@@ -642,7 +666,7 @@ namespace Dms20250414
       Models::GetChatContentResponse getChatContent(const Models::GetChatContentRequest &request);
 
       /**
-       * @summary 获取主账号下的子账号信息
+       * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
        *
        * @param request GetDataAgentSubAccountInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +675,7 @@ namespace Dms20250414
       Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfoWithOptions(const Models::GetDataAgentSubAccountInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取主账号下的子账号信息
+       * @summary Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
        *
        * @param request GetDataAgentSubAccountInfoRequest
        * @return GetDataAgentSubAccountInfoResponse
@@ -659,7 +683,7 @@ namespace Dms20250414
       Models::GetDataAgentSubAccountInfoResponse getDataAgentSubAccountInfo(const Models::GetDataAgentSubAccountInfoRequest &request);
 
       /**
-       * @summary 获取空间信息
+       * @summary Retrieves workspace details.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -668,7 +692,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfoWithOptions(const Models::GetDataAgentWorkspaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取空间信息
+       * @summary Retrieves workspace details.
        *
        * @param request GetDataAgentWorkspaceInfoRequest
        * @return GetDataAgentWorkspaceInfoResponse
@@ -676,7 +700,7 @@ namespace Dms20250414
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfo(const Models::GetDataAgentWorkspaceInfoRequest &request);
 
       /**
-       * @summary 获取uc的数据库目录
+       * @summary Retrieves the data catalog of a data lake.
        *
        * @param request GetDataLakeCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -685,7 +709,7 @@ namespace Dms20250414
       Models::GetDataLakeCatalogResponse getDataLakeCatalogWithOptions(const Models::GetDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取uc的数据库目录
+       * @summary Retrieves the data catalog of a data lake.
        *
        * @param request GetDataLakeCatalogRequest
        * @return GetDataLakeCatalogResponse
@@ -693,7 +717,7 @@ namespace Dms20250414
       Models::GetDataLakeCatalogResponse getDataLakeCatalog(const Models::GetDataLakeCatalogRequest &request);
 
       /**
-       * @summary 获取UC的数据库
+       * @summary Retrieves information about a database in a data lake.
        *
        * @param request GetDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -702,7 +726,7 @@ namespace Dms20250414
       Models::GetDataLakeDatabaseResponse getDataLakeDatabaseWithOptions(const Models::GetDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取UC的数据库
+       * @summary Retrieves information about a database in a data lake.
        *
        * @param request GetDataLakeDatabaseRequest
        * @return GetDataLakeDatabaseResponse
@@ -710,7 +734,7 @@ namespace Dms20250414
       Models::GetDataLakeDatabaseResponse getDataLakeDatabase(const Models::GetDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 获取湖仓自定义函数详细信息
+       * @summary Retrieves the details of a user-defined function in a data lake.
        *
        * @param request GetDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -719,7 +743,7 @@ namespace Dms20250414
       Models::GetDataLakeFunctionResponse getDataLakeFunctionWithOptions(const Models::GetDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取湖仓自定义函数详细信息
+       * @summary Retrieves the details of a user-defined function in a data lake.
        *
        * @param request GetDataLakeFunctionRequest
        * @return GetDataLakeFunctionResponse
@@ -727,7 +751,7 @@ namespace Dms20250414
       Models::GetDataLakeFunctionResponse getDataLakeFunction(const Models::GetDataLakeFunctionRequest &request);
 
       /**
-       * @summary 获取湖仓表分区详情
+       * @summary Retrieves the details of a data lakehouse table partition.
        *
        * @param tmpReq GetDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -736,7 +760,7 @@ namespace Dms20250414
       Models::GetDataLakePartitionResponse getDataLakePartitionWithOptions(const Models::GetDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取湖仓表分区详情
+       * @summary Retrieves the details of a data lakehouse table partition.
        *
        * @param request GetDataLakePartitionRequest
        * @return GetDataLakePartitionResponse
@@ -744,7 +768,7 @@ namespace Dms20250414
       Models::GetDataLakePartitionResponse getDataLakePartition(const Models::GetDataLakePartitionRequest &request);
 
       /**
-       * @summary 获取表信息
+       * @summary Retrieves information about a table in a data lake.
        *
        * @param request GetDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -753,7 +777,7 @@ namespace Dms20250414
       Models::GetDataLakeTableResponse getDataLakeTableWithOptions(const Models::GetDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表信息
+       * @summary Retrieves information about a table in a data lake.
        *
        * @param request GetDataLakeTableRequest
        * @return GetDataLakeTableResponse
@@ -761,7 +785,7 @@ namespace Dms20250414
       Models::GetDataLakeTableResponse getDataLakeTable(const Models::GetDataLakeTableRequest &request);
 
       /**
-       * @summary 调度运行Notebook文件
+       * @summary Submits a task to schedule and run a Notebook file.
        *
        * @param request GetNotebookAndSubmitTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -770,7 +794,7 @@ namespace Dms20250414
       Models::GetNotebookAndSubmitTaskResponse getNotebookAndSubmitTaskWithOptions(const Models::GetNotebookAndSubmitTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调度运行Notebook文件
+       * @summary Submits a task to schedule and run a Notebook file.
        *
        * @param request GetNotebookAndSubmitTaskRequest
        * @return GetNotebookAndSubmitTaskResponse
@@ -778,7 +802,7 @@ namespace Dms20250414
       Models::GetNotebookAndSubmitTaskResponse getNotebookAndSubmitTask(const Models::GetNotebookAndSubmitTaskRequest &request);
 
       /**
-       * @summary 查看Notebook任务运行结果
+       * @summary Retrieves the execution status of a Notebook task.
        *
        * @param request GetNotebookTaskStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -787,7 +811,7 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatusWithOptions(const Models::GetNotebookTaskStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看Notebook任务运行结果
+       * @summary Retrieves the execution status of a Notebook task.
        *
        * @param request GetNotebookTaskStatusRequest
        * @return GetNotebookTaskStatusResponse
@@ -795,7 +819,9 @@ namespace Dms20250414
       Models::GetNotebookTaskStatusResponse getNotebookTaskStatus(const Models::GetNotebookTaskStatusRequest &request);
 
       /**
-       * @summary 读取工作空间的代码文件内容
+       * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+       *
+       * @description Retrieves the content of a specified code file from a workspace.
        *
        * @param request GetWorkspaceCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -804,7 +830,9 @@ namespace Dms20250414
       Models::GetWorkspaceCodeResponse getWorkspaceCodeWithOptions(const Models::GetWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 读取工作空间的代码文件内容
+       * @summary Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+       *
+       * @description Retrieves the content of a specified code file from a workspace.
        *
        * @param request GetWorkspaceCodeRequest
        * @return GetWorkspaceCodeResponse
@@ -812,7 +840,9 @@ namespace Dms20250414
       Models::GetWorkspaceCodeResponse getWorkspaceCode(const Models::GetWorkspaceCodeRequest &request);
 
       /**
-       * @summary 获取工作空间发布配置
+       * @summary Retrieves the deployment configuration of a workspace.
+       *
+       * @description This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
        *
        * @param request GetWorkspaceCodePublishSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -821,7 +851,9 @@ namespace Dms20250414
       Models::GetWorkspaceCodePublishSettingResponse getWorkspaceCodePublishSettingWithOptions(const Models::GetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间发布配置
+       * @summary Retrieves the deployment configuration of a workspace.
+       *
+       * @description This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
        *
        * @param request GetWorkspaceCodePublishSettingRequest
        * @return GetWorkspaceCodePublishSettingResponse
@@ -829,7 +861,9 @@ namespace Dms20250414
       Models::GetWorkspaceCodePublishSettingResponse getWorkspaceCodePublishSetting(const Models::GetWorkspaceCodePublishSettingRequest &request);
 
       /**
-       * @summary 获取工作空间配额
+       * @summary Returns the quota for a workspace.
+       *
+       * @description Retrieves the resource quotas and instance status for a workspace.
        *
        * @param request GetWorkspaceQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -838,7 +872,9 @@ namespace Dms20250414
       Models::GetWorkspaceQuotaResponse getWorkspaceQuotaWithOptions(const Models::GetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取工作空间配额
+       * @summary Returns the quota for a workspace.
+       *
+       * @description Retrieves the resource quotas and instance status for a workspace.
        *
        * @param request GetWorkspaceQuotaRequest
        * @return GetWorkspaceQuotaResponse
@@ -846,7 +882,9 @@ namespace Dms20250414
       Models::GetWorkspaceQuotaResponse getWorkspaceQuota(const Models::GetWorkspaceQuotaRequest &request);
 
       /**
-       * @summary 获取可用的Airflow版本列表
+       * @summary Lists the available Airflow versions.
+       *
+       * @description Lists the available Airflow versions.
        *
        * @param request ListAirflowVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -855,7 +893,9 @@ namespace Dms20250414
       Models::ListAirflowVersionsResponse listAirflowVersionsWithOptions(const Models::ListAirflowVersionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取可用的Airflow版本列表
+       * @summary Lists the available Airflow versions.
+       *
+       * @description Lists the available Airflow versions.
        *
        * @param request ListAirflowVersionsRequest
        * @return ListAirflowVersionsResponse
@@ -863,7 +903,7 @@ namespace Dms20250414
       Models::ListAirflowVersionsResponse listAirflowVersions(const Models::ListAirflowVersionsRequest &request);
 
       /**
-       * @summary 列出资源Airflow
+       * @summary Retrieves a list of Airflow instances in a workspace.
        *
        * @param request ListAirflowsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -872,7 +912,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflowsWithOptions(const Models::ListAirflowsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出资源Airflow
+       * @summary Retrieves a list of Airflow instances in a workspace.
        *
        * @param request ListAirflowsRequest
        * @return ListAirflowsResponse
@@ -880,7 +920,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
 
       /**
-       * @summary ListCustomAgent
+       * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
        *
        * @param request ListCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -889,7 +929,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListCustomAgent
+       * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
        *
        * @param request ListCustomAgentRequest
        * @return ListCustomAgentResponse
@@ -897,7 +937,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
 
       /**
-       * @summary ListDataAgentSession
+       * @summary Retrieve a list of Data Agent session descriptions.
        *
        * @param request ListDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -906,7 +946,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSessionWithOptions(const Models::ListDataAgentSessionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListDataAgentSession
+       * @summary Retrieve a list of Data Agent session descriptions.
        *
        * @param request ListDataAgentSessionRequest
        * @return ListDataAgentSessionResponse
@@ -914,7 +954,7 @@ namespace Dms20250414
       Models::ListDataAgentSessionResponse listDataAgentSession(const Models::ListDataAgentSessionRequest &request);
 
       /**
-       * @summary 获取主账号下的空间（分页）
+       * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -923,7 +963,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspaceWithOptions(const Models::ListDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取主账号下的空间（分页）
+       * @summary Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
        *
        * @param request ListDataAgentWorkspaceRequest
        * @return ListDataAgentWorkspaceResponse
@@ -931,7 +971,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceResponse listDataAgentWorkspace(const Models::ListDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 获取空间所有成员
+       * @summary Lists all members in a workspace.
        *
        * @param request ListDataAgentWorkspaceMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -940,7 +980,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMemberWithOptions(const Models::ListDataAgentWorkspaceMemberRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取空间所有成员
+       * @summary Lists all members in a workspace.
        *
        * @param request ListDataAgentWorkspaceMemberRequest
        * @return ListDataAgentWorkspaceMemberResponse
@@ -948,7 +988,7 @@ namespace Dms20250414
       Models::ListDataAgentWorkspaceMemberResponse listDataAgentWorkspaceMember(const Models::ListDataAgentWorkspaceMemberRequest &request);
 
       /**
-       * @summary ListDataCenterDatabase
+       * @summary Lists user-uploaded files in a data center, excluding databases.
        *
        * @param request ListDataCenterDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -957,7 +997,7 @@ namespace Dms20250414
       Models::ListDataCenterDatabaseResponse listDataCenterDatabaseWithOptions(const Models::ListDataCenterDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListDataCenterDatabase
+       * @summary Lists user-uploaded files in a data center, excluding databases.
        *
        * @param request ListDataCenterDatabaseRequest
        * @return ListDataCenterDatabaseResponse
@@ -965,7 +1005,7 @@ namespace Dms20250414
       Models::ListDataCenterDatabaseResponse listDataCenterDatabase(const Models::ListDataCenterDatabaseRequest &request);
 
       /**
-       * @summary ListDataCenterTable
+       * @summary Retrieves a list of user-uploaded tables from the data center, for file types only.
        *
        * @param request ListDataCenterTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -974,7 +1014,7 @@ namespace Dms20250414
       Models::ListDataCenterTableResponse listDataCenterTableWithOptions(const Models::ListDataCenterTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListDataCenterTable
+       * @summary Retrieves a list of user-uploaded tables from the data center, for file types only.
        *
        * @param request ListDataCenterTableRequest
        * @return ListDataCenterTableResponse
@@ -982,7 +1022,7 @@ namespace Dms20250414
       Models::ListDataCenterTableResponse listDataCenterTable(const Models::ListDataCenterTableRequest &request);
 
       /**
-       * @summary 获取uc的数据库目录列表
+       * @summary Retrieves a list of data lake catalogs.
        *
        * @param request ListDataLakeCatalogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -991,7 +1031,7 @@ namespace Dms20250414
       Models::ListDataLakeCatalogResponse listDataLakeCatalogWithOptions(const Models::ListDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取uc的数据库目录列表
+       * @summary Retrieves a list of data lake catalogs.
        *
        * @param request ListDataLakeCatalogRequest
        * @return ListDataLakeCatalogResponse
@@ -999,7 +1039,7 @@ namespace Dms20250414
       Models::ListDataLakeCatalogResponse listDataLakeCatalog(const Models::ListDataLakeCatalogRequest &request);
 
       /**
-       * @summary 获取数据库列表
+       * @summary Retrieves a list of databases in a data lake.
        *
        * @param request ListDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1008,7 +1048,7 @@ namespace Dms20250414
       Models::ListDataLakeDatabaseResponse listDataLakeDatabaseWithOptions(const Models::ListDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据库列表
+       * @summary Retrieves a list of databases in a data lake.
        *
        * @param request ListDataLakeDatabaseRequest
        * @return ListDataLakeDatabaseResponse
@@ -1016,7 +1056,7 @@ namespace Dms20250414
       Models::ListDataLakeDatabaseResponse listDataLakeDatabase(const Models::ListDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 获取数据湖函数列表
+       * @summary Retrieves a list of data lake functions.
        *
        * @param request ListDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1025,7 +1065,7 @@ namespace Dms20250414
       Models::ListDataLakeFunctionResponse listDataLakeFunctionWithOptions(const Models::ListDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖函数列表
+       * @summary Retrieves a list of data lake functions.
        *
        * @param request ListDataLakeFunctionRequest
        * @return ListDataLakeFunctionResponse
@@ -1033,7 +1073,7 @@ namespace Dms20250414
       Models::ListDataLakeFunctionResponse listDataLakeFunction(const Models::ListDataLakeFunctionRequest &request);
 
       /**
-       * @summary 获取数据湖函数名列表
+       * @summary Retrieves a list of data lake function names.
        *
        * @param request ListDataLakeFunctionNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1042,7 +1082,7 @@ namespace Dms20250414
       Models::ListDataLakeFunctionNameResponse listDataLakeFunctionNameWithOptions(const Models::ListDataLakeFunctionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖函数名列表
+       * @summary Retrieves a list of data lake function names.
        *
        * @param request ListDataLakeFunctionNameRequest
        * @return ListDataLakeFunctionNameResponse
@@ -1050,7 +1090,7 @@ namespace Dms20250414
       Models::ListDataLakeFunctionNameResponse listDataLakeFunctionName(const Models::ListDataLakeFunctionNameRequest &request);
 
       /**
-       * @summary 获取数据湖表分区列表
+       * @summary Retrieves the list of partitions of a data lake table.
        *
        * @param tmpReq ListDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1059,7 +1099,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionResponse listDataLakePartitionWithOptions(const Models::ListDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表分区列表
+       * @summary Retrieves the list of partitions of a data lake table.
        *
        * @param request ListDataLakePartitionRequest
        * @return ListDataLakePartitionResponse
@@ -1067,7 +1107,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionResponse listDataLakePartition(const Models::ListDataLakePartitionRequest &request);
 
       /**
-       * @summary 根据筛选条件获取数据湖表分区列表
+       * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
        *
        * @param request ListDataLakePartitionByFilterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1076,7 +1116,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilterWithOptions(const Models::ListDataLakePartitionByFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据筛选条件获取数据湖表分区列表
+       * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
        *
        * @param request ListDataLakePartitionByFilterRequest
        * @return ListDataLakePartitionByFilterResponse
@@ -1084,7 +1124,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilter(const Models::ListDataLakePartitionByFilterRequest &request);
 
       /**
-       * @summary 获取数据湖表分区名列表
+       * @summary Retrieves a list of partition names for a data lake table.
        *
        * @param request ListDataLakePartitionNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1093,7 +1133,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionNameResponse listDataLakePartitionNameWithOptions(const Models::ListDataLakePartitionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表分区名列表
+       * @summary Retrieves a list of partition names for a data lake table.
        *
        * @param request ListDataLakePartitionNameRequest
        * @return ListDataLakePartitionNameResponse
@@ -1101,7 +1141,7 @@ namespace Dms20250414
       Models::ListDataLakePartitionNameResponse listDataLakePartitionName(const Models::ListDataLakePartitionNameRequest &request);
 
       /**
-       * @summary 获取数据湖表列表
+       * @summary Retrieves a list of data lake tables.
        *
        * @param request ListDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1110,7 +1150,7 @@ namespace Dms20250414
       Models::ListDataLakeTableResponse listDataLakeTableWithOptions(const Models::ListDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表列表
+       * @summary Retrieves a list of data lake tables.
        *
        * @param request ListDataLakeTableRequest
        * @return ListDataLakeTableResponse
@@ -1118,7 +1158,7 @@ namespace Dms20250414
       Models::ListDataLakeTableResponse listDataLakeTable(const Models::ListDataLakeTableRequest &request);
 
       /**
-       * @summary 获取数据湖表名列表
+       * @summary Retrieves a list of data lake table names.
        *
        * @param request ListDataLakeTableNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1127,7 +1167,7 @@ namespace Dms20250414
       Models::ListDataLakeTableNameResponse listDataLakeTableNameWithOptions(const Models::ListDataLakeTableNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据湖表名列表
+       * @summary Retrieves a list of data lake table names.
        *
        * @param request ListDataLakeTableNameRequest
        * @return ListDataLakeTableNameResponse
@@ -1135,7 +1175,7 @@ namespace Dms20250414
       Models::ListDataLakeTableNameResponse listDataLakeTableName(const Models::ListDataLakeTableNameRequest &request);
 
       /**
-       * @summary 获取表信息
+       * @summary Retrieves the basic information about tables in a data lake.
        *
        * @param request ListDataLakeTablebaseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1144,7 +1184,7 @@ namespace Dms20250414
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfoWithOptions(const Models::ListDataLakeTablebaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取表信息
+       * @summary Retrieves the basic information about tables in a data lake.
        *
        * @param request ListDataLakeTablebaseInfoRequest
        * @return ListDataLakeTablebaseInfoResponse
@@ -1152,7 +1192,7 @@ namespace Dms20250414
       Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(const Models::ListDataLakeTablebaseInfoRequest &request);
 
       /**
-       * @summary 分页查询onemeta3.0的知识库chunks
+       * @summary Queries a list of chunks.
        *
        * @param request ListDocumentChunksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1161,7 +1201,7 @@ namespace Dms20250414
       Models::ListDocumentChunksResponse listDocumentChunksWithOptions(const Models::ListDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询onemeta3.0的知识库chunks
+       * @summary Queries a list of chunks.
        *
        * @param request ListDocumentChunksRequest
        * @return ListDocumentChunksResponse
@@ -1169,7 +1209,7 @@ namespace Dms20250414
       Models::ListDocumentChunksResponse listDocumentChunks(const Models::ListDocumentChunksRequest &request);
 
       /**
-       * @summary 获取文档列表
+       * @summary Lists the documents in a knowledge base.
        *
        * @param request ListDocumentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1178,7 +1218,7 @@ namespace Dms20250414
       Models::ListDocumentsResponse listDocumentsWithOptions(const Models::ListDocumentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文档列表
+       * @summary Lists the documents in a knowledge base.
        *
        * @param request ListDocumentsRequest
        * @return ListDocumentsResponse
@@ -1203,7 +1243,7 @@ namespace Dms20250414
       Models::ListFileUploadResponse listFileUpload(const Models::ListFileUploadRequest &request);
 
       /**
-       * @summary 分页查询onemeta3.0的知识库
+       * @summary Returns a paginated list of knowledge bases.
        *
        * @param request ListKnowledgeBasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1212,7 +1252,7 @@ namespace Dms20250414
       Models::ListKnowledgeBasesResponse listKnowledgeBasesWithOptions(const Models::ListKnowledgeBasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 分页查询onemeta3.0的知识库
+       * @summary Returns a paginated list of knowledge bases.
        *
        * @param request ListKnowledgeBasesRequest
        * @return ListKnowledgeBasesResponse
@@ -1220,7 +1260,9 @@ namespace Dms20250414
       Models::ListKnowledgeBasesResponse listKnowledgeBases(const Models::ListKnowledgeBasesRequest &request);
 
       /**
-       * @summary 列出工作空间目录下的code文件
+       * @summary Lists code files and directories at a specified path in a workspace.
+       *
+       * @description This operation lists the code files and directories at a specified path in a workspace.
        *
        * @param request ListWorkspaceCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1271,9 @@ namespace Dms20250414
       Models::ListWorkspaceCodeResponse listWorkspaceCodeWithOptions(const Models::ListWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 列出工作空间目录下的code文件
+       * @summary Lists code files and directories at a specified path in a workspace.
+       *
+       * @description This operation lists the code files and directories at a specified path in a workspace.
        *
        * @param request ListWorkspaceCodeRequest
        * @return ListWorkspaceCodeResponse
@@ -1237,7 +1281,7 @@ namespace Dms20250414
       Models::ListWorkspaceCodeResponse listWorkspaceCode(const Models::ListWorkspaceCodeRequest &request);
 
       /**
-       * @summary ModifyCustomAgent
+       * @summary Modify a custom agent in a personal space or workspace
        *
        * @param tmpReq ModifyCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1246,7 +1290,7 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgentWithOptions(const Models::ModifyCustomAgentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ModifyCustomAgent
+       * @summary Modify a custom agent in a personal space or workspace
        *
        * @param request ModifyCustomAgentRequest
        * @return ModifyCustomAgentResponse
@@ -1254,7 +1298,7 @@ namespace Dms20250414
       Models::ModifyCustomAgentResponse modifyCustomAgent(const Models::ModifyCustomAgentRequest &request);
 
       /**
-       * @summary OperateCustomAgent
+       * @summary Operate custom agents in personal spaces and workspaces.
        *
        * @param request OperateCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1307,7 @@ namespace Dms20250414
       Models::OperateCustomAgentResponse operateCustomAgentWithOptions(const Models::OperateCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary OperateCustomAgent
+       * @summary Operate custom agents in personal spaces and workspaces.
        *
        * @param request OperateCustomAgentRequest
        * @return OperateCustomAgentResponse
@@ -1271,7 +1315,9 @@ namespace Dms20250414
       Models::OperateCustomAgentResponse operateCustomAgent(const Models::OperateCustomAgentRequest &request);
 
       /**
-       * @summary 重新部署Airflow实例
+       * @summary Redeploy an Airflow instance
+       *
+       * @description Redeploys an Airflow instance.
        *
        * @param request RedeployAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1326,9 @@ namespace Dms20250414
       Models::RedeployAirflowResponse redeployAirflowWithOptions(const Models::RedeployAirflowRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重新部署Airflow实例
+       * @summary Redeploy an Airflow instance
+       *
+       * @description Redeploys an Airflow instance.
        *
        * @param request RedeployAirflowRequest
        * @return RedeployAirflowResponse
@@ -1288,7 +1336,7 @@ namespace Dms20250414
       Models::RedeployAirflowResponse redeployAirflow(const Models::RedeployAirflowRequest &request);
 
       /**
-       * @summary 从空间中移除用户
+       * @summary Removes a user from a workspace.
        *
        * @param request RemoveUserToDataAgentWorkspaceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1297,7 +1345,7 @@ namespace Dms20250414
       Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspaceWithOptions(const Models::RemoveUserToDataAgentWorkspaceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 从空间中移除用户
+       * @summary Removes a user from a workspace.
        *
        * @param request RemoveUserToDataAgentWorkspaceRequest
        * @return RemoveUserToDataAgentWorkspaceResponse
@@ -1305,7 +1353,7 @@ namespace Dms20250414
       Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspace(const Models::RemoveUserToDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary 检索知识库
+       * @summary Query a knowledge base
        *
        * @param request RetrieveKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1314,7 +1362,7 @@ namespace Dms20250414
       Models::RetrieveKnowledgeBaseResponse retrieveKnowledgeBaseWithOptions(const Models::RetrieveKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检索知识库
+       * @summary Query a knowledge base
        *
        * @param request RetrieveKnowledgeBaseRequest
        * @return RetrieveKnowledgeBaseResponse
@@ -1322,7 +1370,9 @@ namespace Dms20250414
       Models::RetrieveKnowledgeBaseResponse retrieveKnowledgeBase(const Models::RetrieveKnowledgeBaseRequest &request);
 
       /**
-       * @summary 保存工作空间代码，如果文件不存在则自动新建
+       * @summary Saves code in a workspace and creates the file if it does not exist.
+       *
+       * @description Saves code in a workspace and optionally publishes it to a repository.
        *
        * @param request SaveWorkspaceCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1331,7 +1381,9 @@ namespace Dms20250414
       Models::SaveWorkspaceCodeResponse saveWorkspaceCodeWithOptions(const Models::SaveWorkspaceCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存工作空间代码，如果文件不存在则自动新建
+       * @summary Saves code in a workspace and creates the file if it does not exist.
+       *
+       * @description Saves code in a workspace and optionally publishes it to a repository.
        *
        * @param request SaveWorkspaceCodeRequest
        * @return SaveWorkspaceCodeResponse
@@ -1339,7 +1391,15 @@ namespace Dms20250414
       Models::SaveWorkspaceCodeResponse saveWorkspaceCode(const Models::SaveWorkspaceCodeRequest &request);
 
       /**
-       * @summary SendChatMessage
+       * @summary Sends a user message to a specified session or ends the session.
+       *
+       * @description ## Request
+       * - The `agent_id` and `session_id` fields are required.
+       * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+       * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+       * - When `message_type` is `additional`, the `question` field is required.
+       * - Use the `quoted_message` field to reference a previous user message.
+       * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
        *
        * @param tmpReq SendChatMessageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1348,7 +1408,15 @@ namespace Dms20250414
       Models::SendChatMessageResponse sendChatMessageWithOptions(const Models::SendChatMessageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary SendChatMessage
+       * @summary Sends a user message to a specified session or ends the session.
+       *
+       * @description ## Request
+       * - The `agent_id` and `session_id` fields are required.
+       * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+       * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+       * - When `message_type` is `additional`, the `question` field is required.
+       * - Use the `quoted_message` field to reference a previous user message.
+       * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
@@ -1356,7 +1424,9 @@ namespace Dms20250414
       Models::SendChatMessageResponse sendChatMessage(const Models::SendChatMessageRequest &request);
 
       /**
-       * @summary 设置工作空间代码发布配置
+       * @summary Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+       *
+       * @description Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
        *
        * @param request SetWorkspaceCodePublishSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1365,7 +1435,9 @@ namespace Dms20250414
       Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSettingWithOptions(const Models::SetWorkspaceCodePublishSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置工作空间代码发布配置
+       * @summary Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+       *
+       * @description Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
        *
        * @param request SetWorkspaceCodePublishSettingRequest
        * @return SetWorkspaceCodePublishSettingResponse
@@ -1373,7 +1445,9 @@ namespace Dms20250414
       Models::SetWorkspaceCodePublishSettingResponse setWorkspaceCodePublishSetting(const Models::SetWorkspaceCodePublishSettingRequest &request);
 
       /**
-       * @summary 设置工作空间配额
+       * @summary Sets the quota for a workspace.
+       *
+       * @description Sets the quota for a specific workspace.
        *
        * @param request SetWorkspaceQuotaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1382,7 +1456,9 @@ namespace Dms20250414
       Models::SetWorkspaceQuotaResponse setWorkspaceQuotaWithOptions(const Models::SetWorkspaceQuotaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置工作空间配额
+       * @summary Sets the quota for a workspace.
+       *
+       * @description Sets the quota for a specific workspace.
        *
        * @param request SetWorkspaceQuotaRequest
        * @return SetWorkspaceQuotaResponse
@@ -1390,7 +1466,7 @@ namespace Dms20250414
       Models::SetWorkspaceQuotaResponse setWorkspaceQuota(const Models::SetWorkspaceQuotaRequest &request);
 
       /**
-       * @summary 更新UpdateAirflow
+       * @summary Updates the properties of an Airflow instance.
        *
        * @param tmpReq UpdateAirflowRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1399,7 +1475,7 @@ namespace Dms20250414
       Models::UpdateAirflowResponse updateAirflowWithOptions(const Models::UpdateAirflowRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新UpdateAirflow
+       * @summary Updates the properties of an Airflow instance.
        *
        * @param request UpdateAirflowRequest
        * @return UpdateAirflowResponse
@@ -1407,7 +1483,7 @@ namespace Dms20250414
       Models::UpdateAirflowResponse updateAirflow(const Models::UpdateAirflowRequest &request);
 
       /**
-       * @summary 更新空间的信息
+       * @summary Updates workspace information.
        *
        * @param request UpdateDataAgentSpaceInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1416,7 +1492,7 @@ namespace Dms20250414
       Models::UpdateDataAgentSpaceInfoResponse updateDataAgentSpaceInfoWithOptions(const Models::UpdateDataAgentSpaceInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新空间的信息
+       * @summary Updates workspace information.
        *
        * @param request UpdateDataAgentSpaceInfoRequest
        * @return UpdateDataAgentSpaceInfoResponse
@@ -1424,7 +1500,7 @@ namespace Dms20250414
       Models::UpdateDataAgentSpaceInfoResponse updateDataAgentSpaceInfo(const Models::UpdateDataAgentSpaceInfoRequest &request);
 
       /**
-       * @summary 调整空间成员的角色
+       * @summary Changes the role of a workspace member.
        *
        * @param request UpdateDataAgentWorkspaceMemberRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1509,7 @@ namespace Dms20250414
       Models::UpdateDataAgentWorkspaceMemberRoleResponse updateDataAgentWorkspaceMemberRoleWithOptions(const Models::UpdateDataAgentWorkspaceMemberRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调整空间成员的角色
+       * @summary Changes the role of a workspace member.
        *
        * @param request UpdateDataAgentWorkspaceMemberRoleRequest
        * @return UpdateDataAgentWorkspaceMemberRoleResponse
@@ -1441,7 +1517,7 @@ namespace Dms20250414
       Models::UpdateDataAgentWorkspaceMemberRoleResponse updateDataAgentWorkspaceMemberRole(const Models::UpdateDataAgentWorkspaceMemberRoleRequest &request);
 
       /**
-       * @summary 更新湖仓数据库
+       * @summary Updates the information of a data lakehouse database.
        *
        * @param tmpReq UpdateDataLakeDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1450,7 +1526,7 @@ namespace Dms20250414
       Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabaseWithOptions(const Models::UpdateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓数据库
+       * @summary Updates the information of a data lakehouse database.
        *
        * @param request UpdateDataLakeDatabaseRequest
        * @return UpdateDataLakeDatabaseResponse
@@ -1458,7 +1534,7 @@ namespace Dms20250414
       Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabase(const Models::UpdateDataLakeDatabaseRequest &request);
 
       /**
-       * @summary 更新湖仓自定义函数
+       * @summary Update a user-defined function in a data lake.
        *
        * @param tmpReq UpdateDataLakeFunctionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1543,7 @@ namespace Dms20250414
       Models::UpdateDataLakeFunctionResponse updateDataLakeFunctionWithOptions(const Models::UpdateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓自定义函数
+       * @summary Update a user-defined function in a data lake.
        *
        * @param request UpdateDataLakeFunctionRequest
        * @return UpdateDataLakeFunctionResponse
@@ -1475,7 +1551,7 @@ namespace Dms20250414
       Models::UpdateDataLakeFunctionResponse updateDataLakeFunction(const Models::UpdateDataLakeFunctionRequest &request);
 
       /**
-       * @summary 更新湖仓表分区
+       * @summary Updates the partition information of a data lake table.
        *
        * @param tmpReq UpdateDataLakePartitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1484,7 +1560,7 @@ namespace Dms20250414
       Models::UpdateDataLakePartitionResponse updateDataLakePartitionWithOptions(const Models::UpdateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓表分区
+       * @summary Updates the partition information of a data lake table.
        *
        * @param request UpdateDataLakePartitionRequest
        * @return UpdateDataLakePartitionResponse
@@ -1492,7 +1568,7 @@ namespace Dms20250414
       Models::UpdateDataLakePartitionResponse updateDataLakePartition(const Models::UpdateDataLakePartitionRequest &request);
 
       /**
-       * @summary 更新湖仓表信息
+       * @summary Updates the information of a data lake table.
        *
        * @param tmpReq UpdateDataLakeTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1501,7 +1577,7 @@ namespace Dms20250414
       Models::UpdateDataLakeTableResponse updateDataLakeTableWithOptions(const Models::UpdateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新湖仓表信息
+       * @summary Updates the information of a data lake table.
        *
        * @param request UpdateDataLakeTableRequest
        * @return UpdateDataLakeTableResponse
@@ -1509,7 +1585,7 @@ namespace Dms20250414
       Models::UpdateDataLakeTableResponse updateDataLakeTable(const Models::UpdateDataLakeTableRequest &request);
 
       /**
-       * @summary 更新文档
+       * @summary Updates the description of a document.
        *
        * @param request UpdateDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1518,7 +1594,7 @@ namespace Dms20250414
       Models::UpdateDocumentResponse updateDocumentWithOptions(const Models::UpdateDocumentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新文档
+       * @summary Updates the description of a document.
        *
        * @param request UpdateDocumentRequest
        * @return UpdateDocumentResponse
@@ -1526,7 +1602,7 @@ namespace Dms20250414
       Models::UpdateDocumentResponse updateDocument(const Models::UpdateDocumentRequest &request);
 
       /**
-       * @summary 更新onemeta3.0的知识库
+       * @summary Updates a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1535,7 +1611,7 @@ namespace Dms20250414
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBaseWithOptions(const Models::UpdateKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新onemeta3.0的知识库
+       * @summary Updates a knowledge base.
        *
        * @param request UpdateKnowledgeBaseRequest
        * @return UpdateKnowledgeBaseResponse
@@ -1543,7 +1619,7 @@ namespace Dms20250414
       Models::UpdateKnowledgeBaseResponse updateKnowledgeBase(const Models::UpdateKnowledgeBaseRequest &request);
 
       /**
-       * @summary 上传文档
+       * @summary Uploads a document to a knowledge base.
        *
        * @param tmpReq UploadDocumentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1552,7 +1628,7 @@ namespace Dms20250414
       Models::UploadDocumentResponse uploadDocumentWithOptions(const Models::UploadDocumentRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 上传文档
+       * @summary Uploads a document to a knowledge base.
        *
        * @param request UploadDocumentRequest
        * @return UploadDocumentResponse
@@ -1560,7 +1636,7 @@ namespace Dms20250414
       Models::UploadDocumentResponse uploadDocument(const Models::UploadDocumentRequest &request);
 
       /**
-       * @summary 更新或插入onemeta3.0的知识库chunks
+       * @summary Upserts document chunks into a knowledge base.
        *
        * @param request UpsertDocumentChunksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1569,7 +1645,7 @@ namespace Dms20250414
       Models::UpsertDocumentChunksResponse upsertDocumentChunksWithOptions(const Models::UpsertDocumentChunksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新或插入onemeta3.0的知识库chunks
+       * @summary Upserts document chunks into a knowledge base.
        *
        * @param request UpsertDocumentChunksRequest
        * @return UpsertDocumentChunksResponse
@@ -1577,7 +1653,9 @@ namespace Dms20250414
       Models::UpsertDocumentChunksResponse upsertDocumentChunks(const Models::UpsertDocumentChunksRequest &request);
 
       /**
-       * @summary 工作空间异步操作日志查询接口
+       * @summary Queries the log of an asynchronous task in a workspace.
+       *
+       * @description Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
        *
        * @param request WorkspaceActionLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1586,7 +1664,9 @@ namespace Dms20250414
       Models::WorkspaceActionLogResponse workspaceActionLogWithOptions(const Models::WorkspaceActionLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工作空间异步操作日志查询接口
+       * @summary Queries the log of an asynchronous task in a workspace.
+       *
+       * @description Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
        *
        * @param request WorkspaceActionLogRequest
        * @return WorkspaceActionLogResponse
@@ -1594,7 +1674,9 @@ namespace Dms20250414
       Models::WorkspaceActionLogResponse workspaceActionLog(const Models::WorkspaceActionLogRequest &request);
 
       /**
-       * @summary 工作空间异步操作状态查询接口
+       * @summary Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+       *
+       * @description Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
        *
        * @param request WorkspaceActionStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1603,7 +1685,9 @@ namespace Dms20250414
       Models::WorkspaceActionStatusResponse workspaceActionStatusWithOptions(const Models::WorkspaceActionStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工作空间异步操作状态查询接口
+       * @summary Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+       *
+       * @description Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
        *
        * @param request WorkspaceActionStatusRequest
        * @return WorkspaceActionStatusResponse
@@ -1611,7 +1695,9 @@ namespace Dms20250414
       Models::WorkspaceActionStatusResponse workspaceActionStatus(const Models::WorkspaceActionStatusRequest &request);
 
       /**
-       * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+       * @summary This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+       *
+       * @description Deploys the code in a workspace.
        *
        * @param request WorkspaceCodePublishRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1620,7 +1706,9 @@ namespace Dms20250414
       Models::WorkspaceCodePublishResponse workspaceCodePublishWithOptions(const Models::WorkspaceCodePublishRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+       * @summary This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+       *
+       * @description Deploys the code in a workspace.
        *
        * @param request WorkspaceCodePublishRequest
        * @return WorkspaceCodePublishResponse

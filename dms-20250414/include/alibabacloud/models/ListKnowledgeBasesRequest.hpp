@@ -94,12 +94,32 @@ namespace Models
 
 
   protected:
+    // The filter conditions for the knowledge bases, specified as a JSON string. The only supported key is `state`. Valid values are `0` and `1`.
     shared_ptr<string> filters_ {};
+    // The maximum number of entries to return on each page. Use this parameter with the `NextToken` parameter to implement pagination.
     shared_ptr<int32_t> maxResults_ {};
+    // A keyword to search for in the names of knowledge bases.
     shared_ptr<string> namePattern_ {};
+    // The token used to retrieve the next page of results. Valid values:
+    // 
+    // - Omit this parameter for the first request.
+    // 
+    // - If the previous response returned a **NextToken** value, use it to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The sort field. Valid values:
+    // 
+    // - `id`: Sorts by knowledge base ID. This is the default.
+    // 
+    // - `name`: Sorts by knowledge base name.
     shared_ptr<string> sortFieldName_ {};
+    // The sort order. Valid values:
+    // 
+    // - **ASC**: Ascending order. This is the default.
+    // 
+    // - **DESC**: Descending order.
     shared_ptr<string> sortOrder_ {};
+    // The tag of the knowledge base. In DataAgent, this is the space ID.
+    // 
     // This parameter is required.
     shared_ptr<string> tag_ {};
   };

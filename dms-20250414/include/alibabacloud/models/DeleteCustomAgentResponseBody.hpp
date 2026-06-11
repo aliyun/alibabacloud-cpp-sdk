@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // Custom Agent ID
       shared_ptr<string> customAgentId_ {};
+      // Deletion operation message
       shared_ptr<string> message_ {};
+      // Is deletion successful?
       shared_ptr<bool> success_ {};
     };
 
@@ -129,11 +132,19 @@ namespace Models
 
 
   protected:
+    // Return struct
     shared_ptr<DeleteCustomAgentResponseBody::Data> data_ {};
+    // Error code
     shared_ptr<string> errorCode_ {};
+    // Returns an error message if the call fails.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // Return value description.
+    // 
+    // - **true**: Deletion successful.
+    // 
+    // - **false**: Deletion failed.
     shared_ptr<bool> success_ {};
   };
 

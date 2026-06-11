@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The name of the agent service.
     shared_ptr<string> agentService_ {};
+    // The deep research quota for the service.
     shared_ptr<int64_t> deepResearchQuota_ {};
+    // The model call quota for the service.
     shared_ptr<int64_t> modelCallQuota_ {};
+    // The order count for the agent service.
     shared_ptr<int32_t> orderCount_ {};
+    // The total number of services.
     shared_ptr<int32_t> serviceNumTotal_ {};
+    // The skill plan call quota for the service.
     shared_ptr<int64_t> skillPlanCallQuota_ {};
   };
 

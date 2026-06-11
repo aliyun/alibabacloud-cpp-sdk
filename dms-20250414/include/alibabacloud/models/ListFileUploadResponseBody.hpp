@@ -186,19 +186,33 @@ namespace Models
 
 
     protected:
+      // The ID of the Alibaba Cloud master account.
       shared_ptr<string> aliyunParentUid_ {};
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
+      // The public download link.
       shared_ptr<string> downloadLink_ {};
+      // The file category.
       shared_ptr<string> fileCategory_ {};
+      // The file source.
       shared_ptr<string> fileFrom_ {};
+      // The file ID.
       shared_ptr<string> fileId_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The file size, in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The file extension.
       shared_ptr<string> fileType_ {};
+      // The time when the file was created.
       shared_ptr<string> gmtCreated_ {};
+      // The internal download link.
       shared_ptr<string> intranetDownloadLink_ {};
+      // The region.
       shared_ptr<string> region_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The upload path.
       shared_ptr<string> uploadLocation_ {};
     };
 
@@ -242,11 +256,19 @@ namespace Models
 
 
   protected:
+    // The list of file objects.
     shared_ptr<vector<ListFileUploadResponseBody::Data>> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

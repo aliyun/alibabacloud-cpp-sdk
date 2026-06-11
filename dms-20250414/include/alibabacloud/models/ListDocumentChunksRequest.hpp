@@ -94,13 +94,35 @@ namespace Models
 
 
   protected:
+    // A filter pattern. The operation returns only the chunks whose titles contain this pattern.
     shared_ptr<string> chunkTitlePattern_ {};
+    // The name of the document.
     shared_ptr<string> documentName_ {};
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
+    // The maximum number of entries to return on each page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results. Omit this parameter to get the first page. If the response returns a `NextToken`, it indicates that more results are available. To get the next page, pass this `NextToken` value in the `NextToken` parameter of your next request. A null value for NextToken indicates that all results have been retrieved.
     shared_ptr<string> nextToken_ {};
+    // The sort field. Valid values:
+    // 
+    // - **id** (default): The chunk ID.
+    // 
+    // - **hits**: The number of hits.
+    // 
+    // - **modifyTime**: The modification time.
     shared_ptr<string> sortFieldName_ {};
+    // The sort order. Valid values:
+    // 
+    // - **ASC** (default): ascending order.
+    // 
+    // - **DESC**: descending order.
     shared_ptr<string> sortOrder_ {};
   };
 

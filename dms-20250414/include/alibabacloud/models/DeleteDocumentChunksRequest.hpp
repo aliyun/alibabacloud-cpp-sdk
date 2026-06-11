@@ -60,10 +60,16 @@ namespace Models
 
 
   protected:
+    // A list of chunk IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> chunkIds_ {};
+    // The name of the document.
+    // 
     // This parameter is required.
     shared_ptr<string> documentName_ {};
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
   };

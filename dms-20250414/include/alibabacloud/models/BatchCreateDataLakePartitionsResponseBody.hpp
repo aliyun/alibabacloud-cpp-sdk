@@ -79,10 +79,19 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The list of created partitions. This parameter is returned when the **NeedResult** parameter is set to **true**.
     shared_ptr<vector<DLPartition>> partitions_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The unique key that identifies the asynchronous task. You can obtain this key from the response of an operation, such as a deployment.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -79,10 +79,19 @@ namespace Models
 
 
   protected:
+    // A list of data catalogs.
     shared_ptr<vector<DLCatalog>> cataLogList_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - ******false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

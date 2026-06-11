@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable auto-payment for the order.
     shared_ptr<bool> autoPay_ {};
+    // A unique, client-generated token to ensure request idempotence. The token can contain only ASCII characters and must be no longer than 64 characters. For more information, see How to ensure idempotence.
     shared_ptr<string> clientToken_ {};
+    // The compute unit (CU) quota for the workspace.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> cuQuota_ {};
+    // The ID of the region.
+    // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The ID of the Data Management Service (DMS) workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

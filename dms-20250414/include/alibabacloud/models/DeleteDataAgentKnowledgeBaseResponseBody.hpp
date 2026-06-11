@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The ID of the deleted knowledge base.
       shared_ptr<string> kbUuid_ {};
     };
 
@@ -108,11 +109,19 @@ namespace Models
 
 
   protected:
+    // The data returned by the operation.
     shared_ptr<DeleteDataAgentKnowledgeBaseResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

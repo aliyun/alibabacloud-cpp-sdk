@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
   };

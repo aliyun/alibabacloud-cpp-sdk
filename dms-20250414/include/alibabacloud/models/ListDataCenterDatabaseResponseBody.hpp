@@ -204,20 +204,58 @@ namespace Models
 
 
     protected:
+      // The description of the database.
       shared_ptr<string> databaseDesc_ {};
+      // The name of the database.
+      // 
+      // - If `ImportType` is `FILE`, this is the file name.
       shared_ptr<string> databaseName_ {};
+      // The ID of the database.
       shared_ptr<string> dbId_ {};
+      // - If `ImportType` is `FILE`:
+      // 
+      //   - The file format, such as `csv`, `xlsx`, or `xls`.
       shared_ptr<string> dbType_ {};
+      // The time the database description was last updated.
       shared_ptr<string> descUpdateTime_ {};
+      // The ID of the database in DMS.
+      // 
+      // - This parameter is not returned if `ImportType` is `FILE`.
       shared_ptr<int64_t> dmsDbId_ {};
+      // The ID of the DMS instance that manages the database.
+      // 
+      // - This parameter is not returned if `ImportType` is `FILE`.
       shared_ptr<int64_t> dmsInstanceId_ {};
       shared_ptr<string> downloadLink_ {};
+      // The time the entry was created.
       shared_ptr<string> gmtCreated_ {};
+      // The import type. Valid values:
+      // 
+      // - FILE
+      // 
+      // - RDS
+      // 
+      // - ADB
+      // 
+      // - PolarDB
+      // 
+      // - Hologres
+      // 
+      // - DMS
       shared_ptr<string> importType_ {};
+      // The name of the instance.
+      // 
+      // - If `ImportType` is `FILE`, this parameter specifies the file ID in the data center.
       shared_ptr<string> instanceName_ {};
       shared_ptr<string> intranetDownloadLink_ {};
+      // Indicates whether the dataset is built-in. Valid values:
+      // 
+      // - Y: The dataset is built-in.
+      // 
+      // - N: The dataset is not built-in.
       shared_ptr<string> isInternal_ {};
       shared_ptr<string> ossBucket_ {};
+      // The size of the file, in bytes.
       shared_ptr<int64_t> size_ {};
       shared_ptr<bool> useUserOssBucket_ {};
     };
@@ -262,11 +300,19 @@ namespace Models
 
 
   protected:
+    // The list of databases.
     shared_ptr<vector<ListDataCenterDatabaseResponseBody::Data>> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

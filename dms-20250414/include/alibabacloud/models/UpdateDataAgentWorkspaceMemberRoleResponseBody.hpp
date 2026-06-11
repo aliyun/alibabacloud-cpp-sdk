@@ -111,11 +111,17 @@ namespace Models
 
 
     protected:
+      // The time when the user joined the workspace. This is a UNIX timestamp in seconds.
       shared_ptr<int64_t> joinTime_ {};
+      // The UID of the member whose role was changed.
       shared_ptr<string> memberId_ {};
+      // The new role of the user.
       shared_ptr<string> roleName_ {};
+      // The number of running tasks for the user in the workspace.
       shared_ptr<int64_t> runningTaskNumber_ {};
+      // The total number of tasks for the user in the workspace.
       shared_ptr<int64_t> totalTaskNumber_ {};
+      // The RAM username.
       shared_ptr<string> userName_ {};
     };
 
@@ -159,10 +165,15 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<UpdateDataAgentWorkspaceMemberRoleResponseBody::Data> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

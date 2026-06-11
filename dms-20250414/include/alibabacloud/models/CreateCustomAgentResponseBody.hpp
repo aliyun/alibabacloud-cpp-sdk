@@ -160,8 +160,11 @@ namespace Models
 
 
       protected:
+        // The cron expression for the scheduled task.
         shared_ptr<string> cronExpression_ {};
+        // The query for the scheduled task.
         shared_ptr<string> query_ {};
+        // The ID of a previous session to be used as a template for the scheduled task.
         shared_ptr<string> relatedSessionId_ {};
       };
 
@@ -212,8 +215,12 @@ namespace Models
 
 
       protected:
+        // The access method.
+        // 
+        // - `mcp`: Connects using MCP.
         shared_ptr<string> accessType_ {};
         shared_ptr<string> kbUuid_ {};
+        // The ID of the MCP server.
         shared_ptr<string> mcpServerId_ {};
       };
 
@@ -273,9 +280,13 @@ namespace Models
 
 
       protected:
+        // Indicates whether to prevent the agent from asking the user for clarification during execution.
         shared_ptr<bool> skipAskHuman_ {};
+        // Indicates whether to skip the plan confirmation step.
         shared_ptr<bool> skipPlan_ {};
+        // Indicates whether to skip all SQL confirmations.
         shared_ptr<bool> skipSqlConfirm_ {};
+        // Indicates whether to skip the web report generation confirmation.
         shared_ptr<bool> skipWebReportConfirm_ {};
       };
 
@@ -570,34 +581,63 @@ namespace Models
 
 
     protected:
+      // The primary Alibaba Cloud account ID.
       shared_ptr<string> aliyunParentUid_ {};
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliyunUid_ {};
       shared_ptr<Data::CallbackConfig> callbackConfig_ {};
+      // The username of the creator.
       shared_ptr<string> creatorUserName_ {};
+      // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
+      // The current DMS unit.
       shared_ptr<string> DMSUnit_ {};
+      // The specified data scope, in a JSON string format.
       shared_ptr<string> dataJson_ {};
+      // The description of the custom agent.
       shared_ptr<string> description_ {};
+      // The current DMS unit.
       shared_ptr<string> dmsUnit_ {};
+      // The execution configuration.
       shared_ptr<Data::ExecutionConfig> executionConfig_ {};
+      // The creation time.
       shared_ptr<string> gmtCreated_ {};
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
+      // The instruction for the agent.
       shared_ptr<string> instruction_ {};
+      // Indicates whether a scheduled task is configured for the agent.
       shared_ptr<bool> isScheduleTask_ {};
+      // The knowledge for the agent.
       shared_ptr<string> knowledge_ {};
+      // A list of external knowledge bases.
       shared_ptr<vector<Data::KnowledgeConfigList>> knowledgeConfigList_ {};
+      // The ID of the user who last modified the agent.
       shared_ptr<string> modifier_ {};
+      // The username of the user who last modified the agent.
       shared_ptr<string> modifierUserName_ {};
+      // The name of the custom agent.
       shared_ptr<string> name_ {};
+      // The next run time of the scheduled task, formatted as a UNIX timestamp.
+      // 
+      // - Timestamp format
       shared_ptr<int64_t> nextRuntime_ {};
+      // The offline time.
       shared_ptr<string> offlineTime_ {};
+      // The region.
       shared_ptr<string> region_ {};
       shared_ptr<string> relatedSessionId_ {};
+      // The release time.
       shared_ptr<string> releaseTime_ {};
+      // The configuration of the scheduled task.
       shared_ptr<Data::ScheduleTaskConfig> scheduleTaskConfig_ {};
+      // The status of the custom agent.
       shared_ptr<string> status_ {};
+      // The format of the text report.
       shared_ptr<string> textReportConfig_ {};
+      // The format of the web report.
       shared_ptr<string> webReportConfig_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -641,11 +681,19 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<CreateCustomAgentResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

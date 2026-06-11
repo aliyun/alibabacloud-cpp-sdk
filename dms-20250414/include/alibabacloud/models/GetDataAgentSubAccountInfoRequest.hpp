@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The UID of the RAM user.
     shared_ptr<string> subAccountId_ {};
   };
 

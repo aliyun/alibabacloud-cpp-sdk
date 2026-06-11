@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The name of the mount directory. The actual mount path is prefixed with /Workspace/data/.
     shared_ptr<string> mountFolderName_ {};
+    // The name of the OSS bucket.
     shared_ptr<string> ossBucket_ {};
+    // The prefix. If this parameter is not specified, the root directory is used.
     shared_ptr<string> prefix_ {};
+    // Whether to mount the data volume as read-only.
+    // 
+    // Default value: false.
     shared_ptr<bool> readOnly_ {};
   };
 

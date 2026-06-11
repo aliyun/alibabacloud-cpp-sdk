@@ -94,15 +94,27 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The description of the database.
     shared_ptr<string> description_ {};
+    // The storage path of the database. Supported protocols include oss, s3, and s3a.
+    // 
     // This parameter is required.
     shared_ptr<string> location_ {};
+    // The key-value pairs of the database properties.
     shared_ptr<string> parametersShrink_ {};
+    // The tenant ID.
+    // 
+    // > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
     shared_ptr<int64_t> tid_ {};
+    // The workspace ID.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

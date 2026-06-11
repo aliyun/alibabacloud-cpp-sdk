@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The fully qualified name of the database. This name uniquely identifies the database within the system.
     shared_ptr<string> databaseQualifiedName_ {};
+    // The unique identifier (UUID) of the database that contains the object.
     shared_ptr<string> databaseUuid_ {};
+    // The Data Definition Language (DDL) SQL statement that defines the object\\"s structure.
     shared_ptr<string> ddlSql_ {};
+    // The name of the database object, such as a table, view, or index.
     shared_ptr<string> objectName_ {};
+    // The fully qualified name that uniquely identifies the object, typically formatted as <database>.<schema>.<object>.
     shared_ptr<string> objectQualifiedName_ {};
+    // The type of the database object. For example, `TABLE`, `VIEW`, or `INDEX`.
     shared_ptr<string> objectType_ {};
   };
 

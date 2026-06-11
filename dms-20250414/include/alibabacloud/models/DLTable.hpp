@@ -213,24 +213,43 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
     shared_ptr<string> catalogName_ {};
+    // The time when the table was created.
     shared_ptr<int32_t> createTime_ {};
+    // The ID of the table creator.
     shared_ptr<int64_t> creatorId_ {};
+    // The ID of the database to which the table belongs.
     shared_ptr<int64_t> dbId_ {};
+    // The name of the database to which the table belongs.
     shared_ptr<string> dbName_ {};
+    // The description of the table.
     shared_ptr<string> description_ {};
+    // The time when the table was last accessed.
     shared_ptr<int32_t> lastAccessTime_ {};
+    // The storage path of the table.
     shared_ptr<string> location_ {};
+    // The user who last modified the table.
     shared_ptr<int64_t> modifierId_ {};
+    // The name of the table.
     shared_ptr<string> name_ {};
+    // The name of the table owner.
     shared_ptr<string> owner_ {};
+    // The type of the owner. Valid values: USER, ROLE, and GROUP.
     shared_ptr<string> ownerType_ {};
+    // The key-value pairs of the parameters.
     Darabonba::Json parameters_ {};
+    // The list of partition keys.
     shared_ptr<vector<DLColumn>> partitionKeys_ {};
+    // The retention period of the table.
     shared_ptr<int32_t> retention_ {};
+    // The storage description, including the storage features and format details of the table.
     shared_ptr<DLStorageDescriptor> storageDescriptor_ {};
+    // The type of the metadata table, such as MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW, INDEX_TABLE, or MATERIALIZED_VIEW.
     shared_ptr<string> tableType_ {};
+    // The expanded text of the view if the table is a view.
     shared_ptr<string> viewExpandedText_ {};
+    // The original text of the view if the table is a view.
     shared_ptr<string> viewOriginalText_ {};
   };
 

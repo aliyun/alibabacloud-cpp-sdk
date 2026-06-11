@@ -174,20 +174,34 @@ namespace Models
 
 
   protected:
+    // The catalog name.
     shared_ptr<string> catalogName_ {};
+    // The catalog type.
     shared_ptr<string> catalogType_ {};
+    // The catalog UUID.
     shared_ptr<string> catalogUuid_ {};
+    // The data source type.
     shared_ptr<string> dataSourceType_ {};
+    // The business attributes of the database.
     Darabonba::Json databaseBizAttrs_ {};
+    // The database UUID.
     shared_ptr<string> databaseUuid_ {};
+    // The database description.
     shared_ptr<string> description_ {};
     shared_ptr<OneMetaDatabaseEngineMeta> engineMeta_ {};
+    // The database name.
     shared_ptr<string> name_ {};
+    // The extended properties of the database.
     Darabonba::Json properties_ {};
+    // The qualified name of the database.
     shared_ptr<string> qualifiedName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The name used to search the database.
     shared_ptr<string> searchName_ {};
+    // The database state.
     shared_ptr<int32_t> state_ {};
+    // The database storage location.
     shared_ptr<string> storageLocation_ {};
   };
 

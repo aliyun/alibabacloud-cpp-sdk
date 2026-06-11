@@ -143,11 +143,17 @@ namespace Models
 
 
       protected:
+        // The time when the user joined the workspace. This is a UNIX timestamp in seconds.
         shared_ptr<string> joinTime_ {};
+        // The Alibaba Cloud UID of the user.
         shared_ptr<string> memberId_ {};
+        // The name of the user\\"s role in the workspace.
         shared_ptr<string> roleName_ {};
+        // The number of tasks that are running for the user in the workspace.
         shared_ptr<int64_t> runningTaskNumber_ {};
+        // The total number of tasks initiated by the user in the workspace.
         shared_ptr<int64_t> totalTaskNumber_ {};
+        // The RAM username of the user.
         shared_ptr<string> userName_ {};
       };
 
@@ -206,12 +212,19 @@ namespace Models
 
 
     protected:
+      // The data content.
       shared_ptr<vector<Data::Content>> content_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> maxResults_ {};
+      // The token for the next query.
       shared_ptr<string> nextToken_ {};
+      // The total number of pages.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalElements_ {};
+      // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
     };
 
@@ -255,10 +268,15 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListDataAgentWorkspaceMemberResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

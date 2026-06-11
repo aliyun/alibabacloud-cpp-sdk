@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Custom Agent ID
+    // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
+    // Workspace ID
     shared_ptr<string> workspaceId_ {};
   };
 

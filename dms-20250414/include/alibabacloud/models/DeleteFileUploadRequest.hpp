@@ -57,8 +57,12 @@ namespace Models
 
 
   protected:
+    // Used by frontend only
     shared_ptr<string> callFrom_ {};
+    // Current DMS unit
     shared_ptr<string> dmsUnit_ {};
+    // File ID
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };

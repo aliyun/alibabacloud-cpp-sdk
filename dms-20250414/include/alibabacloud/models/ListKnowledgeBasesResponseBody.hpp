@@ -107,13 +107,25 @@ namespace Models
 
 
   protected:
+    // A list of knowledge base objects.
     shared_ptr<vector<OneMetaKnowledgeBase>> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results.
+    // 
+    // - If this parameter is empty, all results have been returned.
+    // 
+    // - If a value is returned, use it in the next request to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. `true` indicates success, and `false` indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of knowledge bases matching the query. This feature is not currently supported and the returned value is always `0`.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Contains details about the eligibility status, such as the reason for ineligibility.
     shared_ptr<string> message_ {};
+    // Indicates whether the user is eligible for the trial.
     shared_ptr<bool> valid_ {};
   };
 

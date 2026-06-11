@@ -103,16 +103,33 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The number of entries per page. Valid values: 0 to 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the last response.
+    // 
+    // - If **NextToken** is empty, no subsequent query is needed.
+    // 
+    // - If **NextToken** has a value, that value is the token to start the next query.
     shared_ptr<string> nextToken_ {};
+    // The list of partition names.
     shared_ptr<string> partNamesShrink_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
+    // The ID of the tenant.
+    // 
+    // > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
     shared_ptr<int64_t> tid_ {};
+    // The ID of the workspace.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

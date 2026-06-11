@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Custom Agent ID
+    // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
+    // Operation type
+    // 
     // This parameter is required.
     shared_ptr<string> operateType_ {};
+    // Workspace ID
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // AgentId
+      // The agent ID.
       shared_ptr<string> agentId_ {};
-      // Message
+      // Describes the result of the request.
       shared_ptr<string> message_ {};
-      // SessionId
+      // The session ID.
       shared_ptr<string> sessionId_ {};
     };
 
@@ -132,11 +132,15 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<SendChatMessageResponseBody::Data> data_ {};
+    // The error code. A value of `Success` indicates that the request was successful.
     shared_ptr<string> errorCode_ {};
+    // The error message. This field is empty if the request is successful.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Success
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

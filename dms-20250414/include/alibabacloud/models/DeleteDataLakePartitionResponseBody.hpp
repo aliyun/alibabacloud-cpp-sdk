@@ -66,9 +66,17 @@ namespace Models
 
 
   protected:
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the deletion succeeded.
+    // 
+    // - **true**: The deletion succeeded.
+    // 
+    // - **false**: The deletion failed.
     shared_ptr<bool> success_ {};
   };
 

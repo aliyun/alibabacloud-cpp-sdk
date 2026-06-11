@@ -149,18 +149,31 @@ namespace Models
 
 
   protected:
+    // The agent service.
     shared_ptr<string> agentService_ {};
+    // The deep research quota.
     shared_ptr<int32_t> deepResearchQuota_ {};
+    // The quantity of deep research used.
     shared_ptr<int32_t> deepResearchUsed_ {};
+    // The service expiration time, specified in UTC.
     shared_ptr<string> expireTime_ {};
+    // The order creation time, specified in UTC.
     shared_ptr<string> gmtCreate_ {};
+    // The order modification time, specified in UTC.
     shared_ptr<string> gmtModified_ {};
+    // The model call quota.
     shared_ptr<int32_t> modelCallQuota_ {};
+    // The number of model calls used.
     shared_ptr<int32_t> modelCallUsed_ {};
+    // The order instance ID.
     shared_ptr<string> orderInstanceId_ {};
+    // The number of services.
     shared_ptr<int32_t> serviceNum_ {};
+    // The skill plan call quota.
     shared_ptr<int32_t> skillPlanCallQuota_ {};
+    // The number of skill plan calls used.
     shared_ptr<int32_t> skillPlanCallUsed_ {};
+    // The order status.
     shared_ptr<string> status_ {};
   };
 

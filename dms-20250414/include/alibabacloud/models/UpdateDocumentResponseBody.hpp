@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // The response object.
     shared_ptr<OneMetaKnowledgeBaseDocument> data_ {};
+    // The error code for a failed request.
     shared_ptr<string> errorCode_ {};
+    // The error message for a failed request.
     shared_ptr<string> errorMessage_ {};
+    // The unique ID of the request. Use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

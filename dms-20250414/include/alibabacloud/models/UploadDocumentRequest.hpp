@@ -143,20 +143,39 @@ namespace Models
 
 
   protected:
+    // The number of overlapping characters between adjacent chunks. This value cannot exceed `ChunkSize`. The default is 50.
     shared_ptr<int64_t> chunkOverlap_ {};
+    // The size of each document chunk. The default is 250, and the maximum is 2,048.
     shared_ptr<int64_t> chunkSize_ {};
+    // The description of the document.
     shared_ptr<string> description_ {};
+    // The name of the document loader. The default is `ADBPGLoader`.
     shared_ptr<string> documentLoaderName_ {};
+    // The name of the document.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // The ID of the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
+    // The OSS location of the input file. Construct this path by appending the file name to the `UploadDir` value returned by the `DescribeKnowledgeBaseUploadSignature` operation.
+    // 
     // This parameter is required.
     shared_ptr<string> location_ {};
+    // An array of strings used to split text.
+    // 
+    // > - This critical parameter affects data chunking results and is related to the splitter specified by `TextSplitterName`.
+    // >
+    // > - In most cases, you can omit this parameter. The service automatically assigns default separators based on `TextSplitterName`.
     shared_ptr<vector<string>> separators_ {};
+    // The splitter model to use. The default is `qwen3-8b`.
     shared_ptr<string> splitterModel_ {};
+    // The name of the text splitter.
     shared_ptr<string> textSplitterName_ {};
+    // Specifies whether to enable visual-linguistic (VL) enhanced content recognition for complex documents. The default is false.
     shared_ptr<bool> vlEnhance_ {};
+    // Specifies whether to enable title enhancement.
     shared_ptr<bool> zhTitleEnhance_ {};
   };
 

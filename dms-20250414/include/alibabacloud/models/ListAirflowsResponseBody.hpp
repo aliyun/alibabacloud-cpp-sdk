@@ -281,27 +281,47 @@ namespace Models
 
 
       protected:
+        // The ID of the Airflow instance.
         shared_ptr<string> airflowId_ {};
+        // The name of the Airflow instance.
         shared_ptr<string> airflowName_ {};
+        // The specifications of the Airflow instance.
         shared_ptr<string> appSpec_ {};
+        // The type.
         shared_ptr<string> appType_ {};
+        // The custom configuration.
         shared_ptr<vector<string>> customAirflowCfg_ {};
+        // The DAGs folder that Airflow scans.
         shared_ptr<string> dagsDir_ {};
+        // The error message returned when the deployment fails.
         shared_ptr<string> deployErrorMsg_ {};
+        // The description of the Airflow instance.
         shared_ptr<string> description_ {};
+        // The time when the Airflow instance was created.
         shared_ptr<string> gmtCreated_ {};
+        // The name of the OSS bucket.
         shared_ptr<string> ossBucketName_ {};
+        // The path in OSS.
         shared_ptr<string> ossPath_ {};
+        // The plugins folder that Airflow scans.
         shared_ptr<string> pluginsDir_ {};
+        // The path to the file that contains the dependencies.
         shared_ptr<string> requirementFile_ {};
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
+        // The path to the script that is loaded when Airflow starts.
         shared_ptr<string> startupFile_ {};
+        // The status of the Airflow instance.
         shared_ptr<string> status_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
-        // VPC ID。
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
+        // The number of worker nodes.
         shared_ptr<int32_t> workerServerlessReplicas_ {};
+        // The ID of the DMS workspace.
         shared_ptr<string> workspaceId_ {};
+        // The ID of the zone in the region.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -324,7 +344,9 @@ namespace Models
 
 
     protected:
+      // The list of data.
       shared_ptr<vector<Root::List>> list_ {};
+      // The total number of matching Airflow instances.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -397,15 +419,27 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code. This parameter is returned when an error occurs.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Reuqest ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the data.
     shared_ptr<ListAirflowsResponseBody::Root> root_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

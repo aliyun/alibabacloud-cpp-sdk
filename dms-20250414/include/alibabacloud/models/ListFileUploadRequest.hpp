@@ -112,14 +112,33 @@ namespace Models
 
 
   protected:
+    // For front-end use only.
     shared_ptr<string> callFrom_ {};
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The validity period of the download link, in seconds. This parameter applies only to files in user-owned Object Storage Service (OSS) buckets. The default is 3600.
+    // 
+    // - Minimum value: 3600 (1 hour)
+    // 
+    // - Maximum value: 129600 (36 hours)
+    // 
+    // Notes:
+    // 
+    // - Download links for files in the built-in OSS are valid for 1 hour.
+    // 
+    // -
     shared_ptr<int32_t> downloadLinkExpire_ {};
+    // The file category.
     shared_ptr<string> fileCategory_ {};
+    // The file source.
     shared_ptr<string> fileFrom_ {};
+    // The file ID.
     shared_ptr<string> fileId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // The sort column.
     shared_ptr<string> sortColumn_ {};
+    // The sort direction.
     shared_ptr<string> sortDirection_ {};
   };
 

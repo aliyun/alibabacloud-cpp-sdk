@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // The name of the branch.
         shared_ptr<string> branch_ {};
+        // The path to the notebook file.
         shared_ptr<string> path_ {};
+        // The name of the repository.
         shared_ptr<string> repo_ {};
       };
 
@@ -143,8 +146,11 @@ namespace Models
 
 
     protected:
+      // The files and directories to exclude from the deployment.
       shared_ptr<vector<string>> exclude_ {};
+      // Indicates whether the deployment branch is locked. If `true`, configurations submitted via the `workspaceCodePublish` API are ignored. If `false`, configurations submitted via the `workspaceCodePublish` API update the settings.
       shared_ptr<bool> lockRepoBranch_ {};
+      // The Git repositories in the workspace.
       shared_ptr<vector<Data::Repos>> repos_ {};
     };
 
@@ -195,11 +201,17 @@ namespace Models
 
 
   protected:
+    // The status code that indicates the result of the request. A value of `200` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetWorkspaceCodePublishSettingResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

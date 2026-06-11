@@ -94,11 +94,17 @@ namespace Models
 
 
   protected:
+    // The category of the message, which helps parse the `content` field when it is a JSON object. For example,`PLAN` indicates that the message is an execution plan and conforms to the execution plan schema.
     shared_ptr<string> category_ {};
+    // The checkpoint value.
     shared_ptr<int64_t> checkpoint_ {};
+    // The message content.
     shared_ptr<string> content_ {};
+    // The type of the content field. Valid values: `[str, json]`. If the value is `json`, the content field can be parsed as a JSON object.
     shared_ptr<string> contentType_ {};
+    // The message type, which distinguishes control signals from message data. For example,`CHAT_START` indicates the start of an agent\\"s reply,`CHAT_FINISH` indicates the end of the reply,`DATA` indicates a message that contains content, and`DELTA` indicates a part of an incremental output.
     shared_ptr<string> eventType_ {};
+    // The output level of the message. A higher value indicates greater importance.
     shared_ptr<int64_t> level_ {};
     shared_ptr<string> timestamp_ {};
   };

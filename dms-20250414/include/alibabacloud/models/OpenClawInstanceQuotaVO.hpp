@@ -140,17 +140,29 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account UID.
     shared_ptr<string> aliyunAccountUid_ {};
+    // The total quota for deep research calls.
     shared_ptr<string> deepResearchCallQuota_ {};
+    // The number of deep research calls used.
     shared_ptr<string> deepResearchCallUsed_ {};
+    // The instance creation time.
     shared_ptr<string> instanceGmtCreate_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The timestamp of the last metering event.
     shared_ptr<string> lastMeteringTime_ {};
+    // The total quota for model calls.
     shared_ptr<string> modelCallQuota_ {};
+    // The number of model calls used.
     shared_ptr<string> modelCallUsed_ {};
+    // The day of the month on which the quota refreshes.
     shared_ptr<string> refreshDay_ {};
+    // The total quota for skill plan calls.
     shared_ptr<string> skillPlanCallQuota_ {};
+    // The number of skill plan calls used.
     shared_ptr<string> skillPlanCallUsed_ {};
   };
 

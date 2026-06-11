@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // A list of document chunks to upsert.
+    // 
     // This parameter is required.
     shared_ptr<string> chunks_ {};
+    // The name of the document.
+    // 
     // This parameter is required.
     shared_ptr<string> documentName_ {};
+    // The unique identifier for the knowledge base.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
   };

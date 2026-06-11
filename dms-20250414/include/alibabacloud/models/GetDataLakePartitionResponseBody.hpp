@@ -78,10 +78,19 @@ namespace Models
 
 
   protected:
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
+    // The information about the data lakehouse table partition.
     shared_ptr<DLPartition> partition_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The call was successful.
+    // 
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

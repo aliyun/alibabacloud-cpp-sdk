@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The keyword used to search for data catalog names.
     shared_ptr<string> searchKey_ {};
+    // The tenant ID. Call the GetUserActiveTenant or ListUserTenants operation to get the value of this parameter.
     shared_ptr<int64_t> tid_ {};
+    // The workspace ID.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

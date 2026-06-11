@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The file ID.
       shared_ptr<string> fileId_ {};
     };
 
@@ -108,11 +109,19 @@ namespace Models
 
 
   protected:
+    // The returned struct.
     shared_ptr<FileUploadCallbackResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. The following values are returned:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

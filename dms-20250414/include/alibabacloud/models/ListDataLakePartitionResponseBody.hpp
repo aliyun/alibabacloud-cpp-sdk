@@ -98,12 +98,23 @@ namespace Models
 
 
   protected:
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the call fails.
     shared_ptr<string> errorMessage_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The list of partitions.
     shared_ptr<vector<DLPartition>> partitionList_ {};
+    // The request ID, used for log tracing and troubleshooting.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -112,14 +112,29 @@ namespace Models
 
 
   protected:
+    // For frontend use only.
     shared_ptr<string> callFrom_ {};
+    // The name of the database.
+    // 
+    // - If `ImportType` is `FILE`, this parameter represents the file name.
     shared_ptr<string> databaseName_ {};
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The import type.
+    // 
+    // - FILE
     shared_ptr<string> importType_ {};
+    // The name of the instance.
+    // 
+    // - If `ImportType` is `FILE`, this parameter represents the file ID of the data center.
     shared_ptr<string> instanceName_ {};
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records to return per page. Default: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The keyword for a fuzzy search of database tables.
     shared_ptr<string> searchKey_ {};
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

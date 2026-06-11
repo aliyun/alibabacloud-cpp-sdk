@@ -86,11 +86,17 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
     shared_ptr<string> catalogName_ {};
+    // The ID of the database.
     shared_ptr<int64_t> dbId_ {};
+    // The description of the database.
     shared_ptr<string> description_ {};
+    // The storage path of the database.
     shared_ptr<string> location_ {};
+    // The name of the database.
     shared_ptr<string> name_ {};
+    // The parameters of the database.
     Darabonba::Json parameters_ {};
   };
 

@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The UID of the Alibaba Cloud account.
     shared_ptr<string> aliyunAccountUid_ {};
+    // The API key used for authentication.
     shared_ptr<string> apiKey_ {};
+    // The time when the entry was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the entry was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The unique ID of the entry.
     shared_ptr<int64_t> id_ {};
+    // The unique ID of the order.
     shared_ptr<string> orderId_ {};
+    // The endpoint URL for the web search API.
     shared_ptr<string> webSearchApiUrl_ {};
   };
 

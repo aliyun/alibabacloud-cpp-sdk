@@ -315,34 +315,59 @@ namespace Models
 
 
     protected:
+      // The name of the Airflow instance.
       shared_ptr<string> airflowName_ {};
+      // The version of Airflow.
       shared_ptr<string> airflowVersion_ {};
-      // SMALL。
+      // The instance specification.
       shared_ptr<string> appSpec_ {};
+      // The instance type.
       shared_ptr<string> appType_ {};
+      // A list of custom configuration items.
       shared_ptr<vector<string>> customAirflowCfg_ {};
+      // The directory where DAGs are scanned.
       shared_ptr<string> dagsDir_ {};
+      // A data mount item.
       shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
+      // The error message returned upon deployment failure.
       shared_ptr<string> deployErrorMsg_ {};
+      // The description of the Airflow instance.
       shared_ptr<string> description_ {};
+      // Indicates whether serverless mode is enabled.
       shared_ptr<bool> enableServerless_ {};
+      // The environment variables.
       shared_ptr<string> environments_ {};
+      // The time when the instance was created.
       shared_ptr<string> gmtCreated_ {};
+      // The graceful shutdown timeout, in seconds.
       shared_ptr<int32_t> gracefulShutdownTimeout_ {};
+      // The name of the Object Storage Service (OSS) bucket.
       shared_ptr<string> ossBucketName_ {};
+      // The path in OSS where logs are stored.
       shared_ptr<string> ossPath_ {};
+      // The directory where Airflow plugins are scanned.
       shared_ptr<string> pluginsDir_ {};
+      // The path to the Python requirements file.
       shared_ptr<string> requirementFile_ {};
+      // The Python package requirements.
       shared_ptr<string> requirements_ {};
+      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
+      // The startup script for the Airflow container.
       shared_ptr<string> startupFile_ {};
+      // The instance status.
       shared_ptr<string> status_ {};
+      // The Airflow instance ID.
       shared_ptr<string> uuid_ {};
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // VPC ID。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The number of worker node replicas.
       shared_ptr<int32_t> workerServerlessReplicas_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -401,12 +426,23 @@ namespace Models
 
 
   protected:
+    // Details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Details of the updated Airflow instance.
     shared_ptr<UpdateAirflowResponseBody::Root> root_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

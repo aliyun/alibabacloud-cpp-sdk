@@ -149,18 +149,41 @@ namespace Models
 
 
   protected:
+    // The document description.
     shared_ptr<string> description_ {};
+    // The number of chunks.
     shared_ptr<int32_t> docsCount_ {};
+    // The name of the document loader.
     shared_ptr<string> documentLoaderName_ {};
+    // The file extension.
     shared_ptr<string> fileExt_ {};
+    // The file size, in bytes.
     shared_ptr<int64_t> fileSize_ {};
+    // When the document was created.
     shared_ptr<string> gmtCreate_ {};
+    // When the document was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The knowledge base ID.
     shared_ptr<string> kbUuid_ {};
+    // Keywords extracted from the document.
     shared_ptr<string> keywords_ {};
+    // The document name.
     shared_ptr<string> name_ {};
+    // The document status. Valid values are:
+    // 
+    // - **0**: Complete.
+    // 
+    // - **-1**: Unprocessed.
+    // 
+    // - **-2**: Parsing.
+    // 
+    // - **-3**: Failed.
+    // 
+    // - **-4**: Canceled.
     shared_ptr<int32_t> state_ {};
+    // The summary of the document.
     shared_ptr<string> summary_ {};
+    // The name of the text splitter.
     shared_ptr<string> textSplitterName_ {};
   };
 

@@ -84,10 +84,15 @@ namespace Models
 
 
   protected:
+    // The time when the partition was created. This is a UNIX timestamp in seconds.
     shared_ptr<int32_t> createTime_ {};
+    // The time when the partition was last accessed. This is a UNIX timestamp in seconds.
     shared_ptr<int32_t> lastAccessTime_ {};
+    // The key-value pair parameters for the partition.
     shared_ptr<map<string, string>> parameters_ {};
+    // The data storage information of the data lakehouse table.
     shared_ptr<DLStorageDescriptor> storageDescriptor_ {};
+    // The partition values.
     shared_ptr<vector<string>> values_ {};
   };
 

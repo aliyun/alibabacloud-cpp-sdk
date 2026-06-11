@@ -172,17 +172,40 @@ namespace Models
 
 
     protected:
+      // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
+      // The custom agent stage. Valid values:
+      // 
+      // - **debug**: Test stage.
+      // 
+      // - **prod**: Production stage.
       shared_ptr<string> customAgentStage_ {};
+      // Specifies whether to enable web search.
       shared_ptr<bool> enableSearch_ {};
       shared_ptr<string> encryptKey_ {};
       shared_ptr<string> encryptType_ {};
       shared_ptr<vector<string>> kbUuidList_ {};
+      // The language. Valid values:
+      // 
+      // - **CHINESE**: Chinese
+      // 
+      // - **ENGLISH**: English
       shared_ptr<string> language_ {};
+      // A list of MCP server IDs.
       shared_ptr<vector<string>> mcpServerIds_ {};
+      // The mode. Valid values:
+      // 
+      // - **ASK_DATA**: Quick inquiry mode.
+      // 
+      // - **ANALYSIS**: Analysis mode.
+      // 
+      // - **INSIGHT**: Insight mode.
       shared_ptr<string> mode_ {};
       shared_ptr<int64_t> reportPageWidth_ {};
       shared_ptr<string> reportWaterMark_ {};
+      // The OSS bucket name.
+      // 
+      // - This bucket stores intermediate files and report artifacts from the analysis.
       shared_ptr<string> userOssBucket_ {};
     };
 
@@ -226,10 +249,15 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The file ID.
     shared_ptr<string> file_ {};
+    // The session configuration.
     shared_ptr<CreateDataAgentSessionRequest::SessionConfig> sessionConfig_ {};
+    // The session title. Supports Chinese and English. Maximum length: 128 characters.
     shared_ptr<string> title_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

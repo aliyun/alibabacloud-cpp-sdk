@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The new knowledge base description.
     shared_ptr<string> description_ {};
+    // The knowledge base ID.
+    // 
     // This parameter is required.
     shared_ptr<string> kbUuid_ {};
+    // The new knowledge base name.
     shared_ptr<string> name_ {};
   };
 

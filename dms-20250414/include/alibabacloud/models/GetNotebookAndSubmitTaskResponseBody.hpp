@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The status code. `Success` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The returned message.
     shared_ptr<string> errMsg_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // Indicates whether the request succedded. Valid values:
+    // 
+    // - **true**: The request succedded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
+    // The ID of the scheduled task.
     shared_ptr<string> taskId_ {};
   };
 

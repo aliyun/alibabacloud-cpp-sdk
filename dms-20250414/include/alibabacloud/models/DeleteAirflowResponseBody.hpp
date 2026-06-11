@@ -99,7 +99,15 @@ namespace Models
 
 
       protected:
+        // Indicates whether the request was successful. The following values are returned:
+        // 
+        // - **true**: The request was successful.
+        // 
+        // - **false**: The request failed.
         shared_ptr<bool> success_ {};
+        // The UUID of the asset instance.
+        // 
+        // > This result is not returned if no process exists under the asset.
         shared_ptr<string> uuid_ {};
       };
 
@@ -114,6 +122,7 @@ namespace Models
 
 
     protected:
+      // The details of the return value.
       shared_ptr<vector<Root::Responses>> responses_ {};
     };
 
@@ -172,12 +181,23 @@ namespace Models
 
 
   protected:
+    // The details of the access denied error.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The details of the deleted instance.
     shared_ptr<DeleteAirflowResponseBody::Root> root_ {};
+    // Indicates whether the request was successful. The following values are returned:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -88,11 +88,21 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMessage_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. The return values are:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
+    // The list of data lake tables.
     shared_ptr<vector<DLTablebaseInfo>> tablebaseInfoList_ {};
+    // The number of tables that meet the conditions.
     shared_ptr<string> totalCount_ {};
   };
 

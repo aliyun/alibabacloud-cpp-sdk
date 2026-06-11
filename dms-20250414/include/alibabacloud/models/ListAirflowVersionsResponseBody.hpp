@@ -97,12 +97,23 @@ namespace Models
 
 
   protected:
+    // The reason for the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The error code for a failed request.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The version list.
     shared_ptr<vector<string>> root_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

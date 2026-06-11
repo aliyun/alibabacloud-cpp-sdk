@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The time when the chunk was last modified.
     shared_ptr<string> chunkMtime_ {};
+    // The title of the chunk.
     shared_ptr<string> chunkTitle_ {};
+    // The content of the chunk.
     shared_ptr<string> content_ {};
+    // The name of the document.
     shared_ptr<string> docName_ {};
+    // The unique identifier for the chunk.
     shared_ptr<string> id_ {};
   };
 

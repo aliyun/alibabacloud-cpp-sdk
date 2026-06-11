@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The UID of the member whose role you want to change.
     shared_ptr<string> memberId_ {};
+    // The role to assign to the member.
     shared_ptr<string> roleName_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

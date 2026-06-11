@@ -67,6 +67,7 @@ namespace Models
 
 
     protected:
+      // The key for the asynchronous code deployment. Use this key to query its status.
       shared_ptr<string> key_ {};
     };
 
@@ -117,12 +118,17 @@ namespace Models
 
 
   protected:
-    // job
+    // An object that contains the key for the asynchronous code deployment.
     shared_ptr<WorkspaceCodePublishResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request fails. This parameter is empty on success.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates if the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

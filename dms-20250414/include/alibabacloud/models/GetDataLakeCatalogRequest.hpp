@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The tenant ID. You can call the GetUserActiveTenant or ListUserTenants operation to obtain this value.
     shared_ptr<int64_t> tid_ {};
+    // The ID of the workspace.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

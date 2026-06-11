@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The input parameters for the Notebook file. Pass the parameters in a dictionary format.
+    // 
     // This parameter is required.
     shared_ptr<string> params_ {};
+    // The path of the Notebook file.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The number of retries if scheduling fails.
     shared_ptr<int64_t> retry_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

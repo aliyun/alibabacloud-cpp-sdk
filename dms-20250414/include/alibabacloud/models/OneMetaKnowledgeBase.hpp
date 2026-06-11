@@ -121,15 +121,25 @@ namespace Models
 
 
   protected:
+    // The creator of the knowledge base.
     shared_ptr<string> creator_ {};
+    // The description of the knowledge base.
     shared_ptr<string> description_ {};
+    // The domain of the knowledge base.
     shared_ptr<string> domain_ {};
+    // Additional information about the knowledge base.
     shared_ptr<string> extraInfo_ {};
+    // The time when the knowledge base was created.
     shared_ptr<string> gmtCreate_ {};
+    // The time when the knowledge base was last modified.
     shared_ptr<string> gmtModified_ {};
+    // The UUID of the knowledge base.
     shared_ptr<string> kbUuid_ {};
+    // The name of the knowledge base.
     shared_ptr<string> name_ {};
+    // The state of the knowledge base. Valid values include 0 (No data) and 1 (Available).
     shared_ptr<int32_t> state_ {};
+    // The tag of the knowledge base.
     shared_ptr<string> tag_ {};
   };
 

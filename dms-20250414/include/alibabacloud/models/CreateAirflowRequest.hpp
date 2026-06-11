@@ -217,36 +217,63 @@ namespace Models
 
 
   protected:
+    // The name of the Airflow instance.
+    // 
     // This parameter is required.
     shared_ptr<string> airflowName_ {};
+    // The Airflow version. Supported versions: 2.10 and 3.1.
     shared_ptr<string> airflowVersion_ {};
+    // The compute specifications for the Airflow instance. Valid values: **SMALL**, **MEDIUM**, **LARGE**, **XLARGE**, or **X2LARGE**.
+    // 
     // This parameter is required.
     shared_ptr<string> appSpec_ {};
+    // A client token to ensure request idempotence.
     shared_ptr<string> clientToken_ {};
+    // The path to the DAG directory for Airflow to scan.
     shared_ptr<string> dagsDir_ {};
+    // A list of data mount configurations.
     shared_ptr<vector<DataMountInfo>> dataMountInfoList_ {};
+    // The description of the Airflow instance.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable worker elasticity.
     shared_ptr<bool> enableServerless_ {};
+    // The graceful shutdown timeout for workers, in seconds.
     shared_ptr<int32_t> gracefulShutdownTimeout_ {};
+    // The name of the OSS bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucketName_ {};
+    // The OSS path for log storage.
+    // 
     // This parameter is required.
     shared_ptr<string> ossPath_ {};
+    // The path to the plugin directory for the Airflow instance to scan.
     shared_ptr<string> pluginsDir_ {};
+    // The path to the Python requirements file.
     shared_ptr<string> requirementFile_ {};
+    // The security group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};
+    // The path to the startup script in the Airflow container.
     shared_ptr<string> startupFile_ {};
+    // The vSwitch ID.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // VPC ID。
+    // The VPC ID.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The number of elastic worker nodes.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> workerServerlessReplicas_ {};
+    // The ID of the DMS workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
+    // The ID of the zone where the instance will be created.
     shared_ptr<string> zoneId_ {};
   };
 

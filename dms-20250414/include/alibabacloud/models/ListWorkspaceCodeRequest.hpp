@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The path of the file or directory.
+    // 
     // This parameter is required.
     shared_ptr<string> path_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

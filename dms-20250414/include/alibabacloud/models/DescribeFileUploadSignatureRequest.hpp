@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Used by the frontend only
     shared_ptr<string> callFrom_ {};
+    // Current DMS unit
     shared_ptr<string> dmsUnit_ {};
   };
 

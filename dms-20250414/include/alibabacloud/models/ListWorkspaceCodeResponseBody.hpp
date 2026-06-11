@@ -124,10 +124,19 @@ namespace Models
 
 
       protected:
+        // Indicates whether the object is a directory.
         shared_ptr<bool> isDir_ {};
+        // The modification time of the file.
+        // 
+        // The time is in the ISO 8601 format: `yyyy-MM-ddTHH:mm:ssZ`.
+        // 
+        // This parameter is returned only for files.
         shared_ptr<string> mtime_ {};
+        // The name of the file or directory.
         shared_ptr<string> name_ {};
+        // The file size in bytes.
         shared_ptr<int64_t> size_ {};
+        // The target of the symlink.
         shared_ptr<string> symlink_ {};
       };
 
@@ -142,6 +151,7 @@ namespace Models
 
 
     protected:
+      // An array of objects representing the files and directories.
       shared_ptr<vector<Data::List>> list_ {};
     };
 
@@ -192,11 +202,17 @@ namespace Models
 
 
   protected:
+    // The data returned in the response.
     shared_ptr<ListWorkspaceCodeResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

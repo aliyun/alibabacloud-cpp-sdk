@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // For frontend use only.
     shared_ptr<string> callFrom_ {};
+    // The current DMS unit.
     shared_ptr<string> dmsUnit_ {};
+    // The file size in bytes.
     shared_ptr<int64_t> fileSize_ {};
+    // The file name.
+    // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
     shared_ptr<string> ossBucket_ {};
+    // The full path for the file upload.
+    // 
+    // - Format: This path is formed by appending the file name to the UploadDir value returned by the DescribeFileUploadSignature operation.
+    // 
+    // - Example: ${UploadDir}/${Filename}
+    // 
     // This parameter is required.
     shared_ptr<string> uploadLocation_ {};
   };

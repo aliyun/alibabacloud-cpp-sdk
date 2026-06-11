@@ -189,8 +189,11 @@ namespace Models
 
 
         protected:
+          // The cron expression for the recurring task.
           shared_ptr<string> cronExpression_ {};
+          // The query for the recurring task.
           shared_ptr<string> query_ {};
+          // The ID of the referenced historical session.
           shared_ptr<string> relatedSessionId_ {};
         };
 
@@ -302,9 +305,13 @@ namespace Models
 
 
         protected:
+          // Indicates whether to prevent user inquiries during the process.
           shared_ptr<bool> skipAskHuman_ {};
+          // Indicates whether to skip the plan confirmation step.
           shared_ptr<bool> skipPlan_ {};
+          // Indicates whether to skip all SQL confirmations.
           shared_ptr<bool> skipSqlConfirm_ {};
+          // Indicates whether to skip the confirmation for generating a web report.
           shared_ptr<bool> skipWebReportConfirm_ {};
         };
 
@@ -606,35 +613,61 @@ namespace Models
 
 
       protected:
+        // The parent Alibaba Cloud account ID.
         shared_ptr<string> aliyunParentId_ {};
+        // The Alibaba Cloud account ID.
         shared_ptr<string> aliyunUid_ {};
         shared_ptr<Content::CallbackConfig> callbackConfig_ {};
+        // The name of the creator.
         shared_ptr<string> creatorUserName_ {};
+        // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
+        // The current DMS unit.
         shared_ptr<string> DMSUnit_ {};
+        // The data scope, specified as a JSON string.
         shared_ptr<string> dataJson_ {};
         shared_ptr<int32_t> defaultAgent_ {};
+        // The description of the custom agent.
         shared_ptr<string> description_ {};
+        // The current DMS unit.
         shared_ptr<string> dmsUnit_ {};
+        // The execution configuration.
         shared_ptr<Content::ExecutionConfig> executionConfig_ {};
+        // The time when the agent was created.
         shared_ptr<string> gmtCreated_ {};
+        // The time when the agent was last modified.
         shared_ptr<string> gmtModified_ {};
+        // The instructions.
         shared_ptr<string> instruction_ {};
+        // Indicates whether the agent is configured with a recurring task.
         shared_ptr<bool> isScheduleTask_ {};
+        // The provided knowledge.
         shared_ptr<string> knowledge_ {};
         shared_ptr<vector<Content::KnowledgeConfigList>> knowledgeConfigList_ {};
+        // The user who last modified the agent.
         shared_ptr<string> modifier_ {};
+        // The name of the user who last modified the agent.
         shared_ptr<string> modifierUserName_ {};
+        // The name of the custom agent.
         shared_ptr<string> name_ {};
+        // If a recurring task is configured, this indicates its next scheduled runtime.
         shared_ptr<int64_t> nextRuntime_ {};
+        // The time when the agent was taken offline.
         shared_ptr<string> offlineTime_ {};
+        // The region.
         shared_ptr<string> region_ {};
         shared_ptr<string> relatedSessionId_ {};
+        // The time when the agent was published.
         shared_ptr<string> releaseTime_ {};
+        // The recurring task configuration.
         shared_ptr<Content::ScheduleTaskConfig> scheduleTaskConfig_ {};
+        // The status of the custom agent.
         shared_ptr<string> status_ {};
+        // The formatting instructions for the text report.
         shared_ptr<string> textReportConfig_ {};
+        // The formatting instructions for the web report.
         shared_ptr<string> webReportConfig_ {};
+        // The workspace ID.
         shared_ptr<string> workspaceId_ {};
       };
 
@@ -678,10 +711,15 @@ namespace Models
 
 
     protected:
+      // A list of custom agent objects.
       shared_ptr<vector<Data::Content>> content_ {};
+      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalElements_ {};
+      // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
     };
 
@@ -725,11 +763,19 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListCustomAgentResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

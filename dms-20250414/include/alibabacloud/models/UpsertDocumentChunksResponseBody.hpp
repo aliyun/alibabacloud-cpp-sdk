@@ -75,10 +75,23 @@ namespace Models
 
 
   protected:
+    // Indicates whether the update was successful. Valid values:
+    // 
+    // - **true**: The update succeeded.
+    // 
+    // - **false**: The update failed.
     shared_ptr<bool> data_ {};
+    // The error code returned if the request fails.
     shared_ptr<string> errorCode_ {};
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
+    // The unique request ID. Use this ID to troubleshoot errors.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request succeeded.
+    // 
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

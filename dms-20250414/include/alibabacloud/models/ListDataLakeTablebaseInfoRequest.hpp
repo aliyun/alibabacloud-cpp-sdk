@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The name of the database where the table is located.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // The page number of the list for a paged query.
     shared_ptr<int32_t> page_ {};
+    // The number of rows on each page for a paged query.
     shared_ptr<int32_t> rows_ {};
+    // The keyword used to search for table names.
     shared_ptr<string> searchKey_ {};
+    // The tenant ID. Call the GetUserActiveTenant operation to get the value of this parameter.
     shared_ptr<int64_t> tid_ {};
+    // The workspace ID.
     shared_ptr<int64_t> workspaceId_ {};
   };
 

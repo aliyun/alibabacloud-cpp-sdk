@@ -103,17 +103,43 @@ namespace Models
 
 
   protected:
+    // The name of the data catalog.
+    // 
     // This parameter is required.
     shared_ptr<string> catalogName_ {};
+    // The name of the database.
+    // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
+    // Query conditional expression. Supported operators:
+    // 
+    // - Comparison operators: =, <>, !=, <, <=, >, and >=. For example: \\`ds>20240101\\`.
+    // 
+    // - Logical operators: AND, OR, and NOT. For example: \\`ds LIKE \\"20240%\\"\\`.
+    // 
+    // - The BETWEEN operator, which specifies a range. For example: \\`ds BETWEEN 20240101 AND 20241201\\`.
+    // 
+    // - The IN operator, which specifies a set of values. For example: \\`ds IN (20240101, 20240102)\\`.
+    // 
     // This parameter is required.
     shared_ptr<string> filter_ {};
+    // The number of entries per page. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Valid values:
+    // 
+    // - If this parameter is left empty, no more results are returned.
+    // 
+    // - If a value is returned, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
+    // The tenant ID.
+    // 
+    // > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
     shared_ptr<int64_t> tid_ {};
+    // The ID of the workspace.
     shared_ptr<int64_t> workspaceId_ {};
   };
 
