@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the BI portal.
+    // 
     // This parameter is required.
     shared_ptr<string> dataportalId_ {};
   };

@@ -66,9 +66,19 @@ namespace Models
 
 
   protected:
+    // The page number.
+    // 
+    // - Starts from: 1
+    // 
+    // - Default value: 1
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries to return on each page.
+    // 
+    // - Default value: 25
     shared_ptr<int32_t> pageSize_ {};
+    // Specifies whether the tracking task is paused.
     shared_ptr<bool> paused_ {};
+    // The nickname of the user who owns the tracking task. If this parameter is not specified, all tasks are returned.
     shared_ptr<string> userNick_ {};
   };
 

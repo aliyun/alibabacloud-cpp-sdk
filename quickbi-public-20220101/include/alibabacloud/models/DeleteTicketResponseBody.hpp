@@ -60,11 +60,15 @@ namespace Models
     // Request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the deletion was successful. Possible values:
+    // 
     // - true: The request was successful
+    // 
     // - false: The request failed
     shared_ptr<bool> result_ {};
     // Indicates whether the request was successful. Possible values:
+    // 
     // - true: The request was successful
+    // 
     // - false: The request failed
     shared_ptr<bool> success_ {};
   };

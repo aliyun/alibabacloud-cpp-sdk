@@ -160,13 +160,13 @@ namespace Models
 
 
         protected:
-          // The ID of the directory path.
+          // The folder ID.
           shared_ptr<string> id_ {};
-          // The ID of the data source.
+          // The folder name.
           shared_ptr<string> name_ {};
-          // The type of the data source.
+          // The ID of the folder path.
           shared_ptr<string> pathId_ {};
-          // The name of the data source.
+          // The name of the folder path.
           shared_ptr<string> pathName_ {};
         };
 
@@ -217,11 +217,11 @@ namespace Models
 
 
         protected:
-          // The ID of the training dataset that you want to remove from the specified custom linguistic model.
+          // The data source ID.
           shared_ptr<string> dsId_ {};
-          // The time when the scaling group was modified.
+          // The data source name.
           shared_ptr<string> dsName_ {};
-          // The user ID of the dataset owner in the Quick BI.
+          // The data source type.
           shared_ptr<string> dsType_ {};
         };
 
@@ -325,33 +325,39 @@ namespace Models
 
 
       protected:
-        // The details of the dataset list.
+        // The time when the dataset was created.
         shared_ptr<string> createTime_ {};
-        // Test Space
-        shared_ptr<Data::DataSource> dataSource_ {};
-        // The name of the workspace.
-        shared_ptr<string> datasetId_ {};
-        // Tom
-        shared_ptr<string> datasetName_ {};
-        // The number of rows per page set when the interface is requested.
-        shared_ptr<string> description_ {};
         // The information about the data source to which the dataset belongs.
-        shared_ptr<Data::Directory> directory_ {};
-        // The nickname of the dataset owner.
-        shared_ptr<string> modifyTime_ {};
-        shared_ptr<bool> openOfflineAcceleration_ {};
-        // The creation time.
-        shared_ptr<string> ownerId_ {};
-        // Whether to enable row-level permissions. Valid values:
-        // 
-        // *   true: The VIP Netty channel is enabled.
-        // *   false: The incremental log backup feature is disabled.
-        shared_ptr<string> ownerName_ {};
-        // The total number of pages returned.
-        shared_ptr<bool> rowLevel_ {};
-        // The page number of the returned page.
-        shared_ptr<string> workspaceId_ {};
+        shared_ptr<Data::DataSource> dataSource_ {};
+        // The dataset ID.
+        shared_ptr<string> datasetId_ {};
+        // The dataset name.
+        shared_ptr<string> datasetName_ {};
         // The description of the dataset.
+        shared_ptr<string> description_ {};
+        // The information about the folder in which the dataset is located.
+        shared_ptr<Data::Directory> directory_ {};
+        // The time when the dataset was last modified.
+        shared_ptr<string> modifyTime_ {};
+        // Indicates whether extraction-based acceleration is enabled. Valid values:
+        // 
+        // - true: Enabled
+        // 
+        // - false: Disabled
+        shared_ptr<bool> openOfflineAcceleration_ {};
+        // The user ID of the dataset owner in Quick BI.
+        shared_ptr<string> ownerId_ {};
+        // The nickname of the dataset owner.
+        shared_ptr<string> ownerName_ {};
+        // Indicates whether row-level permissions are enabled. Valid values:
+        // 
+        // - true: Enabled
+        // 
+        // - false: Disabled
+        shared_ptr<bool> rowLevel_ {};
+        // The workspace ID.
+        shared_ptr<string> workspaceId_ {};
+        // The workspace name.
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -395,24 +401,15 @@ namespace Models
 
 
     protected:
-      // Returns the pagination results of the dataset list. The detailed information of the dataset list is stored in the response parameter Data.
+      // The details of the dataset list.
       shared_ptr<vector<Result::Data>> data_ {};
-      // The number of rows per page in a paged query.
-      // 
-      // *   Default value: 10.
-      // *   Maximum value: 1,000.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // Indicates whether the request is successful. Valid values:
-      // 
-      // *   true: The request was successful.
-      // *   false: The request failed.
+      // The number of entries per page specified in the request.
       shared_ptr<int32_t> pageSize_ {};
-      // The ID of the request.
+      // The total number of entries.
       shared_ptr<int32_t> totalNum_ {};
-      // Current page number for dataset list:
-      // 
-      // *   Pages start from page 1.
-      // *   Default value: 1.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -442,14 +439,15 @@ namespace Models
 
 
   protected:
-    // The keyword used to search for the dataset name.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Test dataset
+    // The paged results of the dataset list. The details of the datasets are returned in the Data parameter.
     shared_ptr<QueryDatasetListResponseBody::Result> result_ {};
-    // Whether to recursively wrap the dataset in the subdirectory. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: returns datasets in all recursive subdirectories in the directoryId directory.
-    // *   false: Only datasets in the directory specified by directoryId are returned, excluding subdirectories.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

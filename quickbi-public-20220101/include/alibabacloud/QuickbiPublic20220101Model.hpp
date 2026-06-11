@@ -65,6 +65,9 @@
 #include <alibabacloud/models/CheckReadableRequest.hpp>
 #include <alibabacloud/models/CheckReadableResponseBody.hpp>
 #include <alibabacloud/models/CheckReadableResponse.hpp>
+#include <alibabacloud/models/ClearDynamicTagCacheRequest.hpp>
+#include <alibabacloud/models/ClearDynamicTagCacheResponseBody.hpp>
+#include <alibabacloud/models/ClearDynamicTagCacheResponse.hpp>
 #include <alibabacloud/models/CreateCubeBySqlRequest.hpp>
 #include <alibabacloud/models/CreateCubeBySqlResponseBody.hpp>
 #include <alibabacloud/models/CreateCubeBySqlResponse.hpp>
@@ -158,6 +161,9 @@
 #include <alibabacloud/models/ListDataSourceRequest.hpp>
 #include <alibabacloud/models/ListDataSourceResponseBody.hpp>
 #include <alibabacloud/models/ListDataSourceResponse.hpp>
+#include <alibabacloud/models/ListDynamicTagRequest.hpp>
+#include <alibabacloud/models/ListDynamicTagResponseBody.hpp>
+#include <alibabacloud/models/ListDynamicTagResponse.hpp>
 #include <alibabacloud/models/ListFavoriteReportsRequest.hpp>
 #include <alibabacloud/models/ListFavoriteReportsResponseBody.hpp>
 #include <alibabacloud/models/ListFavoriteReportsResponse.hpp>

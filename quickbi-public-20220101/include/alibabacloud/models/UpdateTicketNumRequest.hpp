@@ -54,7 +54,7 @@ namespace Models
     shared_ptr<string> ticket_ {};
     // The number of bills.
     // 
-    // *   Valid values: 1 to 99998. Recommended value: 1.
+    // - Valid values: 1 to 99998. Recommended value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> ticketNum_ {};

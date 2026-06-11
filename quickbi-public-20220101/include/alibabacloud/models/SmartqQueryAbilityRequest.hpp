@@ -66,13 +66,16 @@ namespace Models
 
 
   protected:
-    // Dataset ID.
+    // The ID of the dataset. To obtain the ID, navigate to \\*\\*Workbench\\*\\* > \\*\\*Dataset\\*\\* in the Quick BI console. Open the dataset and find the \\`cubeId\\` in the URL.
+    // 
+    // In multi-table scenarios, this parameter must be empty.
     shared_ptr<string> cubeId_ {};
+    // A list of dataset IDs. The model selects one or more tables from the list to generate an answer based on the question. This parameter is required for multi-table scenarios and is not used for single-table scenarios.
     shared_ptr<string> multipleCubeIds_ {};
-    // User ID.
-    // >Notice: If this field is not filled, the data will be queried by default as the organization owner.
+    // The ID of the user.
+    // >Notice: If you do not specify this parameter, data is queried as the organization owner by default.
     shared_ptr<string> userId_ {};
-    // Question text.
+    // The question in text format.
     // 
     // This parameter is required.
     shared_ptr<string> userQuestion_ {};

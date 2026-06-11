@@ -104,13 +104,31 @@ namespace Models
 
 
       protected:
+        // The authorization type for the menu. Valid values:
+        // 
+        // - 1: View
+        // 
+        // - 11: Edit
+        // 
+        // - 3: Export and view
+        // 
+        // - 10: Manage data entry
         shared_ptr<int32_t> authPointsValue_ {};
         // The ID of the authorization object.
+        // 
+        // > - If the authorization object is an organization, this ID is the organization ID.
+        // >
+        // > - If the authorization object is a workspace, this ID is the workspace ID.
         shared_ptr<string> receiverId_ {};
         // The type of the authorization object. Valid values:
         // 
-        // *   0: user
-        // *   1: user group
+        // - 0: User
+        // 
+        // - 1: User group
+        // 
+        // - 2: Organization
+        // 
+        // - 3: Workspace
         shared_ptr<int32_t> receiverType_ {};
       };
 
@@ -140,14 +158,15 @@ namespace Models
 
 
     protected:
-      // The menu ID of the BI portal leaf node.
+      // The ID of the leaf-node menu in the BI portal.
       shared_ptr<string> menuId_ {};
-      // The details of the object to which the menu is authorized.
+      // The details of the authorization objects for the menu.
       shared_ptr<vector<Result::Receivers>> receivers_ {};
-      // Whether only authorization is visible. Valid values:
+      // Indicates whether the menu is visible only to authorized users. Valid values:
       // 
-      // *   true: Only the authorization is visible.
-      // *   false: Both are visible.
+      // - true: The menu is visible only to authorized users.
+      // 
+      // - false: The menu is visible to all users.
       shared_ptr<bool> showOnlyWithAccess_ {};
     };
 
@@ -177,14 +196,15 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of authorization details of the portal menu.
+    // A list of authorization details for the BI portal menus.
     shared_ptr<vector<ListPortalMenuAuthorizationResponseBody::Result>> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

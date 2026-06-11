@@ -57,8 +57,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The workspace ID.
     shared_ptr<string> result_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - true: The request is successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

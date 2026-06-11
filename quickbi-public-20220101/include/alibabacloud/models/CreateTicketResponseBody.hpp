@@ -61,8 +61,10 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The generated ticket value.
     shared_ptr<string> result_ {};
-    // Indicates whether the request was successful. Value range: 
-    // - true: Request succeeded 
+    // Indicates whether the request was successful. Value range:
+    // 
+    // - true: Request succeeded
+    // 
     // - false: Request failed
     shared_ptr<bool> success_ {};
   };

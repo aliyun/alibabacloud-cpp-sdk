@@ -64,6 +64,7 @@ namespace Models
     // Indicates whether the request was successful. The value range is as follows:
     // 
     // - true: The request succeeded
+    // 
     // - false: The request failed
     shared_ptr<bool> success_ {};
   };

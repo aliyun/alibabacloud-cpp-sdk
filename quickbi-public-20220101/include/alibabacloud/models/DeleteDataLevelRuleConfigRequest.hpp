@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> cubeId_ {};
+    // The ID of the row-level permission rule.
+    // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
   };

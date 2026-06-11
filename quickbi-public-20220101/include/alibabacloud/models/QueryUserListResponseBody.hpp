@@ -195,40 +195,54 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account.
+        // The Alibaba Cloud account ID. For users not added through RAM, this ID is available only after they log in.
         shared_ptr<string> accountId_ {};
-        // The name of the Alibaba Cloud account that corresponds to the member.
+        // The Alibaba Cloud account name.
         shared_ptr<string> accountName_ {};
-        // Indicates whether the organization administrator. Valid values:
+        // Indicates whether the user is an organization administrator. Valid values:
         // 
-        // *   true
-        // *   false
+        // - `true`: Yes
+        // 
+        // - `false`: No
+        // 
+        // >Notice: 
+        // 
+        // This parameter is deprecated. Use the `RoleIdList` parameter instead.
         shared_ptr<bool> adminUser_ {};
-        // Indicate whether the RAM user is a permission administrator. Valid values:
+        // Indicates whether the user is a permission administrator. Valid values:
         // 
-        // *   true
-        // *   false
+        // - `true`: Yes
+        // 
+        // - `false`: No
+        // 
+        // >Notice: 
+        // 
+        // This parameter is deprecated. Use the `RoleIdList` parameter instead.
         shared_ptr<bool> authAdminUser_ {};
         shared_ptr<vector<string>> copilotModules_ {};
-        // User status: 
-        // - Active - false 
-        // - Inactive - true
-        shared_ptr<bool> isDeleted_ {};
-        // Join Date
-        shared_ptr<int64_t> joinedDate_ {};
-        // Last login time.
-        shared_ptr<int64_t> lastLoginTime_ {};
-        // The nickname of the organization member.
-        shared_ptr<string> nickName_ {};
-        // List of organization role IDs bound to the user.
-        shared_ptr<vector<int64_t>> roleIdList_ {};
-        // The UserID in the Quick BI.
-        shared_ptr<string> userId_ {};
-        // The role type of the organization member. Valid values:
+        // Indicates whether the user is inactive.
         // 
-        // *   1 : developer
-        // *   2 : visitors
-        // *   3 : Analyst
+        // - `false`: Active
+        // 
+        // - `true`: Inactive
+        shared_ptr<bool> isDeleted_ {};
+        // The Unix timestamp (in milliseconds) that indicates when the user joined the organization.
+        shared_ptr<int64_t> joinedDate_ {};
+        // The Unix timestamp (in milliseconds) of the user\\"s last login.
+        shared_ptr<int64_t> lastLoginTime_ {};
+        // The nickname of the user.
+        shared_ptr<string> nickName_ {};
+        // The IDs of the organization roles assigned to the user.
+        shared_ptr<vector<int64_t>> roleIdList_ {};
+        // The user ID in Quick BI.
+        shared_ptr<string> userId_ {};
+        // The user type of the organization member. Valid values:
+        // 
+        // - `1`: developer
+        // 
+        // - `2`: viewer
+        // 
+        // - `3`: analyst
         shared_ptr<int32_t> userType_ {};
       };
 
@@ -272,15 +286,15 @@ namespace Models
 
 
     protected:
-      // Returns the list of requested users.
+      // The list of users.
       shared_ptr<vector<Result::Data>> data_ {};
-      // The page number of the returned page.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // The number of rows per page set when the interface is requested.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of rows in the table.
+      // The total number of matching users.
       shared_ptr<int32_t> totalNum_ {};
-      // The total number of pages returned.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -310,14 +324,15 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The pagination result of the user list is returned. The detailed information list of organization members is stored in the response parameter Data.
+    // The paginated list of users. The `Data` parameter contains the details of each organization member.
     shared_ptr<QueryUserListResponseBody::Result> result_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - `true`: The request was successful.
+    // 
+    // - `false`: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,10 +75,18 @@ namespace Models
 
 
   protected:
+    // The user ID in Quick BI. This is not your Alibaba Cloud account ID. Call the QueryUserInfoByAccount operation to obtain the user ID.
     shared_ptr<string> creatorId_ {};
+    // The name of the dataset.
     shared_ptr<string> cubeName_ {};
+    // The page number. If this parameter is left empty, the default value is 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of rows on each page for a paged query.
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

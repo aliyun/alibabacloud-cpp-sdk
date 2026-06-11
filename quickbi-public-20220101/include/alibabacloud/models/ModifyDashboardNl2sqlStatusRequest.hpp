@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // An array of dashboard IDs. Separate multiple IDs with commas.
+    // >Notice: The number of IDs cannot exceed 50.
+    // 
     // This parameter is required.
     shared_ptr<string> dashboardIds_ {};
+    // The status identifier. 0 indicates disabled and 1 indicates enabled.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
   };

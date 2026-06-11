@@ -57,17 +57,19 @@ namespace Models
 
 
   protected:
-    // The keyword of the username or nickname of the organization member.
+    // The keyword to search for organization members by username or nickname.
     shared_ptr<string> keyword_ {};
-    // Current page number for organization member list:
+    // The page number to return.
     // 
-    // *   Pages start from page 1.
-    // *   Default value: 1.
+    // - Starting value: 1
+    // 
+    // - Default value: 1
     shared_ptr<int32_t> pageNum_ {};
-    // The number of rows per page in a paged query.
+    // The number of organization members to return per page.
     // 
-    // *   Default value: 10.
-    // *   Maximum value: 1,000.
+    // - Default value: 10
+    // 
+    // - Maximum value: 1000
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -80,11 +80,11 @@ namespace Models
 
 
     protected:
-      // Dataset ID.
+      // The ID of the dataset.
       shared_ptr<string> cubeId_ {};
-      // Dataset name.
+      // The name of the dataset.
       shared_ptr<string> cubeName_ {};
-      // Whether the current user has permission for the smart question. Note: \\"HasPerssion\\" seems to be a typo, it should probably be \\"HasPermission\\".
+      // Indicates whether the current user has permissions for Smart Q\\&A.
       shared_ptr<bool> hasPerssion_ {};
     };
 
@@ -114,13 +114,14 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Basic information of the dataset.
+    // The basic information about the dataset.
     shared_ptr<QuerySmartqPermissionByCubeIdResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
     // - true: The request was successful.
+    // 
     // - false: The request failed.
     shared_ptr<bool> success_ {};
   };

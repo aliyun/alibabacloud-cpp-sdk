@@ -81,8 +81,21 @@ namespace Models
 
 
     protected:
+      // The authorization type for the menu. Valid values:
+      // 
+      // - 1: View
+      // 
+      // - 3: Export and view
       shared_ptr<int32_t> authPointsValue_ {};
+      // The ID of the authorization object. If the authorization is at the workspace or organization level, this parameter returns the workspace ID or organization ID.
       shared_ptr<string> receiverId_ {};
+      // The type of the authorization object. Valid values:
+      // 
+      // - 0: User
+      // 
+      // - 1: User group
+      // 
+      // - 3: Workspace or organization level
       shared_ptr<int32_t> receiverType_ {};
     };
 
@@ -112,8 +125,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The whitelist.
     shared_ptr<vector<ListWhitePortalMenuResponseBody::Result>> result_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

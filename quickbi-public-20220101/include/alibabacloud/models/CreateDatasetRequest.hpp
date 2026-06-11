@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // The ID of the data source.
+    // 
     // This parameter is required.
     shared_ptr<string> dsId_ {};
+    // The name of the table.
+    // 
     // This parameter is required.
     shared_ptr<string> tableName_ {};
+    // The ID of the destination folder.
     shared_ptr<string> targetDirectoryId_ {};
+    // The name of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> userDefineCubeName_ {};
+    // The user ID of a Quick BI user who has permissions to create datasets. This is not your Alibaba Cloud account ID. To obtain the user ID, call the [QueryUserInfoByAccount](https://next.api.aliyun.com/api/quickbi-public/2022-01-01/QueryUserInfoByAccount?spm=api-workbench.api_explorer.0.0.672f50daGq9ooV\\&params=%7B%7D\\&tab=DOC\\&sdkStyle=old\\&RegionId=cn-hangzhou) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
+    // The ID of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

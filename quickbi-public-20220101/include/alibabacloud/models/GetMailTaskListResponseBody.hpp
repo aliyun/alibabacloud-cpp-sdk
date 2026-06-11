@@ -130,10 +130,19 @@ namespace Models
 
 
       protected:
+        // The nickname of the owner.
         shared_ptr<string> bizOwnerName_ {};
+        // The user ID of the owner.
         shared_ptr<string> bizOwnerUserId_ {};
+        // The mail ID of the tracking task.
         shared_ptr<string> mailId_ {};
+        // Indicates whether the task is paused.
+        // 
+        // - true: The task is paused.
+        // 
+        // - false: The task is not paused.
         shared_ptr<bool> paused_ {};
+        // The name of the tracking task.
         shared_ptr<string> subscribeName_ {};
       };
 
@@ -192,12 +201,19 @@ namespace Models
 
 
     protected:
+      // An array of tracking task models.
       shared_ptr<vector<Result::Data>> data_ {};
+      // The next page number. A value of null or 0 indicates that there is no next page.
       shared_ptr<int32_t> next_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page that was set for the request.
       shared_ptr<int32_t> pageSize_ {};
+      // The previous page number. A value of null or 0 indicates that there is no previous page.
       shared_ptr<int32_t> pre_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -227,8 +243,15 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The paging information for the tracking tasks.
     shared_ptr<GetMailTaskListResponseBody::Result> result_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

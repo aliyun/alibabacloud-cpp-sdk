@@ -84,52 +84,54 @@ namespace Models
 
 
   protected:
-    // User\\"s account name.
-    // <notice>Note: Only one of userId and accountName needs to be filled in. If neither is provided, it will default to the report owner, and the report will be accessed with that user\\"s identity.</notice>
+    // The name of the user account.
+    // >Notice: Note: Specify either UserId or AccountName. If you leave both parameters empty, the ticket is bound to the API caller by default. Access is then granted based on the caller\\"s identity.
     shared_ptr<string> accountName_ {};
-    // User\\"s account type:
+    // The type of the user account:
     // 
-    // - 1: Alibaba Cloud Primary Account
+    // - 1: Alibaba Cloud account
     // 
-    // - 3: Quick BI Self-built Account
+    // - 3: Quick BI user
     // 
     // - 4: DingTalk
     // 
-    // - 5: Alibaba Cloud RAM Account
+    // - 5: RAM user
     // 
-    // - 6: Third-party Account (SAML, OAuth, etc.)
+    // - 6: Third-party account (an account integrated using protocols such as SAML or OAuth)
     // 
     // - 9: WeCom
     // 
-    // - 10: Feishu
+    // - 10: Lark
     // 
-    // <notice>Note: If accountName is not empty, then accountType must also be provided.</notice>
+    // >Notice: 
+    // 
+    // Note: This parameter is required if you specify AccountName.
     shared_ptr<int32_t> accountType_ {};
-    // ID of the Smart Q module to be embedded.
+    // The ID of the embedded Copilot module.
     // 
     // This parameter is required.
     shared_ptr<string> copilotId_ {};
-    // Expiration time.
+    // The expiration time of the ticket.
     // 
-    // - Unit: minutes, maximum 240 (4 hours).
+    // - Unit: minutes. The maximum validity period is 240 minutes (4 hours).
     // 
-    // - Default: 240.
+    // - Default: 240 minutes.
     shared_ptr<int32_t> expireTime_ {};
-    // Range of ticket quantity:
+    // The number of times the ticket can be used. The value can range from 1 to 99,999.
     // 
-    // - Default value is 1.
+    // - Default: 1.
     // 
-    // - Recommended value is 1.
+    // - Recommended: 1.
     // 
-    // - Maximum value is 99999.
+    // - Maximum: 99,999.
     // 
-    // Each time a ticket is used, the ticket count decreases by 1.
+    // Each access decrements the ticket\\"s usage count by one.
     shared_ptr<int32_t> ticketNum_ {};
-    // Quick BI\\"s UserId.
+    // The ID of the Quick BI user. This is not your Alibaba Cloud account ID. Call the QueryUserInfoByAccount operation to obtain the user ID. Example: `fe67f61a35a94b7da1a34ba174a7****`.
     // 
-    // - You can obtain this by calling [3.1.7 Get User Details Based on Third-Party Account] or other relevant APIs.
+    // >Notice: 
     // 
-    // <notice>Note: Only one of userId and accountName needs to be filled in. If neither is provided, it will default to the report owner, and the report will be accessed with that user\\"s identity.</notice>
+    // Note: Specify either UserId or AccountName. If you leave both parameters empty, the ticket is bound to the API caller by default. Access is then granted based on the caller\\"s identity.
     shared_ptr<string> userId_ {};
   };
 

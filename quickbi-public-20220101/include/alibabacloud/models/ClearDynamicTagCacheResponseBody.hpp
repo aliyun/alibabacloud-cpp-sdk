@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_ADDUSERTOWORKSPACERESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_ADDUSERTOWORKSPACERESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CLEARDYNAMICTAGCACHERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CLEARDYNAMICTAGCACHERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,25 +10,25 @@ namespace QuickbiPublic20220101
 {
 namespace Models
 {
-  class AddUserToWorkspaceResponseBody : public Darabonba::Model {
+  class ClearDynamicTagCacheResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const AddUserToWorkspaceResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const ClearDynamicTagCacheResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, AddUserToWorkspaceResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, ClearDynamicTagCacheResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    AddUserToWorkspaceResponseBody() = default ;
-    AddUserToWorkspaceResponseBody(const AddUserToWorkspaceResponseBody &) = default ;
-    AddUserToWorkspaceResponseBody(AddUserToWorkspaceResponseBody &&) = default ;
-    AddUserToWorkspaceResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~AddUserToWorkspaceResponseBody() = default ;
-    AddUserToWorkspaceResponseBody& operator=(const AddUserToWorkspaceResponseBody &) = default ;
-    AddUserToWorkspaceResponseBody& operator=(AddUserToWorkspaceResponseBody &&) = default ;
+    ClearDynamicTagCacheResponseBody() = default ;
+    ClearDynamicTagCacheResponseBody(const ClearDynamicTagCacheResponseBody &) = default ;
+    ClearDynamicTagCacheResponseBody(ClearDynamicTagCacheResponseBody &&) = default ;
+    ClearDynamicTagCacheResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ClearDynamicTagCacheResponseBody() = default ;
+    ClearDynamicTagCacheResponseBody& operator=(const ClearDynamicTagCacheResponseBody &) = default ;
+    ClearDynamicTagCacheResponseBody& operator=(ClearDynamicTagCacheResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,37 +39,26 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline AddUserToWorkspaceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline ClearDynamicTagCacheResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
     inline bool getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, false) };
-    inline AddUserToWorkspaceResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline ClearDynamicTagCacheResponseBody& setResult(bool result) { DARABONBA_PTR_SET_VALUE(result_, result) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline AddUserToWorkspaceResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline ClearDynamicTagCacheResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
-    // 
-    // - true: The operation succeeded.
-    // 
-    // - false: The operation failed.
     shared_ptr<bool> result_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - true: The request succeeded.
-    // 
-    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

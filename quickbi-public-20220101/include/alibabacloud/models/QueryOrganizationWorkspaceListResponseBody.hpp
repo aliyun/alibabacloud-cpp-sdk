@@ -218,40 +218,43 @@ namespace Models
 
 
       protected:
-        // Whether the work can be made public. Value range:
+        // Whether works in the workspace can be published. Valid values:
         // 
-        // - true: Public
-        // - false: Not public
+        // - true: Publishing is allowed.
+        // 
+        // - false: Publishing is not allowed.
         shared_ptr<bool> allowPublishOperation_ {};
-        // Indicates whether the work can be authorized for sharing. Possible values:
+        // Whether works in the workspace can be shared. Valid values:
         // 
-        // - true: Authorized
-        // - false: Not authorized
+        // - true: Sharing is allowed.
+        // 
+        // - false: Sharing is not allowed.
         shared_ptr<bool> allowShareOperation_ {};
-        // Creation time of the workspace.
+        // The time when the workspace was created.
         shared_ptr<string> createTime_ {};
-        // Quick BI user ID of the creator.
+        // The creator\\"s Quick BI user ID.
         shared_ptr<string> createUser_ {};
-        // Aliyun account name of the creator.
+        // The creator\\"s Alibaba Cloud account name.
         shared_ptr<string> createUserAccountName_ {};
-        // Last modified time of the workspace.
+        // The time when the workspace was last modified.
         shared_ptr<string> modifiedTime_ {};
-        // ID of the Quick BI user who modified the workspace.
+        // The modifier\\"s Quick BI user ID.
         shared_ptr<string> modifyUser_ {};
-        // Aliyun account name of the modifier.
+        // The modifier\\"s Alibaba Cloud account name.
         shared_ptr<string> modifyUserAccountName_ {};
-        // ID of the organization to which the workspace belongs.
+        // The ID of the workspace\\"s organization.
         shared_ptr<string> organizationId_ {};
-        // Quick BI user ID of the workspace owner.
+        // The workspace owner\\"s Quick BI user ID.
         shared_ptr<string> owner_ {};
-        // Aliyun account name of the workspace owner.
+        // The workspace owner\\"s Alibaba Cloud account name.
         shared_ptr<string> ownerAccountName_ {};
+        // The workspace owner\\"s Quick BI account name.
         shared_ptr<string> realOwnerAccountName_ {};
-        // Workspace description.
+        // The workspace description.
         shared_ptr<string> workspaceDescription_ {};
-        // Workspace ID.
+        // The workspace ID.
         shared_ptr<string> workspaceId_ {};
-        // Name of the workspace.
+        // The workspace name.
         shared_ptr<string> workspaceName_ {};
       };
 
@@ -295,15 +298,15 @@ namespace Models
 
 
     protected:
-      // List of workspaces.
+      // An array of workspace objects.
       shared_ptr<vector<Result::Data>> data_ {};
-      // Page number.
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
-      // Number of rows per page as set in the request.
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
-      // Total number of rows.
+      // The total number of workspaces.
       shared_ptr<int32_t> totalNum_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -333,14 +336,15 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns the paginated result of the workspace list, with detailed information about the workspaces stored in the Data parameter.
+    // The paginated query results. The Data parameter contains the details of each workspace.
     shared_ptr<QueryOrganizationWorkspaceListResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Whether the request succeeded. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request succeeded.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

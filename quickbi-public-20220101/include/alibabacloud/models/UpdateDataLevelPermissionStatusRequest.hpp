@@ -57,12 +57,24 @@ namespace Models
 
 
   protected:
-    // The ID of the training dataset that you want to remove from the specified custom linguistic model.
+    // The ID of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> cubeId_ {};
+    // The status of the permission switch. Valid values:
+    // 
+    // - 1: On
+    // 
+    // - 0: Off
+    // 
     // This parameter is required.
     shared_ptr<int32_t> isOpen_ {};
+    // The type of data-level permission. Valid values:
+    // 
+    // - ROW_LEVEL: Row-level permission
+    // 
+    // - COLUMN_LEVEL: Column-level permission
+    // 
     // This parameter is required.
     shared_ptr<string> ruleType_ {};
   };

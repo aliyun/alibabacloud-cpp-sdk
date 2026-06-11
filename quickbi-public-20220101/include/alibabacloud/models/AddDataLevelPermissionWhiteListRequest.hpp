@@ -75,25 +75,33 @@ namespace Models
 
 
   protected:
-    // The ID of the training dataset that you want to remove from the specified custom linguistic model.
+    // The ID of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> cubeId_ {};
-    // Operation Type: You can set this parameter to one of the following values.
+    // The operation to perform. Valid values:
     // 
-    // *   ADD: Add a whitelist
-    // *   DELETE: deletes a whitelist.
+    // - ADD: adds users or user groups to the whitelist.
+    // 
+    // - DELETE: removes users or user groups from the whitelist.
     shared_ptr<string> operateType_ {};
-    // The type of row-level permissions.
+    // The type of permission. Valid values:
     // 
-    // *   ROW_LEVEL: row-level permissions,
-    // *   COLUMN_LEVEL: column-level permissions
+    // - ROW_LEVEL: row-level permission
+    // 
+    // - COLUMN_LEVEL: column-level permission
     shared_ptr<string> ruleType_ {};
-    shared_ptr<string> targetIds_ {};
-    // Modify the type of the whitelist:
+    // The IDs of the users or user groups to add to the whitelist.
     // 
-    // *   1: user
-    // *   2: user group
+    // - If you set TargetType to 1 (user), specify the user IDs.
+    // 
+    // - When `TargetType=2` (user group), the value is the user group ID.
+    shared_ptr<string> targetIds_ {};
+    // The type of object to add to the whitelist. Valid values:
+    // 
+    // - 1: user
+    // 
+    // - 2: user group
     shared_ptr<string> targetType_ {};
   };
 

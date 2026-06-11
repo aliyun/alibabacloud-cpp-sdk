@@ -127,21 +127,21 @@ namespace Models
 
 
     protected:
-      // Log time.
+      // The time when the log was generated.
       shared_ptr<string> gmtCreate_ {};
-      // Operator account.
+      // The account name of the operator.
       shared_ptr<string> operatorAccountName_ {};
-      // Operator\\"s nickname.
+      // The nickname of the operator.
       shared_ptr<string> operatorName_ {};
-      // Operation type.
+      // The operation type.
       shared_ptr<string> operatorType_ {};
-      // Target ID.
+      // The ID of the operation target.
       shared_ptr<string> targetId_ {};
-      // Target name.
+      // The name of the operation target.
       shared_ptr<string> targetName_ {};
-      // Target type.
+      // The type of the operation target.
       shared_ptr<string> targetType_ {};
-      // Workspace ID.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -171,13 +171,15 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Array of logs.
+    // An array of log objects.
     shared_ptr<vector<QueryAuditLogResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. Possible values: 
-    // - true: The request succeeded 
-    // - false: The request failed
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

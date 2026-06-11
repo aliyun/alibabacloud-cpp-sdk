@@ -139,11 +139,29 @@ namespace Models
 
 
       protected:
+        // The task duration in seconds.
         shared_ptr<string> duration_ {};
+        // The task history ID.
         shared_ptr<string> jobHistoryId_ {};
+        // The task ID.
         shared_ptr<string> jobId_ {};
+        // The status of the task.
+        // 
+        // - 0: Pending
+        // 
+        // - 1: Running
+        // 
+        // - 2: Succeeded
+        // 
+        // - 3: Failed
+        // 
+        // - 4: Canceled
+        // 
+        // - 5: Warning
         shared_ptr<string> jobStatus_ {};
+        // The start time of the task.
         shared_ptr<string> jonStartDate_ {};
+        // The log content.
         shared_ptr<string> log_ {};
       };
 
@@ -202,12 +220,19 @@ namespace Models
 
 
     protected:
+      // An array of acceleration task logs.
       shared_ptr<vector<Result::Data>> data_ {};
+      // The next page. A value of NULL or 0 indicates that no next page exists.
       shared_ptr<int32_t> next_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The previous page. A value of NULL or 0 indicates that no previous page exists.
       shared_ptr<int32_t> pre_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -237,8 +262,19 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The result of the API request.
+    // 
+    // - true: The execution succeeded.
+    // 
+    // - false: The execution failed.
     shared_ptr<QueryAccelerationLogByCubeIdResponseBody::Result> result_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

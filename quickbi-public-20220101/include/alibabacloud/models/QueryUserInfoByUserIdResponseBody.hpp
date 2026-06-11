@@ -158,35 +158,49 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID.
       shared_ptr<string> accountId_ {};
-      // The name of the Alibaba Cloud account that corresponds to the member.
+      // The Alibaba Cloud account name.
       shared_ptr<string> accountName_ {};
-      // Whether you are an administrator of the organization. Valid values:
+      // Indicates whether the organization administrator role is assigned to the user. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The role is assigned.
+      // 
+      // - false: The role is not assigned.
+      // 
+      // >Notice: 
+      // 
+      // This parameter is deprecated. Use the `RoleIdList` parameter instead.
       shared_ptr<bool> adminUser_ {};
-      // Whether you are a permission administrator. Valid values:
+      // Indicates whether the permission administrator role is assigned to the user. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The role is assigned.
+      // 
+      // - false: The role is not assigned.
+      // 
+      // >Notice: 
+      // 
+      // This parameter is deprecated. Use the `RoleIdList` parameter instead.
       shared_ptr<bool> authAdminUser_ {};
+      // The list of `CopilotModules` available to the user.
       shared_ptr<vector<string>> copilotModules_ {};
       // The email address of the user.
       shared_ptr<string> email_ {};
-      // The nickname of the account.
+      // The nickname of the user.
       shared_ptr<string> nickName_ {};
-      // The phone number of the alert contact.
+      // The phone number of the user.
       shared_ptr<string> phone_ {};
+      // The list of organization role IDs that are assigned to the user.
       shared_ptr<vector<int64_t>> roleIdList_ {};
-      // The UserID in the Quick BI.
+      // The user ID in Quick BI.
       shared_ptr<string> userId_ {};
-      // The role type of the organization member. Valid values:
+      // The user type of the organization member. Valid values:
       // 
-      // *   1 : developer
-      // *   2 : visitors
-      // *   3 : Analyst
+      // - `1`: developer
+      // 
+      // - `2`: viewer
+      // 
+      // - `3`: analyst
       shared_ptr<int32_t> userType_ {};
     };
 
@@ -218,12 +232,13 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The returned organization user information.
+    // The information about the organization user.
     shared_ptr<QueryUserInfoByUserIdResponseBody::Result> result_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // *   true: The request was successful.
-    // *   false: The request failed.
+    // - true: The request is successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

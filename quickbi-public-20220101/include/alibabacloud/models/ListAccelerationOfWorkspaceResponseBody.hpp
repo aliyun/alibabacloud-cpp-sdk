@@ -167,14 +167,35 @@ namespace Models
 
 
       protected:
+        // The name of the creator.
         shared_ptr<string> creatorName_ {};
+        // The dataset ID.
         shared_ptr<string> cubeId_ {};
+        // The dataset name.
         shared_ptr<string> cubeName_ {};
+        // The time when acceleration was enabled.
         shared_ptr<string> enableQuickindexTime_ {};
+        // The task history ID.
         shared_ptr<string> jobHistoryId_ {};
+        // The acceleration task ID.
         shared_ptr<string> jobId_ {};
+        // The status of the task. Valid values:
+        // 
+        // - 0: Pending
+        // 
+        // - 1: Running
+        // 
+        // - 2: Succeeded
+        // 
+        // - 3: Failed
+        // 
+        // - 4: Canceled
+        // 
+        // - 5: Warning
         shared_ptr<int32_t> jobStatus_ {};
+        // The time when the task was last modified.
         shared_ptr<string> lastModifyTime_ {};
+        // The size.
         shared_ptr<string> size_ {};
       };
 
@@ -233,12 +254,19 @@ namespace Models
 
 
     protected:
+      // An array of acceleration task information.
       shared_ptr<vector<Result::Data>> data_ {};
+      // The next page. A value of NULL or 0 indicates that there is no next page.
       shared_ptr<int32_t> next_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of rows per page that you set when you call the operation.
       shared_ptr<int32_t> pageSize_ {};
+      // The previous page. A value of NULL or 0 indicates that there is no previous page.
       shared_ptr<int32_t> pre_ {};
+      // The total number of rows.
       shared_ptr<int32_t> totalNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPages_ {};
     };
 
@@ -268,8 +296,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The acceleration task model.
     shared_ptr<ListAccelerationOfWorkspaceResponseBody::Result> result_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

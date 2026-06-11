@@ -104,8 +104,19 @@ namespace Models
 
 
       protected:
+        // The code that corresponds to the preset workspace role. This parameter is not returned for custom roles.
         shared_ptr<string> roleCode_ {};
+        // The workspace role ID. This includes, but is not limited to, the following preset workspace roles:
+        // 
+        // - 25: Workspace Admin (preset role)
+        // 
+        // - 26: Workspace Developer (preset role)
+        // 
+        // - 27: Workspace Analyst (preset role)
+        // 
+        // - 30: Workspace Viewer (preset role)
         shared_ptr<string> roleId_ {};
+        // The name of the workspace role.
         shared_ptr<string> roleName_ {};
       };
 
@@ -135,8 +146,11 @@ namespace Models
 
 
     protected:
+      // The workspace role information.
       shared_ptr<Result::RoleModel> roleModel_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
+      // The workspace name.
       shared_ptr<string> workspaceName_ {};
     };
 
@@ -166,9 +180,17 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of all workspace role information.
+    // 
     // This parameter is required.
     shared_ptr<vector<ListWorkspaceUserRolesByUserIdResponseBody::Result>> result_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

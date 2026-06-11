@@ -131,33 +131,43 @@ namespace Models
 
 
     protected:
-      // Aliyun account.
+      // The Alibaba Cloud account.
       shared_ptr<string> accountName_ {};
-      // Whether the organization administrator role is assigned. Value range: 
+      // Indicates whether the organization administrator role is assigned. Valid values:
       // 
-      // - true: Yes
-      // - false: No
+      // - true
       // 
-      // <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIdList is provided.</notice>
+      // - false
+      // 
+      // >Notice: 
+      // 
+      // This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
       shared_ptr<bool> adminUser_ {};
-      // Whether the permission administrator role is assigned. Value range: 
+      // Indicates whether the permission administrator role is assigned. Valid values:
       // 
-      // - true: Yes
-      // - false: No
+      // - true
       // 
-      // <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIdList is provided.</notice>
+      // - false
+      // 
+      // >Notice: 
+      // 
+      // This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
       shared_ptr<bool> authAdminUser_ {};
+      // The Copilot modules for which the user has a quota.
       shared_ptr<vector<string>> copilotModules_ {};
-      // Aliyun account nickname.
+      // The nickname of the Alibaba Cloud account.
       shared_ptr<string> nickName_ {};
-      // List of organization role IDs bound to the user.
+      // A list of organization role IDs assigned to the user.
       shared_ptr<vector<int64_t>> roleIdList_ {};
-      // UserID in Quick BI.
+      // The user ID in Quick BI.
       shared_ptr<string> userId_ {};
-      // User type of the organization member. Value range: 
-      // - 1: Developer 
-      // - 2: Visitor 
-      // - 3: Analyst
+      // The user type. Valid values:
+      // 
+      // - 1: developer
+      // 
+      // - 2: viewer
+      // 
+      // - 3: analyst
       shared_ptr<int32_t> userType_ {};
     };
 
@@ -187,14 +197,15 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns detailed information about the newly added Aliyun user.
+    // The details of the newly added Alibaba Cloud user.
     shared_ptr<AddUserResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true
+    // 
+    // - false
     shared_ptr<bool> success_ {};
   };
 

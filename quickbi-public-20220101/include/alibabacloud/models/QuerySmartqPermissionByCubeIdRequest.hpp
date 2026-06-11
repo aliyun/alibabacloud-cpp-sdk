@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Dataset ID.
+    // The ID of the dataset.
     // 
     // This parameter is required.
     shared_ptr<string> cubeId_ {};
-    // User ID.
+    // The ID of the user.
     // 
     // This parameter is required.
     shared_ptr<string> userId_ {};

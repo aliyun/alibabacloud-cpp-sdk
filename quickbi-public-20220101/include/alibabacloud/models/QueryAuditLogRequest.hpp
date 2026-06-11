@@ -112,32 +112,49 @@ namespace Models
 
 
   protected:
+    // The access source. Valid values:
+    // 
+    // - COMMON: standard access
+    // 
+    // - IMBEDDED: embedded report
+    // 
+    // - PUBLIC: public report
+    // 
+    // - IMBEDDED_COMPONENT: embedded card
     shared_ptr<string> accessSourceFlag_ {};
-    // End date of the query, format ("yyyyMMdd").
+    // The end date for the query. Use the yyyyMMdd format.
     // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // Log type:
-    // - dataView - Access
-    // - function - Operation
-    // - permission - Permission
+    // The log type. Valid values:
+    // 
+    // - dataView: access logs
+    // 
+    // - function: operation logs
+    // 
+    // - permission: permission logs
     // 
     // This parameter is required.
     shared_ptr<string> logType_ {};
-    // Operator\\"s user ID.
+    // The user ID of the operator.
     shared_ptr<string> operatorId_ {};
-    // Permission/Access/Operation type, empty - default all;
+    // The permission, access, or operation type. If left empty, all types are queried by default.
     // 
-    // Refer to the audit log code values, send multiple values separated by English commas.
+    // For valid values, see audit log codes. To specify multiple types, separate them with commas.
     shared_ptr<string> operatorTypes_ {};
-    // Resource type, refer to the work type.
+    // The resource type. For more information, see work types.
     shared_ptr<string> resourceType_ {};
-    // Start date of the query, format ("yyyyMMdd"), cannot be earlier than 90 days from the current time.
+    // The start date for the query. Use the yyyyMMdd format. The date cannot be more than 90 days before the current date.
     // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
+    // The device used for access. Valid values:
+    // 
+    // - MOBILE: mobile device
+    // 
+    // - PC: PC
     shared_ptr<string> userAccessDevice_ {};
-    // Workspace ID, the ID of the workspace to which the logs to be queried belong.
+    // The ID of the workspace that contains the logs to query.
     shared_ptr<string> workspaceId_ {};
   };
 

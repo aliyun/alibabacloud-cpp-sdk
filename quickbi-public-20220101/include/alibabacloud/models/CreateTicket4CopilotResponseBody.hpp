@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // ID of the Smart Q module to be embedded.
+    // The generated ticket.
     shared_ptr<string> result_ {};
-    // Indicates whether the request was successful. Possible values:
-    // - true: The request succeeded
-    // - false: The request failed
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

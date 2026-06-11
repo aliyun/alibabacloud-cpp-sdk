@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // Reason for failure.
+      // The reason for the failure.
       shared_ptr<string> detailMessage_ {};
-      // Q&A resource ID.
+      // The Q\\&A resource ID.
       shared_ptr<string> llmCube_ {};
-      // Analysis theme ID.
+      // The analysis subject ID.
       shared_ptr<string> llmCubeTheme_ {};
-      // User ID.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -126,14 +126,15 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Array of failed user information.
+    // An array of user information for failed operations.
     shared_ptr<vector<SmartqAuthorizeResponseBody::Result>> result_ {};
-    // Indicates whether the request was successful. The value range is as follows:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

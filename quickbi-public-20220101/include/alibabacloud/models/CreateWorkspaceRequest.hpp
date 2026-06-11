@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // Specifies whether reports in the workspace can be made public. Default value: true.
     shared_ptr<bool> allowPublish_ {};
+    // Specifies whether reports in the workspace can be shared. Default value: true.
     shared_ptr<bool> allowShare_ {};
+    // Specifies whether the workspace is in collaboration mode. Default value: true.
     shared_ptr<bool> allowViewAll_ {};
+    // Specifies whether to grant read permissions on the works in the workspace to all workspace members by default. Default value: false.
     shared_ptr<bool> defaultShareToAll_ {};
+    // Specifies whether only administrators can create data sources in the workspace. Default value: false.
     shared_ptr<bool> onlyAdminCreateDatasource_ {};
+    // Specifies whether to use table remarks when you create a dataset in the workspace. Default value: true.
     shared_ptr<bool> useComment_ {};
+    // The description of the workspace.
     shared_ptr<string> workspaceDescription_ {};
+    // The name of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceName_ {};
   };

@@ -75,12 +75,22 @@ namespace Models
 
 
   protected:
+    // The ID of the dataset.
+    // 
     // This parameter is required.
     shared_ptr<string> cubeId_ {};
+    // The end time. The format is yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
+    // The page number. The default value is **1**.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page.
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time. The format is yyyy-MM-dd HH:mm:ss.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
   };

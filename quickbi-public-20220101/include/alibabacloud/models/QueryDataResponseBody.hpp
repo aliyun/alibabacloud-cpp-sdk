@@ -141,35 +141,57 @@ namespace Models
 
 
       protected:
-        // Aggregation operator. Only present for measure fields, such as SUM, AVG, and MAX.
-        // - SUM: Sum
-        // - MAX: Maximum value
-        // - MIN: Minimum value
-        // - AVG: Average
-        // - COUNT: Count
-        // - COUNTD: Distinct count
-        // - STDDEV_POP: Population standard deviation
-        // - STDDEV_SAMP: Sample standard deviation
-        // - VAR_POP: Population variance
-        // - VAR_SAMP: Sample variance
+        // The aggregate operator. Returned only for measure fields.
+        // 
+        // - SUM: The sum.
+        // 
+        // - MAX: The maximum value.
+        // 
+        // - MIN: The minimum value.
+        // 
+        // - AVG: The average value.
+        // 
+        // - COUNT: The count.
+        // 
+        // - COUNTD: The count of unique values.
+        // 
+        // - STDDEV_POP: The population standard deviation.
+        // 
+        // - STDDEV_SAMP: The sample standard deviation.
+        // 
+        // - VAR_POP: The population variance.
+        // 
+        // - VAR_SAMP: The sample variance.
         shared_ptr<string> aggregator_ {};
-        // Field name, corresponding to the physical table field name.
+        // The physical table field name.
         shared_ptr<string> column_ {};
-        // The keyword of the sensitive field type.
+        // The field data type. Common types:
+        // 
+        // - number
+        // 
+        // - string
+        // 
+        // - date
+        // 
+        // - time
+        // 
+        // - datetime
         shared_ptr<string> dataType_ {};
-        // The granularity of the dimension field.
-        // This field is returned only when the requested field is a date or geographic dimension, with the following possible values:
+        // The dimension granularity. Returned only for date or geographic dimensions. Valid values:
         // 
-        // - Date Granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+        // - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
         // 
-        // - Geographic Granularity: COUNTRY (international level), PROVINCE (provincial level), CITY (city level), XIAN (district/county level), REGION (region)
+        // - Geographic granularity: COUNTRY (country), PROVINCE (province), CITY (city), XIAN (county/district), REGION (region)
         shared_ptr<string> granularity_ {};
-        // Field alias, which serves as the key in the map data rows of the `values` parameter.
+        // The field alias. Used as the key in each Values map entry.
         shared_ptr<string> label_ {};
+        // The original field name in the dataset.
         shared_ptr<string> originalColumn_ {};
-        // Field type, used to distinguish between dimension and measure fields.
-        // - Dimension: dimension
-        // - Measure: measure
+        // Whether the field is a dimension or measure.
+        // 
+        // - Dimension
+        // 
+        // - Measure
         shared_ptr<string> type_ {};
       };
 
@@ -201,12 +223,13 @@ namespace Models
 
 
     protected:
-      // Column headers.
+      // The column headers.
       shared_ptr<vector<Result::Headers>> headers_ {};
-      // The SQL query that was executed.
-      // > The filter conditions in the returned SQL statement include not only the parameters passed through this interface but also the row and column permission configurations.
+      // The SQL statement for the query.
+      // 
+      // > The returned SQL includes both the filter conditions from this call and any row-level or column-level permission rules.
       shared_ptr<string> sql_ {};
-      // The results of the query.
+      // The query results.
       shared_ptr<vector<Darabonba::Json>> values_ {};
     };
 
@@ -236,17 +259,19 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Returns the result of the interface execution. Possible values:
+    // The result of the API call. Valid values:
     // 
-    // - true: Execution succeeded
-    // - false: Execution failed
+    // - true: The call was successful.
+    // 
+    // - false: The call failed.
     shared_ptr<QueryDataResponseBody::Result> result_ {};
-    // Indicates whether the request was successful. Possible values:
+    // Whether the request succeeded. Valid values:
     // 
-    // - true: Request succeeded
-    // - false: Request failed
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

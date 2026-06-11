@@ -36,9 +36,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Add selected groups of people incrementally for a single row and column permission rule.
+ * @summary Adds specified users and user groups to a row-level permission rule.
  *
- * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+ * @description > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
  *
  * @param request AddDataLevelPermissionRuleUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -69,9 +69,9 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsersW
 }
 
 /**
- * @summary Add selected groups of people incrementally for a single row and column permission rule.
+ * @summary Adds specified users and user groups to a row-level permission rule.
  *
- * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+ * @description > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
  *
  * @param request AddDataLevelPermissionRuleUsersRequest
  * @return AddDataLevelPermissionRuleUsersResponse
@@ -82,9 +82,9 @@ AddDataLevelPermissionRuleUsersResponse Client::addDataLevelPermissionRuleUsers(
 }
 
 /**
- * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
+ * @summary Modifies the whitelist for row-level and column-level permissions of a specified dataset.
  *
- * @description ROW_LEVEL
+ * @description > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
  *
  * @param request AddDataLevelPermissionWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -131,9 +131,9 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteListW
 }
 
 /**
- * @summary Modifies the whitelist of the row and column permissions for a specified dataset.
+ * @summary Modifies the whitelist for row-level and column-level permissions of a specified dataset.
  *
- * @description ROW_LEVEL
+ * @description > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
  *
  * @param request AddDataLevelPermissionWhiteListRequest
  * @return AddDataLevelPermissionWhiteListResponse
@@ -144,7 +144,7 @@ AddDataLevelPermissionWhiteListResponse Client::addDataLevelPermissionWhiteList(
 }
 
 /**
- * @summary 创建数据源
+ * @summary Adds a data source.
  *
  * @param request AddDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -175,7 +175,7 @@ AddDataSourceResponse Client::addDataSourceWithOptions(const AddDataSourceReques
 }
 
 /**
- * @summary 创建数据源
+ * @summary Adds a data source.
  *
  * @param request AddDataSourceRequest
  * @return AddDataSourceResponse
@@ -244,7 +244,7 @@ AddShareReportResponse Client::addShareReport(const AddShareReportRequest &reque
 }
 
 /**
- * @summary Add an organization member.
+ * @summary Add organization members.
  *
  * @param request AddUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -305,7 +305,7 @@ AddUserResponse Client::addUserWithOptions(const AddUserRequest &request, const 
 }
 
 /**
- * @summary Add an organization member.
+ * @summary Add organization members.
  *
  * @param request AddUserRequest
  * @return AddUserResponse
@@ -454,7 +454,7 @@ AddUserTagMetaResponse Client::addUserTagMeta(const AddUserTagMetaRequest &reque
 }
 
 /**
- * @summary Add a member to the specified workspace.
+ * @summary Adds a member to a specified workspace.
  *
  * @param request AddUserToWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +493,7 @@ AddUserToWorkspaceResponse Client::addUserToWorkspaceWithOptions(const AddUserTo
 }
 
 /**
- * @summary Add a member to the specified workspace.
+ * @summary Adds a member to a specified workspace.
  *
  * @param request AddUserToWorkspaceRequest
  * @return AddUserToWorkspaceResponse
@@ -504,7 +504,7 @@ AddUserToWorkspaceResponse Client::addUserToWorkspace(const AddUserToWorkspaceRe
 }
 
 /**
- * @summary 新增作品的协同授权记录
+ * @summary Adds an authorization for a work.
  *
  * @param request AddWorksAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -555,7 +555,7 @@ AddWorksAuthorizationResponse Client::addWorksAuthorizationWithOptions(const Add
 }
 
 /**
- * @summary 新增作品的协同授权记录
+ * @summary Adds an authorization for a work.
  *
  * @param request AddWorksAuthorizationRequest
  * @return AddWorksAuthorizationResponse
@@ -978,7 +978,7 @@ ChangeVisibilityModelResponse Client::changeVisibilityModel(const ChangeVisibili
 }
 
 /**
- * @summary 检查给定的cubeId是否存在
+ * @summary Checks whether a dataset with the specified CubeId exists.
  *
  * @param request CheckDatasetExistedRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1009,7 @@ CheckDatasetExistedResponse Client::checkDatasetExistedWithOptions(const CheckDa
 }
 
 /**
- * @summary 检查给定的cubeId是否存在
+ * @summary Checks whether a dataset with the specified CubeId exists.
  *
  * @param request CheckDatasetExistedRequest
  * @return CheckDatasetExistedResponse
@@ -1020,7 +1020,7 @@ CheckDatasetExistedResponse Client::checkDatasetExisted(const CheckDatasetExiste
 }
 
 /**
- * @summary 判断用户是否属于组织
+ * @summary Checks if a user is a member of an organization.
  *
  * @param request CheckOrganizationMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1051,7 +1051,7 @@ CheckOrganizationMemberResponse Client::checkOrganizationMemberWithOptions(const
 }
 
 /**
- * @summary 判断用户是否属于组织
+ * @summary Checks if a user is a member of an organization.
  *
  * @param request CheckOrganizationMemberRequest
  * @return CheckOrganizationMemberResponse
@@ -1108,7 +1108,49 @@ CheckReadableResponse Client::checkReadable(const CheckReadableRequest &request)
 }
 
 /**
- * @summary 根据自定义sql创建数据集
+ * @summary 删除单条配置的标签值缓存
+ *
+ * @param request ClearDynamicTagCacheRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ClearDynamicTagCacheResponse
+ */
+ClearDynamicTagCacheResponse Client::clearDynamicTagCacheWithOptions(const ClearDynamicTagCacheRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConfigId()) {
+    query["ConfigId"] = request.getConfigId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ClearDynamicTagCache"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ClearDynamicTagCacheResponse>();
+}
+
+/**
+ * @summary 删除单条配置的标签值缓存
+ *
+ * @param request ClearDynamicTagCacheRequest
+ * @return ClearDynamicTagCacheResponse
+ */
+ClearDynamicTagCacheResponse Client::clearDynamicTagCache(const ClearDynamicTagCacheRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return clearDynamicTagCacheWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a dataset from a custom SQL statement.
  *
  * @param request CreateCubeBySqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1155,7 +1197,7 @@ CreateCubeBySqlResponse Client::createCubeBySqlWithOptions(const CreateCubeBySql
 }
 
 /**
- * @summary 根据自定义sql创建数据集
+ * @summary Creates a dataset from a custom SQL statement.
  *
  * @param request CreateCubeBySqlRequest
  * @return CreateCubeBySqlResponse
@@ -1166,7 +1208,7 @@ CreateCubeBySqlResponse Client::createCubeBySql(const CreateCubeBySqlRequest &re
 }
 
 /**
- * @summary 根据物理表名称创建数据集
+ * @summary Creates a dataset from a physical table.
  *
  * @param request CreateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1259,7 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 }
 
 /**
- * @summary 根据物理表名称创建数据集
+ * @summary Creates a dataset from a physical table.
  *
  * @param request CreateDatasetRequest
  * @return CreateDatasetResponse
@@ -1306,7 +1348,7 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
- * @summary Generate an embedding ticket for Smart Q.
+ * @summary Generates a ticket to embed Copilot.
  *
  * @param request CreateTicket4CopilotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1357,7 +1399,7 @@ CreateTicket4CopilotResponse Client::createTicket4CopilotWithOptions(const Creat
 }
 
 /**
- * @summary Generate an embedding ticket for Smart Q.
+ * @summary Generates a ticket to embed Copilot.
  *
  * @param request CreateTicket4CopilotRequest
  * @return CreateTicket4CopilotResponse
@@ -1422,7 +1464,7 @@ CreateUserGroupResponse Client::createUserGroup(const CreateUserGroupRequest &re
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
  *
  * @param request CreateWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1481,7 +1523,7 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 }
 
 /**
- * @summary 创建工作空间
+ * @summary Creates a workspace.
  *
  * @param request CreateWorkspaceRequest
  * @return CreateWorkspaceResponse
@@ -1688,9 +1730,9 @@ DelayTicketExpireTimeResponse Client::delayTicketExpireTime(const DelayTicketExp
 }
 
 /**
- * @summary Deletes a selected group of people for a single row and column permission rule.
+ * @summary Deletes specified users from a row-level permission rule.
  *
- * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+ * @description > This API supports only the new row-level permission model of Quick BI. If you use the old row-level permissions, you must migrate to the new model before you call this API. To migrate, go to Organization Management > Security Settings > Upgrade to New Row-level Permissions and click **One-click Upgrade**.
  *
  * @param request DeleteDataLevelPermissionRuleUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,9 +1763,9 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
 }
 
 /**
- * @summary Deletes a selected group of people for a single row and column permission rule.
+ * @summary Deletes specified users from a row-level permission rule.
  *
- * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+ * @description > This API supports only the new row-level permission model of Quick BI. If you use the old row-level permissions, you must migrate to the new model before you call this API. To migrate, go to Organization Management > Security Settings > Upgrade to New Row-level Permissions and click **One-click Upgrade**.
  *
  * @param request DeleteDataLevelPermissionRuleUsersRequest
  * @return DeleteDataLevelPermissionRuleUsersResponse
@@ -1734,9 +1776,9 @@ DeleteDataLevelPermissionRuleUsersResponse Client::deleteDataLevelPermissionRule
 }
 
 /**
- * @summary Deletes a single row or column permission rule.
+ * @summary Deletes a row-level permission rule.
  *
- * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+ * @description > This operation supports only the new Quick BI row-level permission model. If you are using the old model, you must upgrade before you call this operation. To upgrade, go to Organization Management > Security Configurations > Upgrade Row-level Permissions and click **Upgrade Now**.
  *
  * @param request DeleteDataLevelRuleConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1771,9 +1813,9 @@ DeleteDataLevelRuleConfigResponse Client::deleteDataLevelRuleConfigWithOptions(c
 }
 
 /**
- * @summary Deletes a single row or column permission rule.
+ * @summary Deletes a row-level permission rule.
  *
- * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+ * @description > This operation supports only the new Quick BI row-level permission model. If you are using the old model, you must upgrade before you call this operation. To upgrade, go to Organization Management > Security Configurations > Upgrade Row-level Permissions and click **Upgrade Now**.
  *
  * @param request DeleteDataLevelRuleConfigRequest
  * @return DeleteDataLevelRuleConfigResponse
@@ -2136,7 +2178,7 @@ GetDataSourceConnectionInfoResponse Client::getDataSourceConnectionInfo(const Ge
 }
 
 /**
- * @summary 获取订阅任务列表信息
+ * @summary Retrieves a list of tracking tasks. Note: If the caller\\"s AccessKey (AK) does not have permission to view tracking tasks of other users, this operation returns only the tasks that the caller is authorized to access.
  *
  * @param request GetMailTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2179,7 +2221,7 @@ GetMailTaskListResponse Client::getMailTaskListWithOptions(const GetMailTaskList
 }
 
 /**
- * @summary 获取订阅任务列表信息
+ * @summary Retrieves a list of tracking tasks. Note: If the caller\\"s AccessKey (AK) does not have permission to view tracking tasks of other users, this operation returns only the tasks that the caller is authorized to access.
  *
  * @param request GetMailTaskListRequest
  * @return GetMailTaskListResponse
@@ -2336,7 +2378,7 @@ GetWorksEmbedListResponse Client::getWorksEmbedList(const GetWorksEmbedListReque
 }
 
 /**
- * @summary 获取空间下加速引擎管控页任务信息。
+ * @summary Retrieves information about acceleration tasks in a workspace.
  *
  * @param request ListAccelerationOfWorkspaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2383,7 +2425,7 @@ ListAccelerationOfWorkspaceResponse Client::listAccelerationOfWorkspaceWithOptio
 }
 
 /**
- * @summary 获取空间下加速引擎管控页任务信息。
+ * @summary Retrieves information about acceleration tasks in a workspace.
  *
  * @param request ListAccelerationOfWorkspaceRequest
  * @return ListAccelerationOfWorkspaceResponse
@@ -2682,6 +2724,41 @@ ListDataSourceResponse Client::listDataSource(const ListDataSourceRequest &reque
 }
 
 /**
+ * @summary 获取当前组织的动态标签列表
+ *
+ * @param request ListDynamicTagRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListDynamicTagResponse
+ */
+ListDynamicTagResponse Client::listDynamicTagWithOptions(const ListDynamicTagRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest();
+  Params params = Params(json({
+    {"action" , "ListDynamicTag"},
+    {"version" , "2022-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListDynamicTagResponse>();
+}
+
+/**
+ * @summary 获取当前组织的动态标签列表
+ *
+ * @param request ListDynamicTagRequest
+ * @return ListDynamicTagResponse
+ */
+ListDynamicTagResponse Client::listDynamicTag(const ListDynamicTagRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listDynamicTagWithOptions(request, runtime);
+}
+
+/**
  * @summary Overview
  *
  * @param request ListFavoriteReportsRequest
@@ -2822,7 +2899,7 @@ ListOrganizationRolesResponse Client::listOrganizationRoles() {
 }
 
 /**
- * @summary Obtains the list of authorization details for a BI portal menu.
+ * @summary Retrieves a list of authorization details for the menus in a BI portal.
  *
  * @param request ListPortalMenuAuthorizationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2853,7 +2930,7 @@ ListPortalMenuAuthorizationResponse Client::listPortalMenuAuthorizationWithOptio
 }
 
 /**
- * @summary Obtains the list of authorization details for a BI portal menu.
+ * @summary Retrieves a list of authorization details for the menus in a BI portal.
  *
  * @param request ListPortalMenuAuthorizationRequest
  * @return ListPortalMenuAuthorizationResponse
@@ -3068,7 +3145,7 @@ ListUserGroupsByUserIdResponse Client::listUserGroupsByUserId(const ListUserGrou
 }
 
 /**
- * @summary 获取数据门户菜单的白名单列表
+ * @summary Retrieves the whitelist for a BI portal menu.
  *
  * @param request ListWhitePortalMenuRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3099,7 +3176,7 @@ ListWhitePortalMenuResponse Client::listWhitePortalMenuWithOptions(const ListWhi
 }
 
 /**
- * @summary 获取数据门户菜单的白名单列表
+ * @summary Retrieves the whitelist for a BI portal menu.
  *
  * @param request ListWhitePortalMenuRequest
  * @return ListWhitePortalMenuResponse
@@ -3210,7 +3287,7 @@ ListWorkspaceRolesResponse Client::listWorkspaceRoles(const ListWorkspaceRolesRe
 }
 
 /**
- * @summary 查询用户所有空间角色列表
+ * @summary Queries all workspace roles of a user.
  *
  * @param request ListWorkspaceUserRolesByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3241,7 +3318,7 @@ ListWorkspaceUserRolesByUserIdResponse Client::listWorkspaceUserRolesByUserIdWit
 }
 
 /**
- * @summary 查询用户所有空间角色列表
+ * @summary Queries all workspace roles of a user.
  *
  * @param request ListWorkspaceUserRolesByUserIdRequest
  * @return ListWorkspaceUserRolesByUserIdResponse
@@ -3402,7 +3479,7 @@ ModifyCopilotEmbedConfigResponse Client::modifyCopilotEmbedConfig(const ModifyCo
 }
 
 /**
- * @summary 批量编辑仪表板的小Q问数状态
+ * @summary Modifies the Q-Assistant status for multiple dashboards.
  *
  * @param request ModifyDashboardNl2sqlStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3437,7 +3514,7 @@ ModifyDashboardNl2sqlStatusResponse Client::modifyDashboardNl2sqlStatusWithOptio
 }
 
 /**
- * @summary 批量编辑仪表板的小Q问数状态
+ * @summary Modifies the Q-Assistant status for multiple dashboards.
  *
  * @param request ModifyDashboardNl2sqlStatusRequest
  * @return ModifyDashboardNl2sqlStatusResponse
@@ -3448,7 +3525,7 @@ ModifyDashboardNl2sqlStatusResponse Client::modifyDashboardNl2sqlStatus(const Mo
 }
 
 /**
- * @summary 获取指定数据集的加速任务运行日志
+ * @summary Queries the run logs of acceleration tasks for a specified dataset.
  *
  * @param request QueryAccelerationLogByCubeIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3495,7 +3572,7 @@ QueryAccelerationLogByCubeIdResponse Client::queryAccelerationLogByCubeIdWithOpt
 }
 
 /**
- * @summary 获取指定数据集的加速任务运行日志
+ * @summary Queries the run logs of acceleration tasks for a specified dataset.
  *
  * @param request QueryAccelerationLogByCubeIdRequest
  * @return QueryAccelerationLogByCubeIdResponse
@@ -3560,7 +3637,7 @@ QueryApprovalInfoResponse Client::queryApprovalInfo(const QueryApprovalInfoReque
 }
 
 /**
- * @summary Query audit log information.
+ * @summary Queries audit log information.
  *
  * @param request QueryAuditLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3623,7 +3700,7 @@ QueryAuditLogResponse Client::queryAuditLogWithOptions(const QueryAuditLogReques
 }
 
 /**
- * @summary Query audit log information.
+ * @summary Queries audit log information.
  *
  * @param request QueryAuditLogRequest
  * @return QueryAuditLogResponse
@@ -3892,14 +3969,14 @@ QueryDashboardNl2sqlResponse Client::queryDashboardNl2sql(const QueryDashboardNl
 }
 
 /**
- * @summary Invoke the open data service API.
+ * @summary Calls a DataService Studio API to query data.
  *
  * @description ### Prerequisites
- * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
- * ### Usage Restrictions
- * * The data service feature is only available to professional edition customers.
- * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
- * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
+ * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+ * ### Limits
+ * - Requires Quick BI Professional Edition.
+ * - API call timeout: 60s. QPS limit per API: 10.
+ * - Row-level permissions on the referenced dataset also apply to API calls.
  *
  * @param request QueryDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3942,14 +4019,14 @@ QueryDataResponse Client::queryDataWithOptions(const QueryDataRequest &request, 
 }
 
 /**
- * @summary Invoke the open data service API.
+ * @summary Calls a DataService Studio API to query data.
  *
  * @description ### Prerequisites
- * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
- * ### Usage Restrictions
- * * The data service feature is only available to professional edition customers.
- * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
- * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
+ * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+ * ### Limits
+ * - Requires Quick BI Professional Edition.
+ * - API call timeout: 60s. QPS limit per API: 10.
+ * - Row-level permissions on the referenced dataset also apply to API calls.
  *
  * @param request QueryDataRequest
  * @return QueryDataResponse
@@ -4128,9 +4205,9 @@ QueryDataServiceListResponse Client::queryDataServiceList(const QueryDataService
 }
 
 /**
- * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+ * @summary Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
  *
- * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+ * @description The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
  *
  * @param request QueryDatasetDetailInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4161,9 +4238,9 @@ QueryDatasetDetailInfoResponse Client::queryDatasetDetailInfoWithOptions(const Q
 }
 
 /**
- * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+ * @summary Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
  *
- * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+ * @description The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
  *
  * @param request QueryDatasetDetailInfoRequest
  * @return QueryDatasetDetailInfoResponse
@@ -4220,7 +4297,7 @@ QueryDatasetInfoResponse Client::queryDatasetInfo(const QueryDatasetInfoRequest 
 }
 
 /**
- * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
+ * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
  *
  * @param request QueryDatasetListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4271,7 +4348,7 @@ QueryDatasetListResponse Client::queryDatasetListWithOptions(const QueryDatasetL
 }
 
 /**
- * @summary Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
+ * @summary Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
  *
  * @param request QueryDatasetListRequest
  * @return QueryDatasetListResponse
@@ -4282,7 +4359,7 @@ QueryDatasetListResponse Client::queryDatasetList(const QueryDatasetListRequest 
 }
 
 /**
- * @summary Check if the Dataset has Enabled Smart Query
+ * @summary Checks whether Intelligent Q&A is enabled for a dataset.
  *
  * @param request QueryDatasetSmartqStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4313,7 +4390,7 @@ QueryDatasetSmartqStatusResponse Client::queryDatasetSmartqStatusWithOptions(con
 }
 
 /**
- * @summary Check if the Dataset has Enabled Smart Query
+ * @summary Checks whether Intelligent Q&A is enabled for a dataset.
  *
  * @param request QueryDatasetSmartqStatusRequest
  * @return QueryDatasetSmartqStatusResponse
@@ -4570,7 +4647,7 @@ QueryOrganizationRoleConfigResponse Client::queryOrganizationRoleConfig(const Qu
 }
 
 /**
- * @summary Retrieve the list of workspaces under the current organization.
+ * @summary Lists the workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4613,7 +4690,7 @@ QueryOrganizationWorkspaceListResponse Client::queryOrganizationWorkspaceListWit
 }
 
 /**
- * @summary Retrieve the list of workspaces under the current organization.
+ * @summary Lists the workspaces in the current organization.
  *
  * @param request QueryOrganizationWorkspaceListRequest
  * @return QueryOrganizationWorkspaceListResponse
@@ -4870,7 +4947,7 @@ QuerySharesToUserListResponse Client::querySharesToUserList(const QuerySharesToU
 }
 
 /**
- * @summary Check if a user has permission for a specific smart question dataset
+ * @summary Queries the permissions of a user on a Smart Q&A dataset.
  *
  * @param request QuerySmartqPermissionByCubeIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4905,7 +4982,7 @@ QuerySmartqPermissionByCubeIdResponse Client::querySmartqPermissionByCubeIdWithO
 }
 
 /**
- * @summary Check if a user has permission for a specific smart question dataset
+ * @summary Queries the permissions of a user on a Smart Q&A dataset.
  *
  * @param request QuerySmartqPermissionByCubeIdRequest
  * @return QuerySmartqPermissionByCubeIdResponse
@@ -5092,7 +5169,7 @@ QueryUserGroupMemberResponse Client::queryUserGroupMember(const QueryUserGroupMe
 }
 
 /**
- * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+ * @summary Queries user information by Alibaba Cloud ID or Alibaba Cloud account name.
  *
  * @param request QueryUserInfoByAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5127,7 +5204,7 @@ QueryUserInfoByAccountResponse Client::queryUserInfoByAccountWithOptions(const Q
 }
 
 /**
- * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+ * @summary Queries user information by Alibaba Cloud ID or Alibaba Cloud account name.
  *
  * @param request QueryUserInfoByAccountRequest
  * @return QueryUserInfoByAccountResponse
@@ -5138,7 +5215,7 @@ QueryUserInfoByAccountResponse Client::queryUserInfoByAccount(const QueryUserInf
 }
 
 /**
- * @summary Queries user information based on the user ID.
+ * @summary Queries user information by user ID.
  *
  * @param request QueryUserInfoByUserIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5169,7 +5246,7 @@ QueryUserInfoByUserIdResponse Client::queryUserInfoByUserIdWithOptions(const Que
 }
 
 /**
- * @summary Queries user information based on the user ID.
+ * @summary Queries user information by user ID.
  *
  * @param request QueryUserInfoByUserIdRequest
  * @return QueryUserInfoByUserIdResponse
@@ -5180,7 +5257,7 @@ QueryUserInfoByUserIdResponse Client::queryUserInfoByUserId(const QueryUserInfoB
 }
 
 /**
- * @summary Queries the members of an organization.
+ * @summary Lists organization members.
  *
  * @param request QueryUserListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5207,7 +5284,7 @@ QueryUserListResponse Client::queryUserListWithOptions(const QueryUserListReques
 }
 
 /**
- * @summary Queries the members of an organization.
+ * @summary Lists organization members.
  *
  * @param request QueryUserListRequest
  * @return QueryUserListResponse
@@ -5922,9 +5999,9 @@ SmartqAuthTransferResponse Client::smartqAuthTransfer(const SmartqAuthTransferRe
 }
 
 /**
- * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
+ * @summary Manages authorizations for Intelligent Q&A in batches.
  *
- * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
+ * @description Manages authorizations for Intelligent Q\\&A in batches. Granting an existing authorization is treated as a new grant operation. By default, an attempt to delete an authorization that does not exist is skipped and no audit log is recorded.
  *
  * @param request SmartqAuthorizeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5975,9 +6052,9 @@ SmartqAuthorizeResponse Client::smartqAuthorizeWithOptions(const SmartqAuthorize
 }
 
 /**
- * @summary Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
+ * @summary Manages authorizations for Intelligent Q&A in batches.
  *
- * @description Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
+ * @description Manages authorizations for Intelligent Q\\&A in batches. Granting an existing authorization is treated as a new grant operation. By default, an attempt to delete an authorization that does not exist is skipped and no audit log is recorded.
  *
  * @param request SmartqAuthorizeRequest
  * @return SmartqAuthorizeResponse
@@ -5988,9 +6065,9 @@ SmartqAuthorizeResponse Client::smartqAuthorize(const SmartqAuthorizeRequest &re
 }
 
 /**
- * @summary Query Capability Open
+ * @summary Runs an intelligent Q&A query.
  *
- * @description Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
+ * @description Note: Authorized users can query data as another user by passing the userId of the target user.
  *
  * @param request SmartqQueryAbilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6033,9 +6110,9 @@ SmartqQueryAbilityResponse Client::smartqQueryAbilityWithOptions(const SmartqQue
 }
 
 /**
- * @summary Query Capability Open
+ * @summary Runs an intelligent Q&A query.
  *
- * @description Special Note: When a user is authorized to call this API, it is assumed that the user has the permission to query the corresponding data by passing in the userId as that user.
+ * @description Note: Authorized users can query data as another user by passing the userId of the target user.
  *
  * @param request SmartqQueryAbilityRequest
  * @return SmartqQueryAbilityResponse
@@ -6046,7 +6123,7 @@ SmartqQueryAbilityResponse Client::smartqQueryAbility(const SmartqQueryAbilityRe
 }
 
 /**
- * @summary 更新自定义sql数据集
+ * @summary Updates a dataset that is based on a custom SQL statement.
  *
  * @param request UpdateCubeBySqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6093,7 +6170,7 @@ UpdateCubeBySqlResponse Client::updateCubeBySqlWithOptions(const UpdateCubeBySql
 }
 
 /**
- * @summary 更新自定义sql数据集
+ * @summary Updates a dataset that is based on a custom SQL statement.
  *
  * @param request UpdateCubeBySqlRequest
  * @return UpdateCubeBySqlResponse
@@ -6104,11 +6181,9 @@ UpdateCubeBySqlResponse Client::updateCubeBySql(const UpdateCubeBySqlRequest &re
 }
 
 /**
- * @summary Updates the status of the row and column permission switch for a dataset.
+ * @summary Updates the row-level and column-level permission status for a dataset.
  *
- * @description The execution result of the interface. Valid values:
- * *   true: The request was successful.
- * *   false: The request failed.
+ * @description > This API operation supports only the new row-level and column-level permission model in Quick BI. If you are using the old permission model, you must migrate to the new model before calling this operation. To migrate, navigate to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions, and then click **One-click Upgrade**.
  *
  * @param request UpdateDataLevelPermissionStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6147,11 +6222,9 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatusW
 }
 
 /**
- * @summary Updates the status of the row and column permission switch for a dataset.
+ * @summary Updates the row-level and column-level permission status for a dataset.
  *
- * @description The execution result of the interface. Valid values:
- * *   true: The request was successful.
- * *   false: The request failed.
+ * @description > This API operation supports only the new row-level and column-level permission model in Quick BI. If you are using the old permission model, you must migrate to the new model before calling this operation. To migrate, navigate to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions, and then click **One-click Upgrade**.
  *
  * @param request UpdateDataLevelPermissionStatusRequest
  * @return UpdateDataLevelPermissionStatusResponse
@@ -6162,7 +6235,7 @@ UpdateDataLevelPermissionStatusResponse Client::updateDataLevelPermissionStatus(
 }
 
 /**
- * @summary Modify Data Source Configuration
+ * @summary Modifies a data source configuration.
  *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6193,7 +6266,7 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 }
 
 /**
- * @summary Modify Data Source Configuration
+ * @summary Modifies a data source configuration.
  *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse
@@ -6296,7 +6369,7 @@ UpdateTicketNumResponse Client::updateTicketNum(const UpdateTicketNumRequest &re
 }
 
 /**
- * @summary Updates the information of a specified member in an organization.
+ * @summary Update the information of a specific member in an organization.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6355,7 +6428,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Updates the information of a specified member in an organization.
+ * @summary Update the information of a specific member in an organization.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse
