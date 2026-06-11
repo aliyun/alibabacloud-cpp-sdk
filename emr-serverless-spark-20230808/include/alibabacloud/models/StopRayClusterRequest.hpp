@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The ID of the Ray cluster instance.
     shared_ptr<string> instanceId_ {};
   };
 

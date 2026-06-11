@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 激活AI中心
+ * @summary Activates the AI center.
  *
  * @param request ActivateAICenterRequest
  * @param headers map
@@ -64,7 +64,7 @@ ActivateAICenterResponse Client::activateAICenterWithOptions(const string &works
 }
 
 /**
- * @summary 激活AI中心
+ * @summary Activates the AI center.
  *
  * @param request ActivateAICenterRequest
  * @return ActivateAICenterResponse
@@ -76,7 +76,7 @@ ActivateAICenterResponse Client::activateAICenter(const string &workspaceId, con
 }
 
 /**
- * @summary Adds a RAM user or RAM role to a workspace as a member.
+ * @summary Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
  *
  * @param request AddMembersRequest
  * @param headers map
@@ -119,7 +119,7 @@ AddMembersResponse Client::addMembersWithOptions(const AddMembersRequest &reques
 }
 
 /**
- * @summary Adds a RAM user or RAM role to a workspace as a member.
+ * @summary Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
  *
  * @param request AddMembersRequest
  * @return AddMembersResponse
@@ -176,7 +176,7 @@ CancelJobRunResponse Client::cancelJobRun(const string &workspaceId, const strin
 }
 
 /**
- * @summary CancelKyuubiSparkApplication
+ * @summary Cancels a Kyuubi Spark application.
  *
  * @param request CancelKyuubiSparkApplicationRequest
  * @param headers map
@@ -209,7 +209,7 @@ CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplicationWithOpt
 }
 
 /**
- * @summary CancelKyuubiSparkApplication
+ * @summary Cancels a Kyuubi Spark application.
  *
  * @param request CancelKyuubiSparkApplicationRequest
  * @return CancelKyuubiSparkApplicationResponse
@@ -221,7 +221,46 @@ CancelKyuubiSparkApplicationResponse Client::cancelKyuubiSparkApplication(const 
 }
 
 /**
- * @summary 资源转组
+ * @summary 停止RayJob
+ *
+ * @param request CancelRayJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelRayJobResponse
+ */
+CancelRayJobResponse Client::cancelRayJobWithOptions(const string &workspaceId, const string &submissionId, const CancelRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelRayJob"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayJob/" , Darabonba::Encode::Encoder::percentEncode(submissionId) , "/cancel")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelRayJobResponse>();
+}
+
+/**
+ * @summary 停止RayJob
+ *
+ * @param request CancelRayJobRequest
+ * @return CancelRayJobResponse
+ */
+CancelRayJobResponse Client::cancelRayJob(const string &workspaceId, const string &submissionId, const CancelRayJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return cancelRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+}
+
+/**
+ * @summary Moves an instance to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @param headers map
@@ -266,7 +305,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary 资源转组
+ * @summary Moves an instance to a different resource group.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -278,7 +317,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary CreateKyuubiService
+ * @summary Creates a Kyuubi gateway.
  *
  * @param request CreateKyuubiServiceRequest
  * @param headers map
@@ -343,7 +382,7 @@ CreateKyuubiServiceResponse Client::createKyuubiServiceWithOptions(const string 
 }
 
 /**
- * @summary CreateKyuubiService
+ * @summary Creates a Kyuubi gateway.
  *
  * @param request CreateKyuubiServiceRequest
  * @return CreateKyuubiServiceResponse
@@ -355,7 +394,7 @@ CreateKyuubiServiceResponse Client::createKyuubiService(const string &workspaceI
 }
 
 /**
- * @summary 创建kyuubi的token
+ * @summary Creates a Kyuubi Gateway authentication token.
  *
  * @param request CreateKyuubiTokenRequest
  * @param headers map
@@ -410,7 +449,7 @@ CreateKyuubiTokenResponse Client::createKyuubiTokenWithOptions(const string &wor
 }
 
 /**
- * @summary 创建kyuubi的token
+ * @summary Creates a Kyuubi Gateway authentication token.
  *
  * @param request CreateKyuubiTokenRequest
  * @return CreateKyuubiTokenResponse
@@ -422,7 +461,7 @@ CreateKyuubiTokenResponse Client::createKyuubiToken(const string &workspaceId, c
 }
 
 /**
- * @summary 创建Livy compute
+ * @summary Creates a Livy compute.
  *
  * @param request CreateLivyComputeRequest
  * @param headers map
@@ -517,7 +556,7 @@ CreateLivyComputeResponse Client::createLivyComputeWithOptions(const string &wor
 }
 
 /**
- * @summary 创建Livy compute
+ * @summary Creates a Livy compute.
  *
  * @param request CreateLivyComputeRequest
  * @return CreateLivyComputeResponse
@@ -529,7 +568,7 @@ CreateLivyComputeResponse Client::createLivyCompute(const string &workspaceBizId
 }
 
 /**
- * @summary 创建Livy Compute的token
+ * @summary Creates a token for a Livy Gateway.
  *
  * @param request CreateLivyComputeTokenRequest
  * @param headers map
@@ -576,7 +615,7 @@ CreateLivyComputeTokenResponse Client::createLivyComputeTokenWithOptions(const s
 }
 
 /**
- * @summary 创建Livy Compute的token
+ * @summary Creates a token for a Livy Gateway.
  *
  * @param request CreateLivyComputeTokenRequest
  * @return CreateLivyComputeTokenResponse
@@ -588,7 +627,7 @@ CreateLivyComputeTokenResponse Client::createLivyComputeToken(const string &work
 }
 
 /**
- * @summary 创建网络服务
+ * @summary Creates a network service.
  *
  * @param request CreateNetworkServiceRequest
  * @param headers map
@@ -647,7 +686,7 @@ CreateNetworkServiceResponse Client::createNetworkServiceWithOptions(const strin
 }
 
 /**
- * @summary 创建网络服务
+ * @summary Creates a network service.
  *
  * @param request CreateNetworkServiceRequest
  * @return CreateNetworkServiceResponse
@@ -659,7 +698,7 @@ CreateNetworkServiceResponse Client::createNetworkService(const string &workspac
 }
 
 /**
- * @summary Creates a workflow.
+ * @summary Creates a workflow definition.
  *
  * @param tmpReq CreateProcessDefinitionWithScheduleRequest
  * @param headers map
@@ -778,7 +817,7 @@ CreateProcessDefinitionWithScheduleResponse Client::createProcessDefinitionWithS
 }
 
 /**
- * @summary Creates a workflow.
+ * @summary Creates a workflow definition.
  *
  * @param request CreateProcessDefinitionWithScheduleRequest
  * @return CreateProcessDefinitionWithScheduleResponse
@@ -790,7 +829,7 @@ CreateProcessDefinitionWithScheduleResponse Client::createProcessDefinitionWithS
 }
 
 /**
- * @summary 创建Ray集群
+ * @summary Creates a Ray cluster.
  *
  * @param request CreateRayClusterRequest
  * @param headers map
@@ -851,7 +890,7 @@ CreateRayClusterResponse Client::createRayClusterWithOptions(const string &works
 }
 
 /**
- * @summary 创建Ray集群
+ * @summary Creates a Ray cluster.
  *
  * @param request CreateRayClusterRequest
  * @return CreateRayClusterResponse
@@ -863,7 +902,7 @@ CreateRayClusterResponse Client::createRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Creates a session.
+ * @summary Creates a session cluster.
  *
  * @param request CreateSessionClusterRequest
  * @param headers map
@@ -946,7 +985,7 @@ CreateSessionClusterResponse Client::createSessionClusterWithOptions(const strin
 }
 
 /**
- * @summary Creates a session.
+ * @summary Creates a session cluster.
  *
  * @param request CreateSessionClusterRequest
  * @return CreateSessionClusterResponse
@@ -958,7 +997,7 @@ CreateSessionClusterResponse Client::createSessionCluster(const string &workspac
 }
 
 /**
- * @summary Creates an SQL query task.
+ * @summary Creates an SQL statement.
  *
  * @param request CreateSqlStatementRequest
  * @param headers map
@@ -1017,7 +1056,7 @@ CreateSqlStatementResponse Client::createSqlStatementWithOptions(const string &w
 }
 
 /**
- * @summary Creates an SQL query task.
+ * @summary Creates an SQL statement.
  *
  * @param request CreateSqlStatementRequest
  * @return CreateSqlStatementResponse
@@ -1148,7 +1187,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary DeleteKyuubiService
+ * @summary Deletes a Kyuubi gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1173,7 +1212,7 @@ DeleteKyuubiServiceResponse Client::deleteKyuubiServiceWithOptions(const string 
 }
 
 /**
- * @summary DeleteKyuubiService
+ * @summary Deletes a Kyuubi gateway.
  *
  * @return DeleteKyuubiServiceResponse
  */
@@ -1184,7 +1223,7 @@ DeleteKyuubiServiceResponse Client::deleteKyuubiService(const string &workspaceI
 }
 
 /**
- * @summary 删除compute的token
+ * @summary Deletes a Kyuubi Gateway authentication token.
  *
  * @param request DeleteKyuubiTokenRequest
  * @param headers map
@@ -1217,7 +1256,7 @@ DeleteKyuubiTokenResponse Client::deleteKyuubiTokenWithOptions(const string &wor
 }
 
 /**
- * @summary 删除compute的token
+ * @summary Deletes a Kyuubi Gateway authentication token.
  *
  * @param request DeleteKyuubiTokenRequest
  * @return DeleteKyuubiTokenResponse
@@ -1229,7 +1268,7 @@ DeleteKyuubiTokenResponse Client::deleteKyuubiToken(const string &workspaceId, c
 }
 
 /**
- * @summary 删除livy compute
+ * @summary Deletes a Livy gateway.
  *
  * @param request DeleteLivyComputeRequest
  * @param headers map
@@ -1262,7 +1301,7 @@ DeleteLivyComputeResponse Client::deleteLivyComputeWithOptions(const string &wor
 }
 
 /**
- * @summary 删除livy compute
+ * @summary Deletes a Livy gateway.
  *
  * @param request DeleteLivyComputeRequest
  * @return DeleteLivyComputeResponse
@@ -1274,7 +1313,7 @@ DeleteLivyComputeResponse Client::deleteLivyCompute(const string &workspaceBizId
 }
 
 /**
- * @summary 删除Livy Compute的token
+ * @summary Deletes a token for a Livy Gateway.
  *
  * @param request DeleteLivyComputeTokenRequest
  * @param headers map
@@ -1307,7 +1346,7 @@ DeleteLivyComputeTokenResponse Client::deleteLivyComputeTokenWithOptions(const s
 }
 
 /**
- * @summary 删除Livy Compute的token
+ * @summary Deletes a token for a Livy Gateway.
  *
  * @param request DeleteLivyComputeTokenRequest
  * @return DeleteLivyComputeTokenResponse
@@ -1319,7 +1358,7 @@ DeleteLivyComputeTokenResponse Client::deleteLivyComputeToken(const string &work
 }
 
 /**
- * @summary 删除Ray集群
+ * @summary Deletes a Ray cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1344,7 +1383,7 @@ DeleteRayClusterResponse Client::deleteRayClusterWithOptions(const string &works
 }
 
 /**
- * @summary 删除Ray集群
+ * @summary Deletes a Ray cluster.
  *
  * @return DeleteRayClusterResponse
  */
@@ -1355,7 +1394,7 @@ DeleteRayClusterResponse Client::deleteRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary Modifies the queue of a workspace.
+ * @summary Updates a Workspace Queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @param headers map
@@ -1410,7 +1449,7 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
 }
 
 /**
- * @summary Modifies the queue of a workspace.
+ * @summary Updates a Workspace Queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @return EditWorkspaceQueueResponse
@@ -1422,7 +1461,7 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueue(const EditWorkspaceQueueRe
 }
 
 /**
- * @summary 上线工作流及其调度
+ * @summary Publishes a workflow and its scheduling configuration.
  *
  * @param request GenerateTaskCodesRequest
  * @param headers map
@@ -1463,7 +1502,7 @@ GenerateTaskCodesResponse Client::generateTaskCodesWithOptions(const string &biz
 }
 
 /**
- * @summary 上线工作流及其调度
+ * @summary Publishes a workflow and its scheduling configuration.
  *
  * @param request GenerateTaskCodesRequest
  * @return GenerateTaskCodesResponse
@@ -1475,7 +1514,7 @@ GenerateTaskCodesResponse Client::generateTaskCodes(const string &bizId, const G
 }
 
 /**
- * @summary 获取AI中心状态
+ * @summary Gets the state of an AI center.
  *
  * @param request GetAICenterStateRequest
  * @param headers map
@@ -1502,7 +1541,7 @@ GetAICenterStateResponse Client::getAICenterStateWithOptions(const string &works
 }
 
 /**
- * @summary 获取AI中心状态
+ * @summary Gets the state of an AI center.
  *
  * @param request GetAICenterStateRequest
  * @return GetAICenterStateResponse
@@ -1616,7 +1655,7 @@ GetDoctorApplicationResponse Client::getDoctorApplication(const string &workspac
 }
 
 /**
- * @summary Obtain the job details.
+ * @summary Get the details of a job.
  *
  * @param request GetJobRunRequest
  * @param headers map
@@ -1649,7 +1688,7 @@ GetJobRunResponse Client::getJobRunWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary Obtain the job details.
+ * @summary Get the details of a job.
  *
  * @param request GetJobRunRequest
  * @return GetJobRunResponse
@@ -1661,7 +1700,7 @@ GetJobRunResponse Client::getJobRun(const string &workspaceId, const string &job
 }
 
 /**
- * @summary GetKyuubiService
+ * @summary Retrieves the details of a Kyuubi Gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1686,7 +1725,7 @@ GetKyuubiServiceResponse Client::getKyuubiServiceWithOptions(const string &works
 }
 
 /**
- * @summary GetKyuubiService
+ * @summary Retrieves the details of a Kyuubi Gateway.
  *
  * @return GetKyuubiServiceResponse
  */
@@ -1697,7 +1736,7 @@ GetKyuubiServiceResponse Client::getKyuubiService(const string &workspaceId, con
 }
 
 /**
- * @summary 获取compute的token
+ * @summary Obtains an authentication token for Kyuubi Gateway.
  *
  * @param request GetKyuubiTokenRequest
  * @param headers map
@@ -1730,7 +1769,7 @@ GetKyuubiTokenResponse Client::getKyuubiTokenWithOptions(const string &workspace
 }
 
 /**
- * @summary 获取compute的token
+ * @summary Obtains an authentication token for Kyuubi Gateway.
  *
  * @param request GetKyuubiTokenRequest
  * @return GetKyuubiTokenResponse
@@ -1742,7 +1781,7 @@ GetKyuubiTokenResponse Client::getKyuubiToken(const string &workspaceId, const s
 }
 
 /**
- * @summary 获取livy compute
+ * @summary Retrieves information about a Livy Gateway.
  *
  * @param request GetLivyComputeRequest
  * @param headers map
@@ -1775,7 +1814,7 @@ GetLivyComputeResponse Client::getLivyComputeWithOptions(const string &workspace
 }
 
 /**
- * @summary 获取livy compute
+ * @summary Retrieves information about a Livy Gateway.
  *
  * @param request GetLivyComputeRequest
  * @return GetLivyComputeResponse
@@ -1787,7 +1826,7 @@ GetLivyComputeResponse Client::getLivyCompute(const string &workspaceBizId, cons
 }
 
 /**
- * @summary 获取livy compute token
+ * @summary Retrieves a token for a Livy Gateway.
  *
  * @param request GetLivyComputeTokenRequest
  * @param headers map
@@ -1820,7 +1859,7 @@ GetLivyComputeTokenResponse Client::getLivyComputeTokenWithOptions(const string 
 }
 
 /**
- * @summary 获取livy compute token
+ * @summary Retrieves a token for a Livy Gateway.
  *
  * @param request GetLivyComputeTokenRequest
  * @return GetLivyComputeTokenResponse
@@ -1832,7 +1871,7 @@ GetLivyComputeTokenResponse Client::getLivyComputeToken(const string &workspaceB
 }
 
 /**
- * @summary 获取Ray集群
+ * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1857,7 +1896,7 @@ GetRayClusterResponse Client::getRayClusterWithOptions(const string &workspaceId
 }
 
 /**
- * @summary 获取Ray集群
+ * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
  *
  * @return GetRayClusterResponse
  */
@@ -1868,7 +1907,46 @@ GetRayClusterResponse Client::getRayCluster(const string &workspaceId, const str
 }
 
 /**
- * @summary 获取任务配置
+ * @summary 获取Ray集群
+ *
+ * @param request GetRayJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRayJobResponse
+ */
+GetRayJobResponse Client::getRayJobWithOptions(const string &workspaceId, const string &submissionId, const GetRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetRayJob"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayJob/" , Darabonba::Encode::Encoder::percentEncode(submissionId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRayJobResponse>();
+}
+
+/**
+ * @summary 获取Ray集群
+ *
+ * @param request GetRayJobRequest
+ * @return GetRayJobResponse
+ */
+GetRayJobResponse Client::getRayJob(const string &workspaceId, const string &submissionId, const GetRayJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getRayJobWithOptions(workspaceId, submissionId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves the configuration of a Spark job.
  *
  * @param request GetRunConfigurationRequest
  * @param headers map
@@ -1901,7 +1979,7 @@ GetRunConfigurationResponse Client::getRunConfigurationWithOptions(const string 
 }
 
 /**
- * @summary 获取任务配置
+ * @summary Retrieves the configuration of a Spark job.
  *
  * @param request GetRunConfigurationRequest
  * @return GetRunConfigurationResponse
@@ -1913,7 +1991,7 @@ GetRunConfigurationResponse Client::getRunConfiguration(const string &workspaceI
 }
 
 /**
- * @summary Queries the information about a session.
+ * @summary Retrieves session details.
  *
  * @param request GetSessionClusterRequest
  * @param headers map
@@ -1946,7 +2024,7 @@ GetSessionClusterResponse Client::getSessionClusterWithOptions(const string &wor
 }
 
 /**
- * @summary Queries the information about a session.
+ * @summary Retrieves session details.
  *
  * @param request GetSessionClusterRequest
  * @return GetSessionClusterResponse
@@ -1958,7 +2036,7 @@ GetSessionClusterResponse Client::getSessionCluster(const string &workspaceId, c
 }
 
 /**
- * @summary Queries the status of an SQL query task.
+ * @summary Retrieves the details of an SQL query.
  *
  * @param request GetSqlStatementRequest
  * @param headers map
@@ -1991,7 +2069,7 @@ GetSqlStatementResponse Client::getSqlStatementWithOptions(const string &workspa
 }
 
 /**
- * @summary Queries the status of an SQL query task.
+ * @summary Retrieves the details of an SQL query.
  *
  * @param request GetSqlStatementRequest
  * @return GetSqlStatementResponse
@@ -2003,7 +2081,7 @@ GetSqlStatementResponse Client::getSqlStatement(const string &workspaceId, const
 }
 
 /**
- * @summary Queries task templates.
+ * @summary Retrieves a task template.
  *
  * @param request GetTemplateRequest
  * @param headers map
@@ -2044,7 +2122,7 @@ GetTemplateResponse Client::getTemplateWithOptions(const string &workspaceBizId,
 }
 
 /**
- * @summary Queries task templates.
+ * @summary Retrieves a task template.
  *
  * @param request GetTemplateRequest
  * @return GetTemplateResponse
@@ -2111,7 +2189,7 @@ GrantRoleToUsersResponse Client::grantRoleToUsers(const GrantRoleToUsersRequest 
 }
 
 /**
- * @summary 查看数据目录列表
+ * @summary View the list of data catalogs
  *
  * @param request ListCatalogsRequest
  * @param headers map
@@ -2148,7 +2226,7 @@ ListCatalogsResponse Client::listCatalogsWithOptions(const string &workspaceId, 
 }
 
 /**
- * @summary 查看数据目录列表
+ * @summary View the list of data catalogs
  *
  * @param request ListCatalogsRequest
  * @return ListCatalogsResponse
@@ -2160,7 +2238,7 @@ ListCatalogsResponse Client::listCatalogs(const string &workspaceId, const ListC
 }
 
 /**
- * @summary 列出作业executor的日志文件列表
+ * @summary Lists the log files for a job executor.
  *
  * @param request ListExecutorLogsRequest
  * @param headers map
@@ -2205,7 +2283,7 @@ ListExecutorLogsResponse Client::listExecutorLogsWithOptions(const string &works
 }
 
 /**
- * @summary 列出作业executor的日志文件列表
+ * @summary Lists the log files for a job executor.
  *
  * @param request ListExecutorLogsRequest
  * @return ListExecutorLogsResponse
@@ -2217,7 +2295,7 @@ ListExecutorLogsResponse Client::listExecutorLogs(const string &workspaceId, con
 }
 
 /**
- * @summary 列出作业的executors
+ * @summary Lists the executors of a job.
  *
  * @param request ListJobExecutorsRequest
  * @param headers map
@@ -2266,7 +2344,7 @@ ListJobExecutorsResponse Client::listJobExecutorsWithOptions(const string &works
 }
 
 /**
- * @summary 列出作业的executors
+ * @summary Lists the executors of a job.
  *
  * @param request ListJobExecutorsRequest
  * @return ListJobExecutorsResponse
@@ -2278,7 +2356,7 @@ ListJobExecutorsResponse Client::listJobExecutors(const string &workspaceId, con
 }
 
 /**
- * @summary Queries a list of Spark jobs.
+ * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
  *
  * @param tmpReq ListJobRunsRequest
  * @param headers map
@@ -2389,7 +2467,7 @@ ListJobRunsResponse Client::listJobRunsWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Queries a list of Spark jobs.
+ * @summary Call the ListJobRuns operation to retrieve a list of Spark jobs.
  *
  * @param request ListJobRunsRequest
  * @return ListJobRunsResponse
@@ -2401,7 +2479,7 @@ ListJobRunsResponse Client::listJobRuns(const string &workspaceId, const ListJob
 }
 
 /**
- * @summary Gets the list of KyuubiServers
+ * @summary Lists Kyuubi Gateways.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2426,7 +2504,7 @@ ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &w
 }
 
 /**
- * @summary Gets the list of KyuubiServers
+ * @summary Lists Kyuubi Gateways.
  *
  * @return ListKyuubiServicesResponse
  */
@@ -2437,7 +2515,7 @@ ListKyuubiServicesResponse Client::listKyuubiServices(const string &workspaceId)
 }
 
 /**
- * @summary Queries the applications that are submitted by using a Kyuubi gateway.
+ * @summary Lists Kyuubi Spark applications.
  *
  * @param tmpReq ListKyuubiSparkApplicationsRequest
  * @param headers map
@@ -2528,7 +2606,7 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplicationsWithOptio
 }
 
 /**
- * @summary Queries the applications that are submitted by using a Kyuubi gateway.
+ * @summary Lists Kyuubi Spark applications.
  *
  * @param request ListKyuubiSparkApplicationsRequest
  * @return ListKyuubiSparkApplicationsResponse
@@ -2540,7 +2618,7 @@ ListKyuubiSparkApplicationsResponse Client::listKyuubiSparkApplications(const st
 }
 
 /**
- * @summary 列出compute的token
+ * @summary Lists KyuubiServer authentication tokens.
  *
  * @param request ListKyuubiTokenRequest
  * @param headers map
@@ -2573,7 +2651,7 @@ ListKyuubiTokenResponse Client::listKyuubiTokenWithOptions(const string &workspa
 }
 
 /**
- * @summary 列出compute的token
+ * @summary Lists KyuubiServer authentication tokens.
  *
  * @param request ListKyuubiTokenRequest
  * @return ListKyuubiTokenResponse
@@ -2585,7 +2663,7 @@ ListKyuubiTokenResponse Client::listKyuubiToken(const string &workspaceId, const
 }
 
 /**
- * @summary List the Livy Gateway.
+ * @summary Lists Livy Gateways.
  *
  * @param request ListLivyComputeRequest
  * @param headers map
@@ -2622,7 +2700,7 @@ ListLivyComputeResponse Client::listLivyComputeWithOptions(const string &workspa
 }
 
 /**
- * @summary List the Livy Gateway.
+ * @summary Lists Livy Gateways.
  *
  * @param request ListLivyComputeRequest
  * @return ListLivyComputeResponse
@@ -2634,7 +2712,7 @@ ListLivyComputeResponse Client::listLivyCompute(const string &workspaceBizId, co
 }
 
 /**
- * @summary 获取livy gateway历史session
+ * @summary Lists the historical sessions for a Livy Gateway.
  *
  * @param request ListLivyComputeSessionsRequest
  * @param headers map
@@ -2675,7 +2753,7 @@ ListLivyComputeSessionsResponse Client::listLivyComputeSessionsWithOptions(const
 }
 
 /**
- * @summary 获取livy gateway历史session
+ * @summary Lists the historical sessions for a Livy Gateway.
  *
  * @param request ListLivyComputeSessionsRequest
  * @return ListLivyComputeSessionsResponse
@@ -2687,7 +2765,7 @@ ListLivyComputeSessionsResponse Client::listLivyComputeSessions(const string &wo
 }
 
 /**
- * @summary 列出livy compute token
+ * @summary Lists Livy Gateway tokens.
  *
  * @param request ListLivyComputeTokenRequest
  * @param headers map
@@ -2720,7 +2798,7 @@ ListLivyComputeTokenResponse Client::listLivyComputeTokenWithOptions(const strin
 }
 
 /**
- * @summary 列出livy compute token
+ * @summary Lists Livy Gateway tokens.
  *
  * @param request ListLivyComputeTokenRequest
  * @return ListLivyComputeTokenResponse
@@ -2789,7 +2867,7 @@ ListLogContentsResponse Client::listLogContents(const string &workspaceId, const
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Retrieves the list of members in the workspace.
  *
  * @param request ListMembersRequest
  * @param headers map
@@ -2830,7 +2908,7 @@ ListMembersResponse Client::listMembersWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Retrieves the list of members in the workspace.
  *
  * @param request ListMembersRequest
  * @return ListMembersResponse
@@ -2842,7 +2920,7 @@ ListMembersResponse Client::listMembers(const string &workspaceId, const ListMem
 }
 
 /**
- * @summary 查看网络服务列表
+ * @summary Lists network connections.
  *
  * @param request ListNetworkServicesRequest
  * @param headers map
@@ -2875,7 +2953,7 @@ ListNetworkServicesResponse Client::listNetworkServicesWithOptions(const string 
 }
 
 /**
- * @summary 查看网络服务列表
+ * @summary Lists network connections.
  *
  * @param request ListNetworkServicesRequest
  * @return ListNetworkServicesResponse
@@ -2887,7 +2965,7 @@ ListNetworkServicesResponse Client::listNetworkServices(const string &workspaceI
 }
 
 /**
- * @summary 列出Ray集群
+ * @summary Lists Ray clusters.
  *
  * @param request ListRayClusterRequest
  * @param headers map
@@ -2924,7 +3002,7 @@ ListRayClusterResponse Client::listRayClusterWithOptions(const string &workspace
 }
 
 /**
- * @summary 列出Ray集群
+ * @summary Lists Ray clusters.
  *
  * @param request ListRayClusterRequest
  * @return ListRayClusterResponse
@@ -2936,7 +3014,78 @@ ListRayClusterResponse Client::listRayCluster(const string &workspaceId, const L
 }
 
 /**
- * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+ * @summary 列出RayJob
+ *
+ * @param tmpReq ListRayJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRayJobResponse
+ */
+ListRayJobResponse Client::listRayJobWithOptions(const string &workspaceId, const ListRayJobRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListRayJobShrinkRequest request = ListRayJobShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSubmitTime()) {
+    request.setSubmitTimeShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSubmitTime(), "submitTime", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["pageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSubmissionId()) {
+    query["submissionId"] = request.getSubmissionId();
+  }
+
+  if (!!request.hasSubmitTimeShrink()) {
+    query["submitTime"] = request.getSubmitTimeShrink();
+  }
+
+  if (!!request.hasTaskBizId()) {
+    query["taskBizId"] = request.getTaskBizId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRayJob"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayJob")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRayJobResponse>();
+}
+
+/**
+ * @summary 列出RayJob
+ *
+ * @param request ListRayJobRequest
+ * @return ListRayJobResponse
+ */
+ListRayJobResponse Client::listRayJob(const string &workspaceId, const ListRayJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listRayJobWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Retrieves a list of release versions.
  *
  * @param request ListReleaseVersionsRequest
  * @param headers map
@@ -2989,7 +3138,7 @@ ListReleaseVersionsResponse Client::listReleaseVersionsWithOptions(const ListRel
 }
 
 /**
- * @summary Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+ * @summary Retrieves a list of release versions.
  *
  * @param request ListReleaseVersionsRequest
  * @return ListReleaseVersionsResponse
@@ -3001,7 +3150,7 @@ ListReleaseVersionsResponse Client::listReleaseVersions(const ListReleaseVersion
 }
 
 /**
- * @summary Queries the list of sessions.
+ * @summary Retrieves a list of session clusters.
  *
  * @param request ListSessionClustersRequest
  * @param headers map
@@ -3054,7 +3203,7 @@ ListSessionClustersResponse Client::listSessionClustersWithOptions(const string 
 }
 
 /**
- * @summary Queries the list of sessions.
+ * @summary Retrieves a list of session clusters.
  *
  * @param request ListSessionClustersRequest
  * @return ListSessionClustersResponse
@@ -3066,7 +3215,7 @@ ListSessionClustersResponse Client::listSessionClusters(const string &workspaceI
 }
 
 /**
- * @summary 获取sql statement内容
+ * @summary Retrieves the execution results of an SQL statement.
  *
  * @param request ListSqlStatementContentsRequest
  * @param headers map
@@ -3107,7 +3256,7 @@ ListSqlStatementContentsResponse Client::listSqlStatementContentsWithOptions(con
 }
 
 /**
- * @summary 获取sql statement内容
+ * @summary Retrieves the execution results of an SQL statement.
  *
  * @param request ListSqlStatementContentsRequest
  * @return ListSqlStatementContentsResponse
@@ -3119,7 +3268,7 @@ ListSqlStatementContentsResponse Client::listSqlStatementContents(const string &
 }
 
 /**
- * @summary 获取任务模板列表
+ * @summary Lists job templates.
  *
  * @param request ListTemplateRequest
  * @param headers map
@@ -3152,7 +3301,7 @@ ListTemplateResponse Client::listTemplateWithOptions(const string &workspaceBizI
 }
 
 /**
- * @summary 获取任务模板列表
+ * @summary Lists job templates.
  *
  * @param request ListTemplateRequest
  * @return ListTemplateResponse
@@ -3164,7 +3313,7 @@ ListTemplateResponse Client::listTemplate(const string &workspaceBizId, const Li
 }
 
 /**
- * @summary Queries the list of queues in a Spark workspace.
+ * @summary Lists the queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @param headers map
@@ -3201,7 +3350,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueuesWithOptions(const string 
 }
 
 /**
- * @summary Queries the list of queues in a Spark workspace.
+ * @summary Lists the queues in a workspace.
  *
  * @param request ListWorkspaceQueuesRequest
  * @return ListWorkspaceQueuesResponse
@@ -3213,7 +3362,7 @@ ListWorkspaceQueuesResponse Client::listWorkspaceQueues(const string &workspaceI
 }
 
 /**
- * @summary Queries a list of workspaces.
+ * @summary Call `ListWorkspaces` to get a list of workspaces.
  *
  * @param tmpReq ListWorkspacesRequest
  * @param headers map
@@ -3276,7 +3425,7 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Queries a list of workspaces.
+ * @summary Call `ListWorkspaces` to get a list of workspaces.
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -3288,7 +3437,7 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
- * @summary 更新Livy Compute的token
+ * @summary Refreshes the token for a Livy Gateway.
  *
  * @param request RefreshLivyComputeTokenRequest
  * @param headers map
@@ -3335,7 +3484,7 @@ RefreshLivyComputeTokenResponse Client::refreshLivyComputeTokenWithOptions(const
 }
 
 /**
- * @summary 更新Livy Compute的token
+ * @summary Refreshes the token for a Livy Gateway.
  *
  * @param request RefreshLivyComputeTokenRequest
  * @return RefreshLivyComputeTokenResponse
@@ -3347,7 +3496,7 @@ RefreshLivyComputeTokenResponse Client::refreshLivyComputeToken(const string &wo
 }
 
 /**
- * @summary Starts a Spark job.
+ * @summary Starts a Spark Job.
  *
  * @param request StartJobRunRequest
  * @param headers map
@@ -3430,7 +3579,7 @@ StartJobRunResponse Client::startJobRunWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Starts a Spark job.
+ * @summary Starts a Spark Job.
  *
  * @param request StartJobRunRequest
  * @return StartJobRunResponse
@@ -3442,7 +3591,7 @@ StartJobRunResponse Client::startJobRun(const string &workspaceId, const StartJo
 }
 
 /**
- * @summary StartKyuubiService
+ * @summary Starts the Kyuubi Gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3467,7 +3616,7 @@ StartKyuubiServiceResponse Client::startKyuubiServiceWithOptions(const string &w
 }
 
 /**
- * @summary StartKyuubiService
+ * @summary Starts the Kyuubi Gateway.
  *
  * @return StartKyuubiServiceResponse
  */
@@ -3478,7 +3627,7 @@ StartKyuubiServiceResponse Client::startKyuubiService(const string &workspaceId,
 }
 
 /**
- * @summary 启动livy compute
+ * @summary Starts a Livy gateway.
  *
  * @param request StartLivyComputeRequest
  * @param headers map
@@ -3511,7 +3660,7 @@ StartLivyComputeResponse Client::startLivyComputeWithOptions(const string &works
 }
 
 /**
- * @summary 启动livy compute
+ * @summary Starts a Livy gateway.
  *
  * @param request StartLivyComputeRequest
  * @return StartLivyComputeResponse
@@ -3523,7 +3672,7 @@ StartLivyComputeResponse Client::startLivyCompute(const string &workspaceBizId, 
 }
 
 /**
- * @summary Manually runs a workflow.
+ * @summary Starts a workflow manually.
  *
  * @param request StartProcessInstanceRequest
  * @param headers map
@@ -3596,7 +3745,7 @@ StartProcessInstanceResponse Client::startProcessInstanceWithOptions(const strin
 }
 
 /**
- * @summary Manually runs a workflow.
+ * @summary Starts a workflow manually.
  *
  * @param request StartProcessInstanceRequest
  * @return StartProcessInstanceResponse
@@ -3608,7 +3757,7 @@ StartProcessInstanceResponse Client::startProcessInstance(const string &bizId, c
 }
 
 /**
- * @summary 启动Ray集群
+ * @summary Starts a Ray cluster.
  *
  * @param request StartRayClusterRequest
  * @param headers map
@@ -3641,7 +3790,7 @@ StartRayClusterResponse Client::startRayClusterWithOptions(const string &workspa
 }
 
 /**
- * @summary 启动Ray集群
+ * @summary Starts a Ray cluster.
  *
  * @param request StartRayClusterRequest
  * @return StartRayClusterResponse
@@ -3653,7 +3802,7 @@ StartRayClusterResponse Client::startRayCluster(const string &workspaceId, const
 }
 
 /**
- * @summary Starts a session.
+ * @summary Starts a session cluster.
  *
  * @param request StartSessionClusterRequest
  * @param headers map
@@ -3696,7 +3845,7 @@ StartSessionClusterResponse Client::startSessionClusterWithOptions(const string 
 }
 
 /**
- * @summary Starts a session.
+ * @summary Starts a session cluster.
  *
  * @param request StartSessionClusterRequest
  * @return StartSessionClusterResponse
@@ -3708,7 +3857,7 @@ StartSessionClusterResponse Client::startSessionCluster(const string &workspaceI
 }
 
 /**
- * @summary StopKyuubiService
+ * @summary Stops a Kyuubi Gateway.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -3733,7 +3882,7 @@ StopKyuubiServiceResponse Client::stopKyuubiServiceWithOptions(const string &wor
 }
 
 /**
- * @summary StopKyuubiService
+ * @summary Stops a Kyuubi Gateway.
  *
  * @return StopKyuubiServiceResponse
  */
@@ -3744,7 +3893,7 @@ StopKyuubiServiceResponse Client::stopKyuubiService(const string &workspaceId, c
 }
 
 /**
- * @summary 停止livy compute
+ * @summary Stops a Livy Gateway.
  *
  * @param request StopLivyComputeRequest
  * @param headers map
@@ -3777,7 +3926,7 @@ StopLivyComputeResponse Client::stopLivyComputeWithOptions(const string &workspa
 }
 
 /**
- * @summary 停止livy compute
+ * @summary Stops a Livy Gateway.
  *
  * @param request StopLivyComputeRequest
  * @return StopLivyComputeResponse
@@ -3789,7 +3938,7 @@ StopLivyComputeResponse Client::stopLivyCompute(const string &workspaceBizId, co
 }
 
 /**
- * @summary 停止Ray集群
+ * @summary Stops a Ray cluster.
  *
  * @param request StopRayClusterRequest
  * @param headers map
@@ -3822,7 +3971,7 @@ StopRayClusterResponse Client::stopRayClusterWithOptions(const string &workspace
 }
 
 /**
- * @summary 停止Ray集群
+ * @summary Stops a Ray cluster.
  *
  * @param request StopRayClusterRequest
  * @return StopRayClusterResponse
@@ -3889,6 +4038,127 @@ StopSessionClusterResponse Client::stopSessionCluster(const string &workspaceId,
 }
 
 /**
+ * @summary 提交Ray Job
+ *
+ * @param request SubmitRayJobRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitRayJobResponse
+ */
+SubmitRayJobResponse Client::submitRayJobWithOptions(const string &workspaceId, const SubmitRayJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasActiveDeadlineSeconds()) {
+    body["activeDeadlineSeconds"] = request.getActiveDeadlineSeconds();
+  }
+
+  if (!!request.hasDisplayReleaseVersion()) {
+    body["displayReleaseVersion"] = request.getDisplayReleaseVersion();
+  }
+
+  if (!!request.hasEntrypoint()) {
+    body["entrypoint"] = request.getEntrypoint();
+  }
+
+  if (!!request.hasEntrypointMemory()) {
+    body["entrypointMemory"] = request.getEntrypointMemory();
+  }
+
+  if (!!request.hasEntrypointNumCpus()) {
+    body["entrypointNumCpus"] = request.getEntrypointNumCpus();
+  }
+
+  if (!!request.hasEntrypointNumGpus()) {
+    body["entrypointNumGpus"] = request.getEntrypointNumGpus();
+  }
+
+  if (!!request.hasEntrypointResources()) {
+    body["entrypointResources"] = request.getEntrypointResources();
+  }
+
+  if (!!request.hasExtraParam()) {
+    body["extraParam"] = request.getExtraParam();
+  }
+
+  if (!!request.hasHeadSpec()) {
+    body["headSpec"] = request.getHeadSpec();
+  }
+
+  if (!!request.hasMetadataJson()) {
+    body["metadataJson"] = request.getMetadataJson();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNetworkServiceName()) {
+    body["networkServiceName"] = request.getNetworkServiceName();
+  }
+
+  if (!!request.hasRuntimeEnvJson()) {
+    body["runtimeEnvJson"] = request.getRuntimeEnvJson();
+  }
+
+  if (!!request.hasShutdownAfterJobFinishes()) {
+    body["shutdownAfterJobFinishes"] = request.getShutdownAfterJobFinishes();
+  }
+
+  if (!!request.hasSubmissionMode()) {
+    body["submissionMode"] = request.getSubmissionMode();
+  }
+
+  if (!!request.hasTags()) {
+    body["tags"] = request.getTags();
+  }
+
+  if (!!request.hasTtlSecondsAfterFinished()) {
+    body["ttlSecondsAfterFinished"] = request.getTtlSecondsAfterFinished();
+  }
+
+  if (!!request.hasVolumeIds()) {
+    body["volumeIds"] = request.getVolumeIds();
+  }
+
+  if (!!request.hasWorkerSpec()) {
+    body["workerSpec"] = request.getWorkerSpec();
+  }
+
+  if (!!request.hasWorkingDir()) {
+    body["workingDir"] = request.getWorkingDir();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SubmitRayJob"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/rayJob")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitRayJobResponse>();
+}
+
+/**
+ * @summary 提交Ray Job
+ *
+ * @param request SubmitRayJobRequest
+ * @return SubmitRayJobResponse
+ */
+SubmitRayJobResponse Client::submitRayJob(const string &workspaceId, const SubmitRayJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return submitRayJobWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Terminates an SQL query task.
  *
  * @param request TerminateSqlStatementRequest
@@ -3934,7 +4204,7 @@ TerminateSqlStatementResponse Client::terminateSqlStatement(const string &worksp
 }
 
 /**
- * @summary UpdateKyuubiService
+ * @summary Updates a Kyuubi Gateway.
  *
  * @param request UpdateKyuubiServiceRequest
  * @param headers map
@@ -4003,7 +4273,7 @@ UpdateKyuubiServiceResponse Client::updateKyuubiServiceWithOptions(const string 
 }
 
 /**
- * @summary UpdateKyuubiService
+ * @summary Updates a Kyuubi Gateway.
  *
  * @param request UpdateKyuubiServiceRequest
  * @return UpdateKyuubiServiceResponse
@@ -4015,7 +4285,7 @@ UpdateKyuubiServiceResponse Client::updateKyuubiService(const string &workspaceI
 }
 
 /**
- * @summary 更新kyuubi的token
+ * @summary Updates a Kyuubi Gateway authentication token.
  *
  * @param request UpdateKyuubiTokenRequest
  * @param headers map
@@ -4070,7 +4340,7 @@ UpdateKyuubiTokenResponse Client::updateKyuubiTokenWithOptions(const string &wor
 }
 
 /**
- * @summary 更新kyuubi的token
+ * @summary Updates a Kyuubi Gateway authentication token.
  *
  * @param request UpdateKyuubiTokenRequest
  * @return UpdateKyuubiTokenResponse
@@ -4082,7 +4352,7 @@ UpdateKyuubiTokenResponse Client::updateKyuubiToken(const string &workspaceId, c
 }
 
 /**
- * @summary 更新livy compute
+ * @summary Updates a Livy Gateway.
  *
  * @param request UpdateLivyComputeRequest
  * @param headers map
@@ -4177,7 +4447,7 @@ UpdateLivyComputeResponse Client::updateLivyComputeWithOptions(const string &wor
 }
 
 /**
- * @summary 更新livy compute
+ * @summary Updates a Livy Gateway.
  *
  * @param request UpdateLivyComputeRequest
  * @return UpdateLivyComputeResponse
@@ -4189,7 +4459,7 @@ UpdateLivyComputeResponse Client::updateLivyCompute(const string &workspaceBizId
 }
 
 /**
- * @summary Updates the workflow and time-based scheduling configurations.
+ * @summary Updates a workflow definition and its timed scheduling.
  *
  * @param tmpReq UpdateProcessDefinitionWithScheduleRequest
  * @param headers map
@@ -4312,7 +4582,7 @@ UpdateProcessDefinitionWithScheduleResponse Client::updateProcessDefinitionWithS
 }
 
 /**
- * @summary Updates the workflow and time-based scheduling configurations.
+ * @summary Updates a workflow definition and its timed scheduling.
  *
  * @param request UpdateProcessDefinitionWithScheduleRequest
  * @return UpdateProcessDefinitionWithScheduleResponse
@@ -4324,7 +4594,7 @@ UpdateProcessDefinitionWithScheduleResponse Client::updateProcessDefinitionWithS
 }
 
 /**
- * @summary 更新Ray集群
+ * @summary Updates a Ray cluster.
  *
  * @param request UpdateRayClusterRequest
  * @param headers map
@@ -4385,7 +4655,7 @@ UpdateRayClusterResponse Client::updateRayClusterWithOptions(const string &works
 }
 
 /**
- * @summary 更新Ray集群
+ * @summary Updates a Ray cluster.
  *
  * @param request UpdateRayClusterRequest
  * @return UpdateRayClusterResponse
@@ -4397,7 +4667,7 @@ UpdateRayClusterResponse Client::updateRayCluster(const string &workspaceId, con
 }
 
 /**
- * @summary 更新workspace属性
+ * @summary Update workspace properties
  *
  * @param request UpdateWorkspaceRequest
  * @param headers map
@@ -4422,6 +4692,10 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 
   if (!!request.hasGpuSpec()) {
     body["gpuSpec"] = request.getGpuSpec();
+  }
+
+  if (!!request.hasIpWhiteList()) {
+    body["ipWhiteList"] = request.getIpWhiteList();
   }
 
   if (!!request.hasResourceGroupId()) {
@@ -4460,7 +4734,7 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const UpdateWorkspace
 }
 
 /**
- * @summary 更新workspace属性
+ * @summary Update workspace properties
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse

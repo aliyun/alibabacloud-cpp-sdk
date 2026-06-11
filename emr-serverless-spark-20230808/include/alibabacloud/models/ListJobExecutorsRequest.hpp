@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The executor type.
     shared_ptr<string> executorType_ {};
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The executor status.
     shared_ptr<string> status_ {};
   };
 

@@ -63,6 +63,7 @@ namespace Models
 
 
     protected:
+      // The ID of the Livy Gateway.
       shared_ptr<string> livyComputeId_ {};
     };
 
@@ -99,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The status code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information, see the message parameter.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateLivyComputeResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

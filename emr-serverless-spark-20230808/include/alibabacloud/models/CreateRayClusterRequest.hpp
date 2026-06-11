@@ -146,14 +146,22 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The name of the worker group.
       shared_ptr<string> groupName_ {};
+      // The maximum number of worker nodes for automatic scaling. The minimum value is 1.
       shared_ptr<int32_t> maxReplica_ {};
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
+      // The minimum number of worker nodes for automatic scaling. The minimum value is 1. This value must be less than or equal to maxReplica.
       shared_ptr<int32_t> minReplica_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
+      // The number of worker nodes. The minimum value is 1.
       shared_ptr<int32_t> replica_ {};
+      // The worker type.
       shared_ptr<string> workerType_ {};
     };
 
@@ -231,11 +239,16 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // Specifies whether to enable automatic scaling for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The idle timeout period in seconds for worker nodes when automatic scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
+      // The memory size, in GiB.
       shared_ptr<string> memory_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
     };
 
@@ -305,13 +318,20 @@ namespace Models
 
 
   protected:
+    // The description of the cluster.
     shared_ptr<string> description_ {};
+    // The version of the Ray engine.
     shared_ptr<string> displayReleaseVersion_ {};
+    // Additional parameters. The value must be in JSON format.
     shared_ptr<string> extraParam_ {};
+    // The parameters for the head node of the Ray cluster.
     shared_ptr<CreateRayClusterRequest::HeadSpec> headSpec_ {};
+    // The name of the Ray cluster. The name must be 1 to 64 characters in length.
     shared_ptr<string> name_ {};
+    // The name of the network connection.
     shared_ptr<string> networkServiceName_ {};
     shared_ptr<vector<string>> volumeIds_ {};
+    // The parameters for the worker nodes of the Ray cluster. You can specify up to 50 worker groups.
     shared_ptr<vector<CreateRayClusterRequest::WorkerSpec>> workerSpec_ {};
   };
 

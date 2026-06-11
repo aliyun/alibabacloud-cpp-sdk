@@ -158,13 +158,13 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Resource Name (ARN) of a behavior.
+        // The Alibaba Cloud Resource Name (ARN) of the behavior.
         shared_ptr<string> actionArn_ {};
-        // The name of the permission.
+        // The permission name.
         shared_ptr<string> actionName_ {};
-        // The dependencies of the operation.
+        // The list of action dependencies.
         shared_ptr<vector<string>> dependencies_ {};
-        // The description of the operation.
+        // The action description.
         shared_ptr<string> description_ {};
         // The display name of the permission.
         shared_ptr<string> displayName_ {};
@@ -308,42 +308,44 @@ namespace Models
 
 
     protected:
-      // The operations allowed for the queue.
+      // The list of allowed operations for the queue.
       shared_ptr<vector<Queues::AllowActions>> allowActions_ {};
-      // The time when the workspace was created.
+      // The creation time of the workspace.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the user who created the queue.
+      // The UID of the user who created the queue.
       shared_ptr<string> creator_ {};
-      // The environment types of the queue.
+      // The list of environment types for the queue.
       shared_ptr<vector<string>> environments_ {};
       shared_ptr<vector<string>> gpuSpec_ {};
-      // The maximum capacity of resources that can be used in the queue.
+      // The maximum resource capacity of the queue.
       shared_ptr<string> maxResource_ {};
-      // The minimum capacity of resources that can be used in the queue.
+      // The minimum resource capacity of the queue.
       shared_ptr<string> minResource_ {};
       // The billing method. Valid values:
       // 
-      // *   PayAsYouGo
-      // *   Pre
+      // - PayAsYouGo: pay-as-you-go
+      // 
+      // - Pre: subscription
       shared_ptr<string> paymentType_ {};
       shared_ptr<bool> preheat_ {};
       // The queue label.
       shared_ptr<string> properties_ {};
       shared_ptr<string> queueCategory_ {};
-      // The name of the queue.
+      // The queue name.
       shared_ptr<string> queueName_ {};
       // The queue architecture.
       shared_ptr<string> queueScope_ {};
-      // The status of the queue.
+      // The queue status.
       shared_ptr<string> queueStatus_ {};
-      // The type of the queue. Valid values:
+      // The queue type. Valid values:
       // 
-      // *   instance
-      // *   instanceChildren
+      // - instance: A queue for a single task.
+      // 
+      // - instanceChildren: A queue for a parent task.
       shared_ptr<string> queueType_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The capacity of resources that are used in the queue.
+      // The used resource capacity of the queue.
       shared_ptr<string> usedResource_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -389,15 +391,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of records to return in a single request.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
     // The list of queues.
     shared_ptr<vector<ListWorkspaceQueuesResponseBody::Queues>> queues_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

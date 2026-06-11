@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The number of codes to generate.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> genNum_ {};
+    // The product namespace.
+    // 
     // This parameter is required.
     shared_ptr<string> productNamespace_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

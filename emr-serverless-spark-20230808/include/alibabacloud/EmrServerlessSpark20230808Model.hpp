@@ -33,6 +33,9 @@
 #include <alibabacloud/models/CancelKyuubiSparkApplicationRequest.hpp>
 #include <alibabacloud/models/CancelKyuubiSparkApplicationResponseBody.hpp>
 #include <alibabacloud/models/CancelKyuubiSparkApplicationResponse.hpp>
+#include <alibabacloud/models/CancelRayJobRequest.hpp>
+#include <alibabacloud/models/CancelRayJobResponseBody.hpp>
+#include <alibabacloud/models/CancelRayJobResponse.hpp>
 #include <alibabacloud/models/ChangeResourceGroupRequest.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponseBody.hpp>
 #include <alibabacloud/models/ChangeResourceGroupResponse.hpp>
@@ -111,6 +114,9 @@
 #include <alibabacloud/models/GetLivyComputeTokenResponse.hpp>
 #include <alibabacloud/models/GetRayClusterResponseBody.hpp>
 #include <alibabacloud/models/GetRayClusterResponse.hpp>
+#include <alibabacloud/models/GetRayJobRequest.hpp>
+#include <alibabacloud/models/GetRayJobResponseBody.hpp>
+#include <alibabacloud/models/GetRayJobResponse.hpp>
 #include <alibabacloud/models/GetRunConfigurationRequest.hpp>
 #include <alibabacloud/models/GetRunConfigurationResponseBody.hpp>
 #include <alibabacloud/models/GetRunConfigurationResponse.hpp>
@@ -169,6 +175,10 @@
 #include <alibabacloud/models/ListRayClusterRequest.hpp>
 #include <alibabacloud/models/ListRayClusterResponseBody.hpp>
 #include <alibabacloud/models/ListRayClusterResponse.hpp>
+#include <alibabacloud/models/ListRayJobRequest.hpp>
+#include <alibabacloud/models/ListRayJobShrinkRequest.hpp>
+#include <alibabacloud/models/ListRayJobResponseBody.hpp>
+#include <alibabacloud/models/ListRayJobResponse.hpp>
 #include <alibabacloud/models/ListReleaseVersionsRequest.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponseBody.hpp>
 #include <alibabacloud/models/ListReleaseVersionsResponse.hpp>
@@ -219,6 +229,9 @@
 #include <alibabacloud/models/StopSessionClusterRequest.hpp>
 #include <alibabacloud/models/StopSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/StopSessionClusterResponse.hpp>
+#include <alibabacloud/models/SubmitRayJobRequest.hpp>
+#include <alibabacloud/models/SubmitRayJobResponseBody.hpp>
+#include <alibabacloud/models/SubmitRayJobResponse.hpp>
 #include <alibabacloud/models/TerminateSqlStatementRequest.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponseBody.hpp>
 #include <alibabacloud/models/TerminateSqlStatementResponse.hpp>

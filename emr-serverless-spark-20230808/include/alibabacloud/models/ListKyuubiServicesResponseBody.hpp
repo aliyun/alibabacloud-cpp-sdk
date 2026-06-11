@@ -208,21 +208,35 @@ namespace Models
 
 
       protected:
+        // The instance type of the Kyuubi server.
         shared_ptr<string> computeInstance_ {};
+        // The time when the server was created.
         shared_ptr<string> createTime_ {};
+        // The UID of the user who created the server.
         shared_ptr<string> creator_ {};
+        // The internal endpoint.
         shared_ptr<string> innerEndpoint_ {};
+        // The Kyuubi server configurations.
         shared_ptr<string> kyuubiConfigs_ {};
+        // The version of the Kyuubi server.
         shared_ptr<string> kyuubiReleaseVersion_ {};
-        // KyuubiServer ID。
+        // The Kyuubi server ID.
         shared_ptr<string> kyuubiServiceId_ {};
+        // The name of the Kyuubi server.
         shared_ptr<string> name_ {};
+        // The public endpoint.
         shared_ptr<string> publicEndpoint_ {};
+        // The queue name.
         shared_ptr<string> queue_ {};
+        // The version number of the Spark engine.
         shared_ptr<string> releaseVersion_ {};
+        // The number of replicas for the Kyuubi server.
         shared_ptr<int32_t> replica_ {};
+        // The default configurations for Spark applications launched by the Kyuubi server.
         shared_ptr<string> sparkConfigs_ {};
+        // The time when the Kyuubi server was last started.
         shared_ptr<string> startTime_ {};
+        // The status of the Kyuubi server.
         shared_ptr<string> state_ {};
       };
 
@@ -237,6 +251,7 @@ namespace Models
 
 
     protected:
+      // A list of Kyuubi servers.
       shared_ptr<vector<Data::KyuubiServices>> kyuubiServices_ {};
     };
 
@@ -259,7 +274,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListKyuubiServicesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

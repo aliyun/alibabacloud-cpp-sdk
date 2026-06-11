@@ -168,16 +168,24 @@ namespace Models
 
 
       protected:
+        // The names of authorized RAM users.
         shared_ptr<vector<string>> accountNames_ {};
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The creator\\"s name.
         shared_ptr<string> createdBy_ {};
+        // The expiration time.
         shared_ptr<int64_t> expireTime_ {};
+        // The last used time.
         shared_ptr<int64_t> lastUsedTime_ {};
+        // The ARNs of authorized users.
         shared_ptr<vector<string>> memberArns_ {};
+        // The token name.
         shared_ptr<string> name_ {};
         shared_ptr<vector<string>> sparkRole_ {};
+        // The masked token.
         shared_ptr<string> token_ {};
-        // Token ID。
+        // The token ID.
         shared_ptr<string> tokenId_ {};
       };
 
@@ -192,6 +200,7 @@ namespace Models
 
 
     protected:
+      // A list of tokens.
       shared_ptr<vector<Data::Tokens>> tokens_ {};
     };
 
@@ -214,7 +223,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListKyuubiTokenResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

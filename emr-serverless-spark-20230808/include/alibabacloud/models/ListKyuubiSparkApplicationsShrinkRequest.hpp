@@ -140,21 +140,21 @@ namespace Models
 
 
   protected:
-    // The ID of the application that is submitted by using a Kyuubi gateway.
+    // The ID of the Spark application submitted by Kyuubi, used for searching.
     shared_ptr<string> applicationId_ {};
-    // The name of the Spark application that is submitted by using a Kyuubi gateway.
+    // The name of the Spark application submitted by Kyuubi, used for searching.
     shared_ptr<string> applicationName_ {};
     shared_ptr<string> endTimeShrink_ {};
     shared_ptr<string> latestSqlStatementStatuses_ {};
-    // The maximum number of entries to return.
+    // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
     shared_ptr<int64_t> minDuration_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> orderByShrink_ {};
     shared_ptr<string> resourceQueueId_ {};
     shared_ptr<string> sort_ {};
-    // The range of start time.
+    // The time range when the task started.
     shared_ptr<string> startTimeShrink_ {};
     shared_ptr<string> states_ {};
   };

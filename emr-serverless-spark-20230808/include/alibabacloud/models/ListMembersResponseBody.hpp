@@ -165,15 +165,15 @@ namespace Models
 
 
         protected:
-          // 行为 arn。
+          // The ARN of the action.
           shared_ptr<string> actionArn_ {};
-          // 权限名称。
+          // The name of the permission.
           shared_ptr<string> actionName_ {};
-          // action 依赖列表。
+          // The list of action dependencies.
           shared_ptr<vector<string>> dependencies_ {};
-          // action 描述。
+          // The description of the action.
           shared_ptr<string> description_ {};
-          // 权限展示名称。
+          // The display name of the permission.
           shared_ptr<string> displayName_ {};
         };
 
@@ -217,15 +217,15 @@ namespace Models
 
 
       protected:
-        // 权限列表。
+        // The list of permissions.
         shared_ptr<vector<Roles::Actions>> actions_ {};
-        // 创建时间。
+        // The time when the role was created.
         shared_ptr<int64_t> createTime_ {};
-        // 描述。
+        // The description.
         shared_ptr<string> description_ {};
-        // 角色 arn。
+        // The ARN of the role.
         shared_ptr<string> roleArn_ {};
-        // 角色名称。
+        // The name of the role.
         shared_ptr<string> roleName_ {};
       };
 
@@ -296,15 +296,15 @@ namespace Models
 
 
       protected:
-        // 行为 arn。
+        // The ARN of the action.
         shared_ptr<string> actionArn_ {};
-        // 权限名称。
+        // The name of the permission.
         shared_ptr<string> actionName_ {};
-        // action 依赖列表。
+        // The list of action dependencies.
         shared_ptr<vector<string>> dependencies_ {};
-        // action 描述。
+        // The description of the action.
         shared_ptr<string> description_ {};
-        // 权限展示名称。
+        // The display name of the permission.
         shared_ptr<string> displayName_ {};
       };
 
@@ -372,19 +372,21 @@ namespace Models
 
 
     protected:
-      // 针对此用户允许的操作列表。
+      // The list of operations allowed for this user.
       shared_ptr<vector<Members::Actions>> actions_ {};
+      // The time when the member was created.
       shared_ptr<string> createTime_ {};
-      // 用户展示名称。
+      // The display name of the user.
       shared_ptr<string> displayName_ {};
-      // 用户 arn。
+      // The Alibaba Cloud Resource Name (ARN) of the user.
       shared_ptr<string> memberArn_ {};
-      // 用户角色列表。
+      // The list of roles in the workspace.
       shared_ptr<vector<Members::Roles>> roles_ {};
-      // 用户名称。
+      // The username.
       shared_ptr<string> userName_ {};
-      // 用户类型。
+      // The type of the user.
       shared_ptr<string> userType_ {};
+      // Indicates whether the member is visible.
       shared_ptr<bool> visible_ {};
     };
 
@@ -428,14 +430,15 @@ namespace Models
 
 
   protected:
-    // 一次获取的最大记录数。
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The list of members.
     shared_ptr<vector<ListMembersResponseBody::Members>> members_ {};
-    // 下一页TOKEN。
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 记录总数。
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -104,7 +104,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -146,8 +148,9 @@ namespace Models
 
 
     protected:
-      // The maximum resource quota for a workspace.
+      // The resource quota for the workspace.
       shared_ptr<string> cu_ {};
+      // The GPU resource quota for the workspace.
       shared_ptr<int32_t> gpu_ {};
     };
 
@@ -296,41 +299,45 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable auto-renewal. This parameter is required only if the paymentType parameter is set to Pre.
+    // Specifies whether to enable auto-renewal. This parameter is required if you set `paymentType` to `Pre`.
     shared_ptr<string> autoRenew_ {};
-    // The auto-renewal duration. This parameter is required only if the paymentType parameter is set to Pre.
+    // The auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
     shared_ptr<string> autoRenewPeriod_ {};
-    // The unit of the auto-renewal duration. This parameter is required only if the paymentType parameter is set to Pre.
+    // The unit of the auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
     shared_ptr<string> autoRenewPeriodUnit_ {};
-    // Specifies whether to automatically start a session.
+    // Specifies whether to automatically start a session cluster when the workspace is created.
     shared_ptr<bool> autoStartSessionCluster_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // A token that ensures the idempotency of the request.
     shared_ptr<string> clientToken_ {};
-    // The information of the Data Lake Formation (DLF) catalog.
+    // The DLF Catalog ID.
     shared_ptr<string> dlfCatalogId_ {};
-    // The version of DLF.
+    // The DLF type.
     shared_ptr<string> dlfType_ {};
-    // The subscription period. This parameter is required only if the paymentType parameter is set to Pre.
+    // The subscription duration. This parameter is required if you set `paymentType` to `Pre`.
     shared_ptr<string> duration_ {};
+    // The specifications for the GPU resources.
     shared_ptr<vector<string>> gpuSpec_ {};
-    // The name of the Object Storage Service (OSS) bucket.
+    // The OSS bucket for the workspace. The path must be in the `oss://<bucket-name>/` format.
     shared_ptr<string> ossBucket_ {};
-    // The unit of the subscription duration.
+    // The unit of the subscription duration. This parameter is required if you set `paymentType` to `Pre`.
     shared_ptr<string> paymentDurationUnit_ {};
     // The billing method. Valid values:
     // 
-    // *   PayAsYouGo
-    // *   Pre
+    // - `PayAsYouGo`: pay-as-you-go
+    // 
+    // - `Pre`: subscription
     shared_ptr<string> paymentType_ {};
-    // The name of the role used to run Spark jobs.
+    // The name of the RAM role used to run Spark jobs.
     shared_ptr<string> ramRoleName_ {};
-    // The type of the version.
+    // The release type.
     shared_ptr<string> releaseType_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The resource specifications.
     shared_ptr<CreateWorkspaceRequest::ResourceSpec> resourceSpec_ {};
+    // The tags to add to the workspace.
     shared_ptr<vector<CreateWorkspaceRequest::Tag>> tag_ {};
-    // The name of the workspace.
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

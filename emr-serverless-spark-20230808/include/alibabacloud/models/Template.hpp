@@ -200,59 +200,59 @@ namespace Models
 
   protected:
     shared_ptr<string> bizId_ {};
-    // The user ID of the job creator.
+    // Creator UID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // The displayed version of the Spark engine.
+    // Spark engine display version.
     shared_ptr<string> displaySparkVersion_ {};
-    // Indicates whether Fusion engine is enabled for acceleration.
+    // Whether to enable the fusion switch.
     shared_ptr<bool> fusion_ {};
-    // The creation time.
+    // Creation time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // The time when the job was last modified.
+    // Last modified time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
     shared_ptr<bool> isDefault_ {};
-    // The ID of the user who last modified the job.
+    // Last modifier UID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> modifier_ {};
     shared_ptr<string> name_ {};
-    // The SparkConf objects.
+    // Spark Conf
     shared_ptr<vector<SparkConf>> sparkConf_ {};
-    // The number of driver cores of the Spark job.
+    // Spark Driver cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkDriverCores_ {};
-    // The size of driver memory of the Spark job.
+    // Spark Driver memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
-    // The number of executor cores of the Spark job.
+    // Spark Executor cores.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sparkExecutorCores_ {};
-    // The size of executor memory of the Spark job.
+    // Spark Executor memory.
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkExecutorMemory_ {};
-    // The level of the Spark log.
+    // Spark log level.
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogLevel_ {};
-    // The path where the operational logs of the Spark job are stored.
+    // Spark log path.
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
-    // The engine version of Spark.
+    // Spark internal release version.
     // 
     // This parameter is required.
     shared_ptr<string> sparkVersion_ {};
-    // The template type.
+    // Template type.
     shared_ptr<string> templateType_ {};
   };
 

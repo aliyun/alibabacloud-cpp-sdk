@@ -87,6 +87,7 @@ namespace Models
 
 
     protected:
+      // The maximum resource capacity of the Workspace Queue.
       shared_ptr<int64_t> cu_ {};
       shared_ptr<int32_t> gpu_ {};
       shared_ptr<int64_t> maxCu_ {};
@@ -143,11 +144,16 @@ namespace Models
 
 
   protected:
+    // The environment types.
     shared_ptr<vector<string>> environments_ {};
     shared_ptr<vector<string>> gpuSpec_ {};
+    // The resource specifications.
     shared_ptr<EditWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};
+    // The Workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // The name of the Workspace Queue.
     shared_ptr<string> workspaceQueueName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

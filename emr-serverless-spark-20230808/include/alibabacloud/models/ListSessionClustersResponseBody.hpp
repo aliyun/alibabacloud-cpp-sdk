@@ -141,9 +141,9 @@ namespace Models
 
 
       protected:
-        // The status change code.
+        // The state change code.
         shared_ptr<string> code_ {};
-        // The status change message.
+        // The state change message.
         shared_ptr<string> message_ {};
       };
 
@@ -185,9 +185,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether automatic termination is enabled.
+        // Indicates whether auto-stop is enabled.
         shared_ptr<bool> enable_ {};
-        // The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
+        // The number of minutes of inactivity before the session is automatically stopped.
         shared_ptr<int32_t> idleTimeoutMinutes_ {};
       };
 
@@ -219,7 +219,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether automatic startup is enabled.
+        // Indicates whether auto-start is enabled.
         shared_ptr<bool> enable_ {};
       };
 
@@ -270,9 +270,9 @@ namespace Models
 
 
       protected:
-        // The name of the configuration file.
+        // The configuration file name.
         shared_ptr<string> configFileName_ {};
-        // The key of the configuration.
+        // The configuration key.
         shared_ptr<string> configItemKey_ {};
         // The configuration value.
         shared_ptr<string> configItemValue_ {};
@@ -461,61 +461,59 @@ namespace Models
 
 
     protected:
-      // The session configurations, which are equivalent to the configurations of the Spark job.
+      // The session configurations. These are equivalent to the configurations of the underlying Spark job.
       shared_ptr<vector<SessionClusters::ApplicationConfigs>> applicationConfigs_ {};
-      // The automatic startup configurations.
+      // The auto-start configuration.
       shared_ptr<SessionClusters::AutoStartConfiguration> autoStartConfiguration_ {};
-      // The configurations of automatic termination.
+      // The auto-stop configuration.
       shared_ptr<SessionClusters::AutoStopConfiguration> autoStopConfiguration_ {};
       shared_ptr<string> connectionToken_ {};
-      // The version of the Spark engine.
+      // The version displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
       // The public endpoint of the Thrift server.
       shared_ptr<string> domain_ {};
-      // The internal endpoint of the Thrift server.
+      // The internal same-region endpoint of the Thrift server.
       shared_ptr<string> domainInner_ {};
-      // The ID of the job that is associated with the session.
+      // The ID of the developer job that is attached to the session.
       shared_ptr<string> draftId_ {};
-      // The additional metadata of the session.
+      // The extra metadata of the session.
       shared_ptr<string> extra_ {};
-      // Indicates whether the Fusion engine is used for acceleration.
+      // Indicates whether acceleration by the Fusion engine is enabled.
       shared_ptr<bool> fusion_ {};
-      // The creation time.
+      // The time when the session was created.
       shared_ptr<int64_t> gmtCreate_ {};
       // The session type.
-      // 
-      // Valid values:
-      // 
-      // *   NOTEBOOK
-      // *   THRIFT
-      // *   SQL
       shared_ptr<string> kind_ {};
-      // The name of the session.
+      // The session name.
       shared_ptr<string> name_ {};
       shared_ptr<bool> publicEndpointEnabled_ {};
-      // The name of the queue that is used to run the session.
+      // The name of the queue in which the session runs.
       shared_ptr<string> queueName_ {};
-      // The version of EMR Serverless Spark.
+      // The Serverless Spark version.
       shared_ptr<string> releaseVersion_ {};
       // The session ID.
       shared_ptr<string> sessionClusterId_ {};
-      // The start time.
+      // The time when the session was started.
       shared_ptr<int64_t> startTime_ {};
-      // The status of the session.
+      // The session state.
       // 
-      // *   Starting
-      // *   Running
-      // *   Stopping
-      // *   Stopped
-      // *   Error
+      // - Starting: The session is starting.
+      // 
+      // - Running: The session is running.
+      // 
+      // - Stopping: The session is stopping.
+      // 
+      // - Stopped: The session is stopped.
+      // 
+      // - Error: The session has failed.
       shared_ptr<string> state_ {};
-      // The details of the most recent status change of the session.
+      // The details of the last state change of the session.
       shared_ptr<SessionClusters::StateChangeReason> stateChangeReason_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
       // The username.
       shared_ptr<string> userName_ {};
-      // The Spark UI of the session.
+      // The URL of the Spark UI for the session.
       shared_ptr<string> webUI_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -561,15 +559,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of entries returned for the request.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The sessions.
+    // A list of sessions.
     shared_ptr<vector<ListSessionClustersResponseBody::SessionClusters>> sessionClusters_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

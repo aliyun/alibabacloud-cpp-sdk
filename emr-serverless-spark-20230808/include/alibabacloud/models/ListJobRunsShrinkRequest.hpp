@@ -176,34 +176,37 @@ namespace Models
 
 
   protected:
+    // The Spark configurations.
     shared_ptr<string> applicationConfigs_ {};
-    // The ID of the user who created the job.
+    // The UID of the user who created the job.
     shared_ptr<string> creator_ {};
-    // The range of end time.
+    // The time range when the job run ended.
     shared_ptr<string> endTimeShrink_ {};
+    // Specifies whether the job is a workflow task.
     shared_ptr<string> isWorkflow_ {};
-    // The job run ID.
+    // The deployment ID of the streaming job.
     shared_ptr<string> jobRunDeploymentId_ {};
-    // The job ID.
+    // The job run ID.
     shared_ptr<string> jobRunId_ {};
-    // The maximum number of entries to return.
+    // The maximum number of entries to return. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The minimum running duration of the job. Unit: ms.
+    // The minimum runtime of the job run, in milliseconds.
     shared_ptr<int64_t> minDuration_ {};
     // The job name.
     shared_ptr<string> name_ {};
-    // The pagination token that is used in the request to retrieve a new page of results.
+    // The token that specifies the position from which to start the next read.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The name of the resource queue on which the Spark jobs run.
+    // The ID of the resource queue on which the Spark job runs.
     shared_ptr<string> resourceQueueId_ {};
+    // The runtime configurations.
     shared_ptr<string> runtimeConfigs_ {};
-    // The range of start time.
+    // The time range when the job run started.
     shared_ptr<string> startTimeShrink_ {};
-    // The job states.
+    // The job run states.
     shared_ptr<string> statesShrink_ {};
-    // The tags of the job.
+    // The list of tags.
     shared_ptr<string> tagsShrink_ {};
   };
 

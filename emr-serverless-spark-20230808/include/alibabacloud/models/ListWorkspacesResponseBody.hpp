@@ -51,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(endTime, endTime_);
         DARABONBA_PTR_TO_JSON(failReason, failReason_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
+        DARABONBA_PTR_TO_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
         DARABONBA_PTR_TO_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(endTime, endTime_);
         DARABONBA_PTR_FROM_JSON(failReason, failReason_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
+        DARABONBA_PTR_FROM_JSON(ipWhiteList, ipWhiteList_);
         DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
         DARABONBA_PTR_FROM_JSON(paymentStatus, paymentStatus_);
         DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -141,7 +143,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -183,9 +187,9 @@ namespace Models
 
 
       protected:
-        // The error code.
+        // Error code.
         shared_ptr<string> code_ {};
-        // The error message.
+        // Error message.
         shared_ptr<string> message_ {};
       };
 
@@ -291,38 +295,42 @@ namespace Models
 
 
       protected:
-        // The amount of resources that are allocated by a subscription quota.
+        // The amount of resources that are currently allocated.
         shared_ptr<string> allocatedResource_ {};
-        // Indicates whether auto-renewal is enabled for the subscription quota.
+        // Whether auto-renewal is enabled for the resource.
         // 
-        // *   true
-        // *   false
+        // - true: Enables auto-renewal. The resource is automatically renewed after it expires.
+        // 
+        // - false: Auto-renewal is disabled. The resource is stopped upon expiration.
         shared_ptr<bool> autoRenewal_ {};
-        // The creation time of the subscription quota.
+        // The creation time of the resource quota.
         shared_ptr<int64_t> createTime_ {};
-        // The expiration time of the subscription quota.
+        // The expiration time of the resource quota.
         shared_ptr<int64_t> expireTime_ {};
-        // The ID of the instance that is generated when you purchase the subscription quota.
+        // The resource instance ID that is associated with the quota.
         shared_ptr<string> instanceId_ {};
-        // The maximum amount of resources that can be used in a subscription quota.
+        // The maximum amount of resources.
         shared_ptr<string> maxResource_ {};
+        // The order ID.
         shared_ptr<string> orderId_ {};
-        // The status of the subscription quota. Valid values:
+        // The payment status of the current resource. The possible values are as follows:
         // 
-        // *   NORMAL
-        // *   WAIT_FOR_EXPIRE
-        // *   EXPIRED
+        // - NORMAL: Active.
+        // 
+        // - WAIT_FOR_EXPIRE: Will expire.
+        // 
+        // - EXPIRED: The item has expired.
         shared_ptr<string> paymentStatus_ {};
-        // The amount of resources that are used.
+        // The amount of resources currently in use.
         shared_ptr<string> usedResource_ {};
       };
 
       virtual bool empty() const override { return this->autoRenew_ == nullptr
         && this->autoRenewPeriod_ == nullptr && this->autoRenewPeriodUnit_ == nullptr && this->createTime_ == nullptr && this->dlfCatalogId_ == nullptr && this->dlfType_ == nullptr
-        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->paymentDurationUnit_ == nullptr
-        && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr && this->releaseType_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr && this->tags_ == nullptr
-        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
+        && this->duration_ == nullptr && this->endTime_ == nullptr && this->failReason_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr
+        && this->paymentDurationUnit_ == nullptr && this->paymentStatus_ == nullptr && this->paymentType_ == nullptr && this->prePaidQuota_ == nullptr && this->regionId_ == nullptr
+        && this->releaseType_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->stateChangeReason_ == nullptr && this->storage_ == nullptr
+        && this->tags_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->workspaceStatus_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
@@ -393,6 +401,15 @@ namespace Models
       inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
       inline Workspaces& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
       inline Workspaces& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
+
+
+      // ipWhiteList Field Functions 
+      bool hasIpWhiteList() const { return this->ipWhiteList_ != nullptr;};
+      void deleteIpWhiteList() { this->ipWhiteList_ = nullptr;};
+      inline const vector<string> & getIpWhiteList() const { DARABONBA_PTR_GET_CONST(ipWhiteList_, vector<string>) };
+      inline vector<string> getIpWhiteList() { DARABONBA_PTR_GET(ipWhiteList_, vector<string>) };
+      inline Workspaces& setIpWhiteList(const vector<string> & ipWhiteList) { DARABONBA_PTR_SET_VALUE(ipWhiteList_, ipWhiteList) };
+      inline Workspaces& setIpWhiteList(vector<string> && ipWhiteList) { DARABONBA_PTR_SET_RVALUE(ipWhiteList_, ipWhiteList) };
 
 
       // paymentDurationUnit Field Functions 
@@ -500,53 +517,54 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable auto-renewal. This parameter is required only if the paymentType parameter is set to Pre.
+      // Specifies whether to enable auto-renewal (required for the prepaid billing method).
       shared_ptr<bool> autoRenew_ {};
-      // The auto-renewal duration. This parameter is required only if the paymentType parameter is set to Pre.
+      // Auto-renewal duration (Required for the prepaid billing method).
       shared_ptr<int32_t> autoRenewPeriod_ {};
-      // The unit of the auto-renewal duration. This parameter is required only if the paymentType parameter is set to Pre.
+      // Auto-renewal period (Required for the prepaid billing method).
       shared_ptr<string> autoRenewPeriodUnit_ {};
-      // The time when the workflow was created.
+      // Workspace creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The information of the Data Lake Formation (DLF) catalog.
+      // DLF Catalog information.
       shared_ptr<string> dlfCatalogId_ {};
-      // The version of DLF.
+      // Bind a dlf type.
       shared_ptr<string> dlfType_ {};
-      // The subscription period. This parameter is required only if the paymentType parameter is set to Pre.
+      // The subscription period quantity is required for the prepaid billing method.
       shared_ptr<int32_t> duration_ {};
-      // The end of the end time range.
+      // Workspace release time.
       shared_ptr<int64_t> endTime_ {};
-      // The failure reason.
+      // Failure reason.
       shared_ptr<string> failReason_ {};
+      // The GPU specifications.
       shared_ptr<vector<string>> gpuSpec_ {};
-      // The unit of the subscription duration.
+      shared_ptr<vector<string>> ipWhiteList_ {};
+      // Subscription period (Required for the prepaid billing method).
       shared_ptr<string> paymentDurationUnit_ {};
-      // The status of the payment.
+      // Payment status.
       shared_ptr<string> paymentStatus_ {};
-      // The billing method. Valid values:
-      // 
-      // - PayAsYouGo
-      // - Pre
+      // Billing method.
       shared_ptr<string> paymentType_ {};
-      // The information about the subscription quota.
+      // Information about prepaid resource quotas.
       shared_ptr<Workspaces::PrePaidQuota> prePaidQuota_ {};
-      // The region ID.
+      // Region ID.
       shared_ptr<string> regionId_ {};
-      // The reason why the workspace is released.
+      // Workspace release reason.
       shared_ptr<string> releaseType_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The resource specifications.
+      // Resource specification.
       shared_ptr<string> resourceSpec_ {};
-      // The reason of the job status change.
+      // Information about changes to the workspace status.
       shared_ptr<Workspaces::StateChangeReason> stateChangeReason_ {};
-      // The OSS path.
+      // OSS path.
       shared_ptr<string> storage_ {};
+      // The tags of the workspace.
       shared_ptr<vector<Workspaces::Tags>> tags_ {};
-      // The workspace ID.
+      // Workspace ID.
       shared_ptr<string> workspaceId_ {};
-      // The name of the workspace.
+      // Workspace name.
       shared_ptr<string> workspaceName_ {};
-      // The workspace status.
+      // Workspace status.
       shared_ptr<string> workspaceStatus_ {};
     };
 
@@ -590,15 +608,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of records to retrieve at one time.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // Next page token.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // Total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // The queried workspaces.
+    // Workspace list.
     shared_ptr<vector<ListWorkspacesResponseBody::Workspaces>> workspaces_ {};
   };
 

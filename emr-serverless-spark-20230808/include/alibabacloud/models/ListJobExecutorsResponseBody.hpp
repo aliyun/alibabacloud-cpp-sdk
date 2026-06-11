@@ -250,26 +250,47 @@ namespace Models
 
 
     protected:
+      // The total number of active tasks that the executor is running.
       shared_ptr<int64_t> activeTasks_ {};
+      // The time when the executor was created.
       shared_ptr<int64_t> addTime_ {};
+      // The total number of completed tasks that the executor has run.
       shared_ptr<int64_t> completedTasks_ {};
+      // The disk usage of the executor.
       shared_ptr<int64_t> diskUsed_ {};
+      // The job executor ID.
       shared_ptr<string> executorId_ {};
+      // The executor type.
       shared_ptr<string> executorType_ {};
+      // The total number of failed tasks that the executor has run.
       shared_ptr<int64_t> failedTasks_ {};
+      // The address of the executor.
       shared_ptr<string> hostPort_ {};
+      // The job run ID.
       shared_ptr<string> jobRunId_ {};
+      // The maximum memory of the executor.
       shared_ptr<int64_t> maxMemory_ {};
+      // The memory usage of the executor.
       shared_ptr<int64_t> memoryUsed_ {};
+      // The number of Resilient Distributed Dataset (RDD) blocks managed by the executor.
       shared_ptr<int64_t> rddBlocks_ {};
+      // The running status of the executor.
       shared_ptr<string> status_ {};
+      // The total number of cores for the executor.
       shared_ptr<int64_t> totalCores_ {};
+      // The total runtime of the executor.
       shared_ptr<int64_t> totalDuration_ {};
+      // The total garbage collection (GC) time of the executor.
       shared_ptr<int64_t> totalGCTime_ {};
+      // The number of bytes of input data for the executor.
       shared_ptr<int64_t> totalInputBytes_ {};
+      // The number of bytes read during the shuffle phase by the executor.
       shared_ptr<int64_t> totalShuffleRead_ {};
+      // The number of bytes written during the shuffle phase by the executor.
       shared_ptr<int64_t> totalShuffleWrite_ {};
+      // The total number of tasks that the executor has run.
       shared_ptr<int64_t> totalTasks_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -313,11 +334,15 @@ namespace Models
 
 
   protected:
+    // The list of executors.
     shared_ptr<vector<ListJobExecutorsResponseBody::Exexutors>> exexutors_ {};
+    // The maximum number of records returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

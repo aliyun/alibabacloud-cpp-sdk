@@ -85,18 +85,12 @@ namespace Models
 
   protected:
     // The session type.
-    // 
-    // Valid values:
-    // 
-    // *   NOTEBOOK
-    // *   THRIFT
-    // *   SQL
     shared_ptr<string> kind_ {};
-    // The maximum number of entries to return.
+    // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results.
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The name of the queue.
+    // The queue name.
     shared_ptr<string> queueName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -157,14 +157,23 @@ namespace Models
 
 
       protected:
+        // The ID of the Livy Gateway.
         shared_ptr<string> computeId_ {};
+        // The name of the creator.
         shared_ptr<string> createdBy_ {};
+        // The public endpoint.
         shared_ptr<string> endpoint_ {};
+        // The internal endpoint.
         shared_ptr<string> endpointInner_ {};
+        // The time when the resource was created.
         shared_ptr<int64_t> gmtCreate_ {};
+        // The name.
         shared_ptr<string> name_ {};
+        // The queue name.
         shared_ptr<string> queueName_ {};
+        // The time when the resource was started.
         shared_ptr<int64_t> startTime_ {};
+        // The running status.
         shared_ptr<string> status_ {};
       };
 
@@ -179,6 +188,7 @@ namespace Models
 
 
     protected:
+      // A list of Livy Gateways.
       shared_ptr<vector<Data::LivyComputes>> livyComputes_ {};
     };
 
@@ -215,9 +225,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 1000000 indicates that the request is successful. For other values, see the message parameter for error details.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListLivyComputeResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -79,9 +79,9 @@ namespace Models
 
 
     protected:
-      // The workflow ID.
+      // The ID of the workflow definition.
       shared_ptr<int64_t> code_ {};
-      // The serial number of the workflow.
+      // The serial number of the workflow definition.
       shared_ptr<int32_t> id_ {};
     };
 
@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // The code that is returned by the backend server.
+    // The API return code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<CreateProcessDefinitionWithScheduleResponseBody::Data> data_ {};
@@ -148,9 +148,9 @@ namespace Models
     shared_ptr<string> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The description of the returned code.
+    // A detailed message for the return code.
     shared_ptr<string> msg_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

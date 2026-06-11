@@ -89,11 +89,13 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<Template> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If success is false, a business error code is returned.
+    // 
+    // - If success is true, an empty value is returned.
     shared_ptr<string> errorCode_ {};
-    // *   If the value of success was false, an error message was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - Returns an error message if success is false.
+    // 
+    // - Returns an empty value if success is true.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};

@@ -49,11 +49,6 @@ namespace Models
 
   protected:
     // The environment type.
-    // 
-    // Valid values:
-    // 
-    // *   dev
-    // *   production
     shared_ptr<string> environment_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

@@ -15,10 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CacheCluster& obj) { 
       DARABONBA_PTR_TO_JSON(bindedWorkspaces, bindedWorkspaces_);
+      DARABONBA_PTR_TO_JSON(cacheClusterId, cacheClusterId_);
+      DARABONBA_PTR_TO_JSON(cacheClusterName, cacheClusterName_);
       DARABONBA_PTR_TO_JSON(cachesets, cachesets_);
       DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(configuration, configuration_);
       DARABONBA_PTR_TO_JSON(configurations, configurations_);
+      DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(creator, creator_);
       DARABONBA_PTR_TO_JSON(gmtCreated, gmtCreated_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
@@ -26,16 +29,23 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(resourceSpec, resourceSpec_);
       DARABONBA_PTR_TO_JSON(state, state_);
+      DARABONBA_PTR_TO_JSON(tables, tables_);
+      DARABONBA_PTR_TO_JSON(tags, tags_);
       DARABONBA_PTR_TO_JSON(usedResourceSpec, usedResourceSpec_);
+      DARABONBA_PTR_TO_JSON(version, version_);
     };
     friend void from_json(const Darabonba::Json& j, CacheCluster& obj) { 
       DARABONBA_PTR_FROM_JSON(bindedWorkspaces, bindedWorkspaces_);
+      DARABONBA_PTR_FROM_JSON(cacheClusterId, cacheClusterId_);
+      DARABONBA_PTR_FROM_JSON(cacheClusterName, cacheClusterName_);
       DARABONBA_PTR_FROM_JSON(cachesets, cachesets_);
       DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(configuration, configuration_);
       DARABONBA_PTR_FROM_JSON(configurations, configurations_);
+      DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(creator, creator_);
       DARABONBA_PTR_FROM_JSON(gmtCreated, gmtCreated_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
@@ -43,9 +53,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(resourceSpec, resourceSpec_);
       DARABONBA_PTR_FROM_JSON(state, state_);
+      DARABONBA_PTR_FROM_JSON(tables, tables_);
+      DARABONBA_PTR_FROM_JSON(tags, tags_);
       DARABONBA_PTR_FROM_JSON(usedResourceSpec, usedResourceSpec_);
+      DARABONBA_PTR_FROM_JSON(version, version_);
     };
     CacheCluster() = default ;
     CacheCluster(const CacheCluster &) = default ;
@@ -96,18 +110,136 @@ namespace Models
 
 
     protected:
+      // The amount of bandwidth consumed by the cache cluster.
       shared_ptr<int64_t> bandWidth_ {};
+      // The amount of storage capacity consumed by the cache cluster.
       shared_ptr<int64_t> storage_ {};
+    };
+
+    class Tags : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+        DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+        DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(value, value_);
+      };
+      Tags() = default ;
+      Tags(const Tags &) = default ;
+      Tags(Tags &&) = default ;
+      Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tags() = default ;
+      Tags& operator=(const Tags &) = default ;
+      Tags& operator=(Tags &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      shared_ptr<string> key_ {};
+      shared_ptr<string> value_ {};
+    };
+
+    class Tables : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tables& obj) { 
+        DARABONBA_PTR_TO_JSON(catalogId, catalogId_);
+        DARABONBA_PTR_TO_JSON(catalogProvider, catalogProvider_);
+        DARABONBA_PTR_TO_JSON(database, database_);
+        DARABONBA_PTR_TO_JSON(table, table_);
+        DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tables& obj) { 
+        DARABONBA_PTR_FROM_JSON(catalogId, catalogId_);
+        DARABONBA_PTR_FROM_JSON(catalogProvider, catalogProvider_);
+        DARABONBA_PTR_FROM_JSON(database, database_);
+        DARABONBA_PTR_FROM_JSON(table, table_);
+        DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
+      };
+      Tables() = default ;
+      Tables(const Tables &) = default ;
+      Tables(Tables &&) = default ;
+      Tables(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tables() = default ;
+      Tables& operator=(const Tables &) = default ;
+      Tables& operator=(Tables &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->catalogId_ == nullptr
+        && this->catalogProvider_ == nullptr && this->database_ == nullptr && this->table_ == nullptr && this->workspaceId_ == nullptr; };
+      // catalogId Field Functions 
+      bool hasCatalogId() const { return this->catalogId_ != nullptr;};
+      void deleteCatalogId() { this->catalogId_ = nullptr;};
+      inline string getCatalogId() const { DARABONBA_PTR_GET_DEFAULT(catalogId_, "") };
+      inline Tables& setCatalogId(string catalogId) { DARABONBA_PTR_SET_VALUE(catalogId_, catalogId) };
+
+
+      // catalogProvider Field Functions 
+      bool hasCatalogProvider() const { return this->catalogProvider_ != nullptr;};
+      void deleteCatalogProvider() { this->catalogProvider_ = nullptr;};
+      inline string getCatalogProvider() const { DARABONBA_PTR_GET_DEFAULT(catalogProvider_, "") };
+      inline Tables& setCatalogProvider(string catalogProvider) { DARABONBA_PTR_SET_VALUE(catalogProvider_, catalogProvider) };
+
+
+      // database Field Functions 
+      bool hasDatabase() const { return this->database_ != nullptr;};
+      void deleteDatabase() { this->database_ = nullptr;};
+      inline string getDatabase() const { DARABONBA_PTR_GET_DEFAULT(database_, "") };
+      inline Tables& setDatabase(string database) { DARABONBA_PTR_SET_VALUE(database_, database) };
+
+
+      // table Field Functions 
+      bool hasTable() const { return this->table_ != nullptr;};
+      void deleteTable() { this->table_ = nullptr;};
+      inline string getTable() const { DARABONBA_PTR_GET_DEFAULT(table_, "") };
+      inline Tables& setTable(string table) { DARABONBA_PTR_SET_VALUE(table_, table) };
+
+
+      // workspaceId Field Functions 
+      bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+      void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+      inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+      inline Tables& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
+    protected:
+      shared_ptr<string> catalogId_ {};
+      shared_ptr<string> catalogProvider_ {};
+      shared_ptr<string> database_ {};
+      shared_ptr<string> table_ {};
+      shared_ptr<string> workspaceId_ {};
     };
 
     class ResourceSpec : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ResourceSpec& obj) { 
         DARABONBA_PTR_TO_JSON(bandWidth, bandWidth_);
+        DARABONBA_PTR_TO_JSON(ha, ha_);
         DARABONBA_PTR_TO_JSON(storage, storage_);
       };
       friend void from_json(const Darabonba::Json& j, ResourceSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(bandWidth, bandWidth_);
+        DARABONBA_PTR_FROM_JSON(ha, ha_);
         DARABONBA_PTR_FROM_JSON(storage, storage_);
       };
       ResourceSpec() = default ;
@@ -122,12 +254,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bandWidth_ == nullptr
-        && this->storage_ == nullptr; };
+        && this->ha_ == nullptr && this->storage_ == nullptr; };
       // bandWidth Field Functions 
       bool hasBandWidth() const { return this->bandWidth_ != nullptr;};
       void deleteBandWidth() { this->bandWidth_ = nullptr;};
       inline int64_t getBandWidth() const { DARABONBA_PTR_GET_DEFAULT(bandWidth_, 0L) };
       inline ResourceSpec& setBandWidth(int64_t bandWidth) { DARABONBA_PTR_SET_VALUE(bandWidth_, bandWidth) };
+
+
+      // ha Field Functions 
+      bool hasHa() const { return this->ha_ != nullptr;};
+      void deleteHa() { this->ha_ = nullptr;};
+      inline bool getHa() const { DARABONBA_PTR_GET_DEFAULT(ha_, false) };
+      inline ResourceSpec& setHa(bool ha) { DARABONBA_PTR_SET_VALUE(ha_, ha) };
 
 
       // storage Field Functions 
@@ -138,7 +277,10 @@ namespace Models
 
 
     protected:
+      // The bandwidth of the cache cluster.
       shared_ptr<int64_t> bandWidth_ {};
+      shared_ptr<bool> ha_ {};
+      // The storage capacity of the cache cluster.
       shared_ptr<int64_t> storage_ {};
     };
 
@@ -180,7 +322,9 @@ namespace Models
 
 
     protected:
+      // The content of the configuration file.
       shared_ptr<string> content_ {};
+      // The name of the configuration file.
       shared_ptr<string> name_ {};
     };
 
@@ -227,9 +371,11 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bindedWorkspaces_ == nullptr
-        && this->cachesets_ == nullptr && this->clusterId_ == nullptr && this->configuration_ == nullptr && this->configurations_ == nullptr && this->creator_ == nullptr
-        && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr && this->modifier_ == nullptr && this->name_ == nullptr && this->paymentType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceSpec_ == nullptr && this->state_ == nullptr && this->usedResourceSpec_ == nullptr; };
+        && this->cacheClusterId_ == nullptr && this->cacheClusterName_ == nullptr && this->cachesets_ == nullptr && this->clusterId_ == nullptr && this->configuration_ == nullptr
+        && this->configurations_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
+        && this->modifier_ == nullptr && this->name_ == nullptr && this->paymentType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceSpec_ == nullptr && this->state_ == nullptr && this->tables_ == nullptr && this->tags_ == nullptr && this->usedResourceSpec_ == nullptr
+        && this->version_ == nullptr; };
     // bindedWorkspaces Field Functions 
     bool hasBindedWorkspaces() const { return this->bindedWorkspaces_ != nullptr;};
     void deleteBindedWorkspaces() { this->bindedWorkspaces_ = nullptr;};
@@ -237,6 +383,20 @@ namespace Models
     inline vector<string> getBindedWorkspaces() { DARABONBA_PTR_GET(bindedWorkspaces_, vector<string>) };
     inline CacheCluster& setBindedWorkspaces(const vector<string> & bindedWorkspaces) { DARABONBA_PTR_SET_VALUE(bindedWorkspaces_, bindedWorkspaces) };
     inline CacheCluster& setBindedWorkspaces(vector<string> && bindedWorkspaces) { DARABONBA_PTR_SET_RVALUE(bindedWorkspaces_, bindedWorkspaces) };
+
+
+    // cacheClusterId Field Functions 
+    bool hasCacheClusterId() const { return this->cacheClusterId_ != nullptr;};
+    void deleteCacheClusterId() { this->cacheClusterId_ = nullptr;};
+    inline string getCacheClusterId() const { DARABONBA_PTR_GET_DEFAULT(cacheClusterId_, "") };
+    inline CacheCluster& setCacheClusterId(string cacheClusterId) { DARABONBA_PTR_SET_VALUE(cacheClusterId_, cacheClusterId) };
+
+
+    // cacheClusterName Field Functions 
+    bool hasCacheClusterName() const { return this->cacheClusterName_ != nullptr;};
+    void deleteCacheClusterName() { this->cacheClusterName_ = nullptr;};
+    inline string getCacheClusterName() const { DARABONBA_PTR_GET_DEFAULT(cacheClusterName_, "") };
+    inline CacheCluster& setCacheClusterName(string cacheClusterName) { DARABONBA_PTR_SET_VALUE(cacheClusterName_, cacheClusterName) };
 
 
     // cachesets Field Functions 
@@ -269,6 +429,13 @@ namespace Models
     inline vector<CacheCluster::Configurations> getConfigurations() { DARABONBA_PTR_GET(configurations_, vector<CacheCluster::Configurations>) };
     inline CacheCluster& setConfigurations(const vector<CacheCluster::Configurations> & configurations) { DARABONBA_PTR_SET_VALUE(configurations_, configurations) };
     inline CacheCluster& setConfigurations(vector<CacheCluster::Configurations> && configurations) { DARABONBA_PTR_SET_RVALUE(configurations_, configurations) };
+
+
+    // createTime Field Functions 
+    bool hasCreateTime() const { return this->createTime_ != nullptr;};
+    void deleteCreateTime() { this->createTime_ = nullptr;};
+    inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+    inline CacheCluster& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
     // creator Field Functions 
@@ -320,6 +487,13 @@ namespace Models
     inline CacheCluster& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline CacheCluster& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
     // resourceSpec Field Functions 
     bool hasResourceSpec() const { return this->resourceSpec_ != nullptr;};
     void deleteResourceSpec() { this->resourceSpec_ = nullptr;};
@@ -336,6 +510,24 @@ namespace Models
     inline CacheCluster& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+    // tables Field Functions 
+    bool hasTables() const { return this->tables_ != nullptr;};
+    void deleteTables() { this->tables_ = nullptr;};
+    inline const vector<CacheCluster::Tables> & getTables() const { DARABONBA_PTR_GET_CONST(tables_, vector<CacheCluster::Tables>) };
+    inline vector<CacheCluster::Tables> getTables() { DARABONBA_PTR_GET(tables_, vector<CacheCluster::Tables>) };
+    inline CacheCluster& setTables(const vector<CacheCluster::Tables> & tables) { DARABONBA_PTR_SET_VALUE(tables_, tables) };
+    inline CacheCluster& setTables(vector<CacheCluster::Tables> && tables) { DARABONBA_PTR_SET_RVALUE(tables_, tables) };
+
+
+    // tags Field Functions 
+    bool hasTags() const { return this->tags_ != nullptr;};
+    void deleteTags() { this->tags_ = nullptr;};
+    inline const vector<CacheCluster::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<CacheCluster::Tags>) };
+    inline vector<CacheCluster::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<CacheCluster::Tags>) };
+    inline CacheCluster& setTags(const vector<CacheCluster::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+    inline CacheCluster& setTags(vector<CacheCluster::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     // usedResourceSpec Field Functions 
     bool hasUsedResourceSpec() const { return this->usedResourceSpec_ != nullptr;};
     void deleteUsedResourceSpec() { this->usedResourceSpec_ = nullptr;};
@@ -345,22 +537,50 @@ namespace Models
     inline CacheCluster& setUsedResourceSpec(CacheCluster::UsedResourceSpec && usedResourceSpec) { DARABONBA_PTR_SET_RVALUE(usedResourceSpec_, usedResourceSpec) };
 
 
+    // version Field Functions 
+    bool hasVersion() const { return this->version_ != nullptr;};
+    void deleteVersion() { this->version_ = nullptr;};
+    inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+    inline CacheCluster& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
   protected:
+    // An array of workspace IDs that are bound to the cache cluster.
     shared_ptr<vector<string>> bindedWorkspaces_ {};
+    shared_ptr<string> cacheClusterId_ {};
+    shared_ptr<string> cacheClusterName_ {};
     shared_ptr<vector<CacheCluster::Cachesets>> cachesets_ {};
+    // The unique identifier of the cache cluster.
     shared_ptr<string> clusterId_ {};
+    // The configuration of the cache cluster.
     shared_ptr<string> configuration_ {};
+    // An array of configuration objects.
     shared_ptr<vector<CacheCluster::Configurations>> configurations_ {};
+    shared_ptr<string> createTime_ {};
+    // The user who created the cache cluster.
     shared_ptr<string> creator_ {};
+    // The creation time of the cache cluster, provided as a UNIX timestamp.
     shared_ptr<int64_t> gmtCreated_ {};
+    // The last modification time of the cache cluster, provided as a UNIX timestamp.
     shared_ptr<int64_t> gmtModified_ {};
+    // The user who last modified the cache cluster.
     shared_ptr<string> modifier_ {};
+    // The name of the cache cluster.
     shared_ptr<string> name_ {};
+    // The billing method for the cache cluster.
     shared_ptr<string> paymentType_ {};
+    // The ID of the region where the cache cluster is located.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
+    // The resource specifications of the cache cluster.
     shared_ptr<CacheCluster::ResourceSpec> resourceSpec_ {};
+    // The current state of the cache cluster.
     shared_ptr<string> state_ {};
+    shared_ptr<vector<CacheCluster::Tables>> tables_ {};
+    shared_ptr<vector<CacheCluster::Tags>> tags_ {};
+    // The resource specifications currently in use by the cache cluster.
     shared_ptr<CacheCluster::UsedResourceSpec> usedResourceSpec_ {};
+    shared_ptr<string> version_ {};
   };
 
   } // namespace Models

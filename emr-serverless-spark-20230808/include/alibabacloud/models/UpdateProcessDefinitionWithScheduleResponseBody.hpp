@@ -235,39 +235,39 @@ namespace Models
 
 
     protected:
-      // The email address to receive alerts.
+      // The email address for alerts.
       shared_ptr<string> alertEmailAddress_ {};
       // The workspace ID.
       shared_ptr<string> bizId_ {};
-      // The workflow ID.
+      // The workflow definition ID.
       shared_ptr<string> code_ {};
-      // The time when the workflow was created.
+      // The time when the workflow definition was created.
       shared_ptr<string> createTime_ {};
-      // The CRON expression that is used for scheduling.
+      // The cron expression for scheduling.
       shared_ptr<string> crontab_ {};
-      // The node description.
+      // The description of the workflow definition.
       shared_ptr<string> description_ {};
-      // The end of the end time range.
+      // The end time of the schedule.
       shared_ptr<string> endTime_ {};
       // The execution policy.
       shared_ptr<string> executionType_ {};
-      // The serial number of the workflow.
+      // The workflow definition number.
       shared_ptr<string> id_ {};
-      // The name of the workflow.
+      // The name of the workflow definition.
       shared_ptr<string> name_ {};
       // The name of the project to which the workflow belongs.
       shared_ptr<string> projectName_ {};
-      // The status of the workflow.
+      // The release state of the workflow.
       shared_ptr<string> releaseState_ {};
-      // The start time of the scheduling.
+      // The start time of the schedule.
       shared_ptr<string> startTime_ {};
-      // The ID of the time zone.
+      // The time zone ID.
       shared_ptr<string> timezoneId_ {};
-      // The time when the workflow was updated.
+      // The time when the workflow definition was updated.
       shared_ptr<string> updateTime_ {};
-      // The ID of the user that is used to initiate a scheduling.
+      // The ID of the user who scheduled the workflow.
       shared_ptr<string> userId_ {};
-      // The name of the user that is used to initiate a scheduling.
+      // The name of the user who scheduled the workflow.
       shared_ptr<string> userName_ {};
       // The version number.
       shared_ptr<int32_t> version_ {};
@@ -330,15 +330,15 @@ namespace Models
 
 
   protected:
-    // The code that is returned by the backend server.
+    // The return code from the backend API.
     shared_ptr<int32_t> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<UpdateProcessDefinitionWithScheduleResponseBody::Data> data_ {};
-    // Indicates whether the request failed.
+    // The number of failed operations.
     shared_ptr<string> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The description of the returned code.
+    // The detailed description that corresponds to the return code.
     shared_ptr<string> msg_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

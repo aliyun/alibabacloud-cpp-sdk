@@ -57,10 +57,11 @@ namespace Models
 
 
   protected:
-    // 一次获取的最大记录数。
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 标记当前开始读取的位置，置空表示从头开始。
+    // The token that marks the start of the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -348,45 +348,49 @@ namespace Models
     protected:
       // The code type of the job. Valid values:
       // 
-      // *   SQL
-      // *   JAR
-      // *   PYTHON
+      // - SQL
+      // 
+      // - JAR
+      // 
+      // - PYTHON
       shared_ptr<string> codeType_ {};
-      // The configurations of the Spark jobs.
+      // The Spark configurations of the job.
       shared_ptr<JobRun::ConfigurationOverrides> configurationOverrides_ {};
-      // The version of the Spark engine.
+      // The version that is displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The end time of the job.
+      // The time when the job ended.
       shared_ptr<int64_t> endTime_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The timeout period of the job.
+      // The timeout period for the job execution.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether the Fusion engine is used for acceleration.
+      // Indicates whether to enable the Fusion engine to accelerate the job execution.
       shared_ptr<bool> fusion_ {};
-      // The information about Spark Driver.
+      // The Spark driver information.
       shared_ptr<JobDriver> jobDriver_ {};
-      // The job ID.
+      // The job run ID.
       shared_ptr<string> jobRunId_ {};
-      // The path where the operational logs are stored.
+      // The path of the run log.
       shared_ptr<RunLog> log_ {};
-      // The job name.
+      // The name of the job.
       shared_ptr<string> name_ {};
+      // The access URL for the notebook of the job run.
       shared_ptr<string> notebookAccessUrl_ {};
+      // The priority of the job run.
       shared_ptr<string> priority_ {};
-      // The version of the Spark engine on which the job runs.
+      // The Spark engine version.
       shared_ptr<string> releaseVersion_ {};
-      // The ID of the user who created the job.
+      // The UID of the user who creates the job.
       shared_ptr<string> resourceOwnerId_ {};
       // The name of the queue on which the job runs.
       shared_ptr<string> resourceQueueId_ {};
-      // The job state.
+      // The state of the job.
       shared_ptr<string> state_ {};
-      // The reason of the job status change.
+      // The reason for the state change.
       shared_ptr<JobRun::StateChangeReason> stateChangeReason_ {};
       // The time when the job was submitted.
       shared_ptr<int64_t> submitTime_ {};
-      // The tags of the job.
+      // The tags.
       shared_ptr<vector<Tag>> tags_ {};
       // The web UI of the job.
       shared_ptr<string> webUI_ {};

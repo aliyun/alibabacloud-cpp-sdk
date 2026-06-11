@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(cu, cu_);
       DARABONBA_PTR_TO_JSON(gpu, gpu_);
       DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
+      DARABONBA_PTR_TO_JSON(ipWhiteList, ipWhiteList_);
       DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(subscription, subscription_);
       DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(cu, cu_);
       DARABONBA_PTR_FROM_JSON(gpu, gpu_);
       DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
+      DARABONBA_PTR_FROM_JSON(ipWhiteList, ipWhiteList_);
       DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(subscription, subscription_);
       DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
@@ -130,18 +132,25 @@ namespace Models
 
 
     protected:
+      // Indicates whether to enable auto-renewal. Required for subscription plans.
       shared_ptr<string> autoRenew_ {};
+      // The auto-renewal duration. Required for subscription plans.
       shared_ptr<string> autoRenewPeriod_ {};
+      // The unit for the auto-renewal duration. Required for subscription plans.
       shared_ptr<string> autoRenewPeriodUnit_ {};
+      // A unique, case-sensitive token to ensure request idempotence.
       shared_ptr<string> clientToken_ {};
+      // The subscription duration. This parameter is required for subscription plans.
       shared_ptr<string> duration_ {};
+      // The unit of the subscription period.
       shared_ptr<string> paymentDurationUnit_ {};
+      // The queues to convert to the subscription plan.
       shared_ptr<vector<string>> queue_ {};
     };
 
     virtual bool empty() const override { return this->cu_ == nullptr
-        && this->gpu_ == nullptr && this->gpuSpec_ == nullptr && this->resourceGroupId_ == nullptr && this->subscription_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
+        && this->gpu_ == nullptr && this->gpuSpec_ == nullptr && this->ipWhiteList_ == nullptr && this->resourceGroupId_ == nullptr && this->subscription_ == nullptr
+        && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->regionId_ == nullptr; };
     // cu Field Functions 
     bool hasCu() const { return this->cu_ != nullptr;};
     void deleteCu() { this->cu_ = nullptr;};
@@ -163,6 +172,15 @@ namespace Models
     inline vector<string> getGpuSpec() { DARABONBA_PTR_GET(gpuSpec_, vector<string>) };
     inline UpdateWorkspaceRequest& setGpuSpec(const vector<string> & gpuSpec) { DARABONBA_PTR_SET_VALUE(gpuSpec_, gpuSpec) };
     inline UpdateWorkspaceRequest& setGpuSpec(vector<string> && gpuSpec) { DARABONBA_PTR_SET_RVALUE(gpuSpec_, gpuSpec) };
+
+
+    // ipWhiteList Field Functions 
+    bool hasIpWhiteList() const { return this->ipWhiteList_ != nullptr;};
+    void deleteIpWhiteList() { this->ipWhiteList_ = nullptr;};
+    inline const vector<string> & getIpWhiteList() const { DARABONBA_PTR_GET_CONST(ipWhiteList_, vector<string>) };
+    inline vector<string> getIpWhiteList() { DARABONBA_PTR_GET(ipWhiteList_, vector<string>) };
+    inline UpdateWorkspaceRequest& setIpWhiteList(const vector<string> & ipWhiteList) { DARABONBA_PTR_SET_VALUE(ipWhiteList_, ipWhiteList) };
+    inline UpdateWorkspaceRequest& setIpWhiteList(vector<string> && ipWhiteList) { DARABONBA_PTR_SET_RVALUE(ipWhiteList_, ipWhiteList) };
 
 
     // resourceGroupId Field Functions 
@@ -203,13 +221,23 @@ namespace Models
 
 
   protected:
+    // The resource cap for the workspace.
     shared_ptr<int32_t> cu_ {};
+    // The number of GPUs.
     shared_ptr<int32_t> gpu_ {};
+    // The GPU specifications.
     shared_ptr<vector<string>> gpuSpec_ {};
+    // The IP whitelist.
+    shared_ptr<vector<string>> ipWhiteList_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // Details for converting a pay-as-you-go workspace to a subscription plan.
     shared_ptr<UpdateWorkspaceRequest::Subscription> subscription_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
+    // The workspace name.
     shared_ptr<string> workspaceName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

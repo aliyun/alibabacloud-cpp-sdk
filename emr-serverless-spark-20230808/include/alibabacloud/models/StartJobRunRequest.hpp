@@ -122,11 +122,11 @@ namespace Models
 
 
       protected:
-        // The configuration file of SparkConf.
+        // The configuration file to which the Spark configuration belongs.
         shared_ptr<string> configFileName_ {};
-        // The key of SparkConf.
+        // The key of the Spark configuration.
         shared_ptr<string> configItemKey_ {};
-        // The value of SparkConf.
+        // The value of the Spark configuration.
         shared_ptr<string> configItemValue_ {};
       };
 
@@ -141,7 +141,7 @@ namespace Models
 
 
     protected:
-      // The SparkConf objects.
+      // The list of Spark configurations.
       shared_ptr<vector<ConfigurationOverrides::Configurations>> configurations_ {};
     };
 
@@ -247,33 +247,35 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // The idempotence token.
     shared_ptr<string> clientToken_ {};
-    // The code type of the job. Valid values:
+    // The job type. Valid values:
     // 
-    // *   SQL
-    // *   JAR
-    // *   PYTHON
+    // - SQL
+    // 
+    // - JAR
+    // 
+    // - PYTHON
     shared_ptr<string> codeType_ {};
-    // The advanced configurations of Spark.
+    // The advanced Spark configurations.
     shared_ptr<StartJobRunRequest::ConfigurationOverrides> configurationOverrides_ {};
-    // The version of the Spark engine.
+    // The version that is displayed in the console.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The timeout period of the job.
+    // The timeout period for the job.
     shared_ptr<int32_t> executionTimeoutSeconds_ {};
-    // Specifies whether to enable Fusion engine for acceleration.
+    // Specifies whether to enable the Fusion engine for acceleration.
     shared_ptr<bool> fusion_ {};
-    // The information about Spark Driver.
+    // The information about the Spark driver.
     shared_ptr<JobDriver> jobDriver_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The name of the job.
+    // The job name.
     shared_ptr<string> name_ {};
-    // The version number of Spark.
+    // The version of the Spark engine.
     shared_ptr<string> releaseVersion_ {};
-    // The name of the resource queue on which the Spark job runs.
+    // The resource queue on which the Spark job runs.
     shared_ptr<string> resourceQueueId_ {};
-    // The tags of the job.
+    // The list of job tags.
     shared_ptr<vector<Tag>> tags_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

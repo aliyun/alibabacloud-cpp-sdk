@@ -210,35 +210,39 @@ namespace Models
 
 
     protected:
-      // The ID of the application that is submitted by using a Kyuubi gateway.
+      // The ID of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationId_ {};
-      // The name of the Spark application that is submitted by using a Kyuubi gateway.
+      // The name of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationName_ {};
-      // The number of CUs consumed during a specified cycle of a task. The value is an estimated value. Refer to your Alibaba Cloud bill for the actual number of consumed CUs.
+      // The number of CUs consumed during the task lifecycle. This is an estimated value. The final amount is subject to your bill.
       shared_ptr<double> cuHours_ {};
       // The time when the task ended.
       shared_ptr<string> endTime_ {};
+      // The exit code.
       shared_ptr<string> exitReason_ {};
       shared_ptr<string> kyuubiServiceId_ {};
+      // The status of the last task execution in the session.
       shared_ptr<string> latestSqlStatementStatus_ {};
-      // The total amount of memory allocated to the job multiplied by the running duration (seconds).
+      // The total memory allocated to the task in MB, multiplied by the number of seconds the task ran.
       shared_ptr<int64_t> mbSeconds_ {};
       shared_ptr<string> priority_ {};
-      // The name of the resource queue on which the Spark jobs run.
+      // The name of the resource queue where the Spark task runs.
       shared_ptr<string> resourceQueueId_ {};
       shared_ptr<RunLog> runLog_ {};
       // The time when the task started.
       shared_ptr<string> startTime_ {};
       // The status of the Spark application.
       // 
-      // *   STARTING
-      // *   RUNNING
-      // *   TERMINATED
+      // - STARTING: The application is starting.
+      // 
+      // - RUNNING: The application is running.
+      // 
+      // - TERMINATED: The application is terminated.
       shared_ptr<string> state_ {};
       shared_ptr<vector<Tag>> tags_ {};
-      // The total number of CPU cores allocated to the job multiplied by the running duration (seconds).
+      // The total vCores allocated to the task, multiplied by the number of seconds the task ran.
       shared_ptr<int64_t> vcoreSeconds_ {};
-      // The URL of the web UI for the Spark application.
+      // The URL of the Spark application UI.
       shared_ptr<string> webUI_ {};
     };
 
@@ -282,15 +286,15 @@ namespace Models
 
 
   protected:
-    // The details of the applications.
+    // A list of application details.
     shared_ptr<vector<ListKyuubiSparkApplicationsResponseBody::Applications>> applications_ {};
-    // The maximum number of entries returned.
+    // The maximum number of records returned.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

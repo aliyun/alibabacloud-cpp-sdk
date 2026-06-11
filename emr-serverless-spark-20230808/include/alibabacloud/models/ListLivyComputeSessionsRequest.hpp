@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The page number. The default value is 1.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page. Default value: 20. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

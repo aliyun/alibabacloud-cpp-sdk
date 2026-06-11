@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The region ID.
+    // The region ID. For example, cn-hangzhou represents the Hangzhou region.
     shared_ptr<string> regionId_ {};
   };
 

@@ -87,20 +87,10 @@ namespace Models
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The type of the version.
-    // 
-    // Valid values:
-    // 
-    // *   stable
-    // *   Beta
     shared_ptr<string> releaseType_ {};
-    // The version of EMR Serverless Spark.
+    // The EMR Serverless Spark version.
     shared_ptr<string> releaseVersion_ {};
     // The status of the version.
-    // 
-    // Valid values:
-    // 
-    // *   ONLINE
-    // *   OFFLINE
     shared_ptr<string> releaseVersionStatus_ {};
     shared_ptr<string> serviceFilter_ {};
     // The workspace ID.

@@ -69,7 +69,13 @@ namespace Models
 
 
     protected:
+      // The ID of the Spark application submitted by Kyuubi.
       shared_ptr<string> applicationId_ {};
+      // Indicates whether the request was successful.
+      // 
+      // - true: The request was successful.
+      // 
+      // - false: The request failed.
       shared_ptr<bool> success_ {};
     };
 
@@ -92,7 +98,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CancelKyuubiSparkApplicationResponseBody::Body> body_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

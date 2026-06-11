@@ -73,7 +73,13 @@ namespace Models
 
 
     protected:
+      // Specifies whether the token automatically expires.
+      // 
+      // - true: Yes.
+      // 
+      // - false: No.
       shared_ptr<bool> enable_ {};
+      // The expiration period in days.
       shared_ptr<int32_t> expireDays_ {};
     };
 
@@ -110,9 +116,13 @@ namespace Models
 
 
   protected:
+    // The token expiration information struct.
     shared_ptr<CreateLivyComputeTokenRequest::AutoExpireConfiguration> autoExpireConfiguration_ {};
+    // The token name.
     shared_ptr<string> name_ {};
+    // The token content. The length must be 16 or more characters.
     shared_ptr<string> token_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -155,16 +155,23 @@ namespace Models
 
     protected:
       shared_ptr<string> alias_ {};
-      // regionId。
+      // The ID of the data catalog.
       shared_ptr<string> catalogId_ {};
+      // The provider of the data catalog.
       shared_ptr<string> catalogProvider_ {};
+      // Indicates whether this is the default data catalog.
       shared_ptr<string> catalogType_ {};
+      // The environment types.
       shared_ptr<vector<string>> environments_ {};
+      // Extra information.
       shared_ptr<map<string, string>> extras_ {};
+      // The time when the resource was created.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The time when the resource was last updated.
       shared_ptr<int64_t> gmtModified_ {};
+      // The ID of the resource owner.
       shared_ptr<string> resourceOwnerId_ {};
-      // 工作空间id。
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -208,14 +215,15 @@ namespace Models
 
 
   protected:
+    // The data catalogs.
     shared_ptr<vector<ListCatalogsResponseBody::Catalogs>> catalogs_ {};
-    // 一次获取的最大记录数。
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // 下一页TOKEN。
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 记录总数。
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

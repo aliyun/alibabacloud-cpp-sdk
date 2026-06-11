@@ -61,11 +61,6 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> templateBizId_ {};
     // The template type.
-    // 
-    // Valid values:
-    // 
-    // *   TASK
-    // *   SESSION
     shared_ptr<string> templateType_ {};
   };
 

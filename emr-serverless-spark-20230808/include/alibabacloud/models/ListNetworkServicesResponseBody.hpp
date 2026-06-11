@@ -111,7 +111,9 @@ namespace Models
 
 
       protected:
+        // This parameter is deprecated.
         shared_ptr<string> code_ {};
+        // This parameter is deprecated.
         shared_ptr<string> message_ {};
       };
 
@@ -179,13 +181,21 @@ namespace Models
 
 
     protected:
+      // This parameter is deprecated.
       shared_ptr<string> name_ {};
+      // This parameter is deprecated.
       shared_ptr<string> networkServiceId_ {};
+      // This parameter is deprecated.
       shared_ptr<string> state_ {};
+      // This parameter is deprecated.
       shared_ptr<Queues::StateChangeReason> stateChangeReason_ {};
+      // This parameter is deprecated.
       shared_ptr<string> type_ {};
+      // This parameter is deprecated.
       shared_ptr<string> vpcId_ {};
+      // This parameter is deprecated.
       shared_ptr<vector<string>> vswitchIds_ {};
+      // This parameter is deprecated.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -260,7 +270,9 @@ namespace Models
 
 
       protected:
+        // The status code.
         shared_ptr<string> code_ {};
+        // The message that provides details about the state change.
         shared_ptr<string> message_ {};
       };
 
@@ -328,14 +340,21 @@ namespace Models
 
 
     protected:
+      // The name of the network connection.
       shared_ptr<string> name_ {};
+      // The ID of the network connection.
       shared_ptr<string> networkServiceId_ {};
+      // The state of the network connection.
       shared_ptr<string> state_ {};
+      // The reason for the state change.
       shared_ptr<NetworkServices::StateChangeReason> stateChangeReason_ {};
+      // The type of the network connection.
       shared_ptr<string> type_ {};
-      // VPC id。
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The list of vSwitch IDs.
       shared_ptr<vector<string>> vswitchIds_ {};
+      // The ID of the workspace.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -388,14 +407,17 @@ namespace Models
 
 
   protected:
-    // 一次获取的最大记录数。
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // A list of network connections.
     shared_ptr<vector<ListNetworkServicesResponseBody::NetworkServices>> networkServices_ {};
-    // 下一页TOKEN。
+    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // This parameter is deprecated.
     shared_ptr<vector<ListNetworkServicesResponseBody::Queues>> queues_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // 记录总数。
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

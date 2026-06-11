@@ -146,14 +146,22 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The name of the worker group.
       shared_ptr<string> groupName_ {};
+      // The maximum number of workers. The minimum value is 1.
       shared_ptr<int32_t> maxReplica_ {};
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The minimum number of workers. The minimum value is 1. This value must be less than or equal to maxReplica.
       shared_ptr<int32_t> minReplica_ {};
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
+      // The number of workers. The minimum value is 1.
       shared_ptr<int32_t> replica_ {};
+      // The type of worker.
       shared_ptr<string> workerType_ {};
     };
 
@@ -231,11 +239,16 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // Specifies whether to enable automatic scaling.
       shared_ptr<bool> enableAutoScaling_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The idle timeout in seconds for workers. This parameter is effective only when automatic scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
     };
 
@@ -305,13 +318,20 @@ namespace Models
 
 
   protected:
+    // Description of the cluster.
     shared_ptr<string> description_ {};
+    // Ray engine version.
     shared_ptr<string> displayReleaseVersion_ {};
+    // The extra parameters. This must be in JSON format.
     shared_ptr<string> extraParam_ {};
+    // The information about the head node of the Ray cluster.
     shared_ptr<UpdateRayClusterRequest::HeadSpec> headSpec_ {};
+    // The name of the Ray cluster. The name must be 1 to 64 characters in length.
     shared_ptr<string> name_ {};
+    // The name of the network service.
     shared_ptr<string> networkServiceName_ {};
     shared_ptr<vector<string>> volumeIds_ {};
+    // The information about the worker nodes of the Ray cluster. You can specify up to 50 groups.
     shared_ptr<vector<UpdateRayClusterRequest::WorkerSpec>> workerSpec_ {};
   };
 

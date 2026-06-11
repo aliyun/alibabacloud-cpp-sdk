@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Workspace Id。
+    // The operation ID.
     shared_ptr<string> operationId_ {};
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

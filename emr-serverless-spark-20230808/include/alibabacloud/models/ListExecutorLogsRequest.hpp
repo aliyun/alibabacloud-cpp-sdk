@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The type of log. Only logs of this type are returned.
     shared_ptr<string> logType_ {};
+    // The maximum number of results to return per page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. This is the `nextToken` from a previously truncated response.
     shared_ptr<string> nextToken_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
   };
 

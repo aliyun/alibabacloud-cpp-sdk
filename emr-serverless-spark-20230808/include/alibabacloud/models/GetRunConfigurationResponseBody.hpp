@@ -94,7 +94,9 @@ namespace Models
 
 
       protected:
+        // The log level.
         shared_ptr<string> logLevel_ {};
+        // The log path.
         shared_ptr<string> logPath_ {};
       };
 
@@ -145,11 +147,11 @@ namespace Models
 
 
       protected:
-        // 应用配置文件名。 应用配置文件名。 ```spark-defaults.conf```
+        // The name of the application configuration file.
         shared_ptr<string> configFileName_ {};
-        // 配置项键。 配置项键。 ```dfs.namenode.checkpoint.period```
+        // The key of the configuration item.
         shared_ptr<string> configItemKey_ {};
-        // 配置项值。 配置项值。 ```3600s```
+        // The value of the configuration item.
         shared_ptr<string> configItemValue_ {};
       };
 
@@ -183,10 +185,11 @@ namespace Models
 
 
     protected:
-      // 应用配置项
+      // The list of Spark configuration parameters.
       shared_ptr<vector<RunConfiguration::ApplicationConfigs>> applicationConfigs_ {};
+      // The log configuration.
       shared_ptr<RunConfiguration::LogConfig> logConfig_ {};
-      // 运行配置。
+      // The list of runtime parameters.
       shared_ptr<vector<Tag>> runtimeConfigs_ {};
     };
 
@@ -209,8 +212,9 @@ namespace Models
 
 
   protected:
-    // 请求ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The run configuration.
     shared_ptr<GetRunConfigurationResponseBody::RunConfiguration> runConfiguration_ {};
   };
 

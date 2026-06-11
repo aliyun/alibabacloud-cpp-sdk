@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The specifications of the Kyuubi service.
     shared_ptr<string> computeInstance_ {};
+    // The Kyuubi service configuration.
     shared_ptr<string> kyuubiConfigs_ {};
+    // The Kyuubi service database engine version.
     shared_ptr<string> kyuubiReleaseVersion_ {};
+    // The Kyuubi service name.
     shared_ptr<string> name_ {};
+    // Specifies whether to enable public network access.
     shared_ptr<bool> publicEndpointEnabled_ {};
+    // The queue where the Kyuubi service runs.
     shared_ptr<string> queue_ {};
+    // The Spark database engine version.
     shared_ptr<string> releaseVersion_ {};
+    // The number of replicas for high availability (HA).
     shared_ptr<int32_t> replica_ {};
+    // The Spark configuration.
     shared_ptr<string> sparkConfigs_ {};
   };
 

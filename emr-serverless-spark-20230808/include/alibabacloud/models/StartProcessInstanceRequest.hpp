@@ -134,23 +134,23 @@ namespace Models
     shared_ptr<string> comments_ {};
     shared_ptr<string> email_ {};
     shared_ptr<string> interval_ {};
-    // Specifies whether to run the workflow in the production environment.
+    // Specifies whether the workflow runs in a production environment.
     shared_ptr<bool> isProd_ {};
-    // The workflow ID.
+    // The workflow definition ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> processDefinitionCode_ {};
-    // The code of the service.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productNamespace_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The queue on which the workflow runs.
+    // The runtime queue.
     shared_ptr<string> runtimeQueue_ {};
     // The hash code of the version.
     shared_ptr<string> versionHashCode_ {};
-    // The version number of the workflow.
+    // The version number of the workflow definition.
     shared_ptr<int32_t> versionNumber_ {};
   };
 

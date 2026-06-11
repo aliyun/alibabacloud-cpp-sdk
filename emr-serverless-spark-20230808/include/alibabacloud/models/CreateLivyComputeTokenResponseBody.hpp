@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // Token ID。
+      // The token ID.
       shared_ptr<string> tokenId_ {};
     };
 
@@ -100,9 +100,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for error details.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<CreateLivyComputeTokenResponseBody::Data> data_ {};
+    // The error details.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

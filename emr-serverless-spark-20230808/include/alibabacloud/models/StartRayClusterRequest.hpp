@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The token used to ensure idempotence.
     shared_ptr<string> clientToken_ {};
   };
 

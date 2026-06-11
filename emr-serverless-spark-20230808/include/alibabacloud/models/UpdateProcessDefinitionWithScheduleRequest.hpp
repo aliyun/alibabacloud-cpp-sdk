@@ -130,23 +130,23 @@ namespace Models
 
 
     protected:
-      // The name of the node topology. You can enter a workflow name.
+      // The name of the task topology. You can use the workflow name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The ID of the downstream node.
+      // The downstream task ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> postTaskCode_ {};
-      // The version of the downstream node.
+      // The downstream task version.
       // 
       // This parameter is required.
       shared_ptr<int32_t> postTaskVersion_ {};
-      // The ID of the upstream node.
+      // The upstream task ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> preTaskCode_ {};
-      // The version of the upstream node.
+      // The upstream task version.
       // 
       // This parameter is required.
       shared_ptr<int32_t> preTaskVersion_ {};
@@ -278,9 +278,9 @@ namespace Models
 
 
         protected:
-          // The key of the SparkConf object.
+          // The key of the Spark configuration.
           shared_ptr<string> key_ {};
-          // The value of the SparkConf object.
+          // The value of the Spark configuration.
           shared_ptr<string> value_ {};
         };
 
@@ -467,38 +467,38 @@ namespace Models
 
 
       protected:
-        // The displayed version of the Spark engine.
+        // The display version of the Spark engine.
         shared_ptr<string> displaySparkVersion_ {};
         // The environment ID.
         shared_ptr<string> environmentId_ {};
-        // Specifies whether to enable Fusion engine for acceleration.
+        // Specifies whether to enable the Fusion engine for acceleration.
         shared_ptr<bool> fusion_ {};
         shared_ptr<vector<TaskParams::LocalParams>> localParams_ {};
-        // The name of the queue on which the job runs.
+        // The name of the queue on which the task runs.
         // 
         // This parameter is required.
         shared_ptr<string> resourceQueueId_ {};
-        // The configurations of the Spark jobs.
+        // The Spark task configurations.
         shared_ptr<vector<TaskParams::SparkConf>> sparkConf_ {};
-        // The number of driver cores of the Spark job.
+        // The number of cores for the Spark driver.
         shared_ptr<int32_t> sparkDriverCores_ {};
-        // The size of driver memory of the Spark job.
+        // The memory size of the Spark driver.
         shared_ptr<int64_t> sparkDriverMemory_ {};
-        // The number of executor cores of the Spark job.
+        // The number of cores for each Spark executor.
         shared_ptr<int32_t> sparkExecutorCores_ {};
-        // The size of executor memory of the Spark job.
+        // The memory size of each Spark executor.
         shared_ptr<int64_t> sparkExecutorMemory_ {};
-        // The level of the Spark log.
+        // The Spark log level.
         shared_ptr<string> sparkLogLevel_ {};
-        // The path where the operational logs of the Spark job are stored.
+        // The path to store Spark task logs.
         shared_ptr<string> sparkLogPath_ {};
-        // The version of the Spark engine.
+        // The Spark engine version.
         shared_ptr<string> sparkVersion_ {};
-        // The ID of the data development job.
+        // The ID of the Data Development task.
         // 
         // This parameter is required.
         shared_ptr<string> taskBizId_ {};
-        // The type of the Spark job.
+        // The Spark job type.
         shared_ptr<string> type_ {};
         // The workspace ID.
         // 
@@ -591,35 +591,35 @@ namespace Models
 
 
     protected:
-      // The email address to receive alerts.
+      // The email address for alerts.
       shared_ptr<string> alertEmailAddress_ {};
-      // The node ID.
+      // The task definition ID.
       // 
       // This parameter is required.
       shared_ptr<int64_t> code_ {};
-      // The node description.
+      // The description of the task definition.
       shared_ptr<string> description_ {};
-      // Specifies whether to send alerts when the node fails.
+      // Specifies whether to enable alerts when the task fails.
       shared_ptr<bool> failAlertEnable_ {};
-      // The number of retries when the node fails.
+      // The number of times to retry the task if it fails.
       shared_ptr<int32_t> failRetryTimes_ {};
-      // The name of the job.
+      // The task name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // Specifies whether to send alerts when the node is started.
+      // Specifies whether to enable alerts when the task starts.
       shared_ptr<bool> startAlertEnable_ {};
-      // The tags of the job.
+      // The tags.
       shared_ptr<map<string, string>> tags_ {};
-      // The job parameters.
+      // The parameters for the task definition.
       // 
       // This parameter is required.
       shared_ptr<TaskDefinitionJson::TaskParams> taskParams_ {};
-      // The type of the node.
+      // The type of the workflow node.
       // 
       // This parameter is required.
       shared_ptr<string> taskType_ {};
-      // The default timeout period of the node.
+      // The default timeout period for the task execution.
       shared_ptr<int32_t> timeout_ {};
     };
 
@@ -679,13 +679,13 @@ namespace Models
 
 
     protected:
-      // The CRON expression that is used for scheduling.
+      // The cron expression for scheduling.
       shared_ptr<string> crontab_ {};
-      // The end time of the scheduling.
+      // The end time of the schedule.
       shared_ptr<string> endTime_ {};
-      // The start time of the scheduling.
+      // The start time.
       shared_ptr<string> startTime_ {};
-      // The ID of the time zone.
+      // The time zone ID.
       shared_ptr<string> timezoneId_ {};
     };
 
@@ -893,20 +893,20 @@ namespace Models
 
 
   protected:
-    // The email address to receive alerts.
+    // The email address for alerts.
     shared_ptr<string> alertEmailAddress_ {};
-    // The description of the workflow.
+    // The workflow description.
     shared_ptr<string> description_ {};
     // The execution policy.
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::GlobalParams>> globalParams_ {};
-    // The name of the workflow.
+    // The workflow name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The code of the service.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productNamespace_ {};
@@ -914,29 +914,29 @@ namespace Models
     shared_ptr<bool> publish_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The status of the workflow.
+    // The release state of the workflow.
     shared_ptr<string> releaseState_ {};
     // The resource queue.
     shared_ptr<string> resourceQueue_ {};
     // The number of retries.
     shared_ptr<int32_t> retryTimes_ {};
-    // The execution user.
+    // The user to run the workflow.
     shared_ptr<string> runAs_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<UpdateProcessDefinitionWithScheduleRequest::Schedule> schedule_ {};
     // The tags.
     shared_ptr<map<string, string>> tags_ {};
-    // The descriptions of all nodes in the workflow.
+    // A JSON array of task definitions. This array contains the descriptive information for all tasks in the workflow.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::TaskDefinitionJson>> taskDefinitionJson_ {};
-    // The node parallelism.
+    // The degree of concurrent execution for workflow nodes.
     shared_ptr<int32_t> taskParallelism_ {};
-    // The dependencies of all nodes in the workflow. preTaskCode specifies the ID of an upstream node, and postTaskCode specifies the ID of a downstream node. The ID of each node is unique. If a node does not have an upstream node, set preTaskCode to 0.
+    // A JSON array that defines the dependencies between tasks in the workflow. \\`preTaskCode\\` specifies the upstream task ID, and \\`postTaskCode\\` specifies the downstream task ID. Each task must have a unique ID. For a task node without an upstream task, add a dependency and set \\`preTaskCode\\` to 0.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateProcessDefinitionWithScheduleRequest::TaskRelationJson>> taskRelationJson_ {};
-    // The default timeout period of the workflow.
+    // The default timeout period for the workflow execution.
     shared_ptr<int32_t> timeout_ {};
   };
 

@@ -173,18 +173,41 @@ namespace Models
 
 
     protected:
+      // The ID of the Livy Gateway.
       shared_ptr<string> computeId_ {};
+      // The time when the session was created. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The number of compute units (CUs) consumed during the task execution. This is an estimated value. The actual value is subject to the bill.
       shared_ptr<double> cuHours_ {};
+      // The time when the session ended. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // The runtime information.
       shared_ptr<string> info_ {};
+      // The total amount of memory in MB allocated to the task multiplied by the number of seconds the task has been running.
       shared_ptr<int64_t> mbSeconds_ {};
+      // The session name.
       shared_ptr<string> name_ {};
+      // The queue name.
       shared_ptr<string> queue_ {};
+      // The ID of the Livy Gateway session.
       shared_ptr<string> sessionId_ {};
+      // The Spark job configuration.
       shared_ptr<string> sparkConf_ {};
+      // The session state.
+      // 
+      // - starting: The session is starting.
+      // 
+      // - running: The session is running.
+      // 
+      // - terminating: The session is being terminated.
+      // 
+      // - terminated: The session is terminated.
+      // 
+      // - error: The session failed.
       shared_ptr<string> state_ {};
+      // The total number of vCores allocated to the task multiplied by the number of seconds the task has been running.
       shared_ptr<int64_t> vcoreSeconds_ {};
+      // The web UI URL of the session.
       shared_ptr<string> webUI_ {};
     };
 
@@ -214,8 +237,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of sessions.
     shared_ptr<vector<ListLivyComputeSessionsResponseBody::Sessions>> sessions_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID of the region where the resource is located.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the destination resource group.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
+    // The ID of the resource to move.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The resource type. Set this to `Workspace`.
     shared_ptr<string> resourceType_ {};
   };
 

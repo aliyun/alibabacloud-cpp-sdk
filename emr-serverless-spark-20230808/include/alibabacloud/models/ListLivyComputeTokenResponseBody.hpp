@@ -139,13 +139,19 @@ namespace Models
 
 
       protected:
+        // The time when the token was created.
         shared_ptr<int64_t> createTime_ {};
+        // The user who created the token.
         shared_ptr<string> createdby_ {};
+        // The time when the token expires.
         shared_ptr<int64_t> expireTime_ {};
+        // The time when the token was last used.
         shared_ptr<int64_t> lastUsedTime_ {};
+        // The token name.
         shared_ptr<string> name_ {};
+        // The token content.
         shared_ptr<string> token_ {};
-        // Token ID。
+        // The token ID.
         shared_ptr<string> tokenId_ {};
       };
 
@@ -160,6 +166,7 @@ namespace Models
 
 
     protected:
+      // The list of tokens.
       shared_ptr<vector<Data::Tokens>> tokens_ {};
     };
 
@@ -196,9 +203,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. See the message parameter for failure details.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ListLivyComputeTokenResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -195,20 +195,20 @@ namespace Models
 
 
   protected:
-    // The email address to receive alerts.
+    // The email address for alerts.
     shared_ptr<string> alertEmailAddress_ {};
-    // The description of the workflow.
+    // The workflow description.
     shared_ptr<string> description_ {};
     // The execution policy.
     // 
     // This parameter is required.
     shared_ptr<string> executionType_ {};
     shared_ptr<string> globalParamsShrink_ {};
-    // The name of the workflow.
+    // The workflow name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The code of the service.
+    // The product code.
     // 
     // This parameter is required.
     shared_ptr<string> productNamespace_ {};
@@ -216,29 +216,29 @@ namespace Models
     shared_ptr<bool> publish_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The status of the workflow.
+    // The release state of the workflow.
     shared_ptr<string> releaseState_ {};
     // The resource queue.
     shared_ptr<string> resourceQueue_ {};
     // The number of retries.
     shared_ptr<int32_t> retryTimes_ {};
-    // The execution user.
+    // The user to run the workflow.
     shared_ptr<string> runAs_ {};
-    // The scheduling settings.
+    // The scheduling configuration.
     shared_ptr<string> scheduleShrink_ {};
     // The tags.
     shared_ptr<string> tagsShrink_ {};
-    // The descriptions of all nodes in the workflow.
+    // A JSON array of task definitions. This array contains the descriptive information for all tasks in the workflow.
     // 
     // This parameter is required.
     shared_ptr<string> taskDefinitionJsonShrink_ {};
-    // The node parallelism.
+    // The degree of concurrent execution for workflow nodes.
     shared_ptr<int32_t> taskParallelism_ {};
-    // The dependencies of all nodes in the workflow. preTaskCode specifies the ID of an upstream node, and postTaskCode specifies the ID of a downstream node. The ID of each node is unique. If a node does not have an upstream node, set preTaskCode to 0.
+    // A JSON array that defines the dependencies between tasks in the workflow. \\`preTaskCode\\` specifies the upstream task ID, and \\`postTaskCode\\` specifies the downstream task ID. Each task must have a unique ID. For a task node without an upstream task, add a dependency and set \\`preTaskCode\\` to 0.
     // 
     // This parameter is required.
     shared_ptr<string> taskRelationJsonShrink_ {};
-    // The default timeout period of the workflow.
+    // The default timeout period for the workflow execution.
     shared_ptr<int32_t> timeout_ {};
   };
 

@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // A list of the SQL execution results.
       shared_ptr<string> contents_ {};
+      // The maximum number of records returned for a single request.
       shared_ptr<int32_t> maxResults_ {};
+      // The token that specifies the position from which to start reading the results.
       shared_ptr<string> nextToken_ {};
+      // The total number of rows in the result.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The content of the SQL execution result.
     shared_ptr<ListSqlStatementContentsResponseBody::SqlStatementContents> sqlStatementContents_ {};
   };
 

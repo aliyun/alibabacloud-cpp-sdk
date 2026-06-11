@@ -179,7 +179,7 @@ namespace Models
 
 
       protected:
-        // The SparkConf objects.
+        // A list of Spark configurations.
         shared_ptr<vector<Configuration>> configurations_ {};
       };
 
@@ -369,43 +369,43 @@ namespace Models
       // 
       // PYTHON
       shared_ptr<string> codeType_ {};
-      // The advanced configurations of Spark.
+      // The advanced Spark configurations. This parameter is not returned by the ListJobRuns operation.
       shared_ptr<JobRuns::ConfigurationOverrides> configurationOverrides_ {};
-      // The ID of the user who created the job.
+      // The UID of the user who created the job.
       shared_ptr<string> creator_ {};
-      // The number of CUs consumed during a specified cycle of a task. The value is an estimated value. Refer to your Alibaba Cloud bill for the actual number of consumed CUs.
+      // The number of CUs consumed by the job run. This is an estimated value. The actual value is reflected in your bill.
       shared_ptr<double> cuHours_ {};
-      // The version of Spark on which the jobs run.
+      // The display version of the Spark engine that is used to run the job.
       shared_ptr<string> displayReleaseVersion_ {};
-      // The end time of the job.
+      // The time when the job ended.
       shared_ptr<int64_t> endTime_ {};
-      // The timeout period of the job.
+      // The timeout period for the job execution, in seconds.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether the Fusion engine is used for acceleration.
+      // Indicates whether the Fusion engine is enabled for acceleration.
       shared_ptr<bool> fusion_ {};
-      // The information about Spark Driver.
+      // The information about the Spark driver. This parameter is not returned by the ListJobRuns operation.
       shared_ptr<JobDriver> jobDriver_ {};
-      // The job ID.
+      // The job run ID.
       shared_ptr<string> jobRunId_ {};
-      // The path where the operational logs are stored.
+      // The path of the run log.
       shared_ptr<RunLog> log_ {};
-      // The total amount of memory allocated to the job multiplied by the running duration (seconds).
+      // The total memory in MB allocated to the job run, multiplied by the runtime in seconds.
       shared_ptr<int64_t> mbSeconds_ {};
       // The job name.
       shared_ptr<string> name_ {};
       shared_ptr<string> priority_ {};
-      // The version of Spark on which the jobs run.
+      // The version of the Spark engine that is used to run the job.
       shared_ptr<string> releaseVersion_ {};
       shared_ptr<string> resourceQueueId_ {};
-      // The job state.
+      // The state of the job run.
       shared_ptr<string> state_ {};
-      // The reason of the job status change.
+      // The reason for the state change.
       shared_ptr<JobRuns::StateChangeReason> stateChangeReason_ {};
       // The time when the job was submitted.
       shared_ptr<int64_t> submitTime_ {};
-      // The tags of the job.
+      // The tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // The total number of CPU cores allocated to the job multiplied by the running duration (seconds).
+      // The total number of vCores allocated to the job run, multiplied by the runtime in seconds.
       shared_ptr<int64_t> vcoreSeconds_ {};
       // The web UI of the job.
       shared_ptr<string> webUI_ {};
@@ -453,15 +453,15 @@ namespace Models
 
 
   protected:
-    // The Spark jobs.
+    // A list of Spark jobs.
     shared_ptr<vector<ListJobRunsResponseBody::JobRuns>> jobRuns_ {};
-    // The maximum number of entries returned.
+    // The maximum number of entries returned for the current request.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

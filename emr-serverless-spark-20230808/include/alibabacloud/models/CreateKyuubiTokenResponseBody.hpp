@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Token ID。
+      // The token ID.
       shared_ptr<string> tokenId_ {};
     };
 
@@ -82,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CreateKyuubiTokenResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The job ID.
+    // The job run ID.
     shared_ptr<string> jobRunId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

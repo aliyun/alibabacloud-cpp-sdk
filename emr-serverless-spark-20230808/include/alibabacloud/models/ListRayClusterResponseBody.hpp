@@ -193,14 +193,22 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores.
         shared_ptr<string> cpu_ {};
         shared_ptr<string> gpuSpec_ {};
+        // The name of the worker group.
         shared_ptr<string> groupName_ {};
+        // The maximum number of worker nodes after automatic scaling is enabled.
         shared_ptr<int32_t> maxReplica_ {};
+        // The memory size. Unit: Gi.
         shared_ptr<string> memory_ {};
+        // The minimum number of worker nodes after automatic scaling is enabled.
         shared_ptr<int32_t> minReplica_ {};
+        // The queue name.
         shared_ptr<string> queueName_ {};
+        // The number of nodes.
         shared_ptr<int32_t> replica_ {};
+        // The worker type.
         shared_ptr<string> workerType_ {};
       };
 
@@ -288,12 +296,18 @@ namespace Models
 
 
       protected:
+        // The number of CPU cores.
         shared_ptr<string> cpu_ {};
+        // Indicates whether automatic scaling is enabled for worker nodes.
         shared_ptr<bool> enableAutoScaling_ {};
         shared_ptr<string> gpuSpec_ {};
+        // The idle timeout period for worker nodes.
         shared_ptr<int32_t> idleTimeoutSeconds_ {};
+        // The memory size. Unit: Gi.
         shared_ptr<string> memory_ {};
+        // The queue name.
         shared_ptr<string> queueName_ {};
+        // The number of nodes.
         shared_ptr<int32_t> replica_ {};
       };
 
@@ -454,26 +468,57 @@ namespace Models
 
 
     protected:
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
+      // The time when the cluster was created.
       shared_ptr<int64_t> createTime_ {};
+      // The UID of the user who created the cluster.
       shared_ptr<string> creator_ {};
+      // The nickname of the creator.
       shared_ptr<string> creatorName_ {};
+      // The URL of the Ray cluster dashboard.
       shared_ptr<string> dashboardUrl_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The Ray engine version.
       shared_ptr<string> displayReleaseVersion_ {};
+      // The gRPC endpoint for the internal network. The domain name can also be used to submit Ray jobs.
       shared_ptr<string> grpcEndpoint_ {};
+      // The information about the head node of the Ray cluster.
       shared_ptr<RayClusters::HeadSpec> headSpec_ {};
+      // The ID of the Ray cluster instance.
       shared_ptr<string> instanceId_ {};
+      // The error message.
       shared_ptr<string> message_ {};
+      // Indicates whether the configuration has been modified.
       shared_ptr<bool> modified_ {};
+      // The time when the cluster was last modified.
       shared_ptr<int64_t> modifiedTime_ {};
+      // The UID of the user who last updated the cluster.
       shared_ptr<string> modifier_ {};
+      // The nickname of the modifier.
       shared_ptr<string> modifierName_ {};
+      // The name of the Ray cluster.
       shared_ptr<string> name_ {};
+      // The name of the network connectivity service.
       shared_ptr<string> networkServiceName_ {};
+      // The startup time.
       shared_ptr<int64_t> startTime_ {};
+      // The cluster state.
+      // 
+      // - Starting: The cluster is starting.
+      // 
+      // - Running: The cluster is running.
+      // 
+      // - Stopping: The cluster is stopping.
+      // 
+      // - Stopped: The cluster is stopped.
+      // 
+      // - Error: The cluster has failed.
       shared_ptr<string> state_ {};
+      // The ID of the Alibaba Cloud account.
       shared_ptr<string> userId_ {};
+      // The information about the worker nodes of the Ray cluster.
       shared_ptr<vector<RayClusters::WorkerSpec>> workerSpec_ {};
     };
 
@@ -496,7 +541,9 @@ namespace Models
 
 
   protected:
+    // The list of Ray clusters.
     shared_ptr<vector<ListRayClusterResponseBody::RayClusters>> rayClusters_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

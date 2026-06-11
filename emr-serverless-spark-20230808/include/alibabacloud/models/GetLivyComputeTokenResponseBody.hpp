@@ -106,7 +106,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether the token automatically expires.
+        // 
+        // - true: Yes.
+        // 
+        // - false: No.
         shared_ptr<bool> enable_ {};
+        // The expiration period, in days.
         shared_ptr<int32_t> expireDays_ {};
       };
 
@@ -172,14 +178,21 @@ namespace Models
 
 
     protected:
+      // The information about token expiration.
       shared_ptr<Data::AutoExpireConfiguration> autoExpireConfiguration_ {};
+      // The time when the token was created.
       shared_ptr<int64_t> createTime_ {};
+      // The name of the user who created the token.
       shared_ptr<string> createdBy_ {};
+      // The time when the token expires.
       shared_ptr<int64_t> expireTime_ {};
+      // The time when the token was last used.
       shared_ptr<int64_t> lastUsedTime_ {};
+      // The name of the token.
       shared_ptr<string> name_ {};
+      // The content of the token.
       shared_ptr<string> token_ {};
-      // Token ID。
+      // The ID of the token.
       shared_ptr<string> tokenId_ {};
     };
 
@@ -216,9 +229,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information about the error, see the message parameter.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<GetLivyComputeTokenResponseBody::Data> data_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

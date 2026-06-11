@@ -186,14 +186,22 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores per worker node.
       shared_ptr<string> cpu_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The name of the worker node group.
       shared_ptr<string> groupName_ {};
+      // The maximum number of worker nodes in the group.
       shared_ptr<int32_t> maxReplica_ {};
+      // The memory size per worker node. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The minimum number of worker nodes in the group.
       shared_ptr<int32_t> minReplica_ {};
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
+      // The number of worker nodes.
       shared_ptr<int32_t> replica_ {};
+      // The type of the worker node group.
       shared_ptr<string> workerType_ {};
     };
 
@@ -317,16 +325,27 @@ namespace Models
 
 
     protected:
+      // The exit code of the main container.
       shared_ptr<int32_t> containerExitCode_ {};
+      // The state of the main container.
       shared_ptr<string> containerState_ {};
+      // The status message of the main container.
       shared_ptr<string> containerStateMessage_ {};
+      // Additional information about the main container state.
       shared_ptr<string> containerStateReason_ {};
+      // The time when the node was created. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
+      // The node ID.
       shared_ptr<string> instanceId_ {};
+      // The status message of the node pod.
       shared_ptr<string> message_ {};
+      // The phase of the node pod.
       shared_ptr<string> phase_ {};
+      // Additional information about the node.
       shared_ptr<string> reason_ {};
+      // The time when the node started. This is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
+      // The node type.
       shared_ptr<string> type_ {};
     };
 
@@ -414,12 +433,18 @@ namespace Models
 
 
     protected:
+      // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // Specifies whether auto scaling is enabled for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       shared_ptr<string> gpuSpec_ {};
+      // The idle timeout period for worker nodes, in seconds. Applies only when auto scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
+      // The memory size. Unit: Gi.
       shared_ptr<string> memory_ {};
+      // The name of the queue.
       shared_ptr<string> queueName_ {};
+      // The number of nodes.
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -635,33 +660,69 @@ namespace Models
 
 
   protected:
+    // The ID of the Ray cluster.
     shared_ptr<string> clusterId_ {};
+    // The time when the cluster was created. This is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
+    // The UID of the user who created the cluster.
     shared_ptr<string> creator_ {};
+    // The nickname of the creator.
     shared_ptr<string> creatorName_ {};
+    // The URL of the Ray Dashboard for this cluster.
     shared_ptr<string> dashboardUrl_ {};
+    // The description of the Ray cluster.
     shared_ptr<string> description_ {};
+    // The version of the Ray engine.
     shared_ptr<string> displayReleaseVersion_ {};
+    // Additional parameters in JSON format.
     shared_ptr<string> extraParam_ {};
+    // The gRPC endpoint for the internal network. You can also use the domain name in this endpoint to submit Ray jobs.
     shared_ptr<string> grpcEndpoint_ {};
+    // The configuration of the head node.
     shared_ptr<GetRayClusterResponseBody::HeadSpec> headSpec_ {};
+    // The ID of the Ray cluster node.
     shared_ptr<string> instanceId_ {};
+    // The list of nodes in the Ray cluster.
     shared_ptr<vector<GetRayClusterResponseBody::Instances>> instances_ {};
+    // The public endpoint for submitting Ray jobs.
     shared_ptr<string> jobUrl_ {};
     shared_ptr<string> jobUrlInner_ {};
+    // The error message. Returned when `state` is `Error`.
     shared_ptr<string> message_ {};
+    // Indicates whether the configuration was modified.
     shared_ptr<bool> modified_ {};
+    // The time when the cluster was last updated. This is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
+    // The UID of the user who last updated the cluster.
     shared_ptr<string> modifier_ {};
+    // The nickname of the modifier.
     shared_ptr<string> modifierName_ {};
+    // The name of the Ray cluster.
     shared_ptr<string> name_ {};
+    // The name of the network connection.
     shared_ptr<string> networkServiceName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The time when the cluster started. This is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // The session state. Valid values:
+    // 
+    // - Starting: The session is starting.
+    // 
+    // - Running: The session is running.
+    // 
+    // - Stopping: The session is being stopped.
+    // 
+    // - Stopped: The session is stopped.
+    // 
+    // - Error: The session has failed.
     shared_ptr<string> state_ {};
+    // The authentication token for submitting Ray jobs. Add this token to the request header in the format `"ray-token": "token"`.
     shared_ptr<string> submitToken_ {};
+    // The ID of the Alibaba Cloud account that created the cluster.
     shared_ptr<string> userId_ {};
     shared_ptr<vector<string>> volumeIds_ {};
+    // The list of worker node group configurations.
     shared_ptr<vector<GetRayClusterResponseBody::WorkerSpec>> workerSpec_ {};
   };
 

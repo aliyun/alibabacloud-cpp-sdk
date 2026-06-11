@@ -108,10 +108,10 @@ namespace Models
 
 
       protected:
-        // The queried data, which is a string in the JSON format.
+        // The query data. The data is a JSON-serialized string.
         shared_ptr<string> rows_ {};
         shared_ptr<string> rowsFilePath_ {};
-        // The information about the schema, which is a string in the JSON format.
+        // The details of the schema. The details are a JSON-serialized string.
         shared_ptr<string> schema_ {};
       };
 
@@ -164,25 +164,17 @@ namespace Models
 
 
     protected:
-      // The list of time that is consumed by SQL queries.
+      // A list of execution times for the SQL query.
       shared_ptr<vector<int64_t>> executionTime_ {};
-      // The error code.
+      // The error code for the SQL query.
       shared_ptr<string> sqlErrorCode_ {};
-      // The error message.
+      // The error message for the SQL query.
       shared_ptr<string> sqlErrorMessage_ {};
-      // The query results.
+      // A list of SQL query results.
       shared_ptr<vector<Data::SqlOutputs>> sqlOutputs_ {};
-      // The query status.
-      // 
-      // Valid values:
-      // 
-      // *   running
-      // *   available
-      // *   cancelled
-      // *   error
-      // *   cancelling
+      // The state of the query.
       shared_ptr<string> state_ {};
-      // The query ID.
+      // The statement ID.
       shared_ptr<string> statementId_ {};
     };
 
@@ -205,7 +197,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<GetSqlStatementResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

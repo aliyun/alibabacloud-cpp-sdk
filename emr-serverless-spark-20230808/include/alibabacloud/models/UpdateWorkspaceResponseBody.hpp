@@ -61,6 +61,7 @@ namespace Models
 
 
     protected:
+      // The ID of the order.
       shared_ptr<string> orderId_ {};
     };
 
@@ -90,9 +91,11 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<UpdateWorkspaceResponseBody::Data> data_ {};
+    // The ID of the order.
     shared_ptr<string> orderId_ {};
-    // Id of the request
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -88,11 +88,25 @@ namespace Models
 
 
   protected:
+    // The data list.
     shared_ptr<vector<Template>> data_ {};
+    // - If the value of success is false, an error code is returned.
+    // 
+    // - If the value of success is true, this parameter is empty.
     shared_ptr<string> errorCode_ {};
+    // - If the value of success is false, an error message is returned.
+    // 
+    // - If the value of success is true, this parameter is empty.
     shared_ptr<string> errorMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    // 
+    // - true: The request was successful.
+    // 
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

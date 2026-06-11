@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // The interactive query ID.
+      // The ID of the interactive query.
       shared_ptr<string> statementId_ {};
     };
 
@@ -82,7 +82,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned result.
     shared_ptr<CreateSqlStatementResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

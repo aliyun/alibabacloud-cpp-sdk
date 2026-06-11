@@ -151,21 +151,21 @@ namespace Models
 
 
     protected:
-      // The version number of open source Spark.
+      // The community version number of Spark.
       shared_ptr<string> communityVersion_ {};
-      // The CPU architectures.
+      // The list of CPU architectures.
       shared_ptr<vector<string>> cpuArchitectures_ {};
       // The version number.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Indicates whether the Fusion engine is used for acceleration.
+      // Indicates whether the Fusion engine is enabled for acceleration.
       shared_ptr<bool> fusion_ {};
-      // The creation time.
+      // The time when the version was created.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The type of the Infrastructure as a Service (IaaS) layer.
+      // The type of the IaaS layer.
       shared_ptr<string> iaasType_ {};
       // The version number.
       shared_ptr<string> releaseVersion_ {};
-      // The version of Scala.
+      // The Scala version.
       shared_ptr<string> scalaVersion_ {};
       // The status of the version.
       shared_ptr<string> state_ {};
@@ -213,15 +213,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries returned.
+    // The maximum number of records to return on a single page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The versions.
+    // The list of versions.
     shared_ptr<vector<ListReleaseVersionsResponseBody::ReleaseVersions>> releaseVersions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

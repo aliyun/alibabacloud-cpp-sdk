@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The environment type.
     shared_ptr<string> environment_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // The full path of the log file.
       shared_ptr<string> fileName_ {};
+      // The size of the file, in bytes.
       shared_ptr<int64_t> fileSize_ {};
+      // The log name.
       shared_ptr<string> logName_ {};
+      // The log type.
       shared_ptr<string> logType_ {};
+      // The time the log file was last updated, as a Unix timestamp.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -150,11 +155,15 @@ namespace Models
 
 
   protected:
+    // The retrieved logs, sorted in contextual order. If no contextual logs are found based on the specified starting log, this parameter is empty.
     shared_ptr<vector<ListExecutorLogsResponseBody::Logs>> logs_ {};
+    // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. This value is null when there are no more results to return.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of log files.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
 
 
     protected:
-      // Kyuubi Service ID。
+      // The Kyuubi service ID.
       shared_ptr<string> kyuubiServiceId_ {};
     };
 
@@ -82,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CreateKyuubiServiceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

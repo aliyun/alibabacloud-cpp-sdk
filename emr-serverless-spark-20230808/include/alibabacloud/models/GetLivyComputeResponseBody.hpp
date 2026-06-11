@@ -134,7 +134,13 @@ namespace Models
 
 
       protected:
+        // Indicates whether to automatically start the gateway after it is created.
+        // 
+        // - true: Yes.
+        // 
+        // - false: No.
         shared_ptr<bool> enable_ {};
+        // The number of minutes after which the Livy Gateway is automatically stopped if it is idle.
         shared_ptr<int64_t> idleTimeoutMinutes_ {};
       };
 
@@ -301,27 +307,57 @@ namespace Models
 
 
     protected:
+      // The authentication method.
       shared_ptr<string> authType_ {};
+      // The auto-stop configuration.
       shared_ptr<Data::AutoStopConfiguration> autoStopConfiguration_ {};
+      // The ID of the Livy Gateway.
       shared_ptr<string> computeId_ {};
+      // The number of CPU cores for the Livy server.
       shared_ptr<string> cpuLimit_ {};
+      // The name of the creator.
       shared_ptr<string> createdBy_ {};
+      // The version number of the Spark engine.
       shared_ptr<string> displayReleaseVersion_ {};
+      // The status of the public endpoint switch.
       shared_ptr<bool> enablePublic_ {};
+      // The public endpoint.
       shared_ptr<string> endpoint_ {};
+      // The internal endpoint.
       shared_ptr<string> endpointInner_ {};
+      // The ID of the runtime environment.
       shared_ptr<string> environmentId_ {};
+      // Indicates whether the fusion switch is enabled.
       shared_ptr<bool> fusion_ {};
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
+      // The Livy Gateway configuration in JSON format. The following files are supported:
+      // 
+      // - sparkDefaultsConf
+      // 
+      // - sparkBlackListConf
+      // 
+      // - livyConf
+      // 
+      // - livyClientConf
       shared_ptr<string> livyServerConf_ {};
+      // The Livy version.
       shared_ptr<string> livyVersion_ {};
+      // The memory size of the Livy server.
       shared_ptr<string> memoryLimit_ {};
+      // The name.
       shared_ptr<string> name_ {};
+      // The name of the network connection.
       shared_ptr<string> networkName_ {};
+      // The queue name.
       shared_ptr<string> queueName_ {};
+      // The ID of the creator.
       shared_ptr<string> ramUserId_ {};
+      // The version number of the Spark engine. This parameter is deprecated. Use displayReleaseVersion instead.
       shared_ptr<string> releaseVersion_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // The running status.
       shared_ptr<string> status_ {};
     };
 
@@ -358,9 +394,13 @@ namespace Models
 
 
   protected:
+    // The response code. A value of 1000000 indicates a successful request. Other values indicate a failed request. Check the message parameter for the error details.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetLivyComputeResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
