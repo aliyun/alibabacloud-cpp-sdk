@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The description of the project.
     shared_ptr<string> comment_ {};
+    // The name of the project.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
   };

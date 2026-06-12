@@ -275,10 +275,15 @@ namespace Models
 
   protected:
     shared_ptr<ListTopicsResponseBody::List> list_ {};
+    // The maximum number of records returned in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query. If NextToken is empty, no more results are available. If NextToken is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of query results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The list of fields for the synchronization task.
     shared_ptr<string> columnFields_ {};
+    // The configuration information of the synchronization task.
     shared_ptr<string> config_ {};
+    // The synchronization task ID.
     shared_ptr<string> connectorId_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The creator of the synchronization task.
     shared_ptr<string> creator_ {};
+    // The time when the synchronization task is marked as done. This parameter takes effect only for ODPS synchronization (SINK_ODPS) tasks.
     shared_ptr<string> doneTime_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the synchronization task.
     shared_ptr<string> state_ {};
+    // The subscription ID.
     shared_ptr<string> subscriptionId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The topic name.
     shared_ptr<string> topicName_ {};
+    // The type of the synchronization task.
     shared_ptr<string> type_ {};
+    // The last update time.
     shared_ptr<string> updateTime_ {};
   };
 

@@ -167,20 +167,35 @@ namespace Models
 
 
   protected:
+    // The topic description.
     shared_ptr<string> comment_ {};
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The topic creator.
     shared_ptr<string> creator_ {};
+    // Indicates whether multiple versions are supported.
     shared_ptr<bool> enableSchemaRegistry_ {};
+    // Indicates whether the extended mode is enabled.
     shared_ptr<bool> expandMode_ {};
+    // The lifecycle.
     shared_ptr<int32_t> lifecycle_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The data schema for the TUPLE type.
     shared_ptr<string> recordSchema_ {};
+    // The topic type.
     shared_ptr<string> recordType_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of shards.
     shared_ptr<int32_t> shardCount_ {};
+    // The total storage of the topic.
     shared_ptr<int64_t> storage_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The topic name.
     shared_ptr<string> topicName_ {};
+    // The last update time.
     shared_ptr<string> updateTime_ {};
   };
 

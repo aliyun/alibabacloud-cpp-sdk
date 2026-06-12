@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
+    // The schema version number.
+    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

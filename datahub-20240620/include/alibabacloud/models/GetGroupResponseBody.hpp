@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The description of the consumer group.
     shared_ptr<string> comment_ {};
+    // The time when the consumer group was created.
     shared_ptr<int64_t> createTime_ {};
+    // The creator of the consumer group.
     shared_ptr<string> creator_ {};
+    // The consumer group name.
     shared_ptr<string> groupName_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The list of topics associated with the consumer group.
     shared_ptr<vector<string>> topicList_ {};
+    // The time when the consumer group was last updated.
     shared_ptr<int64_t> updateTime_ {};
   };
 

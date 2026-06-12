@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The name of the topic to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

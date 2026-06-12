@@ -79,7 +79,10 @@ namespace Models
 
 
     protected:
+      // The additional information of the record. You can leave this parameter empty if no additional information is available.
       shared_ptr<map<string, string>> attributes_ {};
+      // The data content of the record.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> data_ {};
     };
@@ -117,11 +120,18 @@ namespace Models
 
 
   protected:
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The data to be written.
+    // 
     // This parameter is required.
     shared_ptr<vector<PutRecordsRequest::Records>> records_ {};
+    // The ID of the shard to which data is written. If this parameter is not specified, data is randomly written to a shard.
     shared_ptr<string> shardId_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

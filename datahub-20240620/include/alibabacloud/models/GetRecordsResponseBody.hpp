@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The additional information of the record. This value is empty if no additional information exists.
       shared_ptr<map<string, string>> attributes_ {};
+      // The data content of the record.
       shared_ptr<vector<string>> data_ {};
+      // The write time of the record.
       shared_ptr<int64_t> systemTime_ {};
     };
 
@@ -117,8 +120,13 @@ namespace Models
 
 
   protected:
+    // The records that were read.
     shared_ptr<vector<GetRecordsResponseBody::Records>> records_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

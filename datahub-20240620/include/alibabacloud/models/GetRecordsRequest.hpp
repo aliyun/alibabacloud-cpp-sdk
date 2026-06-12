@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The shard ID from which to read data.
     shared_ptr<string> shardId_ {};
+    // The start time for reading data. By default, data is read starting from 5 minutes before the current time.
     shared_ptr<int64_t> startTime_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

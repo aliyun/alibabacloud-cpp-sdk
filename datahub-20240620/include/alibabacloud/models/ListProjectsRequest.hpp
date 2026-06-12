@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The filter keyword for a paged query.
     shared_ptr<string> keyword_ {};
+    // The maximum number of records to return in a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If NextToken is empty, paged query starts from the beginning. Otherwise, paged query starts from where the previous query ended based on the token.
     shared_ptr<string> nextToken_ {};
+    // Specifies whether to return only primary key information.
     shared_ptr<bool> pure_ {};
+    // The number of records to skip in a paged query.
     shared_ptr<int32_t> skip_ {};
   };
 

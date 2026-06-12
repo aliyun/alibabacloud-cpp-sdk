@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The creator of the schema.
     shared_ptr<string> creator_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The schema data corresponding to the specified VersionId.
     shared_ptr<string> recordSchema_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The topic name.
     shared_ptr<string> topicName_ {};
+    // The schema version number.
     shared_ptr<int32_t> versionId_ {};
   };
 

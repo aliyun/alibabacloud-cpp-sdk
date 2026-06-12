@@ -126,12 +126,19 @@ namespace Models
 
 
     protected:
+      // The description of the consumer group.
       shared_ptr<string> comment_ {};
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The creator of the consumer group.
       shared_ptr<string> creator_ {};
+      // The consumer group name.
       shared_ptr<string> groupName_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The list of topics bound to the consumer group.
       shared_ptr<vector<string>> topicList_ {};
+      // The last update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -182,11 +189,17 @@ namespace Models
 
 
   protected:
+    // The list of consumer groups.
     shared_ptr<vector<ListGroupsResponseBody::List>> list_ {};
+    // The maximum number of records returned in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query. If NextToken is empty, no more results are available. If NextToken has a value, it indicates the token from which the next query starts.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records in the query result.
     shared_ptr<int32_t> totalCount_ {};
   };
 

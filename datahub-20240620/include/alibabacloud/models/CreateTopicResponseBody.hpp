@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The topic name.
     shared_ptr<string> topicName_ {};
   };
 

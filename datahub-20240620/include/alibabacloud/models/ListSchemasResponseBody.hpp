@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
+      // The creator of the schema.
       shared_ptr<string> creator_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The schema data corresponding to the version ID.
       shared_ptr<string> recordSchema_ {};
+      // The topic name.
       shared_ptr<string> topicName_ {};
+      // The schema version ID.
       shared_ptr<int32_t> versionId_ {};
     };
 
@@ -169,11 +175,17 @@ namespace Models
 
 
   protected:
+    // The list of schemas.
     shared_ptr<vector<ListSchemasResponseBody::List>> list_ {};
+    // The maximum number of records returned in this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next query. If NextToken is empty, no more results are available. If NextToken has a value, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The project description.
     shared_ptr<string> comment_ {};
+    // The time when the project was created.
     shared_ptr<string> createTime_ {};
+    // The creator of the project.
     shared_ptr<string> creator_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total storage capacity of the project.
     shared_ptr<int64_t> storage_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The time when the project was last updated.
     shared_ptr<string> updateTime_ {};
+    // The VPC whitelist of the project.
     shared_ptr<string> vpcWhitelist_ {};
   };
 

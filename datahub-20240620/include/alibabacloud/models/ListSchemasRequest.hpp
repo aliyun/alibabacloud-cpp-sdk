@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The maximum number of records to return in a paginated query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If NextToken is empty, the query starts from the beginning. Otherwise, the query starts from where the previous query left off based on the token.
     shared_ptr<string> nextToken_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The number of records to skip in a paginated query.
     shared_ptr<int32_t> skip_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

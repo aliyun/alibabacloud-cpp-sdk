@@ -140,17 +140,33 @@ namespace Models
 
 
   protected:
+    // The name of the application to which the subscription belongs.
     shared_ptr<string> application_ {};
+    // The description of the subscription.
     shared_ptr<string> comment_ {};
+    // The creation time.
     shared_ptr<int64_t> createTime_ {};
+    // The creator of the subscription.
     shared_ptr<string> creator_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the subscription. Valid values:
+    // - 0: offline.
+    // - 1: online.
     shared_ptr<int32_t> state_ {};
+    // The subscription ID.
     shared_ptr<string> subscriptionId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The topic name.
     shared_ptr<string> topicName_ {};
+    // The type of the subscription. Valid values:
+    // - USER: created by a user.
+    // - SYSTEM: created by the system.
     shared_ptr<string> type_ {};
+    // The last update time.
     shared_ptr<int64_t> updateTime_ {};
   };
 

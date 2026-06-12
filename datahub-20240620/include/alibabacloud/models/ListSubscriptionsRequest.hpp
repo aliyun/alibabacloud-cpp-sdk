@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // The keyword used to filter results in a paged query.
     shared_ptr<string> keyword_ {};
+    // The maximum number of records to return for a paged query.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If NextToken is empty, paged query starts from the beginning. Otherwise, paged query starts from the end of the previous query indicated by the token.
     shared_ptr<string> nextToken_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The number of records to skip in a paged query.
     shared_ptr<int32_t> skip_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

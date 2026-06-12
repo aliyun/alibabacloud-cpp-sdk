@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The description of the workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
   };

@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_DELETETOPICRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_DELETETOPICRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DELETESUBSCRIPTIONRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DELETESUBSCRIPTIONRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Datahub20240620
 {
 namespace Models
 {
-  class DeleteTopicResponseBody : public Darabonba::Model {
+  class DeleteSubscriptionResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const DeleteTopicResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DeleteSubscriptionResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, DeleteTopicResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DeleteSubscriptionResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    DeleteTopicResponseBody() = default ;
-    DeleteTopicResponseBody(const DeleteTopicResponseBody &) = default ;
-    DeleteTopicResponseBody(DeleteTopicResponseBody &&) = default ;
-    DeleteTopicResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~DeleteTopicResponseBody() = default ;
-    DeleteTopicResponseBody& operator=(const DeleteTopicResponseBody &) = default ;
-    DeleteTopicResponseBody& operator=(DeleteTopicResponseBody &&) = default ;
+    DeleteSubscriptionResponseBody() = default ;
+    DeleteSubscriptionResponseBody(const DeleteSubscriptionResponseBody &) = default ;
+    DeleteSubscriptionResponseBody(DeleteSubscriptionResponseBody &&) = default ;
+    DeleteSubscriptionResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DeleteSubscriptionResponseBody() = default ;
+    DeleteSubscriptionResponseBody& operator=(const DeleteSubscriptionResponseBody &) = default ;
+    DeleteSubscriptionResponseBody& operator=(DeleteSubscriptionResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline DeleteTopicResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DeleteSubscriptionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline DeleteTopicResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline DeleteSubscriptionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

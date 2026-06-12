@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
+    // The data to be written.
+    // 
     // This parameter is required.
     shared_ptr<string> recordsShrink_ {};
+    // The ID of the shard to which data is written. If this parameter is not specified, data is randomly written to a shard.
     shared_ptr<string> shardId_ {};
+    // The topic name.
+    // 
     // This parameter is required.
     shared_ptr<string> topicName_ {};
   };

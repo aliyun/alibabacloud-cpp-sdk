@@ -36,7 +36,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建Project资源
+ * @summary Creates a project.
+ *
+ * @description Creates a project.
  *
  * @param request CreateProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -71,7 +73,9 @@ CreateProjectResponse Client::createProjectWithOptions(const CreateProjectReques
 }
 
 /**
- * @summary 创建Project资源
+ * @summary Creates a project.
+ *
+ * @description Creates a project.
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -82,7 +86,71 @@ CreateProjectResponse Client::createProject(const CreateProjectRequest &request)
 }
 
 /**
- * @summary 创建Topic资源
+ * @summary 创建Subscription资源
+ *
+ * @description 创建订阅信息
+ *
+ * @param request CreateSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSubscriptionResponse
+ */
+CreateSubscriptionResponse Client::createSubscriptionWithOptions(const CreateSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasApplication()) {
+    query["Application"] = request.getApplication();
+  }
+
+  if (!!request.hasComment()) {
+    query["Comment"] = request.getComment();
+  }
+
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasSubscriptionId()) {
+    query["SubscriptionId"] = request.getSubscriptionId();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSubscription"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSubscriptionResponse>();
+}
+
+/**
+ * @summary 创建Subscription资源
+ *
+ * @description 创建订阅信息
+ *
+ * @param request CreateSubscriptionRequest
+ * @return CreateSubscriptionResponse
+ */
+CreateSubscriptionResponse Client::createSubscription(const CreateSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+ *
+ * @description Creates a topic resource.
  *
  * @param request CreateTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -145,7 +213,9 @@ CreateTopicResponse Client::createTopicWithOptions(const CreateTopicRequest &req
 }
 
 /**
- * @summary 创建Topic资源
+ * @summary A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+ *
+ * @description Creates a topic resource.
  *
  * @param request CreateTopicRequest
  * @return CreateTopicResponse
@@ -156,7 +226,9 @@ CreateTopicResponse Client::createTopic(const CreateTopicRequest &request) {
 }
 
 /**
- * @summary 删除Project资源
+ * @summary Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+ *
+ * @description Deletes a project.
  *
  * @param request DeleteProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +259,9 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const DeleteProjectReques
 }
 
 /**
- * @summary 删除Project资源
+ * @summary Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+ *
+ * @description Deletes a project.
  *
  * @param request DeleteProjectRequest
  * @return DeleteProjectResponse
@@ -198,7 +272,63 @@ DeleteProjectResponse Client::deleteProject(const DeleteProjectRequest &request)
 }
 
 /**
- * @summary 删除Topic资源
+ * @summary 删除Subscription资源
+ *
+ * @description 删除订阅任务
+ *
+ * @param request DeleteSubscriptionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteSubscriptionResponse
+ */
+DeleteSubscriptionResponse Client::deleteSubscriptionWithOptions(const DeleteSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasProjectName()) {
+    query["ProjectName"] = request.getProjectName();
+  }
+
+  if (!!request.hasSubscriptionId()) {
+    query["SubscriptionId"] = request.getSubscriptionId();
+  }
+
+  if (!!request.hasTopicName()) {
+    query["TopicName"] = request.getTopicName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteSubscription"},
+    {"version" , "2024-06-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteSubscriptionResponse>();
+}
+
+/**
+ * @summary 删除Subscription资源
+ *
+ * @description 删除订阅任务
+ *
+ * @param request DeleteSubscriptionRequest
+ * @return DeleteSubscriptionResponse
+ */
+DeleteSubscriptionResponse Client::deleteSubscription(const DeleteSubscriptionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteSubscriptionWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+ *
+ * @description Deletes a topic resource.
  *
  * @param request DeleteTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -233,7 +363,9 @@ DeleteTopicResponse Client::deleteTopicWithOptions(const DeleteTopicRequest &req
 }
 
 /**
- * @summary 删除Topic资源
+ * @summary Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+ *
+ * @description Deletes a topic resource.
  *
  * @param request DeleteTopicRequest
  * @return DeleteTopicResponse
@@ -244,7 +376,9 @@ DeleteTopicResponse Client::deleteTopic(const DeleteTopicRequest &request) {
 }
 
 /**
- * @summary 查询Connector信息
+ * @summary Queries the information about a synchronization task.
+ *
+ * @description Queries the information about a synchronization task.
  *
  * @param request GetConnectorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -283,7 +417,9 @@ GetConnectorResponse Client::getConnectorWithOptions(const GetConnectorRequest &
 }
 
 /**
- * @summary 查询Connector信息
+ * @summary Queries the information about a synchronization task.
+ *
+ * @description Queries the information about a synchronization task.
  *
  * @param request GetConnectorRequest
  * @return GetConnectorResponse
@@ -294,7 +430,9 @@ GetConnectorResponse Client::getConnector(const GetConnectorRequest &request) {
 }
 
 /**
- * @summary 查询Group信息
+ * @summary Queries the information about a consumer group.
+ *
+ * @description Queries the information about a consumer group.
  *
  * @param request GetGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -329,7 +467,9 @@ GetGroupResponse Client::getGroupWithOptions(const GetGroupRequest &request, con
 }
 
 /**
- * @summary 查询Group信息
+ * @summary Queries the information about a consumer group.
+ *
+ * @description Queries the information about a consumer group.
  *
  * @param request GetGroupRequest
  * @return GetGroupResponse
@@ -340,7 +480,9 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 }
 
 /**
- * @summary 查询Project资源详细信息
+ * @summary Queries project information.
+ *
+ * @description Queries project information.
  *
  * @param request GetProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -371,7 +513,9 @@ GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &reques
 }
 
 /**
- * @summary 查询Project资源详细信息
+ * @summary Queries project information.
+ *
+ * @description Queries project information.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -382,7 +526,9 @@ GetProjectResponse Client::getProject(const GetProjectRequest &request) {
 }
 
 /**
- * @summary 读取Topic数据
+ * @summary Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+ *
+ * @description This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
  *
  * @param request GetRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -425,7 +571,9 @@ GetRecordsResponse Client::getRecordsWithOptions(const GetRecordsRequest &reques
 }
 
 /**
- * @summary 读取Topic数据
+ * @summary Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+ *
+ * @description This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
  *
  * @param request GetRecordsRequest
  * @return GetRecordsResponse
@@ -436,7 +584,9 @@ GetRecordsResponse Client::getRecords(const GetRecordsRequest &request) {
 }
 
 /**
- * @summary 查询Schema信息
+ * @summary Queries schema information.
+ *
+ * @description Queries schema information.
  *
  * @param request GetSchemaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +625,9 @@ GetSchemaResponse Client::getSchemaWithOptions(const GetSchemaRequest &request, 
 }
 
 /**
- * @summary 查询Schema信息
+ * @summary Queries schema information.
+ *
+ * @description Queries schema information.
  *
  * @param request GetSchemaRequest
  * @return GetSchemaResponse
@@ -486,7 +638,9 @@ GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
 }
 
 /**
- * @summary 查询Subscription信息
+ * @summary Queries subscription information.
+ *
+ * @description Queries subscription information.
  *
  * @param request GetSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +679,9 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscription
 }
 
 /**
- * @summary 查询Subscription信息
+ * @summary Queries subscription information.
+ *
+ * @description Queries subscription information.
  *
  * @param request GetSubscriptionRequest
  * @return GetSubscriptionResponse
@@ -536,7 +692,9 @@ GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &re
 }
 
 /**
- * @summary 查询Topic信息
+ * @summary Queries topic information.
+ *
+ * @description Queries topic information.
  *
  * @param request GetTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -571,7 +729,9 @@ GetTopicResponse Client::getTopicWithOptions(const GetTopicRequest &request, con
 }
 
 /**
- * @summary 查询Topic信息
+ * @summary Queries topic information.
+ *
+ * @description Queries topic information.
  *
  * @param request GetTopicRequest
  * @return GetTopicResponse
@@ -582,7 +742,9 @@ GetTopicResponse Client::getTopic(const GetTopicRequest &request) {
 }
 
 /**
- * @summary 查询Connector列表信息
+ * @summary Retrieves a list of synchronization tasks.
+ *
+ * @description Queries the list of synchronization tasks.
  *
  * @param request ListConnectorsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -637,7 +799,9 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const ListConnectorsReq
 }
 
 /**
- * @summary 查询Connector列表信息
+ * @summary Retrieves a list of synchronization tasks.
+ *
+ * @description Queries the list of synchronization tasks.
  *
  * @param request ListConnectorsRequest
  * @return ListConnectorsResponse
@@ -648,7 +812,9 @@ ListConnectorsResponse Client::listConnectors(const ListConnectorsRequest &reque
 }
 
 /**
- * @summary 查询Group列表信息
+ * @summary Retrieves a list of consumer groups.
+ *
+ * @description Queries the list of consumer groups.
  *
  * @param request ListGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -699,7 +865,9 @@ ListGroupsResponse Client::listGroupsWithOptions(const ListGroupsRequest &reques
 }
 
 /**
- * @summary 查询Group列表信息
+ * @summary Retrieves a list of consumer groups.
+ *
+ * @description Queries the list of consumer groups.
  *
  * @param request ListGroupsRequest
  * @return ListGroupsResponse
@@ -710,7 +878,9 @@ ListGroupsResponse Client::listGroups(const ListGroupsRequest &request) {
 }
 
 /**
- * @summary 查询Project列表信息
+ * @summary Retrieves a list of projects.
+ *
+ * @description Queries the list of projects.
  *
  * @param request ListProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -757,7 +927,9 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
- * @summary 查询Project列表信息
+ * @summary Retrieves a list of projects.
+ *
+ * @description Queries the list of projects.
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
@@ -768,7 +940,9 @@ ListProjectsResponse Client::listProjects(const ListProjectsRequest &request) {
 }
 
 /**
- * @summary 查询Schema列表信息
+ * @summary Lists schemas.
+ *
+ * @description Queries schema list information.
  *
  * @param request ListSchemasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -815,7 +989,9 @@ ListSchemasResponse Client::listSchemasWithOptions(const ListSchemasRequest &req
 }
 
 /**
- * @summary 查询Schema列表信息
+ * @summary Lists schemas.
+ *
+ * @description Queries schema list information.
  *
  * @param request ListSchemasRequest
  * @return ListSchemasResponse
@@ -826,7 +1002,9 @@ ListSchemasResponse Client::listSchemas(const ListSchemasRequest &request) {
 }
 
 /**
- * @summary 查询Subscription列表信息
+ * @summary Retrieves a list of subscriptions.
+ *
+ * @description Queries subscription list information.
  *
  * @param request ListSubscriptionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -877,7 +1055,9 @@ ListSubscriptionsResponse Client::listSubscriptionsWithOptions(const ListSubscri
 }
 
 /**
- * @summary 查询Subscription列表信息
+ * @summary Retrieves a list of subscriptions.
+ *
+ * @description Queries subscription list information.
  *
  * @param request ListSubscriptionsRequest
  * @return ListSubscriptionsResponse
@@ -888,7 +1068,9 @@ ListSubscriptionsResponse Client::listSubscriptions(const ListSubscriptionsReque
 }
 
 /**
- * @summary 查询Topic列表信息
+ * @summary Retrieves a list of topics.
+ *
+ * @description Queries the list of topics.
  *
  * @param request ListTopicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -939,7 +1121,9 @@ ListTopicsResponse Client::listTopicsWithOptions(const ListTopicsRequest &reques
 }
 
 /**
- * @summary 查询Topic列表信息
+ * @summary Retrieves a list of topics.
+ *
+ * @description Queries the list of topics.
  *
  * @param request ListTopicsRequest
  * @return ListTopicsResponse
@@ -950,7 +1134,9 @@ ListTopicsResponse Client::listTopics(const ListTopicsRequest &request) {
 }
 
 /**
- * @summary 写入数据
+ * @summary Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+ *
+ * @description This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
  *
  * @param tmpReq PutRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -999,7 +1185,9 @@ PutRecordsResponse Client::putRecordsWithOptions(const PutRecordsRequest &tmpReq
 }
 
 /**
- * @summary 写入数据
+ * @summary Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+ *
+ * @description This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
  *
  * @param request PutRecordsRequest
  * @return PutRecordsResponse
@@ -1010,7 +1198,9 @@ PutRecordsResponse Client::putRecords(const PutRecordsRequest &request) {
 }
 
 /**
- * @summary 更新Project资源属性
+ * @summary Updates the description of a project.
+ *
+ * @description Updates the description of a project.
  *
  * @param request UpdateProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1045,7 +1235,9 @@ UpdateProjectResponse Client::updateProjectWithOptions(const UpdateProjectReques
 }
 
 /**
- * @summary 更新Project资源属性
+ * @summary Updates the description of a project.
+ *
+ * @description Updates the description of a project.
  *
  * @param request UpdateProjectRequest
  * @return UpdateProjectResponse
@@ -1056,7 +1248,9 @@ UpdateProjectResponse Client::updateProject(const UpdateProjectRequest &request)
 }
 
 /**
- * @summary 更新Topic资源属性
+ * @summary Updates the description of a topic.
+ *
+ * @description Updates the description of a topic.
  *
  * @param request UpdateTopicRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1095,7 +1289,9 @@ UpdateTopicResponse Client::updateTopicWithOptions(const UpdateTopicRequest &req
 }
 
 /**
- * @summary 更新Topic资源属性
+ * @summary Updates the description of a topic.
+ *
+ * @description Updates the description of a topic.
  *
  * @param request UpdateTopicRequest
  * @return UpdateTopicResponse

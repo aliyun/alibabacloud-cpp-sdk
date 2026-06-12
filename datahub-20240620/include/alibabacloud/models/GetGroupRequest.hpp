@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The consumer group name.
+    // 
     // This parameter is required.
     shared_ptr<string> groupName_ {};
+    // The project name.
+    // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
   };
