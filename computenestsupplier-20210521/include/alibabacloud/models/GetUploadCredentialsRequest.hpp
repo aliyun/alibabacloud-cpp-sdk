@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The file name to upload.
+    // The name of the file.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // Specifies whether the file is publicly accessible. Valid values: **public** or **private**. The default value is **private**.
+    // The visibility of the bucket to which the file is uploaded. Valid values: public and private. A value of **public** means the file is uploaded to a public bucket. A value of **private** means the file is uploaded to a private bucket that requires authorization for access.
     shared_ptr<string> visibility_ {};
   };
 

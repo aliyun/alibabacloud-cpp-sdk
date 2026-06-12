@@ -133,8 +133,11 @@ namespace Models
 
 
     protected:
+      // The English value of the business information.
       shared_ptr<string> enValue_ {};
+      // The raw data value of the business information.
       shared_ptr<string> originalValue_ {};
+      // The Chinese value of the business information.
       shared_ptr<string> zhValue_ {};
     };
 
@@ -207,9 +210,9 @@ namespace Models
 
 
       protected:
-        // The name of the software.
+        // The software name.
         shared_ptr<string> name_ {};
-        // The version of the software.
+        // The software version.
         shared_ptr<string> version_ {};
       };
 
@@ -251,9 +254,9 @@ namespace Models
 
 
       protected:
-        // Protocol name.
+        // The name of the agreement document.
         shared_ptr<string> name_ {};
-        // Protocol url.
+        // The URL of the agreement.
         shared_ptr<string> url_ {};
       };
 
@@ -314,14 +317,15 @@ namespace Models
 
 
     protected:
-      // Protocol document information about the service.
+      // The information about the service agreements.
       shared_ptr<vector<ServiceInfo::Agreements>> agreements_ {};
       // The URL of the service icon.
       shared_ptr<string> image_ {};
       // The language of the service. Valid values:
       // 
-      // *   zh-CN: Chinese
-      // *   en-US: English
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       shared_ptr<string> locale_ {};
       // The URL of the detailed description of the service.
       shared_ptr<string> longDescriptionUrl_ {};
@@ -329,7 +333,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The description of the service.
       shared_ptr<string> shortDescription_ {};
-      // The list of the software in the service.
+      // The information about the software used in the service.
       shared_ptr<vector<ServiceInfo::Softwares>> softwares_ {};
     };
 
@@ -548,61 +552,74 @@ namespace Models
 
 
   protected:
-    // The alert configurations of the service.
+    // The alert configurations for the service.
     // 
-    // >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+    // > This configuration takes effect only after you configure an alert-related access policy for **PolicyNames**.
     shared_ptr<string> alarmMetadata_ {};
-    // The approval type of the service usage application. Valid values:
+    // The approval type for service usage requests. Valid values:
     // 
-    // *   Manual: The application is manually approved.
-    // *   AutoPass: The application is automatically approved.
+    // - Manual: The request is manually approved.
+    // 
+    // - AutoPass: The request is automatically approved.
     shared_ptr<string> approvalType_ {};
-    // The Parameters to build service parameters.
+    // The parameters for building the service.
     shared_ptr<string> buildParameters_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure that the request is idempotent. You can use a client to generate the token. Make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The commodity details.
+    // The commodity information.
     shared_ptr<string> commodityShrink_ {};
-    // Compliance check metadata.
+    // The compliance check metadata.
     shared_ptr<string> complianceMetadataShrink_ {};
-    // The deployment configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+    // The information about the service deployment configuration. The data format varies based on the deployment type. The value is a JSON string.
     shared_ptr<string> deployMetadata_ {};
-    // The deployment type of the service. Valid values:
+    // The deployment type. Valid values:
     // 
-    // ros: The service is deployed by using Resource Orchestration Service (ROS).
-    // terraform: The service is deployed by using Terraform.
-    // ack: The service is deployed by using Container Service for Kubernetes (ACK).
-    // spi: The service is deployed by calling a service provider interface (SPI).
-    // operation: The service is deployed by using a hosted O&M service.
+    // - ros: The service is deployed using ROS.
+    // 
+    // - terraform: The service is deployed using Terraform.
+    // 
+    // - spi: The service is deployed by calling an SPI.
+    // 
+    // - operation: The service is an O\\&M service.
+    // 
+    // - container: The service is deployed using containers.
+    // 
+    // - pkg: The service is a package service.
     shared_ptr<string> deployType_ {};
-    // Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+    // Specifies whether to perform a dry run for the request. A dry run checks the permissions and the instance status. Valid values:
     // 
-    // *   true: performs a dry run for the request, but does not update a service.
-    // *   false: performs a dry run for the request, and update a service if the request passes the dry run.
+    // - true: sends the request but does not update the service.
+    // 
+    // - false: sends the request. If the check is successful, the service is updated.
     shared_ptr<bool> dryRun_ {};
-    // The duration for which hosted O\\&M is implemented. Unit: seconds.
+    // The O\\&M duration. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
     shared_ptr<bool> isDefault_ {};
-    // Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
+    // Specifies whether to enable O\\&M. Default value: false. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: enables O\\&M.
     // 
-    // >  This parameter is required if you set **ServiceType** to **private**.
+    // - false: disables O\\&M.
+    // 
+    // > This parameter is required when **ServiceType** is set to **private**.
     shared_ptr<bool> isSupportOperated_ {};
     // The license metadata.
     shared_ptr<string> licenseMetadata_ {};
-    // The logging configurations.
+    // The application log configurations.
     shared_ptr<string> logMetadata_ {};
-    // The hosted O\\&M configurations.
+    // The O\\&M configuration.
     shared_ptr<string> operationMetadata_ {};
-    // The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+    // The policy name. The name of a single policy can be up to 128 characters in length. If you specify multiple policies, separate them with commas (,). Only O\\&M-related policies are supported.
     shared_ptr<string> policyNames_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Whether resell is supported.
+    // Specifies whether to enable distribution. Valid values:
+    // 
+    // - false: Distribution is not enabled.
+    // 
+    // - true: Distribution is enabled.
     shared_ptr<bool> resellable_ {};
     // The service ID.
     // 
@@ -610,33 +627,43 @@ namespace Models
     shared_ptr<string> serviceId_ {};
     // The service details.
     shared_ptr<vector<UpdateServiceShrinkRequest::ServiceInfo>> serviceInfo_ {};
+    // The multilingual configurations of the service.
     shared_ptr<vector<UpdateServiceShrinkRequest::ServiceLocaleConfigs>> serviceLocaleConfigs_ {};
     // The service type. Valid values:
     // 
-    // *   private: The service is a private service and is deployed within the account of a customer.
-    // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-    // *   operation: The service is a hosted O\\&M service.
+    // - private: The service instance is deployed in the user account.
+    // 
+    // - managed: The service instance is deployed in the service provider account.
+    // 
+    // - operation: The service instance is an O\\&M instance.
+    // 
+    // - poc: The service instance is a trial instance.
     shared_ptr<string> serviceType_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // The permission type of the deployment URL. Valid values:
+    // The sharing type. Valid values:
     // 
-    // *   Public: All users can go to the URL to create a service instance or a trial service instance.
-    // *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-    // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-    // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-    // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+    // - Public: The service is public. Formal and trial deployments are not restricted.
+    // 
+    // - Restricted: The service is restricted. Formal and trial deployments are restricted.
+    // 
+    // - OnlyFormalRestricted: Only formal deployments are restricted.
+    // 
+    // - OnlyTrailRestricted: Only trial deployments are restricted.
+    // 
+    // - Hidden: The service is hidden. You cannot view the service or request deployment permissions.
     shared_ptr<string> shareType_ {};
-    // The type of the tenant. Valid values:
+    // The tenant type. Valid values:
     // 
-    // *   SingleTenant
-    // *   MultiTenant
+    // - SingleTenant: The service is single-tenant.
+    // 
+    // - MultiTenant: The service is multi-tenant.
     shared_ptr<string> tenantType_ {};
-    // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+    // The trial duration. Unit: days. The maximum trial duration is 30 days.
     shared_ptr<int32_t> trialDuration_ {};
-    // The update option.
+    // The update options.
     shared_ptr<string> updateOptionShrink_ {};
-    // The metadata about the upgrade.
+    // The upgrade metadata.
     shared_ptr<string> upgradeMetadata_ {};
     // The version name.
     shared_ptr<string> versionName_ {};

@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The notice ID.
+    // 
     // This parameter is required.
     shared_ptr<string> noticeId_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

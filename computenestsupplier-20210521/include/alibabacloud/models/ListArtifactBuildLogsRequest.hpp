@@ -82,7 +82,21 @@ namespace Models
 
 
     protected:
+      // The name of the filter.
+      // 
+      // Valid values:
+      // 
+      // - StartTime
+      // 
+      // - EndTime
+      // 
+      // - ApplicationGroupName
+      // 
+      // - ResouceName
+      // 
+      // - EventName
       shared_ptr<string> name_ {};
+      // The filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -141,14 +155,31 @@ namespace Models
 
 
   protected:
+    // The artifact ID.
+    // 
+    // You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact ID.
+    // 
     // This parameter is required.
     shared_ptr<string> artifactId_ {};
+    // The artifact version.
+    // 
+    // You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact version.
     shared_ptr<string> artifactVersion_ {};
+    // The filter.
     shared_ptr<vector<ListArtifactBuildLogsRequest::Filter>> filter_ {};
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next paged query.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The sort order. Valid values:
+    // 
+    // - **Ascending**: sorts the results in ascending order.
+    // 
+    // - **Descending** (default): sorts the results in descending order.
     shared_ptr<string> sortOrder_ {};
   };
 

@@ -57,17 +57,19 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The type of the resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // - service
-    // - serviceinstance
-    // - artifact
+    // - service: A service.
+    // 
+    // - serviceinstance: A service instance.
+    // 
+    // - artifact: A deployment.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

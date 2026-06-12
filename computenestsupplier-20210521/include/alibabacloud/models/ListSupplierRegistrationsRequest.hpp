@@ -76,15 +76,17 @@ namespace Models
 
 
     protected:
-      // Name of the filter field. Allowed values:
+      // The name of the filter. You can query by one or more filter names. Valid values:
       // 
-      // - SupplierUid: The aliUid of supplier.
-      // - SupplierName: The name of supplier.
-      // - RegistrationId: Registration ID.
+      // - SupplierUid: The UID of the service provider.
       // 
-      // - Status: Registration status. Allowed values: Submitted, Approved, Rejected.
+      // - RegistrationId: The review ID.
+      // 
+      // - Status: The review status.
+      // 
+      // - SupplierName: The name of the service provider.
       shared_ptr<string> name_ {};
-      // Filter value.
+      // The value of the filter condition.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -123,9 +125,9 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListSupplierRegistrationsRequest::Filter>> filter_ {};
-    // Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 

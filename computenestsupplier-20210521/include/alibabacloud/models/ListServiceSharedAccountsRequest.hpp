@@ -80,11 +80,9 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
-      // 
-      // *   Name: the name of the service.
+      // The name of the filter.
       shared_ptr<string> name_ {};
-      // The parameter value N of the filter. Valid values of N: 1 to 10.
+      // The list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -135,18 +133,19 @@ namespace Models
 
 
   protected:
-    // The filters.
+    // The filter.
     shared_ptr<vector<ListServiceSharedAccountsRequest::Filter>> filter_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token used to start the next query. Set this parameter to the NextToken value returned from the last API call.
     shared_ptr<string> nextToken_ {};
-    // The permissions on the service. Valid values:
+    // The permission type. Valid values:
     // 
-    // *   Deployable: Permissions to deploy the service.
-    // *   Accessible: Permissions to access the service.
+    // - Deployable: The service is deployable.
+    // 
+    // - Accessible: The service is accessible.
     shared_ptr<string> permission_ {};
-    // The region ID where the service instance resides.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

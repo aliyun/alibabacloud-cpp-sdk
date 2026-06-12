@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The list of zone IDs.
       shared_ptr<vector<string>> zoneIdList_ {};
     };
 
@@ -84,7 +85,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetNetworkAvailableZonesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

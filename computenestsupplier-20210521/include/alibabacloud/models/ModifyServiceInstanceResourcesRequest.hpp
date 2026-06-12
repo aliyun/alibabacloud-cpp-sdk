@@ -57,16 +57,17 @@ namespace Models
 
 
   protected:
-    // The imported resources.
+    // The resources to import.
     shared_ptr<string> resources_ {};
     // The ID of the service instance.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};
-    // The type of operation performed on the service instance resource. Valid values:
+    // The operation to perform on the resources of the service instance. Valid values:
     // 
-    // *   Import: The resource is imported.
-    // *   UnImport: The resource import is canceled.
+    // - Import: Imports resources.
+    // 
+    // - UnImport: Removes imported resources.
     shared_ptr<string> serviceInstanceResourcesAction_ {};
   };
 

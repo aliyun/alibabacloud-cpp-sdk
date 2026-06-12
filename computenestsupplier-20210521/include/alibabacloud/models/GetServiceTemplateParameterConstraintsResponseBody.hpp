@@ -194,17 +194,19 @@ namespace Models
     protected:
       // The valid values of the parameter.
       shared_ptr<vector<string>> allowedValues_ {};
-      // The names of the associated parameters.
+      // The list of associated parameters.
       shared_ptr<vector<string>> associationParameterNames_ {};
       // The behavior of the parameter. Valid values:
       // 
-      // *   NoLimit: The value of this parameter is not limited.
-      // *   NotSupport: The value of this parameter cannot be queried.
-      // *   QueryError: The query failed.
+      // - NoLimit: The parameter has no value limit.
       // 
-      // >  If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+      // - NotSupport: The parameter does not support value queries.
+      // 
+      // - QueryError: The query failed.
+      // 
+      // > If the query result does not include AllowedValues, Behavior and BehaviorReason are returned to describe the behavior of the parameter and the reason for the behavior.
       shared_ptr<string> behavior_ {};
-      // The reason why the behavior of the parameter is returned.
+      // The reason for the parameter behavior.
       shared_ptr<string> behaviorReason_ {};
       // The original constraint information.
       shared_ptr<vector<ParameterConstraints::OriginalConstraints>> originalConstraints_ {};
@@ -242,9 +244,9 @@ namespace Models
 
 
   protected:
-    // The constraint families.
+    // The family constraints.
     shared_ptr<vector<string>> familyConstraints_ {};
-    // The parameters in the template.
+    // The parameter information.
     shared_ptr<vector<GetServiceTemplateParameterConstraintsResponseBody::ParameterConstraints>> parameterConstraints_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

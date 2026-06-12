@@ -84,20 +84,21 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A unique identifier that you provide to ensure the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to enable Prometheus on the customer side. Valid values:
+    // Specifies whether to enable Prometheus on the client. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enables Prometheus.
+    // 
+    // - false: Disables Prometheus.
     shared_ptr<bool> enableUserPrometheus_ {};
-    // The name of the configuration update operation.
+    // The name of the upgrade or downgrade action.
     shared_ptr<string> operationName_ {};
     // The configuration parameters of the service instance.
     shared_ptr<string> parametersShrink_ {};
-    // The name of the specification package.
+    // The package name.
     shared_ptr<string> predefinedParametersName_ {};
-    // The service instance ID.
+    // The ID of the service instance.
     shared_ptr<string> serviceInstanceId_ {};
   };
 

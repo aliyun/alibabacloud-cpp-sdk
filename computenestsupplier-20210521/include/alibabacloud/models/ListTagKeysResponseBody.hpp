@@ -60,9 +60,9 @@ namespace Models
 
 
   protected:
-    // The tag keys.
+    // The list of tag keys.
     shared_ptr<vector<string>> keys_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token to retrieve the next page of results. This token is returned when the response is truncated.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

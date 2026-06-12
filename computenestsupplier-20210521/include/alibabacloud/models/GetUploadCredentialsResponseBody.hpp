@@ -129,9 +129,9 @@ namespace Models
       shared_ptr<string> accessKeySecret_ {};
       // The bucket name.
       shared_ptr<string> bucketName_ {};
-      // The time when the AccessKey pair expires.
+      // The time when the permissions expire.
       shared_ptr<string> expireDate_ {};
-      // The name of the key.
+      // The specific key.
       shared_ptr<string> key_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -186,17 +186,17 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return code of the call.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // The returned data.
     shared_ptr<GetUploadCredentialsResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message returned.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. A value of true indicates the request was successful. A value of false indicates the request failed.
+    // Indicates whether the call was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

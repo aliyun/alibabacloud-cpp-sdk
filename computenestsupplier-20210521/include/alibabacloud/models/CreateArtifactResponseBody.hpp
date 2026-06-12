@@ -167,35 +167,35 @@ namespace Models
 
 
   protected:
-    // The build properties of the artifact, utilized for hosting and building the deployment package.
+    // The content used to build the artifact. This parameter is used for managed artifact builds.
     shared_ptr<string> artifactBuildProperty_ {};
-    // The type of the deployment package to be built.
+    // The type of the built artifact.
     shared_ptr<string> artifactBuildType_ {};
-    // The ID of the deployment package.
+    // The artifact ID.
     shared_ptr<string> artifactId_ {};
-    // The properties of the deployment object.
+    // The content of the artifact.
     shared_ptr<string> artifactProperty_ {};
-    // The type of the deployment package.
+    // The artifact type.
     shared_ptr<string> artifactType_ {};
-    // The version of the deployment package.
+    // The artifact version.
     shared_ptr<string> artifactVersion_ {};
-    // The description of the deployment package.
+    // The description of the artifact.
     shared_ptr<string> description_ {};
-    // The time when the deployment package was modified.
+    // The time when the artifact was modified.
     shared_ptr<string> gmtModified_ {};
-    // The latest version of the deployment package.
+    // The latest version of the artifact.
     shared_ptr<int64_t> maxVersion_ {};
-    // The name of the deployment package.
+    // The artifact name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the deployment package. Valid values:
+    // The status of the artifact.
     shared_ptr<string> status_ {};
-    // The status of the deployment package.
+    // The description of the artifact status.
     shared_ptr<string> statusDetail_ {};
-    // The ID of the region that supports the deployment package.
+    // The IDs of the regions to which the artifact is distributed.
     shared_ptr<string> supportRegionIds_ {};
-    // The name of the deployment package.
+    // The name of the artifact version.
     shared_ptr<string> versionName_ {};
   };
 

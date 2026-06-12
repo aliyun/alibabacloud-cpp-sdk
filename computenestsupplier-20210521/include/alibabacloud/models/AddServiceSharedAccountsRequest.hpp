@@ -76,14 +76,15 @@ namespace Models
 
 
     protected:
-      // The permissions on the service. Valid values:
+      // The permission type. Valid values:
       // 
-      // *   Deployable: Permissions to deploy the service.
-      // *   Accessible: Permissions to access the service.
+      // - Deployable: The service can be deployed.
+      // 
+      // - Accessible: The service can be accessed.
       // 
       // This parameter is required.
       shared_ptr<string> permission_ {};
-      // The Alibaba Cloud account ID of the user.
+      // The UID of the Alibaba Cloud account.
       // 
       // This parameter is required.
       shared_ptr<string> userAliUid_ {};
@@ -129,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A unique identifier that you provide to ensure the idempotence of the request. The token can contain only ASCII characters and cannot be longer than 64 characters.
     shared_ptr<string> clientToken_ {};
     // The region ID.
     // 
@@ -139,14 +140,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The shared account and permissions of the service.
+    // The shared accounts and their permissions.
     // 
     // This parameter is required.
     shared_ptr<vector<AddServiceSharedAccountsRequest::SharedAccounts>> sharedAccounts_ {};
-    // The share type of the service. Default value: SharedAccount. Valid values:
+    // The service sharing type. The default value is SharedAccount. Valid values:
     // 
-    // *   SharedAccount: The service is shared by multiple accounts.
-    // *   Reseller: The service is distributed.
+    // - SharedAccount: The service is shared with a specified account.
+    // 
+    // - Reseller: The service is shared with a reseller.
     shared_ptr<string> type_ {};
   };
 

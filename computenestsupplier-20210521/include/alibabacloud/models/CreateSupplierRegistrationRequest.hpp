@@ -200,35 +200,49 @@ namespace Models
 
 
   protected:
-    // Contact email
+    // The email address of the contact person.
     // 
     // This parameter is required.
     shared_ptr<string> contactEmail_ {};
-    // Contact number
+    // The phone number of the contact person.
     // 
     // This parameter is required.
     shared_ptr<string> contactNumber_ {};
-    // Contact person
+    // The contact person.
     // 
     // This parameter is required.
     shared_ptr<string> contactPerson_ {};
-    // Contact person tiltle
+    // The title of the contact person.
     // 
     // This parameter is required.
     shared_ptr<string> contactPersonTitle_ {};
-    // Whether to enable the resell mode
+    // Specifies whether to enable distribution.
     shared_ptr<bool> enableResellerMode_ {};
-    // Annual product revenue
+    // The annual revenue of the product.
     shared_ptr<string> productAnnualRevenue_ {};
-    // The business of product
+    // The industry of the service provider\\"s product.
     shared_ptr<string> productBusiness_ {};
-    // Product delivery type
+    // The delivery methods of the service provider\\"s product. Valid values:
+    // 
+    // - SaaS
+    // 
+    // - License
+    // 
+    // - API
+    // 
+    // - DesktopSoftware
+    // 
+    // - Others
     // 
     // This parameter is required.
     shared_ptr<vector<string>> productDeliveryTypes_ {};
-    // The publish time of product
+    // The launch date of the product.
     shared_ptr<string> productPublishTime_ {};
-    // Product sell type
+    // The sales models of the service provider\\"s product. Valid values:
+    // 
+    // - Direct: Direct sales
+    // 
+    // - Channel: Channel sales
     // 
     // This parameter is required.
     shared_ptr<vector<string>> productSellTypes_ {};
@@ -236,25 +250,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The description of resell business.
+    // The description of the distribution business.
     shared_ptr<string> resellBusinessDesc_ {};
-    // The demands of service providers.
+    // The suggestions from the service provider.
     shared_ptr<string> suggestion_ {};
-    // The description of service provider.
+    // The description of the service provider.
     // 
     // This parameter is required.
     shared_ptr<string> supplierDesc_ {};
-    // The Logo of service provider.
+    // The icon of the service provider.
     shared_ptr<string> supplierLogo_ {};
     // The name of the service provider.
     // 
     // This parameter is required.
     shared_ptr<string> supplierName_ {};
-    // The english name of the service provider.
+    // The English name of the service provider.
     // 
     // This parameter is required.
     shared_ptr<string> supplierNameEn_ {};
-    // The URL of the service provider.
+    // The supplier\\"s address.
     // 
     // This parameter is required.
     shared_ptr<string> supplierUrl_ {};

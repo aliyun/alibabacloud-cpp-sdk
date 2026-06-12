@@ -124,19 +124,56 @@ namespace Models
 
 
   protected:
+    // The properties of the O\\&M item.
     shared_ptr<string> attributesShrink_ {};
+    // The category of the notice. Valid values:
+    // 
+    // - Availability
+    // 
+    // - Cost
+    // 
+    // - Performance
+    // 
+    // - Recovery
+    // 
+    // - Security
+    // 
     // This parameter is required.
     shared_ptr<string> category_ {};
+    // A client token to ensure that the request is idempotent. Generate a unique token for each request. The token can contain only ASCII characters. Note: If you do not set this parameter, the system uses the RequestId as the ClientToken. The RequestId may be different for each request.
     shared_ptr<string> clientToken_ {};
+    // The content of the notice.
+    // 
     // This parameter is required.
     shared_ptr<string> content_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The service versions to which the notice applies.
     shared_ptr<vector<string>> serviceVersion_ {};
+    // The severity level of the notice. Valid values:
+    // 
+    // - Critical
+    // 
+    // - High
+    // 
+    // - Medium
+    // 
+    // - Low
+    // 
     // This parameter is required.
     shared_ptr<string> severity_ {};
+    // The solution.
     shared_ptr<string> solutions_ {};
+    // The type of the notice. Valid values:
+    // 
+    // - ServiceInstanceUpgrade: Upgrade
+    // 
+    // - VulnerabilityFix: Vulnerability
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

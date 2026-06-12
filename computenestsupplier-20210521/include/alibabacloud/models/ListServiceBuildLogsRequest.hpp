@@ -80,7 +80,17 @@ namespace Models
 
 
     protected:
+      // The name of the filter. You can specify one or more filter names. Valid values:
+      // 
+      // - ServiceId: The service ID.
+      // 
+      // - Name: The service name.
+      // 
+      // - Status: The service status.
+      // 
+      // - SupplierName: The service provider name.
       shared_ptr<string> name_ {};
+      // The list of filter values. The list can contain from 1 to 10 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -131,13 +141,25 @@ namespace Models
 
 
   protected:
+    // The filter.
     shared_ptr<vector<ListServiceBuildLogsRequest::Filter>> filter_ {};
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to retrieve the next page of results. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // The sort order. Valid values:
+    // 
+    // - **Ascending**: Ascending
+    // 
+    // - **Descending** (default): Descending
     shared_ptr<string> sortOrder_ {};
   };
 

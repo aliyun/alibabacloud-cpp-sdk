@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+    // A client token to ensure the idempotence of the request. Generate a unique value from your client. This value must be unique for each request and can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service registration ID.
+    // The ID of the service review request.
     // 
     // This parameter is required.
     shared_ptr<string> registrationId_ {};

@@ -122,13 +122,17 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more filters. Valid values:
+      // The name of the filter. You can specify one or more filter names to query artifacts.
       // 
-      // *   *Name*: The name of the deployment package. Fuzzy match is used.
-      // *   ArtifactId: The ID of the deployment package.
-      // *   ArtifactType: The type of the deployment package.
+      // Valid values:
+      // 
+      // - Name: Performs a fuzzy query by artifact name.
+      // 
+      // - ArtifactId: The artifact ID.
+      // 
+      // - ArtifactType: The artifact type.
       shared_ptr<string> name_ {};
-      // The parameter values of the filter.
+      // A list of filter values.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -176,13 +180,13 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListArtifactsRequest::Filter>> filter_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The query token. Set it to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags.
+    // The tag.
     shared_ptr<vector<ListArtifactsRequest::Tag>> tag_ {};
   };
 

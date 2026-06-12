@@ -79,9 +79,9 @@ namespace Models
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
-    // The License Data
+    // The license data.
     shared_ptr<string> licenseDataShrink_ {};
-    // Application reason, currently used for trial application extension.
+    // The reason for the request. This parameter is used to extend a trial.
     shared_ptr<string> reason_ {};
     // The region ID.
     // 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The unique ID of the task.
     shared_ptr<string> taskId_ {};
   };
 

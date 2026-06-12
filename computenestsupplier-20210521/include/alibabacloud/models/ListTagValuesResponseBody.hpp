@@ -60,11 +60,11 @@ namespace Models
 
 
   protected:
-    // A pagination token.
+    // The query token. This is the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information of the tag values.
+    // The tag values.
     shared_ptr<vector<string>> values_ {};
   };
 

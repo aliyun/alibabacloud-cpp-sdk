@@ -198,42 +198,49 @@ namespace Models
 
 
     protected:
-      // The commodity code of the service in Alibaba Cloud Marketplace.
+      // The commodity code of the product in Alibaba Cloud Marketplace.
       // 
-      // >  This parameter is available only if the deployment package is an image.
+      // Obtain the commodity code in the [Alibaba Cloud Marketplace console](https://market.console.aliyun.com/?spm=a2c4g.11186623.0.0.599d6787eMBBxu#/apiTools?_k=d7j8gk).
+      // 
+      // > This parameter can be set only when the artifact is an image artifact.
       shared_ptr<string> commodityCode_ {};
-      // The commodity version of the service in Alibaba Cloud Marketplace.
+      // The version of the product in Alibaba Cloud Marketplace.
       // 
-      // >  This parameter is available only if the deployment package is an image.
+      // View the product version on the [Alibaba Cloud Marketplace](https://market.aliyun.com/?spm=5176.24779694.0.0.b2144d22sksKM5) page.
+      // 
+      // > This parameter can be set only when the artifact is an image artifact.
       shared_ptr<string> commodityVersion_ {};
       // The image ID.
       // 
-      // >  This parameter is available only if the deployment package is an image.
-      shared_ptr<string> imageId_ {};
-      // The region ID.
+      // After you specify a region ID, call the [DescribeImages](https://help.aliyun.com/document_detail/2679797.html) operation to view the available image IDs in the specified region.
       // 
-      // >  This parameter is available only if the deployment package is an image.
+      // > This parameter can be set only when the artifact is an image artifact.
+      shared_ptr<string> imageId_ {};
+      // The region of the image.
+      // 
+      // > This parameter can be set only when the artifact is an image artifact.
       shared_ptr<string> regionId_ {};
       // The ID of the image repository.
       // 
-      // >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+      // Call the [ListAcrImageRepositories](https://help.aliyun.com/document_detail/2539919.html) operation to obtain the image repository ID.
+      // 
+      // > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
       shared_ptr<string> repoId_ {};
       // The name of the image repository.
       // 
-      // >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+      // > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
       shared_ptr<string> repoName_ {};
-      // The default repository type. Valid values:
-      // 
-      // *   `Public`: a public repository.
-      // *   `Private`: a private repository.
-      // 
-      // You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+      // The type of the repository. Valid values: Public and Private.
       shared_ptr<string> repoType_ {};
-      // The version tag of the image repository.
+      // The version of the image in the image repository.
       // 
-      // >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+      // Call the [ListAcrImageTags](https://help.aliyun.com/document_detail/2539920.html) operation to obtain the version of the image in the image repository.
+      // 
+      // > This parameter can be set only when the artifact is a container image artifact or a Helm chart artifact.
       shared_ptr<string> tag_ {};
-      // The object URL of the deployment package.
+      // The URL of the file artifact.
+      // 
+      // Upload a file and obtain its URL in the [Object Storage Service console](https://oss.console.aliyun.com/bucket).
       shared_ptr<string> url_ {};
     };
 
@@ -358,28 +365,29 @@ namespace Models
 
 
       protected:
-        // The name of the branch in the code repository.
+        // The name of the code repository branch.
         shared_ptr<string> branch_ {};
-        // The endpoint. 
-        // The URL address used to access the privately deployed GitLab instance.
+        // The endpoint. This parameter is required for a private GitLab deployment.
         shared_ptr<string> endpoint_ {};
         // The organization ID.
         shared_ptr<string> orgId_ {};
         // The owner of the code repository.
         // 
-        // >  This parameter is available only if the git repository is private.
+        // > This parameter is required only when the code repository is a private repository.
         shared_ptr<string> owner_ {};
-        // The platform type. Valid values: 
+        // The platform where the code repository is located. Valid values:
         // 
         // - github
         // 
         // - gitee
+        // 
         // - gitlab
+        // 
         // - codeup
         shared_ptr<string> platform_ {};
         // The repository ID.
         shared_ptr<int64_t> repoId_ {};
-        // The name of the repository.
+        // The repository name.
         shared_ptr<string> repoName_ {};
       };
 
@@ -421,9 +429,9 @@ namespace Models
 
 
       protected:
-        // The name of a specific build argument.
+        // The name of the build argument.
         shared_ptr<string> argumentName_ {};
-        // The value of a specific build argument.
+        // The value of the build argument.
         shared_ptr<string> argumentValue_ {};
       };
 
@@ -505,51 +513,55 @@ namespace Models
 
 
     protected:
-      // The build arguments used during the image build process.
+      // The build arguments.
       // 
-      // >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+      // > This parameter can be set only when ArtifactBuildType is set to Dockerfile.
       shared_ptr<vector<ArtifactBuildProperty::BuildArgs>> buildArgs_ {};
-      // The address of the code repository.
+      // The code repository address.
       // 
-      // >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+      // > This parameter can be set only when ArtifactBuildType is set to Dockerfile or Buildpacks.
       shared_ptr<ArtifactBuildProperty::CodeRepo> codeRepo_ {};
-      // The command content.
+      // The content of the command.
       // 
-      // >  This parameter is available only if the deployment package is a ecs image type.
+      // > This parameter can be set only when the artifact is an ECS image artifact.
       shared_ptr<string> commandContent_ {};
       // The command type. Valid values:
       // 
-      // *   RunBatScript: batch command, applicable to Windows instances.
-      // *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
-      // *   RunShellScript: shell command, applicable to Linux instances.
+      // - RunBatScript: The command is a BAT script that runs on a Windows instance.
       // 
-      // >  This parameter is available only if the deployment package is a ecs image type.
+      // - RunPowerShellScript: The command is a PowerShell script that runs on a Windows instance.
+      // 
+      // - RunShellScript: The command is a shell script that runs on a Linux instance.
+      // 
+      // > This parameter can be set only when the artifact is an ECS image artifact.
       shared_ptr<string> commandType_ {};
-      // The relative path to the Dockerfile within the code repository.
+      // The relative address of the Dockerfile file in the code repository.
       // 
-      // >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+      // Default value: Dockerfile.
+      // 
+      // > This parameter can be set only when ArtifactBuildType is set to Dockerfile.
       shared_ptr<string> dockerfilePath_ {};
-      // Whether GPU is required. CPU instance is used by default.
+      // Specifies whether to use a GPU-accelerated instance. By default, a CPU-powered instance is used.
       shared_ptr<bool> enableGpu_ {};
-      // The region ID where the source mirror image is located.
+      // The ID of the region where the source image is located.
       // 
-      // >  This parameter is available only if the deployment package is a ecs image type.
+      // > This parameter can be set only when the artifact is an ECS image artifact.
       shared_ptr<string> regionId_ {};
-      // The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+      // The pull address of the source container image.
       // 
-      // >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+      // Used for docker pull ${SourceContainerImage}.
+      // 
+      // > This parameter can be set only when ArtifactBuildType is set to ContainerImage.
       shared_ptr<string> sourceContainerImage_ {};
-      // The source image id. Supported Types:
+      // The source image ID. The following types are supported:
       // 
-      // - Image ID: Pass the Image ID of the Ecs image directly.
+      // - Image ID: The ID of the ECS image.
       // 
-      // - OOS Common Parameter Name: Obtain the corresponding Image ID automatically by using the OOS common parameter name.
+      // - OOS public parameter name: The image ID is automatically obtained based on the name of the Operation Orchestration Service (OOS) public parameter.
       // 
-      // >  This parameter is available only if the deployment package is a ecs image type.
+      // > This parameter can be set only when the artifact is an ECS image artifact.
       shared_ptr<string> sourceImageId_ {};
       // The size of the system disk. Unit: GiB.
-      // 
-      // >  The system disk must be at least as large as the image.
       shared_ptr<int64_t> systemDiskSize_ {};
     };
 
@@ -650,46 +662,57 @@ namespace Models
 
 
   protected:
-    // The build properties of the artifact, utilized for hosting and building the deployment package.
+    // The content used to build the artifact. This parameter is used for managed artifact builds.
     shared_ptr<CreateArtifactRequest::ArtifactBuildProperty> artifactBuildProperty_ {};
-    // The type of the artifact build task. Valid values:
+    // The type of the artifact to be built. Valid values:
     // 
-    // - EcsImage: Build ECS (Elastic Container Service) image.
+    // - EcsImage: builds an ECS image.
     // 
-    // - Dockerfile: Build container image based on Dockerfile.
+    // - Dockerfile: builds a container image based on a Dockerfile.
     // 
-    // - Buildpacks: Build container image based on Buildpacks.
+    // - Buildpacks: builds a container image based on Buildpacks.
     // 
-    // - ContainerImage: Rebuild container image by renaming an existing container image.
+    // - ContainerImage: builds a container image by renaming an existing container image.
     shared_ptr<string> artifactBuildType_ {};
-    // The ID of the deployment package.
-    shared_ptr<string> artifactId_ {};
-    // The properties of the deployment object.
-    shared_ptr<CreateArtifactRequest::ArtifactProperty> artifactProperty_ {};
-    // The type of the deployment package. Valid values:
+    // The artifact ID.
     // 
-    // *   EcsImage: Elastic Compute Service (ECS) image.
-    // *   AcrImage: container image.
-    // *   File: Object Storage Service (OSS) object.
-    // *   Script: script.
+    // This parameter is required to create a new version of an existing artifact.
+    // 
+    // You can call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation to obtain the artifact ID.
+    shared_ptr<string> artifactId_ {};
+    // The content of the artifact.
+    shared_ptr<CreateArtifactRequest::ArtifactProperty> artifactProperty_ {};
+    // The artifact type.
+    // 
+    // Valid values:
+    // 
+    // - EcsImage: an ECS image artifact.
+    // 
+    // - AcrImage: a container image artifact.
+    // 
+    // - File: an Object Storage Service (OSS) file artifact.
+    // 
+    // - Script: a script artifact.
+    // 
+    // - HelmChart: a Helm chart artifact.
     // 
     // This parameter is required.
     shared_ptr<string> artifactType_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The description of the deployment package.
+    // The description of the artifact.
     shared_ptr<string> description_ {};
-    // The name of the deployment package.
+    // The artifact name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The supported regions.
+    // The regions where the image can be distributed.
     shared_ptr<vector<string>> supportRegionIds_ {};
     // The custom tags.
     shared_ptr<vector<CreateArtifactRequest::Tag>> tag_ {};
-    // The version name of the deployment package.
+    // The name of the artifact version.
     // 
     // This parameter is required.
     shared_ptr<string> versionName_ {};

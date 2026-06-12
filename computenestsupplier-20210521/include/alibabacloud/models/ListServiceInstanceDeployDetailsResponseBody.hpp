@@ -195,41 +195,43 @@ namespace Models
 
 
     protected:
-      // The total number of entries that meet the specified conditions.
+      // The number of rows in the aggregate data.
       shared_ptr<string> count_ {};
-      // The time when the service instance was created.
+      // The time when the entry was created.
       shared_ptr<string> createTime_ {};
-      // The period over which data is aggregated.
+      // The aggregation period.
       shared_ptr<string> cycle_ {};
-      // The indicates whether the deployment was successful.
+      // Indicates whether the deployment was successful.
       shared_ptr<string> deploySucceeded_ {};
-      // The error code.
+      // The error code returned when the deployment failed.
       shared_ptr<string> errorCode_ {};
-      // The error description.
+      // The error details.
       shared_ptr<string> errorDetail_ {};
-      // The type of error that caused the deployment to fail.
+      // The type of the error that occurred when the deployment failed.
       shared_ptr<string> errorType_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
       // The service instance ID.
       shared_ptr<string> serviceInstanceId_ {};
-      // The name of the service in Chinese.
+      // The Chinese name of the service.
       shared_ptr<string> serviceNameChn_ {};
-      // The name of the service in English.
+      // The English name of the service.
       shared_ptr<string> serviceNameEng_ {};
-      // The type of service. 
+      // The service type.
       // 
-      // Possible values:
+      // Valid values:
       // 
-      // - private: Deployed under the user\\"s account.
-      // - managed: Hosted under the service provider\\"s account.
-      // - operation: Managed operation service.
+      // - private: The service is deployed in the user\\"s account.
+      // 
+      // - managed: The service is hosted in the service provider\\"s account.
+      // 
+      // - operation: The service is an Alibaba Cloud Managed Service.
       shared_ptr<string> serviceType_ {};
       // The service version.
       shared_ptr<string> serviceVersion_ {};
-      // The timestamp when the response is returned.
+      // The timestamp.
       shared_ptr<string> timestamp_ {};
-      // The aliuid of user.
+      // The user ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -273,15 +275,15 @@ namespace Models
 
 
   protected:
-    // The details of the service instance deployment.
+    // The deployment details of the service instance.
     shared_ptr<vector<ListServiceInstanceDeployDetailsResponseBody::DeployDetails>> deployDetails_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

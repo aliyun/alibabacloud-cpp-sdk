@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The service test config
+    // The service test config.
     shared_ptr<string> testConfig_ {};
   };
 

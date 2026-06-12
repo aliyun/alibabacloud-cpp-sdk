@@ -170,20 +170,57 @@ namespace Models
 
 
   protected:
+    // The non-public properties of the O\\&M item.
     shared_ptr<string> attributes_ {};
+    // The category. Valid values:
+    // 
+    // - Availability
+    // 
+    // - Cost
+    // 
+    // - Performance
+    // 
+    // - Recovery: backup and recovery
+    // 
+    // - Security
     shared_ptr<string> category_ {};
+    // The message content.
     shared_ptr<string> content_ {};
+    // The ID of the notice.
     shared_ptr<string> noticeId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The number of service instances involved.
     shared_ptr<string> serviceInstanceCount_ {};
+    // The service name.
     shared_ptr<string> serviceName_ {};
+    // The list of published service versions.
     shared_ptr<vector<string>> serviceVersions_ {};
+    // The severity of the O\\&M item. Valid values:
+    // 
+    // - Critical
+    // 
+    // - High
+    // 
+    // - Medium
+    // 
+    // - Low
     shared_ptr<string> severity_ {};
+    // The solutions.
     shared_ptr<string> solutions_ {};
+    // The start time.
     shared_ptr<string> startTime_ {};
+    // Indicates whether the operation was successful. A value of **true** indicates success.
     shared_ptr<string> success_ {};
+    // The type of the notice. Valid values:
+    // 
+    // - ServiceInstanceUpgrade: upgrade
+    // 
+    // - VulnerabilityFix: vulnerability
     shared_ptr<string> type_ {};
+    // The number of users who received the notice.
     shared_ptr<string> userCount_ {};
   };
 

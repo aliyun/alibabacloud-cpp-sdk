@@ -105,13 +105,13 @@ namespace Models
     protected:
       // The time when the task was created.
       shared_ptr<string> createTime_ {};
-      // the status of service task.
+      // The execution status.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The task region id.
+      // The region where the task was executed.
       shared_ptr<string> taskRegionId_ {};
     };
 
@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // The total number of entries returned.
+    // The number of tasks.
     shared_ptr<int32_t> count_ {};
-    // The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token that is used in the next request to retrieve a new page of results. If this parameter is not returned, it indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The service test tasks.
+    // The collection of service test tasks.
     shared_ptr<vector<ListServiceTestTasksResponseBody::ServiceTestTasks>> serviceTestTasks_ {};
   };
 

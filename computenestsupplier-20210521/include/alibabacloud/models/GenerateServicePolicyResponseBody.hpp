@@ -83,11 +83,11 @@ namespace Models
 
 
     protected:
-      // Operations on specific resources.
+      // The action in the access policy.
       shared_ptr<vector<string>> action_ {};
-      // The specific objects authorized. An asterisk (*) denotes all resources.
+      // The resource to which the permissions are granted. An asterisk (\\*) indicates all resources.
       shared_ptr<string> resource_ {};
-      // The name of the service.
+      // The name of the service to which the access policy belongs.
       shared_ptr<string> serviceName_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The policies that are missing.
+    // The missing access policies.
     shared_ptr<vector<GenerateServicePolicyResponseBody::MissingPolicy>> missingPolicy_ {};
-    // The RAM policy.
+    // The information about the access policy.
     shared_ptr<string> policy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

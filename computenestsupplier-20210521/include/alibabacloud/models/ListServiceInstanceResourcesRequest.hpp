@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       shared_ptr<string> value_ {};
     };
 
@@ -126,13 +126,17 @@ namespace Models
 
 
     protected:
-      // Vaild values:
+      // The filter name. You can specify one or more filter names to query resources. Valid values:
+      // 
       // - ExpireTimeStart
+      // 
       // - ExpireTimeEnd
+      // 
       // - PayType
+      // 
       // - ResourceARN
       shared_ptr<string> name_ {};
-      // A value of the filter condition.
+      // The filter value.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -195,23 +199,23 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListServiceInstanceResourcesRequest::Filters>> filters_ {};
-    // The maximum number of entries per page.
-    // 
-    // Valid values: 1 to 100.
-    // 
-    // Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The query token. Set this to the NextToken value returned from the previous API call to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The region ID where the service instance resides.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the service instance.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};
-    // Service Instance resource type，include AliyunResource and ContainerResource.
+    // The type of the resource in the service instance. Valid values:
+    // 
+    // - AliyunResource: an Alibaba Cloud resource.
+    // 
+    // - ContainerResource: a pod.
     shared_ptr<string> serviceInstanceResourceType_ {};
-    // The tags.
+    // The resource tags.
     shared_ptr<vector<ListServiceInstanceResourcesRequest::Tag>> tag_ {};
   };
 

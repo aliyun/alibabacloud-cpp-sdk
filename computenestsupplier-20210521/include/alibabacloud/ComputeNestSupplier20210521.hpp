@@ -21,7 +21,7 @@ namespace ComputeNestSupplier20210521
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Adds a shared account of a service.
+       * @summary Adds shared accounts for a service.
        *
        * @param request AddServiceSharedAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace ComputeNestSupplier20210521
       Models::AddServiceSharedAccountsResponse addServiceSharedAccountsWithOptions(const Models::AddServiceSharedAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a shared account of a service.
+       * @summary Adds shared accounts for a service.
        *
        * @param request AddServiceSharedAccountsRequest
        * @return AddServiceSharedAccountsResponse
@@ -38,7 +38,7 @@ namespace ComputeNestSupplier20210521
       Models::AddServiceSharedAccountsResponse addServiceSharedAccounts(const Models::AddServiceSharedAccountsRequest &request);
 
       /**
-       * @summary Merchant uses service request
+       * @summary Approves a service usage request.
        *
        * @param request ApproveServiceUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace ComputeNestSupplier20210521
       Models::ApproveServiceUsageResponse approveServiceUsageWithOptions(const Models::ApproveServiceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Merchant uses service request
+       * @summary Approves a service usage request.
        *
        * @param request ApproveServiceUsageRequest
        * @return ApproveServiceUsageResponse
@@ -55,9 +55,9 @@ namespace ComputeNestSupplier20210521
       Models::ApproveServiceUsageResponse approveServiceUsage(const Models::ApproveServiceUsageRequest &request);
 
       /**
-       * @summary Cancel service registration.
+       * @summary Cancels a service review request.
        *
-       * @description Only service registration in the Submitted status can be canceled.
+       * @description Service review requests can be canceled only if they are in the Submitted state.
        *
        * @param request CancelServiceRegistrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -66,9 +66,9 @@ namespace ComputeNestSupplier20210521
       Models::CancelServiceRegistrationResponse cancelServiceRegistrationWithOptions(const Models::CancelServiceRegistrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Cancel service registration.
+       * @summary Cancels a service review request.
        *
-       * @description Only service registration in the Submitted status can be canceled.
+       * @description Service review requests can be canceled only if they are in the Submitted state.
        *
        * @param request CancelServiceRegistrationRequest
        * @return CancelServiceRegistrationResponse
@@ -76,7 +76,7 @@ namespace ComputeNestSupplier20210521
       Models::CancelServiceRegistrationResponse cancelServiceRegistration(const Models::CancelServiceRegistrationRequest &request);
 
       /**
-       * @summary Redeploys a service instance after the service instance failed to be deployed.
+       * @summary Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
        *
        * @param request ContinueDeployServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -85,7 +85,7 @@ namespace ComputeNestSupplier20210521
       Models::ContinueDeployServiceInstanceResponse continueDeployServiceInstanceWithOptions(const Models::ContinueDeployServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Redeploys a service instance after the service instance failed to be deployed.
+       * @summary Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
        *
        * @param request ContinueDeployServiceInstanceRequest
        * @return ContinueDeployServiceInstanceResponse
@@ -93,7 +93,7 @@ namespace ComputeNestSupplier20210521
       Models::ContinueDeployServiceInstanceResponse continueDeployServiceInstance(const Models::ContinueDeployServiceInstanceRequest &request);
 
       /**
-       * @summary Creates a deployment package.
+       * @summary Creates an artifact.
        *
        * @param tmpReq CreateArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +102,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateArtifactResponse createArtifactWithOptions(const Models::CreateArtifactRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a deployment package.
+       * @summary Creates an artifact.
        *
        * @param request CreateArtifactRequest
        * @return CreateArtifactResponse
@@ -110,7 +110,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateArtifactResponse createArtifact(const Models::CreateArtifactRequest &request);
 
       /**
-       * @summary 创建运维公告
+       * @summary Creates an operations and maintenance (O&M) notice.
        *
        * @param tmpReq CreateOpsNoticeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -119,7 +119,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateOpsNoticeResponse createOpsNoticeWithOptions(const Models::CreateOpsNoticeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建运维公告
+       * @summary Creates an operations and maintenance (O&M) notice.
        *
        * @param request CreateOpsNoticeRequest
        * @return CreateOpsNoticeResponse
@@ -127,7 +127,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateOpsNoticeResponse createOpsNotice(const Models::CreateOpsNoticeRequest &request);
 
       /**
-       * @summary Creates a service.
+       * @summary Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
        *
        * @param tmpReq CreateServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -136,7 +136,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceResponse createServiceWithOptions(const Models::CreateServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service.
+       * @summary Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
        *
        * @param request CreateServiceRequest
        * @return CreateServiceResponse
@@ -144,7 +144,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceResponse createService(const Models::CreateServiceRequest &request);
 
       /**
-       * @summary Creates and deploys a service instance.
+       * @summary You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
        *
        * @param tmpReq CreateServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -153,7 +153,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceInstanceResponse createServiceInstanceWithOptions(const Models::CreateServiceInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates and deploys a service instance.
+       * @summary You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
        *
        * @param request CreateServiceInstanceRequest
        * @return CreateServiceInstanceResponse
@@ -161,7 +161,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceInstanceResponse createServiceInstance(const Models::CreateServiceInstanceRequest &request);
 
       /**
-       * @summary Create service test case.
+       * @summary Creates a service test case.
        *
        * @param request CreateServiceTestCaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +170,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceTestCaseResponse createServiceTestCaseWithOptions(const Models::CreateServiceTestCaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create service test case.
+       * @summary Creates a service test case.
        *
        * @param request CreateServiceTestCaseRequest
        * @return CreateServiceTestCaseResponse
@@ -178,7 +178,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceTestCaseResponse createServiceTestCase(const Models::CreateServiceTestCaseRequest &request);
 
       /**
-       * @summary Create service test task
+       * @summary Creates a test task for a service.
        *
        * @param request CreateServiceTestTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +187,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceTestTaskResponse createServiceTestTaskWithOptions(const Models::CreateServiceTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create service test task
+       * @summary Creates a test task for a service.
        *
        * @param request CreateServiceTestTaskRequest
        * @return CreateServiceTestTaskResponse
@@ -195,7 +195,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceTestTaskResponse createServiceTestTask(const Models::CreateServiceTestTaskRequest &request);
 
       /**
-       * @summary Create  Service resell application.
+       * @summary You can create a service distribution request.
        *
        * @param request CreateServiceUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -204,7 +204,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceUsageResponse createServiceUsageWithOptions(const Models::CreateServiceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create  Service resell application.
+       * @summary You can create a service distribution request.
        *
        * @param request CreateServiceUsageRequest
        * @return CreateServiceUsageResponse
@@ -212,7 +212,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateServiceUsageResponse createServiceUsage(const Models::CreateServiceUsageRequest &request);
 
       /**
-       * @summary Register as a service provider
+       * @summary Registers a service provider.
        *
        * @param request CreateSupplierRegistrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -221,7 +221,7 @@ namespace ComputeNestSupplier20210521
       Models::CreateSupplierRegistrationResponse createSupplierRegistrationWithOptions(const Models::CreateSupplierRegistrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Register as a service provider
+       * @summary Registers a service provider.
        *
        * @param request CreateSupplierRegistrationRequest
        * @return CreateSupplierRegistrationResponse
@@ -229,7 +229,10 @@ namespace ComputeNestSupplier20210521
       Models::CreateSupplierRegistrationResponse createSupplierRegistration(const Models::CreateSupplierRegistrationRequest &request);
 
       /**
-       * @summary 删除Acr镜像仓库
+       * @summary Deletes ACR image repositories.
+       *
+       * @description ### Prerequisites
+       * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
        *
        * @param request DeleteAcrImageRepositoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -238,7 +241,10 @@ namespace ComputeNestSupplier20210521
       Models::DeleteAcrImageRepositoriesResponse deleteAcrImageRepositoriesWithOptions(const Models::DeleteAcrImageRepositoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Acr镜像仓库
+       * @summary Deletes ACR image repositories.
+       *
+       * @description ### Prerequisites
+       * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
        *
        * @param request DeleteAcrImageRepositoriesRequest
        * @return DeleteAcrImageRepositoriesResponse
@@ -246,7 +252,10 @@ namespace ComputeNestSupplier20210521
       Models::DeleteAcrImageRepositoriesResponse deleteAcrImageRepositories(const Models::DeleteAcrImageRepositoriesRequest &request);
 
       /**
-       * @summary 删除Acr容器镜像版本
+       * @summary Delete a container image version from ACR
+       *
+       * @description ###
+       * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
        *
        * @param request DeleteAcrImageTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -255,7 +264,10 @@ namespace ComputeNestSupplier20210521
       Models::DeleteAcrImageTagsResponse deleteAcrImageTagsWithOptions(const Models::DeleteAcrImageTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除Acr容器镜像版本
+       * @summary Delete a container image version from ACR
+       *
+       * @description ###
+       * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
        *
        * @param request DeleteAcrImageTagsRequest
        * @return DeleteAcrImageTagsResponse
@@ -263,7 +275,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteAcrImageTagsResponse deleteAcrImageTags(const Models::DeleteAcrImageTagsRequest &request);
 
       /**
-       * @summary Deletes an artifact.
+       * @summary You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
        *
        * @param request DeleteArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -272,7 +284,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteArtifactResponse deleteArtifactWithOptions(const Models::DeleteArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an artifact.
+       * @summary You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
        *
        * @param request DeleteArtifactRequest
        * @return DeleteArtifactResponse
@@ -280,7 +292,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteArtifactResponse deleteArtifact(const Models::DeleteArtifactRequest &request);
 
       /**
-       * @summary Deletes a service.
+       * @summary Deletes a specified service based on its region ID, service ID, and service version.
        *
        * @param request DeleteServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -289,7 +301,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteServiceResponse deleteServiceWithOptions(const Models::DeleteServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a service.
+       * @summary Deletes a specified service based on its region ID, service ID, and service version.
        *
        * @param request DeleteServiceRequest
        * @return DeleteServiceResponse
@@ -297,7 +309,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteServiceResponse deleteService(const Models::DeleteServiceRequest &request);
 
       /**
-       * @summary Deletes a service instance.
+       * @summary Deletes service instances by specifying a region ID and service instance IDs.
        *
        * @param request DeleteServiceInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -306,7 +318,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteServiceInstancesResponse deleteServiceInstancesWithOptions(const Models::DeleteServiceInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a service instance.
+       * @summary Deletes service instances by specifying a region ID and service instance IDs.
        *
        * @param request DeleteServiceInstancesRequest
        * @return DeleteServiceInstancesResponse
@@ -314,7 +326,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteServiceInstancesResponse deleteServiceInstances(const Models::DeleteServiceInstancesRequest &request);
 
       /**
-       * @summary Delete service test configuration
+       * @summary Deletes a service test case.
        *
        * @param request DeleteServiceTestCaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -323,7 +335,7 @@ namespace ComputeNestSupplier20210521
       Models::DeleteServiceTestCaseResponse deleteServiceTestCaseWithOptions(const Models::DeleteServiceTestCaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete service test configuration
+       * @summary Deletes a service test case.
        *
        * @param request DeleteServiceTestCaseRequest
        * @return DeleteServiceTestCaseResponse
@@ -348,7 +360,7 @@ namespace ComputeNestSupplier20210521
       Models::DeployServiceInstanceResponse deployServiceInstance(const Models::DeployServiceInstanceRequest &request);
 
       /**
-       * @summary 生成默认服务测试配置
+       * @summary You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
        *
        * @param request GenerateDefaultServiceTestConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -357,7 +369,7 @@ namespace ComputeNestSupplier20210521
       Models::GenerateDefaultServiceTestConfigResponse generateDefaultServiceTestConfigWithOptions(const Models::GenerateDefaultServiceTestConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 生成默认服务测试配置
+       * @summary You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
        *
        * @param request GenerateDefaultServiceTestConfigRequest
        * @return GenerateDefaultServiceTestConfigResponse
@@ -365,16 +377,16 @@ namespace ComputeNestSupplier20210521
       Models::GenerateDefaultServiceTestConfigResponse generateDefaultServiceTestConfig(const Models::GenerateDefaultServiceTestConfigRequest &request);
 
       /**
-       * @summary Generate and validate the stack required for service creation
+       * @summary Generates the required access policies before you create a service instance.
        *
-       * @param request GenerateServicePolicyRequest
+       * @param tmpReq GenerateServicePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GenerateServicePolicyResponse
        */
-      Models::GenerateServicePolicyResponse generateServicePolicyWithOptions(const Models::GenerateServicePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::GenerateServicePolicyResponse generateServicePolicyWithOptions(const Models::GenerateServicePolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generate and validate the stack required for service creation
+       * @summary Generates the required access policies before you create a service instance.
        *
        * @param request GenerateServicePolicyRequest
        * @return GenerateServicePolicyResponse
@@ -382,7 +394,7 @@ namespace ComputeNestSupplier20210521
       Models::GenerateServicePolicyResponse generateServicePolicy(const Models::GenerateServicePolicyRequest &request);
 
       /**
-       * @summary Queries the information about a deployment package.
+       * @summary Retrieves the details of an artifact.
        *
        * @param request GetArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +403,7 @@ namespace ComputeNestSupplier20210521
       Models::GetArtifactResponse getArtifactWithOptions(const Models::GetArtifactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a deployment package.
+       * @summary Retrieves the details of an artifact.
        *
        * @param request GetArtifactRequest
        * @return GetArtifactResponse
@@ -399,7 +411,7 @@ namespace ComputeNestSupplier20210521
       Models::GetArtifactResponse getArtifact(const Models::GetArtifactRequest &request);
 
       /**
-       * @summary Queries the credentials that are required to upload a deployment package.
+       * @summary Obtains the credentials required to upload an artifact.
        *
        * @param request GetArtifactRepositoryCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -408,7 +420,7 @@ namespace ComputeNestSupplier20210521
       Models::GetArtifactRepositoryCredentialsResponse getArtifactRepositoryCredentialsWithOptions(const Models::GetArtifactRepositoryCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the credentials that are required to upload a deployment package.
+       * @summary Obtains the credentials required to upload an artifact.
        *
        * @param request GetArtifactRepositoryCredentialsRequest
        * @return GetArtifactRepositoryCredentialsResponse
@@ -416,7 +428,7 @@ namespace ComputeNestSupplier20210521
       Models::GetArtifactRepositoryCredentialsResponse getArtifactRepositoryCredentials(const Models::GetArtifactRepositoryCredentialsRequest &request);
 
       /**
-       * @summary 根据地域参数获取地域可用区列表
+       * @summary Retrieves a list of available zones in a region.
        *
        * @param request GetNetworkAvailableZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -425,7 +437,7 @@ namespace ComputeNestSupplier20210521
       Models::GetNetworkAvailableZonesResponse getNetworkAvailableZonesWithOptions(const Models::GetNetworkAvailableZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据地域参数获取地域可用区列表
+       * @summary Retrieves a list of available zones in a region.
        *
        * @param request GetNetworkAvailableZonesRequest
        * @return GetNetworkAvailableZonesResponse
@@ -433,7 +445,9 @@ namespace ComputeNestSupplier20210521
       Models::GetNetworkAvailableZonesResponse getNetworkAvailableZones(const Models::GetNetworkAvailableZonesRequest &request);
 
       /**
-       * @summary 查看运维公告详情
+       * @summary Retrieves the details of an operations and maintenance (O&M) notice.
+       *
+       * @description Services must be approved before they can be published.
        *
        * @param request GetOpsNoticeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -442,7 +456,9 @@ namespace ComputeNestSupplier20210521
       Models::GetOpsNoticeResponse getOpsNoticeWithOptions(const Models::GetOpsNoticeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查看运维公告详情
+       * @summary Retrieves the details of an operations and maintenance (O&M) notice.
+       *
+       * @description Services must be approved before they can be published.
        *
        * @param request GetOpsNoticeRequest
        * @return GetOpsNoticeResponse
@@ -450,7 +466,7 @@ namespace ComputeNestSupplier20210521
       Models::GetOpsNoticeResponse getOpsNotice(const Models::GetOpsNoticeRequest &request);
 
       /**
-       * @summary Queries the information about a service.
+       * @summary Retrieves the details of a specified service.
        *
        * @param request GetServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -459,7 +475,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceResponse getServiceWithOptions(const Models::GetServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a service.
+       * @summary Retrieves the details of a specified service.
        *
        * @param request GetServiceRequest
        * @return GetServiceResponse
@@ -467,7 +483,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceResponse getService(const Models::GetServiceRequest &request);
 
       /**
-       * @summary Queries the estimated price for creating a service instance.
+       * @summary Retrieves the estimated cost of creating a service instance.
        *
        * @param tmpReq GetServiceEstimateCostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -476,7 +492,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceEstimateCostResponse getServiceEstimateCostWithOptions(const Models::GetServiceEstimateCostRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the estimated price for creating a service instance.
+       * @summary Retrieves the estimated cost of creating a service instance.
        *
        * @param request GetServiceEstimateCostRequest
        * @return GetServiceEstimateCostResponse
@@ -484,7 +500,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceEstimateCostResponse getServiceEstimateCost(const Models::GetServiceEstimateCostRequest &request);
 
       /**
-       * @summary Queries the information about a service instance.
+       * @summary Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
        *
        * @param request GetServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +509,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceInstanceResponse getServiceInstanceWithOptions(const Models::GetServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a service instance.
+       * @summary Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
        *
        * @param request GetServiceInstanceRequest
        * @return GetServiceInstanceResponse
@@ -501,7 +517,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceInstanceResponse getServiceInstance(const Models::GetServiceInstanceRequest &request);
 
       /**
-       * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+       * @summary Queries the activation status of a service and the information about its service roles.
        *
        * @param tmpReq GetServiceProvisionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -510,7 +526,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceProvisionsResponse getServiceProvisionsWithOptions(const Models::GetServiceProvisionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+       * @summary Queries the activation status of a service and the information about its service roles.
        *
        * @param request GetServiceProvisionsRequest
        * @return GetServiceProvisionsResponse
@@ -518,7 +534,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceProvisionsResponse getServiceProvisions(const Models::GetServiceProvisionsRequest &request);
 
       /**
-       * @summary Get service registration detail.
+       * @summary Queries the details of a service registration.
        *
        * @param request GetServiceRegistrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -527,7 +543,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceRegistrationResponse getServiceRegistrationWithOptions(const Models::GetServiceRegistrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get service registration detail.
+       * @summary Queries the details of a service registration.
        *
        * @param request GetServiceRegistrationRequest
        * @return GetServiceRegistrationResponse
@@ -535,7 +551,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceRegistrationResponse getServiceRegistration(const Models::GetServiceRegistrationRequest &request);
 
       /**
-       * @summary 查询服务模板存在的规范问题
+       * @summary Queries for criterion issues in a service template.
        *
        * @param request GetServiceTemplateCriterionIssuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -544,7 +560,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTemplateCriterionIssuesResponse getServiceTemplateCriterionIssuesWithOptions(const Models::GetServiceTemplateCriterionIssuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询服务模板存在的规范问题
+       * @summary Queries for criterion issues in a service template.
        *
        * @param request GetServiceTemplateCriterionIssuesRequest
        * @return GetServiceTemplateCriterionIssuesResponse
@@ -552,7 +568,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTemplateCriterionIssuesResponse getServiceTemplateCriterionIssues(const Models::GetServiceTemplateCriterionIssuesRequest &request);
 
       /**
-       * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+       * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
        *
        * @param request GetServiceTemplateParameterConstraintsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -561,7 +577,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTemplateParameterConstraintsResponse getServiceTemplateParameterConstraintsWithOptions(const Models::GetServiceTemplateParameterConstraintsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+       * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
        *
        * @param request GetServiceTemplateParameterConstraintsRequest
        * @return GetServiceTemplateParameterConstraintsResponse
@@ -569,7 +585,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTemplateParameterConstraintsResponse getServiceTemplateParameterConstraints(const Models::GetServiceTemplateParameterConstraintsRequest &request);
 
       /**
-       * @summary Get the execution status of Cases in the service test task
+       * @summary After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
        *
        * @param request GetServiceTestTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -578,7 +594,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTestTaskResponse getServiceTestTaskWithOptions(const Models::GetServiceTestTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the execution status of Cases in the service test task
+       * @summary After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
        *
        * @param request GetServiceTestTaskRequest
        * @return GetServiceTestTaskResponse
@@ -586,7 +602,7 @@ namespace ComputeNestSupplier20210521
       Models::GetServiceTestTaskResponse getServiceTestTask(const Models::GetServiceTestTaskRequest &request);
 
       /**
-       * @summary Get service provider information
+       * @summary Retrieves service provider information.
        *
        * @param request GetSupplierInformationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -595,7 +611,7 @@ namespace ComputeNestSupplier20210521
       Models::GetSupplierInformationResponse getSupplierInformationWithOptions(const Models::GetSupplierInformationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get service provider information
+       * @summary Retrieves service provider information.
        *
        * @param request GetSupplierInformationRequest
        * @return GetSupplierInformationResponse
@@ -603,7 +619,7 @@ namespace ComputeNestSupplier20210521
       Models::GetSupplierInformationResponse getSupplierInformation(const Models::GetSupplierInformationRequest &request);
 
       /**
-       * @summary Obtain the AccessKey pair of uploaded files.
+       * @summary Retrieves credentials to upload a file.
        *
        * @param request GetUploadCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +628,7 @@ namespace ComputeNestSupplier20210521
       Models::GetUploadCredentialsResponse getUploadCredentialsWithOptions(const Models::GetUploadCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the AccessKey pair of uploaded files.
+       * @summary Retrieves credentials to upload a file.
        *
        * @param request GetUploadCredentialsRequest
        * @return GetUploadCredentialsResponse
@@ -620,9 +636,9 @@ namespace ComputeNestSupplier20210521
       Models::GetUploadCredentialsResponse getUploadCredentials(const Models::GetUploadCredentialsRequest &request);
 
       /**
-       * @summary Launch service
+       * @summary Publishes a service.
        *
-       * @description 需要上线的服务必须为已通过审核的服务。
+       * @description Only approved services can be published.
        *
        * @param request LaunchServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -631,9 +647,9 @@ namespace ComputeNestSupplier20210521
       Models::LaunchServiceResponse launchServiceWithOptions(const Models::LaunchServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Launch service
+       * @summary Publishes a service.
        *
-       * @description 需要上线的服务必须为已通过审核的服务。
+       * @description Only approved services can be published.
        *
        * @param request LaunchServiceRequest
        * @return LaunchServiceResponse
@@ -641,7 +657,7 @@ namespace ComputeNestSupplier20210521
       Models::LaunchServiceResponse launchService(const Models::LaunchServiceRequest &request);
 
       /**
-       * @summary Queries a list of images uploaded to Container Registry.
+       * @summary You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
        *
        * @param request ListAcrImageRepositoriesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -650,7 +666,7 @@ namespace ComputeNestSupplier20210521
       Models::ListAcrImageRepositoriesResponse listAcrImageRepositoriesWithOptions(const Models::ListAcrImageRepositoriesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of images uploaded to Container Registry.
+       * @summary You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
        *
        * @param request ListAcrImageRepositoriesRequest
        * @return ListAcrImageRepositoriesResponse
@@ -658,7 +674,7 @@ namespace ComputeNestSupplier20210521
       Models::ListAcrImageRepositoriesResponse listAcrImageRepositories(const Models::ListAcrImageRepositoriesRequest &request);
 
       /**
-       * @summary Queries the versions of images that are uploaded to the image repository.
+       * @summary Lists the uploaded image versions in an image repository.
        *
        * @param request ListAcrImageTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -667,7 +683,7 @@ namespace ComputeNestSupplier20210521
       Models::ListAcrImageTagsResponse listAcrImageTagsWithOptions(const Models::ListAcrImageTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the versions of images that are uploaded to the image repository.
+       * @summary Lists the uploaded image versions in an image repository.
        *
        * @param request ListAcrImageTagsRequest
        * @return ListAcrImageTagsResponse
@@ -675,7 +691,10 @@ namespace ComputeNestSupplier20210521
       Models::ListAcrImageTagsResponse listAcrImageTags(const Models::ListAcrImageTagsRequest &request);
 
       /**
-       * @summary 查询部署实例、升级以及应用的日志
+       * @summary Queries the build logs of an artifact.
+       *
+       * @description ### Prerequisites
+       * None
        *
        * @param request ListArtifactBuildLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -684,7 +703,10 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactBuildLogsResponse listArtifactBuildLogsWithOptions(const Models::ListArtifactBuildLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询部署实例、升级以及应用的日志
+       * @summary Queries the build logs of an artifact.
+       *
+       * @description ### Prerequisites
+       * None
        *
        * @param request ListArtifactBuildLogsRequest
        * @return ListArtifactBuildLogsResponse
@@ -692,7 +714,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactBuildLogsResponse listArtifactBuildLogs(const Models::ListArtifactBuildLogsRequest &request);
 
       /**
-       * @summary Get the list of artifact security risks
+       * @summary Retrieves a list of security risks for an artifact.
        *
        * @param request ListArtifactRisksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +723,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactRisksResponse listArtifactRisksWithOptions(const Models::ListArtifactRisksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the list of artifact security risks
+       * @summary Retrieves a list of security risks for an artifact.
        *
        * @param request ListArtifactRisksRequest
        * @return ListArtifactRisksResponse
@@ -709,7 +731,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactRisksResponse listArtifactRisks(const Models::ListArtifactRisksRequest &request);
 
       /**
-       * @summary Queries the version information about a deployment package.
+       * @summary Queries artifact versions.
        *
        * @param tmpReq ListArtifactVersionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -718,7 +740,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactVersionsResponse listArtifactVersionsWithOptions(const Models::ListArtifactVersionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the version information about a deployment package.
+       * @summary Queries artifact versions.
        *
        * @param request ListArtifactVersionsRequest
        * @return ListArtifactVersionsResponse
@@ -726,7 +748,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactVersionsResponse listArtifactVersions(const Models::ListArtifactVersionsRequest &request);
 
       /**
-       * @summary Queries a list of deployment packages.
+       * @summary Queries a list of artifacts.
        *
        * @param request ListArtifactsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -735,7 +757,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactsResponse listArtifactsWithOptions(const Models::ListArtifactsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of deployment packages.
+       * @summary Queries a list of artifacts.
        *
        * @param request ListArtifactsRequest
        * @return ListArtifactsResponse
@@ -743,7 +765,7 @@ namespace ComputeNestSupplier20210521
       Models::ListArtifactsResponse listArtifacts(const Models::ListArtifactsRequest &request);
 
       /**
-       * @summary 查询运维公告
+       * @summary Queries the operations and maintenance (O&M) notices published by a service provider.
        *
        * @param request ListOpsNoticesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +774,7 @@ namespace ComputeNestSupplier20210521
       Models::ListOpsNoticesResponse listOpsNoticesWithOptions(const Models::ListOpsNoticesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询运维公告
+       * @summary Queries the operations and maintenance (O&M) notices published by a service provider.
        *
        * @param request ListOpsNoticesRequest
        * @return ListOpsNoticesResponse
@@ -760,7 +782,7 @@ namespace ComputeNestSupplier20210521
       Models::ListOpsNoticesResponse listOpsNotices(const Models::ListOpsNoticesRequest &request);
 
       /**
-       * @summary Paginated query of distributor information list
+       * @summary Queries a list of resellers for display on the frontend.
        *
        * @param request ListResellersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -769,7 +791,7 @@ namespace ComputeNestSupplier20210521
       Models::ListResellersResponse listResellersWithOptions(const Models::ListResellersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Paginated query of distributor information list
+       * @summary Queries a list of resellers for display on the frontend.
        *
        * @param request ListResellersRequest
        * @return ListResellersResponse
@@ -777,7 +799,10 @@ namespace ComputeNestSupplier20210521
       Models::ListResellersResponse listResellers(const Models::ListResellersRequest &request);
 
       /**
-       * @summary 查询部署实例、升级以及应用的日志
+       * @summary Queries the logs for service instances, upgrades, and applications.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request ListServiceBuildLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -786,7 +811,10 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceBuildLogsResponse listServiceBuildLogsWithOptions(const Models::ListServiceBuildLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询部署实例、升级以及应用的日志
+       * @summary Queries the logs for service instances, upgrades, and applications.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request ListServiceBuildLogsRequest
        * @return ListServiceBuildLogsResponse
@@ -794,7 +822,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceBuildLogsResponse listServiceBuildLogs(const Models::ListServiceBuildLogsRequest &request);
 
       /**
-       * @summary Display service instance bill
+       * @summary You can call the ListServiceInstanceBill operation to query the bills of a service instance.
        *
        * @param request ListServiceInstanceBillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -803,7 +831,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceBillResponse listServiceInstanceBillWithOptions(const Models::ListServiceInstanceBillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Display service instance bill
+       * @summary You can call the ListServiceInstanceBill operation to query the bills of a service instance.
        *
        * @param request ListServiceInstanceBillRequest
        * @return ListServiceInstanceBillResponse
@@ -811,7 +839,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceBillResponse listServiceInstanceBill(const Models::ListServiceInstanceBillRequest &request);
 
       /**
-       * @summary Query service instance deployment details
+       * @summary Queries the deployment details for service instances.
        *
        * @param request ListServiceInstanceDeployDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -820,7 +848,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetailsWithOptions(const Models::ListServiceInstanceDeployDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query service instance deployment details
+       * @summary Queries the deployment details for service instances.
        *
        * @param request ListServiceInstanceDeployDetailsRequest
        * @return ListServiceInstanceDeployDetailsResponse
@@ -828,7 +856,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceDeployDetailsResponse listServiceInstanceDeployDetails(const Models::ListServiceInstanceDeployDetailsRequest &request);
 
       /**
-       * @summary “Query logs at various levels, including service instance application, instance, and resource.”
+       * @summary Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
        *
        * @param request ListServiceInstanceLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -837,7 +865,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceLogsResponse listServiceInstanceLogsWithOptions(const Models::ListServiceInstanceLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary “Query logs at various levels, including service instance application, instance, and resource.”
+       * @summary Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
        *
        * @param request ListServiceInstanceLogsRequest
        * @return ListServiceInstanceLogsResponse
@@ -845,7 +873,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceLogsResponse listServiceInstanceLogs(const Models::ListServiceInstanceLogsRequest &request);
 
       /**
-       * @summary Query service instance resources
+       * @summary Lists the resources in a service instance.
        *
        * @param request ListServiceInstanceResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -854,7 +882,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceResourcesResponse listServiceInstanceResourcesWithOptions(const Models::ListServiceInstanceResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query service instance resources
+       * @summary Lists the resources in a service instance.
        *
        * @param request ListServiceInstanceResourcesRequest
        * @return ListServiceInstanceResourcesResponse
@@ -862,7 +890,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceResourcesResponse listServiceInstanceResources(const Models::ListServiceInstanceResourcesRequest &request);
 
       /**
-       * @summary View the upgrade history of a service instance
+       * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
        *
        * @param request ListServiceInstanceUpgradeHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -871,7 +899,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstanceUpgradeHistoryResponse listServiceInstanceUpgradeHistoryWithOptions(const Models::ListServiceInstanceUpgradeHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View the upgrade history of a service instance
+       * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
        *
        * @param request ListServiceInstanceUpgradeHistoryRequest
        * @return ListServiceInstanceUpgradeHistoryResponse
@@ -896,7 +924,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceInstancesResponse listServiceInstances(const Models::ListServiceInstancesRequest &request);
 
       /**
-       * @summary Query service registrations.
+       * @summary Queries service registration requests.
        *
        * @param request ListServiceRegistrationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -905,7 +933,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceRegistrationsResponse listServiceRegistrationsWithOptions(const Models::ListServiceRegistrationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query service registrations.
+       * @summary Queries service registration requests.
        *
        * @param request ListServiceRegistrationsRequest
        * @return ListServiceRegistrationsResponse
@@ -913,7 +941,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceRegistrationsResponse listServiceRegistrations(const Models::ListServiceRegistrationsRequest &request);
 
       /**
-       * @summary 调用ListServiceSharedAccounts查看服务共享账号列表。
+       * @summary Queries the accounts that a service is shared with.
        *
        * @param request ListServiceSharedAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -922,7 +950,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceSharedAccountsResponse listServiceSharedAccountsWithOptions(const Models::ListServiceSharedAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调用ListServiceSharedAccounts查看服务共享账号列表。
+       * @summary Queries the accounts that a service is shared with.
        *
        * @param request ListServiceSharedAccountsRequest
        * @return ListServiceSharedAccountsResponse
@@ -930,7 +958,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceSharedAccountsResponse listServiceSharedAccounts(const Models::ListServiceSharedAccountsRequest &request);
 
       /**
-       * @summary Service test case list
+       * @summary Queries the service test cases for the current service version.
        *
        * @param request ListServiceTestCasesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -939,7 +967,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestCasesResponse listServiceTestCasesWithOptions(const Models::ListServiceTestCasesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Service test case list
+       * @summary Queries the service test cases for the current service version.
        *
        * @param request ListServiceTestCasesRequest
        * @return ListServiceTestCasesResponse
@@ -947,7 +975,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestCasesResponse listServiceTestCases(const Models::ListServiceTestCasesRequest &request);
 
       /**
-       * @summary Get service test real-time logs
+       * @summary Retrieves the real-time logs of a service test.
        *
        * @param request ListServiceTestTaskLogsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +984,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTaskLogsResponse listServiceTestTaskLogsWithOptions(const Models::ListServiceTestTaskLogsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get service test real-time logs
+       * @summary Retrieves the real-time logs of a service test.
        *
        * @param request ListServiceTestTaskLogsRequest
        * @return ListServiceTestTaskLogsResponse
@@ -964,7 +992,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTaskLogsResponse listServiceTestTaskLogs(const Models::ListServiceTestTaskLogsRequest &request);
 
       /**
-       * @summary Get task execution list
+       * @summary Queries the test tasks for a service.
        *
        * @param request ListServiceTestTasksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -973,7 +1001,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTasksResponse listServiceTestTasksWithOptions(const Models::ListServiceTestTasksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get task execution list
+       * @summary Queries the test tasks for a service.
        *
        * @param request ListServiceTestTasksRequest
        * @return ListServiceTestTasksResponse
@@ -981,7 +1009,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceTestTasksResponse listServiceTestTasks(const Models::ListServiceTestTasksRequest &request);
 
       /**
-       * @summary Queries the applications for using a service.
+       * @summary Queries the usage of your services.
        *
        * @param request ListServiceUsagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -990,7 +1018,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceUsagesResponse listServiceUsagesWithOptions(const Models::ListServiceUsagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the applications for using a service.
+       * @summary Queries the usage of your services.
        *
        * @param request ListServiceUsagesRequest
        * @return ListServiceUsagesResponse
@@ -998,7 +1026,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServiceUsagesResponse listServiceUsages(const Models::ListServiceUsagesRequest &request);
 
       /**
-       * @summary Queries a list of services.
+       * @summary Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
        *
        * @param request ListServicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1007,7 +1035,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServicesResponse listServicesWithOptions(const Models::ListServicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of services.
+       * @summary Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
        *
        * @param request ListServicesRequest
        * @return ListServicesResponse
@@ -1015,7 +1043,7 @@ namespace ComputeNestSupplier20210521
       Models::ListServicesResponse listServices(const Models::ListServicesRequest &request);
 
       /**
-       * @summary Query the list of service provider onboarding reviews
+       * @summary Queries service provider registration requests.
        *
        * @param request ListSupplierRegistrationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1024,7 +1052,7 @@ namespace ComputeNestSupplier20210521
       Models::ListSupplierRegistrationsResponse listSupplierRegistrationsWithOptions(const Models::ListSupplierRegistrationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query the list of service provider onboarding reviews
+       * @summary Queries service provider registration requests.
        *
        * @param request ListSupplierRegistrationsRequest
        * @return ListSupplierRegistrationsResponse
@@ -1032,7 +1060,7 @@ namespace ComputeNestSupplier20210521
       Models::ListSupplierRegistrationsResponse listSupplierRegistrations(const Models::ListSupplierRegistrationsRequest &request);
 
       /**
-       * @summary Query tag key list
+       * @summary Queries the existing tag keys.
        *
        * @param request ListTagKeysRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1041,7 +1069,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagKeysResponse listTagKeysWithOptions(const Models::ListTagKeysRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query tag key list
+       * @summary Queries the existing tag keys.
        *
        * @param request ListTagKeysRequest
        * @return ListTagKeysResponse
@@ -1049,7 +1077,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagKeysResponse listTagKeys(const Models::ListTagKeysRequest &request);
 
       /**
-       * @summary Query resource tags
+       * @summary Queries the tags of one or more resources.
        *
        * @param request ListTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1058,7 +1086,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagResourcesResponse listTagResourcesWithOptions(const Models::ListTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query resource tags
+       * @summary Queries the tags of one or more resources.
        *
        * @param request ListTagResourcesRequest
        * @return ListTagResourcesResponse
@@ -1066,7 +1094,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Query tag value list
+       * @summary Queries the tag values for a specific tag key.
        *
        * @param request ListTagValuesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1075,7 +1103,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagValuesResponse listTagValuesWithOptions(const Models::ListTagValuesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query tag value list
+       * @summary Queries the tag values for a specific tag key.
        *
        * @param request ListTagValuesRequest
        * @return ListTagValuesResponse
@@ -1083,7 +1111,7 @@ namespace ComputeNestSupplier20210521
       Models::ListTagValuesResponse listTagValues(const Models::ListTagValuesRequest &request);
 
       /**
-       * @summary Modifies the resource information about a service instance.
+       * @summary Modifies the resources of a service instance.
        *
        * @param request ModifyServiceInstanceResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1092,7 +1120,7 @@ namespace ComputeNestSupplier20210521
       Models::ModifyServiceInstanceResourcesResponse modifyServiceInstanceResourcesWithOptions(const Models::ModifyServiceInstanceResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the resource information about a service instance.
+       * @summary Modifies the resources of a service instance.
        *
        * @param request ModifyServiceInstanceResourcesRequest
        * @return ModifyServiceInstanceResourcesResponse
@@ -1100,7 +1128,7 @@ namespace ComputeNestSupplier20210521
       Models::ModifyServiceInstanceResourcesResponse modifyServiceInstanceResources(const Models::ModifyServiceInstanceResourcesRequest &request);
 
       /**
-       * @summary Pre-release service
+       * @summary Prelaunches a service.
        *
        * @param request PreLaunchServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1109,7 +1137,7 @@ namespace ComputeNestSupplier20210521
       Models::PreLaunchServiceResponse preLaunchServiceWithOptions(const Models::PreLaunchServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pre-release service
+       * @summary Prelaunches a service.
        *
        * @param request PreLaunchServiceRequest
        * @return PreLaunchServiceResponse
@@ -1117,7 +1145,7 @@ namespace ComputeNestSupplier20210521
       Models::PreLaunchServiceResponse preLaunchService(const Models::PreLaunchServiceRequest &request);
 
       /**
-       * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+       * @summary This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
        *
        * @param request PushMeteringDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1126,7 +1154,7 @@ namespace ComputeNestSupplier20210521
       Models::PushMeteringDataResponse pushMeteringDataWithOptions(const Models::PushMeteringDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+       * @summary This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
        *
        * @param request PushMeteringDataRequest
        * @return PushMeteringDataResponse
@@ -1134,7 +1162,7 @@ namespace ComputeNestSupplier20210521
       Models::PushMeteringDataResponse pushMeteringData(const Models::PushMeteringDataRequest &request);
 
       /**
-       * @summary Registers an artifact.
+       * @summary Registers a Service deployment.
        *
        * @param request RegisterServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1143,7 +1171,7 @@ namespace ComputeNestSupplier20210521
       Models::RegisterServiceResponse registerServiceWithOptions(const Models::RegisterServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers an artifact.
+       * @summary Registers a Service deployment.
        *
        * @param request RegisterServiceRequest
        * @return RegisterServiceResponse
@@ -1151,7 +1179,7 @@ namespace ComputeNestSupplier20210521
       Models::RegisterServiceResponse registerService(const Models::RegisterServiceRequest &request);
 
       /**
-       * @summary Reject service usage.
+       * @summary You can call RejectServiceUsage to reject a service request.
        *
        * @param request RejectServiceUsageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1160,7 +1188,7 @@ namespace ComputeNestSupplier20210521
       Models::RejectServiceUsageResponse rejectServiceUsageWithOptions(const Models::RejectServiceUsageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reject service usage.
+       * @summary You can call RejectServiceUsage to reject a service request.
        *
        * @param request RejectServiceUsageRequest
        * @return RejectServiceUsageResponse
@@ -1169,6 +1197,9 @@ namespace ComputeNestSupplier20210521
 
       /**
        * @summary Publishes an artifact.
+       *
+       * @description ### Prerequisites
+       * Ensure that you have created and saved an artifact.
        *
        * @param request ReleaseArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1179,13 +1210,16 @@ namespace ComputeNestSupplier20210521
       /**
        * @summary Publishes an artifact.
        *
+       * @description ### Prerequisites
+       * Ensure that you have created and saved an artifact.
+       *
        * @param request ReleaseArtifactRequest
        * @return ReleaseArtifactResponse
        */
       Models::ReleaseArtifactResponse releaseArtifact(const Models::ReleaseArtifactRequest &request);
 
       /**
-       * @summary Remove  service shared account.
+       * @summary Removes shared accounts.
        *
        * @param request RemoveServiceSharedAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1194,7 +1228,7 @@ namespace ComputeNestSupplier20210521
       Models::RemoveServiceSharedAccountsResponse removeServiceSharedAccountsWithOptions(const Models::RemoveServiceSharedAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Remove  service shared account.
+       * @summary Removes shared accounts.
        *
        * @param request RemoveServiceSharedAccountsRequest
        * @return RemoveServiceSharedAccountsResponse
@@ -1202,7 +1236,10 @@ namespace ComputeNestSupplier20210521
       Models::RemoveServiceSharedAccountsResponse removeServiceSharedAccounts(const Models::RemoveServiceSharedAccountsRequest &request);
 
       /**
-       * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+       * @summary Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request RestartServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1211,7 +1248,10 @@ namespace ComputeNestSupplier20210521
       Models::RestartServiceInstanceResponse restartServiceInstanceWithOptions(const Models::RestartServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+       * @summary Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request RestartServiceInstanceRequest
        * @return RestartServiceInstanceResponse
@@ -1219,7 +1259,7 @@ namespace ComputeNestSupplier20210521
       Models::RestartServiceInstanceResponse restartServiceInstance(const Models::RestartServiceInstanceRequest &request);
 
       /**
-       * @summary Rollback Service Instance
+       * @summary Rolls back an upgraded service instance to its previous version.
        *
        * @param request RollbackServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1228,7 +1268,7 @@ namespace ComputeNestSupplier20210521
       Models::RollbackServiceInstanceResponse rollbackServiceInstanceWithOptions(const Models::RollbackServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Rollback Service Instance
+       * @summary Rolls back an upgraded service instance to its previous version.
        *
        * @param request RollbackServiceInstanceRequest
        * @return RollbackServiceInstanceResponse
@@ -1236,7 +1276,10 @@ namespace ComputeNestSupplier20210521
       Models::RollbackServiceInstanceResponse rollbackServiceInstance(const Models::RollbackServiceInstanceRequest &request);
 
       /**
-       * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+       * @summary Starts a service instance when its status is Stopped or StartFailed.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request StartServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1245,7 +1288,10 @@ namespace ComputeNestSupplier20210521
       Models::StartServiceInstanceResponse startServiceInstanceWithOptions(const Models::StartServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+       * @summary Starts a service instance when its status is Stopped or StartFailed.
+       *
+       * @description ### Prerequisites
+       * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request StartServiceInstanceRequest
        * @return StartServiceInstanceResponse
@@ -1253,7 +1299,10 @@ namespace ComputeNestSupplier20210521
       Models::StartServiceInstanceResponse startServiceInstance(const Models::StartServiceInstanceRequest &request);
 
       /**
-       * @summary Stops a service instance that is in the Deployed or StopFailed state.
+       * @summary This operation stops a service instance that is in the Deployed or StopFailed state.
+       *
+       * @description ### Prerequisites
+       * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request StopServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1262,7 +1311,10 @@ namespace ComputeNestSupplier20210521
       Models::StopServiceInstanceResponse stopServiceInstanceWithOptions(const Models::StopServiceInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a service instance that is in the Deployed or StopFailed state.
+       * @summary This operation stops a service instance that is in the Deployed or StopFailed state.
+       *
+       * @description ### Prerequisites
+       * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
        *
        * @param request StopServiceInstanceRequest
        * @return StopServiceInstanceResponse
@@ -1270,7 +1322,7 @@ namespace ComputeNestSupplier20210521
       Models::StopServiceInstanceResponse stopServiceInstance(const Models::StopServiceInstanceRequest &request);
 
       /**
-       * @summary Tag a resource
+       * @summary Creates and attaches tags to one or more resources.
        *
        * @param request TagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1279,7 +1331,7 @@ namespace ComputeNestSupplier20210521
       Models::TagResourcesResponse tagResourcesWithOptions(const Models::TagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Tag a resource
+       * @summary Creates and attaches tags to one or more resources.
        *
        * @param request TagResourcesRequest
        * @return TagResourcesResponse
@@ -1287,7 +1339,7 @@ namespace ComputeNestSupplier20210521
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Unbind resource from tag
+       * @summary Removes tags from resources.
        *
        * @param request UnTagResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1296,7 +1348,7 @@ namespace ComputeNestSupplier20210521
       Models::UnTagResourcesResponse unTagResourcesWithOptions(const Models::UnTagResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbind resource from tag
+       * @summary Removes tags from resources.
        *
        * @param request UnTagResourcesRequest
        * @return UnTagResourcesResponse
@@ -1304,7 +1356,7 @@ namespace ComputeNestSupplier20210521
       Models::UnTagResourcesResponse unTagResources(const Models::UnTagResourcesRequest &request);
 
       /**
-       * @summary Updates a deployment package.
+       * @summary Updates an artifact.
        *
        * @param tmpReq UpdateArtifactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1313,7 +1365,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateArtifactResponse updateArtifactWithOptions(const Models::UpdateArtifactRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a deployment package.
+       * @summary Updates an artifact.
        *
        * @param request UpdateArtifactRequest
        * @return UpdateArtifactResponse
@@ -1321,7 +1373,9 @@ namespace ComputeNestSupplier20210521
       Models::UpdateArtifactResponse updateArtifact(const Models::UpdateArtifactRequest &request);
 
       /**
-       * @summary Update a service.
+       * @summary Updates a service.
+       *
+       * @description Only approved services can be published.
        *
        * @param tmpReq UpdateServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1330,7 +1384,9 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceResponse updateServiceWithOptions(const Models::UpdateServiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a service.
+       * @summary Updates a service.
+       *
+       * @description Only approved services can be published.
        *
        * @param request UpdateServiceRequest
        * @return UpdateServiceResponse
@@ -1338,7 +1394,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceResponse updateService(const Models::UpdateServiceRequest &request);
 
       /**
-       * @summary Updates the properties of a service instance.
+       * @summary Updates the attributes of a service instance.
        *
        * @param tmpReq UpdateServiceInstanceAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1347,7 +1403,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceInstanceAttributeResponse updateServiceInstanceAttributeWithOptions(const Models::UpdateServiceInstanceAttributeRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the properties of a service instance.
+       * @summary Updates the attributes of a service instance.
        *
        * @param request UpdateServiceInstanceAttributeRequest
        * @return UpdateServiceInstanceAttributeResponse
@@ -1355,7 +1411,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceInstanceAttributeResponse updateServiceInstanceAttribute(const Models::UpdateServiceInstanceAttributeRequest &request);
 
       /**
-       * @summary Updates the configurations of a service instance.
+       * @summary Upgrades or downgrades a service instance.
        *
        * @param tmpReq UpdateServiceInstanceSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1364,7 +1420,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceInstanceSpecResponse updateServiceInstanceSpecWithOptions(const Models::UpdateServiceInstanceSpecRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configurations of a service instance.
+       * @summary Upgrades or downgrades a service instance.
        *
        * @param request UpdateServiceInstanceSpecRequest
        * @return UpdateServiceInstanceSpecResponse
@@ -1372,7 +1428,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceInstanceSpecResponse updateServiceInstanceSpec(const Models::UpdateServiceInstanceSpecRequest &request);
 
       /**
-       * @summary Modify Service Test Case
+       * @summary Updates a service test case.
        *
        * @param request UpdateServiceTestCaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1381,7 +1437,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceTestCaseResponse updateServiceTestCaseWithOptions(const Models::UpdateServiceTestCaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify Service Test Case
+       * @summary Updates a service test case.
        *
        * @param request UpdateServiceTestCaseRequest
        * @return UpdateServiceTestCaseResponse
@@ -1389,7 +1445,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateServiceTestCaseResponse updateServiceTestCase(const Models::UpdateServiceTestCaseRequest &request);
 
       /**
-       * @summary Update Service Sharing Permissions
+       * @summary You can call UpdateSharedAccountPermission to update the permissions of a shared account.
        *
        * @param request UpdateSharedAccountPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1454,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateSharedAccountPermissionResponse updateSharedAccountPermissionWithOptions(const Models::UpdateSharedAccountPermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update Service Sharing Permissions
+       * @summary You can call UpdateSharedAccountPermission to update the permissions of a shared account.
        *
        * @param request UpdateSharedAccountPermissionRequest
        * @return UpdateSharedAccountPermissionResponse
@@ -1406,7 +1462,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateSharedAccountPermissionResponse updateSharedAccountPermission(const Models::UpdateSharedAccountPermissionRequest &request);
 
       /**
-       * @summary Update the information of supplier.
+       * @summary You can call the UpdateSupplierInformation operation to update supplier information.
        *
        * @param request UpdateSupplierInformationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1415,7 +1471,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateSupplierInformationResponse updateSupplierInformationWithOptions(const Models::UpdateSupplierInformationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update the information of supplier.
+       * @summary You can call the UpdateSupplierInformation operation to update supplier information.
        *
        * @param request UpdateSupplierInformationRequest
        * @return UpdateSupplierInformationResponse
@@ -1423,7 +1479,7 @@ namespace ComputeNestSupplier20210521
       Models::UpdateSupplierInformationResponse updateSupplierInformation(const Models::UpdateSupplierInformationRequest &request);
 
       /**
-       * @summary Upgrades a service instance.
+       * @summary The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
        *
        * @param tmpReq UpgradeServiceInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1432,7 +1488,7 @@ namespace ComputeNestSupplier20210521
       Models::UpgradeServiceInstanceResponse upgradeServiceInstanceWithOptions(const Models::UpgradeServiceInstanceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades a service instance.
+       * @summary The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
        *
        * @param request UpgradeServiceInstanceRequest
        * @return UpgradeServiceInstanceResponse
@@ -1440,7 +1496,7 @@ namespace ComputeNestSupplier20210521
       Models::UpgradeServiceInstanceResponse upgradeServiceInstance(const Models::UpgradeServiceInstanceRequest &request);
 
       /**
-       * @summary Withdraw service version.
+       * @summary Unpublishes a service version.
        *
        * @param request WithdrawServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1449,7 +1505,7 @@ namespace ComputeNestSupplier20210521
       Models::WithdrawServiceResponse withdrawServiceWithOptions(const Models::WithdrawServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Withdraw service version.
+       * @summary Unpublishes a service version.
        *
        * @param request WithdrawServiceRequest
        * @return WithdrawServiceResponse

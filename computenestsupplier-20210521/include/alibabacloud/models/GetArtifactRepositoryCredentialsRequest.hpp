@@ -48,14 +48,15 @@ namespace Models
 
 
   protected:
-    // The type of the deployment package. Valid values:
+    // The type of the artifact. Valid values:
     // 
-    // *   File: Object Storage Service (OSS) object.
-    // *   AcrImage: container image.
+    // - File: an OSS file.
+    // 
+    // - AcrImage: a container image.
     // 
     // This parameter is required.
     shared_ptr<string> artifactType_ {};
-    // The region ID.
+    // The region to which the artifact is uploaded.
     shared_ptr<string> deployRegionId_ {};
   };
 

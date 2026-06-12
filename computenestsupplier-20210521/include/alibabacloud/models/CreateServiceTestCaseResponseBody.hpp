@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The test case Id
+    // The test case ID.
     shared_ptr<string> testCaseId_ {};
   };
 

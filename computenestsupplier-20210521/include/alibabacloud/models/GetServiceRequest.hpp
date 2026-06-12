@@ -106,24 +106,37 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter information based on Alibaba Cloud account IDs.
+    // Specifies whether to filter the results by Alibaba Cloud account ID.
+    // 
+    // Valid values:
+    // 
+    // - true: Filters the results by Alibaba Cloud account ID.
+    // 
+    // - false: Does not filter the results by Alibaba Cloud account ID.
     shared_ptr<bool> filterAliUid_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The service ID.
+    // 
+    // Call the [ListServices](https://help.aliyun.com/document_detail/2264368.html) operation to obtain the service ID.
     shared_ptr<string> serviceId_ {};
-    // The Service Instance Id.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
-    // The Service Name.
+    // The service name.
     shared_ptr<string> serviceName_ {};
     // The service version.
-    shared_ptr<string> serviceVersion_ {};
-    // The share type of the service. Default value: SharedAccount. Valid values:
     // 
-    // *   SharedAccount: The service is shared by multiple accounts.
-    // *   Resell: The service is distributed.
+    // Call the [ListServices](https://help.aliyun.com/document_detail/2264368.html) operation to obtain the service version.
+    shared_ptr<string> serviceVersion_ {};
+    // The service sharing type.
+    // 
+    // Valid values:
+    // 
+    // - SharedAccount (default): common sharing.
+    // 
+    // - Resell: distribution sharing.
     shared_ptr<string> sharedAccountType_ {};
-    // The information that you want to query.
+    // The details to be returned.
     shared_ptr<vector<string>> showDetail_ {};
   };
 

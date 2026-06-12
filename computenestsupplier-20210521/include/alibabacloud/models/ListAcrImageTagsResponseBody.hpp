@@ -96,9 +96,9 @@ namespace Models
     protected:
       // The time when the image was created.
       shared_ptr<string> createTime_ {};
-      // The image size. Unit: bytes.
+      // The size of the image in bytes.
       shared_ptr<string> imageSize_ {};
-      // The time when the image was modified.
+      // The time when the image was last modified.
       shared_ptr<string> modifiedTime_ {};
       // The image version.
       shared_ptr<string> tag_ {};
@@ -144,15 +144,15 @@ namespace Models
 
 
   protected:
-    // The list of images.
+    // A list of images.
     shared_ptr<vector<ListAcrImageTagsResponseBody::Images>> images_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

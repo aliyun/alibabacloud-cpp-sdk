@@ -66,15 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the deployment package.
+    // The artifact ID.
+    // 
+    // To obtain the artifact ID, call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> artifactId_ {};
     // The filter.
     shared_ptr<string> filtersShrink_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token to retrieve the next page of results. Set this to the NextToken value from the previous call.
     shared_ptr<string> nextToken_ {};
   };
 

@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Adds a shared account of a service.
+ * @summary Adds shared accounts for a service.
  *
  * @param request AddServiceSharedAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -83,7 +83,7 @@ AddServiceSharedAccountsResponse Client::addServiceSharedAccountsWithOptions(con
 }
 
 /**
- * @summary Adds a shared account of a service.
+ * @summary Adds shared accounts for a service.
  *
  * @param request AddServiceSharedAccountsRequest
  * @return AddServiceSharedAccountsResponse
@@ -94,7 +94,7 @@ AddServiceSharedAccountsResponse Client::addServiceSharedAccounts(const AddServi
 }
 
 /**
- * @summary Merchant uses service request
+ * @summary Approves a service usage request.
  *
  * @param request ApproveServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -145,7 +145,7 @@ ApproveServiceUsageResponse Client::approveServiceUsageWithOptions(const Approve
 }
 
 /**
- * @summary Merchant uses service request
+ * @summary Approves a service usage request.
  *
  * @param request ApproveServiceUsageRequest
  * @return ApproveServiceUsageResponse
@@ -156,9 +156,9 @@ ApproveServiceUsageResponse Client::approveServiceUsage(const ApproveServiceUsag
 }
 
 /**
- * @summary Cancel service registration.
+ * @summary Cancels a service review request.
  *
- * @description Only service registration in the Submitted status can be canceled.
+ * @description Service review requests can be canceled only if they are in the Submitted state.
  *
  * @param request CancelServiceRegistrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -197,9 +197,9 @@ CancelServiceRegistrationResponse Client::cancelServiceRegistrationWithOptions(c
 }
 
 /**
- * @summary Cancel service registration.
+ * @summary Cancels a service review request.
  *
- * @description Only service registration in the Submitted status can be canceled.
+ * @description Service review requests can be canceled only if they are in the Submitted state.
  *
  * @param request CancelServiceRegistrationRequest
  * @return CancelServiceRegistrationResponse
@@ -210,7 +210,7 @@ CancelServiceRegistrationResponse Client::cancelServiceRegistration(const Cancel
 }
 
 /**
- * @summary Redeploys a service instance after the service instance failed to be deployed.
+ * @summary Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
  *
  * @param request ContinueDeployServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +257,7 @@ ContinueDeployServiceInstanceResponse Client::continueDeployServiceInstanceWithO
 }
 
 /**
- * @summary Redeploys a service instance after the service instance failed to be deployed.
+ * @summary Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
  *
  * @param request ContinueDeployServiceInstanceRequest
  * @return ContinueDeployServiceInstanceResponse
@@ -268,7 +268,7 @@ ContinueDeployServiceInstanceResponse Client::continueDeployServiceInstance(cons
 }
 
 /**
- * @summary Creates a deployment package.
+ * @summary Creates an artifact.
  *
  * @param tmpReq CreateArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ CreateArtifactResponse Client::createArtifactWithOptions(const CreateArtifactReq
 }
 
 /**
- * @summary Creates a deployment package.
+ * @summary Creates an artifact.
  *
  * @param request CreateArtifactRequest
  * @return CreateArtifactResponse
@@ -364,7 +364,7 @@ CreateArtifactResponse Client::createArtifact(const CreateArtifactRequest &reque
 }
 
 /**
- * @summary 创建运维公告
+ * @summary Creates an operations and maintenance (O&M) notice.
  *
  * @param tmpReq CreateOpsNoticeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -437,7 +437,7 @@ CreateOpsNoticeResponse Client::createOpsNoticeWithOptions(const CreateOpsNotice
 }
 
 /**
- * @summary 创建运维公告
+ * @summary Creates an operations and maintenance (O&M) notice.
  *
  * @param request CreateOpsNoticeRequest
  * @return CreateOpsNoticeResponse
@@ -448,7 +448,7 @@ CreateOpsNoticeResponse Client::createOpsNotice(const CreateOpsNoticeRequest &re
 }
 
 /**
- * @summary Creates a service.
+ * @summary Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
  *
  * @param tmpReq CreateServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +593,7 @@ CreateServiceResponse Client::createServiceWithOptions(const CreateServiceReques
 }
 
 /**
- * @summary Creates a service.
+ * @summary Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
  *
  * @param request CreateServiceRequest
  * @return CreateServiceResponse
@@ -604,7 +604,7 @@ CreateServiceResponse Client::createService(const CreateServiceRequest &request)
 }
 
 /**
- * @summary Creates and deploys a service instance.
+ * @summary You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
  *
  * @param tmpReq CreateServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -689,7 +689,7 @@ CreateServiceInstanceResponse Client::createServiceInstanceWithOptions(const Cre
 }
 
 /**
- * @summary Creates and deploys a service instance.
+ * @summary You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
  *
  * @param request CreateServiceInstanceRequest
  * @return CreateServiceInstanceResponse
@@ -700,7 +700,7 @@ CreateServiceInstanceResponse Client::createServiceInstance(const CreateServiceI
 }
 
 /**
- * @summary Create service test case.
+ * @summary Creates a service test case.
  *
  * @param request CreateServiceTestCaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -751,7 +751,7 @@ CreateServiceTestCaseResponse Client::createServiceTestCaseWithOptions(const Cre
 }
 
 /**
- * @summary Create service test case.
+ * @summary Creates a service test case.
  *
  * @param request CreateServiceTestCaseRequest
  * @return CreateServiceTestCaseResponse
@@ -762,7 +762,7 @@ CreateServiceTestCaseResponse Client::createServiceTestCase(const CreateServiceT
 }
 
 /**
- * @summary Create service test task
+ * @summary Creates a test task for a service.
  *
  * @param request CreateServiceTestTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -805,7 +805,7 @@ CreateServiceTestTaskResponse Client::createServiceTestTaskWithOptions(const Cre
 }
 
 /**
- * @summary Create service test task
+ * @summary Creates a test task for a service.
  *
  * @param request CreateServiceTestTaskRequest
  * @return CreateServiceTestTaskResponse
@@ -816,7 +816,7 @@ CreateServiceTestTaskResponse Client::createServiceTestTask(const CreateServiceT
 }
 
 /**
- * @summary Create  Service resell application.
+ * @summary You can create a service distribution request.
  *
  * @param request CreateServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -855,7 +855,7 @@ CreateServiceUsageResponse Client::createServiceUsageWithOptions(const CreateSer
 }
 
 /**
- * @summary Create  Service resell application.
+ * @summary You can create a service distribution request.
  *
  * @param request CreateServiceUsageRequest
  * @return CreateServiceUsageResponse
@@ -866,7 +866,7 @@ CreateServiceUsageResponse Client::createServiceUsage(const CreateServiceUsageRe
 }
 
 /**
- * @summary Register as a service provider
+ * @summary Registers a service provider.
  *
  * @param request CreateSupplierRegistrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +965,7 @@ CreateSupplierRegistrationResponse Client::createSupplierRegistrationWithOptions
 }
 
 /**
- * @summary Register as a service provider
+ * @summary Registers a service provider.
  *
  * @param request CreateSupplierRegistrationRequest
  * @return CreateSupplierRegistrationResponse
@@ -976,7 +976,10 @@ CreateSupplierRegistrationResponse Client::createSupplierRegistration(const Crea
 }
 
 /**
- * @summary 删除Acr镜像仓库
+ * @summary Deletes ACR image repositories.
+ *
+ * @description ### Prerequisites
+ * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
  *
  * @param request DeleteAcrImageRepositoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1019,7 +1022,10 @@ DeleteAcrImageRepositoriesResponse Client::deleteAcrImageRepositoriesWithOptions
 }
 
 /**
- * @summary 删除Acr镜像仓库
+ * @summary Deletes ACR image repositories.
+ *
+ * @description ### Prerequisites
+ * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
  *
  * @param request DeleteAcrImageRepositoriesRequest
  * @return DeleteAcrImageRepositoriesResponse
@@ -1030,7 +1036,10 @@ DeleteAcrImageRepositoriesResponse Client::deleteAcrImageRepositories(const Dele
 }
 
 /**
- * @summary 删除Acr容器镜像版本
+ * @summary Delete a container image version from ACR
+ *
+ * @description ###
+ * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
  *
  * @param request DeleteAcrImageTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1086,10 @@ DeleteAcrImageTagsResponse Client::deleteAcrImageTagsWithOptions(const DeleteAcr
 }
 
 /**
- * @summary 删除Acr容器镜像版本
+ * @summary Delete a container image version from ACR
+ *
+ * @description ###
+ * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
  *
  * @param request DeleteAcrImageTagsRequest
  * @return DeleteAcrImageTagsResponse
@@ -1088,7 +1100,7 @@ DeleteAcrImageTagsResponse Client::deleteAcrImageTags(const DeleteAcrImageTagsRe
 }
 
 /**
- * @summary Deletes an artifact.
+ * @summary You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
  *
  * @param request DeleteArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1127,7 +1139,7 @@ DeleteArtifactResponse Client::deleteArtifactWithOptions(const DeleteArtifactReq
 }
 
 /**
- * @summary Deletes an artifact.
+ * @summary You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
  *
  * @param request DeleteArtifactRequest
  * @return DeleteArtifactResponse
@@ -1138,7 +1150,7 @@ DeleteArtifactResponse Client::deleteArtifact(const DeleteArtifactRequest &reque
 }
 
 /**
- * @summary Deletes a service.
+ * @summary Deletes a specified service based on its region ID, service ID, and service version.
  *
  * @param request DeleteServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1193,7 @@ DeleteServiceResponse Client::deleteServiceWithOptions(const DeleteServiceReques
 }
 
 /**
- * @summary Deletes a service.
+ * @summary Deletes a specified service based on its region ID, service ID, and service version.
  *
  * @param request DeleteServiceRequest
  * @return DeleteServiceResponse
@@ -1192,7 +1204,7 @@ DeleteServiceResponse Client::deleteService(const DeleteServiceRequest &request)
 }
 
 /**
- * @summary Deletes a service instance.
+ * @summary Deletes service instances by specifying a region ID and service instance IDs.
  *
  * @param request DeleteServiceInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1231,7 +1243,7 @@ DeleteServiceInstancesResponse Client::deleteServiceInstancesWithOptions(const D
 }
 
 /**
- * @summary Deletes a service instance.
+ * @summary Deletes service instances by specifying a region ID and service instance IDs.
  *
  * @param request DeleteServiceInstancesRequest
  * @return DeleteServiceInstancesResponse
@@ -1242,7 +1254,7 @@ DeleteServiceInstancesResponse Client::deleteServiceInstances(const DeleteServic
 }
 
 /**
- * @summary Delete service test configuration
+ * @summary Deletes a service test case.
  *
  * @param request DeleteServiceTestCaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1277,7 +1289,7 @@ DeleteServiceTestCaseResponse Client::deleteServiceTestCaseWithOptions(const Del
 }
 
 /**
- * @summary Delete service test configuration
+ * @summary Deletes a service test case.
  *
  * @param request DeleteServiceTestCaseRequest
  * @return DeleteServiceTestCaseResponse
@@ -1338,7 +1350,7 @@ DeployServiceInstanceResponse Client::deployServiceInstance(const DeployServiceI
 }
 
 /**
- * @summary 生成默认服务测试配置
+ * @summary You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
  *
  * @param request GenerateDefaultServiceTestConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1377,7 +1389,7 @@ GenerateDefaultServiceTestConfigResponse Client::generateDefaultServiceTestConfi
 }
 
 /**
- * @summary 生成默认服务测试配置
+ * @summary You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
  *
  * @param request GenerateDefaultServiceTestConfigRequest
  * @return GenerateDefaultServiceTestConfigResponse
@@ -1388,17 +1400,27 @@ GenerateDefaultServiceTestConfigResponse Client::generateDefaultServiceTestConfi
 }
 
 /**
- * @summary Generate and validate the stack required for service creation
+ * @summary Generates the required access policies before you create a service instance.
  *
- * @param request GenerateServicePolicyRequest
+ * @param tmpReq GenerateServicePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateServicePolicyResponse
  */
-GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const GenerateServicePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const GenerateServicePolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenerateServicePolicyShrinkRequest request = GenerateServicePolicyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParameters()) {
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
+  }
+
   json query = {};
   if (!!request.hasOperationTypes()) {
     query["OperationTypes"] = request.getOperationTypes();
+  }
+
+  if (!!request.hasParametersShrink()) {
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasRegionId()) {
@@ -1439,7 +1461,7 @@ GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const Gen
 }
 
 /**
- * @summary Generate and validate the stack required for service creation
+ * @summary Generates the required access policies before you create a service instance.
  *
  * @param request GenerateServicePolicyRequest
  * @return GenerateServicePolicyResponse
@@ -1450,7 +1472,7 @@ GenerateServicePolicyResponse Client::generateServicePolicy(const GenerateServic
 }
 
 /**
- * @summary Queries the information about a deployment package.
+ * @summary Retrieves the details of an artifact.
  *
  * @param request GetArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1489,7 +1511,7 @@ GetArtifactResponse Client::getArtifactWithOptions(const GetArtifactRequest &req
 }
 
 /**
- * @summary Queries the information about a deployment package.
+ * @summary Retrieves the details of an artifact.
  *
  * @param request GetArtifactRequest
  * @return GetArtifactResponse
@@ -1500,7 +1522,7 @@ GetArtifactResponse Client::getArtifact(const GetArtifactRequest &request) {
 }
 
 /**
- * @summary Queries the credentials that are required to upload a deployment package.
+ * @summary Obtains the credentials required to upload an artifact.
  *
  * @param request GetArtifactRepositoryCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1535,7 +1557,7 @@ GetArtifactRepositoryCredentialsResponse Client::getArtifactRepositoryCredential
 }
 
 /**
- * @summary Queries the credentials that are required to upload a deployment package.
+ * @summary Obtains the credentials required to upload an artifact.
  *
  * @param request GetArtifactRepositoryCredentialsRequest
  * @return GetArtifactRepositoryCredentialsResponse
@@ -1546,7 +1568,7 @@ GetArtifactRepositoryCredentialsResponse Client::getArtifactRepositoryCredential
 }
 
 /**
- * @summary 根据地域参数获取地域可用区列表
+ * @summary Retrieves a list of available zones in a region.
  *
  * @param request GetNetworkAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1605,7 +1627,7 @@ GetNetworkAvailableZonesResponse Client::getNetworkAvailableZonesWithOptions(con
 }
 
 /**
- * @summary 根据地域参数获取地域可用区列表
+ * @summary Retrieves a list of available zones in a region.
  *
  * @param request GetNetworkAvailableZonesRequest
  * @return GetNetworkAvailableZonesResponse
@@ -1616,7 +1638,9 @@ GetNetworkAvailableZonesResponse Client::getNetworkAvailableZones(const GetNetwo
 }
 
 /**
- * @summary 查看运维公告详情
+ * @summary Retrieves the details of an operations and maintenance (O&M) notice.
+ *
+ * @description Services must be approved before they can be published.
  *
  * @param request GetOpsNoticeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1651,7 +1675,9 @@ GetOpsNoticeResponse Client::getOpsNoticeWithOptions(const GetOpsNoticeRequest &
 }
 
 /**
- * @summary 查看运维公告详情
+ * @summary Retrieves the details of an operations and maintenance (O&M) notice.
+ *
+ * @description Services must be approved before they can be published.
  *
  * @param request GetOpsNoticeRequest
  * @return GetOpsNoticeResponse
@@ -1662,7 +1688,7 @@ GetOpsNoticeResponse Client::getOpsNotice(const GetOpsNoticeRequest &request) {
 }
 
 /**
- * @summary Queries the information about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request GetServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1747,7 @@ GetServiceResponse Client::getServiceWithOptions(const GetServiceRequest &reques
 }
 
 /**
- * @summary Queries the information about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request GetServiceRequest
  * @return GetServiceResponse
@@ -1732,7 +1758,7 @@ GetServiceResponse Client::getService(const GetServiceRequest &request) {
 }
 
 /**
- * @summary Queries the estimated price for creating a service instance.
+ * @summary Retrieves the estimated cost of creating a service instance.
  *
  * @param tmpReq GetServiceEstimateCostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1805,7 +1831,7 @@ GetServiceEstimateCostResponse Client::getServiceEstimateCostWithOptions(const G
 }
 
 /**
- * @summary Queries the estimated price for creating a service instance.
+ * @summary Retrieves the estimated cost of creating a service instance.
  *
  * @param request GetServiceEstimateCostRequest
  * @return GetServiceEstimateCostResponse
@@ -1816,7 +1842,7 @@ GetServiceEstimateCostResponse Client::getServiceEstimateCost(const GetServiceEs
 }
 
 /**
- * @summary Queries the information about a service instance.
+ * @summary Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
  *
  * @param request GetServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1851,7 +1877,7 @@ GetServiceInstanceResponse Client::getServiceInstanceWithOptions(const GetServic
 }
 
 /**
- * @summary Queries the information about a service instance.
+ * @summary Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
  *
  * @param request GetServiceInstanceRequest
  * @return GetServiceInstanceResponse
@@ -1862,7 +1888,7 @@ GetServiceInstanceResponse Client::getServiceInstance(const GetServiceInstanceRe
 }
 
 /**
- * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+ * @summary Queries the activation status of a service and the information about its service roles.
  *
  * @param tmpReq GetServiceProvisionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1915,7 +1941,7 @@ GetServiceProvisionsResponse Client::getServiceProvisionsWithOptions(const GetSe
 }
 
 /**
- * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+ * @summary Queries the activation status of a service and the information about its service roles.
  *
  * @param request GetServiceProvisionsRequest
  * @return GetServiceProvisionsResponse
@@ -1926,7 +1952,7 @@ GetServiceProvisionsResponse Client::getServiceProvisions(const GetServiceProvis
 }
 
 /**
- * @summary Get service registration detail.
+ * @summary Queries the details of a service registration.
  *
  * @param request GetServiceRegistrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1961,7 +1987,7 @@ GetServiceRegistrationResponse Client::getServiceRegistrationWithOptions(const G
 }
 
 /**
- * @summary Get service registration detail.
+ * @summary Queries the details of a service registration.
  *
  * @param request GetServiceRegistrationRequest
  * @return GetServiceRegistrationResponse
@@ -1972,7 +1998,7 @@ GetServiceRegistrationResponse Client::getServiceRegistration(const GetServiceRe
 }
 
 /**
- * @summary 查询服务模板存在的规范问题
+ * @summary Queries for criterion issues in a service template.
  *
  * @param request GetServiceTemplateCriterionIssuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2011,7 +2037,7 @@ GetServiceTemplateCriterionIssuesResponse Client::getServiceTemplateCriterionIss
 }
 
 /**
- * @summary 查询服务模板存在的规范问题
+ * @summary Queries for criterion issues in a service template.
  *
  * @param request GetServiceTemplateCriterionIssuesRequest
  * @return GetServiceTemplateCriterionIssuesResponse
@@ -2022,7 +2048,7 @@ GetServiceTemplateCriterionIssuesResponse Client::getServiceTemplateCriterionIss
 }
 
 /**
- * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+ * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
  *
  * @param request GetServiceTemplateParameterConstraintsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2085,7 +2111,7 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 }
 
 /**
- * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+ * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
  *
  * @param request GetServiceTemplateParameterConstraintsRequest
  * @return GetServiceTemplateParameterConstraintsResponse
@@ -2096,7 +2122,7 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 }
 
 /**
- * @summary Get the execution status of Cases in the service test task
+ * @summary After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
  *
  * @param request GetServiceTestTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2131,7 +2157,7 @@ GetServiceTestTaskResponse Client::getServiceTestTaskWithOptions(const GetServic
 }
 
 /**
- * @summary Get the execution status of Cases in the service test task
+ * @summary After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
  *
  * @param request GetServiceTestTaskRequest
  * @return GetServiceTestTaskResponse
@@ -2142,7 +2168,7 @@ GetServiceTestTaskResponse Client::getServiceTestTask(const GetServiceTestTaskRe
 }
 
 /**
- * @summary Get service provider information
+ * @summary Retrieves service provider information.
  *
  * @param request GetSupplierInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2173,7 +2199,7 @@ GetSupplierInformationResponse Client::getSupplierInformationWithOptions(const G
 }
 
 /**
- * @summary Get service provider information
+ * @summary Retrieves service provider information.
  *
  * @param request GetSupplierInformationRequest
  * @return GetSupplierInformationResponse
@@ -2184,7 +2210,7 @@ GetSupplierInformationResponse Client::getSupplierInformation(const GetSupplierI
 }
 
 /**
- * @summary Obtain the AccessKey pair of uploaded files.
+ * @summary Retrieves credentials to upload a file.
  *
  * @param request GetUploadCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2219,7 +2245,7 @@ GetUploadCredentialsResponse Client::getUploadCredentialsWithOptions(const GetUp
 }
 
 /**
- * @summary Obtain the AccessKey pair of uploaded files.
+ * @summary Retrieves credentials to upload a file.
  *
  * @param request GetUploadCredentialsRequest
  * @return GetUploadCredentialsResponse
@@ -2230,9 +2256,9 @@ GetUploadCredentialsResponse Client::getUploadCredentials(const GetUploadCredent
 }
 
 /**
- * @summary Launch service
+ * @summary Publishes a service.
  *
- * @description 需要上线的服务必须为已通过审核的服务。
+ * @description Only approved services can be published.
  *
  * @param request LaunchServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2283,9 +2309,9 @@ LaunchServiceResponse Client::launchServiceWithOptions(const LaunchServiceReques
 }
 
 /**
- * @summary Launch service
+ * @summary Publishes a service.
  *
- * @description 需要上线的服务必须为已通过审核的服务。
+ * @description Only approved services can be published.
  *
  * @param request LaunchServiceRequest
  * @return LaunchServiceResponse
@@ -2296,7 +2322,7 @@ LaunchServiceResponse Client::launchService(const LaunchServiceRequest &request)
 }
 
 /**
- * @summary Queries a list of images uploaded to Container Registry.
+ * @summary You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
  *
  * @param request ListAcrImageRepositoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2339,7 +2365,7 @@ ListAcrImageRepositoriesResponse Client::listAcrImageRepositoriesWithOptions(con
 }
 
 /**
- * @summary Queries a list of images uploaded to Container Registry.
+ * @summary You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
  *
  * @param request ListAcrImageRepositoriesRequest
  * @return ListAcrImageRepositoriesResponse
@@ -2350,7 +2376,7 @@ ListAcrImageRepositoriesResponse Client::listAcrImageRepositories(const ListAcrI
 }
 
 /**
- * @summary Queries the versions of images that are uploaded to the image repository.
+ * @summary Lists the uploaded image versions in an image repository.
  *
  * @param request ListAcrImageTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2393,7 +2419,7 @@ ListAcrImageTagsResponse Client::listAcrImageTagsWithOptions(const ListAcrImageT
 }
 
 /**
- * @summary Queries the versions of images that are uploaded to the image repository.
+ * @summary Lists the uploaded image versions in an image repository.
  *
  * @param request ListAcrImageTagsRequest
  * @return ListAcrImageTagsResponse
@@ -2404,7 +2430,10 @@ ListAcrImageTagsResponse Client::listAcrImageTags(const ListAcrImageTagsRequest 
 }
 
 /**
- * @summary 查询部署实例、升级以及应用的日志
+ * @summary Queries the build logs of an artifact.
+ *
+ * @description ### Prerequisites
+ * None
  *
  * @param request ListArtifactBuildLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2459,7 +2488,10 @@ ListArtifactBuildLogsResponse Client::listArtifactBuildLogsWithOptions(const Lis
 }
 
 /**
- * @summary 查询部署实例、升级以及应用的日志
+ * @summary Queries the build logs of an artifact.
+ *
+ * @description ### Prerequisites
+ * None
  *
  * @param request ListArtifactBuildLogsRequest
  * @return ListArtifactBuildLogsResponse
@@ -2470,7 +2502,7 @@ ListArtifactBuildLogsResponse Client::listArtifactBuildLogs(const ListArtifactBu
 }
 
 /**
- * @summary Get the list of artifact security risks
+ * @summary Retrieves a list of security risks for an artifact.
  *
  * @param request ListArtifactRisksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2505,7 +2537,7 @@ ListArtifactRisksResponse Client::listArtifactRisksWithOptions(const ListArtifac
 }
 
 /**
- * @summary Get the list of artifact security risks
+ * @summary Retrieves a list of security risks for an artifact.
  *
  * @param request ListArtifactRisksRequest
  * @return ListArtifactRisksResponse
@@ -2516,7 +2548,7 @@ ListArtifactRisksResponse Client::listArtifactRisks(const ListArtifactRisksReque
 }
 
 /**
- * @summary Queries the version information about a deployment package.
+ * @summary Queries artifact versions.
  *
  * @param tmpReq ListArtifactVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2565,7 +2597,7 @@ ListArtifactVersionsResponse Client::listArtifactVersionsWithOptions(const ListA
 }
 
 /**
- * @summary Queries the version information about a deployment package.
+ * @summary Queries artifact versions.
  *
  * @param request ListArtifactVersionsRequest
  * @return ListArtifactVersionsResponse
@@ -2576,7 +2608,7 @@ ListArtifactVersionsResponse Client::listArtifactVersions(const ListArtifactVers
 }
 
 /**
- * @summary Queries a list of deployment packages.
+ * @summary Queries a list of artifacts.
  *
  * @param request ListArtifactsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2623,7 +2655,7 @@ ListArtifactsResponse Client::listArtifactsWithOptions(const ListArtifactsReques
 }
 
 /**
- * @summary Queries a list of deployment packages.
+ * @summary Queries a list of artifacts.
  *
  * @param request ListArtifactsRequest
  * @return ListArtifactsResponse
@@ -2634,7 +2666,7 @@ ListArtifactsResponse Client::listArtifacts(const ListArtifactsRequest &request)
 }
 
 /**
- * @summary 查询运维公告
+ * @summary Queries the operations and maintenance (O&M) notices published by a service provider.
  *
  * @param request ListOpsNoticesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2677,7 +2709,7 @@ ListOpsNoticesResponse Client::listOpsNoticesWithOptions(const ListOpsNoticesReq
 }
 
 /**
- * @summary 查询运维公告
+ * @summary Queries the operations and maintenance (O&M) notices published by a service provider.
  *
  * @param request ListOpsNoticesRequest
  * @return ListOpsNoticesResponse
@@ -2688,7 +2720,7 @@ ListOpsNoticesResponse Client::listOpsNotices(const ListOpsNoticesRequest &reque
 }
 
 /**
- * @summary Paginated query of distributor information list
+ * @summary Queries a list of resellers for display on the frontend.
  *
  * @param request ListResellersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2731,7 +2763,7 @@ ListResellersResponse Client::listResellersWithOptions(const ListResellersReques
 }
 
 /**
- * @summary Paginated query of distributor information list
+ * @summary Queries a list of resellers for display on the frontend.
  *
  * @param request ListResellersRequest
  * @return ListResellersResponse
@@ -2742,7 +2774,10 @@ ListResellersResponse Client::listResellers(const ListResellersRequest &request)
 }
 
 /**
- * @summary 查询部署实例、升级以及应用的日志
+ * @summary Queries the logs for service instances, upgrades, and applications.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request ListServiceBuildLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2793,7 +2828,10 @@ ListServiceBuildLogsResponse Client::listServiceBuildLogsWithOptions(const ListS
 }
 
 /**
- * @summary 查询部署实例、升级以及应用的日志
+ * @summary Queries the logs for service instances, upgrades, and applications.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request ListServiceBuildLogsRequest
  * @return ListServiceBuildLogsResponse
@@ -2804,7 +2842,7 @@ ListServiceBuildLogsResponse Client::listServiceBuildLogs(const ListServiceBuild
 }
 
 /**
- * @summary Display service instance bill
+ * @summary You can call the ListServiceInstanceBill operation to query the bills of a service instance.
  *
  * @param request ListServiceInstanceBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2863,7 +2901,7 @@ ListServiceInstanceBillResponse Client::listServiceInstanceBillWithOptions(const
 }
 
 /**
- * @summary Display service instance bill
+ * @summary You can call the ListServiceInstanceBill operation to query the bills of a service instance.
  *
  * @param request ListServiceInstanceBillRequest
  * @return ListServiceInstanceBillResponse
@@ -2874,7 +2912,7 @@ ListServiceInstanceBillResponse Client::listServiceInstanceBill(const ListServic
 }
 
 /**
- * @summary Query service instance deployment details
+ * @summary Queries the deployment details for service instances.
  *
  * @param request ListServiceInstanceDeployDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2937,7 +2975,7 @@ ListServiceInstanceDeployDetailsResponse Client::listServiceInstanceDeployDetail
 }
 
 /**
- * @summary Query service instance deployment details
+ * @summary Queries the deployment details for service instances.
  *
  * @param request ListServiceInstanceDeployDetailsRequest
  * @return ListServiceInstanceDeployDetailsResponse
@@ -2948,7 +2986,7 @@ ListServiceInstanceDeployDetailsResponse Client::listServiceInstanceDeployDetail
 }
 
 /**
- * @summary “Query logs at various levels, including service instance application, instance, and resource.”
+ * @summary Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
  *
  * @param request ListServiceInstanceLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3007,7 +3045,7 @@ ListServiceInstanceLogsResponse Client::listServiceInstanceLogsWithOptions(const
 }
 
 /**
- * @summary “Query logs at various levels, including service instance application, instance, and resource.”
+ * @summary Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
  *
  * @param request ListServiceInstanceLogsRequest
  * @return ListServiceInstanceLogsResponse
@@ -3018,7 +3056,7 @@ ListServiceInstanceLogsResponse Client::listServiceInstanceLogs(const ListServic
 }
 
 /**
- * @summary Query service instance resources
+ * @summary Lists the resources in a service instance.
  *
  * @param request ListServiceInstanceResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3073,7 +3111,7 @@ ListServiceInstanceResourcesResponse Client::listServiceInstanceResourcesWithOpt
 }
 
 /**
- * @summary Query service instance resources
+ * @summary Lists the resources in a service instance.
  *
  * @param request ListServiceInstanceResourcesRequest
  * @return ListServiceInstanceResourcesResponse
@@ -3084,7 +3122,7 @@ ListServiceInstanceResourcesResponse Client::listServiceInstanceResources(const 
 }
 
 /**
- * @summary View the upgrade history of a service instance
+ * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
  *
  * @param request ListServiceInstanceUpgradeHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3127,7 +3165,7 @@ ListServiceInstanceUpgradeHistoryResponse Client::listServiceInstanceUpgradeHist
 }
 
 /**
- * @summary View the upgrade history of a service instance
+ * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
  *
  * @param request ListServiceInstanceUpgradeHistoryRequest
  * @return ListServiceInstanceUpgradeHistoryResponse
@@ -3204,7 +3242,7 @@ ListServiceInstancesResponse Client::listServiceInstances(const ListServiceInsta
 }
 
 /**
- * @summary Query service registrations.
+ * @summary Queries service registration requests.
  *
  * @param request ListServiceRegistrationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3247,7 +3285,7 @@ ListServiceRegistrationsResponse Client::listServiceRegistrationsWithOptions(con
 }
 
 /**
- * @summary Query service registrations.
+ * @summary Queries service registration requests.
  *
  * @param request ListServiceRegistrationsRequest
  * @return ListServiceRegistrationsResponse
@@ -3258,7 +3296,7 @@ ListServiceRegistrationsResponse Client::listServiceRegistrations(const ListServ
 }
 
 /**
- * @summary 调用ListServiceSharedAccounts查看服务共享账号列表。
+ * @summary Queries the accounts that a service is shared with.
  *
  * @param request ListServiceSharedAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3309,7 +3347,7 @@ ListServiceSharedAccountsResponse Client::listServiceSharedAccountsWithOptions(c
 }
 
 /**
- * @summary 调用ListServiceSharedAccounts查看服务共享账号列表。
+ * @summary Queries the accounts that a service is shared with.
  *
  * @param request ListServiceSharedAccountsRequest
  * @return ListServiceSharedAccountsResponse
@@ -3320,7 +3358,7 @@ ListServiceSharedAccountsResponse Client::listServiceSharedAccounts(const ListSe
 }
 
 /**
- * @summary Service test case list
+ * @summary Queries the service test cases for the current service version.
  *
  * @param request ListServiceTestCasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3371,7 +3409,7 @@ ListServiceTestCasesResponse Client::listServiceTestCasesWithOptions(const ListS
 }
 
 /**
- * @summary Service test case list
+ * @summary Queries the service test cases for the current service version.
  *
  * @param request ListServiceTestCasesRequest
  * @return ListServiceTestCasesResponse
@@ -3382,7 +3420,7 @@ ListServiceTestCasesResponse Client::listServiceTestCases(const ListServiceTestC
 }
 
 /**
- * @summary Get service test real-time logs
+ * @summary Retrieves the real-time logs of a service test.
  *
  * @param request ListServiceTestTaskLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3425,7 +3463,7 @@ ListServiceTestTaskLogsResponse Client::listServiceTestTaskLogsWithOptions(const
 }
 
 /**
- * @summary Get service test real-time logs
+ * @summary Retrieves the real-time logs of a service test.
  *
  * @param request ListServiceTestTaskLogsRequest
  * @return ListServiceTestTaskLogsResponse
@@ -3436,7 +3474,7 @@ ListServiceTestTaskLogsResponse Client::listServiceTestTaskLogs(const ListServic
 }
 
 /**
- * @summary Get task execution list
+ * @summary Queries the test tasks for a service.
  *
  * @param request ListServiceTestTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3487,7 +3525,7 @@ ListServiceTestTasksResponse Client::listServiceTestTasksWithOptions(const ListS
 }
 
 /**
- * @summary Get task execution list
+ * @summary Queries the test tasks for a service.
  *
  * @param request ListServiceTestTasksRequest
  * @return ListServiceTestTasksResponse
@@ -3498,7 +3536,7 @@ ListServiceTestTasksResponse Client::listServiceTestTasks(const ListServiceTestT
 }
 
 /**
- * @summary Queries the applications for using a service.
+ * @summary Queries the usage of your services.
  *
  * @param request ListServiceUsagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3525,7 +3563,7 @@ ListServiceUsagesResponse Client::listServiceUsagesWithOptions(const ListService
 }
 
 /**
- * @summary Queries the applications for using a service.
+ * @summary Queries the usage of your services.
  *
  * @param request ListServiceUsagesRequest
  * @return ListServiceUsagesResponse
@@ -3536,7 +3574,7 @@ ListServiceUsagesResponse Client::listServiceUsages(const ListServiceUsagesReque
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
  *
  * @param request ListServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3591,7 +3629,7 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
  *
  * @param request ListServicesRequest
  * @return ListServicesResponse
@@ -3602,7 +3640,7 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary Query the list of service provider onboarding reviews
+ * @summary Queries service provider registration requests.
  *
  * @param request ListSupplierRegistrationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3645,7 +3683,7 @@ ListSupplierRegistrationsResponse Client::listSupplierRegistrationsWithOptions(c
 }
 
 /**
- * @summary Query the list of service provider onboarding reviews
+ * @summary Queries service provider registration requests.
  *
  * @param request ListSupplierRegistrationsRequest
  * @return ListSupplierRegistrationsResponse
@@ -3656,7 +3694,7 @@ ListSupplierRegistrationsResponse Client::listSupplierRegistrations(const ListSu
 }
 
 /**
- * @summary Query tag key list
+ * @summary Queries the existing tag keys.
  *
  * @param request ListTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3695,7 +3733,7 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
 }
 
 /**
- * @summary Query tag key list
+ * @summary Queries the existing tag keys.
  *
  * @param request ListTagKeysRequest
  * @return ListTagKeysResponse
@@ -3706,7 +3744,7 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
- * @summary Query resource tags
+ * @summary Queries the tags of one or more resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3753,7 +3791,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Query resource tags
+ * @summary Queries the tags of one or more resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -3764,7 +3802,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Query tag value list
+ * @summary Queries the tag values for a specific tag key.
  *
  * @param request ListTagValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3807,7 +3845,7 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 }
 
 /**
- * @summary Query tag value list
+ * @summary Queries the tag values for a specific tag key.
  *
  * @param request ListTagValuesRequest
  * @return ListTagValuesResponse
@@ -3818,7 +3856,7 @@ ListTagValuesResponse Client::listTagValues(const ListTagValuesRequest &request)
 }
 
 /**
- * @summary Modifies the resource information about a service instance.
+ * @summary Modifies the resources of a service instance.
  *
  * @param request ModifyServiceInstanceResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3857,7 +3895,7 @@ ModifyServiceInstanceResourcesResponse Client::modifyServiceInstanceResourcesWit
 }
 
 /**
- * @summary Modifies the resource information about a service instance.
+ * @summary Modifies the resources of a service instance.
  *
  * @param request ModifyServiceInstanceResourcesRequest
  * @return ModifyServiceInstanceResourcesResponse
@@ -3868,7 +3906,7 @@ ModifyServiceInstanceResourcesResponse Client::modifyServiceInstanceResources(co
 }
 
 /**
- * @summary Pre-release service
+ * @summary Prelaunches a service.
  *
  * @param request PreLaunchServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3907,7 +3945,7 @@ PreLaunchServiceResponse Client::preLaunchServiceWithOptions(const PreLaunchServ
 }
 
 /**
- * @summary Pre-release service
+ * @summary Prelaunches a service.
  *
  * @param request PreLaunchServiceRequest
  * @return PreLaunchServiceResponse
@@ -3918,7 +3956,7 @@ PreLaunchServiceResponse Client::preLaunchService(const PreLaunchServiceRequest 
 }
 
 /**
- * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+ * @summary This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
  *
  * @param request PushMeteringDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3953,7 +3991,7 @@ PushMeteringDataResponse Client::pushMeteringDataWithOptions(const PushMeteringD
 }
 
 /**
- * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+ * @summary This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
  *
  * @param request PushMeteringDataRequest
  * @return PushMeteringDataResponse
@@ -3964,7 +4002,7 @@ PushMeteringDataResponse Client::pushMeteringData(const PushMeteringDataRequest 
 }
 
 /**
- * @summary Registers an artifact.
+ * @summary Registers a Service deployment.
  *
  * @param request RegisterServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4003,7 +4041,7 @@ RegisterServiceResponse Client::registerServiceWithOptions(const RegisterService
 }
 
 /**
- * @summary Registers an artifact.
+ * @summary Registers a Service deployment.
  *
  * @param request RegisterServiceRequest
  * @return RegisterServiceResponse
@@ -4014,7 +4052,7 @@ RegisterServiceResponse Client::registerService(const RegisterServiceRequest &re
 }
 
 /**
- * @summary Reject service usage.
+ * @summary You can call RejectServiceUsage to reject a service request.
  *
  * @param request RejectServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4065,7 +4103,7 @@ RejectServiceUsageResponse Client::rejectServiceUsageWithOptions(const RejectSer
 }
 
 /**
- * @summary Reject service usage.
+ * @summary You can call RejectServiceUsage to reject a service request.
  *
  * @param request RejectServiceUsageRequest
  * @return RejectServiceUsageResponse
@@ -4077,6 +4115,9 @@ RejectServiceUsageResponse Client::rejectServiceUsage(const RejectServiceUsageRe
 
 /**
  * @summary Publishes an artifact.
+ *
+ * @description ### Prerequisites
+ * Ensure that you have created and saved an artifact.
  *
  * @param request ReleaseArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4113,6 +4154,9 @@ ReleaseArtifactResponse Client::releaseArtifactWithOptions(const ReleaseArtifact
 /**
  * @summary Publishes an artifact.
  *
+ * @description ### Prerequisites
+ * Ensure that you have created and saved an artifact.
+ *
  * @param request ReleaseArtifactRequest
  * @return ReleaseArtifactResponse
  */
@@ -4122,7 +4166,7 @@ ReleaseArtifactResponse Client::releaseArtifact(const ReleaseArtifactRequest &re
 }
 
 /**
- * @summary Remove  service shared account.
+ * @summary Removes shared accounts.
  *
  * @param request RemoveServiceSharedAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4169,7 +4213,7 @@ RemoveServiceSharedAccountsResponse Client::removeServiceSharedAccountsWithOptio
 }
 
 /**
- * @summary Remove  service shared account.
+ * @summary Removes shared accounts.
  *
  * @param request RemoveServiceSharedAccountsRequest
  * @return RemoveServiceSharedAccountsResponse
@@ -4180,7 +4224,10 @@ RemoveServiceSharedAccountsResponse Client::removeServiceSharedAccounts(const Re
 }
 
 /**
- * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+ * @summary Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request RestartServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4219,7 +4266,10 @@ RestartServiceInstanceResponse Client::restartServiceInstanceWithOptions(const R
 }
 
 /**
- * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+ * @summary Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request RestartServiceInstanceRequest
  * @return RestartServiceInstanceResponse
@@ -4230,7 +4280,7 @@ RestartServiceInstanceResponse Client::restartServiceInstance(const RestartServi
 }
 
 /**
- * @summary Rollback Service Instance
+ * @summary Rolls back an upgraded service instance to its previous version.
  *
  * @param request RollbackServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4269,7 +4319,7 @@ RollbackServiceInstanceResponse Client::rollbackServiceInstanceWithOptions(const
 }
 
 /**
- * @summary Rollback Service Instance
+ * @summary Rolls back an upgraded service instance to its previous version.
  *
  * @param request RollbackServiceInstanceRequest
  * @return RollbackServiceInstanceResponse
@@ -4280,7 +4330,10 @@ RollbackServiceInstanceResponse Client::rollbackServiceInstance(const RollbackSe
 }
 
 /**
- * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+ * @summary Starts a service instance when its status is Stopped or StartFailed.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request StartServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4319,7 +4372,10 @@ StartServiceInstanceResponse Client::startServiceInstanceWithOptions(const Start
 }
 
 /**
- * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+ * @summary Starts a service instance when its status is Stopped or StartFailed.
+ *
+ * @description ### Prerequisites
+ * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request StartServiceInstanceRequest
  * @return StartServiceInstanceResponse
@@ -4330,7 +4386,10 @@ StartServiceInstanceResponse Client::startServiceInstance(const StartServiceInst
 }
 
 /**
- * @summary Stops a service instance that is in the Deployed or StopFailed state.
+ * @summary This operation stops a service instance that is in the Deployed or StopFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request StopServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4369,7 +4428,10 @@ StopServiceInstanceResponse Client::stopServiceInstanceWithOptions(const StopSer
 }
 
 /**
- * @summary Stops a service instance that is in the Deployed or StopFailed state.
+ * @summary This operation stops a service instance that is in the Deployed or StopFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
  *
  * @param request StopServiceInstanceRequest
  * @return StopServiceInstanceResponse
@@ -4380,7 +4442,7 @@ StopServiceInstanceResponse Client::stopServiceInstance(const StopServiceInstanc
 }
 
 /**
- * @summary Tag a resource
+ * @summary Creates and attaches tags to one or more resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4423,7 +4485,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Tag a resource
+ * @summary Creates and attaches tags to one or more resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -4434,7 +4496,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Unbind resource from tag
+ * @summary Removes tags from resources.
  *
  * @param request UnTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4481,7 +4543,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary Unbind resource from tag
+ * @summary Removes tags from resources.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -4492,7 +4554,7 @@ UnTagResourcesResponse Client::unTagResources(const UnTagResourcesRequest &reque
 }
 
 /**
- * @summary Updates a deployment package.
+ * @summary Updates an artifact.
  *
  * @param tmpReq UpdateArtifactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4561,7 +4623,7 @@ UpdateArtifactResponse Client::updateArtifactWithOptions(const UpdateArtifactReq
 }
 
 /**
- * @summary Updates a deployment package.
+ * @summary Updates an artifact.
  *
  * @param request UpdateArtifactRequest
  * @return UpdateArtifactResponse
@@ -4572,7 +4634,9 @@ UpdateArtifactResponse Client::updateArtifact(const UpdateArtifactRequest &reque
 }
 
 /**
- * @summary Update a service.
+ * @summary Updates a service.
+ *
+ * @description Only approved services can be published.
  *
  * @param tmpReq UpdateServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4729,7 +4793,9 @@ UpdateServiceResponse Client::updateServiceWithOptions(const UpdateServiceReques
 }
 
 /**
- * @summary Update a service.
+ * @summary Updates a service.
+ *
+ * @description Only approved services can be published.
  *
  * @param request UpdateServiceRequest
  * @return UpdateServiceResponse
@@ -4740,7 +4806,7 @@ UpdateServiceResponse Client::updateService(const UpdateServiceRequest &request)
 }
 
 /**
- * @summary Updates the properties of a service instance.
+ * @summary Updates the attributes of a service instance.
  *
  * @param tmpReq UpdateServiceInstanceAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4793,7 +4859,7 @@ UpdateServiceInstanceAttributeResponse Client::updateServiceInstanceAttributeWit
 }
 
 /**
- * @summary Updates the properties of a service instance.
+ * @summary Updates the attributes of a service instance.
  *
  * @param request UpdateServiceInstanceAttributeRequest
  * @return UpdateServiceInstanceAttributeResponse
@@ -4804,7 +4870,7 @@ UpdateServiceInstanceAttributeResponse Client::updateServiceInstanceAttribute(co
 }
 
 /**
- * @summary Updates the configurations of a service instance.
+ * @summary Upgrades or downgrades a service instance.
  *
  * @param tmpReq UpdateServiceInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4861,7 +4927,7 @@ UpdateServiceInstanceSpecResponse Client::updateServiceInstanceSpecWithOptions(c
 }
 
 /**
- * @summary Updates the configurations of a service instance.
+ * @summary Upgrades or downgrades a service instance.
  *
  * @param request UpdateServiceInstanceSpecRequest
  * @return UpdateServiceInstanceSpecResponse
@@ -4872,7 +4938,7 @@ UpdateServiceInstanceSpecResponse Client::updateServiceInstanceSpec(const Update
 }
 
 /**
- * @summary Modify Service Test Case
+ * @summary Updates a service test case.
  *
  * @param request UpdateServiceTestCaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4915,7 +4981,7 @@ UpdateServiceTestCaseResponse Client::updateServiceTestCaseWithOptions(const Upd
 }
 
 /**
- * @summary Modify Service Test Case
+ * @summary Updates a service test case.
  *
  * @param request UpdateServiceTestCaseRequest
  * @return UpdateServiceTestCaseResponse
@@ -4926,7 +4992,7 @@ UpdateServiceTestCaseResponse Client::updateServiceTestCase(const UpdateServiceT
 }
 
 /**
- * @summary Update Service Sharing Permissions
+ * @summary You can call UpdateSharedAccountPermission to update the permissions of a shared account.
  *
  * @param request UpdateSharedAccountPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4977,7 +5043,7 @@ UpdateSharedAccountPermissionResponse Client::updateSharedAccountPermissionWithO
 }
 
 /**
- * @summary Update Service Sharing Permissions
+ * @summary You can call UpdateSharedAccountPermission to update the permissions of a shared account.
  *
  * @param request UpdateSharedAccountPermissionRequest
  * @return UpdateSharedAccountPermissionResponse
@@ -4988,7 +5054,7 @@ UpdateSharedAccountPermissionResponse Client::updateSharedAccountPermission(cons
 }
 
 /**
- * @summary Update the information of supplier.
+ * @summary You can call the UpdateSupplierInformation operation to update supplier information.
  *
  * @param request UpdateSupplierInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5047,7 +5113,7 @@ UpdateSupplierInformationResponse Client::updateSupplierInformationWithOptions(c
 }
 
 /**
- * @summary Update the information of supplier.
+ * @summary You can call the UpdateSupplierInformation operation to update supplier information.
  *
  * @param request UpdateSupplierInformationRequest
  * @return UpdateSupplierInformationResponse
@@ -5058,7 +5124,7 @@ UpdateSupplierInformationResponse Client::updateSupplierInformation(const Update
 }
 
 /**
- * @summary Upgrades a service instance.
+ * @summary The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
  *
  * @param tmpReq UpgradeServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5115,7 +5181,7 @@ UpgradeServiceInstanceResponse Client::upgradeServiceInstanceWithOptions(const U
 }
 
 /**
- * @summary Upgrades a service instance.
+ * @summary The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
  *
  * @param request UpgradeServiceInstanceRequest
  * @return UpgradeServiceInstanceResponse
@@ -5126,7 +5192,7 @@ UpgradeServiceInstanceResponse Client::upgradeServiceInstance(const UpgradeServi
 }
 
 /**
- * @summary Withdraw service version.
+ * @summary Unpublishes a service version.
  *
  * @param request WithdrawServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5169,7 +5235,7 @@ WithdrawServiceResponse Client::withdrawServiceWithOptions(const WithdrawService
 }
 
 /**
- * @summary Withdraw service version.
+ * @summary Unpublishes a service version.
  *
  * @param request WithdrawServiceRequest
  * @return WithdrawServiceResponse

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service registration ID.
+    // The ID of the review request.
     shared_ptr<string> registrationId_ {};
   };
 

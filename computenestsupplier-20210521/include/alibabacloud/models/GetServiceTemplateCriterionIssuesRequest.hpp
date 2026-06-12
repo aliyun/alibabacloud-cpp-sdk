@@ -57,9 +57,15 @@ namespace Models
 
 
   protected:
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // The service version.
+    // 
+    // For more information, see [ListServices - Query service information](https://help.aliyun.com/document_detail/2264368.html).
     shared_ptr<string> serviceVersion_ {};
   };
 

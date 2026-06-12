@@ -78,9 +78,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // A client token that is used to ensure the idempotence of the request. You must make sure that the token is unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The region ID.
     // 
@@ -90,12 +88,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The share type of the service. Default value: SharedAccount. Valid values:
+    // The service sharing type. The default value is SharedAccount. Valid values:
     // 
-    // *   SharedAccount: The service is shared by multiple accounts.
-    // *   Reseller: The service is distributed.
+    // - SharedAccount: The regular sharing type.
+    // 
+    // - Reseller: The reseller sharing type.
     shared_ptr<string> type_ {};
-    // Whitelist accounts for service sharing.
+    // The whitelisted accounts for service sharing.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> userAliUids_ {};

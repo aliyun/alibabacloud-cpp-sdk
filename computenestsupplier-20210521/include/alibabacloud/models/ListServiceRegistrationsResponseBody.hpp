@@ -112,29 +112,27 @@ namespace Models
 
 
     protected:
-      // Comment.
+      // The review comments.
       shared_ptr<string> comment_ {};
-      // Finish time.
+      // The end time.
       shared_ptr<string> finishTime_ {};
-      // Registration ID.
+      // The review request ID.
       shared_ptr<string> registrationId_ {};
-      // Service ID.
+      // The service ID.
       shared_ptr<string> serviceId_ {};
-      // Registration status. Allowed values:
+      // The status of the review request. Possible values:
       // 
-      // - Submitted
+      // - Submitted: The request is submitted.
       // 
-      // - Approved
+      // - Approved: The request is approved.
       // 
-      // - Rejected
+      // - Rejected: The request is rejected.
       // 
-      // - Canceled
+      // - Canceled: The request is canceled.
       // 
-      // - Executed
-      // 
-      // - Executed: Executed.
+      // - Executed: The request is executed.
       shared_ptr<string> status_ {};
-      // Submit time.
+      // The time when the request was submitted.
       shared_ptr<string> submitTime_ {};
     };
 
@@ -178,15 +176,15 @@ namespace Models
 
 
   protected:
-    // Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+    // The number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Service registration information.
+    // The service review request information.
     shared_ptr<vector<ListServiceRegistrationsResponseBody::ServiceRegistrations>> serviceRegistrations_ {};
-    // Total number of records that meet the criteria.
+    // The total number of matching records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

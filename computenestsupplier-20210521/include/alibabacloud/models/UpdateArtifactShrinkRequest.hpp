@@ -106,27 +106,29 @@ namespace Models
 
 
   protected:
-    // The build properties of the artifact, utilized for hosting and building the deployment package.
+    // The properties for building the artifact. This is used for managed artifact builds.
     shared_ptr<string> artifactBuildPropertyShrink_ {};
-    // The ID of the deployment package.
+    // The ID of the artifact.
+    // 
+    // To obtain the artifact ID, call the [ListArtifacts](https://help.aliyun.com/document_detail/469993.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> artifactId_ {};
-    // The properties of the deployment package.
+    // The properties of the artifact.
     shared_ptr<string> artifactPropertyShrink_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure the idempotence of the request. Generate a unique token for each request from your client. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
-    // The description of the deployment package.
+    // The description of the artifact.
     shared_ptr<string> description_ {};
-    // Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
+    // The permission type. This parameter is valid for container image artifacts and Helm Chart artifacts. The value can be changed only from \\`Automatic\\` to \\`Public\\`. Valid values:
     // 
-    // Public
+    // - Public
     // 
-    // Automatic
+    // - Automatic
     shared_ptr<string> permissionType_ {};
-    // The IDs of the regions that support the deployment package.
+    // The IDs of regions to which the image can be distributed.
     shared_ptr<vector<string>> supportRegionIds_ {};
-    // The version name of the deployment package.
+    // The name of the artifact version.
     shared_ptr<string> versionName_ {};
   };
 

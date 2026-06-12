@@ -149,38 +149,45 @@ namespace Models
 
 
   protected:
-    // The build properties of the artifact, utilized for hosting and building the deployment package.
+    // The properties for building the artifact. This is used for managed artifact builds.
     shared_ptr<string> artifactBuildProperty_ {};
-    // The type of the deployment package to be built.
+    // The build type of the artifact.
     shared_ptr<string> artifactBuildType_ {};
-    // The ID of the deployment package.
+    // The artifact ID.
     shared_ptr<string> artifactId_ {};
-    // The properties of the deployment package.
+    // The content of the artifact.
     shared_ptr<string> artifactProperty_ {};
-    // The type of the deployment package.
+    // The artifact type.
     shared_ptr<string> artifactType_ {};
-    // The version of the deployment package.
+    // The artifact version.
     shared_ptr<string> artifactVersion_ {};
-    // The description of the deployment package.
+    // The description of the artifact.
     shared_ptr<string> description_ {};
-    // The time when the deployment package was modified.
+    // The time when the artifact was modified.
     shared_ptr<string> gmtModified_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the deployment package. Valid values:
+    // The status of the artifact.
     // 
-    // *   Created: The deployment package is created.
-    // *   Scanning: The deployment package is being scanned.
-    // *   ScanFailed: The deployment package failed to be scanned.
-    // *   Delivering: The deployment package is being distributed.
-    // *   Available: The deployment package is available.
-    // *   Deleted: The deployment package is deleted.
+    // Valid values:
+    // 
+    // - Created: The artifact is created.
+    // 
+    // - Scanning: The artifact is being scanned.
+    // 
+    // - ScanFailed: The artifact failed to be scanned.
+    // 
+    // - Delivering: The artifact is being distributed.
+    // 
+    // - Available: The artifact is available.
+    // 
+    // - Deleted: The artifact is deleted.
     shared_ptr<string> status_ {};
-    // The status of the deployment package.
+    // The details of the artifact status.
     shared_ptr<string> statusDetail_ {};
-    // The ID of the region that supports the deployment package.
+    // The IDs of the regions to which the artifact can be distributed.
     shared_ptr<string> supportRegionIds_ {};
-    // The name of the deployment package.
+    // The version name.
     shared_ptr<string> versionName_ {};
   };
 

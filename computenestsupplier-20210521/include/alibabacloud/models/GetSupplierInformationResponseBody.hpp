@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // The type of contact information.
+      // The type of the contact method.
       shared_ptr<string> type_ {};
-      // The value of contact information.
+      // The contact method.
       shared_ptr<string> value_ {};
     };
 
@@ -152,12 +152,13 @@ namespace Models
     protected:
       // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
-      // Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+      // Indicates whether the feature that delivers the execution results of Cloud Assistant O\\&M tasks to Object Storage Service (OSS) is enabled. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // 
+      // - false (default): Disabled.
       shared_ptr<bool> ossEnabled_ {};
-      // The number of days for which the screencasts are saved.
+      // The expiration period for objects in OSS, in days.
       shared_ptr<int64_t> ossExpirationDays_ {};
       // The OSS path.
       shared_ptr<string> ossPath_ {};
@@ -248,27 +249,35 @@ namespace Models
 
 
   protected:
-    // Acr container namespace
+    // The namespace for the container image deployment.
     shared_ptr<string> acrNamespace_ {};
-    // The delivery settings.
+    // The computing resource configuration.
     shared_ptr<GetSupplierInformationResponseBody::DeliverySettings> deliverySettings_ {};
-    // Whether to enable reseller
+    // Indicates whether to enable resellers. Valid values:
+    // 
+    // - true: Enabled.
+    // 
+    // - false: Disabled.
     shared_ptr<bool> enableReseller_ {};
-    // The Ip of the operation.
+    // The IP address for the operation.
     shared_ptr<string> operationIp_ {};
-    // The MFA of the operation.
+    // Indicates whether a multi-factor authentication (MFA) device is used. Valid values:
+    // 
+    // - true: Yes.
+    // 
+    // - false: No.
     shared_ptr<bool> operationMfaPresent_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The description of service provider.
+    // The description of the service provider.
     shared_ptr<string> supplierDesc_ {};
-    // The Logo of service provider.
+    // The icon of the service provider.
     shared_ptr<string> supplierLogo_ {};
     // The name of the service provider.
     shared_ptr<string> supplierName_ {};
     // The URL of the service provider.
     shared_ptr<string> supplierUrl_ {};
-    // Contact information of the service provider
+    // The contact information of the service provider.
     shared_ptr<vector<GetSupplierInformationResponseBody::SupportContacts>> supportContacts_ {};
   };
 

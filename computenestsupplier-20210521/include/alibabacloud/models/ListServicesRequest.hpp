@@ -126,14 +126,17 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The name of the filter. You can query by one or more filter names. Valid values:
       // 
-      // *   ServiceId: the ID of the service.
-      // *   Name: the name of the service.
-      // *   Status: the state of the service.
-      // *   SupplierName: the name of the service provider.
+      // - ServiceId: The service ID.
+      // 
+      // - Name: The service name.
+      // 
+      // - Status: The service status.
+      // 
+      // - SupplierName: The name of the service provider.
       shared_ptr<string> name_ {};
-      // The parameter values of the filter.
+      // The filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -194,19 +197,19 @@ namespace Models
 
 
   protected:
-    // Specifies whether to return all versions of a service. Default value: false, which specifies that only the default version of a service is returned.
+    // Specifies whether to return all versions of the service. The default value is false. If this parameter is set to false, only the default version of each service is returned.
     shared_ptr<bool> allVersions_ {};
-    // The filters.
+    // The filter.
     shared_ptr<vector<ListServicesRequest::Filter>> filter_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to retrieve the next page of results. Set this parameter to the NextToken value returned by a previous call.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     // The custom tags.
     shared_ptr<vector<ListServicesRequest::Tag>> tag_ {};

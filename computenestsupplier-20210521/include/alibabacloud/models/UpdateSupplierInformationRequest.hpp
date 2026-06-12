@@ -82,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The type of  contact information
+      // The type of contact method.
       shared_ptr<string> type_ {};
-      // The value of contact information
+      // The contact information.
       shared_ptr<string> value_ {};
     };
 
@@ -146,14 +146,15 @@ namespace Models
     protected:
       // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
-      // Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+      // Specifies whether to deliver the execution results of Cloud Assistant O\\&M tasks to Object Storage Service (OSS). Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // 
+      // - false (default): Disabled.
       shared_ptr<bool> ossEnabled_ {};
-      // The number of days for which the screencasts are saved.
+      // The retention period for screen recordings, in days.
       shared_ptr<int64_t> ossExpirationDays_ {};
-      // The OSS path.
+      // The path in OSS.
       shared_ptr<string> ossPath_ {};
     };
 
@@ -221,23 +222,27 @@ namespace Models
 
 
   protected:
-    // The delivery settings.
+    // The custom settings.
     shared_ptr<UpdateSupplierInformationRequest::DeliverySettings> deliverySettings_ {};
-    // The Ip of operation.
+    // The IP address segments for managed O\\&M access.
     shared_ptr<string> operationIp_ {};
-    // The MFA of operation.
+    // Specifies whether to enable multi-factor authentication (MFA). The default value is true. Valid values:
+    // 
+    // - true: Yes.
+    // 
+    // - false: No.
     shared_ptr<bool> operationMfaPresent_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The description of service provider.
+    // The description of the supplier.
     shared_ptr<string> supplierDesc_ {};
-    // The Logo of service provider.
+    // The icon of the supplier.
     shared_ptr<string> supplierLogo_ {};
-    // The URL of the service provider.
+    // The URL of the supplier.
     shared_ptr<string> supplierUrl_ {};
-    // Contact information of the service provider
+    // The contact information of the supplier.
     shared_ptr<vector<UpdateSupplierInformationRequest::SupportContacts>> supportContacts_ {};
   };
 

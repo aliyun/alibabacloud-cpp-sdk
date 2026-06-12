@@ -80,30 +80,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether to remove all tags from the resource. Valid values:
+    // Specifies whether to remove all tags from the resources. This parameter takes effect only when TagKey is not specified. Default value: false. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - true
     // 
-    // >  If you specify both the All and TagKey.N parameters, the All parameter does not take effect.
+    // - false
     shared_ptr<bool> all_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify at most 50 resource IDs in each call.
+    // The resource ID.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The type of the resource. valid value:
+    // The resource type. Valid values:
     // 
-    // - service
-    // - serviceinstance
-    // - artifact
+    // - service: a service.
+    // 
+    // - serviceinstance: a service instance.
+    // 
+    // - artifact: an artifact.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag keys. You can specify 1 to 20 tag keys.
+    // The tag keys of the resource.
     shared_ptr<vector<string>> tagKey_ {};
   };
 

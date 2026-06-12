@@ -204,34 +204,44 @@ namespace Models
 
 
     protected:
-      // The build properties of the artifact, utilized for hosting and building the deployment package.
+      // The content used to build the artifact. This parameter is used for hosted artifact builds.
       shared_ptr<string> artifactBuildProperty_ {};
-      // The ID of the deployment package.
+      // The artifact ID.
       shared_ptr<string> artifactId_ {};
-      // The type of the deployment package.
+      // The artifact type.
       shared_ptr<string> artifactType_ {};
-      // The description of the deployment package.
+      // The description of the artifact.
       shared_ptr<string> description_ {};
-      // The time when the deployment package was modified.
+      // The time when the artifact was modified.
       shared_ptr<string> gmtModified_ {};
-      // The latest version of the deployment package.
+      // The latest version.
       shared_ptr<string> maxVersion_ {};
-      // The name of the deployment package.
+      // The artifact name.
       shared_ptr<string> name_ {};
-      // Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+      // The permission field. This parameter is valid for artifacts of the container image, Helm chart, and file types. For other types of artifacts, you can only change the permission from Automatic to Public.
+      // Valid values:
+      // 
       // - Public
+      // 
       // - Automatic
       shared_ptr<string> permissionType_ {};
-      // The ID of the resource group.
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The status of the deployment package. Valid values:
+      // The status of the artifact.
       // 
-      // *   Created: The deployment package is created.
-      // *   Scanning: The deployment package is being scanned.
-      // *   ScanFailed: The deployment package failed to be scanned.
-      // *   Delivering: The deployment package is being distributed.
-      // *   Available: The deployment package is available.
-      // *   Deleted: The deployment package is deleted.
+      // Valid values:
+      // 
+      // - Created: The artifact is created.
+      // 
+      // - Scanning: The artifact is being scanned.
+      // 
+      // - ScanFailed: The artifact failed to be scanned.
+      // 
+      // - Delivering: The artifact is being distributed.
+      // 
+      // - Available: The artifact is available.
+      // 
+      // - Deleted: The artifact is deleted.
       shared_ptr<string> status_ {};
       // The tags.
       shared_ptr<vector<Artifacts::Tags>> tags_ {};
@@ -277,15 +287,15 @@ namespace Models
 
 
   protected:
-    // The information about deployment packages.
+    // The information about the artifacts.
     shared_ptr<vector<ListArtifactsResponseBody::Artifacts>> artifacts_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The query token. Set it to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

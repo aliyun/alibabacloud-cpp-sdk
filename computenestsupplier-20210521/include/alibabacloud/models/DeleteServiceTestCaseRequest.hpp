@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The service test case id.
+    // The ID of the service test case.
     // 
     // This parameter is required.
     shared_ptr<string> testCaseId_ {};

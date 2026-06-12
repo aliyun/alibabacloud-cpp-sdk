@@ -170,17 +170,51 @@ namespace Models
 
 
     protected:
+      // The O\\&M item properties.
       shared_ptr<string> attributes_ {};
+      // The category. Valid values:
+      // 
+      // - Availability
+      // 
+      // - Cost
+      // 
+      // - Performance
+      // 
+      // - Recovery
+      // 
+      // - Security
       shared_ptr<string> category_ {};
+      // The content.
       shared_ptr<string> content_ {};
+      // The O\\&M notice ID.
       shared_ptr<string> noticeId_ {};
+      // The service ID.
       shared_ptr<string> serviceId_ {};
+      // The service name.
       shared_ptr<string> serviceName_ {};
+      // The service versions.
       shared_ptr<vector<string>> serviceVersions_ {};
+      // The severity level. Valid values:
+      // 
+      // - Critical
+      // 
+      // - High
+      // 
+      // - Medium
+      // 
+      // - Low
       shared_ptr<string> severity_ {};
+      // The solution.
       shared_ptr<string> solutions_ {};
+      // The start time.
       shared_ptr<string> startTime_ {};
+      // Indicates whether the request was successful.
       shared_ptr<string> success_ {};
+      // The type. Valid values:
+      // 
+      // - ServiceInstanceUpgrade: upgrade
+      // 
+      // - VulnerabilityFix: vulnerability
       shared_ptr<string> type_ {};
     };
 
@@ -224,10 +258,15 @@ namespace Models
 
 
   protected:
+    // The number of entries returned on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next page of results. If this parameter is not returned, all results have been returned.
     shared_ptr<string> nextToken_ {};
+    // The O\\&M notices.
     shared_ptr<vector<ListOpsNoticesResponseBody::OpsNotices>> opsNotices_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

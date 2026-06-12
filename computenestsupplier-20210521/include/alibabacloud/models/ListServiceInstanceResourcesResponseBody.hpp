@@ -147,44 +147,71 @@ namespace Models
 
 
     protected:
-      // The time when the service instance was created.
+      // The time when the resource was created.
       shared_ptr<string> createTime_ {};
-      // The time when the resource expires.
+      // The expiration time.
       shared_ptr<string> expireTime_ {};
       // The billing method. Valid values:
       // 
-      // *   Subscription
-      // *   PayAsYouGo
-      shared_ptr<string> payType_ {};
-      // The code of the cloud service.
-      shared_ptr<string> productCode_ {};
-      // The type of the cloud service.
-      shared_ptr<string> productType_ {};
-      // The renewal state. Valid values:
+      // - Subscription: subscription.
       // 
-      // *   AutoRenewal
-      // *   ManualRenewal
-      // *   NotRenewal
+      // - PayAsYouGo: pay-as-you-go.
+      shared_ptr<string> payType_ {};
+      // The product code.
+      shared_ptr<string> productCode_ {};
+      // The product type.
+      shared_ptr<string> productType_ {};
+      // The renewal status. Valid values:
+      // 
+      // - AutoRenewal: auto-renewal.
+      // 
+      // - ManualRenewal: manual renewal.
+      // 
+      // - NotRenewal: no renewal.
       shared_ptr<string> renewStatus_ {};
       // The renewal period.
       shared_ptr<int32_t> renewalPeriod_ {};
       // The unit of the renewal period. Valid values:
       // 
-      // *   Month
-      // *   Year
-      shared_ptr<string> renewalPeriodUnit_ {};
-      // The ARN of the resource.
-      shared_ptr<string> resourceARN_ {};
-      // The status of the service instance. Valid values:
+      // - Month: month.
       // 
-      // *   Created
-      // *   Deploying
-      // *   DeployedFailed
-      // *   Deployed
-      // *   Upgrading
-      // *   Deleting
-      // *   Deleted
-      // *   DeletedFailed
+      // - Year: year.
+      shared_ptr<string> renewalPeriodUnit_ {};
+      // The Alibaba Cloud Resource Name (ARN) of the resource.
+      shared_ptr<string> resourceARN_ {};
+      // The status of the resource. Valid values:
+      // 
+      // - INIT_COMPLETE: The resource is pending creation.
+      // 
+      // - CREATE_COMPLETE: The resource is created.
+      // 
+      // - CREATE_FAILED: The resource failed to be created.
+      // 
+      // - CREATE_IN_PROGRESS: The resource is being created.
+      // 
+      // - UPDATE_IN_PROGRESS: The resource is being updated.
+      // 
+      // - UPDATE_FAILED: The resource failed to be updated.
+      // 
+      // - UPDATE_COMPLETE: The resource is updated.
+      // 
+      // - DELETE_IN_PROGRESS: The resource is being deleted.
+      // 
+      // - DELETE_FAILED: The resource failed to be deleted.
+      // 
+      // - DELETE_COMPLETE: The resource is deleted.
+      // 
+      // - CHECK_IN_PROGRESS: The resource is being checked.
+      // 
+      // - CHECK_FAILED: The resource failed to be checked.
+      // 
+      // - CHECK_COMPLETE: The resource is checked.
+      // 
+      // - IMPORT_IN_PROGRESS: The resource is being imported.
+      // 
+      // - IMPORT_FAILED: The resource failed to be imported.
+      // 
+      // - IMPORT_COMPLETE: The resource is imported.
       shared_ptr<string> status_ {};
     };
 
@@ -221,13 +248,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of resources.
+    // The resources.
     shared_ptr<vector<ListServiceInstanceResourcesResponseBody::Resources>> resources_ {};
   };
 

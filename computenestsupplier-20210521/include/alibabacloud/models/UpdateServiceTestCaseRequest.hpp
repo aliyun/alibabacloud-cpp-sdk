@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Service test case ID
+    // The ID of the service test case.
     // 
     // This parameter is required.
     shared_ptr<string> testCaseId_ {};
-    // Test case name
+    // The name of the test case.
     // 
     // This parameter is required.
     shared_ptr<string> testCaseName_ {};
-    // Test configuration
+    // The test configuration.
     // 
     // This parameter is required.
     shared_ptr<string> testConfig_ {};

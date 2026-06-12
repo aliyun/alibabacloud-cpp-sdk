@@ -80,12 +80,13 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The property to filter by. Valid values:
       // 
-      // *   Status: the status of the task.
-      // *   TaskId: the task id.
+      // - Status: The task status.
+      // 
+      // - TaskId: The task ID.
       shared_ptr<string> name_ {};
-      // The parameter value N of the filter. Valid values of N: 1 to 10.
+      // A list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -136,11 +137,11 @@ namespace Models
 
 
   protected:
-    // The filters.
+    // One or more filters for the query.
     shared_ptr<vector<ListServiceTestTasksRequest::Filter>> filter_ {};
-    // Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

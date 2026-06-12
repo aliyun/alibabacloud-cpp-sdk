@@ -207,48 +207,59 @@ namespace Models
 
 
     protected:
-      // The build properties of the artifact, utilized for hosting and building the deployment package.
+      // The content used to build the artifact. This parameter is used for managed artifact builds.
       shared_ptr<string> artifactBuildProperty_ {};
-      // The type of the deployment package to be built.
+      // The artifact build type.
       shared_ptr<string> artifactBuildType_ {};
-      // The ID of the deployment package.
+      // The artifact ID.
       shared_ptr<string> artifactId_ {};
-      // The properties of the deployment package.
+      // The properties of the artifact.
       shared_ptr<string> artifactProperty_ {};
-      // The type of the deployment package.
+      // The artifact type.
       shared_ptr<string> artifactType_ {};
-      // The version of the deployment package.
+      // The version of the artifact.
       shared_ptr<string> artifactVersion_ {};
-      // The time when the certificate was created.
+      // The time when the artifact was created.
       shared_ptr<string> gmtCreate_ {};
-      // The time when the deployment package was modified.
+      // The time when the artifact was last modified.
       shared_ptr<string> gmtModified_ {};
-      // The distribution result of the image.
+      // The result of the image distribution.
       shared_ptr<map<string, string>> imageDelivery_ {};
-      // The distribution progress of the deployment package.
+      // The distribution progress of the artifact.
       shared_ptr<string> progress_ {};
-      // The result file of the security scan.
+      // The file that contains the security scan results.
       shared_ptr<string> resultFile_ {};
-      // The result of the security scan. Valid values:
+      // The security scan result.
       // 
-      // *   Normal: No risks exist on the deployment package.
-      // *   AtRisk: Risks exist on the deployment package.
-      // *   Processing: The deployment package is being scanned.
+      // Valid values:
+      // 
+      // - Normal: The artifact is normal and has no threats.
+      // 
+      // - AtRisk: The artifact has security threats.
+      // 
+      // - Processing: The security scan is in progress.
       shared_ptr<string> securityAuditResult_ {};
-      // The status of the deployment package. Valid values:
+      // The status of the artifact.
       // 
-      // *   Created: The deployment package is created.
-      // *   Scanning: The deployment package is being scanned.
-      // *   ScanFailed: The deployment package failed to be scanned.
-      // *   Delivering: The deployment package is being distributed.
-      // *   Available: The deployment package is available.
-      // *   Deleted: The deployment package is deleted.
+      // Valid values:
+      // 
+      // - Created: The artifact is created.
+      // 
+      // - Scanning: The artifact is being scanned.
+      // 
+      // - ScanFailed: The artifact failed to be scanned.
+      // 
+      // - Delivering: The artifact is being distributed.
+      // 
+      // - Available: The artifact is available.
+      // 
+      // - Deleted: The artifact is deleted.
       shared_ptr<string> status_ {};
-      // The description of the deployment package.
+      // The description of the artifact status.
       shared_ptr<string> statusDetail_ {};
-      // The ID of the region that supports the deployment package.
+      // The IDs of the regions to which the artifact is distributed.
       shared_ptr<string> supportRegionIds_ {};
-      // The version name of the deployment package.
+      // The name of the artifact version.
       shared_ptr<string> versionName_ {};
     };
 
@@ -292,15 +303,15 @@ namespace Models
 
 
   protected:
-    // The version information about the deployment package.
+    // The information about the artifact versions.
     shared_ptr<vector<ListArtifactVersionsResponseBody::Artifacts>> artifacts_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results. If the results are not complete, this token is returned. To retrieve the next page of results, include this token in the next request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the query criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

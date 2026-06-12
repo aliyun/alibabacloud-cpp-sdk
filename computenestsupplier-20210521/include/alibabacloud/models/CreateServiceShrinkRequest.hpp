@@ -197,9 +197,9 @@ namespace Models
 
 
       protected:
-        // The name of the software.
+        // The software name.
         shared_ptr<string> name_ {};
-        // The version of the software.
+        // The software version.
         shared_ptr<string> version_ {};
       };
 
@@ -241,9 +241,9 @@ namespace Models
 
 
       protected:
-        // Protocol name.
+        // The name of the agreement.
         shared_ptr<string> name_ {};
-        // Protocol url.
+        // The URL of the agreement.
         shared_ptr<string> url_ {};
       };
 
@@ -304,26 +304,27 @@ namespace Models
 
 
     protected:
-      // Protocol document information about the service.
+      // The information about the service agreements.
       shared_ptr<vector<ServiceInfo::Agreements>> agreements_ {};
       // The URL of the service icon.
       shared_ptr<string> image_ {};
       // The language of the service. Valid values:
       // 
-      // *   zh-CN: Chinese
-      // *   en-US: English
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       // 
       // This parameter is required.
       shared_ptr<string> locale_ {};
-      // The URL of the detailed description of the service.
+      // The detailed description of the service.
       shared_ptr<string> longDescriptionUrl_ {};
       // The service name.
       // 
       // This parameter is required.
       shared_ptr<string> name_ {};
-      // The description of the service.
+      // A brief description of the service.
       shared_ptr<string> shortDescription_ {};
-      // The list of the software in the service.
+      // The information about the software used in the service.
       shared_ptr<vector<ServiceInfo::Softwares>> softwares_ {};
     };
 
@@ -535,62 +536,69 @@ namespace Models
 
 
   protected:
-    // The alert configurations of the service.
+    // The alert configurations for the service.
     // 
-    // >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+    // > This configuration takes effect only after an alert-related access policy is configured in \\`PolicyNames\\`.
     shared_ptr<string> alarmMetadata_ {};
-    // The approval type of the service usage application. Valid values:
+    // The approval type for service usage requests. Valid values:
     // 
-    // *   Manual: The application is manually approved.
-    // *   AutoPass: The application is automatically approved.
+    // - Manual: The request requires manual approval.
+    // 
+    // - AutoPass: The request is automatically approved.
     shared_ptr<string> approvalType_ {};
-    // The parameters for building the service
+    // The parameters for building the service.
     shared_ptr<string> buildParameters_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // A client token used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. \\`ClientToken\\` supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Compliance check metadata.
+    // The compliance check metadata.
     shared_ptr<string> complianceMetadataShrink_ {};
-    // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+    // The deployment configuration of the service. The information stored varies by deployment type. Different deployment types have different data formats. The data is stored in a JSON string.
     shared_ptr<string> deployMetadata_ {};
-    // The deployment type of the service. Valid values:
+    // The deployment type. Valid values:
     // 
-    // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-    // *   terraform: The service is deployed by using Terraform.
-    // *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-    // *   spi: The service is deployed by calling a service provider interface (SPI).
-    // *   operation: The service is deployed by using a hosted O\\&M service.
+    // - ros: The service is deployed using ROS.
+    // 
+    // - terraform: The service is deployed using Terraform.
+    // 
+    // - ack: The service is deployed using ACK.
+    // 
+    // - spi: The service is deployed by invoking an SPI.
+    // 
+    // - operation: The service is an O\\&M service.
     // 
     // This parameter is required.
     shared_ptr<string> deployType_ {};
-    // Specifies whether to perform only a dry run for the request to check information. Valid values:
-    // 
-    // *   true: performs a dry run for the request, but does not create a service.
-    // *   false: performs a dry run for the request, and create a service if the request passes the dry run.
+    // Specifies whether to perform a dry run to check the request.
     shared_ptr<bool> dryRun_ {};
-    // The duration for which hosted O\\&M is implemented. Unit: seconds.
+    // The O\\&M duration. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
-    // Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
+    // Specifies whether to enable O\\&M. Default value: false. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enabled.
     // 
-    // >  This parameter is required if you set **ServiceType** to **private**.
+    // - false: Disabled.
+    // 
+    // > This parameter is required when \\`ServiceType\\` is set to \\`private\\`.
     shared_ptr<bool> isSupportOperated_ {};
     // The license metadata.
     shared_ptr<string> licenseMetadata_ {};
-    // The logging configurations.
+    // The application log configuration.
     shared_ptr<string> logMetadata_ {};
-    // The hosted O\\&M configurations.
+    // The O\\&M configuration.
     shared_ptr<string> operationMetadata_ {};
-    // The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+    // The policy name. The name of a single policy can be up to 128 characters in length. Separate multiple names with commas (,). Only policies related to O\\&M parameters are supported.
     shared_ptr<string> policyNames_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Whether resell is supported.
+    // Specifies whether the service can be distributed. Valid values:
+    // 
+    // - false: The service cannot be distributed.
+    // 
+    // - true: The service can be distributed.
     shared_ptr<bool> resellable_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
@@ -598,33 +606,41 @@ namespace Models
     shared_ptr<vector<CreateServiceShrinkRequest::ServiceInfo>> serviceInfo_ {};
     // The service type. Valid values:
     // 
-    // *   private: The service is a private service and is deployed within the account of a customer.
-    // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-    // *   operation: The service is a hosted O\\&M service.
-    // *   poc: The service is a trial service.
-    shared_ptr<string> serviceType_ {};
-    // The permission type of the deployment URL. Valid values:
+    // - private: The service instance is deployed in the user\\"s account.
     // 
-    // *   Public: All users can go to the URL to create a service instance or a trial service instance.
-    // *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-    // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-    // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-    // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+    // - managed: The service instance is managed in the service provider\\"s account.
+    // 
+    // - operation: An O\\&M service instance.
+    // 
+    // - poc: A trial service instance.
+    shared_ptr<string> serviceType_ {};
+    // The sharing type. Valid values:
+    // 
+    // - Public: The service is public. Full and trial deployments are not restricted.
+    // 
+    // - Restricted: The service is restricted. Full and trial deployments are restricted.
+    // 
+    // - OnlyFormalRestricted: Only full deployments are restricted.
+    // 
+    // - OnlyTrailRestricted: Only trial deployments are restricted.
+    // 
+    // - Hidden: The service is hidden. It is not visible and you cannot request deployment permissions.
     shared_ptr<string> shareType_ {};
-    // The source service ID for resell。
+    // The ID of the source service for distribution.
     shared_ptr<string> sourceServiceId_ {};
-    // The source service version for resell。
+    // The version of the source service for distribution.
     shared_ptr<string> sourceServiceVersion_ {};
     // The custom tags.
     shared_ptr<vector<CreateServiceShrinkRequest::Tag>> tag_ {};
-    // The type of the tenant. Valid values:
+    // The tenant type. Valid values:
     // 
-    // *   SingleTenant
-    // *   MultiTenant
+    // - SingleTenant: Single-tenant.
+    // 
+    // - MultiTenant: Multitenant.
     shared_ptr<string> tenantType_ {};
-    // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+    // The trial duration. Unit: days. The maximum trial duration is 30 days.
     shared_ptr<int64_t> trialDuration_ {};
-    // The metadata about the upgrade.
+    // The upgrade metadata.
     shared_ptr<string> upgradeMetadata_ {};
     // The version name.
     shared_ptr<string> versionName_ {};

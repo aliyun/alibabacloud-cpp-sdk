@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The service test case name.
+      // The use case name.
       shared_ptr<string> caseName_ {};
-      // The execution report
+      // The execution report.
       shared_ptr<string> executionReport_ {};
-      // The sub task status.
+      // The execution status.
       shared_ptr<string> status_ {};
-      // The sub task id.
+      // The subtask ID.
       shared_ptr<string> subTaskId_ {};
     };
 
@@ -144,19 +144,15 @@ namespace Models
 
 
   protected:
-    // The execution details.
+    // The execution details of the task. This includes the running details for different use cases.
     shared_ptr<vector<GetServiceTestTaskResponseBody::ExecutionDetails>> executionDetails_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the service test task. Valid values:
-    // 
-    // *   Running
-    // *   Success
-    // *    Failure
+    // The running status of the service test task.
     shared_ptr<string> status_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
-    // The task execution region.
+    // The region where the task runs.
     shared_ptr<string> taskRegionId_ {};
   };
 

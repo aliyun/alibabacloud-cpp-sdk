@@ -105,11 +105,11 @@ namespace Models
 
 
       protected:
-        // Mock error code.
+        // To impersonate an error message, specify an error code.
         shared_ptr<string> errorCode_ {};
-        // Mock error message.
+        // To impersonate an error message, specify the error message.
         shared_ptr<string> errorMessage_ {};
-        // if you want mock response, please open this option.
+        // Specifies whether to modify the return value.
         shared_ptr<bool> updateResponse_ {};
       };
 
@@ -132,9 +132,9 @@ namespace Models
 
 
     protected:
-      // The Custom Data
+      // The custom metadata.
       shared_ptr<string> customData_ {};
-      // Mock response info.
+      // The information about the impersonated return value.
       shared_ptr<LicenseData::ResponseInfo> responseInfo_ {};
     };
 
@@ -182,9 +182,9 @@ namespace Models
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> endTime_ {};
-    // The License Data
+    // The license data.
     shared_ptr<UpdateServiceInstanceAttributeRequest::LicenseData> licenseData_ {};
-    // Application reason, currently used for trial application extension.
+    // The reason for the request. This parameter is used to extend a trial.
     shared_ptr<string> reason_ {};
     // The region ID.
     // 

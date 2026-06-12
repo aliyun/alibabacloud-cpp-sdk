@@ -124,22 +124,25 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify at most 50 resource IDs in each call.
+    // The resource ID.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Valid value:
-    // - service
-    // - serviceinstance
-    // - artifact
+    // The resource type. Valid values:
+    // 
+    // - service: a service.
+    // 
+    // - serviceinstance: a service instance.
+    // 
+    // - artifact: a deployment.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The custom tags.
     shared_ptr<vector<ListTagResourcesRequest::Tag>> tag_ {};
   };
 

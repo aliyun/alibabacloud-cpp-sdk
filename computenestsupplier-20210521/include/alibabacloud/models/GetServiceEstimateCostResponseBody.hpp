@@ -61,7 +61,7 @@ namespace Models
 
 
   protected:
-    // The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
+    // The subscription details of the Alibaba Cloud Marketplace order.
     Darabonba::Json commodity_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

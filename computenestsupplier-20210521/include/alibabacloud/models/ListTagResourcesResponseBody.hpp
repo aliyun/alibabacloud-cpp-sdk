@@ -90,12 +90,15 @@ namespace Models
 
 
     protected:
-      // Resource ID
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The resource type. Valid value:
-      // - service
-      // - serviceinstance
-      // - artifact
+      // The resource type. Valid values:
+      // 
+      // - service: a service.
+      // 
+      // - serviceinstance: a service instance.
+      // 
+      // - artifact: a deployment.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -129,11 +132,11 @@ namespace Models
 
 
   protected:
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources and their tags.
+    // A collection of resources and their tags. The collection includes resource IDs, resource types, and tag key-value pairs.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

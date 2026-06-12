@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The parameters that are specified to deploy the service instance.
+    // The parameters.
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

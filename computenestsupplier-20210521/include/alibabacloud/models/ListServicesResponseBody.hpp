@@ -222,8 +222,11 @@ namespace Models
 
 
       protected:
+        // The English value of the business information.
         shared_ptr<string> enValue_ {};
+        // The original value of the business information.
         shared_ptr<string> originalValue_ {};
+        // The Chinese value of the business information.
         shared_ptr<string> zhValue_ {};
       };
 
@@ -285,14 +288,15 @@ namespace Models
       protected:
         // The URL of the service icon.
         shared_ptr<string> image_ {};
-        // The language of the service. Valid values:
+        // The language of the service configuration. Valid values:
         // 
-        // *   zh-CN: Chinese.
-        // *   en-US: English.
+        // - zh-CN: Chinese.
+        // 
+        // - en-US: English.
         shared_ptr<string> locale_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> name_ {};
-        // The description of the service.
+        // A brief description of the service.
         shared_ptr<string> shortDescription_ {};
       };
 
@@ -345,13 +349,15 @@ namespace Models
       protected:
         // The commodity code.
         shared_ptr<string> commodityCode_ {};
-        // The configuration metadata related to Saas Boost.
+        // The metadata of the SaaS Boost configuration.
         shared_ptr<string> saasBoostMetadata_ {};
-        // The platform type. Valid values:
+        // The type. Valid values:
         // 
-        // *   marketplace: Alibaba Cloud Marketplace.
-        // *   Css: Lingxiao.
-        // *   SaasBoost: Saas Boost.
+        // - Marketplace: Alibaba Cloud Marketplace.
+        // 
+        // - Css: Lingxiao.
+        // 
+        // - SaasBoost: SaaS Boost.
         shared_ptr<string> type_ {};
       };
 
@@ -639,108 +645,131 @@ namespace Models
 
 
     protected:
-      // The approval type for applications for using the service. Valid values:
+      // The approval type for service usage requests. Valid values:
       // 
-      // *   Manual: The applications are manual reviewed.
-      // *   AutoPass: The applications are automatically approved.
+      // - Manual: Manual approval.
+      // 
+      // - AutoPass: Automatic approval.
       shared_ptr<string> approvalType_ {};
-      // The ID of the artifact.
+      // The artifact ID.
       shared_ptr<string> artifactId_ {};
-      // The version of the artifact.
+      // The artifact version.
       shared_ptr<string> artifactVersion_ {};
-      // The informathon for build service.
+      // The information about the service build.
       shared_ptr<string> buildInfo_ {};
-      // The category of the service.
+      // The service category.
       shared_ptr<string> categories_ {};
-      // The commodity details.
+      // The commodity specifications.
       shared_ptr<Services::Commodity> commodity_ {};
       // The commodity code of the service in Alibaba Cloud Marketplace.
       shared_ptr<string> commodityCode_ {};
       // The time when the service was created.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the version is the default version. Valid values:
+      // Indicates whether the service is the default version. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: The service is not the default version.
+      // 
+      // - true: The service is the default version.
       shared_ptr<bool> defaultVersion_ {};
-      // The deployment type of the service. Valid values:
+      // The deployment type. Valid values:
       // 
-      // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-      // *   terraform: The service is deployed by using Terraform.
-      // *   spi: The service is deployed by calling the Service Provider Interface (SPI).
-      // *   operation: The service is deployed by using a hosted O\\&M service.
-      // *   container: The service is deployed by using a container.
-      // *
+      // - ros: The service is deployed using ROS.
+      // 
+      // - terraform: The service is deployed using Terraform.
+      // 
+      // - spi: The service is deployed by calling an SPI.
+      // 
+      // - operation: The service is deployed using Alibaba Cloud Managed Services.
+      // 
+      // - container: The service is deployed using a container.
       shared_ptr<string> deployType_ {};
       // Indicates whether the service has a beta version. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Yes.
+      // 
+      // - false: No.
       shared_ptr<bool> hasBeta_ {};
       // Indicates whether the service has a draft version. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Yes.
+      // 
+      // - false: No.
       shared_ptr<bool> hasDraft_ {};
-      // The latest version of the distribution source service.
+      // The latest version of the source service for distribution.
       shared_ptr<string> latestResellSourceServiceVersion_ {};
       // The time when the service was published.
       shared_ptr<string> publishTime_ {};
-      // The purpose of the artifact. Valid values:
+      // The artifact association type. Valid values:
       // 
-      // *   ServiceDeployment: The artifact is used to create service instances.
-      // *   ServiceUpgrade: The artifact is used to upgrade service instances.
+      // - ServiceDeployment: Service deployment.
+      // 
+      // - ServiceUpgrade: Service upgrade.
       shared_ptr<string> relationType_ {};
-      // The state of distribution authorization of the service. Valid values:
+      // The distribution authorization status of the service. Valid values:
       // 
-      // *   CanApply: Distributors can apply for distribution permissions.
-      // *   Applied: The application for distribution permissions is submitted.
-      // *   Approved: The application for distribution permissions is approved.
+      // - CanApply: You can apply for authorization.
+      // 
+      // - Applied: An application has been submitted.
+      // 
+      // - Approved: The application is approved.
       shared_ptr<string> resellApplyStatus_ {};
-      // The ID of the distribution service.
+      // The ID of the distributed service.
       shared_ptr<string> resellServiceId_ {};
-      // The resource group ID.
+      // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // Indicates whether the service is visible. Valid values:
+      // Indicates whether the service is discoverable. Valid values:
       // 
-      // *   INVISIBLE
-      // *   DISCOVERABLE
+      // - INVISIBLE: Not discoverable.
+      // 
+      // - DISCOVERABLE: Discoverable.
       shared_ptr<string> serviceDiscoverable_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
-      // The information about the service.
+      // The service information.
       shared_ptr<vector<Services::ServiceInfos>> serviceInfos_ {};
+      // The multi-language configurations of the service.
       shared_ptr<vector<Services::ServiceLocaleConfigs>> serviceLocaleConfigs_ {};
-      // The type of the service. Valid values:
+      // The service type. Valid values:
       // 
-      // *   private: The service is a private service and is deployed within the account of a customer.
-      // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-      // *   operation: The service is a hosted O\\&M service.
+      // - private: The service is deployed in the user\\"s account.
+      // 
+      // - managed: The service is deployed in the service provider\\"s account.
+      // 
+      // - operation: It is an Alibaba Cloud Managed Service.
       shared_ptr<string> serviceType_ {};
-      // The permission type of the deployment URL. Valid values:
+      // The sharing type. Valid values:
       // 
-      // *   Public: All users can go to the URL to create a formal service instance or a trial service instance.
-      // *   Restricted: Only users in the whitelist can go to the URL to create a formal service instance or a trial service instance.
-      // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a formal service instance.
-      // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-      // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+      // - Public: Public. Official and trial deployments are not restricted.
+      // 
+      // - Restricted: Restricted. Official and trial deployments are restricted.
+      // 
+      // - OnlyFormalRestricted: Only official deployments are restricted.
+      // 
+      // - OnlyTrailRestricted: Only trial deployments are restricted.
+      // 
+      // - Hidden: Hidden. The service is not visible and you cannot request deployment permissions.
       shared_ptr<string> shareType_ {};
       // The source image.
       shared_ptr<string> sourceImage_ {};
-      // The ID of the distribution source service.
+      // The ID of the source service for distribution.
       shared_ptr<string> sourceServiceId_ {};
-      // The version of the distribution source service.
+      // The version of the source service for distribution.
       shared_ptr<string> sourceServiceVersion_ {};
-      // The name of the distribution source service provider.
+      // The name of the source service provider for distribution.
       shared_ptr<string> sourceSupplierName_ {};
-      // The state of the service. Valid values:
+      // The service status. Valid values:
       // 
-      // *   Draft: The service is a draft.
-      // *   Submitted: The service is submitted for review. You cannot modify services in this state.
-      // *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
-      // *   Launching: The service is being published.
-      // *   Online: The service is published.
-      // *   Offline: The service is unpublished.
+      // - Draft: The service is in the Draft state.
+      // 
+      // - Submitted: The service is submitted for review. Modifications are not allowed.
+      // 
+      // - Approved: The service is approved. Modifications are not allowed. The service can be published.
+      // 
+      // - Launching: The service is being published.
+      // 
+      // - Online: The service is published.
+      // 
+      // - Offline: The service is unpublished.
       shared_ptr<string> status_ {};
       // The name of the service provider.
       shared_ptr<string> supplierName_ {};
@@ -748,26 +777,29 @@ namespace Models
       shared_ptr<string> supplierUrl_ {};
       // The service tags.
       shared_ptr<vector<Services::Tags>> tags_ {};
-      // The tenant type of the managed service. Valid values:
+      // The tenant type for the managed service. Valid values:
       // 
-      // *   SingleTenant
-      // *   MultiTenant
+      // - SingleTenant: Single-tenant.
+      // 
+      // - MultiTenant: Multi-tenant.
       shared_ptr<string> tenantType_ {};
       // The trial policy. Valid values:
       // 
-      // *   Trial: Trials are supported.
-      // *   NotTrial: Trials are not supported.
+      // - Trial: The service supports a trial.
+      // 
+      // - NotTrial: The service does not support a trial.
       shared_ptr<string> trialType_ {};
-      // The time when the service was modified.
+      // The time when the service was last updated.
       shared_ptr<string> updateTime_ {};
-      // The version of the service.
+      // The service version.
       shared_ptr<string> version_ {};
       // The custom version name defined by the service provider.
       shared_ptr<string> versionName_ {};
       // Indicates whether the service is a virtual Internet service. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: No.
+      // 
+      // - true: Yes.
       shared_ptr<string> virtualInternetService_ {};
     };
 
@@ -811,15 +843,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The services.
+    // The list of services.
     shared_ptr<vector<ListServicesResponseBody::Services>> services_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

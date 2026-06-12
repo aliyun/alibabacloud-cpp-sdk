@@ -76,7 +76,7 @@ namespace Models
     protected:
       // The log content.
       shared_ptr<string> content_ {};
-      // The UTC timestamp when the response is returned.
+      // The timestamp.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> timestamp_ {};
@@ -115,13 +115,13 @@ namespace Models
 
 
   protected:
-    // The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The service test task logs.
+    // The log entries.
     shared_ptr<vector<ListServiceTestTaskLogsResponseBody::TaskLogs>> taskLogs_ {};
   };
 

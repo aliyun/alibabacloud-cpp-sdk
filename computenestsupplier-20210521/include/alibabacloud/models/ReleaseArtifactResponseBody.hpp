@@ -112,30 +112,37 @@ namespace Models
 
 
   protected:
-    // The ID of the artifact.
+    // The artifact ID.
     shared_ptr<string> artifactId_ {};
     // The content of the artifact.
     shared_ptr<string> artifactProperty_ {};
-    // The type of the artifact.
+    // The artifact type.
     shared_ptr<string> artifactType_ {};
-    // The version of the artifact.
+    // The artifact version.
     shared_ptr<string> artifactVersion_ {};
-    // The description of the artifact.
+    // The artifact description.
     shared_ptr<string> description_ {};
-    // The time when the artifact was modified.
+    // The time when the artifact was last modified.
     shared_ptr<string> gmtModified_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of the artifact. Valid values:
+    // The status of the artifact.
     // 
-    // *   Created: The artifact is created.
-    // *   Scanning: The artifact is being scanned.
-    // *   ScanFailed: The artifact failed to be scanned.
-    // *   Delivering: The artifact is being distributed.
-    // *   Available: The artifact is available.
-    // *   Deleted: The artifact is deleted.
+    // Valid values:
+    // 
+    // - Created: The artifact is created.
+    // 
+    // - Scanning: The artifact is being scanned.
+    // 
+    // - ScanFailed: The artifact failed to be scanned.
+    // 
+    // - Delivering: The artifact is being distributed.
+    // 
+    // - Available: The artifact is available.
+    // 
+    // - Deleted: The artifact is deleted.
     shared_ptr<string> status_ {};
-    // The version name of the artifact.
+    // The name of the artifact version.
     shared_ptr<string> versionName_ {};
   };
 

@@ -59,11 +59,13 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The mode of the service online. Valid Type
+    // The type of the service publishing action. Valid values:
     // 
-    // - PublishNewVersion: Launch new version
-    // - PublishOfflineVersion:  The offline version is online again.
-    // - UpdateLatestVersion: Update the latest version online
+    // - PublishNewVersion: A new version is published.
+    // 
+    // - PublishOfflineVersion: An unpublished version is republished.
+    // 
+    // - UpdateLatestVersion: The latest online version is updated.
     shared_ptr<string> serviceLaunchResultType_ {};
     // The service version.
     shared_ptr<string> version_ {};

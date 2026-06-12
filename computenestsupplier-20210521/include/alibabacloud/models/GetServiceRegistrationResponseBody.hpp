@@ -94,16 +94,15 @@ namespace Models
 
 
     protected:
-      // The type of the service. Valid values:
-      // 
-      // *   private: The service is a private service and is deployed within the account of a customer.
-      // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-      // *   operation: The service is a hosted O\\&M service.
+      // The service type.
       shared_ptr<string> serviceType_ {};
-      // The trial policy. Valid values:
+      // The trial type.
       // 
-      // *   Trial: Trials are supported.
-      // *   NotTrial: Trials are not supported.
+      // Valid values:
+      // 
+      // - Trial: The service supports trial.
+      // 
+      // - NotTrial: The service does not support trial.
       shared_ptr<string> trialType_ {};
       // The version name.
       shared_ptr<string> versionName_ {};
@@ -165,13 +164,13 @@ namespace Models
 
 
     protected:
-      // Whether risk exists.
+      // Indicates whether the service has risks.
       shared_ptr<bool> atRisk_ {};
-      // Whether service is associated with artifact.
+      // Indicates whether the service is associated with an artifact.
       shared_ptr<bool> hasRelatedArtifact_ {};
-      // The reports.
+      // The review reports.
       shared_ptr<string> reports_ {};
-      // The url of template diff file.
+      // The URL to view the differences in the template.
       shared_ptr<string> templateDiffUrl_ {};
     };
 
@@ -253,13 +252,13 @@ namespace Models
 
 
   protected:
-    // Comment from reviewer.
+    // The review comments.
     shared_ptr<string> comment_ {};
-    // The details of service audit.
+    // The review details.
     shared_ptr<GetServiceRegistrationResponseBody::Detail> detail_ {};
-    // Finish time.
+    // The time when the review was completed.
     shared_ptr<string> finishTime_ {};
-    // Service registration ID.
+    // The ID of the review request.
     shared_ptr<string> registrationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -269,15 +268,19 @@ namespace Models
     shared_ptr<GetServiceRegistrationResponseBody::ServiceInfo> serviceInfo_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // The status of service registration. Valid values:
+    // The status of the review request. Valid values:
     // 
-    // *   Submitted
-    // *   Approved
-    // *   Rejected
-    // *   Canceled
-    // *   Executed
+    // - Submitted
+    // 
+    // - Approved
+    // 
+    // - Rejected
+    // 
+    // - Canceled
+    // 
+    // - Executed: The service version is published.
     shared_ptr<string> status_ {};
-    // Submit time.
+    // The time when the request was submitted.
     shared_ptr<string> submitTime_ {};
   };
 

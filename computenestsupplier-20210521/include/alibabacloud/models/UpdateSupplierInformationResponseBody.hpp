@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The description of service provider.
+    // The description of the supplier.
     shared_ptr<string> supplierDesc_ {};
-    // The name of the service provider.
+    // The name of the supplier.
     shared_ptr<string> supplierName_ {};
-    // The URL of the service provider.
+    // The URL of the supplier.
     shared_ptr<string> supplierUrl_ {};
   };
 

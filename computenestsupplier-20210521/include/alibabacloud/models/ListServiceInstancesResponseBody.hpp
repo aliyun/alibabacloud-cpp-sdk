@@ -252,7 +252,7 @@ namespace Models
           shared_ptr<string> image_ {};
           // The language of the service instance.
           shared_ptr<string> locale_ {};
-          // The service name.
+          // The name of the service.
           shared_ptr<string> name_ {};
           // The description of the service.
           shared_ptr<string> shortDescription_ {};
@@ -356,35 +356,43 @@ namespace Models
 
 
       protected:
-        // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+        // The deployment configuration of the service. The configuration varies based on the deployment type. The data is stored in the JSON string format.
         shared_ptr<string> deployMetadata_ {};
-        // The deployment type of the service. Valid values:
+        // The deployment type. Valid values:
         // 
-        // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-        // *   terraform: The service is deployed by using Terraform.
-        // *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-        // *   spi: The service is deployed by calling a service provider interface (SPI).
-        // *   operation: The service is deployed by using a hosted O\\&M service.
+        // - ros: The service is deployed using ROS.
+        // 
+        // - terraform: The service is deployed using Terraform.
+        // 
+        // - ack: The service is deployed using ACK.
+        // 
+        // - spi: The service is deployed using SPI.
+        // 
+        // - operation: The service is deployed using Alibaba Cloud Managed Services.
         shared_ptr<string> deployType_ {};
-        // Indicates whether the private connection feature is enabled. Valid values:
+        // Indicates whether PrivateLink is enabled. Valid values:
         // 
-        // *   true
-        // *   false
+        // - true: Enabled.
+        // 
+        // - false: Disabled.
         shared_ptr<bool> enablePrivateVpcConnection_ {};
         // The time when the service was published.
         shared_ptr<string> publishTime_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
-        // The information about the service.
+        // The service information.
         shared_ptr<vector<Service::ServiceInfos>> serviceInfos_ {};
-        // The type of the service. Valid values:
+        // The service type. Valid values:
         // 
-        // *   private: The service is a private service and is deployed within the account of a customer.
-        // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-        // *   operation: The service is a hosted O\\&M service.
-        // *   poc: The service is a trial service.
+        // - private: The service is deployed in the user\\"s account.
+        // 
+        // - managed: The service is deployed in the service provider\\"s account.
+        // 
+        // - operation: The service is an Alibaba Cloud Managed Service.
+        // 
+        // - poc: The service instance is a trial instance.
         shared_ptr<string> serviceType_ {};
-        // The name of the distribution source service provider.
+        // The name of the source service provider that distributes the service.
         shared_ptr<string> sourceSupplierName_ {};
         // The status of the service.
         shared_ptr<string> status_ {};
@@ -392,7 +400,7 @@ namespace Models
         shared_ptr<string> supplierName_ {};
         // The URL of the service provider.
         shared_ptr<string> supplierUrl_ {};
-        // The service version.
+        // The version of the service.
         shared_ptr<string> version_ {};
         // The custom version name defined by the service provider.
         shared_ptr<string> versionName_ {};
@@ -630,80 +638,97 @@ namespace Models
     protected:
       // The business status of the service instance. Valid values:
       // 
-      // *   Normal: The service instance is normal.
-      // *   Renewing: The service instance is being renewed.
-      // *   RenewFailed: The service instance failed to be renewed.
-      // *   Expired: The service instance expired.
+      // - Normal: The service instance is normal.
+      // 
+      // - Renewing: The service instance is being renewed.
+      // 
+      // - RenewFoiled: The renewal of the service instance failed.
+      // 
+      // - Expired: The service instance has expired.
       shared_ptr<string> bizStatus_ {};
       // The time when the service instance was created.
       shared_ptr<string> createTime_ {};
-      // Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
+      // Indicates whether the service instance supports Alibaba Cloud Managed Services. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The service instance supports Alibaba Cloud Managed Services.
+      // 
+      // - false: The service instance does not support Alibaba Cloud Managed Services.
       shared_ptr<bool> enableInstanceOps_ {};
       // The time when the service instance expires.
       shared_ptr<string> endTime_ {};
       shared_ptr<ServiceInstances::GrantedPermission> grantedPermission_ {};
-      // Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
+      // Indicates whether Alibaba Cloud Managed Services are enabled for the service instance. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Alibaba Cloud Managed Services are enabled for the service instance.
+      // 
+      // - false: Alibaba Cloud Managed Services are not enabled for the service instance.
       shared_ptr<bool> isOperated_ {};
       // The name of the service instance.
       shared_ptr<string> name_ {};
-      // The ID of the service instance that is used to implement hosted O\\&M.
+      // The ID of the service instance that is managed.
       shared_ptr<string> operatedServiceInstanceId_ {};
-      // The end of the time range during which hosted O\\&M is implemented.
+      // The time when the Alibaba Cloud Managed Services end.
       shared_ptr<string> operationEndTime_ {};
-      // The beginning of the time range during which hosted O\\&M is implemented.
+      // The time when the Alibaba Cloud Managed Services start.
       shared_ptr<string> operationStartTime_ {};
       // The parameters of the service instance.
       shared_ptr<string> parameters_ {};
-      // The billing method of the service. Valid values:
+      // The billing method. Valid values:
       // 
-      // *   Permanent: Once you purchase the service, you can use it permanently.
-      // *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
-      // *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
-      // *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
+      // - Permanent: The service is permanently purchased.
+      // 
+      // - Subscription: The service is a subscription service from the Alibaba Cloud Marketplace.
+      // 
+      // - PayAsYouGo: The service is a pay-as-you-go service from the Alibaba Cloud Marketplace.
+      // 
+      // - CustomFixTime: The service has a custom fixed duration.
       shared_ptr<string> payType_ {};
       shared_ptr<string> policyNames_ {};
-      // The deployment progress of the service instance. Unit: percentage.
+      // The deployment progress of the service instance. Unit: %.
       shared_ptr<int64_t> progress_ {};
       // The ID of the resource group.
       shared_ptr<string> resourceGroupId_ {};
-      // The information about the service.
+      // The service.
       shared_ptr<ServiceInstances::Service> service_ {};
       // The ID of the service instance.
       shared_ptr<string> serviceInstanceId_ {};
-      // The type of the service. Valid values:
+      // The service type. Valid values:
       // 
-      // *   private: The service is a private service and is deployed within the account of a customer.
-      // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-      // *   operation: The service is a hosted O\\&M service.
-      // *   poc: The service is a trial service.
+      // - private: The service instance is deployed in the user\\"s account.
+      // 
+      // - managed: The service instance is deployed in the service provider\\"s account.
+      // 
+      // - operation: The service instance is an Alibaba Cloud Managed Service instance.
+      // 
+      // - poc: The service instance is a trial instance.
       shared_ptr<string> serviceType_ {};
-      // The source from which the service instance is created.
+      // The source from which the service instance was created.
       shared_ptr<string> source_ {};
       // The status of the service instance. Valid values:
       // 
-      // *   Created
-      // *   Deploying
-      // *   DeployedFailed
-      // *   Deployed
-      // *   Upgrading
-      // *   Deleting
-      // *   Deleted
+      // - Created: The service instance is created.
+      // 
+      // - Deploying: The service instance is being deployed.
+      // 
+      // - DeployedFailed: The service instance failed to be deployed.
+      // 
+      // - Deployed: The service instance is deployed.
+      // 
+      // - Upgrading: The service instance is being upgraded.
+      // 
+      // - Deleting: The service instance is being deleted.
+      // 
+      // - Deleted: The service instance is deleted.
       shared_ptr<string> status_ {};
       // The description of the deployment of the service instance.
       shared_ptr<string> statusDetail_ {};
       // The custom tags.
       shared_ptr<vector<ServiceInstances::Tags>> tags_ {};
-      // The template name.
+      // The name of the template.
       shared_ptr<string> templateName_ {};
       // The time when the service instance was updated.
       shared_ptr<string> updateTime_ {};
-      // The Alibaba Cloud account ID of the user.
+      // The user\\"s Alibaba Cloud account ID.
       shared_ptr<int64_t> userId_ {};
     };
 
@@ -747,13 +772,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about service instances.
+    // The information about the service instances.
     shared_ptr<vector<ListServiceInstancesResponseBody::ServiceInstances>> serviceInstances_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};

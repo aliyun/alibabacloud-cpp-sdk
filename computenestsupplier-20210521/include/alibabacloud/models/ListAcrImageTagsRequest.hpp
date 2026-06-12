@@ -66,16 +66,17 @@ namespace Models
 
 
   protected:
-    // The type of the deployment package. Default value: AcrImage. Valid values:
+    // The artifact type. The default value is AcrImage. Possible values:
     // 
-    // *   HelmChart: Helm chart image.
-    // *   AcrImage: container image.
+    // - HelmChart: A Helm Chart image.
+    // 
+    // - AcrImage: A container image.
     shared_ptr<string> artifactType_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token for the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The image ID.
+    // The ID of the image repository.
     shared_ptr<string> repoId_ {};
   };
 

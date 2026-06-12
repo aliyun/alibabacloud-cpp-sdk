@@ -131,29 +131,31 @@ namespace Models
 
 
     protected:
-      // End time of the upgrade.
+      // The upgrade end time.
       shared_ptr<string> endTime_ {};
-      // Version before the upgrade.
+      // The version before the upgrade.
       shared_ptr<string> fromVersion_ {};
-      // Upgrade result.
+      // The upgrade results.
       shared_ptr<string> results_ {};
-      // Start time of the upgrade.
+      // The upgrade start time.
       shared_ptr<string> startTime_ {};
-      // Upgrade status. Possible values:
+      // The upgrade status. Valid values:
       // 
-      // - upgrading: In progress.
+      // - upgrading: The upgrade is in progress.
       // 
-      // - UpgradeSuccessful: Upgrade successful.
+      // - UpgradeSuccessful: The upgrade is successful.
       // 
-      // - UpgradeFailed: Upgrade failed.
+      // - UpgradeFailed: The upgrade failed.
       shared_ptr<string> status_ {};
-      // Version after the upgrade.
+      // The version after the upgrade.
       shared_ptr<string> toVersion_ {};
-      // Upgrade type.
+      // The upgrade type.
+      // 
       // - Upgrade
+      // 
       // - Rollback
       shared_ptr<string> type_ {};
-      // Upgrade history ID.
+      // The ID of the upgrade history record.
       shared_ptr<string> upgradeHistoryId_ {};
     };
 
@@ -197,15 +199,15 @@ namespace Models
 
 
   protected:
-    // The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token to use for the next query.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total count of upgrade history
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // List of upgrade histories.
+    // The list of upgrade history records.
     shared_ptr<vector<ListServiceInstanceUpgradeHistoryResponseBody::UpgradeHistory>> upgradeHistory_ {};
   };
 

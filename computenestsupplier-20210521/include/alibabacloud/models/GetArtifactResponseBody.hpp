@@ -104,9 +104,9 @@ namespace Models
 
 
     protected:
-      // The tag key of the deployment package.
+      // The tag key of the artifact.
       shared_ptr<string> key_ {};
-      // The tag value of the deployment package.
+      // The tag value of the artifact.
       shared_ptr<string> value_ {};
     };
 
@@ -251,45 +251,47 @@ namespace Models
 
 
   protected:
-    // The build properties of the artifact, utilized for hosting and building the deployment package.
+    // The content used to build the artifact. This parameter is used for managed artifact builds.
     shared_ptr<string> artifactBuildProperty_ {};
-    // The type of the deployment package to be built.
+    // The type of the artifact build.
     shared_ptr<string> artifactBuildType_ {};
-    // The ID of the deployment package.
+    // The ID of the artifact.
     shared_ptr<string> artifactId_ {};
-    // The properties of the deployment package.
+    // The properties of the artifact.
     shared_ptr<string> artifactProperty_ {};
-    // The type of the deployment package.
+    // The type of the artifact.
     shared_ptr<string> artifactType_ {};
-    // The version of the deployment package.
+    // The version of the artifact.
     shared_ptr<string> artifactVersion_ {};
-    // The description of the deployment package.
+    // The description of the artifact.
     shared_ptr<string> description_ {};
-    // The time when the deployment package was modified.
+    // The time when the artifact was last modified.
     shared_ptr<string> gmtModified_ {};
-    // The latest version of the deployment package.
+    // The latest version of the artifact.
     shared_ptr<int64_t> maxVersion_ {};
-    // The name of the deployment package.
+    // The name of the artifact.
     shared_ptr<string> name_ {};
-    // Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+    // The permission type. This parameter is valid for artifacts of the ContainerImage and HelmChart types. Valid values:
+    // 
     // - Public
+    // 
     // - Automatic
     shared_ptr<string> permissionType_ {};
-    // The distribution progress of the deployment package.
+    // The distribution progress of the artifact.
     shared_ptr<string> progress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The status of the deployment package. Valid values:
+    // The status of the artifact.
     shared_ptr<string> status_ {};
-    // The description of the deployment package.
+    // The description of the artifact status.
     shared_ptr<string> statusDetail_ {};
-    // The ID of the region that supports the deployment package.
+    // The IDs of the regions where the artifact is supported.
     shared_ptr<string> supportRegionIds_ {};
-    // The tags of the deployment package.
+    // The tags of the artifact.
     shared_ptr<vector<GetArtifactResponseBody::Tags>> tags_ {};
-    // The version name of the deployment package.
+    // The version name of the artifact.
     shared_ptr<string> versionName_ {};
   };
 

@@ -112,20 +112,17 @@ namespace Models
 
 
     protected:
-      // The time when the image was created.
+      // The time when the repository was created.
       shared_ptr<string> createTime_ {};
-      // The time when the image was modified.
+      // The time when the repository was last modified.
       shared_ptr<string> modifiedTime_ {};
-      // The namespace of the repository
+      // The namespace.
       shared_ptr<string> namespace_ {};
-      // The image repo ID.
+      // The repository ID.
       shared_ptr<string> repoId_ {};
-      // The image repo name.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The type of the repository. Valid values:
-      // 
-      // *   `Private`: a private repository
-      // *   `Public`: a public repository
+      // The type of the repository. Valid values: Public and Private.
       shared_ptr<string> repoType_ {};
     };
 
@@ -169,15 +166,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // The images.
+    // The list of repositories.
     shared_ptr<vector<ListAcrImageRepositoriesResponseBody::Repositories>> repositories_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -159,18 +159,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The value of ClientToken can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // The ID of the region in which the service instance is deployed.
+    // The ID of the deployment region.
     // 
     // This parameter is required.
     shared_ptr<string> deployRegionId_ {};
-    // Specifies whether to enable the private connection feature. Valid values:
+    // Indicates whether PrivateLink is enabled. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Enabled
+    // 
+    // - false: Not enabled
     shared_ptr<bool> enablePrivateVpcConnection_ {};
-    // The parameters in the template.
+    // The parameter information.
     shared_ptr<vector<GetServiceTemplateParameterConstraintsRequest::Parameters>> parameters_ {};
     // The region ID.
     // 
@@ -180,7 +181,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The ID of the service instance.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};

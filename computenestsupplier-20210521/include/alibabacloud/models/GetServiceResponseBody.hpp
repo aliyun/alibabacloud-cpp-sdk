@@ -225,9 +225,9 @@ namespace Models
 
 
     protected:
-      // The type of Contact information.
+      // The type of the contact information.
       shared_ptr<string> type_ {};
-      // The value of Contact information.
+      // The contact information.
       shared_ptr<string> value_ {};
     };
 
@@ -333,21 +333,21 @@ namespace Models
 
 
     protected:
-      // The total number of service instances that belong to the service. The service instances that are deleted are counted.
+      // The total number of service instances. This includes deleted instances.
       shared_ptr<int32_t> accumulativeInstanceCount_ {};
-      // The total amount consumed for trial service instances. Unit: CNY.
+      // The total consumption amount of the trial service. Unit: CNY.
       shared_ptr<double> accumulativePocAmount_ {};
-      // The total number of users who use the service. The historical users are counted.
+      // The total number of users. This includes historical users.
       shared_ptr<int32_t> accumulativeUserCount_ {};
-      // The average amount consumed for trial service instances per instance. Unit: CNY.
+      // The average consumption amount of a trial service instance. Unit: CNY.
       shared_ptr<double> averagePocAmount_ {};
-      // The average duration for which trial service instances are in use. Unit: Hour.
+      // The average trial duration of a service instance. Unit: hours.
       shared_ptr<double> averagePocDuration_ {};
-      // The average amount consumed for trial service instances per a period of time. Unit: CNY.
+      // The average consumption amount of a trial service instance per unit of time. Unit: CNY.
       shared_ptr<double> averagePocUnitAmount_ {};
-      // The number of online service instances. It means the number of service instances that are successfully deployed.
+      // The number of online service instances. This indicates the number of service instances that are successfully deployed.
       shared_ptr<int32_t> deployedServiceInstanceCount_ {};
-      // The number of online users. It means the number of users who successfully deployed the service instances.
+      // The number of online users. This indicates the number of users who have successfully deployed service instances.
       shared_ptr<int32_t> deployedUserCount_ {};
       // The number of service applications that are in the Submitted state.
       shared_ptr<int32_t> submittedUsageCount_ {};
@@ -400,8 +400,11 @@ namespace Models
 
 
     protected:
+      // The English value of the business information.
       shared_ptr<string> enValue_ {};
+      // The original value of the business information.
       shared_ptr<string> originalValue_ {};
+      // The Chinese value of the business information.
       shared_ptr<string> zhValue_ {};
     };
 
@@ -474,9 +477,9 @@ namespace Models
 
 
       protected:
-        // The name of the software
+        // The software name.
         shared_ptr<string> name_ {};
-        // The version of the software.
+        // The software version.
         shared_ptr<string> version_ {};
       };
 
@@ -520,7 +523,7 @@ namespace Models
       protected:
         // The agreement name.
         shared_ptr<string> name_ {};
-        // The agreement URL.
+        // The URL of the agreement.
         shared_ptr<string> url_ {};
       };
 
@@ -581,22 +584,25 @@ namespace Models
 
 
     protected:
-      // The agreement information about the service.
+      // The information about the service agreement.
       shared_ptr<vector<ServiceInfos::Agreements>> agreements_ {};
       // The URL of the service icon.
       shared_ptr<string> image_ {};
-      // The language of the service. Valid values:
+      // The language of the service configuration.
       // 
-      // *   zh-CN: Chinese
-      // *   en-US: English
+      // Valid values:
+      // 
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       shared_ptr<string> locale_ {};
       // The URL of the detailed description of the service.
       shared_ptr<string> longDescriptionUrl_ {};
       // The service name.
       shared_ptr<string> name_ {};
-      // The description of the service.
+      // The summary of the service.
       shared_ptr<string> shortDescription_ {};
-      // The list of the information about the software in the service.
+      // The information about the software used in the service.
       shared_ptr<vector<ServiceInfos::Softwares>> softwares_ {};
     };
 
@@ -647,9 +653,13 @@ namespace Models
 
 
     protected:
-      // The URL that is used to access the document.
+      // The URL of the document.
       shared_ptr<string> documentUrl_ {};
-      // The language of the return data. Valid values: zh-CN and en-US.
+      // The language of the service configuration. Valid values:
+      // 
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       shared_ptr<string> locale_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
@@ -685,7 +695,7 @@ namespace Models
 
 
     protected:
-      // The compliance package is selected.
+      // The selected compliance package.
       shared_ptr<vector<string>> compliancePacks_ {};
     };
 
@@ -777,7 +787,7 @@ namespace Models
         shared_ptr<string> code_ {};
         // The specification name.
         shared_ptr<string> name_ {};
-        // The subscription duration. Unit: week or year.
+        // The purchasable duration. Unit: week or year.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -819,9 +829,9 @@ namespace Models
 
 
       protected:
-        // The ID of the billable item.
+        // The metering item ID.
         shared_ptr<string> entityId_ {};
-        // The name of the billable item.
+        // The name of the metering item property.
         shared_ptr<string> name_ {};
       };
 
@@ -904,16 +914,19 @@ namespace Models
 
 
         protected:
-          // The specification code of the service in Alibaba Cloud Marketplace.
+          // The commodity specification code of Alibaba Cloud Marketplace.
           shared_ptr<string> specificationCode_ {};
-          // The name of the specification package.
+          // The package name.
           shared_ptr<string> specificationName_ {};
           // The template name.
           shared_ptr<string> templateName_ {};
-          // The trial policy. Valid values:
+          // The trial type.
           // 
-          // *   Trial: Trials are supported.
-          // *   NotTrial: Trials are not supported.
+          // Valid values:
+          // 
+          // - Trial: Trial is supported.
+          // 
+          // - NotTrial: Trial is not supported.
           shared_ptr<string> trialType_ {};
         };
 
@@ -964,9 +977,9 @@ namespace Models
 
 
         protected:
-          // The ID of the billable item.
+          // The metering item ID.
           shared_ptr<string> entityIds_ {};
-          // The name of the specification package.
+          // The package name.
           shared_ptr<string> specificationName_ {};
           // The template name.
           shared_ptr<string> templateName_ {};
@@ -1028,13 +1041,13 @@ namespace Models
 
 
         protected:
-          // The ID of the billable item.
+          // The metering item ID.
           shared_ptr<string> entityId_ {};
-          // The metric name.
+          // The name of the metering metric.
           shared_ptr<string> metricName_ {};
-          // The custom prometheus statement.
+          // The custom Prometheus statement.
           shared_ptr<string> promql_ {};
-          // The metric.
+          // The metering metric.
           shared_ptr<string> type_ {};
         };
 
@@ -1068,11 +1081,11 @@ namespace Models
 
 
       protected:
-        // The configurations of the billable items.
+        // The configuration information of the metering item.
         shared_ptr<vector<MarketplaceMetadata::MeteringEntityExtraInfos>> meteringEntityExtraInfos_ {};
-        // The billable items that are associated with the package.
+        // The binding relationship between the package and the metering dimension.
         shared_ptr<vector<MarketplaceMetadata::MeteringEntityMappings>> meteringEntityMappings_ {};
-        // The mappings between the service specifications and the template or package.
+        // The relationship between commodity specifications and templates or packages.
         shared_ptr<vector<MarketplaceMetadata::SpecificationMappings>> specificationMappings_ {};
       };
 
@@ -1146,7 +1159,7 @@ namespace Models
 
 
         protected:
-          // The ID of the entity.
+          // The metering item ID.
           shared_ptr<string> entityIds_ {};
           // The package name.
           shared_ptr<string> specificationName_ {};
@@ -1210,13 +1223,13 @@ namespace Models
 
 
         protected:
-          // The ID of the entity.
+          // The metering item ID.
           shared_ptr<string> entityId_ {};
-          // Name of a measurement indicator.
+          // The metric name.
           shared_ptr<string> metricName_ {};
-          // Custom PromQL.
+          // The custom Prometheus statement.
           shared_ptr<string> promql_ {};
-          // Measurement indicators.
+          // The metering metric.
           shared_ptr<string> type_ {};
         };
 
@@ -1260,7 +1273,7 @@ namespace Models
 
 
         protected:
-          // The mappings.
+          // The mapping.
           shared_ptr<map<string, string>> mappings_ {};
           // The template name.
           shared_ptr<string> templateName_ {};
@@ -1296,11 +1309,11 @@ namespace Models
 
 
       protected:
-        // The mapping information about the billing items.
+        // The billing item mapping.
         shared_ptr<vector<CssMetadata::ComponentsMappings>> componentsMappings_ {};
-        // Metering item configuration information.
+        // The configuration information of the metering item.
         shared_ptr<vector<CssMetadata::MeteringEntityExtraInfos>> meteringEntityExtraInfos_ {};
-        // The binding relationship between package and measurement dimension.
+        // The binding relationship between the package and the metering dimension.
         shared_ptr<vector<CssMetadata::MeteringEntityMappings>> meteringEntityMappings_ {};
       };
 
@@ -1381,29 +1394,35 @@ namespace Models
 
 
     protected:
-      // The billing method of the service. Valid values:
+      // The billing method.
       // 
-      // *   **PREPAY** (default): subscription.
-      // *   **POSTPAY**: pay-as-you-go.
+      // Valid values:
+      // 
+      // - **PREPAY** (default): subscription.
+      // 
+      // - **POSTPAY**: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The commodity code of the service in Alibaba Cloud Marketplace.
+      // The commodity code of Alibaba Cloud Marketplace.
       shared_ptr<string> commodityCode_ {};
       // The commodity modules.
       shared_ptr<vector<string>> components_ {};
-      // The configuration metadata related to Lingxiao.
+      // The configuration metadata of Lingxiao.
       shared_ptr<Commodity::CssMetadata> cssMetadata_ {};
       // The metadata of Alibaba Cloud Marketplace.
       shared_ptr<Commodity::MarketplaceMetadata> marketplaceMetadata_ {};
-      // The information about the billable item.
+      // The metering information.
       shared_ptr<vector<Commodity::MeteringEntities>> meteringEntities_ {};
-      // The configuration metadata related to Saas Boost.
+      // The configuration metadata of SaaS Boost.
       shared_ptr<string> saasBoostMetadata_ {};
-      // The specification details of the service in Alibaba Cloud Marketplace.
+      // The details of the Alibaba Cloud Marketplace specifications.
       shared_ptr<vector<Commodity::Specifications>> specifications_ {};
-      // The service type. Valid values:
+      // The type.
       // 
-      // *   marketplace: Alibaba Cloud Marketplace.
-      // *   Css: Lingxiao.
+      // Valid values:
+      // 
+      // - Marketplace: Alibaba Cloud Marketplace.
+      // 
+      // - Css: Lingxiao.
       shared_ptr<string> type_ {};
     };
 
@@ -1839,70 +1858,88 @@ namespace Models
 
   protected:
     // The alert configurations of the service.
-    // 
-    // >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
     shared_ptr<string> alarmMetadata_ {};
-    // The approval type of the service usage application. Valid values:
+    // The approval type of the service usage application.
     // 
-    // *   Manual: The application is manually approved.
-    // *   AutoPass: The application is automatically approved.
+    // Valid values:
+    // 
+    // - Manual: The application is manually approved.
+    // 
+    // - AutoPass: The application is automatically approved.
     shared_ptr<string> approvalType_ {};
-    // The information of build service information.
+    // The information about the build service.
     shared_ptr<string> buildInfo_ {};
-    // The parameters for building the service
+    // The parameters of the build service.
     shared_ptr<string> buildParameters_ {};
-    // The category of the service.
+    // The service category.
     shared_ptr<string> categories_ {};
-    // The commodity details.
+    // The commodity specifications.
     shared_ptr<GetServiceResponseBody::Commodity> commodity_ {};
-    // Compliance check metadata.
+    // The compliance check metadata.
     shared_ptr<GetServiceResponseBody::ComplianceMetadata> complianceMetadata_ {};
     // The time when the service was created.
     shared_ptr<string> createTime_ {};
-    // The binding configurations of the commodity module.
+    // The binding relationship of the commodity module.
     shared_ptr<string> crossRegionConnectionStatus_ {};
-    // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+    // The information about the service deployment configuration.
+    // 
+    // The information varies based on the deployment type. Different deployment types use different data formats. Therefore, the information is stored as a JSON string.
     shared_ptr<string> deployMetadata_ {};
-    // The deployment type of the service. Valid values:
+    // The deployment type.
     // 
-    // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-    // *   terraform: The service is deployed by using Terraform.
-    // *   spi: The service is deployed by calling a service provider interface (SPI).
-    // *   operation: The service is deployed by using a hosted O\\&M service.
-    // *   container: The service is deployed by using a container.
-    // *   pkg: The service is deployed by using a package.
+    // Valid values:
+    // 
+    // - ros: The service is deployed using ROS.
+    // 
+    // - terraform: The service is deployed using Terraform.
+    // 
+    // - spi: The service is deployed by calling SPI.
+    // 
+    // - operation: The service is deployed using Alibaba Cloud Managed Services.
+    // 
+    // - container: The service is deployed using containers.
     shared_ptr<string> deployType_ {};
-    // The duration for which hosted O\\&M is implemented. Unit: seconds.
+    // The duration of the Alibaba Cloud Managed Services. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
-    // The report source.
+    // The source of the reported data.
     shared_ptr<map<string, string>> entitySource_ {};
-    // Indicates whether the hosted O\\&M feature is enabled for the service. Default value: false. Valid values:
+    // Indicates whether Alibaba Cloud Managed Services is enabled.
     // 
-    // *   true
-    // *   false
+    // Valid values:
     // 
-    // >  This parameter is returned if you set **ServiceType** to **private**.
+    // - true: Enabled.
+    // 
+    // - false: Disabled.
     shared_ptr<bool> isSupportOperated_ {};
     // The license metadata.
     shared_ptr<string> licenseMetadata_ {};
-    // The logging configurations.
+    // The application log configurations.
     shared_ptr<string> logMetadata_ {};
-    // The hosted O\\&M configurations.
+    // The configurations of Alibaba Cloud Managed Services.
     shared_ptr<string> operationMetadata_ {};
-    // The source for which fees are generated. Valid values:
+    // The payment source.
     // 
-    // *   None: No fees are generated.
-    // *   Marketplace: Fees are generated for Alibaba Cloud Marketplace.
-    // *   Custom: The custom fees.
+    // Valid values:
+    // 
+    // - None: The service is free of charge.
+    // 
+    // - Marketplace: The service is paid on Alibaba Cloud Marketplace.
+    // 
+    // - Custom: The service is paid using a custom payment method.
     shared_ptr<string> payFromType_ {};
-    // The permissions on the service. Valid values:
+    // The permission type.
     // 
-    // *   Deployable: Permissions to deploy the service.
-    // *   Accessible: Permissions to access the service.
+    // Valid values:
+    // 
+    // - Deployable: The service can be deployed.
+    // 
+    // - Accessible: The service can be accessed.
     shared_ptr<string> permission_ {};
-    // The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+    // The policy names.
+    // 
+    // A policy name can be up to 128 characters in length. Multiple policy names are separated by commas (,). Only policies related to Alibaba Cloud Managed Services are supported.
     shared_ptr<string> policyNames_ {};
-    // The deployment progress of the service instance. Unit: percentage.
+    // The deployment progress of the service instance. Unit: %.
     shared_ptr<int64_t> progress_ {};
     // The time when the service was published.
     shared_ptr<string> publishTime_ {};
@@ -1910,64 +1947,97 @@ namespace Models
     shared_ptr<string> registrationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the distribution is supported. Valid values:
+    // Indicates whether the service can be distributed.
     // 
-    // *   false
-    // *   true
+    // Valid values:
+    // 
+    // - false: The service cannot be distributed.
+    // 
+    // - true: The service can be distributed.
     shared_ptr<bool> resellable_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The service key. It is used for digital signature encryption.
     shared_ptr<string> secretKey_ {};
-    // The URL of the service audit file.
+    // The URL of the service review file.
     shared_ptr<string> serviceAuditDocumentUrl_ {};
-    // Indicates whether the service is visible. Valid values:
+    // Indicates whether the service is discoverable.
     // 
-    // *   INVISIBLE
-    // *   DISCOVERABLE
+    // Valid values:
+    // 
+    // - INVISIBLE: The service is not discoverable.
+    // 
+    // - DISCOVERABLE: The service is discoverable.
     shared_ptr<string> serviceDiscoverable_ {};
-    // Service document information.
+    // The service document information.
     shared_ptr<vector<GetServiceResponseBody::ServiceDocumentInfos>> serviceDocumentInfos_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
-    // The information about the service.
+    // The service information.
     shared_ptr<vector<GetServiceResponseBody::ServiceInfos>> serviceInfos_ {};
+    // The multi-language configurations of the service.
     shared_ptr<vector<GetServiceResponseBody::ServiceLocaleConfigs>> serviceLocaleConfigs_ {};
-    // The URL of the service page.
+    // The URL of the product page.
     shared_ptr<string> serviceProductUrl_ {};
-    // The type of the service. Valid values:
+    // The service type.
     // 
-    // *   private: The service is a private service and is deployed within the account of a customer.
-    // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-    // *   operation: The service is a hosted O\\&M service.
+    // Valid values:
+    // 
+    // - private: The service is deployed in the user\\"s account.
+    // 
+    // - managed: The service is deployed in the service provider\\"s account.
+    // 
+    // - operation: The service is an Alibaba Cloud Managed Service.
     shared_ptr<string> serviceType_ {};
-    // The permission type of the deployment URL. Valid values:
+    // The sharing type.
     // 
-    // *   Public: All users can go to the URL to create a service instance or a trial service instance.
-    // *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-    // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-    // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-    // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+    // Valid values:
+    // 
+    // - Public: The service is public. Formal and trial deployments are not restricted.
+    // 
+    // - Restricted: The service is restricted. Formal and trial deployments are restricted.
+    // 
+    // - OnlyFormalRestricted: Only formal deployments are restricted.
+    // 
+    // - OnlyTrailRestricted: Only trial deployments are restricted.
+    // 
+    // - Hidden: The service is hidden. It is not visible and you cannot apply for deployment permissions.
     shared_ptr<string> shareType_ {};
-    // The share status of the instance.
-    // 
-    // > This parameter is discontinued.
+    // The sharing status of the service. >Notice: This parameter is deprecated.
     shared_ptr<string> shareTypeStatus_ {};
-    // The ID of the distribution source service.
+    // The ID of the source service for distribution.
     shared_ptr<string> sourceServiceId_ {};
-    // The version of the distribution source service.
+    // The version of the source service for distribution.
     shared_ptr<string> sourceServiceVersion_ {};
-    // The name of the distribution source service provider.
+    // The name of the service provider of the source service for distribution.
     shared_ptr<string> sourceSupplierName_ {};
-    // The statistics.
+    // The statistics information.
     shared_ptr<GetServiceResponseBody::Statistic> statistic_ {};
-    // The status of the service. Valid values:
+    // The service status.
     // 
-    // *   Draft: The service is a draft.
-    // *   Submitted: The service is submitted for review. You cannot modify services in this state.
-    // *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
-    // *   Launching: The service is being published.
-    // *   Online: The service is published.
-    // *   Offline: The service is unpublished.
+    // Valid values:
+    // 
+    // - Draft: The service is in the draft state.
+    // 
+    // - Submitted: The service is submitted for review. You cannot modify the service.
+    // 
+    // - Approved: The service is approved. You cannot modify the service, but you can publish the service.
+    // 
+    // - Launching: The service is being published.
+    // 
+    // - Online: The service is published.
+    // 
+    // - Offline: The service is unpublished.
+    // 
+    // - Beta: The service is in beta.
+    // 
+    // - Creating: The service is being created.
+    // 
+    // - CreateFailed: The service failed to be created.
+    // 
+    // - Updating: The service is being updated.
+    // 
+    // - UpdateFailed: The service failed to be updated.
     shared_ptr<string> status_ {};
     // The description of the service status.
     shared_ptr<string> statusDetail_ {};
@@ -1975,42 +2045,55 @@ namespace Models
     shared_ptr<string> supplierName_ {};
     // The URL of the service provider.
     shared_ptr<string> supplierUrl_ {};
-    // Contact information of the service provider.
+    // The contact information of the service provider.
     shared_ptr<vector<GetServiceResponseBody::SupportContacts>> supportContacts_ {};
     // The service tags.
     shared_ptr<vector<GetServiceResponseBody::Tags>> tags_ {};
-    // The type of the tenant. Valid values:
+    // The tenant type.
     // 
-    // *   SingleTenant
-    // *   MultiTenant
+    // Valid values:
+    // 
+    // - SingleTenant: single-tenant.
+    // 
+    // - MultiTenant: multitenancy.
     shared_ptr<string> tenantType_ {};
-    // The status of the test. Valid values:
+    // The test status.
     // 
-    // *   `CONFIG_IS_NULL`: No test configurations exist.
-    // *   `SERVICE_TEST_SUCCEED`: The service passed the test.
-    // *   `SERVICE_TSET_DOING`: The service does not pass the test.
+    // Valid values:
+    // 
+    // - CONFIG_IS_NULL: The test configuration does not exist.
+    // 
+    // - SERVICE_TEST_SUCCEED: The service passed the test.
+    // 
+    // - SERVICE_TSET_DOING: The service has not passed the test.
     shared_ptr<string> testStatus_ {};
-    // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+    // The trial duration. Unit: days.
     shared_ptr<int64_t> trialDuration_ {};
-    // The trial policy. Valid values:
+    // The trial type.
     // 
-    // *   Trial: Trials are supported.
-    // *   NotTrial: Trials are not supported.
+    // Valid values:
+    // 
+    // - Trial: The service supports trial.
+    // 
+    // - NotTrial: The service does not support trial.
     shared_ptr<string> trialType_ {};
-    // The time when the service was updated.
+    // The time when the service was last updated.
     shared_ptr<string> updateTime_ {};
-    // The metadata about the upgrade.
+    // The upgrade metadata.
     shared_ptr<string> upgradeMetadata_ {};
     // The service version.
     shared_ptr<string> version_ {};
     // The version name.
     shared_ptr<string> versionName_ {};
-    // Indicates whether the service is a virtual Internet service. Valid values:
+    // Indicates whether the service is a virtual Internet service.
     // 
-    // *   false
-    // *   true
+    // Valid values:
+    // 
+    // - false: No.
+    // 
+    // - true: Yes.
     shared_ptr<string> virtualInternetService_ {};
-    // The ID of the virtual Internet service.
+    // The virtual Internet service ID.
     shared_ptr<string> virtualInternetServiceId_ {};
   };
 

@@ -250,60 +250,67 @@ namespace Models
 
 
     protected:
-      // The comment of this registration.
+      // The review comments.
       shared_ptr<string> comment_ {};
-      // Contact email
+      // The email address of the contact person.
       shared_ptr<string> contactEmail_ {};
-      // Contact number
+      // The phone number of the contact person.
       shared_ptr<string> contactNumber_ {};
-      // Contact person
+      // The contact person.
       shared_ptr<string> contactPerson_ {};
-      // Contact person tiltle.
+      // The title of the contact person.
       shared_ptr<string> contactPersonTitle_ {};
-      // Whether to enable the resell mode.
+      // Indicates whether the reseller mode is supported.
       shared_ptr<bool> enableResellerMode_ {};
-      // Annual product revenue
+      // The annual revenue of the service provider\\"s product.
       shared_ptr<string> productAnnualRevenue_ {};
-      // The business of product.
+      // The industry of the service provider\\"s product.
       shared_ptr<string> productBusiness_ {};
-      // Product delivery type，Valid values:
+      // The delivery method of the service provider\\"s product. Valid values:
       // 
-      // SaaS
-      // License
-      // API
-      // DesktopSoftware
-      // Others
+      // - SaaS
+      // 
+      // - License
+      // 
+      // - API
+      // 
+      // - Desktop software
+      // 
+      // - Other
       shared_ptr<string> productDeliveryTypes_ {};
-      // The publish time of product.
+      // The product launch date.
       shared_ptr<string> productPublishTime_ {};
-      // Product sell type, Valid values:
+      // The sales model of the service provider\\"s product. Valid values:
       // 
       // - Direct
+      // 
       // - Channel
       shared_ptr<string> productSellTypes_ {};
-      // The registration ID.
+      // The ID of the review request.
       shared_ptr<string> registrationId_ {};
-      // The description of resell business.
+      // The description of the reseller business.
       shared_ptr<string> resellBusinessDesc_ {};
-      // The deployment state of the registration. Valid values:
+      // The review status. Valid values:
       // 
-      // - Submitted
-      // - Approved
-      // - Rejected
+      // - Submitted: The request is submitted.
+      // 
+      // - Approved: The request is approved.
+      // 
+      // - Rejected: The request is rejected.
       shared_ptr<string> status_ {};
-      // The submit time of this registration.
+      // The time when the request was submitted.
       shared_ptr<string> submitTime_ {};
-      // The description of service provider.
+      // The description of the service provider.
       shared_ptr<string> supplierDesc_ {};
-      // The Logo of service provider.
+      // The icon of the service provider.
       shared_ptr<string> supplierLogo_ {};
       // The name of the service provider.
       shared_ptr<string> supplierName_ {};
-      // The english name of the service provider.
+      // The English name of the service provider.
       shared_ptr<string> supplierNameEn_ {};
-      // The Alibaba Cloud account ID of the service provider.
+      // The UID of the service provider.
       shared_ptr<string> supplierUid_ {};
-      // The URL of the service provider.
+      // The URL of the service provider\\"s official website.
       shared_ptr<string> supplierUrl_ {};
     };
 
@@ -347,15 +354,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The supplier registrations
+    // A list of service provider registration requests.
     shared_ptr<vector<ListSupplierRegistrationsResponseBody::SupplierRegistrations>> supplierRegistrations_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

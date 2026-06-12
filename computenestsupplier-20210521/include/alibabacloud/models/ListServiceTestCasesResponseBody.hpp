@@ -96,11 +96,11 @@ namespace Models
     protected:
       // The template name.
       shared_ptr<string> templateName_ {};
-      // The service test case id.
+      // The ID of the test case.
       shared_ptr<string> testCaseId_ {};
-      // The service test case name.
+      // The name of the test case.
       shared_ptr<string> testCaseName_ {};
-      // The service test config.
+      // The user-configured YAML file.
       shared_ptr<string> testConfig_ {};
     };
 
@@ -146,13 +146,13 @@ namespace Models
   protected:
     // The data returned.
     shared_ptr<vector<ListServiceTestCasesResponseBody::Data>> data_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records that meet the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

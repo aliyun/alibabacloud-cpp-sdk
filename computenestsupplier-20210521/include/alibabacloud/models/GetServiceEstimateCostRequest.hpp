@@ -87,9 +87,11 @@ namespace Models
       shared_ptr<int32_t> payPeriod_ {};
       // The unit of the subscription duration. Valid values:
       // 
-      // *   Year
-      // *   Month
-      // *   Day
+      // - Year
+      // 
+      // - Month
+      // 
+      // - Day
       shared_ptr<string> payPeriodUnit_ {};
     };
 
@@ -164,11 +166,11 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token that you can use to ensure the idempotence of the request. You can use the client to generate a token, but you must make sure that the token is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The subscription duration information about the purchase order of Alibaba Cloud Marketplace.
+    // The subscription details of the Alibaba Cloud Marketplace order.
     shared_ptr<GetServiceEstimateCostRequest::Commodity> commodity_ {};
-    // The parameters that are specified to deploy the service instance.
+    // The parameters that you enter to deploy the service instance.
     Darabonba::Json parameters_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -176,11 +178,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The ID of the service instance.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // The package name.
+    // The specification name.
     shared_ptr<string> specificationName_ {};
     // The template name.
     shared_ptr<string> templateName_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Artifact ID.
+    // The artifact ID.
     shared_ptr<string> artifactId_ {};
-    // Artifact version.
+    // The artifact version.
     shared_ptr<string> artifactVersion_ {};
   };
 

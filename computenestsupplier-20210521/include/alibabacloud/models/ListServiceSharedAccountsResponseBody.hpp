@@ -122,25 +122,23 @@ namespace Models
 
 
     protected:
-      // The time when the service was created.
+      // The time when the sharing was created.
       shared_ptr<string> createTime_ {};
-      // Service logo.
+      // The logo of the distributor.
       shared_ptr<string> logo_ {};
-      // The name of the service instance. The value must meet the following requirements:
-      // 
-      // *   The name cannot exceed 64 characters in length.
-      // *   It can contain digits, letters, hyphens (-), and underscores (_). It must start with a digit or a letter.
+      // The name of the distributor.
       shared_ptr<string> name_ {};
-      // The permissions on the service. Valid values:
+      // The permission type. Valid values:
       // 
-      // *   Deployable: Permissions to deploy the service.
-      // *   Accessible: Permissions to access the service.
+      // - Deployable: The service is deployable.
+      // 
+      // - Accessible: The service is accessible.
       shared_ptr<string> permission_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
-      // The time when the service was updated.
+      // The time when the sharing was last updated.
       shared_ptr<string> updateTime_ {};
-      // The user aliUid.
+      // The Alibaba Cloud account ID of the user.
       shared_ptr<string> userAliUid_ {};
     };
 
@@ -184,15 +182,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token used to start the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Service shared account information.
+    // The information about the shared accounts.
     shared_ptr<vector<ListServiceSharedAccountsResponseBody::ShareAccount>> shareAccount_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

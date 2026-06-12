@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       shared_ptr<string> value_ {};
     };
 
@@ -119,18 +119,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify at most 50 resource IDs in each call.
+    // The resource ID.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
-    // The resource type. Valid value:
-    // - service
-    // - serviceinstance
-    // - artifact
+    // The resource type. Valid values:
+    // 
+    // - service: a service.
+    // 
+    // - serviceinstance: a service instance.
+    // 
+    // - artifact: an artifact.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tags.
+    // The resource tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

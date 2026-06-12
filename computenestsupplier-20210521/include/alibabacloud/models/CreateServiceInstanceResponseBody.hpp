@@ -57,20 +57,27 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The ID of the service instance.
     shared_ptr<string> serviceInstanceId_ {};
     // The status of the service instance. Valid values:
     // 
-    // *   Created
-    // *   Deploying
-    // *   DeployedFailed
-    // *   Deployed
-    // *   Upgrading
-    // *   Deleting
-    // *   Deleted
-    // *   DeletedFailed
+    // - Created: The service instance is created.
+    // 
+    // - Deploying: The service instance is being deployed.
+    // 
+    // - DeployedFailed: The service instance failed to be deployed.
+    // 
+    // - Deployed: The service instance is deployed.
+    // 
+    // - Upgrading: The service instance is being upgraded.
+    // 
+    // - Deleting: The service instance is being deleted.
+    // 
+    // - Deleted: The service instance is deleted.
+    // 
+    // - DeletedFailed: The service instance failed to be deleted.
     shared_ptr<string> status_ {};
   };
 

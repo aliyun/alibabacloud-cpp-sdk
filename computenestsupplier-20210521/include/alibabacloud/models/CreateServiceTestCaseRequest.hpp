@@ -98,11 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // Service Test case name.
+    // The name of the test case.
     // 
     // This parameter is required.
     shared_ptr<string> testCaseName_ {};
-    // The service test config
+    // The test configuration.
     // 
     // This parameter is required.
     shared_ptr<string> testConfig_ {};

@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The name of the build step.
       shared_ptr<string> buildStep_ {};
+      // The content of the log.
       shared_ptr<string> content_ {};
+      // The timestamp of the log entry.
       shared_ptr<string> timestamp_ {};
     };
 
@@ -112,8 +115,11 @@ namespace Models
 
 
   protected:
+    // An array of build logs.
     shared_ptr<vector<ListServiceBuildLogsResponseBody::BuildLogs>> buildLogs_ {};
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

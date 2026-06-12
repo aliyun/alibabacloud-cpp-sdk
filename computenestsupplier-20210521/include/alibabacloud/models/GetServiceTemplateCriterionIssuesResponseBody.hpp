@@ -137,8 +137,11 @@ namespace Models
 
 
         protected:
+          // The AssociationProperty of the ROS parameter.
           shared_ptr<string> associationProperty_ {};
+          // The resource property.
           shared_ptr<string> property_ {};
+          // The value of the resource property.
           shared_ptr<string> propertyValue_ {};
         };
 
@@ -175,9 +178,17 @@ namespace Models
 
 
       protected:
+        // The supplementary information about the criterion issue.
         shared_ptr<CriterionIssues::ExtendInfo> extendInfo_ {};
+        // The severity level of the issue. Valid values:
+        // 
+        // - Mandatory: The issue must be fixed.
+        // 
+        // - Recommended: You are advised to fix the issue.
         shared_ptr<string> level_ {};
+        // The position where the issue exists.
         shared_ptr<string> position_ {};
+        // The type of the criterion issue.
         shared_ptr<string> type_ {};
       };
 
@@ -221,10 +232,15 @@ namespace Models
 
 
     protected:
+      // The list of criterion issues.
       shared_ptr<vector<TemplateCriterionIssueList::CriterionIssues>> criterionIssues_ {};
+      // The name of the template.
       shared_ptr<string> templateName_ {};
+      // The URL of the template.
       shared_ptr<int32_t> templateUrl_ {};
+      // The total number of criterion issues in the service template.
       shared_ptr<int32_t> totalCriterionIssueCount_ {};
+      // The number of mandatory criterion issues in the service template.
       shared_ptr<int32_t> totalMandatoryCriterionIssueCount_ {};
     };
 
@@ -268,10 +284,15 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of templates with criterion issues in the service.
     shared_ptr<int32_t> riskyTemplateCount_ {};
+    // The list of criterion issues in the template.
     shared_ptr<vector<GetServiceTemplateCriterionIssuesResponseBody::TemplateCriterionIssueList>> templateCriterionIssueList_ {};
+    // The total number of criterion issues in the service template.
     shared_ptr<int32_t> totalCriterionIssueCount_ {};
+    // The number of mandatory criterion issues in the service template.
     shared_ptr<int32_t> totalMandatoryCriterionIssueCount_ {};
   };
 

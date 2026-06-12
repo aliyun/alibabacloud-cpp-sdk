@@ -116,26 +116,31 @@ namespace Models
 
 
     protected:
-      // CVE numbers
+      // The CVE ID.
       shared_ptr<string> cveNos_ {};
-      // Extended information, in JSON format, to be parsed according to the risk category
+      // The extended information in JSON format. Parse this information based on the risk type.
       shared_ptr<string> extendInfo_ {};
-      // Risk level:
+      // The risk level.
       // 
-      // - high represents high
+      // - high: High
       shared_ptr<string> level_ {};
-      // Risk name.
+      // The name of the risk.
       shared_ptr<string> riskName_ {};
-      // Risk type. Values:
-      // - AcrCve  Container image system vulnerability
-      // - AcrSca  Container image application vulnerability
-      // - EcsVulnerability  ECS image vulnerability information
-      // - EcsAlarm  ECS image security alarm
-      // - EcsBaseline  ECS image baseline check
+      // The risk type. Valid values:
+      // 
+      // - AcrCve: system vulnerabilities in a container image
+      // 
+      // - AcrSca: application vulnerabilities in a container image
+      // 
+      // - EcsVulnerability: ECS image vulnerabilities
+      // 
+      // - EcsAlarm: ECS image security alerts
+      // 
+      // - EcsBaseline: ECS image baseline checks
       shared_ptr<string> riskType_ {};
-      // Risk Type name
+      // The name of the risk type.
       shared_ptr<string> riskTypeName_ {};
-      // Solution for the risk item.
+      // The solution to the risk.
       shared_ptr<string> solution_ {};
     };
 
@@ -158,9 +163,9 @@ namespace Models
 
 
   protected:
-    // List of artifact risks
+    // The list of artifact risks.
     shared_ptr<vector<ListArtifactRisksResponseBody::ArtifactRiskList>> artifactRiskList_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

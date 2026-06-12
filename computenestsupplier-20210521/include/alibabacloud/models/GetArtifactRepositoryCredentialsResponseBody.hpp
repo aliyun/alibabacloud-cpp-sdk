@@ -107,7 +107,7 @@ namespace Models
       shared_ptr<string> accessKeySecret_ {};
       // The password.
       shared_ptr<string> password_ {};
-      // The Security Token Service (STS) token.
+      // The security token.
       shared_ptr<string> securityToken_ {};
       // The username.
       shared_ptr<string> username_ {};
@@ -164,7 +164,7 @@ namespace Models
       shared_ptr<string> path_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The repository name.
+      // The name of the repository.
       shared_ptr<string> repositoryName_ {};
     };
 
@@ -203,13 +203,13 @@ namespace Models
 
 
   protected:
-    // The information about the resources that can be uploaded.
+    // Information about the resources that can be uploaded.
     shared_ptr<vector<GetArtifactRepositoryCredentialsResponseBody::AvailableResources>> availableResources_ {};
-    // The credentials.
+    // The access credential.
     shared_ptr<GetArtifactRepositoryCredentialsResponseBody::Credentials> credentials_ {};
-    // The time when the credentials expired.
+    // The expiration time.
     shared_ptr<string> expireDate_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

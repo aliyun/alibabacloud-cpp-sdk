@@ -78,14 +78,17 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more filters. Valid values:
+      // The filter name. You can query by one or more names. Valid values:
       // 
-      // *   ServiceId: the ID of the service.
-      // *   ServiceName: the service name.
-      // *   Status: the state of the service.
-      // *   SupplierName: the name of the service provider.
+      // - ServiceId: The service ID.
+      // 
+      // - ServiceName: The service name.
+      // 
+      // - Status: The service status.
+      // 
+      // - SupplierName: The supplier name.
       shared_ptr<string> name_ {};
-      // The parameter value N of the filter. Valid values of N: 1 to 10.
+      // The filter values. You can specify 1 to 10 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -131,12 +134,12 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListServiceUsagesRequest::Filter>> filter_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token that is used to retrieve the next page of results. You can obtain this token from the NextToken parameter in the response to the previous request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> regionId_ {};
-    // The role of the service provider.
+    // The supplier role.
     shared_ptr<string> supplierRole_ {};
   };
 

@@ -84,18 +84,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The **ClientToken** value can contain only ASCII characters and must be no more than 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+    // Specifies whether to perform a dry run. A dry run checks for issues such as permission errors and instance status. Valid values:
     // 
-    // *   true: performs a dry run for the request, but does not create a service instance.
-    // *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+    // - true: Sends a dry run request to check whether the request is valid. The service instance is not upgraded.
+    // 
+    // - false: Sends a regular request. The service instance is upgraded after the request passes the check.
     shared_ptr<string> dryRun_ {};
     // The configuration parameters of the service instance.
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the service instance.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};

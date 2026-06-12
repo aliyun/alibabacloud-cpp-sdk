@@ -76,15 +76,15 @@ namespace Models
 
 
     protected:
-      // Name of the filter field. Allowed values:
+      // The name of the filter field. Valid values:
       // 
-      // - ServiceId: Service ID.
+      // - ServiceId: The service ID.
       // 
-      // - RegistrationId: Registration ID.
+      // - RegistrationId: The review request ID.
       // 
-      // - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
+      // - Status: The service status. Valid values: Submitted, Approved, Rejected, Canceled, and Executed.
       shared_ptr<string> name_ {};
-      // List of filter values.
+      // The list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -121,13 +121,13 @@ namespace Models
 
 
   protected:
-    // Filter.
+    // The filter.
     shared_ptr<vector<ListServiceRegistrationsRequest::Filter>> filter_ {};
-    // The number of items to return per page during a paginated query. The maximum is 100, and the default is 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The query token. Set it to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

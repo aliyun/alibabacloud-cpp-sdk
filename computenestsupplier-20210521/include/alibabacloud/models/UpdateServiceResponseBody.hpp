@@ -121,11 +121,11 @@ namespace Models
 
 
         protected:
-          // The Actions.
+          // The operation in the access policy.
           shared_ptr<vector<string>> action_ {};
-          // The responses.
+          // The resource in the access policy.
           shared_ptr<string> resource_ {};
-          // The service name.
+          // The service name in the access policy.
           shared_ptr<string> serviceName_ {};
         };
 
@@ -148,9 +148,9 @@ namespace Models
 
 
       protected:
-        // The missing  ram policy for deploying role.
+        // The access policy that is missing for the deployment role.
         shared_ptr<vector<RolePolicy::MissingPolicy>> missingPolicy_ {};
-        // The required ram policy for deploying role.
+        // The access policy that is required for the deployment role.
         shared_ptr<string> policy_ {};
       };
 
@@ -165,7 +165,7 @@ namespace Models
 
 
     protected:
-      // The required ram policy for deploying role.
+      // The access policy of the deployment role.
       shared_ptr<DryRunResult::RolePolicy> rolePolicy_ {};
     };
 
@@ -188,9 +188,9 @@ namespace Models
 
 
   protected:
-    // The dry run result.
+    // The check result. This parameter is returned only when DryRun is set to true.
     shared_ptr<UpdateServiceResponseBody::DryRunResult> dryRunResult_ {};
-    // The hosted O\\&M configurations.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

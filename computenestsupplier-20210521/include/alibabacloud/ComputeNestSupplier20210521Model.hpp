@@ -67,6 +67,7 @@
 #include <alibabacloud/models/GenerateDefaultServiceTestConfigResponseBody.hpp>
 #include <alibabacloud/models/GenerateDefaultServiceTestConfigResponse.hpp>
 #include <alibabacloud/models/GenerateServicePolicyRequest.hpp>
+#include <alibabacloud/models/GenerateServicePolicyShrinkRequest.hpp>
 #include <alibabacloud/models/GenerateServicePolicyResponseBody.hpp>
 #include <alibabacloud/models/GenerateServicePolicyResponse.hpp>
 #include <alibabacloud/models/GetArtifactRequest.hpp>

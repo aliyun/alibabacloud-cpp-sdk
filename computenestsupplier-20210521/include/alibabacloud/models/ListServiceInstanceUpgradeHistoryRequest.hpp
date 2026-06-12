@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+    // The number of entries to return on each page for a paged query. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query, which should be the value of the NextToken parameter from the previous API call.
+    // The token that is used to retrieve the next page of results. Set this to the NextToken value from a previous response.
     shared_ptr<string> nextToken_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service instance ID.
+    // The service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

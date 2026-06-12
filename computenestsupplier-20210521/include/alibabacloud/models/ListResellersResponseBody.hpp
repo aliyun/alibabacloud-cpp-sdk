@@ -103,15 +103,15 @@ namespace Models
 
 
     protected:
-      // The description of distributor.
+      // The description of the reseller.
       shared_ptr<string> supplierDesc_ {};
-      // The Logo of distributor
+      // The icon of the reseller.
       shared_ptr<string> supplierLogo_ {};
-      // The name of the distributor
+      // The name of the reseller.
       shared_ptr<string> supplierName_ {};
-      // The Alibaba Cloud account ID of the distributor.
+      // The UID of the reseller.
       shared_ptr<int64_t> supplierUid_ {};
-      // The URL of the distributor.
+      // The URL of the reseller\\"s official website.
       shared_ptr<string> supplierUrl_ {};
     };
 
@@ -155,15 +155,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // distributor informations
+    // The list of results.
     shared_ptr<vector<ListResellersResponseBody::SupplierInformation>> supplierInformation_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

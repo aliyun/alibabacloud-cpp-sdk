@@ -84,33 +84,39 @@ namespace Models
 
 
   protected:
-    // Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+    // A client token to ensure the idempotence of the request. Generate a unique value for this parameter on your client. The client token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Permission type. Possible values:
-    // - Deployable: Can be deployed.
-    // - Accessible: Can be accessed.
-    // - AccessibleIncludeBeta: Can access all versions, including Beta versions.
-    // - DeployableIncludeBeta: Can deploy all versions, including Beta versions.
-    // - Authorized: Authorized (for reselling scenarios)
-    // - Unauthorized: Unauthorized (for reselling scenarios)
+    // The permission type. Valid values:
+    // 
+    // - Deployable: The service can be deployed.
+    // 
+    // - Accessible: The service can be accessed.
+    // 
+    // - AccessibleIncludeBeta: All versions of the service, including beta versions, can be accessed.
+    // 
+    // - DeployableIncludeBeta: All versions of the service, including beta versions, can be deployed.
+    // 
+    // - Authorized: The service is authorized. This value is used for distribution scenarios.
+    // 
+    // - Unauthorized: The service is not authorized. This value is used for distribution scenarios.
     // 
     // This parameter is required.
     shared_ptr<string> permission_ {};
-    // Region ID.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service ID.
+    // The service ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // Service sharing type, with a default value of SharedAccount. Available options:
+    // The type of service sharing. The default value is SharedAccount. Valid values:
     // 
-    // - SharedAccount: Regular sharing type.
+    // - SharedAccount: Regular sharing.
     // 
-    // - Reseller: Reselling sharing type.
+    // - Reseller: Distribution sharing.
     shared_ptr<string> type_ {};
-    // Whitelist account for service sharing.
+    // The whitelisted account with which the service is shared.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userAliUid_ {};

@@ -84,9 +84,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // A client token that ensures the idempotence of the request. Generate a unique value from your client for each request. The token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
-    // Approval comments.
+    // The approval comments.
     shared_ptr<string> comments_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -94,9 +94,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // ServiceSharedAccountType，
+    // The service sharing type. The default value is SharedAccount. Valid values:
+    // 
+    // - SharedAccount: The regular sharing type.
+    // 
+    // - Reseller: The reseller sharing type.
     shared_ptr<int32_t> type_ {};
-    // User ali uid.
+    // The UID of the user\\"s Alibaba Cloud account.
     // 
     // This parameter is required.
     shared_ptr<int64_t> userAliUid_ {};

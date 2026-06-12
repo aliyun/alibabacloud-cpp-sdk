@@ -74,7 +74,10 @@ namespace Models
 
 
     protected:
+      // The log content.
       shared_ptr<string> content_ {};
+      // The timestamp.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> timestamp_ {};
     };
@@ -112,9 +115,13 @@ namespace Models
 
 
   protected:
+    // The log array.
     shared_ptr<vector<ListArtifactBuildLogsResponseBody::BuildLogs>> buildLogs_ {};
+    // The number of entries returned per page. The maximum value is 100 and the default value is 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to start the next paged query.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
