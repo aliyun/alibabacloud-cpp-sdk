@@ -63,11 +63,11 @@ namespace Models
 
 
   protected:
-    // Alibaba Cloud Marketplace purchase order information.
+    // The information about the Alibaba Cloud Marketplace purchase order.
     shared_ptr<map<string, CommodityValue>> commodity_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resources.
     Darabonba::Json resources_ {};
   };
 

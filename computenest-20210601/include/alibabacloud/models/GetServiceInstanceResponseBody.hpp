@@ -301,9 +301,9 @@ namespace Models
         shared_ptr<string> image_ {};
         // The language of the service instance.
         shared_ptr<string> locale_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> name_ {};
-        // The description of the service.
+        // The summary of the service.
         shared_ptr<string> shortDescription_ {};
       };
 
@@ -438,54 +438,65 @@ namespace Models
 
 
     protected:
-      // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+      // The information about the service deployment configuration. The information varies based on the deployment type. The data is stored in the JSON string format.
       shared_ptr<string> deployMetadata_ {};
-      // The deployment type of the service. Valid values:
+      // The deployment type. Valid values:
       // 
-      // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-      // *   terraform: The service is deployed by using Terraform.
-      // *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-      // *   spi: The service is deployed by calling a service provider interface (SPI).
-      // *   operation: The service is deployed by using a hosted O\\&M service.
+      // - ros: The service is deployed using ROS.
+      // 
+      // - terraform: The service is deployed using Terraform.
+      // 
+      // - ack: The service is deployed using ACK.
+      // 
+      // - spi: The service is deployed by calling SPI.
+      // 
+      // - operation: The service is deployed using Alibaba Cloud Managed Services.
       shared_ptr<string> deployType_ {};
-      // Parameters related to O\\&M operations, including configuration change, prometheus, and log configurations.
+      // The parameters related to O\\&M operations, including service upgrade and downgrade, Prometheus, and log configurations.
       shared_ptr<string> operationMetadata_ {};
-      // The time when the service version was published.
+      // The time when the service was published.
       shared_ptr<string> publishTime_ {};
-      // The URL of the service documentation.
+      // The URL of the product documentation.
       shared_ptr<string> serviceDocUrl_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
-      // The information about the service.
+      // The service information.
       shared_ptr<vector<Service::ServiceInfos>> serviceInfos_ {};
-      // The URL of the service page.
+      // The URL of the product page.
       shared_ptr<string> serviceProductUrl_ {};
-      // The type of the service. Valid values:
+      // The service type. Valid values:
       // 
-      // *   private: The service is a private service and is deployed within the account of a customer.
-      // *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-      // *   operation: The service is a hosted O\\&M service.
+      // - private: The service is deployed in the user\\"s account.
+      // 
+      // - managed: The service is hosted in the service provider\\"s account.
+      // 
+      // - operation: The service is an Alibaba Cloud Managed Service.
       shared_ptr<string> serviceType_ {};
-      // The status of the service. Valid values:
+      // The service status. Valid values:
       // 
-      // *   Draft
-      // *   Submited
-      // *   Approved
-      // *   Online
-      // *   Offline
-      // *   Deleted
-      // *   Launching
-      // *   Beta
+      // - Draft: The service is pending registration submission.
+      // 
+      // - Submitted: The registration is submitted.
+      // 
+      // - Approved: The registration is approved.
+      // 
+      // - Online: The service is published.
+      // 
+      // - Offline: The service is unpublished.
+      // 
+      // - Deleted: The service is deleted.
+      // 
+      // - Launching: The service is being published.
       shared_ptr<string> status_ {};
       // The name of the service provider.
       shared_ptr<string> supplierName_ {};
       // The URL of the service provider.
       shared_ptr<string> supplierUrl_ {};
-      // The service versions that can be updated.
+      // The information about the service versions to which the service can be upgraded.
       shared_ptr<vector<Service::UpgradableServiceInfos>> upgradableServiceInfos_ {};
-      // The service version that can be updated.
+      // The list of service versions to which the service can be upgraded.
       shared_ptr<vector<string>> upgradableServiceVersions_ {};
-      // The metadata about the upgrade.
+      // The upgrade metadata.
       shared_ptr<string> upgradeMetadata_ {};
       // The service version.
       shared_ptr<string> version_ {};
@@ -546,7 +557,7 @@ namespace Models
 
 
       protected:
-        // The endpoint ID of the reverse private connection.
+        // The endpoint ID of the reverse PrivateLink connection.
         shared_ptr<string> endpointId_ {};
       };
 
@@ -685,35 +696,43 @@ namespace Models
 
 
         protected:
-          // The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
+          // The bandwidth limit for the connection that is established in Compute Nest intranet-connected mode.
           shared_ptr<int32_t> connectBandwidth_ {};
           // The domain name.
           shared_ptr<string> domainName_ {};
-          // The IP addresses of the endpoints of the private connections.
+          // The IP address of the PrivateLink endpoint.
           shared_ptr<vector<string>> endpointIps_ {};
-          // The state of the ingress endpoint. Valid values:
+          // The status of the Ingress endpoint. Valid values:
           // 
-          // *   Ready: The ingress endpoint is connected.
-          // *   Pending: The ingress endpoint is being connected.
-          // *   Failed: The ingress endpoint fails to be connected.
-          // *   Deleted: The ingress endpoint is deleted.
-          // *   Deleting: The ingress endpoint is being deleted.
+          // - Ready: The Ingress endpoint is connected.
+          // 
+          // - Pending: The Ingress endpoint is being connected.
+          // 
+          // - Failed: The Ingress endpoint failed to be connected.
+          // 
+          // - Deleted: The Ingress endpoint is deleted.
+          // 
+          // - Deleting: The Ingress endpoint is being deleted.
           shared_ptr<string> ingressEndpointStatus_ {};
-          // The state of the network service. Valid values:
+          // The status of the network service. Valid values:
           // 
-          // *   Ready: The network service is connected.
-          // *   Pending: The network service is being connected.
-          // *   Failed: The network service fails to be connected.
-          // *   Deleted: The network service is deleted.
-          // *   Deleting: The network service is being deleted.
+          // - Ready: The network service is connected.
+          // 
+          // - Pending: The network service is being connected.
+          // 
+          // - Failed: The network service failed to be connected.
+          // 
+          // - Deleted: The network service is deleted.
+          // 
+          // - Deleting: The network service is being deleted.
           shared_ptr<string> networkServiceStatus_ {};
-          // The region ID of the VPC to which the endpoint of the private connection established based on the private network interconnection mode of Compute Nest belongs.
+          // The region where the VPC of the endpoint is located when a private connection is established in Compute Nest intranet-connected mode.
           shared_ptr<string> regionId_ {};
-          // The names of the security groups.
+          // The security group name.
           shared_ptr<vector<string>> securityGroups_ {};
-          // The names of the vSwitches.
+          // The vSwitch name.
           shared_ptr<vector<string>> vSwitches_ {};
-          // The ID of the virtual private cloud (VPC).
+          // The virtual private cloud (VPC) ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -757,15 +776,15 @@ namespace Models
 
 
       protected:
-        // The network configurations, which are mainly used for private connections.
+        // The network configurations. This parameter is used for PrivateLink connections.
         shared_ptr<vector<PrivateVpcConnections::ConnectionConfigs>> connectionConfigs_ {};
-        // The endpoint ID of the private connection.
+        // The endpoint ID of the PrivateLink connection.
         shared_ptr<string> endpointId_ {};
-        // The ID of the private zone of the custom private domain name.
+        // The ID of the PrivateZone for the custom private domain name.
         shared_ptr<string> privateZoneId_ {};
         // The custom domain name.
         shared_ptr<string> privateZoneName_ {};
-        // The region ID of the endpoint of the PrivateLink connection.
+        // The region ID of the endpoint for the PrivateLink connection.
         shared_ptr<string> regionId_ {};
       };
 
@@ -804,15 +823,17 @@ namespace Models
 
 
     protected:
-      // The ID of the endpoint for the private connection.
+      // The endpoint ID of the PrivateLink connection.
       // 
-      // >  This parameter is discontinued.
+      // > This parameter is deprecated.
       shared_ptr<string> endpointId_ {};
-      // The information about private connections.
+      // The information about the PrivateLink connection.
       shared_ptr<vector<NetworkConfig::PrivateVpcConnections>> privateVpcConnections_ {};
-      // The PrivateZone ID.
+      // The ID of the PrivateZone for the custom private domain name.
+      // 
+      // > This parameter is deprecated.
       shared_ptr<string> privateZoneId_ {};
-      // The information about the reverse private connection.
+      // The information about the reverse PrivateLink connection.
       shared_ptr<vector<NetworkConfig::ReversePrivateVpcConnections>> reversePrivateVpcConnections_ {};
     };
 
@@ -1135,113 +1156,141 @@ namespace Models
 
 
   protected:
-    // The business state of the service instance. Valid values:
+    // The business status of the service instance. Valid values:
     // 
-    // *   Normal
-    // *   Renewing
-    // *   RenewFailed
-    // *   Expired
+    // - Normal: The service instance is normal.
+    // 
+    // - Renewing: The service instance is being renewed.
+    // 
+    // - RenewFoiled: The renewal failed.
+    // 
+    // - Expired: The service instance has expired.
     shared_ptr<string> bizStatus_ {};
-    // Cloud Marketplace additional billing items.
+    // The extra billing items of Alibaba Cloud Marketplace.
     shared_ptr<string> components_ {};
-    // The time when the serviceInstance was created.
+    // The time when the service instance was created.
     shared_ptr<string> createTime_ {};
-    // Indicates whether the service instance supports the operation feature. Valid values:
+    // Indicates whether the service instance supports managed O\\&M. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: The service instance supports managed O\\&M.
+    // 
+    // - false: The service instance does not support managed O\\&M.
     shared_ptr<bool> enableInstanceOps_ {};
-    // Whether to enable Prometheus monitoring.
+    // Indicates whether Prometheus monitoring is enabled. Valid values:
+    // 
+    // - true: enabled.
+    // 
+    // - false: disabled.
     shared_ptr<bool> enableUserPrometheus_ {};
-    // The expiration time of service instance.
+    // The time when the service instance expires.
     shared_ptr<string> endTime_ {};
     // The URL of the Grafana dashboard.
     shared_ptr<string> grafanaDashBoardUrl_ {};
     shared_ptr<GetServiceInstanceResponseBody::GrantedPermission> grantedPermission_ {};
-    // Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
+    // Indicates whether managed O\\&M is enabled for the service instance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: Managed O\\&M is enabled for the service instance.
+    // 
+    // - false: Managed O\\&M is not enabled for the service instance.
     shared_ptr<bool> isOperated_ {};
-    // The expiration time of licence.
+    // The time when the license expires.
     shared_ptr<string> licenseEndTime_ {};
-    // The market Instance ID.
+    // The Alibaba Cloud Marketplace instance ID.
     shared_ptr<string> marketInstanceId_ {};
     // The name of the service instance.
     shared_ptr<string> name_ {};
-    // The network configurations.
+    // The network configuration.
     // 
-    // >  This parameter is discontinued.
+    // > This parameter is deprecated.
     shared_ptr<GetServiceInstanceResponseBody::NetworkConfig> networkConfig_ {};
-    // The serviceInstance  to be operated.
+    // The ID of the service instance that is managed.
     shared_ptr<string> operatedServiceInstanceId_ {};
-    // The operation end time.
+    // The end time of the managed O\\&M.
     shared_ptr<string> operationEndTime_ {};
-    // The operation start time.
+    // The start time of the managed O\\&M.
     shared_ptr<string> operationStartTime_ {};
-    // The outputs returned from creating the service instance.
+    // The output fields returned when the service instance is created.
     // 
-    // *   If the service is deployed by using a ROS template, all output fields of the template are returned.
-    // *   If the service is deployed by calling an SPI operation, the output fields of the service provider and for the Compute Nest additional features are returned.
+    // - In ROS mode, all output fields of the template are returned.
+    // 
+    // - In Service Provider Interface (SPI) mode, the output fields from the independent software vendor (ISV) and the additional features of Compute Nest are returned.
     shared_ptr<string> outputs_ {};
-    // The parameters configured for the service instance.
+    // The parameters that are entered for deploying the service instance.
     shared_ptr<string> parameters_ {};
-    // The billing method of the instance for market. Valid values:
+    // The billing method. Valid values:
     // 
-    // *   Permanent: Permanent purchase
-    // *   Subscription: Subscription.
-    // *   PayAsYouGo: Pay-as-you-go.
-    // *   CustomFixTime: Merchant custom fixed duration.
+    // - Permanent: permanent.
+    // 
+    // - Subscription: subscription.
+    // 
+    // - PayAsYouGo: pay-as-you-go.
+    // 
+    // - CustomFixTime: a custom fixed duration.
     shared_ptr<string> payType_ {};
     shared_ptr<string> policyNames_ {};
-    // The package name.
+    // The name of the package.
     shared_ptr<string> predefinedParameterName_ {};
-    // The deployment progress of the service instance. Unit: percentage.
+    // The deployment progress of the service instance. Unit: %.
     shared_ptr<int64_t> progress_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The resources.
+    // The list of resources.
     shared_ptr<string> resources_ {};
-    // The service details.
+    // The details of the service.
     shared_ptr<GetServiceInstanceResponseBody::Service> service_ {};
-    // The ID of the service instance.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
-    // The type of the service. Valid values:
+    // The service type. Valid values:
     // 
-    // - private: The service is a private service and is deployed within the account of a customer.
-    // - managed: The service is a fully managed service and is deployed within the account of a service provider.
-    // - operation: The service is a hosted O&M service.
+    // - private: a service instance that is deployed in the user\\"s account.
+    // 
+    // - managed: a service instance that is hosted in the service provider\\"s account.
+    // 
+    // - operation: a managed service instance.
+    // 
+    // - poc: a trial service instance.
     shared_ptr<string> serviceType_ {};
-    // The source of the serviceInstance. Valid values:
-    // - User
-    // - Market
-    // - Supplier
+    // The source of the service instance. Valid values:
+    // 
+    // - User: a Compute Nest user.
+    // 
+    // - Market: Alibaba Cloud Marketplace.
+    // 
+    // - Supplier: a Compute Nest service provider.
     shared_ptr<string> source_ {};
-    // The deploy status of the serviceInstance. Valid values:
-    // - Created
-    // - Deploying
-    // - DeployedFailed
-    // - Deployed
-    // - Upgrading
-    // - Deleting
-    // - Deleted
-    // - DeletedFailed
+    // The deployment status of the service instance. Valid values:
+    // 
+    // - Created: The service instance is created.
+    // 
+    // - Deploying: The service instance is being deployed.
+    // 
+    // - DeployedFailed: The service instance failed to be deployed.
+    // 
+    // - Deployed: The service instance is deployed.
+    // 
+    // - Upgrading: The service instance is being upgraded.
+    // 
+    // - Deleting: The service instance is being deleted.
+    // 
+    // - Deleted: The service instance is deleted.
+    // 
+    // - DeletedFailed: The service instance failed to be deleted.
     shared_ptr<string> status_ {};
-    // The description of the deployment state of the service instance.
+    // The description of the deployment status of the instance.
     shared_ptr<string> statusDetail_ {};
     // The Alibaba Cloud account ID of the service provider.
     shared_ptr<int64_t> supplierUid_ {};
-    // Is it supported to convert from trial to private
+    // Indicates whether the trial service can be converted to a paid service.
     shared_ptr<bool> supportTrialToPrivate_ {};
-    // The tags.
+    // The custom tags.
     shared_ptr<vector<GetServiceInstanceResponseBody::Tags>> tags_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // The time when the serviceInstance  was last updated.
+    // The time when the service instance was updated.
     shared_ptr<string> updateTime_ {};
-    // The AliUid of the user.
+    // The user\\"s Alibaba Cloud account ID.
     shared_ptr<int64_t> userId_ {};
   };
 

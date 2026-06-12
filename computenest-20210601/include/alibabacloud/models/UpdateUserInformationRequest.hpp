@@ -96,19 +96,21 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable screencast delivery to OSS. Valid values:
+      // Specifies whether to deliver ActionTrail events to OSS. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Delivery is enabled.
+      // 
+      // - false: Delivery is disabled.
       shared_ptr<bool> actiontrailDeliveryToOssEnabled_ {};
       // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
-      // Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+      // Specifies whether to deliver data to Object Storage Service (OSS). Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Delivery is enabled.
+      // 
+      // - false: Delivery is disabled.
       shared_ptr<bool> ossEnabled_ {};
-      // The number of days for which the screencasts are saved.
+      // The number of days to retain screen recordings.
       shared_ptr<int64_t> ossExpirationDays_ {};
       // The OSS path.
       shared_ptr<string> ossPath_ {};
@@ -133,7 +135,7 @@ namespace Models
 
 
   protected:
-    // The modified delivery settings.
+    // The configurations to modify.
     shared_ptr<UpdateUserInformationRequest::DeliverySettings> deliverySettings_ {};
     // The region ID.
     // 

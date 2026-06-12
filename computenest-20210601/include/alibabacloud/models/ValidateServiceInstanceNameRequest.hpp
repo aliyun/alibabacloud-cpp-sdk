@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // A client token to ensure the idempotence of the request. Generate a unique token for each request. The **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether the service instance is a trial instance.
     shared_ptr<bool> isTrial_ {};
+    // The service ID.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
+    // The name of the service instance.
+    // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceName_ {};
+    // The service version.
     shared_ptr<string> serviceVersion_ {};
+    // The name of the template. Specify this parameter if the service supports multiple templates.
     shared_ptr<string> templateName_ {};
   };
 

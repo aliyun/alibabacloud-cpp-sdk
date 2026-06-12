@@ -74,15 +74,19 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The name of the filter. You can query by one or more filter names. Valid values:
       // 
-      // *   RestoreTaskId: the ID of the restore task.
-      // *   ServiceInstanceId: The ID of the service instance.
-      // *   Status
-      // *   StartTime
-      // *   EndTime
+      // - RestoreTaskId: The restore job ID.
+      // 
+      // - ServiceInstanceId: The service instance ID.
+      // 
+      // - Status: The status.
+      // 
+      // - StartTime: The start time.
+      // 
+      // - EndTime: The end time.
       shared_ptr<string> name_ {};
-      // The parameter values of the filter.
+      // A list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -112,11 +116,11 @@ namespace Models
 
 
   protected:
-    // The list of the filters.
+    // The filter.
     shared_ptr<vector<ListRestoreTasksRequest::Filter>> filter_ {};
-    // The number of rows displayed per page in paginated queries. Maximum: 100 rows per page. Default: 20 rows.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // NextToken
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

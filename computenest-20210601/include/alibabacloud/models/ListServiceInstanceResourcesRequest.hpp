@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the resource tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the resource tag.
       shared_ptr<string> value_ {};
     };
 
@@ -126,13 +126,17 @@ namespace Models
 
 
     protected:
-      // Vaild values:
+      // The name of the filter. Valid values:
+      // 
       // - ExpireTimeStart
+      // 
       // - ExpireTimeEnd
+      // 
       // - PayType
+      // 
       // - ResourceARN
       shared_ptr<string> name_ {};
-      // The value of the filter condition.
+      // The filter condition values.
       shared_ptr<vector<string>> values_ {};
     };
 
@@ -193,45 +197,42 @@ namespace Models
 
 
   protected:
-    // The filter conditions. Vaild values:
+    // The filter conditions. Valid values:
     // 
-    // - ExpireTimeStart：
-    // Query start time for Subscription resource expiration.
-    // <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+    // - ExpireTimeStart: The start of the time range to query the expiration time of subscription resources.
+    //   >Notice: This parameter applies only to service instances in private deployments.
     // 
-    // - ExpireTimeEnd：Query end time for Subscription resource expiration.
-    // <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+    // - ExpireTimeEnd: The end of the time range to query the expiration time of subscription resources.
+    //   >Notice: This parameter applies only to service instances in private deployments.
     // 
-    // - PayType：The billing method of the read-only instance. 
-    // <notice>Notice Note: Only supports querying service instances on private deployments.<notice> 
+    // - PayType: The billing method.>Notice:  This parameter applies only to service instances in private deployments.
+    //   Valid values:
     // 
-    //    Valid values:
+    //   - Subscription: subscription.
     // 
-    //    - PayAsYouGo
+    //   - PayAsYouGo: pay-as-you-go.
     // 
-    //    - Subscription
+    // - ResourceARN: The Alibaba Cloud Resource Name (ARN) of the resource.
     // 
-    // - ResourceARN：The Alibaba Cloud Resource Name (ARN) of a resource.
+    // resource name (ARN).
     shared_ptr<vector<ListServiceInstanceResourcesRequest::Filters>> filters_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that determines the start point of the next query. Valid values:
-    // 
-    // *   If **NextToken** is not returned, it indicates that no additional results exist.
-    // *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+    // The token that is used to retrieve the next page of results. Set this to the NextToken value from a previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID. Valid values:
-    // 
-    // *   cn-hangzhou: China (Hangzhou).
-    // *   ap-southeast-1: Singapore.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The ID of the service instance.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};
-    // Service Instance resource type，include AliyunResource and ContainerResource.
+    // The resource type of the service instance. Valid values:
+    // 
+    // - AliyunResource: an Alibaba Cloud resource.
+    // 
+    // - ContainerResource: a container group (pod) resource.
     shared_ptr<string> serviceInstanceResourceType_ {};
-    // The tag key and value.
+    // The resource tags.
     shared_ptr<vector<ListServiceInstanceResourcesRequest::Tag>> tag_ {};
   };
 

@@ -130,13 +130,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure the idempotence of the request. Generate a unique value for each request. The **ClientToken** supports only ASCII characters and cannot be longer than 64 characters.
     shared_ptr<string> clientToken_ {};
-    // The information about the subscription duration.
+    // The subscription period for the purchase order.
     shared_ptr<string> commodityShrink_ {};
-    // The name of the configuration change operation.
+    // The name of the upgrade or downgrade operation.
     shared_ptr<string> operationName_ {};
-    // The parameters that are specified to deploy the service instance.
+    // The parameters to deploy the service instance.
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -148,14 +148,15 @@ namespace Models
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // The name of the package specification.
+    // The specification name.
     shared_ptr<string> specificationName_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // The trial policy. Valid values:
+    // The usage type. Valid values:
     // 
-    // *   Trial: Trials are supported.
-    // *   NotTrial: Trials are not supported.
+    // - Trial: The service supports a free trial.
+    // 
+    // - NotTrial: The service does not support a free trial.
     shared_ptr<string> trialType_ {};
   };
 

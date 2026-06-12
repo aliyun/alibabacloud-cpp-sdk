@@ -74,7 +74,15 @@ namespace Models
 
 
     protected:
+      // The filter name. You can specify one or more filter names. Valid values:
+      // 
+      // - `SkillSpaceId`: The SkillSpace ID. This filter performs an exact match.
+      // 
+      // - `SkillSpaceName`: The SkillSpace name.
+      // 
+      // - `MatchType`: The match type for the `SkillSpaceName` filter. Valid values: `exact`, `prefix`, and `fuzzy`.
       shared_ptr<string> name_ {};
+      // The filter values. You can specify 1 to 10 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -104,8 +112,11 @@ namespace Models
 
 
   protected:
+    // The query filters.
     shared_ptr<vector<ListSkillSpacesRequest::Filter>> filter_ {};
+    // The number of entries to return per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page of results. To retrieve the next page, set this parameter to the `NextToken` value from the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

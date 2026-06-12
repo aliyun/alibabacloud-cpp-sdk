@@ -66,12 +66,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It can contain only ASCII characters and must be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to delete the application.
+    // Specifies whether to delete the request.
     // 
-    // >  After you delete the application, you must re-enter the application information the next time you submit an application.
+    // > If you delete the request, you must submit a new one.
     shared_ptr<bool> needDelete_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The service ID.
     // 

@@ -59,13 +59,15 @@ namespace Models
   protected:
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The ID of the restore task.
+    // The ID of the restore job.
     shared_ptr<string> restoreTaskId_ {};
     // The status of the service instance. Valid values:
     // 
-    // *   Restoring
-    // *   Restored
-    // *   RestoreFailed
+    // - Restoring: The service instance is being restored.
+    // 
+    // - Restored: The service instance is restored.
+    // 
+    // - RestoreFailed: The service instance failed to be restored.
     shared_ptr<string> status_ {};
   };
 

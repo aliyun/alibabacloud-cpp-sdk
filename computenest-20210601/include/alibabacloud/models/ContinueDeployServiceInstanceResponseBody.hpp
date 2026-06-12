@@ -87,15 +87,16 @@ namespace Models
 
 
     protected:
-      // The parameters that can be modified. The operation that is performed to modify the parameters does not cause a validation error.
+      // The parameters that can be modified. Modifying these parameters does not cause a check error.
       // 
       // > This parameter is returned only if DryRun is set to true.
       shared_ptr<vector<string>> parametersAllowedToBeModified_ {};
-      // The parameters that can be modified under specific conditions. The new values of the parameters determine whether the operation that is performed to modify the parameters causes a validation error.
+      // The parameters that can be conditionally modified.
+      // Whether modifying these parameters causes a check error depends on their values.
       // 
       // > This parameter is returned only if DryRun is set to true.
       shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified_ {};
-      // The parameters that cannot be modified. The operation that is performed to modify the parameters causes a validation error.
+      // The parameters that cannot be modified. Modifying these parameters always causes a check error.
       // 
       // > This parameter is returned only if DryRun is set to true.
       shared_ptr<vector<string>> parametersNotAllowedToBeModified_ {};
@@ -127,7 +128,7 @@ namespace Models
 
 
   protected:
-    // The dry run result.
+    // The check result.
     shared_ptr<ContinueDeployServiceInstanceResponseBody::DryRunResult> dryRunResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

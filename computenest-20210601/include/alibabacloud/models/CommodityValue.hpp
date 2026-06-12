@@ -126,7 +126,7 @@ namespace Models
         shared_ptr<string> couponDesc_ {};
         // The name of the coupon.
         shared_ptr<string> couponName_ {};
-        // The coupon ID.
+        // The coupon number.
         shared_ptr<string> couponOptionNo_ {};
         // Indicates whether the coupon is selected.
         shared_ptr<bool> selected_ {};
@@ -278,12 +278,15 @@ namespace Models
 
 
             protected:
-              // The type of the attribute. Valid values:
+              // The attribute type. Valid values:
               // 
-              // 1.  1: product
-              // 2.  2\\. specifications
-              // 3.  3: module
-              // 4.  4: external parameters (backup)
+              // 1. 1: product attribute
+              // 
+              // 2. 2: specification attribute
+              // 
+              // 3. 3: module attribute
+              // 
+              // 4. 4: external parameter (reserved)
               shared_ptr<int64_t> type_ {};
               // The attribute name.
               shared_ptr<string> name_ {};
@@ -399,25 +402,25 @@ namespace Models
             shared_ptr<string> moduleName_ {};
             // The module code.
             shared_ptr<string> moduleCode_ {};
-            // The original price (RMB).
+            // The original price of the product, in CNY.
             shared_ptr<double> totalProductFee_ {};
-            // The discount amount (RMB).
+            // The discount, in CNY.
             shared_ptr<double> discountFee_ {};
-            // The amount actually paid (RMB).
+            // The amount payable, in CNY.
             shared_ptr<double> payFee_ {};
             // The unit of the price.
             shared_ptr<string> priceUnit_ {};
-            // Indicates whether the item is billed.
+            // Indicates whether the module is a billing item.
             shared_ptr<bool> isPricingModule_ {};
-            // Indicates whether the order is paid.
+            // Indicates whether payment is required for the module in the order.
             shared_ptr<bool> needOrderPay_ {};
             // The pricing type.
             shared_ptr<string> priceType_ {};
             // The module attributes.
             shared_ptr<vector<ModuleInstance::ModuleAttrs>> moduleAttrs_ {};
-            // Module English name.
+            // The English name of the module.
             shared_ptr<string> moduleNameEn_ {};
-            // Price Unit English Name
+            // The English name of the price unit.
             shared_ptr<string> priceUnitEn_ {};
           };
 
@@ -432,7 +435,7 @@ namespace Models
 
 
         protected:
-          // The information about the module (instance).
+          // The module or instance information.
           shared_ptr<vector<SubOrder::ModuleInstance>> moduleInstance_ {};
         };
 
@@ -447,7 +450,7 @@ namespace Models
 
 
       protected:
-        // The order sub-item.
+        // The sub-orders.
         shared_ptr<vector<SubOrders::SubOrder>> subOrder_ {};
       };
 
@@ -507,13 +510,13 @@ namespace Models
 
 
       protected:
-        // The code of the native currency.
+        // The currency code.
         shared_ptr<string> currency_ {};
-        // Amount after the discount.
+        // The amount after the discount is applied.
         shared_ptr<string> tradeAmount_ {};
         // The discount amount.
         shared_ptr<string> discountAmount_ {};
-        // Amount before the discount.
+        // The original amount.
         shared_ptr<string> originalAmount_ {};
       };
 
@@ -554,14 +557,15 @@ namespace Models
 
 
     protected:
-      // The information about the order.
+      // The order information.
       shared_ptr<Result::Order> order_ {};
-      // The RFQ type. Valid values:
+      // The inquiry type. Valid values:
       // 
-      // 1.  Buy: price inquiry for new resources.
-      // 2.  ModificationBuy: price inquiry for resource configuration changes.
+      // 1. Buy: an inquiry for a new purchase.
+      // 
+      // 2. ModificationBuy: an inquiry for an upgrade or downgrade.
       shared_ptr<string> inquiryType_ {};
-      // The order sub-items.
+      // The sub-orders.
       shared_ptr<Result::SubOrders> subOrders_ {};
       // The coupons.
       shared_ptr<vector<Result::Coupons>> coupons_ {};
@@ -578,7 +582,7 @@ namespace Models
 
 
   protected:
-    // The result model.
+    // The Result model.
     shared_ptr<CommodityValue::Result> result_ {};
   };
 

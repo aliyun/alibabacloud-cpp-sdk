@@ -160,34 +160,39 @@ namespace Models
     protected:
       // The backup ID.
       shared_ptr<string> backupId_ {};
-      // The backup mode. Valid values:
+      // The backup mode. The return value is:
       // 
-      // *   **Manual**: manual backup
+      // - **Manual**: The backup is created manually.
       shared_ptr<string> backupMode_ {};
-      // The creation time.
+      // The time when the backup was created.
       shared_ptr<string> createTime_ {};
-      // The description of the backup task.
+      // The description of the backup.
       shared_ptr<string> description_ {};
-      // The end time of the backup task.
+      // The time when the backup ended.
       shared_ptr<string> endTime_ {};
-      // The update time.
+      // The time when the backup was last updated.
       shared_ptr<string> modifiedTime_ {};
-      // Retention Days. Resources will be cleared upon expiration. Defaults to no expiration if left blank.
+      // The retention period in days. Backups are deleted after the retention period expires. By default, this parameter is empty, which means that the backups do not expire.
       shared_ptr<int32_t> retentionDays_ {};
-      // The ID of the service instance.
+      // The service instance ID.
       shared_ptr<string> serviceInstanceId_ {};
-      // The start time of the backup task.
+      // The time when the backup started.
       shared_ptr<string> startTime_ {};
-      // The status of the backup task. Valid values:
+      // The status.
       // 
-      // *   Creating
-      // *   Created
-      // *   CreateFailed
-      // *   Deleting
-      // *   Deleted
-      // *   DeleteFailed
+      // - Creating: The backup is being created.
+      // 
+      // - Created: The backup is created.
+      // 
+      // - CreateFailed: The backup failed to be created.
+      // 
+      // - Deleting: The backup is being deleted.
+      // 
+      // - Deleted: The backup is deleted.
+      // 
+      // - DeleteFailed: The backup failed to be deleted.
       shared_ptr<string> status_ {};
-      // The description of the service instance deployment information.
+      // The details of the status.
       shared_ptr<string> statusDetail_ {};
     };
 
@@ -231,17 +236,17 @@ namespace Models
 
 
   protected:
-    // The details of the backup.
+    // The backups.
     shared_ptr<vector<ListBackupsResponseBody::Backups>> backups_ {};
-    // The maximum number of records returned in this request.
+    // The maximum number of entries returned on the current page.
     shared_ptr<int32_t> maxResults_ {};
-    // Indicates the read position returned by the current call. An empty value means all data has been read.
+    // The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total data count under the current request conditions (optional; not returned by default).
+    // The total number of entries that meet the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // Total amount of postpaid.
+    // The total pay-as-you-go amount.
     shared_ptr<string> postPaidAmount_ {};
-    // Total amount of prepayment.
+    // The total upfront payment amount.
     shared_ptr<string> prePaidAmount_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -106,11 +106,13 @@ namespace Models
     shared_ptr<string> serviceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
-    // The trial type of the service instance. Valid values:
+    // The trial type. Valid values:
     // 
-    // *   **Trial**: Trials are supported.
-    // *   **NotTrial**: Trials are not supported.
+    // - Trial: The service supports trial use.
+    // 
+    // - NotTrial: The service does not support trial use.
     shared_ptr<string> trialType_ {};
   };
 

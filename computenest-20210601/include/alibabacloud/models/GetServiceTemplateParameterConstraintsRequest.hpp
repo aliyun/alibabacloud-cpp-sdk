@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The name of the parameter. If you do not specify Parameters, the parameters and values in the template are used.
+      // The name of the parameter. If you do not specify the name and value of the parameter, Resource Orchestration Service (ROS) uses the default value that is specified in the template.
       // 
-      // >  Parameters is an optional parameter. ParameterKey is required if you specify Parameters.
+      // > The Parameters parameter is optional. If you specify Parameters, ParameterKey is required.
       shared_ptr<string> parameterKey_ {};
-      // The parameter value that is defined in the template.
+      // The value of the parameter that is defined in the template.
       // 
-      // >  Parameters is an optional parameter. ParameterValue is required if you specify Parameters.
+      // > The Parameters parameter is optional. If you specify Parameters, ParameterValue is required.
       shared_ptr<string> parameterValue_ {};
     };
 
@@ -181,16 +181,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client for each request. The token can contain only ASCII characters and cannot be more than 64 characters long.
     shared_ptr<string> clientToken_ {};
-    // The region ID of the service instance.
+    // The deployment region ID.
     // 
     // This parameter is required.
     shared_ptr<string> deployRegionId_ {};
-    // Specifies whether to enable the private connection. Valid values:
+    // Indicates whether PrivateLink is enabled. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: enabled
+    // 
+    // - false: disabled
     shared_ptr<bool> enablePrivateVpcConnection_ {};
     // The configuration parameters of the service instance.
     shared_ptr<vector<GetServiceTemplateParameterConstraintsRequest::Parameters>> parameters_ {};
@@ -206,16 +207,17 @@ namespace Models
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // The name of the specification package.
+    // The specification name.
     shared_ptr<string> specificationName_ {};
     // The template name.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
-    // The trial policy. Valid values:
+    // The usage type. Valid values:
     // 
-    // *   Trial: Trials are supported.
-    // *   NotTrial: Trials are not supported.
+    // - Trial: The service supports a trial.
+    // 
+    // - NotTrial: The service does not support a trial.
     shared_ptr<string> trialType_ {};
   };
 

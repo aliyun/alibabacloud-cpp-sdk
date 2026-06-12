@@ -110,7 +110,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to authorize the service provider to perform O\\&M operations on the service instance.
+    // Specifies whether to enable managed O\\&M.
     shared_ptr<bool> enableOperation_ {};
     shared_ptr<UpdateServiceInstanceAttributesRequest::GrantedPermission> grantedPermission_ {};
     // The region ID.
@@ -119,7 +119,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the service instance.
     // 
-    // You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the ID of the service instance.
+    // Call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

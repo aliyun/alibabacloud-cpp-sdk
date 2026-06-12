@@ -232,49 +232,57 @@ namespace Models
 
 
     protected:
-      // The billing cycle. Format: YYYY-MM.
+      // The billing cycle of the computing resources for the instance. This parameter is supported only for pay-as-you-go instances. Valid values:
+      // 
+      // - **Day**: daily billing.
+      // 
+      // - **Month**: monthly billing.
       shared_ptr<string> billingCycle_ {};
-      // The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
+      // The billing date in YYYY-MM-DD format. This parameter is returned only when **Granularity** is set to DAILY.
       shared_ptr<string> billingDate_ {};
       // The billable item.
       shared_ptr<string> billingItem_ {};
       // The code of the billable item.
       shared_ptr<string> billingItemCode_ {};
-      // The currency unit.
+      // The currency. Valid values:
       // 
-      // *   China site: **CNY**.
-      // *   International site: **USD**.
+      // - CNY: Chinese Yuan.
+      // 
+      // - USD: US Dollar.
+      // 
+      // - JPY: Japanese Yen.
       shared_ptr<string> currency_ {};
-      // The amount deducted with resource plans.
+      // The amount deducted by a resource plan.
       shared_ptr<string> deductedByResourcePackage_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceID_ {};
       // The discount amount.
       shared_ptr<string> invoiceDiscount_ {};
-      // The unit price.
+      // The list price.
       shared_ptr<string> listPrice_ {};
-      // The unit of the unit price.
+      // The unit of the list price.
       shared_ptr<string> listPriceUnit_ {};
       // The pretax amount.
       shared_ptr<string> pretaxAmount_ {};
       // The pretax gross amount.
       shared_ptr<string> pretaxGrossAmount_ {};
-      // The code of the service.
+      // The product code.
       shared_ptr<string> productCode_ {};
-      // The specific service resource.
+      // The product details.
       shared_ptr<string> productDetail_ {};
-      // The name of the cloud service or the name of the service-linked role with which the cloud service is associated.
+      // The name of the product to which the resource belongs.
       shared_ptr<string> productName_ {};
-      // The billing cycle in which the bill is split.
+      // The month of the split bill.
       shared_ptr<string> splitBillingCycle_ {};
       // The billing method. Valid values:
       // 
-      // *   Subscription: the subscription billing method.
-      // *   PayAsYouGo: the pay-as-you-go billing method.
+      // - Subscription: subscription.
+      // 
+      // - PayAsYouGo: pay-as-you-go.
       shared_ptr<string> subscriptionType_ {};
-      // The amount of resource usage.
+      // The number of input tokens.
       shared_ptr<string> usage_ {};
-      // The unit of usage.
+      // The unit of the usage.
       shared_ptr<string> usageUnit_ {};
     };
 
@@ -318,15 +326,15 @@ namespace Models
 
 
   protected:
-    // The billing information of the backup schedule.
+    // A list of billing information for the service instance.
     shared_ptr<vector<ListServiceInstanceBillResponseBody::Item>> item_ {};
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

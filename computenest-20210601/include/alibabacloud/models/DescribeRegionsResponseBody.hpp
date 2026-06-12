@@ -70,7 +70,7 @@ namespace Models
 
 
     protected:
-      // The region endpoint.
+      // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // The available regions.
+    // The list of available regions.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

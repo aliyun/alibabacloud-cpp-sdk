@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // A unique, client-generated token to ensure request idempotence. **ClientToken** must contain only ASCII characters and be no longer than 64 characters.
     shared_ptr<string> clientToken_ {};
+    // The OSS URL of the compressed Skill package.
+    // 
     // This parameter is required.
     shared_ptr<string> ossUrl_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

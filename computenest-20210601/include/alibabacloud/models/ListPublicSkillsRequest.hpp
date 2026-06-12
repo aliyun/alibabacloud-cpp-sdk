@@ -76,7 +76,19 @@ namespace Models
 
 
     protected:
+      // The filter criterion. Valid values:
+      // 
+      // - `SkillId`: The ID of the skill. An exact match is performed.
+      // 
+      // - `SkillName`: The name of the skill.
+      // 
+      // - `MatchType`: The match type for the `SkillName` filter. Valid values: `exact` (exact match), `prefix` (prefix match), and `fuzzy` (fuzzy match).
+      // 
+      // - `Keyword`: The keyword used for a fuzzy match on the skill name or skill description.
+      // 
+      // - `SkillLabels`: The skill labels. A fuzzy match is performed.
       shared_ptr<string> name_ {};
+      // The filter values. You can specify 1 to 10 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -113,9 +125,13 @@ namespace Models
 
 
   protected:
+    // A list of filters.
     shared_ptr<vector<ListPublicSkillsRequest::Filter>> filter_ {};
+    // The maximum number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
+    // Specifies whether to return the download link for the skill package.
     shared_ptr<bool> needDownloadUrl_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
   };
 

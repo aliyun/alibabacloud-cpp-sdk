@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Backup description
+    // The backup description.
     shared_ptr<string> description_ {};
-    // The ID of the service instance to be transferred to official version.
+    // The ID of the service instance to back up.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

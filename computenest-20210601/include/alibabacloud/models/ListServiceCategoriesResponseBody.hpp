@@ -51,7 +51,7 @@ namespace Models
 
 
   protected:
-    // The category list of the service.
+    // A list of service category names.
     shared_ptr<vector<string>> categories_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

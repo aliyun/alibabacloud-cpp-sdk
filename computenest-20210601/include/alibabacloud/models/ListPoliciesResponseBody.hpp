@@ -92,16 +92,17 @@ namespace Models
 
 
     protected:
-      // Permission policy description.
+      // The description of the access policy.
       shared_ptr<string> description_ {};
-      // Policy content.
+      // The content of the policy.
       shared_ptr<string> policyDocument_ {};
-      // Permission policy name.
+      // The name of the access policy.
       shared_ptr<string> policyName_ {};
-      // Permission policy type.
+      // The type of the access policy.
       // 
-      // - Custom: Custom policy.
-      // - System: System policy.
+      // - Custom: A custom policy.
+      // 
+      // - System: A system policy.
       shared_ptr<string> policyType_ {};
     };
 
@@ -138,13 +139,13 @@ namespace Models
 
 
   protected:
-    // 分页大小。
+    // The number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // Next Token
+    // The token that is used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Permission policy list
+    // The list of access policies.
     shared_ptr<vector<ListPoliciesResponseBody::Policies>> policies_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

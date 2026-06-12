@@ -106,14 +106,24 @@ namespace Models
 
 
   protected:
+    // A unique, client-generated token to ensure request idempotence. **ClientToken** can contain only ASCII characters and must not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // This parameter is required if `SourceType` is set to `UPLOAD`. It specifies the Object Storage Service (OSS) URL of the compressed skill package to upload.
     shared_ptr<string> ossUrl_ {};
+    // The skill description.
     shared_ptr<string> skillDescription_ {};
+    // The ID of the skill to update.
+    // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};
+    // An array of skill labels.
     shared_ptr<vector<string>> skillLabels_ {};
+    // The skill name.
     shared_ptr<string> skillName_ {};
+    // This parameter is required if `SourceType` is set to `COPY`. It specifies the ID of the public skill.
     shared_ptr<string> sourceSkillId_ {};
+    // The source type for the skill update.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
   };

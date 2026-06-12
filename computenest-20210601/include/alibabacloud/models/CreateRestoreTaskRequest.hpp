@@ -54,7 +54,7 @@ namespace Models
     shared_ptr<string> backupId_ {};
     // The ID of the service instance.
     // 
-    // You can call [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) to obtain the ID of the service instance.
+    // Call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

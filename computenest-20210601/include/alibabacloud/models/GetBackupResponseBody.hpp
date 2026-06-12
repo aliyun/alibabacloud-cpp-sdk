@@ -123,30 +123,35 @@ namespace Models
   protected:
     // The backup ID.
     shared_ptr<string> backupId_ {};
-    // The creation time of the backup task.
+    // The time when the backup was created.
     shared_ptr<string> createTime_ {};
-    // The description of the backup task.
+    // The backup description.
     shared_ptr<string> description_ {};
-    // The end time of the backup task.
+    // The time when the backup ended.
     shared_ptr<string> endTime_ {};
-    // The update time of the backup task.
+    // The time when the backup was last modified.
     shared_ptr<string> modifiedTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The request ID.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
-    // The start time of the backup task.
+    // The time when the backup started.
     shared_ptr<string> startTime_ {};
-    // The status of the backup task.
+    // The status.
     // 
-    // *   Creating
-    // *   Created
-    // *   CreateFailed
-    // *   Deleting
-    // *   Deleted
-    // *   DeleteFailed
+    // - Creating: The backup is being created.
+    // 
+    // - Created: The backup is created.
+    // 
+    // - CreateFailed: The backup failed to be created.
+    // 
+    // - Deleting: The backup is being deleted.
+    // 
+    // - Deleted: The backup is deleted.
+    // 
+    // - DeleteFailed: The backup failed to be deleted.
     shared_ptr<string> status_ {};
-    // The description of the deployment instance status.
+    // The detailed status of the deployment instance.
     shared_ptr<string> statusDetail_ {};
   };
 

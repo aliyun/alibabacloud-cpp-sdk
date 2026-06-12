@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The MarketInstance ID.
+    // The Alibaba Cloud Marketplace instance ID.
     shared_ptr<string> marketInstanceId_ {};
     // The region ID.
     // 
@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The service instance ID.
     // 
-    // >  You must specify either `ServiceInstanceId` or `MarketInstanceId`. Otherwise, the operation fails.
+    // > You must specify either `ServiceInstanceId` or `MarketInstanceId` to query the detailed information about the service instance.
     shared_ptr<string> serviceInstanceId_ {};
   };
 

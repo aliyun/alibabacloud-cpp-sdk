@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether the service is a trial.
     shared_ptr<bool> isPoc_ {};
+    // The region of the virtual network.
     shared_ptr<string> networkRegionId_ {};
+    // The connection mode. Valid values: \\`PrivateLink\\` and \\`OverlayLink\\`. \\`OverlayLink\\` is an overlay link based on Application-aware Network Service Mesh (ANSM).
     shared_ptr<string> privateVpcConnectionMode_ {};
+    // The service ID.
     shared_ptr<string> serviceId_ {};
+    // The direction of the internal-facing access. Valid values: \\`Forward\\` and \\`Reverse\\`.
     shared_ptr<string> serviceInstanceEndpointServiceType_ {};
+    // The ID of the region where the service is located.
     shared_ptr<string> serviceRegionId_ {};
+    // The service version.
     shared_ptr<string> serviceVersion_ {};
+    // The zone for the service deployment.
     shared_ptr<string> zoneId_ {};
   };
 

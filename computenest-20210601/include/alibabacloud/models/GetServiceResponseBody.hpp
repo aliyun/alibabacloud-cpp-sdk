@@ -185,9 +185,9 @@ namespace Models
 
 
     protected:
-      // The type of contact information.
+      // The type of the contact information.
       shared_ptr<string> type_ {};
-      // The value of contact information.
+      // The contact information.
       shared_ptr<string> value_ {};
     };
 
@@ -238,8 +238,11 @@ namespace Models
 
 
     protected:
+      // The English value of the service information.
       shared_ptr<string> enValue_ {};
+      // The raw data value of the service information.
       shared_ptr<string> originalValue_ {};
+      // The Chinese value of the service information.
       shared_ptr<string> zhValue_ {};
     };
 
@@ -310,9 +313,9 @@ namespace Models
 
 
       protected:
-        // The name of the Software.
+        // The software name.
         shared_ptr<string> name_ {};
-        // The version of the software.
+        // The software version.
         shared_ptr<string> version_ {};
       };
 
@@ -409,20 +412,21 @@ namespace Models
 
 
     protected:
-      // The agreement information about the service.
+      // The service agreements.
       shared_ptr<vector<ServiceInfos::Agreements>> agreements_ {};
       // The URL of the service icon.
       shared_ptr<string> image_ {};
-      // The language of the service. Valid values:
+      // The language of the service configuration. Valid values:
       // 
-      // *   zh-CN: Chinese
-      // *   en-US: English
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       shared_ptr<string> locale_ {};
       // The service name.
       shared_ptr<string> name_ {};
-      // The description of the service.
+      // The summary of the service.
       shared_ptr<string> shortDescription_ {};
-      // The list of the software in the service.
+      // The service software.
       shared_ptr<vector<ServiceInfos::Softwares>> softwares_ {};
     };
 
@@ -473,9 +477,13 @@ namespace Models
 
 
     protected:
-      // The URL that is used to access the document.
+      // The document URL.
       shared_ptr<string> documentUrl_ {};
-      // The language that you use for the query. Valid values: zh-CN and en-US.
+      // The language of the service document. Valid values:
+      // 
+      // - zh-CN: Chinese.
+      // 
+      // - en-US: English.
       shared_ptr<string> locale_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
@@ -539,11 +547,11 @@ namespace Models
 
 
     protected:
-      // The content of the policy.
+      // The content of the control policy.
       shared_ptr<string> policyDocument_ {};
-      // The information of the RAM entity.
+      // The information about the RAM entity.
       shared_ptr<vector<string>> principals_ {};
-      // The ram role name.
+      // The role name.
       shared_ptr<string> roleName_ {};
       // The template name.
       shared_ptr<string> templateName_ {};
@@ -579,7 +587,7 @@ namespace Models
 
 
     protected:
-      // The compliance pack list.
+      // The list of compliance packages.
       shared_ptr<vector<string>> compliancePacks_ {};
     };
 
@@ -671,7 +679,7 @@ namespace Models
         shared_ptr<string> code_ {};
         // The specification name.
         shared_ptr<string> name_ {};
-        // The subscription duration. Unit: week or year.
+        // The purchasable duration. Unit: week or year.
         shared_ptr<vector<string>> times_ {};
       };
 
@@ -741,7 +749,7 @@ namespace Models
 
 
         protected:
-          // The specification code of the service in Alibaba Cloud Marketplace.
+          // The specification code of the Alibaba Cloud Marketplace commodity.
           shared_ptr<string> specificationCode_ {};
           // The package name.
           shared_ptr<string> specificationName_ {};
@@ -760,7 +768,7 @@ namespace Models
 
 
       protected:
-        // The mappings between the service specifications and the template or package.
+        // The mapping between commodity specifications and templates or packages.
         shared_ptr<vector<MarketplaceMetadata::SpecificationMappings>> specificationMappings_ {};
       };
 
@@ -840,7 +848,7 @@ namespace Models
 
 
       protected:
-        // The mapping information about the billing items.
+        // The billing item mappings.
         shared_ptr<vector<CssMetadata::ComponentsMappings>> componentsMappings_ {};
       };
 
@@ -919,29 +927,35 @@ namespace Models
 
 
     protected:
-      // The billing method of the service. Valid values:
+      // The billing method.
       // 
-      // *   **PREPAY** (default): subscription.
-      // *   **POSTPAY**: pay-as-you-go.
+      // Valid values:
+      // 
+      // **PREPAY** (default): subscription.
+      // 
+      // **POSTPAY**: pay-as-you-go.
       shared_ptr<string> chargeType_ {};
-      // The commodity code of the service in Alibaba Cloud Marketplace.
+      // The commodity code.
       shared_ptr<string> commodityCode_ {};
-      // The configuration metadata related to Lingxiao.
+      // The Lingxiao configuration metadata.
       shared_ptr<Commodity::CssMetadata> cssMetadata_ {};
-      // The deploy page.
+      // The deployment page.
       shared_ptr<string> deployPage_ {};
-      // The metadata of Alibaba Cloud Marketplace.
+      // The Alibaba Cloud Marketplace metadata.
       shared_ptr<Commodity::MarketplaceMetadata> marketplaceMetadata_ {};
       // The order time.
       shared_ptr<map<string, vector<string>>> orderTime_ {};
-      // The configuration metadata related to Saas Boost.
+      // The SaasBoost configuration metadata.
       shared_ptr<string> saasBoostMetadata_ {};
-      // The specification details of the service in Alibaba Cloud Marketplace.
+      // The Alibaba Cloud Marketplace specification details.
       shared_ptr<vector<Commodity::Specifications>> specifications_ {};
-      // The service type. Valid values:
+      // The type.
       // 
-      // *   marketplace: Alibaba Cloud Marketplace.
-      // *   Css: Lingxiao.
+      // Valid values:
+      // 
+      // Marketplace: Alibaba Cloud Marketplace.
+      // 
+      // Css: Lingxiao.
       shared_ptr<string> type_ {};
     };
 
@@ -1230,93 +1244,127 @@ namespace Models
 
 
   protected:
-    // The alert configurations of the service.
+    // The alert configuration of the service.
     // 
-    // >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+    // > This configuration takes effect only if you configure an alert policy in **PolicyNames**.
     shared_ptr<string> alarmMetadata_ {};
-    // The categories of the Flow.
+    // The service category name.
     shared_ptr<string> categories_ {};
-    // The information about the order placed in Alibaba Cloud Marketplace.
+    // The commodity specifications.
     shared_ptr<GetServiceResponseBody::Commodity> commodity_ {};
-    // Compliance check metadata.
+    // The compliance package metadata.
     shared_ptr<GetServiceResponseBody::ComplianceMetadata> complianceMetadata_ {};
-    // Service deployment approach, Valid values：
+    // The deployment channel. Valid values:
     // 
-    // - NoWhere
-    // - Marketplace
-    // - ComputeNest
+    // - NoWhere: The service has no deployment channel.
+    // 
+    // - Marketplace: The service is deployed from Alibaba Cloud Marketplace.
+    // 
+    // - ComputeNest: The service is deployed from Compute Nest.
     shared_ptr<string> deployFrom_ {};
-    // The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+    // The deployment configuration of the service. The configuration is stored as a JSON string. The data format of the string varies based on the deployment type.
     shared_ptr<string> deployMetadata_ {};
-    // The deployment type of the service. Valid values:
+    // The deployment type. Valid values:
     // 
-    // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-    // *   terraform: The service is deployed by using Terraform.
+    // - ros: The service is deployed using ROS.
+    // 
+    // - terraform: The service is deployed using Terraform.
+    // 
+    // - spi: The service is deployed by calling a Service Provider Interface (SPI).
+    // 
+    // - operation: The service is an Alibaba Cloud Managed Services deployment.
+    // 
+    // - container: The service is deployed using a container.
+    // 
+    // - pkg: The service is a package service.
     shared_ptr<string> deployType_ {};
-    // The duration for which hosted O\\&M is implemented. Unit: seconds.
+    // The duration of the Alibaba Cloud Managed Services. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
-    // Information about the ram role created in the service template.
+    // The information about the roles that are created in the service template.
     shared_ptr<vector<GetServiceResponseBody::InstanceRoleInfos>> instanceRoleInfos_ {};
-    // Indicates whether the hosted O\\&M feature is enabled for the service. Default value: false. Valid values:
+    // Specifies whether to enable Alibaba Cloud Managed Services. Default value: false. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true: enabled.
     // 
-    // >  This parameter is returned if you set **ServiceType** to **private**.
+    // - false: disabled.
+    // 
+    // > This parameter is required when **ServiceType** is set to **private**.
     shared_ptr<bool> isSupportOperated_ {};
     // The license metadata.
     shared_ptr<string> licenseMetadata_ {};
-    // The logging configurations.
+    // The application log configuration.
     shared_ptr<string> logMetadata_ {};
-    // The operation metadata.
+    // The O\\&M configuration.
     shared_ptr<string> operationMetadata_ {};
-    // The permissions on the service. Valid values:
+    // The permission type. Valid values:
     // 
-    // *   Deployable: Permissions to deploy the service.
-    // *   Accessible: Permissions to access the service.
+    // - Deployable: The service is deployable.
+    // 
+    // - Accessible: The service is accessible.
     shared_ptr<string> permission_ {};
-    // The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+    // The policy names. A single policy name can be up to 128 characters in length. Separate multiple names with commas (,). Only policies related to Alibaba Cloud Managed Services are supported.
     shared_ptr<string> policyNames_ {};
     // The time when the service was published.
     shared_ptr<string> publishTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Service document information.
+    // The service documents.
     shared_ptr<vector<GetServiceResponseBody::ServiceDocumentInfos>> serviceDocumentInfos_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
-    // The information about the service.
+    // The service information.
     shared_ptr<vector<GetServiceResponseBody::ServiceInfos>> serviceInfos_ {};
+    // The multilingual configurations of the service.
     shared_ptr<vector<GetServiceResponseBody::ServiceLocaleConfigs>> serviceLocaleConfigs_ {};
-    // The URL of the service page.
+    // The URL of the product page.
     shared_ptr<string> serviceProductUrl_ {};
-    // The type of the service. Valid values:
+    // The service type. Valid values:
     // 
-    // - private: The service is a private service and is deployed within the account of a customer.
-    // - managed: The service is a fully managed service and is deployed within the account of a service provider.
-    // - operation: The service is a hosted O&M service.
+    // - private: The service is deployed in the user\\"s account.
+    // 
+    // - managed: The service is hosted in the service provider\\"s account.
+    // 
+    // - operation: The service is an Alibaba Cloud Managed Service.
     shared_ptr<string> serviceType_ {};
-    // The permission type of the deployment URL. Valid values:
+    // The share type. Valid values:
     // 
-    // *   Public: All users can go to the URL to create a service instance or a trial service instance.
-    // *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-    // *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-    // *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-    // *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+    // - Public: The service is public. Formal and trial deployments are not restricted.
+    // 
+    // - Restricted: The service is restricted. Formal and trial deployments are restricted.
+    // 
+    // - OnlyFormalRestricted: Only formal deployments are restricted.
+    // 
+    // - OnlyTrialRestricted: Only trial deployments are restricted.
+    // 
+    // - Hidden: The service is hidden, is not visible, and you cannot request permissions for deployment.
     shared_ptr<string> shareType_ {};
-    // The deploy status of the service. Valid values:
-    // - Draft
-    // - Beta
-    // - Submitted
-    // - Approved
-    // - Launching
-    // - Online
-    // - Offline
-    // - Creating
+    // The status of the service. Valid values:
+    // 
+    // - Draft: The service is in the draft state.
+    // 
+    // - Beta: The service is in a pre-release state. The service cannot be modified but can be shared with other users.
+    // 
+    // - Submitted: The service is submitted for approval. The service cannot be modified.
+    // 
+    // - Approved: The service is approved. The service cannot be modified but can be published.
+    // 
+    // - Launching: The service is being published.
+    // 
+    // - Online: The service is published.
+    // 
+    // - Offline: The service is unpublished.
+    // 
+    // - Creating: The service is being created.
+    // 
+    // - CreateFailed: The service failed to be created.
+    // 
+    // - Updating: The service is being updated.
+    // 
+    // - UpdateFailed: The service failed to be updated.
     shared_ptr<string> status_ {};
-    // The description of service provider.
+    // The description of the service provider.
     shared_ptr<string> supplierDesc_ {};
-    // The Logo of service provider.
+    // The icon of the service provider.
     shared_ptr<string> supplierLogo_ {};
     // The name of the service provider.
     shared_ptr<string> supplierName_ {};
@@ -1324,21 +1372,23 @@ namespace Models
     shared_ptr<int64_t> supplierUid_ {};
     // The URL of the service provider.
     shared_ptr<string> supplierUrl_ {};
-    // Contact information of the service provider
+    // The contact information of the service provider.
     shared_ptr<vector<GetServiceResponseBody::SupportContacts>> supportContacts_ {};
-    // The tags.
+    // The service tags.
     shared_ptr<vector<GetServiceResponseBody::Tags>> tags_ {};
-    // The type of the tenant. Valid values:
+    // The tenant type. Valid values:
     // 
-    // *   SingleTenant
-    // *   MultiTenant
+    // - SingleTenant: The service is a single-tenant service.
+    // 
+    // - MultiTenant: The service is a multitenancy service.
     shared_ptr<string> tenantType_ {};
-    // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+    // The trial duration in days. The maximum trial duration is 30 days.
     shared_ptr<int64_t> trialDuration_ {};
-    // The trial policy. Valid values:
+    // The trial type. Valid values:
     // 
-    // *   Trial: Trials are supported.
-    // *   NotTrial: Trials are not supported.
+    // - Trial: The service supports trial.
+    // 
+    // - NotTrial: The service does not support trial.
     shared_ptr<string> trialType_ {};
     // The service version.
     shared_ptr<string> version_ {};

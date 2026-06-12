@@ -84,12 +84,31 @@ namespace Models
 
 
   protected:
+    // The result code. A value of "200" indicates success. Other values indicate an error.
     shared_ptr<string> code_ {};
+    // The unique identifier for the detection task.
     shared_ptr<string> hashKey_ {};
+    // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The file detection result. Valid values:
+    // 
+    // 0: safe file
+    // 
+    // 1: suspicious file
+    // 
+    // 3: The detection is in progress.
     shared_ptr<int32_t> result_ {};
+    // The file detection score. The score ranges correspond to the following threat levels:
+    // 
+    // 0–60: safe
+    // 
+    // 61–70: risk
+    // 
+    // 71–80: suspicious
+    // 
+    // 81–100: malicious
     shared_ptr<int32_t> score_ {};
   };
 

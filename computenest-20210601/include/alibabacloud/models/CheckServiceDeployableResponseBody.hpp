@@ -88,16 +88,16 @@ namespace Models
 
 
     protected:
-      // Returns a hint message for the result.
+      // The message returned for the result.
       shared_ptr<string> message_ {};
       shared_ptr<bool> skippable_ {};
-      // Check type, invalid values:
+      // The type of precheck. Valid values:
       // 
-      // - Balance ：Account balance.
+      // - Balance: The account balance.
       // 
-      // - Quota:  Account quota.
+      // - Quota: The resource quota.
       shared_ptr<string> type_ {};
-      // Inspection result.
+      // The check result.
       shared_ptr<string> value_ {};
     };
 
@@ -120,9 +120,9 @@ namespace Models
 
 
   protected:
-    // Inspection result.
+    // The check results.
     shared_ptr<vector<CheckServiceDeployableResponseBody::CheckResults>> checkResults_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

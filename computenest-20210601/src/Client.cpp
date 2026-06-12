@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Cancels the application for using a service.
+ * @summary Cancels a service usage request.
  *
  * @param request CancelServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +79,7 @@ CancelServiceUsageResponse Client::cancelServiceUsageWithOptions(const CancelSer
 }
 
 /**
- * @summary Cancels the application for using a service.
+ * @summary Cancels a service usage request.
  *
  * @param request CancelServiceUsageRequest
  * @return CancelServiceUsageResponse
@@ -90,7 +90,7 @@ CancelServiceUsageResponse Client::cancelServiceUsage(const CancelServiceUsageRe
 }
 
 /**
- * @summary Changes the resource group of a cloud resource based on the resource ID.
+ * @summary Changes the resource group for a cloud resource.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -133,7 +133,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary Changes the resource group of a cloud resource based on the resource ID.
+ * @summary Changes the resource group for a cloud resource.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -144,7 +144,7 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Performs a precheck before deploying a service instance.
+ * @summary Performs a precheck to verify that a service instance can be deployed.
  *
  * @param request CheckServiceDeployableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -199,7 +199,7 @@ CheckServiceDeployableResponse Client::checkServiceDeployableWithOptions(const C
 }
 
 /**
- * @summary Performs a precheck before deploying a service instance.
+ * @summary Performs a precheck to verify that a service instance can be deployed.
  *
  * @param request CheckServiceDeployableRequest
  * @return CheckServiceDeployableResponse
@@ -210,9 +210,9 @@ CheckServiceDeployableResponse Client::checkServiceDeployable(const CheckService
 }
 
 /**
- * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+ * @summary If a service instance fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
  *
- * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+ * @description If a private service instance that uses the ROS deployment type fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
  *
  * @param request ContinueDeployServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -263,9 +263,9 @@ ContinueDeployServiceInstanceResponse Client::continueDeployServiceInstanceWithO
 }
 
 /**
- * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+ * @summary If a service instance fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
  *
- * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+ * @description If a private service instance that uses the ROS deployment type fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
  *
  * @param request ContinueDeployServiceInstanceRequest
  * @return ContinueDeployServiceInstanceResponse
@@ -276,10 +276,10 @@ ContinueDeployServiceInstanceResponse Client::continueDeployServiceInstance(cons
 }
 
 /**
- * @summary Create backup for Compute Nest instance
+ * @summary Creates a backup for a Compute Nest service instance.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and configured the corresponding parameters when the service was created.
  *
  * @param request CreateBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -314,10 +314,10 @@ CreateBackupResponse Client::createBackupWithOptions(const CreateBackupRequest &
 }
 
 /**
- * @summary Create backup for Compute Nest instance
+ * @summary Creates a backup for a Compute Nest service instance.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and configured the corresponding parameters when the service was created.
  *
  * @param request CreateBackupRequest
  * @return CreateBackupResponse
@@ -328,10 +328,10 @@ CreateBackupResponse Client::createBackup(const CreateBackupRequest &request) {
 }
 
 /**
- * @summary Create restore task
+ * @summary Creates a restore job.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Before you call this operation, ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
  *
  * @param request CreateRestoreTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -366,10 +366,10 @@ CreateRestoreTaskResponse Client::createRestoreTaskWithOptions(const CreateResto
 }
 
 /**
- * @summary Create restore task
+ * @summary Creates a restore job.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Before you call this operation, ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
  *
  * @param request CreateRestoreTaskRequest
  * @return CreateRestoreTaskResponse
@@ -380,7 +380,7 @@ CreateRestoreTaskResponse Client::createRestoreTask(const CreateRestoreTaskReque
 }
 
 /**
- * @summary Creates and deploys a service instance.
+ * @summary Creates and deploys a service instance in Compute Nest by specifying parameters such as a region ID, a service instance name, and a service ID.
  *
  * @param tmpReq CreateServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -493,7 +493,7 @@ CreateServiceInstanceResponse Client::createServiceInstanceWithOptions(const Cre
 }
 
 /**
- * @summary Creates and deploys a service instance.
+ * @summary Creates and deploys a service instance in Compute Nest by specifying parameters such as a region ID, a service instance name, and a service ID.
  *
  * @param request CreateServiceInstanceRequest
  * @return CreateServiceInstanceResponse
@@ -504,7 +504,7 @@ CreateServiceInstanceResponse Client::createServiceInstance(const CreateServiceI
 }
 
 /**
- * @summary Creates an application for using a service.
+ * @summary Creates a service usage request.
  *
  * @param tmpReq CreateServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -553,7 +553,7 @@ CreateServiceUsageResponse Client::createServiceUsageWithOptions(const CreateSer
 }
 
 /**
- * @summary Creates an application for using a service.
+ * @summary Creates a service usage request.
  *
  * @param request CreateServiceUsageRequest
  * @return CreateServiceUsageResponse
@@ -564,7 +564,10 @@ CreateServiceUsageResponse Client::createServiceUsage(const CreateServiceUsageRe
 }
 
 /**
- * @summary 创建Skill
+ * @summary Creates a Skill.
+ *
+ * @description ### Prerequisites
+ * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
  *
  * @param request CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +628,10 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &req
 }
 
 /**
- * @summary 创建Skill
+ * @summary Creates a Skill.
+ *
+ * @description ### Prerequisites
+ * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -636,7 +642,10 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
 }
 
 /**
- * @summary 创建Skill文件检测任务
+ * @summary Creates a Skill file detection task.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
  *
  * @param request CreateSkillFileDetectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -677,7 +686,10 @@ CreateSkillFileDetectResponse Client::createSkillFileDetectWithOptions(const Cre
 }
 
 /**
- * @summary 创建Skill文件检测任务
+ * @summary Creates a Skill file detection task.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
  *
  * @param request CreateSkillFileDetectRequest
  * @return CreateSkillFileDetectResponse
@@ -688,7 +700,10 @@ CreateSkillFileDetectResponse Client::createSkillFileDetect(const CreateSkillFil
 }
 
 /**
- * @summary 创建SkillHub配置
+ * @summary Creates a SkillHub config.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modify configuration feature and set the required parameters.
  *
  * @param request CreateSkillHubConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -729,7 +744,10 @@ CreateSkillHubConfigResponse Client::createSkillHubConfigWithOptions(const Creat
 }
 
 /**
- * @summary 创建SkillHub配置
+ * @summary Creates a SkillHub config.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modify configuration feature and set the required parameters.
  *
  * @param request CreateSkillHubConfigRequest
  * @return CreateSkillHubConfigResponse
@@ -740,7 +758,10 @@ CreateSkillHubConfigResponse Client::createSkillHubConfig(const CreateSkillHubCo
 }
 
 /**
- * @summary 创建SkillSpace
+ * @summary Creates a skill space.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
  *
  * @param request CreateSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -781,7 +802,10 @@ CreateSkillSpaceResponse Client::createSkillSpaceWithOptions(const CreateSkillSp
 }
 
 /**
- * @summary 创建SkillSpace
+ * @summary Creates a skill space.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
  *
  * @param request CreateSkillSpaceRequest
  * @return CreateSkillSpaceResponse
@@ -792,10 +816,10 @@ CreateSkillSpaceResponse Client::createSkillSpace(const CreateSkillSpaceRequest 
 }
 
 /**
- * @summary Delete Compute Nest instance backups.
+ * @summary Deletes a Compute Nest instance backup.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and configured the upgrade/downgrade parameters when the service was created.
  *
  * @param request DeleteBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -826,10 +850,10 @@ DeleteBackupResponse Client::deleteBackupWithOptions(const DeleteBackupRequest &
 }
 
 /**
- * @summary Delete Compute Nest instance backups.
+ * @summary Deletes a Compute Nest instance backup.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and configured the upgrade/downgrade parameters when the service was created.
  *
  * @param request DeleteBackupRequest
  * @return DeleteBackupResponse
@@ -840,7 +864,7 @@ DeleteBackupResponse Client::deleteBackup(const DeleteBackupRequest &request) {
 }
 
 /**
- * @summary Deletes service instances based on the region ID and service instance IDs.
+ * @summary Deletes the specified service instances in a region.
  *
  * @param request DeleteServiceInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,7 +903,7 @@ DeleteServiceInstancesResponse Client::deleteServiceInstancesWithOptions(const D
 }
 
 /**
- * @summary Deletes service instances based on the region ID and service instance IDs.
+ * @summary Deletes the specified service instances in a region.
  *
  * @param request DeleteServiceInstancesRequest
  * @return DeleteServiceInstancesResponse
@@ -890,7 +914,10 @@ DeleteServiceInstancesResponse Client::deleteServiceInstances(const DeleteServic
 }
 
 /**
- * @summary 删除Skill
+ * @summary Deletes a skill.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
  *
  * @param request DeleteSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -927,7 +954,10 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
 }
 
 /**
- * @summary 删除Skill
+ * @summary Deletes a skill.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
  *
  * @param request DeleteSkillRequest
  * @return DeleteSkillResponse
@@ -938,7 +968,10 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 }
 
 /**
- * @summary 删除SkillSpace
+ * @summary Deletes a SkillSpace.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
  *
  * @param request DeleteSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -975,7 +1008,10 @@ DeleteSkillSpaceResponse Client::deleteSkillSpaceWithOptions(const DeleteSkillSp
 }
 
 /**
- * @summary 删除SkillSpace
+ * @summary Deletes a SkillSpace.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
  *
  * @param request DeleteSkillSpaceRequest
  * @return DeleteSkillSpaceResponse
@@ -986,7 +1022,7 @@ DeleteSkillSpaceResponse Client::deleteSkillSpace(const DeleteSkillSpaceRequest 
 }
 
 /**
- * @summary Deploys the created service instance.
+ * @summary Deploys a service instance.
  *
  * @param request DeployServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1025,7 +1061,7 @@ DeployServiceInstanceResponse Client::deployServiceInstanceWithOptions(const Dep
 }
 
 /**
- * @summary Deploys the created service instance.
+ * @summary Deploys a service instance.
  *
  * @param request DeployServiceInstanceRequest
  * @return DeployServiceInstanceResponse
@@ -1036,7 +1072,7 @@ DeployServiceInstanceResponse Client::deployServiceInstance(const DeployServiceI
 }
 
 /**
- * @summary List available regions.
+ * @summary Queries the available regions.
  *
  * @param request DescribeRegionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1067,7 +1103,7 @@ DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegions
 }
 
 /**
- * @summary List available regions.
+ * @summary Queries the available regions.
  *
  * @param request DescribeRegionsRequest
  * @return DescribeRegionsResponse
@@ -1078,17 +1114,27 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the missing policies before creating a service instance.
+ * @summary Check for missing access policies before you create a service instance.
  *
- * @param request GenerateServicePolicyRequest
+ * @param tmpReq GenerateServicePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GenerateServicePolicyResponse
  */
-GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const GenerateServicePolicyRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const GenerateServicePolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GenerateServicePolicyShrinkRequest request = GenerateServicePolicyShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasParameters()) {
+    request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
+  }
+
   json query = {};
   if (!!request.hasOperationTypes()) {
     query["OperationTypes"] = request.getOperationTypes();
+  }
+
+  if (!!request.hasParametersShrink()) {
+    query["Parameters"] = request.getParametersShrink();
   }
 
   if (!!request.hasRegionId()) {
@@ -1129,7 +1175,7 @@ GenerateServicePolicyResponse Client::generateServicePolicyWithOptions(const Gen
 }
 
 /**
- * @summary Queries the missing policies before creating a service instance.
+ * @summary Check for missing access policies before you create a service instance.
  *
  * @param request GenerateServicePolicyRequest
  * @return GenerateServicePolicyResponse
@@ -1140,10 +1186,10 @@ GenerateServicePolicyResponse Client::generateServicePolicy(const GenerateServic
 }
 
 /**
- * @summary Queries the information about backup task.
+ * @summary Retrieves the details of a backup.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
  *
  * @param request GetBackupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1174,10 +1220,10 @@ GetBackupResponse Client::getBackupWithOptions(const GetBackupRequest &request, 
 }
 
 /**
- * @summary Queries the information about backup task.
+ * @summary Retrieves the details of a backup.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
  *
  * @param request GetBackupRequest
  * @return GetBackupResponse
@@ -1188,7 +1234,10 @@ GetBackupResponse Client::getBackup(const GetBackupRequest &request) {
 }
 
 /**
- * @summary 根据指定地域获取可用区列表
+ * @summary Returns a list of available zones for a specified region.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and set the related parameters when the service was created.
  *
  * @param request GetNetworkAvailableZonesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,7 +1296,10 @@ GetNetworkAvailableZonesResponse Client::getNetworkAvailableZonesWithOptions(con
 }
 
 /**
- * @summary 根据指定地域获取可用区列表
+ * @summary Returns a list of available zones for a specified region.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade/downgrade feature and set the related parameters when the service was created.
  *
  * @param request GetNetworkAvailableZonesRequest
  * @return GetNetworkAvailableZonesResponse
@@ -1258,7 +1310,7 @@ GetNetworkAvailableZonesResponse Client::getNetworkAvailableZones(const GetNetwo
 }
 
 /**
- * @summary Queries the information about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request GetServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1309,7 +1361,7 @@ GetServiceResponse Client::getServiceWithOptions(const GetServiceRequest &reques
 }
 
 /**
- * @summary Queries the information about a service.
+ * @summary Retrieves the details of a specified service.
  *
  * @param request GetServiceRequest
  * @return GetServiceResponse
@@ -1320,7 +1372,7 @@ GetServiceResponse Client::getService(const GetServiceRequest &request) {
 }
 
 /**
- * @summary Queries the estimated price for creating a service instance.
+ * @summary Queries the estimated cost of creating a service instance.
  *
  * @param tmpReq GetServiceEstimateCostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1401,7 +1453,7 @@ GetServiceEstimateCostResponse Client::getServiceEstimateCostWithOptions(const G
 }
 
 /**
- * @summary Queries the estimated price for creating a service instance.
+ * @summary Queries the estimated cost of creating a service instance.
  *
  * @param request GetServiceEstimateCostRequest
  * @return GetServiceEstimateCostResponse
@@ -1412,7 +1464,7 @@ GetServiceEstimateCostResponse Client::getServiceEstimateCost(const GetServiceEs
 }
 
 /**
- * @summary Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+ * @summary Queries the details of a service instance by its region ID, service instance ID, or Alibaba Cloud Marketplace instance ID. The returned information includes the service status, template name, and a list of resources.
  *
  * @param request GetServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1451,7 +1503,7 @@ GetServiceInstanceResponse Client::getServiceInstanceWithOptions(const GetServic
 }
 
 /**
- * @summary Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+ * @summary Queries the details of a service instance by its region ID, service instance ID, or Alibaba Cloud Marketplace instance ID. The returned information includes the service status, template name, and a list of resources.
  *
  * @param request GetServiceInstanceRequest
  * @return GetServiceInstanceResponse
@@ -1462,7 +1514,7 @@ GetServiceInstanceResponse Client::getServiceInstance(const GetServiceInstanceRe
 }
 
 /**
- * @summary Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
+ * @summary Queries the estimated renewal cost of subscription resources in a privately deployed service instance. You can query the cost for all resources associated with a service instance ID, or for a specific set of resources.
  *
  * @param request GetServiceInstanceSubscriptionEstimateCostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1517,7 +1569,7 @@ GetServiceInstanceSubscriptionEstimateCostResponse Client::getServiceInstanceSub
 }
 
 /**
- * @summary Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
+ * @summary Queries the estimated renewal cost of subscription resources in a privately deployed service instance. You can query the cost for all resources associated with a service instance ID, or for a specific set of resources.
  *
  * @param request GetServiceInstanceSubscriptionEstimateCostRequest
  * @return GetServiceInstanceSubscriptionEstimateCostResponse
@@ -1528,7 +1580,7 @@ GetServiceInstanceSubscriptionEstimateCostResponse Client::getServiceInstanceSub
 }
 
 /**
- * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+ * @summary Retrieves the provisions of a service, such as its activation status and service roles.
  *
  * @param tmpReq GetServiceProvisionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1585,7 +1637,7 @@ GetServiceProvisionsResponse Client::getServiceProvisionsWithOptions(const GetSe
 }
 
 /**
- * @summary Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+ * @summary Retrieves the provisions of a service, such as its activation status and service roles.
  *
  * @param request GetServiceProvisionsRequest
  * @return GetServiceProvisionsResponse
@@ -1596,7 +1648,7 @@ GetServiceProvisionsResponse Client::getServiceProvisions(const GetServiceProvis
 }
 
 /**
- * @summary Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
+ * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template in a specified region using the template name and service ID.
  *
  * @param request GetServiceTemplateParameterConstraintsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1667,7 +1719,7 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 }
 
 /**
- * @summary Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
+ * @summary Queries the parameter constraints for a Resource Orchestration Service (ROS) template in a specified region using the template name and service ID.
  *
  * @param request GetServiceTemplateParameterConstraintsRequest
  * @return GetServiceTemplateParameterConstraintsResponse
@@ -1678,7 +1730,10 @@ GetServiceTemplateParameterConstraintsResponse Client::getServiceTemplateParamet
 }
 
 /**
- * @summary 查询Skill详情
+ * @summary Queries the details of a Skill.
+ *
+ * @description ### Prerequisites
+ * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1709,7 +1764,10 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 }
 
 /**
- * @summary 查询Skill详情
+ * @summary Queries the details of a Skill.
+ *
+ * @description ### Prerequisites
+ * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -1720,7 +1778,10 @@ GetSkillResponse Client::getSkill(const GetSkillRequest &request) {
 }
 
 /**
- * @summary 查询Skill文件检测结果
+ * @summary Retrieves the result of a Skill file detection task.
+ *
+ * @description ### Prerequisites
+ * This operation is available only if the service provider enabled the modification feature and configured the relevant parameters during service creation.
  *
  * @param request GetSkillFileDetectResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1755,7 +1816,10 @@ GetSkillFileDetectResultResponse Client::getSkillFileDetectResultWithOptions(con
 }
 
 /**
- * @summary 查询Skill文件检测结果
+ * @summary Retrieves the result of a Skill file detection task.
+ *
+ * @description ### Prerequisites
+ * This operation is available only if the service provider enabled the modification feature and configured the relevant parameters during service creation.
  *
  * @param request GetSkillFileDetectResultRequest
  * @return GetSkillFileDetectResultResponse
@@ -1766,7 +1830,10 @@ GetSkillFileDetectResultResponse Client::getSkillFileDetectResult(const GetSkill
 }
 
 /**
- * @summary 查询SkillHub配置
+ * @summary Retrieves the SkillHub configuration.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the modification feature and configured its parameters when creating the service.
  *
  * @param request GetSkillHubConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1790,7 +1857,10 @@ GetSkillHubConfigResponse Client::getSkillHubConfigWithOptions(const GetSkillHub
 }
 
 /**
- * @summary 查询SkillHub配置
+ * @summary Retrieves the SkillHub configuration.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the modification feature and configured its parameters when creating the service.
  *
  * @param request GetSkillHubConfigRequest
  * @return GetSkillHubConfigResponse
@@ -1801,7 +1871,10 @@ GetSkillHubConfigResponse Client::getSkillHubConfig(const GetSkillHubConfigReque
 }
 
 /**
- * @summary 查询SkillSpace详情
+ * @summary Retrieves the details of a SkillSpace.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
  *
  * @param request GetSkillSpaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1832,7 +1905,10 @@ GetSkillSpaceResponse Client::getSkillSpaceWithOptions(const GetSkillSpaceReques
 }
 
 /**
- * @summary 查询SkillSpace详情
+ * @summary Retrieves the details of a SkillSpace.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
  *
  * @param request GetSkillSpaceRequest
  * @return GetSkillSpaceResponse
@@ -1843,7 +1919,7 @@ GetSkillSpaceResponse Client::getSkillSpace(const GetSkillSpaceRequest &request)
 }
 
 /**
- * @summary Queries the information about a customer.
+ * @summary Queries user information.
  *
  * @param request GetUserInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1874,7 +1950,7 @@ GetUserInformationResponse Client::getUserInformationWithOptions(const GetUserIn
 }
 
 /**
- * @summary Queries the information about a customer.
+ * @summary Queries user information.
  *
  * @param request GetUserInformationRequest
  * @return GetUserInformationResponse
@@ -1885,10 +1961,10 @@ GetUserInformationResponse Client::getUserInformation(const GetUserInformationRe
 }
 
 /**
- * @summary Query and list Compute Nest instance backups
+ * @summary Queries a list of backups for Compute Nest service instances.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured the related parameters when the service was created.
  *
  * @param request ListBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,10 +2003,10 @@ ListBackupsResponse Client::listBackupsWithOptions(const ListBackupsRequest &req
 }
 
 /**
- * @summary Query and list Compute Nest instance backups
+ * @summary Queries a list of backups for Compute Nest service instances.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured the related parameters when the service was created.
  *
  * @param request ListBackupsRequest
  * @return ListBackupsResponse
@@ -1941,7 +2017,7 @@ ListBackupsResponse Client::listBackups(const ListBackupsRequest &request) {
 }
 
 /**
- * @summary Queires the permissions.
+ * @summary Retrieves a list of access policies.
  *
  * @param request ListPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1980,7 +2056,7 @@ ListPoliciesResponse Client::listPoliciesWithOptions(const ListPoliciesRequest &
 }
 
 /**
- * @summary Queires the permissions.
+ * @summary Retrieves a list of access policies.
  *
  * @param request ListPoliciesRequest
  * @return ListPoliciesResponse
@@ -1991,7 +2067,10 @@ ListPoliciesResponse Client::listPolicies(const ListPoliciesRequest &request) {
 }
 
 /**
- * @summary 查询公开 Skill 列表
+ * @summary Lists public skills.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
  *
  * @param request ListPublicSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2034,7 +2113,10 @@ ListPublicSkillsResponse Client::listPublicSkillsWithOptions(const ListPublicSki
 }
 
 /**
- * @summary 查询公开 Skill 列表
+ * @summary Lists public skills.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
  *
  * @param request ListPublicSkillsRequest
  * @return ListPublicSkillsResponse
@@ -2045,10 +2127,10 @@ ListPublicSkillsResponse Client::listPublicSkills(const ListPublicSkillsRequest 
 }
 
 /**
- * @summary Query and list restore tasks
+ * @summary Queries a list of restore jobs.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when creating the service.
  *
  * @param request ListRestoreTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2087,10 +2169,10 @@ ListRestoreTasksResponse Client::listRestoreTasksWithOptions(const ListRestoreTa
 }
 
 /**
- * @summary Query and list restore tasks
+ * @summary Queries a list of restore jobs.
  *
- * @description ### [](#)Prerequisites
- * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when creating the service.
  *
  * @param request ListRestoreTasksRequest
  * @return ListRestoreTasksResponse
@@ -2101,7 +2183,7 @@ ListRestoreTasksResponse Client::listRestoreTasks(const ListRestoreTasksRequest 
 }
 
 /**
- * @summary Queries service categories.
+ * @summary Lists the available service categories.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListServiceCategoriesResponse
@@ -2123,7 +2205,7 @@ ListServiceCategoriesResponse Client::listServiceCategoriesWithOptions(const Dar
 }
 
 /**
- * @summary Queries service categories.
+ * @summary Lists the available service categories.
  *
  * @return ListServiceCategoriesResponse
  */
@@ -2133,7 +2215,7 @@ ListServiceCategoriesResponse Client::listServiceCategories() {
 }
 
 /**
- * @summary Queries instance bills.
+ * @summary Call the ListServiceInstanceBill operation to query bills for service instances.
  *
  * @param request ListServiceInstanceBillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2184,7 +2266,7 @@ ListServiceInstanceBillResponse Client::listServiceInstanceBillWithOptions(const
 }
 
 /**
- * @summary Queries instance bills.
+ * @summary Call the ListServiceInstanceBill operation to query bills for service instances.
  *
  * @param request ListServiceInstanceBillRequest
  * @return ListServiceInstanceBillResponse
@@ -2195,7 +2277,7 @@ ListServiceInstanceBillResponse Client::listServiceInstanceBill(const ListServic
 }
 
 /**
- * @summary Queries the deployment and upgrade logs of a service instance.
+ * @summary Retrieves the deployment and upgrade logs of a service instance.
  *
  * @param request ListServiceInstanceLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2254,7 +2336,7 @@ ListServiceInstanceLogsResponse Client::listServiceInstanceLogsWithOptions(const
 }
 
 /**
- * @summary Queries the deployment and upgrade logs of a service instance.
+ * @summary Retrieves the deployment and upgrade logs of a service instance.
  *
  * @param request ListServiceInstanceLogsRequest
  * @return ListServiceInstanceLogsResponse
@@ -2265,7 +2347,7 @@ ListServiceInstanceLogsResponse Client::listServiceInstanceLogs(const ListServic
 }
 
 /**
- * @summary Queries the resources contained in a service instance.
+ * @summary Queries the resources of a service instance based on parameters such as the service instance ID, Alibaba Cloud Resource Name (ARN), and region ID.
  *
  * @param request ListServiceInstanceResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2320,7 +2402,7 @@ ListServiceInstanceResourcesResponse Client::listServiceInstanceResourcesWithOpt
 }
 
 /**
- * @summary Queries the resources contained in a service instance.
+ * @summary Queries the resources of a service instance based on parameters such as the service instance ID, Alibaba Cloud Resource Name (ARN), and region ID.
  *
  * @param request ListServiceInstanceResourcesRequest
  * @return ListServiceInstanceResourcesResponse
@@ -2331,7 +2413,7 @@ ListServiceInstanceResourcesResponse Client::listServiceInstanceResources(const 
 }
 
 /**
- * @summary Queries the upgrade history of a service instance.
+ * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
  *
  * @param request ListServiceInstanceUpgradeHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2374,7 +2456,7 @@ ListServiceInstanceUpgradeHistoryResponse Client::listServiceInstanceUpgradeHist
 }
 
 /**
- * @summary Queries the upgrade history of a service instance.
+ * @summary You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
  *
  * @param request ListServiceInstanceUpgradeHistoryRequest
  * @return ListServiceInstanceUpgradeHistoryResponse
@@ -2385,7 +2467,7 @@ ListServiceInstanceUpgradeHistoryResponse Client::listServiceInstanceUpgradeHist
 }
 
 /**
- * @summary {}
+ * @summary Queries service instances for your account in a specified region.
  *
  * @param request ListServiceInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2436,7 +2518,7 @@ ListServiceInstancesResponse Client::listServiceInstancesWithOptions(const ListS
 }
 
 /**
- * @summary {}
+ * @summary Queries service instances for your account in a specified region.
  *
  * @param request ListServiceInstancesRequest
  * @return ListServiceInstancesResponse
@@ -2447,7 +2529,7 @@ ListServiceInstancesResponse Client::listServiceInstances(const ListServiceInsta
 }
 
 /**
- * @summary Queries the applications for using a service.
+ * @summary Queries your service usages.
  *
  * @param request ListServiceUsagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2490,7 +2572,7 @@ ListServiceUsagesResponse Client::listServiceUsagesWithOptions(const ListService
 }
 
 /**
- * @summary Queries the applications for using a service.
+ * @summary Queries your service usages.
  *
  * @param request ListServiceUsagesRequest
  * @return ListServiceUsagesResponse
@@ -2501,7 +2583,7 @@ ListServiceUsagesResponse Client::listServiceUsages(const ListServiceUsagesReque
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Queries information about your services.
  *
  * @param request ListServicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2564,7 +2646,7 @@ ListServicesResponse Client::listServicesWithOptions(const ListServicesRequest &
 }
 
 /**
- * @summary Queries a list of services.
+ * @summary Queries information about your services.
  *
  * @param request ListServicesRequest
  * @return ListServicesResponse
@@ -2575,7 +2657,10 @@ ListServicesResponse Client::listServices(const ListServicesRequest &request) {
 }
 
 /**
- * @summary 获取Skill文件列表
+ * @summary Lists the files of a specified Skill.
+ *
+ * @description ### Prerequisites
+ * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
  *
  * @param request ListSkillFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2618,7 +2703,10 @@ ListSkillFilesResponse Client::listSkillFilesWithOptions(const ListSkillFilesReq
 }
 
 /**
- * @summary 获取Skill文件列表
+ * @summary Lists the files of a specified Skill.
+ *
+ * @description ### Prerequisites
+ * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
  *
  * @param request ListSkillFilesRequest
  * @return ListSkillFilesResponse
@@ -2629,7 +2717,10 @@ ListSkillFilesResponse Client::listSkillFiles(const ListSkillFilesRequest &reque
 }
 
 /**
- * @summary 查询SkillSpace列表
+ * @summary Queries a list of SkillSpaces.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
  *
  * @param request ListSkillSpacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2668,7 +2759,10 @@ ListSkillSpacesResponse Client::listSkillSpacesWithOptions(const ListSkillSpaces
 }
 
 /**
- * @summary 查询SkillSpace列表
+ * @summary Queries a list of SkillSpaces.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
  *
  * @param request ListSkillSpacesRequest
  * @return ListSkillSpacesResponse
@@ -2679,7 +2773,10 @@ ListSkillSpacesResponse Client::listSkillSpaces(const ListSkillSpacesRequest &re
 }
 
 /**
- * @summary 查询Skill列表
+ * @summary Retrieves a list of Skills.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
  *
  * @param request ListSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2722,7 +2819,10 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
 }
 
 /**
- * @summary 查询Skill列表
+ * @summary Retrieves a list of Skills.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
  *
  * @param request ListSkillsRequest
  * @return ListSkillsResponse
@@ -2733,7 +2833,7 @@ ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
 }
 
 /**
- * @summary Queries the existing tag keys.
+ * @summary This operation lists existing tag keys.
  *
  * @param request ListTagKeysRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2772,7 +2872,7 @@ ListTagKeysResponse Client::listTagKeysWithOptions(const ListTagKeysRequest &req
 }
 
 /**
- * @summary Queries the existing tag keys.
+ * @summary This operation lists existing tag keys.
  *
  * @param request ListTagKeysRequest
  * @return ListTagKeysResponse
@@ -2783,7 +2883,7 @@ ListTagKeysResponse Client::listTagKeys(const ListTagKeysRequest &request) {
 }
 
 /**
- * @summary Query tag resource list
+ * @summary Queries a list of tagged resources.
  *
  * @param request ListTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2830,7 +2930,7 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
 }
 
 /**
- * @summary Query tag resource list
+ * @summary Queries a list of tagged resources.
  *
  * @param request ListTagResourcesRequest
  * @return ListTagResourcesResponse
@@ -2841,7 +2941,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries the tag values of a tag key.
+ * @summary Lists the tag values for a specified tag key.
  *
  * @param request ListTagValuesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2884,7 +2984,7 @@ ListTagValuesResponse Client::listTagValuesWithOptions(const ListTagValuesReques
 }
 
 /**
- * @summary Queries the tag values of a tag key.
+ * @summary Lists the tag values for a specified tag key.
  *
  * @param request ListTagValuesRequest
  * @return ListTagValuesResponse
@@ -2895,7 +2995,7 @@ ListTagValuesResponse Client::listTagValues(const ListTagValuesRequest &request)
 }
 
 /**
- * @summary 续费服务实例
+ * @summary Renews a service instance.
  *
  * @param request RenewServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2930,7 +3030,7 @@ RenewServiceInstanceResponse Client::renewServiceInstanceWithOptions(const Renew
 }
 
 /**
- * @summary 续费服务实例
+ * @summary Renews a service instance.
  *
  * @param request RenewServiceInstanceRequest
  * @return RenewServiceInstanceResponse
@@ -2941,7 +3041,7 @@ RenewServiceInstanceResponse Client::renewServiceInstance(const RenewServiceInst
 }
 
 /**
- * @summary Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
+ * @summary Renews the subscription resources for a private deployment service instance. This operation supports two renewal methods: renewing all subscription resources for a service instance or renewing only specific resources. You can use only one method per request.
  *
  * @param request RenewServiceInstanceResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2992,7 +3092,7 @@ RenewServiceInstanceResourcesResponse Client::renewServiceInstanceResourcesWithO
 }
 
 /**
- * @summary Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
+ * @summary Renews the subscription resources for a private deployment service instance. This operation supports two renewal methods: renewing all subscription resources for a service instance or renewing only specific resources. You can use only one method per request.
  *
  * @param request RenewServiceInstanceResourcesRequest
  * @return RenewServiceInstanceResourcesResponse
@@ -3003,7 +3103,10 @@ RenewServiceInstanceResourcesResponse Client::renewServiceInstanceResources(cons
 }
 
 /**
- * @summary Restarts a service instance that is in the Deployed state.
+ * @summary Restarts a service instance in the Deployed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the restart O\\&M operation when the service was created.
  *
  * @param request RestartServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3042,7 +3145,10 @@ RestartServiceInstanceResponse Client::restartServiceInstanceWithOptions(const R
 }
 
 /**
- * @summary Restarts a service instance that is in the Deployed state.
+ * @summary Restarts a service instance in the Deployed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider enabled the restart O\\&M operation when the service was created.
  *
  * @param request RestartServiceInstanceRequest
  * @return RestartServiceInstanceResponse
@@ -3053,7 +3159,7 @@ RestartServiceInstanceResponse Client::restartServiceInstance(const RestartServi
 }
 
 /**
- * @summary Rolls back an upgraded service instance to the previous version.
+ * @summary Rolls back an upgraded service instance.
  *
  * @param request RollbackServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3092,7 +3198,7 @@ RollbackServiceInstanceResponse Client::rollbackServiceInstanceWithOptions(const
 }
 
 /**
- * @summary Rolls back an upgraded service instance to the previous version.
+ * @summary Rolls back an upgraded service instance.
  *
  * @param request RollbackServiceInstanceRequest
  * @return RollbackServiceInstanceResponse
@@ -3103,7 +3209,10 @@ RollbackServiceInstanceResponse Client::rollbackServiceInstance(const RollbackSe
 }
 
 /**
- * @summary Starts a service instance that is in the Stopped or StartFailed state.
+ * @summary Call the StartServiceInstance operation to start a service instance that is in the Stopped or StartFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider configured the start and stop O\\&M actions when creating the service.
  *
  * @param request StartServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3142,7 +3251,10 @@ StartServiceInstanceResponse Client::startServiceInstanceWithOptions(const Start
 }
 
 /**
- * @summary Starts a service instance that is in the Stopped or StartFailed state.
+ * @summary Call the StartServiceInstance operation to start a service instance that is in the Stopped or StartFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider configured the start and stop O\\&M actions when creating the service.
  *
  * @param request StartServiceInstanceRequest
  * @return StartServiceInstanceResponse
@@ -3153,7 +3265,10 @@ StartServiceInstanceResponse Client::startServiceInstance(const StartServiceInst
 }
 
 /**
- * @summary Stops a service instance that is in the Deployed or StopFailed state.
+ * @summary Call the StopServiceInstance operation to shut down a service instance that is in the Deployed or StopFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider configured the Operations and Maintenance (O\\&M) operations for startup and shutdown when the service was created.
  *
  * @param request StopServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3192,7 +3307,10 @@ StopServiceInstanceResponse Client::stopServiceInstanceWithOptions(const StopSer
 }
 
 /**
- * @summary Stops a service instance that is in the Deployed or StopFailed state.
+ * @summary Call the StopServiceInstance operation to shut down a service instance that is in the Deployed or StopFailed state.
+ *
+ * @description ### Prerequisites
+ * Ensure that the service provider configured the Operations and Maintenance (O\\&M) operations for startup and shutdown when the service was created.
  *
  * @param request StopServiceInstanceRequest
  * @return StopServiceInstanceResponse
@@ -3203,7 +3321,7 @@ StopServiceInstanceResponse Client::stopServiceInstance(const StopServiceInstanc
 }
 
 /**
- * @summary Creates and adds tags to a specified resource list.
+ * @summary You can call TagResources to create and attach tags to multiple resources.
  *
  * @param request TagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3246,7 +3364,7 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
 }
 
 /**
- * @summary Creates and adds tags to a specified resource list.
+ * @summary You can call TagResources to create and attach tags to multiple resources.
  *
  * @param request TagResourcesRequest
  * @return TagResourcesResponse
@@ -3257,7 +3375,7 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Detaches tags from specified resources.
  *
  * @param request UnTagResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3304,7 +3422,7 @@ UnTagResourcesResponse Client::unTagResourcesWithOptions(const UnTagResourcesReq
 }
 
 /**
- * @summary Removes tags from resources.
+ * @summary Detaches tags from specified resources.
  *
  * @param request UnTagResourcesRequest
  * @return UnTagResourcesResponse
@@ -3369,10 +3487,10 @@ UpdateServiceInstanceAttributesResponse Client::updateServiceInstanceAttributes(
 }
 
 /**
- * @summary Changes the configurations of a service instance.
+ * @summary You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
  *
- * @description ### [](#)Prerequisites
- * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
  *
  * @param tmpReq UpdateServiceInstanceSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3437,10 +3555,10 @@ UpdateServiceInstanceSpecResponse Client::updateServiceInstanceSpecWithOptions(c
 }
 
 /**
- * @summary Changes the configurations of a service instance.
+ * @summary You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
  *
- * @description ### [](#)Prerequisites
- * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+ * @description ### Prerequisites
+ * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
  *
  * @param request UpdateServiceInstanceSpecRequest
  * @return UpdateServiceInstanceSpecResponse
@@ -3451,7 +3569,7 @@ UpdateServiceInstanceSpecResponse Client::updateServiceInstanceSpec(const Update
 }
 
 /**
- * @summary Updates the application for using a service.
+ * @summary Updates the information about a service usage request.
  *
  * @param tmpReq UpdateServiceUsageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3500,7 +3618,7 @@ UpdateServiceUsageResponse Client::updateServiceUsageWithOptions(const UpdateSer
 }
 
 /**
- * @summary Updates the application for using a service.
+ * @summary Updates the information about a service usage request.
  *
  * @param request UpdateServiceUsageRequest
  * @return UpdateServiceUsageResponse
@@ -3511,7 +3629,10 @@ UpdateServiceUsageResponse Client::updateServiceUsage(const UpdateServiceUsageRe
 }
 
 /**
- * @summary 更新Skill
+ * @summary Updates a skill.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
  *
  * @param request UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3572,7 +3693,10 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &req
 }
 
 /**
- * @summary 更新Skill
+ * @summary Updates a skill.
+ *
+ * @description ### Prerequisites
+ * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse
@@ -3583,7 +3707,7 @@ UpdateSkillResponse Client::updateSkill(const UpdateSkillRequest &request) {
 }
 
 /**
- * @summary Updates the information about a customer.
+ * @summary The UpdateUserInformation operation updates user information.
  *
  * @param request UpdateUserInformationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3618,7 +3742,7 @@ UpdateUserInformationResponse Client::updateUserInformationWithOptions(const Upd
 }
 
 /**
- * @summary Updates the information about a customer.
+ * @summary The UpdateUserInformation operation updates user information.
  *
  * @param request UpdateUserInformationRequest
  * @return UpdateUserInformationResponse
@@ -3629,7 +3753,7 @@ UpdateUserInformationResponse Client::updateUserInformation(const UpdateUserInfo
 }
 
 /**
- * @summary Upgrades the version of a service instance.
+ * @summary Upgrades a service instance to a new version.
  *
  * @param tmpReq UpgradeServiceInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3686,7 +3810,7 @@ UpgradeServiceInstanceResponse Client::upgradeServiceInstanceWithOptions(const U
 }
 
 /**
- * @summary Upgrades the version of a service instance.
+ * @summary Upgrades a service instance to a new version.
  *
  * @param request UpgradeServiceInstanceRequest
  * @return UpgradeServiceInstanceResponse
@@ -3697,7 +3821,7 @@ UpgradeServiceInstanceResponse Client::upgradeServiceInstance(const UpgradeServi
 }
 
 /**
- * @summary 校验服务实例名称
+ * @summary Validates the name of a service instance.
  *
  * @param request ValidateServiceInstanceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +3872,7 @@ ValidateServiceInstanceNameResponse Client::validateServiceInstanceNameWithOptio
 }
 
 /**
- * @summary 校验服务实例名称
+ * @summary Validates the name of a service instance.
  *
  * @param request ValidateServiceInstanceNameRequest
  * @return ValidateServiceInstanceNameResponse

@@ -124,18 +124,39 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The name of the filter. You can specify one or more filter names to query resources. Valid values:
       // 
-      // - Name：Query by service name.
-      // - ServiceInstanceName：Query by service  instance name.
-      // - ServiceInstanceId：Query by service  instance ID.
-      // - ServiceId：Query by service ID.
-      // - Version：Query by service version.
-      // - Status：Query by service status.
-      // - DeployType: Query by service deployType.
-      // - ServiceType：Query by service deployType.
+      // - Name: The name of the service. To perform a fuzzy search, enter the value in the \\*xxx\\* format. For example, if the service name is My Service, you can enter \\*My\\* or \\*Service\\* for a fuzzy search.
+      // 
+      // - ServiceInstanceName: The name of the service instance. A fuzzy query is performed if you enter one service instance name. A term query is performed if you enter multiple service instance names.
+      // 
+      // - ServiceInstanceId: The service instance ID.
+      // 
+      // - ServiceId: The service ID.
+      // 
+      // - Version: The service version.
+      // 
+      // - Status: The instance status.
+      // 
+      // - DeployType: The deployment type.
+      // 
+      // - ServiceType: The service type.
+      // 
+      // - OperationStartTimeBefore: The time before the start of the Alibaba Cloud Managed Services.
+      // 
+      // - OperationStartTimeAfter: The time after the start of the Alibaba Cloud Managed Services.
+      // 
+      // - OperationEndTimeBefore: The time before the end of the Alibaba Cloud Managed Services.
+      // 
+      // - OperationEndTimeAfter: The time after the end of the Alibaba Cloud Managed Services.
+      // 
+      // - OperatedServiceInstanceId: The ID of the managed service instance under a private service.
+      // 
+      // - OperationServiceInstanceId: The ID of the service instance under a pure managed service.
+      // 
+      // - EnableInstanceOps: Indicates whether the Alibaba Cloud Managed Services feature is enabled for the service instance.
       shared_ptr<string> name_ {};
-      // The parameter values of the filter.
+      // The list of filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -190,9 +211,9 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListServiceInstancesRequest::Filter>> filter_ {};
-    // The number of entries page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The query token. Set it to the **NextToken** value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
@@ -200,7 +221,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tag key and value.
+    // The custom tags.
     shared_ptr<vector<ListServiceInstancesRequest::Tag>> tag_ {};
   };
 

@@ -119,20 +119,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource IDs. You can specify up to 50 resource IDs.
+    // The resource IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};
     // The resource type. Valid values:
     // 
-    // *   service: service
-    // *   serviceinstance: service instance
-    // *   artifact: artifact
-    // *   dataset: dataset
+    // - service: a service.
+    // 
+    // - serviceinstance: a service instance.
+    // 
+    // - artifact: a deployment.
+    // 
+    // - dataset: a dataset.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // The tag key and value.
+    // The resource tags.
     shared_ptr<vector<TagResourcesRequest::Tag>> tag_ {};
   };
 

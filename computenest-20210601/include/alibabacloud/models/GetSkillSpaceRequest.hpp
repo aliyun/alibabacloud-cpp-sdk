@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the SkillSpace.
+    // 
     // This parameter is required.
     shared_ptr<string> skillSpaceId_ {};
   };

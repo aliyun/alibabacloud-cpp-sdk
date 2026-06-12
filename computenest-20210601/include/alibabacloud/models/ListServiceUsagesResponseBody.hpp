@@ -143,28 +143,31 @@ namespace Models
 
 
     protected:
-      // The review comment.
+      // The remarks of the approval.
       shared_ptr<string> comments_ {};
-      // The time when the application was created.
+      // The time when the request was created.
       shared_ptr<string> createTime_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
-      // The state of the service application. Valid values:
+      // The service status. Valid values:
       // 
-      // *   Submitted: The application is submitted for review.
-      // *   Approved: The application is approved.
-      // *   Rejected: The application is rejected.
-      // *   Canceled: The application is canceled.
+      // - Submitted: The request is submitted and pending approval.
+      // 
+      // - Approved: The request is approved.
+      // 
+      // - Rejected: The request is rejected.
+      // 
+      // - Canceled: The request is canceled.
       shared_ptr<string> status_ {};
-      // The name of the service provider.
+      // The name of the supplier.
       shared_ptr<string> supplierName_ {};
-      // The time when the application was updated.
+      // The time when the request was last updated.
       shared_ptr<string> updateTime_ {};
-      // The ID of the Alibaba Cloud account.
+      // The Alibaba Cloud account ID of the user.
       shared_ptr<int64_t> userAliUid_ {};
-      // The information about the applicants.
+      // The user information.
       shared_ptr<map<string, string>> userInformation_ {};
     };
 
@@ -208,15 +211,15 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. The maximum value is 100. The default value is 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // A pagination token. It is returned when the results are not complete. To retrieve the next page of results, include this token in the NextToken parameter of the next request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The service applications.
+    // The service usage details.
     shared_ptr<vector<ListServiceUsagesResponseBody::ServiceUsages>> serviceUsages_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -89,11 +89,11 @@ namespace Models
 
 
     protected:
-      // Renewal duration. The unit is specified by PeriodUnit.
+      // The renewal duration. The unit is specified by PeriodUnit.
       shared_ptr<int32_t> period_ {};
-      // The time unit for the resource renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+      // The unit of the renewal duration for the resource. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
       shared_ptr<string> periodUnit_ {};
-      // Resource ARN (Aliyun Resource Name).
+      // The Alibaba Cloud Resource Name (ARN) of the resource.
       shared_ptr<string> resourceArn_ {};
     };
 
@@ -152,21 +152,21 @@ namespace Models
 
 
   protected:
-    // Ensures idempotence of the request. Generate a parameter value from your client to ensure its uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
+    // A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It can contain only ASCII characters and cannot be longer than 64 characters.
     shared_ptr<string> clientToken_ {};
-    // Order type. Possible value: Renewal.
+    // The order type. Valid value: Renewal.
     // 
     // This parameter is required.
     shared_ptr<string> orderType_ {};
-    // The renewal duration for all prepaid resources of the service instance. The unit is specified by PeriodUnit.
+    // The renewal duration for all subscription resources of the service instance. The unit is specified by PeriodUnit.
     shared_ptr<int32_t> period_ {};
-    // The time unit for the renewal duration of all prepaid resources of the service instance, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+    // The unit of the renewal duration for all subscription resources of the service instance. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
     shared_ptr<string> periodUnit_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Resource renewal configuration.
+    // The renewal configuration for the resources.
     shared_ptr<vector<GetServiceInstanceSubscriptionEstimateCostRequest::ResourcePeriod>> resourcePeriod_ {};
-    // Service instance ID.
+    // The service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

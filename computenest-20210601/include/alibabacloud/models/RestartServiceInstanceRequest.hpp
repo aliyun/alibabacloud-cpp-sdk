@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
-    // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client token to ensure the idempotence of the request. The token must be unique for each request. The token can contain only ASCII characters and cannot be longer than 64 characters.
     shared_ptr<string> clientToken_ {};
-    // The region ID where the service instance resides.
+    // The region ID of the service instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The ID of the service instance.
+    // 
+    // Call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the service instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

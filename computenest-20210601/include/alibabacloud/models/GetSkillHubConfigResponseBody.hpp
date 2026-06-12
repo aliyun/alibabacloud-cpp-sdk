@@ -75,11 +75,15 @@ namespace Models
 
 
   protected:
+    // The time when the configuration was created.
     shared_ptr<string> createTime_ {};
+    // The name of the OSS bucket.
     shared_ptr<string> ossBucketName_ {};
+    // The region where the OSS bucket is located.
     shared_ptr<string> ossRegionId_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The time when the configuration was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

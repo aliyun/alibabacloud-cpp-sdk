@@ -114,11 +114,11 @@ namespace Models
 
 
       protected:
-        // Promotion description.
+        // The description of the discount.
         shared_ptr<string> description_ {};
-        // Promotion name.
+        // The name of the discount.
         shared_ptr<string> name_ {};
-        // Promotion ID.
+        // The discount ID.
         shared_ptr<int64_t> ruleDescId_ {};
       };
 
@@ -178,13 +178,13 @@ namespace Models
 
 
       protected:
-        // Discount amount.
+        // The discount.
         shared_ptr<float> discountAmount_ {};
-        // Original price.
+        // The original price.
         shared_ptr<float> originalAmount_ {};
-        // Pricing module identifier.
+        // The identifier of the pricing module.
         shared_ptr<string> resource_ {};
-        // Discounted price.
+        // The discounted price.
         shared_ptr<float> tradeAmount_ {};
       };
 
@@ -259,26 +259,29 @@ namespace Models
 
 
     protected:
-      // Currency. Valid values:
+      // The currency. Valid values:
+      // 
       // - CNY: Chinese Yuan.
+      // 
       // - USD: US Dollar.
+      // 
       // - JPY: Japanese Yen.
       shared_ptr<string> currency_ {};
       // The price details of the pricing module.
       shared_ptr<vector<ResourcePrices::DetailInfos>> detailInfos_ {};
-      // Discount.
+      // The discount.
       shared_ptr<float> discountAmount_ {};
-      // Original price.
+      // The original price.
       shared_ptr<float> originalAmount_ {};
-      // Renewal duration. The unit is specified by PeriodUnit.
+      // The renewal duration. The unit is specified by PeriodUnit.
       shared_ptr<int32_t> period_ {};
-      // The time unit for the renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+      // The unit of the renewal duration. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
       shared_ptr<string> periodUnit_ {};
-      // Resource ARN (Aliyun Resource Name).
+      // The ARN of the resource.
       shared_ptr<string> resourceArn_ {};
-      // Promotion details.
+      // The discount details.
       shared_ptr<vector<ResourcePrices::Rules>> rules_ {};
-      // Discounted price.
+      // The discounted price.
       shared_ptr<float> tradeAmount_ {};
     };
 
@@ -301,9 +304,9 @@ namespace Models
 
 
   protected:
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // List of resource price information.
+    // The list of resource price information.
     shared_ptr<vector<GetServiceInstanceSubscriptionEstimateCostResponseBody::ResourcePrices>> resourcePrices_ {};
   };
 

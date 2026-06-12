@@ -66,18 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the new resource group.
+    // The ID of the destination resource group.
     // 
-    // You can view resource group IDs in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) .
+    // You can obtain the resource group ID from the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups).
     shared_ptr<string> newResourceGroupId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the cloud resource that you want to move to a new resource group.
+    // The ID of the cloud resource whose resource group you want to change.
     shared_ptr<string> resourceId_ {};
     // The resource type. Valid values:
     // 
-    // *   service: service
-    // *   serviceinstance: service instance
+    // - service: The resource is a service.
+    // 
+    // - serviceinstance: The resource is a service instance.
     shared_ptr<string> resourceType_ {};
   };
 

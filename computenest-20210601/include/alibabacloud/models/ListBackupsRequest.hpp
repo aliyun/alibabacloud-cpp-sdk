@@ -74,15 +74,19 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The name of the filter. You can query by one or more filter names. Valid values:
       // 
-      // *   BackupId: the ID of the backup.
-      // *   ServiceInstanceId: The ID of the service instance.
-      // *   Status: the state of the service.
-      // *   StartTime
-      // *   EndTime
+      // - BackupId: The backup ID.
+      // 
+      // - ServiceInstanceId: The service instance ID.
+      // 
+      // - Status: The status.
+      // 
+      // - StartTime: The start time.
+      // 
+      // - EndTime: The end time.
       shared_ptr<string> name_ {};
-      // The list of filters.
+      // The filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -116,7 +120,7 @@ namespace Models
     shared_ptr<vector<ListBackupsRequest::Filter>> filter_ {};
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token that is used to start the next query.
     shared_ptr<string> nextToken_ {};
   };
 

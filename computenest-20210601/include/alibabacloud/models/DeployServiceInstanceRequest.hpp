@@ -57,17 +57,17 @@ namespace Models
 
 
   protected:
-    // Ensures idempotency of the request. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
+    // A client token to ensure the idempotence of a request. Generate a unique value from the client for this parameter. The token can contain only ASCII characters and must be no more than 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Region ID. Allowed values:
+    // The region ID. Possible values:
     // 
-    // - cn-hangzhou: East China 1 (Hangzhou).
+    // - cn-hangzhou: China (Hangzhou).
     // 
     // - ap-southeast-1: Singapore.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service instance ID.
+    // The ID of the service instance.
     // 
     // This parameter is required.
     shared_ptr<string> serviceInstanceId_ {};

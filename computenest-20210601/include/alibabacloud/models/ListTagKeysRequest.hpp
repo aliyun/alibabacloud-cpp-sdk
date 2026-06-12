@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token to start the next query.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 
@@ -65,10 +65,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource type. Valid values:
     // 
-    // *   service: service
-    // *   serviceinstance: service instance
-    // *   artifact: artifact
-    // *   dataset: dataset
+    // - service: service.
+    // 
+    // - serviceinstance: service instance.
+    // 
+    // - artifact: artifact.
+    // 
+    // - dataset: dataset.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

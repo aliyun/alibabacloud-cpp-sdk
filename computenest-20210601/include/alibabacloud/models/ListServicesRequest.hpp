@@ -130,14 +130,17 @@ namespace Models
 
 
     protected:
-      // The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+      // The filter name. You can specify one or more filter names to query services. Valid values:
       // 
-      // *   ServiceId: the ID of the service.
-      // *   Name: the name of the service.
-      // *   Status: the state of the service.
-      // *   SupplierName: the name of the service provider.
+      // - ServiceId: The service ID.
+      // 
+      // - Name: The service name.
+      // 
+      // - Status: The service status.
+      // 
+      // - SupplierName: The service provider name.
       shared_ptr<string> name_ {};
-      // A value of the filter condition.
+      // The filter values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -214,31 +217,27 @@ namespace Models
   protected:
     // The filter.
     shared_ptr<vector<ListServicesRequest::Filter>> filter_ {};
-    // Keyword fuzzy query.
+    // The keyword for a fuzzy query.
     shared_ptr<string> fuzzyKeyword_ {};
-    // Whether it is used. Optional values:
+    // Specifies whether the service is in use. Valid values:
     // 
+    // - false: The service is not in use.
     // 
-    // 
-    // - false: not being used.
-    // 
-    // 
-    // 
-    // - true: already in use.
+    // - true: The service is in use.
     shared_ptr<bool> inUsed_ {};
-    // The number of entries page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token that is used to retrieve the next page of results. Set this to the NextToken value returned from the previous API call.
     shared_ptr<string> nextToken_ {};
-    // Service ordering type.
+    // The sorting type for services.
     shared_ptr<string> orderByType_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Service access type.
+    // The service access type.
     shared_ptr<string> serviceAccessType_ {};
-    // The tags.
+    // The custom tags.
     shared_ptr<vector<ListServicesRequest::Tag>> tag_ {};
   };
 

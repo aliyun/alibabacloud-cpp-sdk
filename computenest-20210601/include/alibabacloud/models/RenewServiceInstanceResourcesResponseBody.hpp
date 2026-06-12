@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // Number of failed renewals.
+      // The number of resources that failed to be renewed.
       shared_ptr<int32_t> failed_ {};
-      // Number of successfully renewed resources.
+      // The number of successfully renewed resources.
       shared_ptr<int32_t> succeeded_ {};
-      // Number of renewed resources.
+      // The number of resources to be renewed.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -136,11 +136,11 @@ namespace Models
 
 
     protected:
-      // Error code.
+      // The error code.
       shared_ptr<string> errorCode_ {};
-      // Error message.
+      // The error message.
       shared_ptr<string> errorMessage_ {};
-      // Resource ARN (Aliyun Resource Name).
+      // The ARN of the resource.
       shared_ptr<string> resourceArn_ {};
     };
 
@@ -172,11 +172,11 @@ namespace Models
 
 
   protected:
-    // Details of failed renewals.
+    // The details of renewal failures.
     shared_ptr<vector<RenewServiceInstanceResourcesResponseBody::FailureDetails>> failureDetails_ {};
-    // Renewal result.
+    // The renewal result.
     shared_ptr<RenewServiceInstanceResourcesResponseBody::RenewalResult> renewalResult_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

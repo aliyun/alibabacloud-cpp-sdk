@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the detection task.
+    // 
     // This parameter is required.
     shared_ptr<string> hashKey_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

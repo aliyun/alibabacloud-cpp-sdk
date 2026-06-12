@@ -142,8 +142,6 @@ namespace Models
 
       protected:
         // The tag key.
-        // 
-        // >  This parameter is required.
         shared_ptr<string> key_ {};
         // The tag value.
         shared_ptr<string> value_ {};
@@ -196,8 +194,11 @@ namespace Models
 
 
       protected:
+        // The English value of the business information.
         shared_ptr<string> enValue_ {};
+        // The raw data value of the business information.
         shared_ptr<string> originalValue_ {};
+        // The Chinese value of the business information.
         shared_ptr<string> zhValue_ {};
       };
 
@@ -266,9 +267,9 @@ namespace Models
 
 
         protected:
-          // The name of the software.
+          // The software name.
           shared_ptr<string> name_ {};
-          // The version of the software.
+          // The software version.
           shared_ptr<string> version_ {};
         };
 
@@ -314,16 +315,17 @@ namespace Models
       protected:
         // The URL of the service icon.
         shared_ptr<string> image_ {};
-        // The language of the service. Valid values:
+        // The language of the service configuration. Valid values:
         // 
-        // *   zh-CN: Chinese.
-        // *   en-US: English.
+        // - zh-CN: Chinese.
+        // 
+        // - en-US: English.
         shared_ptr<string> locale_ {};
-        // The name of the service.
+        // The service name.
         shared_ptr<string> name_ {};
-        // The description of the service.
+        // The service overview.
         shared_ptr<string> shortDescription_ {};
-        // Service software information.
+        // The software information of the service.
         shared_ptr<vector<ServiceInfos::Softwares>> softwares_ {};
       };
 
@@ -365,9 +367,9 @@ namespace Models
 
 
       protected:
-        // The commodity code.
+        // The commodity specification code.
         shared_ptr<string> commodityCode_ {};
-        // Deploy Page.
+        // The deployment page.
         shared_ptr<string> deployPage_ {};
       };
 
@@ -554,80 +556,103 @@ namespace Models
 
 
     protected:
-      // The category of the service.
+      // The category of the data disk. Valid values:
+      // 
+      // - cloud_efficiency: ultra disk.
+      // 
+      // - cloud_ssd: standard SSD.
+      // 
+      // - cloud_essd: ESSD.
+      // 
+      // - cloud: basic disk.
       shared_ptr<string> categories_ {};
-      // The commodity details.
+      // The commodity specifications.
       shared_ptr<Services::Commodity> commodity_ {};
       // The commodity code of the service in Alibaba Cloud Marketplace.
       shared_ptr<string> commodityCode_ {};
-      // Service deployment approach. Valid values:
-      // - NoWhere
+      // The deployment source of the service. Valid values:
       // 
-      // - Marketplace
+      // - NoWhere: The service has no deployment source.
       // 
-      // - ComputeNest
+      // - Marketplace: The service is deployed from Alibaba Cloud Marketplace.
+      // 
+      // - ComputeNest: The service is deployed from Compute Nest.
       shared_ptr<string> deployFrom_ {};
-      // The deployment type of the service. Valid values:
+      // The deployment type. Valid values:
       // 
-      // *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-      // *   terraform: The service is deployed by using Terraform.
+      // - ros: The service is deployed using ROS.
+      // 
+      // - terraform: The service is deployed using Terraform.
+      // 
+      // - spi: The service is deployed by calling SPI.
       shared_ptr<string> deployType_ {};
       // The time when the service was published.
       shared_ptr<string> publishTime_ {};
-      // Service recommendation score.
+      // The service score.
       shared_ptr<int32_t> score_ {};
       // The service ID.
       shared_ptr<string> serviceId_ {};
       // The service information.
       shared_ptr<vector<Services::ServiceInfos>> serviceInfos_ {};
+      // The multi-language configurations of the service.
       shared_ptr<vector<Services::ServiceLocaleConfigs>> serviceLocaleConfigs_ {};
-      // The URL of the service page.
+      // The URL of the product page.
       shared_ptr<string> serviceProductUrl_ {};
-      // The type of the service. Valid values:
+      // The service type. Valid values:
       // 
-      // - private: The service is a private service and is deployed within the account of a customer.
-      // - managed: The service is a fully managed service and is deployed within the account of a service provider.
-      // - operation: The service is a hosted O&M service.
+      // - private: The service is deployed in the user\\"s account.
+      // 
+      // - managed: The service is hosted in the service provider\\"s account.
+      // 
+      // - operation: The service is an Alibaba Cloud Managed Service.
       shared_ptr<string> serviceType_ {};
-      // The state of the service. Valid values:
+      // The service status. Valid values:
       // 
-      // *   Draft: The service is a draft.
-      // *   Submitted: The service is submitted for review. You cannot modify services in this state.
-      // *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
-      // *   Launching: The service is being published.
-      // *   Online: The service is published.
-      // *   Offline: The service is unpublished.
+      // - Draft: The service is in the draft state.
+      // 
+      // - Submitted: The service is submitted for review. You cannot modify the service.
+      // 
+      // - Approved: The service is approved. You cannot modify the service, but you can publish it.
+      // 
+      // - Launching: The service is being published.
+      // 
+      // - Online: The service is published.
+      // 
+      // - Offline: The service is unpublished.
       shared_ptr<string> status_ {};
-      // The name of the service provider.
+      // The service provider name.
       shared_ptr<string> supplierName_ {};
-      // The name of service provider.
+      // The English name of the service provider.
       shared_ptr<string> supplierNameEng_ {};
       // The Alibaba Cloud account ID of the service provider.
       shared_ptr<int64_t> supplierUid_ {};
-      // The URL of the service provider.
+      // The service provider\\"s URL.
       shared_ptr<string> supplierUrl_ {};
-      // The tags.
+      // The service tags.
       shared_ptr<vector<Services::Tags>> tags_ {};
-      // The tenant type of the managed service. Valid values:
+      // The tenant type. Valid values:
       // 
-      // *   SingleTenant
-      // *   MultiTenant
+      // - SingleTenant: single-tenant.
+      // 
+      // - MultiTenant: multi-tenant.
       shared_ptr<string> tenantType_ {};
-      // The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+      // The trial duration. Unit: days. The maximum trial duration is 30 days.
       shared_ptr<string> trialDuration_ {};
-      // The trial policy. Valid values:
+      // The trial type. Valid values:
       // 
-      // *   Trial: Trials are supported.
-      // *   NotTrial: Trials are not supported.
+      // - Trial: The service supports trial.
+      // 
+      // - NotTrial: The service does not support trial.
       shared_ptr<string> trialType_ {};
-      // The version of the service.
+      // The service version.
       shared_ptr<string> version_ {};
       // The custom version name defined by the service provider.
       shared_ptr<string> versionName_ {};
       // Indicates whether the service is a virtual Internet service. Valid values:
       // 
-      // *   false
-      // *   true
+      // - false: No.
+      // 
+      // - true: Yes.
       shared_ptr<string> virtualInternetService_ {};
     };
 
@@ -671,15 +696,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The services.
+    // The list of services.
     shared_ptr<vector<ListServicesResponseBody::Services>> services_ {};
-    // The total number of entries returned.
+    // The total number of results.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The parameters configured for the service instance.
+    // The parameters for deploying the user instance.
     shared_ptr<string> parametersShrink_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
@@ -92,14 +92,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The version of the service.
+    // The service version.
     shared_ptr<string> serviceVersion_ {};
     // The template name.
     shared_ptr<string> templateName_ {};
-    // The trial policy. Valid values:
+    // The usage type. Valid values:
     // 
-    // *   Trial: Trials are supported.
-    // *   NotTrial: Trials are not supported.
+    // - Trial: The service supports trial use.
+    // 
+    // - NotTrial: The service does not support trial use.
     shared_ptr<string> trialType_ {};
   };
 

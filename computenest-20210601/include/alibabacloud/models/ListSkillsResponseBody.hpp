@@ -133,14 +133,21 @@ namespace Models
 
 
     protected:
+      // The creation time of the Skill.
       shared_ptr<string> createTime_ {};
+      // The download URL of the Skill package. This parameter is returned only if `NeedDownloadUrl` is set to `true`.
       shared_ptr<string> downloadUrl_ {};
+      // The Skill description.
       shared_ptr<string> skillDescription_ {};
-      // Skill ID
+      // The Skill ID.
       shared_ptr<string> skillId_ {};
+      // The Skill labels.
       shared_ptr<vector<string>> skillLabels_ {};
+      // The Skill name.
       shared_ptr<string> skillName_ {};
+      // The ID of the SkillSpace to which the Skill belongs.
       shared_ptr<string> skillSpaceId_ {};
+      // The last update time of the Skill.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -184,11 +191,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. This parameter is empty when all results have been returned.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // A list of Skills.
     shared_ptr<vector<ListSkillsResponseBody::Skills>> skills_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

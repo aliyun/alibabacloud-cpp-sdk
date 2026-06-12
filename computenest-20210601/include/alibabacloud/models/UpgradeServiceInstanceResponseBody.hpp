@@ -53,7 +53,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The parameters required for the upgrade. This parameter is returned only if DryRun is set to true in the request. You can specify the required parameters based on the returned value when you perform an actual request.
+    // The new parameters required for the service upgrade. This parameter is returned only when DryRun is set to true. Include these parameters in the request when you perform the upgrade.
     shared_ptr<vector<string>> upgradeRequiredParameters_ {};
   };
 

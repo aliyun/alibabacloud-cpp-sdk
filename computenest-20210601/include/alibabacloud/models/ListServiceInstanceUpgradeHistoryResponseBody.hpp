@@ -131,25 +131,31 @@ namespace Models
 
 
     protected:
-      // The time when the update ended.
+      // The time when the upgrade ended.
       shared_ptr<string> endTime_ {};
       // The version before the upgrade.
       shared_ptr<string> fromVersion_ {};
-      // The upgrade result.
+      // The upgrade results.
       shared_ptr<string> results_ {};
-      // The time when the update started.
+      // The time when the upgrade started.
       shared_ptr<string> startTime_ {};
-      // The state of the update. Valid values:
+      // The status of the upgrade. Valid values:
       // 
-      // *   upgrading: The service instance is being upgraded.
-      // *   UpgradeSuccessful: The service instance is upgraded.
-      // *   UpgradeFailed: The service instance failed to be upgraded.
+      // - upgrading
+      // 
+      // - UpgradeSuccessful
+      // 
+      // - UpgradeFailed
       shared_ptr<string> status_ {};
       // The version after the upgrade.
       shared_ptr<string> toVersion_ {};
-      // The update type.
+      // The type of upgrade. Valid values:
+      // 
+      // - Upgrade
+      // 
+      // - Rollback
       shared_ptr<string> type_ {};
-      // The ID of the upgrade record.
+      // The ID of the upgrade history.
       shared_ptr<string> upgradeHistoryId_ {};
     };
 
@@ -193,15 +199,15 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned per page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
-    // The upgrade history.
+    // The upgrade history records.
     shared_ptr<vector<ListServiceInstanceUpgradeHistoryResponseBody::UpgradeHistory>> upgradeHistory_ {};
   };
 

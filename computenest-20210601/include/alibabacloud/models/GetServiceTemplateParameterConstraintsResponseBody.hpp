@@ -114,7 +114,7 @@ namespace Models
 
 
       protected:
-        // The error message.
+        // The error details.
         shared_ptr<string> errorMessage_ {};
         // The resource name.
         shared_ptr<string> resourceName_ {};
@@ -260,25 +260,27 @@ namespace Models
     protected:
       // The valid values of the parameter.
       shared_ptr<vector<string>> allowedValues_ {};
-      // The names of the associated parameters.
+      // The associated parameters.
       shared_ptr<vector<string>> associationParameterNames_ {};
       // The behavior of the parameter. Valid values:
       // 
-      // *   NoLimit: No limit is imposed on the value of this parameter.
-      // *   NotSupport: The value of this parameter cannot be queried.
-      // *   QueryError: This parameter failed to be queried.
+      // - NoLimit: No limits are imposed on the value of this parameter.
       // 
-      // >  If AllowedValues is not returned, Behavior and BehaviorReason are returned, which indicate the behavior of the parameter and the reason for the behavior.
+      // - NotSupport: The values of this parameter cannot be queried.
+      // 
+      // - QueryError: The query failed.
+      // 
+      // > If AllowedValues is not returned, Behavior and BehaviorReason are returned to describe the behavior of the parameter and the reason.
       shared_ptr<string> behavior_ {};
-      // The reason why the behavior of the parameter is returned.
+      // The reason for the parameter behavior.
       shared_ptr<string> behaviorReason_ {};
-      // The original constraint information.
+      // The original constraints.
       shared_ptr<vector<ParameterConstraints::OriginalConstraints>> originalConstraints_ {};
       // The name of the parameter.
       shared_ptr<string> parameterKey_ {};
-      // The error details that are returned if the request fails.
+      // The details of the query failure.
       shared_ptr<vector<ParameterConstraints::QueryErrors>> queryErrors_ {};
-      // The data type of the parameter.
+      // The type of the parameter.
       shared_ptr<string> type_ {};
     };
 
@@ -310,9 +312,9 @@ namespace Models
 
 
   protected:
-    // The package family constraints.
+    // The constraints on the specification family.
     shared_ptr<vector<string>> familyConstraints_ {};
-    // The constraints on the parameters.
+    // The parameter constraints.
     shared_ptr<vector<GetServiceTemplateParameterConstraintsResponseBody::ParameterConstraints>> parameterConstraints_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

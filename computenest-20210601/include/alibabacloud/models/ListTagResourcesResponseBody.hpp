@@ -94,10 +94,13 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The resource type. Valid values:
       // 
-      // *   service: service
-      // *   serviceinstance: service instance
-      // *   artifact: deployment package
-      // *   dataset: dataset
+      // - service: a service.
+      // 
+      // - serviceinstance: a service instance.
+      // 
+      // - artifact: an artifact.
+      // 
+      // - dataset: a dataset.
       shared_ptr<string> resourceType_ {};
       // The tag key.
       shared_ptr<string> tagKey_ {};
@@ -131,11 +134,11 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The collection of details about resources and tags, such as resource IDs, resource types, and tag key-value pairs.
+    // A collection of resources and their tags. This collection includes information such as resource IDs, resource types, and tag key-value pairs.
     shared_ptr<vector<ListTagResourcesResponseBody::TagResources>> tagResources_ {};
   };
 

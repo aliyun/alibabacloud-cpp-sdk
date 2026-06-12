@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure request idempotence. This value must be unique for each request. **ClientToken** must contain only ASCII characters and be no longer than 64 characters.
     shared_ptr<string> clientToken_ {};
+    // The name of the Object Storage Service (OSS) bucket.
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucketName_ {};
+    // The region ID of the OSS bucket. For more information, see [OSS regions and endpoints](https://help.aliyun.com/document_detail/31837.html).
+    // 
     // This parameter is required.
     shared_ptr<string> ossRegionId_ {};
   };

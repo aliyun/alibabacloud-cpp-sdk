@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // Page size.
+    // The number of entries to return on each page.
     shared_ptr<int32_t> maxResults_ {};
-    // Token for the next query, an empty nextToken indicates there is no next page.
+    // The token that is used to retrieve the next page of results. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // Region ID.
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

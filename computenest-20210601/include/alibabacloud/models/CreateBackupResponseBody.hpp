@@ -66,19 +66,25 @@ namespace Models
 
 
   protected:
-    // Backup ID
+    // The backup ID.
     shared_ptr<string> backupId_ {};
-    // Description
+    // The description.
     shared_ptr<string> description_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Backup status 
-    // - Creating: In progress 
-    // - Created: Success 
-    // - CreateFailed: Failed 
-    // - Deleting: In progress 
-    // - Deleted: Success 
-    // - DeleteFailed: Failed
+    // The status of the backup.
+    // 
+    // - Creating: The backup is being created.
+    // 
+    // - Created: The backup is created.
+    // 
+    // - CreateFailed: The backup failed to be created.
+    // 
+    // - Deleting: The backup is being deleted.
+    // 
+    // - Deleted: The backup is deleted.
+    // 
+    // - DeleteFailed: The backup failed to be deleted.
     shared_ptr<string> status_ {};
   };
 

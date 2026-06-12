@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The relative path of the file within the Skill.
       shared_ptr<string> filePath_ {};
+      // The pre-signed URL for accessing the file in OSS.
       shared_ptr<string> signedUrl_ {};
     };
 
@@ -120,11 +122,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results. This token is returned only when more results are available.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The Skill files.
     shared_ptr<vector<ListSkillFilesResponseBody::SkillFiles>> skillFiles_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

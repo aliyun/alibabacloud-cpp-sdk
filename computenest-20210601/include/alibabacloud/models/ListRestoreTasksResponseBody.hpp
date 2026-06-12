@@ -142,25 +142,27 @@ namespace Models
     protected:
       // The backup ID.
       shared_ptr<string> backupId_ {};
-      // The creation time.
+      // The time when the job was created.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the service instance.
+      // The time when the restore job ended.
       shared_ptr<string> endTime_ {};
-      // The update time.
+      // The time when the job was last updated.
       shared_ptr<string> modifiedTime_ {};
-      // The ID of the restore task.
+      // The ID of the restore job.
       shared_ptr<string> restoreTaskId_ {};
       // The ID of the service instance.
       shared_ptr<string> serviceInstanceId_ {};
-      // The time when the update started.
+      // The time when the restore job started.
       shared_ptr<string> startTime_ {};
       // The status of the service instance. Valid values:
       // 
-      // *   Restoring
-      // *   Restored
-      // *   RestoreFailed
+      // - Restoring: The service instance is being restored.
+      // 
+      // - Restored: The service instance was restored.
+      // 
+      // - RestoreFailed: The service instance failed to be restored.
       shared_ptr<string> status_ {};
-      // The description of the service instance deployment information.
+      // The details of the instance status.
       shared_ptr<string> statusDetail_ {};
     };
 
@@ -204,17 +206,17 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned in this request.
+    // The maximum number of entries returned for the request.
     shared_ptr<int32_t> maxResults_ {};
-    // Indicates the read position returned by the current call. An empty value means all data has been read.
+    // The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of restore tasks.
+    // The list of restore jobs.
     shared_ptr<vector<ListRestoreTasksResponseBody::RestoreTasks>> restoreTasks_ {};
-    // Total data count under the current request conditions (optional; not returned by default).
+    // The total number of entries that meet the filter criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

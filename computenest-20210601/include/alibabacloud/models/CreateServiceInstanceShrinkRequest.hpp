@@ -177,15 +177,15 @@ namespace Models
 
 
     protected:
-      // The operation end time.
+      // The end time of the O\\&M window. This parameter is valid only in managed O\\&M mode.
       shared_ptr<string> endTime_ {};
-      // The additional information.
+      // Additional information about the managed O\\&M service.
       shared_ptr<string> extraInfo_ {};
-      // Imported resource.
+      // The list of imported resources.
       shared_ptr<string> resources_ {};
-      // The ID of the service instance.
+      // The ID of the imported service instance.
       shared_ptr<string> serviceInstanceId_ {};
-      // The operation start time.
+      // The start time of the O\\&M window. This parameter is valid only in managed O\\&M mode.
       shared_ptr<string> startTime_ {};
     };
 
@@ -263,15 +263,17 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically complete the payment. Valid values:
+      // Indicates whether to enable automatic payment for the order. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enable automatic payment.
+      // 
+      // - **false**: Disable automatic payment.
       shared_ptr<bool> autoPay_ {};
-      // Specifies whether to enable auto-renewal for the service instance. Valid values:
+      // Indicates whether to enable auto-renewal. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: Enable.
+      // 
+      // - **false**: Disable.
       shared_ptr<bool> autoRenew_ {};
       // The coupon ID.
       shared_ptr<string> couponId_ {};
@@ -279,11 +281,13 @@ namespace Models
       shared_ptr<int64_t> payPeriod_ {};
       // The unit of the subscription duration. Valid values:
       // 
-      // *   **Year**
-      // *   **Month**
-      // *   **Day**
+      // - **Year**: Year.
+      // 
+      // - **Month**: Month.
+      // 
+      // - **Day**: Day.
       shared_ptr<string> payPeriodUnit_ {};
-      // privet offer Id
+      // The ID of the private offer in Alibaba Cloud Marketplace.
       shared_ptr<string> quotationId_ {};
     };
 
@@ -439,46 +443,55 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // A client-generated, unique token that ensures the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The information about the order placed in Alibaba Cloud Marketplace. You do not need to specify this parameter if the service is not published in Alibaba Cloud Marketplace or uses the pay-as-you-go billing method.
+    // The information about the Alibaba Cloud Marketplace purchase order. You do not need to specify this parameter if the service is not listed in Alibaba Cloud Marketplace or if you use the pay-as-you-go billing method.
     shared_ptr<CreateServiceInstanceShrinkRequest::Commodity> commodity_ {};
-    // The alert contact group.
+    // The CloudMonitor alert contact group that receives alerts.
     shared_ptr<string> contactGroup_ {};
-    // Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+    // Indicates whether to perform a dry run for the request. The dry run checks for permissions and instance status. Valid values:
     // 
-    // *   **true**: performs a dry run for the request, but does not create a service instance.
-    // *   **false**: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+    // - **true**: Sends the request without creating the service instance.
+    // 
+    // - **false**: Sends the request and creates the service instance after the check is passed.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether the service instance supports the hosted O\\&M feature. Valid values:
+    // Indicates whether the service instance has the O\\&M feature. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The service instance has the O\\&M feature.
+    // 
+    // - **false**: The service instance does not have the O\\&M feature.
     shared_ptr<bool> enableInstanceOps_ {};
-    // Specifies whether to enable the Prometheus monitoring feature. Valid values:
+    // Indicates whether to enable Prometheus monitoring. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enable.
+    // 
+    // - **false**: Disable.
     shared_ptr<bool> enableUserPrometheus_ {};
-    // The serviceInstance name.
-    shared_ptr<string> name_ {};
-    // The operation metadata.
-    shared_ptr<CreateServiceInstanceShrinkRequest::OperationMetadata> operationMetadata_ {};
-    // The parameters that the customer specifies to deploy the service instance.
+    // The name of the service instance. The name must meet the following requirements:
     // 
-    // >  If region information is required to create a service instance, you must specify the region ID in the value of Parameters.
+    // - The name can be up to 64 characters in length.
+    // 
+    // - It must start with a letter or a digit and can contain letters, digits, hyphens (-), and underscores (_).
+    shared_ptr<string> name_ {};
+    // The O\\&M configuration.
+    shared_ptr<CreateServiceInstanceShrinkRequest::OperationMetadata> operationMetadata_ {};
+    // The parameters for deploying the user instance.
+    // 
+    // > If the service instance contains deployment region information, you must specify the region in the deployment parameters.
     shared_ptr<string> parametersShrink_ {};
     // The region ID. Valid values:
     // 
-    // *   cn-hangzhou: China (Hangzhou).
-    // *   ap-southeast-1: Singapore.
+    // - cn-hangzhou: China (Hangzhou).
+    // 
+    // - ap-southeast-1: Singapore.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to automatically deduct the resource fees from the account balance. Valid values:
+    // Indicates whether to automatically deduct the payment from your account balance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enable automatic payment.
+    // 
+    // - **false**: Disable automatic payment.
     shared_ptr<bool> resourceAutoPay_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
@@ -486,22 +499,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> serviceId_ {};
-    // The trial service instance id witch you want to convert to formal
+    // The ID of the service instance to convert to a paid instance.
     shared_ptr<string> serviceInstanceId_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // Specification code.
+    // The commodity specification code.
     shared_ptr<string> specificationCode_ {};
-    // The package name.
+    // The name of the specification package.
     shared_ptr<string> specificationName_ {};
-    // The tags.
+    // The custom tags.
     shared_ptr<vector<CreateServiceInstanceShrinkRequest::Tag>> tag_ {};
-    // The name of the template.
+    // The template name. You must specify this parameter if the service supports multiple templates.
     shared_ptr<string> templateName_ {};
-    // The trial type of the service instance. Valid values:
+    // The type of the service instance. Valid values:
     // 
-    // *   **Trial**: Trials are supported.
-    // *   **NotTrial**: Trials are not supported.
+    // - **Trial**: The service instance supports trial.
+    // 
+    // - **NotTrial**: The service instance does not support trial.
     shared_ptr<string> trialType_ {};
   };
 

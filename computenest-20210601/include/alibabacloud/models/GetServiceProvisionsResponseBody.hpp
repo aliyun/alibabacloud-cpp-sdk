@@ -167,16 +167,18 @@ namespace Models
 
 
           protected:
-            // The name of the API operation.
+            // The API operation name.
             shared_ptr<string> apiName_ {};
-            // The ID of the Alibaba Cloud service to which the API operation belongs.
+            // The ID of the product to which the API operation belongs.
             shared_ptr<string> apiProductId_ {};
-            // The type of the API operation. Valid values:
+            // The API type.
+            // Valid values:
             // 
-            // *   Open: public
-            // *   Inner: private
+            // - Open: public API.
+            // 
+            // - Inner: internal API.
             shared_ptr<string> apiType_ {};
-            // The ROS parameters of the cluster.
+            // The API parameters. ${variable} indicates a dynamic parameter.
             Darabonba::Json parameters_ {};
           };
 
@@ -213,16 +215,18 @@ namespace Models
 
 
         protected:
-          // The information about the API operation that is used to create the RAM role.
+          // The information about the API operation used to create the role.
           shared_ptr<Roles::ApiForCreation> apiForCreation_ {};
-          // Indicates whether the RAM role is created. Valid values:
+          // Indicates whether the role is created. Valid values:
           // 
-          // *   true
-          // *   false
+          // - true: The role is created.
+          // 
+          // - false: The role is not created.
           shared_ptr<bool> created_ {};
-          // The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
+          // The purpose of the role.
+          // Default value: Default. This value indicates that the role is the default role for the service.
           shared_ptr<string> function_ {};
-          // The name of the role.
+          // The role name.
           shared_ptr<string> roleName_ {};
         };
 
@@ -245,11 +249,10 @@ namespace Models
 
 
       protected:
-        // The authorization URL of the RAM role.
-        // 
-        // > This parameter is returned if Created is set to false.
+        // The authorization URL for accessing the cloud resources of the service.
+        // This URL is returned if the role is not created.
         shared_ptr<string> authorizationURL_ {};
-        // The RAM roles of the service.
+        // The list of service roles.
         shared_ptr<vector<RoleProvision::Roles>> roles_ {};
       };
 
@@ -300,11 +303,15 @@ namespace Models
 
 
       protected:
-        // Commodity Code
+        // The commodity code.
         shared_ptr<string> commodityCode_ {};
-        // Product activation link.
+        // The URL for activating the commodity.
         shared_ptr<string> enableURL_ {};
-        // Cloud service activation status.
+        // The activation status of the Alibaba Cloud service. Valid values:
+        // 
+        // - Enabled: The service is activated.
+        // 
+        // - Disabled: The service is not activated.
         shared_ptr<string> status_ {};
       };
 
@@ -365,30 +372,35 @@ namespace Models
 
 
     protected:
-      // Indicates whether automatic activation for the service is defined in the template. Valid values:
+      // Indicates whether the service is automatically activated as defined in the template. Valid values:
       // 
-      // *   true: Automatic activation for the service is defined in the template.
-      // *   false: Manual activation for the service is defined in the template.
+      // - true: The service is automatically activated.
+      // 
+      // - false: The service is manually activated.
       shared_ptr<bool> autoEnableService_ {};
-      // Product details. Some services (such as ACS) involve the activation of multiple products
+      // The commodity details. Some services, such as ACS, require the activation of multiple commodities.
       shared_ptr<vector<ServiceProvisions::CommodityProvisions>> commodityProvisions_ {};
-      // The URL that points to the activation page of the service.
+      // The URL for activating the Alibaba Cloud service.
       // 
-      // > This parameter is returned if Status is set to Disabled.
+      // > This parameter is returned when Status is set to Disabled.
       shared_ptr<string> enableURL_ {};
-      // The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
+      // The information about the service role. If this parameter is empty, no service role is associated with the service.
       shared_ptr<ServiceProvisions::RoleProvision> roleProvision_ {};
       // The service name.
       shared_ptr<string> serviceName_ {};
       // The activation status of the service. Valid values:
       // 
-      // *   Enabled: The service is activated.
-      // *   Disabled: The service is not activated.
-      // *   Unknown: The activation status of the service is unknown.
-      shared_ptr<string> status_ {};
-      // The reason why the service is in the Disabled or Unknown state.
+      // - Enabled: The service is activated.
       // 
-      // > This parameter is returned if Status is set to Disabled or Unknown.
+      // - EnabledByDefault: The service is activated by default.
+      // 
+      // - Disabled: The service is not activated.
+      // 
+      // - Unknown: The activation status is unknown.
+      shared_ptr<string> status_ {};
+      // The reason why the Alibaba Cloud service is not activated or the activation status is unknown.
+      // 
+      // > This parameter is returned when Status is set to Disabled or Unknown.
       shared_ptr<string> statusReason_ {};
     };
 
@@ -413,7 +425,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the cloud services.
+    // The service details.
     shared_ptr<vector<GetServiceProvisionsResponseBody::ServiceProvisions>> serviceProvisions_ {};
   };
 

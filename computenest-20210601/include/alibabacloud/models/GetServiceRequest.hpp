@@ -87,17 +87,17 @@ namespace Models
 
 
   protected:
-    // Region Id.
+    // The region ID.
     shared_ptr<string> regionId_ {};
     // The service ID.
     shared_ptr<string> serviceId_ {};
-    // The service instance id.
+    // The service instance ID.
     shared_ptr<string> serviceInstanceId_ {};
     // The service name.
     shared_ptr<string> serviceName_ {};
     // The service version.
     shared_ptr<string> serviceVersion_ {};
-    // Whether to disclose service details.
+    // Specifies whether to return the detailed information of the service.
     shared_ptr<vector<string>> showDetails_ {};
   };
 

@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // A token that you provide to ensure request idempotence. The value must be unique for each request. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // Skill  ID
+    // The skill ID.
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};

@@ -153,35 +153,41 @@ namespace Models
       shared_ptr<string> expireTime_ {};
       // The billing method. Valid values:
       // 
-      // *   Subscription
-      // *   PayAsYouGo
-      shared_ptr<string> payType_ {};
-      // The code of the cloud service.
-      shared_ptr<string> productCode_ {};
-      // The type of the cloud service.
-      shared_ptr<string> productType_ {};
-      // The renewal state. Valid values:
+      // - Subscription: subscription.
       // 
-      // *   AutoRenewal
-      // *   ManualRenewal
-      // *   NotRenewal
+      // - PayAsYouGo: pay-as-you-go.
+      shared_ptr<string> payType_ {};
+      // The product code.
+      shared_ptr<string> productCode_ {};
+      // The product type.
+      shared_ptr<string> productType_ {};
+      // The renewal status. Valid values:
+      // 
+      // - AutoRenewal: auto-renewal.
+      // 
+      // - ManualRenewal: manual renewal.
+      // 
+      // - NotRenewal: no renewal.
       shared_ptr<string> renewStatus_ {};
       // The renewal period.
       shared_ptr<int32_t> renewalPeriod_ {};
       // The unit of the renewal period. Valid values:
       // 
-      // *   Month
-      // *   Year
+      // - Month: month.
+      // 
+      // - Year: year.
       shared_ptr<string> renewalPeriodUnit_ {};
       // The ARN of the resource.
       shared_ptr<string> resourceARN_ {};
-      // The state of the resource. Valid values:
+      // The status of the resource. Valid values:
       // 
-      // *   running
-      // *   waiting
-      // *   terminated
+      // - running: The resource is running.
       // 
-      // >  This parameter is returned only for containers.
+      // - waiting: The resource is pending.
+      // 
+      // - terminated: The resource is terminated.
+      // 
+      // > This parameter is returned only for container resources.
       shared_ptr<string> status_ {};
     };
 
@@ -218,13 +224,13 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries returned on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resources.
+    // The list of resources.
     shared_ptr<vector<ListServiceInstanceResourcesResponseBody::Resources>> resources_ {};
   };
 

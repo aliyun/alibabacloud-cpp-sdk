@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries to return on each page. Maximum value: 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token to retrieve the next page of results. Do not specify this parameter for the first request. For subsequent requests, specify the token returned in the previous request.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 

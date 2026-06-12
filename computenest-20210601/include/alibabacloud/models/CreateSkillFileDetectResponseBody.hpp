@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique identifier for the detection task.
     shared_ptr<string> hashKey_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

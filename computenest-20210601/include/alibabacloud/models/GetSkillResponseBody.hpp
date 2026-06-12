@@ -106,15 +106,21 @@ namespace Models
 
 
   protected:
+    // The time the Skill was created.
     shared_ptr<string> createTime_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The description of the Skill.
     shared_ptr<string> skillDescription_ {};
-    // Skill ID
+    // The ID of the Skill.
     shared_ptr<string> skillId_ {};
+    // The labels of the Skill.
     shared_ptr<vector<string>> skillLabels_ {};
+    // The name of the Skill.
     shared_ptr<string> skillName_ {};
+    // The ID of the SkillSpace to which the Skill belongs.
     shared_ptr<string> skillSpaceId_ {};
+    // The time the Skill was last updated.
     shared_ptr<string> updateTime_ {};
   };
 

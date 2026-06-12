@@ -133,14 +133,21 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<string> createTime_ {};
+      // The download link for the skill package.
       shared_ptr<string> downloadUrl_ {};
+      // The description of the skill.
       shared_ptr<string> skillDescription_ {};
-      // Skill ID
+      // The ID of the skill.
       shared_ptr<string> skillId_ {};
+      // The labels attached to the skill.
       shared_ptr<vector<string>> skillLabels_ {};
+      // The name of the skill.
       shared_ptr<string> skillName_ {};
+      // The ID of the skill space.
       shared_ptr<string> skillSpaceId_ {};
+      // The update time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -184,11 +191,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of public skills.
     shared_ptr<vector<ListPublicSkillsResponseBody::Skills>> skills_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

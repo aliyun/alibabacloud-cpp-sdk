@@ -96,21 +96,23 @@ namespace Models
 
 
     protected:
-      // Indicates whether screencast delivery to OSS is enabled. Valid values:
+      // Specifies whether to use the delivery feature. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // 
+      // - false: Disabled.
       shared_ptr<bool> actiontrailDeliveryToOssEnabled_ {};
       // The name of the OSS bucket.
       shared_ptr<string> ossBucketName_ {};
-      // Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+      // Specifies whether to deliver data to Object Storage Service (OSS). Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: Enabled.
+      // 
+      // - false: Disabled.
       shared_ptr<bool> ossEnabled_ {};
-      // The number of days for which the screencasts are saved.
+      // The number of days to save screen recordings.
       shared_ptr<int64_t> ossExpirationDays_ {};
-      // The OSS path.
+      // The path in OSS.
       shared_ptr<string> ossPath_ {};
     };
 
