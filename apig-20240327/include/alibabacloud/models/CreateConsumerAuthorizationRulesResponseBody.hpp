@@ -66,7 +66,7 @@ namespace Models
 
 
     protected:
-      // The authentication rule IDs.
+      // List of consumer authorization rule IDs.
       shared_ptr<vector<string>> consumerAuthorizationRuleIds_ {};
     };
 
@@ -103,11 +103,11 @@ namespace Models
 
 
   protected:
-    // The status code.
+    // Response status code.
     shared_ptr<string> code_ {};
-    // The response parameters.
+    // Response data.
     shared_ptr<CreateConsumerAuthorizationRulesResponseBody::Data> data_ {};
-    // The returned message.
+    // Response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

@@ -29,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(strategy, strategy_);
       DARABONBA_PTR_TO_JSON(targetHttpApiId, targetHttpApiId_);
       DARABONBA_PTR_TO_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_TO_JSON(withGatewayExtension, withGatewayExtension_);
     };
     friend void from_json(const Darabonba::Json& j, ImportHttpApiRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(deployConfigs, deployConfigs_);
@@ -44,6 +45,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(strategy, strategy_);
       DARABONBA_PTR_FROM_JSON(targetHttpApiId, targetHttpApiId_);
       DARABONBA_PTR_FROM_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_FROM_JSON(withGatewayExtension, withGatewayExtension_);
     };
     ImportHttpApiRequest() = default ;
     ImportHttpApiRequest(const ImportHttpApiRequest &) = default ;
@@ -114,7 +116,7 @@ namespace Models
     virtual bool empty() const override { return this->deployConfigs_ == nullptr
         && this->description_ == nullptr && this->dryRun_ == nullptr && this->gatewayId_ == nullptr && this->mcpRouteId_ == nullptr && this->name_ == nullptr
         && this->resourceGroupId_ == nullptr && this->specContentBase64_ == nullptr && this->specFileUrl_ == nullptr && this->specOssConfig_ == nullptr && this->strategy_ == nullptr
-        && this->targetHttpApiId_ == nullptr && this->versionConfig_ == nullptr; };
+        && this->targetHttpApiId_ == nullptr && this->versionConfig_ == nullptr && this->withGatewayExtension_ == nullptr; };
     // deployConfigs Field Functions 
     bool hasDeployConfigs() const { return this->deployConfigs_ != nullptr;};
     void deleteDeployConfigs() { this->deployConfigs_ = nullptr;};
@@ -212,6 +214,13 @@ namespace Models
     inline ImportHttpApiRequest& setVersionConfig(HttpApiVersionConfig && versionConfig) { DARABONBA_PTR_SET_RVALUE(versionConfig_, versionConfig) };
 
 
+    // withGatewayExtension Field Functions 
+    bool hasWithGatewayExtension() const { return this->withGatewayExtension_ != nullptr;};
+    void deleteWithGatewayExtension() { this->withGatewayExtension_ = nullptr;};
+    inline bool getWithGatewayExtension() const { DARABONBA_PTR_GET_DEFAULT(withGatewayExtension_, false) };
+    inline ImportHttpApiRequest& setWithGatewayExtension(bool withGatewayExtension) { DARABONBA_PTR_SET_VALUE(withGatewayExtension_, withGatewayExtension) };
+
+
   protected:
     // The API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
@@ -245,6 +254,7 @@ namespace Models
     shared_ptr<string> targetHttpApiId_ {};
     // The versioning configuration for the API. If an existing API matches the specified name (and version, if enabled), this import updates that API.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
+    shared_ptr<bool> withGatewayExtension_ {};
   };
 
   } // namespace Models

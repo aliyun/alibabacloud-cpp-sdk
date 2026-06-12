@@ -200,6 +200,9 @@
 #include <alibabacloud/models/DeployHttpApiResponse.hpp>
 #include <alibabacloud/models/DeployMcpServerResponseBody.hpp>
 #include <alibabacloud/models/DeployMcpServerResponse.hpp>
+#include <alibabacloud/models/DescribeRegionsRequest.hpp>
+#include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
+#include <alibabacloud/models/DescribeRegionsResponse.hpp>
 #include <alibabacloud/models/ExportHttpApiRequest.hpp>
 #include <alibabacloud/models/ExportHttpApiResponseBody.hpp>
 #include <alibabacloud/models/ExportHttpApiResponse.hpp>

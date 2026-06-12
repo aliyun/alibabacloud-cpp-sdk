@@ -67,9 +67,11 @@ namespace Models
           DARABONBA_PTR_TO_JSON(existHttpApiInfo, existHttpApiInfo_);
           DARABONBA_PTR_TO_JSON(failureComponents, failureComponents_);
           DARABONBA_PTR_TO_JSON(failureOperations, failureOperations_);
+          DARABONBA_PTR_TO_JSON(failureRoutes, failureRoutes_);
           DARABONBA_PTR_TO_JSON(mcpToolsDefinition, mcpToolsDefinition_);
           DARABONBA_PTR_TO_JSON(successComponents, successComponents_);
           DARABONBA_PTR_TO_JSON(successOperations, successOperations_);
+          DARABONBA_PTR_TO_JSON(successRoutes, successRoutes_);
           DARABONBA_PTR_TO_JSON(warningMessages, warningMessages_);
         };
         friend void from_json(const Darabonba::Json& j, DryRunInfo& obj) { 
@@ -77,9 +79,11 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(existHttpApiInfo, existHttpApiInfo_);
           DARABONBA_PTR_FROM_JSON(failureComponents, failureComponents_);
           DARABONBA_PTR_FROM_JSON(failureOperations, failureOperations_);
+          DARABONBA_PTR_FROM_JSON(failureRoutes, failureRoutes_);
           DARABONBA_PTR_FROM_JSON(mcpToolsDefinition, mcpToolsDefinition_);
           DARABONBA_PTR_FROM_JSON(successComponents, successComponents_);
           DARABONBA_PTR_FROM_JSON(successOperations, successOperations_);
+          DARABONBA_PTR_FROM_JSON(successRoutes, successRoutes_);
           DARABONBA_PTR_FROM_JSON(warningMessages, warningMessages_);
         };
         DryRunInfo() = default ;
@@ -93,6 +97,48 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class SuccessRoutes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SuccessRoutes& obj) { 
+            DARABONBA_PTR_TO_JSON(action, action_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, SuccessRoutes& obj) { 
+            DARABONBA_PTR_FROM_JSON(action, action_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+          };
+          SuccessRoutes() = default ;
+          SuccessRoutes(const SuccessRoutes &) = default ;
+          SuccessRoutes(SuccessRoutes &&) = default ;
+          SuccessRoutes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SuccessRoutes() = default ;
+          SuccessRoutes& operator=(const SuccessRoutes &) = default ;
+          SuccessRoutes& operator=(SuccessRoutes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->action_ == nullptr
+        && this->name_ == nullptr; };
+          // action Field Functions 
+          bool hasAction() const { return this->action_ != nullptr;};
+          void deleteAction() { this->action_ = nullptr;};
+          inline string getAction() const { DARABONBA_PTR_GET_DEFAULT(action_, "") };
+          inline SuccessRoutes& setAction(string action) { DARABONBA_PTR_SET_VALUE(action_, action) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline SuccessRoutes& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<string> action_ {};
+          shared_ptr<string> name_ {};
+        };
+
         class SuccessOperations : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const SuccessOperations& obj) { 
@@ -211,6 +257,48 @@ namespace Models
           shared_ptr<string> name_ {};
         };
 
+        class FailureRoutes : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const FailureRoutes& obj) { 
+            DARABONBA_PTR_TO_JSON(errorMessage, errorMessage_);
+            DARABONBA_PTR_TO_JSON(name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, FailureRoutes& obj) { 
+            DARABONBA_PTR_FROM_JSON(errorMessage, errorMessage_);
+            DARABONBA_PTR_FROM_JSON(name, name_);
+          };
+          FailureRoutes() = default ;
+          FailureRoutes(const FailureRoutes &) = default ;
+          FailureRoutes(FailureRoutes &&) = default ;
+          FailureRoutes(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~FailureRoutes() = default ;
+          FailureRoutes& operator=(const FailureRoutes &) = default ;
+          FailureRoutes& operator=(FailureRoutes &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->errorMessage_ == nullptr
+        && this->name_ == nullptr; };
+          // errorMessage Field Functions 
+          bool hasErrorMessage() const { return this->errorMessage_ != nullptr;};
+          void deleteErrorMessage() { this->errorMessage_ = nullptr;};
+          inline string getErrorMessage() const { DARABONBA_PTR_GET_DEFAULT(errorMessage_, "") };
+          inline FailureRoutes& setErrorMessage(string errorMessage) { DARABONBA_PTR_SET_VALUE(errorMessage_, errorMessage) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline FailureRoutes& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<string> errorMessage_ {};
+          shared_ptr<string> name_ {};
+        };
+
         class FailureOperations : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const FailureOperations& obj) { 
@@ -311,8 +399,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->errorMessages_ == nullptr
-        && this->existHttpApiInfo_ == nullptr && this->failureComponents_ == nullptr && this->failureOperations_ == nullptr && this->mcpToolsDefinition_ == nullptr && this->successComponents_ == nullptr
-        && this->successOperations_ == nullptr && this->warningMessages_ == nullptr; };
+        && this->existHttpApiInfo_ == nullptr && this->failureComponents_ == nullptr && this->failureOperations_ == nullptr && this->failureRoutes_ == nullptr && this->mcpToolsDefinition_ == nullptr
+        && this->successComponents_ == nullptr && this->successOperations_ == nullptr && this->successRoutes_ == nullptr && this->warningMessages_ == nullptr; };
         // errorMessages Field Functions 
         bool hasErrorMessages() const { return this->errorMessages_ != nullptr;};
         void deleteErrorMessages() { this->errorMessages_ = nullptr;};
@@ -349,6 +437,15 @@ namespace Models
         inline DryRunInfo& setFailureOperations(vector<DryRunInfo::FailureOperations> && failureOperations) { DARABONBA_PTR_SET_RVALUE(failureOperations_, failureOperations) };
 
 
+        // failureRoutes Field Functions 
+        bool hasFailureRoutes() const { return this->failureRoutes_ != nullptr;};
+        void deleteFailureRoutes() { this->failureRoutes_ = nullptr;};
+        inline const vector<DryRunInfo::FailureRoutes> & getFailureRoutes() const { DARABONBA_PTR_GET_CONST(failureRoutes_, vector<DryRunInfo::FailureRoutes>) };
+        inline vector<DryRunInfo::FailureRoutes> getFailureRoutes() { DARABONBA_PTR_GET(failureRoutes_, vector<DryRunInfo::FailureRoutes>) };
+        inline DryRunInfo& setFailureRoutes(const vector<DryRunInfo::FailureRoutes> & failureRoutes) { DARABONBA_PTR_SET_VALUE(failureRoutes_, failureRoutes) };
+        inline DryRunInfo& setFailureRoutes(vector<DryRunInfo::FailureRoutes> && failureRoutes) { DARABONBA_PTR_SET_RVALUE(failureRoutes_, failureRoutes) };
+
+
         // mcpToolsDefinition Field Functions 
         bool hasMcpToolsDefinition() const { return this->mcpToolsDefinition_ != nullptr;};
         void deleteMcpToolsDefinition() { this->mcpToolsDefinition_ = nullptr;};
@@ -374,6 +471,15 @@ namespace Models
         inline DryRunInfo& setSuccessOperations(vector<DryRunInfo::SuccessOperations> && successOperations) { DARABONBA_PTR_SET_RVALUE(successOperations_, successOperations) };
 
 
+        // successRoutes Field Functions 
+        bool hasSuccessRoutes() const { return this->successRoutes_ != nullptr;};
+        void deleteSuccessRoutes() { this->successRoutes_ = nullptr;};
+        inline const vector<DryRunInfo::SuccessRoutes> & getSuccessRoutes() const { DARABONBA_PTR_GET_CONST(successRoutes_, vector<DryRunInfo::SuccessRoutes>) };
+        inline vector<DryRunInfo::SuccessRoutes> getSuccessRoutes() { DARABONBA_PTR_GET(successRoutes_, vector<DryRunInfo::SuccessRoutes>) };
+        inline DryRunInfo& setSuccessRoutes(const vector<DryRunInfo::SuccessRoutes> & successRoutes) { DARABONBA_PTR_SET_VALUE(successRoutes_, successRoutes) };
+        inline DryRunInfo& setSuccessRoutes(vector<DryRunInfo::SuccessRoutes> && successRoutes) { DARABONBA_PTR_SET_RVALUE(successRoutes_, successRoutes) };
+
+
         // warningMessages Field Functions 
         bool hasWarningMessages() const { return this->warningMessages_ != nullptr;};
         void deleteWarningMessages() { this->warningMessages_ = nullptr;};
@@ -392,11 +498,13 @@ namespace Models
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
         // Operations that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
+        shared_ptr<vector<DryRunInfo::FailureRoutes>> failureRoutes_ {};
         shared_ptr<string> mcpToolsDefinition_ {};
         // Data structures that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessComponents>> successComponents_ {};
         // Operations that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
+        shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
         // Global warning messages. If this list is not empty, some operations or data structures might not be imported.
         shared_ptr<vector<string>> warningMessages_ {};
       };

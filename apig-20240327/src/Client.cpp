@@ -500,7 +500,7 @@ CreateConsumerAuthorizationRuleResponse Client::createConsumerAuthorizationRule(
 }
 
 /**
- * @summary Creates a consumer authentication rule.
+ * @summary Create consumer authorization rules.
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @param headers map
@@ -533,7 +533,7 @@ CreateConsumerAuthorizationRulesResponse Client::createConsumerAuthorizationRule
 }
 
 /**
- * @summary Creates a consumer authentication rule.
+ * @summary Create consumer authorization rules.
  *
  * @param request CreateConsumerAuthorizationRulesRequest
  * @return CreateConsumerAuthorizationRulesResponse
@@ -2318,6 +2318,51 @@ DeployMcpServerResponse Client::deployMcpServer(const string &mcpServerId) {
 }
 
 /**
+ * @summary 查询当前账号可见的云原生API网关开服地域
+ *
+ * @param request DescribeRegionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegionsWithOptions(const DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasLanguage()) {
+    query["language"] = request.getLanguage();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeRegions"},
+    {"version" , "2024-03-27"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v1/regions")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeRegionsResponse>();
+}
+
+/**
+ * @summary 查询当前账号可见的云原生API网关开服地域
+ *
+ * @param request DescribeRegionsRequest
+ * @return DescribeRegionsResponse
+ */
+DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return describeRegionsWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Exports the specified HTTP API.
  *
  * @param request ExportHttpApiRequest
@@ -3328,6 +3373,10 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 
   if (!!request.hasVersionConfig()) {
     body["versionConfig"] = request.getVersionConfig();
+  }
+
+  if (!!request.hasWithGatewayExtension()) {
+    body["withGatewayExtension"] = request.getWithGatewayExtension();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

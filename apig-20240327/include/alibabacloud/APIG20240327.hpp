@@ -167,7 +167,7 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRuleResponse createConsumerAuthorizationRule(const string &consumerId, const Models::CreateConsumerAuthorizationRuleRequest &request);
 
       /**
-       * @summary Creates a consumer authentication rule.
+       * @summary Create consumer authorization rules.
        *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @param headers map
@@ -177,7 +177,7 @@ namespace APIG20240327
       Models::CreateConsumerAuthorizationRulesResponse createConsumerAuthorizationRulesWithOptions(const Models::CreateConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a consumer authentication rule.
+       * @summary Create consumer authorization rules.
        *
        * @param request CreateConsumerAuthorizationRulesRequest
        * @return CreateConsumerAuthorizationRulesResponse
@@ -785,6 +785,24 @@ namespace APIG20240327
        * @return DeployMcpServerResponse
        */
       Models::DeployMcpServerResponse deployMcpServer(const string &mcpServerId);
+
+      /**
+       * @summary 查询当前账号可见的云原生API网关开服地域
+       *
+       * @param request DescribeRegionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegionsWithOptions(const Models::DescribeRegionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前账号可见的云原生API网关开服地域
+       *
+       * @param request DescribeRegionsRequest
+       * @return DescribeRegionsResponse
+       */
+      Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
        * @summary Exports the specified HTTP API.
