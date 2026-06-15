@@ -75,10 +75,13 @@ namespace Models
 
 
   protected:
+    // This parameter is deprecated. It is retained for historical compatibility.
     shared_ptr<int32_t> fromType_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The template ID.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> templateId_ {};
   };

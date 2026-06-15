@@ -204,46 +204,47 @@ namespace Models
 
 
   protected:
-    // Daily quota
+    // The daily quota.
     shared_ptr<int32_t> dailyQuota_ {};
-    // remaining amount of daily free quota
+    // The remaining daily free quota.
     shared_ptr<int32_t> dailyRemainFreeQuota_ {};
-    // Dayu status (deprecated, retained for compatibility reasons.)
+    // The status of Dayu. This parameter is deprecated and retained for compatibility.
     shared_ptr<int32_t> dayuStatus_ {};
-    // Number of domains
+    // The number of domain names.
     shared_ptr<int32_t> domains_ {};
-    // Effective time
+    // The effective period.
     shared_ptr<int32_t> enableTimes_ {};
+    // The type of the outbound IP channel.
+    // 
+    // 1. backup: A backup IP channel that is not actively maintained. Customers using this channel are advised to purchase a dedicated IP for better stability.
+    // 
+    // 2. normal: A normal IP channel that is continuously maintained by the email delivery team to ensure stable and reliable service.
     shared_ptr<string> ipChannelType_ {};
-    // Number of sending addresses
+    // The number of sender addresses.
     shared_ptr<int32_t> mailAddresses_ {};
-    // Maximum level
+    // The maximum reputation level.
     shared_ptr<int32_t> maxQuotaLevel_ {};
-    // Monthly quota
+    // The monthly quota.
     shared_ptr<int32_t> monthQuota_ {};
-    // Credit level
+    // The reputation level.
     shared_ptr<int32_t> quotaLevel_ {};
-    // Number of recipients
+    // The number of recipients.
     shared_ptr<int32_t> receivers_ {};
-    // Remaining amount of total free quota
+    // The remaining free quota.
     shared_ptr<int32_t> remainFreeQuota_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Deprecated, retained for compatibility reasons.
+    // This parameter is deprecated. It is retained for compatibility.
     shared_ptr<int32_t> smsRecord_ {};
-    // Deprecated, retained for compatibility reasons.
+    // This parameter is deprecated. It is retained for compatibility.
     shared_ptr<int32_t> smsSign_ {};
-    // Deprecated, retained for compatibility reasons.
+    // This parameter is deprecated. It is retained for compatibility.
     shared_ptr<int32_t> smsTemplates_ {};
-    // Number of tags
+    // The number of tags.
     shared_ptr<int32_t> tags_ {};
-    // Number of templates
+    // The number of templates.
     shared_ptr<int32_t> templates_ {};
-    // User status:
-    // 1 Frozen
-    // 2 In arrears
-    // 4 Restricted from sending
-    // 8 Logically deleted
+    // The status of the user. Valid values: 0: Normal. 1: Freeze. 2: Overdue payment. 4: Outbound messages are restricted. 8: The user is logically deleted.
     shared_ptr<int32_t> userStatus_ {};
   };
 

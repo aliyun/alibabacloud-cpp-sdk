@@ -126,10 +126,11 @@ namespace Models
 
 
       protected:
-        // Whether auto-renewal is enabled
+        // Indicates whether auto-renewal is enabled.
         shared_ptr<bool> autoRenewal_ {};
-        // Whether an email has been sent
+        // Indicates whether an email has been sent.
         shared_ptr<bool> hasSendMail_ {};
+        // The last time the warm-up status changed.
         shared_ptr<string> lastWarmUpTypeChangedTime_ {};
       };
 
@@ -216,26 +217,43 @@ namespace Models
 
 
     protected:
-      // Expiration time
+      // The expiration time.
       shared_ptr<string> expiredTime_ {};
-      // IP ID, consistent with the purchased instance ID
+      // The ID of the IP address, which is the same as the ID of the purchased instance.
       shared_ptr<string> id_ {};
-      // Purchased instance ID
+      // The ID of the purchased instance.
       shared_ptr<string> instanceId_ {};
-      // IP address
+      // The IP address.
       shared_ptr<string> ip_ {};
-      // Extended information
+      // Extended properties.
       shared_ptr<Ips::IpExt> ipExt_ {};
-      // Name of the IP pool
+      // The name of the IP pool to which the IP belongs.
       shared_ptr<string> ipPoolName_ {};
-      // Purchase time
+      // The time when the IP was purchased.
       shared_ptr<string> startTime_ {};
-      // IP status
+      // The status of the IP.
       shared_ptr<string> status_ {};
-      // Warm-up status
+      // The warm-up status.
       shared_ptr<string> warmupStatus_ {};
-      // Warm-up method
+      // The warm-up method.
       shared_ptr<string> warmupType_ {};
+      // The ID of the zone where the IP address is located.
+      // 
+      // - ap-southeast-1a
+      // 
+      // - ap-southeast-1b
+      // 
+      // - cn-hangzhou-k
+      // 
+      // - cn-shanghai-l
+      // 
+      // - eu-central-1a
+      // 
+      // - eu-central-1b
+      // 
+      // - us-east-1a
+      // 
+      // - us-east-1b
       shared_ptr<string> zoneId_ {};
     };
 
@@ -286,17 +304,17 @@ namespace Models
 
 
   protected:
-    // Current page
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Whether there is a next page
+    // Indicates whether another page of results is available.
     shared_ptr<bool> hasMore_ {};
-    // IP list
+    // The list of IPs.
     shared_ptr<vector<DedicatedIpListResponseBody::Ips>> ips_ {};
-    // Page size
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total amount of purchased IP data
+    // The total number of purchased IPs.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

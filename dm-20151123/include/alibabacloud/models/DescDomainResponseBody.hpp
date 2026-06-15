@@ -314,70 +314,72 @@ namespace Models
 
 
   protected:
-    // CNAME verification flag, 0 for success, 1 for failure.
+    // The CNAME verification status. Valid values: `0` (Success), `1` (Failure).
     shared_ptr<string> cnameAuthStatus_ {};
-    // Indicates whether the CNAME host record has been modified, 1 for modified (reverting to the original value also counts as modification), 0 for not modified.
+    // Indicates if the CNAME host record has been modified. A value of `1` indicates a change, including reverting to the original value. A value of `0` indicates no change.
     shared_ptr<string> cnameConfirmStatus_ {};
-    // Custom part of the CNAME host record
+    // The CNAME host record.
     shared_ptr<string> cnameRecord_ {};
-    // Creation time
+    // The time the domain name was created.
     shared_ptr<string> createTime_ {};
-    // Whether it is the default domain,
+    // Indicates if this is the default domain name.
     // 
-    // Value: 0 No (this field is deprecated)
+    // This parameter is deprecated and always returns `0` (No).
     shared_ptr<string> defaultDomain_ {};
-    // DKIM verification flag, indicating whether the DKIM record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
+    // The DKIM verification status. Valid values: `0` (Verified), `1` (Not verified).
     shared_ptr<string> dkimAuthStatus_ {};
-    // DKIM public key value, the value that users need to set for the DKIM record in DNS
+    // The public key for the DKIM record.
     shared_ptr<string> dkimPublicKey_ {};
-    // DKIM host record, the key that the user needs to set in the DNS for the DKIM record
+    // The DKIM host record.
     shared_ptr<string> dkimRR_ {};
+    // The length of the DKIM RSA key, such as `1024` or `2048`.
     shared_ptr<int32_t> dkimRsaLength_ {};
-    // DMARC verification flag, indicating whether the DMARC record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
+    // The DMARC verification status. Valid values: `0` (Verified), `1` (Not verified).
     shared_ptr<int32_t> dmarcAuthStatus_ {};
-    // DMARC host record value
+    // The DMARC host record.
     shared_ptr<string> dmarcHostRecord_ {};
-    // DMARC record value
+    // The DMARC record value.
     shared_ptr<string> dmarcRecord_ {};
-    // DMARC record value resolved through the public domain name
+    // The DMARC record value resolved from public DNS.
     shared_ptr<string> dnsDmarc_ {};
-    // MX record value resolved from the public network domain
+    // The MX record value resolved from public DNS.
     shared_ptr<string> dnsMx_ {};
-    // SPF record value resolved from the public network domain
+    // The SPF record value resolved from public DNS.
     shared_ptr<string> dnsSpf_ {};
-    // Ownership record value resolved from the public network domain
+    // The ownership record value resolved from public DNS.
     shared_ptr<string> dnsTxt_ {};
-    // Domain ID
+    // The domain ID.
     shared_ptr<string> domainId_ {};
-    // Domain name
+    // The domain name.
     shared_ptr<string> domainName_ {};
-    // Domain status. Indicates whether the verification was successful, with values:
+    // The verification status of the domain name. Valid values:
     // 
-    // - **0**: Available, verified successfully
-    // - **1**: Unavailable, verification failed
+    // - **0**: Available. The domain name is verified.
+    // 
+    // - **1**: Unavailable. The domain name failed verification.
     shared_ptr<string> domainStatus_ {};
-    // Ownership record provided by the email push console
+    // The required value for the domain ownership verification record, from the Direct Mail console.
     shared_ptr<string> domainType_ {};
     shared_ptr<int32_t> domainVersion_ {};
-    // Host record
+    // The host record for domain ownership verification.
     shared_ptr<string> hostRecord_ {};
-    // Filing status. **1** indicates filed, **0** indicates not filed.
+    // The ICP filing status. **1** indicates the filing is complete. **0** indicates no filing is found.
     shared_ptr<string> icpStatus_ {};
-    // MX verification flag, 0 for success, 1 for failure.
+    // The MX verification status. Valid values: `0` (Success), `1` (Failure).
     shared_ptr<string> mxAuthStatus_ {};
-    // MX record value provided by the email push console
+    // The MX record value from the Direct Mail console.
     shared_ptr<string> mxRecord_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // SPF verification flag, 0 for success, 1 for failure.
+    // The SPF verification status. Valid values: `0` (Success), `1` (Failure).
     shared_ptr<string> spfAuthStatus_ {};
-    // SPF record value provided by the email push console
+    // The SPF record value from the Direct Mail console.
     shared_ptr<string> spfRecord_ {};
-    // SPF record. Previously, the SPF display content needed to be calculated by the calling end based on the spfRecord in the response. The new field spfRecordV2 replaces spfRecord, and the calling end can directly display this field after obtaining it;
+    // The complete SPF record. This parameter replaces `SpfRecord`. You can directly use the value of `SpfRecordV2` without constructing it from the value of `SpfRecord`.
     shared_ptr<string> spfRecordV2_ {};
-    // Primary domain
+    // The root domain.
     shared_ptr<string> tlDomainName_ {};
-    // CNAME record value provided by the email push console
+    // The CNAME record value from the Direct Mail console.
     shared_ptr<string> tracefRecord_ {};
   };
 

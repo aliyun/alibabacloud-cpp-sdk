@@ -140,18 +140,28 @@ namespace Models
 
 
   protected:
+    // Deprecated. This parameter is retained for backward compatibility.
     shared_ptr<int32_t> fromType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // Deprecated. This parameter is retained for backward compatibility.
     shared_ptr<string> remark_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Deprecated. This parameter is retained for backward compatibility.
     shared_ptr<string> smsContent_ {};
+    // Deprecated. This parameter is retained for backward compatibility.
     shared_ptr<int32_t> smsType_ {};
+    // The template name.
+    // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};
+    // The sender name.
     shared_ptr<string> templateNickName_ {};
+    // The email subject.
     shared_ptr<string> templateSubject_ {};
+    // The email HTML body.
     shared_ptr<string> templateText_ {};
+    // The template type.
     shared_ptr<int32_t> templateType_ {};
   };
 

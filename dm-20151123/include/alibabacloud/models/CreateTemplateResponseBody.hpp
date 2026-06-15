@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // idoftherequest
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The template ID.
     shared_ptr<int32_t> templateId_ {};
   };
 

@@ -107,7 +107,9 @@ namespace Models
 
 
       protected:
+        // The associated IP pool ID.
         shared_ptr<string> ipPoolId_ {};
+        // The associated IP pool name.
         shared_ptr<string> ipPoolName_ {};
       };
 
@@ -160,11 +162,16 @@ namespace Models
 
 
     protected:
+      // The description.
       shared_ptr<string> description_ {};
+      // The list of from addresses associated with the ConfigSet.
       shared_ptr<vector<string>> fromAddresses_ {};
+      // The ConfigSet ID.
       shared_ptr<string> id_ {};
+      // The IP pool associated with the ConfigSet.
       shared_ptr<ConfigSets::IpPool> ipPool_ {};
       shared_ptr<bool> isPublicChannelBackoff_ {};
+      // The ConfigSet name.
       shared_ptr<string> name_ {};
     };
 
@@ -215,11 +222,17 @@ namespace Models
 
 
   protected:
+    // The list of ConfigSets.
     shared_ptr<vector<ConfigSetListResponseBody::ConfigSets>> configSets_ {};
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
+    // Indicates whether more results are available.
     shared_ptr<bool> hasMore_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of matching entries.
     shared_ptr<int32_t> totalCounts_ {};
   };
 

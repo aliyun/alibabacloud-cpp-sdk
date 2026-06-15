@@ -158,19 +158,33 @@ namespace Models
 
 
   protected:
+    // The number of catch-all addresses.
     shared_ptr<string> catchAllNum_ {};
+    // The task completion time.
     shared_ptr<string> completeTime_ {};
+    // The number of do-not-mail addresses.
     shared_ptr<string> doNotMailNum_ {};
+    // The file ID.
     shared_ptr<string> fileId_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
+    // The number of invalid addresses.
     shared_ptr<string> invalidNum_ {};
+    // The task completion percentage.
     shared_ptr<string> percentage_ {};
+    // The number of processed addresses.
     shared_ptr<string> processedNum_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task status.
     shared_ptr<string> status_ {};
+    // The total number of addresses in the file.
     shared_ptr<string> totalNum_ {};
+    // The number of unknown addresses.
     shared_ptr<string> unknownNum_ {};
+    // The upload time.
     shared_ptr<string> uploadTime_ {};
+    // The number of valid addresses.
     shared_ptr<string> validNum_ {};
   };
 

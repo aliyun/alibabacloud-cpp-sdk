@@ -145,11 +145,11 @@ namespace Models
 
   protected:
     shared_ptr<SaveReceiverDetailResponseBody::Data> data_ {};
-    // Number of errors.
+    // The number of errors.
     shared_ptr<int32_t> errorCount_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Number of successes.
+    // The number of successful records.
     shared_ptr<int32_t> successCount_ {};
   };
 

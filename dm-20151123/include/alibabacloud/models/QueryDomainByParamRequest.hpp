@@ -104,6 +104,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // - 0 indicates normal
+    // 
     // - 1 indicates abnormal
     shared_ptr<int32_t> status_ {};
   };

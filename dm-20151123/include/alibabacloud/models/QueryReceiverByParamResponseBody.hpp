@@ -214,13 +214,13 @@ namespace Models
 
 
   protected:
-    // Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
+    // A token indicating that more results are available. To get the next page of results, include this token in the NextStart parameter of your next request.
     shared_ptr<string> nextStart_ {};
-    // Number of items displayed per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total count.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<QueryReceiverByParamResponseBody::Data> data_ {};
   };

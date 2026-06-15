@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Whether to enable auto-renewal
+    // Specifies whether to enable auto-renewal.
     // 
     // This parameter is required.
     shared_ptr<string> autoRenewal_ {};
-    // Purchase instance ID, separated by English commas if multiple.
+    // The IDs of the purchased instances. Separate multiple IDs with commas.
     // 
     // This parameter is required.
     shared_ptr<string> buyResourceIds_ {};

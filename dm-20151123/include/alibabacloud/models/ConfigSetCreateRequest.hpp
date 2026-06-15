@@ -66,9 +66,12 @@ namespace Models
 
 
   protected:
+    // A description of the configuration set (up to 50 characters).
     shared_ptr<string> description_ {};
+    // The ID of an IP pool to associate with the configuration set. This parameter is optional.
     shared_ptr<string> ipPoolId_ {};
     shared_ptr<bool> isPublicChannelBackoff_ {};
+    // The name of the configuration set. The name must be unique and can contain up to 50 characters. This parameter is required.
     shared_ptr<string> name_ {};
   };
 

@@ -79,10 +79,11 @@ namespace Models
 
 
     protected:
-      // Purchased instance ID
+      // The ID of the purchased instance.
       shared_ptr<string> id_ {};
-      // IP address
+      // The IP address.
       shared_ptr<string> ip_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -105,9 +106,9 @@ namespace Models
 
 
   protected:
-    // Information on IPs not added to the IP pool
+    // The IP addresses that are not added to an IP pool.
     shared_ptr<vector<DedicatedIpNonePoolListResponseBody::Ips>> ips_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

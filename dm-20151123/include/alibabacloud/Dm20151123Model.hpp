@@ -9,6 +9,7 @@
 #include <alibabacloud/models/ApproveReplyMailAddressResponseBody.hpp>
 #include <alibabacloud/models/ApproveReplyMailAddressResponse.hpp>
 #include <alibabacloud/models/BatchSendMailRequest.hpp>
+#include <alibabacloud/models/BatchSendMailShrinkRequest.hpp>
 #include <alibabacloud/models/BatchSendMailResponseBody.hpp>
 #include <alibabacloud/models/BatchSendMailResponse.hpp>
 #include <alibabacloud/models/ChangeDomainDkimRecordRequest.hpp>

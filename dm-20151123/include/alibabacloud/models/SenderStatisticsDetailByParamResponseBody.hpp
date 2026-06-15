@@ -237,9 +237,9 @@ namespace Models
 
 
   protected:
-    // Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
+    // Used for paging. If more results are available, set the \\`NextStart\\` parameter in your next request to this return value.
     shared_ptr<string> nextStart_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<SenderStatisticsDetailByParamResponseBody::Data> data_ {};
   };

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The IP pool ID.
     shared_ptr<string> id_ {};
   };
 

@@ -190,19 +190,33 @@ namespace Models
 
 
     protected:
+      // The number of addresses with the validation result \\"CatchAll\\".
       shared_ptr<string> catchAllNum_ {};
+      // The time when the task was completed.
       shared_ptr<string> completeTime_ {};
+      // The number of addresses with the validation result \\"DoNotMail\\".
       shared_ptr<string> doNotMailNum_ {};
+      // The file ID.
       shared_ptr<string> fileId_ {};
+      // The file name.
       shared_ptr<string> fileName_ {};
+      // The number of addresses with the validation result \\"Invalid\\".
       shared_ptr<string> invalidNum_ {};
+      // Indicates whether the result can be downloaded.
       shared_ptr<bool> isDownloadable_ {};
+      // The task execution progress.
       shared_ptr<string> percentage_ {};
+      // The number of addresses that have been validated.
       shared_ptr<string> processedNum_ {};
+      // The status of the task.
       shared_ptr<string> status_ {};
+      // The number of addresses to validate in the task.
       shared_ptr<string> totalNum_ {};
+      // The number of addresses with the validation result \\"Unknown\\".
       shared_ptr<string> unknownNum_ {};
+      // The time when the file was submitted.
       shared_ptr<string> uploadTime_ {};
+      // The number of addresses with the validation result \\"Valid\\".
       shared_ptr<string> validNum_ {};
     };
 
@@ -261,12 +275,19 @@ namespace Models
 
 
   protected:
+    // The list of files.
     shared_ptr<vector<ListValidateFileResponseBody::Files>> files_ {};
+    // Indicates whether a next page of data exists.
     shared_ptr<bool> hasNext_ {};
+    // The page number.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPages_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalSize_ {};
   };
 

@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to check the graylist. The default value is false. The result is sent through an asynchronous notification message from EventBridge.
     shared_ptr<bool> checkGraylist_ {};
+    // The email address to validate.
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // The timeout period. The default value is 60 seconds.
     shared_ptr<int64_t> timeout_ {};
   };
 

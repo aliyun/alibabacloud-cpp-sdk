@@ -275,13 +275,13 @@ namespace Models
 
 
   protected:
-    // Current page number
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total count
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     shared_ptr<QueryMailAddressByParamResponseBody::Data> data_ {};
   };

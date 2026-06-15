@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Tag ID
+    // The tag ID.
     shared_ptr<string> tagId_ {};
   };
 

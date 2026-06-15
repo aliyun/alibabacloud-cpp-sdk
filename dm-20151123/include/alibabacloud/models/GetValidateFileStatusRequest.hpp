@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The file ID returned after you submit the file for validation.
+    // 
     // This parameter is required.
     shared_ptr<string> fileId_ {};
   };
