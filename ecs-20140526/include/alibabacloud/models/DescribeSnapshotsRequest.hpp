@@ -116,11 +116,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the snapshot. Valid values of N: 1 to 20
+      // The tag key.
       // 
-      // If a single tag is specified to query resources, up to 1,000 resources that have this tag added are returned. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added are returned. To query more than 1,000 resources with the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // > For better compatibility, use the `Tag.N.Key` parameter.
       shared_ptr<string> key_ {};
-      // The value of tag N of the snapshot. Valid values of N: 1 to 20.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -162,9 +162,9 @@ namespace Models
 
 
     protected:
-      // The key of filter 1 that is used to query resources. Set the value to `CreationStartTime`. You can specify a time by configuring both `Filter.1.Key` and `Filter.1.Value` to query resources that were created after the time.
+      // The filter key for querying resources. The value must be `CreationStartTime`. If you specify `Filter.1.Key` and `Filter.1.Value`, you can query for resources that were created after the specified point in time.
       shared_ptr<string> key_ {};
-      // The value of filter 1 that is used to query resources. Set the value to a time. If you configure this parameter, you must also configure `Filter.1.Key`. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+      // The filter value. If you specify this parameter, you must also specify `Filter.1.Key`. The value must be in the `yyyy-MM-ddTHH:mmZ` format and in UTC.
       shared_ptr<string> value_ {};
     };
 
@@ -357,84 +357,99 @@ namespace Models
     shared_ptr<vector<DescribeSnapshotsRequest::Filter>> filter_ {};
     // The category of the snapshot. Valid values:
     // 
-    // *   Standard: standard snapshot.
+    // - `Standard`: A standard snapshot.
     // 
-    // *   Flash: local snapshot. This value will be deprecated. The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
+    // - `Flash`: A local snapshot. This value is deprecated because the local snapshot feature has been replaced by the instant access feature.
     // 
-    //     *   If you have used local snapshots before December 14, 2020, you can use this parameter.
-    //     *   If you have not used local snapshots before December 14, 2020, you cannot use this parameter.
+    //   - If you have used local snapshots before December 14, 2020, you can continue to use this value.
     // 
-    // *   archive: archive snapshot.
+    //   - If you have not used local snapshots before December 14, 2020, you cannot use this value.
+    // 
+    // - `archive`: An archive snapshot.
+    // 
+    // <props="china">
+    // 
+    // For more information, see [December 14: Alibaba Cloud snapshot service upgrade and new billing items notice](https://help.aliyun.com/noticelist/articleid/1060755542.html).
     shared_ptr<string> category_ {};
-    // The disk ID.
+    // The ID of the cloud disk.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run.
     // 
-    // *   true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
-    // *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - `true`: Performs a dry run but does not query resources. The system checks the request for potential issues, including missing required parameters, invalid parameter values, and insufficient permissions. If the request is invalid, an error is returned. If the request is valid, the `DryRunOperation` error code is returned.
+    // 
+    // - `false` (Default): Sends a normal request. If the request is valid, the system returns a 2xx HTTP status code and the query results.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether the snapshot is encrypted. Default value: false.
+    // Specifies whether to return only encrypted snapshots. Default value: false.
     shared_ptr<bool> encrypted_ {};
-    // The ID of the instance whose cloud disk snapshots you want to query.
+    // The ID of the instance. When you specify this ID, the operation returns snapshots of cloud disks attached to the instance.
     shared_ptr<string> instanceId_ {};
-    // The ID of the Key Management Service (KMS) key that is used for the data disk.
+    // The ID of the KMS key used to encrypt the snapshot.
     shared_ptr<string> KMSKeyId_ {};
-    // The number of entries per page. Maximum value: 100
+    // The number of entries to return on each page. Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token to start the next page of results. You can obtain this token from the response to a previous query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is deprecated. We recommend that you use the `NextToken` and `MaxResults` parameters for paged queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. If you configure this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+    // The ID of the resource group to which the snapshot belongs. When you filter by this parameter, the query can return a maximum of 1,000 snapshots.
     // 
-    // > Resources in the default resource group are displayed in the response regardless of whether you configure this parameter.
+    // > You cannot filter resources that are in the default resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The IDs of snapshots. You can specify a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+    // A JSON array that contains the IDs of up to 100 snapshots to query.
     shared_ptr<string> snapshotIds_ {};
-    // The snapshot chain ID. You can specify a JSON array that contains up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+    // The ID of the snapshot chain.
     shared_ptr<string> snapshotLinkId_ {};
-    // The name of the snapshot.
+    // The snapshot name.
     shared_ptr<string> snapshotName_ {};
-    // The type of the snapshot. Valid values:
+    // The snapshot creation type. Valid values:
     // 
-    // *   auto: automatic snapshot
-    // *   user: manual snapshot
-    // *   all (default): all snapshot types
+    // - `auto`: An automatically created snapshot.
+    // 
+    // - `user`: A manually created snapshot.
+    // 
+    // - `all` (Default): All snapshot creation types.
     shared_ptr<string> snapshotType_ {};
-    // The source disk type of the snapshot. Valid values:
+    // The type of the source disk of the snapshot. Valid values:
     // 
-    // *   system: system disk.
-    // *   data: data disk.
+    // - `system`: The snapshot was created from a system disk.
     // 
-    // >  The value of this parameter is case-insensitive.
+    // - `data`: The snapshot was created from a data disk.
+    // 
+    // > The value is case-insensitive.
     shared_ptr<string> sourceDiskType_ {};
     // The status of the snapshot. Valid values:
     // 
-    // *   progressing: The snapshot is being created.
-    // *   accomplished: The snapshot is created.
-    // *   failed: The snapshot fails to be created.
-    // *   all (default): This value indicates all snapshot states.
-    shared_ptr<string> status_ {};
-    // The tags of the snapshot.
-    shared_ptr<vector<DescribeSnapshotsRequest::Tag>> tag_ {};
-    // Specifies whether the snapshot has been used to create custom images or disks. Valid values:
+    // - `progressing`: The snapshot is being created.
     // 
-    // *   image: The snapshot has been used to create custom images.
-    // *   disk: The snapshot has been used to create disks.
-    // *   image_disk: The snapshot has been used to create both custom images and data disks.
-    // *   none: The snapshot has not been used to create custom images or disks.
+    // - `accomplished`: The snapshot is complete.
+    // 
+    // - `failed`: Snapshot creation failed.
+    // 
+    // - `all` (Default): All snapshot statuses.
+    shared_ptr<string> status_ {};
+    // The tags by which to filter snapshots.
+    shared_ptr<vector<DescribeSnapshotsRequest::Tag>> tag_ {};
+    // The usage of the snapshot. Valid values:
+    // 
+    // - `image`: The snapshot is used to create a custom image.
+    // 
+    // - `disk`: The snapshot is used to create a cloud disk.
+    // 
+    // - `image_disk`: The snapshot is used to create a custom image and a data disk.
+    // 
+    // - `none`: The snapshot is not used.
     shared_ptr<string> usage_ {};
   };
 

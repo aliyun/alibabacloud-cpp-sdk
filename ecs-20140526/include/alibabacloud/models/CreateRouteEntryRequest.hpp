@@ -88,7 +88,23 @@ namespace Models
 
 
     protected:
+      // The ID of the next hop in the ECMP route.
       shared_ptr<string> nextHopId_ {};
+      // The type of the next hop in the ECMP route. Valid values:
+      // 
+      // - **Instance**: an ECS instance.
+      // 
+      // - **HaVip**: a high-availability virtual IP address.
+      // 
+      // - **RouterInterface**: a router interface.
+      // 
+      // - **NetworkInterface**: an elastic network interface.
+      // 
+      // - **VpnGateway**: a VPN gateway.
+      // 
+      // - **Ipv6Gateway**: an IPv6 gateway.
+      // 
+      // - **NatGateway**: a NAT gateway.
       shared_ptr<string> nextHopType_ {};
     };
 
@@ -175,17 +191,46 @@ namespace Models
 
 
   protected:
+    // A unique, case-sensitive identifier to ensure request idempotency. The token must be 1 to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
+    // The destination CIDR block. The value must be a valid CIDR block. Set the value to `0.0.0.0/0` to create a default route.
+    // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
+    // The ID of the next hop.
+    // 
+    // **Note** Specify either `NextHopId` or `NextHopList`, but not both.
     shared_ptr<string> nextHopId_ {};
+    // The list of next hops for an ECMP route.
+    // 
+    // **Note** Specify either `NextHopId` or `NextHopList`, but not both.
     shared_ptr<vector<CreateRouteEntryRequest::NextHopList>> nextHopList_ {};
+    // The type of the next hop. Valid values:
+    // 
+    // - **Instance**: an ECS instance.
+    // 
+    // - **HaVip**: a high-availability virtual IP address.
+    // 
+    // - **RouterInterface**: a router interface.
+    // 
+    // - **NetworkInterface**: an elastic network interface.
+    // 
+    // - **VpnGateway**: a VPN gateway.
+    // 
+    // - **Ipv6Gateway**: an IPv6 gateway.
+    // 
+    // - **NatGateway**: a NAT gateway.
+    // 
+    // **Note** This parameter is required if you specify `NextHopId`.
     shared_ptr<string> nextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region. You can call the [DescribeRegions](~~docid:36063~~) operation to get the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the route table.
+    // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};
   };

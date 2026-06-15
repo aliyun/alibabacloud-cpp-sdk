@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The names of SSH key pairs. The value can be a JSON array that consists of up to 100 SSH key pair names. Separate the names with commas (,).
     // 
-    // >  Before you delete an SSH key pair, you can call the [DescribeKeyPairs](https://help.aliyun.com/document_detail/51773.html) operation to query existing key pairs.
+    // > Before you delete an SSH key pair, you can call the [DescribeKeyPairs](https://help.aliyun.com/document_detail/51773.html) operation to query existing key pairs.
     // 
     // This parameter is required.
     shared_ptr<string> keyPairNames_ {};

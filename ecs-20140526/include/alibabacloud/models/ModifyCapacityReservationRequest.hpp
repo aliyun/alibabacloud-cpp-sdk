@@ -195,8 +195,9 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The release mode of the capacity reservation. Valid values:
     // 
-    // *   Limited: The capacity reservation is automatically released at the specified point in time. If you configure this parameter, you must also configure `EndTime`.
-    // *   Unlimited: The capacity reservation must be manually released. You can release it anytime.
+    // - Limited: The capacity reservation is automatically released at the specified point in time. If you configure this parameter, you must also configure `EndTime`.
+    // 
+    // - Unlimited: The capacity reservation must be manually released. You can release it anytime.
     shared_ptr<string> endTimeType_ {};
     // The total number of instances for which capacity is reserved. Valid values: the number of used instances to 1000.
     // 
@@ -206,8 +207,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The operating system of the image used by the instance. Valid values:
     // 
-    // *   Windows
-    // *   Linux
+    // - Windows
+    // 
+    // - Linux
     // 
     // > This parameter is unavailable.
     shared_ptr<string> platform_ {};

@@ -176,23 +176,50 @@ namespace Models
 
 
   protected:
+    // The circuit code of the physical connection. This code is provided by your connectivity provider.
     shared_ptr<string> circuitCode_ {};
+    // A client token to ensure that the request is idempotent.
+    // 
+    // You can generate this token on your client, but you must ensure that it is unique for each request. The token can contain only ASCII characters and cannot be longer than 64 characters.
     shared_ptr<string> clientToken_ {};
+    // The description of the VBR.
+    // 
+    // The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The IP address of the VBR gateway in Alibaba Cloud.
     shared_ptr<string> localGatewayIp_ {};
+    // The name of the VBR.
+    // 
+    // The name must be 2 to 128 characters long, start with a letter, and can contain only letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The IP address of the gateway in your on-premises data center.
     shared_ptr<string> peerGatewayIp_ {};
+    // The peering subnet mask for the IP addresses of the local gateway and the peer gateway.
     shared_ptr<string> peeringSubnetMask_ {};
+    // The ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The ID of the region where the Virtual Border Router (VBR) is located.
+    // 
+    // You can call the `DescribeRegions` operation to get the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The CIDR block of your on-premises network. Required when the VBR is connected to a Cloud Enterprise Network (CEN) instance.
     shared_ptr<string> userCidr_ {};
+    // The ID of the Alibaba Cloud account that owns the VBR. Specify this parameter when creating a VBR for another account.
     shared_ptr<int64_t> vbrOwnerId_ {};
+    // The VLAN ID of the VBR.
+    // 
+    // Valid values: 0 to 4095.
+    // 
+    // A value of 0 indicates that the VBR is connected to the physical connection in Layer 3 router mode.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> vlanId_ {};
   };

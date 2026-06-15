@@ -137,9 +137,13 @@ namespace Models
 
 
   protected:
+    // The IDs of the EIP bandwidth plans.
     shared_ptr<CreateNatGatewayResponseBody::BandwidthPackageIds> bandwidthPackageIds_ {};
+    // The IDs of the forwarding tables.
     shared_ptr<CreateNatGatewayResponseBody::ForwardTableIds> forwardTableIds_ {};
+    // The ID of the NAT gateway.
     shared_ptr<string> natGatewayId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

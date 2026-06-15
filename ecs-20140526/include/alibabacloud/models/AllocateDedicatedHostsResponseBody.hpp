@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<AllocateDedicatedHostsResponseBody::DedicatedHostIdSets> dedicatedHostIdSets_ {};
     // The ID of the order.
     // 
-    // >  This parameter has a return value only when the dedicated host is a subscription one (request parameter **ChargeType set to PrePaid**).
+    // > This parameter has a return value only when the dedicated host is a subscription one (request parameter **ChargeType set to PrePaid**).
     shared_ptr<string> orderId_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};

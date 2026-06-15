@@ -91,8 +91,9 @@ namespace Models
     // 
     // Default value:
     // 
-    // *   If this parameter is left empty, the default value is 10.
-    // *   If you set this parameter to a value that is greater than 100, the default value is 100.
+    // - If this parameter is left empty, the default value is 10.
+    // 
+    // - If you set this parameter to a value that is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The IDs of diagnostic metric sets.
     shared_ptr<vector<string>> metricSetIds_ {};
@@ -106,8 +107,9 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The type of the diagnostic metric set. Valid values:
     // 
-    // *   User: custom diagnostic metric set
-    // *   Common: public diagnostic metric set
+    // - User: custom diagnostic metric set
+    // 
+    // - Common: public diagnostic metric set
     // 
     // Default value: User.
     shared_ptr<string> type_ {};

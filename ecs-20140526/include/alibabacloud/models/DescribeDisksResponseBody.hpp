@@ -1002,17 +1002,17 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
-    // The returned pagination token which can be used in the next request to retrieve a new page of results.
+    // The token returned to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // >  This parameter will be removed in the future. We recommend that you use `NextToken` and `MaxResults` for a paged query.
+    // > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
     shared_ptr<int32_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use `NextToken` and `MaxResults` for a paged query.
+    // > This parameter is deprecated. We recommend that you use the `NextToken `and `MaxResults `parameters for pagination.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     // 
-    // > When using the `MaxResults` and `NextToken` parameters for a paginated query, the returned `TotalCount` parameter value is invalid.
+    // > When you use the`MaxResults` and`NextToken` parameters for pagination, the value of `TotalCount` is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

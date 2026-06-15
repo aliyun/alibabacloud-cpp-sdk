@@ -94,11 +94,16 @@ namespace Models
 
 
   protected:
+    // Specifies whether to forcibly delete the permission. Set this parameter to `true` to force the deletion.
     shared_ptr<bool> force_ {};
+    // The ID of the permission for the elastic network interface.
+    // 
     // This parameter is required.
     shared_ptr<string> networkInterfacePermissionId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the elastic network interface is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

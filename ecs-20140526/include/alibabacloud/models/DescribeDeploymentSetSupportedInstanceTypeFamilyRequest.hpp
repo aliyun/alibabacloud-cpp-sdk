@@ -94,9 +94,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The deployment strategy. Valid values:
     // 
-    // *   Availability: high availability strategy
-    // *   AvailabilityGroup: high availability group strategy
-    // *   LowLatency: low latency strategy
+    // - Availability: high availability strategy
+    // 
+    // - AvailabilityGroup: high availability group strategy
+    // 
+    // - LowLatency: low latency strategy
     // 
     // Default value: Availability.
     shared_ptr<string> strategy_ {};

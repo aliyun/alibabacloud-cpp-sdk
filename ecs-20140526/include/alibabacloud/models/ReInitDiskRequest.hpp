@@ -114,8 +114,9 @@ namespace Models
   protected:
     // Specifies whether to automatically start the instance after the disk is re-initialized. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> autoStartInstance_ {};
@@ -131,7 +132,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // Specifies whether to reset the password of the instance when you re-initialize its system disk. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
     // 
-    //     ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+    // ```
+    // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+    // ```
     // 
     // For Windows instances, passwords cannot start with a forward slash (/).
     // 
@@ -141,8 +144,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to use Security Center free of charge after the system disk is re-initialized. Valid values:
     // 
-    // *   Active: uses Security Center free of charge after the system disk is re-initialized. This value is applicable to only public images.
-    // *   Deactive: does not use Security Center free of charge after the system disk is re-initialized. This value is applicable to all images.
+    // - Active: uses Security Center free of charge after the system disk is re-initialized. This value is applicable to only public images.
+    // 
+    // - Deactive: does not use Security Center free of charge after the system disk is re-initialized. This value is applicable to all images.
     // 
     // Default value: Deactive.
     shared_ptr<string> securityEnhancementStrategy_ {};

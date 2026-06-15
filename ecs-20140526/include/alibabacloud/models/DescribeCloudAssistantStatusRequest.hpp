@@ -145,15 +145,17 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The operating system type of the instance. Valid values:
     // 
-    // *   Windows
-    // *   Linux
-    // *   FreeBSD
+    // - Windows
+    // 
+    // - Linux
+    // 
+    // - FreeBSD
     shared_ptr<string> OSType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 

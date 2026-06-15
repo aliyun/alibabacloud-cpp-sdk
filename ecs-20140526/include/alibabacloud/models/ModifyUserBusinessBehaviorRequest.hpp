@@ -96,11 +96,16 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The key of the attribute to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> statusKey_ {};
+    // The new value of the attribute.
+    // 
     // This parameter is required.
     shared_ptr<string> statusValue_ {};
   };

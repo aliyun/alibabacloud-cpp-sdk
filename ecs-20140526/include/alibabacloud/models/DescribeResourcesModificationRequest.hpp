@@ -169,11 +169,11 @@ namespace Models
     shared_ptr<int32_t> cores_ {};
     // The resource type that you want to change. Valid values:
     // 
-    // *   InstanceType
+    // - InstanceType
     // 
-    // *   SystemDisk
+    // - SystemDisk
     // 
-    //     If you set this parameter to SystemDisk, you must specify the InstanceType parameter. In this case, this operation queries the system disk categories supported by the specified instance type.
+    //   If you set this parameter to SystemDisk, you must specify the InstanceType parameter. In this case, this operation queries the system disk categories supported by the specified instance type.
     // 
     // This parameter is required.
     shared_ptr<string> destinationResource_ {};
@@ -187,30 +187,35 @@ namespace Models
     shared_ptr<float> memory_ {};
     // Specifies whether cross-cluster instance type upgrades are supported. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     // 
     // When MigrateAcrossZone is set to true and you upgrade the instance type of an instance based on the returned information, take note of the following items:
     // 
-    // *   Instance that resides in the classic network:
+    // - Instance that resides in the classic network:
     // 
-    //     *   For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
-    //     *   For [instance families available for purchase](https://help.aliyun.com/document_detail/25378.html), when the instance type of an instance is changed, the private IP address of the instance changes.
+    //   - For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the private IP address, disk device names, and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
     // 
-    // *   Instance that resides in a virtual private cloud (VPC): For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the disk device names and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
+    //   - For [instance families available for purchase](https://help.aliyun.com/document_detail/25378.html), when the instance type of an instance is changed, the private IP address of the instance changes.
+    // 
+    // - Instance that resides in a virtual private cloud (VPC): For [retired instance types](https://help.aliyun.com/document_detail/55263.html), when a non-I/O optimized instance is upgraded to an I/O optimized instance, the disk device names and software authorization codes of the instance change. For a Linux instance, basic disks (cloud) are identified as xvd\\* such as xvda and xvdb, and ultra disks (cloud_efficiency) and standard SSDs (cloud_ssd) are identified as vd\\* such as vda and vdb.
     shared_ptr<bool> migrateAcrossZone_ {};
     // The operation of changing resource configurations.
     // 
-    // *   Valid values for subscription resources:
+    // - Valid values for subscription resources:
     // 
-    //     *   Upgrade: upgrades resources.
-    //     *   Downgrade: downgrades resources.
-    //     *   RenewDowngrade: renews and downgrades resources.
-    //     *   RenewModify: renews an expired instance and changes its configurations.
+    //   - Upgrade: upgrades resources.
     // 
-    // *   Set the value to Upgrade for pay-as-you-go resources.
+    //   - Downgrade: downgrades resources.
+    // 
+    //   - RenewDowngrade: renews and downgrades resources.
+    // 
+    //   - RenewModify: renews an expired instance and changes its configurations.
+    // 
+    // - Set the value to Upgrade for pay-as-you-go resources.
     // 
     // Default value: Upgrade.
     shared_ptr<string> operationType_ {};

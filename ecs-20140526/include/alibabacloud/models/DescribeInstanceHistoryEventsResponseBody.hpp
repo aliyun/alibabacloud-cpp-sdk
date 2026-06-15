@@ -683,29 +683,29 @@ namespace Models
     shared_ptr<DescribeInstanceHistoryEventsResponseBody::InstanceSystemEventSet> instanceSystemEventSet_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results.
     // 
-    // >  If the NextToken parameter is not returned when you use the MaxResults and NextToken parameters to perform a paged query, no more data is returned.
+    // > If the NextToken parameter is not returned when you use the MaxResults and NextToken parameters to perform a paged query, no more data is returned.
     shared_ptr<string> nextToken_ {};
     // The page number.
     // 
-    // > 
+    // >
     // 
-    // *   If MaxResults and NextToken are used to query results by page, ignore this parameter.
+    // - If MaxResults and NextToken are used to query results by page, ignore this parameter.
     // 
-    // *   This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // > 
+    // >
     // 
-    // *   If MaxResults and NextToken are used to query results by page, ignore this parameter.
+    // - If MaxResults and NextToken are used to query results by page, ignore this parameter.
     // 
-    // *   This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
+    // - This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     // 
-    // >  If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
+    // > If you specify the MaxResults and NextToken request parameters to perform a paged query, the value of the TotalCount response parameter is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

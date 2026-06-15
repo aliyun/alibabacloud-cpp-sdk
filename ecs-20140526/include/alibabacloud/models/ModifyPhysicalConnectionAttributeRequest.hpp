@@ -176,23 +176,45 @@ namespace Models
 
 
   protected:
+    // The circuit code of the physical connection, provided by the line operator.
     shared_ptr<string> circuitCode_ {};
+    // A client-generated token to ensure the idempotency of the request.
+    // 
+    // The token must be unique across requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The new description of the physical connection.
     shared_ptr<string> description_ {};
+    // The line operator that provides the physical connection.
     shared_ptr<string> lineOperator_ {};
+    // The new name of the physical connection.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The peer location of the physical connection.
     shared_ptr<string> peerLocation_ {};
+    // The ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The port type of the physical connection.
     shared_ptr<string> portType_ {};
+    // The ID of the redundant physical connection.
     shared_ptr<string> redundantPhysicalConnectionId_ {};
+    // The ID of the region where the physical connection is located.
+    // 
+    // To get the latest list of regions, call the `DescribeRegions` operation.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The client-side IP address or CIDR block in your data center.
+    // 
+    // This parameter is used only for outbound traffic shaping.
     shared_ptr<string> userCidr_ {};
+    // The bandwidth of the physical connection.
+    // 
+    // Unit: Mbit/s.
     shared_ptr<int32_t> bandwidth_ {};
   };
 

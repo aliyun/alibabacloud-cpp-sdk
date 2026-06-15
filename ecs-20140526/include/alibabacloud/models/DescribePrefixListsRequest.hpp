@@ -193,8 +193,9 @@ namespace Models
   protected:
     // The IP address family. Valid values:
     // 
-    // *   IPv4
-    // *   IPv6
+    // - IPv4
+    // 
+    // - IPv6
     // 
     // This parameter is empty by default, which indicates that all prefix lists are queried.
     shared_ptr<string> addressFamily_ {};

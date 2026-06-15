@@ -92,13 +92,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N that is added to the auto provisioning group.
-      // 
-      // Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+      // The key of the tag. The key can be up to 128 characters in length and cannot be an empty string. It cannot start with `aliyun` or `acs:` or contain http\\:// or https\\://.
       shared_ptr<string> key_ {};
-      // The value of tag N that is added to the auto provisioning group.
-      // 
-      // Valid values of N: 1 to 20. The tag value can be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://.
+      // The value of the tag. The value can be up to 128 characters in length and can be an empty string. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -206,28 +202,28 @@ namespace Models
 
 
   protected:
-    // The ID of the auto provisioning group. You can specify up to 20 IDs.
+    // The IDs of the auto provisioning groups. You can specify up to 20 IDs.
     shared_ptr<vector<string>> autoProvisioningGroupId_ {};
     // The name of the auto provisioning group.
     shared_ptr<string> autoProvisioningGroupName_ {};
-    // The status of the auto provisioning group.
+    // The statuses of the auto provisioning groups.
     shared_ptr<vector<string>> autoProvisioningGroupStatus_ {};
     shared_ptr<vector<string>> autoProvisioningGroupTypes_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number to return.
     // 
-    // Pages start from page 1.
+    // Start value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries to return per page.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the auto provisioning group.
+    // The ID of the region where the auto provisioning group is located.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -235,7 +231,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags that are added to the auto provisioning group.
+    // The tags used to filter auto provisioning groups. You can specify up to 20 tags.
     shared_ptr<vector<DescribeAutoProvisioningGroupsRequest::Tag>> tag_ {};
   };
 

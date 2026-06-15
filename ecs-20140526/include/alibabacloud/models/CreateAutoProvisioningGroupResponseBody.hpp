@@ -234,7 +234,7 @@ namespace Models
     // The ID of the auto provisioning group.
     shared_ptr<string> autoProvisioningGroupId_ {};
     shared_ptr<CreateAutoProvisioningGroupResponseBody::LaunchResults> launchResults_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

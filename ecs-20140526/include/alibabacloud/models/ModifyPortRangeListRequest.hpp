@@ -80,8 +80,9 @@ namespace Models
     protected:
       // The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
       // 
-      // *   `PortRange` in different entries cannot be duplicated.
-      // *   The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
+      // - `PortRange` in different entries cannot be duplicated.
+      // 
+      // - The value of this parameter cannot be the same as the value of `AddEntry.N.PortRange`.
       shared_ptr<string> portRange_ {};
     };
 
@@ -123,13 +124,15 @@ namespace Models
 
 
     protected:
-      // The description of the port range in entry N. The description must be 2 to 32 characters in length and cannot start with http:// or https://. Valid values of N: 0 to 200.
+      // The description of the port range in entry N. The description must be 2 to 32 characters in length and cannot start with http\\:// or https\\://. Valid values of N: 0 to 200.
       shared_ptr<string> description_ {};
       // The port range in entry N. Valid values of N: 0 to 200. Take note of the following limits:
       // 
-      // *   The total number of entries in the port list cannot exceed the `MaxEntries` value.
-      // *   `PortRange` in different entries cannot be duplicated.
-      // *   The value of this parameter cannot be the same as the value of `RemoveEntry.N.PortRange`.
+      // - The total number of entries in the port list cannot exceed the `MaxEntries` value.
+      // 
+      // - `PortRange` in different entries cannot be duplicated.
+      // 
+      // - The value of this parameter cannot be the same as the value of `RemoveEntry.N.PortRange`.
       shared_ptr<string> portRange_ {};
     };
 
@@ -222,7 +225,7 @@ namespace Models
     shared_ptr<vector<ModifyPortRangeListRequest::AddEntry>> addEntry_ {};
     // The client token that is used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The description of the port list. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+    // The description of the port list. The description must be 2 to 256 characters in length and cannot start with http\\:// or https\\://.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -230,7 +233,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> portRangeListId_ {};
-    // The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> portRangeListName_ {};
     // The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 

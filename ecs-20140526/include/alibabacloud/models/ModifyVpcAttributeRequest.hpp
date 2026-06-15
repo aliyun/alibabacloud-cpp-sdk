@@ -121,16 +121,23 @@ namespace Models
 
 
   protected:
+    // The primary IPv4 cidr block for the VPC. You can only expand this cidr block, for example, from `192.168.0.0/24` to `192.168.0.0/16`. You cannot modify the primary cidr block if ClassicLink is enabled.
     shared_ptr<string> cidrBlock_ {};
+    // The description must be 2 to 256 characters long. It must start with a letter and cannot begin with `http://` or `https://`.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the VPC\\"s region.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // A user cidr block to add to the VPC. You can add up to three user cidr blocks. They cannot overlap with the primary cidr block, each other, or the reserved `100.64.0.0/10` cidr block.
     shared_ptr<string> userCidr_ {};
+    // The ID of the VPC to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The name must be 2 to 128 characters long, start with a letter, and can contain letters, digits, underscores (_), and hyphens (-).
     shared_ptr<string> vpcName_ {};
   };
 

@@ -264,8 +264,9 @@ namespace Models
       shared_ptr<string> agentVersion_ {};
       // Indicates whether the managed instance is connected. Valid values:
       // 
-      // *   true: The managed instance is connected. You can manage the instance by using Cloud Assistant.
-      // *   false: The managed instance is not connected. The managed instance may be down or Cloud Assistant Agent may be incorrectly installed.
+      // - true: The managed instance is connected. You can manage the instance by using Cloud Assistant.
+      // 
+      // - false: The managed instance is not connected. The managed instance may be down or Cloud Assistant Agent may be incorrectly installed.
       shared_ptr<bool> connected_ {};
       // The hostname of the managed instance.
       shared_ptr<string> hostname_ {};

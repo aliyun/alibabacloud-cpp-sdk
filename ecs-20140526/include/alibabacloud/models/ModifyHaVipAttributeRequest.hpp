@@ -103,12 +103,18 @@ namespace Models
 
 
   protected:
+    // A client-generated token used to ensure the idempotence of the request. Make sure that the token is unique across requests. The token can contain only ASCII characters and be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
+    // The new description of the HaVip. The description must be 2 to 256 characters long and must not start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The ID of the HaVip that you want to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the HaVip is deployed. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

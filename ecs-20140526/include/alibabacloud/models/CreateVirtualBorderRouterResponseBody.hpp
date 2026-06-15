@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the virtual border router.
     shared_ptr<string> vbrId_ {};
   };
 

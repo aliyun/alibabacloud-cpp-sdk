@@ -130,18 +130,35 @@ namespace Models
 
 
   protected:
+    // The CIDR block for the vSwitch.\\
+    // It must be a subnet of the VPC\\"s CIDR block and must not overlap with the CIDR blocks of other vSwitches in the same VPC.\\
+    // 
     // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
+    // A client token to ensure the idempotence of the request. The token must be unique across requests, contain only ASCII characters, and not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The description for the vSwitch.\\
+    // It must be 2 to 256 characters long and must not start with `http://` or `https://`.\\
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region in which to create the vSwitch.\\
+    // Call the `DescribeRegions` operation to get a list of available regions.\\
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name for the vSwitch.\\
+    // The name must be 2 to 128 characters long, start with a letter, and contain only letters, digits, underscores (_), and hyphens (-).\\
+    // If unspecified, the name defaults to the vSwitch ID.\\
+    // \\
     shared_ptr<string> vSwitchName_ {};
+    // The ID of the VPC in which to create the vSwitch.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
+    // The ID of the zone in which to create the vSwitch.\\
+    // Call the `DescribeZones` operation to get a list of available zones.\\
+    // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};
   };

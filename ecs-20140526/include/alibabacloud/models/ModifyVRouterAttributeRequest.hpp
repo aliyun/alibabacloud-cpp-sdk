@@ -103,14 +103,19 @@ namespace Models
 
 
   protected:
+    // The description of the virtual router. The description must be 2 to 256 characters long and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the virtual router is deployed. You can call the `DescribeRegions` operation to obtain the most recent list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the VRouter to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> VRouterId_ {};
+    // The name of the virtual router. The name must be 2 to 128 characters long and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> VRouterName_ {};
   };
 

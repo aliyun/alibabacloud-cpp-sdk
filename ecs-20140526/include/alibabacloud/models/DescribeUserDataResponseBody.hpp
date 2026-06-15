@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The user data of the instance.
     // 
-    // >  If no user data is configured for the instance, an empty string is returned.
+    // > If no user data is configured for the instance, an empty string is returned.
     shared_ptr<string> userData_ {};
   };
 

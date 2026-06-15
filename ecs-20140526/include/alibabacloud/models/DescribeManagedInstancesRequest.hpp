@@ -252,6 +252,11 @@ namespace Models
   protected:
     // The ID of the activation code.
     shared_ptr<string> activationId_ {};
+    // Indicates whether the managed instance is connected.
+    // 
+    // true: The managed instance is connected, and you can manage it by using Cloud Assistant.
+    // 
+    // false: The managed instance is not connected. The server may be shut down or the Cloud Assistant Agent may not be installed correctly.
     shared_ptr<string> connected_ {};
     // The ID of managed instance N. Valid values of N: 1 to 50.
     shared_ptr<vector<string>> instanceId_ {};
@@ -261,16 +266,20 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The value of the MachineId parameter that you specify when you register a managed instance. A maximum of 36 characters are allowed. Sample registration script:
     // 
-    //     aliyun-service --register \\
-    //       --RegionId=cn-hangznou \\
-    //       --ActivationId=xxxxxxxxxxx \\
-    //       --ActivationCode=xxxxxxxxx \\
-    //     --MachineId=xxxxxx \\ # Optional. The unique identifier of the machine.
-    //       --ForceResue                 
+    // ```
+    // aliyun-service --register \\
+    //   --RegionId=cn-hangznou \\
+    //   --ActivationId=xxxxxxxxxxx \\
+    //   --ActivationCode=xxxxxxxxx \\
+    // --MachineId=xxxxxx \\ # Optional. The unique identifier of the machine.
+    //   --ForceResue                 
+    // ```
     // 
-    // *   If the MachineId and ForceResult parameters are specified during registration, the Cloud Assistant generates a fixed managed instance ID for this MachineId.
-    // *   If the MachineId parameter is not explicitly specified, the Cloud Assistant will automatically generate a MachineId value based on the hardware information of the machine.
-    // *   We recommend that you explicitly specify the MachineId and ForceResult parameters to mark the mapping between a managed instance and an on-premises machine.
+    // - If the MachineId and ForceResult parameters are specified during registration, the Cloud Assistant generates a fixed managed instance ID for this MachineId.
+    // 
+    // - If the MachineId parameter is not explicitly specified, the Cloud Assistant will automatically generate a MachineId value based on the hardware information of the machine.
+    // 
+    // - We recommend that you explicitly specify the MachineId and ForceResult parameters to mark the mapping between a managed instance and an on-premises machine.
     shared_ptr<string> machineId_ {};
     // The maximum number of entries per page.
     // 
@@ -282,15 +291,17 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The operating system type of the managed instance. Valid values:
     // 
-    // *   windows
-    // *   linux
-    // *   FreeBSD
+    // - windows
+    // 
+    // - linux
+    // 
+    // - FreeBSD
     shared_ptr<string> osType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
     // 

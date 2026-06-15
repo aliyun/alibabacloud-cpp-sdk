@@ -239,9 +239,11 @@ namespace Models
     shared_ptr<vector<string>> snapshotGroupId_ {};
     // The state of snapshot-consistent group N. Valid values of the second N: 1, 2, and 3. Valid values:
     // 
-    // *   progressing: The snapshot-consistent group is being created.
-    // *   accomplished: The snapshot-consistent group is created.
-    // *   failed: The snapshot-consistent group fails to be created.
+    // - progressing: The snapshot-consistent group is being created.
+    // 
+    // - accomplished: The snapshot-consistent group is created.
+    // 
+    // - failed: The snapshot-consistent group fails to be created.
     shared_ptr<vector<string>> status_ {};
     // The tags of the snapshot-consistent group.
     shared_ptr<vector<DescribeSnapshotGroupsRequest::Tag>> tag_ {};

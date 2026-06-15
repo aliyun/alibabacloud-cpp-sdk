@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The order ID. This parameter is returned only for subscription-based router interfaces.
     shared_ptr<int64_t> orderId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The router interface ID.
     shared_ptr<string> routerInterfaceId_ {};
   };
 

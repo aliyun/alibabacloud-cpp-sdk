@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyPlanMaintenanceWindowShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Enable, enable_);
+      DARABONBA_PTR_TO_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
       DARABONBA_PTR_TO_JSON(PlanWindowId, planWindowId_);
       DARABONBA_PTR_TO_JSON(PlanWindowName, planWindowName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyPlanMaintenanceWindowShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
+      DARABONBA_PTR_FROM_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
       DARABONBA_PTR_FROM_JSON(PlanWindowId, planWindowId_);
       DARABONBA_PTR_FROM_JSON(PlanWindowName, planWindowName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->enable_ == nullptr
-        && this->planWindowId_ == nullptr && this->planWindowName_ == nullptr && this->regionId_ == nullptr && this->supportMaintenanceAction_ == nullptr && this->targetResourceShrink_ == nullptr
-        && this->timePeriodShrink_ == nullptr; };
+        && this->minMaintenanceInterval_ == nullptr && this->planWindowId_ == nullptr && this->planWindowName_ == nullptr && this->regionId_ == nullptr && this->supportMaintenanceAction_ == nullptr
+        && this->targetResourceShrink_ == nullptr && this->timePeriodShrink_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
     inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline ModifyPlanMaintenanceWindowShrinkRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+    // minMaintenanceInterval Field Functions 
+    bool hasMinMaintenanceInterval() const { return this->minMaintenanceInterval_ != nullptr;};
+    void deleteMinMaintenanceInterval() { this->minMaintenanceInterval_ = nullptr;};
+    inline int32_t getMinMaintenanceInterval() const { DARABONBA_PTR_GET_DEFAULT(minMaintenanceInterval_, 0) };
+    inline ModifyPlanMaintenanceWindowShrinkRequest& setMinMaintenanceInterval(int32_t minMaintenanceInterval) { DARABONBA_PTR_SET_VALUE(minMaintenanceInterval_, minMaintenanceInterval) };
 
 
     // planWindowId Field Functions 
@@ -94,14 +103,24 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the maintenance window. If this parameter is not specified, the enabled status remains unchanged.
     shared_ptr<bool> enable_ {};
+    shared_ptr<int32_t> minMaintenanceInterval_ {};
+    // The ID of the maintenance window to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> planWindowId_ {};
+    // The new name of the maintenance window. If this parameter is not specified, the name remains unchanged.
     shared_ptr<string> planWindowName_ {};
+    // The ID of the region where the instance is located. You can call the DescribeRegions operation to query the most recent list of Alibaba Cloud regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The maintenance action for the maintenance window. If this parameter is not specified, the action remains unchanged.
     shared_ptr<string> supportMaintenanceAction_ {};
+    // The resources to which the maintenance window applies. If this parameter is not specified, the target resources remain unchanged.
     shared_ptr<string> targetResourceShrink_ {};
+    // The recurrence schedule for the maintenance window. If this parameter is not specified, the schedule remains unchanged.
     shared_ptr<string> timePeriodShrink_ {};
   };
 

@@ -259,18 +259,21 @@ namespace Models
 
 
   protected:
+    // Ensures request idempotence. Generate a parameter value from your client and ensure that this parameter value is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The content of the file. The file must not exceed 32 KB in size after it is encoded in Base64.
     // 
-    // *   If `ContentType` is set to `PlainText`, the value of Content is in plaintext.
-    // *   If `ContentType` is set to `Base64`, the value of Content is Base64-encoded.
+    // - If `ContentType` is set to `PlainText`, the value of Content is in plaintext.
+    // 
+    // - If `ContentType` is set to `Base64`, the value of Content is Base64-encoded.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The content type of the file. Valid values:
     // 
-    // *   PlainText: The file content is not encoded.
-    // *   Base64: The file content is encoded in Base64.
+    // - PlainText: The file content is not encoded.
+    // 
+    // - Base64: The file content is encoded in Base64.
     // 
     // Default value: PlainText.
     shared_ptr<string> contentType_ {};
@@ -278,7 +281,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The group of the file. This parameter takes effect only on Linux instances. Default value: root. The value can be up to 64 characters in length.
     // 
-    // >  If you want to use a non-root user group, make sure that the user group exists in the instances.
+    // > If you want to use a non-root user group, make sure that the user group exists in the instances.
     shared_ptr<string> fileGroup_ {};
     // The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you configure the chmod command.
     // 
@@ -286,7 +289,7 @@ namespace Models
     shared_ptr<string> fileMode_ {};
     // The owner of the file. This parameter takes effect only on Linux instances. Default value: root. The value can be up to 64 characters in length.
     // 
-    // >  If you want to use a non-root user, make sure that the user exists in the instances.
+    // > If you want to use a non-root user, make sure that the user exists in the instances.
     shared_ptr<string> fileOwner_ {};
     // The IDs of instances to which to send the file. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
     // 
@@ -298,8 +301,9 @@ namespace Models
     shared_ptr<string> name_ {};
     // Specifies whether to overwrite a file in the destination directory if the file has the same name as the sent file.
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> overwrite_ {};
@@ -311,8 +315,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group. When you specify this parameter, take note of the following items:
     // 
-    // *   The instance specified by the InstanceId parameter must belong to the specified resource group.
-    // *   If you specify this parameter, you can call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation to query file sending results in the specified resource group.
+    // - The instance specified by the InstanceId parameter must belong to the specified resource group.
+    // 
+    // - If you specify this parameter, you can call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation to query file sending results in the specified resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
@@ -324,8 +329,9 @@ namespace Models
     shared_ptr<string> targetDir_ {};
     // The timeout period for the file sending task. Unit: seconds.
     // 
-    // *   A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or Cloud Assistant Agent does not exist.
-    // *   If the specified timeout period is less than 10 seconds, the system sets the timeout period to 10 seconds to ensure that the file can be sent to the instances.
+    // - A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or Cloud Assistant Agent does not exist.
+    // 
+    // - If the specified timeout period is less than 10 seconds, the system sets the timeout period to 10 seconds to ensure that the file can be sent to the instances.
     // 
     // Default value: 60.
     shared_ptr<int64_t> timeout_ {};

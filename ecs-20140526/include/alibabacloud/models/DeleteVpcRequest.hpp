@@ -86,9 +86,12 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the VPC is located. Call the [DescribeRegions](~~DescribeRegions~~) operation to get the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the VPC to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

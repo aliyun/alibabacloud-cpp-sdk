@@ -112,33 +112,26 @@ namespace Models
 
 
   protected:
-    // The page number.
-    // 
-    // Pages start from page 1.
-    // 
-    // Default value: 1.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The number of entries per page.
-    // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // The IDs of HPC clusters.
+    // The value can be a JSON array that consists of multiple HPC cluster IDs. You can specify up to 100 IDs. Separate the IDs with commas (,).
     shared_ptr<string> hpcClusterIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number of the HPC cluster list.
     // 
-    // Pages start from page 1.
+    // Start value: 1
     // 
-    // Default value: 1.
+    // Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page set for paginated queries.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100
     // 
-    // Default value: 10.
+    // Default value: 10
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of HPC clusters. The value is a JSON array that consists of up to 100 HPC cluster IDs. Separate the HPC cluster IDs with commas (,).
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

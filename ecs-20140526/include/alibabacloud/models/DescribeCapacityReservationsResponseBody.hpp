@@ -651,11 +651,11 @@ namespace Models
     shared_ptr<DescribeCapacityReservationsResponseBody::CapacityReservationSet> capacityReservationSet_ {};
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of capacity reservations that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

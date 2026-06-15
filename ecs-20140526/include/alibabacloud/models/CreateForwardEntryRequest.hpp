@@ -130,20 +130,34 @@ namespace Models
 
 
   protected:
+    // The public IP address for the DNAT entry. This must be a public IP address of the NAT gateway associated with the DNAT table.
+    // 
     // This parameter is required.
     shared_ptr<string> externalIp_ {};
+    // The external port used for DNAT. Valid values: 1 to 65535.
+    // 
     // This parameter is required.
     shared_ptr<string> externalPort_ {};
+    // The ID of the DNAT table.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardTableId_ {};
+    // The private IP address to which traffic is forwarded.
+    // 
     // This parameter is required.
     shared_ptr<string> internalIp_ {};
+    // The internal port to which traffic is forwarded. Valid values: 1 to 65535.
+    // 
     // This parameter is required.
     shared_ptr<string> internalPort_ {};
+    // The protocol. Valid values: TCP, UDP, and Any. If you set this parameter to Any, the DNAT entry applies to all protocols.
+    // 
     // This parameter is required.
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the DNAT table is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to retrieve a list of available regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

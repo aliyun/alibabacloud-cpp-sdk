@@ -135,9 +135,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The interval at which to retrieve the monitoring data. Unit: seconds. Default value: Month. Valid values:
     // 
-    // *   60
-    // *   600
-    // *   3600
+    // - 60
+    // 
+    // - 600
+    // 
+    // - 3600
     // 
     // Default: 60.
     shared_ptr<int32_t> period_ {};

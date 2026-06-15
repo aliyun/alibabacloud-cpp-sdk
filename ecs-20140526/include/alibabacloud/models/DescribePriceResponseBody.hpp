@@ -205,17 +205,17 @@ namespace Models
 
 
         protected:
-          // The currency unit.
+          // The currency.
           // 
-          // China site (aliyun.com): CNY
+          // CNY for sites in the Chinese mainland.
           // 
-          // International site (alibabacloud.com): USD
+          // USD for international sites.
           shared_ptr<string> currency_ {};
-          // The discount.
+          // The discount amount.
           shared_ptr<float> discountPrice_ {};
           // The original price.
           shared_ptr<float> originalPrice_ {};
-          // The transaction price, which is equal to the original price minus the discount.
+          // The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
           shared_ptr<float> tradePrice_ {};
         };
 
@@ -230,7 +230,7 @@ namespace Models
 
 
       protected:
-        // The Alibaba Cloud Marketplace image price.
+        // The price of the marketplace image.
         shared_ptr<RelatedPrice::MarketplaceImagePrice> marketplaceImagePrice_ {};
       };
 
@@ -492,20 +492,20 @@ namespace Models
 
 
       protected:
-        // The currency unit.
+        // The currency.
         // 
-        // Alibaba Cloud China site (aliyun.com): CNY.
+        // CNY for sites in the Chinese mainland.
         // 
-        // Alibaba Cloud International site (alibabacloud.com): USD.
+        // USD for international sites.
         shared_ptr<string> currency_ {};
         shared_ptr<Price::DetailInfos> detailInfos_ {};
-        // The discount.
+        // The discount amount.
         shared_ptr<float> discountPrice_ {};
         // The original price.
         shared_ptr<float> originalPrice_ {};
-        // The hourly price of the reserved instance for which the No Upfront or Partial Upfront payment option is used.
+        // The hourly price of a No Upfront or Partial Upfront Reserved Instance Voucher.
         shared_ptr<float> reservedInstanceHourPrice_ {};
-        // The transaction price of the order. The transaction price is equal to the original price minus the discount.
+        // The trade price, calculated as `OriginalPrice` - `DiscountPrice`.
         shared_ptr<float> tradePrice_ {};
       };
 
@@ -539,9 +539,9 @@ namespace Models
 
 
     protected:
-      // The price.
+      // The price details.
       shared_ptr<PriceInfo::Price> price_ {};
-      // The related price.
+      // The related prices.
       shared_ptr<PriceInfo::RelatedPrice> relatedPrice_ {};
       shared_ptr<PriceInfo::Rules> rules_ {};
     };
@@ -565,7 +565,7 @@ namespace Models
 
 
   protected:
-    // The information about the prices and promotion rules.
+    // Details about the price and promotional rules.
     shared_ptr<DescribePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

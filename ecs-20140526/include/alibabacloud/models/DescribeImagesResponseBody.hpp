@@ -939,15 +939,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagesResponseBody::Images> images_ {};
-    // The page number returned.
+    // Current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // Number of entries on the current page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the image.
+    // The region ID to which the image belongs.
     shared_ptr<string> regionId_ {};
-    // The request ID.
+    // Request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of images.
+    // Total number of images.
     shared_ptr<int32_t> totalCount_ {};
   };
 

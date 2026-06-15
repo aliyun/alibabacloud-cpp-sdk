@@ -94,11 +94,16 @@ namespace Models
 
 
   protected:
+    // The client token used to ensure request idempotence. You can use the client to generate the token, but you must ensure that the token is unique across requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The ID of the HaVip that you want to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the HaVip is located. You can call the `DescribeRegions` operation to obtain the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

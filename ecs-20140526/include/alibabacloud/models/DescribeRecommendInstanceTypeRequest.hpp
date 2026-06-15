@@ -218,31 +218,35 @@ namespace Models
   protected:
     // The number of vCPU cores of the instance type.
     // 
-    // >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
+    // > If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
     shared_ptr<int32_t> cores_ {};
     // The billing method of the ECS instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
     // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go
+    // - PrePaid: subscription.
+    // 
+    // - PostPaid: pay-as-you-go
     // 
     // Default value: PostPaid
     shared_ptr<string> instanceChargeType_ {};
     // The level of the instance family. Valid values:
     // 
-    // *   EntryLevel: entry level.
-    // *   EnterpriseLevel: enterprise level.
-    // *   CreditEntryLevel: credit-based entry level. For more information, see [Burstable instance families](https://help.aliyun.com/document_detail/59977.html).
+    // - EntryLevel: entry level.
+    // 
+    // - EnterpriseLevel: enterprise level.
+    // 
+    // - CreditEntryLevel: credit-based entry level. For more information, see [Burstable instance families](https://help.aliyun.com/document_detail/59977.html).
     shared_ptr<string> instanceFamilyLevel_ {};
     // The instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
     // 
-    // >  If you specify `InstanceType`, you cannot specify `Cores` or `Memory`.
+    // > If you specify `InstanceType`, you cannot specify `Cores` or `Memory`.
     shared_ptr<string> instanceType_ {};
     // The instance families from which the alternative instance types are selected. You can specify up to 10 instance families.
     shared_ptr<vector<string>> instanceTypeFamily_ {};
     // Specifies whether instances of the instance type are I/O optimized. You cannot specify IoOptimized if the instance type supports only non-I/O optimized instances. Valid values:
     // 
-    // *   optimized: The instances are I/O optimized.
-    // *   none: The instances are non-I/O optimized.
+    // - optimized: The instances are I/O optimized.
+    // 
+    // - none: The instances are non-I/O optimized.
     // 
     // Default value: optimized.
     // 
@@ -250,16 +254,17 @@ namespace Models
     shared_ptr<string> ioOptimized_ {};
     // The maximum hourly price for pay-as-you-go instances or spot instances.
     // 
-    // >  This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
+    // > This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
     shared_ptr<float> maxPrice_ {};
     // The memory size of the instance type. Unit: GiB.
     // 
-    // >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
+    // > If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
     shared_ptr<float> memory_ {};
     // The network type of ECS instances. Valid values:
     // 
-    // *   classic
-    // *   vpc
+    // - classic
+    // 
+    // - vpc
     // 
     // Default value: vpc.
     // 
@@ -269,9 +274,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The policy for recommending instance types. Valid values:
     // 
-    // *   InventoryFirst: recommends instance types in descending order of resource availability.
-    // *   PriceFirst: recommends the most cost-effective instance types. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
-    // *   NewProductFirst: recommends the latest instance types first.
+    // - InventoryFirst: recommends instance types in descending order of resource availability.
+    // 
+    // - PriceFirst: recommends the most cost-effective instance types. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
+    // 
+    // - NewProductFirst: recommends the latest instance types first.
     // 
     // Default value: InventoryFirst.
     shared_ptr<string> priorityStrategy_ {};
@@ -283,27 +290,33 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies the scenarios in which instance types are recommended. Valid values:
     // 
-    // *   UPGRADE: instance type upgrade or downgrade
-    // *   CREATE: instance creation
+    // - UPGRADE: instance type upgrade or downgrade
+    // 
+    // - CREATE: instance creation
     // 
     // Default value: CREATE.
     shared_ptr<string> scene_ {};
     // The bidding policy of the spot instance. Valid values:
     // 
-    // *   NoSpot: The instance is created as a pay-as-you-go instance.
-    // *   SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
-    // *   SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // - NoSpot: The instance is created as a pay-as-you-go instance.
     // 
-    // >  If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
+    // - SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
+    // 
+    // - SpotAsPriceGo: The instance is a spot instance for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // 
+    // > If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
     // 
     // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
     // The category of the system disk. Valid values:
     // 
-    // *   cloud_efficiency: ultra disk
-    // *   cloud_ssd: standard SSD
-    // *   cloud_essd: Enterprise SSD (ESSD)
-    // *   cloud: basic disk
+    // - cloud_efficiency: ultra disk
+    // 
+    // - cloud_ssd: standard SSD
+    // 
+    // - cloud_essd: Enterprise SSD (ESSD)
+    // 
+    // - cloud: basic disk
     // 
     // For non-I/O optimized instances, the default value is cloud.
     // 
@@ -315,8 +328,9 @@ namespace Models
     shared_ptr<string> zoneId_ {};
     // Specifies whether to recommend only instance types in the zone specified by ZoneId. Valid values:
     // 
-    // *   Strict: recommends only instance types that are available in the zone specified by ZoneId.
-    // *   Include: recommends instance types that are available in the zone specified by ZoneId and instance types that are available in other zones within the same region.
+    // - Strict: recommends only instance types that are available in the zone specified by ZoneId.
+    // 
+    // - Include: recommends instance types that are available in the zone specified by ZoneId and instance types that are available in other zones within the same region.
     // 
     // If `ZoneId` is specified, the default value of this parameter is Strict, which indicates that only instance types in the zone specified by ZoneId are recommended.
     shared_ptr<string> zoneMatchMode_ {};

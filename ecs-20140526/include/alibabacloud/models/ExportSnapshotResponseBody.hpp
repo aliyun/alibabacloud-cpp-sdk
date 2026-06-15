@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The export task ID. Call the `DescribeTasks` operation to check the task status.
     shared_ptr<string> taskId_ {};
   };
 

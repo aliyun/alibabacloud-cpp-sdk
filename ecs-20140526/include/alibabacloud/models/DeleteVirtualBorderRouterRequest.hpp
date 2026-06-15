@@ -103,14 +103,20 @@ namespace Models
 
 
   protected:
+    // A client token that is used to ensure the idempotence of the request. This token must be unique across requests. The token can contain only ASCII characters and must not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the VBR is deployed. You can call the `DescribeRegions` operation to obtain the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The client-side CIDR block. This parameter is required only when you delete a VBR that is part of a dual-tunnel connection.
     shared_ptr<string> userCidr_ {};
+    // The ID of the VBR to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
   };

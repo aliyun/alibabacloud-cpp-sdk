@@ -260,60 +260,75 @@ namespace Models
     shared_ptr<string> destCidrIp_ {};
     // Network Layer /transport layer protocol. Two types of assignments are supported:
     // 
-    // 1.  The case-insensitive protocol name. Valid values:
+    // 1. The case-insensitive protocol name. Valid values:
     // 
-    // *   ICMP
-    // *   GRE
-    // *   TCP
-    // *   UDP
-    // *   ALL: supports all protocols.
+    // - ICMP
     // 
-    // 2.  The value of the IANA-compliant protocol number, which is an integer from 0 to 255. List of regions currently available:
+    // - GRE
     // 
-    // *   Philippines (Manila)
-    // *   UK (London)
-    // *   Malaysia (Kuala Lumpur)
-    // *   China (Hohhot)
-    // *   China (Qingdao)
-    // *   US (Silicon Valley)
-    // *   Singapore
+    // - TCP
+    // 
+    // - UDP
+    // 
+    // - ALL: supports all protocols.
+    // 
+    // 2. The value of the IANA-compliant protocol number, which is an integer from 0 to 255. List of regions currently available:
+    // 
+    // - Philippines (Manila)
+    // 
+    // - UK (London)
+    // 
+    // - Malaysia (Kuala Lumpur)
+    // 
+    // - China (Hohhot)
+    // 
+    // - China (Qingdao)
+    // 
+    // - US (Silicon Valley)
+    // 
+    // - Singapore
     shared_ptr<string> ipProtocol_ {};
     // The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
     // 
-    // >  Only the IP addresses of instances in VPCs are supported. You cannot specify both Ipv6DestCidrIp and `DestCidrIp`.
+    // > Only the IP addresses of instances in VPCs are supported. You cannot specify both Ipv6DestCidrIp and `DestCidrIp`.
     // 
     // By default, this parameter is left empty.
     shared_ptr<string> ipv6DestCidrIp_ {};
     // The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
     // 
-    // >  Only the IP addresses of instances in virtual private clouds (VPCs) are supported. You cannot specify both Ipv6SourceCidrIp and `SourceCidrIp`.
+    // > Only the IP addresses of instances in virtual private clouds (VPCs) are supported. You cannot specify both Ipv6SourceCidrIp and `SourceCidrIp`.
     // 
     // By default, this parameter is left empty.
     shared_ptr<string> ipv6SourceCidrIp_ {};
     // The type of the network interface controller (NIC).
     // 
-    // >  You cannot modify this parameter when you modify a security group rule by specifying the ID of the rule. If you want to change the NIC type of a security group rule, you can create a security group rule of a desired NIC type and delete the existing rule.
+    // > You cannot modify this parameter when you modify a security group rule by specifying the ID of the rule. If you want to change the NIC type of a security group rule, you can create a security group rule of a desired NIC type and delete the existing rule.
     shared_ptr<string> nicType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The action of the security group rule. Valid values:
     // 
-    // *   accept: allows access.
-    // *   drop: denies access and returns no responses.
+    // - accept: allows access.
+    // 
+    // - drop: denies access and returns no responses.
     // 
     // Default value: accept.
     shared_ptr<string> policy_ {};
     // The range of destination ports that correspond to the transport layer protocol. Valid values:
     // 
-    // *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-    // *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-    // *   If you set IpProtocol to GRE, the port number range is -1/-1.
-    // *   If you set IpProtocol to ALL, the port number range is -1/-1.
+    // - If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+    // 
+    // - If you set IpProtocol to ICMP, the port number range is -1/-1.
+    // 
+    // - If you set IpProtocol to GRE, the port number range is -1/-1.
+    // 
+    // - If you set IpProtocol to ALL, the port number range is -1/-1.
     shared_ptr<string> portRange_ {};
     // The ID of the port list. You can call the `DescribePortRangeLists` operation to query the IDs of available port lists.
     // 
-    // *   If you specify PortRange, this parameter is ignored.
-    // *   If a security group is in the classic network, you cannot configure port lists in the rules of the security group. For information about the limits on security groups and port lists, see [Security group limits](~~25412#SecurityGroupQuota1~~).
+    // - If you specify PortRange, this parameter is ignored.
+    // 
+    // - If a security group is in the classic network, you cannot configure port lists in the rules of the security group. For information about the limits on security groups and port lists, see [Security group limits](~~25412#SecurityGroupQuota1~~).
     shared_ptr<string> portRangeListId_ {};
     // The priority of the security group rule. Valid values: 1 to 100.
     // 
@@ -337,25 +352,31 @@ namespace Models
     shared_ptr<string> sourceCidrIp_ {};
     // The source security group ID. You must specify either `SourceGroupId` or `SourceCidrIp` or specify both of them.
     // 
-    // *   If `SourceGroupId` is specified but `SourceCidrIp` is not specified, the value of `NicType` must be set to intranet.
-    // *   If both `SourceGroupId` and `SourceCidrIp` are specified, the value of `SourceCidrIp` prevails by default.
+    // - If `SourceGroupId` is specified but `SourceCidrIp` is not specified, the value of `NicType` must be set to intranet.
+    // 
+    // - If both `SourceGroupId` and `SourceCidrIp` are specified, the value of `SourceCidrIp` prevails by default.
     shared_ptr<string> sourceGroupId_ {};
     // The Alibaba Cloud account that manages the source security group when you configure a security group rule across accounts.
     // 
-    // *   If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access permissions are configured for another security group managed by your account.
-    // *   If `SourceCidrIp` is specified, `SourceGroupOwnerAccount` is ignored.
+    // - If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access permissions are configured for another security group managed by your account.
+    // 
+    // - If `SourceCidrIp` is specified, `SourceGroupOwnerAccount` is ignored.
     shared_ptr<string> sourceGroupOwnerAccount_ {};
     // The ID of the Alibaba Cloud account that manages the source security group when you configure a security group rule across accounts.
     // 
-    // *   If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access permissions are configured for another security group managed by your account.
-    // *   If `SourceCidrIp` is specified, `SourceGroupOwnerId` is ignored.
+    // - If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access permissions are configured for another security group managed by your account.
+    // 
+    // - If `SourceCidrIp` is specified, `SourceGroupOwnerId` is ignored.
     shared_ptr<int64_t> sourceGroupOwnerId_ {};
     // The range of source ports that correspond to the transport layer protocol. Valid values:
     // 
-    // *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-    // *   If you set IpProtocol to ICMP, the port number range is -1/-1.
-    // *   If you set IpProtocol to GRE, the port number range is -1/-1.
-    // *   If you set IpProtocol to ALL, the port number range is -1/-1.
+    // - If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+    // 
+    // - If you set IpProtocol to ICMP, the port number range is -1/-1.
+    // 
+    // - If you set IpProtocol to GRE, the port number range is -1/-1.
+    // 
+    // - If you set IpProtocol to ALL, the port number range is -1/-1.
     shared_ptr<string> sourcePortRange_ {};
     // The ID of the source prefix list to which you want to control access. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
     // 

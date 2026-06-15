@@ -211,7 +211,7 @@ namespace Models
     shared_ptr<string> dedicatedHostClusterIds_ {};
     // The name of the host group.
     shared_ptr<string> dedicatedHostClusterName_ {};
-    // >  This parameter is unavailable for use.
+    // > This parameter is unavailable for use.
     shared_ptr<string> lockReason_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -233,11 +233,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID of the host group. You can use a resource group ID to filter no more than 1,000 host groups.
     // 
-    // >  A default resource group is not supported.
+    // > A default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // >  This parameter is unavailable for use.
+    // > This parameter is unavailable for use.
     shared_ptr<string> status_ {};
     // The tags of the host group.
     shared_ptr<vector<DescribeDedicatedHostClustersRequest::Tag>> tag_ {};

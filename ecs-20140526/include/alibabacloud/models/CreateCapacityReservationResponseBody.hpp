@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The capacity reservation ID.
+    // The ID of the capacity reservation.
     shared_ptr<string> privatePoolOptionsId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

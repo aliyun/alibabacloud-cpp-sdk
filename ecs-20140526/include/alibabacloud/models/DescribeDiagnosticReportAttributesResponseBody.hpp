@@ -378,36 +378,43 @@ namespace Models
     shared_ptr<string> attributes_ {};
     // The time when the diagnostic report was created.
     shared_ptr<string> creationTime_ {};
-    // The end of the reporting period of the diagnostic report. The value is the EndTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
+    // The end of the diagnostic time range. This value corresponds to the `EndTime` parameter you provided when calling the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation.
     shared_ptr<string> endTime_ {};
-    // The time when the diagnostic report was complete.
+    // The time when the diagnosis was complete.
     shared_ptr<string> finishedTime_ {};
+    // The diagnostic results for the metrics.
     shared_ptr<DescribeDiagnosticReportAttributesResponseBody::MetricResults> metricResults_ {};
-    // The ID of the diagnostic metric set.
+    // The metric set ID.
     shared_ptr<string> metricSetId_ {};
-    // The ID of the diagnostic report, which is the unique identifier of the report.
+    // The unique ID of the diagnostic report.
     shared_ptr<string> reportId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};
-    // The type of the resource. ResourceType can only be set to instance, which indicates that only instances are supported.
+    // The resource type. Only `instance` is supported.
     shared_ptr<string> resourceType_ {};
-    // The severity level of the diagnostic report. The value of this parameter is determined by the highest severity level of all diagnostic metrics. Valid values:
+    // The overall severity level of the diagnostic report. This is the highest severity level among all metrics in the report. Valid values are listed below, from lowest to highest severity:
     // 
-    // *   Unknown: The diagnostic has not started, failed to run, or exited unexpectedly without a diagnosis.
-    // *   Normal: No exceptions were detected.
-    // *   Info: Diagnostic information was recorded and may be related to exceptions.
-    // *   Warn: Diagnostic information was recorded and may indicate potential exceptions.
-    // *   Critical: Critical exceptions were detected.
+    // - Unknown: The initial state. The diagnosis has not started or exited unexpectedly, so the result is inconclusive.
+    // 
+    // - Normal: The resource is healthy, and no issues were found.
+    // 
+    // - Info: Informational messages were found that may be relevant to an issue.
+    // 
+    // - Warn: Warnings were found that may lead to an issue.
+    // 
+    // - Critical: Critical issues were found.
     shared_ptr<string> severity_ {};
-    // The beginning of the reporting period of the diagnostic report. The value is the StartTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
+    // The start of the diagnostic time range. This value corresponds to the `StartTime` parameter you provided when calling the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation.
     shared_ptr<string> startTime_ {};
-    // The state of the diagnostic report. Valid values:
+    // The status of the diagnostic report. Possible values:
     // 
-    // *   InProgress: The diagnostic is in progress.
-    // *   Finished: The diagnostic is complete.
-    // *   Failed: The diagnostic failed.
+    // - InProgress: The diagnosis is in progress.
+    // 
+    // - Finished: The diagnosis is complete.
+    // 
+    // - Failed: The diagnosis failed.
     shared_ptr<string> status_ {};
   };
 

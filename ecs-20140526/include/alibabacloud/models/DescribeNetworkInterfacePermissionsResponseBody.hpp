@@ -193,6 +193,7 @@ namespace Models
 
 
   protected:
+    // The elastic network interface permissions.
     shared_ptr<DescribeNetworkInterfacePermissionsResponseBody::NetworkInterfacePermissions> networkInterfacePermissions_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -200,7 +201,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of matching entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -185,13 +185,15 @@ namespace Models
   protected:
     // The IDs of launch templates.
     // 
-    // *   You can query up to 100 launch templates.
-    // *   You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+    // - You can query up to 100 launch templates.
+    // 
+    // - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
     shared_ptr<vector<string>> launchTemplateId_ {};
     // The names of launch templates.
     // 
-    // *   You can query up to 100 launch templates.
-    // *   You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
+    // - You can query up to 100 launch templates.
+    // 
+    // - You must specify LaunchTemplateId or LaunchTemplateName to specify a launch template.
     shared_ptr<vector<string>> launchTemplateName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -211,11 +213,11 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
     // 
-    // >  The default resource group is not supported.
+    // > The default resource group is not supported.
     shared_ptr<string> templateResourceGroupId_ {};
     // The tags of the launch template.
     // 
-    // >  You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
+    // > You can only call API operations to add tags to and query the tags of a launch template. You cannot add tags to or view the tags of a launch template in the ECS console.
     shared_ptr<vector<DescribeLaunchTemplatesRequest::TemplateTag>> templateTag_ {};
   };
 

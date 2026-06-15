@@ -185,10 +185,13 @@ namespace Models
     shared_ptr<string> keyPairFingerPrint_ {};
     // The name of the key pair. You can use the asterisk (\\*) symbol as a wildcard in regular expressions to perform a fuzzy search for key pairs. Sample patterns:
     // 
-    // *   `*SshKey`: queries key pairs whose names end with SshKey, including the key pair named SshKey.
-    // *   `SshKey*`: queries key pairs whose names start with SshKey, including the key pair named SshKey.
-    // *   `*SshKey*`: queries key pairs whose names include SshKey, including the key pair named SshKey.
-    // *   `SshKey`: queries the key pair named SshKey.
+    // - `*SshKey`: queries key pairs whose names end with SshKey, including the key pair named SshKey.
+    // 
+    // - `SshKey*`: queries key pairs whose names start with SshKey, including the key pair named SshKey.
+    // 
+    // - `*SshKey*`: queries key pairs whose names include SshKey, including the key pair named SshKey.
+    // 
+    // - `SshKey`: queries the key pair named SshKey.
     shared_ptr<string> keyPairName_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The number of the page to return. Pages start from page 1.
@@ -205,7 +208,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
     // 
-    // >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+    // > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -304,8 +304,9 @@ namespace Models
     // 
     // Default values:
     // 
-    // *   If this parameter is not specified or if this parameter is set to a value less than 10, the default value is 10.
-    // *   If this parameter is set to a value greater than 500, the default value is 500.
+    // - If this parameter is not specified or if this parameter is set to a value less than 10, the default value is 10.
+    // 
+    // - If this parameter is set to a value greater than 500, the default value is 500.
     shared_ptr<int32_t> maxResults_ {};
     // An array that consists of the IDs of the ENIs. You specify multiple ENI IDs. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> networkInterfaceId_ {};
@@ -323,7 +324,7 @@ namespace Models
     // 
     // Default value: 1.
     // 
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
@@ -331,7 +332,7 @@ namespace Models
     // 
     // Default value: 10.
     // 
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The primary private IPv4 address of the ENI.
     shared_ptr<string> primaryIpAddress_ {};
@@ -349,18 +350,23 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The ID of the security group to which the secondary ENI belongs.
     // 
-    // *   To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
-    // *   To query the details of primary ENIs based on the ID of a security group, call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation and specify the `SecurityGroupId` parameter.
+    // - To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
+    // 
+    // - To query the details of primary ENIs based on the ID of a security group, call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation and specify the `SecurityGroupId` parameter.
     shared_ptr<string> securityGroupId_ {};
     // Specifies whether the user of the ENI is an Alibaba Cloud service or a distributor.
     shared_ptr<bool> serviceManaged_ {};
     // The state of the ENI. Valid values:
     // 
-    // *   Available: The ENI is available.
-    // *   Attaching: The ENI is being attached to an instance.
-    // *   InUse: The ENI is attached to an instance.
-    // *   Detaching: The ENI is being detached from an instance.
-    // *   Deleting: The ENI is being deleted.
+    // - Available: The ENI is available.
+    // 
+    // - Attaching: The ENI is being attached to an instance.
+    // 
+    // - InUse: The ENI is attached to an instance.
+    // 
+    // - Detaching: The ENI is being detached from an instance.
+    // 
+    // - Deleting: The ENI is being deleted.
     // 
     // This parameter is empty by default, which indicates that ENIs in all states are queried.
     shared_ptr<string> status_ {};
@@ -368,8 +374,9 @@ namespace Models
     shared_ptr<vector<DescribeNetworkInterfacesRequest::Tag>> tag_ {};
     // The type of the ENI. Valid values:
     // 
-    // *   Primary
-    // *   Secondary
+    // - Primary
+    // 
+    // - Secondary
     // 
     // This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
     shared_ptr<string> type_ {};

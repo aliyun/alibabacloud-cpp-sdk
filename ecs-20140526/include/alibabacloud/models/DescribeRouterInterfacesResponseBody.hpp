@@ -387,10 +387,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Details of the router interfaces.
     shared_ptr<DescribeRouterInterfacesResponseBody::RouterInterfaceSet> routerInterfaceSet_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

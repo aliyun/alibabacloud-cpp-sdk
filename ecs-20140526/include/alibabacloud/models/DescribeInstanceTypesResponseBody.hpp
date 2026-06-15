@@ -1130,10 +1130,11 @@ namespace Models
 
 
   protected:
+    // A collection of instance types.
     shared_ptr<DescribeInstanceTypesResponseBody::InstanceTypes> instanceTypes_ {};
-    // The query token returned in this call.
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

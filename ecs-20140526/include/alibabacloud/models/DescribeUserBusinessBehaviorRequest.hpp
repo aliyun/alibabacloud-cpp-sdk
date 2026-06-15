@@ -86,9 +86,12 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region. Call the `DescribeRegions` operation to query the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The key of the business attribute to query.
+    // 
     // This parameter is required.
     shared_ptr<string> statusKey_ {};
   };

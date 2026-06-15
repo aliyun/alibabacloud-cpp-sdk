@@ -114,9 +114,11 @@ namespace Models
   protected:
     // The type of the snapshot. Valid values:
     // 
-    // *   Standard: standard snapshot
-    // *   Flash: local snapshot
-    // *   Archive: archive snapshot
+    // - Standard: standard snapshot
+    // 
+    // - Flash: local snapshot
+    // 
+    // - Archive: archive snapshot
     // 
     // Default value: Standard.
     shared_ptr<string> category_ {};
@@ -128,9 +130,11 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The interval at which to query the monitoring data of snapshot sizes. Unit: seconds. Valid values:
     // 
-    // *   60
-    // *   600
-    // *   3600
+    // - 60
+    // 
+    // - 600
+    // 
+    // - 3600
     // 
     // Default value: 60.
     shared_ptr<int32_t> period_ {};

@@ -130,16 +130,30 @@ namespace Models
 
 
   protected:
+    // Specifies whether the vSwitch is the default vSwitch in the zone. Valid values:
+    // 
+    // - `true`
+    // - `false`
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number to return.
+    // 
+    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: 1 to 50.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region where the vSwitches are located. To query the latest list of regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
+    // The ID of the zone.
     shared_ptr<string> zoneId_ {};
   };
 

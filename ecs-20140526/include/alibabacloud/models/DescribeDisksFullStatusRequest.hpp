@@ -277,18 +277,25 @@ namespace Models
     shared_ptr<vector<string>> eventId_ {};
     // The event type of the EBS device. Valid values:
     // 
-    // *   Degraded: The performance of the EBS device is degraded.
-    // *   SeverelyDegraded: The performance of the EBS device is severely degraded.
-    // *   Stalled: The performance of the EBS device is severely affected.
-    // *   ErrorDetected: The local disk is damaged.
+    // - Degraded: The performance of the EBS device is degraded.
+    // 
+    // - SeverelyDegraded: The performance of the EBS device is severely degraded.
+    // 
+    // - Stalled: The performance of the EBS device is severely affected.
+    // 
+    // - ErrorDetected: The local disk is damaged.
     shared_ptr<string> eventType_ {};
     // The health status of the EBS device. Valid values:
     // 
-    // *   Impaired: The EBS device is damaged.
-    // *   Warning: The performance of the EBS device is degraded.
-    // *   Initializing: The EBS device is being initialized.
-    // *   InsufficientData: The status cannot be determined due to insufficient data.
-    // *   NotApplicable: The EBS device cannot be used.
+    // - Impaired: The EBS device is damaged.
+    // 
+    // - Warning: The performance of the EBS device is degraded.
+    // 
+    // - Initializing: The EBS device is being initialized.
+    // 
+    // - InsufficientData: The status cannot be determined due to insufficient data.
+    // 
+    // - NotApplicable: The EBS device cannot be used.
     shared_ptr<string> healthStatus_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -310,12 +317,17 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The lifecycle status of the EBS device. For more information, see [Disk status](https://help.aliyun.com/document_detail/25689.html). Valid values:
     // 
-    // *   In_use: The EBS device is in use.
-    // *   Available: The EBS device can be attached.
-    // *   Attaching: The EBS device is being attached.
-    // *   Detaching: The EBS device is being detached.
-    // *   Creating: The EBS device is being created.
-    // *   ReIniting: The EBS device is being initialized.
+    // - In_use: The EBS device is in use.
+    // 
+    // - Available: The EBS device can be attached.
+    // 
+    // - Attaching: The EBS device is being attached.
+    // 
+    // - Detaching: The EBS device is being detached.
+    // 
+    // - Creating: The EBS device is being created.
+    // 
+    // - ReIniting: The EBS device is being initialized.
     shared_ptr<string> status_ {};
     // The tags to add to the EBS device.
     shared_ptr<vector<DescribeDisksFullStatusRequest::Tag>> tag_ {};

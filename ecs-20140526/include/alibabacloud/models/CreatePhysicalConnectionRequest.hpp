@@ -186,26 +186,43 @@ namespace Models
 
 
   protected:
+    // The access point ID. You can call the `DescribeAccessPoints` operation to obtain a list of available access points.
+    // 
     // This parameter is required.
     shared_ptr<string> accessPointId_ {};
+    // The circuit code provided by the carrier.
     shared_ptr<string> circuitCode_ {};
+    // A client-generated token that you can use to ensure the idempotency of the request. This token must be unique across requests, contain only ASCII characters, and be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
+    // The description of the physical connection. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The carrier that provides the physical connection. Valid values: `CT` (China Telecom), `CU` (China Unicom), `CM` (China Mobile), `CO` (other Chinese carriers), and `AL` (Alibaba Cloud).
+    // 
     // This parameter is required.
     shared_ptr<string> lineOperator_ {};
+    // The name of the physical connection. The name must be 2 to 128 characters long. It must start with a letter and can contain letters, digits, underscores (`_`), and hyphens (`-`).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The physical location of your on-premises data center.
+    // 
     // This parameter is required.
     shared_ptr<string> peerLocation_ {};
+    // The port type of the physical connection. You cannot change this parameter after the physical connection is created. Valid values: `1000Base-LX` (1 Gbit/s), `10GBase-LR` (10 Gbit/s), and `40GBase-LR` (40 Gbit/s).
     shared_ptr<string> portType_ {};
+    // The ID of the redundant physical connection. The redundant physical connection must be in the `Allocated`, `Confirmed`, or `Enabled` state.
     shared_ptr<string> redundantPhysicalConnectionId_ {};
+    // The ID of the region for the physical connection. You can call the `DescribeRegions` operation to obtain the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The type of the physical connection. Valid values: `VPC` and `VBR`. The default value is `VPC`. This parameter is available only to whitelisted users.
     shared_ptr<string> type_ {};
+    // The user CIDR block. This parameter is required when `Type` is set to `VPC`. The CIDR block must be a private IPv4 block. Valid CIDR blocks include the following blocks and their subnets: `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
     shared_ptr<string> userCidr_ {};
+    // The bandwidth of the physical connection in Mbit/s. The value must be an integer that ranges from 1 to 10,240.
     shared_ptr<int32_t> bandwidth_ {};
   };
 

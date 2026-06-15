@@ -103,8 +103,9 @@ namespace Models
     // 
     // Default value:
     // 
-    // *   If this parameter is left empty, the default value is 10.
-    // *   If you set this parameter to a value that is greater than 100, the default value is 100.
+    // - If this parameter is left empty, the default value is 10.
+    // 
+    // - If you set this parameter to a value that is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
     shared_ptr<string> nextToken_ {};
@@ -118,17 +119,23 @@ namespace Models
     shared_ptr<vector<string>> resourceIds_ {};
     // The severity level of the diagnostic report. Valid values:
     // 
-    // *   Unknown: The diagnostic did not start, failed to run, or unexpectedly exited without a diagnosis.
-    // *   Normal: No exceptions were detected.
-    // *   Info: Diagnostic information was recorded and may be related to exceptions.
-    // *   Warn: Diagnostic information was recorded and may indicate exceptions.
-    // *   Critical: Critical exceptions were detected.
+    // - Unknown: The diagnostic did not start, failed to run, or unexpectedly exited without a diagnosis.
+    // 
+    // - Normal: No exceptions were detected.
+    // 
+    // - Info: Diagnostic information was recorded and may be related to exceptions.
+    // 
+    // - Warn: Diagnostic information was recorded and may indicate exceptions.
+    // 
+    // - Critical: Critical exceptions were detected.
     shared_ptr<string> severity_ {};
     // The status of the diagnostic report. Valid values:
     // 
-    // *   InProgress
-    // *   Failed
-    // *   Finished
+    // - InProgress
+    // 
+    // - Failed
+    // 
+    // - Finished
     shared_ptr<string> status_ {};
   };
 

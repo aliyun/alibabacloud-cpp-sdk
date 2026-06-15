@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The filter key. The only supported value is `VbrId`.
       shared_ptr<string> key_ {};
+      // The VBR IDs. You can specify up to 20 IDs.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -150,12 +152,19 @@ namespace Models
 
 
   protected:
+    // The filter criteria.
     shared_ptr<vector<DescribeVirtualBorderRoutersForPhysicalConnectionRequest::Filter>> filter_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 50. Default: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The ID of the region where the virtual border router (VBR) is deployed.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -112,15 +112,22 @@ namespace Models
 
 
   protected:
+    // A client-generated token that ensures the idempotence of the request. The token must be unique across requests, contain only ASCII characters, and be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
+    // The description of the HaVip. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The IP address of the HaVip. The IP address must be available and fall within the CIDR block of the vSwitch. If this parameter is not specified, an available IP address is randomly allocated from the CIDR block of the vSwitch.
     shared_ptr<string> ipAddress_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region in which to create the HaVip. You can call the operation to get the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the vSwitch to which the HaVip belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
   };

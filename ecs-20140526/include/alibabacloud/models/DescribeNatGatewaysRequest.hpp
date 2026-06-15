@@ -112,15 +112,21 @@ namespace Models
 
 
   protected:
+    // The ID of the nat gateway.
     shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The valid range is 1 to 100. Default: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region to which the nat gateways belong. Call the DescribeRegions operation to obtain the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the VPC to which the nat gateway belongs.
     shared_ptr<string> vpcId_ {};
   };
 

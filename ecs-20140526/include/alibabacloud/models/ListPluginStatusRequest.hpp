@@ -143,21 +143,21 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The name of the Cloud Assistant plug-in. The name supports all character sets and must be 1 to 255 characters in length.
     // 
-    // *   If this parameter is not specified, the status of all Cloud Assistant plug-ins that are installed on the specified instances are queried.
+    // - If this parameter is not specified, the status of all Cloud Assistant plug-ins that are installed on the specified instances are queried.
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note** If this parameter is not specified, only a single instance ID can be specified.
+    //   **Note** If this parameter is not specified, only a single instance ID can be specified.
     // 
-    // *   If this parameter is specified, the status of the specified Cloud Assistant plug-in is queried.
+    // - If this parameter is specified, the status of the specified Cloud Assistant plug-in is queried.
     shared_ptr<string> name_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 

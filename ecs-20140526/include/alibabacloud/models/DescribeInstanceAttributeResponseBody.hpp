@@ -381,13 +381,33 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Vpc-L1.
-      // *   Vpc-L2.
-      // *   Ebs-L1.
-      // *   Ebs-L2.
-      // *   Default.
+      // - Vpc-L1.
+      // 
+      // - Vpc-L2.
+      // 
+      // - Ebs-L1.
+      // 
+      // - Ebs-L2.
+      // 
+      // - Default.
       shared_ptr<string> bandwidthWeighting_ {};
+      // Indicates whether the Jumbo frame attribute is enabled for the instance. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
+      // 
+      // For more information, see [ECS Instance MTU](https://help.aliyun.com/document_detail/200512.html).
+      // 
+      // > This parameter is in invitational preview and is not publicly available yet.
       shared_ptr<bool> enableJumboFrame_ {};
+      // Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
+      // 
+      // - true: Enabled.
+      // 
+      // - false: Not enabled.
+      // 
+      // > This parameter is in invitational preview and is not publicly available yet.
       shared_ptr<bool> enableNetworkEncryption_ {};
     };
 
@@ -486,10 +506,11 @@ namespace Models
       shared_ptr<int32_t> bandwidth_ {};
       // The billing method for network usage. Valid values:
       // 
-      // *   PayByBandwidth
-      // *   PayByTraffic
+      // - PayByBandwidth
       // 
-      // >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+      // - PayByTraffic
+      // 
+      // > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
       shared_ptr<string> internetChargeType_ {};
       // The ID of the elastic IP address (EIP).
       shared_ptr<string> ipAddress_ {};
@@ -819,8 +840,9 @@ namespace Models
     shared_ptr<string> creationTime_ {};
     // The performance mode of the burstable instance. Valid values:
     // 
-    // *   Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
-    // *   Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+    // - Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+    // 
+    // - Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
     shared_ptr<string> creditSpecification_ {};
     // Details about the dedicated host. It is an array that consists of the DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName parameters.
     shared_ptr<DescribeInstanceAttributeResponseBody::DedicatedHostAttribute> dedicatedHostAttribute_ {};
@@ -830,11 +852,19 @@ namespace Models
     shared_ptr<DescribeInstanceAttributeResponseBody::EipAddress> eipAddress_ {};
     // Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
     shared_ptr<bool> enableJumboFrame_ {};
+    // Indicates whether VPC network traffic encryption is enabled for the instance. Valid values:
+    // 
+    // - true: Enabled.
+    // 
+    // - false: Not enabled.
+    // 
+    // > This parameter is in invitational preview and is not publicly available yet.
     shared_ptr<bool> enableNetworkEncryption_ {};
     // The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
     shared_ptr<string> expiredTime_ {};
@@ -845,8 +875,9 @@ namespace Models
     shared_ptr<DescribeInstanceAttributeResponseBody::InnerIpAddress> innerIpAddress_ {};
     // The billing method of the instance. Valid values:
     // 
-    // *   PrePaid: subscription.
-    // *   PostPaid: pay-as-you-go
+    // - PrePaid: subscription.
+    // 
+    // - PostPaid: pay-as-you-go
     shared_ptr<string> instanceChargeType_ {};
     // The instance ID
     shared_ptr<string> instanceId_ {};
@@ -854,17 +885,19 @@ namespace Models
     shared_ptr<string> instanceName_ {};
     // The network type of the instance. Valid values:
     // 
-    // *   classic: classic network
-    // *   vpc: VPC
+    // - classic: classic network
+    // 
+    // - vpc: VPC
     shared_ptr<string> instanceNetworkType_ {};
     // The instance type.
     shared_ptr<string> instanceType_ {};
     // The billing method for network usage. Valid values:
     // 
-    // *   PayByBandwidth
-    // *   PayByTraffic
+    // - PayByBandwidth
     // 
-    // >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+    // - PayByTraffic
+    // 
+    // > When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
     shared_ptr<string> internetChargeType_ {};
     // The maximum inbound public bandwidth. Unit: Mbit/s.
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
@@ -872,8 +905,9 @@ namespace Models
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     // Indicates whether the ECS instance is I/O optimized. Valid values:
     // 
-    // *   optimized: The ECS instance is I/O optimized.
-    // *   none: The ECS instance is not I/O optimized.
+    // - optimized: The ECS instance is I/O optimized.
+    // 
+    // - none: The ECS instance is not I/O optimized.
     shared_ptr<string> ioOptimized_ {};
     // The memory size of the instance. Unit: MiB.
     shared_ptr<int32_t> memory_ {};
@@ -892,17 +926,23 @@ namespace Models
     shared_ptr<string> serialNumber_ {};
     // The status of the instance. Valid values:
     // 
-    // *   Pending: The instance is being created.
-    // *   Running: The instance is running.
-    // *   Starting: The instance is being started.
-    // *   Stopping: The instance is being stopped.
-    // *   Stopped: The instance is stopped.
+    // - Pending: The instance is being created.
+    // 
+    // - Running: The instance is running.
+    // 
+    // - Starting: The instance is being started.
+    // 
+    // - Stopping: The instance is being stopped.
+    // 
+    // - Stopped: The instance is stopped.
     shared_ptr<string> status_ {};
     // Indicates whether the system implements billing after the instance is stopped. Valid values:
     // 
-    // *   KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
-    // *   StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
-    // *   Not-applicable: The instance does not support economical mode.
+    // - KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+    // 
+    // - StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
+    // 
+    // - Not-applicable: The instance does not support economical mode.
     shared_ptr<string> stoppedMode_ {};
     // The virtual LAN (VLAN) ID of the instance.
     // 

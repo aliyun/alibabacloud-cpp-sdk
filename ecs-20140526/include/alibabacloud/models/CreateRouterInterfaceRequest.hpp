@@ -268,37 +268,92 @@ namespace Models
 
 
   protected:
+    // The access point ID.
     shared_ptr<string> accessPointId_ {};
+    // Specifies whether to enable automatic payment. Valid values are `true` and `false`. The default value is `true`.
     shared_ptr<bool> autoPay_ {};
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The description of the router interface. The description must be 2 to 256 characters long, must start with a letter, and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The source IP address that is used for the health check.
     shared_ptr<string> healthCheckSourceIp_ {};
+    // The destination IP address that is used for the health check.
     shared_ptr<string> healthCheckTargetIp_ {};
+    // The billing method of the instance. Set the value to `PrePaid`. This parameter is required if you also specify `PricingCycle`.
     shared_ptr<string> instanceChargeType_ {};
+    // The name of the router interface. The name must be 2 to 128 characters long and start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
+    // The ID of the peer access point.
     shared_ptr<string> oppositeAccessPointId_ {};
+    // The ID of the peer router interface.
     shared_ptr<string> oppositeInterfaceId_ {};
+    // The ID of the account to which the peer router interface belongs.
     shared_ptr<string> oppositeInterfaceOwnerId_ {};
+    // The ID of the peer region.
+    // 
     // This parameter is required.
     shared_ptr<string> oppositeRegionId_ {};
+    // The ID of the peer router. This parameter is available only when the local and peer router interfaces belong to the same account.
     shared_ptr<string> oppositeRouterId_ {};
+    // The type of the peer router. Valid values:
+    // 
+    // - **VRouter**
+    // - **VBR**
+    // 
+    // Default value: **VRouter**.
     shared_ptr<string> oppositeRouterType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The subscription duration. This parameter is required when `InstanceChargeType` is set to `PrePaid` and `PricingCycle` is set to `Month` or `Year`. Valid values:
+    // 
+    // - If `PricingCycle` is set to `Month`, the valid values are 1 to 9.
+    // - If `PricingCycle` is set to `Year`, the valid values are 1 to 3.
     shared_ptr<int32_t> period_ {};
+    // The billing cycle. This parameter is required if `InstanceChargeType` is set to `PrePaid`. Valid values are `Month` and `Year`.
     shared_ptr<string> pricingCycle_ {};
+    // The region ID of the router interface.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The role of the router interface in the peering connection. Valid values:
+    // 
+    // - **InitiatingSide**: The router interface is the initiator.
+    // - **AcceptingSide**: The router interface is the acceptor.
+    // 
     // This parameter is required.
     shared_ptr<string> role_ {};
+    // The router ID.
+    // 
     // This parameter is required.
     shared_ptr<string> routerId_ {};
+    // The router type. Valid values:
+    // 
+    // - **VRouter**
+    // - **VBR**
+    // 
     // This parameter is required.
     shared_ptr<string> routerType_ {};
+    // The specification of the router interface. Valid values:
+    // 
+    // - **Mini.2**
+    // - **Mini.5**
+    // - **Small.1**
+    // - **Small.2**
+    // - **Small.5**
+    // - **Middle.1**
+    // - **Middle.2**
+    // - **Middle.5**
+    // - **Large.1**
+    // - **Large.2**
+    // - **Large.5**
+    // - **Xlarge.1**
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
+    // The CIDR block of the user. This parameter is required when you create a router interface for a virtual border router (VBR) that is in the same region as the Express Connect circuit, or when both `RouterType` and `OppositeRouterType` are set to `VBR`.
     shared_ptr<string> userCidr_ {};
   };
 

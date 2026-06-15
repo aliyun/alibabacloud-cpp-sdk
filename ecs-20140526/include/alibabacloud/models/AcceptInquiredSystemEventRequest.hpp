@@ -94,11 +94,16 @@ namespace Models
 
 
   protected:
+    // > This parameter is in invitational preview and is not supported for use.
     shared_ptr<string> choice_ {};
+    // The ID of the system event.
+    // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID where the system event is located. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

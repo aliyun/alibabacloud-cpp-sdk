@@ -94,11 +94,16 @@ namespace Models
 
 
   protected:
+    // A client-generated, case-sensitive token used to ensure request idempotency. This token must be unique across all requests and contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The region ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

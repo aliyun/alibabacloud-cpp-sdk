@@ -202,8 +202,9 @@ namespace Models
   protected:
     // The allocation type. Valid values:
     // 
-    // *   Normal: queries SCUs that belong to the current Alibaba Cloud account.
-    // *   Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
+    // - Normal: queries SCUs that belong to the current Alibaba Cloud account.
+    // 
+    // - Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
     // 
     // Default value: Normal.
     shared_ptr<string> allocationType_ {};

@@ -100,7 +100,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The static public IP address that you want to assign to the instance. This parameter is empty by default, which indicates that a static public IP address is randomly assigned by the system.
     // 
-    // >  Only users in the whitelist can specify this parameter.
+    // > Only users in the whitelist can specify this parameter.
     shared_ptr<string> ipAddress_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

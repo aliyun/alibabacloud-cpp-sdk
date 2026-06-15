@@ -95,8 +95,11 @@ namespace Models
 
 
     protected:
+      // The peak bandwidth for the EIPs in the bandwidth package. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
+      // The number of EIPs to create in the bandwidth package. Valid values: 1 to 10.
       shared_ptr<int32_t> ipCount_ {};
+      // The ID of the zone in which to create the EIPs. If you do not specify a zone, the system randomly selects one.
       shared_ptr<string> zone_ {};
     };
 
@@ -176,17 +179,32 @@ namespace Models
 
 
   protected:
+    // Configurations for the bandwidth packages to create and associate with the nat gateway.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateNatGatewayRequest::BandwidthPackage>> bandwidthPackage_ {};
+    // A client token to ensure the idempotence of the request.
+    // 
+    // This token is client-generated and must be unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // A description of the nat gateway.
+    // 
+    // The description must be 2 to 256 characters in length. It must start with a letter or a Chinese character but cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // A name for the nat gateway.
+    // 
+    // The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character but cannot start with `http://` or `https://`.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region in which to create the nat gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the VPC in which to create the nat gateway.
+    // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
   };

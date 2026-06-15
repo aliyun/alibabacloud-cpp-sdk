@@ -84,9 +84,9 @@ namespace Models
 
 
     protected:
-      // >  This parameter is deprecated.
+      // > This parameter is deprecated.
       shared_ptr<string> key_ {};
-      // >  This parameter is deprecated.
+      // > This parameter is deprecated.
       shared_ptr<string> value_ {};
     };
 
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags.
     shared_ptr<vector<StartImagePipelineExecutionRequest::Tag>> tag_ {};
-    // >  This parameter is deprecated.
+    // > This parameter is deprecated.
     shared_ptr<vector<StartImagePipelineExecutionRequest::TemplateTag>> templateTag_ {};
   };
 

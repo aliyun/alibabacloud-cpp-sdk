@@ -166,7 +166,9 @@ namespace Models
 
 
   protected:
+    // The EIP monitoring data.
     shared_ptr<DescribeEipMonitorDataResponseBody::EipMonitorDatas> eipMonitorDatas_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

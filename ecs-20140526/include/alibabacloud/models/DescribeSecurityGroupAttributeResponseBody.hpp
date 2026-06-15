@@ -482,8 +482,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The access control policy of the security group. Valid values:
     // 
-    // *   Accept: All instances in the security group can communicate with each other.
-    // *   Drop: All instances in the security group are isolated from each other.
+    // - Accept: All instances in the security group can communicate with each other.
+    // 
+    // - Drop: All instances in the security group are isolated from each other.
     shared_ptr<string> innerAccessPolicy_ {};
     // A pagination token. It can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify `MaxResults` and `NextToken` for a paged query, no more results are to be returned.
     shared_ptr<string> nextToken_ {};

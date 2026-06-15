@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // Indicates whether the maintenance window is enabled.
     shared_ptr<bool> enable_ {};
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the last query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
+    // The ID of the maintenance window.
     shared_ptr<string> planWindowId_ {};
+    // The name of the maintenance window.
     shared_ptr<string> planWindowName_ {};
+    // The ID of the region where the ECS instance is located. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the resource group to which the maintenance window applies.
     shared_ptr<string> targetResourceGroupId_ {};
+    // The tags of the resources to which the maintenance window applies.
     shared_ptr<string> targetResourceTagsShrink_ {};
   };
 

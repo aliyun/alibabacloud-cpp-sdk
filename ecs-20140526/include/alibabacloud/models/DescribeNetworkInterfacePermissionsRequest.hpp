@@ -115,25 +115,25 @@ namespace Models
 
 
   protected:
-    // The ID of ENI N. You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query range.
+    // The network interface ID. You must specify either `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query scope.
     shared_ptr<string> networkInterfaceId_ {};
-    // The IDs of ENI permissions. You can specify up to 100 ENI permission IDs.
+    // An array of network interface permission IDs. The array can contain 1 to 100 IDs.
     shared_ptr<vector<string>> networkInterfacePermissionId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
+    // The page number to return.
     // 
-    // Pages start from page 1.
+    // Starting value: 1
     // 
-    // Default value: 1.
+    // Default value: 1
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     // 
-    // Maximum value: 100.
+    // Maximum value: 100
     // 
-    // Default value: 10.
+    // Default value: 10
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the ENI permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region for the network interface permission. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to obtain the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

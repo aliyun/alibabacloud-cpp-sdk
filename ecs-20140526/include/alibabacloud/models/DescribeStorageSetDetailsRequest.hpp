@@ -130,35 +130,18 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The IDs of disks or Shared Block Storage devices. The value can be a JSON array that consists of up to 100 disk or Shared Block Storage device IDs. Separate the IDs with commas (,).
     shared_ptr<string> diskIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number.
-    // 
-    // Pages start from page 1.
-    // 
-    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // Maximum value: 100
-    // 
-    // Default value: 10
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the storage set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the storage set.
-    // 
     // This parameter is required.
     shared_ptr<string> storageSetId_ {};
-    // The maximum number of partitions in the storage set.
     shared_ptr<int32_t> storageSetPartitionNumber_ {};
   };
 

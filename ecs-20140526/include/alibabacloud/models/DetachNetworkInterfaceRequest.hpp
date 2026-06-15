@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The ID of the trunk ENI.
     // 
-    // >  This parameter is unavailable for use.
+    // > This parameter is unavailable for use.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

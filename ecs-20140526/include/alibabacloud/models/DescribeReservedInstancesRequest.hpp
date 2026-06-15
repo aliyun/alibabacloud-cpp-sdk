@@ -102,9 +102,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the reserved instance. The tag key cannot be empty and can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+      // The key of tag N of the reserved instance. The tag key cannot be empty and can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http\\:// or https\\://.
       // 
-      // >  If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // > If you specify a single tag to query resources, up to 1,000 resources to which the tag is added are returned. If you specify multiple tags to query resources, up to 1,000 resources to which all specified tags are added are returned. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
       shared_ptr<string> key_ {};
       // The value of tag N of the reserved instance. The tag value cannot be empty and can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
@@ -250,27 +250,31 @@ namespace Models
   protected:
     // The allocation type of the reserved instances. Valid values:
     // 
-    // *   Normal: queries all reserved instances that belong to the current account.
-    // *   Shared: queries the reserved instances that are shared between the current main account and linked accounts.
+    // - Normal: queries all reserved instances that belong to the current account.
+    // 
+    // - Shared: queries the reserved instances that are shared between the current main account and linked accounts.
     // 
     // Default value: Normal.
     shared_ptr<string> allocationType_ {};
     // The instance type of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
     // 
-    // >  Specify the instance type that you selected when you purchased the reserved instance. If the reserved instance is a regional reserved instance, it can be used to offset the bills of instance types that belong to the same instance family as the specified instance type, regardless of instance specifications.
+    // > Specify the instance type that you selected when you purchased the reserved instance. If the reserved instance is a regional reserved instance, it can be used to offset the bills of instance types that belong to the same instance family as the specified instance type, regardless of instance specifications.
     shared_ptr<string> instanceType_ {};
     // The instance family of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
     shared_ptr<string> instanceTypeFamily_ {};
     // The reason why the reserved instance is locked. Valid values:
     // 
-    // *   financial: The reserved instance is locked because the account has overdue payments or the service expires.
-    // *   security: The reserved instance is locked due to security reasons.
+    // - financial: The reserved instance is locked because the account has overdue payments or the service expires.
+    // 
+    // - security: The reserved instance is locked due to security reasons.
     shared_ptr<string> lockReason_ {};
     // The payment option of the reserved instance. Valid values:
     // 
-    // *   No Upfront
-    // *   Partial Upfront
-    // *   All Upfront
+    // - No Upfront
+    // 
+    // - Partial Upfront
+    // 
+    // - All Upfront
     shared_ptr<string> offeringType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -290,14 +294,15 @@ namespace Models
     shared_ptr<vector<string>> reservedInstanceId_ {};
     // The name of the reserved instance.
     // 
-    // >  Only exact search is supported.
+    // > Only exact search is supported.
     shared_ptr<string> reservedInstanceName_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The scope level of the reserved instance. Valid values:
     // 
-    // *   Region: regional
-    // *   Zone: zonal
+    // - Region: regional
+    // 
+    // - Zone: zonal
     shared_ptr<string> scope_ {};
     // The status of the reserved instances.
     shared_ptr<vector<string>> status_ {};

@@ -94,12 +94,21 @@ namespace Models
 
 
   protected:
+    // The ID of the DNAT entry to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardEntryId_ {};
+    // The ID of the DNAT table to which the DNAT entry belongs.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardTableId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the VPC is located.\\
+    // \\
+    // To obtain the latest list of regions, call the [DescribeRegions](~~DescribeRegions~~) operation.\\
+    // \\
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

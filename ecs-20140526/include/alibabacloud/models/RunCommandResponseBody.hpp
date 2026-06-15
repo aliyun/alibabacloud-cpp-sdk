@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The command ID.
+    // The ID of the command.
     shared_ptr<string> commandId_ {};
-    // The command task ID.
+    // The ID of the command execution.
     shared_ptr<string> invokeId_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

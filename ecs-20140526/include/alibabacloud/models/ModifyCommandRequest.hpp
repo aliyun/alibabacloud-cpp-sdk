@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // >  This parameter is no longer used and does not take effect.
+    // > This parameter is no longer used and does not take effect.
     shared_ptr<string> commandContent_ {};
     // The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
     // 

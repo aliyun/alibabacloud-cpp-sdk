@@ -115,19 +115,31 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the ECS resource. Valid values:
     // 
-    // *   instance: instance
-    // *   disk: Elastic Block Storage (EBS) device
-    // *   snapshot: snapshot
-    // *   image: image
-    // *   securitygroup: security group
-    // *   ddh: dedicated host
-    // *   ddhcluster: dedicated host cluster
-    // *   eni: ENI
-    // *   keypair: SSH key pair
-    // *   launchtemplate: launch template
-    // *   command: Cloud Assistant command
-    // *   activation: activation code for a Cloud Assistant managed instance
-    // *   managedinstance: Cloud Assistant managed instance
+    // - instance: instance
+    // 
+    // - disk: Elastic Block Storage (EBS) device
+    // 
+    // - snapshot: snapshot
+    // 
+    // - image: image
+    // 
+    // - securitygroup: security group
+    // 
+    // - ddh: dedicated host
+    // 
+    // - ddhcluster: dedicated host cluster
+    // 
+    // - eni: ENI
+    // 
+    // - keypair: SSH key pair
+    // 
+    // - launchtemplate: launch template
+    // 
+    // - command: Cloud Assistant command
+    // 
+    // - activation: activation code for a Cloud Assistant managed instance
+    // 
+    // - managedinstance: Cloud Assistant managed instance
     // 
     // The values are case-sensitive.
     shared_ptr<string> resourceType_ {};

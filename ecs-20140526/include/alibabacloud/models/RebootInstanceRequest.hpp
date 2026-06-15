@@ -96,15 +96,17 @@ namespace Models
   protected:
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
-    // *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and available ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   false: performs a dry run and sends the request. If the request passes the dry run, the ECS instance is restarted.
+    // - true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and available ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // 
+    // - false: performs a dry run and sends the request. If the request passes the dry run, the ECS instance is restarted.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to forcefully stop the ECS instance before the instance is restarted. Valid values:
     // 
-    // *   true: forcefully stops the ECS instance. If you set this parameter to true, this operation is equivalent to a power-off operation. Cache data that is not written to storage devices on the instance is lost.
-    // *   false: normally stops the ECS instance.
+    // - true: forcefully stops the ECS instance. If you set this parameter to true, this operation is equivalent to a power-off operation. Cache data that is not written to storage devices on the instance is lost.
+    // 
+    // - false: normally stops the ECS instance.
     // 
     // Default value: false.
     shared_ptr<bool> forceStop_ {};

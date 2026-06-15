@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The unique ID of the allocation.
     shared_ptr<string> allocationId_ {};
+    // The allocated elastic IP address.
     shared_ptr<string> eipAddress_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

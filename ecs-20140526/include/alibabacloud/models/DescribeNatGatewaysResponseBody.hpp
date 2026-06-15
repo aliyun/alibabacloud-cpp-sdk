@@ -325,10 +325,15 @@ namespace Models
 
 
   protected:
+    // The details of the NAT gateways.
     shared_ptr<DescribeNatGatewaysResponseBody::NatGateways> natGateways_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

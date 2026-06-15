@@ -103,14 +103,20 @@ namespace Models
 
 
   protected:
+    // A client-generated token that must be unique across requests to ensure idempotency. The token can contain only ASCII characters and must be no longer than 64 characters.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the VBR is located. You can call the `DescribeRegions` operation to get the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The secondary IPv4 CIDR block of your on-premises data center. This parameter is used for disaster recovery in a dual-homed configuration.
     shared_ptr<string> userCidr_ {};
+    // The ID of the VBR to recover.
+    // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
   };

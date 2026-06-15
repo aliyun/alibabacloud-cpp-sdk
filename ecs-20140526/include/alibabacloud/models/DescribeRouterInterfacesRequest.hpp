@@ -82,7 +82,21 @@ namespace Models
 
 
     protected:
+      // The filter key. Supported values:
+      // 
+      // - `RouterInterfaceId`: The ID of the router interface.
+      // 
+      // - `RouterId`: The ID of the router that the router interface is attached to.
+      // 
+      // - `RouterType`: The type of the router. Valid values: `VRouter` and `VBR`.
+      // 
+      // - `Status`: The status of the router interface.
+      // 
+      // - `Name`: The name of the router interface.
+      // 
+      // - `Role`: The role of the router interface. Valid values: `InitiatingSide` and `AcceptingSide`.
       shared_ptr<string> key_ {};
+      // The values for the filter key. You can specify a maximum of 20 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -141,10 +155,23 @@ namespace Models
 
 
   protected:
+    // The filters.
     shared_ptr<vector<DescribeRouterInterfacesRequest::Filter>> filter_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number.
+    // 
+    // Page numbering starts from 1.
+    // 
+    // Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return per page.
+    // 
+    // Valid values: 1 to 100.
+    // 
+    // Default: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region. You can call the `DescribeRegions` operation to get the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

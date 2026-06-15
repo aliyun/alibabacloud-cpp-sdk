@@ -102,9 +102,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the capacity reservation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+      // The tag key of the capacity reservation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the capacity reservation. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+      // The tag value of the capacity reservation. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -146,14 +146,15 @@ namespace Models
 
 
     protected:
-      // The type of the private pool to generate after the capacity reservation takes effect. Valid values:
+      // The type of the private pool that is generated after the capacity reservation takes effect. Valid values:
       // 
-      // *   Open: open private pool
-      // *   Target: targeted private pool
+      // - Open: open mode. When you launch an instance, it is automatically matched with the capacity of an open private pool. If no suitable private pool capacity is available, the instance is launched by using public pool resources.
+      // 
+      // - Target: targeted mode. The instance is launched by using the capacity of a specified private pool. If the capacity is unavailable, the instance fails to launch.
       // 
       // Default value: Open.
       shared_ptr<string> matchCriteria_ {};
-      // The capacity reservation name. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+      // The name of the capacity reservation. The name must be 2 to 128 characters in length. It must start with a letter or a Chinese character and cannot start with `http://` or `https://`. It can contain digits, colons (:), underscores (_), and hyphens (-).
       shared_ptr<string> name_ {};
     };
 
@@ -296,50 +297,52 @@ namespace Models
 
   protected:
     shared_ptr<CreateCapacityReservationRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // A client-generated token that ensures the request is idempotent. You can use the same token to retry a request. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The description of the capacity reservation. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     // 
-    // This parameter is empty by default.
+    // Default value: empty string.
     shared_ptr<string> description_ {};
-    // The time when the capacity reservation expires. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+    // The end time of the capacity reservation. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
     shared_ptr<string> endTime_ {};
     // The release mode of the capacity reservation. Valid values:
     // 
-    // *   Limited: The capacity reservation is automatically released at a specified time. If you specify this parameter, you must specify the `EndTime` parameter.
-    // *   Unlimited: The capacity reservation is manually released. The capacity reservation can be released anytime.
+    // - Limited: The capacity reservation is automatically released at a specific time. You must also specify the `EndTime` parameter.
+    // 
+    // - Unlimited: The capacity reservation must be released manually.
     shared_ptr<string> endTimeType_ {};
-    // The total number of instances for which the capacity of an instance type is reserved.
+    // The number of instances of the specified instance type for which to reserve capacity.
     // 
     // This parameter is required.
     shared_ptr<int32_t> instanceAmount_ {};
     shared_ptr<string> instanceChargeType_ {};
-    // The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the instance types provided by ECS.
+    // The instance type for which to reserve capacity. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to view the instance types that ECS provides.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system of a capacity reservation matches the operating system of a regional reserved instance, you can apply the regional reserved instance to offset fees of the unused capacity of the capacity reservation. Valid values:
+    // The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of a regional reserved instance. If this platform matches the platform of a regional reserved instance, the regional reserved instance can be used to offset the costs of unused capacity in the reservation. Valid values:
     // 
-    // *   Windows: Windows Server operating system
-    // *   Linux: Linux and UNIX-like operating system
+    // - Windows: Windows Server operating systems.
+    // 
+    // - Linux: Linux and Unix-like operating systems.
     // 
     // Default value: Linux.
     // 
-    // > This parameter is unavailable.
+    // > This parameter is not yet available for use.
     shared_ptr<string> platform_ {};
-    // The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region in which to create the capacity reservation. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which you want to assign the capacity reservation.
+    // The ID of the resource group to which the capacity reservation belongs.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The mode in which the capacity reservation takes effect. You can call the CreateCapacityReservation operation to create only immediate capacity reservations.
+    // The time when the capacity reservation takes effect. The capacity reservation takes effect immediately after it is created.
     // 
-    // > If you do not specify this parameter, the capacity reservation immediately takes effect.
+    // > If you do not specify this parameter, the capacity reservation takes effect immediately.
     shared_ptr<string> startTime_ {};
     // The tags to add to the capacity reservation.
     shared_ptr<vector<CreateCapacityReservationRequest::Tag>> tag_ {};

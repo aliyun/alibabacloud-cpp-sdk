@@ -84,10 +84,13 @@ namespace Models
 
 
   protected:
+    // The allocation ID of the EIP to release.
+    // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the EIP is located. You can call the `DescribeRegions` operation to get the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

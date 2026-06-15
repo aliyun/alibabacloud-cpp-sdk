@@ -142,15 +142,26 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The region ID. You can call the [`DescribeRegions`](https://www.alibabacloud.com/help/en/doc-detail/40654.htm) operation to query the latest list of regions.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the route table.
     shared_ptr<string> routeTableId_ {};
+    // The name of the route table.
     shared_ptr<string> routeTableName_ {};
+    // The ID of the router associated with the route table.
     shared_ptr<string> routerId_ {};
+    // The type of the router associated with the route table. Valid values:
+    // 
+    // - `VRouter`: VPC router
+    // - `VBR`: virtual border router
     shared_ptr<string> routerType_ {};
+    // The ID of the VRouter.
     shared_ptr<string> VRouterId_ {};
   };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the route table automatically created for the VPC.
     shared_ptr<string> routeTableId_ {};
+    // The ID of the virtual router automatically created for the VPC.
     shared_ptr<string> VRouterId_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

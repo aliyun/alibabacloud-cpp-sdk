@@ -321,16 +321,15 @@ namespace Models
 
 
   protected:
+    // The details of the image pipeline executions.
     shared_ptr<DescribeImagePipelineExecutionsResponseBody::ImagePipelineExecution> imagePipelineExecution_ {};
-    // The request ID.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+    // The token returned in this call. Use this token to retrieve the next page of results. For more information, see the operation description.
     shared_ptr<string> nextToken_ {};
-    // The maximum number of entries per page. Valid values: 1 to 500
-    // 
-    // Default value: 50.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
+    // The total number of image pipeline executions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

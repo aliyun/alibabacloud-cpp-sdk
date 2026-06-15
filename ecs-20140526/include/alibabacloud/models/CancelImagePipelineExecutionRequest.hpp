@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> key_ {};
-      // >  This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> value_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<vector<CancelImagePipelineExecutionRequest::TemplateTag>> templateTag_ {};
   };
 

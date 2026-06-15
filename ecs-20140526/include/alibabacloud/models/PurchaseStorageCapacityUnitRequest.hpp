@@ -243,15 +243,17 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The validity period of the SCU. Valid values:
     // 
-    // *   Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
-    // *   Valid values when PeriodUnit is set to Year: 1, 3, and 5.
+    // - Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
+    // 
+    // - Valid values when PeriodUnit is set to Year: 1, 3, and 5.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
     // The unit of the validity period of the SCU. Valid values:
     // 
-    // *   Month
-    // *   Year
+    // - Month
+    // 
+    // - Year
     // 
     // Default value: Month.
     shared_ptr<string> periodUnit_ {};

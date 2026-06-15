@@ -122,8 +122,9 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The type of the diagnostic metric set. Valid values:
       // 
-      // *   User: user-defined diagnostic metric set
-      // *   Common: common diagnostic metric set
+      // - User: user-defined diagnostic metric set
+      // 
+      // - Common: common diagnostic metric set
       shared_ptr<string> type_ {};
     };
 

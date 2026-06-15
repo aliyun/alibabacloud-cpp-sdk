@@ -114,20 +114,27 @@ namespace Models
   protected:
     // The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
     // 
-    // *   zh-CN: Simplified Chinese
-    // *   zh_TW: Traditional Chinese
-    // *   en-US: English
-    // *   ja: Japanese
-    // *   fr: French
-    // *   de: German
-    // *   ko: Korean
+    // - zh-CN: Simplified Chinese
+    // 
+    // - zh_TW: Traditional Chinese
+    // 
+    // - en-US: English
+    // 
+    // - ja: Japanese
+    // 
+    // - fr: French
+    // 
+    // - de: German
+    // 
+    // - ko: Korean
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
     // The billing method of resources. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
     // 
-    // *   Prepaid: subscription
-    // *   PostPaid: pay-as-you-go
+    // - Prepaid: subscription
+    // 
+    // - PostPaid: pay-as-you-go
     // 
     // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
@@ -141,16 +148,19 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The bidding policy for the pay-as-you-go instance. You can specify this parameter when you set `InstanceChargeType` to PostPaid. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
     // 
-    // *   NoSpot: The instances are regular pay-as-you-go instances.
-    // *   SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
-    // *   SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
+    // - NoSpot: The instances are regular pay-as-you-go instances.
+    // 
+    // - SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
+    // 
+    // - SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
     // 
     // Default value: NoSpot.
     shared_ptr<string> spotStrategy_ {};
     // Specifies whether to display detailed information.
     // 
-    // *   true: displays detailed information.
-    // *   false: does not display detailed information.
+    // - true: displays detailed information.
+    // 
+    // - false: does not display detailed information.
     // 
     // Default value: true.
     shared_ptr<bool> verbose_ {};

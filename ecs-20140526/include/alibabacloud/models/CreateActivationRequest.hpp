@@ -202,6 +202,7 @@ namespace Models
 
 
   protected:
+    // Ensures the idempotence of the request. Generate a unique value for this parameter from your client to guarantee that the value differs across requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // The description of the activation code. The description must be 1 to 100 characters in length.
     shared_ptr<string> description_ {};

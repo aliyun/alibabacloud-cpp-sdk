@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The ID of a next hop in the ECMP route.
       shared_ptr<string> nextHopId_ {};
+      // The type of a next hop in the ECMP route. Set the value to `Instance`.
       shared_ptr<string> nextHopType_ {};
     };
 
@@ -157,15 +159,26 @@ namespace Models
 
 
   protected:
+    // The destination CIDR block of the route entry.
+    // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
+    // The ID of the next hop.
+    // 
+    // > `NextHopId` and `NextHopList` are mutually exclusive. You can specify one but not both.
     shared_ptr<string> nextHopId_ {};
+    // A list of next hops for an ECMP route.
+    // 
+    // > `NextHopId` and `NextHopList` are mutually exclusive. You can specify one but not both.
     shared_ptr<vector<DeleteRouteEntryRequest::NextHopList>> nextHopList_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the route table that contains the route entry.
+    // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};
   };

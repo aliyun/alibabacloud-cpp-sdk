@@ -103,15 +103,22 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure the idempotency of the request. The token must be unique across requests and can contain only ASCII characters, with a maximum length of 64 characters.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the physical connection.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The ID of the region where the physical connection is deployed.\\
+    // You can call the `DescribeRegions` operation to get the most recent region list.\\
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // This parameter is not used.
     shared_ptr<string> userCidr_ {};
   };
 

@@ -43,6 +43,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const PlanMaintenanceWindowList& obj) { 
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
         DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_TO_JSON(PlanWindowId, planWindowId_);
         DARABONBA_PTR_TO_JSON(PlanWindowName, planWindowName_);
@@ -53,6 +54,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, PlanMaintenanceWindowList& obj) { 
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
         DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_FROM_JSON(PlanWindowId, planWindowId_);
         DARABONBA_PTR_FROM_JSON(PlanWindowName, planWindowName_);
@@ -130,7 +132,9 @@ namespace Models
 
 
         protected:
+          // The end time of the time range.
           shared_ptr<string> endTime_ {};
+          // The start time of the time range.
           shared_ptr<string> startTime_ {};
         };
 
@@ -153,7 +157,9 @@ namespace Models
 
 
       protected:
+        // The recurrence frequency. Valid values: Daily and Weekly.
         shared_ptr<string> periodUnit_ {};
+        // The recurring UTC time ranges for the maintenance window.
         shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
       };
 
@@ -218,7 +224,9 @@ namespace Models
 
 
         protected:
+          // The tag key.
           shared_ptr<string> key_ {};
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -248,14 +256,17 @@ namespace Models
 
 
       protected:
+        // The ID of the target resource group.
         shared_ptr<string> resourceGroupId_ {};
+        // The scope of the target resources. Valid values: Tag, ResourceGroup, Instance, and AliUid.
         shared_ptr<string> scope_ {};
+        // The target tags.
         shared_ptr<vector<TargetResource::Tags>> tags_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->enable_ == nullptr && this->modifiedTime_ == nullptr && this->planWindowId_ == nullptr && this->planWindowName_ == nullptr && this->supportMaintenanceAction_ == nullptr
-        && this->targetResource_ == nullptr && this->timePeriod_ == nullptr; };
+        && this->enable_ == nullptr && this->minMaintenanceInterval_ == nullptr && this->modifiedTime_ == nullptr && this->planWindowId_ == nullptr && this->planWindowName_ == nullptr
+        && this->supportMaintenanceAction_ == nullptr && this->targetResource_ == nullptr && this->timePeriod_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -268,6 +279,13 @@ namespace Models
       void deleteEnable() { this->enable_ = nullptr;};
       inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
       inline PlanMaintenanceWindowList& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // minMaintenanceInterval Field Functions 
+      bool hasMinMaintenanceInterval() const { return this->minMaintenanceInterval_ != nullptr;};
+      void deleteMinMaintenanceInterval() { this->minMaintenanceInterval_ = nullptr;};
+      inline int32_t getMinMaintenanceInterval() const { DARABONBA_PTR_GET_DEFAULT(minMaintenanceInterval_, 0) };
+      inline PlanMaintenanceWindowList& setMinMaintenanceInterval(int32_t minMaintenanceInterval) { DARABONBA_PTR_SET_VALUE(minMaintenanceInterval_, minMaintenanceInterval) };
 
 
       // modifiedTime Field Functions 
@@ -317,13 +335,26 @@ namespace Models
 
 
     protected:
+      // The creation time of the maintenance window.
+      // 
+      // The time is in UTC and follows the ISO 8601 standard, formatted as yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
+      // Indicates whether the maintenance window is enabled.
       shared_ptr<bool> enable_ {};
+      shared_ptr<int32_t> minMaintenanceInterval_ {};
+      // The modification time of the maintenance window.
+      // 
+      // The time is in UTC and follows the ISO 8601 standard, formatted as yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> modifiedTime_ {};
+      // The ID of the maintenance window.
       shared_ptr<string> planWindowId_ {};
+      // The name of the maintenance window.
       shared_ptr<string> planWindowName_ {};
+      // The supported maintenance action.
       shared_ptr<string> supportMaintenanceAction_ {};
+      // The resources targeted by the maintenance window.
       shared_ptr<PlanMaintenanceWindowList::TargetResource> targetResource_ {};
+      // The recurrence schedule of the maintenance window.
       shared_ptr<PlanMaintenanceWindowList::TimePeriod> timePeriod_ {};
     };
 
@@ -367,10 +398,15 @@ namespace Models
 
 
   protected:
+    // The number of entries to return per page. The default value is 10, and the maximum value is 100. If you omit this parameter or specify a value less than 10, the default value is used. If you specify a value greater than 100, the maximum value is used.
     shared_ptr<int32_t> maxResults_ {};
+    // The token to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
+    // A list of maintenance windows.
     shared_ptr<vector<DescribePlanMaintenanceWindowsResponseBody::PlanMaintenanceWindowList>> planMaintenanceWindowList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries that match the query. This parameter is optional and not returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -106,8 +106,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Specifies whether to remove formatting symbols from the returned command output. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> removeSymbols_ {};

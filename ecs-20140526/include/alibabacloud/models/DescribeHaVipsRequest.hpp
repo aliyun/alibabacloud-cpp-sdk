@@ -84,7 +84,23 @@ namespace Models
 
 
     protected:
+      // The filter key. Valid values:
+      // 
+      // `HaVipId`: The ID of the high-availability virtual IP (HAVIP).
+      // 
+      // `HaVipName`: The name of the HAVIP.
+      // 
+      // `VpcId`: The ID of the VPC to which the HAVIP belongs.
+      // 
+      // `VSwitchId`: The ID of the vSwitch to which the HAVIP belongs.
+      // 
+      // `IpAddress`: The IP address of the HAVIP.
+      // 
+      // `AssociatedInstanceType`: The type of instance associated with the HAVIP. The value must be `EcsInstance`.
+      // 
+      // `AssociatedInstanceId`: The ID of the instance associated with the HAVIP.
       shared_ptr<string> key_ {};
+      // A list of 1 to 20 values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -150,12 +166,18 @@ namespace Models
 
 
   protected:
+    // The query filters. You can specify 1 to 20 filters.
+    // 
     // This parameter is required.
     shared_ptr<vector<DescribeHaVipsRequest::Filter>> filter_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Maximum value: 50. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

@@ -112,12 +112,18 @@ namespace Models
 
 
   protected:
+    // The ID of the bandwidth package.
     shared_ptr<string> bandwidthPackageId_ {};
+    // The ID of the nat gateway. If specified, the operation returns only bandwidth packages associated with the specified nat gateway.
     shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Starting value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region where the bandwidth package is located.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

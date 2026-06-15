@@ -103,24 +103,25 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
     // 
-    // > If you configure this parameter, you cannot configure `NetworkInterfaceId`.
+    // > If you specify this parameter, you must leave `NetworkInterfaceId` empty.
     shared_ptr<string> instanceId_ {};
-    // The ENI ID.
+    // The ID of the elastic network interface.
     // 
-    // > If you configure this parameter, you cannot configure `InstanceId`.
+    // > If you specify this parameter, you must leave `InstanceId` empty.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region. Call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
     // 
-    // *   If you want to add an instance to a security group, you do not need to specify a region ID.
-    // *   If you want to add an ENI to a security group, you must specify the region ID of the ENI.
+    // - This parameter is optional when you add an instance to a security group.
+    // 
+    // - This parameter is required when you add an elastic network interface to a security group. The value must be the ID of the region where the elastic network interface is located.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group. You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query the most recent security group list.
+    // The ID of the security group. Call [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) to view your available security groups.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupId_ {};

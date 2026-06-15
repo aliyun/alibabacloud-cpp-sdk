@@ -119,8 +119,9 @@ namespace Models
   protected:
     // Specifies whether to remove all tags from the resource. This parameter takes effect only if you do not specify TagKey.N. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> all_ {};
@@ -138,23 +139,39 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The type of the resource. Valid values:
     // 
-    // *   instance: ECS instance
-    // *   disk: disk
-    // *   snapshot: snapshot
-    // *   image: image
-    // *   securitygroup: security group
-    // *   volume: storage volume
-    // *   eni: elastic network interface (ENI)
-    // *   ddh: dedicated host
-    // *   ddhcluster: dedicated host cluster
-    // *   keypair: SSH key pair
-    // *   launchtemplate: launch template
-    // *   reservedinstance: reserved instance
-    // *   snapshotpolicy: automatic snapshot policy
-    // *   elasticityassurance: elasticity assurance
-    // *   capacityreservation: capacity reservation
-    // *   command: Cloud Assistant command
-    // *   invocation: Cloud Assistant command execution result
+    // - instance: ECS instance
+    // 
+    // - disk: disk
+    // 
+    // - snapshot: snapshot
+    // 
+    // - image: image
+    // 
+    // - securitygroup: security group
+    // 
+    // - volume: storage volume
+    // 
+    // - eni: elastic network interface (ENI)
+    // 
+    // - ddh: dedicated host
+    // 
+    // - ddhcluster: dedicated host cluster
+    // 
+    // - keypair: SSH key pair
+    // 
+    // - launchtemplate: launch template
+    // 
+    // - reservedinstance: reserved instance
+    // 
+    // - snapshotpolicy: automatic snapshot policy
+    // 
+    // - elasticityassurance: elasticity assurance
+    // 
+    // - capacityreservation: capacity reservation
+    // 
+    // - command: Cloud Assistant command
+    // 
+    // - invocation: Cloud Assistant command execution result
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the archive task. You can call the DescribeTasks operation to query the status and progress of the archive task.
+    // The archive task ID. You can call the DescribeTasks operation to query the status and progress of the task.
     shared_ptr<string> taskId_ {};
   };
 

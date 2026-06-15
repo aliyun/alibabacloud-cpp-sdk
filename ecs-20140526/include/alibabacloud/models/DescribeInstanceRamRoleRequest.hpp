@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The IDs of ECS instances. You can specify up to 50 instance IDs in a single request.
     // 
-    // >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
+    // > You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
     shared_ptr<string> instanceIds_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
@@ -122,7 +122,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The name of the instance RAM role. If you specify this parameter, all ECS instances to which the instance RAM role is attached are returned in the response. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation of RAM to query the names of available instance RAM roles.
     // 
-    // >  You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
+    // > You must specify at least one parameter from `InstanceIds` and `RamRoleName`.
     shared_ptr<string> ramRoleName_ {};
     // The region ID of the instance RAM role. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
     // 

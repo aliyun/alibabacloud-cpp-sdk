@@ -470,8 +470,9 @@ namespace Models
     protected:
       // The architecture of the image. Valid values:
       // 
-      // *   i386
-      // *   x86_64
+      // - i386
+      // 
+      // - x86_64
       shared_ptr<string> architecture_ {};
       // The time when the image was created.
       shared_ptr<string> creationTime_ {};
@@ -486,10 +487,13 @@ namespace Models
       shared_ptr<string> imageName_ {};
       // The alias of the image owner. Valid values:
       // 
-      // *   system: public images provided by Alibaba Cloud
-      // *   self: your custom images
-      // *   others: shared images from other Alibaba Cloud accounts
-      // *   marketplace: Alibaba Cloud Marketplace images
+      // - system: public images provided by Alibaba Cloud
+      // 
+      // - self: your custom images
+      // 
+      // - others: shared images from other Alibaba Cloud accounts
+      // 
+      // - marketplace: Alibaba Cloud Marketplace images
       shared_ptr<string> imageOwnerAlias_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
@@ -507,8 +511,9 @@ namespace Models
       shared_ptr<string> OSName_ {};
       // The type of the operating system. Valid values:
       // 
-      // *   windows
-      // *   linux
+      // - windows
+      // 
+      // - linux
       shared_ptr<string> OSType_ {};
       // The operating system.
       shared_ptr<string> platform_ {};
@@ -520,16 +525,20 @@ namespace Models
       shared_ptr<int32_t> size_ {};
       // The state of the image. Valid values:
       // 
-      // *   UnAvailable
-      // *   Available
-      // *   Creating
-      // *   CreateFailed
+      // - UnAvailable
+      // 
+      // - Available
+      // 
+      // - Creating
+      // 
+      // - CreateFailed
       shared_ptr<string> status_ {};
       shared_ptr<Image::Tags> tags_ {};
       // Indicates whether the image has been used to create ECS instances. Valid values:
       // 
-      // *   instance: The image was used to create one or more ECS instances.
-      // *   none: The image was not used to create ECS instances.
+      // - instance: The image was used to create one or more ECS instances.
+      // 
+      // - none: The image was not used to create ECS instances.
       shared_ptr<string> usage_ {};
     };
 

@@ -112,14 +112,22 @@ namespace Models
 
 
   protected:
+    // A client-generated token that ensures request idempotency. The token must be unique for each request, contain only ASCII characters, and be no more than 64 characters long.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to forcefully disassociate the HaVip. If you set this parameter to `true`, you can disassociate the HaVip from a master instance. Valid values: `true` and `false`. The default value is `false`.
     shared_ptr<string> force_ {};
+    // The ID of the HaVip.
+    // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
+    // The ID of the ECS instance to disassociate the HaVip from.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the HaVip is deployed. You can call the `DescribeRegions` operation to query the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

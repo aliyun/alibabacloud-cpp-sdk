@@ -220,9 +220,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
+      // The key of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http\\:// or https\\://. The tag key cannot start with acs: or aliyun.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
+      // The value of tag N to add to the instance, disks, and primary ENI that are created from the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http\\:// or https\\://.
       shared_ptr<string> value_ {};
     };
 
@@ -254,6 +254,25 @@ namespace Models
 
 
     protected:
+      // The trusted system mode. Valid value: vTPM.
+      // 
+      // Currently, the following instance families support the trusted system mode:
+      // 
+      // - g7, c7, r7.
+      // 
+      // - Security-enhanced instance families (g7t, c7t, r7t).
+      // 
+      // When you create an ECS instance using one of the above instance families, you must configure this parameter as follows:
+      // 
+      // - If you use Alibaba Cloud Trusted System, set this parameter to vTPM. This enables trusted validation through Alibaba Cloud Trusted System when the instance starts.
+      // 
+      // - If you do not use Alibaba Cloud Trusted System, you can leave this parameter unset. However, note that if your ECS instance uses the Enclave confidential computing mode (`SecurityOptions.ConfidentialComputingMode=Enclave`), the trusted system will still be enabled automatically.
+      // 
+      // - When creating a trusted ECS instance via OpenAPI, you can only use the `RunInstances` operation. The `CreateInstance` operation does not currently support setting the `SecurityOptions.TrustedSystemMode` parameter.
+      // 
+      // > If you specify an instance as a trusted instance during creation, you can only use images that support the trusted system when replacing its system disk.
+      // 
+      // For more information about the trusted system, see [Function Overview of Trusted Features on Security-Enhanced Instances](https://help.aliyun.com/document_detail/201394.html).
       shared_ptr<string> trustedSystemMode_ {};
     };
 
@@ -363,12 +382,13 @@ namespace Models
     protected:
       // Specifies whether to release ENI N when the instance is released. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       // 
       // Default value: true.
       // 
-      // >  This parameter takes effect only for secondary ENIs.
+      // > This parameter takes effect only for secondary ENIs.
       shared_ptr<bool> deleteOnRelease_ {};
       // The description of the secondary ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. The value of N in `NetworkInterface.N` cannot be greater than 1.
       shared_ptr<string> description_ {};
@@ -376,8 +396,9 @@ namespace Models
       // 
       // Valid values:
       // 
-      // *   Primary
-      // *   Secondary
+      // - Primary
+      // 
+      // - Secondary
       // 
       // Default value: Secondary.
       shared_ptr<string> instanceType_ {};
@@ -385,54 +406,63 @@ namespace Models
       // 
       // Take note of the following items:
       // 
-      // *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you do not need to specify this parameter.
+      // - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Primary`, you do not need to specify this parameter.
       shared_ptr<string> networkInterfaceName_ {};
       // The communication mode of the primary ENI. Valid values:
       // 
-      // *   Standard: uses the TCP communication mode.
-      // *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
+      // - Standard: uses the TCP communication mode.
+      // 
+      // - HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
       shared_ptr<string> networkInterfaceTrafficMode_ {};
       // The primary IP address to assign to ENI N.
       // 
       // Take note of the following items:
       // 
-      // *   Valid values of N: 1 and 2.
+      // - Valid values of N: 1 and 2.
       // 
-      //     *   If the value of N is 1, you can configure a primary or secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified IP address are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
-      //     *   If the value of N is 2, you must configure a primary ENI and a secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
+      //   - If the value of N is 1, you can configure a primary or secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, the specified number of instances are created and consecutive primary IP addresses starting from the specified IP address are assigned to the instances. In this case, you cannot attach secondary ENIs to the instances.
       // 
-      // *   If you set `NetworkInterface.N.InstanceType` to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both this parameter and `PrivateIpAddress` in the same request.
+      //   - If the value of N is 2, you must configure a primary ENI and a secondary ENI. If you specify this parameter, set `Amount` to a numeric value greater than 1, and set NetworkInterface.N.InstanceType to Primary, you cannot set `NetworkInterface.2.InstanceType` to Secondary to attach a secondary ENI.
       // 
-      // *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
+      // - If you set `NetworkInterface.N.InstanceType` to `Primary`, this parameter is equivalent to `PrivateIpAddress`. You cannot specify both this parameter and `PrivateIpAddress` in the same request.
       // 
-      // >  You can attach only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) operations to attach more secondary ENIs.
+      // - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, the specified primary IP address is assigned to the secondary ENI. The default value is an IP address that is randomly selected from within the CIDR block of the vSwitch to which to connect the secondary ENI.
+      // 
+      // > You can attach only a single secondary ENI when you create an instance. After the instance is created, you can call the [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) operations to attach more secondary ENIs.
       shared_ptr<string> primaryIpAddress_ {};
       // The ID of the security group to which to assign ENI N.
       // 
       // Take note of the following items:
       // 
-      // *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+      // - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
       shared_ptr<string> securityGroupId_ {};
       // The IDs of security groups to which to assign ENI N.
       // 
-      // *   Valid values of the first N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-      // *   The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+      // - Valid values of the first N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+      // 
+      // - The second N in this parameter indicates that one or more security group IDs can be specified. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
       // 
       // Take note of the following items:
       // 
-      // *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
+      // - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter or `NetworkInterface.N.SecurityGroupId`. In this case, this parameter is equivalent to `SecurityGroupIds.N`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupId`.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
       shared_ptr<vector<string>> securityGroupIds_ {};
       // The ID of the vSwitch to which to connect ENI N.
       // 
       // Take note of the following items:
       // 
-      // *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.
-      // *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the VSwitchId value.
+      // - Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `VSwitchId`. You cannot specify both NetworkInterface.N.VSwitchId and `VSwitchId` in the same request.
+      // 
+      // - If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the VSwitchId value.
       shared_ptr<string> vSwitchId_ {};
     };
 
@@ -466,8 +496,9 @@ namespace Models
     protected:
       // Specifies whether the instance that uses the image supports logons of the ecs-user user. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> loginAsNonRoot_ {};
     };
 
@@ -614,24 +645,31 @@ namespace Models
       shared_ptr<string> autoSnapshotPolicyId_ {};
       // Specifies whether to enable the performance burst feature for the system disk. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> burstingEnabled_ {};
       // The category of data disk N. Valid values:
       // 
-      // *   cloud: basic disk
-      // *   cloud_efficiency: utra disk
-      // *   cloud_ssd: standard SSD
-      // *   cloud_essd: ESSD
-      // *   cloud_auto: ESSD AutoPL disk
-      // *   cloud_essd_entry: ESSD Entry disk
+      // - cloud: basic disk
+      // 
+      // - cloud_efficiency: utra disk
+      // 
+      // - cloud_ssd: standard SSD
+      // 
+      // - cloud_essd: ESSD
+      // 
+      // - cloud_auto: ESSD AutoPL disk
+      // 
+      // - cloud_essd_entry: ESSD Entry disk
       // 
       // For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
       shared_ptr<string> category_ {};
       // Specifies whether to release data disk N when the associated instance is released. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       // 
       // Default value: true.
       shared_ptr<bool> deleteWithInstance_ {};
@@ -639,10 +677,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The mount point of data disk N. The mount points are named based on the number of data disks:
       // 
-      // *   1st to 25th data disks: /dev/xvd`[b-z]`.
-      // *   From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
+      // - 1st to 25th data disks: /dev/xvd`[b-z]`.
       // 
-      // >  This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
+      // - From the 26th data disk on: /dev/xvd`[aa-zz]`. For example, the 26th data disk is named /dev/xvdaa, the 27th data disk is named /dev/xvdab, and so on.
+      // 
+      // > This parameter is applicable to scenarios in which a full image is used to create instances. A full image is an image that contains an operating system, application software, and business data. For these scenarios, you can set the parameter to the mount point of data disk N contained in the full image and modify `DataDisk.N.Size` and `DataDisk.N.Category` to change the category and size of data disk N created based on the image.
       shared_ptr<string> device_ {};
       // The name of data disk N. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
       shared_ptr<string> diskName_ {};
@@ -652,10 +691,13 @@ namespace Models
       shared_ptr<string> KMSKeyId_ {};
       // The performance level of the ESSD to use as data disk N. The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
       // 
-      // *   PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
-      // *   PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
-      // *   PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
-      // *   PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
+      // - PL0: A single ESSD can deliver up to 10000 random read/write IOPS.
+      // 
+      // - PL1 (default): A single ESSD can deliver up to 50000 random read/write IOPS.
+      // 
+      // - PL2: A single ESSD can deliver up to 100000 random read/write IOPS.
+      // 
+      // - PL3: A single ESSD can deliver up to 1000000 random read/write IOPS.
       // 
       // For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
@@ -663,32 +705,35 @@ namespace Models
       // 
       // Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
       // 
-      // >  This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+      // > This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
       shared_ptr<int64_t> provisionedIops_ {};
       // The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
+      // - Valid values if you set DataDisk.N.Category to cloud: 5 to 2000.
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
+      // - Valid values if you set DataDisk.N.Category to cloud_efficiency: 20 to 32768.
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
+      // - Valid values if you set DataDisk.N.Category to cloud_ssd: 20 to 32768.
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
+      // - Valid values if you set DataDisk.N.Category to cloud_essd: vary based on the value of `DataDisk.N.PerformanceLevel`.
       // 
-      //     *   Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
-      //     *   Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
-      //     *   Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
-      //     *   Valid values if you set DataDisk.N.PerformanceLevel to PL3: 1261 to 32768.
+      //   - Valid values if DataDisk.N.PerformanceLevel is set to PL0: 1 to 32768.
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud_auto: 1 to 32768.
+      //   - Valid values if DataDisk.N.PerformanceLevel is set to PL1: 20 to 32768.
       // 
-      // *   Valid values if you set DataDisk.N.Category to cloud_essd_entry: 10 to 32768.
+      //   - Valid values if DataDisk.N.PerformanceLevel is set to PL2: 461 to 32768.
+      // 
+      //   - Valid values if you set DataDisk.N.PerformanceLevel to PL3: 1261 to 32768.
+      // 
+      // - Valid values if you set DataDisk.N.Category to cloud_auto: 1 to 32768.
+      // 
+      // - Valid values if you set DataDisk.N.Category to cloud_essd_entry: 10 to 32768.
       // 
       // The value of this parameter must be greater than or equal to the size of the snapshot specified by `SnapshotId`.
       shared_ptr<int32_t> size_ {};
       // The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. If you specify `DataDisk.N.SnapshotId`, `DataDisk.N.Size` is ignored. The data disk is created with the size of the specified snapshot.
       // 
-      // >  Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
+      // > Use snapshots created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
       shared_ptr<string> snapshotId_ {};
     };
 
@@ -826,24 +871,31 @@ namespace Models
       shared_ptr<string> autoSnapshotPolicyId_ {};
       // Specifies whether to enable the performance burst feature for the system disk. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       shared_ptr<bool> burstingEnabled_ {};
       // The category of the system disk. Valid values:
       // 
-      // *   cloud: basic disk.
-      // *   cloud_efficiency: ultra disk.
-      // *   cloud_ssd: standard SSD.
-      // *   cloud_essd: Enterprise SSD (ESSD). You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
-      // *   cloud_auto: ESSD AutoPL disk.
-      // *   cloud_essd_entry: ESSD Entry disk.
+      // - cloud: basic disk.
+      // 
+      // - cloud_efficiency: ultra disk.
+      // 
+      // - cloud_ssd: standard SSD.
+      // 
+      // - cloud_essd: Enterprise SSD (ESSD). You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
+      // 
+      // - cloud_auto: ESSD AutoPL disk.
+      // 
+      // - cloud_essd_entry: ESSD Entry disk.
       // 
       // For non-I/O optimized instances of retired instance types, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
       shared_ptr<string> category_ {};
       // Specifies whether to release the system disk when the instance is released. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       // 
       // Default value: true.
       shared_ptr<bool> deleteWithInstance_ {};
@@ -853,12 +905,13 @@ namespace Models
       shared_ptr<string> diskName_ {};
       // Specifies whether to encrypt the system disk. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       // 
       // Default value: false.
       // 
-      // >  If you create an instance in Hong Kong Zone D or Singapore Zone A, you cannot encrypt the system disk.
+      // > If you create an instance in Hong Kong Zone D or Singapore Zone A, you cannot encrypt the system disk.
       shared_ptr<string> encrypted_ {};
       // > This parameter is in invitational preview and is unavailable for general users.
       shared_ptr<int32_t> iops_ {};
@@ -866,10 +919,13 @@ namespace Models
       shared_ptr<string> KMSKeyId_ {};
       // The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
       // 
-      // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-      // *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-      // *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+      // 
+      // - PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+      // 
+      // - PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+      // 
+      // - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
       // 
       // For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
       shared_ptr<string> performanceLevel_ {};
@@ -881,8 +937,9 @@ namespace Models
       shared_ptr<int64_t> provisionedIops_ {};
       // The size of the system disk. Unit: GiB. Valid values:
       // 
-      // *   Valid values if you set SystemDisk.Category to cloud: 20 to 500.
-      // *   Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
+      // - Valid values if you set SystemDisk.Category to cloud: 20 to 500.
+      // 
+      // - Valid values if you set SystemDisk.Category to other disk categories: 20 to 2048.
       // 
       // The value of this parameter must be at least 20 and greater than or equal to the size of the image.
       shared_ptr<int32_t> size_ {};
@@ -1305,18 +1362,21 @@ namespace Models
     shared_ptr<CreateLaunchTemplateRequest::SystemDisk> systemDisk_ {};
     // The automatic release time of the instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // *   If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
-    // *   The specified time must be at least 30 minutes later than the current time.
-    // *   The specified time can be at most three years later than the current time.
+    // - If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
+    // 
+    // - The specified time must be at least 30 minutes later than the current time.
+    // 
+    // - The specified time can be at most three years later than the current time.
     shared_ptr<string> autoReleaseTime_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     // 
-    // >  This parameter takes effect only if you set `InstanceChargeType` to `PrePaid`.
+    // > This parameter takes effect only if you set `InstanceChargeType` to `PrePaid`.
     shared_ptr<bool> autoRenew_ {};
     // The auto-renewal period of the instance. Valid values:
     // 
@@ -1326,19 +1386,21 @@ namespace Models
     shared_ptr<int32_t> autoRenewPeriod_ {};
     // The performance mode of the burstable instance. Valid values:
     // 
-    // *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
-    // *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+    // - Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+    // 
+    // - Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
     shared_ptr<string> creditSpecification_ {};
     // The data disks.
     shared_ptr<vector<CreateLaunchTemplateRequest::DataDisk>> dataDisk_ {};
     // Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     // 
-    // >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
+    // > This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
     shared_ptr<bool> deletionProtection_ {};
     // The ID of the deployment set to which to deploy the instance.
     shared_ptr<string> deploymentSetId_ {};
@@ -1350,29 +1412,33 @@ namespace Models
     shared_ptr<bool> enableVmOsConfig_ {};
     // The instance hostname.
     // 
-    // *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
-    // *   For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
-    // *   For instances that run other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+    // - The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
+    // 
+    // - For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
+    // 
+    // - For instances that run other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
     shared_ptr<string> hostName_ {};
     // Specifies whether to enable the access channel for instance metadata. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled
+    // 
+    // - disabled
     // 
     // Default value: enabled.
     // 
-    // >  For information about instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
+    // > For information about instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
     shared_ptr<string> httpEndpoint_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<int32_t> httpPutResponseHopLimit_ {};
     // Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
     // 
-    // *   optional: does not forcefully use the security hardening mode (IMDSv2).
-    // *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+    // - optional: does not forcefully use the security hardening mode (IMDSv2).
+    // 
+    // - required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
     // 
     // Default value: optional.
     // 
-    // >  For information about the modes of accessing instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
+    // > For information about the modes of accessing instance metadata, see [Obtain information about an ECS instance, such as instance attributes inside ECS instances from instance metadata service](https://help.aliyun.com/document_detail/108460.html).
     shared_ptr<string> httpTokens_ {};
     // The ID of the image to use to create the instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images.
     shared_ptr<string> imageId_ {};
@@ -1380,15 +1446,19 @@ namespace Models
     shared_ptr<CreateLaunchTemplateRequest::ImageOptions> imageOptions_ {};
     // The source of the image. Valid values:
     // 
-    // *   system: public image provided by Alibaba Cloud.
-    // *   self: custom image that you created.
-    // *   others: shared image from another Alibaba Cloud account.
-    // *   marketplace:[Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/) image. If Alibaba Cloud Marketplace images are available, you can use the images without the need to subscribe to the images. Take note of the billing details of Alibaba Cloud Marketplace images.
+    // - system: public image provided by Alibaba Cloud.
+    // 
+    // - self: custom image that you created.
+    // 
+    // - others: shared image from another Alibaba Cloud account.
+    // 
+    // - marketplace:[Alibaba Cloud Marketplace](https://marketplace.alibabacloud.com/) image. If Alibaba Cloud Marketplace images are available, you can use the images without the need to subscribe to the images. Take note of the billing details of Alibaba Cloud Marketplace images.
     shared_ptr<string> imageOwnerAlias_ {};
     // The billing method of the instance. Valid values:
     // 
-    // *   PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account has sufficient credits.Otherwise, an `InvalidPayMethod` error is returned.
-    // *   PostPaid: pay-as-you-go.
+    // - PrePaid: subscription. If you set this parameter to PrePaid, make sure that your account has sufficient credits.Otherwise, an `InvalidPayMethod` error is returned.
+    // 
+    // - PostPaid: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
     // The instance name. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
     // 
@@ -1398,29 +1468,33 @@ namespace Models
     shared_ptr<string> instanceType_ {};
     // The billing method for network usage. Valid values:
     // 
-    // *   PayByBandwidth: pay-by-bandwidth
-    // *   PayByTraffic: pay-by-traffic
+    // - PayByBandwidth: pay-by-bandwidth
+    // 
+    // - PayByTraffic: pay-by-traffic
     // 
     // > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
     shared_ptr<string> internetChargeType_ {};
     // The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
     // 
-    // *   When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
-    // *   When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
+    // - When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
+    // 
+    // - When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
     shared_ptr<int32_t> internetMaxBandwidthIn_ {};
     // The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     // Specifies whether to create an I/O optimized instance. Valid values:
     // 
-    // *   none: creates a non-I/O optimized instance.
-    // *   optimized: creates an I/O optimized instance.
+    // - none: creates a non-I/O optimized instance.
+    // 
+    // - optimized: creates an I/O optimized instance.
     shared_ptr<string> ioOptimized_ {};
     // The number of IPv6 addresses to randomly generate for the primary elastic network interface (ENI). Valid values: 1 to 10.
     shared_ptr<int32_t> ipv6AddressCount_ {};
     // The name of the key pair. This parameter is empty by default.
     // 
-    // *   For Windows instances, this parameter is ignored The `Password` parameter takes effect even if the KeyPairName parameter is specified.
-    // *   For Linux instances, the password-based logon method is disabled by default.
+    // - For Windows instances, this parameter is ignored The `Password` parameter takes effect even if the KeyPairName parameter is specified.
+    // 
+    // - For Linux instances, the password-based logon method is disabled by default.
     shared_ptr<string> keyPairName_ {};
     // The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
     // 
@@ -1430,8 +1504,9 @@ namespace Models
     shared_ptr<vector<CreateLaunchTemplateRequest::NetworkInterface>> networkInterface_ {};
     // The network type of the instance. Valid values:
     // 
-    // *   classic: classic network
-    // *   vpc: VPC
+    // - classic: classic network
+    // 
+    // - vpc: VPC
     shared_ptr<string> networkType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -1461,8 +1536,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to enable security hardening for the operating system. Valid values:
     // 
-    // *   Active: enables security hardening. This value is applicable only to public images.
-    // *   Deactive: does not enable security hardening. This value is applicable to all images.
+    // - Active: enables security hardening. This value is applicable only to public images.
+    // 
+    // - Deactive: does not enable security hardening. This value is applicable to all images.
     shared_ptr<string> securityEnhancementStrategy_ {};
     // The ID of the security group to which to assign the instance. Instances in the same security group can communicate with each other. A security group can contain up to 1,000 instances.
     // 
@@ -1472,23 +1548,27 @@ namespace Models
     // 
     // > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
     shared_ptr<vector<string>> securityGroupIds_ {};
+    // Security options.
     shared_ptr<CreateLaunchTemplateRequest::SecurityOptions> securityOptions_ {};
     // The protection period of the spot instance. Unit: hours. Default value: 1. Valid values:
     // 
-    // *   1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
-    // *   0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+    // - 1: After a spot instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+    // 
+    // - 0: After a spot instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
     // 
     // Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Spot instances are billed by second. We recommend that you specify a protection period based on your business requirements.
     // 
-    // >  This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
+    // > This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
     shared_ptr<int32_t> spotDuration_ {};
     // The maximum hourly price of the instance. The value is accurate to three decimal places. This parameter is valid only when the `SpotStrategy` parameter is set to `SpotWithPriceLimit`.
     shared_ptr<float> spotPriceLimit_ {};
     // The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
     // 
-    // *   NoSpot: The instance is a regular pay-as-you-go instance.
-    // *   SpotWithPriceLimit: The instance is created as a spot instance with a user-defined maximum hourly price.
-    // *   SpotAsPriceGo: The instance is created as a spot instance for which the market price at the time of purchase is automatically used as the bidding price.
+    // - NoSpot: The instance is a regular pay-as-you-go instance.
+    // 
+    // - SpotWithPriceLimit: The instance is created as a spot instance with a user-defined maximum hourly price.
+    // 
+    // - SpotAsPriceGo: The instance is created as a spot instance for which the market price at the time of purchase is automatically used as the bidding price.
     shared_ptr<string> spotStrategy_ {};
     // The tags to add to the instance, disks, and primary ENI that are created from the launch template.
     // 
@@ -1500,7 +1580,7 @@ namespace Models
     shared_ptr<string> templateResourceGroupId_ {};
     // The tags to add to the launch template.
     // 
-    // >  You can add tags to or query the tags of launch templates by calling API operations. You cannot add tags to or query the tags of launch templates in the ECS console.
+    // > You can add tags to or query the tags of launch templates by calling API operations. You cannot add tags to or query the tags of launch templates in the ECS console.
     shared_ptr<vector<CreateLaunchTemplateRequest::TemplateTag>> templateTag_ {};
     // The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
     shared_ptr<string> userData_ {};

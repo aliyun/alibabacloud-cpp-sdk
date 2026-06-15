@@ -176,7 +176,6 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       shared_ptr<string> status_ {};
       shared_ptr<vector<Vscs::Tags>> tags_ {};
-      // VSC ID。
       shared_ptr<string> vscId_ {};
       shared_ptr<string> vscName_ {};
       shared_ptr<string> vscType_ {};
@@ -209,9 +208,7 @@ namespace Models
 
   protected:
     shared_ptr<string> nextToken_ {};
-    // Id of the request
     shared_ptr<string> requestId_ {};
-    // VSC
     shared_ptr<vector<DescribeVscsResponseBody::Vscs>> vscs_ {};
   };
 

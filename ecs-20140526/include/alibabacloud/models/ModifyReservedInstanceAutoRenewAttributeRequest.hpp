@@ -131,8 +131,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Specifies whether to automatically renew the reserved instances. Valid values:
     // 
-    // *   AutoRenewal: automatically renews the reserved instances.
-    // *   Normal: manually renews the reserved instances.
+    // - AutoRenewal: automatically renews the reserved instances.
+    // 
+    // - Normal: manually renews the reserved instances.
     shared_ptr<string> renewalStatus_ {};
     // The IDs of the reserved instances.
     shared_ptr<vector<string>> reservedInstanceId_ {};

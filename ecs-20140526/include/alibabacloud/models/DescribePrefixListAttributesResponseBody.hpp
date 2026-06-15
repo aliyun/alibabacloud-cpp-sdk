@@ -183,8 +183,9 @@ namespace Models
   protected:
     // The IP address family of the prefix list. Valid values:
     // 
-    // *   IPv4
-    // *   IPv6
+    // - IPv4
+    // 
+    // - IPv6
     shared_ptr<string> addressFamily_ {};
     // The time when the prefix list was created.
     shared_ptr<string> creationTime_ {};

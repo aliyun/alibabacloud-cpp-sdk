@@ -416,16 +416,17 @@ namespace Models
 
 
   protected:
+    // Details of deployment sets.
     shared_ptr<DescribeDeploymentSetsResponseBody::DeploymentSets> deploymentSets_ {};
-    // The page number.
+    // The page number of the deployment set list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the region.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of queried deployment sets.
+    // The total number of deployment sets.
     shared_ptr<int32_t> totalCount_ {};
   };
 

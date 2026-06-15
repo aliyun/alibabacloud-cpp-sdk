@@ -162,8 +162,9 @@ namespace Models
       shared_ptr<vector<CopyEncryptionConfiguration::Arn>> arn_ {};
       // Specifies whether to enable encryption for cross-region snapshot replication. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // 
+      // - false
       // 
       // Default value: false.
       shared_ptr<bool> encrypted_ {};
@@ -272,6 +273,7 @@ namespace Models
     // The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
     // 
     // - -1: The snapshot copy is retained until it is deleted.
+    // 
     // - 1 to 65535: The snapshot copy is retained for a specified number of days.
     // 
     // Default value: -1.
@@ -280,8 +282,9 @@ namespace Models
     shared_ptr<ModifyAutoSnapshotPolicyExRequest::CopyEncryptionConfiguration> copyEncryptionConfiguration_ {};
     // Specifies whether to enable cross-region replication for the automatic snapshot.
     // 
-    // *   true: enables cross-region replication for the automatic snapshot.
-    // *   false: disables cross-region replication for the automatic snapshot.
+    // - true: enables cross-region replication for the automatic snapshot.
+    // 
+    // - false: disables cross-region replication for the automatic snapshot.
     shared_ptr<bool> enableCrossRegionCopy_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
@@ -302,13 +305,15 @@ namespace Models
     // 
     // To schedule multiple automatic snapshots to be created in a week, you can specify multiple days.
     // 
-    // *   You can specify up to seven days over a one-week period.
-    // *   You must set this parameter to a JSON array such as `["1", "2" ... "7"]`. Separate the values in the array with commas (,).
+    // - You can specify up to seven days over a one-week period.
+    // 
+    // - You must set this parameter to a JSON array such as `["1", "2" ... "7"]`. Separate the values in the array with commas (,).
     shared_ptr<string> repeatWeekdays_ {};
     // The retention period of the automatic snapshot. Unit: days. Valid values:
     // 
-    // *   \\-1: The automatic snapshot is permanently retained.
-    // *   1 to 65536: The auto snapshot is retained for the specified number of days.
+    // - -1: The automatic snapshot is permanently retained.
+    // 
+    // - 1 to 65536: The auto snapshot is retained for the specified number of days.
     // 
     // Default value: -1.
     shared_ptr<int32_t> retentionDays_ {};
@@ -316,8 +321,9 @@ namespace Models
     // 
     // To schedule multiple automatic snapshots to be created in a day, you can specify multiple hours.
     // 
-    // *   You can specify up to 24 points in time.
-    // *   You must set this parameter to a JSON array such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
+    // - You can specify up to 24 points in time.
+    // 
+    // - You must set this parameter to a JSON array such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
     shared_ptr<string> timePoints_ {};
   };
 

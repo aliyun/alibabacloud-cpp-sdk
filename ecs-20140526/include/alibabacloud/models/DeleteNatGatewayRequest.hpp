@@ -84,10 +84,14 @@ namespace Models
 
 
   protected:
+    // The ID of the NAT gateway that you want to delete.
+    // 
     // This parameter is required.
     shared_ptr<string> natGatewayId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the NAT gateway is deployed.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

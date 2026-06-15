@@ -114,36 +114,39 @@ namespace Models
   protected:
     // Specifies whether to enable the access channel for instance metadata. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled
+    // 
+    // - disabled
     // 
     // Default value: enabled.
     // 
-    // >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/49122.html).
+    // > For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/49122.html).
     // 
     // This parameter is required.
     shared_ptr<string> httpEndpoint_ {};
-    // >  This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<int32_t> httpPutResponseHopLimit_ {};
     // Specifies whether to forcefully use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
     // 
-    // *   optional: does not forcefully use the security hardening mode (IMDSv2).
-    // *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+    // - optional: does not forcefully use the security hardening mode (IMDSv2).
+    // 
+    // - required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
     // 
     // Default value: optional.
     // 
-    // >  For more information about modes of accessing instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/150575.html).
+    // > For more information about modes of accessing instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/150575.html).
     shared_ptr<string> httpTokens_ {};
     // The ID of the instance.
     shared_ptr<string> instanceId_ {};
     // Specifies whether to enable the access channel for instance metadata. Valid values:
     // 
-    // *   enabled
-    // *   disabled
+    // - enabled
+    // 
+    // - disabled
     // 
     // Default value: disabled.
     // 
-    // >  The tag key must be a combination of letters, digits, @, colons (:), underscores (_), hyphens (-), periods (.), equal signs (=), and commas (,). The tag key cannot be "." or "..". Otherwise, the tag key cannot be accessed in the metadata.
+    // > The tag key must be a combination of letters, digits, @, colons (:), underscores (_), hyphens (-), periods (.), equal signs (=), and commas (,). The tag key cannot be "." or "..". Otherwise, the tag key cannot be accessed in the metadata.
     shared_ptr<string> instanceMetadataTags_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.

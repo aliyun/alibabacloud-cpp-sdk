@@ -103,13 +103,20 @@ namespace Models
 
 
   protected:
+    // A client-generated token that ensures request idempotency. This token must be unique across requests and can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The ID of the HaVip.
+    // 
     // This parameter is required.
     shared_ptr<string> haVipId_ {};
+    // The ID of the ECS instance to associate with the HaVip.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the HaVip is located. To obtain the latest list of regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

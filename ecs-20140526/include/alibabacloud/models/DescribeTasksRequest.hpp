@@ -189,24 +189,33 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The name of the operation that generates the task. Valid values:
     // 
-    // *   ImportImage
-    // *   ExportImage
-    // *   RedeployInstance
-    // *   ModifyDiskSpec
-    // *   ArchiveSnapshot
+    // - ImportImage
+    // 
+    // - ExportImage
+    // 
+    // - RedeployInstance
+    // 
+    // - ModifyDiskSpec
+    // 
+    // - ArchiveSnapshot
     shared_ptr<string> taskAction_ {};
+    // Task group ID.
+    // 
+    // > This parameter is in invitational preview. When this parameter is used, other query conditions become invalid.
     shared_ptr<string> taskGroupId_ {};
     // The task IDs. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
     shared_ptr<string> taskIds_ {};
     // The task status. Valid values:
     // 
-    // *   Finished
-    // *   Processing
-    // *   Failed
+    // - Finished
+    // 
+    // - Processing
+    // 
+    // - Failed
     // 
     // This parameter is left empty by default.
     // 
-    // >  The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
+    // > The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
     shared_ptr<string> taskStatus_ {};
   };
 

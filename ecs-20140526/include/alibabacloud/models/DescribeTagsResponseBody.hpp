@@ -309,11 +309,11 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeTagsResponseBody::Tags> tags_ {};
     // The total number of tags.

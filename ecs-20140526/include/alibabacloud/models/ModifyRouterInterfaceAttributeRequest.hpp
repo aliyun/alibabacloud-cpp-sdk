@@ -149,19 +149,31 @@ namespace Models
 
 
   protected:
+    // The new description of the router interface. The description must be 2 to 256 characters long and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The source IP address used for the health check.
     shared_ptr<string> healthCheckSourceIp_ {};
+    // The destination IP address used for the health check.
     shared_ptr<string> healthCheckTargetIp_ {};
+    // The new name of the router interface. The name must be 2 to 128 characters long and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
     shared_ptr<string> name_ {};
+    // The ID of the opposite router interface.
     shared_ptr<string> oppositeInterfaceId_ {};
+    // The ID of the Alibaba Cloud account that owns the opposite router interface.
     shared_ptr<int64_t> oppositeInterfaceOwnerId_ {};
+    // The ID of the opposite router.
     shared_ptr<string> oppositeRouterId_ {};
+    // The type of the opposite router. Valid values: `VRouter` and `VBR`. The default value is `VRouter`.
     shared_ptr<string> oppositeRouterType_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the router interface is deployed.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the router interface that you want to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> routerInterfaceId_ {};
   };

@@ -103,14 +103,21 @@ namespace Models
 
 
   protected:
+    // The new description for the vSwitch.\\
+    // The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.\\
     shared_ptr<string> description_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the vSwitch is located.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the vSwitch to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
+    // The new name for the vSwitch.\\
+    // The name must be 2 to 128 characters in length. It must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).\\
     shared_ptr<string> vSwitchName_ {};
   };
 

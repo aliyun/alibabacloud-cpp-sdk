@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreatePlanMaintenanceWindowRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Enable, enable_);
+      DARABONBA_PTR_TO_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
       DARABONBA_PTR_TO_JSON(PlanWindowName, planWindowName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SupportMaintenanceAction, supportMaintenanceAction_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreatePlanMaintenanceWindowRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
+      DARABONBA_PTR_FROM_JSON(MinMaintenanceInterval, minMaintenanceInterval_);
       DARABONBA_PTR_FROM_JSON(PlanWindowName, planWindowName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SupportMaintenanceAction, supportMaintenanceAction_);
@@ -99,7 +101,21 @@ namespace Models
 
 
       protected:
+        // The end time of the maintenance window.
+        // 
+        // - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
+        // 
+        // - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
+        // 
+        // - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
         shared_ptr<string> endTime_ {};
+        // The start time of the maintenance window.
+        // 
+        // - If `PeriodUnit` is set to `Weekly`, use the format `Day,HH:mm`. Valid values for `Day` are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
+        // 
+        // - If `PeriodUnit` is set to `Daily`, use the format `HH:mm`.
+        // 
+        // - The time is in `HH:mm` format, where `HH` is the hour (00-23) and `mm` is the minute. Only `00` is supported for the minute.
         shared_ptr<string> startTime_ {};
       };
 
@@ -122,8 +138,12 @@ namespace Models
 
 
     protected:
+      // Specifies how often the maintenance window recurs.
+      // 
       // This parameter is required.
       shared_ptr<string> periodUnit_ {};
+      // The time ranges of the recurring maintenance window. All times are in UTC.
+      // 
       // This parameter is required.
       shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
     };
@@ -189,7 +209,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -219,19 +241,31 @@ namespace Models
 
 
     protected:
+      // The ID of the resource group. This parameter is required if `Scope` is set to `ResourceGroup`.
       shared_ptr<string> resourceGroupId_ {};
+      // The scope of resources to which the maintenance window applies.
+      // 
       // This parameter is required.
       shared_ptr<string> scope_ {};
+      // The tags of the resources to which the maintenance window applies. This parameter is required if `Scope` is set to `Tag`.
       shared_ptr<vector<TargetResource::Tags>> tags_ {};
     };
 
     virtual bool empty() const override { return this->enable_ == nullptr
-        && this->planWindowName_ == nullptr && this->regionId_ == nullptr && this->supportMaintenanceAction_ == nullptr && this->targetResource_ == nullptr && this->timePeriod_ == nullptr; };
+        && this->minMaintenanceInterval_ == nullptr && this->planWindowName_ == nullptr && this->regionId_ == nullptr && this->supportMaintenanceAction_ == nullptr && this->targetResource_ == nullptr
+        && this->timePeriod_ == nullptr; };
     // enable Field Functions 
     bool hasEnable() const { return this->enable_ != nullptr;};
     void deleteEnable() { this->enable_ = nullptr;};
     inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
     inline CreatePlanMaintenanceWindowRequest& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+    // minMaintenanceInterval Field Functions 
+    bool hasMinMaintenanceInterval() const { return this->minMaintenanceInterval_ != nullptr;};
+    void deleteMinMaintenanceInterval() { this->minMaintenanceInterval_ = nullptr;};
+    inline int32_t getMinMaintenanceInterval() const { DARABONBA_PTR_GET_DEFAULT(minMaintenanceInterval_, 0) };
+    inline CreatePlanMaintenanceWindowRequest& setMinMaintenanceInterval(int32_t minMaintenanceInterval) { DARABONBA_PTR_SET_VALUE(minMaintenanceInterval_, minMaintenanceInterval) };
 
 
     // planWindowName Field Functions 
@@ -274,16 +308,33 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the maintenance window.
+    // 
+    // - **true**: Enables the maintenance window.
+    // 
+    // - **false**: Disables the maintenance window.
+    // 
     // This parameter is required.
     shared_ptr<bool> enable_ {};
+    shared_ptr<int32_t> minMaintenanceInterval_ {};
+    // The name of the maintenance window. The name can be up to 200 characters long.
+    // 
     // This parameter is required.
     shared_ptr<string> planWindowName_ {};
+    // The ID of the region. You can call the DescribeRegions operation to query the latest list of Alibaba Cloud regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The maintenance operation supported by the maintenance window.
+    // 
     // This parameter is required.
     shared_ptr<string> supportMaintenanceAction_ {};
+    // The resources to which the maintenance window applies.
+    // 
     // This parameter is required.
     shared_ptr<CreatePlanMaintenanceWindowRequest::TargetResource> targetResource_ {};
+    // The recurring schedule for the maintenance window.
+    // 
     // This parameter is required.
     shared_ptr<CreatePlanMaintenanceWindowRequest::TimePeriod> timePeriod_ {};
   };

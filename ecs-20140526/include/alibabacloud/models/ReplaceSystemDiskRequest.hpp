@@ -153,22 +153,25 @@ namespace Models
     protected:
       // The capacity of the new system disk. Unit: GiB. Valid values:
       // 
-      // *   Basic disk: Max{20, Size of the image specified by ImageId} to 500.
+      // - Basic disk: Max{20, Size of the image specified by ImageId} to 500.
       // 
-      // *   Enterprise SSD (ESSD):
+      // - Enterprise SSD (ESSD):
       // 
-      //     *   PL0 ESSD: Max{1, Size of the image specified by ImageId} to 2048.
-      //     *   PL1 ESSD: Max{20, Size of the image specified by ImageId} to 2048.
-      //     *   PL2 ESSD: Max{461, Size of the image specified by ImageId} to 2048.
-      //     *   PL3 ESSD: Max{1261, Size of the image specified by ImageId} to 2048.
+      //   - PL0 ESSD: Max{1, Size of the image specified by ImageId} to 2048.
       // 
-      // *   ESSD AutoPL disk: Max{1, Size of the image specified by ImageId} to 2048.
+      //   - PL1 ESSD: Max{20, Size of the image specified by ImageId} to 2048.
       // 
-      // *   Other disk categories: Max{20, Size of the image specified by ImageId} to 2048.
+      //   - PL2 ESSD: Max{461, Size of the image specified by ImageId} to 2048.
+      // 
+      //   - PL3 ESSD: Max{1261, Size of the image specified by ImageId} to 2048.
+      // 
+      // - ESSD AutoPL disk: Max{1, Size of the image specified by ImageId} to 2048.
+      // 
+      // - Other disk categories: Max{20, Size of the image specified by ImageId} to 2048.
       // 
       // Default value: Max{40, Size of the image specified by ImageId}.
       // 
-      // >  If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
+      // > If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -323,30 +326,31 @@ namespace Models
 
   protected:
     shared_ptr<ReplaceSystemDiskRequest::SystemDisk> systemDisk_ {};
-    // >  This parameter is deprecated.
+    // > This parameter is deprecated.
     shared_ptr<string> architecture_ {};
     // This parameter is not available for public use.
     shared_ptr<vector<ReplaceSystemDiskRequest::Arn>> arn_ {};
     // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but make sure that the token is unique across requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // >  This parameter is deprecated. To improve compatibility, we recommend that you use `ImageId`.
+    // > This parameter is deprecated. To improve compatibility, we recommend that you use `ImageId`.
     shared_ptr<string> diskId_ {};
     // > This parameter is not available for public use.
     shared_ptr<string> encryptAlgorithm_ {};
     // Specifies whether to encrypt the disk. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     // 
-    // >  When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
+    // > When you use a shared encrypted image to create the disk based on an encrypted snapshot, you must set Encrypted to true to ensure that the disk uses an encryption key of your own.
     shared_ptr<bool> encrypted_ {};
     // The ID of the image used to replace the system disk. This parameter is required.
     shared_ptr<string> imageId_ {};
     // The ID of the instance whose operating system you want to replace.
     // 
-    // >  Make sure that the instance is in the `Stopped` (`Stopped`) state.
+    // > Make sure that the instance is in the `Stopped` (`Stopped`) state.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -360,7 +364,9 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // Specifies whether to reset the password for the instance. The password must be 8 to 30 characters in length and contain at least three of the following items: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
     // 
-    //     ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+    // ```
+    // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
+    // ```
     // 
     // The passwords of Windows instances cannot start with a forward slash (/).
     // 
@@ -374,14 +380,15 @@ namespace Models
     // 
     // > If the PasswordInherit parameter is specified, you must leave the Password parameter empty. Before you use this parameter, make sure that a password is preset for the image.
     shared_ptr<bool> passwordInherit_ {};
-    // >  This parameter is deprecated.
+    // > This parameter is deprecated.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to use Security Center Basic after the system disk is replaced. Valid values:
     // 
-    // *   Active: uses Security Center Basic after the system disk is re-initialized. This value is applicable only to public images.
-    // *   Deactive: does not use Security Center Basic after the system disk is re-initialized. This value is applicable to all images.
+    // - Active: uses Security Center Basic after the system disk is re-initialized. This value is applicable only to public images.
+    // 
+    // - Deactive: does not use Security Center Basic after the system disk is re-initialized. This value is applicable to all images.
     // 
     // Default value: Deactive.
     shared_ptr<string> securityEnhancementStrategy_ {};

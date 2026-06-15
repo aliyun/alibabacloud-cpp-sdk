@@ -112,17 +112,25 @@ namespace Models
 
 
   protected:
+    // A client token to ensure that the request is idempotent. You can generate this token from your client, but you must ensure that it is unique across requests. The token must consist of only ASCII characters and not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the router interface is located. To obtain the latest list of regions, call the [DescribeRegions](~~DescribeRegions~~) operation.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the router interface.
+    // 
     // This parameter is required.
     shared_ptr<string> routerInterfaceId_ {};
+    // The new specification of the router interface. The supported specifications vary based on the type and region of the router interface. For more information, see the pricing page of Express Connect.
+    // 
     // This parameter is required.
     shared_ptr<string> spec_ {};
+    // The client-side CIDR block for the router interface. This parameter is used for VBR-to-VPC connections. The system assigns a gateway IP address from this CIDR block to the VBR to forward traffic to the VPC.
     shared_ptr<string> userCidr_ {};
   };
 

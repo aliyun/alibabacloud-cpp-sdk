@@ -115,7 +115,9 @@ namespace Models
 
 
   protected:
+    // An object that contains the list of clusters.
     shared_ptr<DescribeClustersResponseBody::Clusters> clusters_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

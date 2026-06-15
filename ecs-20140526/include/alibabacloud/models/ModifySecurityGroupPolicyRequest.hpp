@@ -107,10 +107,11 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The internal access control policy of the security group. Valid values:
     // 
-    // *   Accept: the internal interconnectivity policy
-    // *   Drop: the internal isolation policy
+    // - Accept: the internal interconnectivity policy
     // 
-    // >  The value of this parameter is case-insensitive.
+    // - Drop: the internal isolation policy
+    // 
+    // > The value of this parameter is case-insensitive.
     // 
     // This parameter is required.
     shared_ptr<string> innerAccessPolicy_ {};

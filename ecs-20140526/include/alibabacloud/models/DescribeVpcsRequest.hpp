@@ -112,15 +112,21 @@ namespace Models
 
 
   protected:
+    // Specifies whether the VPC is a default VPC. Set to `true` to query the default VPC, or `false` to query non-default VPCs.
     shared_ptr<bool> isDefault_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default: 10. Valid values: 1 to 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The ID of the VPC.
     shared_ptr<string> vpcId_ {};
   };
 

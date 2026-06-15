@@ -213,27 +213,160 @@ namespace Models
 
 
   protected:
+    // The number of vCPU cores for the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // 
+    // This parameter applies only when `DestinationResource` is set to `InstanceType`.
     shared_ptr<int32_t> cores_ {};
+    // The category of the data disk. Valid values:
+    // 
+    // - cloud: basic cloud disk.
+    // 
+    // - cloud_efficiency: ultra cloud disk.
+    // 
+    // - cloud_ssd: SSD cloud disk.
+    // 
+    // - ephemeral_ssd: local SSD disk.
+    // 
+    // - cloud_essd: ESSD cloud disk.
+    // 
+    // - cloud_auto: ESSD AutoPL cloud disk.
+    // 
+    // <props="china">
+    // 
+    // - cloud_essd_entry: ESSD Entry cloud disk.
     shared_ptr<string> dataDiskCategory_ {};
+    // The ID of the dedicated host.
     shared_ptr<string> dedicatedHostId_ {};
+    // The type of resource to query. Valid values:
+    // 
+    // - Zone: availability zone.
+    // 
+    // - IoOptimized: I/O optimized.
+    // 
+    // - InstanceType: instance type.
+    // 
+    // - Network: network type.
+    // 
+    // - ddh: dedicated host.
+    // 
+    // - SystemDisk: system disk.
+    // 
+    // - DataDisk: data disk.
+    // 
+    // > When `DestinationResource` is set to `SystemDisk`, you must specify `InstanceType` because available system disks depend on the instance type.
+    // 
+    // For details on how to specify this parameter, see the **API description** section.
+    // 
     // This parameter is required.
     shared_ptr<string> destinationResource_ {};
+    // The billing method of the resource. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
+    // 
+    // - PrePaid: The subscription billing method.
+    // 
+    // - PostPaid: The pay-as-you-go billing method.
+    // 
+    // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
+    // The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to get the latest list of instance types.
+    // 
+    // For details on how to specify this parameter, see the **API description** section.
     shared_ptr<string> instanceType_ {};
+    // Specifies whether the instance is I/O optimized. Valid values:
+    // 
+    // - none: The instance is not I/O optimized.
+    // 
+    // - optimized: The instance is I/O optimized.
+    // 
+    // Default value: optimized.
     shared_ptr<string> ioOptimized_ {};
+    // The memory size for the instance type, in GiB. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+    // 
+    // This parameter applies only when `DestinationResource` is set to `InstanceType`.
     shared_ptr<float> memory_ {};
+    // The network type. Valid values:
+    // 
+    // - vpc: VPC.
+    // 
+    // - classic: classic network.
     shared_ptr<string> networkCategory_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to get the latest list of Alibaba Cloud regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The resource type. Valid values:
+    // 
+    // - instance: ECS instance.
+    // 
+    // - disk: cloud disk.
+    // 
+    // - reservedinstance: reserved instance.
+    // 
+    // - ddh: dedicated host.
     shared_ptr<string> resourceType_ {};
+    // The scope of the reserved instance. Valid values:
+    // 
+    // - Region: The reserved instance is scoped to a region.
+    // 
+    // - Zone: The reserved instance is scoped to an availability zone.
     shared_ptr<string> scope_ {};
+    // The protection period for the spot instance. Unit: hours. Default value: 1. Valid values:
+    // 
+    // - 1: Alibaba Cloud guarantees that the instance will not be automatically reclaimed within 1 hour of creation. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or reclaim the instance.
+    // 
+    // - 0: Alibaba Cloud does not guarantee that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or reclaim the instance.
+    // 
+    // Alibaba Cloud sends a notification through ECS system events 5 minutes before reclaiming an instance. Spot instances are billed by the second. We recommend that you select a protection period based on the expected runtime of your tasks.
+    // 
+    // > This parameter applies only when `InstanceChargeType` is set to `PostPaid` and `SpotStrategy` is set to `SpotWithPriceLimit` or `SpotAsPriceGo`.
     shared_ptr<int32_t> spotDuration_ {};
+    // The bidding strategy for pay-as-you-go instances. Valid values:
+    // 
+    // - NoSpot: A standard pay-as-you-go instance.
+    // 
+    // - SpotWithPriceLimit: A spot instance for which you specify a maximum hourly price.
+    // 
+    // - SpotAsPriceGo: A spot instance for which the system automatically bids based on the current market price, up to the pay-as-you-go price.
+    // 
+    // Default value: NoSpot.
+    // 
+    // This parameter applies only when `InstanceChargeType` is set to `PostPaid`.
     shared_ptr<string> spotStrategy_ {};
+    // The category of the system disk. Valid values:
+    // 
+    // - cloud: basic cloud disk.
+    // 
+    // - cloud_efficiency: ultra cloud disk.
+    // 
+    // - cloud_ssd: SSD cloud disk.
+    // 
+    // - ephemeral_ssd: local SSD disk.
+    // 
+    // - cloud_essd: ESSD cloud disk.
+    // 
+    // - cloud_auto: ESSD AutoPL cloud disk.
+    // 
+    // <props="china">
+    // 
+    // - cloud_essd_entry: ESSD Entry cloud disk.
+    // 
+    // 
+    // 
+    // 
+    // About the default value:
+    // 
+    // - If `InstanceType` specifies a discontinued instance type, the default value is `cloud`.
+    // 
+    // - Otherwise, the default value is `cloud_efficiency`. <props="china">After January 30, 2026, for instance types that support only ESSD cloud disks, the default value changes from cloud_efficiency to cloud_essd PL0. For more information, see the [official announcement](https://www.aliyun.com/notice/117844).
+    // 
+    // > When `ResourceType` is set to `instance` and `DestinationResource` is set to `DataDisk`, this parameter is required.
     shared_ptr<string> systemDiskCategory_ {};
+    // The ID of the availability zone.
+    // 
+    // This parameter has no default value. If you do not specify this parameter, the operation returns resources that meet the query conditions in all availability zones within the specified region.
     shared_ptr<string> zoneId_ {};
   };
 

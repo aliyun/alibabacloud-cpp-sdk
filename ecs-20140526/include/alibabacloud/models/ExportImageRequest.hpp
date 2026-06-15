@@ -121,35 +121,45 @@ namespace Models
 
 
   protected:
-    shared_ptr<bool> dryRun_ {};
-    // The format in which you want to export the custom image. Valid values:
+    // Specifies whether to perform a dry run to check the request\\"s validity without actually exporting the image. Valid values:
     // 
-    // *   raw
-    // *   vhd
-    // *   qcow2
-    // *   vmdk
-    // *   vdi
+    // - `true`: Performs a dry run. If the check succeeds, the `DryRunOperation` error code is returned. If the check fails, an error is returned.
+    // - `false`: Sends a normal request. If the check succeeds, the image is exported.
+    // 
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
+    // The format of the exported image file. Valid values:
+    // 
+    // - raw.
+    // 
+    // - vhd.
+    // 
+    // - qcow2.
+    // 
+    // - vmdk.
+    // 
+    // - vdi.
     // 
     // Default value: raw.
     shared_ptr<string> imageFormat_ {};
-    // The custom image ID.
+    // The ID of the custom image.
     // 
     // This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The OSS bucket in which you want to store the exported custom image.
+    // The destination OSS bucket for the exported image.
     // 
     // This parameter is required.
     shared_ptr<string> OSSBucket_ {};
-    // The prefix for the name of the OSS object. The prefix must be 1 to 30 characters in length and can contain digits and letters.
+    // The prefix for the OSS object. The prefix must be 1 to 30 characters in length and can consist of letters and digits.
     shared_ptr<string> OSSPrefix_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the custom image. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The name of the RAM role that you want to use to export the custom image.
+    // The name of the RAM role used to export the image.
     shared_ptr<string> roleName_ {};
   };
 

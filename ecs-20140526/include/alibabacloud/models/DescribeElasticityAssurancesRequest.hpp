@@ -98,11 +98,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N. Valid values of N: 1 to 20.
+      // The tag key. You can specify up to 20 tag keys to filter resources.
       // 
-      // If you specify a tag to query resources, up to 1,000 resources with this tag are returned in the response. If you specify multiple tags to query resources, up to 1,000 resources with all these tags are returned in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // The query returns a maximum of 1,000 resources that match the specified tags. If more than 1,000 resources match the tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query all the resources.
       shared_ptr<string> key_ {};
-      // The value of tag N. Valid values of N: 1 to 20.
+      // The tag value. You can specify up to 20 tag values.
       shared_ptr<string> value_ {};
     };
 
@@ -134,7 +134,7 @@ namespace Models
 
 
     protected:
-      // The IDs of the elasticity assurances. The value can be a JSON array that consists of up to 100 elasticity assurance IDs. Separate the IDs with commas (,).
+      // The IDs of the elasticity assurances. You can specify a JSON array of up to 100 elasticity assurance IDs.
       shared_ptr<string> ids_ {};
     };
 
@@ -260,53 +260,59 @@ namespace Models
 
   protected:
     shared_ptr<DescribeElasticityAssurancesRequest::PrivatePoolOptions> privatePoolOptions_ {};
-    // The billing method of the instance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
+    // The billing method of the instances. Only `PostPaid` (pay-as-you-go) is supported.
     // 
-    // Default value: PostPaid.
+    // Default value: `PostPaid`.
     shared_ptr<string> instanceChargeType_ {};
-    // The instance type.
+    // The instance type. You can use this parameter to query only active elasticity assurances. To query released elasticity assurances, you must use `PrivatePoolOptions.Ids`.
     shared_ptr<string> instanceType_ {};
     // The maximum number of entries to return on each page.
     // 
-    // Valid values: 1 to 100.
+    // Maximum value: 100.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The type of the elasticity assurance. Valid values:
+    // The type of the Elasticity Assurance. Valid values:
     // 
-    // *   ElasticityAssurance: the general-purpose elasticity assurance. RecurrenceRules is not specified for a general-purpose elasticity assurance.
-    // *   TimeDivisionElasticityAssurance: the time-segmented elasticity assurance. RecurrenceRules is specified for a time-segmented assurance.
+    // - `ElasticityAssurance`: a standard elasticity assurance. This type of elasticity assurance is created when you do not specify `RecurrenceRules`.
+    // 
+    // - `TimeDivisionElasticityAssurance`: a time-division elasticity assurance. This type of elasticity assurance is created when you specify `RecurrenceRules`.
     shared_ptr<string> packageType_ {};
     // > This parameter is deprecated.
     shared_ptr<string> platform_ {};
-    // The region ID of the elasticity assurances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region where the Elasticity Assurance is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group. If you configure this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+    // The ID of the resource group. When you use this parameter to filter resources, the number of matching resources cannot exceed 1,000.
     // 
-    // > Resources in the default resource group are displayed in the response regardless of whether you configure this parameter.
+    // > Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the elasticity assurance. Valid values:
+    // The status of the Elasticity Assurance. Valid values:
     // 
-    // *   All: All states.
-    // *   Deactivated: The elasticity assurance is pending activation. This state is in invitational preview.
-    // *   Preparing: The elasticity assurance is being prepared.
-    // *   Prepared: The elasticity assurance is to take effect.
-    // *   Active: The elasticity assurance is in effect.
-    // *   Released: The elasticity assurance is released.
+    // - `All`: all statuses.
     // 
-    // If you do not specify this parameter, elasticity assurances in states other than Pending and Released are queried.
+    // - `Deactivated`: The Elasticity Assurance is pending activation. This status is available only for invitational preview.
+    // 
+    // - `Preparing`: The Elasticity Assurance is being prepared.
+    // 
+    // - `Prepared`: The Elasticity Assurance is ready to take effect.
+    // 
+    // - `Active`: The Elasticity Assurance is active.
+    // 
+    // - `Released`: The Elasticity Assurance is released.
+    // 
+    // If you do not specify this parameter, elasticity assurances in all states are returned, except for those in the `Pending` and `Released` states.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The tags used to filter Elasticity Assurances.
     shared_ptr<vector<DescribeElasticityAssurancesRequest::Tag>> tag_ {};
-    // The zone ID of the elasticity assurances.
+    // The ID of the zone where the Elasticity Assurance is located.
     shared_ptr<string> zoneId_ {};
   };
 

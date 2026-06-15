@@ -239,10 +239,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
+    // A wrapper object for the VRouter list.
     shared_ptr<DescribeVRoutersResponseBody::VRouters> VRouters_ {};
   };
 

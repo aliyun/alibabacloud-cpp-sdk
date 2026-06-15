@@ -103,13 +103,25 @@ namespace Models
 
 
   protected:
+    // The allocation ID of the EIP.
+    // 
     // This parameter is required.
     shared_ptr<string> allocationId_ {};
+    // This parameter is optional because the system automatically determines the instance ID from the provided `AllocationId`.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The type of the associated instance. Valid values:
+    // 
+    // - `EcsInstance`: An ECS instance. This is the default.
+    // - `SlbInstance`: A Classic Load Balancer (CLB) instance.
+    // - `Nat`: A NAT gateway.
+    // - `HaVip`: A high-availability virtual IP address (HaVip).
+    // - `NetworkInterface`: A secondary elastic network interface.
     shared_ptr<string> instanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the EIP is located. To get the latest list of regions, call the `DescribeRegions` operation.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

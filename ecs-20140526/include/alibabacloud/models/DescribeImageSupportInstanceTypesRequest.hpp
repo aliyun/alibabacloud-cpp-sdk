@@ -143,8 +143,9 @@ namespace Models
   protected:
     // The scenario in which the image is used. Valid values:
     // 
-    // *   CreateEcs (default): instance creation
-    // *   ChangeOS: replacement of the system disk or operating system
+    // - CreateEcs (default): instance creation
+    // 
+    // - ChangeOS: replacement of the system disk or operating system
     shared_ptr<string> actionType_ {};
     // The number of vCPUs of the instance type.
     shared_ptr<vector<DescribeImageSupportInstanceTypesRequest::Filter>> filter_ {};

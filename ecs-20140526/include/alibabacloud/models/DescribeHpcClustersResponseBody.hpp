@@ -164,13 +164,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeHpcClustersResponseBody::HpcClusters> hpcClusters_ {};
-    // Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
+    // The page number of the HPC cluster list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page number.
+    // The number of entries per page that was set when the request was made.
     shared_ptr<int32_t> pageSize_ {};
-    // The total number of HPC clusters.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the HPC cluster.
+    // The total number of HPC clusters.
     shared_ptr<int32_t> totalCount_ {};
   };
 

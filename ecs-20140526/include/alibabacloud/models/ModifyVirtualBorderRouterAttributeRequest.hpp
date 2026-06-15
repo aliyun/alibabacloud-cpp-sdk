@@ -167,22 +167,45 @@ namespace Models
 
 
   protected:
+    // The circuit code of the Express Connect circuit. The circuit code is provided by your connectivity provider.
     shared_ptr<string> circuitCode_ {};
+    // A client-generated token that ensures the request is idempotent. The token must be unique for each request, contain only ASCII characters, and not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // The description of the VBR.
+    // 
+    // The description must be 2 to 256 characters long. It must start with a letter and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
+    // The local gateway IP address for the BGP session.
     shared_ptr<string> localGatewayIp_ {};
+    // The name of the VBR.
+    // 
+    // The name must be 2 to 128 characters long. It must start with a letter and can contain letters, digits, underscores (_), and hyphens (-).
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The peer gateway IP address for the BGP session.
     shared_ptr<string> peerGatewayIp_ {};
+    // The subnet mask for the `LocalGatewayIp` and `PeerGatewayIp`.
     shared_ptr<string> peeringSubnetMask_ {};
+    // The ID of the region where the virtual border router (VBR) is deployed.
+    // 
+    // To get a list of the latest regions, call the `DescribeRegions` operation.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The CIDR block of the on-premises network that is connected to the VBR.
     shared_ptr<string> userCidr_ {};
+    // The ID of the VBR to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
+    // The VLAN ID of the VBR. The VLAN ID must be unique on the physical connection.
+    // 
+    // Valid values: 0 to 4095.
+    // 
+    // A value of 0 indicates that the VBR does not use a VLAN.
     shared_ptr<int32_t> vlanId_ {};
   };
 

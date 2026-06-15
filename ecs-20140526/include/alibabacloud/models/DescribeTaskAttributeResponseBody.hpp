@@ -339,8 +339,9 @@ namespace Models
     shared_ptr<int32_t> successCount_ {};
     // Indicates whether the task can be canceled by calling the [CancelTask](https://help.aliyun.com/document_detail/25624.html) operation. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<string> supportCancel_ {};
     // The name of the operation that generated the task.
     shared_ptr<string> taskAction_ {};

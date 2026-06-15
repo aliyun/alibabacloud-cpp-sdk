@@ -250,27 +250,33 @@ namespace Models
       shared_ptr<string> destCidrIp_ {};
       // The protocol. The values of this parameter are case-insensitive. Valid values:
       // 
-      // *   TCP.
-      // *   UDP.
-      // *   ICMP.
-      // *   ICMPv6.
-      // *   GRE.
-      // *   ALL: All protocols are supported.
+      // - TCP.
+      // 
+      // - UDP.
+      // 
+      // - ICMP.
+      // 
+      // - ICMPv6.
+      // 
+      // - GRE.
+      // 
+      // - ALL: All protocols are supported.
       shared_ptr<string> ipProtocol_ {};
       // The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
       // 
       // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       // 
-      // >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
+      // > This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and `DestCidrIp` in the same request.
       shared_ptr<string> ipv6DestCidrIp_ {};
       // The source IPv6 CIDR block of the security group rule. IPv6 CIDR blocks and IPv6 addresses are supported.
       // 
-      // >  This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `SourceCidrIp` in the same request.
+      // > This parameter is valid only for Elastic Compute Service (ECS) instances that reside in virtual private clouds (VPCs) and support IPv6 CIDR blocks. You cannot specify both this parameter and `SourceCidrIp` in the same request.
       shared_ptr<string> ipv6SourceCidrIp_ {};
       // The network interface controller (NIC) type of the security group rule if the security group resides in the classic network. Valid values:
       // 
-      // *   internet: public NIC.
-      // *   intranet: internal NIC.
+      // - internet: public NIC.
+      // 
+      // - intranet: internal NIC.
       // 
       // If the security group resides in a VPC, this parameter is set to intranet by default and cannot be modified.
       // 
@@ -280,22 +286,27 @@ namespace Models
       shared_ptr<string> nicType_ {};
       // The action of the security group rule. Valid values:
       // 
-      // *   accept: allows inbound access.
-      // *   drop: denies inbound access and returns no responses. In this case, the request times out or the connection cannot be established.
+      // - accept: allows inbound access.
+      // 
+      // - drop: denies inbound access and returns no responses. In this case, the request times out or the connection cannot be established.
       // 
       // Default value: accept.
       shared_ptr<string> policy_ {};
       // The destination port range of the security group rule. Valid values:
       // 
-      // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port range is -1/-1.
-      // *   If you set IpProtocol to GRE, the port range is -1/-1.
-      // *   If you set IpProtocol to ALL, the port range is -1/-1.
+      // - If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+      // 
+      // - If you set IpProtocol to ICMP, the port range is -1/-1.
+      // 
+      // - If you set IpProtocol to GRE, the port range is -1/-1.
+      // 
+      // - If you set IpProtocol to ALL, the port range is -1/-1.
       shared_ptr<string> portRange_ {};
       // The ID of the port list. You can call the `DescribePortRangeLists` operation to query the IDs of available port lists.
       // 
-      // *   If you specify `Permissions.N.PortRange`, this parameter is ignored.
-      // *   If a security group resides in the classic network, you cannot reference port lists in the rules of the security group. For information about the limits on security groups and port lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas on ECS" topic.
+      // - If you specify `Permissions.N.PortRange`, this parameter is ignored.
+      // 
+      // - If a security group resides in the classic network, you cannot reference port lists in the rules of the security group. For information about the limits on security groups and port lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas on ECS" topic.
       shared_ptr<string> portRangeListId_ {};
       // The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
       // 
@@ -305,31 +316,39 @@ namespace Models
       shared_ptr<string> sourceCidrIp_ {};
       // The ID of the source security group referenced in the security group rule.
       // 
-      // *   You must specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
-      // *   If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set NicType to intranet.
-      // *   If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
+      // - You must specify at least one of the following parameters: `SourceGroupId`, `SourceCidrIp`, `Ipv6SourceCidrIp`, and `SourcePrefixListId`.
+      // 
+      // - If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set NicType to intranet.
+      // 
+      // - If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
       // 
       // Take note of the following items:
       // 
-      // *   Advanced security groups do not support security group rules that reference security groups as authorization objects (sources or destinations of traffic).
-      // *   Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
+      // - Advanced security groups do not support security group rules that reference security groups as authorization objects (sources or destinations of traffic).
+      // 
+      // - Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
       shared_ptr<string> sourceGroupId_ {};
       // The Alibaba Cloud account that manages the source security group referenced in the security group rule.
       // 
-      // *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access control on another security group in your Alibaba Cloud account is removed.
-      // *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
+      // - If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access control on another security group in your Alibaba Cloud account is removed.
+      // 
+      // - If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
       shared_ptr<string> sourceGroupOwnerAccount_ {};
       // The ID of the Alibaba Cloud account that manages the source security group referenced in the security group rule.
       // 
-      // *   If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access control on another security group in your Alibaba Cloud account is removed.
-      // *   If you specify `SourceCidrIp`, `SourceGroupOwnerId` is ignored.
+      // - If both `SourceGroupOwnerId` and `SourceGroupOwnerAccount` are empty, access control on another security group in your Alibaba Cloud account is removed.
+      // 
+      // - If you specify `SourceCidrIp`, `SourceGroupOwnerId` is ignored.
       shared_ptr<int64_t> sourceGroupOwnerId_ {};
       // The source port range of the security group rule. Valid values:
       // 
-      // *   If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
-      // *   If you set IpProtocol to ICMP, the port range is -1/-1.
-      // *   If you set IpProtocol to GRE, the port range is -1/-1.
-      // *   If you set IpProtocol to ALL, the port range is -1/-1.
+      // - If you set IpProtocol to TCP or UDP, the valid values of this parameter are 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
+      // 
+      // - If you set IpProtocol to ICMP, the port range is -1/-1.
+      // 
+      // - If you set IpProtocol to GRE, the port range is -1/-1.
+      // 
+      // - If you set IpProtocol to ALL, the port range is -1/-1.
       // 
       // This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
       shared_ptr<string> sourcePortRange_ {};
@@ -337,8 +356,9 @@ namespace Models
       // 
       // Take note of the following items:
       // 
-      // *   If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas on ECS" topic.
-      // *   If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
+      // - If a security group resides in the classic network, you cannot specify prefix lists in the rules of the security group. For information about the limits on security groups and prefix lists, see the [Security groups](~~25412#SecurityGroupQuota1~~) section of the "Limits and quotas on ECS" topic.
+      // 
+      // - If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
       shared_ptr<string> sourcePrefixListId_ {};
     };
 

@@ -220,8 +220,9 @@ namespace Models
     shared_ptr<string> securityGroupName_ {};
     // The type of the security group. Valid values:
     // 
-    // *   normal: basic security group
-    // *   enterprise: advanced security group For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
+    // - normal: basic security group
+    // 
+    // - enterprise: advanced security group For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
     // 
     // Default value: normal.
     shared_ptr<string> securityGroupType_ {};

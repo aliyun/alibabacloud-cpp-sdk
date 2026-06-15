@@ -183,8 +183,9 @@ namespace Models
   protected:
     // The maximum number of entries per page.
     // 
-    // *   Maximum value: 100
-    // *   Default value: 10.
+    // - Maximum value: 100
+    // 
+    // - Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
@@ -192,7 +193,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the port list. Valid values of N: 0 to 100.
     shared_ptr<vector<string>> portRangeListId_ {};
-    // The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http://, https://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+    // The name of the port list. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http\\://, https\\://, com.aliyun, or com.alibabacloud. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> portRangeListName_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
     // 
@@ -200,7 +201,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned in the response. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/2716558.html) operation to query the most recent resource group list.
     // 
-    // >  A default resource group is not supported.
+    // > A default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -140,17 +140,28 @@ namespace Models
 
 
   protected:
+    // The public IP address for the forward entry.
     shared_ptr<string> externalIp_ {};
+    // The external port for the forward entry.
     shared_ptr<string> externalPort_ {};
+    // The ID of the forward entry that you want to modify.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardEntryId_ {};
+    // The ID of the forward table.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardTableId_ {};
+    // The internal IP address for the forward entry.
     shared_ptr<string> internalIp_ {};
+    // The internal port for the forward entry.
     shared_ptr<string> internalPort_ {};
+    // The IP protocol. Valid values are tcp, udp, and any.
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the forward table is located.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

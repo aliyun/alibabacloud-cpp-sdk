@@ -418,10 +418,15 @@ namespace Models
 
 
   protected:
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Details about the route tables.
     shared_ptr<DescribeRouteTablesResponseBody::RouteTables> routeTables_ {};
+    // The total number of matching entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

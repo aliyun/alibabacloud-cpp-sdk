@@ -301,14 +301,10 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeStorageSetsResponseBody::StorageSets> storageSets_ {};
-    // The total number of storage sets.
     shared_ptr<int32_t> totalCount_ {};
   };
 

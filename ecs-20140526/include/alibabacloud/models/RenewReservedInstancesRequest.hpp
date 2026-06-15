@@ -135,8 +135,9 @@ namespace Models
   protected:
     // Specifies whether to enable auto-renewal for the reserved instance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> autoRenew_ {};

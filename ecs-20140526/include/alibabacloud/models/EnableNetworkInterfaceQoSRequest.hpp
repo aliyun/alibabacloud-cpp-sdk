@@ -183,12 +183,16 @@ namespace Models
 
 
   protected:
+    // The ID of the Elastic Network Interface (ENI).
+    // 
     // This parameter is required.
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // QoS Speed Limit Settings
     shared_ptr<EnableNetworkInterfaceQoSRequest::QoS> qoS_ {};
+    // The Region ID. You can invoke DescribeRegions to view the latest Alibaba Cloud Region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

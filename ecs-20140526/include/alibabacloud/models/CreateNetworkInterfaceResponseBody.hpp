@@ -620,43 +620,49 @@ namespace Models
 
 
   protected:
-    // The description of the ENI.
+    // The description of the elastic network interface.
     shared_ptr<string> description_ {};
+    // The IPv4 prefixes that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
+    // The IPv6 prefixes that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
+    // The IPv6 addresses that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Ipv6Sets> ipv6Sets_ {};
-    // The media access control (MAC) address of the ENI.
+    // The MAC address of the elastic network interface.
     shared_ptr<string> macAddress_ {};
-    // The ID of the ENI.
+    // The ID of the elastic network interface.
     shared_ptr<string> networkInterfaceId_ {};
-    // The name of the ENI.
+    // The name of the elastic network interface.
     shared_ptr<string> networkInterfaceName_ {};
-    // The ID of the account to which the ENI belongs.
+    // The ID of the account that owns the elastic network interface.
     shared_ptr<string> ownerId_ {};
-    // The private IP address of the ENI.
+    // The primary private IP address of the elastic network interface.
     shared_ptr<string> privateIpAddress_ {};
+    // The private IP addresses that are assigned to the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::PrivateIpSets> privateIpSets_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group to which the ENI belongs.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
+    // The IDs of the security groups to which the elastic network interface belongs.
     shared_ptr<CreateNetworkInterfaceResponseBody::SecurityGroupIds> securityGroupIds_ {};
-    // The ID of the distributor to which the ENI belongs.
+    // The ID of the distributor for the elastic network interface.
     shared_ptr<int64_t> serviceID_ {};
-    // Indicates whether the user of the ENI is an Alibaba Cloud service or a distributor.
+    // Specifies whether the elastic network interface is managed by a cloud service or a distributor.
     shared_ptr<bool> serviceManaged_ {};
-    // >  This parameter is in invitational preview and is not publicly available.
+    // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<bool> sourceDestCheck_ {};
-    // The state of the ENI.
+    // The status of the elastic network interface.
     shared_ptr<string> status_ {};
+    // The tags of the elastic network interface.
     shared_ptr<CreateNetworkInterfaceResponseBody::Tags> tags_ {};
-    // The type of the ENI.
+    // The type of the elastic network interface.
     shared_ptr<string> type_ {};
-    // The ID of the vSwitch to which the ENI is connected.
+    // The ID of the vSwitch.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC to which the ENI belongs.
+    // The ID of the VPC to which the elastic network interface belongs.
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the ENI.
+    // The ID of the zone.
     shared_ptr<string> zoneId_ {};
   };
 

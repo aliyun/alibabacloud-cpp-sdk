@@ -170,7 +170,7 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeResourceByTagsResponseBody::Resources> resources_ {};
-    // The total number of resources returned.
+    // The total number of resources.
     shared_ptr<int32_t> totalCount_ {};
   };
 

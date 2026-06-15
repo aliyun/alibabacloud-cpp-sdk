@@ -95,7 +95,7 @@ namespace Models
 
 
   protected:
-    // Port list entries.
+    // The port range list entries.
     shared_ptr<vector<DescribePortRangeListEntriesResponseBody::Entries>> entries_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -132,9 +132,11 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The operating system type supported by the diagnostic metric. Valid values:
       // 
-      // *   Windows
-      // *   Linux
-      // *   All: Windows and Linux
+      // - Windows
+      // 
+      // - Linux
+      // 
+      // - All: Windows and Linux
       shared_ptr<string> supportedOperatingSystem_ {};
     };
 

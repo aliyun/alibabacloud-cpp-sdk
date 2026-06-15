@@ -273,8 +273,9 @@ namespace Models
   protected:
     // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
     // 
-    // *   true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
-    // *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+    // - true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
+    // 
+    // - false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
@@ -282,7 +283,7 @@ namespace Models
     shared_ptr<bool> fuzzyQuery_ {};
     // Specifies whether to query the capacity of the security group. If you set this parameter to True, the `EcsCount` and `AvailableInstanceAmount` values in the response are valid.
     // 
-    // >  This parameter is deprecated.
+    // > This parameter is deprecated.
     shared_ptr<bool> isQueryEcsCount_ {};
     // The maximum number of entries per page. If you specify this parameter, both `MaxResults` and `NextToken` are used for a paged query.
     // 
@@ -292,16 +293,17 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The network type of the security group. Valid values:
     // 
-    // *   vpc
-    // *   classic
+    // - vpc
+    // 
+    // - classic
     shared_ptr<string> networkType_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 
@@ -321,15 +323,17 @@ namespace Models
     shared_ptr<string> securityGroupName_ {};
     // The type of the security group. Valid values:
     // 
-    // *   normal: basic security group
-    // *   enterprise: advanced security group
+    // - normal: basic security group
+    // 
+    // - enterprise: advanced security group
     // 
     // > If you do not specify this parameter, both basic and advanced security groups are queried.
     shared_ptr<string> securityGroupType_ {};
     // Specifies whether to query managed security groups. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     shared_ptr<bool> serviceManaged_ {};
     // The tags to add to the security groups.
     shared_ptr<vector<DescribeSecurityGroupsRequest::Tag>> tag_ {};

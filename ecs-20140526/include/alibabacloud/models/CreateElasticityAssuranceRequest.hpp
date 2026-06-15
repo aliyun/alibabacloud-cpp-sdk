@@ -174,23 +174,27 @@ namespace Models
       shared_ptr<int32_t> endHour_ {};
       // The type of the assurance schedule. Valid values:
       // 
-      // *   Daily
-      // *   Weekly
-      // *   Monthly
+      // - Daily
       // 
-      // >  You must specify both `RecurrenceType` and `RecurrenceValue`.
+      // - Weekly
+      // 
+      // - Monthly
+      // 
+      // > You must specify both `RecurrenceType` and `RecurrenceValue`.
       shared_ptr<string> recurrenceType_ {};
       // The days of the week or month on which the capacity reservation takes effect or the interval, in number of days, at which the capacity reservation takes effect.
       // 
-      // *   If you set `RecurrenceType` to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
-      // *   If you set `RecurrenceType` to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
-      // *   If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates that the execution is repeated from the 1st to 5th of each month.
+      // - If you set `RecurrenceType` to `Daily`, you can specify only one value for this parameter. Valid values: 1 to 31. The value specifies that the capacity reservation takes effect every few days.
+      // 
+      // - If you set `RecurrenceType` to `Weekly`, you can specify multiple values for this parameter. Separate the values with commas (,). Valid values: 0, 1, 2, 3, 4, 5, and 6, which specify Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday, respectively. Example: `1,2`, which specifies that the capacity reservation takes effect on Monday and Tuesday.
+      // 
+      // - If you set `RecurrenceType` to `Monthly`, you can specify two values in the `A-B` format for this parameter. Valid values of A and B: 1 to 31. B must be greater than or equal to A. For example, `1-5` indicates that the execution is repeated from the 1st to 5th of each month.
       // 
       // > You must specify both `RecurrenceType` and `RecurrenceValue`.
       shared_ptr<string> recurrenceValue_ {};
       // The start time of the assurance period for the capacity reservation. Specify an on-the-hour point in time.
       // 
-      // >  You must specify both `StartHour` and `EndHour`. EndHour must be at least four hours later than StartHour.
+      // > You must specify both `StartHour` and `EndHour`. EndHour must be at least four hours later than StartHour.
       shared_ptr<int32_t> startHour_ {};
     };
 
@@ -234,8 +238,9 @@ namespace Models
     protected:
       // The type of the private pool with which you want to associate the elasticity assurance. Valid values:
       // 
-      // *   Open: open private pool. If you use the elasticity assurance to create ECS instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
-      // *   Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the specified private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
+      // - Open: open private pool. If you use the elasticity assurance to create ECS instances, the open private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the open private pool, resources in the public pool are automatically used to create the ECS instances.
+      // 
+      // - Target: targeted private pool. If you use the elasticity assurance to create ECS instances, the specified private pool that is associated with the elasticity assurance is automatically matched. If no capacity is available in the private pool, the ECS instances fail to be created.
       // 
       // Default value: Open.
       shared_ptr<string> matchCriteria_ {};
@@ -413,17 +418,19 @@ namespace Models
     shared_ptr<string> assuranceTimes_ {};
     // Specifies whether to enable auto-renewal for the elasticity assurance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> autoRenew_ {};
     // The auto-renewal period. Unit: month. Valid values: 1, 2, 3, 6, 12, 24, and 36.
     // 
-    // *   Default value when `PeriodUnit` is set to Month: 1.
-    // *   Default value when `PeriodUnit` is set to Year: 12.
+    // - Default value when `PeriodUnit` is set to Month: 1.
     // 
-    // >  If you set `AutoRenew` to `true`, you must specify this parameter.
+    // - Default value when `PeriodUnit` is set to Year: 12.
+    // 
+    // > If you set `AutoRenew` to `true`, you must specify this parameter.
     shared_ptr<int32_t> autoRenewPeriod_ {};
     // The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
@@ -435,7 +442,7 @@ namespace Models
     // 
     // Valid values: 1 to 1000.
     // 
-    // >  You must specify this parameter.
+    // > You must specify this parameter.
     shared_ptr<int32_t> instanceAmount_ {};
     // > This parameter is no longer used.
     shared_ptr<int32_t> instanceCpuCoreCount_ {};
@@ -447,29 +454,31 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The validity period of the elasticity assurance. The unit of the validity period is determined by the value of `PeriodUnit`. Specifies whether to check the image used by the instance supports hot migration. Valid values:
     // 
-    // *   When the value of `PeriodUnit` is `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
-    // *   When the value of `PeriodUnit` is `Year`, the valid values are 1, 2, 3, 4, and 5.
-    // *   When the value of `PeriodUnit` is `Day`, the valid values are 1 to 365.
+    // - When the value of `PeriodUnit` is `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+    // 
+    // - When the value of `PeriodUnit` is `Year`, the valid values are 1, 2, 3, 4, and 5.
+    // 
+    // - When the value of `PeriodUnit` is `Day`, the valid values are 1 to 365.
     // 
     // Default value: 1
     shared_ptr<int32_t> period_ {};
     // The unit of the validity period of the elasticity assurance. Valid values:
     // 
-    // *   Month
+    // - Month
     // 
-    // *   Year
+    // - Year
     // 
-    // *   Day
+    // - Day
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note** If you set `PeriodUnit` to `Day`, you must specify RecurrenceRules to create a time-segmented elasticity assurance.
+    //   **Note** If you set `PeriodUnit` to `Day`, you must specify RecurrenceRules to create a time-segmented elasticity assurance.
     // 
     // Default value: Year.
     shared_ptr<string> periodUnit_ {};
     // The assurance schedules based on which the capacity reservation takes effect.
     // 
-    // >  Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
+    // > Time-segmented elasticity assurances are available only in specific regions and to specific users. To use time-segmented elasticity assurances, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket-intl).
     shared_ptr<vector<CreateElasticityAssuranceRequest::RecurrenceRules>> recurrenceRules_ {};
     // The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
     // 

@@ -178,8 +178,9 @@ namespace Models
   protected:
     // Specifies whether to associate the instance with a dedicated host. Valid values:
     // 
-    // *   host: associates the instance with a dedicated host. When you start a stopped instance in economical mode, the instance remains on its original dedicated host.
-    // *   default: does not associate the instance with a dedicated host. When you start a stopped instance in economical mode, the instance can be automatically deployed to another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
+    // - host: associates the instance with a dedicated host. When you start a stopped instance in economical mode, the instance remains on its original dedicated host.
+    // 
+    // - default: does not associate the instance with a dedicated host. When you start a stopped instance in economical mode, the instance can be automatically deployed to another dedicated host in the automatic deployment resource pool if the resources of the original dedicated host are insufficient.
     // 
     // If you want to migrate the instance from a shared host to a dedicated host, use the default value. Default value: default.
     shared_ptr<string> affinity_ {};
@@ -189,8 +190,9 @@ namespace Models
     // 
     // When you migrate an instance from a shared host to a dedicated host or between dedicated hosts, take note of the following items:
     // 
-    // *   To migrate the instance to a specific dedicated host, specify this parameter.
-    // *   To migrate the instance to a system-selected dedicated host, leave this parameter empty and set `Tenancy` to host.
+    // - To migrate the instance to a specific dedicated host, specify this parameter.
+    // 
+    // - To migrate the instance to a system-selected dedicated host, leave this parameter empty and set `Tenancy` to host.
     // 
     // For information about the automatic deployment feature, see [Functions and features](https://help.aliyun.com/document_detail/118938.html).
     shared_ptr<string> dedicatedHostId_ {};
@@ -206,13 +208,13 @@ namespace Models
     shared_ptr<string> deploymentSetId_ {};
     // Specifies whether to forcefully change the host of the instance when the deployment set of the instance is changed. Valid values:
     // 
-    // *   true: forcefully changes the host of the instance when the deployment set of the instance is changed. Hosts can be forcefully changed only for instances in the Running (Running) or Stopped (Stopped) state. The instances that are in the Stopped (Stopped) state do not include pay-as-you-go instances that are stopped in economical mode.
+    // - true: forcefully changes the host of the instance when the deployment set of the instance is changed. Hosts can be forcefully changed only for instances in the Running (Running) or Stopped (Stopped) state. The instances that are in the Stopped (Stopped) state do not include pay-as-you-go instances that are stopped in economical mode.
     // 
-    //     **
+    //   \\*\\*
     // 
-    //     **Note** If the specified instance has local disks attached, the local disks are forcefully changed when the host of the instance is forcefully changed. This may cause data loss in the local disks. Proceed with caution.
+    //   **Note** If the specified instance has local disks attached, the local disks are forcefully changed when the host of the instance is forcefully changed. This may cause data loss in the local disks. Proceed with caution.
     // 
-    // *   false: does not forcefully change the host of the instance when the deployment set of the instance is changed. You can add the instance to a deployment set only when the instance remains on the current host. When the Force parameter is set to false, the deployment set may fail to be changed.
+    // - false: does not forcefully change the host of the instance when the deployment set of the instance is changed. You can add the instance to a deployment set only when the instance remains on the current host. When the Force parameter is set to false, the deployment set may fail to be changed.
     // 
     // Default value: false.
     shared_ptr<bool> force_ {};
@@ -224,13 +226,15 @@ namespace Models
     // 
     // You can change the instance type of an instance when you migrate the instance to a dedicated host. The new instance type must match the type of the specified dedicated host. For more information, see [Dedicated host types](https://help.aliyun.com/document_detail/68564.html).
     // 
-    // *   If you specify this parameter, you must also specify `DedicatedHostId`.
-    // *   You cannot change the instance type of an instance if you use the automatic deployment feature to migrate the instance.
+    // - If you specify this parameter, you must also specify `DedicatedHostId`.
+    // 
+    // - You cannot change the instance type of an instance if you use the automatic deployment feature to migrate the instance.
     shared_ptr<string> instanceType_ {};
     // Specifies whether to stop the instance before it is migrated to the destination dedicated host. Valid values:
     // 
-    // *   reboot: stops the instance before it is migrated.
-    // *   live: migrates the instance without stopping it. If you set MigrationType to live, you must specify DedicatedHostId. In this case, you cannot change the instance type of the instance when the instance is migrated.
+    // - reboot: stops the instance before it is migrated.
+    // 
+    // - live: migrates the instance without stopping it. If you set MigrationType to live, you must specify DedicatedHostId. In this case, you cannot change the instance type of the instance when the instance is migrated.
     // 
     // Default value: reboot.
     shared_ptr<string> migrationType_ {};
@@ -242,8 +246,9 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // Specifies whether to remove the specified instance from the specified deployment set. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     // 

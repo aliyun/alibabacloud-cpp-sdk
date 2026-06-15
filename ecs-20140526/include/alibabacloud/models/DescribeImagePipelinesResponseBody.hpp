@@ -1127,13 +1127,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paginated query.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results. For information about how to use the return value, see the "Usage notes" section of this topic.
+    // The token used to retrieve the next page of results. This value is returned if the results are paginated.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of image templates returned.
+    // The total number of image pipelines that match the query criteria.
     shared_ptr<int32_t> totalCount_ {};
   };
 

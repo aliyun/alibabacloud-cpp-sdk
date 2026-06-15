@@ -85,19 +85,19 @@ namespace Models
 
   protected:
     shared_ptr<string> additionalOptionsShrink_ {};
-    // The end time. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+    // The end time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
     shared_ptr<string> endTime_ {};
-    // The ID of the diagnostic metric set. If this parameter is left empty, the dms-instancedefault set is used, which is the default diagnostic metric set provided for Elastic Compute Service (ECS) instances.
+    // The diagnostic metric set ID. If this parameter is omitted, the default diagnostic metric set for ECS instances, `dms-instancedefault`, is used.
     shared_ptr<string> metricSetId_ {};
-    // The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to get the latest list of Alibaba Cloud regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of resource N.
+    // The resource ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
-    // The start time. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
+    // The start time. This parameter applies only to diagnostic metrics that do not require running Cloud Assistant commands in the guest OS.
     shared_ptr<string> startTime_ {};
   };
 

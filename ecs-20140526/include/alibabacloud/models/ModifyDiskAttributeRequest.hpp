@@ -154,15 +154,17 @@ namespace Models
   protected:
     // Specifies whether to enable performance burst for the disk if the disk supports performance burst. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
     // 
-    // >  An error is reported if you specify this parameter for a disk that does not support performance burst.
+    // - false
+    // 
+    // > An error is reported if you specify this parameter for a disk that does not support performance burst.
     shared_ptr<bool> burstingEnabled_ {};
     // Specifies whether to delete the automatic snapshots of the disk when the disk is released. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // This parameter is empty by default, which indicates that the current value remains unchanged.
     shared_ptr<bool> deleteAutoSnapshot_ {};
@@ -170,10 +172,11 @@ namespace Models
     // 
     // An error is returned if you set `DeleteWithInstance` to `false` in one of the following cases:
     // 
-    // *   The disk is a local disk.
-    // *   The disk is a basic disk and is not removable. If the Portable attribute of a disk is set to false, the disk is not removable.
+    // - The disk is a local disk.
     // 
-    // **
+    // - The disk is a basic disk and is not removable. If the Portable attribute of a disk is set to false, the disk is not removable.
+    // 
+    // \\*\\*
     // 
     // **Warning** If you set DeleteWithInstance to false and the instance to which the disk is attached is locked for security reasons, the DeleteWithInstance attribute of the disk is ignored and the disk is released together with the instance. If "LockReason" : "security" is displayed in the response when you query information about an instance, the instance is locked for security reasons.
     shared_ptr<bool> deleteWithInstance_ {};
@@ -181,22 +184,23 @@ namespace Models
     shared_ptr<string> description_ {};
     // The ID of the disk whose attributes you want to modify.
     // 
-    // >  You can specify `DiskId` or `DiskIds.N`, but not both.
+    // > You can specify `DiskId` or `DiskIds.N`, but not both.
     shared_ptr<string> diskId_ {};
     // The IDs of the disks whose attributes you want to modify. Valid values of N: 0 to 100.
     // 
-    // >  You can specify `DiskId` or `DiskIds.N`, but not both.
+    // > You can specify `DiskId` or `DiskIds.N`, but not both.
     shared_ptr<vector<string>> diskIds_ {};
     // The name of the disk. The name must be 2 to 128 characters in length and can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
     shared_ptr<string> diskName_ {};
     // Specifies whether to enable the automatic snapshot policy feature. Valid values:
     // 
-    // *   true: enables the automatic snapshot policy feature for the cloud disk.
-    // *   false: disables the automatic snapshot policy feature for the cloud disk.
+    // - true: enables the automatic snapshot policy feature for the cloud disk.
+    // 
+    // - false: disables the automatic snapshot policy feature for the cloud disk.
     // 
     // This parameter is empty by default, which indicates that the current value remains unchanged.
     // 
-    // >  This parameter is deprecated. By default, the automatic snapshot policy feature is enabled for cloud disks. You only need to apply an automatic snapshot policy to a cloud disk before you can use the automatic snapshot policy.
+    // > This parameter is deprecated. By default, the automatic snapshot policy feature is enabled for cloud disks. You only need to apply an automatic snapshot policy to a cloud disk before you can use the automatic snapshot policy.
     shared_ptr<bool> enableAutoSnapshot_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

@@ -163,9 +163,11 @@ namespace Models
   protected:
     // The maintenance action. Valid values:
     // 
-    // *   Stop: stops the instance.
-    // *   AutoRecover: automatically recovers the instance.
-    // *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
+    // - Stop: stops the instance.
+    // 
+    // - AutoRecover: automatically recovers the instance.
+    // 
+    // - AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
     shared_ptr<string> actionOnMaintenance_ {};
     // The ID of instance N. Valid values of N: 1 to 100.
     shared_ptr<vector<string>> instanceId_ {};
@@ -173,8 +175,9 @@ namespace Models
     shared_ptr<vector<ModifyInstanceMaintenanceAttributesRequest::MaintenanceWindow>> maintenanceWindow_ {};
     // Specifies whether to send an event notification before maintenance. Valid values:
     // 
-    // *   true
-    // *   false
+    // - true
+    // 
+    // - false
     // 
     // Default value: false.
     shared_ptr<bool> notifyOnMaintenance_ {};

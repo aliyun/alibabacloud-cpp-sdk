@@ -103,14 +103,20 @@ namespace Models
 
 
   protected:
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the VBR is deployed. You can call the `DescribeRegions` operation to obtain the region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The client-side CIDR block. This parameter is required for a connection over an Express Connect circuit.
     shared_ptr<string> userCidr_ {};
+    // The ID of the VBR.
+    // 
     // This parameter is required.
     shared_ptr<string> vbrId_ {};
   };

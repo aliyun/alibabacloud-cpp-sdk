@@ -103,15 +103,21 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure the idempotence of the request. This token must be unique for each request. It can contain only ASCII characters and must not exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the Express Connect circuit.
+    // 
     // This parameter is required.
     shared_ptr<string> physicalConnectionId_ {};
+    // The ID of the region where the Express Connect circuit is deployed. You can call the `DescribeRegions` operation to obtain the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The client-side CIDR block of the physical connection.
     shared_ptr<string> userCidr_ {};
   };
 

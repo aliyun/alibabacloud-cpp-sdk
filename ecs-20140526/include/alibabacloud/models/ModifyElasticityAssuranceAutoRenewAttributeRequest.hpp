@@ -78,7 +78,7 @@ namespace Models
     protected:
       // The IDs of elasticity assurances.
       // 
-      // >  You can renew up to 50 elasticity assurances at a time.
+      // > You can renew up to 50 elasticity assurances at a time.
       shared_ptr<vector<string>> id_ {};
     };
 
@@ -156,15 +156,17 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The auto-renewal period for the elasticity assurance.
     // 
-    // *   Valid values when `PeriodUnit` is set to `Year`: 1, 3, and 5.
-    // *   Valid values when `PeriodUnit` is set to `Month`: 1.
+    // - Valid values when `PeriodUnit` is set to `Year`: 1, 3, and 5.
+    // 
+    // - Valid values when `PeriodUnit` is set to `Month`: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> period_ {};
     // The unit of the renewal duration. Valid values:
     // 
-    // *   Month
-    // *   Year
+    // - Month
+    // 
+    // - Year
     // 
     // Default value: Month.
     shared_ptr<string> periodUnit_ {};
@@ -174,9 +176,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The auto-renewal status of the elasticity assurance. Valid values:
     // 
-    // *   AutoRenewal: Auto-renewal is enabled for the elasticity assurance.
-    // *   Normal: Auto-renewal is disabled for the elasticity assurance.
-    // *   NotRenewal: The elasticity assurance is not renewed. The system no longer sends an expiration notification but sends only a renewal notification three days before the elasticity assurance expires. You can change the value of this parameter from NotRenewal to `Normal` for an elasticity assurance, and then manually renew the elasticity assurance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
+    // - AutoRenewal: Auto-renewal is enabled for the elasticity assurance.
+    // 
+    // - Normal: Auto-renewal is disabled for the elasticity assurance.
+    // 
+    // - NotRenewal: The elasticity assurance is not renewed. The system no longer sends an expiration notification but sends only a renewal notification three days before the elasticity assurance expires. You can change the value of this parameter from NotRenewal to `Normal` for an elasticity assurance, and then manually renew the elasticity assurance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
     shared_ptr<string> renewalStatus_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

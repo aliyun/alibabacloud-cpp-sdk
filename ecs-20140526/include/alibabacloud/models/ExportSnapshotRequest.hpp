@@ -94,14 +94,21 @@ namespace Models
 
 
   protected:
+    // The name of the destination OSS bucket. The bucket must be in the same region as the snapshot.
+    // 
     // This parameter is required.
     shared_ptr<string> ossBucket_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the snapshot is located. You can call the `DescribeRegions` operation to query the latest region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The name of the RAM role that authorizes ECS to export the snapshot. This role must grant ECS permission to write to the specified OSS bucket. If you omit this parameter, ECS uses its default service-linked role.
     shared_ptr<string> roleName_ {};
+    // The ID of the snapshot to export.
+    // 
     // This parameter is required.
     shared_ptr<string> snapshotId_ {};
   };

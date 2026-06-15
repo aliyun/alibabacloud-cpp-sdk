@@ -94,12 +94,18 @@ namespace Models
 
 
   protected:
+    // The new bandwidth of the bandwidth package. Unit: Mbit/s. The value must be an integer.
+    // 
     // This parameter is required.
     shared_ptr<string> bandwidth_ {};
+    // The ID of the bandwidth package.
+    // 
     // This parameter is required.
     shared_ptr<string> bandwidthPackageId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the region where the bandwidth package is located. You can call the `DescribeRegions` operation to query the most recent region list.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

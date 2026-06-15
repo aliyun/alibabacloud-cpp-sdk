@@ -86,11 +86,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the port list.
+    // The ID of the port range list.
     // 
     // This parameter is required.
     shared_ptr<string> portRangeListId_ {};
-    // The region ID of the port list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) operation to query the most recent region list.
+    // The region ID of the port range list. You can call [DescribeRegions](https://help.aliyun.com/document_detail/2679950.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

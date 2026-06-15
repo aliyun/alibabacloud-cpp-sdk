@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task that is used to export the custom image.
+    // The ID of the image export task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -102,15 +102,15 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the command. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+      // The key of the tag. You can specify up to 20 tags. The tag key cannot be an empty string.
       // 
-      // If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
+      // A query can return a maximum of 1,000 resources that match the specified tags. If more than 1,000 resources match, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query all matching resources.
       // 
-      // The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
-      // The value of tag N of the command. Valid values of N: 1 to 20. The tag value can be an empty string.
+      // The value of the tag. You can specify up to 20 tags. The tag value can be an empty string.
       // 
-      // It can be up to 128 characters in length and cannot contain `http://` or `https://`.
+      // The value can be up to 128 characters in length and cannot contain `http://` or `https://`.
       shared_ptr<string> value_ {};
     };
 
@@ -250,58 +250,61 @@ namespace Models
   protected:
     // The ID of the command.
     shared_ptr<string> commandId_ {};
-    // The encoding mode of the `CommandContent` and `Output` values in the response. Valid values:
+    // The encoding format for the `CommandContent` and `Output` values in the response. Valid values:
     // 
-    // *   PlainText: returns the original command content and command output.
-    // *   Base64: returns the Base64-encoded command content and command output.
+    // - PlainText: returns the raw script content and output.
+    // 
+    // - Base64: returns the Base64-encoded script content and output.
     // 
     // Default value: Base64.
     shared_ptr<string> contentEncoding_ {};
     // The description of the command.
     // 
-    // If you specify `Provider`, fuzzy search is supported by default.
+    // - If you specify the `Provider` parameter to query public commands, fuzzy search is supported by default.
     // 
-    // If you do not specify `Provider`, prefix-based fuzzy search is supported. For example, if you specify `test*`, all commands whose descriptions start with `test` are queried.
+    // - If you do not specify the `Provider` parameter to query private commands, fuzzy search is supported. You can use an asterisk (\\*) as a wildcard. For example, `test*` returns all commands whose descriptions start with `test`, `*test` returns all commands whose descriptions end with `test`, and `*test*` returns all commands whose descriptions contain `test`.
     shared_ptr<string> description_ {};
-    // Specifies whether to query only the latest version of common commands when common commands are queried. This parameter does not affect the query for private commands.
+    // Specifies whether to return only the latest version of public commands. This parameter does not affect private commands.
     // 
-    // *   true: queries only the latest version of common commands.
-    // *   false: queries all versions of common commands.
+    // - true: returns only the latest version of public commands.
+    // 
+    // - false: returns all versions of public commands.
     // 
     // Default value: false.
     shared_ptr<bool> latest_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return per page.
     // 
-    // Valid values: 1 to 50.
+    // Maximum value: 50.
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
     // The name of the command.
     // 
-    // If you specify `Provider`, fuzzy search is supported by default.
+    // - If you specify the `Provider` parameter to query public commands, fuzzy search is supported by default.
     // 
-    // If you do not specify `Provider`, prefix-based fuzzy search is supported. For example, if you specify `command*`, all commands whose names start with `command` are queried.
+    // - If you do not specify the `Provider` parameter to query private commands, fuzzy search is supported. You can use an asterisk (\\*) as a wildcard. For example, `command*` returns all commands whose names start with `command`, `*command` returns all commands whose names end with `command`, and `*command*` returns all commands whose names contain `command`.
     shared_ptr<string> name_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The pagination token for the next page of results. To retrieve the next page, set this parameter to the `NextToken` value from a previous call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is being deprecated. We recommend using NextToken and MaxResults for pagination instead.
     shared_ptr<int64_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
+    // > This parameter is being deprecated. We recommend using NextToken and MaxResults for pagination instead.
     shared_ptr<int64_t> pageSize_ {};
-    // The provider of the common command. Take note of the following items:
+    // The provider of the public command.
     // 
-    // *   If you do not specify this parameter, all the commands that you created are queried.
+    // - If you omit this parameter, the operation queries your private commands by default.
     // 
-    // *   If you set this parameter to `AlibabaCloud`, all the common commands provided by Alibaba Cloud are queried.
+    // - Set this parameter to `AlibabaCloud` to query all public commands from Alibaba Cloud.
     // 
-    // *   If you set this parameter to a specific provider, all the common commands provided by the provider are queried. Examples:
+    // - If you set the value to a specific provider, the public commands from that provider are queried. For example:
     // 
-    //     *   If you set `Provider` to AlibabaCloud.ECS.GuestOS, all the common commands provided by `AlibabaCloud.ECS.GuestOS` are queried.
-    //     *   If you set `Provider` to AlibabaCloud.ECS.GuestOSDiagnose, all the common commands provided by `AlibabaCloud.ECS.GuestOSDiagnose` are queried.
+    //   - If you set `Provider` to `AlibabaCloud.ECS.GuestOS`, the public commands provided by AlibabaCloud.ECS.GuestOS are queried.
+    // 
+    //   - If you set `Provider` to `AlibabaCloud.ECS.GuestOSDiagnose`, the public commands provided by AlibabaCloud.ECS.GuestOSDiagnose are queried.
     shared_ptr<string> provider_ {};
-    // The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The ID of the region. To view the latest list of regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -309,13 +312,15 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of tags.
+    // The tags used to filter commands.
     shared_ptr<vector<DescribeCommandsRequest::Tag>> tag_ {};
     // The type of the command. Valid values:
     // 
-    // *   RunBatScript: batch command, applicable to Windows instances
-    // *   RunPowerShellScript: PowerShell command, applicable to Windows instances
-    // *   RunShellScript: shell command, applicable to Linux instances
+    // - RunBatScript: A Bat script for Windows instances.
+    // 
+    // - RunPowerShellScript: A PowerShell script for Windows instances.
+    // 
+    // - RunShellScript: A Shell script for Linux instances.
     shared_ptr<string> type_ {};
   };
 

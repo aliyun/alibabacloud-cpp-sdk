@@ -112,13 +112,20 @@ namespace Models
 
 
   protected:
+    // The ID of the DNAT entry.
     shared_ptr<string> forwardEntryId_ {};
+    // The ID of the DNAT table.
+    // 
     // This parameter is required.
     shared_ptr<string> forwardTableId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the region that contains the DNAT table. Call the DescribeRegions operation to get the latest list of regions.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

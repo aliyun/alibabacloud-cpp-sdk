@@ -107,8 +107,9 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform the dry run. Valid values:
     // 
-    // *   true: The request is checked and is not executed. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the check fails, an error is returned. If the check is passed, the error code DryRunOperation is returned.
-    // *   false (default): sends the request. If the request passes the check, the request is directly executed.
+    // - true: The request is checked and is not executed. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the check fails, an error is returned. If the check is passed, the error code DryRunOperation is returned.
+    // 
+    // - false (default): sends the request. If the request passes the check, the request is directly executed.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
