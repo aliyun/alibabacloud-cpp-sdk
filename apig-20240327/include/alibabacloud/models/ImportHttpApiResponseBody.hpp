@@ -195,11 +195,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether the operation creates or updates a resource.
-          // 
-          // - `Create`: Creates a new resource.
-          // 
-          // - `Update`: Updates an existing resource.
+          // The action to be performed after the dry run. Valid values:
+          // - Create: create.
+          // - Update: update.
           shared_ptr<string> action_ {};
           // The operation method.
           shared_ptr<string> method_ {};
@@ -247,11 +245,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether the data structure will be created or updated.
-          // 
-          // - `Create`: Creates a new data structure.
-          // 
-          // - `Update`: Updates an existing data structure.
+          // The action to be performed after the dry run. Valid values:
+          // - Create: create.
+          // - Update: update.
           shared_ptr<string> action_ {};
           // The data structure name.
           shared_ptr<string> name_ {};
@@ -346,7 +342,7 @@ namespace Models
 
 
         protected:
-          // The reason for the dry run failure.
+          // The error message.
           shared_ptr<string> errorMessage_ {};
           // The operation method.
           shared_ptr<string> method_ {};
@@ -392,7 +388,7 @@ namespace Models
 
 
         protected:
-          // The reason for the dry run failure.
+          // The error message.
           shared_ptr<string> errorMessage_ {};
           // The data structure name.
           shared_ptr<string> name_ {};
@@ -490,22 +486,22 @@ namespace Models
 
 
       protected:
-        // Global error messages. If this list is not empty, the API import fails.
+        // The error messages. If error messages are not empty, the API cannot be imported.
         shared_ptr<vector<string>> errorMessages_ {};
-        // Details of the existing API. If this field is populated, the import operation updates this API.
+        // The information about the existing API. If this field is not empty, the import updates this API.
         shared_ptr<HttpApiApiInfo> existHttpApiInfo_ {};
-        // Data structures that failed the dry run.
+        // The list of data structures that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureComponents>> failureComponents_ {};
-        // Operations that failed the dry run.
+        // The list of operations that failed the dry run.
         shared_ptr<vector<DryRunInfo::FailureOperations>> failureOperations_ {};
         shared_ptr<vector<DryRunInfo::FailureRoutes>> failureRoutes_ {};
         shared_ptr<string> mcpToolsDefinition_ {};
-        // Data structures that passed the dry run.
+        // The list of data structures that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessComponents>> successComponents_ {};
-        // Operations that passed the dry run.
+        // The list of operations that passed the dry run.
         shared_ptr<vector<DryRunInfo::SuccessOperations>> successOperations_ {};
         shared_ptr<vector<DryRunInfo::SuccessRoutes>> successRoutes_ {};
-        // Global warning messages. If this list is not empty, some operations or data structures might not be imported.
+        // The warning messages. If warning messages are not empty, some operations or data structures may not be imported.
         shared_ptr<vector<string>> warningMessages_ {};
       };
 
@@ -535,7 +531,7 @@ namespace Models
 
 
     protected:
-      // The results of the dry run.
+      // The dry run result.
       shared_ptr<Data::DryRunInfo> dryRunInfo_ {};
       // The unique ID of the HTTP API.
       shared_ptr<string> httpApiId_ {};
@@ -578,7 +574,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // Details of the imported API.
+    // The API information.
     shared_ptr<ImportHttpApiResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

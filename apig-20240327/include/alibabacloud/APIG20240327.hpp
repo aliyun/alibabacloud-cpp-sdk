@@ -1197,7 +1197,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
-       * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
+       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
        *
        * @param request ImportHttpApiRequest
        * @param headers map
@@ -1207,7 +1207,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApiWithOptions(const Models::ImportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
+       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
        *
        * @param request ImportHttpApiRequest
        * @return ImportHttpApiResponse
