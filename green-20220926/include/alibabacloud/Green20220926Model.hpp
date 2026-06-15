@@ -182,6 +182,9 @@
 #include <alibabacloud/models/GetTextScanResultShrinkRequest.hpp>
 #include <alibabacloud/models/GetTextScanResultResponseBody.hpp>
 #include <alibabacloud/models/GetTextScanResultResponse.hpp>
+#include <alibabacloud/models/GetTuneProposalByIdRequest.hpp>
+#include <alibabacloud/models/GetTuneProposalByIdResponseBody.hpp>
+#include <alibabacloud/models/GetTuneProposalByIdResponse.hpp>
 #include <alibabacloud/models/GetUploadInfoRequest.hpp>
 #include <alibabacloud/models/GetUploadInfoResponseBody.hpp>
 #include <alibabacloud/models/GetUploadInfoResponse.hpp>

@@ -60,10 +60,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const LabelDetails& obj) { 
           DARABONBA_PTR_TO_JSON(Description, description_);
           DARABONBA_PTR_TO_JSON(Label, label_);
+          DARABONBA_PTR_TO_JSON(Reason, reason_);
         };
         friend void from_json(const Darabonba::Json& j, LabelDetails& obj) { 
           DARABONBA_PTR_FROM_JSON(Description, description_);
           DARABONBA_PTR_FROM_JSON(Label, label_);
+          DARABONBA_PTR_FROM_JSON(Reason, reason_);
         };
         LabelDetails() = default ;
         LabelDetails(const LabelDetails &) = default ;
@@ -77,7 +79,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->description_ == nullptr
-        && this->label_ == nullptr; };
+        && this->label_ == nullptr && this->reason_ == nullptr; };
         // description Field Functions 
         bool hasDescription() const { return this->description_ != nullptr;};
         void deleteDescription() { this->description_ = nullptr;};
@@ -92,9 +94,17 @@ namespace Models
         inline LabelDetails& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
 
 
+        // reason Field Functions 
+        bool hasReason() const { return this->reason_ != nullptr;};
+        void deleteReason() { this->reason_ = nullptr;};
+        inline string getReason() const { DARABONBA_PTR_GET_DEFAULT(reason_, "") };
+        inline LabelDetails& setReason(string reason) { DARABONBA_PTR_SET_VALUE(reason_, reason) };
+
+
       protected:
         shared_ptr<string> description_ {};
         shared_ptr<string> label_ {};
+        shared_ptr<string> reason_ {};
       };
 
       virtual bool empty() const override { return this->content_ == nullptr

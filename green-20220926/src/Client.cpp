@@ -3407,6 +3407,48 @@ GetTextScanResultResponse Client::getTextScanResult(const GetTextScanResultReque
 }
 
 /**
+ * @summary 获取开关配置调优意见
+ *
+ * @param request GetTuneProposalByIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTuneProposalByIdResponse
+ */
+GetTuneProposalByIdResponse Client::getTuneProposalByIdWithOptions(const GetTuneProposalByIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasId()) {
+    query["Id"] = request.getId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTuneProposalById"},
+    {"version" , "2022-09-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTuneProposalByIdResponse>();
+}
+
+/**
+ * @summary 获取开关配置调优意见
+ *
+ * @param request GetTuneProposalByIdRequest
+ * @return GetTuneProposalByIdResponse
+ */
+GetTuneProposalByIdResponse Client::getTuneProposalById(const GetTuneProposalByIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTuneProposalByIdWithOptions(request, runtime);
+}
+
+/**
  * @summary Get the corresponding information for file upload
  *
  * @param request GetUploadInfoRequest

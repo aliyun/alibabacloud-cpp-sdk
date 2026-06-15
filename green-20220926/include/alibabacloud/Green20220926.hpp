@@ -990,6 +990,23 @@ namespace Green20220926
       Models::GetTextScanResultResponse getTextScanResult(const Models::GetTextScanResultRequest &request);
 
       /**
+       * @summary 获取开关配置调优意见
+       *
+       * @param request GetTuneProposalByIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTuneProposalByIdResponse
+       */
+      Models::GetTuneProposalByIdResponse getTuneProposalByIdWithOptions(const Models::GetTuneProposalByIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取开关配置调优意见
+       *
+       * @param request GetTuneProposalByIdRequest
+       * @return GetTuneProposalByIdResponse
+       */
+      Models::GetTuneProposalByIdResponse getTuneProposalById(const Models::GetTuneProposalByIdRequest &request);
+
+      /**
        * @summary Get the corresponding information for file upload
        *
        * @param request GetUploadInfoRequest

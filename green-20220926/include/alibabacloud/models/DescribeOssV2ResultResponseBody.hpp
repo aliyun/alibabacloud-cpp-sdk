@@ -410,7 +410,6 @@ namespace Models
       shared_ptr<string> riskLevel0_ {};
       shared_ptr<string> riskLevel2_ {};
       shared_ptr<string> scanResult_ {};
-      // Service code。
       shared_ptr<string> serviceCode_ {};
       shared_ptr<string> sysDisposalStatus_ {};
       shared_ptr<string> taskId_ {};
