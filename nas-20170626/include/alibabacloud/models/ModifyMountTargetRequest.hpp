@@ -84,30 +84,32 @@ namespace Models
 
 
   protected:
-    // The name of the permission group that is attached to the mount target.
+    // The name of the access group that is associated with the mount target.
     shared_ptr<string> accessGroupName_ {};
     shared_ptr<bool> accessPointAccessOnly_ {};
-    // The dual-stack (IPv4 and IPv6) domain name of the mount target.
+    // The domain name of the dual-stack mount target.
     // 
-    // >  Only Extreme NAS file systems that reside in the Chinese mainland support IPv6.
+    // > The IPv6 feature is available only for Extreme NAS file systems in the Chinese mainland.
     shared_ptr<string> dualStackMountTargetDomain_ {};
     // The ID of the file system.
     // 
-    // *   Sample ID of a General-purpose NAS file system: `31a8e4****`.
-    // *   The IDs of Extreme NAS file systems must start with `extreme-`, for example, `extreme-0015****`.
+    // - For a General-purpose NAS file system, the ID is similar to `31a8e4****`.
+    // 
+    // - For an Extreme NAS file system, the ID must start with `extreme-`, for example, `extreme-0015****`.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The IPv4 domain name of the mount target.
+    // The domain name of the IPv4 mount target.
     shared_ptr<string> mountTargetDomain_ {};
     // The status of the mount target.
     // 
     // Valid values:
     // 
-    // *   Active: The mount target is available.
-    // *   Inactive: The mount target is unavailable.
+    // - Active: The mount target is available.
     // 
-    // >  Only General-purpose File Storage NAS (NAS) file systems support changing the mount target status.
+    // - Inactive: The mount target is unavailable.
+    // 
+    // > You can change the status of a mount target only if the mount target is attached to a General-purpose NAS file system.
     shared_ptr<string> status_ {};
   };
 

@@ -52,9 +52,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
-    // The absolute path of the directory.
+    // The absolute path of the directory or file.
     // 
-    // The path must start with a forward slash (/) and must be a path that exists in the mount target.
+    // The path must start with a forward slash (/) and must be an existing path in the mount target.
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};

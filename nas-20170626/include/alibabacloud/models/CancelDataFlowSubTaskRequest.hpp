@@ -90,7 +90,7 @@ namespace Models
     // 
     // >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
     shared_ptr<string> clientToken_ {};
-    // The ID of the data flow.
+    // The ID of the dataflow.
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowId_ {};
@@ -98,7 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowSubTaskId_ {};
-    // The ID of the data flow task.
+    // The ID of the dataflow task.
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowTaskId_ {};

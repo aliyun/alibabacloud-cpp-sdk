@@ -157,13 +157,13 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The check conditions. The check must be passed after the following conditions are specified.
     shared_ptr<CreateDataFlowSubTaskRequest::Condition> condition_ {};
-    // The ID of the data flow.
+    // The ID of the dataflow.
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowId_ {};
-    // The ID of the data flow task.
+    // The ID of the dataflow task.
     // 
-    // >  Only the IDs of data streaming tasks are supported.
+    // > Only the IDs of data streaming tasks are supported.
     // 
     // This parameter is required.
     shared_ptr<string> dataFlowTaskId_ {};

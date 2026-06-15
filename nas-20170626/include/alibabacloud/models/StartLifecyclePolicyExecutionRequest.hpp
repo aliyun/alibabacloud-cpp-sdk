@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The file system ID.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The lifecycle policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
   };

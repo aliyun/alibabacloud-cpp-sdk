@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // The file system ID.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The lifecycle policy ID.
+    // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
+    // The number of the page to return.
+    // 
+    // Starts from 1. Default: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of log entries to return on each page.
+    // 
+    // Value range: 1–100. Default: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

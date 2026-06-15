@@ -94,7 +94,7 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system.
+    // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
     // *   extreme: Extreme NAS file system.
     shared_ptr<string> fileSystemType_ {};
   };

@@ -85,10 +85,10 @@ namespace Models
     // 
     // Valid values:
     // 
-    // *   standard (default): General-purpose NAS file system.
+    // *   standard: General-purpose Apsara File Storage NAS (NAS) file system
     // *   extreme: Extreme NAS file system.
     shared_ptr<string> fileSystemType_ {};
-    // The page number.
+    // The number of the page to return.
     // 
     // Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

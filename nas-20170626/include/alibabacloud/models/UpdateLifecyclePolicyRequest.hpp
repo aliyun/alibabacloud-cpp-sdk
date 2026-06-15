@@ -80,7 +80,17 @@ namespace Models
 
 
     protected:
+      // The rule attribute.
+      // 
+      // Valid value:
+      // 
+      // - `Atime`: The last access time of a file.
       shared_ptr<string> attribute_ {};
+      // The rule threshold.
+      // 
+      // Valid value:
+      // 
+      // - If `Attribute` is set to `Atime`, this parameter specifies the number of days since a file was last accessed. The value must be between 1 and 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -122,7 +132,17 @@ namespace Models
 
 
     protected:
+      // The rule attribute. Valid value:
+      // 
+      // - `RetrieveType`: The retrieval method.
       shared_ptr<string> attribute_ {};
+      // The retrieval method. Valid values:
+      // 
+      // - If `Attribute` is set to `RetrieveType`:
+      // 
+      //   - `AfterVisit`: Retrieves data on a best-effort basis after a file is accessed. This value is valid only when `LifecyclePolicyType` is `Auto`.
+      // 
+      //   - `All`: Retrieves all data. This value is valid only when `LifecyclePolicyType` is `OnDemand`.
       shared_ptr<string> threshold_ {};
     };
 
@@ -185,14 +205,37 @@ namespace Models
 
 
   protected:
+    // The description of the lifecycle policy.
+    // 
+    // The description must be 3 to 64 characters long and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
+    // 
+    // > This parameter is supported only for CPFS for AI file systems.
     shared_ptr<string> description_ {};
+    // The ID of the file system.
+    // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
+    // The ID of the lifecycle policy.
+    // 
+    // > This parameter is required for CPFS for AI file systems.
+    // 
     // This parameter is required.
     shared_ptr<string> lifecyclePolicyId_ {};
+    // The absolute paths of the directories to which the lifecycle policy applies.
     shared_ptr<vector<string>> paths_ {};
+    // The retrieval rule for files. You can specify only one retrieval rule.
+    // 
+    // > This parameter is supported only for CPFS for AI file systems.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::RetrieveRules>> retrieveRules_ {};
+    // The storage tier.
+    // 
+    // - `InfrequentAccess`: The Infrequent Access storage tier. This is the default value.
+    // 
+    // - `Archive`: The Archive storage tier.
     shared_ptr<string> storageType_ {};
+    // The transition rule for files. You can specify only one transition rule.
+    // 
+    // > This parameter is supported only for CPFS for AI file systems when `LifecyclePolicyType` is set to `Auto`.
     shared_ptr<vector<UpdateLifecyclePolicyRequest::TransitRules>> transitRules_ {};
   };
 
