@@ -78,12 +78,23 @@ namespace Models
 
 
   protected:
+    // Custom configurations for the task, provided as a JSON string.
     shared_ptr<string> config_ {};
+    // The event time of the data to be published, in ISO 8601 format.
     shared_ptr<string> eventTime_ {};
+    // The synchronization mode. The following values are supported:
+    // 
+    // - `Overwrite`: Overwrites all data in the specified partitions.
+    // 
+    // - `Merge`: Merges the new data with existing data in the specified partitions.
+    // 
     // This parameter is required.
     shared_ptr<string> mode_ {};
+    // Specifies whether to synchronize data from the offline table to the online store.
+    // 
     // This parameter is required.
     shared_ptr<bool> offlineToOnline_ {};
+    // The partitions to publish.
     shared_ptr<map<string, Darabonba::Json>> partitions_ {};
   };
 

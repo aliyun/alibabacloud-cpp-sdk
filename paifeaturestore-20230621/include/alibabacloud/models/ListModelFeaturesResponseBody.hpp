@@ -127,13 +127,21 @@ namespace Models
 
 
     protected:
+      // The time the model feature was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time the model feature was last updated.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The label table name.
       shared_ptr<string> labelTableName_ {};
+      // The model feature ID.
       shared_ptr<string> modelFeatureId_ {};
+      // The model feature name.
       shared_ptr<string> name_ {};
+      // The Alibaba Cloud account ID of the owner.
       shared_ptr<string> owner_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
     };
 
@@ -163,8 +171,11 @@ namespace Models
 
 
   protected:
+    // The list of model features.
     shared_ptr<vector<ListModelFeaturesResponseBody::ModelFeatures>> modelFeatures_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of model features.
     shared_ptr<int64_t> totalCount_ {};
   };
 

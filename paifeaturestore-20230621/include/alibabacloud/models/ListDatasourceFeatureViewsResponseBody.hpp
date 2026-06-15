@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // Date.
         shared_ptr<string> date_ {};
+        // Total read count.
         shared_ptr<int64_t> totalReadCount_ {};
+        // Total write count.
         shared_ptr<int64_t> totalWriteCount_ {};
       };
 
@@ -137,8 +140,11 @@ namespace Models
 
 
     protected:
+      // Total disk usage.
       shared_ptr<double> totalDiskUsage_ {};
+      // Total memory usage.
       shared_ptr<double> totalMemoryUsage_ {};
+      // Total read/write count statistics.
       shared_ptr<vector<TotalUsageStatistics::TotalReadWriteCount>> totalReadWriteCount_ {};
     };
 
@@ -247,8 +253,11 @@ namespace Models
 
 
         protected:
+          // Date.
           shared_ptr<string> date_ {};
+          // Read count.
           shared_ptr<int64_t> readCount_ {};
+          // Write count.
           shared_ptr<int64_t> writeCount_ {};
         };
 
@@ -285,9 +294,13 @@ namespace Models
 
 
       protected:
+        // Disk usage.
         shared_ptr<double> diskUsage_ {};
+        // Memory usage.
         shared_ptr<double> memoryUsage_ {};
+        // Read/write count statistics.
         shared_ptr<vector<UsageStatistics::ReadWriteCount>> readWriteCount_ {};
+        // Row count.
         shared_ptr<int64_t> rowCount_ {};
       };
 
@@ -353,13 +366,27 @@ namespace Models
 
 
     protected:
+      // Feature view configuration. Only feature views using FeatureDB have values, showing number of shards and number of replicas.
       shared_ptr<string> config_ {};
+      // Feature entity name.
       shared_ptr<string> featureEntityName_ {};
+      // Feature view ID.
       shared_ptr<string> featureViewId_ {};
+      // Feature view name.
       shared_ptr<string> name_ {};
+      // Project name.
       shared_ptr<string> projectName_ {};
+      // Lifecycle. Unit: seconds.
       shared_ptr<int32_t> TTL_ {};
+      // Feature view type.
+      // 
+      // - Batch - offline feature
+      // 
+      // - Stream - real-time feature
+      // 
+      // - Sequence - sequence feature
       shared_ptr<string> type_ {};
+      // Usage statistics. Only displayed for feature views using FeatureDB.
       shared_ptr<FeatureViews::UsageStatistics> usageStatistics_ {};
     };
 
@@ -398,8 +425,11 @@ namespace Models
 
 
   protected:
+    // Feature view list.
     shared_ptr<vector<ListDatasourceFeatureViewsResponseBody::FeatureViews>> featureViews_ {};
+    // Total count.
     shared_ptr<int64_t> totalCount_ {};
+    // Overall usage statistics. Only displayed for feature views using FeatureDB.
     shared_ptr<ListDatasourceFeatureViewsResponseBody::TotalUsageStatistics> totalUsageStatistics_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

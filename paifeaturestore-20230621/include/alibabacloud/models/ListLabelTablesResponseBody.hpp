@@ -136,14 +136,23 @@ namespace Models
 
 
     protected:
+      // The ID of the data source.
       shared_ptr<string> datasourceId_ {};
+      // The name of the data source.
       shared_ptr<string> datasourceName_ {};
+      // The time when the label table was created. The time is displayed in the ISO 8601 format.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the label table was last modified. The time is displayed in the ISO 8601 format.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The ID of the label table.
       shared_ptr<string> labelTableId_ {};
+      // The name of the label table.
       shared_ptr<string> name_ {};
+      // The Alibaba Cloud account ID of the owner.
       shared_ptr<string> owner_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
     };
 
@@ -173,8 +182,11 @@ namespace Models
 
 
   protected:
+    // The list of label tables.
     shared_ptr<vector<ListLabelTablesResponseBody::LabelTables>> labelTables_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of label tables.
     shared_ptr<int64_t> totalCount_ {};
   };
 

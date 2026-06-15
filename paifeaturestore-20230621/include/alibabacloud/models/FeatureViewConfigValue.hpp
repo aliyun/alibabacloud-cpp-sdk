@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The partition configuration for the snapshot.
       shared_ptr<map<string, FeatureViewConfigValueSnapshotPartitionsValue>> partitions_ {};
+      // The name of the snapshot table.
       shared_ptr<string> table_ {};
     };
 
@@ -145,11 +147,17 @@ namespace Models
 
 
   protected:
+    // The list of partitions.
     shared_ptr<map<string, FeatureViewConfigValuePartitionsValue>> partitions_ {};
+    // The event time.
     shared_ptr<string> eventTime_ {};
+    // Specifies whether the feature\\"s timestamp must match the event time.
     shared_ptr<bool> equal_ {};
+    // Specifies whether to use a mock data table.
     shared_ptr<bool> useMock_ {};
+    // The snapshot configuration.
     shared_ptr<FeatureViewConfigValue::Snapshot> snapshot_ {};
+    // The second join key.
     shared_ptr<string> secondJoinKey_ {};
     shared_ptr<bool> joinWithLabel_ {};
   };

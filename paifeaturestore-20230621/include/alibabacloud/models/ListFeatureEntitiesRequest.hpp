@@ -115,14 +115,27 @@ namespace Models
 
 
   protected:
+    // Filters the results by a list of feature entity IDs.
     shared_ptr<vector<string>> featureEntityIds_ {};
+    // Filters the results by feature entity name.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values:
+    // 
+    // - `Asc`: Ascending order.
+    // 
+    // - `Desc`: Descending order.
     shared_ptr<string> order_ {};
+    // The Alibaba Cloud account ID of the creator.
     shared_ptr<string> owner_ {};
+    // The page number. Values start at 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters the results by parent feature entity ID. Omit this parameter to return all feature entities. Set it to `0` to return all root feature entities. Set it to a non-zero value to return all child feature entities of the specified parent.
     shared_ptr<string> parentFeatureEntityId_ {};
+    // The project ID. You can obtain this ID by calling the `ListProjects` operation.
     shared_ptr<string> projectId_ {};
+    // The field to sort the results by.
     shared_ptr<string> sortBy_ {};
   };
 

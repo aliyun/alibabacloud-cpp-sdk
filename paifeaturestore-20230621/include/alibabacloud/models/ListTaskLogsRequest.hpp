@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The page number. The minimum value is 1. The default value is 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
   };
 

@@ -90,9 +90,23 @@ namespace Models
 
 
     protected:
+      // Feature name.
       shared_ptr<string> name_ {};
+      // Source name.
       shared_ptr<string> sourceName_ {};
+      // Feature source.
+      // 
+      // - FeatureView
+      // 
+      // - LabelTable
       shared_ptr<string> sourceType_ {};
+      // Feature value type.
+      // 
+      // - INTEGER
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
       shared_ptr<string> type_ {};
     };
 
@@ -122,8 +136,11 @@ namespace Models
 
 
   protected:
+    // List of available features.
     shared_ptr<vector<ListModelFeatureAvailableFeaturesResponseBody::AvaliableFeatures>> avaliableFeatures_ {};
+    // Total number of features.
     shared_ptr<int64_t> totalCount_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

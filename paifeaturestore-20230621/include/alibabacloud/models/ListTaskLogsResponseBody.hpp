@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // An array of log entries.
     shared_ptr<vector<string>> logs_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of log entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

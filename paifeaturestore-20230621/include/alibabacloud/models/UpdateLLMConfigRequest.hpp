@@ -121,20 +121,36 @@ namespace Models
 
 
   protected:
+    // The API key used to call the large language model (LLM).
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The base URL for calling the large language model (LLM).
+    // 
     // This parameter is required.
     shared_ptr<string> baseUrl_ {};
+    // The batch size.
     shared_ptr<int32_t> batchSize_ {};
+    // The embedding dimension. If you omit this parameter or set it to 0, the model uses its default dimension.
     shared_ptr<int32_t> embeddingDimension_ {};
+    // Whether to enable data fusion.
     shared_ptr<bool> enableFusion_ {};
+    // The maximum number of input tokens per row.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> maxTokens_ {};
+    // The model name.
+    // 
     // This parameter is required.
     shared_ptr<string> model_ {};
+    // The model type.
     shared_ptr<string> modelType_ {};
+    // The name of the large language model (LLM) call configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The maximum number of requests per second (RPS).
+    // 
     // This parameter is required.
     shared_ptr<int32_t> rps_ {};
   };

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The instance type. The only supported value is `Basic`.
     shared_ptr<string> type_ {};
   };
 

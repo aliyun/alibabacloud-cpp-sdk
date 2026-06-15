@@ -103,13 +103,25 @@ namespace Models
 
 
   protected:
+    // The project name to filter by.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values:
+    // 
+    // - `Asc`: ascending order.
+    // 
+    // - `Desc`: descending order.
     shared_ptr<string> order_ {};
+    // The Alibaba Cloud account ID of the project owner.
     shared_ptr<string> owner_ {};
+    // The page number. Starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // An array of project IDs to filter by.
     shared_ptr<string> projectIdsShrink_ {};
+    // The field to sort the results by.
     shared_ptr<string> sortBy_ {};
+    // The ID of the workspace. Call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to get this ID.
     shared_ptr<string> workspaceId_ {};
   };
 

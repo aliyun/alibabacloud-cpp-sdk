@@ -75,10 +75,29 @@ namespace Models
 
 
   protected:
+    // The sort order.
+    // 
+    // - ASC: Ascending order.
+    // 
+    // - DESC: Descending order.
     shared_ptr<string> order_ {};
+    // The page number. Pages start at 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The sort key.
+    // 
+    // - GmtCreateTime: The creation time.
+    // 
+    // - GmtModifiedTime: The update time.
     shared_ptr<string> sortBy_ {};
+    // Filters the results by instance status.
+    // 
+    // - Initializing
+    // 
+    // - Running
+    // 
+    // - Stopped
     shared_ptr<string> status_ {};
   };
 

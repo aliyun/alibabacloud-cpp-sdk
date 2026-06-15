@@ -139,11 +139,33 @@ namespace Models
 
 
       protected:
+        // The default value.
         shared_ptr<string> defaultValue_ {};
+        // The domain of the original feature.
+        // 
+        // - User: The user side.
+        // 
+        // - Item: The item side.
+        // 
+        // - Context: The context.
         shared_ptr<string> featureDomain_ {};
+        // The name of the generated feature.
         shared_ptr<string> featureName_ {};
+        // The type of the FG feature.
+        // 
+        // - IdFeature: The primary key.
+        // 
+        // - RawFeature: The raw feature.
         shared_ptr<string> featureType_ {};
+        // The name of the original feature.
         shared_ptr<string> inputFeatureName_ {};
+        // The value type of the feature.
+        // 
+        // - INTEGER
+        // 
+        // - DOUBLE
+        // 
+        // - STRING
         shared_ptr<string> valueType_ {};
       };
 
@@ -187,10 +209,15 @@ namespace Models
 
 
     protected:
+      // The separator for feature attributes.
       shared_ptr<string> attributeDelim_ {};
+      // The name of the sequence feature.
       shared_ptr<string> featureName_ {};
+      // The separator for the sequence feature.
       shared_ptr<string> sequenceDelim_ {};
+      // The maximum length of the sequence feature.
       shared_ptr<int64_t> sequenceLength_ {};
+      // A list of sub-features for the sequence feature.
       shared_ptr<vector<SequenceFeatures::SubFeatures>> subFeatures_ {};
     };
 
@@ -268,11 +295,33 @@ namespace Models
 
 
     protected:
+      // The default value.
       shared_ptr<string> defaultValue_ {};
+      // The domain of the original feature.
+      // 
+      // - User: The user side.
+      // 
+      // - Item: The item side.
+      // 
+      // - Context: The context.
       shared_ptr<string> featureDomain_ {};
+      // The name of the generated feature.
       shared_ptr<string> featureName_ {};
+      // The type of the raw FG feature.
+      // 
+      // - IdFeature: The primary key.
+      // 
+      // - RawFeature: The raw feature.
       shared_ptr<string> featureType_ {};
+      // The name of the original feature.
       shared_ptr<string> inputFeatureName_ {};
+      // The value type of the feature.
+      // 
+      // - INTEGER
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
       shared_ptr<string> valueType_ {};
     };
 
@@ -360,12 +409,37 @@ namespace Models
 
 
     protected:
+      // The default value.
       shared_ptr<string> defaultValue_ {};
+      // The name of the generated feature.
       shared_ptr<string> featureName_ {};
+      // The domain of the key feature.
+      // 
+      // - User: The user side.
+      // 
+      // - Item: The item side.
+      // 
+      // - Context: The context.
       shared_ptr<string> keyFeatureDomain_ {};
+      // The name of the key feature.
       shared_ptr<string> keyFeatureName_ {};
+      // The domain of the map feature.
+      // 
+      // - User: The user side.
+      // 
+      // - Item: The item side.
+      // 
+      // - Context: The context.
       shared_ptr<string> mapFeatureDomain_ {};
+      // The name of the map feature.
       shared_ptr<string> mapFeatureName_ {};
+      // The value type of the feature.
+      // 
+      // - INTEGER
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
       shared_ptr<string> valueType_ {};
     };
 
@@ -415,10 +489,15 @@ namespace Models
 
 
   protected:
+    // The information about the lookup features.
     shared_ptr<vector<GetModelFeatureFGFeatureResponseBody::LookupFeatures>> lookupFeatures_ {};
+    // The information about the raw features.
     shared_ptr<vector<GetModelFeatureFGFeatureResponseBody::RawFeatures>> rawFeatures_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The reserved fields.
     shared_ptr<vector<string>> reserves_ {};
+    // The information about the sequence features.
     shared_ptr<vector<GetModelFeatureFGFeatureResponseBody::SequenceFeatures>> sequenceFeatures_ {};
   };
 

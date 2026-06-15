@@ -83,8 +83,31 @@ namespace Models
 
 
     protected:
+      // The attributes of the field. Valid values:
+      // 
+      // ● Partition: indicates that the field is a partition field.
+      // 
+      // ● EventTime: indicates that the field is an event time field.
+      // 
+      // ● PrimaryKey: indicates that the field is a primary key field.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
       shared_ptr<string> name_ {};
+      // The data type of the field. Valid values:
+      // 
+      // ● INT32
+      // 
+      // ● INT64
+      // 
+      // ● FLOAT
+      // 
+      // ● DOUBLE
+      // 
+      // ● STRING
+      // 
+      // ● BOOLEAN
+      // 
+      // ● TIMESTAMP
       shared_ptr<string> type_ {};
     };
 
@@ -114,8 +137,11 @@ namespace Models
 
 
   protected:
+    // The list of fields.
     shared_ptr<vector<GetDatasourceTableResponseBody::Fields>> fields_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the data table.
     shared_ptr<string> tableName_ {};
   };
 

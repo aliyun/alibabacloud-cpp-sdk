@@ -93,7 +93,9 @@ namespace Models
 
 
       protected:
+        // The ID of the model.
         shared_ptr<string> modelId_ {};
+        // The name of the model.
         shared_ptr<string> modelName_ {};
       };
 
@@ -123,8 +125,11 @@ namespace Models
 
 
     protected:
+      // The name of the feature view.
       shared_ptr<string> featureViewName_ {};
+      // A list of models.
       shared_ptr<vector<Relationships::Models>> models_ {};
+      // The name of the project.
       shared_ptr<string> projectName_ {};
     };
 
@@ -147,7 +152,9 @@ namespace Models
 
 
   protected:
+    // A list of relationships to models that use this feature view.
     shared_ptr<vector<ListFeatureViewRelationshipsResponseBody::Relationships>> relationships_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

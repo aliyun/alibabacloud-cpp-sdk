@@ -149,8 +149,11 @@ namespace Models
 
 
         protected:
+          // The modality of the input, such as text or image.
           shared_ptr<string> modality_ {};
+          // The name of the input field.
           shared_ptr<string> name_ {};
+          // The data type of the input field.
           shared_ptr<string> type_ {};
         };
 
@@ -180,8 +183,11 @@ namespace Models
 
 
       protected:
+        // The input for feature generation.
         shared_ptr<vector<Transform::Input>> input_ {};
+        // The ID of the large language model (LLM) configuration.
         shared_ptr<int32_t> LLMConfigId_ {};
+        // The type of the feature generation.
         shared_ptr<string> type_ {};
       };
 
@@ -220,9 +226,33 @@ namespace Models
 
 
     protected:
+      // The attributes of the field. Valid values:
+      // 
+      // - `Partition`: partition field.
+      // 
+      // - `PrimaryKey`: primary key.
+      // 
+      // - `EventTime`: event time.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
       shared_ptr<string> name_ {};
+      // The feature generation configurations.
       shared_ptr<vector<Fields::Transform>> transform_ {};
+      // The data type of the field. Valid values:
+      // 
+      // - INT32
+      // 
+      // - INT64
+      // 
+      // - FLOAT
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
+      // 
+      // - BOOLEAN
+      // 
+      // - TIMESTAMP
       shared_ptr<string> type_ {};
     };
 
@@ -326,23 +356,57 @@ namespace Models
 
 
   protected:
+    // The configurations of the feature view.
     shared_ptr<string> config_ {};
+    // The ID of the feature entity.
     shared_ptr<string> featureEntityId_ {};
+    // The fields.
     shared_ptr<vector<CreateFeatureViewRequest::Fields>> fields_ {};
+    // The name of the feature view.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The ID of the project.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
+    // The ID of the data source to which the table to be registered belongs. You can call the ListDatasources operation to obtain the data source ID.
     shared_ptr<string> registerDatasourceId_ {};
+    // The name of the table to register.
     shared_ptr<string> registerTable_ {};
+    // Specifies whether to synchronize the online feature table. Valid values:
+    // 
+    // - `true`: Synchronizes the online feature table.
+    // 
+    // - `false`: Does not synchronize the online feature table.
+    // 
     // This parameter is required.
     shared_ptr<bool> syncOnlineTable_ {};
+    // The time-to-live (TTL) of the feature view, in days.
     shared_ptr<int32_t> TTL_ {};
+    // The tags of the feature view.
     shared_ptr<vector<string>> tags_ {};
+    // The type of the feature view. Valid values:
+    // 
+    // - `Batch`: Offline feature.
+    // 
+    // - `Stream`: Real-time feature.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The write method. Valid values:
+    // 
+    // - `ByReadyMadeTable`: Registers the feature view by using an existing table.
+    // 
+    // - `Custom`: Defines a custom table structure.
+    // 
     // This parameter is required.
     shared_ptr<string> writeMethod_ {};
+    // Specifies whether to write data to the online feature store. Valid values:
+    // 
+    // - `true`: Writes data to the online feature store.
+    // 
+    // - `false`: Does not write data to the online feature store.
     shared_ptr<bool> writeToFeatureDB_ {};
   };
 

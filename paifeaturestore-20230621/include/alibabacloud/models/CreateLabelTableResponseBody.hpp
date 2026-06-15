@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The label table ID.
     shared_ptr<string> labelTableId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

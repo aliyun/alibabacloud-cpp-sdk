@@ -79,8 +79,19 @@ namespace Models
 
 
     protected:
+      // The error message.
       shared_ptr<string> message_ {};
+      // The rule code for the check.
+      // 
+      // - SeqSubEx—Are the sub-features of sequence features in the FG present in the model feature?
+      // 
+      // - LookupKeyEx—Does the lookup key feature of query features exist in the model feature?
+      // 
+      // - FGSetEx—Are all FG features present in the model feature?
+      // 
+      // - ModelSetEx—Are all model feature features present in the FG?
       shared_ptr<string> ruleCode_ {};
+      // Whether the rule passes.
       shared_ptr<bool> status_ {};
     };
 
@@ -103,7 +114,9 @@ namespace Models
 
 
   protected:
+    // The FG configuration check results.
     shared_ptr<vector<CheckModelFeatureFGFeatureResponseBody::FGCheckResults>> FGCheckResults_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

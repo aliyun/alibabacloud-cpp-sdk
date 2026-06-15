@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // An array of the retrieved online feature records.
     shared_ptr<vector<string>> onlineFeatures_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

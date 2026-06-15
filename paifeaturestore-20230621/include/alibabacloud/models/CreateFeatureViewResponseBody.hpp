@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The feature view ID.
     shared_ptr<string> featureViewId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

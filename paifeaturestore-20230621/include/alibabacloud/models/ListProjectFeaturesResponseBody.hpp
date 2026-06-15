@@ -127,13 +127,21 @@ namespace Models
 
 
     protected:
+      // A comma-separated list of aliases for the feature.
       shared_ptr<string> aliasNames_ {};
+      // The ID of the parent feature view.
       shared_ptr<string> featureViewId_ {};
+      // The name of the parent feature view.
       shared_ptr<string> featureViewName_ {};
+      // The time the feature was created, in ISO 8601 format.
       shared_ptr<string> gmtCreateTime_ {};
+      // The number of model features that reference this feature.
       shared_ptr<int32_t> modelFeatureCount_ {};
+      // The name of the feature.
       shared_ptr<string> name_ {};
+      // The owner of the feature.
       shared_ptr<string> owner_ {};
+      // The data type of the feature.
       shared_ptr<string> type_ {};
     };
 
@@ -163,9 +171,11 @@ namespace Models
 
 
   protected:
+    // The list of returned features.
     shared_ptr<vector<ListProjectFeaturesResponseBody::Features>> features_ {};
+    // The total number of features that match the query criteria.
     shared_ptr<int32_t> totalCount_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

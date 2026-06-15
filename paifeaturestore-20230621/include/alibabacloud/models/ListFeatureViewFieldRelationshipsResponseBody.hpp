@@ -104,8 +104,11 @@ namespace Models
 
 
       protected:
+        // The feature alias.
         shared_ptr<string> featureAliasName_ {};
+        // The ID of the model.
         shared_ptr<string> modelId_ {};
+        // The name of the model.
         shared_ptr<string> modelName_ {};
       };
 
@@ -142,9 +145,13 @@ namespace Models
 
 
     protected:
+      // The feature view name.
       shared_ptr<string> featureName_ {};
+      // A list of models.
       shared_ptr<vector<Relationships::Models>> models_ {};
+      // The name of the offline table.
       shared_ptr<string> offlineTableName_ {};
+      // The name of the online table.
       shared_ptr<string> onlineTableName_ {};
     };
 
@@ -167,7 +174,9 @@ namespace Models
 
 
   protected:
+    // A list of relationships.
     shared_ptr<vector<ListFeatureViewFieldRelationshipsResponseBody::Relationships>> relationships_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

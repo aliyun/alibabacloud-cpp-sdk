@@ -126,8 +126,11 @@ namespace Models
 
 
       protected:
+        // The source ID of the link.
         shared_ptr<string> from_ {};
+        // The dependency field of the link.
         shared_ptr<string> link_ {};
+        // The destination ID of the link.
         shared_ptr<string> to_ {};
       };
 
@@ -178,9 +181,15 @@ namespace Models
 
 
       protected:
+        // The domain type. Valid values:
+        // 
+        // - FeatureEntity: feature entity.
+        // - FeatureView: feature view.
+        // - ModelFeature: model feature.
         shared_ptr<string> domainType_ {};
         // Domain ID。
         shared_ptr<string> id_ {};
+        // The domain name.
         shared_ptr<string> name_ {};
       };
 
@@ -205,7 +214,9 @@ namespace Models
 
 
     protected:
+      // The domain list.
       shared_ptr<vector<Relations::Domains>> domains_ {};
+      // The feature relationship link list.
       shared_ptr<vector<Relations::Links>> links_ {};
     };
 
@@ -216,6 +227,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(FeatureViewId, featureViewId_);
         DARABONBA_PTR_TO_JSON(FeatureViewName, featureViewName_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(PrefixName, prefixName_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Features& obj) { 
@@ -223,6 +235,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(FeatureViewId, featureViewId_);
         DARABONBA_PTR_FROM_JSON(FeatureViewName, featureViewName_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(PrefixName, prefixName_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
       };
       Features() = default ;
@@ -237,7 +250,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aliasName_ == nullptr
-        && this->featureViewId_ == nullptr && this->featureViewName_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+        && this->featureViewId_ == nullptr && this->featureViewName_ == nullptr && this->name_ == nullptr && this->prefixName_ == nullptr && this->type_ == nullptr; };
       // aliasName Field Functions 
       bool hasAliasName() const { return this->aliasName_ != nullptr;};
       void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -266,6 +279,13 @@ namespace Models
       inline Features& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // prefixName Field Functions 
+      bool hasPrefixName() const { return this->prefixName_ != nullptr;};
+      void deletePrefixName() { this->prefixName_ = nullptr;};
+      inline string getPrefixName() const { DARABONBA_PTR_GET_DEFAULT(prefixName_, "") };
+      inline Features& setPrefixName(string prefixName) { DARABONBA_PTR_SET_VALUE(prefixName_, prefixName) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -274,10 +294,24 @@ namespace Models
 
 
     protected:
+      // The feature alias.
       shared_ptr<string> aliasName_ {};
+      // The feature view ID.
       shared_ptr<string> featureViewId_ {};
+      // The feature view name.
       shared_ptr<string> featureViewName_ {};
+      // The feature name.
       shared_ptr<string> name_ {};
+      shared_ptr<string> prefixName_ {};
+      // The feature type. Valid values:
+      // 
+      // - INT32
+      // - INT64
+      // - FLOAT
+      // - DOUBLE
+      // - STRING
+      // - BOOLEAN
+      // - TIMESTAMP.
       shared_ptr<string> type_ {};
     };
 
@@ -395,20 +429,35 @@ namespace Models
 
 
   protected:
+    // The script for exporting the training sample table.
     shared_ptr<string> exportTrainingSetTableScript_ {};
+    // The feature list.
     shared_ptr<vector<GetModelFeatureResponseBody::Features>> features_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The priority level of the label table. Default value: 0. Set to 1 to prioritize the label table. Set to 2 to prioritize the feature view.
     shared_ptr<int64_t> labelPriorityLevel_ {};
+    // The label table ID.
     shared_ptr<string> labelTableId_ {};
+    // The label table name.
     shared_ptr<string> labelTableName_ {};
+    // The model feature name.
     shared_ptr<string> name_ {};
+    // The Alibaba Cloud account ID of the creator.
     shared_ptr<string> owner_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The feature relationships.
     shared_ptr<GetModelFeatureResponseBody::Relations> relations_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the exported training set FG table.
     shared_ptr<string> trainingSetFGTable_ {};
+    // The name of the exported training set table.
     shared_ptr<string> trainingSetTable_ {};
   };
 

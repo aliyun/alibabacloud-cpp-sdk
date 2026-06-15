@@ -103,13 +103,29 @@ namespace Models
 
 
   protected:
+    // The IDs of the model features.
     shared_ptr<string> modelFeatureIdsShrink_ {};
+    // The name of the model feature.
     shared_ptr<string> name_ {};
+    // The sort order.
+    // 
+    // - `ASC`: ascending order.
+    // 
+    // - `DESC`: descending order.
     shared_ptr<string> order_ {};
+    // The Alibaba Cloud account ID of the user who creates the model feature.
     shared_ptr<string> owner_ {};
+    // The page number. The value must be a positive integer. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The project ID. You can call the `ListProjects` API to obtain the project ID.
     shared_ptr<string> projectId_ {};
+    // The field by which to sort the results.
+    // 
+    // - `GmtCreateTime`: the creation time.
+    // 
+    // - `GmtModifiedTime`: the update time.
     shared_ptr<string> sortBy_ {};
   };
 

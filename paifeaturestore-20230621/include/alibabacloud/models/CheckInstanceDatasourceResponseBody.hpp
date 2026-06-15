@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource check status.
+    // 
+    // - Success: succeeded
+    // 
+    // - Failure: failed
     shared_ptr<string> status_ {};
   };
 

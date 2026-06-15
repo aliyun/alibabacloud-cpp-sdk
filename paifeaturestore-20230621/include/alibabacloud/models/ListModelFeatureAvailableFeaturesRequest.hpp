@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Filter by feature name.
     shared_ptr<string> featureName_ {};
   };
 

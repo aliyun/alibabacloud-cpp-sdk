@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The resource configuration.
     shared_ptr<string> config_ {};
+    // The data source name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The resource URI.
+    // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
   };

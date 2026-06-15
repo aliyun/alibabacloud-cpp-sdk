@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The feature alias. Fuzzy search is supported.
     shared_ptr<string> aliasName_ {};
+    // Additional filter conditions in a JSON object. Conditions are combined by using the AND operator.
     shared_ptr<string> filter_ {};
+    // The feature name. Fuzzy search is supported.
     shared_ptr<string> name_ {};
+    // Specifies the sort order. Valid values: `Asc` and `Desc`.
     shared_ptr<string> order_ {};
+    // The page number. Starts from 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of features to return per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The field used to sort the returned features.
     shared_ptr<string> sortBy_ {};
   };
 

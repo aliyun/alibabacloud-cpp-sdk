@@ -130,19 +130,32 @@ namespace Models
 
 
   protected:
+    // The API key for the model.
+    // 
     // This parameter is required.
     shared_ptr<string> apiKey_ {};
+    // The base URL of the model service.
     shared_ptr<string> baseUrl_ {};
+    // The batch size.
     shared_ptr<int32_t> batchSize_ {};
+    // The embedding dimension. For a DashScope model, this value must match one of the fixed, valid dimensions supported by the model.
     shared_ptr<int32_t> embeddingDimension_ {};
     shared_ptr<bool> enableFusion_ {};
+    // The maximum number of input tokens.
     shared_ptr<int32_t> maxTokens_ {};
+    // The name of the model.
+    // 
     // This parameter is required.
     shared_ptr<string> model_ {};
     shared_ptr<string> modelType_ {};
+    // The name of the LLM configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The number of requests per second.
     shared_ptr<int32_t> rps_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

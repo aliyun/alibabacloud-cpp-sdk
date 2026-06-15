@@ -195,20 +195,35 @@ namespace Models
 
 
     protected:
+      // The API key.
       shared_ptr<string> apiKey_ {};
+      // The base URL for API calls.
       shared_ptr<string> baseUrl_ {};
+      // The batch size.
       shared_ptr<int32_t> batchSize_ {};
+      // The embedding dimension. If this parameter is empty or set to 0, the system uses the model\\"s default dimension.
       shared_ptr<int32_t> embeddingDimension_ {};
+      // Specifies whether to enable the Fusion feature.
       shared_ptr<bool> enableFusion_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The modification time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The LLM configuration ID.
       shared_ptr<string> LLMConfigId_ {};
+      // The maximum number of tokens to process for a single input.
       shared_ptr<int32_t> maxTokens_ {};
+      // The model name.
       shared_ptr<string> model_ {};
+      // The model type.
       shared_ptr<string> modelType_ {};
+      // The name of the LLM configuration.
       shared_ptr<string> name_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The maximum number of requests per second (RPS).
       shared_ptr<int32_t> rps_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -252,12 +267,17 @@ namespace Models
 
 
   protected:
+    // A list of LLM configuration objects.
+    // 
     // This parameter is required.
     shared_ptr<vector<ListLLMConfigsResponseBody::LLMConfigs>> LLMConfigs_ {};
+    // The maximum number of results returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for retrieving the next page of results. If this parameter is not returned, no more results are available. To retrieve the next page, pass this value in the `NextToken` parameter of a subsequent request.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count.
     shared_ptr<int64_t> totalCount_ {};
   };
 

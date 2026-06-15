@@ -94,12 +94,29 @@ namespace Models
 
 
   protected:
+    // The name of the data source.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values:
+    // 
+    // - Asc: ascending order.
+    // 
+    // - Desc: descending order.
     shared_ptr<string> order_ {};
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of data sources per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort by.
     shared_ptr<string> sortBy_ {};
+    // The type of the data source. Valid values:
+    // 
+    // - Hologres
+    // 
+    // - Redis
+    // 
+    // - MaxCompute
     shared_ptr<string> type_ {};
+    // The ID of the workspace. Call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to get the workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

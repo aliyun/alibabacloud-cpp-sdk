@@ -42,12 +42,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(FeatureViewId, featureViewId_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(PrefixName, prefixName_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, Features& obj) { 
         DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(FeatureViewId, featureViewId_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(PrefixName, prefixName_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
       };
       Features() = default ;
@@ -62,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->aliasName_ == nullptr
-        && this->featureViewId_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+        && this->featureViewId_ == nullptr && this->name_ == nullptr && this->prefixName_ == nullptr && this->type_ == nullptr; };
       // aliasName Field Functions 
       bool hasAliasName() const { return this->aliasName_ != nullptr;};
       void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -84,6 +86,13 @@ namespace Models
       inline Features& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // prefixName Field Functions 
+      bool hasPrefixName() const { return this->prefixName_ != nullptr;};
+      void deletePrefixName() { this->prefixName_ = nullptr;};
+      inline string getPrefixName() const { DARABONBA_PTR_GET_DEFAULT(prefixName_, "") };
+      inline Features& setPrefixName(string prefixName) { DARABONBA_PTR_SET_VALUE(prefixName_, prefixName) };
+
+
       // type Field Functions 
       bool hasType() const { return this->type_ != nullptr;};
       void deleteType() { this->type_ = nullptr;};
@@ -92,11 +101,27 @@ namespace Models
 
 
     protected:
+      // The feature alias.
       shared_ptr<string> aliasName_ {};
+      // The feature view ID. You can call the ListFeatureViews operation to query the feature view ID.
+      // 
       // This parameter is required.
       shared_ptr<string> featureViewId_ {};
+      // The feature name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      shared_ptr<string> prefixName_ {};
+      // The feature type. Valid values:
+      // 
+      // - INT32
+      // - INT64
+      // - FLOAT
+      // - DOUBLE
+      // - STRING
+      // - BOOLEAN
+      // - TIMESTAMP.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -136,8 +161,10 @@ namespace Models
 
 
   protected:
+    // The list of features.
     shared_ptr<vector<UpdateModelFeatureRequest::Features>> features_ {};
     shared_ptr<int64_t> labelPriorityLevel_ {};
+    // The label table ID. You can call the ListLabelTables operation to query the label table ID.
     shared_ptr<string> labelTableId_ {};
     shared_ptr<vector<string>> sequenceFeatureViewIds_ {};
   };

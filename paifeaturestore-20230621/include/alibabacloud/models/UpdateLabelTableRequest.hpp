@@ -93,10 +93,16 @@ namespace Models
 
     protected:
       shared_ptr<string> alignedEntityName_ {};
+      // The field\\"s attributes.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The data type of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -127,9 +133,13 @@ namespace Models
 
 
   protected:
+    // The ID of the data source for the label table.
     shared_ptr<string> datasourceId_ {};
+    // The fields to modify.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateLabelTableRequest::Fields>> fields_ {};
+    // The name of the label table.
     shared_ptr<string> name_ {};
   };
 

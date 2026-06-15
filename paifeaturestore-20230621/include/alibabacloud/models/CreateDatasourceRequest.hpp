@@ -75,13 +75,30 @@ namespace Models
 
 
   protected:
+    // The configuration of the resource.
     shared_ptr<string> config_ {};
+    // The name of the datasource.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The datasource type. Valid values are:
+    // 
+    // ● Hologres
+    // 
+    // ● GraphCompute
+    // 
+    // ● Redis
+    // 
+    // ● MaxCompute
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The URI of the resource.
+    // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
+    // The ID of the workspace. Call the [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};
   };

@@ -137,16 +137,44 @@ namespace Models
 
 
       protected:
+        // Default value.
+        // 
         // This parameter is required.
         shared_ptr<string> defaultValue_ {};
+        // Input feature domain.
+        // 
+        // - User
+        // 
+        // - Item
+        // 
+        // - Context
+        // 
         // This parameter is required.
         shared_ptr<string> featureDomain_ {};
+        // Generated subfeature name.
+        // 
         // This parameter is required.
         shared_ptr<string> featureName_ {};
+        // FG sequence subfeature type.
+        // 
+        // - IdFeature
+        // 
+        // - RawFeature
+        // 
         // This parameter is required.
         shared_ptr<string> featureType_ {};
+        // Original feature name.
+        // 
         // This parameter is required.
         shared_ptr<string> inputFeatureName_ {};
+        // Feature value type.
+        // 
+        // - INTEGER
+        // 
+        // - DOUBLE
+        // 
+        // - STRING
+        // 
         // This parameter is required.
         shared_ptr<string> valueType_ {};
       };
@@ -191,14 +219,23 @@ namespace Models
 
 
     protected:
+      // Feature attribute delimiter.
+      // 
       // This parameter is required.
       shared_ptr<string> attributeDelim_ {};
+      // Sequence feature name.
+      // 
       // This parameter is required.
       shared_ptr<string> featureName_ {};
+      // Sequence feature delimiter.
+      // 
       // This parameter is required.
       shared_ptr<string> sequenceDelim_ {};
+      // Maximum length of the sequence feature.
+      // 
       // This parameter is required.
       shared_ptr<int64_t> sequenceLength_ {};
+      // List of subfeatures for the sequence feature.
       shared_ptr<vector<SequenceFeatures::SubFeatures>> subFeatures_ {};
     };
 
@@ -276,16 +313,44 @@ namespace Models
 
 
     protected:
+      // Default value.
+      // 
       // This parameter is required.
       shared_ptr<string> defaultValue_ {};
+      // Input feature domain.
+      // 
+      // - User
+      // 
+      // - Item
+      // 
+      // - Context
+      // 
       // This parameter is required.
       shared_ptr<string> featureDomain_ {};
+      // Generated feature name.
+      // 
       // This parameter is required.
       shared_ptr<string> featureName_ {};
+      // FG basic feature type.
+      // 
+      // - IdFeature
+      // 
+      // - RawFeature
+      // 
       // This parameter is required.
       shared_ptr<string> featureType_ {};
+      // The original name of the feature.
+      // 
       // This parameter is required.
       shared_ptr<string> inputFeatureName_ {};
+      // Feature value type.
+      // 
+      // - INTEGER
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
+      // 
       // This parameter is required.
       shared_ptr<string> valueType_ {};
     };
@@ -374,18 +439,50 @@ namespace Models
 
 
     protected:
+      // Default value.
+      // 
       // This parameter is required.
       shared_ptr<string> defaultValue_ {};
+      // Generated feature name.
+      // 
       // This parameter is required.
       shared_ptr<string> featureName_ {};
+      // Key feature domain.
+      // 
+      // - User
+      // 
+      // - Item
+      // 
+      // - Context
+      // 
       // This parameter is required.
       shared_ptr<string> keyFeatureDomain_ {};
+      // The name of the key feature.
+      // 
       // This parameter is required.
       shared_ptr<string> keyFeatureName_ {};
+      // Map feature domain.
+      // 
+      // - User
+      // 
+      // - Item
+      // 
+      // - Context
+      // 
       // This parameter is required.
       shared_ptr<string> mapFeatureDomain_ {};
+      // Map feature name.
+      // 
       // This parameter is required.
       shared_ptr<string> mapFeatureName_ {};
+      // Feature value type.
+      // 
+      // - INTEGER
+      // 
+      // - DOUBLE
+      // 
+      // - STRING
+      // 
       // This parameter is required.
       shared_ptr<string> valueType_ {};
     };
@@ -429,9 +526,13 @@ namespace Models
 
 
   protected:
+    // Lookup feature information.
     shared_ptr<vector<UpdateModelFeatureFGFeatureRequest::LookupFeatures>> lookupFeatures_ {};
+    // Basic feature information.
     shared_ptr<vector<UpdateModelFeatureFGFeatureRequest::RawFeatures>> rawFeatures_ {};
+    // Reserved fields.
     shared_ptr<vector<string>> reserves_ {};
+    // Sequence feature information.
     shared_ptr<vector<UpdateModelFeatureFGFeatureRequest::SequenceFeatures>> sequenceFeatures_ {};
   };
 

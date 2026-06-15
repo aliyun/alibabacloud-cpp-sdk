@@ -109,8 +109,11 @@ namespace Models
 
     protected:
       shared_ptr<string> alignedEntityName_ {};
+      // A list of field attributes.
       shared_ptr<vector<string>> attributes_ {};
+      // The field name.
       shared_ptr<string> name_ {};
+      // The field type.
       shared_ptr<string> type_ {};
     };
 
@@ -199,16 +202,27 @@ namespace Models
 
 
   protected:
+    // The data source ID.
     shared_ptr<string> datasourceId_ {};
+    // The data source name.
     shared_ptr<string> datasourceName_ {};
+    // The fields in the label table.
     shared_ptr<vector<GetLabelTableResponseBody::Fields>> fields_ {};
+    // The time when the label table was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the label table was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The label table name.
     shared_ptr<string> name_ {};
+    // The Alibaba Cloud account ID of the creator.
     shared_ptr<string> owner_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // A list of related model feature names.
     shared_ptr<vector<string>> relatedModelFeatures_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

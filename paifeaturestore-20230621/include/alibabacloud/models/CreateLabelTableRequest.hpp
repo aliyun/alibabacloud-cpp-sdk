@@ -95,10 +95,26 @@ namespace Models
 
     protected:
       shared_ptr<string> alignedEntityName_ {};
+      // The field attributes. Valid values include:
+      // 
+      // ● `Partition`: A partition field.
+      // 
+      // ● `FeatureField`: A feature field.
+      // 
+      // ● `FeatureGenerationReserveField`: A reserved field for Feature Generation (FG).
+      // 
+      // ● `EventTime`: The event time.
+      // 
+      // ● `LabelField`: A label field.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The data type of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -136,12 +152,20 @@ namespace Models
 
 
   protected:
+    // The ID of the data source that contains the label table. Call the ListDatasources operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> datasourceId_ {};
+    // The field list.
+    // 
     // This parameter is required.
     shared_ptr<vector<CreateLabelTableRequest::Fields>> fields_ {};
+    // The name of the label table.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The project ID. Call the ListProjects operation to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

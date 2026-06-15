@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 检测资源连接状态。
+ * @summary Tests connectivity to a data source.
  *
  * @param request CheckInstanceDatasourceRequest
  * @param headers map
@@ -78,7 +78,7 @@ CheckInstanceDatasourceResponse Client::checkInstanceDatasourceWithOptions(const
 }
 
 /**
- * @summary 检测资源连接状态。
+ * @summary Tests connectivity to a data source.
  *
  * @param request CheckInstanceDatasourceRequest
  * @return CheckInstanceDatasourceResponse
@@ -90,7 +90,7 @@ CheckInstanceDatasourceResponse Client::checkInstanceDatasource(const string &In
 }
 
 /**
- * @summary 检查FG配置内容是否正确，是否满足所有规则。
+ * @summary Verify that the FG configuration is correct and meets all rules.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ CheckModelFeatureFGFeatureResponse Client::checkModelFeatureFGFeatureWithOptions
 }
 
 /**
- * @summary 检查FG配置内容是否正确，是否满足所有规则。
+ * @summary Verify that the FG configuration is correct and meets all rules.
  *
  * @return CheckModelFeatureFGFeatureResponse
  */
@@ -126,7 +126,7 @@ CheckModelFeatureFGFeatureResponse Client::checkModelFeatureFGFeature(const stri
 }
 
 /**
- * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+ * @summary Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
  *
  * @param request CreateDatasourceRequest
  * @param headers map
@@ -175,7 +175,7 @@ CreateDatasourceResponse Client::createDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+ * @summary Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
  *
  * @param request CreateDatasourceRequest
  * @return CreateDatasourceResponse
@@ -187,7 +187,7 @@ CreateDatasourceResponse Client::createDatasource(const string &InstanceId, cons
 }
 
 /**
- * @summary 创建特征实体
+ * @summary Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
  *
  * @param request CreateFeatureEntityRequest
  * @param headers map
@@ -232,7 +232,7 @@ CreateFeatureEntityResponse Client::createFeatureEntityWithOptions(const string 
 }
 
 /**
- * @summary 创建特征实体
+ * @summary Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
  *
  * @param request CreateFeatureEntityRequest
  * @return CreateFeatureEntityResponse
@@ -244,7 +244,7 @@ CreateFeatureEntityResponse Client::createFeatureEntity(const string &InstanceId
 }
 
 /**
- * @summary 创建特征视图。
+ * @summary You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
  *
  * @param request CreateFeatureViewRequest
  * @param headers map
@@ -325,7 +325,7 @@ CreateFeatureViewResponse Client::createFeatureViewWithOptions(const string &Ins
 }
 
 /**
- * @summary 创建特征视图。
+ * @summary You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
  *
  * @param request CreateFeatureViewRequest
  * @return CreateFeatureViewResponse
@@ -337,7 +337,7 @@ CreateFeatureViewResponse Client::createFeatureView(const string &InstanceId, co
 }
 
 /**
- * @summary 创建Feature Store实例。
+ * @summary Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
  *
  * @param request CreateInstanceRequest
  * @param headers map
@@ -370,7 +370,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary 创建Feature Store实例。
+ * @summary Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -382,7 +382,7 @@ CreateInstanceResponse Client::createInstance(const CreateInstanceRequest &reque
 }
 
 /**
- * @summary 创建大模型调用信息配置
+ * @summary Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
  *
  * @param request CreateLLMConfigRequest
  * @param headers map
@@ -455,7 +455,7 @@ CreateLLMConfigResponse Client::createLLMConfigWithOptions(const string &Instanc
 }
 
 /**
- * @summary 创建大模型调用信息配置
+ * @summary Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
  *
  * @param request CreateLLMConfigRequest
  * @return CreateLLMConfigResponse
@@ -467,7 +467,7 @@ CreateLLMConfigResponse Client::createLLMConfig(const string &InstanceId, const 
 }
 
 /**
- * @summary 创建label表
+ * @summary Creates a label table. A label table defines the schema for label data referenced by model features.
  *
  * @param request CreateLabelTableRequest
  * @param headers map
@@ -512,7 +512,7 @@ CreateLabelTableResponse Client::createLabelTableWithOptions(const string &Insta
 }
 
 /**
- * @summary 创建label表
+ * @summary Creates a label table. A label table defines the schema for label data referenced by model features.
  *
  * @param request CreateLabelTableRequest
  * @return CreateLabelTableResponse
@@ -524,7 +524,7 @@ CreateLabelTableResponse Client::createLabelTable(const string &InstanceId, cons
 }
 
 /**
- * @summary 创建模型特征。
+ * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
  *
  * @param request CreateModelFeatureRequest
  * @param headers map
@@ -577,7 +577,7 @@ CreateModelFeatureResponse Client::createModelFeatureWithOptions(const string &I
 }
 
 /**
- * @summary 创建模型特征。
+ * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
  *
  * @param request CreateModelFeatureRequest
  * @return CreateModelFeatureResponse
@@ -589,7 +589,7 @@ CreateModelFeatureResponse Client::createModelFeature(const string &InstanceId, 
 }
 
 /**
- * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+ * @summary Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
  *
  * @param request CreateProjectRequest
  * @param headers map
@@ -642,7 +642,7 @@ CreateProjectResponse Client::createProjectWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+ * @summary Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
  *
  * @param request CreateProjectRequest
  * @return CreateProjectResponse
@@ -654,7 +654,7 @@ CreateProjectResponse Client::createProject(const string &InstanceId, const Crea
 }
 
 /**
- * @summary 创建feature store服务账户角色
+ * @summary Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
  *
  * @param request CreateServiceIdentityRoleRequest
  * @param headers map
@@ -687,7 +687,7 @@ CreateServiceIdentityRoleResponse Client::createServiceIdentityRoleWithOptions(c
 }
 
 /**
- * @summary 创建feature store服务账户角色
+ * @summary Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
  *
  * @param request CreateServiceIdentityRoleRequest
  * @return CreateServiceIdentityRoleResponse
@@ -699,7 +699,7 @@ CreateServiceIdentityRoleResponse Client::createServiceIdentityRole(const Create
 }
 
 /**
- * @summary Delete a datasource from a FeatureStore Instance.
+ * @summary Deletes a datasource from a FeatureStore instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -724,7 +724,7 @@ DeleteDatasourceResponse Client::deleteDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary Delete a datasource from a FeatureStore Instance.
+ * @summary Deletes a datasource from a FeatureStore instance.
  *
  * @return DeleteDatasourceResponse
  */
@@ -735,7 +735,7 @@ DeleteDatasourceResponse Client::deleteDatasource(const string &InstanceId, cons
 }
 
 /**
- * @summary 删除指定特征实体
+ * @summary Deletes a feature entity.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -760,7 +760,7 @@ DeleteFeatureEntityResponse Client::deleteFeatureEntityWithOptions(const string 
 }
 
 /**
- * @summary 删除指定特征实体
+ * @summary Deletes a feature entity.
  *
  * @return DeleteFeatureEntityResponse
  */
@@ -771,7 +771,7 @@ DeleteFeatureEntityResponse Client::deleteFeatureEntity(const string &InstanceId
 }
 
 /**
- * @summary 删除指定特征视图。
+ * @summary Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -796,7 +796,7 @@ DeleteFeatureViewResponse Client::deleteFeatureViewWithOptions(const string &Ins
 }
 
 /**
- * @summary 删除指定特征视图。
+ * @summary Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
  *
  * @return DeleteFeatureViewResponse
  */
@@ -807,7 +807,7 @@ DeleteFeatureViewResponse Client::deleteFeatureView(const string &InstanceId, co
 }
 
 /**
- * @summary 删除大模型调用信息配置
+ * @summary Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -832,7 +832,7 @@ DeleteLLMConfigResponse Client::deleteLLMConfigWithOptions(const string &Instanc
 }
 
 /**
- * @summary 删除大模型调用信息配置
+ * @summary Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
  *
  * @return DeleteLLMConfigResponse
  */
@@ -843,7 +843,7 @@ DeleteLLMConfigResponse Client::deleteLLMConfig(const string &InstanceId, const 
 }
 
 /**
- * @summary 删除label表
+ * @summary Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -868,7 +868,7 @@ DeleteLabelTableResponse Client::deleteLabelTableWithOptions(const string &Insta
 }
 
 /**
- * @summary 删除label表
+ * @summary Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
  *
  * @return DeleteLabelTableResponse
  */
@@ -879,7 +879,7 @@ DeleteLabelTableResponse Client::deleteLabelTable(const string &InstanceId, cons
 }
 
 /**
- * @summary 删除指定模型特征。
+ * @summary Deletes a model feature and its associated training set table.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -904,7 +904,7 @@ DeleteModelFeatureResponse Client::deleteModelFeatureWithOptions(const string &I
 }
 
 /**
- * @summary 删除指定模型特征。
+ * @summary Deletes a model feature and its associated training set table.
  *
  * @return DeleteModelFeatureResponse
  */
@@ -915,7 +915,7 @@ DeleteModelFeatureResponse Client::deleteModelFeature(const string &InstanceId, 
 }
 
 /**
- * @summary 删除指定Feature Store项目。
+ * @summary Deletes a FeatureStore project.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -940,7 +940,7 @@ DeleteProjectResponse Client::deleteProjectWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary 删除指定Feature Store项目。
+ * @summary Deletes a FeatureStore project.
  *
  * @return DeleteProjectResponse
  */
@@ -951,7 +951,7 @@ DeleteProjectResponse Client::deleteProject(const string &InstanceId, const stri
 }
 
 /**
- * @summary 导出训练集表。
+ * @summary Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
  *
  * @param request ExportModelFeatureTrainingSetTableRequest
  * @param headers map
@@ -1000,7 +1000,7 @@ ExportModelFeatureTrainingSetTableResponse Client::exportModelFeatureTrainingSet
 }
 
 /**
- * @summary 导出训练集表。
+ * @summary Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
  *
  * @param request ExportModelFeatureTrainingSetTableRequest
  * @return ExportModelFeatureTrainingSetTableResponse
@@ -1012,7 +1012,7 @@ ExportModelFeatureTrainingSetTableResponse Client::exportModelFeatureTrainingSet
 }
 
 /**
- * @summary Get the details of a datasource, including its type, connection info, and Config.
+ * @summary Gets the detailed information about a data source, including its type, connection information, and configuration.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1037,7 +1037,7 @@ GetDatasourceResponse Client::getDatasourceWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary Get the details of a datasource, including its type, connection info, and Config.
+ * @summary Gets the detailed information about a data source, including its type, connection information, and configuration.
  *
  * @return GetDatasourceResponse
  */
@@ -1048,7 +1048,7 @@ GetDatasourceResponse Client::getDatasource(const string &InstanceId, const stri
 }
 
 /**
- * @summary 获取数据源下指定表的详细信息。
+ * @summary Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1073,7 +1073,7 @@ GetDatasourceTableResponse Client::getDatasourceTableWithOptions(const string &I
 }
 
 /**
- * @summary 获取数据源下指定表的详细信息。
+ * @summary Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
  *
  * @return GetDatasourceTableResponse
  */
@@ -1084,7 +1084,7 @@ GetDatasourceTableResponse Client::getDatasourceTable(const string &InstanceId, 
 }
 
 /**
- * @summary 获取特征实体详细信息
+ * @summary Retrieves the details of a feature entity.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1109,7 +1109,7 @@ GetFeatureEntityResponse Client::getFeatureEntityWithOptions(const string &Insta
 }
 
 /**
- * @summary 获取特征实体详细信息
+ * @summary Retrieves the details of a feature entity.
  *
  * @return GetFeatureEntityResponse
  */
@@ -1120,7 +1120,7 @@ GetFeatureEntityResponse Client::getFeatureEntity(const string &InstanceId, cons
 }
 
 /**
- * @summary 获取特征视图详细信息。
+ * @summary Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1145,7 +1145,7 @@ GetFeatureViewResponse Client::getFeatureViewWithOptions(const string &InstanceI
 }
 
 /**
- * @summary 获取特征视图详细信息。
+ * @summary Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
  *
  * @return GetFeatureViewResponse
  */
@@ -1156,7 +1156,7 @@ GetFeatureViewResponse Client::getFeatureView(const string &InstanceId, const st
 }
 
 /**
- * @summary 获取实例详细信息
+ * @summary Retrieves the details of a FeatureStore instance.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1181,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary 获取实例详细信息
+ * @summary Retrieves the details of a FeatureStore instance.
  *
  * @return GetInstanceResponse
  */
@@ -1192,7 +1192,7 @@ GetInstanceResponse Client::getInstance(const string &InstanceId) {
 }
 
 /**
- * @summary 获取 LLMConfig 信息
+ * @summary Retrieves the details of an LLM call configuration.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1217,7 +1217,7 @@ GetLLMConfigResponse Client::getLLMConfigWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary 获取 LLMConfig 信息
+ * @summary Retrieves the details of an LLM call configuration.
  *
  * @return GetLLMConfigResponse
  */
@@ -1228,7 +1228,7 @@ GetLLMConfigResponse Client::getLLMConfig(const string &InstanceId, const string
 }
 
 /**
- * @summary 获取Label表详细信息。
+ * @summary Retrieves the details of a label table, including its field definitions and related models.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1253,7 +1253,7 @@ GetLabelTableResponse Client::getLabelTableWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary 获取Label表详细信息。
+ * @summary Retrieves the details of a label table, including its field definitions and related models.
  *
  * @return GetLabelTableResponse
  */
@@ -1264,7 +1264,7 @@ GetLabelTableResponse Client::getLabelTable(const string &InstanceId, const stri
 }
 
 /**
- * @summary 获取模型特征详情。
+ * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1289,7 +1289,7 @@ GetModelFeatureResponse Client::getModelFeatureWithOptions(const string &Instanc
 }
 
 /**
- * @summary 获取模型特征详情。
+ * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
  *
  * @return GetModelFeatureResponse
  */
@@ -1300,7 +1300,7 @@ GetModelFeatureResponse Client::getModelFeature(const string &InstanceId, const 
 }
 
 /**
- * @summary 获取模型特征的FG特征配置信息。
+ * @summary Retrieves the Feature Generation (FG) feature configuration of a model feature.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1325,7 @@ GetModelFeatureFGFeatureResponse Client::getModelFeatureFGFeatureWithOptions(con
 }
 
 /**
- * @summary 获取模型特征的FG特征配置信息。
+ * @summary Retrieves the Feature Generation (FG) feature configuration of a model feature.
  *
  * @return GetModelFeatureFGFeatureResponse
  */
@@ -1336,7 +1336,7 @@ GetModelFeatureFGFeatureResponse Client::getModelFeatureFGFeature(const string &
 }
 
 /**
- * @summary 获取模型特征的fg.json文件配置信息。
+ * @summary Retrieves the fg.json file configuration for a model feature.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1361,7 +1361,7 @@ GetModelFeatureFGInfoResponse Client::getModelFeatureFGInfoWithOptions(const str
 }
 
 /**
- * @summary 获取模型特征的fg.json文件配置信息。
+ * @summary Retrieves the fg.json file configuration for a model feature.
  *
  * @return GetModelFeatureFGInfoResponse
  */
@@ -1372,7 +1372,7 @@ GetModelFeatureFGInfoResponse Client::getModelFeatureFGInfo(const string &Instan
 }
 
 /**
- * @summary 获取指定Feature Store项目详细信息。
+ * @summary Gets the details of a project, including its data source bindings and resource counts.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1397,7 +1397,7 @@ GetProjectResponse Client::getProjectWithOptions(const string &InstanceId, const
 }
 
 /**
- * @summary 获取指定Feature Store项目详细信息。
+ * @summary Gets the details of a project, including its data source bindings and resource counts.
  *
  * @return GetProjectResponse
  */
@@ -1408,7 +1408,7 @@ GetProjectResponse Client::getProject(const string &InstanceId, const string &Pr
 }
 
 /**
- * @summary 获取项目下特征实体详细信息
+ * @summary Retrieve details of a feature entity in a project by name.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1433,7 @@ GetProjectFeatureEntityResponse Client::getProjectFeatureEntityWithOptions(const
 }
 
 /**
- * @summary 获取项目下特征实体详细信息
+ * @summary Retrieve details of a feature entity in a project by name.
  *
  * @return GetProjectFeatureEntityResponse
  */
@@ -1444,7 +1444,7 @@ GetProjectFeatureEntityResponse Client::getProjectFeatureEntity(const string &In
 }
 
 /**
- * @summary 获取feature store服务账户角色。
+ * @summary Queries the details of a service-linked role and verifies whether the role exists and is available.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1469,7 +1469,7 @@ GetServiceIdentityRoleResponse Client::getServiceIdentityRoleWithOptions(const s
 }
 
 /**
- * @summary 获取feature store服务账户角色。
+ * @summary Queries the details of a service-linked role and verifies whether the role exists and is available.
  *
  * @return GetServiceIdentityRoleResponse
  */
@@ -1480,7 +1480,7 @@ GetServiceIdentityRoleResponse Client::getServiceIdentityRole(const string &Role
 }
 
 /**
- * @summary 获取任务详情
+ * @summary Gets the details of an asynchronous task.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1505,7 @@ GetTaskResponse Client::getTaskWithOptions(const string &InstanceId, const strin
 }
 
 /**
- * @summary 获取任务详情
+ * @summary Gets the details of an asynchronous task.
  *
  * @return GetTaskResponse
  */
@@ -1516,7 +1516,7 @@ GetTaskResponse Client::getTask(const string &InstanceId, const string &TaskId) 
 }
 
 /**
- * @summary 获取数据源下所有特征视图信息。
+ * @summary Retrieve all feature view information from the data source.
  *
  * @param request ListDatasourceFeatureViewsRequest
  * @param headers map
@@ -1597,7 +1597,7 @@ ListDatasourceFeatureViewsResponse Client::listDatasourceFeatureViewsWithOptions
 }
 
 /**
- * @summary 获取数据源下所有特征视图信息。
+ * @summary Retrieve all feature view information from the data source.
  *
  * @param request ListDatasourceFeatureViewsRequest
  * @return ListDatasourceFeatureViewsResponse
@@ -1609,7 +1609,7 @@ ListDatasourceFeatureViewsResponse Client::listDatasourceFeatureViews(const stri
 }
 
 /**
- * @summary 获取数据源下所有表。
+ * @summary Lists the tables in a datasource. This operation supports only MaxCompute datasources.
  *
  * @param request ListDatasourceTablesRequest
  * @param headers map
@@ -1646,7 +1646,7 @@ ListDatasourceTablesResponse Client::listDatasourceTablesWithOptions(const strin
 }
 
 /**
- * @summary 获取数据源下所有表。
+ * @summary Lists the tables in a datasource. This operation supports only MaxCompute datasources.
  *
  * @param request ListDatasourceTablesRequest
  * @return ListDatasourceTablesResponse
@@ -1658,7 +1658,7 @@ ListDatasourceTablesResponse Client::listDatasourceTables(const string &Instance
 }
 
 /**
- * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+ * @summary Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
  *
  * @param request ListDatasourcesRequest
  * @param headers map
@@ -1715,7 +1715,7 @@ ListDatasourcesResponse Client::listDatasourcesWithOptions(const string &Instanc
 }
 
 /**
- * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+ * @summary Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
  *
  * @param request ListDatasourcesRequest
  * @return ListDatasourcesResponse
@@ -1727,7 +1727,7 @@ ListDatasourcesResponse Client::listDatasources(const string &InstanceId, const 
 }
 
 /**
- * @summary 创建特征实体列表
+ * @summary Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
  *
  * @param tmpReq ListFeatureEntitiesRequest
  * @param headers map
@@ -1798,7 +1798,7 @@ ListFeatureEntitiesResponse Client::listFeatureEntitiesWithOptions(const string 
 }
 
 /**
- * @summary 创建特征实体列表
+ * @summary Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
  *
  * @param request ListFeatureEntitiesRequest
  * @return ListFeatureEntitiesResponse
@@ -1810,7 +1810,7 @@ ListFeatureEntitiesResponse Client::listFeatureEntities(const string &InstanceId
 }
 
 /**
- * @summary 获取特征字段血缘关系。
+ * @summary Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1835,7 +1835,7 @@ ListFeatureViewFieldRelationshipsResponse Client::listFeatureViewFieldRelationsh
 }
 
 /**
- * @summary 获取特征字段血缘关系。
+ * @summary Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
  *
  * @return ListFeatureViewFieldRelationshipsResponse
  */
@@ -1846,7 +1846,7 @@ ListFeatureViewFieldRelationshipsResponse Client::listFeatureViewFieldRelationsh
 }
 
 /**
- * @summary 获取特征视图下的在线特征数据。
+ * @summary Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
  *
  * @param tmpReq ListFeatureViewOnlineFeaturesRequest
  * @param headers map
@@ -1889,7 +1889,7 @@ ListFeatureViewOnlineFeaturesResponse Client::listFeatureViewOnlineFeaturesWithO
 }
 
 /**
- * @summary 获取特征视图下的在线特征数据。
+ * @summary Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
  *
  * @param request ListFeatureViewOnlineFeaturesRequest
  * @return ListFeatureViewOnlineFeaturesResponse
@@ -1901,7 +1901,7 @@ ListFeatureViewOnlineFeaturesResponse Client::listFeatureViewOnlineFeatures(cons
 }
 
 /**
- * @summary 获取特征视图血缘关系。
+ * @summary Lists the relationships for a feature view, including the models that reference it.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1926,7 +1926,7 @@ ListFeatureViewRelationshipsResponse Client::listFeatureViewRelationshipsWithOpt
 }
 
 /**
- * @summary 获取特征视图血缘关系。
+ * @summary Lists the relationships for a feature view, including the models that reference it.
  *
  * @return ListFeatureViewRelationshipsResponse
  */
@@ -1937,7 +1937,7 @@ ListFeatureViewRelationshipsResponse Client::listFeatureViewRelationships(const 
 }
 
 /**
- * @summary 获取特征视图列表。
+ * @summary Lists feature views, filterable by project, name, type, tag, and feature name.
  *
  * @param tmpReq ListFeatureViewsRequest
  * @param headers map
@@ -2016,7 +2016,7 @@ ListFeatureViewsResponse Client::listFeatureViewsWithOptions(const string &Insta
 }
 
 /**
- * @summary 获取特征视图列表。
+ * @summary Lists feature views, filterable by project, name, type, tag, and feature name.
  *
  * @param request ListFeatureViewsRequest
  * @return ListFeatureViewsResponse
@@ -2028,7 +2028,7 @@ ListFeatureViewsResponse Client::listFeatureViews(const string &InstanceId, cons
 }
 
 /**
- * @summary 获取Feature Store实例列表。
+ * @summary Lists FeatureStore instances in the current account. You can filter the instances by status.
  *
  * @param request ListInstancesRequest
  * @param headers map
@@ -2077,7 +2077,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary 获取Feature Store实例列表。
+ * @summary Lists FeatureStore instances in the current account. You can filter the instances by status.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -2089,7 +2089,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary 获取大模型调用信息配置
+ * @summary Lists LLM call configurations.
  *
  * @param request ListLLMConfigsRequest
  * @param headers map
@@ -2150,7 +2150,7 @@ ListLLMConfigsResponse Client::listLLMConfigsWithOptions(const string &InstanceI
 }
 
 /**
- * @summary 获取大模型调用信息配置
+ * @summary Lists LLM call configurations.
  *
  * @param request ListLLMConfigsRequest
  * @return ListLLMConfigsResponse
@@ -2162,7 +2162,7 @@ ListLLMConfigsResponse Client::listLLMConfigs(const string &InstanceId, const Li
 }
 
 /**
- * @summary 获取Label表列表。
+ * @summary Lists label tables, filterable by project, name, owner, and ID.
  *
  * @param tmpReq ListLabelTablesRequest
  * @param headers map
@@ -2229,7 +2229,7 @@ ListLabelTablesResponse Client::listLabelTablesWithOptions(const string &Instanc
 }
 
 /**
- * @summary 获取Label表列表。
+ * @summary Lists label tables, filterable by project, name, owner, and ID.
  *
  * @param request ListLabelTablesRequest
  * @return ListLabelTablesResponse
@@ -2241,7 +2241,7 @@ ListLabelTablesResponse Client::listLabelTables(const string &InstanceId, const 
 }
 
 /**
- * @summary 获取注册FG特征时模型特征下可选的所有特征。
+ * @summary Lists the available features for a model feature when you register a feature group (FG).
  *
  * @param request ListModelFeatureAvailableFeaturesRequest
  * @param headers map
@@ -2274,7 +2274,7 @@ ListModelFeatureAvailableFeaturesResponse Client::listModelFeatureAvailableFeatu
 }
 
 /**
- * @summary 获取注册FG特征时模型特征下可选的所有特征。
+ * @summary Lists the available features for a model feature when you register a feature group (FG).
  *
  * @param request ListModelFeatureAvailableFeaturesRequest
  * @return ListModelFeatureAvailableFeaturesResponse
@@ -2286,7 +2286,7 @@ ListModelFeatureAvailableFeaturesResponse Client::listModelFeatureAvailableFeatu
 }
 
 /**
- * @summary 获取模型特征列表。
+ * @summary Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
  *
  * @param tmpReq ListModelFeaturesRequest
  * @param headers map
@@ -2353,7 +2353,7 @@ ListModelFeaturesResponse Client::listModelFeaturesWithOptions(const string &Ins
 }
 
 /**
- * @summary 获取模型特征列表。
+ * @summary Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
  *
  * @param request ListModelFeaturesRequest
  * @return ListModelFeaturesResponse
@@ -2365,7 +2365,7 @@ ListModelFeaturesResponse Client::listModelFeatures(const string &InstanceId, co
 }
 
 /**
- * @summary 获取项目下的所有特征视图、特征信息。
+ * @summary Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2390,7 +2390,7 @@ ListProjectFeatureViewsResponse Client::listProjectFeatureViewsWithOptions(const
 }
 
 /**
- * @summary 获取项目下的所有特征视图、特征信息。
+ * @summary Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
  *
  * @return ListProjectFeatureViewsResponse
  */
@@ -2401,7 +2401,7 @@ ListProjectFeatureViewsResponse Client::listProjectFeatureViews(const string &In
 }
 
 /**
- * @summary 获取项目下所有特征信息
+ * @summary Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
  *
  * @param request ListProjectFeaturesRequest
  * @param headers map
@@ -2458,7 +2458,7 @@ ListProjectFeaturesResponse Client::listProjectFeaturesWithOptions(const string 
 }
 
 /**
- * @summary 获取项目下所有特征信息
+ * @summary Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
  *
  * @param request ListProjectFeaturesRequest
  * @return ListProjectFeaturesResponse
@@ -2470,7 +2470,7 @@ ListProjectFeaturesResponse Client::listProjectFeatures(const string &InstanceId
 }
 
 /**
- * @summary 获取Feature Store项目列表。
+ * @summary Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
  *
  * @param tmpReq ListProjectsRequest
  * @param headers map
@@ -2537,7 +2537,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary 获取Feature Store项目列表。
+ * @summary Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
@@ -2549,7 +2549,7 @@ ListProjectsResponse Client::listProjects(const string &InstanceId, const ListPr
 }
 
 /**
- * @summary 获取任务日志列表
+ * @summary Lists the execution logs of an asynchronous task. This operation supports pagination.
  *
  * @param request ListTaskLogsRequest
  * @param headers map
@@ -2586,7 +2586,7 @@ ListTaskLogsResponse Client::listTaskLogsWithOptions(const string &InstanceId, c
 }
 
 /**
- * @summary 获取任务日志列表
+ * @summary Lists the execution logs of an asynchronous task. This operation supports pagination.
  *
  * @param request ListTaskLogsRequest
  * @return ListTaskLogsResponse
@@ -2598,7 +2598,7 @@ ListTaskLogsResponse Client::listTaskLogs(const string &InstanceId, const string
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
  *
  * @param tmpReq ListTasksRequest
  * @param headers map
@@ -2665,7 +2665,7 @@ ListTasksResponse Client::listTasksWithOptions(const string &InstanceId, const L
 }
 
 /**
- * @summary 获取任务列表
+ * @summary Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
  *
  * @param request ListTasksRequest
  * @return ListTasksResponse
@@ -2677,7 +2677,7 @@ ListTasksResponse Client::listTasks(const string &InstanceId, const ListTasksReq
 }
 
 /**
- * @summary 将特征视图的离线数据发布/同步到线上。
+ * @summary Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
  *
  * @param request PublishFeatureViewTableRequest
  * @param headers map
@@ -2726,7 +2726,7 @@ PublishFeatureViewTableResponse Client::publishFeatureViewTableWithOptions(const
 }
 
 /**
- * @summary 将特征视图的离线数据发布/同步到线上。
+ * @summary Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
  *
  * @param request PublishFeatureViewTableRequest
  * @return PublishFeatureViewTableResponse
@@ -2738,7 +2738,7 @@ PublishFeatureViewTableResponse Client::publishFeatureViewTable(const string &In
 }
 
 /**
- * @summary 停止任务。
+ * @summary Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2763,7 +2763,7 @@ StopTaskResponse Client::stopTaskWithOptions(const string &InstanceId, const str
 }
 
 /**
- * @summary 停止任务。
+ * @summary Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
  *
  * @return StopTaskResponse
  */
@@ -2774,7 +2774,7 @@ StopTaskResponse Client::stopTask(const string &InstanceId, const string &TaskId
 }
 
 /**
- * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+ * @summary Updates information for a data source. Its type and workspace cannot be changed.
  *
  * @param request UpdateDatasourceRequest
  * @param headers map
@@ -2815,7 +2815,7 @@ UpdateDatasourceResponse Client::updateDatasourceWithOptions(const string &Insta
 }
 
 /**
- * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+ * @summary Updates information for a data source. Its type and workspace cannot be changed.
  *
  * @param request UpdateDatasourceRequest
  * @return UpdateDatasourceResponse
@@ -2827,7 +2827,7 @@ UpdateDatasourceResponse Client::updateDatasource(const string &InstanceId, cons
 }
 
 /**
- * @summary 更新特征视图。
+ * @summary Updates a feature view.
  *
  * @param request UpdateFeatureViewRequest
  * @param headers map
@@ -2860,7 +2860,7 @@ UpdateFeatureViewResponse Client::updateFeatureViewWithOptions(const string &Ins
 }
 
 /**
- * @summary 更新特征视图。
+ * @summary Updates a feature view.
  *
  * @param request UpdateFeatureViewRequest
  * @return UpdateFeatureViewResponse
@@ -2872,7 +2872,7 @@ UpdateFeatureViewResponse Client::updateFeatureView(const string &InstanceId, co
 }
 
 /**
- * @summary 更新大模型调用信息配置
+ * @summary Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
  *
  * @param request UpdateLLMConfigRequest
  * @param headers map
@@ -2941,7 +2941,7 @@ UpdateLLMConfigResponse Client::updateLLMConfigWithOptions(const string &Instanc
 }
 
 /**
- * @summary 更新大模型调用信息配置
+ * @summary Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
  *
  * @param request UpdateLLMConfigRequest
  * @return UpdateLLMConfigResponse
@@ -2953,7 +2953,7 @@ UpdateLLMConfigResponse Client::updateLLMConfig(const string &InstanceId, const 
 }
 
 /**
- * @summary 更新label表。
+ * @summary Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
  *
  * @param request UpdateLabelTableRequest
  * @param headers map
@@ -2994,7 +2994,7 @@ UpdateLabelTableResponse Client::updateLabelTableWithOptions(const string &Insta
 }
 
 /**
- * @summary 更新label表。
+ * @summary Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
  *
  * @param request UpdateLabelTableRequest
  * @return UpdateLabelTableResponse
@@ -3006,7 +3006,7 @@ UpdateLabelTableResponse Client::updateLabelTable(const string &InstanceId, cons
 }
 
 /**
- * @summary 更新模型特征。
+ * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
  *
  * @param request UpdateModelFeatureRequest
  * @param headers map
@@ -3051,7 +3051,7 @@ UpdateModelFeatureResponse Client::updateModelFeatureWithOptions(const string &I
 }
 
 /**
- * @summary 更新模型特征。
+ * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
  *
  * @param request UpdateModelFeatureRequest
  * @return UpdateModelFeatureResponse
@@ -3063,7 +3063,7 @@ UpdateModelFeatureResponse Client::updateModelFeature(const string &InstanceId, 
 }
 
 /**
- * @summary 更新模型特征的FG特征配置信息。
+ * @summary Update the FG feature configuration for a model feature.
  *
  * @param request UpdateModelFeatureFGFeatureRequest
  * @param headers map
@@ -3108,7 +3108,7 @@ UpdateModelFeatureFGFeatureResponse Client::updateModelFeatureFGFeatureWithOptio
 }
 
 /**
- * @summary 更新模型特征的FG特征配置信息。
+ * @summary Update the FG feature configuration for a model feature.
  *
  * @param request UpdateModelFeatureFGFeatureRequest
  * @return UpdateModelFeatureFGFeatureResponse
@@ -3120,7 +3120,7 @@ UpdateModelFeatureFGFeatureResponse Client::updateModelFeatureFGFeature(const st
 }
 
 /**
- * @summary 更新指定Feature Store项目信息。
+ * @summary Updates the description of a project.
  *
  * @param request UpdateProjectRequest
  * @param headers map
@@ -3157,7 +3157,7 @@ UpdateProjectResponse Client::updateProjectWithOptions(const string &InstanceId,
 }
 
 /**
- * @summary 更新指定Feature Store项目信息。
+ * @summary Updates the description of a project.
  *
  * @param request UpdateProjectRequest
  * @return UpdateProjectResponse
@@ -3169,7 +3169,7 @@ UpdateProjectResponse Client::updateProject(const string &InstanceId, const stri
 }
 
 /**
- * @summary 获取特征视图血缘关系。
+ * @summary Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
  *
  * @param request WriteFeatureViewTableRequest
  * @param headers map
@@ -3210,7 +3210,7 @@ WriteFeatureViewTableResponse Client::writeFeatureViewTableWithOptions(const str
 }
 
 /**
- * @summary 获取特征视图血缘关系。
+ * @summary Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
  *
  * @param request WriteFeatureViewTableRequest
  * @return WriteFeatureViewTableResponse

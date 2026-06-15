@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
+    // The name of the LLM configuration.
     shared_ptr<string> name_ {};
+    // A pagination token returned from a previous call. Pass this token to retrieve the next page of results. If you do not specify this parameter, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The field to sort by.
     shared_ptr<string> sortBy_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

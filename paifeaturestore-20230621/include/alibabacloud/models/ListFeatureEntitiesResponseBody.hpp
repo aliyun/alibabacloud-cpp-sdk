@@ -145,15 +145,25 @@ namespace Models
 
 
     protected:
+      // The feature entity ID.
       shared_ptr<string> featureEntityId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The join ID that links the feature entity to a feature view.
       shared_ptr<string> joinId_ {};
+      // The feature entity name.
       shared_ptr<string> name_ {};
+      // The owner\\"s Alibaba Cloud account ID.
       shared_ptr<string> owner_ {};
+      // The parent feature entity ID. This value is empty or 0 for a root feature entity.
       shared_ptr<string> parentFeatureEntityId_ {};
+      // The parent feature entity name.
       shared_ptr<string> parentFeatureEntityName_ {};
+      // The join ID of the parent feature entity.
       shared_ptr<string> parentJoinId_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
     };
 
@@ -183,8 +193,11 @@ namespace Models
 
 
   protected:
+    // A list of feature entities.
     shared_ptr<vector<ListFeatureEntitiesResponseBody::FeatureEntities>> featureEntities_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of feature entities.
     shared_ptr<int32_t> totalCount_ {};
   };
 

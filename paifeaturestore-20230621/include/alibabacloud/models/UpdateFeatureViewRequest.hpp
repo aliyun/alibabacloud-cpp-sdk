@@ -125,9 +125,14 @@ namespace Models
 
 
         protected:
+          // The modality of the input, such as text or image.
           shared_ptr<string> modality_ {};
+          // The name of the input field.
+          // 
           // This parameter is required.
           shared_ptr<string> name_ {};
+          // The data type of the input field.
+          // 
           // This parameter is required.
           shared_ptr<string> type_ {};
         };
@@ -158,10 +163,16 @@ namespace Models
 
 
       protected:
+        // The input fields.
+        // 
         // This parameter is required.
         shared_ptr<vector<Transform::Input>> input_ {};
+        // The ID of the LLM configuration.
+        // 
         // This parameter is required.
         shared_ptr<int32_t> LLMConfigId_ {};
+        // The type of feature generation.
+        // 
         // This parameter is required.
         shared_ptr<string> type_ {};
       };
@@ -201,11 +212,24 @@ namespace Models
 
 
     protected:
+      // A list of field attributes. Valid values:
+      // 
+      // - `Partition`: Indicates that the field is a partition field.
+      // 
+      // - `PrimaryKey`: Indicates that the field is a primary key.
+      // 
+      // - `EventTime`: Indicates that the field is the event time.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> attributes_ {};
+      // The name of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The feature generation configuration.
       shared_ptr<vector<Fields::Transform>> transform_ {};
+      // The data type of the field.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
     };
@@ -221,6 +245,8 @@ namespace Models
 
 
   protected:
+    // A list of fields.
+    // 
     // This parameter is required.
     shared_ptr<vector<UpdateFeatureViewRequest::Fields>> fields_ {};
   };

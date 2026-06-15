@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the LLM configuration.
     shared_ptr<string> LLMConfigId_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

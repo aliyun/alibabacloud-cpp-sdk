@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The schema name.
     shared_ptr<string> schemaName_ {};
+    // Filters the results by table name.
     shared_ptr<string> tableName_ {};
   };
 

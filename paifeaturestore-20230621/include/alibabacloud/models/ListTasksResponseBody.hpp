@@ -145,15 +145,41 @@ namespace Models
 
 
     protected:
+      // The time when the task was created.
       shared_ptr<string> gmtCreateTime_ {};
+      // The time when the task was executed.
       shared_ptr<string> gmtExecutedTime_ {};
+      // The time when the task was completed.
       shared_ptr<string> gmtFinishedTime_ {};
+      // The ID of the object.
       shared_ptr<string> objectId_ {};
+      // The type of the object. Valid values:
+      // 
+      // ● ModelFeature: a model feature.
+      // 
+      // ● FeatureView: a feature view.
       shared_ptr<string> objectType_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The status of the task. Valid values:
+      // 
+      // ● Initializing: The task is being initialized.
+      // 
+      // ● Running: The task is in progress.
+      // 
+      // ● Success: The task is successful.
+      // 
+      // ● Failure: The task failed.
       shared_ptr<string> status_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task type. Valid values:
+      // 
+      // ● OfflineToOnline: The task synchronizes data from offline to online.
+      // 
+      // ● ExportTrainingSet: The task exports a training set.
       shared_ptr<string> type_ {};
     };
 
@@ -183,8 +209,11 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of tasks.
     shared_ptr<vector<ListTasksResponseBody::Tasks>> tasks_ {};
+    // The total number of tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

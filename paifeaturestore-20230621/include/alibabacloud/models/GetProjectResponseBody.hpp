@@ -186,22 +186,43 @@ namespace Models
 
 
   protected:
+    // The project description.
     shared_ptr<string> description_ {};
+    // The number of feature entities.
     shared_ptr<int32_t> featureEntityCount_ {};
+    // The number of feature views.
     shared_ptr<int32_t> featureViewCount_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The number of models.
     shared_ptr<int32_t> modelCount_ {};
+    // The project name.
     shared_ptr<string> name_ {};
+    // The offline data source ID.
     shared_ptr<string> offlineDatasourceId_ {};
+    // The offline data source name.
     shared_ptr<string> offlineDatasourceName_ {};
+    // The type of the offline data source. For example, `MaxCompute`.
     shared_ptr<string> offlineDatasourceType_ {};
+    // The offline data lifecycle, in days.
     shared_ptr<int32_t> offlineLifecycle_ {};
+    // The online data source ID.
     shared_ptr<string> onlineDatasourceId_ {};
+    // The online data source name.
     shared_ptr<string> onlineDatasourceName_ {};
+    // The online data source type.
+    // 
+    // - Hologres
+    // 
+    // - Redis
     shared_ptr<string> onlineDatasourceType_ {};
+    // The Alibaba Cloud account ID of the project owner.
     shared_ptr<string> owner_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

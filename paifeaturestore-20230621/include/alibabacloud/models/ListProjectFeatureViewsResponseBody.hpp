@@ -112,8 +112,31 @@ namespace Models
 
 
       protected:
+        // A list of field attributes. Valid values:
+        // 
+        // - Partition: Indicates that the feature is a partition field.
+        // 
+        // - PrimaryKey: Indicates that the feature is a primary key.
+        // 
+        // - EventTime: Indicates that the feature represents the event time.
         shared_ptr<vector<string>> attributes_ {};
+        // The feature name.
         shared_ptr<string> name_ {};
+        // The feature type. Valid values include:
+        // 
+        // - INT32
+        // 
+        // - INT64
+        // 
+        // - FLOAT
+        // 
+        // - DOUBLE
+        // 
+        // - STRING
+        // 
+        // - BOOLEAN
+        // 
+        // - TIMESTAMP
         shared_ptr<string> type_ {};
       };
 
@@ -164,11 +187,23 @@ namespace Models
 
 
     protected:
+      // The feature view ID.
       shared_ptr<string> featureViewId_ {};
+      // A list of features.
       shared_ptr<vector<FeatureViews::Features>> features_ {};
+      // The join ID of the feature entity.
       shared_ptr<string> joinId_ {};
+      // The feature view name.
       shared_ptr<string> name_ {};
+      // The join ID of the parent feature entity.
       shared_ptr<string> parentJoinId_ {};
+      // The type of the feature view.
+      // 
+      // - Batch: A feature view that processes data in batches.
+      // 
+      // - Stream: A feature view that processes data as a stream.
+      // 
+      // - Sequence: A feature view that represents a sequence of features.
       shared_ptr<string> type_ {};
     };
 
@@ -198,8 +233,11 @@ namespace Models
 
 
   protected:
+    // The list of feature views.
     shared_ptr<vector<ListProjectFeatureViewsResponseBody::FeatureViews>> featureViews_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of feature views.
     shared_ptr<int64_t> totalCount_ {};
   };
 

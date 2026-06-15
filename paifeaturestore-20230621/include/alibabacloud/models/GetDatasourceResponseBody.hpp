@@ -112,14 +112,29 @@ namespace Models
 
 
   protected:
+    // The resource configuration.
     shared_ptr<string> config_ {};
+    // The ID of the data source.
     shared_ptr<string> datasourceId_ {};
+    // The time the data source was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time the data source was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The name of the data source.
     shared_ptr<string> name_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
+    // The type of the data source. Valid values:
+    // 
+    // - Hologres
+    // 
+    // - Redis
+    // 
+    // - MaxCompute
     shared_ptr<string> type_ {};
+    // The URI of the resource.
     shared_ptr<string> uri_ {};
+    // The ID of the workspace.
     shared_ptr<string> workspaceId_ {};
   };
 

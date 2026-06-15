@@ -52,6 +52,8 @@ namespace Models
 
   protected:
     shared_ptr<string> config_ {};
+    // The join IDs used to retrieve online features.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> joinIds_ {};
   };

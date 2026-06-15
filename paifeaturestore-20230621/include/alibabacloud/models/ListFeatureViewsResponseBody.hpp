@@ -182,19 +182,37 @@ namespace Models
 
 
     protected:
+      // The feature entity name.
       shared_ptr<string> featureEntityName_ {};
+      // The feature view ID.
       shared_ptr<string> featureViewId_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The update time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The feature view name.
       shared_ptr<string> name_ {};
+      // The ID of the Alibaba Cloud account that created the feature view.
       shared_ptr<string> owner_ {};
+      // The project ID.
       shared_ptr<string> projectId_ {};
+      // The project name.
       shared_ptr<string> projectName_ {};
+      // The ID of the data source for the registered table.
       shared_ptr<string> registerDatasourceId_ {};
+      // The name of the data source for the registered table.
       shared_ptr<string> registerDatasourceName_ {};
+      // The registered table name.
       shared_ptr<string> registerTable_ {};
+      // The TTL (Time to Live) of features in the feature view, in seconds.
       shared_ptr<int32_t> TTL_ {};
+      // The type of the feature view. Valid values:
+      // 
+      // ● Batch feature
+      // 
+      // ● Stream feature
       shared_ptr<string> type_ {};
+      // Indicates whether data is written to the online feature store.
       shared_ptr<bool> writeToFeatureDB_ {};
     };
 
@@ -224,8 +242,11 @@ namespace Models
 
 
   protected:
+    // The feature view list.
     shared_ptr<vector<ListFeatureViewsResponseBody::FeatureViews>> featureViews_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total count of feature views.
     shared_ptr<int64_t> totalCount_ {};
   };
 

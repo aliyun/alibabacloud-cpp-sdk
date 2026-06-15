@@ -69,6 +69,7 @@ namespace Models
 
 
     protected:
+      // The list of partitions.
       shared_ptr<map<string, Darabonba::Json>> partitions_ {};
     };
 
@@ -112,7 +113,9 @@ namespace Models
 
 
     protected:
+      // The event time.
       shared_ptr<string> eventTime_ {};
+      // The list of partitions.
       shared_ptr<map<string, Darabonba::Json>> partitions_ {};
     };
 
@@ -160,10 +163,15 @@ namespace Models
 
 
   protected:
+    // A map of feature view configurations.
     shared_ptr<map<string, FeatureViewConfigValue>> featureViewConfig_ {};
+    // The input configuration for the label table.
     shared_ptr<ExportModelFeatureTrainingSetTableRequest::LabelInputConfig> labelInputConfig_ {};
+    // The polling interval for retrieving real-time features.
     shared_ptr<int64_t> realTimeIterateInterval_ {};
+    // The number of days for partition statistics of the real-time feature view.
     shared_ptr<int64_t> realTimePartitionCountValue_ {};
+    // The configuration for the training set.
     shared_ptr<ExportModelFeatureTrainingSetTableRequest::TrainingSetConfig> trainingSetConfig_ {};
   };
 

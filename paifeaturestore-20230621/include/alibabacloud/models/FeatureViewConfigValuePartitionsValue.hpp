@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Partition value.
     shared_ptr<string> value_ {};
+    // List of partitions.
     shared_ptr<vector<string>> values_ {};
+    // Start time partition.
     shared_ptr<string> startValue_ {};
+    // End time partition.
     shared_ptr<string> endValue_ {};
   };
 

@@ -21,7 +21,7 @@ namespace PaiFeatureStore20230621
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 检测资源连接状态。
+       * @summary Tests connectivity to a data source.
        *
        * @param request CheckInstanceDatasourceRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace PaiFeatureStore20230621
       Models::CheckInstanceDatasourceResponse checkInstanceDatasourceWithOptions(const string &InstanceId, const Models::CheckInstanceDatasourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检测资源连接状态。
+       * @summary Tests connectivity to a data source.
        *
        * @param request CheckInstanceDatasourceRequest
        * @return CheckInstanceDatasourceResponse
@@ -39,7 +39,7 @@ namespace PaiFeatureStore20230621
       Models::CheckInstanceDatasourceResponse checkInstanceDatasource(const string &InstanceId, const Models::CheckInstanceDatasourceRequest &request);
 
       /**
-       * @summary 检查FG配置内容是否正确，是否满足所有规则。
+       * @summary Verify that the FG configuration is correct and meets all rules.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -48,14 +48,14 @@ namespace PaiFeatureStore20230621
       Models::CheckModelFeatureFGFeatureResponse checkModelFeatureFGFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 检查FG配置内容是否正确，是否满足所有规则。
+       * @summary Verify that the FG configuration is correct and meets all rules.
        *
        * @return CheckModelFeatureFGFeatureResponse
        */
       Models::CheckModelFeatureFGFeatureResponse checkModelFeatureFGFeature(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+       * @summary Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
        *
        * @param request CreateDatasourceRequest
        * @param headers map
@@ -65,7 +65,7 @@ namespace PaiFeatureStore20230621
       Models::CreateDatasourceResponse createDatasourceWithOptions(const string &InstanceId, const Models::CreateDatasourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+       * @summary Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
        *
        * @param request CreateDatasourceRequest
        * @return CreateDatasourceResponse
@@ -73,7 +73,7 @@ namespace PaiFeatureStore20230621
       Models::CreateDatasourceResponse createDatasource(const string &InstanceId, const Models::CreateDatasourceRequest &request);
 
       /**
-       * @summary 创建特征实体
+       * @summary Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
        *
        * @param request CreateFeatureEntityRequest
        * @param headers map
@@ -83,7 +83,7 @@ namespace PaiFeatureStore20230621
       Models::CreateFeatureEntityResponse createFeatureEntityWithOptions(const string &InstanceId, const Models::CreateFeatureEntityRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建特征实体
+       * @summary Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
        *
        * @param request CreateFeatureEntityRequest
        * @return CreateFeatureEntityResponse
@@ -91,7 +91,7 @@ namespace PaiFeatureStore20230621
       Models::CreateFeatureEntityResponse createFeatureEntity(const string &InstanceId, const Models::CreateFeatureEntityRequest &request);
 
       /**
-       * @summary 创建特征视图。
+       * @summary You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
        *
        * @param request CreateFeatureViewRequest
        * @param headers map
@@ -101,7 +101,7 @@ namespace PaiFeatureStore20230621
       Models::CreateFeatureViewResponse createFeatureViewWithOptions(const string &InstanceId, const Models::CreateFeatureViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建特征视图。
+       * @summary You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
        *
        * @param request CreateFeatureViewRequest
        * @return CreateFeatureViewResponse
@@ -109,7 +109,7 @@ namespace PaiFeatureStore20230621
       Models::CreateFeatureViewResponse createFeatureView(const string &InstanceId, const Models::CreateFeatureViewRequest &request);
 
       /**
-       * @summary 创建Feature Store实例。
+       * @summary Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
        *
        * @param request CreateInstanceRequest
        * @param headers map
@@ -119,7 +119,7 @@ namespace PaiFeatureStore20230621
       Models::CreateInstanceResponse createInstanceWithOptions(const Models::CreateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建Feature Store实例。
+       * @summary Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
        *
        * @param request CreateInstanceRequest
        * @return CreateInstanceResponse
@@ -127,7 +127,7 @@ namespace PaiFeatureStore20230621
       Models::CreateInstanceResponse createInstance(const Models::CreateInstanceRequest &request);
 
       /**
-       * @summary 创建大模型调用信息配置
+       * @summary Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
        *
        * @param request CreateLLMConfigRequest
        * @param headers map
@@ -137,7 +137,7 @@ namespace PaiFeatureStore20230621
       Models::CreateLLMConfigResponse createLLMConfigWithOptions(const string &InstanceId, const Models::CreateLLMConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建大模型调用信息配置
+       * @summary Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
        *
        * @param request CreateLLMConfigRequest
        * @return CreateLLMConfigResponse
@@ -145,7 +145,7 @@ namespace PaiFeatureStore20230621
       Models::CreateLLMConfigResponse createLLMConfig(const string &InstanceId, const Models::CreateLLMConfigRequest &request);
 
       /**
-       * @summary 创建label表
+       * @summary Creates a label table. A label table defines the schema for label data referenced by model features.
        *
        * @param request CreateLabelTableRequest
        * @param headers map
@@ -155,7 +155,7 @@ namespace PaiFeatureStore20230621
       Models::CreateLabelTableResponse createLabelTableWithOptions(const string &InstanceId, const Models::CreateLabelTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建label表
+       * @summary Creates a label table. A label table defines the schema for label data referenced by model features.
        *
        * @param request CreateLabelTableRequest
        * @return CreateLabelTableResponse
@@ -163,7 +163,7 @@ namespace PaiFeatureStore20230621
       Models::CreateLabelTableResponse createLabelTable(const string &InstanceId, const Models::CreateLabelTableRequest &request);
 
       /**
-       * @summary 创建模型特征。
+       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
        *
        * @param request CreateModelFeatureRequest
        * @param headers map
@@ -173,7 +173,7 @@ namespace PaiFeatureStore20230621
       Models::CreateModelFeatureResponse createModelFeatureWithOptions(const string &InstanceId, const Models::CreateModelFeatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型特征。
+       * @summary Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
        *
        * @param request CreateModelFeatureRequest
        * @return CreateModelFeatureResponse
@@ -181,7 +181,7 @@ namespace PaiFeatureStore20230621
       Models::CreateModelFeatureResponse createModelFeature(const string &InstanceId, const Models::CreateModelFeatureRequest &request);
 
       /**
-       * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+       * @summary Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
        *
        * @param request CreateProjectRequest
        * @param headers map
@@ -191,7 +191,7 @@ namespace PaiFeatureStore20230621
       Models::CreateProjectResponse createProjectWithOptions(const string &InstanceId, const Models::CreateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+       * @summary Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
        *
        * @param request CreateProjectRequest
        * @return CreateProjectResponse
@@ -199,7 +199,7 @@ namespace PaiFeatureStore20230621
       Models::CreateProjectResponse createProject(const string &InstanceId, const Models::CreateProjectRequest &request);
 
       /**
-       * @summary 创建feature store服务账户角色
+       * @summary Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
        *
        * @param request CreateServiceIdentityRoleRequest
        * @param headers map
@@ -209,7 +209,7 @@ namespace PaiFeatureStore20230621
       Models::CreateServiceIdentityRoleResponse createServiceIdentityRoleWithOptions(const Models::CreateServiceIdentityRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建feature store服务账户角色
+       * @summary Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
        *
        * @param request CreateServiceIdentityRoleRequest
        * @return CreateServiceIdentityRoleResponse
@@ -217,7 +217,7 @@ namespace PaiFeatureStore20230621
       Models::CreateServiceIdentityRoleResponse createServiceIdentityRole(const Models::CreateServiceIdentityRoleRequest &request);
 
       /**
-       * @summary Delete a datasource from a FeatureStore Instance.
+       * @summary Deletes a datasource from a FeatureStore instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -226,14 +226,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteDatasourceResponse deleteDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete a datasource from a FeatureStore Instance.
+       * @summary Deletes a datasource from a FeatureStore instance.
        *
        * @return DeleteDatasourceResponse
        */
       Models::DeleteDatasourceResponse deleteDatasource(const string &InstanceId, const string &DatasourceId);
 
       /**
-       * @summary 删除指定特征实体
+       * @summary Deletes a feature entity.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,14 +242,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteFeatureEntityResponse deleteFeatureEntityWithOptions(const string &InstanceId, const string &FeatureEntityId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定特征实体
+       * @summary Deletes a feature entity.
        *
        * @return DeleteFeatureEntityResponse
        */
       Models::DeleteFeatureEntityResponse deleteFeatureEntity(const string &InstanceId, const string &FeatureEntityId);
 
       /**
-       * @summary 删除指定特征视图。
+       * @summary Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -258,14 +258,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteFeatureViewResponse deleteFeatureViewWithOptions(const string &InstanceId, const string &FeatureViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定特征视图。
+       * @summary Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
        *
        * @return DeleteFeatureViewResponse
        */
       Models::DeleteFeatureViewResponse deleteFeatureView(const string &InstanceId, const string &FeatureViewId);
 
       /**
-       * @summary 删除大模型调用信息配置
+       * @summary Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -274,14 +274,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteLLMConfigResponse deleteLLMConfigWithOptions(const string &InstanceId, const string &LLMConfigId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除大模型调用信息配置
+       * @summary Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
        *
        * @return DeleteLLMConfigResponse
        */
       Models::DeleteLLMConfigResponse deleteLLMConfig(const string &InstanceId, const string &LLMConfigId);
 
       /**
-       * @summary 删除label表
+       * @summary Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -290,14 +290,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteLabelTableResponse deleteLabelTableWithOptions(const string &InstanceId, const string &LabelTableId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除label表
+       * @summary Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
        *
        * @return DeleteLabelTableResponse
        */
       Models::DeleteLabelTableResponse deleteLabelTable(const string &InstanceId, const string &LabelTableId);
 
       /**
-       * @summary 删除指定模型特征。
+       * @summary Deletes a model feature and its associated training set table.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -306,14 +306,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteModelFeatureResponse deleteModelFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定模型特征。
+       * @summary Deletes a model feature and its associated training set table.
        *
        * @return DeleteModelFeatureResponse
        */
       Models::DeleteModelFeatureResponse deleteModelFeature(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary 删除指定Feature Store项目。
+       * @summary Deletes a FeatureStore project.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,14 +322,14 @@ namespace PaiFeatureStore20230621
       Models::DeleteProjectResponse deleteProjectWithOptions(const string &InstanceId, const string &ProjectId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除指定Feature Store项目。
+       * @summary Deletes a FeatureStore project.
        *
        * @return DeleteProjectResponse
        */
       Models::DeleteProjectResponse deleteProject(const string &InstanceId, const string &ProjectId);
 
       /**
-       * @summary 导出训练集表。
+       * @summary Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
        *
        * @param request ExportModelFeatureTrainingSetTableRequest
        * @param headers map
@@ -339,7 +339,7 @@ namespace PaiFeatureStore20230621
       Models::ExportModelFeatureTrainingSetTableResponse exportModelFeatureTrainingSetTableWithOptions(const string &InstanceId, const string &ModelFeatureId, const Models::ExportModelFeatureTrainingSetTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出训练集表。
+       * @summary Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
        *
        * @param request ExportModelFeatureTrainingSetTableRequest
        * @return ExportModelFeatureTrainingSetTableResponse
@@ -347,7 +347,7 @@ namespace PaiFeatureStore20230621
       Models::ExportModelFeatureTrainingSetTableResponse exportModelFeatureTrainingSetTable(const string &InstanceId, const string &ModelFeatureId, const Models::ExportModelFeatureTrainingSetTableRequest &request);
 
       /**
-       * @summary Get the details of a datasource, including its type, connection info, and Config.
+       * @summary Gets the detailed information about a data source, including its type, connection information, and configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -356,14 +356,14 @@ namespace PaiFeatureStore20230621
       Models::GetDatasourceResponse getDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the details of a datasource, including its type, connection info, and Config.
+       * @summary Gets the detailed information about a data source, including its type, connection information, and configuration.
        *
        * @return GetDatasourceResponse
        */
       Models::GetDatasourceResponse getDatasource(const string &InstanceId, const string &DatasourceId);
 
       /**
-       * @summary 获取数据源下指定表的详细信息。
+       * @summary Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -372,14 +372,14 @@ namespace PaiFeatureStore20230621
       Models::GetDatasourceTableResponse getDatasourceTableWithOptions(const string &InstanceId, const string &DatasourceId, const string &TableName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源下指定表的详细信息。
+       * @summary Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
        *
        * @return GetDatasourceTableResponse
        */
       Models::GetDatasourceTableResponse getDatasourceTable(const string &InstanceId, const string &DatasourceId, const string &TableName);
 
       /**
-       * @summary 获取特征实体详细信息
+       * @summary Retrieves the details of a feature entity.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -388,14 +388,14 @@ namespace PaiFeatureStore20230621
       Models::GetFeatureEntityResponse getFeatureEntityWithOptions(const string &InstanceId, const string &FeatureEntityId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征实体详细信息
+       * @summary Retrieves the details of a feature entity.
        *
        * @return GetFeatureEntityResponse
        */
       Models::GetFeatureEntityResponse getFeatureEntity(const string &InstanceId, const string &FeatureEntityId);
 
       /**
-       * @summary 获取特征视图详细信息。
+       * @summary Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,14 +404,14 @@ namespace PaiFeatureStore20230621
       Models::GetFeatureViewResponse getFeatureViewWithOptions(const string &InstanceId, const string &FeatureViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征视图详细信息。
+       * @summary Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
        *
        * @return GetFeatureViewResponse
        */
       Models::GetFeatureViewResponse getFeatureView(const string &InstanceId, const string &FeatureViewId);
 
       /**
-       * @summary 获取实例详细信息
+       * @summary Retrieves the details of a FeatureStore instance.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -420,14 +420,14 @@ namespace PaiFeatureStore20230621
       Models::GetInstanceResponse getInstanceWithOptions(const string &InstanceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详细信息
+       * @summary Retrieves the details of a FeatureStore instance.
        *
        * @return GetInstanceResponse
        */
       Models::GetInstanceResponse getInstance(const string &InstanceId);
 
       /**
-       * @summary 获取 LLMConfig 信息
+       * @summary Retrieves the details of an LLM call configuration.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -436,14 +436,14 @@ namespace PaiFeatureStore20230621
       Models::GetLLMConfigResponse getLLMConfigWithOptions(const string &InstanceId, const string &LLMConfigId, const string &RegionId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取 LLMConfig 信息
+       * @summary Retrieves the details of an LLM call configuration.
        *
        * @return GetLLMConfigResponse
        */
       Models::GetLLMConfigResponse getLLMConfig(const string &InstanceId, const string &LLMConfigId, const string &RegionId);
 
       /**
-       * @summary 获取Label表详细信息。
+       * @summary Retrieves the details of a label table, including its field definitions and related models.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -452,14 +452,14 @@ namespace PaiFeatureStore20230621
       Models::GetLabelTableResponse getLabelTableWithOptions(const string &InstanceId, const string &LabelTableId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Label表详细信息。
+       * @summary Retrieves the details of a label table, including its field definitions and related models.
        *
        * @return GetLabelTableResponse
        */
       Models::GetLabelTableResponse getLabelTable(const string &InstanceId, const string &LabelTableId);
 
       /**
-       * @summary 获取模型特征详情。
+       * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -468,14 +468,14 @@ namespace PaiFeatureStore20230621
       Models::GetModelFeatureResponse getModelFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模型特征详情。
+       * @summary Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
        *
        * @return GetModelFeatureResponse
        */
       Models::GetModelFeatureResponse getModelFeature(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary 获取模型特征的FG特征配置信息。
+       * @summary Retrieves the Feature Generation (FG) feature configuration of a model feature.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -484,14 +484,14 @@ namespace PaiFeatureStore20230621
       Models::GetModelFeatureFGFeatureResponse getModelFeatureFGFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模型特征的FG特征配置信息。
+       * @summary Retrieves the Feature Generation (FG) feature configuration of a model feature.
        *
        * @return GetModelFeatureFGFeatureResponse
        */
       Models::GetModelFeatureFGFeatureResponse getModelFeatureFGFeature(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary 获取模型特征的fg.json文件配置信息。
+       * @summary Retrieves the fg.json file configuration for a model feature.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -500,14 +500,14 @@ namespace PaiFeatureStore20230621
       Models::GetModelFeatureFGInfoResponse getModelFeatureFGInfoWithOptions(const string &InstanceId, const string &ModelFeatureId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模型特征的fg.json文件配置信息。
+       * @summary Retrieves the fg.json file configuration for a model feature.
        *
        * @return GetModelFeatureFGInfoResponse
        */
       Models::GetModelFeatureFGInfoResponse getModelFeatureFGInfo(const string &InstanceId, const string &ModelFeatureId);
 
       /**
-       * @summary 获取指定Feature Store项目详细信息。
+       * @summary Gets the details of a project, including its data source bindings and resource counts.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -516,14 +516,14 @@ namespace PaiFeatureStore20230621
       Models::GetProjectResponse getProjectWithOptions(const string &InstanceId, const string &ProjectId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取指定Feature Store项目详细信息。
+       * @summary Gets the details of a project, including its data source bindings and resource counts.
        *
        * @return GetProjectResponse
        */
       Models::GetProjectResponse getProject(const string &InstanceId, const string &ProjectId);
 
       /**
-       * @summary 获取项目下特征实体详细信息
+       * @summary Retrieve details of a feature entity in a project by name.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -532,14 +532,14 @@ namespace PaiFeatureStore20230621
       Models::GetProjectFeatureEntityResponse getProjectFeatureEntityWithOptions(const string &InstanceId, const string &ProjectId, const string &FeatureEntityName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目下特征实体详细信息
+       * @summary Retrieve details of a feature entity in a project by name.
        *
        * @return GetProjectFeatureEntityResponse
        */
       Models::GetProjectFeatureEntityResponse getProjectFeatureEntity(const string &InstanceId, const string &ProjectId, const string &FeatureEntityName);
 
       /**
-       * @summary 获取feature store服务账户角色。
+       * @summary Queries the details of a service-linked role and verifies whether the role exists and is available.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -548,14 +548,14 @@ namespace PaiFeatureStore20230621
       Models::GetServiceIdentityRoleResponse getServiceIdentityRoleWithOptions(const string &RoleName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取feature store服务账户角色。
+       * @summary Queries the details of a service-linked role and verifies whether the role exists and is available.
        *
        * @return GetServiceIdentityRoleResponse
        */
       Models::GetServiceIdentityRoleResponse getServiceIdentityRole(const string &RoleName);
 
       /**
-       * @summary 获取任务详情
+       * @summary Gets the details of an asynchronous task.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -564,14 +564,14 @@ namespace PaiFeatureStore20230621
       Models::GetTaskResponse getTaskWithOptions(const string &InstanceId, const string &TaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务详情
+       * @summary Gets the details of an asynchronous task.
        *
        * @return GetTaskResponse
        */
       Models::GetTaskResponse getTask(const string &InstanceId, const string &TaskId);
 
       /**
-       * @summary 获取数据源下所有特征视图信息。
+       * @summary Retrieve all feature view information from the data source.
        *
        * @param request ListDatasourceFeatureViewsRequest
        * @param headers map
@@ -581,7 +581,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourceFeatureViewsResponse listDatasourceFeatureViewsWithOptions(const string &InstanceId, const string &DatasourceId, const Models::ListDatasourceFeatureViewsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源下所有特征视图信息。
+       * @summary Retrieve all feature view information from the data source.
        *
        * @param request ListDatasourceFeatureViewsRequest
        * @return ListDatasourceFeatureViewsResponse
@@ -589,7 +589,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourceFeatureViewsResponse listDatasourceFeatureViews(const string &InstanceId, const string &DatasourceId, const Models::ListDatasourceFeatureViewsRequest &request);
 
       /**
-       * @summary 获取数据源下所有表。
+       * @summary Lists the tables in a datasource. This operation supports only MaxCompute datasources.
        *
        * @param request ListDatasourceTablesRequest
        * @param headers map
@@ -599,7 +599,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourceTablesResponse listDatasourceTablesWithOptions(const string &InstanceId, const string &DatasourceId, const Models::ListDatasourceTablesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据源下所有表。
+       * @summary Lists the tables in a datasource. This operation supports only MaxCompute datasources.
        *
        * @param request ListDatasourceTablesRequest
        * @return ListDatasourceTablesResponse
@@ -607,7 +607,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourceTablesResponse listDatasourceTables(const string &InstanceId, const string &DatasourceId, const Models::ListDatasourceTablesRequest &request);
 
       /**
-       * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+       * @summary Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
        *
        * @param request ListDatasourcesRequest
        * @param headers map
@@ -617,7 +617,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourcesResponse listDatasourcesWithOptions(const string &InstanceId, const Models::ListDatasourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+       * @summary Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
        *
        * @param request ListDatasourcesRequest
        * @return ListDatasourcesResponse
@@ -625,7 +625,7 @@ namespace PaiFeatureStore20230621
       Models::ListDatasourcesResponse listDatasources(const string &InstanceId, const Models::ListDatasourcesRequest &request);
 
       /**
-       * @summary 创建特征实体列表
+       * @summary Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
        *
        * @param tmpReq ListFeatureEntitiesRequest
        * @param headers map
@@ -635,7 +635,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureEntitiesResponse listFeatureEntitiesWithOptions(const string &InstanceId, const Models::ListFeatureEntitiesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建特征实体列表
+       * @summary Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
        *
        * @param request ListFeatureEntitiesRequest
        * @return ListFeatureEntitiesResponse
@@ -643,7 +643,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureEntitiesResponse listFeatureEntities(const string &InstanceId, const Models::ListFeatureEntitiesRequest &request);
 
       /**
-       * @summary 获取特征字段血缘关系。
+       * @summary Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -652,14 +652,14 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewFieldRelationshipsResponse listFeatureViewFieldRelationshipsWithOptions(const string &InstanceId, const string &FeatureViewId, const string &FieldName, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征字段血缘关系。
+       * @summary Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
        *
        * @return ListFeatureViewFieldRelationshipsResponse
        */
       Models::ListFeatureViewFieldRelationshipsResponse listFeatureViewFieldRelationships(const string &InstanceId, const string &FeatureViewId, const string &FieldName);
 
       /**
-       * @summary 获取特征视图下的在线特征数据。
+       * @summary Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
        *
        * @param tmpReq ListFeatureViewOnlineFeaturesRequest
        * @param headers map
@@ -669,7 +669,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewOnlineFeaturesResponse listFeatureViewOnlineFeaturesWithOptions(const string &InstanceId, const string &FeatureViewId, const Models::ListFeatureViewOnlineFeaturesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征视图下的在线特征数据。
+       * @summary Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
        *
        * @param request ListFeatureViewOnlineFeaturesRequest
        * @return ListFeatureViewOnlineFeaturesResponse
@@ -677,7 +677,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewOnlineFeaturesResponse listFeatureViewOnlineFeatures(const string &InstanceId, const string &FeatureViewId, const Models::ListFeatureViewOnlineFeaturesRequest &request);
 
       /**
-       * @summary 获取特征视图血缘关系。
+       * @summary Lists the relationships for a feature view, including the models that reference it.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -686,14 +686,14 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewRelationshipsResponse listFeatureViewRelationshipsWithOptions(const string &InstanceId, const string &FeatureViewId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征视图血缘关系。
+       * @summary Lists the relationships for a feature view, including the models that reference it.
        *
        * @return ListFeatureViewRelationshipsResponse
        */
       Models::ListFeatureViewRelationshipsResponse listFeatureViewRelationships(const string &InstanceId, const string &FeatureViewId);
 
       /**
-       * @summary 获取特征视图列表。
+       * @summary Lists feature views, filterable by project, name, type, tag, and feature name.
        *
        * @param tmpReq ListFeatureViewsRequest
        * @param headers map
@@ -703,7 +703,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewsResponse listFeatureViewsWithOptions(const string &InstanceId, const Models::ListFeatureViewsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征视图列表。
+       * @summary Lists feature views, filterable by project, name, type, tag, and feature name.
        *
        * @param request ListFeatureViewsRequest
        * @return ListFeatureViewsResponse
@@ -711,7 +711,7 @@ namespace PaiFeatureStore20230621
       Models::ListFeatureViewsResponse listFeatureViews(const string &InstanceId, const Models::ListFeatureViewsRequest &request);
 
       /**
-       * @summary 获取Feature Store实例列表。
+       * @summary Lists FeatureStore instances in the current account. You can filter the instances by status.
        *
        * @param request ListInstancesRequest
        * @param headers map
@@ -721,7 +721,7 @@ namespace PaiFeatureStore20230621
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Feature Store实例列表。
+       * @summary Lists FeatureStore instances in the current account. You can filter the instances by status.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -729,7 +729,7 @@ namespace PaiFeatureStore20230621
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary 获取大模型调用信息配置
+       * @summary Lists LLM call configurations.
        *
        * @param request ListLLMConfigsRequest
        * @param headers map
@@ -739,7 +739,7 @@ namespace PaiFeatureStore20230621
       Models::ListLLMConfigsResponse listLLMConfigsWithOptions(const string &InstanceId, const Models::ListLLMConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取大模型调用信息配置
+       * @summary Lists LLM call configurations.
        *
        * @param request ListLLMConfigsRequest
        * @return ListLLMConfigsResponse
@@ -747,7 +747,7 @@ namespace PaiFeatureStore20230621
       Models::ListLLMConfigsResponse listLLMConfigs(const string &InstanceId, const Models::ListLLMConfigsRequest &request);
 
       /**
-       * @summary 获取Label表列表。
+       * @summary Lists label tables, filterable by project, name, owner, and ID.
        *
        * @param tmpReq ListLabelTablesRequest
        * @param headers map
@@ -757,7 +757,7 @@ namespace PaiFeatureStore20230621
       Models::ListLabelTablesResponse listLabelTablesWithOptions(const string &InstanceId, const Models::ListLabelTablesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Label表列表。
+       * @summary Lists label tables, filterable by project, name, owner, and ID.
        *
        * @param request ListLabelTablesRequest
        * @return ListLabelTablesResponse
@@ -765,7 +765,7 @@ namespace PaiFeatureStore20230621
       Models::ListLabelTablesResponse listLabelTables(const string &InstanceId, const Models::ListLabelTablesRequest &request);
 
       /**
-       * @summary 获取注册FG特征时模型特征下可选的所有特征。
+       * @summary Lists the available features for a model feature when you register a feature group (FG).
        *
        * @param request ListModelFeatureAvailableFeaturesRequest
        * @param headers map
@@ -775,7 +775,7 @@ namespace PaiFeatureStore20230621
       Models::ListModelFeatureAvailableFeaturesResponse listModelFeatureAvailableFeaturesWithOptions(const string &InstanceId, const string &ModelFeatureId, const Models::ListModelFeatureAvailableFeaturesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取注册FG特征时模型特征下可选的所有特征。
+       * @summary Lists the available features for a model feature when you register a feature group (FG).
        *
        * @param request ListModelFeatureAvailableFeaturesRequest
        * @return ListModelFeatureAvailableFeaturesResponse
@@ -783,7 +783,7 @@ namespace PaiFeatureStore20230621
       Models::ListModelFeatureAvailableFeaturesResponse listModelFeatureAvailableFeatures(const string &InstanceId, const string &ModelFeatureId, const Models::ListModelFeatureAvailableFeaturesRequest &request);
 
       /**
-       * @summary 获取模型特征列表。
+       * @summary Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
        *
        * @param tmpReq ListModelFeaturesRequest
        * @param headers map
@@ -793,7 +793,7 @@ namespace PaiFeatureStore20230621
       Models::ListModelFeaturesResponse listModelFeaturesWithOptions(const string &InstanceId, const Models::ListModelFeaturesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取模型特征列表。
+       * @summary Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
        *
        * @param request ListModelFeaturesRequest
        * @return ListModelFeaturesResponse
@@ -801,7 +801,7 @@ namespace PaiFeatureStore20230621
       Models::ListModelFeaturesResponse listModelFeatures(const string &InstanceId, const Models::ListModelFeaturesRequest &request);
 
       /**
-       * @summary 获取项目下的所有特征视图、特征信息。
+       * @summary Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -810,14 +810,14 @@ namespace PaiFeatureStore20230621
       Models::ListProjectFeatureViewsResponse listProjectFeatureViewsWithOptions(const string &InstanceId, const string &ProjectId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目下的所有特征视图、特征信息。
+       * @summary Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
        *
        * @return ListProjectFeatureViewsResponse
        */
       Models::ListProjectFeatureViewsResponse listProjectFeatureViews(const string &InstanceId, const string &ProjectId);
 
       /**
-       * @summary 获取项目下所有特征信息
+       * @summary Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
        *
        * @param request ListProjectFeaturesRequest
        * @param headers map
@@ -827,7 +827,7 @@ namespace PaiFeatureStore20230621
       Models::ListProjectFeaturesResponse listProjectFeaturesWithOptions(const string &InstanceId, const string &ProjectId, const Models::ListProjectFeaturesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取项目下所有特征信息
+       * @summary Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
        *
        * @param request ListProjectFeaturesRequest
        * @return ListProjectFeaturesResponse
@@ -835,7 +835,7 @@ namespace PaiFeatureStore20230621
       Models::ListProjectFeaturesResponse listProjectFeatures(const string &InstanceId, const string &ProjectId, const Models::ListProjectFeaturesRequest &request);
 
       /**
-       * @summary 获取Feature Store项目列表。
+       * @summary Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
        *
        * @param tmpReq ListProjectsRequest
        * @param headers map
@@ -845,7 +845,7 @@ namespace PaiFeatureStore20230621
       Models::ListProjectsResponse listProjectsWithOptions(const string &InstanceId, const Models::ListProjectsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取Feature Store项目列表。
+       * @summary Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
        *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse
@@ -853,7 +853,7 @@ namespace PaiFeatureStore20230621
       Models::ListProjectsResponse listProjects(const string &InstanceId, const Models::ListProjectsRequest &request);
 
       /**
-       * @summary 获取任务日志列表
+       * @summary Lists the execution logs of an asynchronous task. This operation supports pagination.
        *
        * @param request ListTaskLogsRequest
        * @param headers map
@@ -863,7 +863,7 @@ namespace PaiFeatureStore20230621
       Models::ListTaskLogsResponse listTaskLogsWithOptions(const string &InstanceId, const string &TaskId, const Models::ListTaskLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务日志列表
+       * @summary Lists the execution logs of an asynchronous task. This operation supports pagination.
        *
        * @param request ListTaskLogsRequest
        * @return ListTaskLogsResponse
@@ -871,7 +871,7 @@ namespace PaiFeatureStore20230621
       Models::ListTaskLogsResponse listTaskLogs(const string &InstanceId, const string &TaskId, const Models::ListTaskLogsRequest &request);
 
       /**
-       * @summary 获取任务列表
+       * @summary Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
        *
        * @param tmpReq ListTasksRequest
        * @param headers map
@@ -881,7 +881,7 @@ namespace PaiFeatureStore20230621
       Models::ListTasksResponse listTasksWithOptions(const string &InstanceId, const Models::ListTasksRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取任务列表
+       * @summary Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
        *
        * @param request ListTasksRequest
        * @return ListTasksResponse
@@ -889,7 +889,7 @@ namespace PaiFeatureStore20230621
       Models::ListTasksResponse listTasks(const string &InstanceId, const Models::ListTasksRequest &request);
 
       /**
-       * @summary 将特征视图的离线数据发布/同步到线上。
+       * @summary Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
        *
        * @param request PublishFeatureViewTableRequest
        * @param headers map
@@ -899,7 +899,7 @@ namespace PaiFeatureStore20230621
       Models::PublishFeatureViewTableResponse publishFeatureViewTableWithOptions(const string &InstanceId, const string &FeatureViewId, const Models::PublishFeatureViewTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 将特征视图的离线数据发布/同步到线上。
+       * @summary Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
        *
        * @param request PublishFeatureViewTableRequest
        * @return PublishFeatureViewTableResponse
@@ -907,7 +907,7 @@ namespace PaiFeatureStore20230621
       Models::PublishFeatureViewTableResponse publishFeatureViewTable(const string &InstanceId, const string &FeatureViewId, const Models::PublishFeatureViewTableRequest &request);
 
       /**
-       * @summary 停止任务。
+       * @summary Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -916,14 +916,14 @@ namespace PaiFeatureStore20230621
       Models::StopTaskResponse stopTaskWithOptions(const string &InstanceId, const string &TaskId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 停止任务。
+       * @summary Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
        *
        * @return StopTaskResponse
        */
       Models::StopTaskResponse stopTask(const string &InstanceId, const string &TaskId);
 
       /**
-       * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+       * @summary Updates information for a data source. Its type and workspace cannot be changed.
        *
        * @param request UpdateDatasourceRequest
        * @param headers map
@@ -933,7 +933,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateDatasourceResponse updateDatasourceWithOptions(const string &InstanceId, const string &DatasourceId, const Models::UpdateDatasourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+       * @summary Updates information for a data source. Its type and workspace cannot be changed.
        *
        * @param request UpdateDatasourceRequest
        * @return UpdateDatasourceResponse
@@ -941,7 +941,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateDatasourceResponse updateDatasource(const string &InstanceId, const string &DatasourceId, const Models::UpdateDatasourceRequest &request);
 
       /**
-       * @summary 更新特征视图。
+       * @summary Updates a feature view.
        *
        * @param request UpdateFeatureViewRequest
        * @param headers map
@@ -951,7 +951,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateFeatureViewResponse updateFeatureViewWithOptions(const string &InstanceId, const string &FeatureViewId, const Models::UpdateFeatureViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新特征视图。
+       * @summary Updates a feature view.
        *
        * @param request UpdateFeatureViewRequest
        * @return UpdateFeatureViewResponse
@@ -959,7 +959,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateFeatureViewResponse updateFeatureView(const string &InstanceId, const string &FeatureViewId, const Models::UpdateFeatureViewRequest &request);
 
       /**
-       * @summary 更新大模型调用信息配置
+       * @summary Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
        *
        * @param request UpdateLLMConfigRequest
        * @param headers map
@@ -969,7 +969,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateLLMConfigResponse updateLLMConfigWithOptions(const string &InstanceId, const string &LLMConfigId, const Models::UpdateLLMConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新大模型调用信息配置
+       * @summary Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
        *
        * @param request UpdateLLMConfigRequest
        * @return UpdateLLMConfigResponse
@@ -977,7 +977,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateLLMConfigResponse updateLLMConfig(const string &InstanceId, const string &LLMConfigId, const Models::UpdateLLMConfigRequest &request);
 
       /**
-       * @summary 更新label表。
+       * @summary Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
        *
        * @param request UpdateLabelTableRequest
        * @param headers map
@@ -987,7 +987,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateLabelTableResponse updateLabelTableWithOptions(const string &InstanceId, const string &LabelTableId, const Models::UpdateLabelTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新label表。
+       * @summary Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
        *
        * @param request UpdateLabelTableRequest
        * @return UpdateLabelTableResponse
@@ -995,7 +995,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateLabelTableResponse updateLabelTable(const string &InstanceId, const string &LabelTableId, const Models::UpdateLabelTableRequest &request);
 
       /**
-       * @summary 更新模型特征。
+       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
        *
        * @param request UpdateModelFeatureRequest
        * @param headers map
@@ -1005,7 +1005,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateModelFeatureResponse updateModelFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const Models::UpdateModelFeatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型特征。
+       * @summary Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
        *
        * @param request UpdateModelFeatureRequest
        * @return UpdateModelFeatureResponse
@@ -1013,7 +1013,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateModelFeatureResponse updateModelFeature(const string &InstanceId, const string &ModelFeatureId, const Models::UpdateModelFeatureRequest &request);
 
       /**
-       * @summary 更新模型特征的FG特征配置信息。
+       * @summary Update the FG feature configuration for a model feature.
        *
        * @param request UpdateModelFeatureFGFeatureRequest
        * @param headers map
@@ -1023,7 +1023,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateModelFeatureFGFeatureResponse updateModelFeatureFGFeatureWithOptions(const string &InstanceId, const string &ModelFeatureId, const Models::UpdateModelFeatureFGFeatureRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新模型特征的FG特征配置信息。
+       * @summary Update the FG feature configuration for a model feature.
        *
        * @param request UpdateModelFeatureFGFeatureRequest
        * @return UpdateModelFeatureFGFeatureResponse
@@ -1031,7 +1031,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateModelFeatureFGFeatureResponse updateModelFeatureFGFeature(const string &InstanceId, const string &ModelFeatureId, const Models::UpdateModelFeatureFGFeatureRequest &request);
 
       /**
-       * @summary 更新指定Feature Store项目信息。
+       * @summary Updates the description of a project.
        *
        * @param request UpdateProjectRequest
        * @param headers map
@@ -1041,7 +1041,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateProjectResponse updateProjectWithOptions(const string &InstanceId, const string &ProjectId, const Models::UpdateProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新指定Feature Store项目信息。
+       * @summary Updates the description of a project.
        *
        * @param request UpdateProjectRequest
        * @return UpdateProjectResponse
@@ -1049,7 +1049,7 @@ namespace PaiFeatureStore20230621
       Models::UpdateProjectResponse updateProject(const string &InstanceId, const string &ProjectId, const Models::UpdateProjectRequest &request);
 
       /**
-       * @summary 获取特征视图血缘关系。
+       * @summary Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
        *
        * @param request WriteFeatureViewTableRequest
        * @param headers map
@@ -1059,7 +1059,7 @@ namespace PaiFeatureStore20230621
       Models::WriteFeatureViewTableResponse writeFeatureViewTableWithOptions(const string &InstanceId, const string &FeatureViewId, const Models::WriteFeatureViewTableRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取特征视图血缘关系。
+       * @summary Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
        *
        * @param request WriteFeatureViewTableRequest
        * @return WriteFeatureViewTableResponse

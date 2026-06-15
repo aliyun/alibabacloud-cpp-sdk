@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The project description.
     shared_ptr<string> description_ {};
+    // The project name.
     shared_ptr<string> name_ {};
   };
 

@@ -167,21 +167,35 @@ namespace Models
 
 
   protected:
+    // The API key.
     shared_ptr<string> apiKey_ {};
+    // The base URL for API calls.
     shared_ptr<string> baseUrl_ {};
+    // The batch size.
     shared_ptr<int32_t> batchSize_ {};
+    // The embedding dimension. If this parameter is unspecified or set to 0, the system uses the model\\"s default dimension.
     shared_ptr<int32_t> embeddingDimension_ {};
+    // Indicates whether fusion is enabled.
     shared_ptr<bool> enableFusion_ {};
+    // The time when the configuration was created.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the configuration was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The ID of the LLM call configuration.
     shared_ptr<string> LLMConfigId_ {};
+    // The maximum number of tokens in a single request.
     shared_ptr<int32_t> maxTokens_ {};
+    // The model name.
     shared_ptr<string> model_ {};
+    // The type of the model.
     shared_ptr<string> modelType_ {};
+    // The name of the LLM call configuration.
     shared_ptr<string> name_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of requests allowed per second.
     shared_ptr<int32_t> rps_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

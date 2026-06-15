@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The join key that links feature views to the feature entity.
+    // 
     // This parameter is required.
     shared_ptr<string> joinId_ {};
+    // The feature entity name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The parent feature entity ID.
     shared_ptr<string> parentFeatureEntityId_ {};
+    // The project ID. To get this ID, call the ListInstances operation.
+    // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
   };

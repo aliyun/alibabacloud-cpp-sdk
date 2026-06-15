@@ -75,6 +75,7 @@ namespace Models
 
 
     protected:
+      // The status of the instance.
       shared_ptr<string> status_ {};
     };
 
@@ -106,6 +107,7 @@ namespace Models
 
 
     protected:
+      // The status of the instance.
       shared_ptr<string> status_ {};
     };
 
@@ -187,15 +189,33 @@ namespace Models
 
 
   protected:
+    // The information about the FeatureDB instance.
     shared_ptr<GetInstanceResponseBody::FeatureDBInfo> featureDBInfo_ {};
+    // The information about the FeatureDB instance.
     shared_ptr<GetInstanceResponseBody::FeatureDBInstanceInfo> featureDBInstanceInfo_ {};
+    // The time when the instance was created. The time is in the ISO 8601 format.
     shared_ptr<string> gmtCreateTime_ {};
+    // The time when the instance was last updated. The time is in the ISO 8601 format.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The message that is returned for the instance provisioning.
     shared_ptr<string> message_ {};
+    // The progress of instance provisioning.
     shared_ptr<double> progress_ {};
+    // The region where the instance is deployed.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the instance. Valid values:
+    // 
+    // - Initializing: The instance is being initialized.
+    // 
+    // - Running: The instance is running.
+    // 
+    // - Failure: The instance fails to be created.
+    // 
+    // - Stopped: The instance is stopped.
     shared_ptr<string> status_ {};
+    // The type of the instance.
     shared_ptr<string> type_ {};
   };
 

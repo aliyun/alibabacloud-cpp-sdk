@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The name of the service account role.
     shared_ptr<string> roleName_ {};
   };
 

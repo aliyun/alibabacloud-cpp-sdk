@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // 关联策略。
     shared_ptr<string> policy_ {};
+    // 请求ID。
     shared_ptr<string> requestId_ {};
+    // 服务账户角色名称。
     shared_ptr<string> roleName_ {};
   };
 

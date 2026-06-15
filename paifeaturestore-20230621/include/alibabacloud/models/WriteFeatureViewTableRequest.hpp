@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The file delimiter.
       shared_ptr<string> delimiter_ {};
+      // Specifies whether to omit the header from the source file.
       shared_ptr<bool> omitHeader_ {};
+      // The data source path.
       shared_ptr<string> path_ {};
     };
 
@@ -114,9 +117,17 @@ namespace Models
 
 
   protected:
+    // The write mode.
+    // 
+    // - Overwrite: Overwrites existing data.
+    // 
+    // - Merge: Merges the new data with existing data.
+    // 
     // This parameter is required.
     shared_ptr<string> mode_ {};
+    // The partitions to write to.
     shared_ptr<map<string, Darabonba::Json>> partitions_ {};
+    // The file data source.
     shared_ptr<WriteFeatureViewTableRequest::UrlDatasource> urlDatasource_ {};
   };
 

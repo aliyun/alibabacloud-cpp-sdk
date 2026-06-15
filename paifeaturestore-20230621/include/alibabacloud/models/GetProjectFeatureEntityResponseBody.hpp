@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // Feature entity ID.
     shared_ptr<string> featureEntityId_ {};
+    // Join ID used to associate with feature views.
     shared_ptr<string> joinId_ {};
+    // Feature entity name.
     shared_ptr<string> name_ {};
+    // Project name.
     shared_ptr<string> projectName_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

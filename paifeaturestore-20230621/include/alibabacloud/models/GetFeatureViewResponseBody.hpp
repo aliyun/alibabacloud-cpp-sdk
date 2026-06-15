@@ -173,8 +173,11 @@ namespace Models
 
 
         protected:
+          // The modality type.
           shared_ptr<string> modality_ {};
+          // The feature name.
           shared_ptr<string> name_ {};
+          // The feature type.
           shared_ptr<string> type_ {};
         };
 
@@ -204,8 +207,11 @@ namespace Models
 
 
       protected:
+        // The input for the feature transformation.
         shared_ptr<vector<Transform::Input>> input_ {};
+        // The LLM configuration ID.
         shared_ptr<int32_t> LLMConfigId_ {};
+        // The feature transformation type.
         shared_ptr<string> type_ {};
       };
 
@@ -244,9 +250,25 @@ namespace Models
 
 
     protected:
+      // The list of field attributes. Valid values:
+      // 
+      // ● `Partition`: The partition field.
+      // 
+      // ● `PrimaryKey`: The primary key.
+      // 
+      // ● `EventTime`: The event time.
       shared_ptr<vector<string>> attributes_ {};
+      // The field name.
       shared_ptr<string> name_ {};
+      // The feature transformation.
       shared_ptr<vector<Fields::Transform>> transform_ {};
+      // The data type of the field. Valid values:
+      // 
+      // ● `int`
+      // 
+      // ● `string`
+      // 
+      // ● `float`
       shared_ptr<string> type_ {};
     };
 
@@ -436,30 +458,63 @@ namespace Models
 
 
   protected:
+    // The configuration.
     shared_ptr<string> config_ {};
+    // The feature entity ID.
     shared_ptr<string> featureEntityId_ {};
+    // The feature entity name.
     shared_ptr<string> featureEntityName_ {};
+    // The list of fields.
     shared_ptr<vector<GetFeatureViewResponseBody::Fields>> fields_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The modification time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The synchronization time.
     shared_ptr<string> gmtSyncTime_ {};
+    // The join ID of the feature entity.
     shared_ptr<string> joinId_ {};
+    // The most recent synchronization configuration.
     shared_ptr<string> lastSyncConfig_ {};
+    // The name of the mock data table for the stream feature view.
     shared_ptr<string> mockTableName_ {};
+    // The feature view name.
     shared_ptr<string> name_ {};
+    // The Alibaba Cloud account ID of the owner.
     shared_ptr<string> owner_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The script for data synchronization.
     shared_ptr<string> publishTableScript_ {};
+    // The ID of the data source where the registered table resides.
     shared_ptr<string> registerDatasourceId_ {};
+    // The name of the data source where the registered table resides.
     shared_ptr<string> registerDatasourceName_ {};
+    // The name of the registered table.
     shared_ptr<string> registerTable_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether to synchronize the online feature table.
     shared_ptr<bool> syncOnlineTable_ {};
+    // The time to live (TTL).
     shared_ptr<int32_t> TTL_ {};
+    // The list of tags.
     shared_ptr<vector<string>> tags_ {};
+    // The type of the feature view. Valid values:
+    // 
+    // ● `Batch`: A batch feature.
+    // 
+    // ● `Stream`: A stream feature.
     shared_ptr<string> type_ {};
+    // The write method. Valid values:
+    // 
+    // ● `ByReadyMadeTable`: Registers the feature view by using an existing table.
+    // 
+    // ● `Custom`: Uses a custom table structure.
     shared_ptr<string> writeMethod_ {};
+    // Indicates whether to write data to the online managed storage.
     shared_ptr<bool> writeToFeatureDB_ {};
   };
 

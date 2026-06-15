@@ -95,6 +95,7 @@ namespace Models
 
 
       protected:
+        // The status of the FeatureDB instance.
         shared_ptr<string> status_ {};
       };
 
@@ -126,6 +127,7 @@ namespace Models
 
 
       protected:
+        // The status of the FeatureDB instance.
         shared_ptr<string> status_ {};
       };
 
@@ -193,13 +195,35 @@ namespace Models
 
 
     protected:
+      // Information about the FeatureDB instance.
       shared_ptr<Instances::FeatureDBInfo> featureDBInfo_ {};
+      // Information about the FeatureDB instance.
       shared_ptr<Instances::FeatureDBInstanceInfo> featureDBInstanceInfo_ {};
+      // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
+      // The update time.
       shared_ptr<string> gmtModifiedTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The region where the instance is located.
+      // 
+      // - cn-hangzhou
+      // 
+      // - cn-beijing
+      // 
+      // - cn-shanghai
+      // 
+      // - cn-shenzhen
       shared_ptr<string> regionId_ {};
+      // The status of the instance.
+      // 
+      // - Initializing
+      // 
+      // - Running
+      // 
+      // - Stopped
       shared_ptr<string> status_ {};
+      // The instance type. Currently, only Basic is supported.
       shared_ptr<string> type_ {};
     };
 
@@ -229,8 +253,11 @@ namespace Models
 
 
   protected:
+    // The list of instances.
     shared_ptr<vector<ListInstancesResponseBody::Instances>> instances_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of instances.
     shared_ptr<int64_t> totalCount_ {};
   };
 

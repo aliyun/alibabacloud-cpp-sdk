@@ -57,9 +57,20 @@ namespace Models
 
 
   protected:
+    // The resource configuration.
     shared_ptr<string> config_ {};
+    // The data source type.
+    // 
+    // - Hologres
+    // 
+    // - Redis
+    // 
+    // - MaxCompute
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The resource URI.
+    // 
     // This parameter is required.
     shared_ptr<string> uri_ {};
   };

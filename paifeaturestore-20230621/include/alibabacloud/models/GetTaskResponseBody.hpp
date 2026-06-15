@@ -149,18 +149,47 @@ namespace Models
 
 
   protected:
+    // The task configuration.
     shared_ptr<string> config_ {};
+    // The creation time.
     shared_ptr<string> gmtCreateTime_ {};
+    // The execution time.
     shared_ptr<string> gmtExecutedTime_ {};
+    // The completion time.
     shared_ptr<string> gmtFinishedTime_ {};
+    // The update time.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The ID of the target object.
     shared_ptr<string> objectId_ {};
+    // The type of the target object.
+    // 
+    // - ModelFeature: model feature
+    // 
+    // - FeatureView: feature view
     shared_ptr<string> objectType_ {};
+    // The project ID.
     shared_ptr<string> projectId_ {};
+    // The project name.
     shared_ptr<string> projectName_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task runtime configuration.
     shared_ptr<string> runningConfig_ {};
+    // The status of the task.
+    // 
+    // - Initializing: The task is initializing.
+    // 
+    // - Running: The task is running.
+    // 
+    // - Success: The task completed successfully.
+    // 
+    // - Failure: The task failed.
     shared_ptr<string> status_ {};
+    // The task type.
+    // 
+    // - OfflineToOnline: offline-to-online data synchronization
+    // 
+    // - ExportTrainingSet: training sample table export
     shared_ptr<string> type_ {};
   };
 

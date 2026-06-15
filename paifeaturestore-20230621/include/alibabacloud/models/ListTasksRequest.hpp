@@ -106,13 +106,33 @@ namespace Models
 
 
   protected:
+    // The ID of the object. You can call the ListModelFeatures or ListFeatureViews operation to obtain the ID.
     shared_ptr<string> objectId_ {};
+    // The type of the object.
+    // 
+    // ● `ModelFeature`: a model feature.
+    // 
+    // ● `FeatureView`: a feature view.
     shared_ptr<string> objectType_ {};
+    // The page number. Pages start from page 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the project. You can call the ListProjects operation to obtain the ID.
     shared_ptr<string> projectId_ {};
+    // The task status.
+    // 
+    // ● `Initializing`: The task is being initialized.
+    // 
+    // ● `Running`: The task is running.
+    // 
+    // ● `Success`: The task is successful.
+    // 
+    // ● `Failure`: The task fails.
     shared_ptr<string> status_ {};
+    // The task IDs by which to filter tasks.
     shared_ptr<vector<string>> taskIds_ {};
+    // The task type by which to filter tasks.
     shared_ptr<string> type_ {};
   };
 

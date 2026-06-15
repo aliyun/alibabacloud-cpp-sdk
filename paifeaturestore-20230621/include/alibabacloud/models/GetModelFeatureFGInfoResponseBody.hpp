@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The content of the fg.json configuration file.
     shared_ptr<string> content_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

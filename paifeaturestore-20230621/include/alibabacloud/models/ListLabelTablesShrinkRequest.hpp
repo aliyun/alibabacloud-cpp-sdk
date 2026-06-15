@@ -103,13 +103,25 @@ namespace Models
 
 
   protected:
+    // The IDs of the label tables by which to filter the results.
     shared_ptr<string> labelTableIdsShrink_ {};
+    // The name of the label table.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values:
+    // 
+    // - `Asc`: ascending order.
+    // 
+    // - `Desc`: descending order.
     shared_ptr<string> order_ {};
+    // The Alibaba Cloud account ID of the owner.
     shared_ptr<string> owner_ {};
+    // The page number. Page numbers start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The project ID. You can call the `ListProjects` operation to obtain this ID.
     shared_ptr<string> projectId_ {};
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
   };
 

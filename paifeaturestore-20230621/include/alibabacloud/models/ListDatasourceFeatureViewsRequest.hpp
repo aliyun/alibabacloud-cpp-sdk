@@ -149,18 +149,37 @@ namespace Models
 
 
   protected:
+    // Return all data (no paging).
     shared_ptr<bool> all_ {};
+    // End time for query read/write volume. Format: yyyy-mm-dd.
     shared_ptr<string> endDate_ {};
+    // Fuzzy filter for feature view names.
     shared_ptr<string> name_ {};
+    // Sort order.
     shared_ptr<string> order_ {};
+    // Page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Project ID. Get this ID using the ListProjects API.
     shared_ptr<string> projectId_ {};
+    // Filter by project name.
     shared_ptr<string> projectName_ {};
+    // Show storage usage. Default is true.
     shared_ptr<bool> showStorageUsage_ {};
+    // Sort by.
     shared_ptr<string> sortBy_ {};
+    // Start time for query read/write volume. Format: yyyy-mm-dd.
     shared_ptr<string> startDate_ {};
+    // Feature view type.
+    // 
+    // - Batch - offline feature
+    // 
+    // - Stream - real-time feature
+    // 
+    // - Sequence - sequence feature
     shared_ptr<string> type_ {};
+    // Show detailed information. If set to false, do not show UsageStatistics for each view; show only the total. Default is true.
     shared_ptr<bool> verbose_ {};
   };
 

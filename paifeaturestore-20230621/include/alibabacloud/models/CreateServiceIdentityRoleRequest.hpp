@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The name of the service account role.
+    // 
     // This parameter is required.
     shared_ptr<string> roleName_ {};
   };

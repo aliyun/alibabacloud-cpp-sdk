@@ -133,16 +133,31 @@ namespace Models
 
 
   protected:
+    // Filters the results by feature name.
     shared_ptr<string> featureName_ {};
+    // The feature view IDs by which to filter the results.
     shared_ptr<vector<string>> featureViewIds_ {};
+    // Filters the results by feature view name.
     shared_ptr<string> name_ {};
+    // The sort order. Valid values: `Desc` (descending) and `Asc` (ascending).
     shared_ptr<string> order_ {};
+    // Filters the results by owner.
     shared_ptr<string> owner_ {};
+    // The page number of the results to return.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of feature views to return on each page.
     shared_ptr<int32_t> pageSize_ {};
+    // The project ID. You can obtain this ID by calling the `ListProjects` operation.
     shared_ptr<string> projectId_ {};
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
+    // Filters the results by tag.
     shared_ptr<string> tag_ {};
+    // Filters the results by type. Valid values:
+    // 
+    // ● `Batch`: batch feature
+    // 
+    // ● `Stream`: stream feature
     shared_ptr<string> type_ {};
   };
 
