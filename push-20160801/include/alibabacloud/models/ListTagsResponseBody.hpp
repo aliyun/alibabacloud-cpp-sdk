@@ -115,6 +115,7 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListTagsResponseBody::TagInfos> tagInfos_ {};
   };

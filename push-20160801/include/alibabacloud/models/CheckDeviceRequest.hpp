@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The AppKey value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The unique identity of the device in Push. It is 32 characters long and contains only digits and lowercase letters.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
   };

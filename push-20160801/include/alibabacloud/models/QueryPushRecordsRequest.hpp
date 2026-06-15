@@ -121,18 +121,55 @@ namespace Models
 
 
   protected:
+    // The AppKey of the application.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The end time for the query. Specify the time in UTC, using the ISO-8601 format `YYYY-MM-DDThh:mm:ssZ`.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The keyword used for the query. The search covers the `MessageId`, `Title`, and `Body` fields. For `Title` and `Body`, the system applies Chinese word segmentation and matches whole tokens instead of substrings.
     shared_ptr<string> keyword_ {};
+    // This parameter is deprecated.
     shared_ptr<string> nextToken_ {};
+    // The page number to query. Default: 1. Maximum: 10,000.
     shared_ptr<int32_t> page_ {};
+    // The number of entries to return on each page. Default: 20. Maximum: 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The push type. Valid values:
+    // 
+    // - **MESSAGE**: A message.
+    // 
+    // - **NOTICE**: A notification.
+    // 
+    // - **LIVE_ACTIVITY**: A Live Activity.
     shared_ptr<string> pushType_ {};
+    // The push source. Valid values:
+    // 
+    // - **API**: Pushes initiated via an OpenAPI call.
+    // 
+    // - **CONSOLE**: Pushes initiated from the Mobile Push console.
+    // 
+    // - **OpenAPIExplorer**: Pushes initiated from Alibaba Cloud OpenAPI Explorer.
     shared_ptr<string> source_ {};
+    // The start time for the query. Specify the time in UTC, using the ISO-8601 format `YYYY-MM-DDThh:mm:ssZ`.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
+    // The push target. Valid values:
+    // 
+    // - **DEVICE**: Push to devices.
+    // 
+    // - **ACCOUNT**: Push to accounts.
+    // 
+    // - **ALIAS**: Push to aliases.
+    // 
+    // - **TAG**: Push to tags.
+    // 
+    // - **ALL**: Push to all devices.
+    // 
+    // - **TBD**: Initializes a continuous push. The push target is specified in a subsequent call to the `ContinuouslyPush` API operation.
     shared_ptr<string> target_ {};
   };
 

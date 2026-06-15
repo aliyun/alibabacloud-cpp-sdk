@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The alias. You can query only one alias at a time.
+    // 
     // This parameter is required.
     shared_ptr<string> alias_ {};
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
   };

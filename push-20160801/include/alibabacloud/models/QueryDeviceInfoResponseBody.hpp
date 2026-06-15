@@ -161,17 +161,29 @@ namespace Models
 
 
     protected:
+      // Account attached to the device.
       shared_ptr<string> account_ {};
+      // Alias attached to the device.
       shared_ptr<string> alias_ {};
+      // Device brand.
       shared_ptr<string> brand_ {};
+      // Device ID.
       shared_ptr<string> deviceId_ {};
+      // Device token.
       shared_ptr<string> deviceToken_ {};
+      // Device type.
       shared_ptr<string> deviceType_ {};
+      // Last online time.
       shared_ptr<string> lastOnlineTime_ {};
+      // Device model.
       shared_ptr<string> model_ {};
+      // Is online.
       shared_ptr<bool> online_ {};
+      // Phone number.
       shared_ptr<string> phoneNumber_ {};
+      // Is push feature enabled.
       shared_ptr<bool> pushEnabled_ {};
+      // Tags attached to the device.
       shared_ptr<string> tags_ {};
     };
 
@@ -194,7 +206,9 @@ namespace Models
 
 
   protected:
+    // Device details.
     shared_ptr<QueryDeviceInfoResponseBody::DeviceInfo> deviceInfo_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

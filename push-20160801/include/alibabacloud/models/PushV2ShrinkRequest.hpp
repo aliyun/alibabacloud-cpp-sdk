@@ -57,9 +57,18 @@ namespace Models
 
 
   protected:
+    // AppKey value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // An idempotency token to prevent duplicate pushes caused by client-side retries. If you call this API with the same IdempotentToken within 15 minutes, only one push is sent. Subsequent calls return the result of the first successful push.
+    // 
+    // > - Format the token as a standard 36-character UUID (8-4-4-4-12). Valid characters are hexadecimal digits 0–9 and a–f. Case-insensitive.
+    // >
+    // > - This parameter prevents duplicates only from retries. It does not prevent duplicates from concurrent calls.
     shared_ptr<string> idempotentToken_ {};
+    // Push task definition.
+    // 
     // This parameter is required.
     shared_ptr<string> pushTaskShrink_ {};
   };

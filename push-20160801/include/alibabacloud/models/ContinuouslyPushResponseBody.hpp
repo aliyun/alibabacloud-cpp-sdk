@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The message ID that identifies a push request.
     shared_ptr<string> messageId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -218,6 +218,7 @@ namespace Models
 
   protected:
     shared_ptr<QueryPushStatByAppResponseBody::AppPushStats> appPushStats_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Account name. You can query only one account at a time.
+    // 
     // This parameter is required.
     shared_ptr<string> account_ {};
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
   };

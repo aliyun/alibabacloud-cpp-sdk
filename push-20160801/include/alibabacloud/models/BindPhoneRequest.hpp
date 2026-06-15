@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The unique identity of the device, 32-bit, a combination of numbers and lowercase letters.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // Phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
   };

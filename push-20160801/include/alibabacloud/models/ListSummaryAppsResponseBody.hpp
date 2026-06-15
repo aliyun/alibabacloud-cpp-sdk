@@ -126,6 +126,7 @@ namespace Models
 
 
   protected:
+    // Request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<ListSummaryAppsResponseBody::SummaryAppInfos> summaryAppInfos_ {};
   };

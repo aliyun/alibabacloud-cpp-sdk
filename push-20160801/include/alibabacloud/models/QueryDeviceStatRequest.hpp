@@ -75,13 +75,42 @@ namespace Models
 
 
   protected:
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // >Notice: 
+    // 
+    // This parameter is only valid for early Android and iOS dual-platform application types. If your application is a dual-platform application, specify this parameter as iOS or ANDROID to query the number of devices for each type. By default, it queries ALL types.
+    // 
+    // 
+    // 
+    // The device type. Valid values:
+    // 
+    // - **iOS**: iOS devices
+    // 
+    // - **ANDROID**: Android devices
+    // 
+    // - **ALL**: All device types
     shared_ptr<string> deviceType_ {};
+    // The end time of the query. The time format follows the ISO8601 standard and uses UTC time, in the format YYYY-MM-DDThh:mm:ssZ.
+    // 
+    // > The statistics end date is the end time\\"s day.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // Query new devices or historical cumulative devices. Valid values:
+    // 
+    // - **NEW**: New devices
+    // 
+    // - **TOTAL**: Cumulative devices
+    // 
     // This parameter is required.
     shared_ptr<string> queryType_ {};
+    // The start time of the query. The time format follows the ISO8601 standard and uses UTC time, in the format YYYY-MM-DDThh:mm:ssZ.
+    // 
+    // > The statistics start date is 00:00 UTC+8 on the start time\\"s day.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

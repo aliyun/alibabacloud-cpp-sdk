@@ -243,11 +243,16 @@ namespace Models
 
 
   protected:
+    // Deprecated. This parameter is no longer used.
     shared_ptr<string> nextToken_ {};
+    // The current page number.
     shared_ptr<int32_t> page_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<QueryPushRecordsResponseBody::PushInfos> pushInfos_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of records.
     shared_ptr<int32_t> total_ {};
   };
 

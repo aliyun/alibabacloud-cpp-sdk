@@ -57,10 +57,18 @@ namespace Models
 
 
   protected:
+    // The alias to attach.
+    // 
+    // You can attach up to 10 aliases in one request. Separate multiple aliases with commas. Each alias can be up to 128 bytes long. Chinese characters count as three bytes each. A device can have up to 128 aliases attached. An alias can be attached to up to 128 devices.
+    // 
     // This parameter is required.
     shared_ptr<string> aliasName_ {};
+    // Your AppKey.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The unique identifier of the device in Mobile Push. It is 32 characters long and contains only numbers and lowercase letters.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
   };

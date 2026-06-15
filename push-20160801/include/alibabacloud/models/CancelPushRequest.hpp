@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Your AppKey.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The message ID of the push task to cancel.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> messageId_ {};
   };

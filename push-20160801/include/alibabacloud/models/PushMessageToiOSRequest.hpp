@@ -94,16 +94,50 @@ namespace Models
 
 
   protected:
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The content of the message.
+    // 
     // This parameter is required.
     shared_ptr<string> body_ {};
+    // The custom ID for the push Job. If JobKey is not empty, this field is included in the receipt log. For receipt logs, see [Receipt Logs](https://help.aliyun.com/document_detail/434651.html).
     shared_ptr<string> jobKey_ {};
+    // Whether to store the message offline. StoreOffline is set to false by default.
+    // 
+    // If stored, and the user is offline during the push, the message is sent again when the user comes online within the time-to-live (TTL). The default time-to-live (TTL) is 72 hours.
     shared_ptr<bool> storeOffline_ {};
+    // Push target. Valid values:
+    // 
+    // - **DEVICE**: Push by device
+    // 
+    // - **ACCOUNT**: Push by account
+    // 
+    // - **ALIAS**: Push by alias
+    // 
+    // - **TAG**: Push by tag
+    // 
+    // - **ALL**: Push to all devices
+    // 
     // This parameter is required.
     shared_ptr<string> target_ {};
+    // Set based on Target. Separate multiple values with commas. If the limit is exceeded, push multiple times.
+    // 
+    // - Target=DEVICE. Example values: `deviceid111,deviceid1111` (supports up to 1,000).
+    // 
+    // - Target=ACCOUNT. Example values: `account111,account222` (supports up to 1,000).
+    // 
+    // - Target=ALIAS. Example values: `alias111,alias222` (supports up to 1,000).
+    // 
+    // - Target=TAG. Supports single and multiple tags. For format, see [Tag Format](https://help.aliyun.com/document_detail/434847.html).
+    // 
+    // - Target=ALL. Value is **all**.
+    // 
     // This parameter is required.
     shared_ptr<string> targetValue_ {};
+    // The title of the message.
+    // 
     // This parameter is required.
     shared_ptr<string> title_ {};
   };

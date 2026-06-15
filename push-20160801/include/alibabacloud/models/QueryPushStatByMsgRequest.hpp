@@ -48,8 +48,14 @@ namespace Models
 
 
   protected:
+    // The AppKey.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The ID of the pushed message. This ID is returned after a message is pushed.
+    // 
+    // > Push data is available the next day. You cannot query data for the current day.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> messageId_ {};
   };

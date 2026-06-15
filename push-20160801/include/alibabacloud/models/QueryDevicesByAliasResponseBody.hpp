@@ -85,6 +85,7 @@ namespace Models
 
   protected:
     shared_ptr<QueryDevicesByAliasResponseBody::DeviceIds> deviceIds_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

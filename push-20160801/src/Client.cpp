@@ -92,7 +92,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 绑定别名
+ * @summary Attach an alias to a device.
+ *
+ * @description You can attach up to 10 aliases in a single request. The attachment takes effect immediately.
  *
  * @param request BindAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -131,7 +133,9 @@ BindAliasResponse Client::bindAliasWithOptions(const BindAliasRequest &request, 
 }
 
 /**
- * @summary 绑定别名
+ * @summary Attach an alias to a device.
+ *
+ * @description You can attach up to 10 aliases in a single request. The attachment takes effect immediately.
  *
  * @param request BindAliasRequest
  * @return BindAliasResponse
@@ -142,7 +146,7 @@ BindAliasResponse Client::bindAlias(const BindAliasRequest &request) {
 }
 
 /**
- * @summary 绑定手机号码
+ * @summary Attaches a device to a phone number.
  *
  * @param request BindPhoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -181,7 +185,7 @@ BindPhoneResponse Client::bindPhoneWithOptions(const BindPhoneRequest &request, 
 }
 
 /**
- * @summary 绑定手机号码
+ * @summary Attaches a device to a phone number.
  *
  * @param request BindPhoneRequest
  * @return BindPhoneResponse
@@ -192,7 +196,7 @@ BindPhoneResponse Client::bindPhone(const BindPhoneRequest &request) {
 }
 
 /**
- * @summary 绑定标签
+ * @summary Binds tags to specified device targets. Tag bindings take effect within 10 minutes.
  *
  * @param request BindTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -235,7 +239,7 @@ BindTagResponse Client::bindTagWithOptions(const BindTagRequest &request, const 
 }
 
 /**
- * @summary 绑定标签
+ * @summary Binds tags to specified device targets. Tag bindings take effect within 10 minutes.
  *
  * @param request BindTagRequest
  * @return BindTagResponse
@@ -246,7 +250,7 @@ BindTagResponse Client::bindTag(const BindTagRequest &request) {
 }
 
 /**
- * @summary 取消定时推送任务
+ * @summary Cancels a scheduled push task that has not yet been executed.
  *
  * @param request CancelPushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -281,7 +285,7 @@ CancelPushResponse Client::cancelPushWithOptions(const CancelPushRequest &reques
 }
 
 /**
- * @summary 取消定时推送任务
+ * @summary Cancels a scheduled push task that has not yet been executed.
  *
  * @param request CancelPushRequest
  * @return CancelPushResponse
@@ -292,6 +296,11 @@ CancelPushResponse Client::cancelPush(const CancelPushRequest &request) {
 }
 
 /**
+ * @summary Checks the expiration time and current status of the iOS certificate for a specified app.
+ *
+ * @description - If the returned ExpireTime value is later than the current timestamp, the certificate is not necessarily valid. Also verify that the Status is OK.
+ * - The REVOKED status originates from the Apple Push Notification service (APNs) server. If a certificate has a REVOKED status, at least one push notification to APNs has failed in the corresponding environment.
+ *
  * @param request CheckCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckCertificateResponse
@@ -321,6 +330,11 @@ CheckCertificateResponse Client::checkCertificateWithOptions(const CheckCertific
 }
 
 /**
+ * @summary Checks the expiration time and current status of the iOS certificate for a specified app.
+ *
+ * @description - If the returned ExpireTime value is later than the current timestamp, the certificate is not necessarily valid. Also verify that the Status is OK.
+ * - The REVOKED status originates from the Apple Push Notification service (APNs) server. If a certificate has a REVOKED status, at least one push notification to APNs has failed in the corresponding environment.
+ *
  * @param request CheckCertificateRequest
  * @return CheckCertificateResponse
  */
@@ -332,7 +346,7 @@ CheckCertificateResponse Client::checkCertificate(const CheckCertificateRequest 
 /**
  * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
  *
- * @summary 【废弃】验证设备有效性
+ * @summary Validates the specified (device).
  *
  * @param request CheckDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -369,7 +383,7 @@ CheckDeviceResponse Client::checkDeviceWithOptions(const CheckDeviceRequest &req
 /**
  * @deprecated OpenAPI CheckDevice is deprecated, please use Push::2016-08-01::CheckDevices instead.
  *
- * @summary 【废弃】验证设备有效性
+ * @summary Validates the specified (device).
  *
  * @param request CheckDeviceRequest
  * @return CheckDeviceResponse
@@ -380,7 +394,7 @@ CheckDeviceResponse Client::checkDevice(const CheckDeviceRequest &request) {
 }
 
 /**
- * @summary 批量检查设备有效性
+ * @summary Validate a specified group of devices.
  *
  * @param request CheckDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -415,7 +429,7 @@ CheckDevicesResponse Client::checkDevicesWithOptions(const CheckDevicesRequest &
 }
 
 /**
- * @summary 批量检查设备有效性
+ * @summary Validate a specified group of devices.
  *
  * @param request CheckDevicesRequest
  * @return CheckDevicesResponse
@@ -426,7 +440,9 @@ CheckDevicesResponse Client::checkDevices(const CheckDevicesRequest &request) {
 }
 
 /**
- * @summary 完成持续推送任务
+ * @summary Manually ends a continuous push task.
+ *
+ * @description If you do not call this operation, the continuous push task automatically ends when it reaches its time-to-live (TTL).
  *
  * @param request CompleteContinuouslyPushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +477,9 @@ CompleteContinuouslyPushResponse Client::completeContinuouslyPushWithOptions(con
 }
 
 /**
- * @summary 完成持续推送任务
+ * @summary Manually ends a continuous push task.
+ *
+ * @description If you do not call this operation, the continuous push task automatically ends when it reaches its time-to-live (TTL).
  *
  * @param request CompleteContinuouslyPushRequest
  * @return CompleteContinuouslyPushResponse
@@ -472,7 +490,13 @@ CompleteContinuouslyPushResponse Client::completeContinuouslyPush(const Complete
 }
 
 /**
- * @summary 持续推送
+ * @summary Executes a predefined continuous push task.
+ *
+ * @description This API addresses the limitations of the [Push Advanced Push API](https://help.aliyun.com/document_detail/2249916.html), where push-by-device, push-by-account, and push-by-alias operations each have a maximum target count per single call.
+ * - You can use continuous push when your scenario requires sending the same message to many devices. In this case, you can call the continuous push API repeatedly, each time specifying a group of targets for aggregation (the current limit is 1,000 targets per call for device, account, or alias pushes). The total number of pushes for the same MessageId is restricted to 10,000. If you need a higher limit, contact technical support to evaluate your specific scenario.
+ * - Before using this API, you must first call the Push API with Target set to TBD (To Be Determined) and include your message content. This returns a MessageId from the push system. You can then use this MessageId to repeatedly call the continuous push API, specifying different target groups to deliver the same message.
+ * - After calling the Push API with Target set to TBD and obtaining a MessageId, the message is stored in the push system for 24 hours by default. You can use this API to push to specified targets at any time before expiration. Pushes are not allowed after expiration or after reaching the total push limit.
+ * - Each call to this API sends the message immediately. Scheduled pushes are not supported.
  *
  * @param request ContinuouslyPushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -515,7 +539,13 @@ ContinuouslyPushResponse Client::continuouslyPushWithOptions(const ContinuouslyP
 }
 
 /**
- * @summary 持续推送
+ * @summary Executes a predefined continuous push task.
+ *
+ * @description This API addresses the limitations of the [Push Advanced Push API](https://help.aliyun.com/document_detail/2249916.html), where push-by-device, push-by-account, and push-by-alias operations each have a maximum target count per single call.
+ * - You can use continuous push when your scenario requires sending the same message to many devices. In this case, you can call the continuous push API repeatedly, each time specifying a group of targets for aggregation (the current limit is 1,000 targets per call for device, account, or alias pushes). The total number of pushes for the same MessageId is restricted to 10,000. If you need a higher limit, contact technical support to evaluate your specific scenario.
+ * - Before using this API, you must first call the Push API with Target set to TBD (To Be Determined) and include your message content. This returns a MessageId from the push system. You can then use this MessageId to repeatedly call the continuous push API, specifying different target groups to deliver the same message.
+ * - After calling the Push API with Target set to TBD and obtaining a MessageId, the message is stored in the push system for 24 hours by default. You can use this API to push to specified targets at any time before expiration. Pushes are not allowed after expiration or after reaching the total push limit.
+ * - Each call to this API sends the message immediately. Scheduled pushes are not supported.
  *
  * @param request ContinuouslyPushRequest
  * @return ContinuouslyPushResponse
@@ -528,7 +558,7 @@ ContinuouslyPushResponse Client::continuouslyPush(const ContinuouslyPushRequest 
 /**
  * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
  *
- * @summary 【废弃】查询用户已创建的app列表
+ * @summary Retrieve the list of all applications associated with your Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListSummaryAppsResponse
@@ -552,7 +582,7 @@ ListSummaryAppsResponse Client::listSummaryAppsWithOptions(const Darabonba::Runt
 /**
  * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
  *
- * @summary 【废弃】查询用户已创建的app列表
+ * @summary Retrieve the list of all applications associated with your Alibaba Cloud account.
  *
  * @return ListSummaryAppsResponse
  */
@@ -562,7 +592,7 @@ ListSummaryAppsResponse Client::listSummaryApps() {
 }
 
 /**
- * @summary 获取标签列表
+ * @summary Queries the tags of an app. A maximum of 100 records are returned.
  *
  * @param request ListTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +623,7 @@ ListTagsResponse Client::listTagsWithOptions(const ListTagsRequest &request, con
 }
 
 /**
- * @summary 获取标签列表
+ * @summary Queries the tags of an app. A maximum of 100 records are returned.
  *
  * @param request ListTagsRequest
  * @return ListTagsResponse
@@ -604,7 +634,26 @@ ListTagsResponse Client::listTags(const ListTagsRequest &request) {
 }
 
 /**
- * @summary 批量推送
+ * @summary Sends different messages or notifications to multiple devices in batches.
+ *
+ * @description **Before you use this API, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * Some business scenarios require you to send many different messages to many devices in a short period. This can generate a high number of Queries Per Second (QPS) and cause requests to exceed the QPS limit for a single source IP address, resulting in push failures.
+ * This API is designed to solve this issue. You can include up to 100 independent push tasks in a single call. This request aggregation reduces the QPS and improves the stability and success rate of individual pushes. A single account is limited to 500 batch push calls per second.
+ * Each independent push task supports pushes to devices, accounts, or aliases. SMS integration is not supported.
+ * > You must upgrade the SDK to version 3.11.0 or later.
+ * ## PushTask properties
+ * - The format for PushTask properties is PushTask.N.Property. These properties include the following:
+ *   - Push target (destination)
+ *   - Push configuration (config)
+ *   - iOS notification task configuration
+ *   - Android notification task configuration
+ *   - Android auxiliary pop-up configuration
+ *   - HarmonyOS notification task configuration
+ *   - Push control
+ * - Each PushTask represents an independent push task. A maximum of 100 tasks are supported per call. The push configurations are the same as those for the Push API.
+ * - The PushTask.N.Target parameter supports only the DEVICE, ACCOUNT, and ALIAS types.
+ * - PushTask does not support SMS filter interaction.
+ * - The product of the parent node and child nodes cannot exceed 10,000. If this limit is exceeded, the parameters are considered invalid.
  *
  * @param request MassPushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -645,7 +694,26 @@ MassPushResponse Client::massPushWithOptions(const MassPushRequest &request, con
 }
 
 /**
- * @summary 批量推送
+ * @summary Sends different messages or notifications to multiple devices in batches.
+ *
+ * @description **Before you use this API, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * Some business scenarios require you to send many different messages to many devices in a short period. This can generate a high number of Queries Per Second (QPS) and cause requests to exceed the QPS limit for a single source IP address, resulting in push failures.
+ * This API is designed to solve this issue. You can include up to 100 independent push tasks in a single call. This request aggregation reduces the QPS and improves the stability and success rate of individual pushes. A single account is limited to 500 batch push calls per second.
+ * Each independent push task supports pushes to devices, accounts, or aliases. SMS integration is not supported.
+ * > You must upgrade the SDK to version 3.11.0 or later.
+ * ## PushTask properties
+ * - The format for PushTask properties is PushTask.N.Property. These properties include the following:
+ *   - Push target (destination)
+ *   - Push configuration (config)
+ *   - iOS notification task configuration
+ *   - Android notification task configuration
+ *   - Android auxiliary pop-up configuration
+ *   - HarmonyOS notification task configuration
+ *   - Push control
+ * - Each PushTask represents an independent push task. A maximum of 100 tasks are supported per call. The push configurations are the same as those for the Push API.
+ * - The PushTask.N.Target parameter supports only the DEVICE, ACCOUNT, and ALIAS types.
+ * - PushTask does not support SMS filter interaction.
+ * - The product of the parent node and child nodes cannot exceed 10,000. If this limit is exceeded, the parameters are considered invalid.
  *
  * @param request MassPushRequest
  * @return MassPushResponse
@@ -656,7 +724,9 @@ MassPushResponse Client::massPush(const MassPushRequest &request) {
 }
 
 /**
- * @summary 新版高级推送接口
+ * @summary Advanced push API v2.
+ *
+ * @description Before using this API, review the [pricing and billing details](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.
  *
  * @param tmpReq MassPushV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -701,7 +771,9 @@ MassPushV2Response Client::massPushV2WithOptions(const MassPushV2Request &tmpReq
 }
 
 /**
- * @summary 新版高级推送接口
+ * @summary Advanced push API v2.
+ *
+ * @description Before using this API, review the [pricing and billing details](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.
  *
  * @param request MassPushV2Request
  * @return MassPushV2Response
@@ -712,7 +784,10 @@ MassPushV2Response Client::massPushV2(const MassPushV2Request &request) {
 }
 
 /**
- * @summary 高级推送接口
+ * @summary This advanced push API sends notifications or messages to various devices. It provides a rich set of custom parameters to implement push behaviors for various scenarios.
+ *
+ * @description **Before you use this API, make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * This API supports pushes to Android, iOS, and HarmonyOS devices. For each platform, you must provide the corresponding AppKey.
  *
  * @param tmpReq PushRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -957,6 +1032,14 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 
   if (!!request.hasAndroidXiaomiImageUrl()) {
     query["AndroidXiaomiImageUrl"] = request.getAndroidXiaomiImageUrl();
+  }
+
+  if (!!request.hasAndroidXiaomiTemplateId()) {
+    query["AndroidXiaomiTemplateId"] = request.getAndroidXiaomiTemplateId();
+  }
+
+  if (!!request.hasAndroidXiaomiTemplateParams()) {
+    query["AndroidXiaomiTemplateParams"] = request.getAndroidXiaomiTemplateParams();
   }
 
   if (!!request.hasAppKey()) {
@@ -1225,7 +1308,10 @@ PushResponse Client::pushWithOptions(const PushRequest &tmpReq, const Darabonba:
 }
 
 /**
- * @summary 高级推送接口
+ * @summary This advanced push API sends notifications or messages to various devices. It provides a rich set of custom parameters to implement push behaviors for various scenarios.
+ *
+ * @description **Before you use this API, make sure you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) of EMAS Mobile Push.**
+ * This API supports pushes to Android, iOS, and HarmonyOS devices. For each platform, you must provide the corresponding AppKey.
  *
  * @param request PushRequest
  * @return PushResponse
@@ -1236,7 +1322,11 @@ PushResponse Client::push(const PushRequest &request) {
 }
 
 /**
- * @summary 推送消息给Android设备
+ * @summary Sends a message to an Android device through the Alibaba Cloud Mobile Push proprietary channel. After the app on the device receives the message, it must handle subsequent actions, such as implementing business logic or displaying a local notification.
+ *
+ * @description **This operation will be deprecated soon. Use the [advanced push API](https://help.aliyun.com/document_detail/2249916.html), which provides enhanced push capabilities. To achieve the same result, set the `DeviceType` parameter to `ANDROID` and the `PushType` parameter to `MESSAGE` in the advanced push API.**
+ * **Before using this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * By default, this operation sends messages only to online devices. If a device is offline, set the `StoreOffline` parameter. The push system then stores the message and delivers it automatically when the device comes online.
  *
  * @param request PushMessageToAndroidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1291,7 +1381,11 @@ PushMessageToAndroidResponse Client::pushMessageToAndroidWithOptions(const PushM
 }
 
 /**
- * @summary 推送消息给Android设备
+ * @summary Sends a message to an Android device through the Alibaba Cloud Mobile Push proprietary channel. After the app on the device receives the message, it must handle subsequent actions, such as implementing business logic or displaying a local notification.
+ *
+ * @description **This operation will be deprecated soon. Use the [advanced push API](https://help.aliyun.com/document_detail/2249916.html), which provides enhanced push capabilities. To achieve the same result, set the `DeviceType` parameter to `ANDROID` and the `PushType` parameter to `MESSAGE` in the advanced push API.**
+ * **Before using this operation, review the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * By default, this operation sends messages only to online devices. If a device is offline, set the `StoreOffline` parameter. The push system then stores the message and delivers it automatically when the device comes online.
  *
  * @param request PushMessageToAndroidRequest
  * @return PushMessageToAndroidResponse
@@ -1302,7 +1396,11 @@ PushMessageToAndroidResponse Client::pushMessageToAndroid(const PushMessageToAnd
 }
 
 /**
- * @summary 推送消息给iOS设备
+ * @summary Pushes messages to iOS devices. These messages are delivered through the proprietary channel of Alibaba Cloud Mobile Push. After the app on a device receives a message, it must handle subsequent actions, such as implementing business behaviors or creating local notifications.
+ *
+ * @description **This API is deprecated. Use the [advanced push API](https://help.aliyun.com/document_detail/2249916.html) for more push capabilities. In that API, set the push platform `DeviceType` to `iOS` and the push type `PushType` to `MESSAGE` to achieve the same effect.**
+ * **Before you use this API, review the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * By default, this API sends messages only to online devices. If a device is offline, you can set the `StoreOffline` parameter. The push system then saves the message and automatically delivers it when the device comes back online.
  *
  * @param request PushMessageToiOSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1357,7 +1455,11 @@ PushMessageToiOSResponse Client::pushMessageToiOSWithOptions(const PushMessageTo
 }
 
 /**
- * @summary 推送消息给iOS设备
+ * @summary Pushes messages to iOS devices. These messages are delivered through the proprietary channel of Alibaba Cloud Mobile Push. After the app on a device receives a message, it must handle subsequent actions, such as implementing business behaviors or creating local notifications.
+ *
+ * @description **This API is deprecated. Use the [advanced push API](https://help.aliyun.com/document_detail/2249916.html) for more push capabilities. In that API, set the push platform `DeviceType` to `iOS` and the push type `PushType` to `MESSAGE` to achieve the same effect.**
+ * **Before you use this API, review the [billing methods and pricing](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * By default, this API sends messages only to online devices. If a device is offline, you can set the `StoreOffline` parameter. The push system then saves the message and automatically delivers it when the device comes back online.
  *
  * @param request PushMessageToiOSRequest
  * @return PushMessageToiOSResponse
@@ -1368,7 +1470,10 @@ PushMessageToiOSResponse Client::pushMessageToiOS(const PushMessageToiOSRequest 
 }
 
 /**
- * @summary 推送通知给Android设备
+ * @summary Sends a notification to Android devices. The notification appears directly in the device’s notification tray and may be delivered through Alibaba Cloud’s proprietary channel or the device manufacturer’s channel, depending on the scenario.
+ *
+ * @description **This operation is deprecated. Use the [Advanced Push API](https://help.aliyun.com/document_detail/2249916.html) instead. In that API, set the `DeviceType` parameter to `ANDROID` and the `PushType` parameter to `NOTICE`.**
+ * **Before using this operation, review the [pricing and billing model](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
  *
  * @param request PushNoticeToAndroidRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1427,7 +1532,10 @@ PushNoticeToAndroidResponse Client::pushNoticeToAndroidWithOptions(const PushNot
 }
 
 /**
- * @summary 推送通知给Android设备
+ * @summary Sends a notification to Android devices. The notification appears directly in the device’s notification tray and may be delivered through Alibaba Cloud’s proprietary channel or the device manufacturer’s channel, depending on the scenario.
+ *
+ * @description **This operation is deprecated. Use the [Advanced Push API](https://help.aliyun.com/document_detail/2249916.html) instead. In that API, set the `DeviceType` parameter to `ANDROID` and the `PushType` parameter to `NOTICE`.**
+ * **Before using this operation, review the [pricing and billing model](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
  *
  * @param request PushNoticeToAndroidRequest
  * @return PushNoticeToAndroidResponse
@@ -1438,7 +1546,10 @@ PushNoticeToAndroidResponse Client::pushNoticeToAndroid(const PushNoticeToAndroi
 }
 
 /**
- * @summary 推送通知给iOS设备
+ * @summary Send a notification to iOS devices. The notification uses Apple’s APNs channel and appears directly in the device notification center.
+ *
+ * @description **This operation is deprecated. Use the [Advanced Push API](https://help.aliyun.com/document_detail/2249916.html) instead. Set the `DeviceType` parameter to `iOS` and the `PushType` parameter to `NOTICE`.**
+ * **Before you use this operation, review the [pricing and billing model](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
  *
  * @param request PushNoticeToiOSRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1608,10 @@ PushNoticeToiOSResponse Client::pushNoticeToiOSWithOptions(const PushNoticeToiOS
 }
 
 /**
- * @summary 推送通知给iOS设备
+ * @summary Send a notification to iOS devices. The notification uses Apple’s APNs channel and appears directly in the device notification center.
+ *
+ * @description **This operation is deprecated. Use the [Advanced Push API](https://help.aliyun.com/document_detail/2249916.html) instead. Set the `DeviceType` parameter to `iOS` and the `PushType` parameter to `NOTICE`.**
+ * **Before you use this operation, review the [pricing and billing model](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
  *
  * @param request PushNoticeToiOSRequest
  * @return PushNoticeToiOSResponse
@@ -1508,7 +1622,10 @@ PushNoticeToiOSResponse Client::pushNoticeToiOS(const PushNoticeToiOSRequest &re
 }
 
 /**
- * @summary 新版高级推送接口
+ * @summary This is the advanced push API v2.
+ *
+ * @description **Before using this API, review the [pricing and billing methods](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * This API supports Android, iOS, and HarmonyOS. For each platform, pass its assigned AppKey.
  *
  * @param tmpReq PushV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -1553,7 +1670,10 @@ PushV2Response Client::pushV2WithOptions(const PushV2Request &tmpReq, const Dara
 }
 
 /**
- * @summary 新版高级推送接口
+ * @summary This is the advanced push API v2.
+ *
+ * @description **Before using this API, review the [pricing and billing methods](https://help.aliyun.com/document_detail/434638.html) for EMAS Mobile Push.**
+ * This API supports Android, iOS, and HarmonyOS. For each platform, pass its assigned AppKey.
  *
  * @param request PushV2Request
  * @return PushV2Response
@@ -1564,7 +1684,7 @@ PushV2Response Client::pushV2(const PushV2Request &request) {
 }
 
 /**
- * @summary 查询别名
+ * @summary Query the list of aliases attached to a specified device.
  *
  * @param request QueryAliasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1599,7 +1719,7 @@ QueryAliasesResponse Client::queryAliasesWithOptions(const QueryAliasesRequest &
 }
 
 /**
- * @summary 查询别名
+ * @summary Query the list of aliases attached to a specified device.
  *
  * @param request QueryAliasesRequest
  * @return QueryAliasesResponse
@@ -1610,7 +1730,7 @@ QueryAliasesResponse Client::queryAliases(const QueryAliasesRequest &request) {
 }
 
 /**
- * @summary 查询设备详情
+ * @summary Query details of a specified device.
  *
  * @param request QueryDeviceInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1765,7 @@ QueryDeviceInfoResponse Client::queryDeviceInfoWithOptions(const QueryDeviceInfo
 }
 
 /**
- * @summary 查询设备详情
+ * @summary Query details of a specified device.
  *
  * @param request QueryDeviceInfoRequest
  * @return QueryDeviceInfoResponse
@@ -1656,7 +1776,9 @@ QueryDeviceInfoResponse Client::queryDeviceInfo(const QueryDeviceInfoRequest &re
 }
 
 /**
- * @summary 设备新增与留存
+ * @summary Queries device statistics by application dimension.
+ *
+ * @description > Currently, this API supports only daily data. The daily dimension lets you query data for up to 31 days. Days are calculated based on UTC+8.
  *
  * @param request QueryDeviceStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1703,7 +1825,9 @@ QueryDeviceStatResponse Client::queryDeviceStatWithOptions(const QueryDeviceStat
 }
 
 /**
- * @summary 设备新增与留存
+ * @summary Queries device statistics by application dimension.
+ *
+ * @description > Currently, this API supports only daily data. The daily dimension lets you query data for up to 31 days. Days are calculated based on UTC+8.
  *
  * @param request QueryDeviceStatRequest
  * @return QueryDeviceStatResponse
@@ -1714,7 +1838,7 @@ QueryDeviceStatResponse Client::queryDeviceStat(const QueryDeviceStatRequest &re
 }
 
 /**
- * @summary 通过账户查询设备列表
+ * @summary Retrieve the list of devices associated with an account using the account name.
  *
  * @param request QueryDevicesByAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1749,7 +1873,7 @@ QueryDevicesByAccountResponse Client::queryDevicesByAccountWithOptions(const Que
 }
 
 /**
- * @summary 通过账户查询设备列表
+ * @summary Retrieve the list of devices associated with an account using the account name.
  *
  * @param request QueryDevicesByAccountRequest
  * @return QueryDevicesByAccountResponse
@@ -1760,7 +1884,7 @@ QueryDevicesByAccountResponse Client::queryDevicesByAccount(const QueryDevicesBy
 }
 
 /**
- * @summary 通过别名查询设备列表
+ * @summary Query the list of devices by alias.
  *
  * @param request QueryDevicesByAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1795,7 +1919,7 @@ QueryDevicesByAliasResponse Client::queryDevicesByAliasWithOptions(const QueryDe
 }
 
 /**
- * @summary 通过别名查询设备列表
+ * @summary Query the list of devices by alias.
  *
  * @param request QueryDevicesByAliasRequest
  * @return QueryDevicesByAliasResponse
@@ -1806,7 +1930,7 @@ QueryDevicesByAliasResponse Client::queryDevicesByAlias(const QueryDevicesByAlia
 }
 
 /**
- * @summary 获取推送历史记录
+ * @summary You can query push records with pagination and basic filtering.
  *
  * @param request QueryPushRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1873,7 +1997,7 @@ QueryPushRecordsResponse Client::queryPushRecordsWithOptions(const QueryPushReco
 }
 
 /**
- * @summary 获取推送历史记录
+ * @summary You can query push records with pagination and basic filtering.
  *
  * @param request QueryPushRecordsRequest
  * @return QueryPushRecordsResponse
@@ -1884,7 +2008,7 @@ QueryPushRecordsResponse Client::queryPushRecords(const QueryPushRecordsRequest 
 }
 
 /**
- * @summary App维度推送统计
+ * @summary Query push statistics for an app.
  *
  * @param request QueryPushStatByAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +2051,7 @@ QueryPushStatByAppResponse Client::queryPushStatByAppWithOptions(const QueryPush
 }
 
 /**
- * @summary App维度推送统计
+ * @summary Query push statistics for an app.
  *
  * @param request QueryPushStatByAppRequest
  * @return QueryPushStatByAppResponse
@@ -1938,7 +2062,7 @@ QueryPushStatByAppResponse Client::queryPushStatByApp(const QueryPushStatByAppRe
 }
 
 /**
- * @summary 任务维度推送统计
+ * @summary Queries push statistics for a message.
  *
  * @param request QueryPushStatByMsgRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +2097,7 @@ QueryPushStatByMsgResponse Client::queryPushStatByMsgWithOptions(const QueryPush
 }
 
 /**
- * @summary 任务维度推送统计
+ * @summary Queries push statistics for a message.
  *
  * @param request QueryPushStatByMsgRequest
  * @return QueryPushStatByMsgResponse
@@ -1984,7 +2108,7 @@ QueryPushStatByMsgResponse Client::queryPushStatByMsg(const QueryPushStatByMsgRe
 }
 
 /**
- * @summary 查询标签列表
+ * @summary Queries tags for a specified object, such as a device, account, or alias.
  *
  * @param request QueryTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2023,7 +2147,7 @@ QueryTagsResponse Client::queryTagsWithOptions(const QueryTagsRequest &request, 
 }
 
 /**
- * @summary 查询标签列表
+ * @summary Queries tags for a specified object, such as a device, account, or alias.
  *
  * @param request QueryTagsRequest
  * @return QueryTagsResponse
@@ -2034,7 +2158,9 @@ QueryTagsResponse Client::queryTags(const QueryTagsRequest &request) {
 }
 
 /**
- * @summary 去重设备统计
+ * @summary Obtain deduplicated device statistics for an app.
+ *
+ * @description > This operation returns data only at the daily granularity. You can query up to 31 days of data. Deduplicated device counts reset on the first day of each month.
  *
  * @param request QueryUniqueDeviceStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2077,7 +2203,9 @@ QueryUniqueDeviceStatResponse Client::queryUniqueDeviceStatWithOptions(const Que
 }
 
 /**
- * @summary 去重设备统计
+ * @summary Obtain deduplicated device statistics for an app.
+ *
+ * @description > This operation returns data only at the daily granularity. You can query up to 31 days of data. Deduplicated device counts reset on the first day of each month.
  *
  * @param request QueryUniqueDeviceStatRequest
  * @return QueryUniqueDeviceStatResponse
@@ -2088,7 +2216,9 @@ QueryUniqueDeviceStatResponse Client::queryUniqueDeviceStat(const QueryUniqueDev
 }
 
 /**
- * @summary 删除标签
+ * @summary Removes a tag from an app.
+ *
+ * @description Deleting a tag takes time. The time required depends on the number of tagged resources. Do not immediately recreate a tag with the same name after you delete it. Wait at least 5 minutes before you recreate a tag in the same app. If you delete multiple tags, wait at least 5 minutes for each deleted tag before you recreate them.
  *
  * @param request RemoveTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2123,7 +2253,9 @@ RemoveTagResponse Client::removeTagWithOptions(const RemoveTagRequest &request, 
 }
 
 /**
- * @summary 删除标签
+ * @summary Removes a tag from an app.
+ *
+ * @description Deleting a tag takes time. The time required depends on the number of tagged resources. Do not immediately recreate a tag with the same name after you delete it. Wait at least 5 minutes before you recreate a tag in the same app. If you delete multiple tags, wait at least 5 minutes for each deleted tag before you recreate them.
  *
  * @param request RemoveTagRequest
  * @return RemoveTagResponse
@@ -2134,7 +2266,7 @@ RemoveTagResponse Client::removeTag(const RemoveTagRequest &request) {
 }
 
 /**
- * @summary 解绑别名
+ * @summary Unbinds an alias. The change takes effect immediately.
  *
  * @param request UnbindAliasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2177,7 +2309,7 @@ UnbindAliasResponse Client::unbindAliasWithOptions(const UnbindAliasRequest &req
 }
 
 /**
- * @summary 解绑别名
+ * @summary Unbinds an alias. The change takes effect immediately.
  *
  * @param request UnbindAliasRequest
  * @return UnbindAliasResponse
@@ -2188,7 +2320,7 @@ UnbindAliasResponse Client::unbindAlias(const UnbindAliasRequest &request) {
 }
 
 /**
- * @summary 解绑手机号码
+ * @summary Unbind the mobile phone number from a specified device.
  *
  * @param request UnbindPhoneRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2223,7 +2355,7 @@ UnbindPhoneResponse Client::unbindPhoneWithOptions(const UnbindPhoneRequest &req
 }
 
 /**
- * @summary 解绑手机号码
+ * @summary Unbind the mobile phone number from a specified device.
  *
  * @param request UnbindPhoneRequest
  * @return UnbindPhoneResponse
@@ -2234,7 +2366,7 @@ UnbindPhoneResponse Client::unbindPhone(const UnbindPhoneRequest &request) {
 }
 
 /**
- * @summary 绑定标签
+ * @summary Unbinds one or more tags from a specified target.
  *
  * @param request UnbindTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2277,7 +2409,7 @@ UnbindTagResponse Client::unbindTagWithOptions(const UnbindTagRequest &request, 
 }
 
 /**
- * @summary 绑定标签
+ * @summary Unbinds one or more tags from a specified target.
  *
  * @param request UnbindTagRequest
  * @return UnbindTagResponse

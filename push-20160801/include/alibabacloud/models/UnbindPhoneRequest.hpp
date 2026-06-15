@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // AppKey information.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The unique identity of the device. It is 32 characters long and consists of digits and lowercase letters.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
   };

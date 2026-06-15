@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The AppKey value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The device, account, or alias. Query one ClientKey at a time.
+    // 
     // This parameter is required.
     shared_ptr<string> clientKey_ {};
+    // The type of the ClientKey.
+    // 
     // This parameter is required.
     shared_ptr<string> keyType_ {};
   };

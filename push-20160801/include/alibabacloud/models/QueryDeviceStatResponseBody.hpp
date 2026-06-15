@@ -137,6 +137,7 @@ namespace Models
 
   protected:
     shared_ptr<QueryDeviceStatResponseBody::AppDeviceStats> appDeviceStats_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

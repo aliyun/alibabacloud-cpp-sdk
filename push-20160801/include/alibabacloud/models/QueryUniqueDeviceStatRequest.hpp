@@ -66,12 +66,24 @@ namespace Models
 
 
   protected:
+    // Your app key.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The end time of the query, in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ.
+    // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
+    // The time granularity for the query. Valid values:
+    // 
+    // - DAY
+    // 
+    // - MONTH
+    // 
     // This parameter is required.
     shared_ptr<string> granularity_ {};
+    // The start time of the query, in ISO 8601 format. Format: YYYY-MM-DDThh:mm:ssZ.
+    // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};
   };

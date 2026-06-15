@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // The alias to detach.
+    // 
+    // An alias supports up to 128 bytes (one Chinese character counts as 3 bytes). This field is required when UnbindAll is false. You can detach up to 10 aliases at once. Separate multiple aliases with commas.
     shared_ptr<string> aliasName_ {};
+    // The AppKey.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The unique device identifier for push notifications. It is 32 characters long and consists of digits and lowercase letters.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // Whether to detach all aliases. Default is false.
+    // 
+    // If true, detaches all aliases currently bound to the device. If false, detaches only the aliases specified in AliasName.
     shared_ptr<bool> unbindAll_ {};
   };
 

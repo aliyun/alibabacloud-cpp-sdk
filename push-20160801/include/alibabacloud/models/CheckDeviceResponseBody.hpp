@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Indicates whether the device is active.
     shared_ptr<bool> available_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

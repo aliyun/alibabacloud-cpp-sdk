@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The AppKey value.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> appKey_ {};
+    // The name of the tag to remove. You can remove only one tag at a time. Maximum length: 128 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> tagName_ {};
   };
