@@ -53,6 +53,14 @@ CreateComputeInstanceResponse Client::createComputeInstanceWithOptions(const Cre
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
+  }
+
+  if (!!request.hasResourceType()) {
+    query["ResourceType"] = request.getResourceType();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
