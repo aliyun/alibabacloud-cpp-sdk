@@ -449,6 +449,24 @@ namespace EmrServerlessSpark20230808
       Models::GetAICenterStateResponse getAICenterState(const string &workspaceId, const Models::GetAICenterStateRequest &request);
 
       /**
+       * @summary 获取CacheCluster详情
+       *
+       * @param request GetCacheClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCacheClusterResponse
+       */
+      Models::GetCacheClusterResponse getCacheClusterWithOptions(const string &cacheClusterId, const Models::GetCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取CacheCluster详情
+       *
+       * @param request GetCacheClusterRequest
+       * @return GetCacheClusterResponse
+       */
+      Models::GetCacheClusterResponse getCacheCluster(const string &cacheClusterId, const Models::GetCacheClusterRequest &request);
+
+      /**
        * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
        *
        * @param request GetCuHoursRequest
@@ -1091,6 +1109,24 @@ namespace EmrServerlessSpark20230808
       Models::RefreshLivyComputeTokenResponse refreshLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::RefreshLivyComputeTokenRequest &request);
 
       /**
+       * @summary Start CacheCluster
+       *
+       * @param request StartCacheClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartCacheClusterResponse
+       */
+      Models::StartCacheClusterResponse startCacheClusterWithOptions(const string &cacheClusterId, const Models::StartCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Start CacheCluster
+       *
+       * @param request StartCacheClusterRequest
+       * @return StartCacheClusterResponse
+       */
+      Models::StartCacheClusterResponse startCacheCluster(const string &cacheClusterId, const Models::StartCacheClusterRequest &request);
+
+      /**
        * @summary Starts a Spark Job.
        *
        * @param request StartJobRunRequest
@@ -1195,6 +1231,24 @@ namespace EmrServerlessSpark20230808
        * @return StartSessionClusterResponse
        */
       Models::StartSessionClusterResponse startSessionCluster(const string &workspaceId, const Models::StartSessionClusterRequest &request);
+
+      /**
+       * @summary Stops a CacheCluster.
+       *
+       * @param request StopCacheClusterRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopCacheClusterResponse
+       */
+      Models::StopCacheClusterResponse stopCacheClusterWithOptions(const string &cacheClusterId, const Models::StopCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops a CacheCluster.
+       *
+       * @param request StopCacheClusterRequest
+       * @return StopCacheClusterResponse
+       */
+      Models::StopCacheClusterResponse stopCacheCluster(const string &cacheClusterId, const Models::StopCacheClusterRequest &request);
 
       /**
        * @summary Stops a Kyuubi Gateway.

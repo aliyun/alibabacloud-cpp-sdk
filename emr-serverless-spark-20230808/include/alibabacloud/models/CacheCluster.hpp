@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(configurations, configurations_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(creator, creator_);
+      DARABONBA_PTR_TO_JSON(extra, extra_);
       DARABONBA_PTR_TO_JSON(gmtCreated, gmtCreated_);
       DARABONBA_PTR_TO_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_TO_JSON(modifier, modifier_);
@@ -47,6 +48,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(configurations, configurations_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(creator, creator_);
+      DARABONBA_PTR_FROM_JSON(extra, extra_);
       DARABONBA_PTR_FROM_JSON(gmtCreated, gmtCreated_);
       DARABONBA_PTR_FROM_JSON(gmtModified, gmtModified_);
       DARABONBA_PTR_FROM_JSON(modifier, modifier_);
@@ -110,9 +112,7 @@ namespace Models
 
 
     protected:
-      // The amount of bandwidth consumed by the cache cluster.
       shared_ptr<int64_t> bandWidth_ {};
-      // The amount of storage capacity consumed by the cache cluster.
       shared_ptr<int64_t> storage_ {};
     };
 
@@ -277,10 +277,8 @@ namespace Models
 
 
     protected:
-      // The bandwidth of the cache cluster.
       shared_ptr<int64_t> bandWidth_ {};
       shared_ptr<bool> ha_ {};
-      // The storage capacity of the cache cluster.
       shared_ptr<int64_t> storage_ {};
     };
 
@@ -322,9 +320,7 @@ namespace Models
 
 
     protected:
-      // The content of the configuration file.
       shared_ptr<string> content_ {};
-      // The name of the configuration file.
       shared_ptr<string> name_ {};
     };
 
@@ -372,10 +368,10 @@ namespace Models
 
     virtual bool empty() const override { return this->bindedWorkspaces_ == nullptr
         && this->cacheClusterId_ == nullptr && this->cacheClusterName_ == nullptr && this->cachesets_ == nullptr && this->clusterId_ == nullptr && this->configuration_ == nullptr
-        && this->configurations_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->gmtCreated_ == nullptr && this->gmtModified_ == nullptr
-        && this->modifier_ == nullptr && this->name_ == nullptr && this->paymentType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceSpec_ == nullptr && this->state_ == nullptr && this->tables_ == nullptr && this->tags_ == nullptr && this->usedResourceSpec_ == nullptr
-        && this->version_ == nullptr; };
+        && this->configurations_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->extra_ == nullptr && this->gmtCreated_ == nullptr
+        && this->gmtModified_ == nullptr && this->modifier_ == nullptr && this->name_ == nullptr && this->paymentType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->state_ == nullptr && this->tables_ == nullptr && this->tags_ == nullptr
+        && this->usedResourceSpec_ == nullptr && this->version_ == nullptr; };
     // bindedWorkspaces Field Functions 
     bool hasBindedWorkspaces() const { return this->bindedWorkspaces_ != nullptr;};
     void deleteBindedWorkspaces() { this->bindedWorkspaces_ = nullptr;};
@@ -443,6 +439,13 @@ namespace Models
     void deleteCreator() { this->creator_ = nullptr;};
     inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
     inline CacheCluster& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+    // extra Field Functions 
+    bool hasExtra() const { return this->extra_ != nullptr;};
+    void deleteExtra() { this->extra_ = nullptr;};
+    inline string getExtra() const { DARABONBA_PTR_GET_DEFAULT(extra_, "") };
+    inline CacheCluster& setExtra(string extra) { DARABONBA_PTR_SET_VALUE(extra_, extra) };
 
 
     // gmtCreated Field Functions 
@@ -545,40 +548,27 @@ namespace Models
 
 
   protected:
-    // An array of workspace IDs that are bound to the cache cluster.
     shared_ptr<vector<string>> bindedWorkspaces_ {};
     shared_ptr<string> cacheClusterId_ {};
     shared_ptr<string> cacheClusterName_ {};
     shared_ptr<vector<CacheCluster::Cachesets>> cachesets_ {};
-    // The unique identifier of the cache cluster.
     shared_ptr<string> clusterId_ {};
-    // The configuration of the cache cluster.
     shared_ptr<string> configuration_ {};
-    // An array of configuration objects.
     shared_ptr<vector<CacheCluster::Configurations>> configurations_ {};
     shared_ptr<string> createTime_ {};
-    // The user who created the cache cluster.
     shared_ptr<string> creator_ {};
-    // The creation time of the cache cluster, provided as a UNIX timestamp.
+    shared_ptr<string> extra_ {};
     shared_ptr<int64_t> gmtCreated_ {};
-    // The last modification time of the cache cluster, provided as a UNIX timestamp.
     shared_ptr<int64_t> gmtModified_ {};
-    // The user who last modified the cache cluster.
     shared_ptr<string> modifier_ {};
-    // The name of the cache cluster.
     shared_ptr<string> name_ {};
-    // The billing method for the cache cluster.
     shared_ptr<string> paymentType_ {};
-    // The ID of the region where the cache cluster is located.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    // The resource specifications of the cache cluster.
     shared_ptr<CacheCluster::ResourceSpec> resourceSpec_ {};
-    // The current state of the cache cluster.
     shared_ptr<string> state_ {};
     shared_ptr<vector<CacheCluster::Tables>> tables_ {};
     shared_ptr<vector<CacheCluster::Tags>> tags_ {};
-    // The resource specifications currently in use by the cache cluster.
     shared_ptr<CacheCluster::UsedResourceSpec> usedResourceSpec_ {};
     shared_ptr<string> version_ {};
   };

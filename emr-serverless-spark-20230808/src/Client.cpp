@@ -1553,6 +1553,51 @@ GetAICenterStateResponse Client::getAICenterState(const string &workspaceId, con
 }
 
 /**
+ * @summary 获取CacheCluster详情
+ *
+ * @param request GetCacheClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCacheClusterResponse
+ */
+GetCacheClusterResponse Client::getCacheClusterWithOptions(const string &cacheClusterId, const GetCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCacheCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cache/" , Darabonba::Encode::Encoder::percentEncode(cacheClusterId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCacheClusterResponse>();
+}
+
+/**
+ * @summary 获取CacheCluster详情
+ *
+ * @param request GetCacheClusterRequest
+ * @return GetCacheClusterResponse
+ */
+GetCacheClusterResponse Client::getCacheCluster(const string &cacheClusterId, const GetCacheClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the number of CU-hours consumed by a queue during a specified cycle.
  *
  * @param request GetCuHoursRequest
@@ -3496,6 +3541,51 @@ RefreshLivyComputeTokenResponse Client::refreshLivyComputeToken(const string &wo
 }
 
 /**
+ * @summary Start CacheCluster
+ *
+ * @param request StartCacheClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartCacheClusterResponse
+ */
+StartCacheClusterResponse Client::startCacheClusterWithOptions(const string &cacheClusterId, const StartCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StartCacheCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cache/" , Darabonba::Encode::Encoder::percentEncode(cacheClusterId) , "/start")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartCacheClusterResponse>();
+}
+
+/**
+ * @summary Start CacheCluster
+ *
+ * @param request StartCacheClusterRequest
+ * @return StartCacheClusterResponse
+ */
+StartCacheClusterResponse Client::startCacheCluster(const string &cacheClusterId, const StartCacheClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return startCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
+}
+
+/**
  * @summary Starts a Spark Job.
  *
  * @param request StartJobRunRequest
@@ -3854,6 +3944,51 @@ StartSessionClusterResponse Client::startSessionCluster(const string &workspaceI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return startSessionClusterWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Stops a CacheCluster.
+ *
+ * @param request StopCacheClusterRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopCacheClusterResponse
+ */
+StopCacheClusterResponse Client::stopCacheClusterWithOptions(const string &cacheClusterId, const StopCacheClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "StopCacheCluster"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/cache/" , Darabonba::Encode::Encoder::percentEncode(cacheClusterId) , "/stop")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopCacheClusterResponse>();
+}
+
+/**
+ * @summary Stops a CacheCluster.
+ *
+ * @param request StopCacheClusterRequest
+ * @return StopCacheClusterResponse
+ */
+StopCacheClusterResponse Client::stopCacheCluster(const string &cacheClusterId, const StopCacheClusterRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return stopCacheClusterWithOptions(cacheClusterId, request, headers, runtime);
 }
 
 /**

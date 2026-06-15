@@ -92,6 +92,9 @@
 #include <alibabacloud/models/GetAICenterStateRequest.hpp>
 #include <alibabacloud/models/GetAICenterStateResponseBody.hpp>
 #include <alibabacloud/models/GetAICenterStateResponse.hpp>
+#include <alibabacloud/models/GetCacheClusterRequest.hpp>
+#include <alibabacloud/models/GetCacheClusterResponseBody.hpp>
+#include <alibabacloud/models/GetCacheClusterResponse.hpp>
 #include <alibabacloud/models/GetCuHoursRequest.hpp>
 #include <alibabacloud/models/GetCuHoursResponseBody.hpp>
 #include <alibabacloud/models/GetCuHoursResponse.hpp>
@@ -201,6 +204,9 @@
 #include <alibabacloud/models/RefreshLivyComputeTokenRequest.hpp>
 #include <alibabacloud/models/RefreshLivyComputeTokenResponseBody.hpp>
 #include <alibabacloud/models/RefreshLivyComputeTokenResponse.hpp>
+#include <alibabacloud/models/StartCacheClusterRequest.hpp>
+#include <alibabacloud/models/StartCacheClusterResponseBody.hpp>
+#include <alibabacloud/models/StartCacheClusterResponse.hpp>
 #include <alibabacloud/models/StartJobRunRequest.hpp>
 #include <alibabacloud/models/StartJobRunResponseBody.hpp>
 #include <alibabacloud/models/StartJobRunResponse.hpp>
@@ -218,6 +224,9 @@
 #include <alibabacloud/models/StartSessionClusterRequest.hpp>
 #include <alibabacloud/models/StartSessionClusterResponseBody.hpp>
 #include <alibabacloud/models/StartSessionClusterResponse.hpp>
+#include <alibabacloud/models/StopCacheClusterRequest.hpp>
+#include <alibabacloud/models/StopCacheClusterResponseBody.hpp>
+#include <alibabacloud/models/StopCacheClusterResponse.hpp>
 #include <alibabacloud/models/StopKyuubiServiceResponseBody.hpp>
 #include <alibabacloud/models/StopKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/StopLivyComputeRequest.hpp>
